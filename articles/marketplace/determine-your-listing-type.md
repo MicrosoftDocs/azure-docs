@@ -22,7 +22,7 @@ The publishing option that you choose for your offer relates directly to both th
 
 You can enable publishing options by selecting an offer type and then creating a marketplace offer in the Cloud Partner Portal. To do this, you’ll need to understand the following key marketplace concepts: the publishing options, offer types and configuration, and calls-to-action that will govern how and where your offer is presented in the marketplace storefronts.
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >The table above describes how your solution or service maps to the storefront, publishing option, and offer type used to present your offer in marketplace.

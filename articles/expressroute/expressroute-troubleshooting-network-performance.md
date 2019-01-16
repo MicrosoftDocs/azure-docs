@@ -1,20 +1,14 @@
 ---
-title: Troubleshooting Azure Virtual Network Performance | Microsoft Docs
+title: 'Troubleshoot virtual network performance: Azure | Microsoft Docs'
 description: This page provides a standardized method of testing Azure network link performance.
 services: expressroute
-documentationcenter: na
 author: tracsman
-manager: rossort
-editor: ''
 
-ms.assetid: 
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 12/20/2017
 ms.author: jonor
+ms.custom: seodec18
 
 ---
 # Troubleshooting network performance

@@ -28,7 +28,7 @@ If unusual activities that may indicate unauthorized access to some of your user
 
 ## Access the users flagged for risk report
 
-You can review users flagged for risk through the [users at risk report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) in the Azure portal. If you don't have Azure AD, you can sign up for free at [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
+You can review users flagged for risk through the [users at risk report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) in the Azure portal. If you don't have Azure AD, you can sign up for free at [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
 
 From the users flagged for risk report, you can take the following actions for each user:
 
@@ -55,9 +55,9 @@ To access the **Users flagged for risk** reports in the Office 365 admin center:
 
 Take the following actions to help rectify the impacted accounts and secure your environment:
 
-1.	[Validate correct information](http://aka.ms/MFAValid) for multi-factor authentication and self-service password reset. 
-2.	[Enable multi-factor authentication](http://aka.ms/MFAuth) for all users. 
-3.	Use this [remediation script](http://aka.ms/remediate) for every impacted account, to automatically perform the following steps: 
+1.	[Validate correct information](https://aka.ms/MFAValid) for multi-factor authentication and self-service password reset. 
+2.	[Enable multi-factor authentication](https://aka.ms/MFAuth) for all users. 
+3.	Use this [remediation script](https://aka.ms/remediate) for every impacted account, to automatically perform the following steps: 
 
     a. Reset password to secure the account and kill active sessions.
 
@@ -81,10 +81,10 @@ Take the following actions to help rectify the impacted accounts and secure your
 
 Additionally, you should:
 
-- Read and implement this [guidance on addressing unusual activities](http://aka.ms/fixaccount). 
-- [Enable the audit pipeline](http://aka.ms/improvesecurity) to help you to analyze the activity in your tenant. Once complete, your audit store starts populating with activity logs. At this point, you can also leverage the [Security and Compliance Center’s search and investigation resource](http://aka.ms/sccsearch). 
-- Use this [script to enable mailbox auditing](http://aka.ms/mailboxaudit1) for all your accounts. 
-- Review the delegate permissions and mail forwarding rules for all your mailboxes. You can use this [PowerShell script](http://aka.ms/delegateforwardrules) to perform this task. 
+- Read and implement this [guidance on addressing unusual activities](https://aka.ms/fixaccount). 
+- [Enable the audit pipeline](https://aka.ms/improvesecurity) to help you to analyze the activity in your tenant. Once complete, your audit store starts populating with activity logs. At this point, you can also leverage the [Security and Compliance Center’s search and investigation resource](https://aka.ms/sccsearch). 
+- Use this [script to enable mailbox auditing](https://aka.ms/mailboxaudit1) for all your accounts. 
+- Review the delegate permissions and mail forwarding rules for all your mailboxes. You can use this [PowerShell script](https://aka.ms/delegateforwardrules) to perform this task. 
 
 ## Next steps
 

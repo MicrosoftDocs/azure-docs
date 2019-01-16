@@ -1,10 +1,11 @@
 ---
-title: Batch test with 1000 example utterances
-titleSuffix: Azure Cognitive Services
+title: Batch test 
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use Language Understanding (LUIS) batch testing sets to find utterances with incorrect intents and entities.
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article

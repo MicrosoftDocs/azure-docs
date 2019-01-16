@@ -48,6 +48,7 @@ A client application can request managed identities for Azure resources [app-onl
 | [Get a token using HTTP](#get-a-token-using-http) | Protocol details for managed identities for Azure resources token endpoint |
 | [Get a token using the Microsoft.Azure.Services.AppAuthentication library for .NET](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Example of using the Microsoft.Azure.Services.AppAuthentication library from a .NET client
 | [Get a token using C#](#get-a-token-using-c) | Example of using managed identities for Azure resources REST endpoint from a C# client |
+| [Get a token using Java](#get-a-token-using-java) | Example of using managed identities for Azure resources REST endpoint from a Java client |
 | [Get a token using Go](#get-a-token-using-go) | Example of using managed identities for Azure resources REST endpoint from a Go client |
 | [Get a token using Azure PowerShell](#get-a-token-using-azure-powershell) | Example of using managed identities for Azure resources REST endpoint from a PowerShell client |
 | [Get a token using CURL](#get-a-token-using-curl) | Example of using managed identities for Azure resources REST endpoint from a Bash/CURL client |
@@ -171,6 +172,50 @@ catch (Exception e)
 
 ```
 
+## Get a token using Java
+
+Use this [JSON library](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4) to retrieve a token using Java.
+
+```Java
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.core.*;
+ 
+class GetMSIToken {
+    public static void main(String[] args) throws Exception {
+ 
+        URL msiEndpoint = new URL("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+        HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("Metadata", "true");
+ 
+        if (con.getResponseCode()!=200) {
+            throw new Exception("Error calling managed identity token endpoint.");
+        }
+ 
+        InputStream responseStream = con.getInputStream();
+ 
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(responseStream);
+ 
+        while(!parser.isClosed()){
+            JsonToken jsonToken = parser.nextToken();
+ 
+            if(JsonToken.FIELD_NAME.equals(jsonToken)){
+                String fieldName = parser.getCurrentName();
+                jsonToken = parser.nextToken();
+ 
+                if("access_token".equals(fieldName)){
+                    String accesstoken = parser.getValueAsString();
+                    System.out.println("Access Token: " + accesstoken.substring(0,5)+ "..." + accesstoken.substring(accesstoken.length()-5));
+                    return;
+                }
+            }
+        }
+    }
+}
+```
+
 ## Get a token using Go
 
 ```
@@ -263,14 +308,14 @@ Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?ap
 Example on how to parse the access token from the response:
 ```azurepowershell
 # Get an access token for managed identities for Azure resources
-$response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
+$response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' `
                               -Headers @{Metadata="true"}
 $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
 echo "The managed identities for Azure resources access token is $access_token"
 
 # Use the access token to get resource information for the VM
-$vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
+$vmInfoRest = (Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01' -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
 echo "JSON returned from call to get VM info:"
 echo $vmInfoRest
 

@@ -1,17 +1,18 @@
 ---
-title: FAQ - Frequently asked questions - Language Understanding (LUIS)
+title: Frequently asked questions (FAQ)
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: diberry
 ---
-# Language Understanding FAQ
+# Language Understanding Frequently Asked Questions (FAQ)
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
 
@@ -190,9 +191,9 @@ If you select a LUIS template, and select the **Select** button in the template 
 
 ## LUIS service
 
-### Is LUIS available on-premises or in private cloud?
-No.
+### Is Language Understanding (LUIS) available on-premises or in private cloud?
 
+Yes, you can use the LUIS [container](luis-container-howto.md) for these scenarios if you have the necessary connectivity to meter usage. 
 
 ### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called?
 
@@ -205,7 +206,7 @@ The following features were released at the Build 2018 Conference:
 |Integrations|[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integration of [sentiment analysis](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech) integration of speech priming in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
 |Dispatch tool|Part of [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch command line [tool](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) to combine multiple LUIS and QnA Maker apps into single LUIS app for better intent recognition in a Bot
 
-Additional authoring [API routes](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) were included.
+Additional authoring [API routes](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) were included.
 
 Videos:
 * [Azure Friday At Build 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
@@ -214,7 +215,7 @@ Videos:
 * [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Projects:
-* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on Github
+* [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on GitHub
 
 ## Next steps
 

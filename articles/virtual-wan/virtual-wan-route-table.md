@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/11/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ---
@@ -110,7 +110,7 @@ $routeTable = New-AzureRmVirtualHubRouteTable -Route @($route1)
 Commit the changes into the virtual hub.
 
 ```powershell
-Set-AzureRmVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub” -RouteTable $routeTable
+Update-AzureRmVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub” -RouteTable $routeTable
 ```
 
 ## <a name="cleanup"></a>Clean up resources

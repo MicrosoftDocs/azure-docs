@@ -72,4 +72,4 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 
 ## Next steps
 
-[What's New in MABS v3](backup-mabs-whats-new-mabs.md)
+[What's New in MABS V3](backup-mabs-whats-new-mabs.md)

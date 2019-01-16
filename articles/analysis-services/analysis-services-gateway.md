@@ -5,12 +5,12 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ---
-# Connecting to on-premises data sources with Azure On-premises Data Gateway
-The on-premises data gateway acts as a bridge, providing secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. 
+# Connecting to on-premises data sources with On-premises Data Gateway
+The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. 
 
 Getting setup with the gateway the first time is a four-part process:
 
@@ -137,6 +137,9 @@ the service runs with the Service SID, NT SERVICE\PBIEgwService.
 **A**: To takeover a gateway (by running Setup/Change in Control Panel > Programs), you need to be an Owner for the gateway resource in Azure and have the recovery key. Gateway resource Owners are configurable in Access Control.
 
 ### <a name="high-availability"></a>High availability and disaster recovery
+
+**Q**: How can we have high-availability?  
+**A**: You can install a gateway on another computer to create a cluster. To learn more, see [High availability clusters for On-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters) in the Power BI Gateway docs.
 
 **Q**: What options are available for disaster recovery? <br/>
 **A**: You can use the recovery key to restore or move a gateway. 

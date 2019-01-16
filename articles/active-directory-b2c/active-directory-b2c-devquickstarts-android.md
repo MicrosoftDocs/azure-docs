@@ -39,7 +39,7 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 ## Create your user flows
 
 In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md), which is a set of policies that control the behavior of Azure AD. This app contains one identity experience: a combined sign-in and sign-up user flow. You need to create this user flow, as described in the
-[user flow reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the user flow, be sure to:
+[user flow reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). When you create the user flow, be sure to:
 
 * Choose the **Display name** as a sign-up attribute in your user flow.
 * Choose the **Display name** and **Object ID** application claims in every user flow. You can choose other claims as well.

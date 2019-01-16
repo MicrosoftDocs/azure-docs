@@ -29,7 +29,7 @@ All applications are assigned to a connector group. If you don't create groups, 
 >If you have a large Application Proxy deployment, don't assign any applications to the default connector group. That way, new connectors don't receive any live traffic until you assign them to an active connector group. This configuration also enables you to put connectors in an idle mode by moving them back to the default group, so that you can perform maintenance without impacting your users.
 
 ## Prerequisites
-To group your connectors, you have to make sure you [installed multiple connectors](application-proxy-enable.md). When you install a new connector, it automatically joins the **Default** connector group.
+To group your connectors, you have to make sure you [installed multiple connectors](application-proxy-add-on-premises-application.md). When you install a new connector, it automatically joins the **Default** connector group.
 
 ## Create connector groups
 Use these steps to create as many connector groups as you want. 

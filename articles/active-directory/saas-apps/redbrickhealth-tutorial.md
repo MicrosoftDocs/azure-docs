@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![RedBrick Health Domain and URLs single sign-on information](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. In the **Identifier** textbox, type a URL: `http://www.redbrickhealth.com`
+    a. In the **Identifier** textbox, type a URL: `https://www.redbrickhealth.com`
 	
 	b. In the **Reply URL** textbox, type a URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
 	

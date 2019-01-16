@@ -19,11 +19,11 @@ ms.author: v-jansko
 
 Translator Speech continually extends the list of languages supported by its services. Use this API to discover the set of languages currently available for use with the Translator Speech service.
 
-Code samples demonstrating use of the API to get available languages are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
+Code samples demonstrating use of the API to get available languages are available from the [Microsoft Translator GitHub site](https://github.com/MicrosoftTranslator).
 
 ## Implementation notes
 
-GET /languages 
+### GET /languages 
 
 A wide set of languages is available to transcribe speech, to translate the transcribed text, and to produce synthesized speech of the translation.
 

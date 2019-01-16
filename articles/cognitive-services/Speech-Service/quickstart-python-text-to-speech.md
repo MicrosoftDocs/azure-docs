@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Convert text-to-speech, Python - Speech Service"
+title: "Quickstart: Convert text-to-speech, Python - Speech Services"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response. The REST API also supports plain text (ASCII or UTF-8), however, if plain text is provided the response will be returned in the Speech Service's default voice and language.
+description: In this quickstart, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,6 +10,7 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/16/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 
 # Quickstart: Convert text-to-speech using Python
@@ -80,7 +81,7 @@ def get_token(self):
 ```
 
 > [!NOTE]
-> For more information on authentication, see [How to get an access token](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> For more information on authentication, see [Authenticate with an access token](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## Make a request and save the response
 

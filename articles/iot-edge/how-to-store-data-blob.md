@@ -1,5 +1,5 @@
 ---
-title: Azure Blob Storage on Azure IoT Edge devices | Microsoft Docs 
+title: Store block blobs on devices - Azure IoT Edge | Microsoft Docs 
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.  
 author: kgremban
 manager: philmea
@@ -9,6 +9,7 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Store data at the edge with Azure Blob Storage on IoT Edge (preview)
@@ -100,7 +101,7 @@ Choose one of the two ways to find the blob storage module:
    > [!CAUTION]
    > Do not change the "/blobroot" for Linux and "C:/BlobRoot" for Windows, for **\<Storage directory bind>** values.
 
-    ![Update Module Values](./media/how-to-store-data-blob/edit-module.png)
+    ![Update module container create options - portal](./media/how-to-store-data-blob/edit-module.png)
 
 6. **Save** the values in "IoT Edge Custom Modules"
 7. Click **Next** in "Set modules" section
@@ -144,7 +145,7 @@ The solution template creates a deployment manifest template that includes your 
    {\"Env\": [\"LOCAL_STORAGE_ACCOUNT_NAME=$STORAGE_ACCOUNT_NAME\",\" LOCAL_STORAGE_ACCOUNT_KEY=$STORAGE_ACCOUNT_KEY\"],\"HostConfig\": {\"Binds\": [\"<storage directory bind>\"],\"PortBindings\": {\"11002/tcp\": [{\"HostPort\":\"11002\"}]}}}
    ```
 
-   ![Update module create options](./media/how-to-store-data-blob/create-options.png)
+   ![Update module createOptions - VS Code](./media/how-to-store-data-blob/create-options.png)
 
 4. In the create options JSON, update `<storage directory bind>` depending on your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data.  
 

@@ -106,7 +106,7 @@ In all three cases, endpoints can be added in two ways:
 
 Azure endpoints reference services hosted in Azure. Two types of Azure endpoints are supported:
 
-1. Azure Web Apps
+1. Azure App Service
 2. Azure PublicIpAddress resources (which can be attached to a load-balancer or a virtual machine NIC). The PublicIpAddress must have a DNS name assigned to be used in Traffic Manager.
 
 In each case:
@@ -116,9 +116,9 @@ In each case:
 * Specifying the 'Weight' is optional. Weights are only used if the profile is configured to use the 'Weighted' traffic-routing method. Otherwise, they are ignored. If specified, the value must be a number between 1 and 1000. The default value is '1'.
 * Specifying the 'Priority' is optional. Priorities are only used if the profile is configured to use the 'Priority' traffic-routing method. Otherwise, they are ignored. Valid values are from 1 to 1000 with lower values indicating a higher priority. If specified for one endpoint, they must be specified for all endpoints. If omitted, default values starting from '1' are applied in the order that the endpoints are listed.
 
-### Example 1: Adding Web App endpoints using `Add-AzureRmTrafficManagerEndpointConfig`
+### Example 1: Adding App Service endpoints using `Add-AzureRmTrafficManagerEndpointConfig`
 
-In this example, we create a Traffic Manager profile and add two Web App endpoints using the `Add-AzureRmTrafficManagerEndpointConfig` cmdlet.
+In this example, we create a Traffic Manager profile and add two App Service endpoints using the `Add-AzureRmTrafficManagerEndpointConfig` cmdlet.
 
 ```powershell
 $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/10/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,7 +23,7 @@ This article describes the password policies and complexity requirements associa
 
 With a two-gate policy, **administrators don't have the ability to use security questions**.
 
-A two-gate policy requires two pieces of authentication data, such as an email address *and* a phone number. A two-gate policy applies in the following circumstances:
+The two-gate policy requires two pieces of authentication data, such as an **email address**, **authenticator app**, or a **phone number**. A two-gate policy applies in the following circumstances:
 
 * All the following Azure administrator roles are affected:
   * Helpdesk administrator

@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
@@ -33,8 +33,6 @@ You can use SQL database auditing to:
 - **Retain** an audit trail of selected events. You can define categories of database actions to be audited.
 - **Report** on database activity. You can use pre-configured reports and a dashboard to get started quickly with activity and event reporting.
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
-
-You can configure auditing for different types of event categories, as explained in the [Set up auditing for your database](#subheading-2) section.
 
 > [!IMPORTANT]
 > Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
@@ -217,12 +215,12 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 ## <a id="subheading-7"></a>Manage SQL database auditing using Azure PowerShell
 
-**PowerShell cmdlets**:
+**PowerShell cmdlets (including WHERE clause support for additional filtering)**:
 
-- [Create or Update Database Blob Auditing Policy (Set-AzureRMSqlDatabaseAuditing)][105]
-- [Create or Update Server Blob Auditing Policy (Set-AzureRMSqlServerAuditing)][106]
-- [Get Database Auditing Policy (Get-AzureRMSqlDatabaseAuditing)][101]
-- [Get Server Blob Auditing Policy (Get-AzureRMSqlServerAuditing)][102]
+- [Create or Update Database Blob Auditing Policy (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Create or Update Server Blob Auditing Policy (Set-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
+- [Get Database Auditing Policy (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Get Server Blob Auditing Policy (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
 
 For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -242,6 +240,14 @@ Extended policy with WHERE clause support for additional filtering:
 - [Get Database *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Get Server *Extended* Blob Auditing Policy](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
+## <a id="subheading-10"></a>Manage SQL database auditing using ARM templates
+
+You can manage Azure SQL database auditing using [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) templates, as shown in these examples:
+
+- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Azure blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -251,6 +257,7 @@ Extended policy with WHERE clause support for additional filtering:
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -263,10 +270,3 @@ Extended policy with WHERE clause support for additional filtering:
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

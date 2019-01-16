@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -38,6 +38,9 @@ The following is an example deployment created in **myblockchain** resource grou
 ![Example deployment](media/deploy/example-deployment.png)
 
 The cost of Blockchain Workbench is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
+> [!IMPORTANT]
+> If you are using a subscription with low service limits such as an Azure free tier subscription, the deployment may fail due to insufficient quota of VM cores. Prior to deployment, check your quota using guidance from the [virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) article. The default VM selection requires 6 VM cores. Changing to a smaller size VM such as *Standard DS1 v2* reduces the number of cores to 4.
 
 ## Prerequisites
 
@@ -94,7 +97,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     |---------|--------------|
     | Monitoring | Choose whether you want to enable Azure Monitor to monitor your blockchain network |
     | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
-    | VM selection | Choose the preferred VM size for your blockchain network. |
+    | VM selection | Choose the preferred VM size for your blockchain network. Choose a smaller VM size such as *Standard DS1 v2* if you are on a subscription with low service limits like Azure free tier. |
 
     For **Use existing**:
 

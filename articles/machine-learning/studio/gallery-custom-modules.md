@@ -1,12 +1,12 @@
 ---
 title: Azure AI Gallery custom modules - Azure Machine Learning Studio | Microsoft Docs
-description: Discover custom machine learning modules in Azure AI Gallery.
+description: Discover custom machine learning modules in Azure AI Gallery. Custom modules expand the capabilities of Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
@@ -88,5 +88,5 @@ To use an imported module:
 
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

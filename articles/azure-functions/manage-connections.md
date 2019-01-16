@@ -45,7 +45,7 @@ private static HttpClient httpClient = new HttpClient();
 
 public static async Task Run(string input)
 {
-    var response = await httpClient.GetAsync("http://example.com");
+    var response = await httpClient.GetAsync("https://example.com");
     // Rest of function
 }
 ```

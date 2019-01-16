@@ -1,5 +1,5 @@
 ---
-title: Copy data to or from Azure Cosmos DB by using Data Factory | Microsoft Docs
+title: Copy data to or from Azure Cosmos DB (SQL API) by using Data Factory | Microsoft Docs
 description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB to supported sink stores by using Data Factory.
 services: data-factory, cosmosdb
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 11/19/2018
 ms.author: jingwang
 
 ---
-# Copy data to or from Azure Cosmos DB by using Azure Data Factory
+# Copy data to or from Azure Cosmos DB (SQL API) by using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
@@ -35,6 +35,9 @@ You can use the Azure Cosmos DB connector to:
 - Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see [Import or export JSON documents](#importexport-json-documents).
 
 Data Factory integrates with the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to provide the best performance when you write to Azure Cosmos DB.
+
+>[!NOTE]
+>This connector only support copy data to/from Cosmos DB SQL API.
 
 > [!TIP]
 > The [Data Migration video](https://youtu.be/5-SRNiC_qOU) walks you through the steps of copying data from Azure Blob storage to Azure Cosmos DB. The video also describes performance-tuning considerations for ingesting data to Azure Cosmos DB in general.

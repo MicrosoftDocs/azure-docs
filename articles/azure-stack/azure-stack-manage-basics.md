@@ -28,9 +28,9 @@ If you're using an Azure Stack integrated system, updated versions of Azure Stac
  
 ### Development kit
 
-If you're using the Azure Stack Development Kit, review the [What is Azure Stack?](.\asdk\asdk-what-is.md) article to make sure you understand the purpose of the development kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](.\asdk\asdk-install.md) article.)
+If you're using the Azure Stack Development Kit, review the [What is Azure Stack?](./asdk/asdk-what-is.md) article to make sure you understand the purpose of the development kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](./asdk/asdk-install.md) article.)
 
-Like Azure, we innovate rapidly. We'll regularly release new builds. If you're running the development kit and you want to move to the latest build, you must [redeploy Azure Stack](.\asdk\asdk-redeploy.md). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features. The development kit documentation on our website reflects the latest release build.
+Like Azure, we innovate rapidly. We'll regularly release new builds. If you're running the development kit and you want to move to the latest build, you must [redeploy Azure Stack](./asdk/asdk-redeploy.md). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features. The development kit documentation on our website reflects the latest release build.
 
 ## Learn about available services
 

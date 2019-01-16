@@ -10,9 +10,9 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ---
-# Use Spark to read and write HBase data
+# Use Apache Spark to read and write Apache HBase data
 
-Apache HBase is typically queried either with its low-level API (scans, gets, and puts) or with a SQL syntax using Phoenix. Apache also provides the Spark HBase Connector, which is a convenient and performant alternative to query and modify data stored by HBase.
+Apache HBase is typically queried either with its low-level API (scans, gets, and puts) or with a SQL syntax using Apache Phoenix. Apache also provides the Apache Spark HBase Connector, which is a convenient and performant alternative to query and modify data stored by HBase.
 
 ## Prerequisites
 
@@ -32,9 +32,9 @@ The high-level process for enabling your Spark cluster to query your HDInsight c
 5. Define a catalog that maps the schema from Spark to HBase.
 6. Interact with the HBase data using either the RDD or DataFrame APIs.
 
-## Prepare sample data in HBase
+## Prepare sample data in Apache HBase
 
-In this step, you create and populate a simple table in HBase that you can then query using Spark.
+In this step, you create and populate a simple table in Apache HBase that you can then query using Spark.
 
 1. Connect to the head node of your HBase cluster using SSH. For more information, see [Connect to HDInsight using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 2. Run the HBase shell:
@@ -126,7 +126,7 @@ In this step, you create and populate a simple table in HBase that you can then 
 
 ## Define a Catalog and Query
 
-In this step, you define a catalog object that maps the schema from Spark to HBase. 
+In this step, you define a catalog object that maps the schema from Apache Spark to Apache HBase. 
 
 1. In your open Spark Shell, run the following `import` statements:
 
@@ -238,4 +238,4 @@ In this step, you define a catalog object that maps the schema from Spark to HBa
 
 ## Next steps
 
-* [Spark HBase Connector](https://github.com/hortonworks-spark/shc)
+* [Apache Spark HBase Connector](https://github.com/hortonworks-spark/shc)

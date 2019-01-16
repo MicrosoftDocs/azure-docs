@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -400,7 +400,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
    1. `fileName` doesn't contain wildcard filter.
    2. `rowDelimiter` must be **\n**.
-   3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is not set to false.
+   3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
    4. `encodingName` is set to **utf-8**, which is the default value.
    5. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
    6. `compression` can be **no compression**, **GZip**, or **Deflate**.

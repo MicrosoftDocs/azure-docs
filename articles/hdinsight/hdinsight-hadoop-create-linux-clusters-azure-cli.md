@@ -66,7 +66,7 @@ The following steps should be performed from a command line, such as PowerShell 
 
     * Replace `storagename` with a unique name for the storage account.
 
-        > [!NOTE]
+        > [!NOTE]  
         > For more information on the parameters used in this command, use `azure storage account create -h` to view help for this command.
 
 5. Retrieve the key used to access the storage account.
@@ -76,7 +76,7 @@ The following steps should be performed from a command line, such as PowerShell 
     * Replace `groupname` with the resource group name.
     * Replace `storagename` with the name of the storage account.
 
-     In the data that is returned, save the `key` value for `key1`.
+      In the data that is returned, save the `key` value for `key1`.
 
 6. Create an HDInsight cluster.
 
@@ -86,8 +86,8 @@ The following steps should be performed from a command line, such as PowerShell 
 
     * Replace `Hadoop` with the cluster type that you wish to create. For example, `Hadoop`, `HBase`, `Kafka`, `Spark`, or `Storm`.
 
-     > [!IMPORTANT]
-     > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
+      > [!IMPORTANT]  
+      > HDInsight clusters come in various types, which correspond to the workload or technology that the cluster is tuned for. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster.
 
     * Replace `location` with the same location used in previous steps.
 
@@ -101,16 +101,16 @@ The following steps should be performed from a command line, such as PowerShell 
 
     * Replace `sshuser` and `sshuserpassword` with the username and password you wish to use when accessing the cluster using SSH
 
-    > [!IMPORTANT]
-    > This example creates a cluster with two worker nodes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
-    >
-    > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
-
-    It may take several minutes for the cluster creation process to finish. Usually around 15.
+      > [!IMPORTANT]  
+      > This example creates a cluster with two worker nodes. You can also change the number of worker nodes after cluster creation by performing scaling operations. If you plan on using more than 32 worker nodes, then you must select a head node size with at least 8 cores and 14-GB RAM. You can set the head node size by using the `--headNodeSize` parameter during cluster creation.
+      >
+      > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+      
+      It may take several minutes for the cluster creation process to finish. Usually around 15.
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 
@@ -120,7 +120,7 @@ Now that you have successfully created an HDInsight cluster using the classic CL
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
 * [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
-* [Use Apache Hadoop MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### Apache HBase clusters
 

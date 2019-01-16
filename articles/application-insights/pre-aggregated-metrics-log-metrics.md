@@ -50,7 +50,7 @@ There are several [ways of sending custom metrics from the Application Insights 
 
 All metrics that you send using [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) or [GetMetric and TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API calls are automatically stored in both logs and metrics stores. However, while the log-based version of your custom metric always retains all dimensions, the pre-aggregated version of the metric is stored by default with no dimensions. You can turn on collection of dimensions of custom metrics on the [usage and estimated cost](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) tab by checking “Enable alerting on custom metric dimensions”: 
 
-![Usage and estimated cost](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![Usage and estimated cost](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## Why is collection of custom metrics dimensions turned off by default?
 
@@ -60,7 +60,7 @@ The collection of custom metrics dimensions is turned off by default because in 
 
 Use Azure Monitor Metrics Explorer to plot charts from pre-aggregated and log-based metrics, and to author dashboards with charts. After selecting the desired Application Insights resource, use the namespace picker to switch between standard (preview) and log-based metrics, or select a custom metric namespace:
 
-![Metric namespace](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![Metric namespace](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## Next steps
 

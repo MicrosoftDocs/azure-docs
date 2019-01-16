@@ -1,10 +1,11 @@
 ---
-title: Tutorial - Configure Azure Analysis Services server administrator and user roles tutorial lesson | Microsoft Docs
+title: Tutorial - Configure Azure Analysis Services administrator and user roles | Microsoft Docs
+description: Learn how to configure Azure Analysis Services roles.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to my server by using SQL Server Management Studio to configure server administrator and model database user roles.
@@ -31,9 +32,9 @@ To learn more about user security in Azure Analysis Services, see [Authenticatio
 - [Add the adventureworks sample model](../analysis-services-create-sample-model.md) to your server.
 - [Install the latest version of SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [portal](https://portal.azure.com/).
+Sign in to the [portal](https://portal.azure.com/).
 
 ## Get server name
 In order to connect to your server from SSMS, you first need the server name. You can get the server name from the portal.

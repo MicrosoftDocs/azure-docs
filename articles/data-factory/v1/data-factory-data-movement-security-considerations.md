@@ -164,7 +164,7 @@ The following table provides **inbound port** requirements for the **windows fir
 | ------------- | ----------- | 
 | 8050 (TCP) | Required by the credential manager application to securely set credentials for on-premises data stores on the gateway. | 
 
-![Gateway port requirements](media\data-factory-data-movement-security-considerations/gateway-port-requirements.png) 
+![Gateway port requirements](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
 #### IP configurations/ whitelisting in data store
 Some data stores in the cloud also require whitelisting of IP address of the machine accessing them. Ensure that the IP address of the gateway machine is whitelisted/ configured in firewall appropriately.

@@ -41,6 +41,7 @@ For Azure File Sync, performance is critical in two stages:
 2. **Ongoing sync**: After the data is initially seeded in the Azure file shares, Azure File Sync keeps multiple endpoints in sync.
 
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
+
 | System configuration |  |
 |-|-|
 | CPU | 64 Virtual Cores with 64 MiB L3 cache |

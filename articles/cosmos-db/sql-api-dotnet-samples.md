@@ -1,14 +1,11 @@
 ---
-title: 'Azure Cosmos DB: .NET examples for the SQL API | Microsoft Docs'
-description: Find C# .NET examples on github for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
+title: 'Azure Cosmos DB: .NET examples for the SQL API'
+description: Find C# .NET examples on GitHub for common tasks using the Azure Cosmos DB SQL API, including CRUD operations.
 keywords: NoSQL example
-services: cosmos-db
 author: rnagpal
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
@@ -25,10 +22,12 @@ ms.author: rnagpal
 > 
 > 
 
-Latest sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub repository. This article provides:
+Latest sample solutions that perform CRUD operations and other common operations on Azure Cosmos DB resources are included in the [azure-cosmos-dotnet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples) GitHub repository. This article provides:
 
 * Links to the tasks in each of the example C# project files. 
 * Links to the related API reference content.
+
+For code samples for the .NET SDK Version 3.0 (Preview), see the latest samples in the [azure-cosmos-dotnet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3) GitHub repository. 
 
 **Prerequisites**
 
@@ -38,7 +37,7 @@ Latest sample solutions that perform CRUD operations and other common operations
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-You also need the [Microsoft.Azure.DocumentDB NuGet package](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
+You also need the [Microsoft.Azure.DocumentDB NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [!NOTE]
 > Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to CreateDocumentCollectionAsync(). Each time this is done your subscription is billed for 1 hour of usage per the performance tier of the collection being created. 
@@ -158,7 +157,7 @@ The server-side programming file, [azure-documentdb-dotnet/samples/code-samples/
 | [Create a post-trigger](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [Create a User Defined Function (UDF)](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-For more information about server-side programming, see [Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs](programming.md).
+For more information about server-side programming, see [Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs](stored-procedures-triggers-udfs.md).
 
 ## User management examples
 The user management file, [azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs), shows how to do the following tasks.

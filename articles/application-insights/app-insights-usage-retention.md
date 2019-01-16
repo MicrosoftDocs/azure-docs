@@ -56,7 +56,7 @@ Or in ASP.NET server code:
    telemetry.TrackEvent("won game");
 ```
 
-[Learn more about writing custom events](app-insights-api-custom-events-metrics.md#trackevent).
+[Learn more about writing custom events](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 
 ## Next steps

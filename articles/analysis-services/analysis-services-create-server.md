@@ -19,9 +19,9 @@ This quickstart describes how to create an Analysis Services server resource in 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
 * **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
 
-## Log in to the Azure portal 
+## Sign in to the Azure portal 
 
-[Log in to the portal](https://portal.azure.com)
+[Sign in to the portal](https://portal.azure.com)
 
 
 ## Create a server

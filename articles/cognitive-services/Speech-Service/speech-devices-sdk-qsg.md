@@ -1,5 +1,5 @@
 ---
-title: Get started with the Speech Devices SDK
+title: Get started with the Speech Devices SDK - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with the Speech Devices SDK.
 services: cognitive-services
@@ -9,13 +9,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 12/06/2018
 ms.author: erhopf
+ms.custom: seodec18
 ---
 
 # Get started with the Speech Devices SDK
 
-This article describes how to configure your development PC and Speech device development kit for developing speech-enabled devices by using the Speech Devices SDK. Then you build and deploy a sample application to the device. 
+This article describes how to configure your development PC and Speech device development kit for developing speech-enabled devices by using the Speech Devices SDK. Then you build and deploy a sample application to the device.
 
 The source code for the sample application is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -36,7 +37,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 * Get a [Speech service subscription key](get-started.md). You can get a 30-day free trial or get a key from your Azure dashboard.
 
-* If you want to use the Speech service's intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [get a subscription key](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). 
+* If you want to use the Speech service's intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [get a subscription key](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
 
     You can [create a simple LUIS model](https://docs.microsoft.com/azure/cognitive-services/luis/) or use the sample LUIS model, LUIS-example.json. The sample LUIS model is available from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). To upload your model's JSON file to the [LUIS portal](https://www.luis.ai/home), select **Import new app**, and then select the JSON file.
 
@@ -60,9 +61,9 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 1. Install the certificates and the wake word (keyword) table file, and set the permissions of the sound device. Type the following commands in a Command Prompt window:
 
    ```
-   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/ 
+   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/
    adb shell
-   cd /data/ 
+   cd /data/
    chmod 777 roobo_setup.sh
    ./roobo_setup.sh
    exit
@@ -73,34 +74,34 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
     > [!TIP]
     > Mute your PC's microphone and speaker to be sure you are working with the development kit's microphones. This way, you won't accidentally trigger the device with audio from the PC.
-    
+
 1.	Start Vysor on your computer.
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1.	Your device should be listed under **Choose a device**. Select the **View** button next to the device. 
- 
+1.	Your device should be listed under **Choose a device**. Select the **View** button next to the device.
+
 1.	Connect to your wireless network by selecting the folder icon, and then select **Settings** > **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
- 
+
     > [!NOTE]
-    > If your company has policies about connecting devices to its Wi-Fi system, you need to obtain the MAC address and contact your IT department about how to connect it to your company's Wi-Fi. 
+    > If your company has policies about connecting devices to its Wi-Fi system, you need to obtain the MAC address and contact your IT department about how to connect it to your company's Wi-Fi.
     >
     > To find the MAC address of the dev kit, select the file folder icon on the desktop of the dev kit.
     >
     >  ![Vysor file folder](media/speech-devices-sdk/qsg-10.png)
     >
-    > Select **Settings**. Search for "mac address", and then select **Mac address** > **Advanced WLAN**. Write down the MAC address that appears near the bottom of the dialog box. 
+    > Select **Settings**. Search for "mac address", and then select **Mac address** > **Advanced WLAN**. Write down the MAC address that appears near the bottom of the dialog box.
     >
     > ![Vysor MAC address](media/speech-devices-sdk/qsg-11.png)
     >
     > Some companies might have a time limit on how long a device can be connected to their Wi-Fi system. You might need to extend the dev kit's registration with your Wi-Fi system after a specific number of days.
-    > 
+    >
     > If you want to attach a speaker to the dev kit, you can connect it to the audio line out. You should choose a good-quality, 3.5-mm speaker.
     >
     > ![Vysor audio](media/speech-devices-sdk/qsg-14.png)
- 
+
 ## Run a sample application
 
 To run the ROOBO tests and validate your development kit setup, build and install the sample application:
@@ -110,10 +111,10 @@ To run the ROOBO tests and validate your development kit setup, build and instal
 1.	Select **Open an existing Android Studio project**.
 
     ![Android Studio - Open an existing project](media/speech-devices-sdk/qsg-5.png)
- 
+
 1.	Go to C:\SDSDK\Android-Sample-Release\example. Select **OK** to open the example project.
- 
-1.	Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID. 
+
+1.	Add your Speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
 
     Your keys and application information go in the following lines in the source file MainActivity.java:
 
@@ -131,7 +132,7 @@ To run the ROOBO tests and validate your development kit setup, build and instal
     You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
 
     To install the wake word you want to use:
- 
+
     * Create a keyword folder in the data folder on the device by running the following commands in a Command Prompt window:
 
         ```
@@ -148,9 +149,9 @@ To run the ROOBO tests and validate your development kit setup, build and instal
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\kws_k.fst /data/keyword
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```
-    
+
     * Reference these files in the sample application. Find the following lines in MainActivity.java. Make sure that the keyword specified is the one you're using, and that the path points to the `kws.table` file that you pushed to the device.
-        
+
         ```java
         private static final String Keyword = "Computer";
         private static final String KeywordModel = "/data/keyword/kws.table";
@@ -171,7 +172,7 @@ To run the ROOBO tests and validate your development kit setup, build and instal
     private static final String SelectedGeometry = "Circular6+1";
     ```
     The following table describes the available values:
-    
+
     |Variable|Meaning|Available values|
     |--------|-------|----------------|
     |`DeviceGeometry`|Physical mic configuration|For a circular dev kit: `Circular6+1` |
@@ -182,12 +183,12 @@ To run the ROOBO tests and validate your development kit setup, build and instal
     |||For a linear dev kit that uses two mics: `Linear2`|
 
 
-1.	To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears. 
+1.	To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears.
 
 1. Select your device, and then select **OK** to deploy the application to the device.
 
     ![Select Deployment Target dialog box](media/speech-devices-sdk/qsg-7.png)
- 
+
 1.	The Speech Devices SDK example application starts and displays the following options:
 
     ![Sample Speech Devices SDK example application and options](media/speech-devices-sdk/qsg-8.png)
@@ -204,12 +205,12 @@ If you get certificate failures when you use the Speech service, make sure that 
 
     ![Under Settings, select Date & time](media/speech-devices-sdk/qsg-12.png)
 
-1. Keep the **Automatic date & time** option selected. Under **Select time zone**, select your current time zone. 
+1. Keep the **Automatic date & time** option selected. Under **Select time zone**, select your current time zone.
 
     ![Select date and time zone options](media/speech-devices-sdk/qsg-13.png)
 
-    When you see that the dev kit's time matches the time on your PC, the dev kit is connected to the internet. 
-    
+    When you see that the dev kit's time matches the time on your PC, the dev kit is connected to the internet.
+
     For more development information, see the [ROOBO development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
 ### Audio

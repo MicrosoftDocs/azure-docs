@@ -1,10 +1,11 @@
 ---
-title: Data extraction concepts in LUIS - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: Data extraction
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Learn what kind of data can be extracted from Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
@@ -12,7 +13,7 @@ ms.date: 09/10/2018
 ms.author: diberry
 ---
 
-# Data extraction
+# Data extraction from intents and entities
 LUIS gives you the ability to get information from a user's natural language utterances. The information is extracted in a way that it can be used by a program, application, or chat bot to take action. In the following sections, learn what data is returned from intents and entities with examples of JSON.
 
 The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect.

@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt 

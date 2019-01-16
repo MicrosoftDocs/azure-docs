@@ -16,7 +16,7 @@ ms.component: B2C
 # Azure Active Directory B2C: Web sign-in with OpenID Connect
 OpenID Connect is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in to web applications. By using the Azure Active Directory B2C (Azure AD B2C) implementation of OpenID Connect, you can outsource sign-up, sign-in, and other identity management experiences in your web applications to Azure Active Directory (Azure AD). This guide shows you how to do so in a language-independent manner. It describes how to send and receive HTTP messages without using any of our open-source libraries.
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This allows you to perform single sign-on by using OAuth. It introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) extends the OAuth 2.0 *authorization* protocol for use as an *authentication* protocol. This allows you to perform single sign-on by using OAuth. It introduces the concept of an *ID token*, which is a security token that allows the client to verify the identity of the user and obtain basic profile information about the user.
 
 Because it extends OAuth 2.0, it also enables apps to securely acquire *access tokens*. You can use access_tokens to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md#the-basics). We recommend OpenID Connect if you're building a web application that is hosted on a server and accessed through a browser. If you want to add identity management to your mobile or desktop applications by using Azure AD B2C, you should use [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) rather than OpenID Connect.
 
@@ -119,7 +119,7 @@ error=access_denied
 | state |See the full description in the first table in this section. If a `state` parameter is included in the request, the same value should appear in the response. The app should verify that the `state` values in the request and response are identical. |
 
 ## Validate the ID token
-Just receiving an ID token is not enough to authenticate the user. You must validate the ID token's signature and verify the claims in the token per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
+Just receiving an ID token is not enough to authenticate the user. You must validate the ID token's signature and verify the claims in the token per your app's requirements. Azure AD B2C uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
 There are many open-source libraries that are available for validating JWTs, depending on your language of preference. We recommend exploring those options rather than implementing your own validation logic. The information here will be useful in figuring out how to properly use those libraries.
 
@@ -142,7 +142,7 @@ After you've validated the signature of the ID token, there are several claims t
 * You should validate the `aud` claim to ensure that the ID token was issued for your app. Its value should be the application ID of your app.
 * You should validate the `iat` and `exp` claims to ensure that the ID token has not expired.
 
-There are also several more validations that you should perform. These are described in detail in the [OpenID Connect Core Spec](http://openid.net/specs/openid-connect-core-1_0.html).  You might also want to validate additional claims, depending on your scenario. Some common validations include:
+There are also several more validations that you should perform. These are described in detail in the [OpenID Connect Core Spec](https://openid.net/specs/openid-connect-core-1_0.html).  You might also want to validate additional claims, depending on your scenario. Some common validations include:
 
 * Ensuring that the user/organization has signed up for the app.
 * Ensuring that the user has proper authorization/privileges.

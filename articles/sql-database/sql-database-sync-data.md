@@ -17,6 +17,9 @@ ms.date: 08/09/2018
 
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
 
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+
 ## Architecture of SQL Data Sync
 
 Data Sync is based around the concept of a Sync Group. A Sync Group is a group of databases that you want to synchronize.
@@ -63,7 +66,7 @@ Data Sync is not the preferred solution for the following scenarios:
 
 ## How does Data Sync work? 
 
--   **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database.
+-   **Tracking data changes:** Data Sync tracks changes using insert, update, and delete triggers. The changes are recorded in a side table in the user database. Note that BULK INSERT does not fire triggers by default. If FIRE_TRIGGERS is not specified, no insert triggers execute. Add the FIRE_TRIGGERS option so Data Sync can track those inserts. 
 
 -   **Synchronizing data:** Data Sync is designed in a Hub and Spoke model. The Hub syncs with each member individually. Changes from the Hub are downloaded to the member and then changes from the member are uploaded to the Hub.
 

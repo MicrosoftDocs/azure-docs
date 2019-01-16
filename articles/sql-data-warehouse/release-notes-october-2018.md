@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
 ---
@@ -57,6 +57,7 @@ Azure SQL Data Warehouse (SQL DW) now has native integration with Azure Data Lak
 | **CETAS to Parquet failures in small resource classes on Data warehouses of DW2000 and more** | This fix correctly identifies a null reference in the Create External Table As to Parquet code path. |
 |**Identity column value might lose in some CTAS operation** | The value of an identify column may not be preserved when CTASed to another table. Reported in a blog: [https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |
 | **Internal failure in some cases when a session is terminated while a query is still running** | This fix triggers an InvalidOperationException if a session is terminated when the query is still running. |
+| **(Deployed in November 2018) Customers were experiencing a suboptimal performance when attempting to load multiple small files from ADLS (Gen1) using Polybase.** | System performance was bottlenecked during AAD security token validation. Performance problems were mitigated by enabling caching of security tokens. |
 
 
 ## Next steps

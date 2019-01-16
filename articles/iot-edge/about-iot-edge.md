@@ -67,7 +67,7 @@ Azure IoT Edge integrates seamlessly with Azure IoT solution accelerators to pro
 * Send a workload to a set of devices.
 * Monitor workloads running on devices in the field.
 
-![Telemetry, insights, and actions of devices are coordinated with the cloud](./media/about-iot-edge/cloud-interface.png)
+![Device telemetry and actions are coordinated with the cloud](./media/about-iot-edge/cloud-interface.png)
 
 ## Next steps
 

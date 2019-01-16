@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing News Search SDK, Python"
+title: "Quickstart: Perform a news search - Bing News Search SDK for Python"
 titleSuffix: Azure Cognitive Services
-description: Setup for Bing News Search SDK console application.
+description: Use this quickstart to search for news using the Bing News Search SDK for Python, and process the response.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -11,8 +11,9 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
+ms.custom: seodec2018
 ---
-# Quickstart: Bing News Search SDK with Python
+# Quickstart: Perform a news search with the Bing News Search SDK for Python
 
 The News Search SDK contains the functionality of the REST API for web queries and parsing results. 
 

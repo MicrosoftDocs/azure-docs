@@ -15,7 +15,7 @@ ms.date: 11/06/2018
 
 # Tutorial: Process tweets using Azure Event Hubs and Apache Spark in HDInsight
 
-In this tutorial, you Learn how to create an [Apache Spark](https://spark.apache.org/) streaming application to send tweets to an Azure event hub, and create another application to read the tweets from the event hub. For a detailed explanation of Spark streaming, see [Apache Spark streaming overview](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight brings the same streaming features to a Spark cluster on Azure.
+In this tutorial, you Learn how to create an [Apache Spark](https://spark.apache.org/) streaming application to send tweets to an Azure event hub, and create another application to read the tweets from the event hub. For a detailed explanation of Spark streaming, see [Apache Spark streaming overview](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight brings the same streaming features to a Spark cluster on Azure.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -80,7 +80,7 @@ You use this event hub to store tweets.
 8. Enter the following values:
 
     - Name: Give a name for your Event Hub.
-    - Partition count: 10
+    - Partition count: 10.
     - Message retention: 1. 
    
     ![Provide event hub details for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
@@ -215,7 +215,7 @@ You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHu
 
 ## Clean up resources
 
-With HDInsight, your data is stored in Azure Storage or Azure Data Lake Store, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster, otherwise go ahead and delete the cluster.
+With HDInsight, your data is stored in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster, otherwise go ahead and delete the cluster.
 
 Open the cluster in the Azure portal, and select **Delete**.
 

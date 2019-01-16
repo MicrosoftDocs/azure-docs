@@ -1,5 +1,5 @@
 ---
-title: Search Traffic Analytics for Azure Search | Microsoft Docs
+title: Search Traffic Analytics - Azure Search
 description: Enable Search traffic analytics for Azure Search, a cloud hosted search service on Microsoft Azure, to unlock insights about your users and your data.
 author: HeidiSteen
 manager: cgronlun
@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/05/2017
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # What is search traffic analytics

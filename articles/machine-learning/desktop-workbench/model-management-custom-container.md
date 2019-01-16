@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 3/26/2018
+ms.date: 03/26/2018
 
 ROBOTS: NOINDEX
 ---

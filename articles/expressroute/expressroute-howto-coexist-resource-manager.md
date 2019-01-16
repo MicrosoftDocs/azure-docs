@@ -1,14 +1,14 @@
 ---
-title: 'Configure ExpressRoute and Site-to-Site VPN connections that can coexist: PowerShell: Azure | Microsoft Docs'
-description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for the Resource Manager model using PowerShell
+title: 'Configure ExpressRoute and Site-to-Site VPN connections - coexist: PowerShell: Azure | Microsoft Docs'
+description: Configure ExpressRoute and a Site-to-Site VPN connection that can coexist for the Resource Manager model using PowerShell.
 services: expressroute
 author: charwen
-manager: rossort
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
+ms.custom: seodec18
 
 ---
 # Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell
@@ -17,6 +17,9 @@ ms.author: charwen
 > * [PowerShell - Classic](expressroute-howto-coexist-classic.md)
 > 
 > 
+
+
+This article helps you configure ExpressRoute and Site-to-Site VPN connections that coexist. Having the ability to configure Site-to-Site VPN and ExpressRoute has several advantages. You can configure Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. This article applies to the Resource Manager deployment model.
 
 Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several advantages:
 

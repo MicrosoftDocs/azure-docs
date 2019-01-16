@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -49,6 +49,7 @@ This tutorial assumes that you are familiar with:
 -  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md)
 
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
+
 
 
 To configure the scenario in this tutorial, you need:

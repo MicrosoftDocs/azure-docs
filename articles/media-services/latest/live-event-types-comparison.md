@@ -24,7 +24,7 @@ In Azure Media Services, a  [LiveEvent](https://docs.microsoft.com/rest/api/medi
 
 The following table compares features of the two LiveEvent types.
 
-| Feature | Pass-through LiveEvent | Standard (Basic) LiveEvent |
+| Feature | Pass-through LiveEvent | Standard LiveEvent |
 | --- | --- | --- |
 | Single bitrate input is encoded into multiple bitrates in the cloud |No |Yes |
 | Maximum video resolution for contribution feed |4K (4096x2160 at 60 frames/sec) |1080p (1920x1088 at 30 frames/sec)|
@@ -38,6 +38,7 @@ The following table compares features of the two LiveEvent types.
 | Supported video bit depth, input, and output|Up to 10-bit including HDR 10/HLG|8-bit|
 | Supported input audio codecs|AAC-LC, HE-AAC v1, HE-AAC v2|AAC-LC, HE-AAC v1, HE-AAC v2|
 | Supported output audio codecs|Same as input|AAC-LC|
+| Maximum video resolution of output video|Same as input|720p (at 30 frames/second)|
 | Input protocols|RTMP, fragmented-MP4 (Smooth Streaming)|RTMP, fragmented-MP4 (Smooth Streaming)|
 | Price|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|
 | Maximum run time|24x365 live linear|24x7|

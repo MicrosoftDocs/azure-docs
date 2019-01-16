@@ -154,7 +154,7 @@ Filter out telemetry for specific synthetic sources:
 
 ### Telemetry Event filter
 
-Filters custom events (logged using [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)).
+Filters custom events (logged using [TrackEvent()](../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -170,7 +170,7 @@ Filters custom events (logged using [TrackEvent()](app-insights-api-custom-event
 
 ### Trace Telemetry filter
 
-Filters log traces (logged using [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) or a [logging framework collector](app-insights-java-trace-logs.md)).
+Filters log traces (logged using [TrackTrace()](../azure-monitor/app/api-custom-events-metrics.md#tracktrace) or a [logging framework collector](app-insights-java-trace-logs.md)).
 
 ```XML
 

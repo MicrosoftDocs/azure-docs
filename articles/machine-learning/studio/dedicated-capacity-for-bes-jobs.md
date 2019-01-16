@@ -1,12 +1,12 @@
 ---
-title: Dedicated capacity for machine learning batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs
-description: Overview of Azure Batch services for Machine Learning jobs.
+title: Azure Batch service for Machine Learning Studio jobs | Microsoft Docs
+description: Overview of Azure Batch services for Machine Learning jobs. Batch Pool processing allows you to create pools on which you can submit batch jobs.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ---
-# Azure Batch service for Machine Learning jobs
+# Azure Batch service for Azure Machine Learning Studio jobs
 
 Machine Learning Batch Pool processing provides customer-managed scale for the Azure Machine Learning Batch Execution Service. Classic batch processing for machine learning takes place in a multi-tenant environment, which limits the number of concurrent jobs you can submit, and jobs are queued on a first-in-first-out basis. This uncertainty means that you can't accurately predict when your job will run.
 

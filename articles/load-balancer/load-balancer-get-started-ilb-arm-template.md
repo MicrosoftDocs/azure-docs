@@ -1,5 +1,6 @@
 ﻿---
-title: Create an Internal load balancer - Azure template | Microsoft Docs
+title: Create an Internal Load Balancer - Azure template
+titlesuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer using a template in Resource Manager
 services: load-balancer
 documentationcenter: na
@@ -7,6 +8,7 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017

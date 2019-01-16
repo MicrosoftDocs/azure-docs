@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
@@ -76,7 +76,12 @@ This section provides a list of properties that the Netezza dataset supports.
 
 For a full list of sections and properties that are available for defining datasets, see [Datasets](concepts-datasets-linked-services.md). 
 
-To copy data from Netezza, set the **type** property of the dataset to **NetezzaTable**. There is no additional type-specific property in this type of dataset.
+To copy data from Netezza, set the **type** property of the dataset to **NetezzaTable**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **NetezzaTable** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -88,7 +93,8 @@ To copy data from Netezza, set the **type** property of the dataset to **Netezza
         "linkedServiceName": {
             "referenceName": "<Netezza linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -106,7 +112,7 @@ To copy data from Netezza, set the **source** type in Copy Activity to **Netezza
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity source must be set to **NetezzaSource**. | Yes |
-| query | Use the custom SQL query to read data. Example: `"SELECT * FROM MyTable"` | Yes |
+| query | Use the custom SQL query to read data. Example: `"SELECT * FROM MyTable"` | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

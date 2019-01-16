@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure IoT Edge C# tutorial | Microsoft Docs 
+title: Tutorial create custom C# module - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with C# code and deploy it to an edge device.
 services: iot-edge
 author: kgremban
@@ -10,7 +10,7 @@ ms.author: kgremban
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: "mvc, seodec18"
 
 ---
 
@@ -308,7 +308,7 @@ You can see the full container image address with tag in the VS Code integrated 
 
 ## Deploy and run the solution
 
-In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Toolkit extension for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
+In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Hub Toolkit extension (formerly Azure IoT Toolkit extension) for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
 
 1. In the VS Code command palette, run **Azure IoT Hub: Select IoT Hub**. 
 

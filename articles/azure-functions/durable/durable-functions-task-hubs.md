@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
 ---
 
@@ -22,7 +22,7 @@ Each function app has a separate task hub. If multiple function apps share a sto
 
 ## Azure Storage resources
 
-A task hub consists of the following storage resources: 
+A task hub consists of the following storage resources:
 
 * One or more control queues.
 * One work-item queue.
@@ -36,7 +36,8 @@ All of these resources are created automatically in the default Azure Storage ac
 
 Task hubs are identified by a name that is declared in the *host.json* file, as shown in the following example:
 
-### host.json (Functions v1)
+### host.json (Functions 1.x)
+
 ```json
 {
   "durableTask": {
@@ -44,7 +45,9 @@ Task hubs are identified by a name that is declared in the *host.json* file, as 
   }
 }
 ```
-### host.json (Functions v2)
+
+### host.json (Functions 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -55,9 +58,11 @@ Task hubs are identified by a name that is declared in the *host.json* file, as 
   }
 }
 ```
+
 Task hubs can also be configured using app settings, as shown in the following *host.json* example file:
 
-### host.json (Functions v1)
+### host.json (Functions 1.x)
+
 ```json
 {
   "durableTask": {
@@ -65,7 +70,9 @@ Task hubs can also be configured using app settings, as shown in the following *
   }
 }
 ```
-### host.json (Functions v2)
+
+### host.json (Functions 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -76,14 +83,46 @@ Task hubs can also be configured using app settings, as shown in the following *
   }
 }
 ```
+
 The task hub name will be set to the value of the `MyTaskHub` app setting. The following `local.settings.json` demonstrates how to define the `MyTaskHub` setting as `samplehubname`:
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "MyTaskHub" :  "samplehubname" 
+    "MyTaskHub" : "samplehubname"
   }
+}
+```
+
+Here is a precompiled C# example of how to write a function which uses an [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) to work with a task hub that is configured as an App Setting:
+
+```csharp
+[FunctionName("HttpStart")]
+public static async Task<HttpResponseMessage> Run(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    string functionName,
+    ILogger log)
+{
+    // Function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    return starter.CreateCheckStatusResponse(req, instanceId);
+}
+```
+
+And below is the required configuration for JavaScript. The task hub property in the `function.json` file is set via App Setting:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
 }
 ```
 

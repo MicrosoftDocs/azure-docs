@@ -1,18 +1,11 @@
 ---
-title: Azure DNS FAQ | Microsoft Docs
+title: Azure DNS FAQ
 description: Frequently asked questions about Azure DNS
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-editor: ''
-
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 9/25/2018
+ms.date: 12/4/2018
 ms.author: victorh
 ---
 
@@ -98,9 +91,9 @@ Yes. Azure DNS supports the extended ASCII encoding set for TXT record sets. But
 
 For example, a user might provide a string as the value for a TXT record that has the extended ASCII character \128. An example is "abcd\128efgh." Azure DNS uses the byte value of this character, which is 128, in internal representation. At the time of DNS resolution, this byte value is returned in the response. Also note that "abc" and "\097\098\099" are interchangeable as far as resolution is concerned. 
 
-We follow [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone file master format escape rules for TXT records. For example, "\" now actually escapes everything per the RFC. If you specify "A\B" as the TXT record value, it's represented and resolved as just "AB." If you really want the TXT record to have "A\B" at resolution, you need to escape the "\" again. As an example, specify "A\\B". 
+We follow [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone file master format escape rules for TXT records. For example, `\` now actually escapes everything per the RFC. If you specify `A\B` as the TXT record value, it's represented and resolved as just `AB`. If you really want the TXT record to have `A\B` at resolution, you need to escape the `\` again. As an example, specify `A\\B`.
 
-This support currently isn't available for TXT records created from the Azure portal. 
+This support currently isn't available for TXT records created from the Azure portal.
 
 ## Alias records
 
@@ -115,6 +108,7 @@ Alias record sets are supported for the following record types in an Azure DNS z
 - CNAME 
 
 ### What resources are supported as targets for alias record sets?
+
 - **Point to a public IP resource from a DNS A/AAAA record set.** You can create an A/AAAA record set and make it an alias record set to point to a public IP resource.
 - **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set.** You can point to the CNAME of a Traffic Manager profile from a DNS CNAME record set. An example is contoso.trafficmanager.net. Now, you also can point to a Traffic Manager profile that has external endpoints from an A or AAAA record set in your DNS zone.
 - **Point to another DNS record set within the same zone.** Alias records can reference to other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME record set of the same type. This arrangement is useful if you want some record sets to be aliases and some non-aliases.
@@ -193,49 +187,63 @@ To configure IDNs in Azure DNS, convert the zone name or record set name to puny
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ### Does Azure DNS support private domains?
+
 Support for private domains is implemented by using the Private Zones feature. This feature is currently available in public preview. Private zones are managed by using the same tools as internet-facing Azure DNS zones. They're resolvable only from within your specified virtual networks. For more information, see the [overview](private-dns-overview.md).
 
 At this time, private zones aren't supported on the Azure portal. 
 
 For information on other internal DNS options in Azure, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-### What's the difference between Registration virtual network and Resolution virtual network in the context of private zones? 
+### What's the difference between Registration virtual network and Resolution virtual network in the context of private zones?
+
 You can link virtual networks to a DNS private zone as a Registration virtual network or as a Resolution virtual network. In either case, virtual machines in the virtual network successfully resolve against records in the private zone. With a Registration virtual network, DNS records are automatically registered into the zone for the virtual machines in the virtual network. When a virtual machine in a Registration virtual network is deleted, the corresponding DNS record from the linked private zone is automatically removed. 
 
 ### Will Azure DNS Private Zones work across Azure regions?
+
 Yes. Private Zones is supported for DNS resolution between virtual networks across Azure regions. Private Zones works even without explicitly peering the virtual networks. All the virtual networks must be specified as Resolution virtual networks for the private zone. Customers might need the virtual networks to be peered for TCP/HTTP traffic to flow from one region to another.
 
 ### Is connectivity to the Internet from virtual networks required for private zones?
+
 No. Private zones work along with virtual networks. Customers use them to manage domains for virtual machines or other resources within and across virtual networks. Internet connectivity isn't required for name resolution. 
 
-### Can the same private zone be used for several virtual networks for resolution? 
+### Can the same private zone be used for several virtual networks for resolution?
+
 Yes. Customers can associate up to 10 Resolution virtual networks with a single private zone.
 
-### Can a virtual network that belongs to a different subscription be added as a Resolution virtual network to a private zone? 
+### Can a virtual network that belongs to a different subscription be added as a Resolution virtual network to a private zone?
+
 Yes. The user must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several RBAC roles. For example, the Classic Network Contributor RBAC role has write permissions to virtual networks. For more information on RBAC roles, see [Role-based access control](../role-based-access-control/overview.md).
 
 ### Will the automatically registered virtual machine DNS records in a private zone be automatically deleted when the virtual machines are deleted by the customer?
+
 Yes. If you delete a virtual machine within a Registration virtual network, the DNS records that were registered into the zone are automatically deleted. 
 
-### Can an automatically registered virtual machine record in a private zone from a Registration virtual network be deleted manually? 
+### Can an automatically registered virtual machine record in a private zone from a Registration virtual network be deleted manually?
+
 No. The virtual machine DNS records that are automatically registered in a private zone from a Registration virtual network aren't visible or editable by customers. You can overwrite the automatically registered DNS records with a manually created DNS record in the zone. The following question and answer address this topic.
 
-### What happens when we try to manually create a new DNS record into a private zone that has the same hostname as an automatically registered existing virtual machine in a Registration virtual network? 
+### What happens when we try to manually create a new DNS record into a private zone that has the same hostname as an automatically registered existing virtual machine in a Registration virtual network?
+
 You try to manually create a new DNS record into a private zone that has the same hostname as an existing, automatically registered virtual machine in a Registration virtual network. When you do, the new DNS record overwrites the automatically registered virtual machine record. If you try to delete this manually created DNS record from the zone again, the delete succeeds. The automatic registration happens again as long as the virtual machine still exists and has a private IP attached to it. The DNS record is re-created automatically in the zone.
 
 ### What happens when we unlink a Registration virtual network from a private zone? Will the automatically registered virtual machine records from the virtual network be removed from the zone too?
+
 Yes. To unlink a Registration virtual network from a private zone, you update the DNS zone to remove the associated Registration virtual network. In this process, virtual machine records that were automatically registered are removed from the zone. 
 
 ### What happens when we delete a Registration or Resolution virtual network that's linked to a private zone? Do we have to manually update the private zone to unlink the virtual network as a Registration or Resolution  virtual network from the zone?
+
 Yes. When you delete a Registration or Resolution virtual network without unlinking it from a private zone first, your deletion operation succeeds. But the virtual network isn't automatically unlinked from your private zone, if any. You must manually unlink the virtual network from the private zone. For this reason,  unlink your virtual network from your private zone before you delete it.
 
-### Will DNS resolution by using the default FQDN (internal.cloudapp.net) still work even when a private zone (for example, contoso.local) is linked to a virtual network? 
+### Will DNS resolution by using the default FQDN (internal.cloudapp.net) still work even when a private zone (for example, contoso.local) is linked to a virtual network?
+
 Yes. Private Zones doesn't replace the default DNS resolutions by using the Azure-provided internal.cloudapp.net zone. It's offered as an additional feature or enhancement. Whether you rely on the Azure-provided internal.cloudapp.net or on your own private zone, use the FQDN of the zone you want to resolve against. 
 
-### Will the DNS suffix on virtual machines within a linked virtual network be changed to that of the private zone? 
+### Will the DNS suffix on virtual machines within a linked virtual network be changed to that of the private zone?
+
 No. The DNS suffix on the virtual machines in your linked virtual network stays as the default Azure-provided suffix ("*.internal.cloudapp.net"). You can manually change this DNS suffix on your virtual machines to that of the private zone. 
 
 ### Are there any limitations for private zones during this preview?
+
 Yes. During the public preview, the following limitations exist.
 * One Registration virtual network per private zone.
 * Up to 10 Resolution virtual networks per private zone.
@@ -248,9 +256,11 @@ Yes. During the public preview, the following limitations exist.
 * Conditional forwarding isn't supported, for example, to enable resolution between Azure and on-premises networks. Learn how customers can realize this scenario via other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### Are there any quotas or limits on zones or records for private zones?
+
 There are no limits on the number of zones allowed per subscription for private zones. There are no limits on the number of record sets per zone for private zones. Both public and private zones count toward the overall DNS limits. For more information, see the [Azure subscription and service limits](../azure-subscription-service-limits.md#dns-limits)
 
 ### Is there portal support for private zones?
+
 Private zones that are already created via APIs, PowerShell, the CLI, and SDKs are visible on the Azure portal. But customers can't create new private zones or manage associations with virtual networks. For virtual networks associated as Registration virtual networks, automatically registered VM records aren't visible from the portal. 
 
 ## Next steps

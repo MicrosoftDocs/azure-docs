@@ -6,18 +6,14 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
-
 ms.custom: H1Hack27Feb2017
-
 ---
 # Creating a management solution file in Azure (Preview)
 > [!NOTE]
@@ -166,7 +162,7 @@ In this case, you refer to variable values through the solution with the syntax 
 The **dependsOn** element specifies a [dependency](../../azure-resource-manager/resource-group-define-dependencies.md) on another resource.  When the solution is installed, a resource is not created until all of its dependencies have been created.  For example, your solution might [start a runbook](solutions-resources-automation.md#runbooks) when it's installed using a [job resource](solutions-resources-automation.md#automation-jobs).  The job resource would be dependent on the runbook resource to make sure that the runbook is created before the job is created.
 
 ### Log Analytics workspace and Automation account
-Management solutions require a [Log Analytics workspace](../../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](solutions.md#log-analytics-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
+Management solutions require a [Log Analytics workspace](../../azure-monitor/platform/manage-access.md) to contain views and an [Automation account](../../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](solutions.md#log-analytics-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
 
 
 ## Solution resource

@@ -29,7 +29,7 @@ Azure Resource Health keeps you informed about the current and historical health
 To follow the instructions on this page, you'll need to set up a few things in advance:
 
 1. You need to install the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. You need to [create or reuse an Action Group](../monitoring-and-diagnostics/monitoring-action-groups.md) configured to notify you
+2. You need to [create or reuse an Action Group](../azure-monitor/platform/action-groups.md) configured to notify you
 
 ## Instructions
 1. Using PowerShell, log in to Azure using your account, and select the subscription you want to interact with
@@ -432,4 +432,4 @@ Learn more about Resource Health:
 -  [Resource types and health checks available through Azure Resource Health](resource-health-checks-resource-types.md)
 
 Create Service Health Alerts:
--  [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Configure Alerts for Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

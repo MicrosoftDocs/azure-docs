@@ -67,7 +67,7 @@ In this section, you use Power BI to create visualizations, reports, and dashboa
 ### Create a report in Power BI Desktop
 The first steps in working with Spark are to connect to the cluster in Power BI Desktop, load data from the cluster, and create a basic visualization based on that data.
 
-> [!NOTE]
+> [!NOTE]  
 > The connector demonstrated in this article is currently in preview. Provide any feedback you have through the [Power BI Community](https://community.powerbi.com/) site or [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas).
 
 1. Open [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
@@ -172,7 +172,7 @@ Your visual is pinned to the dashboard - you can add other visuals to the report
 >
 >
 
-1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
+1. Install [Tableau Desktop](https://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
 2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 

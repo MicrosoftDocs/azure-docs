@@ -263,7 +263,7 @@ The traditional Go test result returns in about a minute.
 
 In contrast to unit tests, integration tests must provision resources to a real environment for an end-to-end perspective. Terratest does a good job with this kind of task. 
 
-Best practices for Terraform modules incude installing the `examples` folder. The `examples` folder contains some end-to-end samples. To avoid working with real data, why not test those samples as integration tests? In this section, we focus on the three files that are marked with an asterisk `(*)` in the following folder structure:
+Best practices for Terraform modules include installing the `examples` folder. The `examples` folder contains some end-to-end samples. To avoid working with real data, why not test those samples as integration tests? In this section, we focus on the three files that are marked with an asterisk `(*)` in the following folder structure:
 
 ```
  📁 GoPath/src/staticwebpage
@@ -294,7 +294,7 @@ Let's start with the samples. A new sample folder named `hello-world/` is create
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demostrate Terratest.</p>
+    <p>This is a sample webpage to demonstrate Terratest.</p>
 </body>
 </html>
 ```
@@ -361,7 +361,7 @@ func TestIT_HelloWorldExample(t *testing.T) {
 	http_helper.HttpGetWithCustomValidation(t, homepage, func(status int, content string) bool {
 		return status == 200 &&
 			strings.Contains(content, "Hi, Terraform Module") &&
-			strings.Contains(content, "This is a sample web page to demostrate Terratest.")
+			strings.Contains(content, "This is a sample web page to demonstrate Terratest.")
 	})
 }
 ```
@@ -500,7 +500,7 @@ You can use the following commands to execute a full test suite. The code is sim
 $ cd [Your GoPath]/src/staticwebpage
 GoPath/src/staticwebpage$ dep init    # Run only once for this folder
 GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only requied when you change the magefile
+GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
 GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
 GoPath/src/staticwebpage$ mage
 ```

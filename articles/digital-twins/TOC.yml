@@ -100,6 +100,8 @@
     href: https://azure.microsoft.com/pricing/details/digital-twins/     
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
+    name: Azure Digital Twins Graph Viewer
+    href: https://github.com/Azure/azure-digital-twins-graph-viewer
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-digital-twins
   - name: Customer stories

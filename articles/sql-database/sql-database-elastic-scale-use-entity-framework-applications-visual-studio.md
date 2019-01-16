@@ -3,7 +3,7 @@ title: Using elastic database client library with Entity Framework | Microsoft D
 description: Use Elastic Database client library and Entity Framework for coding databases
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

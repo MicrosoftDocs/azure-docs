@@ -32,7 +32,7 @@ ExpressRoute enables you to extend on-premises networks into the Microsoft Azure
 Before you begin, make sure you understand the following concepts:
 
 - ExpressRoute [circuits](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [routing domains](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains)
+- ExpressRoute [routing domains](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [locations](../expressroute/expressroute-locations.md).
 - Azure VM [replication architecture](azure-to-azure-architecture.md)
 - How to [set up replication](azure-to-azure-tutorial-enable-replication.md) for Azure VMs.
@@ -131,7 +131,7 @@ In our example, the following should happen when enabling replication for Azure 
 
 ## Fail over Azure VMs when using ExpressRoute
 
-After you fail Azure VMs over to the target Azure region using Site Recovery, you can access them using ExpressRoute [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+After you fail Azure VMs over to the target Azure region using Site Recovery, you can access them using ExpressRoute [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 - You need to connect ExpressRoute to the target vNet with a new connection. The existing ExpressRoute connection isn't automatically transferred.
 - The way in which you set up your ExpressRoute connection to the target vNet depends on your ExpressRoute topology.

@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 12/28/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -36,7 +36,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### On-premises Active Directory
 * The AD schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
-* If you plan to use the feature **password writeback**, then the Domain Controllers must be on Windows Server 2008 (with latest SP) or later. If your DCs are on 2008 (pre-R2), then you must also apply [hotfix KB2386717](https://support.microsoft.com/kb/2386717).
+* If you plan to use the feature **password writeback**, then the Domain Controllers must be on Windows Server 2008 R2 or later.
 * The domain controller used by Azure AD must be writable. It is **not supported** to use a RODC (read-only domain controller) and Azure AD Connect does not follow any write redirects.
 * It is **not supported** to use on-premises forests/domains using "dotted" (name contains a period ".") NetBios names.
 * It is recommended to [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
@@ -44,8 +44,8 @@ Before you install Azure AD Connect, there are a few things that you need.
 ### Azure AD Connect server
 * Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better.
 * The Azure AD Connect server must have a full GUI installed. It is **not supported** to install on server core.
-* Azure AD Connect must be installed on Windows Server 2008 or later. This server may be a domain controller or a member server when using express settings. If you use custom settings, then the server can also be stand-alone and does not have to be joined to a domain.
-* If you install Azure AD Connect on Windows Server 2008 or Windows Server 2008 R2, then make sure to apply the latest hotfixes from Windows Update. The installation is not able to start with an unpatched server.
+* Azure AD Connect must be installed on Windows Server 2008 R2 or later. This server may be a domain controller or a member server when using express settings. If you use custom settings, then the server can also be stand-alone and does not have to be joined to a domain.
+* If you install Azure AD Connect on Windows Server 2008 R2, then make sure to apply the latest hotfixes from Windows Update. The installation is not able to start with an unpatched server.
 * If you plan to use the feature **password synchronization**, then the Azure AD Connect server must be on Windows Server 2008 R2 SP1 or later.
 * If you plan to use a **group managed service account**, then the Azure AD Connect server must be on Windows Server 2012 or later.
 * The Azure AD Connect server must have [.NET Framework 4.5.1](#component-prerequisites) or later and [Microsoft PowerShell 3.0](#component-prerequisites) or later installed.
@@ -72,7 +72,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If you have firewalls on your Intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, then see [Azure AD Connect Ports](reference-connect-ports.md) for more information.
 * If your proxy or firewall limit which URLs can be accessed, then the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened.
   * If you are using the Microsoft Cloud in Germany or the Microsoft Azure Government cloud, then see [Azure AD Connect sync service instances considerations](reference-connect-instances.md) for URLs.
-* Azure AD Connect (version 1.1.614.0 and after) by default uses TLS 1.2 for encrypting communication between the sync engine and Azure AD. If TLS 1.2 isn't available on the underlying operating system, Azure AD Connect incrementally falls back to older protocols (TLS 1.1 and TLS 1.0). For example, Azure AD Connect running on Windows Server 2008 uses TLS 1.0 because Windows Server 2008 does not support TLS 1.1 or TLS 1.2.
+* Azure AD Connect (version 1.1.614.0 and after) by default uses TLS 1.2 for encrypting communication between the sync engine and Azure AD. If TLS 1.2 isn't available on the underlying operating system, Azure AD Connect incrementally falls back to older protocols (TLS 1.1 and TLS 1.0).
 * Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting communication between the sync engine and Azure AD. To change to TLS 1.2, follow the steps in [Enable TLS 1.2 for Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
 * If you are using an outbound proxy for connecting to the Internet, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added for the installation wizard and Azure AD Connect sync to be able to connect to the Internet and Azure AD. This text must be entered at the bottom of the file. In this code, &lt;PROXYADRESS&gt; represents the actual proxy IP address or host name.
 
@@ -117,18 +117,16 @@ Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You n
 * Windows Server 2012R2
   * Microsoft PowerShell is installed by default. No action is required.
   * .NET Framework 4.5.1 and later releases are offered through Windows Update. Make sure you have installed the latest updates to Windows Server in the Control Panel.
-* Windows Server 2008R2 and Windows Server 2012
+* Windows Server 2008 R2 and Windows Server 2012
   * The latest version of Microsoft PowerShell is available in **Windows Management Framework 4.0**, available on [Microsoft Download Center](https://www.microsoft.com/downloads).
   * .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](https://www.microsoft.com/downloads).
-* Windows Server 2008
-  * The latest supported version of PowerShell is available in **Windows Management Framework 3.0**, available on [Microsoft Download Center](https://www.microsoft.com/downloads).
-  * .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](https://www.microsoft.com/downloads).
+
 
 ### Enable TLS 1.2 for Azure AD Connect
 Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting the communication between the sync engine server and Azure AD. You can change this by configuring .Net applications to use TLS 1.2 by default on the server. More information about TLS 1.2 can be found in [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1.2 cannot be enabled on Windows Server 2008. You need Windows Server 2008R2 or later. Make sure you have the .Net 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). You might have this hotfix or a later release installed on your server already.
-2. If you use Windows Server 2008R2, then make sure TLS 1.2 is enabled. On Windows Server 2012 server and later versions, TLS 1.2 should already be enabled.
+1. TLS 1.2 cannot be enabled prior to Windows Server 2008 R2 or later. Make sure you have the .Net 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). You might have this hotfix or a later release installed on your server already.
+2. If you use Windows Server 2008 R2, then make sure TLS 1.2 is enabled. On Windows Server 2012 server and later versions, TLS 1.2 should already be enabled.
    ```
    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001

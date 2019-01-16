@@ -10,11 +10,9 @@ ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Create a custom dashboard for use in Log Analytics
@@ -83,4 +81,4 @@ To remove a tile, navigate to the My Dashboard view and click **Customize** to e
 ![Remove a Tile](./media/dashboards/oms-dashboards-remove-tile.png)
 
 ## Next steps
-* Create [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics to generate notifications and to remediate problems.
+* Create [alerts](../../azure-monitor/platform/alerts-overview.md) in Log Analytics to generate notifications and to remediate problems.

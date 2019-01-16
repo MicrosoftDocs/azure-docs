@@ -1,13 +1,14 @@
 ---
-title: Prepare for a production Azure IoT Edge solution | Microsoft Docs 
+title: Prepare devices and deployments for production - Azure IoT Edge | Microsoft Docs 
 description: Learn how to take your Azure IoT Edge solution from development to production, including setting your devices up with the appropriate certificates and making a deployment plan for future code updates. 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Prepare to deploy your IoT Edge solution in production
@@ -156,6 +157,17 @@ If your networking setup requires that you explicitly whitelist connections made
 In all three cases, the DNS name would match the pattern \*.azure-devices.net. 
 
 Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the DNS name is mcr.microsoft.com. The container engine connects to other registries as configured in the deployment. 
+
+This checklist is a starting point for firewall rules:
+
+   | URL (\* = wildcard) | Outbound TCP Ports | Usage |
+   | ----- | ----- | ----- |
+   | mcr.microsoft.com  | 443 | Microsoft container registry |
+   | global.azure-devices-provisioning.net  | 443 | DPS access (optional) |
+   | \*.azurecr.io | 443 | Personal and 3rd party container registries |
+   | \*.blob.core.windows.net | 443 | Download of image deltas | 
+   | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
+   | \*.docker.io  | 443 | Docker access (optional) |
 
 ### Configure communication through a proxy
 

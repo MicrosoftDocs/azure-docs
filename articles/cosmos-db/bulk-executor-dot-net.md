@@ -1,9 +1,8 @@
 ---
-title: Using bulk executor .NET library to perform bulk import and update operations in Azure Cosmos DB | Microsoft Docs
+title: Using bulk executor .NET library to perform bulk import and update operations in Azure Cosmos DB
 description: Bulk import and update Azure Cosmos DB documents using bulk executor .NET library.
 services: cosmos-db
 author: tknandu
-manager: kfile
 
 ms.service: cosmos-db
 ms.devlang: dotnet

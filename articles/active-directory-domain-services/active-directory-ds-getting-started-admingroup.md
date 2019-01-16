@@ -20,8 +20,8 @@ ms.author: ergreenl
 ---
 # Enable Azure Active Directory Domain Services using the Azure portal
 
-
 ## Task 3: configure administrative group
+
 In this configuration task, you create an administrative group in your Azure AD directory. This special administrative group is called *AAD DC Administrators*. Members of this group are granted administrative permissions on machines that are domain-joined to the managed domain. On domain-joined machines, this group is added to the administrators group. Additionally, members of this group can use Remote Desktop to connect remotely to domain-joined machines.
 
 > [!NOTE]
@@ -45,14 +45,14 @@ Azure AD Domain Services allows for either full synchronization of all users and
 ### Full synchronization
 
 1. For full synchronization, just click "OK" on the bottom of the screen, as full is already chosen.
-    ![Full synchronization](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+    ![Full synchronization](./media/active-directory-domain-services-admin-guide/create-sync-all.PNG)
 
 ### Scoped synchronization
 
 1. Toggle the synchronization button to "Scoped" and a select groups page will appear. From this, you can see what groups are already selected to be synchronized to your managed domain.
-    ![Scoped synchronization](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+    ![Scoped synchronization](media/active-directory-domain-services-admin-guide/create-sync-scoped.PNG)
 2. Click **Select groups** in the top navigation bar. From here, a group picker will pop up on the side. Use this to select any additional groups to synchronize to Azure AD Domain Services. When finished, click **Select** to close the group picker and add those groups to the selected list.
-    ![Scoped synchronization select groups](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+    ![Scoped synchronization select groups](media/active-directory-domain-services-admin-guide/create-sync-scoped-groupselect.PNG)
 3. Click **OK** to move to the summary page.
 
 ## Deploy your managed domain
@@ -65,8 +65,8 @@ Azure AD Domain Services allows for either full synchronization of all users and
 
     ![Notification - deployment in progress](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
-
 ## Check the deployment status of your managed domain
+
 The process of provisioning your managed domain can take up to an hour.
 
 1. While your deployment is in progress, you can search for 'domain services' in the **Search resources** search box. Select **Azure AD Domain Services** from the search result. The **Azure AD Domain Services** blade lists the managed domain that is being provisioned.
@@ -92,10 +92,10 @@ The process of provisioning your managed domain can take up to an hour.
 
     ![Domain Services - Properties tab after fully provisioned](./media/getting-started/domain-services-provisioned-properties.png)
 
-
 ## Need help?
+
 It may take an hour or two for both domain controllers for your managed domain to be provisioned. If your deployment failed or is stuck in the 'Pending' state for more than a couple of hours, feel free to [contact the product team for help](active-directory-ds-contact-us.md).
 
-
 ## Next step
+
 [Task 4: update the DNS settings for the Azure virtual network](active-directory-ds-getting-started-dns.md)

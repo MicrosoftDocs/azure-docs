@@ -5,7 +5,7 @@ keywords: machine learning introduction,predictive modeling,what is machine lear
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
 ---
-# Azure Machine Learning Studio frequently asked questions: Billing, capabilities, limitations, and support
+# Azure Machine Learning Studio FAQ: Billing, capabilities, limitations, and support
 Here are some frequently asked questions (FAQs) and corresponding answers about Azure Machine Learning, a cloud service for developing predictive models and operationalizing solutions through web services. These FAQs provide questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
 
 **Have a question you can't find here?**
@@ -26,7 +26,7 @@ Azure Machine Learning has a forum on MSDN where members of the data science com
 ## General questions
 **What is Machine Learning Studio?**
 
-Machine Learning Studio is a workbench environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
+Machine Learning Studio is a drag-and-drop canvas environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
 
 For more information about Machine Learning Studio, see [What is Machine Learning Studio?](what-is-ml-studio.md)
 

@@ -1,13 +1,11 @@
 ---
-title: Load balance zone-redundant VMs using Azure CLI | Microsoft Docs
+title: Load balance zone-redundant VMs using Azure CLI
+titlesuffix: Azure Load Balancer
 description: Learn how to create a public Load Balancer Standard with zone redundant frontend using Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
+ms.custom: seodec18
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na

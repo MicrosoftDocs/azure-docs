@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # Reference guide to View Designer tiles in Log Analytics
@@ -175,5 +172,5 @@ The **Two timelines** tile displays the results of two log queries over time as 
 
 
 ## Next steps
-* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to support the queries in tiles.
+* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to support the queries in tiles.
 * Add [visualization parts](view-designer-parts.md) to your custom view.

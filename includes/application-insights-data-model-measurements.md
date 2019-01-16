@@ -19,6 +19,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Custom measurements are associated with the telemetry item they belong to. They are subject to sampling with the telemetry item containing those measurements. To track a measurement that has a value independent from other telemetry types, use [Metric telemetry](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Custom measurements are associated with the telemetry item they belong to. They are subject to sampling with the telemetry item containing those measurements. To track a measurement that has a value independent from other telemetry types, use [Metric telemetry](../articles/azure-monitor/app/api-custom-events-metrics.md).
 
 Max key length: 150

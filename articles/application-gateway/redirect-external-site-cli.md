@@ -97,7 +97,7 @@ az network application-gateway redirect-config create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --type Temporary \
-  --target-url "http://bing.com"
+  --target-url "https://bing.com"
 ```
 
 ### Add a listener and routing rule

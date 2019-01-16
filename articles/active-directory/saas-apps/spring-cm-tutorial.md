@@ -186,7 +186,7 @@ The objective of this section is to create a test user in the Azure portal calle
 To enable Azure Active Directory users to log in to SpringCM, they must be provisioned into SpringCM. In the case of SpringCM, provisioning is a manual task.
 
 >[!NOTE]
->For more information, see [Create and Edit a SpringCM User](http://knowledge.springcm.com/create-and-edit-a-springcm-user). 
+>For more information, see [Create and Edit a SpringCM User](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
 
 **To provision a user account to SpringCM, perform the following steps:**
 

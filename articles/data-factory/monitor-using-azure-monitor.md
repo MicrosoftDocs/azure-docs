@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
 
 ---
@@ -22,12 +22,12 @@ Cloud applications are complex with many moving parts. Monitoring provides data 
 Azure Monitor provides base level infrastructure metrics and logs for most services in Microsoft Azure. For details, see [monitoring overview](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure Diagnostic logs are logs emitted by a resource that provide rich, frequent data about the operation of that resource. Data Factory outputs diagnostic logs in Azure Monitor.
 
 ## Persist Data Factory Data
-Data Factory only stores pipeline run data for 45 days. If you want to persist pipeline run data for more than 45 days, using Azure Monitor, you can not only route diagnostic logs for analysis, you can persist them into a storage account so you have factory information for the duration of your choosing.
+Data Factory only stores pipeline run data for 45 days. If you want to persist pipeline run data for more than 45 days, using Azure Monitor, you cannot only route diagnostic logs for analysis, you can persist them into a storage account so you have factory information for the duration of your choosing.
 
 ## Diagnostic logs
 
 * Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the diagnostic settings.
-* Stream them to **Event Hubs** for ingestion by a third-party service or custom analytics solution such as PowerBI.
+* Stream them to **Event Hubs** for ingestion by a third-party service or custom analytics solution such as Power BI.
 * Analyze them with **Log Analytics**
 
 You can use a storage account or event hub namespace that is not in the same subscription as the resource that is emitting logs. The user who configures the setting must have the appropriate role-based access control (RBAC) access to both subscriptions.
@@ -37,9 +37,9 @@ You can use a storage account or event hub namespace that is not in the same sub
 ### Diagnostic Settings
 Diagnostic Logs for non-compute resources are configured using diagnostic settings. Diagnostic settings for a resource control:
 
-* Where diagnostic logs are sent (Storage Account, Event Hubs, and/or Log Analytics).
+* Where diagnostic logs are sent (Storage Account, Event Hubs, or Log Analytics).
 * Which log categories are sent.
-* How long each log category should be retained in a storage account
+* How long each log category should be retained in a storage account.
 * A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
 * If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
 * Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
@@ -461,17 +461,7 @@ You can visualize the above metrics, look at the queries behind these metrics, e
 
 ## Alerts
 
-You can raise alerts on supported metrics in Data Factory. Click
-the **Alerts** button on the Data Factory **Monitor** page.
-
-![Alerts option](media/monitor-using-azure-monitor/alerts_image1.png)
-
-This takes you to the **Alerts** page.
-
-![Alerts page](media/monitor-using-azure-monitor/alerts_image2.png)
-
-You can also log in to the Azure portal and click **Monitor -&gt; Alerts** to
-reach the **Alerts** page directly.
+Log in to the Azure portal and click **Monitor -&gt; Alerts** to create alerts.
 
 ![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -507,4 +497,5 @@ reach the **Alerts** page directly.
     ![Action group, screen 4 of 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## Next steps
-See [Monitor and manage pipelines programmatically](monitor-programmatically.md) article to learn about monitoring and managing pipelines by running .
+
+See [Monitor and manage pipelines programmatically](monitor-programmatically.md) article to learn about monitoring and managing pipelines with code.

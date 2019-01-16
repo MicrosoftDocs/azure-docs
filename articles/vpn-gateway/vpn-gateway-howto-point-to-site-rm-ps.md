@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
 
 ---
@@ -52,26 +52,17 @@ You can use the example values to create a test environment, or refer to these v
 * **Public IP name: VNet1GWPIP**
 * **VpnType: RouteBased** 
 
-## <a name="declare"></a>1. Log in and set variables
+## <a name="declare"></a>1. Sign in and set variables
 
-In this section, you log in and declare the values used for this configuration. The declared values are used in the sample scripts. Change the values to reflect your own environment. Or, you can use the declared values and go through the steps as an exercise.
+In this section, you sign in and declare the values used for this configuration. The declared values are used in the sample scripts. Change the values to reflect your own environment. Or, you can use the declared values and go through the steps as an exercise.
 
-1. Open your PowerShell console with elevated privileges, and log in to your Azure account. This cmdlet prompts you for the login credentials. After logging in, it downloads your account settings so that they are available to Azure PowerShell. If you are not running PowerShell locally and are instead using the Azure Cloud Shell 'Try it' in the browser, you can skip to step 2 of this section.
+### Sign in
 
-  ```azurepowershell
-  Connect-AzureRmAccount
-  ```
-2. Get a list of your Azure subscriptions.
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
 
-  ```azurepowershell-interactive
-  Get-AzureRmSubscription
-  ```
-3. Specify the subscription that you want to use.
+### Declare variables
 
-  ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
-4. Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary.
+Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary.
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"

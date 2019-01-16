@@ -49,7 +49,7 @@ IoT Hub returns the following data, which the device uses to upload the file:
 ```json
 {
     "correlationId": "somecorrelationid",
-    "hostName": "contoso.azure-devices.net",
+    "hostName": "yourstorageaccount.blob.core.windows.net",
     "containerName": "testcontainer",
     "blobName": "test-device1/image.jpg",
     "sasToken": "1234asdfSAStoken"

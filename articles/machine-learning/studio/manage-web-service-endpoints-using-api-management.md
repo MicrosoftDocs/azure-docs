@@ -1,13 +1,13 @@
 ---
 title: Manage Machine Learning Studio web services using API Management - Azure | Microsoft Docs
-description: A guide showing how to manage AzureML web services using API Management.
+description: A guide showing how to manage AzureML web services using API Management. Manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.
 keywords: machine learning,api management
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning

@@ -35,4 +35,4 @@ If it is not possible to publish all resources within the same application, you 
 To do so, we recommend using the [custom domains](application-proxy-configure-custom-domain.md) solution. However, this solution requires that you own the certificate for your domain and your applications use fully qualified domain names (FQDNs). For other options, see the [troubleshoot broken links documentation](application-proxy-page-links-broken-problem.md).
 
 ## Next steps
-[Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md)
+[Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md)

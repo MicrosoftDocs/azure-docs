@@ -76,7 +76,7 @@ To generate a password, first ensure that the **Expiry** is set to the desired e
 > Make a note of this password. Once you leave this page the password will not be displayed again.
 > 
 
-The following examples use the Git Bash tool from [Git for Windows](http://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
+The following examples use the Git Bash tool from [Git for Windows](https://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
 
 Open your Git tool in the desired folder and run the following command to clone the git repository to your local machine, using the command provided by the Azure portal.
 

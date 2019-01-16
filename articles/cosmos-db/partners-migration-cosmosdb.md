@@ -1,10 +1,9 @@
 ---
-title: Azure Cosmos DB NoSQL migration and application development partners | Microsoft Docs
+title: Azure Cosmos DB NoSQL migration and application development partners
 description: Lists Microsoft partners with migration solutions that support Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
@@ -25,18 +24,34 @@ From NoSQL migration to application development, you can choose from a variety o
 
 |**Partner**  |**Capabilities & experience**  |**Supported countries**  |**Contact**  |
 |---------|---------|---------|---------|
-|![Altoros][3]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development |     USA, EU    |  [Website](http://www.altoros.com/)       |
-|![Attunix][4]     |   NoSQL migration, <br/> App innovation (existing apps), <br/> New app development      |    USA     |  [Website](http://www.attunix.com/)       |
-|![Bluemetal][5]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    North America, Asia-Pacific     |  [Website](http://www.bluemetal.com/)       |
-|![Capax Global][6]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    USA     |  [Website](http://www.capaxglobal.com/)       |
+| ![10thMagnitude][13] | NoSQL migration; New app development | USA | [Website](https://www.10thmagnitude.com/)|
+|![Altoros Development LLC][3]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development |   US, Norway, Finland, Belarus, Argentina |  [Website](http://www.altoros.com/)     |
+|![Attunix Redapt][4]     |   NoSQL migration, <br/> App innovation (existing apps), <br/> New app development      |    USA     |  [Website](http://www.attunix.com/)       |
+| ![Avanade][26] | New app development, <br/> App innovation (existing apps) | Austria, Germany, Switzerland, Italy, Norway, Spain, UK | [Website](https://www.avanade.com/)
+|![Bluemetal Architects][5]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    North America, Asia-Pacific     |  [Website](http://www.bluemetal.com/)       |
+|![Capax Global LLC][6]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    USA     |  [Website](http://www.capaxglobal.com/)       |
+| ![Capgemini][14] | NoSQL migration; App innovation (existing apps); New app development | US, France, UK, Netherlands, Finland  | [Website](https://www.capgemini.com/) | 
 |![Coeo][7]     |   App innovation (existing apps), <br/> New app development |    UK     |  [Website](http://www.coeo.com/)       |
+| ![Cognizant][15] | NoSQL migration |US, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan | [Website](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL migration       |    Global     |  [Website](http://www.infosys.com/)       |
+| ![Lagash][16] | NoSQL migration, <br/> New app development | Argentina, Chile, Colombia, Mexico| [Website](https://lagash.com/)|
+| ![Lambda3 Informatics][17] | NoSQL migration, <br/> New app development | Brazil| [Website](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     App development (new apps)    |    USA     |  [Website](http://www.nealanalytics.com/)       |
-|![Pragmatic Works][10]    |   NoSQL migration      |   USA      |  [Website](http://www.pragmaticworks.com/)       |
+|![Pragmatic Works Software Inc][10]    |   NoSQL migration      |   USA      |  [Website](http://www.pragmaticworks.com/)       |
+| ![Ricoh Global][18] | NoSQL migration, <br/> App innovation (existing apps)| UK  | [Website](https://www.ricoh.com/)|
+| ![SNP Technologies][19] | NoSQL migration| US | [Website](https://www.snp.com/)|
+| ![Solidsoft Reply][20] | NoSQL migration | Croatia, Sweden, Denmark, Ireland, Bulgaria, Slovenia, Cyprus, Malta, Lithuania, the Czech Republic, Iceland and Switzerland and Liechtenstein| [Website](https://www.reply.com/solidsoft-reply/)|
+| ![Spanish Point Technologies][21] | NoSQL migration| Ireland| [Website](https://www.spanishpoint.ie/)|
+| ![Syone][22] | NoSQL migration| Portugal| [Website](https://www.syone.com/)|
 |![Tallan][11]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    USA     |  [Website](http://www.tallan.com/)       |
+| ![TCS][23] | App innovation (existing apps), <br/> New app development | US, UK, France, Malaysia, Denmark, Norway, Sweden| [Website](https://www.tcs.com/)|
 |![VTeamLabs][12]    | NoSQL migration       |  USA      | [Website](http://www.vteamlabs.com/)       |
+| ![White Duck][24] |NoSQL migration, <br/> New app development | Germany | [Website](https://whiteducksoftware.com/)|
+| ![Xpand IT][25] | New app development | Portugal, UK| [Website](https://www.xpand-it.com/)|
+
 
 ## Next steps
+
 To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
@@ -52,3 +67,17 @@ To learn more about some of Microsoft's other partners, see the [Microsoft Partn
 [10]: ./media/partners-migration-cosmosdb/pragmaticworks_logo.png
 [11]: ./media/partners-migration-cosmosdb/tallan_logo.png
 [12]: ./media/partners-migration-cosmosdb/vteamlabs_logo.png
+[13]: ./media/partners-migration-cosmosdb/10thmagnitude_logo.png
+[14]: ./media/partners-migration-cosmosdb/capgemini_logo.png
+[15]: ./media/partners-migration-cosmosdb/cognizant_logo.png
+[16]: ./media/partners-migration-cosmosdb/laglash_logo.png
+[17]: ./media/partners-migration-cosmosdb/lambda3_logo.png
+[18]: ./media/partners-migration-cosmosdb/ricoh_logo.png
+[19]: ./media/partners-migration-cosmosdb/snp_technologies_logo.png
+[20]: ./media/partners-migration-cosmosdb/solidsoft_reply_logo.png
+[21]: ./media/partners-migration-cosmosdb/spanish_point_logo.png
+[22]: ./media/partners-migration-cosmosdb/syone_logo.png
+[23]: ./media/partners-migration-cosmosdb/tcs_logo.png
+[24]: ./media/partners-migration-cosmosdb/whiteduck_logo.png
+[25]: ./media/partners-migration-cosmosdb/xpandit_logo.png
+[26]: ./media/partners-migration-cosmosdb/avanade_logo.png

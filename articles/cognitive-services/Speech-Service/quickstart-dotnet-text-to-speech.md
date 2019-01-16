@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Convert text-to-speech, .NET Core - Speech Service"
+title: "Quickstart: Convert text-to-speech, .NET Core - Speech Services"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to convert text-to-speech with the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ---
 
@@ -22,7 +22,7 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 
 This quickstart requires:
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
 * An Azure subscription key for the Speech Service
 
@@ -104,7 +104,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> For more information on authentication, see [How to get an access token](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> For more information on authentication, see [Authenticate with an access token](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## Get an access token and set the host URL
 
@@ -157,7 +157,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> This sample uses the `ZiraRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). If you're interested in creating a unique, recognizable voice for your brand, see [Creating custom voice fonts](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
+> This sample uses the `ZiraRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](language-support.md). If you're interested in creating a unique, recognizable voice for your brand, see [Creating custom voice fonts](how-to-customize-voice-font.md).
 
 ## Instantiate the client, make a request, and save synthesized audio to a file
 
@@ -188,7 +188,6 @@ using (var client = new HttpClient())
         // Update your resource name
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
-        request.Headers.Add("Connection", "Keep-Alive");
         // Create a request
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request).ConfigureAwait(false))
@@ -232,4 +231,5 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-* [Tutorial: Recognize Speech Intents](how-to-recognize-intents-from-speech-csharp.md)
+* [Creating custom voice fonts](how-to-customize-voice-font.md)
+* [Record voice samples to create a custom voice](record-custom-voice-samples.md)

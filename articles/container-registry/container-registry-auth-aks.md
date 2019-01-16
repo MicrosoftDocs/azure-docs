@@ -18,7 +18,7 @@ When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (
 
 When you create an AKS cluster, Azure also creates a service principal to support cluster operability with other Azure resources. You can use this auto-generated service principal for authentication with an ACR registry. To do so, you need to create an Azure AD [role assignment](../role-based-access-control/overview.md#role-assignments) that grants the cluster's service principal access to the container registry.
 
-Use the following script to grant the AKS-generated service principal access to an Azure container registry. Modify the `AKS_*` and `ACR_*` variables for your environment before running the script.
+Use the following script to grant the AKS-generated service principal pull access to an Azure container registry. Modify the `AKS_*` and `ACR_*` variables for your environment before running the script.
 
 ```bash
 #!/bin/bash
@@ -35,7 +35,7 @@ CLIENT_ID=$(az aks show --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER
 ACR_ID=$(az acr show --name $ACR_NAME --resource-group $ACR_RESOURCE_GROUP --query "id" --output tsv)
 
 # Create role assignment
-az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
+az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 ```
 
 ## Access with Kubernetes secret
@@ -54,8 +54,8 @@ SERVICE_PRINCIPAL_NAME=acr-service-principal
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --query loginServer --output tsv)
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
 
-# Create a 'Reader' role assignment with a scope of the ACR resource.
-SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role Reader --scopes $ACR_REGISTRY_ID --query password --output tsv)
+# Create acrpull role assignment with a scope of the ACR resource.
+SP_PASSWD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --role acrpull --scopes $ACR_REGISTRY_ID --query password --output tsv)
 
 # Get the service principal client id.
 CLIENT_ID=$(az ad sp show --id http://$SERVICE_PRINCIPAL_NAME --query appId --output tsv)

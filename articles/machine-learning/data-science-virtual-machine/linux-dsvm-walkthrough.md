@@ -1,11 +1,13 @@
 ---
-title: Data science with the Linux Data Science Virtual Machine on Azure| Microsoft Docs
+title: Learn how to use Linux Data Science Virtual Machine
+titleSuffix: Azure
 description: How to perform several common data science tasks with the Linux Data Science VM.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
@@ -312,19 +314,19 @@ The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-pla
 
 > [!NOTE]
 > To use the Python Package Manager (via the `pip` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > To use the Conda installer (via the `conda` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 
@@ -353,7 +355,7 @@ Install and start Rattle with the following commands:
 >
 >
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle.
+Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle.
 
 To load and configure the dataset:
 

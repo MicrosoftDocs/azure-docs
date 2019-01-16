@@ -1,9 +1,8 @@
 ---
-title: Build an Azure Cosmos DB Node.js application by using Gremlin API | Microsoft Docs
+title: Build an Azure Cosmos DB Node.js application by using Gremlin API
 description: Presents a Node.js code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
@@ -33,7 +32,7 @@ This quick start demonstrates how to create an Azure Cosmos DB [Gremlin API](gra
 
 Before you can run this sample, you must have the following prerequisites:
 * [Node.js](https://nodejs.org/en/) version v0.10.29 or later
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

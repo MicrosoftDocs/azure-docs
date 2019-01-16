@@ -1,5 +1,5 @@
 ---
-title: Azure IoT EdgeAgent and EdgeHub reference | Microsoft Docs 
+title: EdgeAgent and EdgeHub desired properties reference - Azure IoT Edge | Microsoft Docs 
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
 author: kgremban
 manager: philmea
@@ -8,6 +8,7 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom: seodec18
 ---
 
 # Properties of the Edge agent and Edge hub module twins

@@ -28,7 +28,7 @@ To complete this quickstart:
 - [Install .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - You will need an Azure subscription and an existing .NET Core web application.
 
-If you don't have a ASP.NET Core web application, you can use our step-by-step guide to [create a ASP.NET Core app and add Application Insights.](app-insights-asp-net-core.md)
+If you don't have a ASP.NET Core web application, you can use our step-by-step guide to [create a ASP.NET Core app and add Application Insights.](../azure-monitor/app/asp-net-core.md)
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 

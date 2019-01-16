@@ -1,21 +1,15 @@
 ---
-title: Azure PowerShell Script-Get Azure Cosmos DB connection string for MongoDB apps| Microsoft Docs
+title: Azure PowerShell Script-Get Azure Cosmos DB connection string for MongoDB apps
 description: Azure PowerShell Script Sample - Get Azure Cosmos DB connection string for MongoDB apps
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
-
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.component: cosmosdb-mongo
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
 ---
 
 # Get an Azure Cosmos DB connection string for MongoDB apps using PowerShell

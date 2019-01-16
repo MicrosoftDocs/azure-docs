@@ -28,7 +28,7 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 **Q.** How many VMs can I have in a scale set?
 
-**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 300 VMs based on custom images.
+**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 600 VMs based on custom images.
 
 **Q.** Are data disks supported within scale sets?
 

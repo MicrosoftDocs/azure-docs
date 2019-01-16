@@ -178,7 +178,7 @@ You can use this parameter to uniquely identify the Test Drive session, if it's 
 
 Some Azure resources, like storage accounts or DNS names, requires globally unique names.
 
-This means that every time Test Drive deploys the Resource Manager template, it creates a **new resource group with a unique name** for all its\' resources**.** Therefore it is required to use the [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) function concatenated with your variable names on resource group IDs to
+This means that every time Test Drive deploys the Resource Manager template, it creates a **new resource group with a unique name** for all its\' resources. Therefore it is required to use the [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) function concatenated with your variable names on resource group IDs to
 generate random unique values:
 
       "variables": {

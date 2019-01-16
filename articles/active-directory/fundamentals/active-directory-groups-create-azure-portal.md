@@ -1,6 +1,6 @@
 ---
-title: How to create a basic group and add members using Azure Active Directory | Microsoft Docs
-description: Learn how to create a basic group using Azure Active Directory.
+title: Create a basic group and add members - Azure Active Directory | Microsoft Docs
+description: Instructions about how to create a basic group using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,11 +12,10 @@ ms.topic: quickstart
 ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro                         
+ms.custom: "it-pro, seodec18"                      
 ---
 
-# How to: Create a basic group and add members using Azure Active Directory
-
+# Create a basic group and add members using Azure Active Directory
 You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is added to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
 
 ## Create a basic group and add members

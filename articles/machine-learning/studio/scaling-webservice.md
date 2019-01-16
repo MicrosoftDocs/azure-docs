@@ -4,9 +4,9 @@ description: Learn how to increase concurrency of an Azure Machine Learning Stud
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
+
 editor: cgronlun
 keywords: azure machine learning, web services, operationalization, scaling, endpoint, concurrency
 ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
@@ -18,7 +18,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
 ---
-# Scaling an Azure Machine Learning web service by adding additional endpoints
+# Scaling an Azure Machine Learning Studio web service by adding additional endpoints
 > [!NOTE]
 > This topic describes techniques applicable to a **Classic** Machine Learning web service. 
 > 

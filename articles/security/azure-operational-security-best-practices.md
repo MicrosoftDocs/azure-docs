@@ -100,7 +100,7 @@ Following are best practices for building DDoS-resilient services on Azure.
 Ensuring that an application is resilient enough to handle a denial of service that's targeted at the application itself is most important. Security and privacy are built into the Azure platform, beginning with the [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). The SDL addresses security at every development phase and ensures that Azure is continually updated to make it even more secure.
 
 **Best practice**: Design your applications to [scale horizontally](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.  
-**Detail**: For [Azure App Service](../app-service/app-service-value-prop-what-is.md), select an [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) that offers multiple instances.
+**Detail**: For [Azure App Service](../app-service/app-service-value-prop-what-is.md), select an [App Service plan](../app-service/overview-hosting-plans.md) that offers multiple instances.
 
 For Azure Cloud Services, configure each of your roles to use [multiple instances](../cloud-services/cloud-services-choose-me.md).
 

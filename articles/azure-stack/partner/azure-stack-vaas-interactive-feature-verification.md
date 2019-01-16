@@ -45,7 +45,7 @@ A test for disk replacement is a common scenario. In this example, the test has 
 
 3.  Select **Start** on the **Test Pass** tile.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image1.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image1.png)
 
 4.  Enter a name for the  **Test Pass** workflow.
 
@@ -60,7 +60,7 @@ A test for disk replacement is a common scenario. In this example, the test has 
 > [!Note]  
 > Domain admin user and password must be specified for disk identification interactive feature verification test.
 
-![Alt text](media\azure-stack-vaas-interactive-feature-verification\image2.png)
+![Alt text](media/azure-stack-vaas-interactive-feature-verification/image2.png)
 
 ## Select the test
 
@@ -69,51 +69,51 @@ A test for disk replacement is a common scenario. In this example, the test has 
     > [!Note]  
     > The version of the test will increment as improvements to the test collateral are made. The highest version should always be used unless Microsoft indicates otherwise.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image4.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2.  Provide the domain admin user and password by selecting **Edit**.
 
 3.  Select the appropriate test execution agent/DVM to launch the test on.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image5.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
 4.  Select **Submit** to start the test.
 
-![Alt text](media\azure-stack-vaas-interactive-feature-verification\image6.png)
+![Alt text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
 ## Start the test
 
 The Disk Identification Test prompts show on the computer that runs the VaaS agent. Usually this is the DVM or Jumpbox for the Azure Stack instance.
 
-![Alt text](media\azure-stack-vaas-interactive-feature-verification\image8.png)
+![Alt text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
 ## Choose the actions
 
 1.  Follow the **Documentation** and **Validation** links to review instructions from Microsoft on how to perform this scenario.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image9.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
 2.  Select **Next**.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image10.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
 3.  Follow the instructions to run the precheck script.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image11.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
 4.  Once the precheck script is completed successfully, execute the manual scenario (Disk replacement) as per the **Documentation** and **Validation** links from the **Information** tab.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image12.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
 5.  Do not close the dialog box while you are performing the manual scenario.
 
 6.  When you are finished performing the manual scenario, follow the instructions to run the post check script.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image13.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
 7.  On successful completion of the manual scenario (Disk replacement), select **Next**.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image14.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
 > [!Important]  
 > If you close the window, the test will stop before it is done.
@@ -122,7 +122,7 @@ The Disk Identification Test prompts show on the computer that runs the VaaS age
 
 1.  When the test is complete, you will be asked to provide feedback.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image15.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
 2.  These questions will help Microsoft assess the success rate and release quality of the scenario.
 
@@ -130,7 +130,7 @@ The Disk Identification Test prompts show on the computer that runs the VaaS age
 
 1.  Attach any log files you wish to submit to Microsoft.
 
-    ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image16.png)
+    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
 2.  Accept the feedback submission EULA.
 

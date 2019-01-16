@@ -27,7 +27,7 @@ A seamless user experience is key for any business-to-consumer solution. A seaml
 
 Azure AD B2C lets you customize the look-and-feel of user experience (UX) on the various pages that are served and displayed by Azure AD B2C using your custom policies.
 
-For that purpose, Azure AD B2C runs code in your consumer's browser and uses the modern and standard approach [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/) to load custom content from a specific URL that you specify in a custom policy to point to your HTML5/CSS templates. CORS is a mechanism that allows restricted resources, like fonts, on a web page to be requested from another domain outside the domain from which the resource originated.
+For that purpose, Azure AD B2C runs code in your consumer's browser and uses the modern and standard approach [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) to load custom content from a specific URL that you specify in a custom policy to point to your HTML5/CSS templates. CORS is a mechanism that allows restricted resources, like fonts, on a web page to be requested from another domain outside the domain from which the resource originated.
 
 Compared to the old traditional way, where template pages are owned by the solution where you provided limited text and images, where limited control of layout and feel was offered leading to more than difficulties to achieve a seamless experience, the CORS way supports HTML5 and CSS and allow you to:
 
@@ -65,10 +65,10 @@ To ensure that everything works as expected, you must:
 - Use absolute URLS such as https://yourdomain/content for all links and CSS content.
 
 > [!TIP]
-> To verify that the site you are hosting your content on has CORS enabled and test CORS requests, you can use the site http://test-cors.org/. Thanks to this site, you can either send the CORS request to a remote server (to test if CORS is supported), or send the CORS request to a test server (to explore certain features of CORS).
+> To verify that the site you are hosting your content on has CORS enabled and test CORS requests, you can use the site https://test-cors.org/. Thanks to this site, you can either send the CORS request to a remote server (to test if CORS is supported), or send the CORS request to a test server (to explore certain features of CORS).
 
 > [!TIP]
-> The site http://enable-cors.org/ also constitutes a more than useful resources on CORS.
+> The site https://enable-cors.org/ also constitutes a more than useful resources on CORS.
 
 Thanks to this CORS-based approach, the end users have consistent experiences between your application and the pages served by Azure AD B2C.
 
@@ -117,7 +117,7 @@ CORS (Cross-Origin Resource Sharing) must be enabled on your endpoint for Azure 
 To verify that the storage you are hosting your content on has CORS enabled, proceed with the following steps:
 
 1. Open a browsing session and navigate to the page *unified.html* using the full URL of its location in your storage account, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. For example, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Navigate to http://test-cors.org. This site allows you to verify that the page you are using has CORS enabled.  
+2. Navigate to https://test-cors.org. This site allows you to verify that the page you are using has CORS enabled.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->

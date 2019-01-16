@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager templates for cloud consistency | Microsoft Docs
-description: Develop Azure Resource Manager templates for cloud consistency. Create new or update existing templates for Azure Stack.
+title: Reuse templates across clouds - Azure Resource Manager
+description: Develop Azure Resource Manager templates that work consistently for different cloud environments. Create new or update existing templates for Azure Stack.
 services: azure-resource-manager
 documentationcenter: na
 author: marcvaneijk
@@ -10,8 +10,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/09/2018
 ms.author: mavane
+ms.custom: seodec18
 ---
 
 # Develop Azure Resource Manager templates for cloud consistency
@@ -430,7 +431,7 @@ Resources can have references to other services on the platform. For example, a 
 The following two examples are common endpoint namespaces that need to be explicitly specified when creating a resource:
 
 * Storage accounts (blob, queue, table and file)
-* Connection strings for databases and Redis Cache
+* Connection strings for databases and Azure Cache for Redis
 
 Endpoint namespaces can also be used in the output of a template as information for the user when the deployment completes. The following are common examples:
 

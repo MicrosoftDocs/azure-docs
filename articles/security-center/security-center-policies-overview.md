@@ -23,7 +23,7 @@ This article provides an overview of settings in Security Center.
 The following settings can be reached under Security Policy:
 
 - **Data collection**: Determines agent provisioning and [data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) settings.
-- **Security policy**: Determines which controls Security Center monitors and recommends. You can edit the [security policy](security-center-azure-policy.md) in Security Center. You can also use [Azure Policy](security-center-azure-policy.md) to create new definitions, define additional policies, and assign policies across management groups. 
+- **Security policy**: Determines which controls Security Center monitors and recommends. You can edit the [security policy](tutorial-security-policy.md) in Security Center. You can also use [Azure Policy](tutorial-security-policy.md) to create new definitions, define additional policies, and assign policies across management groups. 
 - **Email notifications**: Determines security contacts, and [email notification](security-center-provide-security-contact-details.md) settings.
 - **Pricing tier**: Defines free or standard [pricing selection](security-center-pricing.md). The tier you choose determines which Security Center features are available for resources in scope. You can specify a tier for subscriptions, resource groups, and workspaces.
 
@@ -42,7 +42,7 @@ Security Center uses Role-Based Access Control (RBAC), which provides built-in r
 ## Next steps
 In this article, you learned about security policies in Azure Security Center. To learn more about Azure Security Center, see the following articles:
 
-* [Setting security policies in Azure Security Center](security-center-azure-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](tutorial-security-policy.md): Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md): Learn how Security Center recommendations help you protect your Azure resources.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md): Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.

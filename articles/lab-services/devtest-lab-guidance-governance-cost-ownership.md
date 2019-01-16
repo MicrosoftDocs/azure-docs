@@ -37,7 +37,7 @@ This approach provides you with numerous advantages:
  
 Only active Visual Studio subscribers (standard subscriptions, annual cloud subscriptions, and monthly cloud subscriptions) can use Azure resources running within an enterprise Dev/Test subscription. However, end users can access the application to provide feedback or perform acceptance tests. Use of resources within this subscription is restricted to developing and testing applications, and no uptime guarantee is offered.
 
-If you decide to use the DevTest offer, note that this benefit is exclusively for development and testing your applications. Usage within the subscription does not carry a financially-backed SLA, except for the use of Visual Studio Team Services and HockeyApp.
+If you decide to use the DevTest offer, note that this benefit is exclusively for development and testing your applications. Usage within the subscription does not carry a financially-backed SLA, except for the use of Azure DevOps and HockeyApp.
 
 ## Define a role-based access across your organization
 ### Question

@@ -20,6 +20,8 @@ ms.author: azfuncdf, cotresne, glenga
 
 In this article, you learn how to use the Visual Studio Code Azure Functions extension to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure.
 
+![Running durable function in Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
+
 ## Prerequisites
 
 To complete this tutorial:
@@ -38,88 +40,49 @@ To complete this tutorial:
 
 [!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
 
+## Install the Durable Functions npm package
+
+1. Install the `durable-functions` npm package by running `npm install durable-functions` in the root directory of the function app.
+
 ## Create a Starter Function
+
+First, create an HTTP triggered function that starts a durable function orchestration.
 
 1. From **Azure: Functions**, choose the Create Function icon.
 
-    ![Create a function](../media/functions-create-first-function-vs-code/create-function.png)
+    ![Create a function](./media/quickstart-js-vscode/create-function.png)
 
-1. Select the folder with your function app project and select the **HTTP trigger** function template.
+2. Select the folder with your function app project and select the **HTTP trigger** function template.
 
-    ![Choose the HTTP trigger template](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
+    ![Choose the HTTP trigger template](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-1. Type `HttpStart` for the function name and press Enter, then select **Anonymous** authentication.
+3. Type `HttpStart` for the function name and press Enter, then select **Anonymous** authentication.
 
-    ![Choose anonymous authentication](../media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
+    ![Choose anonymous authentication](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
     A function is created in your chosen language using the template for an HTTP-triggered function.
 
-    ![HTTP triggered function template in Visual Studio Code](../media/functions-create-first-function-vs-code/new-function-full.png)
+4. Replace index.js with the below JavaScript:
 
-1. Replace index.js with the below JavaScript:
+    [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-    ```javascript
-    const df = require("durable-functions");
-    
-    module.exports = async function (context, req) {
-        const client = df.getClient(context);
-        const instanceId = await client.startNew(req.params.functionName, undefined, req.body);
-    
-        context.log(`Started orchestration with ID = '${instanceId}'.`);
-    
-        return client.createCheckStatusResponse(context.bindingData.req, instanceId);
-    };
-    ```
+5. Replace function.json with the below JSON:
 
-1. Replace function.json with the below JSON:
-
-    ```JSON
-    {
-      "bindings": [
-        {
-          "authLevel": "anonymous",
-          "name": "req",
-          "type": "httpTrigger",
-          "direction": "in",
-          "route": "orchestrators/{functionName}",
-          "methods": ["post"]
-        },
-        {
-          "name": "$return",
-          "type": "http",
-          "direction": "out"
-        },
-        {
-          "name": "starter",
-          "type": "orchestrationClient",
-          "direction": "in"
-        }
-      ],
-      "disabled": false
-    }
-    ```
+    [!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
 We've now created an entry-point into our Durable Function. Let's add an orchestrator.
 
 ## Create an Orchestrator Function
 
-1. From **Azure: Functions**, choose the Create Function icon.
+Next, you create another function to be the orchestrator. We use the HTTP trigger function template for convenience. The function code itself is replaced by the orchestrator code.
 
-    ![Create a function](../media/functions-create-first-function-vs-code/create-function.png)
+1. Repeat the steps from the previous section to create a second function using the HTTP trigger template. This time name the function `OrchestratorFunction`.
 
-1. Select the folder with your function app project and select the **HTTP trigger** function template. Since you'll be replacing this code, the trigger itself doesn't matter.
-
-    ![Choose the HTTP trigger template](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Type `OrchestratorFunction` for the function name and press Enter, then select **Anonymous** authentication.
-
-    ![Choose anonymous authentication](../media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-1. Replace index.js with the below JavaScript:
+2. Open the index.js file for the new function and replace the contents with the following code:
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-1. Replace function.json with the below JSON:
+3. Open the function.json file and replace it with the following JSON:
 
     [!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 
@@ -127,45 +90,36 @@ We've added an orchestrator to coordinate activity functions. Let's now add the 
 
 ## Create an Activity Function
 
-1. From **Azure: Functions**, choose the Create Function icon.
+1. Repeat the steps from the previous sections to create a third function using the HTTP trigger template. But this time name the function  `SayHello`.
 
-    ![Create a function](../media/functions-create-first-function-vs-code/create-function.png)
-
-1. Select the folder with your function app project and select the **HTTP trigger** function template. Since you'll be replacing this code, the trigger itself doesn't matter.
-
-    ![Choose the HTTP trigger template](../media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Type `SayHello` for the function name and press Enter, then select **Anonymous** authentication.
-
-    ![Choose anonymous authentication](../media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-1. Replace index.js with the below JavaScript:
+2. Open the index.js file for the new function and replace the contents with the following code:
 
     [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-1. Replace function.json with the below JSON:
+3. Replace function.json with the below JSON:
 
     [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
-We've now added all components necessary to start off our orchestration and chain together activity functions.
+We've now added all components needed to start off an orchestration and chain together activity functions.
 
 ## Test the function locally
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.  
 
-1. Install the durable-functions npm package by running `npm install durable-functions` in the root directory of the function app.
-
 1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of local.settings.json is set to `UseDevelopmentStorage=true`. On a Mac or Linux computer, you must set the **AzureWebJobsStorage** property to the connection string of an existing Azure storage account. You create a storage account later in this article.
 
-1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel. If this is your first time using Durable Functions, the Durable Functions extension is installed and the build might take a few seconds.
+2. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel. If this is your first time using Durable Functions, the Durable Functions extension is installed and the build might take a few seconds.
 
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
+    > [!NOTE]
+    > JavaScript Durable Functions require version **1.7.0** or greater of the **Microsoft.Azure.WebJobs.Extensions.DurableTask** extension. Verify the Durable Functions extension's version in your `extensions.csproj` file meets this requirement. If it does not, stop your function app, change the version, and press F5 to restart your function app.
+
+3. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
 
     ![Azure local output](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-1. Paste the URL for the HTTP request into your browser's address bar, and see the status of your orchestration.
+4. Paste the URL for the HTTP request into your browser's address bar, and see the status of your orchestration.
 
-1. To stop debugging, press Shift + F1.
+5. To stop debugging, press Shift + F1.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -177,9 +131,9 @@ After you've verified that the function runs correctly on your local computer, i
 
 1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in the following format:
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>
+        http://<functionappname>.azurewebsites.net/orchestrators/<functionname>
 
-1. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
+2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
 ## Next steps
 

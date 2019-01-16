@@ -45,7 +45,7 @@ When assigning a binding you can either create a new API connection or use an ex
 |[Salesforce](https://docs.microsoft.com/azure/connectors/connectors-create-api-salesforce)||x|x
 |[SharePoint](https://docs.microsoft.com/azure/connectors/connectors-create-api-sharepointonline)||x|x
 |[SQL Server](https://docs.microsoft.com/azure/connectors/connectors-create-api-sqlazure)||x|x
-|[Teradata](http://www.teradata.com/products-and-services/azure/products/)||x|x
+|[Teradata](https://www.teradata.com/products-and-services/azure/products/)||x|x
 |UserVoice||x|x
 |Zendesk||x|x
 

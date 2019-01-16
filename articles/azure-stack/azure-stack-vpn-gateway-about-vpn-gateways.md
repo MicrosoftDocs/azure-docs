@@ -104,9 +104,9 @@ The following table shows the gateway types and the estimated aggregate throughp
 
 |	| VPN Gateway throughput *(1)* | VPN Gateway max IPsec tunnels *(2)* |
 |-------|-------|-------|
-|**Basic SKU** ***(3)*** 	| 100 Mbps	| 10	|
-|**Standard SKU** 		| 100 Mbps 	| 10	|
-|**High-Performance SKU** | 200 Mbps	| 5	|
+|**Basic SKU** ***(3)*** 	| 100 Mbps	| 20	|
+|**Standard SKU** 		| 100 Mbps 	| 20	|
+|**High-Performance SKU** | 200 Mbps	| 10	|
 
 **Table notes:**
 

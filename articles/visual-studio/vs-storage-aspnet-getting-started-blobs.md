@@ -4,7 +4,7 @@ description: How to get started using Azure Blob storage in an ASP.NET project i
 services: storage
 author: ghogen
 manager: douge
-ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
+
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.custom: vs-azure
@@ -19,7 +19,7 @@ ms.author: ghogen
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Azure Blob storage is a service that stores unstructured data in the cloud as objects or blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
+Azure Blob storage is a service that stores unstructured data in the cloud as objects or blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage. To learn more about Blob storage, see [Introduction to Azure Blob storage](../storage/blobs/storage-blobs-introduction.md).
 
 This tutorial shows how to write ASP.NET code for some common scenarios that use Blob storage. Scenarios 
 include creating a blob container, and uploading, listing, downloading, and deleting blobs.
@@ -29,9 +29,6 @@ include creating a blob container, and uploading, listing, downloading, and dele
 ## Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-
-[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
-
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 

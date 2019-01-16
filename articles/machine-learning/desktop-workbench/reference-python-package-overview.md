@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
-ms.date: 7/27/2018
+ms.date: 07/27/2018
 ---
 # Python packages for Azure Machine Learning
 

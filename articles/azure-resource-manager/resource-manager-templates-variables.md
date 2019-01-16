@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/18/2018
 ms.author: tomfitz
 ---
 
 # Variables section of Azure Resource Manager templates
-In the variables section, you construct values that can be used throughout your template. You do not need to define variables, but they often simplify your template by reducing complex expressions.
+In the variables section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions.
 
 ## Define and use a variable
 
@@ -113,7 +113,7 @@ You retrieve the current settings with:
 
 ## Use copy element in variable definition
 
-You can use the **copy** syntax to create a variable with an array of multiple elements. You provide a count for the number of elements. Each element contains the properties within the **input** object. You can use copy either within a variable or to create the variable. When you define a variable and use **copy** within that variable, you create an object that has an array property. When you use **copy** at the top level and define one or more variables within it, you create one or more arrays. Both approaches are shown in the following example:
+You can use the **copy** syntax to create a variable with an array of several elements. You provide a count for the number of elements. Each element contains the properties within the **input** object. You can use copy either within a variable or to create the variable. When you define a variable and use **copy** within that variable, you create an object that has an array property. When you use **copy** at the top level and define one or more variables within it, you create one or more arrays. Both approaches are shown in the following example:
 
 ```json
 "variables": {
@@ -265,26 +265,19 @@ This approach works well when you need to take parameter values and make sure th
 }
 ```
 
-## Recommendations
-The following information can be helpful when you work with variables:
-
-* Use variables for values that you need to use more than once in a template. If a value is used only once, a hard-coded value makes your template easier to read.
-* You cannot use the [reference](resource-group-template-functions-resource.md#reference) function in the **variables** section of the template. The **reference** function derives its value from the resource's runtime state. However, variables are resolved during the initial parsing of the template. Construct values that need the **reference** function directly in the **resources** or **outputs** section of the template.
-* Include variables for resource names that must be unique.
-
 ## Example templates
 
 These example templates demonstrate some scenarios for using variables. Deploy them to test how variables are handled in different scenarios. 
 
 |Template  |Description  |
 |---------|---------|
-| [variable definitions](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstrates the different types of variables. The template does not deploy any resources. It constructs variable values and returns those values. |
-| [configuration variable](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstrates the use of a variable that defines configuration values. The template does not deploy any resources. It constructs variable values and returns those values. |
+| [variable definitions](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstrates the different types of variables. The template doesn't deploy any resources. It constructs variable values and returns those values. |
+| [configuration variable](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstrates the use of a variable that defines configuration values. The template doesn't deploy any resources. It constructs variable values and returns those values. |
 | [network security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) and [parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constructs an array in the correct format for assigning security rules to a network security group. |
 
 
 ## Next steps
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
-* To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-* You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
+* For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
+* You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across more than one resource group. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).

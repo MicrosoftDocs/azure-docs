@@ -222,6 +222,6 @@ foreach($event in $scheduledEvents.Events)
 ## Next steps 
 
 - Watch a [Scheduled Events Demo](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) on Azure Friday. 
-- Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events Github Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
+- Review the Scheduled Events code samples in the [Azure Instance Metadata Scheduled Events GitHub Repository](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)
 - Read more about the APIs available in the [Instance Metadata service](instance-metadata-service.md).
 - Learn about [planned maintenance for Windows virtual machines in Azure](planned-maintenance.md).

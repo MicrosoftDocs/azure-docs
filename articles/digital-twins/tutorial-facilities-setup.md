@@ -1,9 +1,9 @@
 ---
-title: Deploy Azure Digital Twins | Microsoft Docs
+title: 'Tutorial: Deploy Azure Digital Twins | Microsoft Docs'
 description: Learn how to deploy your instance of Azure Digital Twins and configure your spatial resources by using the steps in this tutorial.
 services: digital-twins
 author: dsk-2015
-
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
 ms.date: 10/15/2018
@@ -160,6 +160,9 @@ The **provisionSample.yaml** file contains the following nodes:
     > Make sure the `dataType` and `hardwareId` keys align with the statements above this snippet. Also make sure that your editor does not replace spaces with tabs. 
 
 Save and close the provisionSample.yaml file. In the next tutorial, you'll add more information to this file, and then provision your Azure Digital Twins sample building.
+
+> [!TIP]
+> You can view and modify your spatial graph using the [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
 
 ## Clean up resources

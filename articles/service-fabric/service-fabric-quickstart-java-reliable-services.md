@@ -63,7 +63,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 2. Open Eclipse.
 3. Click File -> Import -> Gradle -> Existing Gradle Project and follow the wizard.
-4. Click Directory and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from Github. Click Finish. 
+4. Click Directory and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from GitHub. Click Finish.
 
     ![Eclipse Import Dialog](./media/service-fabric-quickstart-java/eclipseimport.png)
 
@@ -128,7 +128,7 @@ Certificate thumbprint needs to be added to your application because it is using
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. In the `Voting/VotingApplication/ApplicationManifest.xml` file, add the following snippet under the **ApplicationManifest** tag. The **X509FindValue** should be the thumbprint from the previous step (no semicolons). 
+2. In the `Voting/VotingApplication/ApplicationManifest.xml` file, add the following snippet under the **ApplicationManifest** tag. The **X509FindValue** should be the thumbprint from the previous step (no semicolons).
 
     ```xml
     <Certificates>

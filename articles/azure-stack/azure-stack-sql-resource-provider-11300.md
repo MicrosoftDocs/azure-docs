@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-
+ms.reviewer: georgel
 ---
+
 # SQL resource provider 1.1.30.0 release notes
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
@@ -63,6 +63,20 @@ This version of the Azure Stack SQL resource provider includes the following imp
 - **Shared SQL logins cause data inconsistency**. If a SQL login is shared for multiple SQL databases under the same subscription, changing the login password will cause data inconsistency.
 
     **Workaround**: Always use different logins for different databases under the same subscription.
+
+- **TLS 1.2 support requirement**. If you try to deploy or update the SQL resource provider from a computer where TLS 1.2 is not enabled, the operation might fail. Run the following PowerShell command on the computer being used to deploy or update the resource provider to verify that TLS 1.2 is returned as supported:
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  If **Tls12** is not included in the output of the command, TLS 1.2 is not enabled on the computer.
+
+    **Workaround**: Run the following PowerShell command to enable TLS 1.2 and then start the resource provider deployment or update script from the same PowerShell session:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
 
 ### Known issues for Cloud Admins operating Azure Stack
 Refer to the documentation in the [Azure Stack Release Notes](azure-stack-servicing-policy.md).

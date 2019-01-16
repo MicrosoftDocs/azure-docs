@@ -1,5 +1,6 @@
 ---
-title: Load data with the Azure Machine Learning Data Prep SDK - Python
+title: 'Load: data prep Python SDK'
+titleSuffix: Azure Machine Learning service
 description: Learn about loading data with Azure Machine Learning Data Prep SDK. You can load different types of input data, specify data file types and parameters, or use the SDK smart reading functionality to automatically detect file type.
 services: machine-learning
 ms.service: machine-learning
@@ -9,7 +10,8 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 11/20/2018
+ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
 # Load and read data with Azure Machine Learning
@@ -132,7 +134,7 @@ dataflow.head(5)
 The output shows that the data in the second sheet had three empty rows before the headers. The `read_excel()` function contains optional parameters for skipping rows and using headers. Run the following code to skip the first three rows, and use the fourth row as the headers.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
+dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
 ||Rank|Title|Studio|Worldwide|Domestic / %|Column1|Overseas / %|Column2|Year^|

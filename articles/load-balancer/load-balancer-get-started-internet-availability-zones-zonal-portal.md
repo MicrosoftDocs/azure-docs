@@ -1,10 +1,12 @@
 ---
-title: Create a public Load Balancer Standard with zonal Public IP address frontend using Azure portal | Microsoft Docs
+title: Create a Standard Load Balancer with zonal frontend IP address - Azure portal
+titlesuffix: Azure Load Balancer
 description: Learn how to create a public Load Balancer Standard with zonal Public IP address frontend with the Azure portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

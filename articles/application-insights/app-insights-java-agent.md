@@ -21,7 +21,7 @@ If you have [instrumented your Java web app with Application Insights][java], yo
 * **Dependencies:** Data about calls that your application makes to other components, including:
   * **REST calls** made via HttpClient, OkHttp, and RestTemplate (Spring) are captured.
   * **Redis** calls made via the Jedis client are captured.
-  * **[JDBC calls](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server and Oracle DB commands are automatically captured. For MySQL, if the call takes longer than 10s, the agent reports the query plan.
+  * **[JDBC calls](https://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** - MySQL, SQL Server and Oracle DB commands are automatically captured. For MySQL, if the call takes longer than 10s, the agent reports the query plan.
 * **Caught exceptions:** Information about exceptions that are handled by your code.
 * **Method execution time:** Information about the time it takes to execute specific methods.
 
@@ -89,7 +89,7 @@ In the Application Insights resource, aggregated remote dependency and method ex
 
 To search for individual instances of dependency, exception, and method reports, open [Search][diagnostic].
 
-[Diagnosing dependency issues - learn more](app-insights-asp-net-dependencies.md#diagnosis).
+[Diagnosing dependency issues - learn more](../azure-monitor/app/asp-net-dependencies.md#diagnosis).
 
 ## Questions? Problems?
 * No data? [Set firewall exceptions](app-insights-ip-addresses.md)
@@ -97,10 +97,10 @@ To search for individual instances of dependency, exception, and method reports,
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
+[api]: ../azure-monitor/app/api-custom-events-metrics.md
+[apiexceptions]: ../azure-monitor/app/api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md

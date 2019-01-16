@@ -1,6 +1,6 @@
 ---
-title: How to edit your group information using Azure Active Directory | Microsoft Docs
-description: Learn how to edit a group's information using Azure Active Directory.
+title: Edit your group information - Azure Active Directory | Microsoft Docs
+description: Instructions about how to edit your group's information using Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
 ---
 
-# How to: Edit your group information using Azure Active Directory
+# Edit your group information using Azure Active Directory
 
-Using Azure Active Directory, you can edit a group's settings, including updating its name, description, or membership type.
+Using Azure Active Directory (Azure AD), you can edit a group's settings, including updating its name, description, or membership type.
 
 ## To edit your group settings
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator account for the directory.

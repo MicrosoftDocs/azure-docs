@@ -1,5 +1,6 @@
 ---
-title: Create a public Load Balancer Standard with zone-redundant Public IP address frontend using Azure CLI | Microsoft Docs
+title: Create a Standard Load Balancer with zone-redundant frontend IP using Azure CLI
+titlesuffix: Azure Load Balancer
 description: Learn how to create a public Load Balancer Standard with zone-redundant Public IP address frontend using Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -7,13 +8,14 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ---
 
-#  Create a public Load Balancer Standard with zone-redundant frontend using Azure CLI
+#  Create a Standard Load Balancer with zone-redundant frontend using Azure CLI
 
 This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address.
 

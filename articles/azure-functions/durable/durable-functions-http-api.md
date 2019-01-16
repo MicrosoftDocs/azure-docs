@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
@@ -20,7 +20,6 @@ The Durable Task extension exposes a set of HTTP APIs that can be used to perfor
 * Send an event to a waiting orchestration instance.
 * Terminate a running orchestration instance.
 
-
 Each of these HTTP APIs is a webhook operation that is handled directly by the Durable Task extension. They are not specific to any function in the function app.
 
 > [!NOTE]
@@ -30,9 +29,15 @@ Each of these HTTP APIs is a webhook operation that is handled directly by the D
 
 The [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)  class exposes a [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) API that can be used to generate an HTTP response payload containing links to all the supported operations. Here is an example HTTP-trigger function that demonstrates how to use this API:
 
+### C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-This example function produces the following JSON response data. The data type of all fields is `string`.
+### JavaScript (Functions 2.x only)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+
+These example functions produce the following JSON response data. The data type of all fields is `string`.
 
 | Field             |Description                           |
 |-------------------|--------------------------------------|
@@ -58,8 +63,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
+
 > [!NOTE]
-> The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The above example is for the Azure Functions 2.0 host.
+> The format of the webhook URLs may differ depending on which version of the Azure Functions host you are running. The above example is for the Azure Functions 2.x host.
 
 ## Async operation tracking
 
@@ -86,8 +92,8 @@ All HTTP APIs implemented by the extension take the following parameters. The da
 | connection | Query string    | The **name** of the connection string for the storage account. If not specified, the default connection string for the function app is assumed. |
 | systemKey  | Query string    | The authorization key required to invoke the API. |
 | showInput  | Query string    | Optional parameter. If set to `false`, the execution input will not be included in the response payload.|
-| showHistory| Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.| 
-| showHistoryOutput| Query string    | Optional parameter. If set to `true`, the activity outputs will be included in the orchestration execution history.| 
+| showHistory| Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.|
+| showHistoryOutput| Query string    | Optional parameter. If set to `true`, the activity outputs will be included in the orchestration execution history.|
 | createdTimeFrom  | Query string    | Optional parameter. When specified, filters the list of returned instances which were created at or after the given ISO8601 timestamp.|
 | createdTimeTo    | Query string    | Optional parameter. When specified, filters the list of returned instances which were created at or before the given ISO8601 timestamp.|
 | runtimeStatus    | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) topic. |
@@ -135,7 +141,7 @@ The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON objec
 | output          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |
 | createdTime     | string    | The time at which the instance was created. Uses ISO 8601 extended notation. |
 | lastUpdatedTime | string    | The time at which the instance last persisted. Uses ISO 8601 extended notation. |
-| historyEvents   | JSON      | A JSON array containing the orchestration execution history. This field is `null` unless the `showHistory` query string parameter is set to `true`.  | 
+| historyEvents   | JSON      | A JSON array containing the orchestration execution history. This field is `null` unless the `showHistory` query string parameter is set to `true`.  |
 
 Here is an example response payload including the orchestration execution history and activity outputs (formatted for readability):
 
@@ -194,10 +200,9 @@ Here is an example response payload including the orchestration execution histor
 
 The **HTTP 202** response also includes a **Location** response header that references the same URL as the `statusQueryGetUri` field mentioned previously.
 
-
 ### Get all instances status
 
-You can also query all instances status. Remove the `instanceId` from the 'Get instance status' request. The parameters are the same as the 'Get instance status.' 
+You can also query all instances status. Remove the `instanceId` from the 'Get instance status' request. The parameters are the same as the 'Get instance status.'
 
 One thing to remember is that `connection` and `code` are optional. If you have anonymous auth on the function then code isn't required.
 If you don't want to use a different blob storage connection string other than defined in the AzureWebJobsStorage app setting, then you can safely ignore the connection query string parameter.
@@ -210,7 +215,7 @@ For Functions 1.0, the request format is as follows:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
+The Functions 2.0 format has all the same parameters but a slightly different URL prefix:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
@@ -226,7 +231,7 @@ For Functions 1.0, the request format is as follows:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
+The Functions 2.0 format has all the same parameters but a slightly different URL prefix:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
@@ -286,8 +291,8 @@ Here is an example of response payloads including the orchestration status (form
 ```
 
 > [!NOTE]
-> This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Performance and scale in Durable Functions (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentation.
-> 
+> This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Performance and scale in Durable Functions (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
+>
 
 #### Request with paging
 
@@ -299,7 +304,7 @@ For Functions 1.0, the request format is as follows:
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
 ```
 
-The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
+The Functions 2.0 format has all the same parameters but a slightly different URL prefix:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
@@ -308,7 +313,6 @@ GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={conne
 If the next page exists, a continuation token is returned in the response header.  The name of the header is `x-ms-continuation-token`.
 
 If you set continuation token value in the next request header, you can get the next page.  This key in request header is `x-ms-continuation-token`.
-
 
 ### Raise event
 
@@ -400,7 +404,7 @@ The responses for this API do not contain any content.
 
 Restores a failed orchestration instance into a running state by replaying the most recent failed operations.
 
-#### Request
+### Request
 
 For Functions 1.0, the request format is as follows:
 
@@ -420,7 +424,7 @@ Request parameters for this API include the default set mentioned previously as 
 |-------------|-----------------|-----------|-------------|
 | reason      | Query string    | string    | Optional. The reason for rewinding the orchestration instance. |
 
-#### Response
+### Response
 
 Several possible status code values can be returned.
 

@@ -10,11 +10,9 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Connect Windows computers to the Log Analytics service in Azure

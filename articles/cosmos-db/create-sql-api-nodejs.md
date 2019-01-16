@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Build a Node.js app using JavaScript SDK to manage Azure Cosmos DB SQL API data | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a Node.js app using JavaScript SDK to manage Azure Cosmos DB SQL API data'
 description: Presents a Node.js code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 author: deborahc
@@ -17,6 +17,7 @@ ms.author: dech
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -34,7 +35,7 @@ This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-
 
 * In addition:
 	* [Node.js](https://nodejs.org/en/) version v6.0.0 or higher
-	* [Git](http://git-scm.com/)
+	* [Git](https://git-scm.com/)
 
 ## Create a database account
 
@@ -54,7 +55,7 @@ This quickstart demonstrates how to create an Azure Cosmos DB [SQL API](sql-api-
 
 ## Clone the sample application
 
-Now let's clone a SQL API app from Github, set the connection string, and run it.
+Now let's clone a SQL API app from GitHub, set the connection string, and run it.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -130,7 +131,7 @@ The following snippets are all taken from the **app.js** file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `config.js` file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `config.js` file in the next step.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
 
