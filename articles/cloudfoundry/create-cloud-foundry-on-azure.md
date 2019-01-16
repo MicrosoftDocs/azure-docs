@@ -72,7 +72,7 @@ For more information, see [Use SSH keys with Windows on Azure](https://docs.micr
 
     Or you also can use
 
-    `az role assignment create --assignee {service-princ-name} --role “Contributor” `
+    `az role assignment create --assignee {service-principal-name} --role “Contributor” `
 
     ![Service principal role assignment](media/deploy/svc-princ.png )
 
