@@ -32,9 +32,9 @@ To get insights about a video, get its [videoId](https://docs.microsoft.com/rest
     ],
 ```
 
-Next, send the following GET request to the Video Details endpoint. Set the [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) query parameter to the `videoId` token. To specify the insights that you want to get, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) query parameter. To get all insights, set `modules` to All. The response includes all insights that you requested, if available.
+Afterwards, send the following GET request to the Video Details endpoint. Set the [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#id) query parameter to the `videoId` token. To specify the insights that you want to get, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) query parameter. To get all insights, set `modules` to All. The response includes all insights that you requested, if available.
 
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=All&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -48,7 +48,7 @@ Host: api.cognitive.microsoft.com
 
 To get videos that are related to the specified video, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested) query parameter to RelatedVideos.
   
-```  
+```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/details?q=sailiing+dinghies&id=6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63&modules=RelatedVideos&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -60,7 +60,7 @@ Host: api.cognitive.microsoft.com
   
 The following is the response to the previous request. The top-level object is a [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails) object instead of a [Videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) object.  
   
-```  
+```json
 {
     "_type" : "Api.VideoDetails.VideoDetails",
     "relatedVideos" : {

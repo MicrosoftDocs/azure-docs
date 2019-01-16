@@ -25,7 +25,7 @@ To set up a console application using the Bing Video Search SDK:
 * Run `npm install ms-rest-azure` in your development environment.
 * Run `npm install azure-cognitiveservices-videosearch` in your development environment.
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## Create and initialize the application
 

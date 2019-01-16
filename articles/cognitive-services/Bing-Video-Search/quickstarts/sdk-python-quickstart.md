@@ -17,26 +17,25 @@ ms.author: rosh
 
 Use this quickstart to begin searching for news with the Bing Video Search SDK for Python. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py). It contains more annotations and features.
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## Application dependencies
 
 - [Python](https://www.python.org/) 2.x or 3.x
-
-    It is recommended that you use a python [virtual environment](https://docs.python.org/3/tutorial/venv.html). You can install and initialize a virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7 with:
-    
-        ```console
-        python -m venv mytestenv
-        ```
-
 - The Bing Video Search SDK for python
-    
-    You can install the SDK with:
-    
-    ```console
-    cd mytestenv
-    python -m pip install azure-cognitiveservices-search-videosearch
-    ```
+
+It is recommended that you use a python [virtual environment](https://docs.python.org/3/tutorial/venv.html). You can install and initialize a virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7 with:
+
+```console
+python -m venv mytestenv
+```
+   
+Install the Bing Video Search SDK with:
+
+```console
+cd mytestenv
+python -m pip install azure-cognitiveservices-search-videosearch
+```
 
 ## Create and initialize the application
 

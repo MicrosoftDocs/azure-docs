@@ -21,7 +21,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 
 * Ruby 2.4 or later
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## Create and initialize the application
 

@@ -18,7 +18,7 @@ ms.custom: seodec2018
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and displays the raw results.
 
-While this application is written in JavaScript and runs in Node.js, the API is a RESTful Web service compatible with most programming languages.
+While this application is written in JavaScript and runs in Node.js, the API is a RESTful Web service compatible most programming languages.
 
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) with additional error handling, and code annotations.
 

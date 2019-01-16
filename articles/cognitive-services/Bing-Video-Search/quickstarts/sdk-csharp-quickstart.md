@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
-ms.date: 01/29/2018
+ms.date: 01/10/2018
 ms.author: rosh
 ---
 
@@ -30,7 +30,7 @@ Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 
 ## Create and initialize a project

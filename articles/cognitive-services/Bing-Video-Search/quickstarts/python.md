@@ -26,7 +26,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
 
 * Python [2.x or 3.x](https://python.org)
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## Initialize the application
 
@@ -68,10 +68,10 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
     ```
 
 3. To view one of the returned videos, get a search result from the `search_results` object. Insert the result's `embedHtml` property into an `IFrame`.  
-
-```python
-HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
-```
+    
+    ```python
+    HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
+    ```
 
 ## Next steps
 

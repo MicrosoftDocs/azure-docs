@@ -23,7 +23,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 * The Request module for JavaScript
     * You can install this module using `npm install request`
 
-[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## Initialize the application
 
@@ -58,18 +58,17 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     
     2. When `end` is signaled, use a function in `response.on()` to store the bing-related headers. Then parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify`, and print it.
 
-
-    ```javascript
-    response.on('end', function () {
-        for (var header in response.headers)
-            // header keys are lower-cased by Node.js
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        //JSON Response body
-        console.log(body);
-    });
-    ```
+        ```javascript
+        response.on('end', function () {
+            for (var header in response.headers)
+                // header keys are lower-cased by Node.js
+                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                     console.log(header + ": " + response.headers[header]);
+            body = JSON.stringify(JSON.parse(body), null, '  ');
+            //JSON Response body
+            console.log(body);
+        });
+        ```
 
 # Create and send the search request
 

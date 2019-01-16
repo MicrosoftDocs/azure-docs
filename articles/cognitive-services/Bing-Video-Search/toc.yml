@@ -1,13 +1,13 @@
-- name: Bing Video Search Documentation
+- name: Bing Video Search API Documentation
   href: index.yml
-- name: Overview        
+- name: Overview   
+  expanded: true     
   items:
-    - name: What is Bing Video Search?
+    - name: What is the Bing Video Search API?
       href: search-the-web.md
 - name: Quickstarts
   items:
     - name: REST API
-      expanded: true
       items:
       - name: Using C#
         href: quickstarts/csharp.md
