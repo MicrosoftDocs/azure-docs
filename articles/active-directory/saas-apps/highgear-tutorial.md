@@ -106,8 +106,8 @@ To configure Azure AD single sign-on with your HighGear system, perform the foll
     
 	> [!NOTE]
     > You will need to log in to your HighGear system to access the Single Sign-On Settings page. Once you're logged in, move your mouse over the Administration tab in HighGear and click the Single Sign-On Settings menu item.
-    >
-    > ![The Single Sign-On Settings menu item](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
+    
+    ![The Single Sign-On Settings menu item](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
     b. In the **Reply URL** text box, paste the value of the **Assertion Consumer Service (ACS) URL** from the Single Sign-On Settings page in your HighGear system.
 
