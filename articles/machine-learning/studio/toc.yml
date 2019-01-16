@@ -56,34 +56,21 @@
     href: r-quickstart.md
 - name: Samples
   items:
+  - name: Sample experiments
+    href: sample-experiments.md
   - name: Sample datasets
     href: use-sample-datasets.md
   - name: Customer churn example
     href: azure-ml-customer-churn-scenario.md
+  - name: Linear regression example
+    href: linear-regression-in-azure.md
+  - name: Sentiment analysis example
+    href: text-analytics-module-tutorial.md
   - name: Azure AI Gallery
-    items:
-    - name: Overview
-      href: gallery-how-to-use-contribute-publish.md
-    - name: Sample experiments
-      href: sample-experiments.md
-    - name: Industries
-      href: gallery-industries.md
-    - name: Solutions
-      href: gallery-solutions.md
-    - name: Experiments
-      href: gallery-experiments.md
-    - name: Jupyter Notebooks
-      href: gallery-jupyter-notebooks.md
-    - name: Competitions
-      href: gallery-competitions.md
-    - name: Competitions FAQ
-      href: competition-faq.md
-    - name: Tutorials
-      href: gallery-tutorials.md
-    - name: Collections
-      href: gallery-collections.md
-    - name: Custom Modules
-      href: gallery-custom-modules.md
+    href: gallery-how-to-use-contribute-publish.md
+  - name: View and delete Gallery account data
+    displayName: export
+    href: ai-gallery-control-personal-data-dsr.md 
 - name: Concepts
   items:
   - name: Model management
@@ -126,16 +113,10 @@
     - name: Use PowerShell to create models
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
-    - name: Select algorithms
-      items:
-      - name: Choose algorithms
-        href: algorithm-choice.md
-      - name: Algorithm cheat sheet
-        href: algorithm-cheat-sheet.md
-      - name: Use linear regression
-        href: linear-regression-in-azure.md
-      - name: Use text analytics
-        href: text-analytics-module-tutorial.md
+    - name: Choose algorithms
+      href: algorithm-choice.md
+    - name: Algorithm cheat sheet
+      href: algorithm-cheat-sheet.md
     - name: Evaluate and interpret results
       items:
       - name: Evaluate performance
@@ -212,7 +193,7 @@
     - name: Use Batch Pool
       href: dedicated-capacity-for-bes-jobs.md
   - name: View and delete account data
-    href: ai-gallery-control-personal-data-dsr.md 
+    href: export-delete-personal-data-dsr.md 
 - name: Reference
   items:
   - name: Algorithm & Module reference
