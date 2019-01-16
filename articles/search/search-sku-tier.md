@@ -35,7 +35,7 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## How billing works
 
-In Azure Search, there are four ways you can incur costs when you create a search resource in the portal.
+In Azure Search, there are four ways you can incur costs when you create a search resource in the portal:
 
 * Adding replicas and partitions used for regular indexing and querying tasks. You start with one of each, but you can increase one or both to add capacity, choosing and paying for additional levels of resourcing. 
 * Data egress charges during indexing. When pulling data from an Azure SQL Database or Cosmos DB data source, you will see charges for the transaction in the bill for those resources.
