@@ -36,6 +36,7 @@ This topic gives an overview of the main functionalities that are provided by st
 ## Naming conventions
 
 For the default endpoint: `{AccountName}.streaming.mediaservices.windows.net`
+
 For any additional endpoints: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## Streaming types and versions
