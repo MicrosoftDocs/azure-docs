@@ -424,7 +424,7 @@
     - name: Troubleshoot failover to Azure
       href: site-recovery-failover-to-azure-troubleshoot.md
 - name: Reference
-  items:
+  items: 
   - name: Azure PowerShell
     href: /powershell/module/azurerm.recoveryservices.siterecovery
   - name: Azure PowerShell classic
