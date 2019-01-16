@@ -23,7 +23,7 @@ Azure Backup backs up data, machine state, and workloads running on on-premises 
     - You can back up on-premises machines directly to Azure using Azure Backup.
     - You can protect on-premises machines with System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS), and then in turn back up the protected data on DPM/MABS to Azure using Azure Backup.
 - **Back up Azure VMs**:
-    - You can back up Azure VMs directly with Azure Backup
+    - You can back up Azure VMs directly with Azure Backup.
     - You can protect Azure VMs with DPM or MABS running in Azure, and then in turn back up the protected data on DPM/MABS data with Azure Backup.
 
 Learn more about [what you can back up](backup-overview.md), and [supported backup scenarios](backup-support-matrix.md).
@@ -38,8 +38,8 @@ Azure Backup stores backed up data in a Recovery Services vault. A vault is an o
 - You can monitor backed up items in a vault, including Azure VMs and on-premises machines.
 - You can manage vault access with Azure [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 - You specify how data in the vault is replicated for redundancy:
-    - **LRS**: You can use locally-redundant storage (LRS) to protects against failure in a datacenter. LRS replicates data to a storage scale unit. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
-    - **GRS**: You can use geo-redundant storage (GRS): Protects against region-wide outages. It replicates your data to a secondary region. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs 
+    - **LRS**: You can use locally-redundant storage (LRS) to protects against failure in a datacenter. LRS replicates data to a storage scale unit. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+    - **GRS**: You can use geo-redundant storage (GRS): Protects against region-wide outages. It replicates your data to a secondary region. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). 
     - By default, Recovery Services vaults for Backup use GRS. 
 
 
@@ -93,7 +93,7 @@ The following table summarizes features for different types of backup.
 --- | --- | --- | ---
 Back up to vault | ![Yes][green] | ![Yes][green] | ![Yes][green] 
 Backup to DPM/MABS disk then Azure | | | ![Yes][green] 
-Compress data sent for backup | ![Yes][green] | No compression is used when transferring data. Storage is inflated slight, but restoration is faster.  | ![Yes][green] 
+Compress data sent for backup | ![Yes][green] | No compression is used when transferring data. Storage is inflated slightly, but restoration is faster.  | ![Yes][green] 
 Run incremental backup |![Yes][green] |![Yes][green] |![Yes][green] 
 Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS servers deployed on-premises only. 
 
