@@ -29,6 +29,12 @@ Either method provides the ranker with similar queries that are clustered.
 
 When similar queries are clustered, QnA Maker suggests the user-based questions to the knowledge base designer to accept or reject.
 
+## How active learning works
+
+Active Learning is triggered based on the scores of top N answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible “suggestion” for each of the possible answers. The exact score difference logic is a function of the score root of the confidence score of the top answer.
+
+All the suggestions are then clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Therefore, active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety in terms of usage queries.
+
 ## Best practices
 
 For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
@@ -40,6 +46,8 @@ When a question's score is highly confident, such as 80%, the range of scores th
 The algorithm to determine proximity is not a simple calculation. The ranges in the preceding examples are not meant to be fixed but should be used as a guide to understand the impact of the algorithm only.
 
 ## Turn on active learning
+
+Active learning is off by default. It needs to be turned on to see suggested questions. 
 
 1. To turn active learning on, go to your **Service Settings** in the QnA Maker portal, in the top-right corner.  
 
@@ -54,10 +62,11 @@ The algorithm to determine proximity is not a simple calculation. The ranges in 
 
 ## Add active learning suggestion to knowledge base
 
-1. On the **Edit** knowledge base page, select **Filter by Suggestions** to see the suggested questions.
-    
+1. On the **Edit** knowledge base page, select **Show Suggestions**. Select **Filter by Suggestions** to see the suggested questions.
 
-1.	Each question section with suggestions shows the new questions with a check mark to accept the question or an x mark to reject the suggestions. Select the check mark to add the question. 
+    [![On the service settings page, toggle the Show Suggestions button](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+
+1.	Each question section with suggestions shows the new questions with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question. 
 
     [![On the service settings page, toggle on Active Learning](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
@@ -75,7 +84,11 @@ When a question is too close in score to other questions, the client-application
 When submitting a question to QnA Maker for an answer, part of the JSON body allows for returning more than one top answer:
 
 ```json
-{"question":"Use speed dial","top":3}
+{
+    "question": "wi-fi",
+    "isTest": false,
+    "top": 3
+}
 ```
 
 When the client application (such as a chat bot) receives the response, the top 3 questions are returned:
@@ -85,32 +98,32 @@ When the client application (such as a chat bot) receives the response, the top 
     "answers": [
         {
             "questions": [
-                "Make a Call with Speed Dial"
+                "Wi-Fi Direct Status Indicator"
             ],
-            "answer": "**Make a Call with Speed Dial**\\n\\nYou can make a call using Speed dial.  \\n\\n1.  From a Home screen, tap Phone .Tap Keypad if the keypad is not displayed. •\\n2.  Touch and hold the Speed dial number. •  \\n\\nIf the Speed dial number is more than one digit long, enter the first digits, and then hold the last digit.",
-            "score": 65.18,
-            "id": 94,
-            "source": "f530c768-2b21-4be9-a43b-8ed148b35fe5-KB.tsv",
+            "answer": "**Wi-Fi Direct Status Indicator**\n\nStatus bar icons indicate your current Wi-Fi Direct connection status:  \n\nWhen your device is connected to another device using Wi-Fi Direct, '$  \n\n+ •+ ' Wi-Fi Direct is displayed in the Status bar.",
+            "score": 74.21,
+            "id": 607,
+            "source": "Bugbash KB.pdf",
             "metadata": []
         },
         {
             "questions": [
-                "Create a Speed Dial"
+                "Wi-Fi - Connections"
             ],
-            "answer": "**Create a Speed Dial**\\n\\nYou can assign 999 speed dial numbers.  \\n\\n1.  From a Home screen, tap Phone .Tap Keypad if the keypad is not displayed.\\n2.  Tap More options • > Speed dial . The Speed dial screen displays the numbers already in use.\\n3.  Tap an unassigned number.\\n\\n    *   Tap Menu to select a different Speed dial number than the next one in sequence.\\n    *   Number1 is reserved for Voicemail.\\n4.  Type in a name or number, or tap Add from Contacts to assign a contact to the number.",
-            "score": 53.26,
-            "id": 93,
-            "source": "f530c768-2b21-4be9-a43b-8ed148b35fe5-KB.tsv",
+            "answer": "**Wi-Fi**\n\nWi-Fi is a term used for certain types of Wireless Local Area Networks (WLAN). Wi-Fi communication requires access to a wireless Access Point (AP).",
+            "score": 74.15,
+            "id": 599,
+            "source": "Bugbash KB.pdf",
             "metadata": []
         },
         {
             "questions": [
-                "Speed Dial - Calling"
+                "Turn Wi-Fi On or Off"
             ],
-            "answer": "**Speed Dial**\\n\\nYou can assign a shortcut number to a contact for speed dialing their default number.",
-            "score": 45.53,
-            "id": 92,
-            "source": "f530c768-2b21-4be9-a43b-8ed148b35fe5-KB.tsv",
+            "answer": "**Turn Wi-Fi On or Off**\n\nTurning Wi-Fi on makes your device able to discover and connect to compatible in-range wireless APs.  \n\n1.  From a Home screen, tap ::: Apps > e Settings .\n2.  Tap Connections > Wi-Fi , and then tap On/Off to turn Wi-Fi on or off.",
+            "score": 69.99,
+            "id": 600,
+            "source": "Bugbash KB.pdf",
             "metadata": []
         }
     ]
