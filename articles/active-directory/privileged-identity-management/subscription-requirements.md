@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 12/19/2018
+ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 
@@ -21,7 +21,7 @@ ms.custom: pim
 
 # License requirements to use PIM
 
-To use an Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a directory must have a valid license. Furthermore, licenses must be assigned to the administrators and relevant users. This article describes the license requirements to use PIM.
+To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a directory must have a valid license. Furthermore, licenses must be assigned to the administrators and relevant users. This article describes the license requirements to use PIM.
 
 ## Prerequisites
 

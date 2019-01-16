@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: pim
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim 
 ---
