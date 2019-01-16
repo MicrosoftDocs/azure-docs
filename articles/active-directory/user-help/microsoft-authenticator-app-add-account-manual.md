@@ -38,7 +38,7 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 
     ![Screen for entering code and URL](./media/microsoft-authenticator-app-add-account-manual/auth-app-code-url.png)
 
-    The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+    The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
 ## Add your Google account
 
@@ -52,7 +52,7 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 
 4. On the **Set up Authenticator** page on your PC, type the six-digit verification code provided in the app for your Google account, and then select **Verify**.
 
-    The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+    The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
     >[!NOTE]
     >For more information about two-factor verification and your Google account, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839) and [Learn more about 2-Step Verification](https://www.google.com/landing/2step/help.html).
@@ -67,7 +67,7 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 
 4. On the **Two-Factor Authenticator** page on your PC, type the six-digit verification code provided in the app for your Facebook account, and then select **Verify**.
 
-    The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+    The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
     >[!NOTE]
     >For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
@@ -96,6 +96,6 @@ You can add your Amazon account by turning on two-factor verification and then a
 
 ## Next steps
 
-- After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](microsoft-authenticator-app-phone-signin-faq.md).
+- After you add your accounts to the app, you can sign in using the Microsoft Authenticator app on your device. For more information, see [Sign in using the app](microsoft-authenticator-app-phone-signin-faq.md).
 
 - For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md).
