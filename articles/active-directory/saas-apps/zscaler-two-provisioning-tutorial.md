@@ -1,320 +1,170 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Zscaler Two | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Zscaler Two.
+title: 'Tutorial: Configure Zscaler for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zscaler.
 services: active-directory
-documentationCenter: na
-author: jeevansd
-manager: mtillman
+documentationcenter: ''
+author: zchia
+writer: zchia
+manager: beatrizd-msft
 
-ms.assetid: 1fd8a940-7320-47e0-a176-2dd4eeca6db2
+ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
-ms.author: jeedes
-
+ms.date: 01/15/2019
+ms.author: v-ant-msft
 ---
-# Tutorial: Azure Active Directory integration with Zscaler Two
 
-In this tutorial, you learn how to integrate Zscaler Two with Azure Active Directory (Azure AD).
+# Tutorial: Configure Zscaler for automatic user provisioning
 
-Integrating Zscaler Two with Azure AD provides you with the following benefits:
+The objective of this tutorial is to demonstrate the steps to be performed in Zscaler and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Zscaler.
 
-- You can control in Azure AD who has access to Zscaler Two
-- You can enable your users to automatically get signed-on to Zscaler Two (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
-
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+> [!NOTE]
+> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with Zscaler Two, you need the following items:
+The scenario outlined in this tutorial assumes that you already have the following:
 
-- An Azure AD subscription
-- A Zscaler Two single sign-on enabled subscription
+*   An Azure AD tenant
+*   A Zscaler tenant
+*   A user account in Zscaler with Admin permissions
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
+> The Azure AD provisioning integration relies on the Zscaler SCIM API, which is available to Zscaler developers for accounts with the Enterprise package.
 
-To test the steps in this tutorial, you should follow these recommendations:
+## Adding Zscaler from the gallery
+Before configuring Zscaler for automatic user provisioning with Azure AD, you need to add Zscaler from the Azure AD application gallery to your list of managed SaaS applications.
 
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial here: [Trial offer](https://azure.microsoft.com/pricing/free-trial/).
+**To add Zscaler from the Azure AD application gallery, perform the following steps:**
 
-## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon.
 
-1. Adding Zscaler Two from the gallery
-1. Configuring and testing Azure AD single sign-on
+	![The Azure Active Directory button][1]
 
-## Adding Zscaler Two from the gallery
-To configure the integration of Zscaler Two into Azure AD, you need to add Zscaler Two from the gallery to your list of managed SaaS apps.
+2. Navigate to **Enterprise applications** > **All applications**.
 
-**To add Zscaler Two from the gallery, perform the following steps:**
+	![The Enterprise applications Section][2]
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+3. To add Zscaler, click the **New application** button on the top of the dialog.
 
-	![Active Directory][1]
+	![The New application button][3]
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+4. In the search box, type **Zscaler**.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/AppSearch.png)
 
-	![Applications][3]
+5. In the results panel, select **Zscaler**, and then click the **Add** button to add Zscaler to your list of SaaS applications.
 
-1. In the search box, type **Zscaler Two**.
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/AppSearchResults.png)
 
-	![Creating an Azure AD test user](./media/zscaler-two-tutorial/tutorial_zscalertwo_search.png)
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/AppCreation.png)
 
-1. In the results panel, select **Zscaler Two**, and then click **Add** button to add the application.
+## Assigning users to Zscaler
 
-	![Creating an Azure AD test user](./media/zscaler-two-tutorial/tutorial_zscalertwo_addfromgallery.png)
+Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized.
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Zscaler Two based on a test user called "Britta Simon".
+Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Zscaler. Once decided, you can assign these users and/or groups to Zscaler by following the instructions here:
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Zscaler Two is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Zscaler Two needs to be established.
+*   [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-In Zscaler Two, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+### Important tips for assigning users to Zscaler
 
-To configure and test Azure AD single sign-on with Zscaler Two, you need to complete the following building blocks:
+*	It is recommended that a single Azure AD user is assigned to Zscaler to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Configuring proxy settings](#configuring-proxy-settings)** - to configure the proxy settings in Internet Explorer
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Zscaler Two test user](#creating-a-zscaler-two-test-user)** - to have a counterpart of Britta Simon in Zscaler Two that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+*	When assigning a user to Zscaler, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-### Configuring Azure AD single sign-on
+## Configuring automatic user provisioning to Zscaler
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Zscaler Two application.
-
-**To configure Azure AD single sign-on with Zscaler Two, perform the following steps:**
-
-1. In the Azure portal, on the **Zscaler Two** application integration page, click **Single sign-on**.
-
-	![Configure Single Sign-On][4]
-
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/zscaler-two-tutorial/tutorial_zscalertwo_samlbase.png)
-
-1. On the **Zscaler Two Domain and URLs** section, perform the following steps:
-
-	![Configure Single Sign-On](./media/zscaler-two-tutorial/tutorial_zscalertwo_url.png)
-
-   In the Sign-on URL textbox, type the URL used by your users to sign-on to your ZScaler Two application.
-
-	> [!NOTE] 
-	> You have to update this value with the actual Sign-On URL. Contact [Zscaler Two Client support team](https://www.zscaler.com/company/contact) to get these values.
-
-1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
-
-	![Configure Single Sign-On](./media/zscaler-two-tutorial/tutorial_zscalertwo_certificate.png) 
-
-1. Click **Save** button.
-
-	![Configure Single Sign-On](./media/zscaler-two-tutorial/tutorial_general_400.png)
-
-1. On the **Zscaler Two Configuration** section, click **Configure Zscaler Two** to open **Configure sign-on** window. Copy the **SAML Single Sign-On Service URL** from the **Quick Reference section.**
-
-	![Configure Single Sign-On](./media/zscaler-two-tutorial/tutorial_zscalertwo_configure.png) 
-
-1. In a different web browser window, log in to your ZScaler Two company site as an administrator.
-
-1. In the menu on the top, click **Administration**.
-   
-	![Administration](./media/zscaler-two-tutorial/ic800206.png "Administration")
-
-1. Under **Manage Administrators & Roles**, click **Manage Users & Authentication**.   
-   			
-	![Manage Users & Authentication](./media/zscaler-two-tutorial/ic800207.png "Manage Users & Authentication")
-
-1. In the **Choose Authentication Options for your Organization** section, perform the following steps:   
-   				
-	![Authentication](./media/zscaler-two-tutorial/ic800208.png "Authentication")
-   
-    a. Select **Authenticate using SAML Single Sign-On**.
-
-    b. Click **Configure SAML Single Sign-On Parameters**.
-
-1. On the **Configure SAML Single Sign-On Parameters** dialog page, perform the following steps, and then click **Done**
-
-	![Single Sign-On](./media/zscaler-two-tutorial/ic800209.png "Single Sign-On")
-	
-	a. Paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal into the **URL of the SAML Portal to which users are sent for authentication** textbox.
-	
-	b. In the **Attribute containing Login Name** textbox, type **NameID**.
-	
-	c. To upload your downloaded certificate, click **Zscaler pem**.
-	
-	d. Select **Enable SAML Auto-Provisioning**.
-
-1. On the **Configure User Authentication** dialog page, perform the following steps:
-
-    ![Administration](./media/zscaler-two-tutorial/ic800210.png "Administration")
-    
-    a. Click **Save**.
-
-    b. Click **Activate Now**.
-
-## Configuring proxy settings
-### To configure the proxy settings in Internet Explorer
-
-1. Start **Internet Explorer**.
-
-1. Select **Internet options** from the **Tools** menu for open the **Internet Options** dialog.   
-  	
-	 ![Internet Options](./media/zscaler-two-tutorial/ic769492.png "Internet Options")
-
-1. Click the **Connections** tab.   
-  
-	 ![Connections](./media/zscaler-two-tutorial/ic769493.png "Connections")
-
-1. Click **LAN settings** to open the **LAN Settings** dialog.
-
-1. In the Proxy server section, perform the following steps:   
-   
-	![Proxy server](./media/zscaler-two-tutorial/ic769494.png "Proxy server")
-
-    a. Select **Use a proxy server for your LAN**.
-
-    b. In the Address textbox, type **gateway.zscalertwo.net**.
-
-    c. In the Port textbox, type **80**.
-
-    d. Select **Bypass proxy server for local addresses**.
-
-    e. Click **OK** to close the **Local Area Network (LAN) Settings** dialog.
-
-1. Click **OK** to close the **Internet Options** dialog.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Zscaler based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+> You may also choose to enable SAML-based single sign-on for Zscaler, following the instructions provided in the [Zscaler single sign-on tutorial](Zscaler-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
-### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+### To configure automatic user provisioning for Zscaler in Azure AD:
 
-![Create Azure AD User][100]
+1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
 
-**To create a test user in Azure AD, perform the following steps:**
+2. Select Zscaler from your list of SaaS applications.
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/AppInstanceSearch.png)
 
-	![Creating an Azure AD test user](./media/zscaler-two-tutorial/create_aaduser_01.png) 
+3. Select the **Provisioning** tab.
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/ProvisioningTab.png)
+
+4. Set the **Provisioning Mode** to **Automatic**.
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/ProvisioningCredentials.png)
+
+5. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Zscaler account as described in Step 6.
+
+6. To obtain the **Tenant URL** and **Secret Token**, navigate to **Administration > Authentication Settings** in the Zscaler portal user interface and click on **SAML** under **Authentication Type**. 
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/SecretToken1.png)
+	Click on **Configure SAML** to open **Configuration SAML** options. 
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/SecretToken2.png)
 	
-	![Creating an Azure AD test user](./media/zscaler-two-tutorial/create_aaduser_02.png) 
+	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, click Save to save the settings. Copy the **Base UR**L to **Tenant URL** and **Bearer Token**  to **Secret Token**.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/zscaler-two-tutorial/create_aaduser_03.png) 
+7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler. If the connection fails, ensure your Zscaler account has Admin permissions and try again.
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/zscaler-two-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Creating a Zscaler Two test user
-
-To enable Azure AD users to log in to ZScaler Two, they must be provisioned to ZScaler Two. In the case of ZScaler Two, provisioning is a manual task.
-
-### To configure user provisioning, perform the following steps:
-
-1. Log in to your **Zscaler Two** tenant.
-
-1. Click **Administration**.   
-   
-	![Administration](./media/zscaler-two-tutorial/ic781035.png "Administration")
-
-1. Click **User Management**.   
-  		
-	 ![Add](./media/zscaler-two-tutorial/ic781036.png "Add")
-
-1. In the **Users** tab, click **Add**.
-      
-	![Add](./media/zscaler-two-tutorial/ic781037.png "Add")
-
-1. In the Add User section, perform the following steps:
-   	   	
-	![Add User](./media/zscaler-two-tutorial/ic781038.png "Add User")
-   
-    a. Type the **UserID**, **User Display Name**, **Password**, **Confirm Password**, and then select **Groups** and the **Department** of a valid Azure AD account you want to provision.
-
-    b. Click **Save**.
-
-> [!NOTE]
-> You can use any other ZScaler Two user account creation tools or APIs provided by ZScaler Two to provision Azure AD user accounts.
-
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Zscaler Two.
-
-![Assign User][200] 
-
-**To assign Britta Simon to Zscaler Two, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **Zscaler Two**.
-
-	![Configure Single Sign-On](./media/zscaler-two-tutorial/tutorial_zscalertwo_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/testConnection.png)
 	
-### Testing single sign-on
+8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/Notification.png)
 
-When you click the Zscaler Two tile in the Access Panel, you should get automatically signed-on to your Zscaler Two application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+9. Click **Save**.
+
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zscaler**.
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/UserMappings.png)
+
+11. Review the user attributes that are synchronized from Azure AD to Zscaler in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler for update operations. Select the **Save** button to commit any changes.
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/UserAttributeMappings.png)
+
+12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zscaler**.
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/GroupMappings.png)
+
+13. Review the group attributes that are synchronized from Azure AD to Zscaler in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler for update operations. Select the **Save** button to commit any changes.
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/GroupAttributeMappings.png)
+
+14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./../active-directory-saas-scoping-filters.md).
+
+15. To enable the Azure AD provisioning service for Zscaler, change the **Provisioning Status** to **On** in the **Settings** section.
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/ProvisioningStatus.png)
+
+16. Define the users and/or groups that you would like to provision to Zscaler by choosing the desired values in **Scope** in the **Settings** section.
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/Scoping.png)
+
+17. When you are ready to provision, click **Save**.
+
+	![Zscaler Provisioning](./media/zscaler-provisioning-tutorial/SaveProvisioning.png)
+
+
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zscaler.
+
+For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../active-directory-saas-provisioning-reporting.md).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
+* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
+## Next steps
+
+* [Learn how to review logs and get reports on provisioning activity](../active-directory-saas-provisioning-reporting.md)
+
 <!--Image references-->
-
-[1]: ./media/zscaler-two-tutorial/tutorial_general_01.png
-[2]: ./media/zscaler-two-tutorial/tutorial_general_02.png
-[3]: ./media/zscaler-two-tutorial/tutorial_general_03.png
-[4]: ./media/zscaler-two-tutorial/tutorial_general_04.png
-
-[100]: ./media/zscaler-two-tutorial/tutorial_general_100.png
-
-[200]: ./media/zscaler-two-tutorial/tutorial_general_200.png
-[201]: ./media/zscaler-two-tutorial/tutorial_general_201.png
-[202]: ./media/zscaler-two-tutorial/tutorial_general_202.png
-[203]: ./media/zscaler-two-tutorial/tutorial_general_203.png
-
+[1]: ./media/zscaler-provisioning-tutorial/tutorial_general_01.png
+[2]: ./media/zscaler-provisioning-tutorial/tutorial_general_02.png
+[3]: ./media/zscaler-provisioning-tutorial/tutorial_general_03.png
