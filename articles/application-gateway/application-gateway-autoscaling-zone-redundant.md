@@ -1,6 +1,6 @@
 ---
 title: Autoscaling and Zone-redundant Application Gateway in Azure (Public Preview)
-description: This article provides information on web application firewall request size limits and exclusion lists in Application Gateway with the Azure portal.
+description: This article introduces the Azure Application v2 SKU, which includes Autoscaling and Zone-redundant features.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
