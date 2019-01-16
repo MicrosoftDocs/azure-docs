@@ -23,9 +23,12 @@ Azure Backups uses Recovery Services vaults to orchestrate and manage backups, a
 --- | ---
 Number of vaults | Up to 500 Recovery Services vaults in a single subscription.
 Machines in a vault | Up to 1000 Azure VMs in a single vault.<br/><br/> Up to 50 on-premises machines running the Azure Backup agent (Microsoft Azure Recovery Services agent (MABS)) can be registered in a single vault.
+Data source in vault storage | Maximum 54400 GB. There's no limit for Azure VM backups.
+Backups to vault | Azure VMs: once a day; Machines protected by DPM/MABS: twice a day; Machines backed up directly using MARS agent: three times a day.  
 Move vault | You can move backup Recovery Services vaults across subscriptions and resource groups. [Learn more](backup-azure-move-recovery-services-vault.md).
 Move data between vaults | Moving backed up data between vaults isn't supported.
 Storage replication type | You can modify the storage replication type (GRS/LRS) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
+
 
 
 ## On-premises backup support 
