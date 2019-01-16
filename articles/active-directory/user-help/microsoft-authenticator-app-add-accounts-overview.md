@@ -32,7 +32,7 @@ You can turn on two-factor verification for many accounts that you use every day
 
 |Account type|Description|
 |------------|-----------|
-|Work or school accounts|The account you've been given by your work or school organization, for example alain@contoso.com.|
+|Work or school accounts|The account your work or school organization gave you, for example alain@contoso.com.|
 |Personal accounts|The Microsoft and non-Microsoft accounts you've personally opened, such as for Outlook.com, Xbox LIVE, Google, Facebook, and more.|
 
 ## In this section

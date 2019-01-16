@@ -15,22 +15,22 @@ ms.reviewer: librown
 ---
 
 # Add your personal non-Microsoft accounts
-You can add your personal non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification.
+Add your personal non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification.
 
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
 
 ## Add personal accounts
-Generally, for all your personal accounts, you'll need to:
+Generally, for all your personal accounts, you must:
 
 1. Sign in to your account, and then turn on two-factor verification using either your device or your PC.
 
 2. Add the account to the Microsoft Authenticator app.
 
-We're providing the process here for your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Adobe, and so on.
+We're providing the process here for your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Netflix, or Adobe.
 
 ## Add your Google account
-You can add your Google account by turning on two-factor verification and then adding the account to the app.
+Add your Google account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
 
@@ -65,7 +65,7 @@ You can add your Google account by turning on two-factor verification and then a
     >For more information about two-factor verification and your Google account, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839) and [Learn more about 2-Step Verification](https://www.google.com/landing/2step/help.html).
 
 ## Add your Facebook account
-You can add your Facebook account by turning on two-factor verification and then adding the account to the app.
+Add your Facebook account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
 
@@ -104,7 +104,7 @@ You can add your Facebook account by turning on two-factor verification and then
     >For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
 
 ## Add your GitHub account
-You can add your GitHub account by first turning on two-factor verification and then by adding the account information to the app.
+Add your GitHub account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
 
@@ -140,7 +140,7 @@ You can add your GitHub account by first turning on two-factor verification and 
     >For more information about two-factor verification and your GitHub account, see [About two-factor authentication](https://help.github.com/articles/about-two-factor-authentication/).
 
 ## Add your Amazon account
-You can add your Amazon account by turning on two-factor verification and then adding the account to the app.
+Add your Amazon account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
 
@@ -169,7 +169,7 @@ You can add your Amazon account by turning on two-factor verification and then a
 
 6. On the **Choose how you'll receive codes** page on your PC, type the six-digit verification code provided in the app for your Amazon account, and then select **Verify code and continue**.
 
-7. Complete the rest of the sign up process, including adding a backup verification method such as a text message, and then select **Send code**.
+7. Complete the rest of the sign-up process, including adding a backup verification method such as a text message, and then select **Send code**.
 
 8. On the **Add a backup verification method** page on your PC, type the six-digit verification code provided by your backup verification method for your Amazon account, and then select **Verify code and continue**.
 

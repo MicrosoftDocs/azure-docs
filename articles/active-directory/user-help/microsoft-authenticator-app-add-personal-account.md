@@ -15,9 +15,9 @@ ms.reviewer: librown
 ---
 
 # Add your personal Microsoft accounts
-You can add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to the Microsoft Authenticator app for both the standard two-factor verification process and the passwordless phone sign-in method.
+Add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to the Microsoft Authenticator app for both the standard two-factor verification process and the passwordless phone sign-in method.
 
-- **Standard two-factor verification method.** Type your username and password into the device you're logging in to, an then choose whether the Microsoft Authenticator app sends a notification or if you'd prefer to copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
+- **Standard two-factor verification method.** Type your username and password into the device you're logging in to, and then choose whether the Microsoft Authenticator app sends a notification or if you'd prefer to copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
 
 - **Passwordless sign-in method.** Type your username into the device you're logging into for your personal Microsoft account, and then use your mobile device to verify it's you by using your fingerprint, face, or PIN. For this method, you don't need to enter your password.
 
@@ -35,7 +35,7 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 2. At the bottom of the **Security basics** page, choose the **more security options** link.
 
-    ![Security basics page with the more security options link highlighted](./media/microsoft-authenticator-app-add-personal-account/more-security-options-link.png)
+    ![Security basics page with the "more security options" link highlighted](./media/microsoft-authenticator-app-add-personal-account/more-security-options-link.png)
 
 3. Go to the **Two-step verification** section and choose to turn the feature **On**. You can also turn it off here if you no longer want to use it with your personal account.
 

@@ -30,7 +30,7 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 
 2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.
 
-3. Select **OR ENTER CODE MANUALLY** at the bottom of the page.
+3. Select **OR ENTER CODE MANUALLY**.
 
     ![Screen for scanning a QR code](./media/microsoft-authenticator-app-add-account-manual/auth-app-manual-code.png)
    
@@ -46,7 +46,7 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 
     The **Can't scan barcode** page appears with the secret code. Keep this page open so you can see the secret code.
 
-2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY** at the bottom of the page.
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY**.
 
 3. Enter an **Account name** (for example, Google) and type the **Secret key** from Step 1, and then select **Finish**.
 
@@ -61,7 +61,7 @@ The codes provided for your accounts aren't case-sensitive and don't require spa
 
 1. On the **Set up via Third Party Authenticator** page, which includes the QR code, and a code written out for entry into your app. Keep this page open so you can see the code.
 
-2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY** at the bottom of the page.
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY**.
 
 3. Enter an **Account name** (for example, Facebook) and type the **Secret key** from Step 1, and then select **Finish**.
 
@@ -79,11 +79,11 @@ You can add your Amazon account by turning on two-factor verification and then a
 
     The **Can't scan the barcode** message appears with the secret code. Keep this message open so you can see the secret code.
 
-2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY** at the bottom of the page.
+2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, select **Other account (Google, Facebook, etc.)**, and then select **OR ENTER CODE MANUALLY**.
 
 3. Enter an **Account name** (for example, Amazon) and type the **Secret key** from Step 1, and then select **Finish**.
 
-4. Complete the rest of the sign up process, including adding a backup verification method such as a text message, and then select **Send code**.
+4. Complete the rest of the sign-up process, including adding a backup verification method such as a text message, and then select **Send code**.
 
 5. On the **Add a backup verification method** page on your PC, type the six-digit verification code provided by your backup verification method for your Amazon account, and then select **Verify code and continue**.
 
