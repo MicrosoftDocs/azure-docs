@@ -29,20 +29,20 @@ This article covers that basic steps to migrate your existing Azure VMs from the
 
 ## Checklist
 
-1.  If you are migrating to managed disks in Premium storage, make sure it is available in the region you are migrating to.
+1.  If you're migrating to managed disks in Premium storage, make sure it is available in the region you're migrating to.
 
-2.  Decide the new [VM size](sizes.md) series you will be using. It should be a Premium Storage capable if you are migrating to Premium Managed Disks.
+2.  Decide the new [VM size](sizes.md) to use. It should be a Premium Storage capable if you are migrating to Premium Managed Disks.
 
-3.  Decide the exact VM size you will use which are available in the region you are migrating to. VM size needs to be large enough to support the number of data disks you have. For example, if you have four data disks, the VM must have two or more cores. Also, consider processing power, memory, and network bandwidth needs.
+3.  Decide the exact VM size you will use which are available in the region you're migrating to. VM size needs to be large enough to support the number of data disks you've. For example, if you've four data disks, the VM must have two or more cores. Also, consider processing power, memory, and network bandwidth needs.
 
 4.  Have the current VM details handy, including the list of disks and corresponding VHD blobs.
 
-Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state, which you can migrate to the new platform. Downtime duration depends on the amount of data in the disks to migrate.
+Prepare your application for downtime. To do a clean migration, you've to stop all the processing in the current system. Only then you can get it to consistent state, which you can migrate to the new platform. Downtime duration depends on the amount of data in the disks to migrate.
 
 
 ## Migrate the VM
 
-Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Downtime duration depends the amount of data in the disks to migrate.
+Prepare your application for downtime. To do a clean migration, you need to stop all the processing in the current system. Downtime duration depends the amount of data in the disks to migrate.
 
 This part requires the Azure PowerShell module version 6.0.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). You also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
@@ -65,7 +65,7 @@ $dataDiskName = 'dataDisk1'
 ```
 
 
-Create a managed OS disk using the VHD from the classic VM. Make sure that you have provided the complete URI of the OS VHD to the $osVhdUri parameter. Also, enter **-AccountType** as **Premium_LRS** or **Standard_LRS** based on type of disks (premium or standard) you are migrating to.
+Create a managed OS disk using the VHD from the classic VM. Make sure that you've provided the complete URI of the OS VHD to the $osVhdUri parameter. Also, enter **-AccountType** as **Premium_LRS** or **Standard_LRS** based on type of disks (premium or standard) you're migrating to.
 
 
 ```powershell
