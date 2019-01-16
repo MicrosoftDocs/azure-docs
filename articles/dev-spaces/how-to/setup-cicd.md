@@ -112,10 +112,9 @@ You now have a fully automated CI/CD pipeline for your Github fork of the Dev Sp
 ## Accessing your _dev_ services
 After deployment, the _dev_ version of *webfrontend* can be accessed with a public URL like: `http://dev.webfrontend.<hash>.<region>.aksapp.io`.
 
-You can find this URL using the Dev Spaces CLI:
+You can find this URL using the *kubectl* CLI:
 ```cmd
-azds space select -n dev
-azds list-uris
+kubectl get ingress -n dev webfrontend -o=jsonpath="{.spec.rules[0].host}"
 ```
 
 ## Deploying to Production
@@ -132,10 +131,9 @@ To manually promote a particular release to _prod_ using the CI/CD system we've 
 
 Our CI/CD pipeline example makes use of variables to change the DNS prefix for *webfrontend* depending on which environment is being deployed. So to access your 'prod' services, you can use a URL like: `http://prod.webfrontend.<hash>.<region>.aksapp.io`.
 
-After deployment, you can find this URL using the Dev Spaces CLI:
+After deployment, you can find this URL using the *kubectl* CLI:
 ```cmd
-azds space select -n prod
-azds list-uris
+kubectl get ingress -n prod webfrontend -o=jsonpath="{.spec.rules[0].host}"
 ```
 
 ## Dev Spaces instrumentation in production
