@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
 
 ---
@@ -25,6 +25,22 @@ Azure Media Services enables you to deliver live events to your customers on the
 - Components in Media Services, which enable you to ingest, preview, package, record, encrypt, and broadcast the live event to your customers, or to a CDN for further distribution.
 
 This article gives a detailed overview, guidance, and includes diagrams of the main components involved in live streaming with Media Services.
+
+## Live streaming workflow
+
+Here are the steps for a live streaming workflow:
+
+1. Create a **Live Event**.
+2. Create a new **Asset** object.
+3. Create a **Live Output** and use the asset name that you created.
+4. Create a **Streaming Policy** and **Content Key** if you intend to encrypt your content with DRM.
+5. If not using DRM, create a **Streaming Locator** with the built-in **Streaming Policy** types.
+6. List the paths on the **Streaming Policy** to get back the URLs to use (these are deterministic).
+7. Get the hostname for the **Streaming Endpoint** you wish to stream from (make sure the Streaming Endpoint is running). 
+8. Combine the URL from step 6 with the hostname in step 7 to get your full URL.
+9. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event by deleting the **Streaming Locator**.
+
+For more information, see a [Live streaming tutorial](stream-live-tutorial-with-api.md) that is based on the [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) sample.
 
 ## Overview of main components
 
@@ -85,9 +101,10 @@ The following article contains a table that compares features of the two LiveEve
 
 A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) enables you to control the properties of the outgoing live stream, such as how much of the stream is recorded (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The relationship between a **LiveEvent** and its **LiveOutput**s relationship is similar to traditional television broadcast, whereby a channel (**LiveEvent**) represents a constant stream of video and a recording (**LiveOutput**) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). You can record television using a Digital Video Recorder (DVR) – the equivalent feature in LiveEvents is managed via the ArchiveWindowLength property. It is an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
 
-
 > [!NOTE]
-> **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the Asset.  
+> **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the asset. 
+>
+> If you have published **Streaming Locator**s on the asset for the **LiveOutput**, the event (up to the DVR window length) will continue to be viewable until the end time of the **Streaming Locator** or till when you delete the locator, whichever comes first.   
 
 For more information, see [Using cloud DVR](live-event-cloud-dvr.md).
 
@@ -106,21 +123,6 @@ For detailed information, see [States and billing](live-event-states-billing.md)
 ## Latency
 
 For detailed information about LiveEvents latency, see [Latency](live-event-latency.md).
-
-## Live streaming workflow
-
-Here are the steps for a live streaming workflow:
-
-1. Create a LiveEvent.
-2. Create a new Asset object.
-3. Create a LiveOutput and use the asset name that you created.
-4. Create a Streaming Policy and Content Key if you intend to encrypt your content with DRM.
-5. If not using DRM, create a Streaming Locator with the built-in Streaming Policy types.
-6. List the paths on the Streaming Policy to get back the URLs to use (these are deterministic).
-7. Get the hostname for the Streaming Endpoint you wish to stream from. 
-8. Combine the URL from step 6 with the hostname in step 7 to get your full URL.
-
-For more information, see a [Live streaming tutorial](stream-live-tutorial-with-api.md) that is based on the [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) sample.
 
 ## Next steps
 
