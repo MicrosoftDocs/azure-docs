@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: diberry
 ---
 
@@ -27,11 +27,6 @@ This integration creates a new endpoint and [pricing](luis-boundaries.md#key-lim
 
 ### Quota usage
 See [Key limits](luis-boundaries.md#key-limits) for information. 
-
-### Data retention
-The data sent to the endpoint, via the Speech SDK, regardless if it is speech or text, is only used to enhance your speech model. It is not used beyond your model to enhance either Speech or LUIS in a general capacity. When the LUIS app is deleted, the retained data is also deleted.
-
-<!-- TBD: Machine translation conversion concepts -->
 
 ## Next steps
 
