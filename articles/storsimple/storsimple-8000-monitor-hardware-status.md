@@ -4,7 +4,7 @@ description: Learn how to monitor the hardware components of your StorSimple dev
 services: storsimple
 documentationcenter: ''
 author: alkohli
-manager: timlt
+manager: twooley
 editor: ''
 
 ms.assetid: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2017
+ms.date: 08/15/2018
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to monitor hardware components and status
+
 ## Overview
 This article describes the various physical and logical components in your on-premises StorSimple 8000 series device. It also explains how to monitor the device component status by using the **Status and hardware health** blade in the StorSimple Device Manager service.
 
@@ -25,7 +26,7 @@ The **Status and hardware health** blade shows the hardware status of all the St
 
 Under the list of components for 8100, there are three sections that describe:
 
-* **Shared Components** – These are not part of the controllers, such as disk drives, enclosure, PCM components and PCM temperature, line voltage, and line current sensors.
+* **Shared Components** – These are not part of the controllers, such as disk drives, enclosure, Power and Cooling Module (PCM) components and PCM temperature, line voltage, and line current sensors.
 * **Controller 0 Components** – The components that reside on Controller 0, such as controller, SAS expander and connector, controller temperature sensors, and the various network interfaces.
 * **Controller 1 Components** – The components that constitute Controller 1, similar to those detailed for Controller 0.
 

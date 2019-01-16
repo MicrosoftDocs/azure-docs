@@ -1,21 +1,20 @@
 ---
-title: Node.JS Quickstart for Azure Cognitive Services, Bing Autosuggest API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing Autosuggest API, Node.js"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: autosuggest
-ms.topic: article
+ms.component: bing-autosuggest
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-
 ---
-# Quickstart for Bing Autosuggest API with Node.JS 
-<a name="HOLTop"></a>
+# Quickstart for Bing Autosuggest API with Node.js
 
-This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Node.JS. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
+This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with Node.js. The Bing Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
 
 ## Prerequisites
 
@@ -25,12 +24,12 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Get Autosuggest results
 
-1. Create a new Node.JS project in your favorite IDE.
+1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `subscriptionKey` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let https = require ('https');
@@ -56,8 +55,8 @@ let response_handler = function (response) {
         body += d;
     });
     response.on ('end', function () {
-		let body_ = JSON.parse (body);
-		let body__ = JSON.stringify (body_, null, '  ');
+    let body_ = JSON.parse (body);
+    let body__ = JSON.stringify (body_, null, '  ');
         console.log (body__);
     });
     response.on ('error', function (e) {
@@ -66,23 +65,23 @@ let response_handler = function (response) {
 };
 
 let get_suggestions = function () {
-	let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + params,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+  let request_params = {
+    method : 'GET',
+    hostname : host,
+    path : path + params,
+    headers : {
+      'Ocp-Apim-Subscription-Key' : subscriptionKey,
+    }
+  };
 
-	let req = https.request (request_params, response_handler);
-	req.end ();
+  let req = https.request (request_params, response_handler);
+  req.end ();
 }
 
 get_suggestions ();
 ```
 
-**Response**
+### Response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -155,7 +154,7 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
 
-## See also 
+## See also
 
-[Bing Autosuggest overview](../get-suggested-search-terms.md)
-[API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [What is Bing Autosuggest?](../get-suggested-search-terms.md)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

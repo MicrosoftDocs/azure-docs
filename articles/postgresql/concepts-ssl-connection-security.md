@@ -1,15 +1,11 @@
 ---
-title: Configure SSL connectivity in Azure Database for PostgreSQL | Microsoft Docs
+title: Configure SSL connectivity in Azure Database for PostgreSQL
 description: Instructions and information to configure Azure Database for PostgreSQL and associated applications to properly use SSL connections.
-services: postgresql
 author: JasonMAnderson
 ms.author: janders
-editor: jasonwhowell
-manager: jhubbard
 ms.service: postgresql
-ms.custom: 
-ms.topic: article
-ms.date: 05/15/2017
+ms.topic: conceptual
+ms.date: 02/28/2018
 ---
 # Configure SSL connectivity in Azure Database for PostgreSQL
 Azure Database for PostgreSQL prefers connecting your client applications to the PostgreSQL service using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
@@ -35,7 +31,7 @@ You can confirm the setting by viewing the **Overview** page to see the **SSL en
 You can enable or disable the **ssl-enforcement** parameter using `Enabled` or `Disabled` values respectively in Azure CLI.
 
 ```azurecli
-az postgres server update --resource-group myresourcegroup --name mypgserver-20170401 --ssl-enforcement Enabled
+az postgres server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## Ensure your application or framework supports SSL connections
@@ -52,7 +48,7 @@ The certificate needed to communicate over SSL with your Azure Database for Post
 To decode the certificate file needed for your application to connect securely to your database server, you need to install OpenSSL on your local computer.
 
 #### For Linux, OS X, or Unix
-The OpenSSL libraries are provided in source code directly from the [OpenSSL Software Foundation](http://www.openssl.org). The following instructions guide you through the steps necessary to install OpenSSL on your Linux PC. This article uses commands known to work on Ubuntu 12.04 and higher.
+The OpenSSL libraries are provided in source code directly from the [OpenSSL Software Foundation](https://www.openssl.org). The following instructions guide you through the steps necessary to install OpenSSL on your Linux PC. This article uses commands known to work on Ubuntu 12.04 and higher.
 
 Open a terminal session and download OpenSSL.
 ```bash
@@ -93,34 +89,29 @@ OpenSSL 1.1.0e 7 Apr 2014
 
 #### For Windows
 Installing OpenSSL on a Windows PC can be done in the following ways:
-1. **(Recommended)** Using the built-in Bash for Windows functionality in Window 10 and above, OpenSSL is installed by default. Instructions on how to enable Bash for Windows functionality in Windows 10 can be found [here](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
+1. **(Recommended)** Using the built-in Bash for Windows functionality in Window 10 and above, OpenSSL is installed by default. Instructions on how to enable Bash for Windows functionality in Windows 10 can be found [here](https://msdn.microsoft.com/commandline/wsl/install_guide).
 2. Through downloading a Win32/64 application provided by the community. While the OpenSSL Software Foundation does not provide or endorse any specific Windows installers, they provide a list of available installers [here](https://wiki.openssl.org/index.php/Binaries).
 
 ### Decode your certificate file
 The downloaded Root CA file is in encrypted format. Use OpenSSL to decode the certificate file. To do so, run this OpenSSL command:
 
 ```dos
-OpenSSL>x509 -inform DER -in BaltimoreCyberTrustRoot.cer -text -out root.crt
+openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ```
 
 ### Connecting to Azure Database for PostgreSQL with SSL certificate authentication
 Now that you have successfully decoded your certificate, you can now connect to your database server securely over SSL. To allow server certificate verification, the certificate must be placed in the file ~/.postgresql/root.crt in the user's home directory. (On Microsoft Windows the file is named %APPDATA%\postgresql\root.crt.). The following provides instructions for connecting to Azure Database for PostgreSQL.
-
-> [!NOTE]
-> Currently, there is a known issue if you use "sslmode=verify-full" in your connection to the service, the connection will fail with the following error:
-> _server certificate for "&lt;region&gt;.control.database.windows.net" (and 7 other names) does not match host name "&lt;servername&gt;.postgres.database.azure.com"._
-> If "sslmode=verify-full" is required, please use the server naming convention **&lt;servername&gt;.database.windows.net** as the host name in your connection string. We plan to remove this limitation in the future. Connections using other [SSL modes](https://www.postgresql.org/docs/9.6/static/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS) should continue to use the preferred host naming convention **&lt;servername&gt;.postgres.database.azure.com**.
 
 #### Using psql command-line utility
 The following example shows how to successfully connect to your PostgreSQL server using the psql command-line utility. Use the `root.crt` file created and the `sslmode=verify-ca` or `sslmode=verify-full` option.
 
 Using the PostgreSQL command-line interface, execute the following command:
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mypgserver-20170401.postgres.database.azure.com dbname=postgres user=mylogin@mypgserver-20170401"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=mylogin@mydemoserver"
 ```
 If successful, you receive the following output:
 ```bash
-Password for user mylogin@mypgserver-20170401:
+Password for user mylogin@mydemoserver:
 psql (9.6.2)
 WARNING: Console code page (437) differs from Windows code page (1252)
      8-bit characters might not work correctly. See psql reference

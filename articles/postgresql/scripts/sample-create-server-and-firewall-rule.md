@@ -1,16 +1,13 @@
 ---
-title: "Azure CLI Script - Create an Azure Database for PostgreSQL | Microsoft Docs"
-description: "Azure CLI Script Sample - Creates an Azure Database for PostgreSQL server and configures a server-level firewall rule."
-services: postgresql
-author: salonisonpal
-ms.author: salonis
-manager: jhubbard
-editor: jasonwhowell
+title: Azure CLI Script - Create an Azure Database for PostgreSQL
+description: Azure CLI Script Sample - Creates an Azure Database for PostgreSQL server and configures a server-level firewall rule.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
-ms.date: 05/31/2017
+ms.date: 02/28/2018
 ---
 
 # Create an Azure Database for PostgreSQL server and configure a firewall rule using the Azure CLI
@@ -18,26 +15,26 @@ This sample CLI script creates an Azure Database for PostgreSQL server and confi
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI.
 
 ## Sample script
-In this sample script, edit the highlighted lines to customize the admin username and password.
+In this sample script, edit the highlighted lines to update the admin username and password to your own.
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/create-postgresql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for PostgreSQL, and server-level firewall rule.")]
 
 ## Clean up deployment
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+Use the following command to remove the resource group and all resources associated with it after the script has been run. 
 [!code-azurecli-interactive[main](../../../cli_scripts/postgresql/create-postgresql-server-and-firewall-rule/delete-postgresql.sh "Delete the resource group.")]
 
 ## Script explanation
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Creates a resource group in which all resources are stored. |
-| [az postgres server create](/cli/azure/postgres/server#create) | Creates a PostgreSQL server that hosts the databases. |
-| [az postgres server firewall create](/cli/azure/postgres/server/firewall-rule#create) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
-| [az group delete](/cli/azure/group#delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Creates a PostgreSQL server that hosts the databases. |
+| [az postgres server firewall create](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
+| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview)
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure)
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)

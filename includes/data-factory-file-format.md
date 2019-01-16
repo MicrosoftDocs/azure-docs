@@ -1,3 +1,10 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+---
 ## Specifying formats
 Azure Data Factory supports the following format types:
 
@@ -182,7 +189,7 @@ In this sample, you expect one root JSON object maps to single record in tabular
                     "TargetResourceType": "Microsoft.Compute/virtualMachines"
                 },
                 {
-                    "ResourceManagmentProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
+                    "ResourceManagementProcessRunId": "827f8aaa-ab72-437c-ba48-d8917a7336a3"
                 },
                 {
                     "OccurrenceTime": "1/13/2017 11:24:37 AM"
@@ -194,7 +201,7 @@ In this sample, you expect one root JSON object maps to single record in tabular
 ```
 and you want to copy it into an Azure SQL table in the following format, by extracting data from both objects and array:
 
-| id | deviceType | targetResourceType | resourceManagmentProcessRunId | occurrenceTime |
+| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -219,7 +226,7 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
             "type": "String"
         },
         {
-            "name": "resourceManagmentProcessRunId",
+            "name": "resourceManagementProcessRunId",
             "type": "String"
         },
         {
@@ -232,7 +239,7 @@ The input dataset with **JsonFormat** type is defined as follows: (partial defin
         "format": {
             "type": "JsonFormat",
             "filePattern": "setOfObjects",
-            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagmentProcessRunId": "$.context.custom.dimensions[1].ResourceManagmentProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}      
+            "jsonPathDefinition": {"id": "$.id", "deviceType": "$.context.device.type", "targetResourceType": "$.context.custom.dimensions[0].TargetResourceType", "resourceManagementProcessRunId": "$.context.custom.dimensions[1].ResourceManagementProcessRunId", "occurrenceTime": " $.context.custom.dimensions[2].OccurrenceTime"}      
         }
     }
 }
@@ -400,7 +407,7 @@ If you want to parse the ORC files or write the data in ORC format, set the `for
 ```
 
 > [!IMPORTANT]
-> If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+> If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](https://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
 >
 >
 
@@ -419,7 +426,7 @@ If you want to parse the Parquet files or write the data in Parquet format, set 
 }
 ```
 > [!IMPORTANT]
-> If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+> If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](https://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
 >
 >
 

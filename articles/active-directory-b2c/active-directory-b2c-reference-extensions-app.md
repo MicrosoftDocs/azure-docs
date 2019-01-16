@@ -1,23 +1,18 @@
----
-title: 'Extensions app - Azure AD B2C | Microsoft Docs'
-description: Restoring the b2c-extensions-app
+﻿---
+title: Extensions app in Azure Active Directory B2C | Microsoft Docs
+description: Restoring the b2c-extensions-app.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
-manager: krassk
-editor: 'parakhj'
+author: davidmu1
+manager: mtillman
 
-ms.assetid: f0392e32-0771-473c-a799-81438ca2bcff
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 9/06/2017
-
-ms.author: parja
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure AD B2C: Extensions app
 
 When an Azure AD B2C directory is created, an app called `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` is automatically created inside the new directory. This app, referred to as the **b2c-extensions-app**, is visible in *App registrations*. It is used by the Azure AD B2C service to store information about users and custom attributes. If the app is deleted, Azure AD B2C will not function correctly and your production environment will be affected.
@@ -29,7 +24,7 @@ When an Azure AD B2C directory is created, an app called `b2c-extensions-app. Do
 
 To verify that the b2c-extensions-app is present:
 
-1. Inside your Azure AD B2C tenant, click on **More services** in the left-hand navigation menu.
+1. Inside your Azure AD B2C tenant, click on **All services** in the left-hand navigation menu.
 1. Search for and open **App registrations**.
 1. Look for an app that begins with **b2c-extensions-app**
 

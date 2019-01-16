@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure AD Device Management Documentation
+metadata:
+  document_id: 
+  title: Azure Active Directory Device Management Documentation - Tutorials, concepts, references | Microsoft Docs
+  description: Learn how to configure and test Azure Active device management.
+  services: active-directory
+  ms.component: devices
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: markvi
+abstract:
+  description: "Through devices, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to have control over these devices. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance.<br>Device management is also the foundation for device-based conditional access. With device-based conditional access, you can ensure that access to resources in your environment is only possible with managed devices."
+sections:
+- title: Step-by-step tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to integrated your on-premises AD-joined devices with Azure AD.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: ./media/index/i_security-management.png
+      text: Managed domains
+      href: hybrid-azuread-join-managed-domains.md
+    - image: 
+        src: ./media/index/i_security-management.png
+      text: Federated domains
+      href: hybrid-azuread-join-federated-domains.md

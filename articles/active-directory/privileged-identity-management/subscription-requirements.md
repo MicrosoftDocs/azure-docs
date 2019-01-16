@@ -1,24 +1,25 @@
-﻿---
-title: Privileged Identity Management subscriptions - Azure| Microsoft Docs
-description: Explains the subscription and licensing requirements for managing and using Azure AD Privileged Identity Management in your tenant
+---
+title: Subscription requirements to use PIM - Azure | Microsoft Docs
+description: Describes the subscription and licensing requirements to use Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: barclayn
-manager: mbaldwin
-editor: mwahl
+author: rolyon
+manager: mtillman
+editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: pim
 ms.date: 06/01/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
 
 ---
 
-# Azure Active Directory Privileged Identity Management subscription requirements
+# Subscription requirements to use PIM
 
 Azure AD Privileged Identity Management is available as part of the Premium P2 edition of Azure AD. For more information on the other features of P2 and how it compares to Premium P1, see [Azure Active Directory editions](../active-directory-editions.md).
 
@@ -33,11 +34,11 @@ If you're not sure whether your organization has a trial or purchased subscripti
 2. Enter `Connect-MsolService` to authenticate as a user in your tenant.
 3. Enter `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-This command retrieves a list of the subscriptions in your tenant. If there are no lines returned, you will need to obtain an Azure AD Premium P2 trial, purchase an Azure AD Premium P2 subscription or EMS E5 subscription to use Azure AD Privileged Identity Management.  To get a trial and start using Azure AD Privileged Identity Management, read [Get started with Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+This command retrieves a list of the subscriptions in your tenant. If there are no lines returned, you will need to obtain an Azure AD Premium P2 trial, purchase an Azure AD Premium P2 subscription or EMS E5 subscription to use Azure AD Privileged Identity Management.  To get a trial and start using Azure AD Privileged Identity Management, read [Get started with Azure AD Privileged Identity Management](pim-getting-started.md).
 
 If this command returns a line in which SkuPartNumber is "AAD_PREMIUM_P2" or "EMSPREMIUM" and IsTrial is "True", this indicates an Azure AD Premium P2 trial is present in the tenant.  If the subscription status is not enabled, and you do not have an Azure AD Premium P2 or EMS E5 subscription purchase, then you must purchase an Azure AD Premium P2 subscription or EMS E5 subscription to continue using Azure AD Privileged Identity Management.
 
-Azure AD Premium P2 is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), the [Open Volume License Program](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx), and the [Cloud Solution Providers program](https://partner.microsoft.com/en-US/cloud-solution-provider). Azure and Office 365 subscribers can also buy Azure AD Premium P2 online.  More information on Azure AD Premium pricing and how to order online can be found at [Azure Active Directory Pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+Azure AD Premium P2 is available through a [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), the [Open Volume License Program](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx), and the [Cloud Solution Providers program](https://partner.microsoft.com/cloud-solution-provider). Azure and Office 365 subscribers can also buy Azure AD Premium P2 online.  More information on Azure AD Premium pricing and how to order online can be found at [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Azure AD Privileged Identity Management is not available in tenant
 
@@ -56,5 +57,5 @@ When an Azure AD Premium P2 subscription or EMS E5 subscription expires, or an o
 
 ## Next steps
 
-- [Get started with Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
-- [Roles in Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-roles.md)
+- [Start using PIM](pim-getting-started.md)
+- [Azure AD directory roles you can manage in PIM](pim-roles.md)

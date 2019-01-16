@@ -29,6 +29,7 @@ When you try to start a stopped Azure Virtual Machine (VM), or resize an existin
 
 > [!IMPORTANT] 
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For the Resource Manager version, see [here](../restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 

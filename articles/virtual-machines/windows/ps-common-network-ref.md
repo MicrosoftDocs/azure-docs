@@ -3,8 +3,8 @@ title: Common PowerShell commands for Azure Virtual Networks | Microsoft Docs
 description: Common PowerShell commands to get you started creating a virtual network and its associated resources for VMs.
 services: virtual-machines-windows
 documentationcenter: ''
-author: davidmu1
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: davidmu
+ms.author: cynthn
 
 ---
 # Common PowerShell commands for Azure Virtual Networks

@@ -1,15 +1,12 @@
 ---
-title: Configure the service parameters in Azure Database for PostgreSQL | Microsoft Docs
+title: Configure the service parameters in Azure Database for PostgreSQL
 description: This article describes how to configure the service parameters in Azure Database for PostgreSQL using the Azure CLI command line.
-services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
-editor: jasonwhowell
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
-ms.date: 10/05/2017
+ms.devlang: azurecli
+ms.topic: conceptual
+ms.date: 02/28/2018
 ---
 # Customize server configuration parameters using Azure CLI
 You can list, show, and update configuration parameters for an Azure PostgreSQL server using the Command Line Interface (Azure CLI). A subset of engine configurations is exposed at server-level and can be modified. 
@@ -17,32 +14,32 @@ You can list, show, and update configuration parameters for an Azure PostgreSQL 
 ## Prerequisites
 To step through this how-to guide, you need:
 - Create an Azure Database for PostgreSQL server and database by following [Create an Azure Database for PostgreSQL](quickstart-create-server-database-azure-cli.md)
-- Install [Azure CLI 2.0](/cli/azure/install-azure-cli) command-line interface on your machine or use the [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure portal using your browser.
+- Install [Azure CLI](/cli/azure/install-azure-cli) command-line interface on your machine or use the [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure portal using your browser.
 
 ## List server configuration parameters for Azure Database for PostgreSQL server
-To list all modifiable parameters in a server and their values, run the [az postgres server configuration list](/cli/azure/postgres/server/configuration#list) command.
+To list all modifiable parameters in a server and their values, run the [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) command.
 
-You can list the server configuration parameters for the server **mypgserver-20170401.postgres.database.azure.com** under resource group **myresourcegroup**.
+You can list the server configuration parameters for the server **mydemoserver.postgres.database.azure.com** under resource group **myresourcegroup**.
 ```azurecli-interactive
-az postgres server configuration list --resource-group myresourcegroup --server mypgserver-20170401
+az postgres server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 ## Show server configuration parameter details
-To show details about a particular configuration parameter for a server, run the [az postgres server configuration show](/cli/azure/postgres/server/configuration#show)  command.
+To show details about a particular configuration parameter for a server, run the [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show)  command.
 
-This example shows details of the **log\_min\_messages** server configuration parameter for server **mypgserver-20170401.postgres.database.azure.com** under resource group **myresourcegroup.**
+This example shows details of the **log\_min\_messages** server configuration parameter for server **mydemoserver.postgres.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive
-az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
+az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
 ## Modify server configuration parameter value
-You can also modify the value of a certain server configuration parameter, which updates the underlying configuration value for the PostgreSQL server engine. To update the configuration, use the [az postgres server configuration set](/cli/azure/postgres/server/configuration#set) command. 
+You can also modify the value of a certain server configuration parameter, which updates the underlying configuration value for the PostgreSQL server engine. To update the configuration, use the [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) command. 
 
-To update the **log\_min\_messages** server configuration parameter of server **mypgserver-20170401.postgres.database.azure.com** under resource group **myresourcegroup.**
+To update the **log\_min\_messages** server configuration parameter of server **mydemoserver.postgres.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive
-az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401 --value INFO
+az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver --value INFO
 ```
 If you want to reset the value of a configuration parameter, you simply choose to leave out the optional `--value` parameter, and the service applies the default value. In above example, it would look like:
 ```azurecli-interactive
-az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
+az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mydemoserver
 ```
 This command resets the **log\_min\_messages** configuration to the default value **WARNING**. For more information on server configuration and permissible values, see PostgreSQL documentation on [Server Configuration](https://www.postgresql.org/docs/9.6/static/runtime-config.html).
 

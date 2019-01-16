@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title:  Azure Data Box Documentation - Online Transfer 
+metadata:
+  title:  Azure Data Box Documentation - Online Transfer  
+  description: Use the Data Box devices for over the network high performance data transfers to Azure in a quick, inexpensive, and reliable manner.
+  services: databox
+  author: alkohli
+  manager: twooley
+  ms.service: databox
+  ms.subservice: edge
+  ms.topic: landing-page
+  ms.date: 10/12/2018
+  ms.author: alkohli
+abstract:
+  description: The Azure Data Box family lets you transfer hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable manner. Use the Data Box devices for over the network high performance data transfers.<p>Choose Data Box Gateway<SUP>Preview</SUP> to send data for cloud archival, disaster recovery, or to process data at cloud scale.  Use Data Box Edge<SUP>Preview</SUP> to filter, analyze, and transform your data as it moves to Azure.</p><p>Learn how to leverage Data Box Gateway and Data Box Edge for network-based transfer with our tutorials.</p>
+sections:
+- title: Tutorials
+  items:
+  - type: paragraph
+    text: <b>For Data Box Gateway<SUP>Preview</SUP></b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="data-box-gateway-deploy-prep">Prepare to deploy Azure Data Box Gateway</a>
+    - html: <a href="data-box-gateway-deploy-provision-hyperv">Provision Azure Data Box Gateway in Hyper-V</a>
+    - html: <a href="data-box-gateway-deploy-provision-vmware">Provision Azure Data Box Gateway in VMware</a>
+    - html: <a href="data-box-gateway-deploy-connect-setup-activate">Connect, set up, activate Azure Data Box Gateway</a>
+    - html: <a href="data-box-gateway-deploy-add-shares">Transfer data with Azure Data Box Gateway</a>
+  - type: paragraph
+    text: <b>For Data Box Edge<SUP>Preview</SUP></b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="data-box-edge-deploy-prep">Prepare to deploy Azure Data Box Edge</a>
+    - html: <a href="data-box-edge-deploy-install">Install Azure Data Box Edge</a>
+    - html: <a href="data-box-edge-deploy-connect-setup-activate">Connect, set up, activate Azure Data Box Edge</a>
+    - html: <a href="data-box-edge-deploy-add-shares">Transfer data with Azure Data Box Edge</a>
+    - html: <a href="data-box-edge-deploy-configure-compute">Transform data with Azure Data Box Edge</a>

@@ -4,7 +4,7 @@ description: Learn about how to change your Azure subscription and switch to a d
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 
@@ -13,9 +13,9 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: troubleshooting
-ms.date: 08/30/2017
-ms.author: genli
+ms.topic: conceptual
+ms.date: 05/11/2018
+ms.author: cwatson
 
 ---
 # Change your Azure Pay-As-You-Go subscription to a different offer
@@ -102,7 +102,7 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 
 ### Can I migrate from Pay-As-You-Go to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) or [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* To migrate to CSP, see [Azure Pas-As-You-Go Subscription Migration to CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* To migrate to CSP, see [Azure Pay-As-You-Go Subscription Migration to CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * To migrate to EA, have your Enrollment Admin add your account into the EA. Follow instructions in the invitation email to have your subscriptions moved under EA enrollment. To learn more, see [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) in the EA portal.
 
 ### Can I migrate data and services to a new subscription?
@@ -110,6 +110,6 @@ On the day you switch, an invoice is generated for all outstanding charges. Then
 * You can migrate the resources directly to the new subscription, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 * To transfer ownership of an Azure subscription and everything in it to someone else, see [Transferring ownership of an Azure subscription](billing-subscription-transfer.md)
 
-## Need help? Contact support.
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

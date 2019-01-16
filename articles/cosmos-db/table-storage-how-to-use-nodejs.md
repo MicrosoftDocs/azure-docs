@@ -1,41 +1,36 @@
 ---
-title: How to use Azure Table storage from Node.js | Microsoft Docs
-description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
-services: cosmos-db
-documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: tysonn
-
-ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
+title: How to use Azure Table storage or Azure Cosmos DB Table API from Node.js
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 ms.service: cosmos-db
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 12/08/2016
-ms.author: mimig
-
+ms.topic: sample
+ms.date: 04/05/2018
+author: wmengmsft
+ms.author: wmeng
 ---
-# How to use Azure Table storage from Node.js
+# How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## Overview
-This topic shows how to perform common scenarios using the Azure Table service in a Node.js application.
+This article shows how to perform common scenarios using Azure Storage Table service or Azure Cosmos DB in a Node.js application.
 
-The code examples in this topic assume you already have a Node.js application. For information about how to create a Node.js application in Azure, see any of these topics:
+## Create an Azure service account
 
-* [Create a Node.js web app in Azure App Service](../app-service/app-service-web-get-started-nodejs.md)
-* [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+### Create an Azure storage account
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-## Configure your application to access Azure Storage
-To use Azure Storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
-communicate with the storage REST services.
+### Create an Azure Cosmos DB Table API account
+
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
+
+## Configure your application to access Azure Storage or the Azure Cosmos DB Table API
+To use Azure Storage or Azure Cosmos DB, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
+communicate with the Storage REST services.
 
 ### Use Node Package Manager (NPM) to install the package
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix), and navigate to the folder where you created your application.
@@ -51,7 +46,7 @@ communicate with the storage REST services.
        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
        +-- xml2js@0.2.7 (sax@0.5.2)
        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-3. You can manually run the **ls** command to verify that a **node\_modules** folder was created. Inside that folder you will find the **azure-storage** package, which contains the libraries you need to access storage.
+3. You can manually run the **ls** command to verify that a **node_modules** folder was created. Inside that folder you will find the **azure-storage** package, which contains the libraries you need to access storage.
 
 ### Import the package
 Add the following code to the top of the **server.js** file in your application:
@@ -60,17 +55,28 @@ Add the following code to the top of the **server.js** file in your application:
 var azure = require('azure-storage');
 ```
 
-## Set up an Azure Storage connection
-The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
+## Add an Azure Storage connection
+The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_STORAGE_CONNECTION_STRING for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information when calling **TableService**. For example, the following code creates a **TableService** object:
+
+```nodejs
+var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
+```
+
+## Add an Azure Cosmos DB connection
+To add an Azure Cosmos DB connection, create a **TableService** object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account. For example:
+
+```nodejs
+var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
+```  
 
 ## Create a table
-The following code creates a **TableService** object and uses it to create a new table. Add the following near the top of **server.js**.
+The following code creates a **TableService** object and uses it to create a new table. 
 
 ```nodejs
 var tableSvc = azure.createTableService();
 ```
 
-The call to **createTableIfNotExists** will create a new table with the specified name if it does not already exist. The following example creates a new table named 'mytable' if it does not already exist:
+The call to **createTableIfNotExists** creates a new table with the specified name if it does not already exist. The following example creates a new table named 'mytable' if it does not already exist:
 
 ```nodejs
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
@@ -80,22 +86,22 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 });
 ```
 
-The `result.created` will be `true` if a new table is created, and `false` if the table already exists. The `response` will contain information about the request.
+The `result.created` is `true` if a new table is created, and `false` if the table already exists. The `response` contains information about the request.
 
 ### Filters
-Optional filtering operations can be applied to operations performed using **TableService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
+You can apply optional filtering to operations performed using **TableService**. Filtering operations can include logging, automatic retries, etc. Filters are objects that implement a method with the signature:
 
 ```nodejs
 function handle (requestOptions, next)
 ```
 
-After doing its preprocessing on the request options, the method needs to call "next", passing a callback with the following signature:
+After doing its preprocessing on the request options, the method must call **next**, passing a callback with the following signature:
 
 ```nodejs
 function (returnObject, finalCallback, next)
 ```
 
-In this callback, and after processing the returnObject (the response from the request to the server), the callback needs to either invoke next if it exists to continue processing other filters or simply invoke finalCallback otherwise to end the service invocation.
+In this callback, and after processing the **returnObject** (the response from the request to the server), the callback must either invoke **next** if it exists to continue processing other filters or simply invoke **finalCallback** otherwise to end the service invocation.
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **TableService** object that uses the **ExponentialRetryPolicyFilter**:
 
@@ -107,12 +113,12 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 ## Add an entity to a table
 To add an entity, first create an object that defines your entity properties. All entities must contain a **PartitionKey** and **RowKey**, which are unique identifiers for the entity.
 
-* **PartitionKey** - determines the partition that the entity is stored in
-* **RowKey** - uniquely identifies the entity within the partition
+* **PartitionKey** - Determines the partition in which the entity is stored.
+* **RowKey** - Uniquely identifies the entity within the partition.
 
-Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-The following is an example of defining an entity. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types will be inferred if not specified.
+The following is an example of defining an entity. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types are inferred if not specified.
 
 ```nodejs
 var task = {
@@ -150,7 +156,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-If the operation is successful, `result` will contain the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` will contain information about the operation.
+If the operation is successful, `result` contains the [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` contains information about the operation.
 
 Example response:
 
@@ -159,7 +165,7 @@ Example response:
 ```
 
 > [!NOTE]
-> By default, **insertEntity** does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or wish to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling **echoContent** as follows:
+> By default, **insertEntity** does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or want to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling **echoContent** as follows:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 >
@@ -168,10 +174,10 @@ Example response:
 ## Update an entity
 There are multiple methods available to update an existing entity:
 
-* **replaceEntity** - updates an existing entity by replacing it
-* **mergeEntity** - updates an existing entity by merging new property values into the existing entity
-* **insertOrReplaceEntity** - updates an existing entity by replacing it. If no entity exists, a new one will be inserted
-* **insertOrMergeEntity** - updates an existing entity by merging new property values into the existing. If no entity exists, a new one will be inserted
+* **replaceEntity** - Updates an existing entity by replacing it.
+* **mergeEntity** - Updates an existing entity by merging new property values into the existing entity.
+* **insertOrReplaceEntity** - Updates an existing entity by replacing it. If no entity exists, a new one will be inserted.
+* **insertOrMergeEntity** - Updates an existing entity by merging new property values into the existing. If no entity exists, a new one will be inserted.
 
 The following example demonstrates updating an entity using **replaceEntity**:
 
@@ -190,13 +196,13 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > 2. When performing an update operation on an entity, add the ETag information previously retrieved to the new entity. For example:
 >
 > 		entity2['.metadata'].etag = currentEtag;
-> 3. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` will be returned stating that the update condition specified in the request was not satisfied.
+> 3. Perform the update operation. If the entity has been modified since you retrieved the ETag value, such as another instance of your application, an `error` is returned stating that the update condition specified in the request was not satisfied.
 >
 >
 
-With **replaceEntity** and **mergeEntity**, if the entity that is being updated doesn't exist, then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, use **insertOrReplaceEntity** or **insertOrMergeEntity**.
+With **replaceEntity** and **mergeEntity**, if the entity that is being updated doesn't exist, then the update operation fails; therefore, if you want to store an entity regardless of whether it already exists, use **insertOrReplaceEntity** or **insertOrMergeEntity**.
 
-The `result` for successful update operations will contain the **Etag** of the updated entity.
+The `result` for successful update operations contains the **Etag** of the updated entity.
 
 ## Work with groups of entities
 Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, use the **TableBatch** class to create a batch, and then use the **executeBatch** method of **TableService** to perform the batched operations.
@@ -229,16 +235,16 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 });
 ```
 
-For successful batch operations, `result` will contain information for each operation in the batch.
+For successful batch operations, `result` contains information for each operation in the batch.
 
 ### Work with batched operations
-Operations added to a batch can be inspected by viewing the `operations` property. You can also use the following methods to work with operations:
+You can inspect operations added to a batch by viewing the `operations` property. You can also use the following methods to work with operations:
 
-* **clear** - clears all operations from a batch
-* **getOperations** - gets an operation from the batch
-* **hasOperations** - returns true if the batch contains operations
-* **removeOperations** - removes an operation
-* **size** - returns the number of operations in the batch
+* **clear** - Clears all operations from a batch.
+* **getOperations** - Gets an operation from the batch.
+* **hasOperations** - Returns true if the batch contains operations.
+* **removeOperations** - Removes an operation.
+* **size** - Returns the number of operations in the batch.
 
 ## Retrieve an entity by key
 To return a specific entity based on the **PartitionKey** and **RowKey**, use the **retrieveEntity** method.
@@ -251,19 +257,19 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 });
 ```
 
-Once this operation is complete, `result` will contain the entity.
+After this operation is complete, `result` contains the entity.
 
 ## Query a set of entities
 To query a table, use the **TableQuery** object to build up a query expression using the following clauses:
 
-* **select** - the fields to be returned from the query
-* **where** - the where clause
+* **select** - The fields to be returned from the query.
+* **where** - The where clause.
 
-  * **and** - an `and` where condition
-  * **or** - an `or` where condition
-* **top** - the number of items to fetch
+  * **and** - An `and` where condition.
+  * **or** - An `or` where condition.
+* **top** - The number of items to fetch.
 
-The following example builds a query that will return the top five items with a PartitionKey of 'hometasks'.
+The following example builds a query that returns the top five items with a PartitionKey of 'hometasks'.
 
 ```nodejs
 var query = new azure.TableQuery()
@@ -271,7 +277,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Since **select** is not used, all fields will be returned. To perform the query against a table, use **queryEntities**. The following example uses this query to return entities from 'mytable'.
+Because **select** is not used, all fields are returned. To perform the query against a table, use **queryEntities**. The following example uses this query to return entities from 'mytable'.
 
 ```nodejs
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -281,11 +287,11 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 });
 ```
 
-If successful, `result.entries` will contain an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` will be non-*null* and can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, use *null* for the third parameter.
+If successful, `result.entries` contains an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` is non-*null* and can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, use *null* for the third parameter.
 
 ### Query a subset of entity properties
 A query to a table can retrieve just a few fields from an entity.
-This reduces bandwidth and can improve query performance, especially for large entities. Use the **select** clause and pass the names of the fields to be returned. For example, the following query will return only the **description** and **dueDate** fields.
+This reduces bandwidth and can improve query performance, especially for large entities. Use the **select** clause and pass the names of the fields to return. For example, the following query returns only the **description** and **dueDate** fields.
 
 ```nodejs
 var query = new azure.TableQuery()
@@ -295,7 +301,7 @@ var query = new azure.TableQuery()
 ```
 
 ## Delete an entity
-You can delete an entity using its partition and row keys. In this example, the **task1** object contains the **RowKey** and **PartitionKey** values of the entity to be deleted. Then the object is passed to the **deleteEntity** method.
+You can delete an entity using its partition and row keys. In this example, the **task1** object contains the **RowKey** and **PartitionKey** values of the entity to delete. Then the object is passed to the **deleteEntity** method.
 
 ```nodejs
 var task = {
@@ -329,12 +335,11 @@ tableSvc.deleteTable('mytable', function(error, response){
 If you are uncertain whether the table exists, use **deleteTableIfExists**.
 
 ## Use continuation tokens
-When you are querying tables for large amounts of results, look for continuation tokens. There may be large amounts of data available for your query that you might not realize if you do not build to recognize when a
-continuation token is present.
+When you are querying tables for large amounts of results, look for continuation tokens. There may be large amounts of data available for your query that you might not realize if you do not build to recognize when a continuation token is present.
 
-The results object returned during querying entities sets a `continuationToken` property when such a token is present. You can then use this when performing a query to continue to move across the partition and table entities.
+The **results** object returned during querying entities sets a `continuationToken` property when such a token is present. You can then use this when performing a query to continue to move across the partition and table entities.
 
-When querying, a continuationToken parameter may be provided between the query object instance and the callback function:
+When querying, you can provide a `continuationToken` parameter between the query object instance and the callback function:
 
 ```nodejs
 var nextContinuationToken = null;
@@ -355,10 +360,8 @@ dc.table.queryEntities(tableName,
 
 If you inspect the `continuationToken` object, you will find properties such as `nextPartitionKey`, `nextRowKey` and `targetLocation`, which can be used to iterate through all the results.
 
-There is also a continuation sample within the Azure Storage Node.js repo on GitHub. Look for `examples/samples/continuationsample.js`.
-
 ## Work with shared access signatures
-Shared access signatures (SAS) are a secure way to provide granular access to tables without providing your storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
+Shared access signatures (SAS) are a secure way to provide granular access to tables without providing your Storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
 
 A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **TableService**, and provides it to an untrusted or semi-trusted application such as a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
 
@@ -382,11 +385,14 @@ var tableSAS = tableSvc.generateSharedAccessSignature('mytable', sharedAccessPol
 var host = tableSvc.host;
 ```
 
-Note that the host information must be provided also, as it is required when the SAS holder attempts to access the table.
+Note that you must also provide the host information, as it is required when the SAS holder attempts to access the table.
 
-The client application then uses the SAS with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query.
+The client application then uses the SAS with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query. See [using shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)
+article for the format of tableSAS. 
 
 ```nodejs
+// Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
+
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 var query = azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
@@ -398,10 +404,10 @@ sharedTableService.queryEntities(query, null, function(error, result, response) 
 });
 ```
 
-Since the SAS was generated with only query access, if an attempt were made to insert, update, or delete entities, an error would be returned.
+Because the SAS was generated with only query access, an error is returned if you attempt to insert, update, or delete entities.
 
 ### Access Control Lists
-You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you wish to allow multiple clients to access the table, but provide different access policies for each client.
+You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you want to allow multiple clients to access the table, but provide different access policies for each client.
 
 An ACL is implemented using an array of access policies, with an ID associated with each policy. The following example defines two policies, one for 'user1' and one for 'user2':
 
@@ -436,7 +442,7 @@ if(!error){
 });
 ```
 
-Once the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
+After the ACL has been set, you can then create a SAS based on the ID for a policy. The following example creates a new SAS for 'user2':
 
 ```nodejs
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
@@ -446,6 +452,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 For more information, see the following resources.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) repository on GitHub.
-* [Node.js Developer Center](/develop/nodejs/)
-* [Create and deploy a Node.js application to an Azure website](../app-service/app-service-web-get-started-nodejs.md)
+* [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) repository on GitHub.
+* [Azure for Node.js Developers](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
+* [Create a Node.js web app in Azure](../app-service/app-service-web-get-started-nodejs.md)
+* [Build and deploy a Node.js application to an Azure Cloud Service](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (using Windows PowerShell)

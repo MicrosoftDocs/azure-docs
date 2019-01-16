@@ -1,25 +1,20 @@
 ---
-title: "MongoDB, Angular, and Node tutorial for Azure - Part 2 | Microsoft Docs"
+title: Create an Angular app with Azure Cosmos DB's API for MongoDB - Create a Node.js Express app
+titleSuffix: Azure Cosmos DB
 description: Part 2 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB.
-services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+author: johnpapa 
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
-ms.topic: hero-article
-ms.date: 09/05/2017
-ms.author: mimig
-
+ms.topic: tutorial
+ms.date: 12/26/2018
+ms.author: jopapa
+ms.custom: seodec18
+ms.reviewer: sngun
 ---
-# Create a MongoDB app with Angular and Azure Cosmos DB - Part 2: Create a Node.js Express app with the Angular CLI 
+# Create an Angular app with Azure Cosmos DB's API for MongoDB - Create a Node.js Express app
 
-This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express, Angular, and your Azure Cosmos DB database.
+This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md).
 
 Part 2 of the tutorial builds on [the introduction](tutorial-develop-mongodb-nodejs.md) and covers the following tasks:
 
@@ -61,10 +56,10 @@ This tutorial also requires:
 
 ## Use the Angular CLI to create a new project
 
-1. At the command prompt, change to the folder where you want to create your new project, then run the following command. This command creates a new folder and project named angular-cosmosdb and installs the Angular components required for a new app. It also installs the source code in src/client folder (-sd src/client), uses the minimal setup (--minimal), and specifies that the project uses Sass (a CSS-like syntax with the flag --style scss).
+1. At the command prompt, change to the folder where you want to create your new project, then run the following command. This command creates a new folder and project named angular-cosmosdb and installs the Angular components required for a new app. It uses the minimal setup (--minimal), and specifies that the project uses Sass (a CSS-like syntax with the flag --style scss).
 
     ```bash
-    ng new angular-cosmosdb -sd src/client --minimal --style scss
+    ng new angular-cosmosdb --minimal --style scss
     ```
 
 2. Once the command completes, change directories into the src/client folder.
@@ -116,10 +111,10 @@ This tutorial also requires:
 
    app.use(bodyParser.json());
    app.use(bodyParser.urlencoded({ extended: false }));
-   app.use(express.static(path.join(root, 'dist')));
+   app.use(express.static(path.join(root, 'dist/angular-cosmosdb')));
    app.use('/api', routes);
    app.get('*', (req, res) => {
-     res.sendFile('dist/index.html', {root});
+     res.sendFile('dist/angular-cosmosdb/index.html', {root});
    });
 
    app.listen(port, () => console.log(`API running on localhost:${port}`));
@@ -147,11 +142,9 @@ This tutorial also requires:
 
 7. Save all your modified files. 
 
-8. In Visual Studio Code, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), click the Gear button ![Gear button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png), then select **Node.js** to create a configuration.
+8. In Visual Studio Code, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), click the Gear button ![Gear button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). The new launch.json file opens in Visual Studio Code.
 
-   The new launch.json file opens in Visual Studio Code.
-
-8. On line 11 of the launch.json file, change `"program": "${file}"` to `"program": "${workspaceRoot}/src/server/index.js"` and save the file.
+8. On line 11 of the launch.json file, change `"${workspaceFolder}\\server"` to `"program": "${workspaceRoot}/src/server/index.js"` and save the file.
 
 9. Click the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) to run the app.
 

@@ -4,20 +4,21 @@ description: Learn how to read and understand the sections of your detailed usag
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
+ms.author: cwatson
 
 ---
 # Understand terms on your Microsoft Azure detailed usage charges 
+
 The detailed usage charges CSV file contains daily and meter level usage charges for the current billing period. 
 
 To get your detailed usage file,
@@ -30,16 +31,15 @@ available, download version 2. That's the most current file format.
 Usage charges are the total **monthly** charges on a subscription. The
 usage charges don’t take into account any credits or discounts.
 
-
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/p13S350M2Vk" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
 
 ## Detailed terms and descriptions of your detailed usage file
+
 The following sections describe the important terms shown in version 2
 of the detailed usage file.
 
 ### Statement
+
 The top section of the detailed usage CSV file shows the services that
 you used during the month's billing period. The following table lists
 the terms and descriptions shown in this section.
@@ -83,7 +83,7 @@ shown in this section.
 |Consumed Service |The Azure platform service that you used |
 |Resource Group |The resource group in which the deployed meter is running in. <br/><br/>For more information, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 |Instance ID | The identifier for the meter. <br/><br/> The identifier contains the name you specify for the meter when it was created. It's either the name of the resource or the fully qualified Resource ID. For more information, see [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). |
-|Tags | Tag you assign to the meter. Use tags to group billing records.<br/><br/>For example, you can use tags to distribute costs by the department that uses the meter. Services that support emitting tags are virtual machines, storage, and networking services provisioned by using the [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). For more information, see [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Tags | Tag you assign to the meter. Use tags to group billing records.<br/><br/>For example, you can use tags to distribute costs by the department that uses the meter. Services that support emitting tags are virtual machines, storage, and networking services provisioned by using the [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources). For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 |Additional Info |Service-specific metadata. For example, an image type for a virtual machine. |
 |Service Info 1 |The project name that the service belongs to on your subscription |
 |Service Info 2 |Legacy field that captures optional service-specific metadata |
@@ -95,6 +95,6 @@ more details on, see [Understand your bill for Microsoft Azure.](./billing-under
 ## <a name="external"></a>What about external service charges?
 External services (also known as Marketplace orders) are provided by independent service vendors and are billed separately. The charges don't show up on the Azure invoice. To learn more, see [Understand your Azure external service charges](billing-understand-your-azure-marketplace-charges.md).
 
-## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?) to
-get your issue resolved quickly.
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

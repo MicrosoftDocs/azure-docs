@@ -1,21 +1,14 @@
 ---
-title: Get started with Azure Search in Node.js | Microsoft Docs
+title: Get started with Azure Search in Node.js - Azure Search
 description: Walk through building a search application on a hosted cloud search service on Azure using Node.js as your programming language.
+author: jj09
+manager: jlembicz
 services: search
-documentationcenter: ''
-author: EvanBoyle
-manager: pablocas
-editor: v-lincan
-
-ms.assetid: 0625dc1b-9db6-40d5-ba9a-4738b75cbe19
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: hero-article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 04/26/2017
-ms.author: evboyle
-
+ms.author: jjed
+ms.custom: seodec2018
 ---
 # Get started with Azure Search in Node.js
 > [!div class="op_single_selector"]
@@ -26,12 +19,12 @@ ms.author: evboyle
 
 Learn how to build a custom Node.js search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
-We used [Node.js](https://Nodejs.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
+We used [Node.js](https://Nodejs.org) and NPM, [Sublime Text 3](https://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
 ## About the data
-This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
+This sample application uses data from the [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
 In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection information to the online data source is provided in the program code. No further configuration is necessary.
 
@@ -54,7 +47,7 @@ After you create the service, return to the portal to get the URL or `api-key`. 
 ## Download the sample files
 Use either one of the following approaches to download the sample.
 
-1. Go to [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
+1. Go to [search-node-indexer-demo](https://github.com/Azure-Samples/search-node-indexer-demo).
 2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
 All subsequent file modifications and run statements are made against files in this folder.
@@ -101,9 +94,9 @@ You could also try any of these terms:
 ## Next steps
 This is the first Azure Search tutorial based on Node.js and the USGS dataset. Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
-If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
+If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or auto-complete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](search-video-demo-tutorial-list.md) to access more information.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG

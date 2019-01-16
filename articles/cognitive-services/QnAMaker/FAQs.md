@@ -1,90 +1,122 @@
 ---
-title: QnA Maker tool FAQs | Microsoft Docs
-description: Get answers to the most commonly asked questions about the QnA Maker tool.
+title: FAQ - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: The currated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 services: cognitive-services
-author: pchoudhari
-manager: rsrikan
-
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qnamaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 01/04/2017
-ms.author: pchoudh
+ms.date: 11/27/2018
+ms.author: tulasim
+ms.custom: seodec18
 ---
+# Frequently Asked Questions for QnA Maker
 
-# FAQs #
-### Who are the target audience for the QnA Maker tool?
-QnA Maker is primarily meant to provide a FAQ data source which you can query from your Bot/Application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your Bot/Application.
+The currated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 
-### How do I login to the QnA Maker portal?
-You can login with your [Microsoft account](https://www.microsoft.com/account/).
+## Manage the knowledge base
 
-### Is the QnA Maker Service free?
-Yes, currently the QnA Maker tool is free to use. However, we do meter the usage per account. See the Subscription Keys section of the documentation for details.
+### I accidentally deleted a part of my QnA Maker, what should I do? 
 
-### My URLs have valid FAQ content, but the tool cannot extract them. Why not?
-It’s possible that the tool is not able to auto-extract QnA from valid FAQ URLs. In such cases, you have an option to copy-paste the QnA content in a txt and try ingesting it. Alternately, you can always editorially add content to your knowledge base.
+All deletes are permanent, including question and answer pairs, files, URLs, custom questions and answers, knowledge bases, or Azure resources. Make sure you export your knowledge base from the **Settings** page before deleting any part of your knowledge base. 
 
-### What format does the tool expect the file content to be?
-We support two formats of files for ingestion:
+### Why is my URL(s)/file(s) not extracting question-answer pairs?
 
-	1.	.tsv: QnA contained in the format Question<Tab>Answer
-	2.	.txt, .docx, .pdf: QnA contained as regular FAQ content, i.e. sequence of questions and answers.
-
-
-### Do I need to use Bot Framework in order to use QnA Maker?
-No, you don’t. However, QnA Maker is offered as one of several templates in [Azure Bot Service](https://azure.microsoft.com/services/bot-service/) which enables rapid intelligent bot development powered by Microsoft Bot Framework, and runs in a serverless environment. Bots scale based on demand; pay only for the resources you consume.
-
-### How do I embed the QnA Maker service in my website?
-Follow these steps to embed the QnA Maker service as a web chat control in your website:
-1. Create your knowledge base at [https://qnamaker.ai](https://qnamaker.ai).
-2. Create your Azure service bot: [https://docs.botframework.com/en-us/azure-bots/build/first-bot](https://docs.botframework.com/en-us/azure-bots/build/first-bot/#navtitle). 
-3. Look for the Question and Answer Bot template. Select the KB ID you created in step 1.
-4. Then enable it on web chat channel. Get the embed keys.
-5. Embed the webchat as shown in [https://docs.botframework.com/en-us/support/embed-chat-control2](https://docs.botframework.com/en-us/support/embed-chat-control2/#navtitle).
-
-### What is the roadmap of the QnA Maker?
-Currently the QnA Maker tool handles semi-structured FAQ content and certain types of product manuals. Eventually the vision is to be able to answer questions from un-structured content as well.
+It's possible that QnA Maker can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your knowledge base through the [QnA Maker portal](https://qnamaker.ai).
 
 ### How large a knowledge base can I create?
-Currently we have a limit of a 20MB knowledge base.
 
-### The updates I made to my knowledge base are not reflected on publish. Why not?
-Every edit operation, whether in Table update, Test or Settings needs to be saved before it can be published. Make sure you press the Save and retrain button after every edit operation.
+The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](./Tutorials/choosing-capacity-qnamaker-deployment.md) for more details.
 
-### Why can’t I replace my Knowledge Base with the upload feature?
-The format in which upload expects the file is, tab separated columns of Question, Answer and Source.
+### Why can't I see anything in the drop-down when I try to create a new knowledge base?
 
-### When should I refresh my subscription keys?
-You should refresh your subscription keys if you suspect that they have been compromised. Any requests with your subscription key will count towards your quota.
+You haven't created any QnA Maker services in Azure yet. Read [here](./How-To/set-up-qnamaker-service-azure.md) to learn how to do that.
 
-### How safe is my knowledge base data?
-Every knowledge base content is stored in Azure storage by the QnAMaker tool. You need a combination of knowledge base id and subscription key to access the knowledge base. The knowledge base contents are not used by the tool for any other purpose.
+### How do I share a knowledge base with others?
 
-### Does the KB support rich data or multimedia?
-The knowledge base supports Markdown. However, the auto-extraction from URLs has limited HTML to Markdown conversion capability. If you want to use full-fledged Markdown, you can modify your content directly in the Table, or upload a KB with the rich content. 
-Multi-media such as images, videos etc are not supported at this time.
+Sharing works at the level of a QnA Maker service, that is, all knowledge bases in the service will be shared. Read [here](./How-To/collaborate-knowledge-base.md) how to collaborate on a knowledge base.
 
-### Does the QnA Maker support non-EN languages?
-The QnA Maker tool ingests and matches data in UTF-16 encoding. This means that any language should work as is. Having said that, we have only extensively tested the relevance of the service for EN yet.
-If you have content from multiple languages, ensure you create a separate service for each langauge.
+### Can you share a knowledge base with a contributor that is not in the same AAD tenant, to modify a knowledge base? 
 
-### What is the format of the downloaded chat logs?
-The chat logs are tab separated files, with the query and the frequency as the columns. Frequency is the number of times the same query was seen. The file is sorted in descending order of frequency. Select questions from the downloaded file you want to test, and then upload it to see what responses the system returned for them.
+Sharing is based on Azure role-based access control (RBAC). If you can share _any_ resource in Azure with another user, you can also share QnA Maker.
 
-### Where is the test web-chat URL from the old portal? How do I share my KB with others now?
-In the new Service, we do not have the test URL anymore. The reason being, as part of the cognitive services all call are being metered. Since the test URL exposes the subscription key and the KB ID, it is a security risk. However, it is still super easy to chat with your KB and share it. Check out the Azure Bot Templates for [Question and Answer Bot](https://blog.botframework.com/2016/12/13/More-Ways-to-Make-Smart-Bots/). You can light up the QnA Bot in Skype in a few clicks, and then share it with anyone.
+### If you have an App Service Plan with 5 QnAMaker knowledge bases. Can you assign read/write rights to 5 different users so each of them can access only 1 QnAMaker knowledge base?
 
-### How can I increase the transaction limits?
-Our current transaction limits are 10 calls/minute, 1000 calls/month. If you require higher limits, we have temporarily made a free premium tier with 1000 calls/min, 500k calls/month limit available. To sign up for this option, please fill in this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_yh9o_uvdhPnJy8sn_XBGRUMktKRFNYME1VUkVRRVkwV0hDWUNWMVVNRC4u). Please note that these tiers are subject to change when we go to General Availability.
+You can share an entire QnAMaker service, not individual knowledge bases.
 
 ### How can I change the default message when no good match is found?
-If none of the questions are matched, a default "Sorry, no match found.." message is shown. 
-You can change this default message in the code behind by using the QnAMakerDialog. See details [here](https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle)
 
-### Why is my sharepoint link not getting extracted?
-We only parse public URLs and do not support authenticated data sources at this time. Alternately, you can download the file and use our file-upload option to extract QAs.
+The default message is part of the settings in your App service.
+- Go to your App service resource in the Azure portal
 
-### How can I integrate LUIS and QnAMaker?
-There is no direct integration of LUIS and QnA Maker. But, in your bot code, you can use both LUIS and QnA Maker together. 
-Sample bot: https://github.com/Microsoft/BotBuilder-CognitiveServices/blob/master/Node/samples/QnAWithLUIS/
+![qnamaker appservice](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
+- Click on the **Settings** option
+
+![qnamaker appservice settings](./media/qnamaker-faq/qnamaker-appservice-settings.png)
+- Change the value of the **DefaultAnswer** setting
+- Restart your App service
+
+![qnamaker appservice restart](./media/qnamaker-faq/qnamaker-appservice-restart.png)
+
+### Why is my SharePoint link not getting extracted?
+
+See [Data source locations](./Concepts/data-sources-supported.md#data-source-locations) for more information.
+
+### The updates that I made to my knowledge base are not reflected on publish. Why not?
+
+Every edit operation, whether in a table update, test, or setting, needs to be saved before it can be published. Be sure to click the **Save and train** button after every edit operation.
+
+### Does the knowledge base support rich data or multimedia?
+
+The knowledge base supports Markdown. However, the auto-extraction from URLs has limited HTML-to-Markdown conversion capability. If you want to use full-fledged Markdown, you can modify your content directly in the table, or upload a knowledge base with the rich content.
+
+Multimedia, such as images and videos, is not supported at this time.
+
+### Does QnA Maker support non-English languages?
+
+See more details about [supported languages](./Overview/languages-supported.md).
+
+If you have content from multiple languages, be sure to create a separate service for each language.
+
+## Manage service
+
+### When should I restart my app service? 
+
+Refresh your app service when the caution icon is next to the version value for the knowledge base in the **Endpoint keys** table on the **User Settings** [page](https://www.qnamaker.ai/UserSettings).
+
+### When should I refresh my endpoint keys?
+
+Refresh your endpoint keys if you suspect that they have been compromised.
+
+### Can I use the same Azure Search resource for knowledge bases using multiple languages?
+
+To use multiple language and multiple knowledge bases, the user has to create an QnA Maker resource for each language. This will create a separate Azure search services per language. Mixing different language knowledge bases in a single Azure search service will result in degraded relevance of results.
+
+### How can I change the name of the Azure Search resource used by QnA Maker?
+
+The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure Search](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service).
+
+## Integrate with other services including Bots
+
+### Do I need to use Bot Framework in order to use QnA Maker?
+
+No, you do not need to use the Bot Framework with QnA Maker. However, QnA Maker is offered as one of several templates in Azure Bot Service. Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server-less environment.
+
+### How can I create a bot with QnA Maker?
+
+Follow the instructions in [this](./Tutorials/create-qna-bot.md) documentation to create your Bot with Azure Bot Service.
+
+### How do I embed the QnA Maker service in my website?
+
+Follow these steps to embed the QnA Maker service as a web-chat control in your website:
+
+1. Create your FAQ bot by following the instructions [here](./Tutorials/create-qna-bot.md).
+2. Enable the web chat by following the steps [here](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
+
+## Data storage
+
+### What data is stored and where is it stored? 
+
+When you create your QnA Maker service, you selected an Azure region. Your knowledge bases and log files are stored in this region. 

@@ -1,27 +1,25 @@
 ---
-title: Cortana Intelligence Gallery Jupyter notebooks | Microsoft Docs
-description: Discover Jupyter notebooks in the Cortana Intelligence Gallery.
+title: Azure AI Gallery Jupyter notebooks - Azure Machine Learning Studio | Microsoft Docs
+description: Discover Jupyter notebooks in the Azure AI Gallery. Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
-editor: cgronlun
+author: ericlicoding
+ms.custom: seodec18
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: 556e0671-1b50-4bcb-92eb-889962310633
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-
 ---
-# Discover Jupyter Notebooks in the Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# Discover Jupyter Notebooks in the Azure AI Gallery
 
-## Jupyter Notebooks
-**[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)**
+**[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)** in [Azure AI Gallery](http://gallery.cortanaintelligence.com)
 include code, data visualizations, and documentation in a single, interactive canvas.
 Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 
@@ -82,5 +80,5 @@ The notebook will be listed, along with your other notebooks, on the **Notebooks
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

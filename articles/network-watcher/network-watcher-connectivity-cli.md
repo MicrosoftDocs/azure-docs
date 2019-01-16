@@ -1,10 +1,10 @@
 ---
-title: Check connectivity with Azure Network Watcher - Azure CLI 2.0 | Microsoft Docs
-description: This page explains how to use connectivity check with Network Watcher using Azure CLI 2.0
+title: Troubleshoot connections with Azure Network Watcher - Azure CLI | Microsoft Docs
+description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure CLI.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 
 ms.service: network-watcher
@@ -16,56 +16,24 @@ ms.date: 07/11/2017
 ms.author: jdial
 ---
 
-# Check connectivity with Azure Network Watcher using Azure CLI 2.0
+# Troubleshoot connections with Azure Network Watcher using the Azure CLI
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
+Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
 
 ## Before you begin
 
 This article assumes you have the following resources:
 
-* An instance of Network Watcher in the region you want to check connectivity.
-
-* Virtual machines to check connectivity with.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* An instance of Network Watcher in the region you want to troubleshoot a connection.
+* Virtual machines to troubleshoot connections with.
 
 > [!IMPORTANT]
-> Connectivity check requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## Register the preview capability 
-
-Connectivity check is currently in public preview, to use this feature it needs to be registered. To do this, run the following CLI sample
-
-```azurecli 
-az feature register --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck
-
-az provider register --namespace Microsoft.Network 
-``` 
-
-To verify the registration was successful, run the following CLI command:
-
-```azurecli
-az feature show --namespace Microsoft.Network --name AllowNetworkWatcherConnectivityCheck 
-```
-
-If the feature was properly registered, the output should match the following: 
-
-```json
-{
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowNetworkWatcherConnectivityCheck",
-  "name": "Microsoft.Network/AllowNetworkWatcherConnectivityCheck",
-  "properties": {
-    "state": "Registered"
-  },
-  "type": "Microsoft.Features/providers/features"
-}
-``` 
+> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
 
 ## Check connectivity to a virtual machine
 
@@ -150,7 +118,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 ## Validate routing issues
 
-The example checks connectivity between a virtual machine and a remote endpoint.
+This example checks connectivity between a virtual machine and a remote endpoint.
 
 ### Example
 
@@ -301,4 +269,4 @@ The following json is the example response from running the previous cmdlet. As 
 
 Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
 
-Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
+Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md)

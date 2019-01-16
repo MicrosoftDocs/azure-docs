@@ -1,16 +1,13 @@
 ---
-title: 'Connect to Azure Database for MySQL using Ruby | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL using Ruby'
 description: This quickstart provides several Ruby code samples you can use to connect and query data from Azure Database for MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 09/22/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Ruby to connect and query data
@@ -25,7 +22,7 @@ This quickstart uses the resources created in either of these guides as a starti
 Install Ruby, Gem, and the MySQL2 library on your own computer. 
 
 ### Windows
-1. Download and Install the 2.3 version of [Ruby](http://rubyinstaller.org/downloads/).
+1. Download and Install the 2.3 version of [Ruby](https://rubyinstaller.org/downloads/).
 2. Launch a new command prompt (cmd) from the Start menu.
 3. Change directory into the Ruby directory for version 2.3. `cd c:\Ruby23-x64\bin`
 4. Test the Ruby installation by running the command `ruby -v` to see the version installed.
@@ -51,11 +48,10 @@ Install Ruby, Gem, and the MySQL2 library on your own computer.
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have creased (such as **myserver4demo**).
-3. Click the server name **myserver4demo**.
-4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL - Server Admin Login](./media/connect-ruby/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Click the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-ruby/1_server-overview-name-login.png)
 
 ## Run Ruby code 
 1. Paste the Ruby code from the sections below into text files, and then save the files into a project folder with file extension .rb (such as `C:\rubymysql\createtable.rb` or `/home/username/rubymysql/createtable.rb`).
@@ -66,7 +62,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 ## Connect and create a table
 Use the following code to connect and create a table by using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code uses a [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) several times to run the DROP, CREATE TABLE, and INSERT INTO commands. Then it calls method [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) several times to run the DROP, CREATE TABLE, and INSERT INTO commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 ```ruby
@@ -74,9 +70,9 @@ require 'mysql2'
 
 begin
 	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
+	host = String('mydemoserver.mysql.database.azure.com')
 	database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
 	password = String('yourpassword')
 
 	# Initialize connection object.
@@ -111,7 +107,7 @@ end
 ## Read data
 Use the following code to connect and read the data by using a **SELECT** SQL statement. 
 
-The code uses a [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) class.new() method to connect to Azure Database for MySQL. Then it calls method [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the SELECT commands. Then it calls method [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class.new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the SELECT commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 
@@ -120,9 +116,9 @@ require 'mysql2'
 
 begin
 	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
+	host = String('mydemoserver.mysql.database.azure.com')
 	database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
 	password = String('yourpassword')
 
 	# Initialize connection object.
@@ -150,7 +146,7 @@ end
 ## Update data
 Use the following code to connect and update the data by using an **UPDATE** SQL statement.
 
-The code uses a [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the UPDATE commands. Then it calls method [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the UPDATE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 
@@ -159,9 +155,9 @@ require 'mysql2'
 
 begin
 	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
+	host = String('mydemoserver.mysql.database.azure.com')
 	database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
 	password = String('yourpassword')
 
 	# Initialize connection object.
@@ -187,7 +183,7 @@ end
 ## Delete data
 Use the following code to connect and read the data by using a **DELETE** SQL statement. 
 
-The code uses a [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the DELETE commands. Then it calls method [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
+The code uses a [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() method to connect to Azure Database for MySQL. Then it calls method [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) to run the DELETE commands. Then it calls method [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) to close the connection before terminating.
 
 Replace the `host`, `database`, `username`, and `password` strings with your own values. 
 
@@ -196,9 +192,9 @@ require 'mysql2'
 
 begin
 	# Initialize connection variables.
-	host = String('myserver4demo.mysql.database.azure.com')
+	host = String('mydemoserver.mysql.database.azure.com')
 	database = String('quickstartdb')
-    username = String('myadmin@myserver4demo')
+    username = String('myadmin@mydemoserver')
 	password = String('yourpassword')
 
 	# Initialize connection object.

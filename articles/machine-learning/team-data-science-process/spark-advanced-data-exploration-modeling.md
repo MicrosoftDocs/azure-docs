@@ -1,26 +1,20 @@
 ---
-title: Advanced data exploration and modeling with Spark | Microsoft Docs
+title: Advanced data exploration and modeling with Spark - Team Data Science Process
 description: Use HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization.
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-
-ms.assetid: f90d9a80-4eaf-437b-a914-23514390cd60
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: team-data-science-process
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: deguhath;bradsev;gokuma
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Advanced data exploration and modeling with Spark
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
-This walkthrough uses HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization on a sample of the NYC taxi trip and fare 2013 dataset. It walks you through the steps of the [Data Science Process](http://aka.ms/datascienceprocess), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. Python has been used to code the solution and to show the relevant plots. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks. 
+This walkthrough uses HDInsight Spark to do data exploration and train binary classification and regression models using cross-validation and hyperparameter optimization on a sample of the NYC taxi trip and fare 2013 dataset. It walks you through the steps of the [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. Python has been used to code the solution and to show the relevant plots. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks. 
 
 * The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 * The **regression** task is to predict the amount of the tip based on other tip features. 
@@ -116,7 +110,7 @@ The PySpark kernel provides some predefined “magics”, which are special comm
 * **%%local** Specifies that the code in subsequent lines is to be executed locally. Code must be valid Python code.
 * **%%sql -o <variable name>** Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas DataFrame.
 
-For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## Data ingestion from public blob:
 The first step in the data science process is to ingest the data to be analyzed from sources where it resides into your data exploration and modeling environment. This environment is Spark in this walkthrough. This section contains the code to complete a series of tasks:
@@ -1121,7 +1115,7 @@ Time taken to execute above cell: 25.98 seconds
 ### Gradient boosting trees regression
 The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
 
-**Train and evaluate **
+**Train and evaluate**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -1249,7 +1243,7 @@ The code in this section shows how to do cross validation using Elastic net for 
     # cvModel uses the best model found (lrModel).
     predictionAndLabels = cv_model.transform(testDataFrame)
 
-    # CONVERT TO DF AND SAVE REGISER DF AS TABLE
+    # CONVERT TO DF AND SAVE REGISTER DF AS TABLE
     predictionAndLabels.registerTempTable("tmp_results");
 
     # PRINT ELAPSED TIME

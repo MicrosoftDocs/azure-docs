@@ -1,12 +1,21 @@
 ---
-ms.assetid: 
-title: Azure Key Vault throttling guidance | Microsoft Docs
-ms.service: key-vault
-author: BrucePerlerMS
-ms.author: bruceper
+title: Azure Key Vault throttling guidance
+description: Key Vault throttling limits the number of concurrent calls to prevent overuse of resources.
+services: key-vault
+documentationcenter:
+author: bryanla
 manager: mbaldwin
-ms.date: 06/21/2017
+tags:
+
+ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
+ms.service: key-vault
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 05/10/2018
+ms.author: bryanla
+
 ---
+
 # Azure Key Vault throttling guidance
 
 Throttling is a process you initiate that limits the number of concurrent calls to the Azure service to prevent overuse of resources. Azure Key Vault (AKV) is designed to handle a high volume of requests. If an overwhelming number of requests occurs, throttling your client's requests helps maintain optimal performance and reliability of the AKV service.
@@ -29,6 +38,50 @@ The following are **best practices** for throttling your app:
     - All requests accrue against your usage limits.
 
 When you implement your app's error handling, use the HTTP error code 429 to detect the need for client-side throttling. If the request fails again with an HTTP 429 error code, you are still encountering an Azure service limit. Continue to use the recommended client-side throttling method, retrying the request until it succeeds.
+
+Code that implements exponential backoff is shown below. 
+```
+     public async Task OnGetAsync()
+     {
+         Message = "Your application description page.";
+         int retries = 0;
+         bool retry = false;
+         try
+         {
+             AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+             KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+             var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
+                     .ConfigureAwait(false);
+             Message = secret.Value;
+
+             /* The below do while logic is to handle throttling errors thrown by Azure Key Vault. It shows how to do exponential backoff which is the recommended client side throttling*/
+             do
+             {
+                 long waitTime = Math.Min(getWaitTime(retries), 2000000);
+                 secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
+                     .ConfigureAwait(false);
+                 retry = false;
+             } 
+             while(retry && (retries++ < 10));
+         }
+         /// <exception cref="KeyVaultErrorException">
+         /// Thrown when the operation returned an invalid status code
+         /// </exception>
+         catch (KeyVaultErrorException keyVaultException)
+         {
+             Message = keyVaultException.Message;
+             if((int)keyVaultException.Response.StatusCode == 429)
+                 retry = true;
+         }
+     }
+
+     // This method implements exponential backoff incase of 429 errors from Azure Key Vault
+     private static long getWaitTime(int retryCount)
+     {
+         long waitTime = ((long)Math.Pow(2, retryCount) * 100L);
+         return waitTime;
+     }
+```
 
 ### Recommended client-side throttling method
 

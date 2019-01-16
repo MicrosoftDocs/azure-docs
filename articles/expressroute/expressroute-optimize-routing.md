@@ -1,20 +1,14 @@
 ---
-title: 'Optimize ExpressRoute routing: Azure | Microsoft Docs'
+title: 'Optimize routing - ExpressRoute circuits: Azure | Microsoft Docs'
 description: This page provides details on how to optimize routing when you have more than one ExpressRoute circuits that connect between Microsoft and your corp network.
-documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
 
-ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/06/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: charwen
+ms.custom: seodec18
 
 ---
 # Optimize ExpressRoute Routing

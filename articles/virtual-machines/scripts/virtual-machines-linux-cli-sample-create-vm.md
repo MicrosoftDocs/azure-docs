@@ -1,10 +1,10 @@
 ---
 title: Azure CLI Script Sample - Create a Linux VM | Microsoft Docs
-description: Azure CLI Script Sample - Create a Linux VM 
+description: Azure CLI Script Sample - Create a Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 
@@ -31,11 +31,11 @@ This script creates an Azure Virtual Machine with an Ubuntu operating system. Af
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.sh "Quick Create VM")]
 
-## Clean up deployment 
+## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
@@ -56,6 +56,6 @@ This script uses the following commands to create a resource group, virtual mach
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

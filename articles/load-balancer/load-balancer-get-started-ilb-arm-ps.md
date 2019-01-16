@@ -1,16 +1,14 @@
----
-title: Create an Azure internal load balancer by using PowerShell | Microsoft Docs
+﻿---
+title: Create an Azure internal Load Balancer by using PowerShell
+titlesuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer by using the Azure PowerShell module with Azure Resource Manager
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-tags: azure-resource-manager
-
-ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
@@ -25,12 +23,8 @@ ms.author: kumud
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure offers two deployment models for creating and working with resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and [classic](load-balancer-get-started-ilb-classic-ps.md). This article describes how to create a load balancer by using the Resource Manager deployment model. Microsoft recommends that Azure Resource Manager be used for most new deployments.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -61,7 +55,7 @@ Make sure you have the latest production version of the Azure PowerShell module.
 Start the PowerShell module for Azure Resource Manager.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### Step 2: View your subscriptions

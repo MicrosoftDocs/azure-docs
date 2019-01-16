@@ -1,26 +1,20 @@
 ---
-title: Data exploration and modeling with Spark | Microsoft Docs
+title: Data exploration and modeling with Spark - Team Data Science Process
 description: Showcases the data exploration and modeling capabilities of the Spark MLlib toolkit on Azure.
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-
-ms.assetid: b989b918-5ba5-4696-b8d0-76ae510a23f4
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Data exploration and modeling with Spark
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
-This walkthrough uses HDInsight Spark to do data exploration and binary classification and regression modeling tasks on a sample of the NYC taxi trip and fare 2013 dataset.  It walks you through the steps of the [Data Science Process](http://aka.ms/datascienceprocess), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
+This walkthrough uses HDInsight Spark to do data exploration and binary classification and regression modeling tasks on a sample of the NYC taxi trip and fare 2013 dataset.  It walks you through the steps of the [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, using an HDInsight Spark cluster for processing and Azure blobs to store the data and the models. The process explores and visualizes data brought in from an Azure Storage Blob and then prepares the data to build predictive models. These models are build using the Spark MLlib toolkit to do binary classification and regression modeling tasks.
 
 * The **binary classification** task is to predict whether or not a tip is paid for the trip. 
 * The **regression** task is to predict the amount of the tip based on other tip features. 
@@ -52,8 +46,8 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 ### Spark 2.0 notebooks
 The regression and classification tasks that are implemented using a Spark 2.0 cluster are in separate notebooks and the classification notebook uses a different data set:
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)​: This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters using the NYC Taxi trip and fare data-set described [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). This notebook may be a good starting point for quickly exploring the code we have provided for Spark 2.0. For a more detailed notebook analyzes the NYC Taxi data, see the next notebook in this list. See the notes following this list that compare these notebooks. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): This file shows how to perform data wrangling (Spark SQL and dataframe operations), exploration, modeling and scoring using the NYC Taxi trip and fare data-set described [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)​: This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters using the NYC Taxi trip and fare data-set described [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). This notebook may be a good starting point for quickly exploring the code we have provided for Spark 2.0. For a more detailed notebook analyzes the NYC Taxi data, see the next notebook in this list. See the notes following this list that compare these notebooks. 
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): This file shows how to perform data wrangling (Spark SQL and dataframe operations), exploration, modeling and scoring using the NYC Taxi trip and fare data-set described [here](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
 - [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): This file shows how to perform data wrangling (Spark SQL and dataframe operations), exploration, modeling and scoring using the well-known Airline On-time departure dataset from 2011 and 2012. We integrated the airline dataset with the airport weather data (e.g. windspeed, temperature, altitude etc.) prior to modeling, so these weather features can be included in the model.​
 
 <!-- -->
@@ -133,7 +127,7 @@ The PySpark kernel provides some predefined “magics”, which are special comm
 * **%%local** Specifies that the code in subsequent lines is to be executed locally. Code must be valid Python code.
 * **%%sql -o <variable name>** Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas DataFrame.
 
-For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## Data ingestion from public blob
 The first step in the data science process is to ingest the data to be analyzed from sources where is resides into your data exploration and modeling environment. The environment is Spark in this walkthrough. This section contains the code to complete a series of tasks:
@@ -966,7 +960,7 @@ Time taken to execute above cell: 49.21 seconds
 ### Gradient boosting trees regression
 The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts tip amount for the NYC taxi trip data.
 
-**Train and evaluate **
+**Train and evaluate**
 
     #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
@@ -997,7 +991,7 @@ The code in this section shows how to train, evaluate, and save a gradient boost
     dirfilename = modelDir + btregressionfilename;
     gbtModel.save(sc, dirfilename)
 
-    # CONVER RESULTS TO DF AND REGISER TEMP TABLE
+    # CONVERT RESULTS TO DF AND REGISTER TEMP TABLE
     test_predictions = sqlContext.createDataFrame(predictionAndLabels)
     test_predictions.registerTempTable("tmp_results");
 

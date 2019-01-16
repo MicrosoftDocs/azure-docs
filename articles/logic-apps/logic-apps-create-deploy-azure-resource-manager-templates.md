@@ -1,20 +1,15 @@
 ---
-title: Create logic apps from Azure Resource Manager templates | Microsoft Docs
-description: Create and deploy logic app workflows with Azure Resource Manager templates
+title: Create logic apps with Azure Resource Manager templates - Azure Logic Apps | Microsoft Docs
+description: Create and deploy logic app workflows with Azure Resource Manager templates in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-
-ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
+ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.author: LADocs; mandia
 ---
 
 # Create and deploy logic apps with Azure Resource Manager templates
@@ -25,7 +20,7 @@ but also to define the resources and parameters that are used for deployment.
 You can use this template for your own business scenarios or 
 customize the template to meet your requirements. Learn more about the 
 [Resource Manager template for logic apps](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 
-and [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md).
+and [Azure Resource Manager template structure and syntax](../azure-resource-manager/resource-group-authoring-templates.md). For JSON syntax and properties, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 ## Define the logic app
 
@@ -39,46 +34,46 @@ location as the Azure resource group.
 
 ``` json
 {
-    "type": "Microsoft.Logic/workflows",
-    "apiVersion": "2016-06-01",
-    "name": "[parameters('logicAppName')]",
-    "location": "[resourceGroup().location]",
-    "tags": {
-        "displayName": "LogicApp"
-    },
-    "properties": {
-        "definition": {
-            "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "testURI": {
-                "type": "string",
-                "defaultValue": "[parameters('testUri')]"
-                }
-            },
-            "triggers": {
-                "Recurrence": {
-                    "type": "Recurrence",
-                    "recurrence": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    }
-                }
-            },
-            "actions": {
-                "Http": {
-                    "type": "Http",
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "@parameters('testUri')"
-                    },
-                    "runAfter": {}
-                }
-            },
-            "outputs": {}
-        },
-        "parameters": {}
-    }
+   "type": "Microsoft.Logic/workflows",
+   "apiVersion": "2016-06-01",
+   "name": "[parameters('logicAppName')]",
+   "location": "[resourceGroup().location]",
+   "tags": {
+      "displayName": "LogicApp"
+   },
+   "properties": {
+      "definition": {
+         "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+            "testURI": {
+               "type": "string",
+               "defaultValue": "[parameters('testUri')]"
+            }
+         },
+         "triggers": {
+            "Recurrence": {
+               "type": "Recurrence",
+               "recurrence": {
+                  "frequency": "Hour",
+                  "interval": 1
+               }
+            }
+         },
+         "actions": {
+            "Http": {
+              "type": "Http",
+              "inputs": {
+                  "method": "GET",
+                  "uri": "@parameters('testUri')"
+              },
+              "runAfter": {}
+           }
+         },
+         "outputs": {}
+      },
+      "parameters": {}
+   }
 }
 ``` 
 
@@ -136,7 +131,7 @@ azure group deployment create --template-uri https://raw.githubusercontent.com/A
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

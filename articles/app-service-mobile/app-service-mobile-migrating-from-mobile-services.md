@@ -3,8 +3,8 @@ title: Migrate from Mobile Services to an App Service Mobile App
 description: Learn how to easily migrate your Mobile Services application to an App Service Mobile App
 services: app-service\mobile
 documentationcenter: ''
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # <a name="article-top"></a>Migrate your existing Azure Mobile Service to Azure App Service
@@ -32,7 +32,7 @@ continue to operate normally.  Migration restarts your service once it is transf
 Microsoft is recommending that you migrate your Azure Mobile Service to take advantage of the features of Azure App Service, including:
 
 * New host features, including [WebJobs] and [custom domain names].
-* Monitoring and troubleshooting with New Relic or [Application Insights].
+* Monitoring and troubleshooting with [Application Insights].
 * Built-in DevOps tooling, including [staging slots], roll-back, and in-production testing.
 * [Auto-scale], load balancing, and [performance monitoring].
 
@@ -409,28 +409,28 @@ Now that your application is migrated to App Service, there are even more featur
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
-[Application Insights]: ../application-insights/app-insights-overview.md
+[App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
+[Application Insights]: ../azure-monitor/app/app-insights-overview.md
 [Auto-scale]: ../app-service/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-web-overview.md
+[Azure App Service]: ../app-service/overview.md
 [Azure Classic Portal]: https://manage.windowsazure.com
 [Azure portal]: https://portal.azure.com
-[Azure Region]: https://azure.microsoft.com/en-us/regions/
+[Azure Region]: https://azure.microsoft.com/regions/
 [Azure Scheduler Plans]: ../scheduler/scheduler-plans-billing.md
-[continuously deploy]: ../app-service/app-service-continuous-deployment.md
-[Convert your Mixed namespaces]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
-[curl]: http://curl.haxx.se/
+[continuously deploy]: ../app-service/deploy-continuous-deployment.md
+[Convert your Mixed namespaces]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
+[curl]: https://curl.haxx.se/
 [custom domain names]: ../app-service/app-service-web-tutorial-custom-domain.md
-[Fiddler]: http://www.telerik.com/fiddler
+[Fiddler]: https://www.telerik.com/fiddler
 [general availability of Azure App Service]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Logging]: ../app-service/web-sites-enable-diagnostic-log.md
+[Logging]: ../app-service/troubleshoot-diagnostic-logs.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [performance monitoring]: ../app-service/web-sites-monitor.md
-[Postman]: http://www.getpostman.com/
-[staging slots]: ../app-service/web-sites-staged-publishing.md
+[Postman]: https://www.getpostman.com/
+[staging slots]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT Transform Samples]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Functions]: ../azure-functions/functions-overview.md

@@ -9,10 +9,10 @@ editor: tysonn
 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 02/23/2018
 ms.author: tomfitz
 
 ---
@@ -20,16 +20,16 @@ ms.author: tomfitz
 
 Resource Manager enables you to export a Resource Manager template from existing resources in your subscription. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed.
 
-It is important to note that there are two different ways to export a template:
+It's important to note that there are two different ways to export a template:
 
-* You can export the actual template that you used for a deployment. The exported template includes all the parameters and variables exactly as they appeared in the original template. This approach is helpful when you need to retrieve a template.
-* You can export a template that represents the current state of the resource group. The exported template is not based on any template that you used for deployment. Instead, it creates a template that is a snapshot of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. This approach is useful when you have modified the resource group. Now, you need to capture the resource group as a template.
+* You can export the **actual template used for a deployment**. The exported template includes all the parameters and variables exactly as they appeared in the original template. This approach is helpful when you need to retrieve a template.
+* You can export a **generated template that represents the current state of the resource group**. The exported template is not based on any template that you used for deployment. Instead, it creates a template that is a "snapshot" or "backup" of the resource group. The exported template has many hard-coded values and probably not as many parameters as you would typically define. Use this option to redeploy resources to the same resource group. To use this template for another resource group, you may have to significantly modify it.
 
-This topic shows both approaches.
+This article shows both approaches.
 
 ## Deploy a solution
 
-To illustrate both approaches for exporting a template, let's start by deploying a solution to your subscription. If you already have a resource group in your subscription that you want to export, you do not have to deploy this solution. However, the remainder of this article refers to the template for this solution. The example script deploys a storage account.
+To illustrate both approaches for exporting a template, let's start by deploying a solution to your subscription. If you already have a resource group in your subscription that you want to export, you don't have to deploy this solution. However, the rest of this article refers to the template for this solution. The example script deploys a storage account.
 
 ```powershell
 New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
@@ -54,11 +54,11 @@ Path
 C:\Users\exampleuser\NewStorage.json
 ```
 
-Open the file, and notice that it is the exact template you used for deployment. The parameters and variables match the template from GitHub. You can redeploy this template.
+Open the file, and notice that it's the exact template you used for deployment. The parameters and variables match the template from GitHub. You can redeploy this template.
 
 ## Export resource group as template
 
-Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [Export-​Azure​Rm​Resource​Group](/powershell/module/azurerm.resources/export-azurermresourcegroup) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes.
+Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [Export-​Azure​Rm​Resource​Group](/powershell/module/azurerm.resources/export-azurermresourcegroup) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes. It is intended as a snapshot of the resource group, which you can use to redeploy to the same resource group. To use the exported template for other solutions, you must significantly modify it.
 
 ```powershell
 Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
@@ -72,7 +72,7 @@ Path
 C:\Users\exampleuser\ExampleGroup.json
 ```
 
-Open the file, and notice that it is different than the template in GitHub. It has different parameters and no variables. The storage SKU and location are hard-coded to values. The following example shows the exported template, but your template has a slightly different parameter name:
+Open the file, and notice that it's different than the template in GitHub. It has different parameters and no variables. The storage SKU and location are hard-coded to values. The following example shows the exported template, but your template has a slightly different parameter name:
 
 ```json
 {

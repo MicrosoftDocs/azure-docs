@@ -1,0 +1,202 @@
+---
+title: Troubleshoot Mobility Service push installation failures when enabling replication for disaster recovery | Microsoft Docs
+description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery
+author: Rajeswari-Mamilla
+manager: rochakm
+ms.service: site-recovery
+ms.topic: conceptual
+ms.author: ramamill
+ms.date: 12/12/2018
+
+
+
+---
+# Troubleshoot Mobility Service push installation issues
+
+Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to:
+
+* Credential/Privilege errors
+* Login failures
+* Connectivity errors
+* Unsupported Operating systems
+* VSS installation failures
+
+When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, follow the step by step troubleshooting guidance given below.
+
+## Credentials check (ErrorID: 95107 & 95108)
+
+* Verify if the user account chosen during enable replication is **valid, accurate**.
+* Azure Site Recovery requires **ROOT** account or user account with **administrator privileges** to perform push installation. Else, push installation will be blocked on the source machine.
+  * For Windows (**error 95107**), verify if the user account has administrative access, either local or domain, on the source machine.
+  * If you are not using a domain account, you need to disable Remote User Access control on the local computer.
+    * To disable Remote User Access control, under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: LocalAccountTokenFilterPolicy. Set the value to 1. To execute this step, run the following command from command prompt:
+
+         `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+  * For Linux (**error 95108**), you must choose the root account for successful installation of mobility agent. Additionally, SFTP services should be running. To enable SFTP subsystem and password authentication in the sshd_config file:
+    1. Sign in as root.
+    2. Go to /etc/ssh/sshd_config file, find the line that begins with PasswordAuthentication.
+    3. Uncomment the line, and change the value to yes.
+    4. Find the line that begins with Subsystem, and uncomment the line.
+    5. Restart the sshd service.
+
+If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## Insufficient privileges failure (ErrorID: 95517)
+
+When the user chosen to install mobility agent does not have administrator privileges, Configuration server/scale-out process server will not be allowed to copy the mobility agent software on to source machine. So, this error is a result of access denied failure. Ensure that the user account has administrator privileges.
+
+If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## Insufficient privileges failure (ErrorID: 95518)
+
+When domain trust relationship establishment between the primary domain and workstation fails while trying to log in to the source machine, mobility agent installation fails with error id 95518. So, ensure that the user account used to install mobility agent has administrative privileges to log in through primary domain of the source machine.
+
+If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
+
+## Login Failure (ErrorID: 95519)
+
+The user account chosen during Enable Replication has been disabled. To enable the user account, refer to the article [here](https://aka.ms/enable_login_user) or run the following command by replacing text *username* with the actual user name.
+`net user 'username' /active:yes`
+
+## Login Failure (ErrorID: 95520)
+
+Multiple failed retry efforts to access a machine will lock the user account. The failure can be due to:
+
+* Credentials provided during Configuration setup are incorrect OR
+* The user account chosen during Enable Replication is wrong
+
+So, modify the credentials chosen by following the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) and retry the operation after sometime.
+
+## Login Failure (ErrorID: 95521)
+
+This error occurs when the logon servers are not available on source machine. Unavailability of logon servers will lead to failure of login request and thus mobility agent cannot be installed. For successful Login, ensure that Logon servers are available on the source machine and start the Logon service. For detailed instructions, click [here](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
+
+## Login Failure (ErrorID: 95522)
+
+The login service isn't running on your source machine and caused failure of login request. So, mobility agent cannot be installed. To resolve, ensure that Logon service is running on the source machine for successful Login. To start the logon service, run the command "net start Logon" from command prompt or start "NetLogon" service from task manager.
+
+## **Connectivity failure (ErrorID: 95117 & 97118)**
+
+Configuration server/ scale-out process server tries to connect to the source VM to install Mobility agent. This error occurs when source machine is not reachable due to network connectivity issues. To resolve,
+
+* Ensure you are able to ping your Source machine from the Configuration server. If you have chosen scale-out process server during enable replication, ensure you are able to ping your Source machine from process server.
+  * From Source Server machine command line, use Telnet to ping the configuration server/ scale-out process server with https port (135) as shown below to see if there are any network connectivity issues or firewall port blocking issues.
+
+     `telnet <CS/ scale-out PS IP address> <135>`
+* Additionally, for **Linux VM**,
+  * Check if latest openssh, openssh-server, and openssl packages are installed.
+  * Check and ensure that Secure Shell (SSH) is enabled and is running on port 22.
+  * SFTP services should be running. To enable SFTP subsystem and password authentication in the sshd_config file,
+    * Sign in as root.
+    * Go to /etc/ssh/sshd_config file, find the line that begins with PasswordAuthentication.
+    * Uncomment the line, and change the value to yes
+    * Find the line that begins with Subsystem, and uncomment the line
+    * Restart the sshd service.
+* A connection attempt could have failed if there is no proper response after a period of time, or established connection failed because connected host has failed to respond.
+* It may be a Connectivity/network/domain related issue. It could also be due to DNS name resolving issue or TCP port exhaustion issue. Check if there are any such known issues in your domain.
+
+## Connectivity failure (ErrorID: 95523)
+
+This error occurs when the network in which the source machine resides is not found or might have been deleted or is no longer available. The only way to resolve the error is by ensuring that the network exists.
+
+## File and Printer sharing services check (ErrorID: 95105 & 95106)
+
+After connectivity check, verify if File and printer sharing service is enabled on your virtual machine. These settings are required to copy Mobility agent on to the source machine.
+
+For **windows 2008 R2 and prior versions**,
+
+* To enable file and print sharing through Windows Firewall,
+  * Open control panel -> System and Security -> Windows Firewall -> on left pane, click Advanced settings -> click Inbound Rules in console tree.
+  * Locate rules File and Printer Sharing (NB-Session-In) and File and Printer Sharing (SMB-In). For each rule, right-click the rule, and then click **Enable Rule**.
+* To enable file sharing with Group Policy,
+  * Go to Start, type gpmc.msc and search.
+  * In the navigation pane, open the following folders: Local Computer Policy, User Configuration, Administrative Templates, Windows Components, and Network Sharing.
+  * In the details pane, double-click **Prevent users from sharing files within their profile**. To disable the Group Policy setting, and enable the user's ability to share files, click Disabled. Click OK to save your changes. To learn more, click [here](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
+
+For **later versions**, follow the instructions provided [here](vmware-azure-install-mobility-service.md) to enable file and printer sharing.
+
+## Windows Management Instrumentation (WMI) configuration check (Error code: 95103)
+
+After file and printer services check, enable WMI service for private, public, and domain profiles through firewall. These settings are required to complete remote execution on the source machine. To enable,
+
+* Go to Control Panel, click Security, and then click Windows Firewall.
+* Click Change Settings and then click the Exceptions tab.
+* In the Exceptions window, select the check box for Windows Management Instrumentation (WMI) to enable WMI traffic through the firewall. 
+
+You can also enable WMI traffic through the firewall at the command prompt. Use the following command
+    `netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes`
+Other WMI troubleshooting articles could be found at the following articles.
+
+* [Basic WMI testing](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
+* [WMI troubleshooting](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
+* [Troubleshooting problems with WMI scripts and WMI services](https://technet.microsoft.com/library/ff406382.aspx#H22)
+
+## Unsupported Operating Systems
+
+Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service. Avoid the usage of private patch.
+To view the list of operating systems and kernel versions supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
+
+## Boot and system partitions / volumes are not the same disk (ErrorID: 95309)
+
+Before 9.20 version, boot and system partitions/ volumes on different disks was an unsupported configuration. 
+From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), this configuration is supported. Use latest version for this support.
+
+## System partition on multiple disks (ErrorID: 95313)
+
+Before 9.20 version, root partition or volume laid on multiple disks was an unsupported configuration. 
+From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), this configuration is supported. Use latest version for this support.
+
+## GRUB UUID failure (ErrorID: 95320)
+
+If source machine's GRUB is using device name instead of UUID, then mobility agent installation fails. Reach out to system admin to make the changes to GRUB file.
+
+## LVM support from 9.20 version
+
+Before 9.20 version, LVM was supported for data disks only. /boot should be on a disk partition and not be an LVM volume.
+
+From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), [OS disk on LVM](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) is supported. Use latest version for this support.
+
+## Insufficient space (ErrorID: 95524)
+
+When Mobility agent is copied on to the source machine, at least 100 MB free space is required. So, ensure that your source machine has required free space and retry the operation.
+
+## VSS Installation failures
+
+VSS installation is a part of Mobility agent installation. This service is used in the process of generating application consistent recovery points. Failures during VSS installation can occur due to multiple reasons. To identify the exact errors, refer to **c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log**. Few common errors and the resolution steps are highlighted in the following section.
+
+### VSS error -2147023170 [0x800706BE] - exit code 511
+
+This issue is mostly seen when an anti-virus software is blocking the operations of Azure Site Recovery services. To resolve this,
+
+1. Exclude all folders mentioned [here](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
+2. Follow the guidelines published by your anti-virus provider to unblock the registration of DLL in Windows.
+
+### VSS error 7 [0x7] - exit code 511
+
+This is a runtime error and is caused due to insufficient memory to install VSS. Ensure to increase the disk space for successful completion of this operation.
+
+### VSS error -2147023824 [0x80070430] - exit code 517
+
+This error occurs when Azure Site Recovery VSS Provider service is [marked for deletion](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Try to install VSS manually on the source machine by running the following command line
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### VSS error -2147023841 [0x8007041F] - exit code 512
+
+This error occurs when Azure Site Recovery VSS Provider service database is [locked](https://msdn.microsoft.com/en-us/library/ms833798.aspx).Try to install VSS manually on the source machine by running the following command line
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### VSS exit code 806
+
+This error occurs when the user account used for installation does not have permissions to execute the CSScript command. Provide necessary permissions to the user account to execute the script and retry the operation.
+
+### Other VSS errors
+
+Try to install VSS provider service manually on the source machine by running the following command line
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+## Next steps
+
+[Learn how](vmware-azure-tutorial.md) to set up disaster recovery for VMware VMs.

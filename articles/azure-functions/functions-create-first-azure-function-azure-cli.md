@@ -1,92 +1,87 @@
 ---
-title: Create your first function from the Azure CLI | Microsoft Docs 
-description: Learn how to create your first Azure Function for serverless execution using the Azure CLI.
+title: Create your first function using the Azure CLI
+description: Learn how to create your first Azure Function for serverless execution using the Azure CLI and Azure Functions Core Tools.
 services: functions 
 keywords: 
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 08/22/2017
+ms.date: 11/13/2018
 ms.topic: quickstart
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
-manager: cfowler
+manager: jeconnoc
 ---
 
-# Create your first function using the Azure CLI
+# Create your first function from the command line
 
-This quickstart tutorial walks through how to use Azure Functions to create your first function. You use the Azure CLI to create a function app, which is the serverless infrastructure that hosts your function. The function code itself is deployed from a GitHub sample repository.    
+This quickstart topic walks you through how to create your first function from the command line or terminal. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/solutions/serverless/) infrastructure that hosts your function. The function code project is generated from a template by using the [Azure Functions Core Tools](functions-run-local.md), which is also used to deploy the function app project to Azure.
 
-You can follow the steps below using a Mac, Windows, or Linux computer. 
+You can follow the steps below using a Mac, Windows, or Linux computer.
 
-## Prerequisites 
+## Prerequisites
 
 Before running this sample, you must have the following:
 
-+ An active [GitHub](https://github.com) account. 
++ Install [Azure Core Tools version 2.x](functions-run-local.md#v2).
+
++ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
+
 + An active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## Create the local function app project
 
-If you choose to install and use the CLI locally, this topic requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. A GitHub repo is also created in `MyFunctionProj`.
 
-
-## Create a resource group
-
-Create a resource group with the [az group create](/cli/azure/group#create). An Azure resource group is a logical container into which Azure resources like function apps, databases, and storage accounts are deployed and managed.
-
-The following example creates a resource group named `myResourceGroup`.  
-If you are not using Cloud Shell, sign in first using `az login`.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
+```bash
+func init MyFunctionProj
 ```
 
+When prompted, select a worker runtime from the following language choices:
 
-## Create an Azure Storage account
++ `dotnet`: creates a .NET class library project (.csproj).
++ `node`: creates a JavaScript project.
 
-Functions uses an Azure Storage account to maintain state and other information about your functions. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#create) command.
+When the command executes, you see something like the following output:
 
-In the following command, substitute a globally unique storage account name where you see the `<storage_name>` placeholder. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-
-```azurecli-interactive
-az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
+```output
+Writing .gitignore
+Writing host.json
+Writing local.settings.json
+Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 ```
 
-After the storage account has been created, the Azure CLI shows information similar to the following example:
+Use the following command to navigate to the new `MyFunctionProj` project folder.
 
-```json
-{
-  "creationTime": "2017-04-15T17:14:39.320307+00:00",
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myresourcegroup/...",
-  "kind": "Storage",
-  "location": "westeurope",
-  "name": "myfunctionappstorage",
-  "primaryEndpoints": {
-    "blob": "https://myfunctionappstorage.blob.core.windows.net/",
-    "file": "https://myfunctionappstorage.file.core.windows.net/",
-    "queue": "https://myfunctionappstorage.queue.core.windows.net/",
-    "table": "https://myfunctionappstorage.table.core.windows.net/"
-  },
-     ....
-    // Remaining output has been truncated for readability.
-}
+```bash
+cd MyFunctionProj
 ```
+
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
+
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
+
+[!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
+
+[!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
 ## Create a function app
 
-You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#create) command. 
+You must have a function app to host the execution of your functions. The function app provides an environment for serverless execution of your function code. It lets you group functions as a logic unit for easier management, deployment, and sharing of resources. Create a function app by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command. 
 
-In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
+In the following command, substitute a unique function app name where you see the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. You should also set the `<language>` runtime for your function app, from `dotnet` (C#) or `node` (JavaScript).
 
 ```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---consumption-plan-location westeurope
+az functionapp create --resource-group myResourceGroup --consumption-plan-location westeurope \
+--name <app_name> --storage-account  <storage_name> --runtime <language> 
 ```
-By default, a function app is created with the Consumption hosting plan, which means that resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md). 
+
+Setting the _consumption-plan-location_ parameter means that the function app is hosted in a Consumption hosting plan. In this serverless plan, resources are added dynamically as required by your functions and you only pay when functions are running. For more information, see [Choose the correct hosting plan](functions-scale.md).
 
 After the function app has been created, the Azure CLI shows information similar to the following example:
 
@@ -108,59 +103,11 @@ After the function app has been created, the Azure CLI shows information similar
 }
 ```
 
-Now that you have a function app, you can deploy the actual function code from the GitHub sample repository.
+[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
-## Deploy your function code  
+[!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
-There are several ways to create your function code in your new function app. This topic connects to a sample repository in GitHub. As before, in the following code replace the `<app_name>` placeholder with the name of the function app you created. 
+[!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-```azurecli-interactive
-az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
---repo-url https://github.com/Azure-Samples/functions-quickstart \
---manual-integration 
-```
-After the deployment source has been set, the Azure CLI shows information similar to the following example (null values removed for readability):
+[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
 
-```json
-{
-  "branch": "master",
-  "deploymentRollbackEnabled": false,
-  "id": "/subscriptions/bbbef702-e769-477b-9f16-bc4d3aa97387/resourceGroups/myResourceGroup/...",
-  "isManualIntegration": true,
-  "isMercurial": false,
-  "location": "West Europe",
-  "name": "quickstart",
-  "repoUrl": "https://github.com/Azure-Samples/functions-quickstart",
-  "resourceGroup": "myResourceGroup",
-  "type": "Microsoft.Web/sites/sourcecontrols"
-}
-```
-
-## Test the function
-
-Use cURL to test the deployed function on a Mac or Linux computer or using Bash on Windows. Execute the following cURL command, replacing the `<app_name>` placeholder with the name of your function app. Append the query string `&name=<yourname>` to the URL.
-
-```bash
-curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
-```  
-
-![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
-
-If you don't have cURL available in your command line, enter the same URL in the address of your web browser. Again, replace the `<app_name>` placeholder with the name of your function app, and append the query string `&name=<yourname>` to the URL and execute the request. 
-
-    http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
-   
-![Function response shown in a browser.](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-browser.png)  
-
-## Clean up resources
-
-Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following command to delete all resources created by this quickstart:
-
-```azurecli-interactive
-az group delete --name myResourceGroup
-```
-Type `y` when prompted.
-
-## Next steps
-
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]

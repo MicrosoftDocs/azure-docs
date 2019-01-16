@@ -1,27 +1,25 @@
 ---
-title: Cortana Intelligence Gallery experiments | Microsoft Docs
-description: Discover and share experiments in Cortana Intelligence Gallery.
+title: Azure AI Gallery experiments - Azure Machine Learning Studio | Microsoft Docs
+description: Discover and share experiments in Azure AI Gallery. An experiment is a canvas in Machine Learning Studio that you can use to construct a predictive analysis model
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
-editor: cgronlun
+author: ericlicoding
+ms.custom: seodec18
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: roopalik;garye
-
 ---
-# Discover experiments in Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# Discover Azure Machine Learning Studio experiments in Azure AI Gallery
 
-## Experiments for Machine Learning Studio
-The Gallery has a wide variety of [experiments](https://gallery.cortanaintelligence.com/experiments) that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). Experiments range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully developed solutions for complex machine learning problems.
+[Azure AI Gallery](http://gallery.cortanaintelligence.com) has a variety of [experiments](https://gallery.cortanaintelligence.com/experiments) that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). Experiments range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully developed solutions for complex machine learning problems.
 
 > [!NOTE]
 > An ***experiment*** is a canvas in Machine Learning Studio that you can use to construct a predictive analysis model. You create the model by connecting data with various analytical modules. You can try different ideas, do trial runs, and eventually deploy your model as a web service in Azure. For an example of how to create a basic experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](create-experiment.md). For a more comprehensive walkthrough of how to create a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](walkthrough-develop-predictive-solution.md).
@@ -42,7 +40,7 @@ You can get more information about an experiment on the experiment details page.
 ## Download
 You can download a copy of any experiment in the Gallery to your Machine Learning Studio workspace. Then, you can modify your copy to create your own solutions.
 
-Cortana Intelligence Gallery offers two ways to import a copy of an experiment:
+Azure AI Gallery offers two ways to import a copy of an experiment:
 
 * **From the Gallery**. If you find an experiment that you like in the Gallery, you can download a copy and then open it in your Machine Learning Studio workspace.
 * **From within Machine Learning Studio**. In Machine Learning Studio, you can use any experiment in the Gallery as a template to create a new experiment.
@@ -185,4 +183,4 @@ After you enter a tag, to enter another tag, press the Tab key.
 
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

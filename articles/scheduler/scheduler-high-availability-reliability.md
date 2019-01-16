@@ -1,78 +1,117 @@
 ---
-title: Scheduler High-Availability and Reliability
-description: Scheduler High-Availability and Reliability
+title: High availability and reliability - Azure Scheduler 
+description: Learn about high availability and reliability in Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: deli
-
 ---
-# Scheduler High-Availability and Reliability
-## Azure Scheduler High-Availability
-As a core Azure platform service, Azure Scheduler is highly available and features both geo-redundant service deployment and geo-regional job replication.
+
+# High availability and reliability for Azure Scheduler
+
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+> is replacing Azure Scheduler, which is being retired. 
+> To schedule jobs, [try Azure Logic Apps instead](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+Azure Scheduler provides both [high availability](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) 
+and reliability for your jobs. For more information, see 
+[SLA for Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+
+## High availability
+
+Azure Scheduler is [highly available] 
+and uses both geo-redundant service deployment and geo-regional job replication.
 
 ### Geo-redundant service deployment
-Azure Scheduler is available via the UI in almost every geo region that's in Azure today. The list of regions that Azure Scheduler is available in is [listed here](https://azure.microsoft.com/regions/#services). If a data center in a hosted region is rendered unavailable, the failover capabilities of Azure Scheduler are such that the service is available from another data center.
+
+Azure Scheduler is available in the Azure portal across almost 
+[every geographical region supported by Azure today](https://azure.microsoft.com/global-infrastructure/regions/#services). 
+So, if an Azure datacenter in a hosted region becomes unavailable, 
+you can still use Azure Scheduler because the service's failover 
+capabilities make Scheduler available from another datacenter.
 
 ### Geo-regional job replication
-Not only is the Azure Scheduler front-end available for management requests, but your own job is also geo-replicated. When there’s an outage in one region, Azure Scheduler fails over and ensures that the job is run from another data center in the paired geographic region.
 
-For example, if you’ve created a job in South Central US, Azure Scheduler automatically replicates that job in North Central US. When there’s a failure in South Central US, Azure Scheduler ensures that the job is run from North Central US. 
+Your own jobs in Azure Scheduler are replicated across Azure regions. 
+So if one region has an outage, Azure Scheduler fails over and makes sure 
+that your job runs from another datacenter in the paired geographic region.
 
-![][1]
+For example, if you create a job in South Central US, 
+Azure Scheduler automatically replicates that job in 
+North Central US. If a failure happens in South Central US, 
+Azure Scheduler runs the job in North Central US. 
 
-As a result, Azure Scheduler ensures that your data stays within the same broader geographic region in case of an Azure failure. As a result, you need not duplicate your job just to add high availability – Azure Scheduler automatically provides high-availability capabilities for your jobs.
+![Geo-regional job replication](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png)
 
-## Azure Scheduler Reliability
-Azure Scheduler guarantees its own high-availability and takes a different approach to user-created jobs. For example, your job may invoke an HTTP endpoint that’s unavailable. Azure Scheduler nonetheless tries to execute your job successfully, by giving you alternative options to deal with failure. Azure Scheduler does this in two ways:
+Azure Scheduler also makes sure your data stays within the same but wider 
+geographic region, just in case a failure happens in Azure. So, you don't 
+have to duplicate your jobs when you just want high availability. 
+Azure Scheduler automatically provides high-availability for your jobs.
 
-### Configurable Retry Policy via “retryPolicy”
-Azure Scheduler allows you to configure a retry policy. By default, if a job fails, Scheduler tries the job again four more times, at 30-second intervals. You may re-configure this retry policy to be more aggressive (for example, ten times, at 30-second intervals) or looser (for example, two times, at daily intervals.)
+## Reliability
 
-As an example of when this may help, you may create a job that runs once a week and invokes an HTTP endpoint. If the HTTP endpoint is down for a few hours when your job runs, you may not want to wait one more week for the job to run again since even the default retry policy will fail. In such cases, you may reconfigure the standard retry policy to retry every three hours (for example) instead of every 30 seconds.
+Azure Scheduler guarantees its own high-availability but 
+takes a different approach to user-created jobs. For example, 
+suppose your job invokes an HTTP endpoint that's unavailable. 
+Azure Scheduler still tries to run your job successfully by 
+giving you alternative ways for handling failures: 
 
-To learn how to configure a retry policy, refer to [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+* Set up retry policies.
+* Set up alternate endpoints.
 
-### Alternate Endpoint Configurability via “errorAction”
-If the target endpoint for your Azure Scheduler job remains unreachable, Azure Scheduler falls back to the alternate error-handling endpoint after following its retry policy. If an alternate error-handling endpoint is configured, Azure Scheduler invokes it. With an alternate endpoint, your own jobs are highly available in the face of failure.
+<a name="retry-policies"></a>
 
-As an example, in the diagram below, Azure Scheduler follows its retry policy to hit a New York web service. After the retries fail, it checks if there's an alternate. It then goes ahead and starts making requests to the alternate with the same retry policy.
+### Retry policies
 
-![][2]
+Azure Scheduler lets you set up retry policies. If a job fails, 
+then by default, Scheduler retries the job four more times at 
+30-second intervals. You can make this retry policy more aggressive, 
+such as 10 times at 30-second intervals, or less aggressive, 
+such as two times at daily intervals.
 
-Note that the same retry policy applies to both the original action and the alternate error action. It’s also possible to have the alternate error action’s action type be different from the main action’s action type. For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue, service bus queue, or service bus topic action that does error-logging.
+For example, suppose you create a weekly job that calls an HTTP endpoint. 
+If the HTTP endpoint becomes unavailable for a few hours when your job runs, 
+you might not want to wait another week for the job to run again, 
+which happens because the default retry policy won't work in this case. 
+So, you might want to change the standard retry policy so that retries 
+happen, for example, every three hours, rather than every 30 seconds. 
 
-To learn how to configure an alternate endpoint, refer to [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+To learn how to set up a retry policy, see 
+[retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
-## See Also
- [What is Scheduler?](scheduler-intro.md)
+### Alternate endpoints
 
- [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+If your Azure Scheduler job calls an endpoint that is unreachable, 
+even after following the retry policy, Scheduler falls back to an 
+alternate endpoint that can handle such errors. So, if you set up 
+this endpoint, Scheduler calls that endpoint, which makes your 
+own jobs highly available when failures happen.
 
- [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+For example, this diagram shows how Scheduler follows the retry 
+policy when calling a web service in New York. If the retries fail, 
+Scheduler checks for an alternate endpoint. If the endpoint exists, 
+Scheduler starts sending requests to the alternate endpoint. 
+The same retry policy applies to both the original action and 
+the alternate action.
 
- [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+![Scheduler behavior with retry policy and alternate endpoint](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png)
 
- [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+The action type for the alternate action can differ from the original action. 
+For example, although the original action calls an HTTP endpoint, 
+the alternate action might log errors by using a Storage queue, 
+Service Bus queue, or Service Bus topic action.
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+To learn how to set up an alternate endpoint, see 
+[errorAction](scheduler-concepts-terms.md#error-action).
 
- [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+## See also
 
- [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
-
- [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
-
-[1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
-
-[2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
+* [What is Azure Scheduler?](scheduler-intro.md)
+* [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+* [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
+* [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)

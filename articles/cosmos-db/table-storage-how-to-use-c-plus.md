@@ -1,37 +1,33 @@
 ---
-title: How to use Table storage (C++) | Microsoft Docs
-description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
-services: cosmos-db
-documentationcenter: .net
-author: mimig1
-manager: jahogg
-editor: tysonn
-
-ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
+title: How to use Azure Table Storage and Azure Cosmos DB Table API with C++
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 ms.service: cosmos-db
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/28/2017
-ms.author: mimig
-
+ms.subservice: cosmosdb-table
+ms.devlang: cpp
+ms.topic: sample
+ms.date: 04/05/2018
+author: wmengmsft
+ms.author: wmeng
 ---
-# How to use Table storage from C++
+# How to use Azure Table storage and Azure Cosmos DB Table API with C++
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## Overview
-This guide will show you how to perform common scenarios by using the Azure Table storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
+This guide will show you how to perform common scenarios by using the Azure Table storage service or Azure Cosmos DB Table API. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
-> 
+> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 2.2.0, which is available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## Create an Azure service account
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### Create an Azure storage account
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### Create an Azure Cosmos DB Table API account
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## Create a C++ application
 In this guide, you will use storage features that can be run within a C++ application. To do so, you will need to install the Azure Storage Client Library for C++ and create an Azure storage account in your Azure subscription.  
@@ -39,11 +35,11 @@ In this guide, you will use storage features that can be run within a C++ applic
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
 * **Linux:** Follow the instructions given on the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
-* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press Enter.  
+* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](/nuget/tools/package-manager-console) and press Enter.  
   
      Install-Package wastorage
 
-## Configure your application to access Table storage
+## Configure access to the Table client library
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access tables:  
 
 ```cpp
@@ -51,13 +47,24 @@ Add the following include statements to the top of the C++ file where you want t
 #include <was/table.h>
 ```
 
-## Set up an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running a client application, you must provide the storage connection string in the following format. Use the name of your storage account and the storage access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure storage accounts](../storage/common/storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
+An Azure Storage client or Cosmos DB client uses a connection string to store endpoints and credentials to access data management services. When running a client application, you must provide the storage connection string or Azure Cosmos DB connection string in the appropriate format.
+
+## Set up an Azure Storage connection string
+ Use the name of your Storage account and the access key for the Storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on Storage accounts and access keys, see [About Azure Storage accounts](../storage/common/storage-create-storage-account.md). This example shows how you can declare a static field to hold the Azure Storage connection string:  
 
 ```cpp
-// Define the connection string with your values.
+// Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
+
+## Set up an Azure Cosmos DB connection string
+Use the name of your Azure Cosmos DB account, your primary key, and endpoint listed in the [Azure Portal](https://portal.azure.com) for the *Account Name*, *Primary Key*, and *Endpoint* values. This example shows how you can declare a static field to hold the Azure Cosmos DB connection string:
+
+```cpp
+// Define the Azure Cosmos DB connection string with your values.
+const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_cosmos_db_account;AccountKey=your_cosmos_db_account_key;TableEndpoint=your_cosmos_db_endpoint"));
+```
+
 
 To test your application in your local Windows-based computer, you can use the Azure [storage emulator](../storage/common/storage-use-emulator.md) that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
 
@@ -71,7 +78,7 @@ To start the Azure storage emulator, click the **Start** button or press the Win
 The following samples assume that you have used one of these two methods to get the storage connection string.  
 
 ## Retrieve your connection string
-You can use the **cloud_storage_account** class to represent your storage account information. To retrieve your storage account information from the storage connection string, you can use the parse method.
+You can use the **cloud_storage_account** class to represent your storage account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -195,6 +202,9 @@ Some things to note on batch operations:
 ## Retrieve all entities in a partition
 To query a table for all entities in a partition, use a **table_query** object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.  
 
+> [!NOTE]
+> These methods are not currently supported for C++ in Azure Cosmos DB.
+
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -229,6 +239,9 @@ The query in this example brings all the entities that match the filter criteria
 
 ## Retrieve a range of entities in a partition
 If you don't want to query all the entities in a partition, you can specify a range by combining the partition key filter with a row key filter. The following code example uses two filters to get all entities in partition 'Smith' where the row key (first name) starts with a letter earlier than 'E' in the alphabet and then prints the query results.  
+
+> [!NOTE]
+> These methods are not currently supported for C++ in Azure Cosmos DB.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -433,23 +446,30 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 // Create a cloud table object for the table.
 azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
-// Create an operation to retrieve the entity with partition key of "Smith" and row key of "Jeff".
-azure::storage::table_operation retrieve_operation = azure::storage::table_operation::retrieve_entity(U("Smith"), U("Jeff"));
-azure::storage::table_result retrieve_result = table.execute(retrieve_operation);
-
-// Create an operation to delete the entity.
-azure::storage::table_operation delete_operation = azure::storage::table_operation::delete_entity(retrieve_result.entity());
-
-// Submit the delete operation to the Table service.
-azure::storage::table_result delete_result = table.execute(delete_operation);
+// Delete the table if it exists
+if (table.delete_table_if_exists())
+	{
+		std::cout << "Table deleted!";
+	}
+	else
+	{
+		std::cout << "Table didn't exist";
+	}
 ```
 
-## Next steps
-Now that you've learned the basics of table storage, follow these links to learn more about Azure Storage:  
+## Troubleshooting
+* Build errors in Visual Studio 2017 Community Edition
 
+  If your project gets build errors because of the include files storage_account.h and table.h, remove the **/permissive-** compiler switch. 
+  - In **Solution Explorer**, right-click your project and select **Properties**.
+  - In the **Property Pages** dialog box, expand **Configuration Properties**, expand **C/C++**, and select **Language**.
+  - Set **Conformance mode** to **No**.
+   
+## Next steps
+Follow these links to learn more about Azure Storage and the Table API in Azure Cosmos DB: 
+
+* [Introduction to the Table API](table-introduction.md)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [How to use Blob storage from C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [How to use Queue storage from C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
 * [List Azure Storage resources in C++](../storage/common/storage-c-plus-plus-enumeration.md)
-* [Storage Client Library for C++ reference](http://azure.github.io/azure-storage-cpp)
+* [Storage Client Library for C++ reference](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)

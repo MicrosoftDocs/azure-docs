@@ -1,23 +1,19 @@
 ---
-title: Logic Apps B2B edifact decode resolve UNH2.5 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps B2B edifact decode resolve UNH2.5
+title: Handle EDIFACT messages with UNH 2.5 segements - Azure Logic Apps | Microsoft Docs
+description: Resolve EDIFACT documents with UNH2.5 segments in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: anneta
-editor: ''
-
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/27/2017
-ms.author: LADocs; padmavc
-
 ---
-# How to handle EDIFACT documents having UNH2.5 segment
+
+# Handle EDIFACT documents with UNH2.5 segments in Azure Logic Apps
+
 When UNH2.5 is present in the EDIFACT document, it is being used for schema lookup. 
 
 Example: The UNH field is **EAN008** in the EDIFACT message  

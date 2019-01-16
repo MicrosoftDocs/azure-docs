@@ -4,7 +4,7 @@ description: Overview backup options for Linux Azure virtual machines.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

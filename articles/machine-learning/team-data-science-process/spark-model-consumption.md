@@ -1,24 +1,18 @@
 ---
-title: Operationalize Spark-built machine learning models | Microsoft Docs
+title: Operationalize Spark-built machine learning models - Team Data Science Process
 description: How to load and score learning models stored in Azure Blob Storage (WASB) with Python.
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 626305a2-0abf-4642-afb0-dad0f6bd24e9
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Operationalize Spark-built machine learning models
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 This topic shows how to operationalize a saved machine learning model (ML) using Python on HDInsight Spark clusters. It describes how to load machine learning models that have been built using Spark MLlib and stored in Azure Blob Storage (WASB), and how to score them with datasets that have also been stored in WASB. It shows how to pre-process the input data, transform features using the indexing and encoding functions in the MLlib toolkit, and how to create a labeled point data object that can be used as input for scoring with the ML models. The models used for scoring include Linear Regression, Logistic Regression, Random Forest Models, and Gradient Boosting Tree Models.
 
@@ -115,7 +109,7 @@ The PySpark kernel provides some predefined “magics”, which are special comm
 * **%%sql -o <variable name>** 
 * Executes a Hive query against the sqlContext. If the -o parameter is passed, the result of the query is persisted in the %%local Python context as a Pandas dataframe.
 
-For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+For more information on the kernels for Jupyter notebooks and the predefined "magics" that they provide, see [Kernels available for Jupyter notebooks with HDInsight Spark Linux clusters on HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## Ingest data and create a cleaned data frame
 This section contains the code for a series of tasks required to ingest the data to be scored. Read in a joined 0.1% sample of the taxi trip and fare file (stored as a .tsv file), format the data, and then creates a clean data frame.
@@ -524,7 +518,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## Consume Spark Models through a web interface
-Spark provides a mechanism to remotely submit batch jobs or interactive queries through a REST interface with a component called Livy. Livy is enabled by default on your HDInsight Spark cluster. For more information on Livy, see: [Submit Spark jobs remotely using Livy](../../hdinsight/hdinsight-apache-spark-livy-rest-interface.md). 
+Spark provides a mechanism to remotely submit batch jobs or interactive queries through a REST interface with a component called Livy. Livy is enabled by default on your HDInsight Spark cluster. For more information on Livy, see: [Submit Spark jobs remotely using Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 You can use Livy to remotely submit a job that batch scores a file that is stored in an Azure blob and then writes the results to another blob. To do this, you upload the Python script from  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) to the blob of the Spark cluster. You can use a tool like **Microsoft Azure Storage Explorer** or **AzCopy** to copy the script to the cluster blob. In our case we uploaded the script to ***wasb:///example/python/ConsumeGBNYCReg.py***.   

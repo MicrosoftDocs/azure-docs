@@ -1,7 +1,5 @@
 # Overview
 ## [Developer guide](azure-developer-guide.md) 
-## [Overview of Azure services](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
-## [Portal overview](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDKs and tools](https://docs.microsoft.com/azure/index#pivot=sdkstools)
 
 # Quickstart
@@ -24,22 +22,22 @@
 ### [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## [Create an Azure connected function](https://docs.microsoft.com/azure/azure-functions/functions-create-an-azure-connected-function)
-## [Docker deploy web app on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image) 
+## [Docker deploy web app on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go) 
 
 # Samples
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-cli)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-powershell)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Concepts
 ## [Billing and subscriptions](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Hosting comparisons](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
-## [What is App Service?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+## [Hosting comparisons](https://docs.microsoft.com/azure/app-service/overview-compare)
+## [What is App Service?](https://docs.microsoft.com/azure/app-service/overview)
 ## Virtual machines
 ### [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
@@ -57,15 +55,15 @@
 ### [Serverless apps](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Microservices cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Deploy
-### [Web and mobile apps from source control](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [Web and mobile apps from source control](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [Microservices locally](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 ## Store data
 ### [Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 ### [File shares](https://docs.microsoft.com/azure/storage/files/storage-dotnet-how-to-use-files)
-### [Key-value pairs](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet)
-### [JSON documents](https://docs.microsoft.com/azure/cosmos-db/documentdb-get-started)
+### [Key-value pairs](https://docs.microsoft.com/azure/cosmos-db/create-table-dotnet)
+### [JSON documents](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet)
 ### [Relational tables](https://docs.microsoft.com/azure/sql-database/sql-database-get-started)
 ### [Message queues](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
 
@@ -78,11 +76,11 @@
 ### [Web and mobile apps](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup
-### [Web and mobile apps](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+### [Web and mobile apps](https://docs.microsoft.com/azure/app-service/manage-backup)
 ### [Virtual machines](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## Monitor
-### [Web and mobile apps](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
+### [Web and mobile apps](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Microservices](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)
@@ -98,15 +96,16 @@
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 ### [Java](https://docs.microsoft.com/java/api/)
 ### [Node.js](http://azure.github.io/azure-sdk-for-node/)
-### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README)
+### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
-### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README)
+### [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 ## Command line interfaces
 ### [Azure CLI](https://docs.microsoft.com/cli/azure/)
 ### [Azure PowerShell](https://docs.microsoft.com/powershell/)
 ## [Billing](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview)
 
 # Resources
+## [Azure limits and quotas](../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json)
 ## [Azure regions](https://azure.microsoft.com/regions/)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

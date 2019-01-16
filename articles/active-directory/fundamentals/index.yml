@@ -1,0 +1,48 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Active Directory fundamentals documentation
+metadata:
+  document_id: 
+  title: Azure Active Directory fundamentals documentation
+  description: Learn about the basic concepts and processes available while using Azure Active Directory.
+  services: active-directory
+  ms.component: fundamentals
+  author: eross-msft
+  manager: mtillman
+
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/07/2018
+  ms.author: lizross
+abstract:
+  description: Learn about basic Azure Active Directory (Azure AD) concepts and processes, including how to create basic users, groups, and how to create a basic environment to get started.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to get started with the Azure Active Directory portal.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: ./media/index/i_portal.png
+      text: Access Azure AD to create a tenant
+      href: active-directory-access-create-new-tenant.md
+    - image: 
+        src: ./media/index/i_tasks.png
+      text: View groups and members
+      href: active-directory-groups-view-azure-portal.md
+- title: Step-by-Step guides
+  items:
+  - type: paragraph
+    text: Learn how to perform basic tasks to set up in your Azure Active Directory environment
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Sign up for Azure AD Premium</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">How to add a custom domain name</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">How to create a basic group and add members</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">How to add group owners</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">How to add a new user</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">How to assign roles to users</a>
+    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">How to assign licenses to users</a>

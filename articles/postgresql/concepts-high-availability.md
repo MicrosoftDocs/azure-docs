@@ -1,14 +1,11 @@
 ---
-title: High availability concepts in Azure Database for PostgreSQL | Microsoft Docs
-description: This topic provides information of high availability when using Azure Database for PostgreSQL
-services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
-editor: jasonwhowell
+title: High availability concepts in Azure Database for PostgreSQL
+description: This article provides information of high availability when using Azure Database for PostgreSQL.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
-ms.topic: article
-ms.date: 10/19/2017
+ms.topic: conceptual
+ms.date: 02/28/2018
 ---
 # High availability concepts in Azure Database for PostgreSQL
 The Azure Database for PostgreSQL service provides a guaranteed high level of availability. The financially backed service level agreement (SLA) is 99.99% upon general availability. There is virtually no application down time when using this service.
@@ -16,12 +13,12 @@ The Azure Database for PostgreSQL service provides a guaranteed high level of av
 ## High availability
 The high availability (HA) model is based on built-in fail-over mechanisms when a node-level interruption occurs. A node-level interruption could occur because of a hardware failure or in response to a service deployment.
 
-At all times, changes made to a PostgreSQL occur in the context of a transaction. Changes are recorded synchronously in Azure storage when the transaction is committed. If a node-level interruption occurs, the database server automatically creates a new node and attaches data storage to the new node. Any active connections are dropped and any inflight transactions are not committed.
+At all times, changes made to an Azure Database for PostgreSQL database server occur in the context of a transaction. Changes are recorded synchronously in Azure storage when the transaction is committed. If a node-level interruption occurs, the database server automatically creates a new node and attaches data storage to the new node. Any active connections are dropped and any inflight transactions are not committed.
 
 ## Application retry logic is essential
-It is important that PostgreSQL database applications are built to detect and retry dropped connections and failed transactions. When the application retries, the application's connection it is transparently redirected to the newly create instance, which takes over for the failed instance.
+It is important that PostgreSQL database applications are built to detect and retry dropped connections and failed transactions. When the application retries, the application's connection is transparently redirected to the newly created instance, which takes over for the failed instance.
 
-Internally in Azure, a gateway is used to redirect the connections to the new instance. Upon an interruption, the entire fail-over process takes tens of seconds typically. The external connection string remains the same for the client applications.
+Internally in Azure, a gateway is used to redirect the connections to the new instance. Upon an interruption, the entire fail-over process typically takes tens of seconds. Since the redirect is handled internally by the gateway, the external connection string remains the same for the client applications.
 
 ## Scaling up or down
 Similar to the HA model, when an Azure Database for PostgreSQL is scaled up or down, a new server instance with the specified size is created. The existing data storage is detached from the original instance, and attached to the new instance.
@@ -30,3 +27,4 @@ During the scale operation, an interruption to the database connections occurs. 
 
 ## Next steps
 - For an overview of the service, see [Azure Database for PostgreSQL Overview](overview.md)
+- For an overview on retry logic, see [Handling of transient connectivity errors for Azure Database for PostgreSQL](concepts-connectivity.md)

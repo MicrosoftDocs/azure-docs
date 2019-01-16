@@ -1,16 +1,14 @@
 ﻿---
-title: Create an Internal load balancer - Azure template | Microsoft Docs
+title: Create an Internal Load Balancer - Azure template
+titlesuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer using a template in Resource Manager
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-tags: azure-resource-manager
-
-ms.assetid: 64150862-6ced-42de-85dc-89d323257d7c
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
@@ -25,12 +23,8 @@ ms.author: kumud
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
-
-> [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -81,3 +75,4 @@ To deploy the template by using the Azure CLI, follow the steps below.
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
+For the JSON syntax and properties of a load balancer in a template, see [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

@@ -1,8 +1,15 @@
+---
+author: erikre
+ms.service: multiple
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: erikre
+---
 Azure customers can unlock 25,000 free emails each month. These 25,000 free monthly emails will give you access to advanced reporting and analytics and [all APIs][all APIs] (Web, SMTP, Event, Parse and more). For information about additional services provided by SendGrid, visit the [SendGrid Solutions][SendGrid Solutions] page.
 
 ### To sign up for a SendGrid account
-1. Log in to the [Azure Management Portal][Azure Management Portal].
-2. In the menu on the left, click **New**.
+1. Sign in to the [Azure portal][Azure portal].
+2. In the menu on the left, click **Create a resource**.
 
     ![command-bar-new][command-bar-new]
 3. Click **Add-ons** and then **SendGrid Email Delivery**.
@@ -45,7 +52,7 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
     ![api-keys][api-keys]
 
-3. Click the **Create API Key** dropdown and select **General API Key**.
+3. Click the **Create API Key**.
 
     ![general-api-key][general-api-key]
 4. At a minimum, provide the **Name of this key** and provide full access to **Mail Send** and select **Save**.
@@ -61,9 +68,9 @@ Azure customers can unlock 25,000 free emails each month. These 25,000 free mont
 
 To manage your email deliverability settings, click the **Manage button**. This will redirect to your SendGrid dashboard.
 
-    ![manage][manage]
+![manage][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
 
 <!--images-->
 
@@ -82,7 +89,7 @@ To manage your email deliverability settings, click the **Manage button**. This 
 <!--Links-->
 
 [SendGrid Solutions]: https://sendgrid.com/solutions
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html

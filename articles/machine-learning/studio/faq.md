@@ -1,40 +1,32 @@
 ---
-title: Azure Machine Learning frequently asked questions (FAQs) | Microsoft Docs
-description: 'Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.'
+title: Machine Learning Studio frequently asked questions (FAQs) - Azure | Microsoft Docs
+description: 'Azure Machine Learning Studio: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.'
 keywords: machine learning introduction,predictive modeling,what is machine learning
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: paulettm
-editor: cgronlun
-
+author: ericlicoding
+ms.custom: seodec18
+ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/02/2017
-ms.author: garye
-
 ---
-# Azure Machine Learning frequently asked questions: Billing, capabilities, limitations, and support
+# Azure Machine Learning Studio FAQ: Billing, capabilities, limitations, and support
 Here are some frequently asked questions (FAQs) and corresponding answers about Azure Machine Learning, a cloud service for developing predictive models and operationalizing solutions through web services. These FAQs provide questions about how to use the service, which includes the billing model, capabilities, limitations, and support.
 
 **Have a question you can't find here?**
 
-Azure Machine Learning has a forum on MSDN where members of the data science community can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to the [Azure Machine Learning Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to search for answers or to post a new question of your own.
+Azure Machine Learning has a forum on MSDN where members of the data science community can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to the [Azure Machine Learning Forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to search for answers or to post a new question of your own.
 
 ## General questions
-**What is Azure Machine Learning?**
-
-Azure Machine Learning is a fully managed service that you can use to create, test, operate, and manage predictive analytic solutions in the cloud. With only a browser, you can sign in, upload data, and immediately start machine-learning experiments. Drag-and-drop predictive modeling, a large pallet of modules, and a library of starting templates make common machine-learning tasks simple and quick. For more information, see the [Azure Machine Learning service overview](https://azure.microsoft.com/services/machine-learning/). For an introduction to machine learning that explains key terminology and concepts, see [Introduction to Azure Machine Learning](what-is-machine-learning.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **What is Machine Learning Studio?**
 
-Machine Learning Studio is a workbench environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
+Machine Learning Studio is a drag-and-drop canvas environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
 
 For more information about Machine Learning Studio, see [What is Machine Learning Studio?](what-is-ml-studio.md)
 
@@ -70,7 +62,7 @@ You can also use the sample Microsoft Excel workbook that's created for you and 
 
 **What are the main updates to Azure Machine Learning?**
 
-For the latest updates, see [What's new in Azure Machine Learning](whats-new.md).
+For the latest updates, see [What's new in Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
 ## Machine Learning Studio questions
 ### Import and export data for Machine Learning
@@ -120,7 +112,7 @@ You can learn about image input capability in the [Import Images][image-reader] 
 ### Modules
 **The algorithm, data source, data format, or data transformation operation that I am looking for isn't in Azure Machine Learning Studio. What are my options?**
 
-You can go to the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231) to see feature requests that we are tracking. Add your vote to a request if a capability that you're looking for has already been requested. If the capability that you're looking for doesn't exist, create a new request. You can view the status of your request in this forum, too. We track this list closely and update the status of feature availability frequently. In addition, you can use the built-in support for R and Python to create custom transformations when needed.
+You can go to the [user feedback forum](https://go.microsoft.com/fwlink/?LinkId=404231) to see feature requests that we are tracking. Add your vote to a request if a capability that you're looking for has already been requested. If the capability that you're looking for doesn't exist, create a new request. You can view the status of your request in this forum, too. We track this list closely and update the status of feature availability frequently. In addition, you can use the built-in support for R and Python to create custom transformations when needed.
 
 **Can I bring my existing code into Machine Learning Studio?**
 
@@ -179,7 +171,7 @@ Currently, you can only use R to create new custom modules.
 ### R module
 **What R packages are available in Machine Learning Studio?**
 
-Machine Learning Studio supports more than 400 CRAN R packages today, and here is the [current list](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) of all included packages. Also, see [Extend your experiment with R](extend-your-experiment-with-r.md) to learn how to retrieve this list yourself. If the package that you want is not in this list, provide the name of the package at the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio supports more than 400 CRAN R packages today, and here is the [current list](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) of all included packages. Also, see [Extend your experiment with R](extend-your-experiment-with-r.md) to learn how to retrieve this list yourself. If the package that you want is not in this list, provide the name of the package at the [user feedback forum](https://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Is it possible to build a custom R module?**
 
@@ -227,7 +219,7 @@ For more information, see [Retrain Machine Learning models programmatically](ret
 
 **How do I monitor my web service deployed in production?**
 
-After you deploy a predictive model, you can monitor it from the Azure classic portal (Classic web services only) or the Azure Machine Learning Web Services portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information about how to manage your deployed web services, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md) and [Manage an Azure Machine Learning workspace](manage-workspace.md).
+After you deploy a predictive model, you can monitor it from the Azure Machine Learning Web Services portal. Each deployed service has its own dashboard where you can see monitoring information for that service. For more information about how to manage your deployed web services, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md) and [Manage an Azure Machine Learning workspace](manage-workspace.md).
 
 **Is there a place where I can see the output of my RRS/BES?**
 
@@ -282,7 +274,7 @@ No.
 ## Security and availability
 **Who can access the http endpoint for the web service by default? How do I restrict access to the endpoint?**
 
-After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called by using its API key. You can add more endpoints with their own keys from the Azure classic portal or programmatically by using the Web Service Management APIs. Access keys are needed to make calls to the web service. For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
+After a web service is deployed, a default endpoint is created for that service. The default endpoint can be called by using its API key. You can add more endpoints with their own keys from the Web Services portal or programmatically by using the Web Service Management APIs. Access keys are needed to make calls to the web service. For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
 
 **What happens if my Azure storage account can't be found?**
 
@@ -294,7 +286,7 @@ If you accidentally deleted the storage account, recreate the storage account wi
 
 Machine Learning Studio relies on a user-supplied Azure storage account to store intermediary data when it executes the workflow. This storage account is provided to Machine Learning Studio when a workspace is created, and the access keys are associated with that workspace. If the access keys are changed after the workspace is created, the workspace can no longer access the storage account. It will stop functioning and all experiments in that workspace will fail.
 
-If you changed storage account access keys, resync the access keys in the workspace by using the Azure classic portal.  
+If you changed storage account access keys, resync the access keys in the workspace by using the Azure portal.  
 
 ## Support and training
 **Where can I get training for Azure Machine Learning?**
@@ -307,9 +299,9 @@ You can also find training at [Microsoft Virtual Academy](http://www.microsoftvi
 
 **How do I get support for Azure Machine Learning?**
 
-To get technical support for Azure Machine Learning, go to [Azure Support](/support/options/), and select **Machine Learning**.
+To get technical support for Azure Machine Learning, go to [Azure Support](https://azure.microsoft.com/support/options/), and select **Machine Learning**.
 
-Azure Machine Learning also has a community forum on MSDN where you can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+Azure Machine Learning also has a community forum on MSDN where you can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to [Azure Forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## Billing questions
 **How does Machine Learning billing work?**
@@ -369,7 +361,7 @@ The Machine Learning Free tier does not require or allow separate storage. The M
 
 **Does Machine Learning support high availability?**
 
-Yes. For details, see [Machine Learning Pricing](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) for a description of the service level agreement (SLA).
+Yes. For details, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) for a description of the service level agreement (SLA).
 
 **What specific kind of compute resources will my production API calls be run on?**
 
@@ -469,7 +461,7 @@ Yes, Classic web services are still available in Azure Machine Learning.
 ### Azure Machine Learning Free and Standard tier
 **What is included in the Azure Machine Learning Free tier?**
 
-The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://www.microsoft.com/account/default.aspx). In this tier, you can use up to 10 GB of storage and operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. 
+The Azure Machine Learning Free tier is intended to provide an in-depth introduction to the Azure Machine Learning Studio. All you need is a Microsoft account to sign up. The Free tier includes free access to one Azure Machine Learning Studio workspace per [Microsoft account](https://account.microsoft.com/account). In this tier, you can use up to 10 GB of storage and operationalize models as staging APIs. Free tier workloads are not covered by an SLA and are intended for development and personal use only. 
 
 Free tier workspaces have the following limitations:
 
@@ -506,7 +498,7 @@ All you need is a Microsoft account. Go to [Azure Machine Learning home](https:/
 
 **How do I sign up for Azure Machine Learning Standard tier?**
 
-You must first have access to an Azure subscription to create a Standard Machine Learning workspace. You can sign up for a 30-day free trial Azure subscription and later upgrade to a paid Azure subscription, or you can purchase a paid Azure subscription outright. You can then create a Machine Learning workspace from the Microsoft Azure classic portal after you gain access to the subscription. View the [step-by-step instructions](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+You must first have access to an Azure subscription to create a Standard Machine Learning workspace. You can sign up for a 30-day free trial Azure subscription and later upgrade to a paid Azure subscription, or you can purchase a paid Azure subscription outright. You can then create a Machine Learning workspace from the Microsoft Azure portal after you gain access to the subscription. View the [step-by-step instructions](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 Alternatively, you can be invited by a Standard Machine Learning workspace owner to access the owner's workspace.
 

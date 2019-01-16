@@ -1,26 +1,20 @@
 ---
-title: Ports used by Hadoop services on HDInsight - Azure | Microsoft Docs
+title: Ports used by Hadoop services on HDInsight - Azure 
 description: A list of ports used by Hadoop services running on HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 08/23/2017
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 11/06/2018
+ms.author: hrasheed
    
 ---
-# Ports used by Hadoop services on HDInsight
+# Ports used by Apache Hadoop services on HDInsight
 
-This document provides a list of the ports used by Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
+This document provides a list of the ports used by Apache Hadoop services running on Linux-based HDInsight clusters. It also provides information on ports used to connect to the cluster using SSH.
 
 ## Public ports vs. non-public ports
 
@@ -28,7 +22,7 @@ Linux-based HDInsight clusters only expose three ports publicly on the internet;
 
 Internally, HDInsight is implemented by several Azure Virtual Machines (the nodes within the cluster) running on an Azure Virtual Network. From within the virtual network, you can access ports not exposed over the internet. For example, if you connect to one of the head nodes using SSH, from the head node you can then directly access services running on the cluster nodes.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > If you do not specify an Azure Virtual Network as a configuration option for HDInsight, one is created automatically. However, you cannot join other machines (such as other Azure Virtual Machines or your client development machine) to this virtual network.
 
 
@@ -39,23 +33,24 @@ To join additional machines to the virtual network, you must create the virtual 
 All the nodes in an HDInsight cluster are located in an Azure Virtual Network, and cannot be directly accessed from the internet. A public gateway provides internet access to the following ports, which are common across all HDInsight cluster types.
 
 | Service | Port | Protocol | Description |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | sshd |22 |SSH |Connects clients to sshd on the primary headnode. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |Connects clients to sshd on the edge node. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |23 |SSH |Connects clients to sshd on the secondary headnode. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| Ambari |443 |HTTPS |Ambari web UI. See [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
-| Ambari |443 |HTTPS |Ambari REST API. See [Manage HDInsight using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. See [Use Hive with Curl](hdinsight-hadoop-use-pig-curl.md), [Use Pig with Curl](hdinsight-hadoop-use-pig-curl.md), [Use MapReduce with Curl](hdinsight-hadoop-use-mapreduce-curl.md) |
-| HiveServer2 |443 |ODBC |Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](hdinsight-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |Connects to Hive using JDBC. See [Connect to Hive on HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md) |
+| Ambari |443 |HTTPS |Ambari web UI. See [Manage HDInsight using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |Ambari REST API. See [Manage HDInsight using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. See [Use Apache Hive with Curl](hadoop/apache-hadoop-use-pig-curl.md), [Use Apache Pig with Curl](hadoop/apache-hadoop-use-pig-curl.md), [Use MapReduce with Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| HiveServer2 |443 |ODBC |Connects to Hive using ODBC. See [Connect Excel to HDInsight with the Microsoft ODBC driver](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
+| HiveServer2 |443 |JDBC |Connects to ApacheHive using JDBC. See [Connect to Apache Hive on HDInsight using the Hive JDBC driver](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 The following are available for specific cluster types:
 
 | Service | Port | Protocol | Cluster type | Description |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API. See [Get started using HBase](hdinsight-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST API. See [Submit Spark jobs remotely using Livy](hdinsight-apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm web UI. See [Deploy and manage Storm topologies on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST API. See [Get started using Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API. See [Submit Apache Spark jobs remotely using Apache Livy](spark/apache-spark-livy-rest-interface.md) |
+| Spark Thrift server |443 |HTTPS |Spark |Spark Thrift server used to submit Hive queries. See [Use Beeline with Apache Hive on HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
+| Storm |443 |HTTPS |Storm |Storm web UI. See [Deploy and manage Apache Storm topologies on HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### Authentication
 
@@ -68,11 +63,11 @@ All services publicly exposed on the internet must be authenticated:
 
 ## Non-public ports
 
-> [!NOTE]
+> [!NOTE]  
 > Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
 
-> [!IMPORTANT]
-> Some services only run on one headnode at a time. If you attempt to connect to the service on the primary headnode and receive a 404 error, retry using the secondary headnode.
+> [!IMPORTANT]  
+> Some services only run on one headnode at a time. If you attempt to connect to the service on the primary headnode and receive an error, retry using the secondary headnode.
 
 ### Ambari
 
@@ -158,7 +153,7 @@ Examples:
 
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| Broker |Worker nodes |9092 |[Kafka Wire Protocol](http://kafka.apache.org/protocol.html) |Used for client communication |
+| Broker |Worker nodes |9092 |[Kafka Wire Protocol](https://kafka.apache.org/protocol.html) |Used for client communication |
 | &nbsp; |Zookeeper nodes |2181 |&nbsp; |The port that clients use to connect to Zookeeper |
 
 ### Spark ports
@@ -166,8 +161,9 @@ Examples:
 | Service | Nodes | Port | Protocol | URL path | Description |
 | --- | --- | --- | --- | --- | --- |
 | Spark Thrift servers |Head nodes |10002 |Thrift | &nbsp; | Service for connecting to Spark SQL (Thrift/JDBC) |
-| Livy server | Head nodes | 8998 | HTTP | /batches | Service for running statements, jobs, and applications |
+| Livy server | Head nodes | 8998 | HTTP | &nbsp; | Service for running statements, jobs, and applications |
+| Jupyter notebook | Head nodes | 8001 | HTTP | &nbsp; | Jupyter notebook website |
 
 Examples:
 
-* Livy: `curl "http://10.0.0.11:8998/batches"`. In this example, `10.0.0.11` is the IP address of the headnode that hosts the Livy service.
+* Livy: `curl -u admin -G "http://10.0.0.11:8998/"`. In this example, `10.0.0.11` is the IP address of the headnode that hosts the Livy service.

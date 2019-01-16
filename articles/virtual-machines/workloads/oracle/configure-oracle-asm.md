@@ -3,8 +3,8 @@ title: Set up Oracle ASM on an Azure Linux virtual machine | Microsoft Docs
 description: Quickly get Oracle ASM up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: RicksterCDN
-manager: timlt
+author: romitgirdhar
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/19/2017
-ms.author: rclaus
+ms.date: 08/02/2018
+ms.author: rogirdh
 ---
 
 # Set up Oracle ASM on an Azure Linux virtual machine  
@@ -32,13 +32,13 @@ Azure virtual machines provide a fully configurable and flexible computing envir
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Prepare the environment
 
 ### Create a resource group
 
-To create a resource group, use the [az group create](/cli/azure/group#create) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* in the *eastus* region.
+To create a resource group, use the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* in the *eastus* region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -46,7 +46,7 @@ az group create --name myResourceGroup --location eastus
 
 ### Create a VM
 
-To create a virtual machine based on the Oracle Database image and configure it to use Oracle ASM, use the [az vm create](/cli/azure/vm#create) command. 
+To create a virtual machine based on the Oracle Database image and configure it to use Oracle ASM, use the [az vm create](/cli/azure/vm#az_vm_create) command. 
 
 The following example creates a VM named myVM that is a Standard_DS2_v2 size with four attached data disks of 50 GB each. If they do not already exist in the default key location, it also creates SSH keys.  To use a specific set of keys, use the `--ssh-key-value` option.  
 

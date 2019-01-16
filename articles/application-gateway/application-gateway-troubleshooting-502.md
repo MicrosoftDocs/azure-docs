@@ -90,7 +90,7 @@ If present, ensure that the DNS server is able to resolve backend pool member's 
 * The call to http://127.0.0.1:port should return an HTTP result code of 200. This should be returned within the 30 sec time-out period.
 * Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
 * If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) is opened.
-* If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/virtual-networks-nsg.md) must be configured to allow access on the desired port.
+* If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/security-overview.md) must be configured to allow access on the desired port.
 
 ## Problems with custom health probe
 
@@ -116,8 +116,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 * If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 * Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
 * Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
-* If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself. 
-* Ensure that Interval, Time-out, and UnhealtyThreshold are within the acceptable ranges.
+* If using an HTTPS probe, make sure that the backend server doesn't require SNI by configuring a fallback certificate on the backend server itself.
 
 ## Request time-out
 

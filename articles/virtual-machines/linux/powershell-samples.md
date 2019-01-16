@@ -3,8 +3,8 @@ title: Azure Virtual Machine PowerShell Samples | Microsoft Docs
 description: Azure Virtual Machine PowerShell Samples
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: cynthn
 
 ---
 # Azure Virtual Machine PowerShell samples
@@ -30,5 +30,5 @@ The following table includes links to PowerShell scripts samples that create and
 | [Create a VM and run configuration script](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install NGINX. |
 | [Create a VM with WordPress installed](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine and uses the Azure Custom Script extension to install WordPress. |
 |**Monitor virtual machines**||
-| [Monitor a VM with Operations Management Suite](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine, installs the Operations Management Suite agent, and enrolls the VM in an OMS Workspace.  |
+| [Monitor a VM with Azure Log Analytics](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a virtual machine, installs the Log Analytics agent, and enrolls the VM in a Log Analytics workspace.  |
 | | |

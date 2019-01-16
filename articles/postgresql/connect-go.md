@@ -1,16 +1,13 @@
 ---
-title: Connect to Azure Database for PostgreSQL using Go language | Microsoft Docs
+title: Connect to Azure Database for PostgreSQL using Go language
 description: This quickstart provides a Go programming language sample you can use to connect and query data from Azure Database for PostgreSQL.
-services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
-editor: jasonwhowell
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 06/29/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for PostgreSQL: Use Go language to connect and query data
@@ -77,15 +74,14 @@ Install [Go](https://golang.org/doc/install) and the [Pure Go Postgres driver (p
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you have created, such as **mypgserver-20170401**.
-3. Click the server name **mypgserver-20170401**.
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-go/1-connection-string.png)
-5. If you forget your server login information, navigate to the **Overview** page, and view the Server admin login name. If necessary, reset the password.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Click the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for PostgreSQL server name](./media/connect-go/1-connection-string.png)
 
 ## Build and run Go code 
-1. To write Golang code, you can use a simple text editor, such as Notepad in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE) try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
-2. Paste the Golang code from the sections below into text files, and save into your project folder with file extension \*.go, such as Windows path `%USERPROFILE%\go\src\postgresqlgo\createtable.go` or Linux path `~/go/src/postgresqlgo/createtable.go`.
+1. To write Golang code, you can use a plain text editor, such as Notepad in Microsoft Windows, [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) or [Nano](https://www.nano-editor.org/) in Ubuntu, or TextEdit in macOS. If you prefer a richer Interactive Development Environment (IDE) try [Gogland](https://www.jetbrains.com/go/) by Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) by Microsoft, or [Atom](https://atom.io/).
+2. Paste the Golang code from the following sections into text files, and save into your project folder with file extension \*.go, such as Windows path `%USERPROFILE%\go\src\postgresqlgo\createtable.go` or Linux path `~/go/src/postgresqlgo/createtable.go`.
 3. Locate the `HOST`, `DATABASE`, `USER`, and `PASSWORD` constants in the code, and replace the example values with your own values.  
 4. Launch the command prompt or bash shell. Change directory into your project folder. For example, on Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. On Linux `cd ~/go/src/postgresqlgo/`. Some of the IDE environments mentioned offer debug and runtime capabilities without requiring shell commands.
 5. Run the code by typing the command `go run createtable.go` to compile the application and run it. 
@@ -94,9 +90,9 @@ Get the connection information needed to connect to the Azure Database for Postg
 ## Connect and create a table
 Use the following code to connect and create a table using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code imports three packages: the [sql package](https://golang.org/pkg/database/sql/), the [pq package](http://godoc.org/github.com/lib/pq) as a driver to communicate with the PostgreSQL server, and the [fmt package](https://golang.org/pkg/fmt/) for printed input and output on the command line.
+The code imports three packages: the [sql package](https://golang.org/pkg/database/sql/), the [pq package](https://godoc.org/github.com/lib/pq) as a driver to communicate with the PostgreSQL server, and the [fmt package](https://golang.org/pkg/fmt/) for printed input and output on the command line.
 
-The code calls method [sql.Open()](http://godoc.org/github.com/lib/pq#Open) to connect to Azure Database for PostgreSQL database, and checks the connection using method [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [database handle](https://golang.org/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) method several times to run several SQL commands. Each time a custom checkError() method checks if an error occurred and panic to exit if an error does occur.
+The code calls method [sql.Open()](https://godoc.org/github.com/lib/pq#Open) to connect to Azure Database for PostgreSQL database, and checks the connection using method [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [database handle](https://golang.org/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) method several times to run several SQL commands. Each time a custom checkError() method checks if an error occurred and panic to exit if an error does occur.
 
 Replace the `HOST`, `DATABASE`, `USER`, and `PASSWORD` parameters with your own values. 
 
@@ -111,9 +107,9 @@ import (
 
 const (
 	// Initialize connection constants.
-	HOST     = "mypgserver-20170401.postgres.database.azure.com"
+	HOST     = "mydemoserver.postgres.database.azure.com"
 	DATABASE = "mypgsqldb"
-	USER     = "mylogin@mypgserver-20170401"
+	USER     = "mylogin@mydemoserver"
 	PASSWORD = "<server_admin_password>"
 )
 
@@ -160,10 +156,10 @@ func main() {
 ## Read data
 Use the following code to connect and read the data using a **SELECT** SQL statement. 
 
-The code imports three packages: the [sql package](https://golang.org/pkg/database/sql/), the [pq package](http://godoc.org/github.com/lib/pq) as a driver to communicate with the PostgreSQL server, and the [fmt package](https://golang.org/pkg/fmt/) for printed input and output on the command line.
+The code imports three packages: the [sql package](https://golang.org/pkg/database/sql/), the [pq package](https://godoc.org/github.com/lib/pq) as a driver to communicate with the PostgreSQL server, and the [fmt package](https://golang.org/pkg/fmt/) for printed input and output on the command line.
 
-The code calls method [sql.Open()](http://godoc.org/github.com/lib/pq#Open) to connect to Azure Database for PostgreSQL database, and checks the connection using method [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [database handle](https://golang.org/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The select query is run by calling method [db.Query()](https://golang.org/pkg/database/sql/#DB.Query), and the resulting rows are kept in a variable of type 
-[rows](https://golang.org/pkg/database/sql/#Rows). The code reads the column data values in the current row using method [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) and loops over the rows using the iterator [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next) until no more rows exist. Each row's column values are printed to the console out. Each time a custom checkError() method is use to check if an error occurred and panic to exit if an error does occur.
+The code calls method [sql.Open()](https://godoc.org/github.com/lib/pq#Open) to connect to Azure Database for PostgreSQL database, and checks the connection using method [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [database handle](https://golang.org/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The select query is run by calling method [db.Query()](https://golang.org/pkg/database/sql/#DB.Query), and the resulting rows are kept in a variable of type 
+[rows](https://golang.org/pkg/database/sql/#Rows). The code reads the column data values in the current row using method [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) and loops over the rows using the iterator [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next) until no more rows exist. Each row's column values are printed to the console out. Each time a custom checkError() method is used to check if an error occurred and panic to exit if an error does occur.
 
 Replace the `HOST`, `DATABASE`, `USER`, and `PASSWORD` parameters with your own values. 
 
@@ -178,9 +174,9 @@ import (
 
 const (
 	// Initialize connection constants.
-	HOST     = "mypgserver-20170401.postgres.database.azure.com"
+	HOST     = "mydemoserver.postgres.database.azure.com"
 	DATABASE = "mypgsqldb"
-	USER     = "mylogin@mypgserver-20170401"
+	USER     = "mylogin@mydemoserver"
 	PASSWORD = "<server_admin_password>"
 )
 
@@ -211,6 +207,7 @@ func main() {
 	sql_statement := "SELECT * from inventory;"
 	rows, err := db.Query(sql_statement)
 	checkError(err)
+	defer rows.Close()
 
 	for rows.Next() {
 		switch err := rows.Scan(&id, &name, &quantity); err {
@@ -228,9 +225,9 @@ func main() {
 ## Update data
 Use the following code to connect and update the data using an **UPDATE** SQL statement.
 
-The code imports three packages: the [sql package](https://golang.org/pkg/database/sql/), the [pq package](http://godoc.org/github.com/lib/pq) as a driver to communicate with the Postgres server, and the [fmt package](https://golang.org/pkg/fmt/) for printed input and output on the command line.
+The code imports three packages: the [sql package](https://golang.org/pkg/database/sql/), the [pq package](https://godoc.org/github.com/lib/pq) as a driver to communicate with the Postgres server, and the [fmt package](https://golang.org/pkg/fmt/) for printed input and output on the command line.
 
-The code calls method [sql.Open()](http://godoc.org/github.com/lib/pq#Open) to connect to Azure Database for PostgreSQL database, and checks the connection using method [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [database handle](https://golang.org/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) method to run the SQL statement that updates the table. A custom checkError() method is used to check if an error occurred and panic to exit if an error does occur.
+The code calls method [sql.Open()](https://godoc.org/github.com/lib/pq#Open) to connect to Azure Database for PostgreSQL database, and checks the connection using method [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [database handle](https://golang.org/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) method to run the SQL statement that updates the table. A custom checkError() method is used to check if an error occurred and panic to exit if an error does occur.
 
 Replace the `HOST`, `DATABASE`, `USER`, and `PASSWORD` parameters with your own values. 
 ```go
@@ -244,9 +241,9 @@ import (
 
 const (
 	// Initialize connection constants.
-	HOST     = "mypgserver-20170401.postgres.database.azure.com"
+	HOST     = "mydemoserver.postgres.database.azure.com"
 	DATABASE = "mypgsqldb"
-	USER     = "mylogin@mypgserver-20170401"
+	USER     = "mylogin@mydemoserver"
 	PASSWORD = "<server_admin_password>"
 )
 
@@ -281,9 +278,9 @@ func main() {
 ## Delete data
 Use the following code to connect and delete the data using a **DELETE** SQL statement. 
 
-The code imports three packages: the [sql package](https://golang.org/pkg/database/sql/), the [pq package](http://godoc.org/github.com/lib/pq) as a driver to communicate with the Postgres server, and the [fmt package](https://golang.org/pkg/fmt/) for printed input and output on the command line.
+The code imports three packages: the [sql package](https://golang.org/pkg/database/sql/), the [pq package](https://godoc.org/github.com/lib/pq) as a driver to communicate with the Postgres server, and the [fmt package](https://golang.org/pkg/fmt/) for printed input and output on the command line.
 
-The code calls method [sql.Open()](http://godoc.org/github.com/lib/pq#Open) to connect to Azure Database for PostgreSQL database, and checks the connection using method [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [database handle](https://golang.org/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) method to run the SQL statement that deletes a row from the table. A custom checkError() method is used to check if an error occurred and panic to exit if an error does occurs.
+The code calls method [sql.Open()](https://godoc.org/github.com/lib/pq#Open) to connect to Azure Database for PostgreSQL database, and checks the connection using method [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). A [database handle](https://golang.org/pkg/database/sql/#DB) is used throughout, holding the connection pool for the database server. The code calls the [Exec()](https://golang.org/pkg/database/sql/#DB.Exec) method to run the SQL statement that deletes a row from the table. A custom checkError() method is used to check if an error occurred and panic to exit if an error does occur.
 
 Replace the `HOST`, `DATABASE`, `USER`, and `PASSWORD` parameters with your own values. 
 ```go
@@ -297,9 +294,9 @@ import (
 
 const (
 	// Initialize connection constants.
-	HOST     = "mypgserver-20170401.postgres.database.azure.com"
+	HOST     = "mydemoserver.postgres.database.azure.com"
 	DATABASE = "mypgsqldb"
-	USER     = "mylogin@mypgserver-20170401"
+	USER     = "mylogin@mydemoserver"
 	PASSWORD = "<server_admin_password>"
 )
 

@@ -1,20 +1,17 @@
 ---
-title: Connect to Azure Database for PostgreSQL using PHP | Microsoft Docs
+title: Connect to Azure Database for PostgreSQL using PHP
 description: This quickstart provides a PHP code sample you can use to connect and query data from Azure Database for PostgreSQL.
-services: postgresql
-author: jasonwhowell
-ms.author: jasonh
-manager: jhubbard
-editor: jasonwhowell
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 06/29/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for PostgreSQL: Use PHP to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a [PHP](http://php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using PHP, and are new to working with Azure Database for PostgreSQL.
+This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using PHP, and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
 This quickstart uses the resources created in either of these guides as a starting point:
@@ -22,48 +19,47 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
 ## Install PHP
-Install PHP on your own server, or create an Azure [web app](../app-service/app-service-web-overview.md) that includes PHP.
+Install PHP on your own server, or create an Azure [web app](../app-service/overview.md) that includes PHP.
 
 ### Windows
-- Download [PHP 7.1.4 non-thread safe (x64) version](http://windows.php.net/download#php-7.1)
-- Install PHP and refer to the [PHP manual](http://php.net/manual/install.windows.php) for further configuration
+- Download [PHP 7.1.4 non-thread safe (x64) version](https://windows.php.net/download#php-7.1)
+- Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.windows.php) for further configuration
 - The code uses the **pgsql** class (ext/php_pgsql.dll)  that is included in the PHP installation. 
 - Enabled the **pgsql** extension by editing the php.ini configuration file, typically located at `C:\Program Files\PHP\v7.1\php.ini`. The configuration file should contain a line with the text `extension=php_pgsql.so`. If it is not shown, add the text and save the file. If the text is present, but commented with a semicolon prefix, uncomment the text by removing the semicolon.
 
 ### Linux (Ubuntu)
-- Download [PHP 7.1.4 non-thread safe (x64) version](http://php.net/downloads.php) 
-- Install PHP and refer to the [PHP manual](http://php.net/manual/install.unix.php) for further configuration
+- Download [PHP 7.1.4 non-thread safe (x64) version](https://secure.php.net/downloads.php) 
+- Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.unix.php) for further configuration
 - The code uses the **pgsql** class (php_pgsql.so). Install it by running `sudo apt-get install php-pgsql`.
 - Enabled the **pgsql** extension by editing the `/etc/php/7.0/mods-available/pgsql.ini` configuration file. The configuration file should contain a line with the text `extension=php_pgsql.so`. If it is not shown, add the text and save the file. If the text is present, but commented with a semicolon prefix, uncomment the text by removing the semicolon.
 
 ### MacOS
-- Download [PHP 7.1.4 version](http://php.net/downloads.php)
-- Install PHP and refer to the [PHP manual](http://php.net/manual/install.macosx.php) for further configuration
+- Download [PHP 7.1.4 version](https://secure.php.net/downloads.php)
+- Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.macosx.php) for further configuration
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources** and search for the server you have created, such as **mypgserver-20170401**.
-3. Click the server name **mypgserver-20170401**.
-4. Select the server's **Overview** page. Make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for PostgreSQL - Server Admin Login](./media/connect-php/1-connection-string.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name and, if necessary, reset the password.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Click the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for PostgreSQL server name](./media/connect-php/1-connection-string.png)
 
 ## Connect and create a table
 Use the following code to connect and create a table using **CREATE TABLE** SQL statement, followed by **INSERT INTO** SQL statements to add rows into the table.
 
-The code call method [pg_connect()](http://php.net/manual/en/function.pg-connect.php) to connect to Azure Database for PostgreSQL. Then it calls method 
-[pg_query()](http://php.net/manual/en/function.pg-query.php) several times to run several commands, and [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) to check the details if an error occurred each time. Then it calls method [pg_close()](http://php.net/manual/en/function.pg-close.php) to close the connection.
+The code call method [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) to connect to Azure Database for PostgreSQL. Then it calls method 
+[pg_query()](https://secure.php.net/manual/en/function.pg-query.php) several times to run several commands, and [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) to check the details if an error occurred each time. Then it calls method [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) to close the connection.
 
 Replace the `$host`, `$database`, `$user`, and `$password` parameters with your own values. 
 
 ```php
 <?php
 	// Initialize connection variables.
-	$host = "mypgserver-20170401.postgres.database.azure.com";
+	$host = "mydemoserver.postgres.database.azure.com";
 	$database = "mypgsqldb";
-	$user = "mylogin@mypgserver-20170401";
+	$user = "mylogin@mydemoserver";
 	$password = "<server_admin_password>";
 
 	// Initialize connection object.
@@ -112,16 +108,16 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 ## Read data
 Use the following code to connect and read the data using a **SELECT** SQL statement. 
 
- The code call method [pg_connect()](http://php.net/manual/en/function.pg-connect.php) to connect to Azure Database for PostgreSQL. Then it calls method [pg_query()](http://php.net/manual/en/function.pg-query.php) to run the SELECT command, keeping the results in a result set, and [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) to check the details if an error occurred.  To read the result set, method [pg_fetch_row()](http://php.net/manual/en/function.pg-fetch-row.php) is called in a loop, once per row, and the row data is retrieved in an array `$row`, with one data value per column in each array position.  To free the result set, method [pg_free_result()](http://php.net/manual/en/function.pg-free-result.php) is called. Then it calls method [pg_close()](http://php.net/manual/en/function.pg-close.php) to close the connection.
+ The code call method [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) to connect to Azure Database for PostgreSQL. Then it calls method [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) to run the SELECT command, keeping the results in a result set, and [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) to check the details if an error occurred.  To read the result set, method [pg_fetch_row()](https://secure.php.net/manual/en/function.pg-fetch-row.php) is called in a loop, once per row, and the row data is retrieved in an array `$row`, with one data value per column in each array position.  To free the result set, method [pg_free_result()](https://secure.php.net/manual/en/function.pg-free-result.php) is called. Then it calls method [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) to close the connection.
 
 Replace the `$host`, `$database`, `$user`, and `$password` parameters with your own values. 
 
 ```php
 <?php
 	// Initialize connection variables.
-	$host = "mypgserver-20170401.postgres.database.azure.com";
+	$host = "mydemoserver.postgres.database.azure.com";
 	$database = "mypgsqldb";
-	$user = "mylogin@mypgserver-20170401";
+	$user = "mylogin@mydemoserver";
 	$password = "<server_admin_password>";
 	
 	// Initialize connection object.
@@ -150,16 +146,16 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 ## Update data
 Use the following code to connect and update the data using a **UPDATE** SQL statement.
 
-The code call method [pg_connect()](http://php.net/manual/en/function.pg-connect.php) to connect to Azure Database for PostgreSQL. Then it calls method [pg_query()](http://php.net/manual/en/function.pg-query.php) to run a command, and [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) to check the details if an error occurred. Then it calls method [pg_close()](http://php.net/manual/en/function.pg-close.php) to close the connection.
+The code call method [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) to connect to Azure Database for PostgreSQL. Then it calls method [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) to run a command, and [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) to check the details if an error occurred. Then it calls method [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) to close the connection.
 
 Replace the `$host`, `$database`, `$user`, and `$password` parameters with your own values. 
 
 ```php
 <?php
 	// Initialize connection variables.
-	$host = "mypgserver-20170401.postgres.database.azure.com";
+	$host = "mydemoserver.postgres.database.azure.com";
 	$database = "mypgsqldb";
-	$user = "mylogin@mypgserver-20170401";
+	$user = "mylogin@mydemoserver";
 	$password = "<server_admin_password>";
 
 	// Initialize connection object.
@@ -185,16 +181,16 @@ Replace the `$host`, `$database`, `$user`, and `$password` parameters with your 
 ## Delete data
 Use the following code to connect and read the data using a **DELETE** SQL statement. 
 
- The code call method [pg_connect()](http://php.net/manual/en/function.pg-connect.php) to connect to  Azure Database for PostgreSQL. Then it calls method [pg_query()](http://php.net/manual/en/function.pg-query.php) to run a command, and [pg_last_error()](http://php.net/manual/en/function.pg-last-error.php) to check the details if an error occurred. Then it calls method [pg_close()](http://php.net/manual/en/function.pg-close.php) to close the connection.
+ The code call method [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) to connect to  Azure Database for PostgreSQL. Then it calls method [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) to run a command, and [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) to check the details if an error occurred. Then it calls method [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) to close the connection.
 
 Replace the `$host`, `$database`, `$user`, and `$password` parameters with your own values. 
 
 ```php
 <?php
 	// Initialize connection variables.
-	$host = "mypgserver-20170401.postgres.database.azure.com";
+	$host = "mydemoserver.postgres.database.azure.com";
 	$database = "mypgsqldb";
-	$user = "mylogin@mypgserver-20170401";
+	$user = "mylogin@mydemoserver";
 	$password = "<server_admin_password>";
 
 	// Initialize connection object.

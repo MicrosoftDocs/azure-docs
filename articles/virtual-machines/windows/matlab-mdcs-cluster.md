@@ -4,7 +4,7 @@ description: Use Microsoft Azure virtual machines to create MATLAB Distributed C
 services: virtual-machines-windows
 documentationcenter: ''
 author: mscurrell
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
@@ -29,7 +29,7 @@ By using Azure virtual machines, you can create MATLAB Distributed Computing Ser
 * **Client computer** - You'll need a Windows-based client computer to communicate with Azure and the MATLAB Distributed Computing Server cluster after deployment.
 * **Azure PowerShell** - See [How to install and configure Azure PowerShell](/powershell/azure/overview) to install it on your client computer.
 * **Azure subscription** - If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options.
-* **Cores quota** - You might need to increase the core quota to deploy a large cluster or more than one MATLAB Distributed Computing Server cluster. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+* **vCPUs quota** - You might need to increase the vCPU quota to deploy a large cluster or more than one MATLAB Distributed Computing Server cluster. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 * **MATLAB, Parallel Computing Toolbox, and MATLAB Distributed Computing Server licenses** - The scripts assume that the [MathWorks Hosted License Manager](http://www.mathworks.com/products/parallel-computing/mathworks-hosted-license-manager/) is used for all licenses.  
 * **MATLAB Distributed Computing Server software** - Will be installed on a VM that will be used as the base VM image for the cluster VMs.
 
@@ -59,7 +59,7 @@ The MATLAB client node, MATLAB Job Scheduler node, and MATLAB Distributed Comput
 * To use the cluster, connect by Remote Desktop to the client node. The client node runs the MATLAB client.
 * The client node has a file share that can be accessed by all workers.
 * MathWorks Hosted License Manager is used for the license checks for all MATLAB software.
-* By default, one MATLAB Distributed Computing Server worker per core is created on the worker VMs, but you can specify any number.
+* By default, one MATLAB Distributed Computing Server worker per vCPU is created on the worker VMs, but you can specify any number.
 
 ## Use an Azure-based Cluster
 As with other types of MATLAB Distributed Computing Server clusters, you need to use the Cluster Profile Manager in the MATLAB client (on the client VM) to create a MATLAB Job Scheduler cluster profile.

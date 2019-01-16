@@ -2,21 +2,16 @@
 title: How to use batching to improve Azure SQL Database application performance
 description: The topic provides evidence that batching database operations greatly imroves the speed and scalability of your Azure SQL Database applications. Although these batching techniques work for any SQL Server database, the focus of the article is on Azure.
 services: sql-database
-documentationcenter: na
-author: stevestein
-manager: jhubbard
-editor: ''
-
-ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
-ms.custom: develop apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 07/12/2016
+ms.subservice: development
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/20/2018
 ---
 # How to use batching to improve SQL Database application performance
 Batching operations to Azure SQL Database significantly improves the performance and scalability of your applications. In order to understand the benefits, the first part of this article covers some sample test results that compare sequential and batched requests to a SQL Database. The remainder of the article shows the techniques, scenarios, and considerations to help you to use batching successfully in your Azure applications.
@@ -35,9 +30,9 @@ One of the benefits of using SQL Database is that you don’t have to manage the
 The first part of the paper examines various batching techniques for .NET applications that use SQL Database. The last two sections cover batching guidelines and scenarios.
 
 ## Batching strategies
-### Note about timing results in this topic
+### Note about timing results in this article
 > [!NOTE]
-> Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [service tiers](sql-database-service-tiers.md). The relative benefit of the batching technique should be similar.
+> Results are not benchmarks but are meant to show **relative performance**. Timings are based on an average of at least 10 test runs. Operations are inserts into an empty table. These tests were measured pre-V12, and they do not necessarily correspond to throughput that you might experience in a V12 database using the new [DTU service tiers](sql-database-service-tiers-dtu.md) or [vCore service tiers](sql-database-service-tiers-vcore.md). The relative benefit of the batching technique should be similar.
 > 
 > 
 
@@ -106,9 +101,7 @@ The following table shows some ad-hoc testing results. The tests performed the s
 | 1000 |21479 |2756 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
-> 
-> 
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 
 Based on the previous test results, wrapping a single operation in a transaction actually decreases performance. But as you increase the number of operations within a single transaction, the performance improvement becomes more marked. The performance difference is also more noticeable when all operations occur within the Microsoft Azure datacenter. The increased latency of using SQL Database from outside the Microsoft Azure datacenter overshadows the performance gain of using transactions.
 
@@ -188,7 +181,7 @@ The following table shows ad-hoc test results for the use of table-valued parame
 | 10000 |23830 |3586 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -212,7 +205,7 @@ SQL bulk copy is another way to insert large amounts of data into a target datab
         }
     }
 
-There are some cases where bulk copy is preferred over table-valued parameters. See the comparison table of Table-Valued parameters versus BULK INSERT operations in the topic [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
+There are some cases where bulk copy is preferred over table-valued parameters. See the comparison table of Table-Valued parameters versus BULK INSERT operations in the article [Table-Valued Parameters](https://msdn.microsoft.com/library/bb510489.aspx).
 
 The following ad-hoc test results show the performance of batching with **SqlBulkCopy** in milliseconds.
 
@@ -225,7 +218,7 @@ The following ad-hoc test results show the performance of batching with **SqlBul
 | 10000 |21605 |2737 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -266,7 +259,7 @@ The following ad-hoc test results show the performance of this type of insert st
 | 100 |33 |51 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -308,11 +301,11 @@ In our tests, there was typically no advantage to breaking large batches into sm
 | 50 |20 |630 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 
-You can see that the best performance for 1000 rows is to submit them all at once. In other tests (not shown here) there was a small performance gain to break a 10000 row batch into two batches of 5000. But the table schema for these tests is relatively simple, so you should perform tests on your specific data and batch sizes to verify these findings.
+You can see that the best performance for 1000 rows is to submit them all at once. In other tests (not shown here), there was a small performance gain to break a 10000 row batch into two batches of 5000. But the table schema for these tests is relatively simple, so you should perform tests on your specific data and batch sizes to verify these findings.
 
 Another factor to consider is that if the total batch becomes too large, SQL Database might throttle and refuse to commit the batch. For the best results, test your specific scenario to determine if there is an ideal batch size. Make the batch size configurable at runtime to enable quick adjustments based on performance or errors.
 
@@ -329,7 +322,7 @@ What if you took the approach of reducing the batch size but used multiple threa
 | 100 [10] |488 |439 |391 |
 
 > [!NOTE]
-> Results are not benchmarks. See the [note about timing results in this topic](#note-about-timing-results-in-this-topic).
+> Results are not benchmarks. See the [note about timing results in this article](#note-about-timing-results-in-this-article).
 > 
 > 
 
@@ -595,7 +588,7 @@ Next, create a stored procedure or write code that uses the MERGE statement to p
 For more information, see the documentation and examples for the MERGE statement. Although the same work could be performed in a multiple-step stored procedure call with separate INSERT and UPDATE operations, the MERGE statement is more efficient. Database code can also construct Transact-SQL calls that use the MERGE statement directly without requiring two database calls for INSERT and UPDATE.
 
 ## Recommendation summary
-The following list provides a summary of the batching recommendations discussed in this topic:
+The following list provides a summary of the batching recommendations discussed in this article:
 
 * Use buffering and batching to increase the performance and scalability of SQL Database applications.
 * Understand the tradeoffs between batching/buffering and resiliency. During a role failure, the risk of losing an unprocessed batch of business-critical data might outweigh the performance benefit of batching.

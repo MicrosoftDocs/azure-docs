@@ -1,37 +1,46 @@
 ---
-title: Use Azure Notification Hubs to send breaking news (Universal Windows Platform) 
+title: Send notifications to specific devices (Universal Windows Platform) | Microsoft Docs
 description: Use Azure Notification Hubs with tags in the registration to send breaking news to a Universal Windows Platform app.
 services: notification-hubs
 documentationcenter: windows
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 994d2eed-f62e-433c-bf65-4afebf1c0561
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.topic: tutorial
+ms.custom: mvc
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
-# Use Notification Hubs to send breaking news
+# Tutorial: Push notifications to specific Windows devices running Universal Windows Platform applications
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## Overview
-This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to a Windows Store or Windows Phone 8.1 (non-Silverlight) app. If you are targeting Windows Phone 8.1 Silverlight, refer to the [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) version. 
+This tutorial shows you how to use Azure Notification Hubs to broadcast breaking news notifications to a Windows Store or Windows Phone 8.1 (non-Silverlight) applications. If you are targeting Windows Phone 8.1 Silverlight, see [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) version. 
 
-After you've completed this process, you can register for the breaking news categories that you are interested in, and you'll receive push notifications for those categories only. This scenario is common for many apps (for example, RSS readers or apps for music fans) where notifications must be sent to groups of users who have declared interest in them. 
+In this tutorial, you learn how to use Azure Notification Hubs to push notifications to specific Windows devices running Universal Windows Platform (UWP) application. After you complete the tutorial, you can register for the breaking news categories that you are interested in, and you'll receive push notifications for those categories only. 
 
-You can enable broadcast scenarios by including one or more *tags* when you create a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag receive the notification. Because tags are simply strings, they do not have to be set up in advance. For more information about tags, see [Notification Hubs routing and tag expressions](notification-hubs-tags-segment-push-message.md).
+Broadcast scenarios are enabled by including one or more *tags* when you create a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag receive the notification. For more information about tags, see [Tags in Registrations](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
 > Windows Store and Windows Phone project versions 8.1 and earlier are not supported in Visual Studio 2017. For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
 
+In this tutorial, you take the following steps:
+
+> [!div class="checklist"]
+> * Add category selection to the mobile app
+> * Register for notifications
+> * Send tagged notification
+> * Run the app and generate notifications
+
 ## Prerequisites
-This topic builds on the app that you created in [Get started with Notification Hubs][get-started]. Before you start this tutorial, you must complete [Get started with Notification Hubs][get-started].
+Complete the [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs][get-started] before starting this tutorial.  
 
 ## Add category selection to the app
 The first step is to add UI elements to your existing main page so that users can select categories to register. The selected categories are stored on the device. When the app starts, a device registration is created in your notification hub, with the selected categories as tags.
@@ -60,56 +69,60 @@ The first step is to add UI elements to your existing main page so that users ca
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click"/>
         </Grid>
 
-2. Right-click the **Shared** project, add a new class named **Notifications**, add the **public** modifier to the class definition, and then add the following **using** statements to the new code file:
-   
-        using Windows.Networking.PushNotifications;
-        using Microsoft.WindowsAzure.Messaging;
-        using Windows.Storage;
-        using System.Threading.Tasks;
+2. In **Solution Explorer**, right-click the project, add a new class: **Notifications**. Add the **public** modifier to the class definition, and then add the following **using** statements to the new code file:
+
+    ```csharp   
+    using Windows.Networking.PushNotifications;
+    using Microsoft.WindowsAzure.Messaging;
+    using Windows.Storage;
+    using System.Threading.Tasks;
+    ```
 
 3. Copy the following code to the new **Notifications** class:
    
-        private NotificationHub hub;
-   
-        public Notifications(string hubName, string listenConnectionString)
+    ```csharp
+    private NotificationHub hub;
+
+    public Notifications(string hubName, string listenConnectionString)
+    {
+        hub = new NotificationHub(hubName, listenConnectionString);
+    }
+
+    public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+    {
+        ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
+        return await SubscribeToCategories(categories);
+    }
+
+    public IEnumerable<string> RetrieveCategories()
+    {
+        var categories = (string) ApplicationData.Current.LocalSettings.Values["categories"];
+        return categories != null ? categories.Split(','): new string[0];
+    }
+
+    public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
+    {
+        var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+
+        if (categories == null)
         {
-            hub = new NotificationHub(hubName, listenConnectionString);
+            categories = RetrieveCategories();
         }
-   
-        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
-        {
-            ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
-            return await SubscribeToCategories(categories);
-        }
-   
-        public IEnumerable<string> RetrieveCategories()
-        {
-            var categories = (string) ApplicationData.Current.LocalSettings.Values["categories"];
-            return categories != null ? categories.Split(','): new string[0];
-        }
-   
-        public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
-        {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-   
-            if (categories == null)
-            {
-                categories = RetrieveCategories();
-            }
-   
-            // Using a template registration to support notifications across platforms.
-            // Any template notifications that contain messageParam and a corresponding tag expression
-            // will be delivered for this registration.
-   
-            const string templateBodyWNS = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(messageParam)</text></binding></visual></toast>";
-   
-            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
-                    categories);
-        }
+
+        // Using a template registration to support notifications across platforms.
+        // Any template notifications that contain messageParam and a corresponding tag expression
+        // will be delivered for this registration.
+
+        const string templateBodyWNS = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(messageParam)</text></binding></visual></toast>";
+
+        return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
+                categories);
+    }
+    ```
    
     This class uses the local storage to store the categories of news that this device must receive. Instead of calling the *RegisterNativeAsync* method, call *RegisterTemplateAsync* to register for the categories by using a template registration. 
    
-    Because you might want to register more than one template (for example, one for toast notifications and one for tiles), also provide a template name (for example, "simpleWNSTemplateExample"). You name the templates so that you can update or delete them.
+    If you want to register more than one template (for example, one for toast notifications and one for tiles), provide a template name (for example, "simpleWNSTemplateExample"). You name the templates so that you can update or delete them.
    
     >[!NOTE]
     >If a device registers multiple templates with the same tag, an incoming message that targets the tag causes multiple notifications to be delivered to the device (one for each template). This behavior is useful when the same logical message must result in multiple visual notifications (for example, showing both a badge and a toast in a Windows Store application).
@@ -117,8 +130,10 @@ The first step is to add UI elements to your existing main page so that users ca
     For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
 4. In the App.xaml.cs project file, add the following property to the **App** class:
-   
-        public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+
+    ```csharp   
+    public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
+    ```
    
     You use this property to create and access a **Notifications** instance.
    
@@ -130,27 +145,31 @@ The first step is to add UI elements to your existing main page so that users ca
    > 
 5. In the MainPage.xaml.cs project file, add the following line:
    
-        using Windows.UI.Popups;
+    ```csharp
+    using Windows.UI.Popups;
+    ```
 
 6. In the MainPage.xaml.cs project file, add the following method:
    
-        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
-        {
-            var categories = new HashSet<string>();
-            if (WorldToggle.IsOn) categories.Add("World");
-            if (PoliticsToggle.IsOn) categories.Add("Politics");
-            if (BusinessToggle.IsOn) categories.Add("Business");
-            if (TechnologyToggle.IsOn) categories.Add("Technology");
-            if (ScienceToggle.IsOn) categories.Add("Science");
-            if (SportsToggle.IsOn) categories.Add("Sports");
-   
-            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
-   
-            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
-        }
-   
+    ```csharp
+    private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+    {
+        var categories = new HashSet<string>();
+        if (WorldToggle.IsOn) categories.Add("World");
+        if (PoliticsToggle.IsOn) categories.Add("Politics");
+        if (BusinessToggle.IsOn) categories.Add("Business");
+        if (TechnologyToggle.IsOn) categories.Add("Technology");
+        if (ScienceToggle.IsOn) categories.Add("Science");
+        if (SportsToggle.IsOn) categories.Add("Sports");
+
+        var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
+
+        var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+        dialog.Commands.Add(new UICommand("OK"));
+        await dialog.ShowAsync();
+    }
+    ```
+
     This method creates a list of categories and uses the **Notifications** class to store the list in the local storage. It also registers the corresponding tags with your notification hub. When the categories are changed, the registration is re-created with the new categories.
 
 Your app can now store a set of categories in local storage on the device. The app registers with the notification hub whenever users change the category selection.
@@ -165,29 +184,31 @@ In this section, you register with the notification hub on startup by using the 
 
 1. To use the `notifications` class to subscribe based on categories, open the App.xaml.cs file, and then update the **InitNotificationsAsync** method.
    
-        // *** Remove or comment out these lines *** 
-        //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-        //var hub = new NotificationHub("your hub name", "your listen connection string");
-        //var result = await hub.RegisterNativeAsync(channel.Uri);
-   
-        var result = await notifications.SubscribeToCategories();
-   
-    This process ensures that when the app starts, it retrieves the categories from local storage and requests registration of these categories. You created the **InitNotificationsAsync** method as part of the [Get started with Notification Hubs][get-started] tutorial.
+    ```csharp
+    // *** Remove or comment out these lines *** 
+    //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    //var hub = new NotificationHub("your hub name", "your listen connection string");
+    //var result = await hub.RegisterNativeAsync(channel.Uri);
 
+    var result = await notifications.SubscribeToCategories();
+   ```
+    This process ensures that when the app starts, it retrieves the categories from local storage and requests registration of these categories. You created the **InitNotificationsAsync** method as part of the [Get started with Notification Hubs][get-started] tutorial.
 2. In the MainPage.xaml.cs project file, add the following code to the *OnNavigatedTo* method:
    
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            var categories = ((App)Application.Current).notifications.RetrieveCategories();
-   
-            if (categories.Contains("World")) WorldToggle.IsOn = true;
-            if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
-            if (categories.Contains("Business")) BusinessToggle.IsOn = true;
-            if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
-            if (categories.Contains("Science")) ScienceToggle.IsOn = true;
-            if (categories.Contains("Sports")) SportsToggle.IsOn = true;
-        }
-   
+    ```csharp
+    protected override void OnNavigatedTo(NavigationEventArgs e)
+    {
+        var categories = ((App)Application.Current).notifications.RetrieveCategories();
+
+        if (categories.Contains("World")) WorldToggle.IsOn = true;
+        if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
+        if (categories.Contains("Business")) BusinessToggle.IsOn = true;
+        if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
+        if (categories.Contains("Science")) ScienceToggle.IsOn = true;
+        if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+    }
+    ```
+
     This code updates the main page, based on the status of previously saved categories.
 
 The app is now complete. It can store a set of categories in the device local storage that's used to register with the notification hub when users change the category selection. In the next section, you define a back end that can send category notifications to this app.
@@ -196,8 +217,7 @@ The app is now complete. It can store a set of categories in the device local st
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## Run the app and generate notifications
-1. In Visual Studio, select **F5** to compile and start the app.  
-    The app UI provides a set of toggles that lets you choose the categories to subscribe to. 
+1. In Visual Studio, select **F5** to compile and start the app. The app UI provides a set of toggles that lets you choose the categories to subscribe to. 
    
     ![Breaking News app][1]
 
@@ -217,10 +237,10 @@ The app is now complete. It can store a set of categories in the device local st
      ![Toast notifications][14]
 
 ## Next steps
-In this article, you learned how to broadcast breaking news by category. Consider completing the following tutorial, which highlights another advanced Notification Hubs scenario:
+In this article, you learned how to broadcast breaking news by category. The backend application pushes tagged notifications to devices that have registered to receive notifications for that tag. To learn how to push notifications to specific users irrespective of what device they use, advance to the following tutorial:
 
-* [Use Notification Hubs to broadcast localized breaking news]  
-    This tutorial discusses how to expand the breaking news app to enable sending localized notifications.
+> [!div class="nextstepaction"]
+> [Push localized notifications](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
@@ -238,9 +258,9 @@ In this article, you learned how to broadcast breaking news by category. Conside
 [19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
-[get-started]: /azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification
-[Use Notification Hubs to broadcast localized breaking news]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
+[get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx

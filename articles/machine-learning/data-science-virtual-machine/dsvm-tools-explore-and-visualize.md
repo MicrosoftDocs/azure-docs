@@ -4,24 +4,25 @@ description: Data exploration and visualization tools for the Data Science Virtu
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
+
 
 ms.assetid: 
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
+ms.topic: conceptual
+ms.date: 03/16/2018
+ms.author: gokuma
 
 ---
 
 # Data exploration and visualization tools on the Data Science Virtual Machine
 
-A key step in data science is to understand the data. Visualization and data exploration tools help accelerate data understanding. Here are some tools provided on the DSVM that faciliate this key step. 
+A key step in data science is to understand the data. Visualization and data exploration tools help accelerate data understanding. Here are some tools provided on the DSVM that facilitate this key step. 
 
 ## Apache Drill
 |    |           |

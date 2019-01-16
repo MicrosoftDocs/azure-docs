@@ -4,15 +4,17 @@ description: Overview of supported languages of Custom Speech Service in Cogniti
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
 ---
 
 # Supported locales in Custom Speech Service
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 The Custom Speech Service currently supports customization of models in the following locales:
 
 | Model Type | Language Support |

@@ -2,8 +2,8 @@
 title: Enable offline sync for your Azure Mobile App (Cordova) | Microsoft Docs
 description: Learn how to use App Service Mobile App to cache and sync offline data in your Cordova application
 documentationcenter: cordova
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: ''
 services: app-service\mobile
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Enable offline sync for your Cordova mobile app
@@ -230,11 +230,11 @@ an online state. When you log in, data is synced to your mobile backend.
 [Apache Cordova quick start]: app-service-mobile-cordova-get-started.md
 [offline sync sample]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Offline Sync in Azure Mobile Services]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [authentication]: app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Visual Studio Community 2015]: http://www.visualstudio.com/
+[Visual Studio Community 2015]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

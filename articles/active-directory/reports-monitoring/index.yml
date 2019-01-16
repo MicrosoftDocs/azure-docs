@@ -1,0 +1,53 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Active Directory reports and monitoring
+metadata:
+  document_id: 
+  title: Azure Active Directory reports and monitoring documentation - Tutorials, quickstarts, concepts | Microsoft Docs
+  description: Learn how to configure and test Azure Active Directory reports and monitoring solutions
+  services: active-directory
+  ms.component: report-monitor
+  author: priyamohanram
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: priyamo
+abstract:
+  description: "Learn how to view security and audit reports for your environment, or monitor them over time to gain insights into usage patterns.
+With Azure Active Directory (Azure AD) reports, you can gain insights into the security and usage patterns in your environment. For example, you can answer the following questions:<ul><li>How are the applications or services utilized by the users?</li><li>What are the potential risks affecting the health of the envrionment</li><li>How to troubleshoot issues preventing users from getting their work done</li>"
+
+sections:
+- title: 5-minute quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to download activity reports and route your logs to an Azure storage account
+  - type: list
+    style: unordered
+    items:
+        - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Download a sign-in report</a>
+        - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Download an audit report</a>
+        - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Install the Power BI content pack for reports</a>    
+        - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Route logs to storage account</a>
+
+- title: Step-by-step tutorials
+  items:
+  - type: paragraph
+    text: Learn how to access your reports and stream activity logs to the monitoring system of your choice
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Programmatically access the reporting API using certificates</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Stream activity logs to an event hub</a>
+
+- title: Reference
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Sign-ins error codes</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Azure AD audit log schema in Azure Monitor</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Azure AD sign-ins schema in Azure Monitor</a>
+    

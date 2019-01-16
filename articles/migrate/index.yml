@@ -1,0 +1,27 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Migrate Documentation
+metadata:
+  title: Azure Migrate Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Learn how to assess on-premises machines for migration to Azure
+  services: migration-planner
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: migration
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: raynew
+abstract:
+  description: Azure Migrate helps you to discover and assess the suitability of on-premises machines for migration to Azure, and provides sizing and cost estimates for running Azure VMs.
+sections:
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to assess VMware VMs for migration to Azure
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-assessment-vmware">Discover and assess on-premises VMware VMs</a>
+

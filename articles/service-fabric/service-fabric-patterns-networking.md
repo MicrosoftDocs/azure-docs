@@ -10,10 +10,10 @@ editor:
 ms.assetid:
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/30/2017
+ms.date: 01/19/2018
 ms.author: ryanwi
 
 ---
@@ -33,7 +33,7 @@ If port 19080 is not accessible from the Service Fabric resource provider, a mes
 
 ## Templates
 
-All Service Fabric templates are in [one download file](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). You should be able to deploy the templates as-is by using the following PowerShell commands. If you are deploying the existing Azure Virtual Network template or the static public IP template, first read the [Initial setup](#initialsetup) section of this article.
+All Service Fabric templates are in [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking). You should be able to deploy the templates as-is by using the following PowerShell commands. If you are deploying the existing Azure Virtual Network template or the static public IP template, first read the [Initial setup](#initialsetup) section of this article.
 
 <a id="initialsetup"></a>
 ## Initial setup
@@ -70,7 +70,7 @@ DnsSettings              : {
 
 ### Service Fabric template
 
-In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. You also can use one of the templates in the [template gallery](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), like the [five-node Service Fabric cluster](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+In the examples in this article, we use the Service Fabric template.json. You can use the standard portal wizard to download the template from the portal before you create a cluster. You also can use one of the [sample templates](https://github.com/Azure-Samples/service-fabric-cluster-templates), like the [secure five-node Service Fabric cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## Existing virtual network or subnet
@@ -102,15 +102,20 @@ In the examples in this article, we use the Service Fabric template.json. You ca
             },*/
     ```
 
+2. Comment out `nicPrefixOverride` attribute of `Microsoft.Compute/virtualMachineScaleSets`, because you are using existing subnet and you have disabled this variable in step 1.
 
-2. Change the `vnetID` variable to point to the existing virtual network:
+    ```
+            /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
+    ```
+
+3. Change the `vnetID` variable to point to the existing virtual network:
 
     ```
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-3. Remove `Microsoft.Network/virtualNetworks` from your resources, so Azure does not create a new virtual network:
+4. Remove `Microsoft.Network/virtualNetworks` from your resources, so Azure does not create a new virtual network:
 
     ```
     /*{
@@ -140,7 +145,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
     },*/
     ```
 
-4. Comment out the virtual network from the `dependsOn` attribute of `Microsoft.Compute/virtualMachineScaleSets`, so you don't depend on creating a new virtual network:
+5. Comment out the virtual network from the `dependsOn` attribute of `Microsoft.Compute/virtualMachineScaleSets`, so you don't depend on creating a new virtual network:
 
     ```
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -154,7 +159,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
 
     ```
 
-5. Deploy the template:
+6. Deploy the template:
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus

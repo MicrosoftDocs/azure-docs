@@ -4,20 +4,21 @@ description: Learn how to read and understand the usage and bill for your Azure 
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: jureid
 editor: ''
 tags: billing
 
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
+ms.author: cwatson
 
 ---
 # Understand terms on your Microsoft Azure invoice
+
 The invoice provides a summary of your charges and provides instructions for payment. It’s available for
 download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more
 information, see [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
@@ -35,9 +36,7 @@ A few things to note:
     for estimation purposes only. Banks may have different costs for the
     conversion rates.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## Detailed terms and descriptions of your invoice
 The following sections list the important terms that you see on your
@@ -129,6 +128,6 @@ your Invoice.
 If there is a charge on your invoice that you would like more details
 on, see [Understand your bill for Microsoft Azure.](billing-understand-your-bill.md)
 
-## Need help? Contact support.
-If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-to get your issue resolved quickly.
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

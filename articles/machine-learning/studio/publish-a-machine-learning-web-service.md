@@ -1,23 +1,23 @@
 ---
-title: Deploy a Machine Learning web service | Microsoft Docs
-description: How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning web service.
+title: Deploy a Machine Learning Studio web service - Azure | Microsoft Docs
+description: How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning Studio web service.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
-editor: cgronlun
+author: ericlicoding
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-
 ---
-# Deploy an Azure Machine Learning web service
+# Deploy an Azure Machine Learning Studio web service
 Azure Machine Learning enables you to build, test, and deploy predictive analytic solutions.
 
 From a high-level point-of-view, this is done in three steps:
@@ -26,7 +26,7 @@ From a high-level point-of-view, this is done in three steps:
 * **[Convert it to a predictive experiment]** - Once your model has been trained with existing data and you're ready to use it to score new data, you prepare and streamline your experiment for predictions.
 * **[Deploy it as a web service]** - You can deploy your predictive experiment as a [new] or [classic] Azure web service. Users can send data to your model and receive your model's predictions.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Create a training experiment
 To train a predictive analytics model, you use Azure Machine Learning Studio to create a training experiment where you include various modules to load training data, prepare the data as necessary, apply machine learning algorithms, and evaluate the results. You can iterate on an experiment and try different machine learning algorithms to compare and evaluate the results.
@@ -105,7 +105,7 @@ On the **CONFIGURATION** page, you can change the description, title, update the
 Once you've deployed the web service, you can:
 
 * **Access** it through the web service API.
-* **Manage** it through Azure Machine Learning web services portal or the Azure classic portal.
+* **Manage** it through Azure Machine Learning web services portal.
 * **Update** it if your model changes.
 
 #### Access your New web service
@@ -138,7 +138,7 @@ To test the Batch Execution Service, click **Test** preview link . On the Batch 
 
 ![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-On the **CONFIGURATION** page, you can change the display name of the service and give it a description. The name and description is displayed in the [Azure classic portal](http://manage.windowsazure.com/) where you manage your web services.
+On the **CONFIGURATION** page, you can change the display name of the service and give it a description. The name and description is displayed in the [Azure portal](https://portal.azure.com/) where you manage your web services.
 
 You can provide a description for your input data, output data, and web service parameters by entering a string for each column under **INPUT SCHEMA**, **OUTPUT SCHEMA**, and **Web SERVICE PARAMETER**. These descriptions are used in the sample code documentation provided for the web service.
 
@@ -182,8 +182,8 @@ One option for updating your web service is to retrain the model programmaticall
 [Create a training experiment]: #create-a-training-experiment
 [Convert it to a predictive experiment]: #convert-the-training-experiment-to-a-predictive-experiment
 [Deploy it as a web service]: #deploy-it-as-a-web-service
-[new]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[classic]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[new]: #deploy-the-predictive-experiment-as-a-new-web-service
+[classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

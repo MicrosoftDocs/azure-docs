@@ -1,27 +1,25 @@
 ---
-title: Cortana Intelligence Gallery collections | Microsoft Docs
-description: Discover and share collections in Cortana Intelligence Gallery.
+title: Azure AI Gallery collections - Azure Machine Learning Studio | Microsoft Docs
+description: You can use a collection in Azure AI Gallery to group experiments, APIs, and other Gallery items that you use for a specific solution or concept. You can group them to use, to save for later reference, or to share.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
-editor: cgronlun
+author: ericlicoding
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: roopalik;garye
-
 ---
-# Discover and share collections in Cortana Intelligence Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# Discover and share collections in Azure AI Gallery
 
-## Collections
-You can use a [collection](https://gallery.cortanaintelligence.com/collections) to group experiments, APIs, and other Gallery items that you use for a specific solution or concept. You can group them to use, to save for later reference, or to share.
+You can use a [collection](https://gallery.cortanaintelligence.com/collections) in [Azure AI Gallery](http://gallery.cortanaintelligence.com) to group experiments, APIs, and other Gallery items that you use for a specific solution or concept. You can group them to use, to save for later reference, or to share.
 
 ## Discover
 To browse collections [in the Gallery](http://gallery.cortanaintelligence.com), under **More**, select **Collections**.
@@ -68,7 +66,7 @@ For example, you can use a collection to group items on a specific topic, or you
     ![Select "Public" or "Unlisted"](./media/gallery-collections/create-collection-page-3.png)
 7. Select **Create**.
 
-Your collection is now in Cortana Intelligence Gallery. Your collections are listed on your account page, on the **Collection** tab.
+Your collection is now in Azure AI Gallery. Your collections are listed on your account page, on the **Collection** tab.
 
 ### Add items to a collection
 To add items to your collection, open the collection, select **Edit**, and then select **Add Item**.
@@ -95,4 +93,4 @@ To remove an item from your collection, select **Remove**.
 
 **[Go to the Gallery](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
