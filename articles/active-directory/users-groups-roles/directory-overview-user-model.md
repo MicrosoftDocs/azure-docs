@@ -1,5 +1,5 @@
 ---
-title: Users, groups, licensing, and roles for large organizations in Azure Active Directory | Microsoft Docs
+title: Users, groups, licensing, and roles overview - Azure Active Directory | Microsoft Docs
 description: The relationship between users and licenses assigned, administrator roles, group membership in Azure Active Directory
 keywords:
 author: curtand
@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 10/01/2018
+ms.date: 01/14/2019
 ms.topic: overview
 ms.service: active-directory
 ms.workload: identity

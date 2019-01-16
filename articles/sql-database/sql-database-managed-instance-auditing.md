@@ -13,7 +13,7 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 01/12/2019
 ---
 # Get started with Azure SQL Database Managed Instance Auditing
 
@@ -166,9 +166,9 @@ There are several methods you can use to view blob auditing logs.
 
 - Use the system function `sys.fn_get_audit_file` (T-SQL) to return the audit log data in tabular format. For more information on using this function, see the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- You can explore audit logs by using a tool such as Azure Storage Explorer. In Azure storage, auditing logs are saved as a collection of blob files within a container named sqldbauditlogs. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the Blob Audit Log Format Reference.
+- You can explore audit logs by using a tool such as [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/). In Azure storage, auditing logs are saved as a collection of blob files within a container named sqldbauditlogs. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
+- For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
 > Viewing audit records from the Azure portal (‘Audit records’ pane) is currently unavailable for Managed Instance.

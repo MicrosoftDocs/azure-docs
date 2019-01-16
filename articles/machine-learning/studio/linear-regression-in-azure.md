@@ -1,21 +1,15 @@
 ---
-title: Using linear regression in Machine Learning Studio - Azure | Microsoft Docs
+title: Using linear regression in Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: A comparison of linear regression models in Excel and in Azure Machine Learning Studio
-metakeywords: ''
-services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
 
-editor: cgronlun
-ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ---
 # Using linear regression in Azure Machine Learning Studio

@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
 
@@ -15,7 +15,7 @@ ms.author: billmath
 
 # Azure AD Connect: Configure AD DS Connector Account Permissions 
 
-A new PowerShell Module named [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Azure AD Connect deployment. 
+The PowerShell Module named [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Azure AD Connect deployment. 
 
 ## Overview 
 The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you pretend to enable in Azure AD Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Azure AD Connect using a custom domain account to connect to your forest. This ADSyncConfig module can also be used to configure permissions after Azure AD Connect is deployed.
@@ -276,7 +276,7 @@ For Example:
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 This cmdlet will set the following permissions: 

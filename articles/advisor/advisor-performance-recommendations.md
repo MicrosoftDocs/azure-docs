@@ -7,7 +7,7 @@ author: kasparks
 manager: carmonm
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -28,7 +28,7 @@ Azure Advisor identifies Traffic Manager profiles with a longer TTL configured a
 
 ## Improve database performance with SQL DB Advisor
 
-Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your SQL Azure database. SQL Database Advisor assesses the performance of your SQL Azure databases by analyzing your usage history. It then offers recommendations that are best suited for running the database’s typical workload. 
+Advisor provides you with a consistent, consolidated view of recommendations for all your Azure resources. It integrates with SQL Database Advisor to bring you recommendations for improving the performance of your SQL Azure database. SQL Database Advisor assesses the performance of your SQL Azure databases by analyzing your usage history. It then offers recommendations that are best suited for running the database’s typical workload.
 
 > [!NOTE]
 > To get recommendations, a database must have about a week of usage, and within that week there must be some consistent activity. SQL Database Advisor can optimize more easily for consistent query patterns than for random bursts of activity.
@@ -39,7 +39,7 @@ For more information about SQL Database Advisor, see [SQL Database Advisor](http
 
 Azure Advisor integrates best practices recommendations for improving your App Services experience and discovering relevant platform capabilities. Examples of App Services recommendations are:
 * Detection of instances where memory or CPU resources are exhausted by app runtimes with mitigation options.
-* Detection of instances where collocating resources like web apps and databases can improve performance and lower cost. 
+* Detection of instances where collocating resources like web apps and databases can improve performance and lower cost.
 
 For more information about App Services recommendations, see [Best Practices for Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
@@ -49,7 +49,7 @@ Advisor will identify virtual machines that belong to a storage account that is 
 
 ## Improve the performance and reliability of virtual machine disks by using Premium Storage
 
-Advisor identifies virtual machines with standard disks that have a high volume of transations on your storage account and recommends upgrading to premium disks. 
+Advisor identifies virtual machines with standard disks that have a high volume of transactions on your storage account and recommends upgrading to premium disks. 
 
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines that run I/O-intensive workloads. Virtual machine disks that use premium storage accounts store data on solid-state drives (SSDs). For the best performance for your application, we recommend that you migrated any virtual machine disks requiring high IOPS to premium storage.
 
@@ -67,11 +67,14 @@ Azure Advisor detects if your SQL Data Warehouse has high cache used percentage 
 
 ## Convert SQL Data Warehouse tables to replicated tables to increase query performance
 
-Advisor identifies tables that are not replicated tables but would benefit from converting and suggests that you convert these tables. Recommendations are based on the replicated table size, number of columns, table distribution type, and number of partitions of the SQL Data Warehouse table. Additional heurisitics may be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse Recommendations](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
+Advisor identifies tables that are not replicated tables but would benefit from converting and suggests that you convert these tables. Recommendations are based on the replicated table size, number of columns, table distribution type, and number of partitions of the SQL Data Warehouse table. Additional heuristics may be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse Recommendations](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## Migrate your Storage Account to Azure Resource Manager to get all of the latest Azure features
 
-Migrate your Storage Account deployment model to Azure Resource Manager (ARM) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the ARM deployment model. 
+Migrate your Storage Account deployment model to Azure Resource Manager (ARM) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the ARM deployment model.
+
+> [!NOTE]
+> Classic alerts in Azure Monitor is announced to retire in June 2019, it is recommended that you upgrade your classic storage account to ARM to retain alerting functionality with the new platform. For more information, see [Classic Alerts Retirement](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
 
 ## How to access Performance recommendations in Advisor
 
@@ -88,4 +91,3 @@ To learn more about Advisor recommendations, see:
 * [Advisor Cost recommendations](advisor-performance-recommendations.md)
 * [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
-

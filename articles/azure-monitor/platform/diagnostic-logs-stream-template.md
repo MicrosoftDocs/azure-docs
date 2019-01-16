@@ -128,7 +128,7 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
     },
     "testUri": {
       "type": "string",
-      "defaultValue": "http://azure.microsoft.com/status/feed/"
+      "defaultValue": "https://azure.microsoft.com/status/feed/"
     },
     "settingName": {
       "type": "string",
