@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create Android Unity app with Azure Spatial Anchors | Microsoft Docs
-description: In this tutorial, you learn how to build an Android app with Unity using Spatial Anchors.
+title: Quickstart - Create Android Unity app with Azure Spatial Anchors | Microsoft Docs
+description: In this quickstart, you learn how to build an Android app with Unity using Spatial Anchors.
 author: craigktreasure
 manager: aliemami
 services: spatial-anchors
@@ -13,7 +13,7 @@ ms.service: spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to create a Spatial Anchor for my Android Unity app that can place, locate, and navigate to a 3D object that persists across devices and platforms.
 ---
-# Tutorial: Create an Android Unity app with Spatial Anchors
+# Quickstart: Create an Android Unity app with Spatial Anchors
 
 [Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. This tutorial covers how to create an Android Unity app using spatial anchors. When you're finished, you'll have an ARCore Android app built with Unity that can save and recall a spatial anchor.
 
@@ -30,7 +30,7 @@ You learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, make sure you have:
+To complete this quickstart, make sure you have:
 
 - A Windows or macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a> and <a href="https://developer.android.com/studio/" target="_blank">Android Studio</a> installed.
 - An <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
