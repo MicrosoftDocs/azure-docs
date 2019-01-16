@@ -23,6 +23,8 @@
   items:
   - name: 1 - Create / manage scale set
     items:
+    - name: Ansible
+      href: /article/ansible/ansible-create-configure-vmss
     - name: Azure CLI
       href: tutorial-create-and-manage-cli.md
     - name: Azure PowerShell
@@ -41,6 +43,8 @@
       href: tutorial-use-custom-image-powershell.md
   - name: 4 - Deploy apps to a scale set
     items:
+    - name: Ansible
+      href: /articles/ansible/ansible-deploy-app-vmss
     - name: Azure CLI
       href: tutorial-install-apps-cli.md
     - name: Azure PowerShell
@@ -49,6 +53,8 @@
       href: tutorial-install-apps-template.md
   - name: 5 - Autoscale a scale set
     items:
+    - name: Ansible
+      href: /articles/ansible/ansible-auto-scale-vmss
     - name: Azure CLI
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
