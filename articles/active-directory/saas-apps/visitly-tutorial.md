@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/8/2019
+ms.date: 01/16/2019
 ms.author: jeedes
 
 ---
