@@ -84,14 +84,13 @@ Learn more:
 
 ## Azure CycleCloud
 
-Effectively manage common workloads with ease while creating and optimizing HPC clusters on Azure VMs with [Azure CycleCloud](../articles/cyclecloud/overview.md).
+Effectively manage common workloads with ease while creating and optimizing HPC clusters on Azure VMs with [Azure CycleCloud](https://docs.microsoft.com/azure/cyclecloud/overview).
 
 Learn how to:
 
-* [Install and set up CycleCloud with a Resource Manager template](../articles/cyclecloud/quickstart-install-cyclecloud.md)
+* [Install and set up CycleCloud with a Resource Manager template](https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud)
 
-* [Set up CycleCloud manually](../articles/cyclecloud/quickstart-installation.md)
-
+* [Set up CycleCloud manually](https://docs.microsoft.com/azure/cyclecloud/quickstart-installation)
 
 ## Azure Batch
 
