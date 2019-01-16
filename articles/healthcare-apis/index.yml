@@ -10,7 +10,7 @@ metadata:
   ms.author: mihansen
   ms.service: healthcare-apis
   ms.topic: landing-page
-  ms.date: 02/11/2019
+  ms.date: 02/07/2019
 abstract:
   description: The Microsoft Healthcare API for FHIR&reg; is a multi-tenant, globally scalable implementation of a Fast Healthcare Interoperable Resources (FHIR) server as an Azure Platform as a Service (PaaS) offering. The API for FHIR enables organizations to take advantage of a fully managed implementation of the FHIR specification and data management to support secure handling of Protected Health Information (PHI). 
 sections:

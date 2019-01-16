@@ -5,7 +5,7 @@ services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 02/11/2019
+ms.date: 02/07/2019
 ms.author: mihansen
 ---
 

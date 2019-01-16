@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: mihansen
 author: hansenms
-ms.date: 02/11/2019
+ms.date: 02/07/2019
 ---
 
 # Tutorial: Access FHIR API with Postman
