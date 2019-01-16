@@ -324,4 +324,4 @@ If you are not sure if your experience can be considered a search-like experienc
 
 ## Throttling requests
 
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+[!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
