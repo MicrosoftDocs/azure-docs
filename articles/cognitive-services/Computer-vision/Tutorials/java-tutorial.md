@@ -452,7 +452,7 @@ Press **F6** to run the application. Put your subscription key into the **Subscr
 
 ### Intelligently generate a thumbnail
 
-The Thumbnail feature of Computer Vision generates a thumnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumnail on this area, to generate more aesthetically pleasing thumbnail images.
+The Thumbnail feature of Computer Vision generates a thumbnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumbnail on this area, to generate more aesthetically pleasing thumbnail images.
 
 To complete the Thumbnail feature of the tutorial application, perform the following steps:
 
