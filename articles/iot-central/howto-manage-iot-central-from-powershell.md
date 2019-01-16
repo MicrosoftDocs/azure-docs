@@ -41,9 +41,13 @@ Install-Module Az.IotCentral
 Use the [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) cmdlet to create an IoT Central application in your Azure subscription. For example:
 
 ```PowerShell
+# Create a resource group for the IoT Central application
 New-AzResourceGroup -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Location "East US"
+```
 
+```PowerShell
+# Create an IoT Central application
 New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Name "myiotcentralapp" -Subdomain "mysubdomain" `
   -Sku "S1" -Template "iotc-demo@1.0.0" `
@@ -70,7 +74,9 @@ The script first creates a resource group in the east US region for the applicat
 |iotc-demo@1.0.0    |Creates an application that includes a device template already created for a Refrigerated Vending Machine. Use this template to get started exploring Azure IoT Central. |
 |iotc-devkit-sample@1.0.0 |Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you're a device developer experimenting with any of these devices. |
 
-Use the [Get-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Get-AzIotCentralApp) cmdlet to list your IoT Central applications.
+## View your IoT Central applications
+
+Use the [Get-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Get-AzIotCentralApp) cmdlet to list your IoT Central applications and view metadata.
 
 ## Modify an application
 
