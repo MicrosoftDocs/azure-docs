@@ -9,9 +9,9 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 01/15/2019
 ms.author: douglasl
 
 ---
@@ -52,17 +52,18 @@ If you are new to Azure Data Factory, read through [Introduction to Azure Data F
 }
 ```
 ## Syntax details
-| Property            | Description                              | Required |
-| ------------------- | ---------------------------------------- | -------- |
-| name                | Name of the activity                     | Yes      |
-| description         | Text describing what the activity is used for | No       |
-| type                | For Hive Activity, the activity type is HDinsightHive | Yes      |
+| Property            | Description                                                  | Required |
+| ------------------- | ------------------------------------------------------------ | -------- |
+| name                | Name of the activity                                         | Yes      |
+| description         | Text describing what the activity is used for                | No       |
+| type                | For Hive Activity, the activity type is HDinsightHive        | Yes      |
 | linkedServiceName   | Reference to the HDInsight cluster registered as a linked service in Data Factory. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article. | Yes      |
 | scriptLinkedService | Reference to an Azure Storage Linked Service used to store the Hive script to be executed. If you don't specify this Linked Service, the Azure Storage Linked Service defined in the HDInsight Linked Service is used. | No       |
 | scriptPath          | Provide the path to the script file stored in the Azure Storage referred by scriptLinkedService. The file name is case-sensitive. | Yes      |
 | getDebugInfo        | Specifies when the log files are copied to the Azure Storage used by HDInsight cluster (or) specified by scriptLinkedService. Allowed values: None, Always, or Failure. Default value: None. | No       |
 | arguments           | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines             | Specify parameters as key/value pairs for referencing within the Hive script. | No       |
+| queryTimeout        | Query timeout value (in minutes).  Applicable when the HDInsight cluster is with Enterprise Security Package enabled. | No       |
 
 ## Next steps
 See the following articles that explain how to transform data in other ways: 

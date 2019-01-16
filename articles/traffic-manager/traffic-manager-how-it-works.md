@@ -4,7 +4,7 @@ description: This article will help you understand how Traffic Manager routes tr
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: jeconnoc
+manager: twooley
 editor: ''
 ms.assetid: 
 ms.service: traffic-manager

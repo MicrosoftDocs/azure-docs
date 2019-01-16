@@ -135,6 +135,10 @@
     items:
     - name: .NET SDK samples
       href: samples-dotnet.md
+    - name: Python SDK samples
+      href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples 
+    - name: Node.js SDK samples
+      href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
     - name: REST API samples in C#
       href: samples-rest.md
     - name: Other Azure samples

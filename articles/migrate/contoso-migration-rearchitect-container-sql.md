@@ -576,7 +576,7 @@ After extending the app, Contoso admins republish it to Azure using the pipeline
 
 1. They commit and push their code to Azure DevOps Services. This kicks off the build and release pipelines.
 
-2. After the build and deployment finishes, SmartHotel360 will now be running Service Fabric. The Servie Fabric Management console now shows three services.
+2. After the build and deployment finishes, SmartHotel360 will now be running Service Fabric. The Service Fabric Management console now shows three services.
 
     ![Republish](./media/contoso-migration-rearchitect-container-sql/republish3.png)
 

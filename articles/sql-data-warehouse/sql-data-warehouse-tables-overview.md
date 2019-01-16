@@ -98,7 +98,7 @@ A partitioned table stores and performs operations on the table rows according t
 ## Columnstore indexes
 By default, SQL Data Warehouse stores a table as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.
 
-For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-whats-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 ## Statistics
 The query optimizer uses column-level statistics when it creates the plan for executing a query. To improve query performance, it's important to create statistics on individual columns, especially columns used in query joins. Creating and updating statistics does not happen automatically. [Create statistics](/sql/t-sql/statements/create-statistics-transact-sql) after creating a table. Update statistics after a significant number of rows are added or changed. For example, update statistics after a load. For more information, see [Statistics guidance](sql-data-warehouse-tables-statistics.md).
@@ -128,7 +128,7 @@ SQL Data Warehouse supports many, but not all, of the table features offered by 
 - [Indexed Views](/sql/relational-databases/views/create-indexed-views)
 - [Sequence](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Sparse Columns](/sql/relational-databases/tables/use-sparse-columns)
-- [Surrogate Keys](). Implement with [Identity](sql-data-warehouse-tables-identity.md).
+- Surrogate Keys. Implement with [Identity](sql-data-warehouse-tables-identity.md).
 - [Synonyms](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Triggers](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Unique Indexes](/sql/t-sql/statements/create-index-transact-sql)

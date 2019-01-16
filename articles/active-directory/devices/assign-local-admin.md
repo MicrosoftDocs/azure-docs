@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
 
@@ -62,7 +62,10 @@ To modify the device administrator role, configure **Additional local administra
 
 ![Additional local administrators](./media/assign-local-admin/10.png)
 
- 
+>[!NOTE]
+> This option requires an Azure AD Premium tenant. 
+
+
 Device administrators are assigned to all Azure AD joined devices. You cannot scope device administrators to a specific set of devices. Updating the device administrator role doesn't necessarily have an immediate impact on the affected users. For the devices, a user is already signed into, the privilege update takes place:
      
 

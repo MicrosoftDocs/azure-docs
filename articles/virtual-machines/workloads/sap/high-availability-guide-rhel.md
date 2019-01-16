@@ -715,7 +715,7 @@ Follow these steps to install an SAP application server.
    
    [root@nw1-cl-0 ~]# pcs resource clear rsc_sap_NW1_ASCS00
    
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 

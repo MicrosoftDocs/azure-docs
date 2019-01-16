@@ -109,6 +109,10 @@
       href: howto-configure-server-logs-portal.md
     - name: Azure CLI
       href: howto-configure-server-logs-cli.md
+  - name: Monitor
+    items:
+    - name: Create alerts on metrics
+      href: howto-alert-metric.md
   - name: Replication
     items:
     - name: Configure data-in replication
@@ -129,6 +133,8 @@
   items:
   - name: REST API
     href: /rest/api/mariadb
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.dbformariadb/allversions
   - name: Data-in replication stored procedures
     href: reference-data-in-stored-procedures.md
 - name: Resources
