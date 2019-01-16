@@ -47,14 +47,14 @@ You need to work with your Azure Stack administrator to set up your service prin
 
 1. Your Azure Stack administrator provides you with a certificate and the information for the service principle. This information should look like:
 
-```Text  
-    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
-    ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
-    Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
-    ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
-    PSComputerName        : azs-ercs01
-    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
-```
+    ```Text  
+        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+        ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+        Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+        ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+        PSComputerName        : azs-ercs01
+        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+    ```
 
 2. Assign your new service principle a role as a contributor to your subscription. For instructions, see [Assign a role](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
 
@@ -211,6 +211,6 @@ You need to work with your Azure Stack administrator to set up your service prin
 > [!TIP]  
 >  If you have questions about your deployment, you can post your question or see if someone has already answered the question in the [Azure Stack Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
-## Next step
+## Next steps
 
 [Connect to your cluster](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
