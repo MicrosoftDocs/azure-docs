@@ -24,10 +24,10 @@ So, a CI/CD system in a Dev Spaces-enabled environment ideally shouldn't look mu
 ## Prerequisites
 * Have an existing [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled](../1-get-started-netcore.md)
 * Have the [Azure Dev Spaces CLI installed](upgrade-tools.md)
-* Have an existing [Azure DevOps organization with a project](https://docs.microsoft.com/en-us/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
-* Have an existing [Azure Container Registry (ACR)](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli)
-    * Have the Azure Container Registry [administrator account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication#admin-account) details available
-* [Authorize your AKS cluster to pull from your Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks)
+* Have an existing [Azure DevOps organization with a project](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* Have an existing [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
+    * Have the Azure Container Registry [administrator account](../../container-registry/container-registry-authentication.md#admin-account) details available
+* [Authorize your AKS cluster to pull from your Azure Container Registry](../../container-registry/container-registry-auth-aks.md)
 
 ## Download sample code
 For the sake of time, let's create a fork of our sample code GitHub repository. Go to https://github.com/Azure/dev-spaces and select **Fork**. Once the fork process is complete, **Clone** your forked version of the repository locally. By default the _master_ branch will have been checked out, but we've included some time-saving changes in the _azds_updates_ branch, which should also have been transferred during your fork.
@@ -55,7 +55,7 @@ The option to disable:
 > [!Note]
 > The Azure DevOps _New YAML pipeline creation experience_ preview feature conflicts with creating pre-defined build pipelines at this time. You need to disable it for now in order to deploy our pre-defined build pipeline.
 
-In the _azds_updates_ branch we've included a simple [Azure Pipeline YAML](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) that defines the build steps required for *mywebapi* and *webfrontend*.
+In the _azds_updates_ branch we've included a simple [Azure Pipeline YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) that defines the build steps required for *mywebapi* and *webfrontend*.
 
 Depending on the language you've chosen, the pipeline YAML has been checked-in at a path similar to: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
@@ -66,8 +66,8 @@ To create a Pipeline from this file:
 1. Select **Configuration as code**, or **YAML**, as your template
 1. You should now be presented with a configuration page for your build pipeline. As mentioned above enter the language-specific path for the **YAML file path**. E.g. `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 1. Go to the Variables tab
-1. Manually add _dockerId_ as a variable. This is the username of your [Azure Container Registry administrator account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication#admin-account). (Mentioned in the article prerequisites)
-1. Manually add _dockerPassword_ as a variable. This is the password of your [Azure Container Registry administrator account](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication#admin-account). Be sure to specify this as a Secret (by selecting the lock icon) for security purposes.
+1. Manually add _dockerId_ as a variable. This is the username of your [Azure Container Registry administrator account](../../container-registry/container-registry-authentication.md#admin-account). (Mentioned in the article prerequisites)
+1. Manually add _dockerPassword_ as a variable. This is the password of your [Azure Container Registry administrator account](../../container-registry/container-registry-authentication.md#admin-account). Be sure to specify this as a Secret (by selecting the lock icon) for security purposes.
 1. Select **Save & queue**
 
 You now have a CI solution that will automatically build *mywebapi* and *webfrontend* for any update pushed to the _azds_updates_ branch of your GitHub fork. You can verify the Docker images have been pushed by navigating to the Azure Portal, selecting your Azure Container Registry, and browsing the _Repositories_ tab:
@@ -105,7 +105,7 @@ You now have a CI solution that will automatically build *mywebapi* and *webfron
 An automated release process will now begin, deploying the *mywebapi* and *webfrontend* charts to your Kubernetes cluster in the _dev_ top-level space. You can monitor the progress of your release on the Azure DevOps web portal.
 
 > [!TIP]
-> If your release fails with an error message like *UPGRADE FAILED: timed out waiting for the condition*, try inspecting the pods in your cluster [using the Kubernetes dashboard](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard). If you see the pods are failing to start with error messages like *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: unauthorized: authentication required*, it may be because your cluster has not been authorized to pull from your Azure Container Registry. Make sure you have completed the [Authorize your AKS cluster to pull from your Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks) prerequisite.
+> If your release fails with an error message like *UPGRADE FAILED: timed out waiting for the condition*, try inspecting the pods in your cluster [using the Kubernetes dashboard](../../aks/kubernetes-dashboard.md). If you see the pods are failing to start with error messages like *Failed to pull image "azdsexample.azurecr.io/mywebapi:122": rpc error: code = Unknown desc = Error response from daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: unauthorized: authentication required*, it may be because your cluster has not been authorized to pull from your Azure Container Registry. Make sure you have completed the [Authorize your AKS cluster to pull from your Azure Container Registry](../../container-registry/container-registry-auth-aks.md) prerequisite.
 
 You now have a fully automated CI/CD pipeline for your Github fork of the Dev Spaces sample apps. Each time you checkin, the build pipeline will build and push the *mywebapi* and *webfrontend* images to your custom ACR instance. Then the release pipeline will deploy the Helm chart for each app into the _dev_ space on your Dev Spaces-enabled cluster.
 
