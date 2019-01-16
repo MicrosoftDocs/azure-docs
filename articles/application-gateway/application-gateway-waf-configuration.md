@@ -18,7 +18,7 @@ The Azure Application Gateway web application firewall (WAF) provides protection
 
 ![Request size limits](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
 
-Web Application Firewall allows users to configure request size limits within lower and upper bounds. The following two size limits configurations are available:
+Web Application Firewall allows you to configure request size limits within lower and upper bounds. The following two size limits configurations are available:
 
 - The maximum request body size field is specified in KBs and controls overall request size limit excluding any file uploads. This field can range from 1-KB minimum to 128-KB maximum value. The default value for request body size is 128 KB.
 - The file upload limit field is specified in MB and it governs the maximum allowed file upload size. This field can have a minimum value of 1 MB and a maximum of 500 MB for Large SKU instances while Medium SKU has a maximum of 100 MB. The default value for file upload limit is 100 MB.
@@ -29,7 +29,7 @@ WAF also offers a configurable knob to turn the request body inspection on or of
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
-WAF exclusion lists allow users to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. Once an attribute is added to the WAF exclusion list, it isn't taken into consideration by any configured and active WAF rule. Exclusion lists are global in scope.
+WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. Once an attribute is added to the WAF exclusion list, it isn't considered by any configured and active WAF rule. Exclusion lists are global in scope.
 
 The following attributes can be added to exclusion lists:
 
