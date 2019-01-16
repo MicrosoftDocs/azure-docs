@@ -17,7 +17,7 @@ ms.component: B2C
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your desktop app in a few short steps. This article will show you how to create a .NET Windows Presentation Foundation (WPF) "to-do list" app that includes user sign-up, sign-in, and profile management. The app will include support for sign-up and sign-in by using a user name or email. It will also include support for sign-up and sign-in by using social accounts such as Facebook and Google.
 
 ## Get an Azure AD B2C directory
-Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
+Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](tutorial-create-tenant.md) before you continue in this guide.
 
 ## Create an application
 Next, you need to create an app in your B2C directory. This gives Azure AD information that it needs to securely communicate with your app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
@@ -27,17 +27,14 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 * Copy the **Application ID** that is assigned to your app. You will need it later.
 
 ## Create your policies
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). When you create the three policies, be sure to:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. When you create the policies, be sure to:
 
 * Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
 * Choose **Display name** and other sign-up attributes in your sign-up policy.
 * Choose **Display name** and **Object ID** claims as application claims for every policy. You can choose other claims as well.
 * Copy the **Name** of each policy after you create it. It should have the prefix `b2c_1_`. You'll need these policy names later.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-After you have successfully created the three policies, you're ready to build your app.
+After you have successfully created the policies, you're ready to build your app.
 
 ## Download the code
 The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). You can also clone the skeleton:
