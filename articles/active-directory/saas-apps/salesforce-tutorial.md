@@ -176,7 +176,7 @@ To configure Azure AD single sign-on with Salesforce, perform the following step
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-11. In the **Authentication Configuration** section, Check the **AzureSSO** as **Authentication Servie** of your SAML SSO configuration, and then click **Save**.
+11. In the **Authentication Configuration** section, Check the **AzureSSO** as **Authentication Service** of your SAML SSO configuration, and then click **Save**.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 

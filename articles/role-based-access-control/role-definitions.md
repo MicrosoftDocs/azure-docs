@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -168,7 +168,11 @@ To view and work with data operations, you must have the correct versions of the
 | [Azure for Python](/python/azure) | 0.40.0 or later |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 or later |
 
-The Azure portal also allows users to browse and manage the contents of Queues and Blob containers via the Azure AD preview experience. To see and manage the contents of a Queue or Blob container click the link "Explore data using Azure AD preview" on the storage account Overview.
+To view and use the data operations in the REST API, you must set the **api-version** parameter to the following version or later:
+
+- 2018-01-01-preview
+
+The Azure portal also allows users to browse and manage the contents of Queues and Blob containers via the Azure AD preview experience. To see and manage the contents of a Queue or Blob container click the **Explore data using Azure AD preview** on the storage account Overview.
 
 ![Explore Queues and Blob containers using Azure AD preview](./media/role-definitions/rbac-dataactions-browsing.png)
 
