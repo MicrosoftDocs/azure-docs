@@ -41,10 +41,11 @@ The Chef Server is the management point and there are two options for the Chef S
 The Chef Client (node) is the agent that sits on the servers you are managing.
 
 The Chef Workstation, which is the name for both the admin workstation where you create policies and execute management commands and the software package of Chef tools.
+
 Generally, you'll see _your workstation_ as the location where you perform actions and _Chef Workstation_ for the software package.
 For example, you'll download the knife command as part of _Chef Workstation_, but you run knife commands from _your workstation_ to manage infrastructure.
 
-Chef also the concepts of “Cookbooks” and “Recipes”, which are effectively the policies we define and apply to the servers.
+Chef also uses the concepts of “Cookbooks” and “Recipes”, which are effectively the policies we define and apply to the servers.
 
 ## Preparing your workstation
 
@@ -52,7 +53,7 @@ First, prep your workstation by creating a directory to store Chef configuration
 
 Create a directory called C:\chef.
 
-Download your Azure Powershell [publish settings](https://docs.microsoft.com/en-us/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
+Download your Azure PowerShell [publish settings](https://docs.microsoft.com/en-us/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
 
 ## Setup Chef Server
 
@@ -146,11 +147,11 @@ Your knife.rb file should now look similar to the following example:
 
 ![][6]
 
-// Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
+<!--- Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
 // However, the starter kit hasn't been updated
-// So, I don't think this will even work on the modern Chef
+// So, I don't think this will even work on the modern Chef -->
 
-// update image [6] knife.rb
+<!--- update image [6] knife.rb -->
 
 ```rb
 knife.rb
@@ -171,7 +172,7 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 Next, [download and install](https://downloads.chef.io/chef-workstation/) Chef Workstation.
 Install Chef Workstation the default location. This installation may take a few minutes.
 
-On the desktop, you'll see a "CW PowerShell", which is an environment loaded with the tool you'll need for interacting with the Chef products. The CW Powershell makes new ad-hoc commands available, such as `chef-run` as well as traditional Chef CLI commands, such as `chef`. See your installed version of Chef Workstation and the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
+On the desktop, you'll see a "CW PowerShell", which is an environment loaded with the tool you'll need for interacting with the Chef products. The CW PowerShell makes new ad-hoc commands available, such as `chef-run` as well as traditional Chef CLI commands, such as `chef`. See your installed version of Chef Workstation and the Chef tools with `chef -v`. You can also check your Workstation version by selecting "About Chef Workstation" from the Chef Workstation App.
 
 `chef --version` should return something like:
 
