@@ -95,7 +95,7 @@ The following section lists the codecs and file formats that are supported as ou
 * MPEG-1
 * Windows Media Video/VC-1
 * JPEG thumbnail creation
-* HEVC (H.265; 8 bit and 10 bit, Main and Main 10 Profile)<br/><br/>Support for HDR 10 is available in certain scenarios, please contact [mepd@microsoft.com](mepd@microsoft.com) for more information
+* HEVC (H.265; 8 bit and 10 bit, Main and Main 10 Profile)<br/><br/>Support for HDR 10 is available in certain scenarios, please contact mepd@microsoft.com for more information
 
 
 ### Output Audio Codecs
