@@ -74,7 +74,9 @@ Hover on the **Data Factory** icon on the top left. Click on the 'Arrow' icon to
 
 ![Select data factory](media/monitor-visually/select-datafactory.png)
 
-## Apply rich ordering and filtering
+## Configure the list view
+
+### Apply rich ordering and filtering
 
 Order pipeline runs in desc/asc by Run Start and filter pipeline runs by following columns:
 
@@ -86,12 +88,12 @@ Order pipeline runs in desc/asc by Run Start and filter pipeline runs by followi
 
 ![Filter](media/monitor-visually/filter.png)
 
-## Add or remove columns
+### Add or remove columns
 Right-click the list view header and choose columns that you want to appear in the list view
 
 ![Columns](media/monitor-visually/columns.png)
 
-## Adjust column widths
+### Adjust column widths
 Increase and decrease the column widths in list view by hovering over the column header
 
 ## Promote user properties to monitor
@@ -115,11 +117,11 @@ After you create the user properties, you can then monitor them in the monitorin
 
 You can now rerun activities inside a pipeline. Click **View activity runs** and select the activity in your pipeline from which point you want to rerun your pipeline.
 
-![View activity runs](media/monitor-visually/rerun-pipelines-image1.png)
+![View activity runs](media/monitor-visually/rerun-activities-image1.png)
 
 ![Select an activity run](media/monitor-visually/rerun-activities-image2.png)
 
-## View rerun history
+### View rerun history
 
 You can view the rerun history for all the pipeline runs in the list view.
 
