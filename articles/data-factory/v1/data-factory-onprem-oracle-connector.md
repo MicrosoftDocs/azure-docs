@@ -70,7 +70,7 @@ This Oracle connector support two versions of drivers:
 
 	If you select **XCopy Installation**, complete the steps that are described in the readme.htm file. We recommend selecting the installer that has the UI (not the XCopy installer).
 
-	After you install the provider, restart the Data Management Gateway host service on your machine by using the Services applet or Data Management Gateway Configuration Manager.  
+	After you install the provider, restart the Data Management Gateway host service on your machine by using the Services applet or Data Management Gateway Configuration Manager.
 
 If you use the Copy wizard to author the copy pipeline, the driver type is autodetermined. The Microsoft driver is used by default, unless your gateway version is earlier than version 2.7 or you select Oracle as the sink.
 
@@ -84,12 +84,12 @@ You can also use one of the following tools to create a pipeline: the **Azure po
 
 Whether you use the tools or APIs, complete the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
-1. Create a **data factory**. A data factory can contain one or more pipelines. 
+1. Create a **data factory**. A data factory can contain one or more pipelines.
 2. Create **linked services** to link input and output data stores to your data factory. For example, if you are copying data from an Oracle database to Azure Blob storage, create two linked services to link your Oracle database and Azure storage account to your data factory. For linked service properties that are specific to Oracle, see [Linked service properties](#linked-service-properties).
 3. Create **datasets** to represent input and output data for the copy operation. In the example in the preceding step, you create a dataset to specify the table in your Oracle database that contains the input data. You create another dataset to specify the blob container and the folder that holds the data copied from the Oracle database. For dataset properties that are specific to Oracle, see [Dataset properties](#dataset-properties).
-4. Create a **pipeline** that has a copy activity that takes a dataset as an input and a dataset as an output. In the preceding example, you use **OracleSource** as a source and **BlobSink** as a sink for the copy activity. Similarly, if you are copying from Azure Blob storage to an Oracle database, you use **BlobSource** and **OracleSink** in the copy activity. For Copy Activity properties that are specific to an Oracle database, see [Copy Activity properties](#copy-activity-properties). For details about how to use a data store as a source or sink, select the link for your data store in the preceding section. 
+4. Create a **pipeline** that has a copy activity that takes a dataset as an input and a dataset as an output. In the preceding example, you use **OracleSource** as a source and **BlobSink** as a sink for the copy activity. Similarly, if you are copying from Azure Blob storage to an Oracle database, you use **BlobSource** and **OracleSink** in the copy activity. For Copy Activity properties that are specific to an Oracle database, see [Copy Activity properties](#copy-activity-properties). For details about how to use a data store as a source or sink, select the link for your data store in the preceding section.
 
-When you use the wizard, JSON definitions for these Data Factory entities are automatically created for you: linked services, datasets, and the pipeline. When you use tools or APIs (except for the .NET API), you define these Data Factory entities by using the JSON format.  For samples that have JSON definitions for Data Factory entities that you use to copy data to or from an on-premises Oracle database, see [JSON examples](#json-examples-for-copying-data-to-and-from-oracle-database).
+When you use the wizard, JSON definitions for these Data Factory entities are automatically created for you: linked services, datasets, and the pipeline. When you use tools or APIs (except for the .NET API), you define these Data Factory entities by using the JSON format. For samples that have JSON definitions for Data Factory entities that you use to copy data to or from an on-premises Oracle database, see [JSON examples](#json-examples-for-copying-data-to-and-from-oracle-database).
 
 The following sections provide details about JSON properties that you use to define Data Factory entities.
 
@@ -133,8 +133,7 @@ To learn about allowed formats, see [Oracle data provider for .NET ODP](https://
     "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>)));
-User Id=<user name>;Password=<password>;",
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>))); User Id=<user name>;Password=<password>;",
             "gatewayName": "<gateway name>"
         }
     }
@@ -143,7 +142,7 @@ User Id=<user name>;Password=<password>;",
 
 ## Dataset properties
 
-For a full list of sections and properties that are available for defining datasets, see [Creating datasets](data-factory-create-datasets.md). 
+For a full list of sections and properties that are available for defining datasets, see [Creating datasets](data-factory-create-datasets.md).
 
 The sections of a dataset JSON file, such as structure, availability, and policy, are similar for all dataset types (for example, for Oracle, Azure Blob storage, and Azure Table storage).
 
@@ -155,7 +154,7 @@ The **typeProperties** section is different for each type of dataset and provide
 
 ## Copy Activity properties
 
-For a full list of sections and properties that are available for defining activities, see [Creating pipelines](data-factory-create-pipelines.md). 
+For a full list of sections and properties that are available for defining activities, see [Creating pipelines](data-factory-create-pipelines.md).
 
 Properties like name, description, input and output tables, and policy are available for all types of activities.
 
@@ -185,7 +184,7 @@ In Copy Activity, when the source is the **OracleSource** type, the following pr
 
 ## JSON examples for copying data to and from the Oracle database
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from or to an Oracle database and to or from Azure Blob storage. However, data can be copied to any of the sinks listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.   
+The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from or to an Oracle database and to or from Azure Blob storage. However, data can be copied to any of the sinks listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
 **Example: Copy data from Oracle to Azure Blob storage**
 
@@ -251,12 +250,12 @@ Setting **external**: **true** informs the Data Factory service that the dataset
             "anchorDateTime": "2014-02-27T12:00:00",
             "frequency": "Hour"
         },
-        "policy": {     
-            "externalData": {        
-                "retryInterval": "00:01:00",    
-                "retryTimeout": "00:10:00",       
-                "maximumRetry": 3       
-            }     
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
     }
 }
@@ -324,16 +323,16 @@ Data is written to a new blob every hour (**frequency**: **hour**, **interval**:
 
 **Pipeline with a copy activity**
 
-The pipeline contains a copy activity that's configured to use the input and output datasets and scheduled to run hourly. In the pipeline JSON definition, the **source** type is set to **OracleSource** and the **sink** type is set to **BlobSink**.  The SQL query that you specify by using the **oracleReaderQuery** property selects the data in the past hour to copy.
+The pipeline contains a copy activity that's configured to use the input and output datasets and scheduled to run hourly. In the pipeline JSON definition, the **source** type is set to **OracleSource** and the **sink** type is set to **BlobSink**. The SQL query that you specify by using the **oracleReaderQuery** property selects the data in the past hour to copy.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "OracletoBlob",
                 "description": "copy activity",
@@ -375,7 +374,7 @@ The pipeline contains a copy activity that's configured to use the input and out
 
 **Example: Copy data from Azure Blob storage to Oracle**
 
-This sample shows how to copy data from an Azure Blob storage account to an on-premises Oracle database. However, you can copy data *directly* from any of the sources listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.  
+This sample shows how to copy data from an Azure Blob storage account to an on-premises Oracle database. However, you can copy data *directly* from any of the sources listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
 The sample has the following Data Factory entities:
 
@@ -500,16 +499,16 @@ The sample assumes you have created a table named **MyTable** in Oracle. Create 
 
 **Pipeline with a copy activity**
 
-The pipeline contains a copy activity that's configured to use the input and output datasets and scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and the **sink** type is set to **OracleSink**.  
+The pipeline contains a copy activity that's configured to use the input and output datasets and scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and the **sink** type is set to **OracleSink**.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-05T19:00:00",
         "description":"pipeline with a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureBlobtoOracle",
                 "description": "Copy Activity",
@@ -555,7 +554,7 @@ The pipeline contains a copy activity that's configured to use the input and out
 
 **Error message**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.  
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
 
 **Possible causes**
 
@@ -582,7 +581,7 @@ The pipeline contains a copy activity that's configured to use the input and out
 
 You might need to adjust the query string in your copy activity based on how dates are configured in your Oracle database. Here's an example (using the **to_date** function):
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
 ## Type mapping for Oracle
