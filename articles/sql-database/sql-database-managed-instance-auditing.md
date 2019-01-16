@@ -123,9 +123,9 @@ The following section describes the configuration of auditing on your Managed In
 
         ![Browse Azure Storage](./media/sql-managed-instance-auditing/11_mi_SSMS_audit_browse.png)
 
-     1. (Optional) Sign In to your Azure account:
+     1. (Optional) Sign in to your Azure account:
 
-        ![Sign In to Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+        ![Sign in to Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
 
      1. Select a subscription, storage account, and Blob container from the dropdowns, or create your own container by clicking on **Create**. Once you have finished click **OK**:
 
@@ -199,7 +199,7 @@ There are several methods you can use to view blob auditing logs.
 
 - Use the system function `sys.fn_get_audit_file` (T-SQL) to return the audit log data in tabular format. For more information on using this function, see the [sys.fn_get_audit_file documentation](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
-- You can explore audit logs by using a tool such as [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/). In Azure storage, auditing logs are saved as a collection of blob files within a container that was defined to store the audit logs. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
+- You can explore audit logs by using a tool such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). In Azure storage, auditing logs are saved as a collection of blob files within a container that was defined to store the audit logs. For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 
