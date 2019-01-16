@@ -36,7 +36,7 @@ For any questions related the bug bash, please use the team channel [Distributed
 - [An IoT Hub](iot-hub-create-through-portal.md)
 	- **Bug bash**: create IoT Hub under subscription [DEVICEHUB_DEV1](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/overview) in the **Central US EUAP region**, then create one IoT device (not edge). If you don't have access already, post in the [teams channel](https://teams.microsoft.com/l/channel/19%3a74fccb4d41904bdf84a9fe2ef81280b9%40thread.skype/Distributed%2520Tracing%2520Public%2520Preview%2520Bug%2520Bash?groupId=dcc1ac84-f476-4c96-8034-b2d77e54c8bf&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) or directly message me (jlian) and I can add you as a Contributor.
 	- Please remember to delete the IoT Hub later
-- You understand [how to send device-to-cloud telemetry messages to IoT Hub](quickstart-send-telemetry-c.md)
+- You have a basic idea on [how to send device-to-cloud telemetry messages to IoT Hub](quickstart-send-telemetry-c.md)
 
 ## Configure IoT Hub
 
@@ -44,7 +44,7 @@ To config IoT Hub to start logging message correlation IDs and timestamps, turn 
 
 1. Navigate to your IoT hub in Azure portal.
 
-1. Select **Diagnostics settings**.
+1. Look for **Diagnostics settings** under **Monitoring**, then select it.
 
 1. Either **Turn on diagnostics** or, if a diagnostic setting already exists, **Add diagnostic setting**.
 
@@ -70,11 +70,12 @@ For bug bash, we prepared a Windows executable that you can run without having t
 
 1. Open a command prompt, and go to the folder where you downloaded the exe
 
-1. Run the sample with a device connection string and protocol following this format
+1. Run the sample with a device connection string.
 
 	```cmd
-	iothub_ll_telemetry_sample.exe -c:<Device Connection String> -p:(mqtt|amqp)
+	iothub_ll_telemetry_sample.exe -c:<Device Connection String> -p:mqtt
 	```
+	You can also change the `mqtt` to `amqp`.
 
 1. Keep the program running, and move on to [Update sampling options](#update-sampling-options)
 
@@ -142,14 +143,16 @@ To limit or control the percentage of messages to be traced from the cloud, upda
 
 ### Update using the portal
 
-1. **Bug bash**: Open up your browser dev tools and paste this into the console:
+1. **Bug bash**: Go to Azure portal, then open up your browser dev tools (F12 in most browsers) and paste this into the console:
 
 	```
 	MsPortalImpl.Extension.registerTestExtension({name:"Microsoft_Azure_IotHub",uri:"https://distributedtracingbugbash.azurewebsites.net/"});
 	```
 
-1. **Bug bash**: Then you’ll need to reload the portal with this URL:
+1. **Bug bash**: Then you'll need to reload the portal with this URL:
 https://portal.azure.com/?feature.canmodifyextensions=true 
+
+1. Select **Allow** when the warning shows up
 
 1. Navigate to your IoT hub in Azure portal, then click **IoT devices**
 
@@ -163,7 +166,7 @@ https://portal.azure.com/?feature.canmodifyextensions=true
 
 1. Click **Save**
 
-1. If successfully acknowledged by device, a sync icon with a checkmark appears. Known issue: shows error all the time, will be fixed.
+1. Wait a few seconds, and hit **Refresh**, then if successfully acknowledged by device, a sync icon with a checkmark appears. 
 
 1. Go back to the console window from the telemetry message app. You start seeing messages being sent with `tracestate` in the application properties. 
 
