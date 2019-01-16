@@ -376,12 +376,12 @@ Using the image you created previously, create the following virtual machines in
 <tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
 </table>
 
-Follow these steps to create the list of VMs.
+To create the list of VMs, follow these steps.
 
 1. Create an empty cloud service in a particular region.
-2. Create a VM from the previously captured image, and attach it to the virtual network that was created previously. Repeat this step for all the VMs.
-3. Add an internal load balancer to the cloud service, and attach it to the “data” subnet.
-4. For each VM you created, add a load-balanced endpoint for thrift traffic. The traffic runs through a load-balanced set connected to the previously created internal load balancer.
+2. Create a VM from the previously captured image. Attach it to the virtual network that you created previously. Repeat this step for all the VMs.
+3. Add an internal load balancer to the cloud service. Attach it to the “data” subnet.
+4. For each VM you created, add a load-balanced endpoint for thrift traffic. The traffic runs through a load-balanced set connected to the internal load balancer you created previously.
 
 You can use the Azure portal to do these steps. Use a Windows machine, or use a VM on Azure if you don't have access to a Windows machine. Use the following PowerShell script to provision all eight VMs automatically.
 
@@ -444,7 +444,7 @@ foreach($vmName in $vmNames)
 
 **Step 3: Configure Cassandra on each VM**
 
-Sign in to the VM, and then:
+Sign in to the VM, and do the following:
 
 * Edit **$CASS_HOME/conf/cassandra-rackdc.properties** to specify the datacenter and rack properties.
   
@@ -592,7 +592,7 @@ Follow the same instructions as for region #1, but use the 10.2.xxx.xxx address 
 
 **Step 9: Configure Cassandra on each VM**
 
-Sign in to the VM, and follow these steps.
+Sign in to the VM, and do the following:
 
 - Edit **$CASS_HOME/conf/cassandra-rackdc.properties** to specify the datacenter and rack properties in the format:
 
