@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/27/2018
+ms.date: 01/16/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -109,6 +109,9 @@ A. If the system fault indicator LED is on, it indicates that your system is not
 
 ### Q. I can't access the Data Box unlock password in the Azure portal. Why would this be?
 A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have at least Data Box Operator role permission to see the access credentials.
+
+### Q. Is port channel configuration supported on Data Box? How about MPIO?
+A. We do not support port channel configuration, Multipath IO (MPIO) configuration, or vLAN configuration on Data Box.
 
 ## Track status
 
