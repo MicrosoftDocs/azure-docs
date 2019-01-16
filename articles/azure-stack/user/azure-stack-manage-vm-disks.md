@@ -65,13 +65,13 @@ Each unmanaged disk you add should be put in a separate container.
 
 ### Use the portal to create and attach a new data disk
 
-1.  In the portal, choose **Virtual machines**.    
+1.  In the portal, choose **All services** > **Virtual machines**.    
     ![Example: VM dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Select a virtual machine that has previously been provisioned.   
     ![Example: Select a VM in the dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  For the virtual machine, select **Disks** > **Attach new**.       
+3.  For the virtual machine, select **Disks** > **Add data disk**.       
     ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
 4.  In the **Attach new disk** pane, select **Location**. By default, the Location is set to the same container that holds the OS disk.      
