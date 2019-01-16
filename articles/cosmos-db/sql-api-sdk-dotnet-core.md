@@ -117,7 +117,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 ### <a name="1.9.1"/>1.9.1
 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
-* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
 
 ### <a name="1.8.2"/>1.8.2
 
