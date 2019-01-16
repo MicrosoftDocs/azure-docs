@@ -15,13 +15,13 @@ ms.reviewer: librown
 ---
 
 # Download and install the Microsoft Authenticator app
-The Microsoft Authenticator app works using two-factor verification to help you access your accounts more easily and more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
+The Microsoft Authenticator app helps you sign-in to your accounts if you use two factor verification. Two-factor verification helps you to access your accounts more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
 
 You can use the Microsoft Authenticator app in multiple ways, including:
 
-- **Two-factor verification.** Lets you either approve a notification or enter a provided verification code, after you sign-in using your username and password.
+- **Two-factor verification.** The standard verification method, where one of the factors is your password. After you sign-in using your username and password, you can either approve a notification or enter a provided verification code.
 
-- **Phone sign-in.** Lets you sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
+- **Phone sign-in.** A version of two-factor verification that lets you sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
 
 >[!NOTE]
 >If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.

@@ -40,7 +40,7 @@ If your organization uses two-factor verification, you can set up your work or s
     >[!Note]
     >If your camera is unable to capture the QR code, you can manually add your account information to the Microsoft Authenticator app for two-factor verification. For more information and how to do it, see [Manually add your account](microsoft-authenticator-app-add-account-manual.md).
 
-5. Review the **Accounts** screen of the app on your device, to make sure your account is right and that there's an associated six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+5. Review the **Accounts** screen of the app on your device, to make sure your account is right and that there's an associated six-digit verification code. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
     ![Accounts screen](./media/microsoft-authenticator-app-how-to/auth-app-accounts.png)
 

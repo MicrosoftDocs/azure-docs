@@ -23,7 +23,7 @@ You can add your personal non-Microsoft accounts, such as for Google, Facebook, 
 ## Add personal accounts
 Generally, for all your personal accounts, you'll need to:
 
-1. Turn on two-factor verification within your personal app account, either on your device or your PC.
+1. Sign in to your account, and then turn on two-factor verification using either your device or your PC.
 
 2. Add the account to the Microsoft Authenticator app.
 
@@ -55,7 +55,7 @@ You can add your Google account by turning on two-factor verification and then a
 
 5. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
 
-    For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+    For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
 6. Select **Next** on the **Set up Authenticator** page on your PC, type the six-digit verification code provided in the app for your Google account, and then select **Verify**.
 
@@ -94,7 +94,7 @@ You can add your Facebook account by turning on two-factor verification and then
 
 4. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
 
-    For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+    For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
 5. Select **Next** on the **Two factor authentication** page on your PC, and then type the six-digit verification code provided in the app for your Facebook account.
 
@@ -134,7 +134,7 @@ You can add your GitHub account by first turning on two-factor verification and 
 
 4. On the **Two-factor authenticator** page on your PC, type the six-digit verification code provided in the app for your GitHub account, and then select **Enable**.
 
-    The **Accounts** page of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+    The **Accounts** page of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
     >[!NOTE]
     >For more information about two-factor verification and your GitHub account, see [About two-factor authentication](https://help.github.com/articles/about-two-factor-authentication/).
@@ -165,7 +165,7 @@ You can add your Amazon account by turning on two-factor verification and then a
 
 5. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
 
-    For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
+    For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
 6. On the **Choose how you'll receive codes** page on your PC, type the six-digit verification code provided in the app for your Amazon account, and then select **Verify code and continue**.
 

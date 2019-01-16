@@ -17,9 +17,9 @@ ms.reviewer: librown
 # Add your personal Microsoft accounts
 You can add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to the Microsoft Authenticator app for both the standard two-factor verification process and the passwordless phone sign-in method.
 
-- **Two-factor verification method.** Type your username and password into the device you're logging into, and then choose whether the Microsoft Authenticator app sends a notification or if you'd prefer to copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
+- **Standard two-factor verification method.** Type your username and password into the device you're logging in to, an then choose whether the Microsoft Authenticator app sends a notification or if you'd prefer to copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
 
-- **Passwordless sign-in method.** Type your username into the device you're logging into for either your work or school account or your personal Microsoft account, and then use your mobile device to verify it's you by using your fingerprint, face, or PIN. For this method, you don't need to enter your password.
+- **Passwordless sign-in method.** Type your username into the device you're logging into for your personal Microsoft account, and then use your mobile device to verify it's you by using your fingerprint, face, or PIN. For this method, you don't need to enter your password.
 
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
@@ -27,7 +27,7 @@ You can add your personal Microsoft accounts, such as for Outlook.com and Xbox L
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
 
 >[!Note]
->if you plan to use passwordless phone sign-in or push notifications for your personal Microsoft account, you don't have to turn on two-factor verification.
+>if you plan to only use passwordless phone sign-in for your personal Microsoft account, you don't have to turn on two-factor verification. However, for additional account security, we recommend that you turn on two-factor verification.
 
 ### Turn on two-factor verification
 

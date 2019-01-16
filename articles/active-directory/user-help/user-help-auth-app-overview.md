@@ -16,7 +16,7 @@ ms.author: lizross
 
 # Microsoft Authenticator app overview
 
-The Microsoft Authenticator app works using two-factor verification to help you access your accounts more easily and more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
+The Microsoft Authenticator app helps you sign-in to your accounts if you use two factor verification. Two-factor verification helps you to access your accounts more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
 
 You can use the Microsoft Authenticator app in multiple ways, including:
 
@@ -35,8 +35,8 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 |Microsoft account (also called, MSA)|You create your own personal accounts, to get access to your consumer-oriented Microsoft products and cloud services, such as Outlook, OneDrive, Xbox LIVE, or Office 365. Your Microsoft account is created and stored in the Microsoft consumer identity account system that's run by Microsoft.|
 |Work or school account|Your organization creates your work or school account (such as alain@contoso.com) to let you access internal and potentially restricted resources, such as Microsoft Azure, Windows Intune, and Office 365.|
 
-## How this feature works
-Two-factor verification specifically works in one of two ways:
+## How two-factor verification works with the app
+Two factor verification works with the Microsoft Authenticator app in the following ways:
 
 - **Notification.** The Microsoft Authenticator app sends a notification asking you to **Approve sign-in**. Choose **Approve** if you recognize the sign-in attempt. Otherwise, choose **Deny**. If you choose **Deny**, you can also mark the request as fraudulent.
 
@@ -48,7 +48,7 @@ Two-factor verification specifically works in one of two ways:
 If you use a PIN to complete the authentication process, you can set up the Microsoft Authenticator app to instead use your device's fingerprint or facial recognition (biometric) capabilities. You can set this up the first time you use the authenticator app to verify your account, by selecting the option to use your device biometric capabilities as identification instead of your PIN.
 
 ## Who decides if you use this feature?
-Depending on your account type, your organization might decide that you have to use two-factor verification, or you might be able to decide for yourself.
+Depending on your account type, your organization might decide that you must use two-factor verification, or you might be able to decide for yourself.
 
 - **Work or school account.** If you're using a work or school account (for example, alain@contoso.com), it's up to your organization whether you must use two-factor verification, along with the specific verification methods. For more information about multi-factor verification, see [What does Azure Multi-Factor Authentication mean for me](multi-factor-authentication-end-user.md). For more information about how to set up Security info to use the Microsoft Authentication app, see [Set up security info to use an authenticator app (preview)](security-info-setup-auth-app.md).
 
