@@ -114,7 +114,7 @@ The following prerequisites must be in place on the computer on which the tool r
 1. On a computer that meets the prerequisites, open an administrative PowerShell prompt and then run the following command to install the AzsReadinessChecker:
   
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker- Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
 2. From the PowerShell prompt, run the following cmdlet to set the PFX password. Replace *PFXpassword* with the actual password:
@@ -128,7 +128,7 @@ The following prerequisites must be in place on the computer on which the tool r
    - For `-ExportPFXPath`, specify the location and name of the PFX file for export. In the following example, the path is `.\certificates\ssl_new.pfx`:
 
    ```powershell
-   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx`
+   Repair-AzsPfxCertificate -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
    ```  
 
 4. After the tool completes, review the output for success:
