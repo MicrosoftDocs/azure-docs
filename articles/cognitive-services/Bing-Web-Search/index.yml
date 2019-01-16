@@ -4,7 +4,7 @@ title: Bing Web Search API Documentation
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
   title: Bing Web Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
-  description: Learn how to use Bing Web Search API to obtain results from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
+  description: Learn how to use the Bing Web Search API to search the web for webpages, images, videos, news and more. 
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -16,7 +16,7 @@ metadata:
   ms.date: 9/24/2018
   ms.author: nitinme
 abstract:
-  description: Bing Web Search API provides an experience similar to Bing by returning search results that Bing determines are relevant to a user's query. The results include Web pages and may also include images, videos, and more.
+  description: The Bing Web Search API enables you to integrate Bing's search capabilities in your applications. By sending search queries with the API, you can get relevant webpages, images, videos, news and more.
 sections:
 - items:
     - type: list

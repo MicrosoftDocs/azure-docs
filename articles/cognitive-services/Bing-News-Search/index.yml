@@ -4,7 +4,7 @@ title: Bing News Search API Documentation
 titleSuffix: Azure Cognitive Services
 metadata:
   title: Bing News Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
-  description: Learn how to use Bing News Search API to obtain news from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
+  description: Learn how to use the Bing News Search API to search the web for news. 
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -13,11 +13,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: Bing News Search API provides an experience similar to Bing News, by returning a list of news articles that Bing determines are relevant to a user's query.
+  description: The Bing News Search API enables you to integrate Bing's news search capabilities in your applications. By sending search queries with the API, you can get relevant news articles from similar categories, similar to [Bing News](https://www.bing.com/news).
 sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/bing-news-search/search-the-web
+          html: <p>Learn about the Bing News Search API</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is the Bing News Search API?
+        - href: /azure/cognitive-services/bing-news-search/send-search-queries
+          html: <p>Learn how to send search requests to the Bing News Search API.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Sending search queries
+        - href: /azure/cognitive-services/bing-news-search/search-for-news
+          html: <p>Learn how to search for multiple types and categories of news.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Searching for news
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
