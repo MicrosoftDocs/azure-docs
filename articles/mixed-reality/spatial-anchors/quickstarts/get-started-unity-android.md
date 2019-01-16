@@ -95,11 +95,3 @@ Stop the app by selecting **Stop** from the Android Studio toolbar.
 
 [!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]
 
-## Next steps
-Congratulations. You've created an Android Unity app with Spatial Anchors. 
-
-For more info about Spatial Anchors, see:
-- [Best practices for Mixed Reality Spatial Anchors](https://docs.microsoft.com/en-us/windows/mixed-reality/spatial-anchors#best-practices)
-- [Six questions to define shared scenarios](https://docs.microsoft.com/en-us/windows/mixed-reality/shared-experiences-in-mixed-reality#six-questions-to-define-shared-scenarios)
-- [Persistence in Unity](https://docs.microsoft.com/en-us/windows/mixed-reality/persistence-in-unity)
-- [Coordinate systems](https://docs.microsoft.com/en-us/windows/mixed-reality/coordinate-systems)
