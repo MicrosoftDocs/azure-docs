@@ -59,6 +59,7 @@ $virtualMachineSize = 'Standard_DS3'
 $adminUserName = "youradminusername"
 $adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
 $osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
+$osDiskName = 'myClassic-os-2765'
 $dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
 $dataDiskName = 'dataDisk1'
 ```
@@ -68,12 +69,14 @@ Create a managed OS disk using the VHD from the classic VM. Make sure that you h
 
 
 ```powershell
-$osDisk = New-AzureRmDisk -DiskName $osDiskName '
-   -Disk (New-AzureRmDiskConfig '
+
+$osDiskConfig = New-AzureRmDiskConfig '
    -AccountType Premium_LRS '
    -Location $location '
    -CreateOption Import '
-   -SourceUri $osVhdUri) '
+   -SourceUri $osVhdUri
+$osDisk = New-AzureRmDisk -DiskName $osDiskName '
+   -Disk $osDiskConfig
    -ResourceGroupName $resourceGroupName
 ```
 
