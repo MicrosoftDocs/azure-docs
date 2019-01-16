@@ -14,7 +14,9 @@ In this article, you will learn how to create and manage read replicas in the Az
 ## Prerequisites
 - An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) that will be the master server.
 
-## Prepare the master
+## Prepare the master server
+This master preparation step applies to General Purpose and Memory Optimized servers only.
+
 The **azure.replication_support** parameter must be set to REPLICA on the master server. Changing this parameter requires a server restart to take effect.
 
 1. In the Azure portal, select the existing Azure Database for PostgreSQL server that you want to use as a master.
@@ -38,7 +40,7 @@ Read replicas can be created using the following steps:
 
 2.	Select Replication from the menu, under SETTINGS.
 
-   If you haven't set **azure.replication_support** to REPLICA on the master and restarted the server, you will see a message instructing you to do so. Do so before proceeding with the create.
+   If you haven't set **azure.replication_support** to REPLICA on the General Purpose or Memory Optimized master and restarted the server, you will see a message instructing you to do so. Do so before proceeding with the create.
 
 3.	Select Add Replica.
    ![Azure Database for PostgreSQL - Add replica](./media/howto-read-replicas-portal/add-replica.png)
@@ -48,7 +50,11 @@ Read replicas can be created using the following steps:
    ![Azure Database for PostgreSQL - Name replica](./media/howto-read-replicas-portal/name-replica.png) 
 
 > [!IMPORTANT]
-> Read replicas are created with the same server configuration as the master. The replica configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the master to ensure the replica is able to keep up with the master. Failing to do so could lead to replication breaking or the servers being unavailable.
+> Read replicas are created with the same server configuration as the master. After a replica has been created, the pricing tier (except to and from Basic), compute generation, vCores, storage, and backup retention period can be changed independently from the master server.
+
+> [!IMPORTANT]
+> Before a master's server configuration is updated to new values, the replicas' configuration should be updated to equal or greater values. Attempting to do otherwise will cause an error. This ensures that the replicas are able to keep up with changes made to the master. 
+
 
 Once the replica server has been created, it can be viewed from the Replication window.
 ![Azure Database for PostgreSQL - New replica](./media/howto-read-replicas-portal/list-replica.png)
