@@ -383,7 +383,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
                   -Headers $authHeader `
                   -Method Get `
-                  -OutFile ".\contostweets-metricdef-results.json" `
+                  -OutFile ".\contosotweets-metricdef-results.json" `
                   -Verbose
 ```
 > [!NOTE]
@@ -453,7 +453,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
-    -OutFile ".\contostweets-metrics-results.json" `
+    -OutFile ".\contosotweets-metrics-results.json" `
     -Verbose
 ```
 
@@ -501,7 +501,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
-    -OutFile ".\contostweets-metrics-multiple-results.json" `
+    -OutFile ".\contosotweets-metrics-multiple-results.json" `
     -Verbose
 ```
 The resulting JSON response body would be similar to the following example:

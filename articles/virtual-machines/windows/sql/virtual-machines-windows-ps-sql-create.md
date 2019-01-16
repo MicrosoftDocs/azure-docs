@@ -3,7 +3,7 @@ title: Provisioning guide for SQL Server VMs with Azure PowerShell | Microsoft D
 description: Provides steps and PowerShell commands for creating an Azure VM with SQL Server virtual machine gallery images.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/21/2018
-ms.author: jroth
-
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # How to provision SQL Server virtual machines with Azure PowerShell
 
