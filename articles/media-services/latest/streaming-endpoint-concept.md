@@ -19,12 +19,12 @@ ms.author: juliako
 
 In Microsoft Azure Media Services (AMS), the [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) entity represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a Streaming Endpoint service can be a live stream, or a video on-demand Asset in your Media Services account. When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You cannot delete the **default** Streaming Endpoint. Additional Streaming Endpoints can be created under the account. To start streaming videos, you need to start the Streaming Endpoint from which you want to stream the video. 
 
-## Streaming Endpoint naming convention
+## Naming convention
 
-For the default endpoint: {AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net
-For any additional endpoints: {EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net
+For the default endpoint: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+For any additional endpoints: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
-## Streaming Endpoint types  
+## Types  
 
 There are two **StreamingEndpoint** types: **Standard** and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint. 
 
@@ -40,7 +40,7 @@ The table describes the types:
 In most cases, you should have CDN enabled. However, if you are anticipating max concurrency lower than 500 viewers then it is recommended to disable CDN since CDN scales best with concurrency.
 
 > [!NOTE]
-> The Streaming Endpoint 'hostname' and the streaming URL remains the same whether or not you enable CDN.
+> The Streaming Endpoint `hostname` and the streaming URL remains the same whether or not you enable CDN.
 
 ### Detailed explanation of how caching works
 
@@ -48,7 +48,7 @@ There is no specific bandwidth value when adding the CDN because the amount of b
  
 You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, if the first time a certain video is watched, the person skips around watching only a few seconds here and there only the video fragments associated with what the person watched get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they are each cached separately in the CDN. Even if two people are watching the same bitrate they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
  
-## Streaming Endpoint properties 
+## Properties 
 
 This section gives details about some of the StreamingEndpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
