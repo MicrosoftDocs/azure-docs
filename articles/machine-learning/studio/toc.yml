@@ -189,7 +189,7 @@
       href: azure-ml-customer-churn-scenario.md
     - name: Sentiment analysis
       href: text-analytics-module-tutorial.md
-    - name: Migrate analytics to Studio
+    - name: Migrate analytics from Excel to Studio
       href: linear-regression-in-azure.md
   - name: View and delete Studio account data
     displayName: export
