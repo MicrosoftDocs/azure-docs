@@ -50,6 +50,10 @@ To take snapshots while apps are running, Azure Backup takes app-consistent snap
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Run the below command from elevated (as administrator) command prompt, to set the above registry key:
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Linux VMs**: To ensure that your Linux VMs are app-consistent when Azure Backup takes a snapshot, you can use the Linux pre-script and post-script framework. You can write your own custom scripts to ensure consistency when taking a VM snapshot.
     -  Azure Backup only invokes the pre- and post-scripts written by you.
     - If the pre-script and post-scripts execute successfully, Azure Backup marks the recovery point as application-consistent. However, you're ultimately responsible for the application consistency when using custom scripts.

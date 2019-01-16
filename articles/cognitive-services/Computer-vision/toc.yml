@@ -99,6 +99,8 @@
       href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Tutorials
   items:
+  - name: Get metadata for Azure images
+    href: Tutorials/storage-lab-tutorial.md
   - name: Build an image processing app
     href: Tutorials/CSharpTutorial.md
 - name: Concepts

@@ -32,7 +32,7 @@ Azure cloud services can be managed in Azure Automation by using the PowerShell 
 
 Some example uses of Azure Automation to manage Azure Cloud Services include:
 
-* [Continous deployment of a Cloud Service whenever cscfg or cspkg is updated in Azure Blob storage](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+* [Continuous deployment of a Cloud Service whenever cscfg or cspkg is updated in Azure Blob storage](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
 * [Rebooting Cloud Service instances in parallel, one upgrade domain at a time](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## Next Steps

@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: overview
-ms.date: 10/22/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
 ---
 
@@ -60,4 +61,4 @@ As with all of the Cognitive Services, developers using the Content Moderator se
 
 ## Next steps
 
-Follow the [Quickstart](quick-start.md) to get started using Content Moderator.
+Get started using the Content Moderator service by following the instructions in [Try Content Moderator on the web](quick-start.md).
