@@ -26,12 +26,13 @@ We use **python/pip** command to build virtual environment in your Home path. If
 
 
 2. Install **virtualenv**
-   ```Resolve:
+   
+   ```
    pip install virtualenv
    ```
 3. Install **libkrb5-dev** (for Linux only).
        
-   ```Resolve:
+   ```
    sudo apt-get install libkrb5-dev 
    ```
 
