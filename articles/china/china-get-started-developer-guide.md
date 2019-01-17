@@ -68,7 +68,7 @@ See also:
 | MySQL PaaS | | \*.mysqldb.chinacloudapi.cn |
 | Azure Service Fabric cluster | \*.cloudapp.azure.com | \*.chinaeast.chinacloudapp.cn |
 | Azure Active Directory (AD) | \*.onmicrosoft.com | \*.partner.onmschina.cn |
-| Azure AD logon | [https://login.windows.net](https://login.windows.net/) | [https://login.chinacloudapi.cn](https://login.chinacloudapi.cn/) |
+| Azure AD logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
 | Azure AD Graph API | [https://graph.windows.net](https://graph.windows.net/) | [https://graph.chinacloudapi.cn](https://graph.chinacloudapi.cn/) |
 | Cognitive Services | <https://api.projectoxford.ai/face/v1.0> | <https://api.cognitive.azure.cn/face/v1.0> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |

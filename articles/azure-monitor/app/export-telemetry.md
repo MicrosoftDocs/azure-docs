@@ -21,7 +21,7 @@ Before you set up continuous export, there are some alternatives you might want 
 * The Export button at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet.
 
 * [Analytics](../../azure-monitor/app/analytics.md) provides a powerful query language for telemetry. It can also export results.
-* If you're looking to [explore your data in Power BI](../../application-insights/app-insights-export-power-bi.md), you can do that without using Continuous Export.
+* If you're looking to [explore your data in Power BI](../../azure-monitor/app/export-power-bi.md ), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
@@ -65,14 +65,14 @@ To stop the export permanently, delete it. Doing so doesn't delete your data fro
 ## <a name="analyze"></a> What events do you get?
 The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address.
 
-Data that has been discarded by [sampling](../../application-insights/app-insights-sampling.md) is not included in the exported data.
+Data that has been discarded by [sampling](../../azure-monitor/app/sampling.md) is not included in the exported data.
 
 Other calculated metrics are not included. For example, we don't export average CPU utilization, but we do export the raw telemetry from which the average is computed.
 
 The data also includes the results of any [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md) that you have set up.
 
 > [!NOTE]
-> **Sampling.** If your application sends a lot of data, the sampling feature may operate and send only a fraction of the generated telemetry. [Learn more about sampling.](../../application-insights/app-insights-sampling.md)
+> **Sampling.** If your application sends a lot of data, the sampling feature may operate and send only a fraction of the generated telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -188,4 +188,4 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 <!--Link references-->
 
 [exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md

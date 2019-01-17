@@ -1,12 +1,8 @@
 ---
 title: Azure PowerShell Samples for Azure Cosmos DB
 description: Azure PowerShell Samples - Scripts to help you create and manage Azure Cosmos DB accounts. 
-services: cosmos-db
 author: SnehaGunda
-tags: azure-service-management
-
 ms.service: cosmos-db
-ms.custom: mvc
 ms.topic: sample
 ms.date: 10/16/2017
 ms.author: sngun

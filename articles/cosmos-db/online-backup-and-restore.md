@@ -2,7 +2,6 @@
 title: Automatic, online backup and on-demand data restore in Azure Cosmos DB
 description: This article describes how automatic, online backup and on-demand data restore works in Azure Cosmos DB.
 author: kanshiG
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018

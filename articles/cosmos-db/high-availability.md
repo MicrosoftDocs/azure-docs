@@ -1,9 +1,7 @@
 ---
 title: High availability in Azure Cosmos DB 
 description: This article describes how Azure Cosmos DB provides high availability
-services: cosmos-db
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
@@ -16,7 +14,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB transparently replicates your data across all the Azure regions associated with your Cosmos account. Cosmos DB employs multiple layers of redundancy for your data as shown in the following image:
 
-![Physical partitioning](./media/high-availability/figure1.png)
+![Physical partitioning](./media/high-availability/cosmosdb-data-redundancy.png)
 
 - The data within Cosmos containers is horizontally partitioned.
 

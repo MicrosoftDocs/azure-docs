@@ -7,17 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 ---
-# Azure Data Box Disk limits (Preview)
+# Azure Data Box Disk limits
 
 
 Consider these limits as you deploy and operate your Microsoft Azure Data Box Disk solution. 
-
-> [!IMPORTANT] 
-> Azure Data Box Disk is in Preview. Review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
-
 
 ## Data Box service limits
 

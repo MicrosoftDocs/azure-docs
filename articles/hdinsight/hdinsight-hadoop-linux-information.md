@@ -100,7 +100,7 @@ When using HDInsight, the data files are stored in a scalable and resilient way 
 * Accessibility from external services such as websites, file upload/download utilities, various language SDKs, and web browsers.
 * Large file capacity and large scalable storage.
 
-For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/).
+For more information, see [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) and [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
 When using either Azure Storage or Data Lake Storage, you don't have to do anything special from HDInsight to access the data. For example, the following command lists files in the `/example/data` folder regardless of whether it is stored on Azure Storage or Data Lake Storage:
 

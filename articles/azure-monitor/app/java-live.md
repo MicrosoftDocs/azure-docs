@@ -15,7 +15,7 @@ ms.author: mbullwin
 ---
 # Application Insights for Java web apps that are already live
 
-If you have a web application that is already running on your J2EE server, you can start monitoring it with [Application Insights](../../application-insights/app-insights-overview.md) without the need to make code changes or recompile your project. With this option, you get information about HTTP requests sent to your server, unhandled exceptions, and performance counters.
+If you have a web application that is already running on your J2EE server, you can start monitoring it with [Application Insights](../../azure-monitor/app/app-insights-overview.md) without the need to make code changes or recompile your project. With this option, you get information about HTTP requests sent to your server, unhandled exceptions, and performance counters.
 
 You'll need a subscription to [Microsoft Azure](https://azure.com).
 
@@ -122,7 +122,7 @@ And when viewing the properties of a request, you can see the telemetry events a
 
 ![](./media/java-live/7-instance.png)
 
-[Learn more about metrics.](../../application-insights/app-insights-metrics-explorer.md)
+[Learn more about metrics.](../../azure-monitor/app/metrics-explorer.md)
 
 ## Next steps
 * [Add telemetry to your web pages](javascript.md) to monitor page views and user metrics.

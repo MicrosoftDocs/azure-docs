@@ -1,8 +1,8 @@
 ---
-title: "Azure Batch compute node environment variables | Microsoft Docs"
+title: "Compute node environment variables - Azure Batch | Microsoft Docs"
 description: Compute node environment variable reference for Azure Batch Analytics.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 
 ms.assetid: 
@@ -11,11 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 05/05/2017
-ms.author: danlep
+ms.date: 01/03/2019
+ms.author: lahugh
 ---
 
 # Azure Batch compute node environment variables
+
 The [Azure Batch service](https://azure.microsoft.com/services/batch/) sets the following environment variables on compute nodes. You can reference these environment variables in task command lines, and in the programs and scripts run by the command lines.
 
 For additional information about using environment variables with Batch, see [Environment settings for tasks](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks).
@@ -37,6 +38,7 @@ The command lines executed by tasks on compute nodes do not run under a shell. T
 | Variable name                     | Description                                                              | Availability | Example |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | The name of the Batch account that the task belongs to.                  | All tasks.   | mybatchaccount |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | An authentication token that grants access to a limited set of Batch service operations. This environment variable is only present if the [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) are set when the [task is added](/rest/api/batchservice/task/add#request-body). The token value is used in the Batch APIs as credentials to create a Batch client, such as in the [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | All tasks. | OAuth2 access token |
 | AZ_BATCH_CERTIFICATES_DIR       | A directory within the [task working directory][files_dirs] in which certificates are stored for Linux compute nodes. Note that this environment variable does not apply to Windows compute nodes.                                                  | All tasks.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_JOB_ID                 | The ID of the job that the task belongs to. | All tasks except start task. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | The full path of the job preparation [task directory][files_dirs] on the node. | All tasks except start task and job preparation task. Only available if the job is configured with a job preparation task. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |

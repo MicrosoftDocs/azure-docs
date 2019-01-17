@@ -1,13 +1,11 @@
 ---
 title: Manage Azure Cosmos DB resources using Azure Storage Explorer
 description: Learn how to connect to Azure Cosmos DB and manage its resources by using Azure Storage Explorer.
-author: Jejiang 
-tags: Azure Cosmos DB
-
+author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: jejiang 
+ms.author: dech
 ms.custom: seodec18
 ---
 # Manage Azure Cosmos DB resources using Azure Storage Explorer
@@ -263,7 +261,7 @@ If you're unable to remove an account, or if the reauthenticate link does not do
   - .extaccounts
 - If you want to remove SAS attached Storage resources, delete:
   - %AppData%/StorageExplorer folder for Windows
-  - /Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer for Mac
+  - /Users/<your_name>/Library/Application SUpport/StorageExplorer for Mac
   - ~/.config/StorageExplorer for Linux
   - **You will have to reenter all your credentials** if you delete these files
 
