@@ -18,7 +18,9 @@ ms.author: pepogors
 
 ---
 # Infrastructure as Code 
-In a production scenario, Azure Service Fabric clusters should be created using Resource Manager templates. Resource Manager templates allow for a greater level of control of resource properties and ensure that you have a consistent resource model. 
+In a production scenario, Azure Service Fabric clusters should be created using Resource Manager templates. Resource Manager templates allow for a greater level of control of resource properties and ensure that you have a consistent resource model.
+
+Sample Resource Manager templates are available for Windows and Linux in the[Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.  Download azuredeploy.json and azuredeploy.parameters.json and edit files in your favorite text editor to meet your custom requirements. 
 
 Creating a resource using Azure CLI
 ```azurecli
@@ -86,6 +88,6 @@ microservices_sfpkg.close()
 
 ## Next steps
 
-* Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Create a cluster on VMs or computers running Linux: [Create a Linux cluster](service-fabric-cluster-creation-via-portal.md)
+* Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* Create a cluster on VMs or computers running Linux: [Create a Linux cluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
