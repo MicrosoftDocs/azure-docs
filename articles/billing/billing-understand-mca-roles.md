@@ -60,7 +60,7 @@ The following tables show what role you need to complete tasks in the context of
 |View all billing profiles in the account|✔|✔|✔|✘|
 |Create billing profiles|✔|✔|✘|✔|
 
-### Manage invoice for billing account
+### Manage invoices for billing account
 
 |Task|Billing account owner|Billing account contributor|Billing account reader|Basic purchaser|
 |---|---|---|---|---|
