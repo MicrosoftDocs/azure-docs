@@ -8,7 +8,7 @@
   items:
   - name: License requirements
     href: subscription-requirements.md
-  - name: Roles you can manage
+  - name: Roles you cannot manage
     href: pim-roles.md
   - name: Secure privileged access
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
