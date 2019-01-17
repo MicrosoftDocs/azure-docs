@@ -104,6 +104,8 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 <!-- 2869209 – IS, ASDK --> 
 - Fixed an issue when using the [Add-AzsPlatformImage cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage), in which you had to use the **-OsUri** parameter as the storage account URI where the disk is uploaded. You can now also use the local path to the disk.
 
+<!--  2795678 – IS, ASDK --> 
+- Fixed an issue that produced a warning when you used the portal to create virtual machines (VMs) in a premium VM size (DS,Ds_v2,FS,FSv2). The VM was created in a standard storage account. Although this did not affect functionally, IOPs, or billing, the warning has been fixed.
 
 ## Changes
 
@@ -209,11 +211,6 @@ The following are post-installation known issues for this build version.
    `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
 
    The error occurs if you enable boot diagnostics on a VM but delete your boot diagnostics storage account. To work around this issue, recreate the storage account with the same name as you used previously.
-
-<!--  2795678 – IS, ASDK --> 
-- When you use the portal to create virtual machines (VMs) in a premium VM size (DS,Ds_v2,FS,FSv2), the VM is created in a standard storage account. Creation in a standard storage account does not affect functionally, IOPs, or billing. You can safely ignore the warning that says: 
-
-    `You've chosen to use a standard disk on a size that supports premium disks. This could impact operating system performance and is not recommended. Consider using premium storage (SSD) instead.`
 
 <!-- 2967447 - IS, ASDK --> 
 - The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
