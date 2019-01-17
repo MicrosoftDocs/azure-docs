@@ -11,8 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/17/2019cd \
-
+ms.date: 01/17/2019
 ms.author: bwren
 ---
 
