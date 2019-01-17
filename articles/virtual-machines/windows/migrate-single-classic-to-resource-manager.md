@@ -51,17 +51,20 @@ Create variables for common parameters.
 
 
 ```powershell
-$resourceGroupName = 'yourResourceGroupName'
-$location = 'your location' 
+# Information from the classic VM
+$resourceGroupName = 'classicResourceGroup'
+$location = 'East US' 
 $virtualNetworkName = 'yourExistingVirtualNetworkName'
+$osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
+$dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
+
+# Information for the new VM
 $virtualMachineName = 'yourVMName'
 $virtualMachineSize = 'Standard_DS3'
+$osDiskName = 'myClassic-os-2765'
+$dataDiskName = 'dataDisk1'
 $adminUserName = "youradminusername"
 $adminPassword = "yourpassword" | ConvertTo-SecureString -AsPlainText -Force
-$osVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd'
-$osDiskName = 'myClassic-os-2765'
-$dataVhdUri = 'https://storageaccount.blob.core.windows.net/vhdcontainer/datadisk1.vhd'
-$dataDiskName = 'dataDisk1'
 ```
 
 
@@ -71,7 +74,7 @@ Create a managed OS disk using the VHD from the classic VM. Make sure that you'v
 ```powershell
 
 $osDiskConfig = New-AzureRmDiskConfig '
-   -AccountType Premium_LRS '
+   -SkuName Premium_LRS '
    -Location $location '
    -CreateOption Import '
    -SourceUri $osVhdUri
