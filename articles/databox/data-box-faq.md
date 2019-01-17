@@ -187,7 +187,9 @@ For more information, go to [Data Box security features](data-box-security.md).
 
 ### Q. I have finished Prepare to Ship and shut down the device. Can I still add more data to Data Box?
 A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
-  
+
+### Q. I received my device and it is not booting up? How do I ship the device back?
+A. If your device is not booting, go to your order in the Azure portal. Download a shipping label and affix that on the device. For more information, go to [Download shipping label](data-box-portal-admin.md#download-shipping-label).
 
 ## Verify and upload
 
