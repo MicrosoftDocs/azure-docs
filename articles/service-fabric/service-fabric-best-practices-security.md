@@ -53,7 +53,7 @@ To deploy certificates from a co-located keyvault to a Virtual Machine Scale Set
 > The vault must be enabled for Resource Manager template deployment.
 
 ## ACL Certificate to your Service Fabric Cluster
-[Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how you ACL certificates to your Service Fabric Cluster, and the following are the Resource Manager template properties:
+[Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is used to configure your Nodes Security, to include ACL'ing certificates to your Service Fabric Cluster processes, and the following are the Resource Manager template properties:
 ```json
 "certificate": {
    "commonNames": [
