@@ -5,7 +5,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
 
 ---
@@ -46,6 +46,18 @@ Source machine registers with configuration server during mobility agent install
 ## Installation failure - Failed to load accounts
 
 This error occurs when service is unable to read data from the transport connection while installing mobility agent and registering with configuration server. To resolve, ensure TLS 1.0 is enable on your source machine.
+
+## vCenter discovery failures
+
+In order to resolve vCenter discovery failures, ensure that vCenter server is added to the byPass list proxy settings.To perform this activity,
+
+- Download PsExec tool from [here](https://aka.ms/PsExec) to access System user content.
+- Open Internet Explorer in system user content by running the following command line
+    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+- Add proxy settings in IE and restart tmanssvc service.
+- To configure DRA proxy settings, run 
+    cd C:\Program Files\Microsoft Azure Site Recovery Provider
+- Next, execute DRCONFIGURATOR.EXE /configure /AddBypassUrls [add IP Address/FQDN of vCenter Server provided during **Configure vCenter Server/vSphere ESXi server** step of [Configuration Server deployment](vmware-azure-deploy-configuration-server.md#configure-settings)]
 
 ## Change IP address of configuration server
 
