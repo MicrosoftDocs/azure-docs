@@ -125,7 +125,7 @@ Before you begin, ensure that you have the following prerequisites:
 
 - The Azure Resource Manager PowerShell cmdlets. See [Install PowerShell for Azure Stack](../azure-stack-powershell-install.md) for more information about installing the PowerShell cmdlets.
 
-### Step 1 - create the virtual network, VPN gateway, and local network gateway
+### Step 1 - Create the virtual network, VPN gateway, and local network gateway
 
 #### 1. Declare variables
 
@@ -200,7 +200,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
 $LNGPrefix61,$LNGPrefix62
 ```
 
-### Step 2 - create a S2S VPN connection with an IPsec/IKE policy
+### Step 2 - Create a S2S VPN connection with an IPsec/IKE policy
 
 #### 1. Create an IPsec/IKE policy
 
