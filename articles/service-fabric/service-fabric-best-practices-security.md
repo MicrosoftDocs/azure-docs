@@ -63,8 +63,8 @@ To deploy certificates from a co-located keyvault to a Virtual Machine Scale Set
 }
 ```
 
-## Declare Custom Domain Service Fabric Cluster Certificate
-Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure the custom domain common name property of your valid certificate, and the following are the Resource Manager template properties:
+## Declare Service Fabric Cluster Certificate by Common Name
+Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure declare your Service Fabric cluster certificate by Common Name, and the following are the Resource Manager template properties:
 ```json
 "certificateCommonNames": {
     "commonNames": [
@@ -76,9 +76,12 @@ Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/
     "x509StoreName": "[parameters('certificateStoreValue')]"
 }
 ```
-Your Service Fabric cluster will use your valid trusted installed certificate, that you declared by common name, which expires further into the future; when more than one valid certificate is installed on your Virtual Machine Scale Sets certificate store.
+> [!NOTE]
+> Service Fabric clusters will use the first valid certificate it finds in your hosts certificate store, and on Windows this will be the newest latest expiring certificate that matches your Common Name and Issuer Thumbprint.
 
-Given Azure domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, are owned by Microsoft; only Microsoft employees are authorized to provision certificates from Keyvault-Integrated Certificate Authorities for these domains; so you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) if you to provision your Cluster certificate with a Subject Alternative Name value that resolves to a DNS name you own. After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following two Records Set to your DNS Zone:'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT an "Alias record set"; E.G. Use your Traffic Manager or Load Balancer's DNS name.
+Azure domains such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net are owned by Microsoft, Certificate Authorities will not issue certifacates for domains to unauthorized users, so you need be an authoritized domain admin for a Certificate Authority to issue you a certifacate with that common name.
+
+so you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) if you to provision your Cluster certificate with a Subject Alternative Name value that resolves to a DNS name you own. After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following two Records Set to your DNS Zone:'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT an "Alias record set"; E.G. Use your Traffic Manager or Load Balancer's DNS name.
 
 You should also update your Service Fabric Cluster "managementEndpoint" Resource Manager template property to your custom domain, so that portal can display the correct url to connect to your Service Fabric Explorer User Interface, and the follow is the snippet of the property you will update to your custom domain:
 ```json
