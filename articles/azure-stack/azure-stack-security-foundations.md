@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/9/2018
+ms.date: 01/14/2019
 ms.author: patricka
+ms.reviewer: fiseraci
 
 ---
 # Azure Stack infrastructure security posture
@@ -66,7 +67,7 @@ Every component in Azure Stack (both Hyper-V hosts and Virtual Machines) is prot
 In connected scenarios, antivirus definition and engine updates are applied multiple times a day. In disconnected scenarios, antimalware updates are applied as part of monthly Azure Stack updates. For more information, see [update Windows Defender Antivirus on Azure Stack](azure-stack-security-av.md).
 
 ## Constrained administration model
-Administration in Azure Stack is controlled through the use of three entry points, each with a specific purpose: 
+Administration in Azure Stack is controlled through three entry points, each with a specific purpose: 
 1. The [Administrator Portal](azure-stack-manage-portals.md) provides a point-and-click experience for daily management operations.
 2. Azure Resource Manager exposes all the management operations of the Administrator Portal via a REST API, used by PowerShell and Azure CLI. 
 3. For specific low-level operations, for example data center integration or support scenarios, Azure Stack exposes a PowerShell endpoint called [Privileged Endpoint](azure-stack-privileged-endpoint.md). This endpoint exposes only a whitelisted set of cmdlets and it is heavily audited.

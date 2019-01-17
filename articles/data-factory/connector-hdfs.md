@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 01/16/2019
 
 ms.author: jingwang
 
@@ -37,6 +37,9 @@ Specifically, this HDFS connector supports:
 ## Prerequisites
 
 To copy data from an HDFS that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](concepts-integration-runtime.md) article to learn details.
+
+> [!NOTE]
+> Make sure the Integration Runtime can access to **ALL** the [name node server]:[name node port] and [data node servers]:[data node port] of the Hadoop cluster. Default [name node port] is 50070, and default [data node port] is 50075.
 
 ## Getting started
 

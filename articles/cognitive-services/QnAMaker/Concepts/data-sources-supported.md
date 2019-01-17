@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.author: tulasim
 ---
 
@@ -144,6 +144,23 @@ If you do not have pre-existing content to populate the knowledge base, you can 
 ## Formatting considerations
 
 After importing a file or URL, it is converted into Markdown and stored in that format. If the conversion process is not correctly converting links in your files and URLs, you should edit the questions and answers on the **Edit** page. 
+
+|Format|Purpose|
+|--|--|
+|`\n\n`| New line|
+|`\n*`|Bullet point for an ordered list|
+
+## Editing your knowledge base locally
+
+Once a knowledge base is created, it is recommended that you make edits to the knowledge base text in the [QnA Maker portal](https://qnamaker.ai), rather than exporting and reimporting through local files. However, there may be times that you need to edit a knowledge base locally. 
+
+Export the knowledge base from the **Settings** page, then edit the knowledge base with Microsoft Excel. If you choose to use another application to edit your exported TSV file, the application may introduce syntax errors because it is not fully TSV compliant. Microsoft Excel's TSV files generally don't introduce any formatting errors. 
+
+Once you are done with your edits, reimport the TSV file from the **Settings** page. This will completely replace the current knowledge base with the imported knowledge base. 
+
+## Testing your Markdown
+
+Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your Markdown. The tutorial has a **Try it** feature for quick copy/paste validation. 
 
 ## Next steps
 

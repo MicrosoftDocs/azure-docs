@@ -1,20 +1,15 @@
 ---
-title: Gallery competitions - Azure Machine Learning Studio | Microsoft Docs
+title: Gallery competitions
+titleSuffix: Azure Machine Learning Studio
 description: Discover competitions in the Azure AI Gallery. Provides an exciting opportunity to compete with the community of data scientists to solve complex problems.
-services: machine-learning
-documentationcenter: ''
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
+ 
 author: ericlicoding
-ms.custom: seodec18
 ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: ef74f411-bce4-4b02-aa34-902fc8d7b519
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.custom: seodec18
 ms.date: 03/31/2017
 ---
 # Discover competitions in the Azure AI Gallery
