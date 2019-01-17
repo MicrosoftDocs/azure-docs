@@ -43,7 +43,7 @@ When you sign in you become a member of the Gallery community. This allows you t
 You can download **experiments**, **custom modules**, and **Jupyter notebooks** to use in developing your own analytics solutions.
 You can contribute **experiments**, **tutorials**, and **collections** to the Gallery.
 
-## Download experiments, modules, and notebooks
+## Download experiments, modules, notebooks
 
 You can download **experiments**, **custom modules**, and **Jupyter notebooks** into your own Machine Learning Studio workspace to use in developing your own solutions.
 
