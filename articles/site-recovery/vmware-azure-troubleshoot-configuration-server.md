@@ -5,7 +5,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
 
 ---
@@ -53,9 +53,22 @@ The source machine registers with the configuration server when you install the 
 
 This error occurs when the service can't read data from the transport connection when it's installing the mobility agent and registering with the configuration server. To resolve the issue, ensure that TLS 1.0 is enabled on your source machine.
 
+## vCenter discovery failures
+
+In order to resolve vCenter discovery failures, ensure that vCenter server is added to the byPass list proxy settings.To perform this activity,
+
+- Download PsExec tool from [here](https://aka.ms/PsExec) to access System user content.
+- Open Internet Explorer in system user content by running the following command line
+    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+- Add proxy settings in IE and restart tmanssvc service.
+- To configure DRA proxy settings, run 
+    cd C:\Program Files\Microsoft Azure Site Recovery Provider
+- Next, execute DRCONFIGURATOR.EXE /configure /AddBypassUrls [add IP Address/FQDN of vCenter Server provided during **Configure vCenter Server/vSphere ESXi server** step of [Configuration Server deployment](vmware-azure-deploy-configuration-server.md#configure-settings)]
+
 ## Change the IP address of the configuration server
 
 We strongly recommend that you don't change the IP address of a configuration server. Ensure that all IP addresses that are assigned to the configuration server are static IP addresses. Don't use DHCP IP addresses.
+>>>>>>> c842cff5a0480caa5183dbb7afe5016a7061c7b9
 
 ## ACS50008: SAML token is invalid
 
