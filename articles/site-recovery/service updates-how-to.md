@@ -27,17 +27,17 @@ Azure Site Recovery publishes service updates on a regular basis - including the
 > **With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support**. Hence it is always advisable to upgrade to the latest versions available.
 
 > [!IMPORTANT]
-> The official support for upgrades is from > N-4 to N version (N being hte latest version) , If you are on N-6, you need to first upgrade to N-4, and then upgrade to N.
+> The official support for upgrades is from > N-4 to N version (N being the latest version). If you are on N-6, you need to first upgrade to N-4, and then upgrade to N.
 
 ### Upgrading when the difference between current version and latest released version is greater than 4
 
-1. As a first step, upgrade the currently installed component from version say M to M+4, and them move to  to the next compatible version. Let's say, the current version is 9.24, and you are on 9.16, first upgrade to 9.20 and them to 9.24.
+1. As a first step, upgrade the currently installed component from version say N to N+4, and then move to the next compatible version. Let's say the current version is 9.24, and you are on 9.16, first upgrade to 9.20 and then to 9.24.
 2. Follow the same process for all components depending on the scenario.
 
 ### Support for latest OS/kernel versions
 
 > [!NOTE]
-> If you have a maintenance window scheduled, and a reboot is part of the same, we recommend you to first upgrade the Site Recovery components and proceed with the rest of the scheduled activities.
+> If you have a maintenance window scheduled, and a reboot is part of the same, we recommend you first upgrade the Site Recovery components and proceed with the rest of the scheduled activities.
 
 1. Before upgrading your Kernel/OS versions, first verify if the target version is supported by Azure Site Recovery. You can find the information in our documentation for Azure VMs, [VMware VMs](vmware-physical-azure-support-matrix.md) & Hyper-V VMs in
 2. Refer our [Service Updates](https://azure.microsoft.com/updates/?product=site-recovery) to find out which version of Site Recovery components support the specific versionn you want to upgrade to.
@@ -49,12 +49,12 @@ Azure Site Recovery publishes service updates on a regular basis - including the
 
 
 ## Azure VM disaster recovery to Azure
-In this scenario, we strongly recommend that you [enable](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-autoupdate) automatic updates. You can choose to allow Site Recovery to manage updates in the following ways:-
+In this scenario, we strongly recommend that you [enable](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-autoupdate) automatic updates. You can choose to allow Site Recovery to manage updates in the following ways:
 
 - As part of the enable replication step
 - Toggle the extension update settings inside the vault
 
-In case, you have chosen to manually manage updates, follow the below steps
+In case you have chosen to manually manage updates, follow these steps:
 
 1. Go to Azure portal, and then navigate to your "Recovery services vault."
 2. Go to the "Replicated Items" pane in the Azure portal for the "Recovery services vault."
@@ -104,7 +104,7 @@ A reboot is recommended after every upgrade of Mobility agent to ensure that all
 |9.16 |  9.18 | Not mandatory|
 |9.16 | 9.19 | Not mandatory|
 | 9.16 | 9.20 | Not mandatory
- | 9.16 | 9.21 | Yes, first upgrade to 9.20, then reboot before upgrading to 9.21 as difference between the versions (9.16 where the last reboot was performed and the target version 9.21) is >4
+ | 9.16 | 9.21 | Yes, first upgrade to 9.20, then reboot before upgrading to 9.21 as the difference between the versions (9.16 where the last reboot was performed and the target version 9.21) is >4,
 
 
 
