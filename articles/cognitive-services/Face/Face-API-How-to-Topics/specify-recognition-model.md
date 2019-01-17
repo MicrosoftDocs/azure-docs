@@ -13,13 +13,13 @@ ms.date: 01/14/2019
 ms.author: longl
 ---
 
-# Specify a recognition model
+# Specify a face recognition model
 
-This guide demonstrates how to specify a recognition model for face detection, identification and similarity search using the Azure Face API.
+This guide demonstrates how to specify a face recognition model for face detection, identification and similarity search using the Azure Face API.
 
-The Face API uses deep learning models to perform face-related operations. We continue to improve the accuracy of the models based on customer feedback and advances in deep learning research, and we ship these improvements as model updates. Developers have the option to specify which version of face recognition model they want to use; they can choose the model that best fits their use case. 
+The Face API uses deep learning models to perform operations on human faces in images. We continue to improve the accuracy of our models based on customer feedback and advances in deep learning research, and we deliver these improvements as model updates. Developers have the option to specify which version of face recognition model they'd like to use; they can choose the model that best fits their use case.
 
-If you are a new user, we recommend using the latest model. Read on to learn how to specify it in different Face operation. If you are an advanced user and are not sure whether you should switch to the latest model, skip to the [Evaluate different models](#Evaluate-different-models) section to evaluate the new model and compare results using your current data set. 
+If you are a new user, we recommend you use the latest model. Read on to learn how to specify it in different Face operations. If you are an advanced user and are not sure whether you should switch to the latest model, skip to the [Evaluate different models](#Evaluate-different-models) section to evaluate the new model and compare results using your current data set. 
 
 ## Prerequisites
 
