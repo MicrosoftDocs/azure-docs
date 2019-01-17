@@ -153,7 +153,6 @@ If your connectivity provider is not listed in previous sections, you can still 
   * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [InterXion](http://www.interxion.com/)
-  * [IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)
   * [NextDC](http://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)

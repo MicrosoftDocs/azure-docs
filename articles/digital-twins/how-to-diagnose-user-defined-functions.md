@@ -1,18 +1,22 @@
 ---
-title: How to debug UDFs in Azure Digital Twins | Microsoft Docs
-description: Guideline about how to debug UDFs in Azure Digital Twins
+title: 'How to debug UDFs in Azure Digital Twins | Microsoft Docs'
+description: Guideline about how to debug UDFs in Azure Digital Twins.
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
+ms.custom: seodec18
 ---
 
-# How to debug issues with user-defined functions in Azure Digital Twins
+# How to debug user-defined functions in Azure Digital Twins
 
-This article summarizes how to diagnose user-defined functions. Then, it identifies some of the most common scenarios encountered when working with them.
+This article summarizes how to diagnose user-defined functions. Then, it identifies some of the most common scenarios likely to be encountered when working with them.
+
+>[!TIP]
+> Read [How to configure monitoring and logging](./how-to-configure-monitoring.md) to learn more about setting up debugging tools in Azure Digital Twins using Activity Logs, Diagnostic Logs, and Azure Monitor.
 
 ## Debug issues
 
@@ -23,9 +27,14 @@ Knowing how to diagnose any issues that arise within your Azure Digital Twins in
 Logs and metrics for your Azure Digital Twins instance are exposed through Azure Monitor. The following documentation assumes you have created an [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) workspace through the [Azure Portal](../azure-monitor/learn/quick-create-workspace.md), through [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), or through [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> You may experience a 5 minute delay when sending events to **Log Analytics** for the first time.
+> You may experience a 5 minute delay when sending events to Azure Log Analytics for the first time.
 
-Read the article ["Collect and consume log data from your Azure resources"](../azure-monitor/platform/diagnostic-logs-overview.md) to enable diagnostic settings for your Azure Digital Twins instance through the Portal, Azure CLI, or PowerShell. Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
+To configure monitoring and logging for Azure Digital Twins resources, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
+
+Read the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/diagnostic-logs-overview.md) for a comprehensive overview of diagnostic log settings for your Azure Digital Twins instance through the Azure Portal, Azure CLI, or PowerShell.
+
+>[!IMPORTANT]
+> Make sure to select all log categories, metrics, and your Azure Log Analytics workspace.
 
 ### Trace sensor telemetry
 
@@ -51,11 +60,11 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-For more information about powerful query operations, see [getting started with queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+For more information about powerful query operations, read [Getting started with queries](../azure-monitor/log-query/get-started-queries.md).
 
 ## Identify common issues
 
-Both diagnosing and identifying common issues are important when troubleshooting your solution. Several Common issues encountered when developing user-defined functions are summarized below.
+Both diagnosing and identifying common issues are important when troubleshooting your solution. Several issues that are commonly encountered when developing user-defined functions are summarized below.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -69,11 +78,11 @@ Check if a role assignment exists for your user-defined function through your Ma
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Parameter | Replace with |
+| Parameter value | Replace with |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | The ID of the user-defined function to retrieve role assignments for|
+| YOUR_USER_DEFINED_FUNCTION_ID | The ID of the user-defined function to retrieve role assignments for|
 
-If no role assignment is retrieved, follow this article on [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md).
+Learn [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md), if no role assignments exist.
 
 ### Check if the matcher will work for a sensor's telemetry
 
@@ -154,7 +163,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-This scenario arises because the used identifier refers to a sensor while the topology object type specified is 'Space'.
+This scenario arises because the used identifier refers to a sensor while the topology object type specified is `Space`.
 
 **Correct** Example:
 
@@ -195,4 +204,4 @@ If you enable diagnostic settings, you might encounter these common exceptions:
 
 ## Next steps
 
-Learn how to enable [monitoring and logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) in Azure Digital Twins.
+Learn how to enable [monitoring and logs](../azure-monitor/platform/activity-logs-overview.md) in Azure Digital Twins.

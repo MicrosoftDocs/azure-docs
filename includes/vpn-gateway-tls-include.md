@@ -23,7 +23,11 @@
 3. Install the following updates:
   
    * [KB3140245](https://www.catalog.update.microsoft.com/search.aspx?q=kb3140245)
-   * [KB2977292](https://www.microsoft.com/en-us/download/details.aspx?id=44342)
+   * [KB2977292](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2977292)
 
 4. Reboot the computer.
 5. Connect to the VPN.
+
+> [!NOTE]
+> You will have to set the above registry key if you are running an older version of Windows 10 (10240).
+>

@@ -115,29 +115,29 @@ function generateRandomId() {
 In a class library, the same trigger and binding information &mdash; queue and table names, storage accounts, function parameters for input and output &mdash; is provided by attributes instead of a function.json file. Here's an example:
 
 ```csharp
- public static class QueueTriggerTableOutput
- {
-     [FunctionName("QueueTriggerTableOutput")]
-     [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
-     public static Person Run(
-         [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         ILogger log)
-     {
-         return new Person() {
-                 PartitionKey = "Orders",
-                 RowKey = Guid.NewGuid().ToString(),
-                 Name = order["Name"].ToString(),
-                 MobileNumber = order["MobileNumber"].ToString() };
-     }
- }
+public static class QueueTriggerTableOutput
+{
+    [FunctionName("QueueTriggerTableOutput")]
+    [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
+    public static Person Run(
+        [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order,
+        ILogger log)
+    {
+        return new Person() {
+                PartitionKey = "Orders",
+                RowKey = Guid.NewGuid().ToString(),
+                Name = order["Name"].ToString(),
+                MobileNumber = order["MobileNumber"].ToString() };
+    }
+}
 
- public class Person
- {
-     public string PartitionKey { get; set; }
-     public string RowKey { get; set; }
-     public string Name { get; set; }
-     public string MobileNumber { get; set; }
- }
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+    public string MobileNumber { get; set; }
+}
 ```
 
 ## Supported bindings
@@ -609,9 +609,10 @@ module.exports = function (context, info) {
 If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
 
 ```json
-{"BlobName": {
-  "FileName":"HelloWorld",
-  "Extension":"txt"
+{
+  "BlobName": {
+    "FileName":"HelloWorld",
+    "Extension":"txt"
   }
 }
 ```

@@ -1,12 +1,9 @@
 ---
 title: 'NoSQL tutorial: SQL API for Azure Cosmos DB Java SDK'
 description: A NoSQL tutorial that creates an online database and Java console application using the SQL API for Azure Cosmos DB. Azure SQL is a NoSQL database for JSON.
-keywords: nosql tutorial, online database, java console application
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017

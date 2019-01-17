@@ -13,8 +13,8 @@ ms.author: geg
 # Use the Azure portal to restore virtual machines
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they're stored in Recovery Services vaults. If it's necessary to repair or rebuild a virtual machine (VM), you can restore the VM from any of the saved recovery points. When you restore a recovery point, you can:
 
-* Create a new VM, which is a point-in-time representation of your backed-up VM.
-* Restore disks, and use the template that comes with the process to customize the restored VM, or do an individual file recovery.
+* Create a new VM: From a point-in-time recovery point of your backed-up VM.
+* Restore disks: Use the template that comes with the process to customize the restored VM, or do an individual file recovery.
 
 This article explains how to restore a VM to a new VM or restore all backed-up disks. For individual file recovery, see [Recover files from an Azure VM backup](backup-azure-restore-files-from-vm.md).
 
@@ -24,7 +24,9 @@ This article explains how to restore a VM to a new VM or restore all backed-up d
 Restoring a VM or all disks from VM backup involves two steps:
 
 * Select a restore point for restore.
-* Select the restore type, create a new VM or restore disks, and specify the required parameters.
+* Select the restore type
+    - Option 1: Create a new VM
+    - Option 2: Restore disks.
 
 ## Select a restore point for restore
 1. Sign in to the [Azure portal](http://portal.azure.com/).
@@ -60,9 +62,7 @@ Restore can be performed in many ways from this blade. Note that this blade list
     - The **Recovery Type** shows where the point is stored (in a storage account, in the vault, or both. [Learn more](https://azure.microsoft.com/blog/large-disk-support/) about instant recovery points.
 
   ![Restore points](./media/backup-azure-arm-restore-vms/vm-blade1.png)
-9. Select a restore point
-
-    ![Select restore point](./media/backup-azure-arm-restore-vms/select-recovery-point1.png)
+9. Select a restore point.
 
 10. Select **Restore configuration**. The **Restore configuration** blade opens.
 

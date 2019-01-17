@@ -2,20 +2,13 @@
 title: Back up SQL Server databases to Azure | Microsoft Docs
 description: This tutorial explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords:
-
-ms.assetid:
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: anuragm
-ms.custom:
+ms.author: raynew
+
 
 ---
 # Back up SQL Server databases to Azure
@@ -40,9 +33,9 @@ The following items are known limitations for the Public Preview:
 - The SQL virtual machine (VM) requires internet connectivity to access Azure public IP addresses. For details, see [Establish network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
 - Protect up to 2,000 SQL databases in one Recovery Services vault. Additional SQL databases should be stored in a separate Recovery Services vault.
 - [Backups of distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) have limitations.
-- SQL Server Always On Failover Cluster Instances (FCIs) aren't supported.
+- SQL Server Always On Failover Cluster Instances (FCIs) aren't supported for backup.
 - Use the Azure portal to configure Azure Backup to protect SQL Server databases. Azure PowerShell, the Azure CLI, and the REST APIs aren't currently supported.
-- Backup/restore operations for mirror databases, database snapshots and databases under FCI are not supported.
+- Backup/restore operations for FCI mirror databases, database snapshots and databases aren't supported.
 - Database with large number of files cannot be protected. The maximum number of files supported is not a very deterministic number, because it not only depends on the number of files but also depends on the path length of the files. Such cases are less prevalent though. We are building a solution to handle this.
 
 Please refer to [FAQ section](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) for more details on support/not supported scenarios.

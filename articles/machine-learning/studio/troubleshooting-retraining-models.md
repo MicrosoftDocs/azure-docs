@@ -99,7 +99,7 @@ You can verify which web service the endpoint is on by visiting the Web Services
 
 <!-- Image Links -->
 
-[image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
+[image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connected-to-web-service-out.png
 [image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
 [image3]: ./media/troubleshooting-retraining-a-model/azure-portal-update-resource.png
 [image4]: ./media/troubleshooting-retraining-a-model/check-workspace-region.png

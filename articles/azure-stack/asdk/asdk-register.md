@@ -197,10 +197,6 @@ Alternatively, you can use the **Get-Content** cmdlet to point to a file that co
 When activation is complete, you should see a message similar to **Your environment has finished the registration and activation process.**
 
 ## Verify the registration was successful
-<<<<<<< HEAD
-=======
-Follow these steps to verify that the ASDK registration with Azure **in connected environments** was successful.
->>>>>>> 97fa768a06b635f23b311b7af4dd42b81c0790ed
 
 You can use the **Region management** tile to verify that the Azure Stack registration was successful. This tile is available on the default dashboard in the administrator portal.
 
@@ -217,4 +213,5 @@ Moving a registration resource between resource groups under the same subscripti
 
 
 ## Next steps
-[Add an Azure Stack marketplace item](../azure-stack-marketplace.md)
+
+- [Add an Azure Stack marketplace item](../azure-stack-marketplace.md)

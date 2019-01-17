@@ -1,5 +1,5 @@
 ---
-title: What is Azure Key Vault? | Microsoft Docs
+title: What is Azure Key Vault? - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, customers can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs).
 services: key-vault
 documentationcenter: ''
@@ -13,13 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 
 ---
 # What is Azure Key Vault?
 
 Azure Key Vault helps solve the following problems:
+
 - **Secrets Management** - Azure Key Vault can be used to Securely store and tightly control access to tokens, passwords, certificates, API keys, and other secrets.
 - **Key Management** - Azure Key Vault can also be used as a Key Management solution. Azure Key Vault makes it easy to create and control the encryption keys used to encrypt your data. 
 - **Certificate Management** - Azure Key Vault is also a service that lets you easily provision, manage, and deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with Azure and your internal connected resources. 
@@ -29,16 +30,17 @@ Azure Key Vault helps solve the following problems:
 
 Azure Key Vault is a tool for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, or certificates. A **Vault** is logical group of secrets. Now to do any operations with Key Vault you first need to authenticate to it. 
 
-Fundamentally there are 3 ways to authenticate to Key Vault:
+Fundamentally there are three ways to authenticate to Key Vault:
 
 1. **Using [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)** (**Recommended and Best Practice**): When you deploy an App on a Virtual Machine in Azure, you can assign an identity to your Virtual Machine that has access to Key Vault. You can also assign identities to other azure resources that are listed [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). The benefit with this approach is the app / service is not managing the rotation of the first secret. Azure automatically rotates the identity. 
-2. **Using Service Principal and Certificate:** The 2nd option is to use a Service Principal and an associated certificate that has access to Key Vault. The onus of rotating the certificate is on the application owner or developer and hence this is not recommended.
-3. **Using Service Principal and Secret:** The 3rd option (not preferred option) is to use a Service Principal and a secret to authenticate to Key Vault.
+2. **Using Service Principal and Certificate:** The second option is to use a Service Principal and an associated certificate that has access to Key Vault. The onus of rotating the certificate is on the application owner or developer and hence this is not recommended.
+3. **Using Service Principal and Secret:** The third option (not preferred option) is to use a Service Principal and a secret to authenticate to Key Vault.
 
 > [!NOTE]
 > The 3rd option above should not be used as it's hard to auto rotate the bootstrap secret used to authenticate to Key Vault.
 
 Here are some key terms:
+
 - **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It’s most often used in an exact manner to refer to the set of Azure and Office 365 services for an organization.
 - **Vault owner**: A vault owner can create a key vault and gain full access and control over it. The vault owner can also set up auditing to log who accesses secrets and keys. Administrators can control the key lifecycle. They can roll to a new version of the key, back it up, and do related tasks.
 - **Vault consumer**: A vault consumer can perform actions on the assets inside the key vault when the vault owner grants the consumer access. The available actions depend on the permissions granted.
@@ -49,7 +51,7 @@ Here are some key terms:
 - **Azure tenant ID**: A tenant ID is a unique way to identify an Azure AD instance within an Azure subscription.
 - **Managed identities for Azure resources**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. For more information, see the image below and the [managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md).
 
-    ![Diagram of how Managed identities for Azure resources works](./media/key-vault-whatis/msi.png)
+    ![Diagram of how Managed identities for Azure resources work](./media/key-vault-whatis/msi.png)
 
 ## Key Vault roles
 
@@ -63,11 +65,11 @@ Use the following table to better understand how Key Vault can help to meet the 
 
 Anybody with an Azure subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by an organization’s administrator who manages other Azure services for an organization. For example, this administrator can sign in with an Azure subscription, create a vault for the organization in which to store keys, and then be responsible for operational tasks, such as:
 
-* Create or import a key or secret
-* Revoke or delete a key or secret
-* Authorize users or applications to access the key vault, so they can then manage or use its keys and secrets
-* Configure key usage (for example, sign or encrypt)
-* Monitor key usage
+- Create or import a key or secret
+- Revoke or delete a key or secret
+- Authorize users or applications to access the key vault, so they can then manage or use its keys and secrets
+- Configure key usage (for example, sign or encrypt)
+- Monitor key usage
 
 This administrator would then provide developers with URIs to call from their applications, and provide their security administrator with key usage logging information. 
 

@@ -37,7 +37,7 @@ Azure Backup doesn't encrypt data as a part of the backup process. Azure Backup 
 
 - Backup of VMs encrypted with Bitlocker Encryption Key(BEK) only, and BEK together with Key Encryption Key(KEK) is supported, for managed and unmanaged Azure VMs.
 - The BEK(secrets) and KEK(keys) backed up are encrypted so they can be read and used only when restored back to key vault by the authorized users.
-- Since the BEK is also backed up, in scenarios where BEK is lost, authorized users can restore the BEK to the KeyVault and recover the encrypted VM. Keys and secrets of encrypted VMs are backed up in encrypted form, so neither unauthorized users nor Azure can read or use backed up keys and secrets. Only users with the right level of permissions can backup and restore encrypted VMs, as well as keys and secrets.
+- Since the BEK is also backed up, in scenarios where BEK is lost, authorized users can restore the BEK to the KeyVault and recover the encrypted VM. Keys and secrets of encrypted VMs are backed up in encrypted form, so neither unauthorized users nor Azure can read or use backed up keys and secrets. Only users with the right level of permissions can back up and restore encrypted VMs, as well as keys and secrets.
 
 ## Snapshot consistency
 
@@ -63,7 +63,7 @@ The following table explains different types of consistency.
 **Snapshot** | **VSS-based** | **Details** | **Recovery**
 --- | --- | --- | ---
 **Application-consistent** | Yes (Windows only) | App-consistent backups capture memory content and pending I/O operations. App-consistent snapshots use VSS writer (or pre/post script for Linux) that ensure the consistency of app data before a backup occurs. | When recovering with an app-consistent snapshot, the VM boots up. There's no data corruption or loss. The apps start in a consistent state.
-**File system consistent** | Yes (Windows only) |  File consistent backups provide consistent backups of disk files by taking a snapshot of all files at the same time.<br/><br/> Azure Backup recovery points are file consistent for:<br/><br/> -Linux VMs backups that don't have pre/post scripts, or that have script that failed.<br/><br/> - Windows VM backups where VSS failed. | When recovering with a file-consistent snapshot, the VM boots up. There's no data corruption or loss. Apps needs to implement their own "fix-up" mechanism to make sure that restored data is consistent.
+**File system consistent** | Yes (Windows only) |  File consistent backups provide consistent backups of disk files by taking a snapshot of all files at the same time.<br/><br/> Azure Backup recovery points are file consistent for:<br/><br/> -Linux VMs backups that don't have pre/post scripts, or that have script that failed.<br/><br/> - Windows VM backups where VSS failed. | When recovering with a file-consistent snapshot, the VM boots up. There's no data corruption or loss. Apps need to implement their own "fix-up" mechanism to make sure that restored data is consistent.
 **Crash-consistent** | No | Crash consistency often happens when an Azure VM shuts down at the time of backup.  Only the data that already exists on the disk at the time of backup is captured and backed up.<br/><br/> A crash-consistent recovery point doesn't guarantee data consistency for the operating system or the app. | There are no guarantees, but usually the VM boots, and follows with a disk check to fix corruption errors. Any in-memory data or write that weren't transferred to disk are lost. Apps implement their own data verification. For example, for a database app, if a transaction log has entries that aren't in the database, the database software rolls until data is consistent.
 
 
@@ -78,26 +78,14 @@ Azure Backup has a number of limits around subscriptions and vaults.
 
 ### Disk considerations
 
-Backup tries to complete as quickly as possible, consuming as many resources as it can.
-
-- In an attempt to maximize its speed, the backup process tries to back up each of the VM's disks in parallel.
-- For example,  if a VM has four disks, the service attempts to back up all four disks in parallel.
-- The number of disks being backed up is the most important factor in determining storage account backup traffic.
-- All I/O operations are limited by the *Target Throughput for Single Blob*, which has a limit of 60 MB per second.
-- For each disk being backed up, Azure Backup reads the blocks on the disk and stores only the changed data (incremental backup). You can use the average throughput values below to estimate the amount of time needed to back up a disk of a given size.
-
-    **Operation** | **Best-case throughput**
-    --- | ---
-    Initial backup | 160 Mbps |
-    Incremental backup | 640 Mbps <br><br> Throughput drops significantly if the delta data is dispersed across the disk.|
-
+Backup operation optimizes by backing up each of the VM’s disk in parallel. For example, if a VM has four disks, the service attempts to back up all four disks in parallel. For each disk being backed up, Azure Backup reads the blocks on the disk and stores only the changed data (incremental backup).
 
 
 ### Scheduling considerations
 
 Backup scheduling impacts performance.
 
-- If you configure policies so all VMs are backed up at the same time, you have scheduled a traffic jam, as the the backup process attempts to back up all disks in parallel.
+- If you configure policies so all VMs are backed up at the same time, you have scheduled a traffic jam, as the backup process attempts to back up all disks in parallel.
 - To reduce the backup traffic, back up different VMs at different time of the day, with no overlap.
 
 
@@ -123,39 +111,28 @@ Backup consists of two phases, taking snapshots and transferring the snapshots t
 
 Situations that can affect backup time include the following:
 
-
-- **Initial backup for a newly added disk to an already protected VM**: If a VM is undergoing incremental backup, when a new disk is added then the backup might miss the one day SLA, depending on the size of the new disk.
-- **Fragmented app**: If an app is poorly configured it might not be optimal for storage:
-    - If the snapshot contains many small, fragmented writes, the service spends additional time processing the data written by the applications.
-    - For applications running inside the VM, the recommended application-writes block minimum is 8 KB. If your application uses a block of less than 8 KB, backup performance is effected.
-- **Storage account overloaded**: A backup could be scheduled when the app is running in production, or if more than five to ten disks are hosted from the same storage account.
-- **Consistency check (CC) mode**: For disks greater than 1TB disks the backup could be in CC mode for a couple of reasons:
-    - The managed disk moves as part of VM reboot.
-    - Promotes snapshot to base blob.
-
+- **Initial backup for a newly added disk to an already protected VM**: If a VM is undergoing incremental backup and a new disk gets added to this VM, then the backup duration can go beyond 24 hours since the newly added disk has to undergo initial replication along with delta replication of existing disks.
+- **Fragmentation**: Backup product scans for incremental changes between two backups operations. Backup operations are faster when the changes on the disk are collocated when compared to changes are spread across then the disk. 
+- **Churn**: Daily churn (for incremental replication) per disk greater than 200 GB can take greater than ~8 hours to complete the operation. If VM has more than one disk and if one of those disks is taking longer time to backup, then it can impact the overall backup operation (or can result in failure). 
+- **Checksum Comparison (CC) mode**: CC mode is comparatively slower than optimized mode used by Instant RP. If you are already using Instant RP and have deleted the Tier-1 snapshots, then backup switches to CC mode causing the Backup operation to exceed 24 hours (or fail).
 
 ## Restore considerations
 
 A restore operation consists of two main tasks: copying data back from the vault to the chosen storage account, and creating the virtual machine. The time needed to copy data from the vault depends on where the backups are stored in Azure, and the storage account location. Time taken to copy data depends upon:
 
 - **Queue wait time**: Since the service processes restore jobs from multiple storage accounts at the same time, restore requests are put in a queue.
-- **Data copy time**: Data is copied from the vault to the storage account. Restore time depends on IOPS and throughput of the selected storage account which the Azure Backup service uses. To reduce the copying time during the restore process, select a storage account not loaded with other application writes and reads.
+- **Data copy time**: Data is copied from the vault to the storage account. Restore time depends on IOPS and throughput of the selected storage account, which the Azure Backup service uses. To reduce the copying time during the restore process, select a storage account not loaded with other application writes and reads.
 
 ## Best practices
 
 We suggest following these practices while configuring VM backups:
 
-- Don't schedule backups for more than 100 VMs from one vault, at the same time.
-- Schedule VM backups during non-peak hours. This way the Backup service uses IOPS for transferring data from the storage account to the vault.
-- If you're backing up managed disks, the Azure Backup service handles storage management. If you're backing up unmanaged disks:
-    - Make sure to apply a backup policy to VMs spread across multiple storage accounts.
-    - No more than 20 disks from a single storage account should be protected by the same backup schedule.
-    - If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
-    - Don't restore a VM running on premium storage to the same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
-    - For Premium VM backup on VM backup stack V1, you should allocate only 50% of the total storage account space so the Backup service can copy the snapshot to storage account, and transfer data from the storage account to the vault.
-- It is recommended to use different storage accounts instead of using the same storage accounts in order to restore VMs from a single vault. This will avoid throttling and result in 100% restore success with good performance.
-- The restores from tier 1 storage layer will be completed in minutes against the tier 2 storage restores which takes few hours. We recommend you to use [Instant RP feature](backup-upgrade-to-vm-backup-stack-v2.md) for faster restores. This is only applicable managed Azure VMs.
-
+- Upgrade vaults to Instant RP. Review these [benefits](backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+- Consider modifying the default provided policy time (for ex. If your default policy time is 12:00AM consider incrementing it by minutes) when the data snapshots are taken to ensure resources are optimally used.
+- For Premium VM backup on non-Instant RP feature allocates ~50% of the total storage account space. Backup service requires this space to copy the snapshot to same storage account and for transferring it to the vault.
+- For restoring VMs from a single vault, it is highly recommended to use different [v2 storage accounts](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) to ensure the target storage account doesn’t get throttled. For example, each VM must have different storage account (If 10 VMs are restored, then consider using 10 different storage accounts).
+- The restores from Tier-1 storage layer (snapshot) will be completed in minutes (since it is the same storage account) against the Tier-2 storage layer (vault) which can take hours. We recommend you to use [Instant RP](backup-upgrade-to-vm-backup-stack-v2.md) feature for faster restores for case where data is available in Tier-1 (if the data has to be restored from vault then it will take time).
+- The limit on number of disks per storage account is relative to how heavy the disks are being accessed by applications running on IaaS VM. Verify if multiple disks are hosted on a single storage account. As a general practice, if 5 to 10 disks or more are present on single storage account, balance the load by moving some disks to separate storage accounts.
 
 ## Backup costs
 
@@ -188,6 +165,5 @@ For example, take an A2 Standard-sized virtual machine that has two additional d
 
 After reviewing the backup process and performance considerations, do the following:
 
-- Download the [capacity planning Excel spreadsheet](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) to try out disk and backup scheduling numbers.
 - [Learn about](../virtual-machines/windows/premium-storage-performance.md) tuning apps for optimal performance with Azure storage. The article focus on premium storage, but is also applicable for standard storage disks.
 - [Get started](backup-azure-arm-vms-prepare.md) with backup by reviewing VM support and limitations, creating a vault, and getting VMs ready for backup.

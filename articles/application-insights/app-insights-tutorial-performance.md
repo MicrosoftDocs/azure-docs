@@ -31,7 +31,7 @@ To complete this tutorial:
 	- ASP.NET and web development
 	- Azure development
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](../azure-monitor/app/asp-net.md).
-- [Enable the Application Insights profiler](app-insights-profiler.md#installation) for your application.
+- [Enable the Application Insights profiler](../azure-monitor/app/profiler.md#installation) for your application.
 
 ## Log in to Azure
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -56,7 +56,7 @@ Application Insights collects performance details for the different operations i
 
 	![Duration distribution](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  You can see at a glance that the call to Fabrikamaccount Azure Table is contributing most to the total duration of the transaction. You can also see that an exception caused it to fail. You can click on any item in the list to see its details on the right side. [Learn more about the transaction diagnostics experience](app-insights-transaction-diagnostics.md)
+5.  You can see at a glance that the call to Fabrikamaccount Azure Table is contributing most to the total duration of the transaction. You can also see that an exception caused it to fail. You can click on any item in the list to see its details on the right side. [Learn more about the transaction diagnostics experience](../azure-monitor/app/transaction-diagnostics.md)
 
 	![Operation details](media/app-insights-tutorial-performance/operation-details.png)
 	

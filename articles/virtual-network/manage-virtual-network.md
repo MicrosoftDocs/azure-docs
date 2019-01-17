@@ -1,14 +1,10 @@
 ---
-title: Create, change, or delete an Azure virtual network | Microsoft Docs
+title: Create, change, or delete an Azure virtual network
+titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a virtual network in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

@@ -74,7 +74,7 @@ You won't lose any code or work. In the older version, projects are cloud entiti
 
 Much of the project content was already on your local machine. So you just need to create a config file in that directory and reference it in your code to connect to your workspace. Learn how to [migrate your existing projects](how-to-migrate.md#projects).
 
-Learn how to [get started in Python with the main SDK](quickstart-get-started.md).
+Learn how to get started in [Python with the main SDK](quickstart-create-workspace-with-python.md) or using [Azure portal](quickstart-get-started.md).
 
 ## What about my registered models and images?
  

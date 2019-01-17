@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/28/2018
+ms.date: 12/20/2018
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -14,7 +14,10 @@ ms.custom: include file
 |:--- |:--- |
 | **Azure** |[Azure Blob storage](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
+| &nbsp; |[Azure Cosmos DB (MongoDB API)](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
+| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
+| &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
@@ -52,11 +55,13 @@ ms.custom: include file
 | **File** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |
 | &nbsp; |[File System](../articles/data-factory/connector-file-system.md) |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |
+| &nbsp; |[Google Cloud Storage](../articles/data-factory/connector-amazon-simple-storage-service.md#copy-from-google-cloud-storage) |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |
 | **Generic protocol** |[Generic HTTP](../articles/data-factory/connector-http.md) |
 | &nbsp; |[Generic OData](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[Generic ODBC](../articles/data-factory/connector-odbc.md) |
+| &nbsp; |[Generic REST](../articles/data-factory/connector-rest.md) |
 | **Services and apps** |[Amazon Marketplace Web Service (Preview)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
 | &nbsp; |[Concur (Preview)](../articles/data-factory/connector-concur.md) |

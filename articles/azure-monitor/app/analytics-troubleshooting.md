@@ -74,7 +74,7 @@ Application resource was deleted from Application Insights and isn�t available
 
 You don't have permission to open this application in Analytics.
 
-* Did you get the link from someone else? Ask them to make sure you are in the [readers or contributors for this resource group](../../application-insights/app-insights-resources-roles-access-control.md).
+* Did you get the link from someone else? Ask them to make sure you are in the [readers or contributors for this resource group](../../azure-monitor/app/resources-roles-access-control.md).
 * Did you save the link using different credentials? Open the [Azure portal](https://portal.azure.com), sign out, and then try this link again, providing the correct credentials.
 
 ## <a name="html-storage"></a>403 ... HTML5 Storage

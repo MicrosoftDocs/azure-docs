@@ -65,7 +65,7 @@ Perform the following steps to cable your device.
 Perform the following steps to set up your device using the local web UI and the portal UI.
 
 1. Configure the Ethernet adapter on the laptop you are using to connect to the device with a static IP address of 192.168.100.5 and subnet 255.255.255.0. 
-2. Connect to MGMT port of your device and access its local web UI at https://192.168.100.10. This may take up to 5 minutes after you turned on the device.
+2. Connect to MGMT port of your device and access its local web UI at https\://192.168.100.10. This may take up to 5 minutes after you turned on the device.
 3. Click **Details** and then click **Go on to the webpage**.
 
    ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

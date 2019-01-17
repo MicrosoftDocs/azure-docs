@@ -4,8 +4,9 @@ description: Learn how to prepare Azure for disaster recovery of on-premises mac
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
 

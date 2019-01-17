@@ -1,12 +1,12 @@
 ---
 title: Partitioning and horizontal scaling in Azure Cosmos DB
 description: Learn about how partitioning works in Azure Cosmos DB, how to configure partitioning and partition keys, and how to pick the right partition key for your application.
-author: aliuy
-
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
+
 
 ---
 
@@ -26,7 +26,7 @@ When new items are added to the container or if the throughput provisioned on th
 
 ## Physical partitions
 
-A Cosmos container is scaled by distributing the data and the throughput across a large number of logical partitions. Internally, one or more logical partitions are mapped to a **resource partition** that consists of a set of replicas also referred to as a replica-set. Each replica-set hosts an instance of the Cosmos database engine. A replica-set makes the data stored within the resource partition durable, highly available, and consistent. A resource partition supports a fixed, maximum amount of storage and RUs. Each replica comprising the resource partition inherits the storage quota. And all replicas of a resource partition collectively support the throughput allocated to the resource partition. The following image shows how logical partitions are mapped to physical partitions that are distributed globally:
+A Cosmos container is scaled by distributing the data and the throughput across a large number of logical partitions. Internally, one or more logical partitions are mapped to a **physical partition** that consists of a set of replicas also referred to as a replica-set. Each replica-set hosts an instance of the Cosmos database engine. A replica-set makes the data stored within the physical partition durable, highly available, and consistent. A physical partition supports a fixed, maximum amount of storage and RUs. Each replica comprising the physical partition inherits the storage quota. And all replicas of a physical partition collectively support the throughput allocated to the physical partition. The following image shows how logical partitions are mapped to physical partitions that are distributed globally:
 
 ![Azure Cosmos DB partitioning](./media/partition-data/logical-partitions.png)
 

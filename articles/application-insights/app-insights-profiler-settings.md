@@ -112,15 +112,15 @@ If any of these settings aren't set, go to the Application Insights enablement p
 ## Next Steps
 [Enable Profiler and View traces](app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
-[profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
-[configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
-[create-performance-test]: ./media/app-insights-profiler/new-performance-test.png
-[configure-performance-test]: ./media/app-insights-profiler/configure-performance-test.png
-[load-test-queued]: ./media/app-insights-profiler/load-test-queued.png
-[load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
-[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade-01.png
-[update-site-extension]: ./media/app-insights-profiler/update-site-extension-01.png
-[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights-01.png
-[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler-01.png
-[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update-01.png
-[profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png
+[profiler-on-demand]: ./media/app-insights-profiler-settings/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/app-insights-profiler-settings/configure-profiler-entry.png
+[create-performance-test]: ./media/app-insights-profiler-settings/new-performance-test.png
+[configure-performance-test]: ./media/app-insights-profiler-settings/configure-performance-test.png
+[load-test-queued]: ./media/app-insights-profiler-settings/load-test-queued.png
+[load-test-in-progress]: ./media/app-insights-profiler-settings/load-test-inprogress.png
+[enable-app-insights]: ./media/app-insights-profiler-settings/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/app-insights-profiler-settings/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/app-insights-profiler-settings/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/app-insights-profiler-settings/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/app-insights-profiler-settings/check-extension-update-01.png
+[profiler-timeout]: ./media/app-insights-profiler-settings/profiler-timeout.png

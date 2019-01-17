@@ -106,7 +106,7 @@ The Azure Machine Learning Workbench is a companion application built for profes
 
 **Is Workbench an IDE?**
 
-No. The Machine Learning Workbench has been designed as a companion to popular IDEs such as Jupyter Notebooks, Visual Studio Code, and PyCharm but it is not a fully functional IDE. The Machine Learning Workbench offers some basic text editing capabilities, but debugging, intellisense and other commonly used IDE capabilities are not supported. We recommend that you use your favorite IDE for code development, editing and debugging. You may also wish to try [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
+No. The Machine Learning Workbench has been designed as a companion to popular IDEs such as Jupyter Notebooks, Visual Studio Code, and PyCharm but it is not a fully functional IDE. The Machine Learning Workbench offers some basic text editing capabilities, but debugging, intellisense and other commonly used IDE capabilities are not supported. We recommend that you use your favorite IDE for code development, editing and debugging. You may also wish to try [Visual Studio Code Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
 **Is there a charge for using the Azure Machine Learning Workbench?**
 

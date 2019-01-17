@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device and then
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/14/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -60,6 +60,8 @@ IoT Edge device:
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
+   It may take a few minutes to create and start the new virtual machine. 
 
    When you create a new virtual machine, make a note of the **publicIpAddress**, which is provided as part of the create command output. You use this public IP address to connect to the virtual machine later in the quickstart.
 
@@ -196,12 +198,12 @@ The security daemon installs as a system service so that the IoT Edge runtime st
    sudo systemctl restart iotedge
    ```
 
->[!TIP]
->You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use **sudo** in front of the commands. 
-
 ### View the IoT Edge runtime status
 
 Verify that the runtime was successfully installed and configured.
+
+>[!TIP]
+>You need elevated privileges to run `iotedge` commands. Once you sign out of your machine and sign back in the first time after installing the IoT Edge runtime, your permissions are automatically updated. Until then, use **sudo** in front of the commands. 
 
 1. Check to see that the Edge Security Daemon is running as a system service.
 
@@ -246,15 +248,18 @@ Open the command prompt on your IoT Edge device again. Confirm that the module d
 
    ![View three modules on your device](./media/quickstart-linux/iotedge-list-2.png)
 
-View the messages being sent from the tempSensor module:
+View the messages being sent from the temperature sensor module:
 
    ```bash
-   sudo iotedge logs tempSensor -f
+   sudo iotedge logs SimulatedTemperatureSensor -f
    ```
 
-![View the data from your module](./media/quickstart-linux/iotedge-logs.png)
+   >[!TIP]
+   >IoT Edge commands are case-sensitive when referring to module names.
 
-The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is `Using transport Mqtt_Tcp_Only`. Try killing the module and letting the Edge Agent restart it. You can kill it with the command `sudo docker stop tempSensor`.
+   ![View the data from your module](./media/quickstart-linux/iotedge-logs.png)
+
+The temperature sensor module may be waiting to connect to Edge Hub if the last line you see in the log is **Using transport Mqtt_Tcp_Only**. Try stopping the module and letting the Edge Agent restart it. You can stop it with the command `sudo docker stop SimulatedTemperatureSensor`.
 
 You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit extension). 
 
@@ -288,10 +293,10 @@ When the IoT Edge runtime is removed, the containers that it created are stopped
    sudo docker ps -a
    ```
 
-Delete the containers that were created on your device by the IoT Edge runtime. Change the name of the tempSensor container if you called it something different. 
+Delete the containers that were created on your device by the IoT Edge runtime. 
 
    ```bash
-   sudo docker rm -f tempSensor
+   sudo docker rm -f SimulatedTemperatureSensor
    sudo docker rm -f edgeHub
    sudo docker rm -f edgeAgent
    ```

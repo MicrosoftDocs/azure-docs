@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
 
 ---
@@ -22,7 +22,7 @@ ms.author: sethm
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Follow the steps in this article to run a sample application (HelloKeyVault) that retrieves keys and secrets from a key vault in Azure Stack.
+Follow the steps in this article to run a sample application named **HelloKeyVault** that retrieves keys and secrets from a key vault in Azure Stack.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ You can use the Azure portal or PowerShell to prepare for the sample application
 >[!NOTE]
 >By default, the PowerShell script creates a new application in Active Directory. However, you can register one of your existing applications.
 
- Before running the following script, make sure you provide values for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for `applicationPassword`, this script generates a random password.
+Before running the following script, make sure you provide values for the `aadTenantName` and `applicationPassword` variables. If you don't specify a value for `applicationPassword`, this script generates a random password.
 
 ```powershell
 $vaultName           = 'myVault'
@@ -66,7 +66,7 @@ Function GenerateSymmetricKey()
 Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
-$aadTenantName = "PLEASE FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
+$aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
 # Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
@@ -131,10 +131,9 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
-
 ```
 
-The next screen capture shows the output from the script used to create the key vault:
+The following image shows the output from the script used to create the key vault:
 
 ![Key vault with access keys](media/azure-stack-kv-sample-app/settingsoutput.png)
 
@@ -142,19 +141,19 @@ Make a note of the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** valu
 
 ## Download and configure the sample application
 
-Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/en-us/download/details.aspx?id=45343) page. Extract the contents of the .zip file on your development workstation. There are two applications in the samples folder, this article uses HelloKeyVault.
+Download the key vault sample from the Azure [Key Vault client samples](https://www.microsoft.com/download/details.aspx?id=45343) page. Extract the contents of the .zip file on your development workstation. There are two applications in the samples folder. This article uses **HelloKeyVault**.
 
-To load the HelloKeyVault sample:
+To load the **HelloKeyVault** sample:
 
 * Browse to the **Microsoft.Azure.KeyVault.Samples** > **samples** > **HelloKeyVault** folder.
-* Open the HelloKeyVault application in Visual Studio.
+* Open the **HelloKeyVault** application in Visual Studio.
 
 ### Configure the sample application
 
 In Visual Studio:
 
-* Open the HelloKeyVault\App.config file and find browse to the &lt;**appSettings**&gt; element.
-* Update the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** keys with the values returned by the used to create the key vault. (By default, the App.config file has a placeholder for *AuthCertThumbprint*. Replace this placeholder with *AuthClientSecret*.)
+* Open the HelloKeyVault\App.config file and find the &lt;**appSettings**&gt; element.
+* Update the **VaultUrl**, **AuthClientId**, and **AuthClientSecret** keys with the values returned by those used to create the key vault. By default, the App.config file has a placeholder for `AuthCertThumbprint`. Replace this placeholder with `AuthClientSecret`.
 
   ![App settings](media/azure-stack-kv-sample-app/appconfig.png)
 
@@ -167,10 +166,9 @@ When you run HelloKeyVault, the application signs in to Azure AD, and then uses 
 You can use the HelloKeyVault sample to:
 
 * Perform basic operations such as create, encrypt, wrap, and delete on the keys and secrets.
-* Pass parameters such as *encrypt* and *decrypt* to HelloKeyVault, and apply the specified changes to a key vault.
+* Pass parameters such as `encrypt` and `decrypt` to HelloKeyVault, and apply the specified changes to a key vault.
 
 ## Next steps
 
-[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-
-[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
+- [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
+- [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)

@@ -64,7 +64,7 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
 * **Port forwarding**
 
-    With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. This is also accomplished by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside the Azure Virtual Network. You can map multiple internal endpoints to the various ports on the same frontend IP address. You can use the fronend IP addresses to remotely administer your VMs over the internet without the need for an additional jump box.
+    With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a specific frontend IP address to a specific port of a specific backend instance inside the virtual network. This is also accomplished by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside the Azure Virtual Network. You can map multiple internal endpoints to the various ports on the same frontend IP address. You can use the frontend IP addresses to remotely administer your VMs over the internet without the need for an additional jump box.
 
 * **Application agnostic and transparent**
 

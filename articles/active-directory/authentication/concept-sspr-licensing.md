@@ -38,7 +38,7 @@ Azure AD self-service password reset is licensed per user, to maintain complianc
    * This functionality is included in Azure AD Premium P1, or Premium P2 editions.
 
 > [!WARNING]
-> Standalone Office 365 licensing plans **don't support password writeback** and require Azure AD Premium P1, or Premium P2 editions for this functionality to work.
+> Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require a plan that includes Azure AD Premium P1, or Premium P2 editions for this functionality to work.
 >
 
 Additional licensing information, including costs, can be found on the following pages:

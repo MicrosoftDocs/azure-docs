@@ -38,7 +38,7 @@ When connections exceed the limit, you may receive the following error:
 
 ### Unsupported
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
-- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/l)
+- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
 ## Privilege support

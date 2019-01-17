@@ -137,7 +137,7 @@ To pivot, click the ellipses (**…**) that appears at the end of each line, and
 
 ### Sample-corrected data
 
-Application Insights provides *[sampling correction](../../application-insights/app-insights-sampling.md)* to help reduce telemetry traffic. When you enable sampling on your Application Insights app, you get a reduced number of entries stored both in Application Insights and in Log Analytics. While data consistency is preserved in the **Application Insights Connector** page and perspectives, you should manually correct sampled data for your custom queries.
+Application Insights provides *[sampling correction](../../azure-monitor/app/sampling.md)* to help reduce telemetry traffic. When you enable sampling on your Application Insights app, you get a reduced number of entries stored both in Application Insights and in Log Analytics. While data consistency is preserved in the **Application Insights Connector** page and perspectives, you should manually correct sampled data for your custom queries.
 
 Here is an example of sampling correction in a log search query:
 
