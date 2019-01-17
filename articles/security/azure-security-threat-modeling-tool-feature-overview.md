@@ -3,9 +3,9 @@ title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: Learn about all the features available in the Threat Modeling Tool
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security

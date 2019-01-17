@@ -115,6 +115,8 @@
       maintainContext: true
     - name: Bring your own key
       href: apache-kafka-byok.md
+    - name: SSL Encryption and Authentication
+      href: apache-kafka-ssl-encryption-authentication.md
     - name: Apache Kafka RBAC with Apache Ranger
       href: ../domain-joined/apache-domain-joined-run-kafka.md
       maintainContext: true

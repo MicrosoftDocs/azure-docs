@@ -23,6 +23,23 @@ ms.reviewer: johnhas
 
 This article has the release notes for Azure Stack Validation as a Service.
 
+## Version 4.0.2
+
+2019 January 7
+
+If you are running the Azure Stack Monthly Update Verification workflow and the version for your OEM update package is not 1810 or higher, you will receive an error once you get to the OEM update step. This is a bug. A fix is being developed.The mitigation steps are as follows:
+
+1.	Run the OEM update as normal.
+2.	Execute Test-AzureStack after successful application of the package and save the output.
+3.	Cancel the test.
+4.  Send the saved output to VaaSHelp@microsoft.com to recieve passing results for the run.
+
+## Version 4.0.2
+
+2018 November 30
+
+- Internal bug fixes
+
 ## Version 4.0.1
 
 2018 October 8

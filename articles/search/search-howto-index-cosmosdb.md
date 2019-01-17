@@ -33,7 +33,7 @@ In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates 
 <a name="supportedAPIs"></a>
 ## Supported API types
 
-Although Azure Cosmos DB supports a variety of data models and APIs, Azure Search indexer production support extends to the SQL API only. Support for the Azure Cosmos DB for MongoDB API is currently in public preview.  
+Although Azure Cosmos DB supports a variety of data models and APIs, Azure Search indexer production support extends to the SQL API only. Support for the Azure Cosmos DB's API for MongoDB is currently in public preview.  
 
 Support for additional APIs is forthcoming. To help us prioritize which ones to support first, please cast your vote on the User Voice web site:
 
