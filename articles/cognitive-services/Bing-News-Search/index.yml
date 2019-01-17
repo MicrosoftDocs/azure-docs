@@ -16,7 +16,7 @@ metadata:
   ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: The Bing News Search API enables you to integrate Bing's news search capabilities in your applications. By sending search queries with the API, you can get relevant news articles from multiple categories similar to bing.com/news.
+  description: The Bing News Search API enables you to integrate Bing's news search capabilities in your applications. By sending search queries with the API, you can get relevant news articles from multiple categories and sources, similar to bing.com/news.
 sections:
 - items:
     - type: list

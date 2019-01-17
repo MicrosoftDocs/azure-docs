@@ -30,7 +30,7 @@ sections:
             src: ../media/index/i_overview.svg
           title: What is the Bing Image Search API?
         - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries
-          html: <p>Learn how to send image search queries to Bing</p>
+          html: <p>Learn how to send image search queries to the Bing Image Search API</p>
           image:
             src: ../media/index/i_guidelines.svg
           title: Image Search queries
