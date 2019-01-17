@@ -48,6 +48,7 @@ ms.custom: Jenkins
     - **Public IP address** - The IP address name defaults to the Jenkins name you specified in the previous page with a suffix of -IP. You can select the option to change that default.
     - **Domain name label** - Specify the value for the fully qualified URL to the Jenkins virtual machine.
     - **Jenkins release type** - Select the desired release type from the options: `LTS`, `Weekly build`, or `Azure Verified`. The `LTS` and `Weekly build` options are explained in the article, [Jenkins LTS Release Line](https://jenkins.io/download/lts/). The `Azure Verified` option refers to a [Jenkins LTS version](https://jenkins.io/download/lts/) that has been verified to run on Azure. 
+    - **JDK Type** - JDK to be installed. Default is Zulu tested, certified builds of OpenJDK.
 
     ![Enter virtual machine settings for Jenkins in the Settings tab.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
 

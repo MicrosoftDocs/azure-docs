@@ -74,6 +74,14 @@ A Sync Group has the following properties:
     -   If you select *Hub wins*, the changes in the hub always overwrite changes in the member.
     -   If you select *Member wins*, the changes in the member overwrite changes in the hub. If there's more than one member, the final value depends on which member syncs first.
 
+## Compare Data Sync with Transactional Replication
+
+| | Data Sync | Transactional Replication |
+|---|---|---|
+| Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
+| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database single database<br/>-	High maintenance cost |
+| | | |
+
 ## Get started with SQL Data Sync
 
 ### Set up Data Sync in the Azure portal

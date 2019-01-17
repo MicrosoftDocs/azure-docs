@@ -19,7 +19,7 @@ This article answers common questions about the Azure Backup service.
 Yes. You can create up to 500 Recovery Services vaults, per supported region of Azure Backup, per subscription. If you need additional vaults, create an additional subscription.
 
 ### Are there limits on the number of servers/machines that can be registered against each vault?
-You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register upto 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
+You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
 
 
 ### If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?
@@ -225,7 +225,7 @@ When a new policy is applied, schedule and retention of the new policy is follow
 
 ### Is the data sent to Azure encrypted?
 
-Yes. Data is encrypted on the on-premises  machine using AES256. The data is sent over a secure HTTPS link.
+Yes. Data is encrypted on the on-premises machine using AES256. The data is sent over a secure HTTPS link. The data is transmitted in cloud is protected by HTTPS link only between storage and recovery service. iSCSI protocol secures the data transmitted between recovery service and user machine. Secure tunneling is used to protect the iSCSI channel.
 
 ### Is the backup data on Azure encrypted as well?
 

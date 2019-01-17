@@ -50,7 +50,7 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | Scale out to multiple instances without redeploy |X |X |X |X |Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and make sure you have more than one VM instance in the [availability set](../virtual-machines/windows/manage-availability.md). |
 | Support for SSL |X |X |X |X |For App Service web apps, SSL for custom domain names is only supported for Basic and Standard mode. For information about using SSL with web apps, see [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md). |
 | Visual Studio integration |X |X |X |X | |
-| Remote Debugging |X |X |X | | |
+| Remote Debugging |X |X |X |X | |
 | Deploy code with TFS |X |X |X |X | |
 | Network isolation with [Azure Virtual Network](/azure/virtual-network/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Support for [Azure Traffic Manager](/azure/traffic-manager/) |X |X |X |X | |

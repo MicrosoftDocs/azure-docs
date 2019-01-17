@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 4/12/2018
+ms.date: 1/16/2019
 ms.author: dukek
 ms.component: logs
 ---
@@ -642,6 +642,126 @@ This category contains the record of any new recommendations that are generated 
 | properties.recommendationCategory | Category of the recommendation. Possible values are "High Availability", "Performance", "Security", and "Cost" |
 | properties.recommendationImpact| Impact of the recommendation. Possible values are "High", "Medium", "Low" |
 | properties.recommendationRisk| Risk of the recommendation. Possible values are "Error", "Warning", "None" |
+
+## Policy
+
+This category contains records of all effect action operations performed by [Azure
+Policy](../../governance/policy/overview.md). Examples of the types of events you would see in this
+category include _Audit_ and _Deny_. Every action taken by Policy is modeled as an operation on a
+resource.
+
+### Sample Policy event
+
+```json
+{
+    "authorization": {
+        "action": "Microsoft.Resources/checkPolicyCompliance/read",
+        "scope": "/subscriptions/<subscriptionID>"
+    },
+    "caller": "33a68b9d-63ce-484c-a97e-94aef4c89648",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.azure.com/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "appid": "1d78a85d-813d-46f0-b496-dd72f50a3ec0",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "description": "",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Policy",
+        "localizedValue": "Policy"
+    },
+    "eventTimestamp": "2019-01-15T13:19:56.1227642Z",
+    "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy/events/13bbf75f-36d5-4e66-b693-725267ff21ce/ticks/636831551961227642",
+    "level": "Warning",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Authorization/policies/audit/action",
+        "localizedValue": "Microsoft.Authorization/policies/audit/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Sql",
+        "localizedValue": "Microsoft SQL"
+    },
+    "resourceType": {
+        "value": "Microsoft.Resources/checkPolicyCompliance",
+        "localizedValue": "Microsoft.Resources/checkPolicyCompliance"
+    },
+    "resourceId": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-01-15T13:20:17.1077672Z",
+    "subscriptionId": "<subscriptionID>",
+    "properties": {
+        "isComplianceCheck": "True",
+        "resourceLocation": "westus2",
+        "ancestors": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "policies": "[{\"policyDefinitionId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.
+            Authorization/policyDefinitions/5775cdd5-d3d3-47bf-bc55-bb8b61746506/\",\"policyDefiniti
+            onName\":\"5775cdd5-d3d3-47bf-bc55-bb8b61746506\",\"policyDefinitionEffect\":\"Deny\",\"
+            policyAssignmentId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.Authorization
+            /policyAssignments/991a69402a6c484cb0f9b673/\",\"policyAssignmentName\":\"991a69402a6c48
+            4cb0f9b673\",\"policyAssignmentScope\":\"/subscriptions/<subscriptionID>\",\"policyAssig
+            nmentParameters\":{}}]"
+    },
+    "relatedEvents": []
+}
+```
+
+### Policy event property descriptions
+
+| Element Name | Description |
+| --- | --- |
+| authorization | Array of RBAC properties of the event. For new resources, this is the action and scope of the request that triggered evaluation. For existing resources, the action is "Microsoft.Resources/checkPolicyCompliance/read". |
+| caller | For new resources, the identity that initiated a deployment. For existing resources, the GUID of the Microsoft Azure Policy Insights RP. |
+| channels | Policy events use only the "Operation" channel. |
+| claims | The JWT token used by Active Directory to authenticate the user or application to perform this operation in Resource Manager. |
+| correlationId | Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
+| description | This field is blank for Policy events. |
+| eventDataId | Unique identifier of an event. |
+| eventName | Either "BeginRequest" or "EndRequest". "BeginRequest" is used for delayed auditIfNotExists and deployIfNotExists evaluations and when a deployIfNotExists effect starts a template deployment. All other operations return "EndRequest". |
+| category | Declares the activity log event as belonging to "Policy". |
+| eventTimestamp | Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
+| id | Unique identifier of the event on the specific resource. |
+| level | Level of the event. Audit uses "Warning" and Deny uses "Error". An auditIfNotExists or deployIfNotExists error can generate "Warning" or "Error" depending on severity. All other Policy events use "Informational". |
+| operationId | A GUID shared among the events that correspond to a single operation. |
+| operationName | Name of the operation and directly correlates to the Policy effect. |
+| resourceGroupName | Name of the resource group for the evaluated resource. |
+| resourceProviderName | Name of the resource provider for the evaluated resource. |
+| resourceType | For new resources, it is the type being evaluated. For existing resources, returns "Microsoft.Resources/checkPolicyCompliance". |
+| resourceId | Resource ID of the evaluated resource. |
+| status | String describing the status of the Policy evaluation result. Most Policy evaluations return "Succeeded", but a Deny effect returns "Failed". Errors in auditIfNotExists or deployIfNotExists also return "Failed". |
+| subStatus | This field is blank for Policy events. |
+| submissionTimestamp | Timestamp when the event became available for querying. |
+| subscriptionId | Azure Subscription ID. |
+| properties.isComplianceCheck | Returns "False" when a new resource is deployed or an existing resource's Resource Manager properties are updated. All other [evaluation triggers](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) result in "True". |
+| properties.resourceLocation | The Azure region of the resource being evaluated. |
+| properties.ancestors | A comma-separated list of parent management groups ordered from direct parent to farthest grandparent. |
+| properties.policies | Includes details about the policy definition, assignment, effect, and parameters that this Policy evaluation is a result of. |
+| relatedEvents | This field is blank for Policy events. |
 
 ## Mapping to diagnostic logs schema
 
