@@ -10,7 +10,7 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 12/04/2018
+ms.date: 1/17/2019
 
 ---
 
@@ -19,9 +19,11 @@ ms.date: 12/04/2018
 Microsoft provides a variety of product options to build, deploy, and manage your machine learning models. Compare these products and choose what you need to develop your machine learning solutions most effectively.
 
 
-**Machine learning in the cloud**
+**Cloud-based options**
 
-| Cloud options | What it is | What you can do with it |
+The following options are available for machine learning in the Azure cloud.
+
+| Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
 | [Azure Machine Learning service](#azure-machine-learning-services) | Managed cloud service for ML  | Train, deploy, and manage models in Azure using Python and CLI |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag&ndash;and&ndash;drop visual interface for ML | Build, experiment, and deploy models using preconfigured algorithms  (Python and R)|
@@ -29,18 +31,20 @@ Microsoft provides a variety of product options to build, deploy, and manage you
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop ML solutions in a pre-configured environment |
 
-**Machine learning on-premises**
+**On-premises options**
 
-On-premises servers also may be run in a virtual machine in the cloud
+The following options are available for machine learning on-premises. On-premises servers can also run in a virtual machine in the cloud.
 
-| On-premises options | What it is | What you can do with it |
+| On-premises&nbsp;options | What it is | What you can do with it |
 |-|-|-|
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models inside SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for predictive analysis | Build and deploy models with R and Python |
 
-**Machine learning development tools**
+**Development tools**
 
-| Development tools | What it is | What you can do with it |
+The following development tools are available for machine learning.
+
+| Development&nbsp;tools | What it is | What you can do with it |
 |-|-|-|
 | [ML.NET](#mlnet) | Open-source, cross-platform ML SDK | Develop ML solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 ML platform | Evaluate trained models on a Windows 10 device |
@@ -50,27 +54,6 @@ On-premises servers also may be run in a virtual machine in the cloud
 
 
 
-
-
-
-
-
-
-
-| Machine learning product | What it is | What you can do with it |
-|-|-|-|
-| ***In the cloud*** | | |
-| [Azure Machine Learning service](#azure-machine-learning-services) | Managed cloud service for ML  | Train, deploy, and manage models in Azure using Python and CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag&ndash;and&ndash;drop visual interface for ML | Build, experiment, and deploy models using preconfigured algorithms  (Python and R)|
-| [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
-| [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
-| [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop ML solutions in a pre-configured environment |
-| ***On-premises***<br>*(on-premises servers also may be run in a virtual machine in the cloud)* | | |
-| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models inside SQL Server |
-| [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for predictive analysis | Build and deploy models with R and Python |
-| ***Developer tools*** | | |
-| [ML.NET](#mlnet) | Open-source, cross-platform ML SDK | Develop ML solutions for .NET applications |
-| [Windows ML](#windows-ml) | Windows 10 ML platform | Evaluate trained models on a Windows 10 device |
 
 ## Azure Machine Learning service
 
