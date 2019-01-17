@@ -79,11 +79,14 @@ Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/
 > [!NOTE]
 > Service Fabric clusters will use the first valid certificate it finds in your hosts certificate store, and on Windows this will be the newest latest expiring certificate that matches your Common Name and Issuer Thumbprint.
 
-Azure domains such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net are owned by Microsoft, Certificate Authorities will not issue certifacates for domains to unauthorized users, so you need be an authoritized domain admin for a Certificate Authority to issue you a certifacate with that common name.
+Azure domains such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net are owned by Microsoft, Certificate Authorities will not issue certifacates for domains to unauthorized users, so most users will need to purchase a domain from a registar or be an authoritized domain admin for a Certificate Authority to issue you a certifacate with that common name.
 
-so you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) if you to provision your Cluster certificate with a Subject Alternative Name value that resolves to a DNS name you own. After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following two Records Set to your DNS Zone:'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT an "Alias record set"; E.G. Use your Traffic Manager or Load Balancer's DNS name.
+For additional details on how to configure DNS Service to resolve your domain to a Microsoft IP address, please review how to configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
-You should also update your Service Fabric Cluster "managementEndpoint" Resource Manager template property to your custom domain, so that portal can display the correct url to connect to your Service Fabric Explorer User Interface, and the follow is the snippet of the property you will update to your custom domain:
+> [!NOTE]
+> After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following two Records Set to your DNS Zone:'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT an "Alias record set"; E.G. Use your Traffic Manager or Load Balancer's DNS name. 
+
+To update your portal to display a custom DNS nanme for your Service Fabric Cluster "managementEndpoint", update the follow Service Fabric Cluster Resource Manager template properties:
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
 ```
