@@ -98,7 +98,7 @@ Here is the main class implementing the client, whose constructor that parses th
 
 ### Create a security token
 
-Refer to the Azure documentation for information about how to [Create a SAS Security Token](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token).
+Refer to the Azure documentation for information about how to [Create a SAS Security Token](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token).
 
 Add the `generateSasToken` method to the `NotificationHub` class to create the token based on the URI of the current request and the credentials extracted from the connection string.
 

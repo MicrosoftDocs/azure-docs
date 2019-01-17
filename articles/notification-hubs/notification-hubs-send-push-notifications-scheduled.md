@@ -20,8 +20,6 @@ ms.author: jowargo
 
 # How To: Send scheduled notifications
 
-## Overview
-
 If you have a scenario in which you want to send a notification at some point in the future, but do not have an easy way to wake up your back-end code to send the notification. Standard tier notification hubs support a feature that enables you to schedule notifications up to seven days in the future.
 
 When sending a notification, simply use the [`ScheduledNotification` class](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) in the Notification Hubs SDK as shown in the following example:

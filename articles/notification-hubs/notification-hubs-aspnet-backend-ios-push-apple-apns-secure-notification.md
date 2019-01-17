@@ -78,12 +78,10 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
         NSString* authenticationHeader = rvc.registerClient.authenticationHeader;
         if (!authenticationHeader) return;
 
-
         NSURLSession* session = [NSURLSession
                                     sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
                                     delegate:nil
                                     delegateQueue:nil];
-
 
         NSURL* requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%d", GetNotificationEndpoint, payloadId]];
         NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];
@@ -121,6 +119,7 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 5. Then click your **Capabilities** tab at the top of your central pane, and check the **Remote Notifications** checkbox.
 
     ![][IOS1]
+
 6. In `AppDelegate.m` add the following method to handle push notifications:
 
     ```objc

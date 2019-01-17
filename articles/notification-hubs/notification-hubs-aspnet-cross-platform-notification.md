@@ -29,6 +29,8 @@ This article demonstrates how to take advantage of templates to send, in a singl
 > [!NOTE]
 > With Notification Hubs, a device can register multiple templates with the same tag. In this case, an incoming message that targets the tag results in multiple notifications delivered to the device, one for each template. This process enables you to display the same message in multiple visual notifications, such as both as a badge and as a toast notification in a Windows Store app.
 
+## Send cross-platform notifications using templates
+
 To send cross-platform notifications by using templates, do the following:
 
 1. In the Solution Explorer in Visual Studio, expand the **Controllers** folder, and then open the RegisterController.cs file.

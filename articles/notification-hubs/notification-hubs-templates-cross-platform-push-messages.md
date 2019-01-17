@@ -19,8 +19,6 @@ ms.author: jowargo
 
 # Templates
 
-## Overview
-
 Templates enable a client application to specify the exact format of the notifications it wants to receive. Using templates, an app can realize several different benefits, including the following:
 
 - A platform-agnostic backend
