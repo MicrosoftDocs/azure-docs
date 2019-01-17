@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2019
+ms.date: 01/17/2019
 ms.author: cwatson
 ---
 # Understand how the Red Hat Linux Enterprise software reservation plan discount is applied for Azure
@@ -56,21 +56,21 @@ Azure portal marketplace names:
 
 |Red Hat VM | MeterId| Ratio| Example VM size|
 | -------| ------------------------| --- |--- |
-|1-4 vCPU VM License|077a07bb-20f8-4bc6-b596-ab7211a1e247|||
-|1-4 vCPU VM License|2f96d035-3bac-46d6-b2bc-c6daa0938536|||
-|1-4 vCPU VM License|4831a7b4-bdd4-48a2-8e95-18d053971ede|||
-|5+ vCPU VM License|291b2cbc-6c34-4e2b-a4e4-1ff8c106f672|||
-|5+ vCPU VM License|3b6661c4-03dd-45e7-88c9-512fcb7906d5|||
-|5+ vCPU VM License|037eddc0-fedd-4d73-b5d8-92fba9edb831|||
-|5+ vCPU VM License|432cdeee-4034-4ddf-9ba4-9250a19b0d5f|||
-|5+ vCPU VM License|794dcb90-0793-43e6-9909-70d29974e56d|||
-|5+ vCPU VM License|86b5b0b4-3c19-4720-82e9-874f8c58b48e|||
+|1-4 vCPU VM License|077a07bb-20f8-4bc6-b596-ab7211a1e247|1||
+|1-4 vCPU VM License|2f96d035-3bac-46d6-b2bc-c6daa0938536|1||
+|1-4 vCPU VM License|4831a7b4-bdd4-48a2-8e95-18d053971ede|1||
+|5+ vCPU VM License|291b2cbc-6c34-4e2b-a4e4-1ff8c106f672|2.166666667||
+|5+ vCPU VM License|3b6661c4-03dd-45e7-88c9-512fcb7906d5|2.166666667||
+|5+ vCPU VM License|037eddc0-fedd-4d73-b5d8-92fba9edb831|2.166666667||
+|5+ vCPU VM License|432cdeee-4034-4ddf-9ba4-9250a19b0d5f|2.166666667||
+|5+ vCPU VM License|794dcb90-0793-43e6-9909-70d29974e56d|2.166666667||
+|5+ vCPU VM License|86b5b0b4-3c19-4720-82e9-874f8c58b48e|2.166666667||
 |5+ vCPU VM License|86c35ec3-0a48-426a-9625-22d80e6ea55b|||
-|5+ vCPU VM License|8b698c7a-47f1-4cba-8ae1-9853d5ad562d|||
-|5+ vCPU VM License|a4daffb4-96f4-4fc5-b1e6-fd3a2cf3595e|||
-|5+ vCPU VM License|a838cfb1-0bd3-4965-84f0-663f49afc2e2|||
-|5+ vCPU VM License|99aed7b9-a0a9-4783-b90c-be7c2f3c7e30|||
-|5+ vCPU VM License|d09f877e-03b4-48b2-b11a-782b965cff19|||
+|5+ vCPU VM License|8b698c7a-47f1-4cba-8ae1-9853d5ad562d|2.166666667||
+|5+ vCPU VM License|a4daffb4-96f4-4fc5-b1e6-fd3a2cf3595e|2.166666667||
+|5+ vCPU VM License|a838cfb1-0bd3-4965-84f0-663f49afc2e2|2.166666667||
+|5+ vCPU VM License|99aed7b9-a0a9-4783-b90c-be7c2f3c7e30|2.166666667||
+|5+ vCPU VM License|d09f877e-03b4-48b2-b11a-782b965cff19|2.166666667||
 |44 vCPU VM License|6f44ae85-a70e-44be-83ec-153a0bc23979|||
 |60 vCPU VM License|b9edcc5b-a429-4778-bc5a-82e7fa07fe55|||
 
@@ -82,8 +82,8 @@ Azure portal marketplace name:
 
 |Red Hat VM | MeterId | Ratio|Example VM size|
 | ------- | --- | ------------------------| --- | --- |
-|1-4 vCPU VM License |4d902611-eed7-4060-a33e-3c7fdbac6406|||
-|5+ vCPU VM License|6dfb482b-23ea-487f-810c-e66360f025de|||
+|1-4 vCPU VM License |4d902611-eed7-4060-a33e-3c7fdbac6406|1||
+|5+ vCPU VM License|6dfb482b-23ea-487f-810c-e66360f025de|2.333333333||
 
 ### Red Hat Enterprise Linux with HA
 
@@ -93,8 +93,8 @@ Azure portal marketplace names:
 
 |Red Hat VM | MeterId | Ratio|Example VM size|
 | ------- |------------------------| --- | --- |
-|1-4 vCPU VM License|e9711132-d9d9-450c-8203-25cfc4bce8de|||
-|5+ vCPU VM License|93954aa4-b55f-4b7b-844d-a119d6bf3c4e|||
+|1-4 vCPU VM License|e9711132-d9d9-450c-8203-25cfc4bce8de|1||
+|5+ vCPU VM License|93954aa4-b55f-4b7b-844d-a119d6bf3c4e|2||
 
 ### RHEL for SAP Business Applications
 
