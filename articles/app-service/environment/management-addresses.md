@@ -30,11 +30,11 @@ The addresses noted below can be configured in a route table. This is important 
 | Region | Addresses |
 |--------|-----------|
 | All public regions | 70.37.57.58, 157.55.208.185, 52.174.22.21, 13.94.149.179, 13.94.143.126, 13.94.141.115, 52.178.195.197, 52.178.190.65, 52.178.184.149, 52.178.177.147, 13.75.127.117, 40.83.125.161, 40.83.121.56, 40.83.120.64, 52.187.56.50, 52.187.63.37, 52.187.59.251, 52.187.63.19, 52.165.158.140, 52.165.152.214, 52.165.154.193, 52.165.153.122, 104.44.129.255, 104.44.134.255, 104.44.129.243, 104.44.129.141, 23.102.188.65, 191.236.154.88, 13.64.115.203, 65.52.193.203, 70.37.89.222, 52.224.105.172, 23.102.135.246, 52.225.177.153, 65.52.172.237, 52.151.25.45, 40.124.47.188 |
-| Microsoft Azure Government (Fairfax or MAG) | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
+| Microsoft Azure Government | 23.97.29.209, 13.72.53.37, 13.72.180.105, 23.97.0.17, 23.97.16.184 |
 
 ## Configuring a route table
 
-The management addresses can be placed in a route table with a next hop of internet to ensure that all inbound management traffic is able to go back through the same path. This is especially needed when configuring forced tunneling. To create the route table you can use the portal, PowerShell or Azure CLI.  The commands to create a route table using Azure CLI from a PowerShell prompt are below. 
+The management addresses can be placed in a route table with a next hop of internet to ensure that all inbound management traffic is able to go back through the same path. These routes are needed when configuring forced tunneling. To create the route table, you can use the portal, PowerShell or Azure CLI.  The commands to create a route table using Azure CLI from a PowerShell prompt are below. 
 
     $rg = "resource group name"
     $rt = "route table name"
