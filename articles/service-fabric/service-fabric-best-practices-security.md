@@ -92,7 +92,7 @@ To update your portal to display a custom DNS nanme for your Service Fabric Clus
 ```
 
 ## Encrypting Service Fabric Package Secret Values
-Common values that are encrypted in Service Fabric Packages include: Azure Container Registry (ACR) credentials, and environment variables.
+Common values that are encrypted in Service Fabric Packages include: Azure Container Registry (ACR) credentials, environment variables, settings, and Azure Volume plugin storage account keys.
 
 To [set up an encryption certificate and encrypt secrets on Windows clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows):
 
