@@ -131,11 +131,11 @@ Here is the Hive query that creates a Hive table.
 
 Here are the descriptions of the fields that you need to plug in and other configurations:
 
-* **<database name>**: the name of the database that you want to create. If you just want to use the default database, the query *create database...* can be omitted.
-* **<table name>**: the name of the table that you want to create within the specified database. If you want to use the default database, the table can be directly referred by *<table name>* without <database name>.
-* **<field separator>**: the separator that delimits fields in the data file to be uploaded to the Hive table.
-* **<line separator>**: the separator that delimits lines in the data file.
-* **<storage location>**: the Azure storage location to save the data of Hive tables. If you do not specify *LOCATION <storage location>*, the database and the tables are stored in *hive/warehouse/* directory in the default container of the Hive cluster by default. If you want to specify the storage location, the storage location has to be within the default container for the database and tables. This location has to be referred as location relative to the default container of the cluster in the format of *'wasb:///<directory 1>/'* or *'wasb:///<directory 1>/<directory 2>/'*, etc. After the query is executed, the relative directories are created within the default container.
+* **\<database name\>**: the name of the database that you want to create. If you just want to use the default database, the query *create database...* can be omitted.
+* **\<table name\>**: the name of the table that you want to create within the specified database. If you want to use the default database, the table can be directly referred by *\<table name\>* without \<database name\>.
+* **\<field separator\>**: the separator that delimits fields in the data file to be uploaded to the Hive table.
+* **\<line separator\>**: the separator that delimits lines in the data file.
+* **\<storage location\>**: the Azure storage location to save the data of Hive tables. If you do not specify *LOCATION \<storage location\>*, the database and the tables are stored in *hive/warehouse/* directory in the default container of the Hive cluster by default. If you want to specify the storage location, the storage location has to be within the default container for the database and tables. This location has to be referred as location relative to the default container of the cluster in the format of *'wasb:///<directory 1>/'* or *'wasb:///<directory 1>/<directory 2>/'*, etc. After the query is executed, the relative directories are created within the default container.
 * **TBLPROPERTIES("skip.header.line.count"="1")**: If the data file has a header line, you have to add this property **at the end** of the *create table* query. Otherwise, the header line is loaded as a record to the table. If the data file does not have a header line, this configuration can be omitted in the query.
 
 ## <a name="load-data"></a>Load data to Hive tables
@@ -143,7 +143,7 @@ Here is the Hive query that loads data into a Hive table.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **<path to blob data>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *<path to blob data>* should be in the format *'wasb:///<directory in this container>/<blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *<path to blob data>* should be in the format *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
+* **\<path to blob data\>**: If the blob file to be uploaded to the Hive table is in the default container of the HDInsight Hadoop cluster, the *\<path to blob data\>* should be in the format *'wasb:///<directory in this container>/<blob file name>'*. The blob file can also be in an additional container of the HDInsight Hadoop cluster. In this case, *\<path to blob data\>* should be in the format *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*.
 
   > [!NOTE]
   > The blob data to be uploaded to Hive table has to be in the default or additional container of the storage account for the Hadoop cluster. Otherwise, the *LOAD DATA* query fails complaining that it cannot access the data.
@@ -210,7 +210,7 @@ Select data from the external table in step 1 and insert into the ORC table
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> If the TEXTFILE table *<database name>.<external textfile table name>* has partitions, in STEP 3, the `SELECT * FROM <database name>.<external textfile table name>` command selects the partition variable as a field in the returned data set. Inserting it into the *<database name>.<ORC table name>* fails since *<database name>.<ORC table name>* does not have the partition variable as a field in the table schema. In this case, you need to specifically select the fields to be inserted to *<database name>.<ORC table name>* as follows:
+> If the TEXTFILE table *\<database name\>.\<external textfile table name\>* has partitions, in STEP 3, the `SELECT * FROM <database name>.<external textfile table name>` command selects the partition variable as a field in the returned data set. Inserting it into the *\<database name\>.\<ORC table name\>* fails since *\<database name\>.\<ORC table name\>* does not have the partition variable as a field in the table schema. In this case, you need to specifically select the fields to be inserted to *\<database name\>.\<ORC table name\>* as follows:
 >
 >
 
@@ -219,7 +219,7 @@ Select data from the external table in step 1 and insert into the ORC table
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-It is safe to drop the *<external textfile table name>* when using the following query after all data has been inserted into *<database name>.<ORC table name>*:
+It is safe to drop the *\<external textfile table name\>* when using the following query after all data has been inserted into *\<database name\>.\<ORC table name\>*:
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
