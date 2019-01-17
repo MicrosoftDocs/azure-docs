@@ -34677,6 +34677,11 @@
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-from-cloud-shell.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#is-there-a-powershell-command-to-the-endpoint-quota",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-deploy-overview.md",
+      "redirect_url": "/azure/azure-stack/asdk/asdk-download",
+      "redirect_document_id": false
     }     
   ]
 }
