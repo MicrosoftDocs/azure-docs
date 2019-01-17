@@ -75,7 +75,7 @@ Remember to pin your service to the dashboard for easy access whenever you sign 
 
 ## Get a key and URL endpoint
 
-With few exceptions, using your new services requires that you provide the URL endpoint plus an authorization api-key. Quickstarts, tutorials, sample execution, and your custom code require both pieces of information. For instance, [Explore Azure Search REST APIs using Fiddler or Postman](search-fiddler.png) and [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.net) ask you to provide the URL endpoint and key if you want to run any code.
+With few exceptions, using your new services requires that you provide the URL endpoint plus an authorization api-key. Quickstarts, tutorials, sample execution, and your custom code require both pieces of information. For instance, [Explore Azure Search REST APIs using Fiddler or Postman](search-fiddler.md) and [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md) ask you to provide the URL endpoint and key if you want to run any code.
 
 1. In the service overview page, locate the URL endpoint on the left side of the page. 
 

@@ -55,7 +55,7 @@ Parameters are case-sensitive.
 | Output name	  | Description                   |
 |---------------|-------------------------------|
 | text         	| Plain text extracted from the image.   |
-| layoutText    | Complex type that describes the extracted text as well as the location where the text was found.|
+| layoutText    | Complex type that describes the extracted text and the location where the text was found.|
 
 
 ## Sample definition
@@ -133,7 +133,7 @@ Parameters are case-sensitive.
 
 A common use case for Text Merger is the ability to merge the textual representation of images (text from an OCR skill, or the caption of an image)  into the content field of a document. 
 
-The following example skillset creates a *merged_text* field to contain the textual content of your document, as well as the OCRed text from each of the images embedded in that document. 
+The following example skillset creates a *merged_text* field. This field contains the textual content of your document and the OCRed text from each of the images embedded in that document. 
 
 #### Request Body Syntax
 ```json
