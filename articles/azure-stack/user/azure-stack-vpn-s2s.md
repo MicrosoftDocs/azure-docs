@@ -115,7 +115,7 @@ This section walks you through the steps to create a S2S VPN connection with an 
 ![s2s-policy](media/azure-stack-s2s-vpn/s2s2.png)
 
 For more detailed step-by-step instructions for creating a S2S VPN
-connection, see [Create a S2S VPN connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+connection, see [Create a S2S VPN connection](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 ### Prerequisites
 
@@ -123,7 +123,7 @@ Before you begin, ensure that you have the following prerequisites:
 
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-- The Azure Resource Manager PowerShell cmdlets. See [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) for more information about installing the PowerShell cmdlets.
+- The Azure Resource Manager PowerShell cmdlets. See [Install PowerShell for Azure Stack](../azure-stack-powershell-install.md) for more information about installing the PowerShell cmdlets.
 
 ### Step 1 - create the virtual network, VPN gateway, and local network gateway
 
@@ -157,7 +157,7 @@ $LNGIP6 = "131.107.72.22"
 
 #### 2. Connect to your subscription and create a new resource group
 
-Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Connect to Azure Stack with PowerShell as a user](./user/azure-stack-powershell-configure-user.md).
+Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Connect to Azure Stack with PowerShell as a user](azure-stack-powershell-configure-user.md).
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
