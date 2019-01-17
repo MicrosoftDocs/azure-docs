@@ -1,11 +1,11 @@
 ---
 
-  title: Product names and service plan identifiers for licensing in Azure Active Directory | Microsoft Docs
-  description: Identifier map to manage Azure AD licensing in the Azure portal, the Office 365 portal, PowerShell, or Microsoft Graph
+  title: Product names and service plan identifiers for licensing - Azure AD | Microsoft Docs
+  description: Identifier map to manage Azure Active Directory licensing in the Azure portal, the Office 365 portal, PowerShell, or Microsoft Graph
   services: active-directory
   keywords: Azure Active Directory licensing service plans
   documentationcenter: ''
-  author: piotrci
+  author: curtand
   manager: mtillman
   editor: ''
 
@@ -15,9 +15,9 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 8/17/2018
-  ms.author: piotrci
-
+  ms.date: 01/14/2019
+  ms.author: curtand
+  ms.reviewer: sumitp
 ---
 
 # Product names and service plan identifiers for licensing

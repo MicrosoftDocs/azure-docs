@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 
@@ -36,6 +36,7 @@ Azure Stack virtual machines provide on-demand, scalable computing resources. Be
 | Virtual machine storage | Supports [managed disks.](../../virtual-machines/windows/managed-disks-overview.md) | Managed disks are supported in Azure Stack with version 1808 and later. |
 | Virtual machine disks performance | Depends on disk type and size. | Depends on VM size of VM which the disks are attached to, refer to the [Virtual machine sizes supported in Azure Stack](azure-stack-vm-sizes.md) article.
 | API versions | Azure always has the latest API versions for all the virtual machine features. | Azure Stack supports specific Azure services and specific API versions for these services. To view the list of supported API versions, refer to the [API versions](#api-versions) section of this article. |
+| Azure Instance Metadata service | The Azure Instance Metadata Service provides information about running virtual machine instances that can be used to manage and configure your virtual machines.  | The Instance metadata service is not supported on Azure Stack. |
 |Virtual machine availability sets|Multiple fault domains (2 or 3 per region)<br>Multiple update domains<br>Managed disk support|Multiple fault domains (2 or 3 per region)<br>Multiple update domains (up to 20)<br>No managed disk support|
 |Virtual machine scale sets|Autoscale supported|Autoscale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell.
 

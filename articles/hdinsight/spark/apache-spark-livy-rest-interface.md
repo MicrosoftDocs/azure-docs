@@ -12,7 +12,7 @@ ms.date: 11/06/2018
 ---
 # Use Apache Spark REST API to submit remote jobs to an HDInsight Spark cluster
 
-Learn how to use [Apache Livy](https://livy.incubator.apache.org/), the [Apache Spark](https://spark.apache.org/) REST API, which is used to submit remote jobs to an Azure HDInsight Spark cluster. For detailed documentation, see [http://livy.incubator.apache.org/](http://livy.incubator.apache.org/).
+Learn how to use [Apache Livy](https://livy.incubator.apache.org/), the [Apache Spark](https://spark.apache.org/) REST API, which is used to submit remote jobs to an Azure HDInsight Spark cluster. For detailed documentation, see [https://livy.incubator.apache.org/](https://livy.incubator.apache.org/).
 
 You can use Livy to run interactive Spark shells or submit batch jobs to be run on Spark. This article talks about using Livy to submit batch jobs. The snippets in this article use cURL to make REST API calls to the Livy Spark endpoint.
 
@@ -176,7 +176,7 @@ Here are some issues that you might run into while using Livy for remote job sub
 
 ## Next step
 
-* [Apache Livy REST API documentation](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API documentation](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)
 

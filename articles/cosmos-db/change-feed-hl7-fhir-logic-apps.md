@@ -1,11 +1,9 @@
 ---
 title: Change feed for HL7 FHIR resources - Azure Cosmos DB
 description: Learn how to set up change notifications for HL7 FHIR patient health care records using Azure Logic Apps, Azure Cosmos DB, and Service Bus.
-keywords: hl7 fhir
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
@@ -131,11 +129,11 @@ We are using the [`CreateDocumentChangeFeedQuery`](https://msdn.microsoft.com/li
 	        /// <param name="maximumItemCount">-1 returns all (default)</param>
 	        /// <returns></returns>
 	        [Metadata("Get New or Modified FHIR Documents",
-	            "Query for new or modifed FHIR Documents By Resource Type " +
+	            "Query for new or modified FHIR Documents By Resource Type " +
 	            "from Last Run Date or Beginning of Collection creation"
 	        )]
 	        [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
-	        [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]
+	        [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modified Documents found")]
 	        [SwaggerOperation("GetNewOrModifiedFHIRDocuments")]
 	        public async Task<dynamic> GetNewOrModifiedFhirDocuments(
 	            [Metadata("Database Id", "Database Id")] string databaseId,
@@ -218,11 +216,11 @@ The following image shows all of the Azure services for this solution running in
 
 ## Summary
 
-- You have learned that Azure Cosmos DB has native suppport for notifications for new or modifed documents and how easy it is to use. 
+- You have learned that Azure Cosmos DB has native support for notifications for new or modified documents and how easy it is to use. 
 - By leveraging Logic Apps, you can create workflows without writing any code.
 - Using Azure Service Bus Queues to handle the distribution for the HL7 FHIR documents.
 
 ## Next steps
-For more information about Azure Cosmos DB, see the [Azure Cosmos DB home page](https://azure.microsoft.com/services/cosmos-db/). For more informaiton about Logic Apps, see [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+For more information about Azure Cosmos DB, see the [Azure Cosmos DB home page](https://azure.microsoft.com/services/cosmos-db/). For more information about Logic Apps, see [Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 
 

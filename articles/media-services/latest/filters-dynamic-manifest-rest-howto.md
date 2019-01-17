@@ -33,7 +33,7 @@ To complete the steps described in this topic, you have to:
 
 ## Define a filter  
 
-The following is the **Request body** example that defines the track selection conditions that are added to the manifest. This filter includes any audio tracks that are English with EC-3 and any video tracks that have bitrate in the 0-1000000 range.
+The following is the **Request body** example that defines the track selection conditions that are added to the manifest. This filter includes any audio tracks that are EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 
 ```json
 {
@@ -47,14 +47,9 @@ The following is the **Request body** example that defines the track selection c
                         "operation": "Equal"
                     },
                     {
-                        "property": "Language",
-                        "value": "en",
-                        "operation": "Equal"
-                    },
-                    {
                         "property": "FourCC",
                         "value": "EC-3",
-                        "operation": "NotEqual"
+                        "operation": "Equal"
                     }
                 ]
             },

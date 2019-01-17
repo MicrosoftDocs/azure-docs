@@ -24,7 +24,7 @@ You can use DSS to implement a complete analytical solution, beginning with data
 
 You can install DSS on HDInsight using [Apache Hadoop](https://hadoop.apache.org/) or [Apache Spark](https://spark.apache.org/) clusters. You can install DSS on existing running clusters, or when creating new clusters. DSS also supports using Azure Blob storage as a connector for reading data.
 
-You can use DSS to build projects, which then can generate [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  or Spark jobs. These jobs are executed as regular MapReduce or Spark jobs on HDInsight, so you can scale the cluster on demand.
+You can use DSS to build projects, which then can generate [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)  or Spark jobs. These jobs are executed as regular MapReduce or Spark jobs on HDInsight, so you can scale the cluster on demand.
 
 ## Prerequisites
 

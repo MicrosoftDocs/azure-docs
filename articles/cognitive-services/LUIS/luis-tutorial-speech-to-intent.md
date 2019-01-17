@@ -24,7 +24,7 @@ For this article, you need a free [LUIS][LUIS] website account in order to impor
 In the Azure portal, [create](luis-how-to-azure-subscription.md#create-luis-endpoint-key) a **Language Understanding** (LUIS) key. 
 
 ## Import Human Resources LUIS app
-The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) GitHub repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) file, save it with the `.json` extension, and [import](luis-how-to-start-new-app.md#import-new-app) it into LUIS. 
+The intents, and utterances for this article are from the Human Resources LUIS app available from the [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) GitHub repository. Download the [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json) file, save it with the `.json` extension, and [import](luis-how-to-start-new-app.md#import-new-app) it into LUIS. 
 
 This app has intents, entities, and utterances related to the Human Resources domain. Example utterances include:
 
@@ -59,7 +59,7 @@ After importing the app, select **Entities**, then **Add prebuilt entity**. Add 
 This article uses the audio device on your computer. That can be a headset with microphone or a built-in audio device. Check the audio input levels to see if you should speak louder than you normally would to have your speech detected by the audio device. 
 
 ## Download the LUIS Sample project
- Clone or download the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) repository. Open the [Speech to intent project](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) with Visual Studio and restore the NuGet packages. The VS solution file is .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
+ Clone or download the [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) repository. Open the [Speech to intent project](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-speech-intent-recognition) with Visual Studio and restore the NuGet packages. The VS solution file is documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
 The Speech SDK is already included as a reference. 
 
@@ -90,7 +90,7 @@ The Speech SDK returns the entire LUIS response.
 ## Clean up resources
 When no longer needed, delete the LUIS HumanResources app. To do so, select the app, then in the contextual toolbar above the list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
-Remember to delete the LUIS-Samples directory when you are done using the sample code.
+Remember to delete the directory when you are done using the sample code.
 
 ## Next steps
 

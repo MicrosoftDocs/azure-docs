@@ -89,7 +89,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     Accept all other defaults other than the following values:
 
     * Enter a name for the cluster.
-    * For this article, create a cluster with **4.0** runtime.
+    * For this article, create a cluster with runtime version **4.1 or greater**.
     * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
     
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.

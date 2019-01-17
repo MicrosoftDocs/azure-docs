@@ -1,16 +1,14 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources'
 description: Learn all about the SQL .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
-services: cosmos-db
-author: rnagpal
-
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.author: sngun
+
 
 ---
 # Azure Cosmos DB .NET Core SDK for SQL API: Release notes and resources
@@ -54,11 +52,19 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 * Support for streams.
 * Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned.
 
+### <a name="2.2.1"/>2.2.1
+
+* Improvement in retry logic during failover for StoredProcedure execute calls.
+
+* Made DocumentClientEventSource singleton. 
+
+* Fix GatewayAddressCache timeout not honoring ConnectionPolicy RequestTimeout.
+
 ### <a name="2.2.0"/>2.2.0
 
 * For direct/TCP transport diagnostics, added TransportException, an internal exception type of the SDK. When present in exception messages, this type prints additional information for troubleshooting client connectivity problems.
 
-* Added new constuctor overload which takes a HttpMessageHandler, a HTTP handler stack to use for sending HttpClient requests (e.g., HttpClientHandler).
+* Added new constructor overload which takes a HttpMessageHandler, a HTTP handler stack to use for sending HttpClient requests (e.g., HttpClientHandler).
 
 * Fix bug where header with null values were not being handled properly.
 
@@ -111,7 +117,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 ### <a name="1.9.1"/>1.9.1
 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
-* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
 
 ### <a name="1.8.2"/>1.8.2
 
@@ -223,6 +229,7 @@ If you have questions related to this SDK, post to [StackOverflow](https://stack
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |December 24, 2018 |--- |
 | [2.2.0](#2.2.0) |December 07, 2018 |--- |
 | [2.1.3](#2.1.3) |October 15, 2018 |--- |
 | [2.1.2](#2.1.2) |October 04, 2018 |--- |

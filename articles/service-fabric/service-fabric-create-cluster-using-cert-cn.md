@@ -21,12 +21,12 @@ ms.author: ryanwi
 No two certificates can have the same thumbprint, which makes cluster certificate rollover or management difficult. Multiple certificates, however, can have the same common name or subject.  A cluster using certificate common names makes certificate management much simpler. This article describes how to deploy a Service Fabric cluster to use the certificate common name instead of the certificate thumbprint.
  
 ## Get a certificate
-First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be the host name of the cluster.  For example, "myclustername.southcentralus.cloudapp.azure.com".  
+First, get a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority).  The common name of the certificate should be for the custom domain you own, and bought from a domain registrar. For example, "azureservicefabricbestpractices.com"; those whom are not Microsoft employees can not provision certs for MS domains, so you can not use the DNS names of your LB or Traffic Manager as common names for your certificate, and you will need to provision a [Azure DNS Zone](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) if your custom domain to be resolvable in Azure. You will also want to declare your custom domain you own as your cluster's "managementEndpoint" if you want portal to reflect the custom domain alias for your cluster.
 
 For testing purposes, you could get a CA signed certificate from a free or open certificate authority.
 
 > [!NOTE]
-> Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported.
+> Self-signed certificates, including those generated when deploying a Service Fabric cluster in the Azure portal, are not supported. 
 
 ## Upload the certificate to a key vault
 In Azure, a Service Fabric cluster is deployed on a virtual machine scale set.  Upload the certificate to a key vault.  When the cluster deploys, the certificate installs on the virtual machine scale set that the cluster is running on.

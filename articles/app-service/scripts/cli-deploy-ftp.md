@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Create a web app and deploy files with FTP | Microsoft Docs
-description: Azure CLI Script Sample - Create a web app and deploy files with FTP
+title: Azure CLI Script Sample - Create an app and deploy files with FTP | Microsoft Docs
+description: Azure CLI Script Sample - Create an App Service app and deploy files with FTP
 services: app-service\web
 documentationcenter: 
 author: msangapu
@@ -18,9 +18,9 @@ ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Create a web app and deploy files with FTP using Azure CLI
+# Create an App Service app and deploy files with FTP using Azure CLI
 
-This sample script creates a web app in App Service with its related resources, and then deploys a static HTML page using FTP. For FTP upload, the script uses [cURL](https://en.wikipedia.org/wiki/CURL) as an example. You can use whatever FTP tool to upload your files.
+This sample script creates an app in App Service with its related resources, and then deploys a static HTML page using FTP. For FTP upload, the script uses [cURL](https://en.wikipedia.org/wiki/CURL) as an example. You can use whatever FTP tool to upload your files.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-ftp/deploy-ftp.sh "Create a web app and deploy files with FTP")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-ftp/deploy-ftp.sh "Create an app and deploy files with FTP")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -42,8 +42,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Creates a resource group in which all resources are stored. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an Azure web app. |
-| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment?view=azure-cli-latest#az-webapp-deployment-list-publishing-profiles) | Get the details for available web app deployment profiles. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
+| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment?view=azure-cli-latest#az-webapp-deployment-list-publishing-profiles) | Get the details for available app deployment profiles. |
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
 ---
 
@@ -53,7 +53,7 @@ In short, Azure Notebooks helps you accomplish your work more efficiently and th
 
 Azure Notebooks is a free service but each project is limited to 4-GB memory and 1-GB data to prevent abuse. Legitimate users that exceed these limits see a Captcha challenge to continue running notebooks.
 
-To release all limits, associate your account with an Azure subscription, which enables you to select premium compute tiers.
+To release all limits, sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account). If that account is associated with an Azure subscription, you can use Azure Data Science Virtual Machine compute tiers.
 
 ## Available kernels and environments
 
@@ -62,7 +62,7 @@ For each notebook, you select the kernel (that is, the runtime environment) that
 - Python 2.7 + Anaconda2-5.3.0
 - Python 3.6 + Anaconda3-5.3.0
 - Python 3.5 + Anaconda3-4.2.0 (will be deprecated)
-- R 3.3 + Microsoft R Open 3.3.0
+- R 3.4.1 + Microsoft R Open 3.4.1
 - F# 4.1.9
 
 Azure Notebooks also includes extra packages beyond the base distributions. The Python kernels, for example, include the numpy, pandas, scikit-learn, matplotlib, and bokeh libraries.

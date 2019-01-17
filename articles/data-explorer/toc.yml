@@ -65,10 +65,14 @@
       href: manage-cluster-scaling.md
     - name: Delete data
       href: delete-data.md
+    - name: Deal with duplicate data
+      href: dealing-with-duplicates.md
   - name: Work with other tools
     items:
     - name: Connect from Databricks using Python
       href: connect-from-databricks.md
+    - name: Analyze data using Jupyter Notebooks and Kqlmagic
+      href: kqlmagic.md
     - name: Visualize data in Grafana
       href: grafana.md
   - name: Troubleshoot

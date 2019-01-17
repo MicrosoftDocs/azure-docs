@@ -97,7 +97,7 @@ Learn how to run Apache Pig Latin jobs by making REST requests to an Azure HDIns
 
 When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/pigcurl`.
 
-HDInsight can use either Azure Storage or Azure Data Lake Storage as the default data store. There are various ways to get at the data depending on which one you use. For more information, see the storage section of the [Linux-based HDInsight information](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) document.
+HDInsight can use either Azure Storage or Azure Data Lake Storage as the default data store. There are various ways to get at the data depending on which one you use. For more information, see the storage section of the [Linux-based HDInsight information](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-storage) document.
 
 ## <a id="summary"></a>Summary
 

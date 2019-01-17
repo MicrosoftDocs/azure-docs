@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2018
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: unknown
 
 ---
 # Add Linux images to Azure Stack

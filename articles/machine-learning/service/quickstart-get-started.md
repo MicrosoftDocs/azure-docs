@@ -67,7 +67,7 @@ Select `Open Azure Notebooks` to try your first experiment.
 
 Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
 
-After you sign in, a new tab opens and a `Clone Library` prompt appears. Select `Clone`.
+Sign into Azure notebooks with the same account you used to sign into the Azure portal.  After you sign in, a new tab opens and a `Clone Library` prompt appears. Select `Clone`.
 
 
 ### Run the notebook

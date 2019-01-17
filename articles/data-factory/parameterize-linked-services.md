@@ -8,9 +8,9 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 12/18/2018
 ms.author: douglasl
 ---
 # Parameterize linked services in Azure Data Factory
@@ -28,7 +28,7 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
 ## Supported data stores
 
-At this time, linked service parameterization is supported in the Data Factory UI in the Azure portal for the following data stores. For all other data stores, you can parameterize the linked service by selecting the **Code** icon on the pipeline tab and using the JSON editor.
+At this time, linked service parameterization is supported in the Data Factory UI in the Azure portal for the following data stores. For all other data stores, you can parameterize the linked service by selecting the **Code** icon on the **Connections** tab and using the JSON editor.
 - Azure SQL Database
 - Azure SQL Data Warehouse
 - SQL Server

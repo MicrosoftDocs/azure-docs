@@ -45,11 +45,15 @@
     items: 
     - name: Understand Azure IoT Edge modules
       href: iot-edge-modules.md
-    - name: Development
-      href: module-development.md
     - name: Edge agent and hub properties
       href: module-edgeagent-edgehub.md
-  - name: Module deployment 
+  - name: Development
+    items:
+    - name: Develop modules
+      href: module-development.md
+    - name: Development environment
+      href: development-environment.md
+  - name: Deployment 
     items:
     - name: Deployment manifest
       href: module-composition.md
