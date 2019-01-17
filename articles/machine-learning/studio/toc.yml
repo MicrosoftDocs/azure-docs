@@ -57,14 +57,12 @@
 - name: Samples
   items:
   - name: Sample experiments
+    displayName: gallery
     href: sample-experiments.md
   - name: Sample datasets
     href: use-sample-datasets.md
   - name: Azure AI Gallery
     href: gallery-how-to-use-contribute-publish.md
-  - name: View and delete Gallery account data
-    displayName: export
-    href: ai-gallery-control-personal-data-dsr.md 
 - name: Concepts
   items:
   - name: Model management
@@ -191,9 +189,12 @@
       href: text-analytics-module-tutorial.md
     - name: Migrate analytics from Excel to Studio
       href: linear-regression-in-azure.md
-  - name: View and delete Studio account data
+  - name: View and delete Studio data
     displayName: export
     href: export-delete-personal-data-dsr.md
+  - name: View and delete Gallery data
+    displayName: export
+    href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
   - name: Algorithm & Module reference
