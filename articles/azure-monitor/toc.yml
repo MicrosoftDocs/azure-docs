@@ -701,6 +701,8 @@
         items:
         - name: Examples
           href: log-query/examples.md
+        - name: Smart analytics
+          href: log-query/smart-analytics.md
         - name: Cross-resource searches
           href: log-query/cross-workspace-query.md
         - name: app expression
@@ -947,6 +949,12 @@
       href: /rest/api/monitor/
     - name: Logs
       href: /rest/api/loganalytics 
+  - name: Resource Manager template
+    items:
+    - name: Monitor
+      href: /azure/templates/microsoft.insights/allversions
+    - name: Logs
+      href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Metrics
     items:
     - name: Supported metrics
