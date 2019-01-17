@@ -103,7 +103,7 @@
           href: azure-stack-connect-vpn.md
         - name: About VPN gateway
           href: azure-stack-vpn-gateway-about-vpn-gateways.md
-        - name: Configure policy for site-to-site VPN connections
+        - name: Configure site-to-site policy
           href: azure-stack-vpn-s2s.md
         - name: VPN gateway settings
           href: azure-stack-vpn-gateway-settings.md
