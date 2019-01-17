@@ -324,6 +324,6 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 You can use the same script to check if the policy has been removed from
 the connection.
 
-# Next steps
+## Next steps
 
 - [VPN gateway configuration settings for Azure Stack](azure-stack-vpn-gateway-settings.md)
