@@ -113,7 +113,7 @@ A contingency conditional access policy is a **disabled policy** that omits Azur
 * Use policies that restrict the access within the apps if a certain authentication level is not attained instead of simply falling back to full access. For example:
   * Configure a backup policy that sends the restricted session claim to Exchange and SharePoint.
   * If your organization uses Microsoft Cloud App Security, consider falling back to a policy that engages MCAS and then MCAS Allows read-only access but not uploads.
-* Name your policies to make sure it is easy to find the disabled contingency policies during a disruption. You should include the following elements in the policy name:
+* Name your policies to make sure it is easy to find the disabled contingency policies during a disruption. Include the following elements in the policy name:
   * A *label number* for the policy.
   * Text to show, this policy is for emergencies only. For example: **ENABLE IN EMERGENCY**
   * The *disruption* it applies to. For example: **During MFA Disruption**
@@ -122,7 +122,7 @@ A contingency conditional access policy is a **disabled policy** that omits Azur
   * The *controls* it will apply.
   * The *conditions* it requires.
   
-When you put every element together the naming standard of the policy can be as follows:
+This naming standard for the contingency policies will be as follows: 
 
 `
 EMnnn - ENABLE IN EMERGENCY: [Disruption] [i/n] - [Apps] - [Controls] [Conditions]
@@ -229,14 +229,14 @@ Depending on which mitigations or contingencies are used during a disruption, yo
 
 ## After a disruption
 
-You must undo the changes you made as part of the activated contingency plan once the service is restored that caused the disruption. 
+Undo the changes you made as part of the activated contingency plan once the service is restored that caused the disruption. 
 
 1. Enable the regular policies
 2. Disable your contingency policies. 
 3. Roll back any other changes you made and documented during the disruption.
 4. If you used an emergency access account, remember to regenerate credentials and physically secure the new credentials details as part of your emergency access account procedures.
 5. Continue to [triage all risk events reported](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) after the disruption for suspicious activity.
-6. Revoke all refresh tokens that were issued [using PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) to target a set of users. Revoking all refresh tokens is specifically important for privileged accounts used during the disruption and doing it will force them to reauthenticate and meet the control of the restored policies.
+6. Revoke all refresh tokens that were issued [using PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) to target a set of users. Revoking all refresh tokens is important for privileged accounts used during the disruption and doing it will force them to reauthenticate and meet the control of the restored policies.
 
 ## Emergency options
 
