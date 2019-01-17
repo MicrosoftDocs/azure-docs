@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 01/17/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -59,6 +59,8 @@ If you aren't combining resources into a single group, or if existing resource g
 
 ## Select a hosting location 
 As an Azure service, Azure Search can be hosted in datacenters around the world. [Prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
+
+If you are planning to use cognitive search, choose a [region with feature availability](cognitive-search-quickstart-blob.md#supported-regions).
 
 ## Select a pricing tier (SKU)
 [Azure Search is currently offered in multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, or Standard. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). See [Choose a pricing tier or SKU](search-sku-tier.md) for guidance.
