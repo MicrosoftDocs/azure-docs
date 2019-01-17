@@ -322,6 +322,12 @@
       href: sql-database-in-memory.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
+  - name: Machine learning
+    items:
+    - name: Machine learning overview
+      href: sql-database-machine-learning-services-overview.md
+    - name: Known issues
+      href: sql-database-machine-learning-services-known-issues.md
 - name: How-to guides
   items:
   - name: Overview
