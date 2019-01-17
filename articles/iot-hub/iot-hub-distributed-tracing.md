@@ -102,7 +102,8 @@ If you don't want to run the exe, modify and build the sample according to instr
 	cmake .. -G "Visual Studio 15 2017"
 	```
 
-1. Edit the source file `iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`, and provide your device connection string
+1. **Bug Bash** Please download [iothub_ll_telemetry_sample.c](https://microsoft.sharepoint-df.com/teams/AzureIoTBugbashes/Shared%20Documents/Distributed%20Tracing%20Public%20Preview%20Bug%20Bash/iothub_ll_telemetry_sample.c) to replace
+`iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`, edit the source file to provide your device connection string
 
 	```c
 	/* Paste in the your iothub connection string  */ 
@@ -193,7 +194,7 @@ To update the distributed tracing sampling configuration for multiple devices, u
 
 ### Update using Azure IoT Hub Toolkit for VS Code
 
-1. Install VS Code, then download the preview version of Azure IoT Hub Toolkit for VS Code from [here](https://microsoft.sharepoint-df.com/teams/AzureIoTBugbashes/Shared%20Documents/Distributed%20Tracing%20Public%20Preview%20Bug%20Bash/azure-iot-toolkit-2.1.8.vsix), and install it ([how to install from a VSIX](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix))
+1. Install VS Code, then download the preview version of Azure IoT Hub Toolkit for VS Code from [here](https://microsoft.sharepoint-df.com/teams/AzureIoTBugbashes/Shared%20Documents/Distributed%20Tracing%20Public%20Preview%20Bug%20Bash/azure-iot-toolkit-2.1.9.vsix), and install it ([how to install from a VSIX](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix))
 
 1. Open VS Code, set up IoT Hub connection string for your IoT Hub just created. You may refer to [how to set up IoT Hub connection string](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites)
 
