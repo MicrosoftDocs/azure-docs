@@ -241,3 +241,5 @@
     href: ../r-developers-guide.md
   - name: Custom Neural Networks with Net#
     href: azure-ml-netsharp-reference-guide.md
+  - name: Compare our ML products
+    href: ../service/overview-more-machine-learning.md       
