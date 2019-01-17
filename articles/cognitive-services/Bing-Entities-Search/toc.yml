@@ -44,6 +44,12 @@
     href: use-display-requirements.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
+- name: Concepts
+  items:
+    - name: Searching for entities
+      href: concepts/search-for-entities.md
+    - name: Sending search requests
+      href: concepts/sending-requests.md
 - name: Reference
   items:
   - name: Bing Entity Search API v7
