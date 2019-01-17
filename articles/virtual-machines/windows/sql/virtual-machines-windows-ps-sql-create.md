@@ -95,9 +95,10 @@ $OSDiskName = $VMName + "OSDisk"
 ```
 
 ### Choose a SQL Server image
-Define the SQL Server image to use for the virtual machine.
 
-1. First, list all of the SQL Server image offerings with the **Get-AzureRmVMImageOffer** command:
+Use the following variables to define the SQL Server image to use for the virtual machine. 
+
+1. First, list out all of the SQL Server image offerings with the `Get-AzureRmVMImageOffer` command. This command lists current images that are available in the Azure Portal and also older images that can only be installed with PowerShell:
 
    ```PowerShell
    Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
