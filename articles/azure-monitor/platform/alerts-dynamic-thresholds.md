@@ -6,7 +6,7 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: Yaniv.Lavi
+ms.author: yalavi
 ms.reviewer: mbullwin
 ---
 

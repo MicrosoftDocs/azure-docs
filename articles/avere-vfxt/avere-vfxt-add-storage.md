@@ -33,7 +33,7 @@ These steps use the Avere Control Panel. Read [Access the vFXT cluster](avere-vf
 
 ## Create a core filer
 
-"Core filer" is a vFXT term for a backend storage system. The storage can be a hardware NAS appliance like NetApp or Isilon, or it can be a cloud object store. More information about core filers can be found [in the Avere cluster settings guide](http://library.averesystems.com/ops_guide/4_7/settings_overview.html#managing-core-filers).
+"Core filer" is a vFXT term for a backend storage system. The storage can be a hardware NAS appliance like NetApp or Isilon, or it can be a cloud object store. More information about core filers can be found [in the Avere cluster settings guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 To add a core filer, choose one of the two main types of core filers:
 
@@ -65,7 +65,7 @@ The following steps add a NAS core filer:
   
    * Click **Next** and choose a cache policy. 
    * Click **Add Filer**.
-   * For more detailed information, refer to [Adding a new NAS core filer](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) in the Avere cluster settings guide.
+   * For more detailed information, refer to [Adding a new NAS core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) in the Avere cluster settings guide.
 
 Next, proceed to [Create a junction](#create-a-junction).  
 
@@ -151,7 +151,7 @@ To add Blob storage after creating the cluster, follow these steps.
    * Optionally, set **Encryption type** to **None**.  Azure Storage is encrypted by default.
    * Click **Add Filer**.
 
-  For more detailed information, read [Adding a new cloud core filer](<http://library.averesystems.com/ops_guide/4_7/new_core_filer_cloud.html>) in the Avere cluster configuration guide. 
+  For more detailed information, read [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in the Avere cluster configuration guide. 
 
 The page will refresh, or you can refresh the page to display your new core filer.
 
@@ -163,7 +163,7 @@ A junction is a path that you create for clients. Clients mount the path and arr
 
 For example, you could create `/avere/files` to map to your NetApp core filer `/vol0/data` export and the `/project/resources` subdirectory.
 
-More information about junctions can be found in the [namespace section of the Avere cluster configuration guide](http://library.averesystems.com/ops_guide/4_7/gui_namespace.html).
+More information about junctions can be found in the [namespace section of the Avere cluster configuration guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Follow these steps in the Avere Control Panel settings interface:
 

@@ -41,7 +41,7 @@ You can interact with an Azure Cosmos database using the following Azure Cosmos 
 
 ## Azure Cosmos containers
 
-An Azure Cosmos container is the unit of scalability for both provisioned throughput and storage of items. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container and the throughput that you provision on it are both automatically distributed across a set of logical partitions based on the partition key. To learn more about partitioning and partition key, see [logical partitions](partition-data.md) article. 
+An Azure Cosmos container is the unit of scalability for both provisioned throughput and storage of items. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container and the throughput that you provision on it are automatically distributed across a set of logical partitions based on the partition key. To learn more about partitioning and partition key, see [logical partitions](partition-data.md) article. 
 
 When creating an Azure Cosmos container, you configure throughput in one of the following modes:
 

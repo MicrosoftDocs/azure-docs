@@ -76,7 +76,7 @@ Concatenates one or more strings.
 For example, if the output value of `element1` if `"bar"`, then this example returns the string `"foobar!"`:
 
 ```json
-"[concat('foo', steps('step1').element1), '!']"
+"[concat('foo', steps('step1').element1, '!')]"
 ```
 
 ### substring

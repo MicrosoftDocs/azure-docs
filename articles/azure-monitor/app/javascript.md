@@ -14,7 +14,7 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ---
 # Application Insights for web pages
-Find out about the performance and usage of your web page or app. If you add [Application Insights](../../application-insights/app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
+Find out about the performance and usage of your web page or app. If you add [Application Insights](../../azure-monitor/app/app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
 
 Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-get-started.md) or [ASP.NET](../../azure-monitor/app/asp-net.md), you can integrate telemetry from your server and clients.
 
@@ -38,7 +38,7 @@ If you don't have one, create it:
 
 ![Choose New, Developer Services, Application Insights.](./media/javascript/01-create.png)
 
-*Questions already?* [More about creating a resource](../../application-insights/app-insights-create-new-resource.md).
+*Questions already?* [More about creating a resource](../../azure-monitor/app/create-new-resource.md ).
 
 ### Add the SDK script to your app or web pages
 
@@ -64,7 +64,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 Insert the script just before the `</head>` tag of every page you want to track. If your website has a master page, you can put the script there. For example:
 
 * In an ASP.NET MVC project, you'd put it in `View\Shared\_Layout.cshtml`
-* In a SharePoint site, on the control panel, open [Site Settings / Master Page](../../application-insights/app-insights-sharepoint.md).
+* In a SharePoint site, on the control panel, open [Site Settings / Master Page](../../azure-monitor/app/sharepoint.md).
 
 The script contains the instrumentation key that directs the data to your Application Insights resource. 
 
@@ -112,7 +112,7 @@ Open the Browser blade to show aggregated performance data from your users' brow
 
 ![In portal.azure.com, open your app's resource and click Settings, Browser](./media/javascript/03.png)
 
-No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md).
+No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md).
 
 The Browser blade is a [Metrics Explorer blade](../../azure-monitor/app/metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
@@ -221,7 +221,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 ## Usage tracking
 Want to find out what your users do with your app?
 
-* [Learn about the user behavior analytics tools](../../application-insights/app-insights-usage-overview.md)
+* [Learn about the user behavior analytics tools](../../azure-monitor/app/usage-overview.md)
 * [Learn about custom events and metrics API](../../azure-monitor/app/api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -232,7 +232,7 @@ Want to find out what your users do with your app?
 
 
 ## <a name="next"></a> Next steps
-* [Track usage](../../application-insights/app-insights-usage-overview.md)
+* [Track usage](../../azure-monitor/app/usage-overview.md)
 * [Custom events and metrics](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Build-measure-learn](../../application-insights/app-insights-usage-overview.md)
+* [Build-measure-learn](../../azure-monitor/app/usage-overview.md)
 

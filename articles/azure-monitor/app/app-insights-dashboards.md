@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Navigation and Dashboards in the Application Insights portal
-After you have [set up Application Insights on your project](../../application-insights/app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
+After you have [set up Application Insights on your project](../../azure-monitor/app/app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
 
 ## Find your telemetry
 Sign in to the [Azure portal](https://portal.azure.com) and navigate to the Application Insights resource that you created for your app.
@@ -30,7 +30,7 @@ The overview blade (page) for your app shows a summary of the key diagnostic met
 You can customize any of the charts and grids and pin them to a dashboard. That way, you can bring together the key telemetry from different apps on a central dashboard.
 
 ## Dashboards
-The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](../../application-insights/app-insights-overview.md).
+The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
@@ -109,10 +109,10 @@ The overview blade is the gateway to more information about your app.
 * [**Search**](../../azure-monitor/app/diagnostic-search.md) - Investigate specific instances of events such as requests, exceptions, or log traces.
 * [**Analytics**](../../azure-monitor/app/analytics.md) - Powerful queries over your telemetry.
 * **Time range** - Adjust the range displayed by all the charts on the blade.
-* **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
+* **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
 
 ### Essentials tab
-* [Instrumentation key](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
+* [Instrumentation key](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) - Identifies this app resource.
 
 ### App navigation bar
 ![Left navigation bar](./media/app-insights-dashboards/app-left-nav-bar.png)
@@ -125,12 +125,12 @@ The overview blade is the gateway to more information about your app.
 INVESTIGATE
 
 * [**Application map**](app-map.md) - Active map showing the components of your application, derived from the dependency information.
-* [**Smart Detection**](../../application-insights/app-insights-proactive-diagnostics.md) - Review recent performance alerts.
+* [**Smart Detection**](../../azure-monitor/app/proactive-diagnostics.md) - Review recent performance alerts.
 * [**Live Stream**](../../azure-monitor/app/live-stream.md) - A fixed set of near-instant metrics, useful when deploying a new build or debugging.
 * [**Availability / Web tests**](../../azure-monitor/app/monitor-web-app-availability.md) - Send regular requests to your web app from around the world.*
-* [**Failures, Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](../../azure-monitor/app/asp-net-dependencies.md).
-* [**Performance**](../../application-insights/app-insights-web-monitor-performance.md) - Response time, dependency response times.
-* [Servers](../../application-insights/app-insights-web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* [**Failures, Performance**](../../azure-monitor/app/web-monitor-performance.md) - Exceptions, failure rates and response times for requests to your app and for requests from your app to [dependencies](../../azure-monitor/app/asp-net-dependencies.md).
+* [**Performance**](../../azure-monitor/app/web-monitor-performance.md) - Response time, dependency response times.
+* [Servers](../../azure-monitor/app/web-monitor-performance.md) - Performance counters. Available if you [install Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Browser** - Page view and AJAX performance. Available if you [instrument your web pages](../../azure-monitor/app/javascript.md).
 * **Usage** - Page view, user, and session counts. Available if you [instrument your web pages](../../azure-monitor/app/javascript.md).
 

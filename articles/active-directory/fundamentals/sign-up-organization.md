@@ -16,7 +16,7 @@ ms.custom: "it-pro, seodec18"
 ---
 
 # Sign up your organization to use Azure Active Directory
-Sign up for Azure Active Directory (Azure AD) a new Microsoft Azure subscription using either:
+Sign up for Azure Active Directory (Azure AD) or a new Microsoft Azure subscription, using either:
 
 - **Microsoft account.** Use your personal, Microsoft account to get access to Azure and all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE, or Office 365. Signing up for an Outlook.com mailbox automatically creates a Microsoft account. For more information, see [Microsoft account overview](https://account.microsoft.com/account).
 

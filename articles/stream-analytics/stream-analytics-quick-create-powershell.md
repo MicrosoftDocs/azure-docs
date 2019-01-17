@@ -91,7 +91,7 @@ The following Azure CLI code block does many commands to prepare the input data 
    az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
    ```
 
-4. Get the device connection string using the [az iot hub device-identity show-connection-string]() command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
+4. Get the device connection string using the [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) command. Copy the entire connection string and save it for when you create the Raspberry Pi simulator.
 
    ```azurecli
    az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table
@@ -107,7 +107,7 @@ The following Azure CLI code block does many commands to prepare the input data 
 
 The following Azure PowerShell code block uses commands to create blob storage that is used for job output. Review the sections to understand the code.
 
-1. Create a standard general-purpose storage account using [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet.  This example creates a storage account called **myasaquickstartstorage** with locally redundant storage(LRS) and blob encryption (enabled by default.  
+1. Create a standard general-purpose storage account using [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet.  This example creates a storage account called **myasaquickstartstorage** with locally redundant storage(LRS) and blob encryption (enabled by default).  
    
 2. Retrieve the storage account context `$storageAccount.Context` that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials. 
 

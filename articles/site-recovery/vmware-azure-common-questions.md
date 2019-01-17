@@ -7,8 +7,7 @@ ms.service: site-recovery
 services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
-ms.author: rayne
-
+ms.author: raynew
 ---
 # Common questions - VMware to Azure replication
 
@@ -86,7 +85,7 @@ For replication, a VMware VM must be running a supported operating system. In ad
 Replication is continuous when replicating VMware VMs to Azure.
 
 ### Can I extend replication?
-Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### Can I do an offline initial replication?
 This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
@@ -103,6 +102,12 @@ Yes, you can add new VMs to an existing replication group when you enable replic
 ### Can I modify VMs that are replicating by adding or resizing disks?
 
 For VMware replication to Azure you can modify disk size. If you want to add new disks you need to add the disk and reenable protection for the VM.
+
+### Can I migrate on-prem machines to a new Vcenter without impacting ongoing replication?
+No, change of Vcenter or migration will impact ongoing replication. You need to set up ASR with the new Vcenter and enable replication for machines.
+
+### Can I replicate to cache/target storage account which has a Vnet (with Azure storage firewalls) configured on it?
+No, Azure Site Recovery does not support replication to Storage on Vnet.
 
 ## Configuration server
 
@@ -220,9 +225,10 @@ Azure is designed for resilience. Site Recovery is engineered for failover to a 
 Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### Why do I need a VPN or ExpressRoute to fail back?
-
 When you fail back from Azure, data from Azure is copied back to your on-premises VM and private access is required.
 
+### Can I resize the Azure VM after failover?
+No, you cannot change the size of the target VM after the failover.
 
 
 ## Automation and scripting
