@@ -34,7 +34,7 @@ SQL Server replication can be configured to single and pooled databases on a [lo
 - SQL Server 2014 (12.x) RTM CU10
 - SQL Server 2012 (11.x) SP2 CU8 or SP3
 - Attempting to configure replication using an older version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQL_REPL40532 (Cannot open server \<name> requested by the login. The login failed.).  
-- To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com//sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).  
+- To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).  
   
 ## Remarks
 
@@ -105,6 +105,7 @@ Create a publication and a push subscription. For more information, see:
 
 ## See Also  
 
+- [Transactional replication](sql-database-managed-instance-transactional-replication.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Types of Replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

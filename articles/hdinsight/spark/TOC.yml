@@ -433,6 +433,8 @@
     href: /rest/api/hdinsight/
   - name: REST API (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
     - name: Release notes

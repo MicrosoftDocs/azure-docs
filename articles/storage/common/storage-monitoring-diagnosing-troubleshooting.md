@@ -800,7 +800,7 @@ You can also use the Application Insights feature for Azure DevOps as part of yo
 * Make sure your web service is available and responsive. Whether your app is a web site or a device app that uses a web service, it can test your URL every few minutes from locations around the world, and let you know if there's a problem.
 * Quickly diagnose any performance issues or exceptions in your web service. Find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. If the app's performance drops below acceptable limits, Microsoft can send you an email. You can monitor both .NET and Java web services.
 
-You can find more information at [What is Application Insights](../../application-insights/app-insights-overview.md).
+You can find more information at [What is Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 <!--Anchors-->
 [Introduction]: #introduction

@@ -28,7 +28,7 @@ In this quickstart, you learn how to download the sign-in data for your tenant f
 
 You need:
 
-* An Azure Active Directory tenant, with a Premium license to view the sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition.
+* An Azure Active Directory tenant, with a Premium license to view the sign-in activity report. See [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) to upgrade your Azure Active Directory edition. Note that if you did not have any activities data prior to the upgrade, it will take a couple of days for the data to show up in the reports after you upgrade to a premium license.
 * A user, who is in the **Security Administrator**, **Security Reader**, **Report Reader** or **Global Administrator** role for the tenant. In addition, any user in the tenant can access their own sign-ins.
 
 ## Quickstart: Download a sign-in report

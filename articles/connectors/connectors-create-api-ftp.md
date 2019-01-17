@@ -25,10 +25,10 @@ account on an FTP server, along with other actions, for example:
 * Extract archives to folders.
 
 You can use triggers that get responses from your FTP server and 
-make the output available to other actions. You can use actions in 
-your logic apps to perform tasks with files on your FTP server. 
+make the output available to other actions. You can use run actions 
+in your logic apps for managing files on your FTP server. 
 You can also have other actions use the output from FTP actions. 
-For example, if you regularly retrieve files from your FTP server, 
+For example, if you regularly get files from your FTP server, 
 you can send email about those files and their content by using 
 the Office 365 Outlook connector or Outlook.com connector. 
 If you're new to logic apps, review 
@@ -50,8 +50,8 @@ If you're new to logic apps, review
 
   The FTP connector requires that your FTP server is 
   accessible from the internet and set up to operate 
-  in *passive* mode. Your credentials authorize your 
-  logic app to create a connection and access your FTP account.
+  in *passive* mode. Your credentials let your logic 
+  app create a connection and access your FTP account.
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -105,7 +105,7 @@ Finally, you can add an action that gets the file's content,
 and put that content in a folder on the SFTP server. 
 
 **Enterprise example**: You can use this trigger to monitor 
-an FTP folder for new files that represent customer orders. 
+an FTP folder for new files that describe customer orders. 
 You can then use an FTP action such as **Get file content**, 
 so you can get the order's contents for further processing 
 and store that order in an orders database.
@@ -128,6 +128,10 @@ select this trigger: **When a filed is added or modified - FTP**
 
 1. Provide the necessary details for your connection, 
 and then choose **Create**.
+
+   By default, this connector transfers files in text format. 
+   To transfer files in binary format, for example, where and 
+   when encoding is used, select **Binary Transport**.
 
    ![Create FTP server connection](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 

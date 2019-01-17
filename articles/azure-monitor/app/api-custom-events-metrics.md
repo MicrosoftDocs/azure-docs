@@ -16,7 +16,7 @@ ms.author: mbullwin
 ---
 # Application Insights API for custom events and metrics
 
-Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](../../application-insights/app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
 
 > [!NOTE]
 > `TrackMetric()` is no longer the preferred method of sending custom metrics for your .NET based applications. In [version 2.60-beta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) of the Application Insights .NET SDK a new method, [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) was introduced. As of the Application Insights .NET SDK [version 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) this functionality is now part of the stable release.
@@ -163,7 +163,7 @@ namespace User.Namespace.Example01
 {
     using System;
     using Microsoft.ApplicationInsights;
-    using TraceSeveretyLevel = Microsoft.ApplicationInsights.DataContracts.SeverityLevel;
+    using TraceSeverityLevel = Microsoft.ApplicationInsights.DataContracts.SeverityLevel;
 
     /// <summary>
     /// Most simple cases are one-liners.
@@ -215,7 +215,7 @@ namespace User.Namespace.Example01
             if (!animalsSold.TrackValue(count, species))
 
             {
-                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", TraceSeveretyLevel.Error);
+                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", TraceSeverityLevel.Error);
             }
 
             // You can inspect a metric object to reason about its current state. For example:
@@ -246,7 +246,7 @@ namespace User.Namespace.Example01
 > [!NOTE]
 > Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is deprecated in the .NET SDK. Metrics should always be pre-aggregated across a time period before being sent. Use one of the GetMetric(..) overloads to get a metric object for accessing SDK pre-aggregation capabilities. If you are implementing your own pre-aggregation logic, you can 
 use the Track(ITelemetry metricTelemetry) method to send the resulting aggregates. If your application requires sending a separate telemetry item at every occasion without aggregation across time, you likely have a use case for event telemetry; see TelemetryClient.TrackEvent 
-(Microsoft.Applicationlnsights.DataContracts.EventTelemetry).
+(Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights can chart metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.
 
@@ -1073,7 +1073,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
-To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](../../application-insights/app-insights-create-new-resource.md) and change their keys, depending on the environment.
+To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](../../azure-monitor/app/create-new-resource.md ) and change their keys, depending on the environment.
 
 Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
@@ -1167,9 +1167,9 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
     None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages in the debug console output and--if the messages get through--in Diagnostic Search.
 * *Is there a REST API to get data from the portal?*
 
-    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](../../application-insights/app-insights-export-power-bi.md) and [continuous export](../../azure-monitor/app/export-telemetry.md).
+    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](../../azure-monitor/app/export-power-bi.md ) and [continuous export](../../azure-monitor/app/export-telemetry.md).
 
 ## <a name="next"></a>Next steps
 
 * [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
-* [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)
