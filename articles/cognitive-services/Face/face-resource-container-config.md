@@ -111,7 +111,7 @@ The Face container stores blob, cache, metadata, and queue data, depending on wh
   The Face container uses Azure Storage and Azure Cosmos DB to distribute these four types of data across persistent storage. Blob and queue data is handled by Azure Storage. Metadata and cache data is handled by Azure Cosmos DB. If the Face container is stopped or removed, all of the data in storage for that container remains stored in Azure Storage and Azure Cosmos DB.  
   The resources used by the Azure storage scenario have the following additional requirements
   * The Azure Storage resource must use the StorageV2 account kind
-  * The Azure Cosmos DB resource must use the Azure Cosmos DB for MongoDB API
+  * The Azure Cosmos DB resource must use the Azure Cosmos DB's API for MongoDB
 
 The storage scenarios and associated configuration settings are managed by the `Storage` object, under the `CloudAI` configuration section. The following configuration settings are available in the `Storage` object:
 

@@ -48,7 +48,7 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
     ![set filter options](./media/resource-group-audit/set-filter.png)
 
-4. If you need to run the query again later, select **Save** and give the query a name.
+4. If you need to run the query again later, select **Pin current filters** and give it a name.
 
     ![save query](./media/resource-group-audit/save-query.png)
 5. To quickly run a query, you can select one of the built-in queries, such as failed deployments.
