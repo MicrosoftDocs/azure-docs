@@ -1,12 +1,12 @@
 ---
-title: Deploy the remote monitoring solution locally (via Visual Studio Code) - Azure | Microsoft Docs 
+title: Deploy the remote monitoring solution locally (Visual Studio Code) - Azure | Microsoft Docs 
 description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Visual Studio Code for testing and development.
 author: avneet723
 manager: hegate
 ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 11/20/2018
+ms.date: 01/17/2019
 ms.topic: conceptual
 ---
 
@@ -43,17 +43,6 @@ To complete the local deployment, you need the following tools installed on your
 
 In this section, you run the Remote Monitoring microservices. You run the web UI natively, the Device Simulation service in Docker, and the microservices in Visual Studio Code.
 
-### Run the device simulation service
-
-Run the following command to launch the Docker container for the device simulation service. The service simulates devices for the remote monitoring solution.
-
-```cmd
-azure-iot-pcs-remote-monitoring-dotnet\services\device-simulation\scripts\docker\run.cmd
-```
-
-> [!NOTE]
-> For any issues running Docker on Windows, see [Logs and troubleshooting](https://docs.docker.com/docker-for-windows/troubleshoot/).
-
 ### Build the code
 
 Navigate to azure-iot-pcs-remote-monitoring-dotnet\services in the command prompt and run the following commands to build the code.
@@ -70,15 +59,9 @@ The following steps show you how to run the Remote Monitoring microservices in V
 1. Launch Visual Studio Code.
 1. Open the **azure-iot-pcs-remote-monitoring-dotnet** module from your local copy in VS Code.
 1. Copy the files **launch.json** and **tasks.json** from scripts\local\launch\idesettings\vscode\. Create a new folder **azure-iot-pcs-remote-monitoring-dotnet\.vscode** and paste the files there.
-1. Open the Debug panel in VS Code and start the services in the following order:
-    * Auth
-    * StorageAdapter​
-    * Config​
-    * IoTHubManager​
-    * AsaManager​
-    * DeviceTelemetry
+1. Open the Debug panel in VS Code and run the **Run all microservices** configuration. This configuration runs the device simulation microservice in Docker and runs the other microservices in the debugger.
 
-The output for **Auth** service in the Debug Console looks like the following
+As an example, the output for **Auth** service in the **Debug Console** looks like the following:
 
 [![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
@@ -90,6 +73,8 @@ In this step, you start the web UI. Navigate to **azure-iot-pcs-remote-monitorin
 npm install
 npm start
 ```
+
+When the start is complete, your browser displays the page **http://localhost:3000/dashboard**. The errors on this page are expected. To view the application without errors, complete the following step.
 
 ### Configure and run NGINX
 
