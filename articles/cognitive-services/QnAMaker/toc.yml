@@ -148,10 +148,18 @@
       items:
       - name: NuGet
         href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
+    - name: Go
+      items:
+      - name: SDK
+        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker
     - name: Node.js
       items:
       - name: NPM
         href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+    - name: Python
+      items: 
+      - name: Pip
+        href: https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/
     - name: Ruby
       items: 
       - name: Gem

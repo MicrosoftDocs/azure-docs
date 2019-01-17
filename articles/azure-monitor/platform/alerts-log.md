@@ -135,7 +135,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
     "parameters": {      
     },   
@@ -143,7 +143,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
     "alertLocation": "southcentralus",
     "alertName": "samplelogalert",
     "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDesription": "Sample log search alert",
+    "alertDescription": "Sample log search alert",
     "alertStatus": "true",
     "alertSource":{
         "Query":"requests",
@@ -174,7 +174,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
     "location": "[variables('alertLocation')]",
     "tags":{"[variables('alertTag')]": "Resource"},
     "properties":{
-       "description": "[variables('alertDesription')]",
+       "description": "[variables('alertDescription')]",
        "enabled": "[variables('alertStatus')]",
        "source": {
            "query": "[variables('alertSource').Query]",

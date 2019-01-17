@@ -1,16 +1,14 @@
 ---
 title: 'Azure Cosmos DB: SQL Java API, SDK & resources'
 description: Learn all about the SQL Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
-services: cosmos-db
-author: rnagpal
-
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/29/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.author: sngun
+
 
 ---
 # Azure Cosmos DB Java SDK for SQL API: Release notes and resources
@@ -135,7 +133,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ### <a name="1.9.3"/>1.9.3
 * Fixed a bug in the connection management to prevent connection leaks in direct connectivity mode.
-* Fixed a bug in the TOP query where it may throw NullReferenece exception.
+* Fixed a bug in the TOP query where it may throw NullReference exception.
 * Improved performance by reducing the number of network call for the internal caches.
 * Added status code, ActivityID and Request URI in DocumentClientException for better troubleshooting.
 

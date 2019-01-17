@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -43,7 +43,7 @@ Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.micr
 
 To review your costs with cost analysis, in the Azure portal, navigate to **Cost Management + Billing** &gt; **Cost Management** &gt; **Change scope**, choose a scope, and then click **Select**.
 
-The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll-up to and then you filter-down to what you want. This is important to understand because some people should not have access to a parent scope that child scopes roll up to.
+The scope that you select is used throughout Cost Management to provide data consolidation and to control access to cost information. When you use scopes, you don't multi-select them. Instead, you select a larger scope that others roll up to and then you filter-down to what you want. This is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to.
 
 Click **Open Cost analysis**.
 
@@ -80,7 +80,11 @@ Generally, you can expect to see data or notifications for consumed resources wi
 
 ![Daily view showing example daily costs for the current month](./media/quick-acm-cost-analysis/daily-view.png)
 
-You can **Group by** to select a group category to change data displayed in the top total area graph. Grouping lets you quickly see how your spending is categorized by common resource and usage properties, like resource group or resource tags. To group by tags, select the tag key you want to group by and you'll see costs broken down by each value for that tag, with an extra segment for resources which don't have that tag applied. Note Cost Management only supports resource tags from the date the tags are applied directly to the resource. Resource group tags are not supported today. Here's a view of Azure service costs for a view of the last month.
+You can **Group by** to select a group category to change data displayed in the top total area graph. Grouping lets you quickly see how your spending is categorized by common resource and usage properties, like resource group or resource tags. To group by tags, select the tag key you want to group by. You'll see costs broken down by each value for that tag, with an extra segment for resources that don't have that tag applied.
+
+Most [Azure resources support tagging](../azure-resource-manager/tag-support.md), however some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Cost Management only supports resource tags from the date the tags are applied directly to the resource.
+
+Here's a view of Azure service costs for a view of the last month.
 
 ![Grouped daily accumulated view showing example Azure service costs for last month](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
@@ -90,9 +94,9 @@ Pivot charts under the main chart show different groupings to give you a broader
 
 The preceding image shows resource group names. While you can group by tag to view total costs per tag, viewing all tags per resource or resource group isn't available in any of the cost analysis views.
 
-When grouping costs by a specific attribute, the top ten cost contributors are shown from highest to lowest. If there are more than ten groups, the top nine cost contributors are shown as well as an **Others** group, which covers all remaining groups together. When grouping by tags, you may also see an **Untagged** group for costs which do not have the tag key applied. **Untagged** is always last, even if there are more untagged costs than tagged costs. If there are 10 or more tag values, untagged costs will be part of **Others**.
+When grouping costs by a specific attribute, the top ten cost contributors are shown from highest to lowest. If there are more than ten groups, the top nine cost contributors are shown. Also shown is as an **Others** group, which covers all remaining groups together. When grouping by tags, you may also see an **Untagged** group for costs that don't have the tag key applied. **Untagged** is always last, even if there are more untagged costs than tagged costs. If there are ten or more tag values, untagged costs will be part of **Others**.
 
-*Classic* (Azure Service Management or ASM) virtual machines, networking, and storage resources do not share detailed billing data. They are merged as **Classic services** when grouping costs.
+*Classic* (Azure Service Management or ASM) virtual machines, networking, and storage resources don't share detailed billing data. They're merged as **Classic services** when grouping costs.
 
 
 ## Download cost analysis data

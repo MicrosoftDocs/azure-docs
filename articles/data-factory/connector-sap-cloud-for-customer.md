@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
@@ -88,7 +88,7 @@ To copy data from SAP Cloud for Customer, set the type property of the dataset t
     "name": "SAPC4CDataset",
     "properties": {
         "type": "SapCloudForCustomerResource",
-        "typePoperties": {
+        "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
         "linkedServiceName": {

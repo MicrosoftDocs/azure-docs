@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2018
+ms.date: 12/27/2018
 ms.author: tomfitz
 ---
 # Create Azure Resource Manager template
@@ -19,19 +19,17 @@ This article describes the process and decisions you make when creating an Azure
 
 ## Select JSON editor
 
-The Resource Manager template is a JSON file. You need a good authoring tool to work on the JSON file. You have many options, but if you don't already have an editor that you prefer, install [VS Code](https://code.visualstudio.com/). 
+The Resource Manager template is a JSON file. You need a good authoring tool to work on the JSON file. You have many options, but if you don't already have an editor that you prefer, install [Visual Studio Code (VS Code)](https://code.visualstudio.com/). 
 
 After installing VS Code, add the [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). This extension adds many features that simplify template authoring.
 
-## Look for similar template
+![Template Visual Studio Code](./media/how-to-create-template/template-visual-studio-code.png)
 
-Often, you can find an existing template that deploys a solution that is similar to what you need. The [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates) has hundreds of templates from community contributors.
+The screenshot shows a Resource Manager template opened in Visual Studio Code. 
 
-![Template Quickstart repository](./media/how-to-create-template/template-quickstart-repo.png)
+For a tutorial of installing the Resource Manager tools extension and how to use VS Code, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md).
 
-Search through that repository for a template that is similar to what you need. It's okay if the template doesn't do exactly what you need, you can customize it.
-
-After finding a template, copy the **azuredeploy.json** file from the repository. In VS Code, create a new file named **azuredeploy.json** and add the contents of the template file you copied from the Quickstart repository.
+## Understand the template structure
 
 Let's review the parts of the template to understand how the template works. Your template may not have every section. The sections you want to focus on are:
 
@@ -45,27 +43,15 @@ Let's review the parts of the template to understand how the template works. You
 
 * The [outputs](resource-manager-templates-outputs.md) section, which shows the values that are returned after deployment has finished.
 
-## Review template functions
+## Look for similar templates
 
-You may notice expressions in your template that are surrounded by brackets, such as `"[some-expression]"`. These expressions use template functions to dynamically construct values during deployment.
+Often, you can find an existing template that deploys a solution that is similar to what you need. The [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/) has hundreds of templates from community contributors.
 
-For example, you often see an expression like:
+![Template Quickstart repository](./media/how-to-create-template/template-quickstart-repo.png)
 
-```json
-"name": "[parameters('siteName')]"
-```
+Search through that repository for a template that is similar to what you need. It's okay if the template doesn't do exactly what you need, you can customize it.
 
-That expression gets the value of a parameter. The value is assigned to the name property.
-
-Or, you may see a more complex expression that uses several functions like:
-
-```json
-"[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
-```
-
-That expression gets an object with the properties of a storage account.
-
-To understand what the functions do, review the [template function reference](resource-group-template-functions.md) documentation.
+After finding a template, select **Browse on Github**, and then copy the **azuredeploy.json** file from the repository. In VS Code, create a new file named **azuredeploy.json** and add the contents of the template file you copied from the Quickstart repository.
 
 ## Add resources
 
@@ -108,6 +94,28 @@ You can add tags to your resources to logically organize by categories, and divi
 ```
 
 You can also apply tags dynamically from parameters. For more information, see [tags in template](resource-manager-templates-resources.md#tags).
+
+## Review template functions
+
+You may notice expressions in your template that are surrounded by brackets, such as `"[some-expression]"`. These expressions use template functions to dynamically construct values during deployment.
+
+For example, you often see an expression like:
+
+```json
+"name": "[parameters('siteName')]"
+```
+
+That expression gets the value of a parameter. The value is assigned to the name property.
+
+Or, you may see a more complex expression that uses several functions like:
+
+```json
+"[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+```
+
+That expression gets an object with the properties of a storage account.
+
+To understand what the functions do, review the [template function reference](resource-group-template-functions.md) documentation.
 
 ## Create more than one instance
 

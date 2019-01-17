@@ -68,6 +68,8 @@ To set the server time zone for your web app:
     * Value = *The time zone you want*
 3. Select **Save**.
 
+See the **Timezone** column in the [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) article for accepted values.
+
 ## Why do my continuous WebJobs sometimes fail?
 
 By default, web apps are unloaded if they are idle for a set period of time. This lets the system conserve resources. In Basic and Standard plans, you can turn on the **Always On** setting to keep the web app loaded all the time. If your web app runs continuous WebJobs, you should turn on **Always On**, or the WebJobs might not run reliably. For more information, see [Create a continuously running WebJob](webjobs-create.md#CreateContinuous).
@@ -182,7 +184,7 @@ You have two options for capturing an F12 trace:
 3. Verify that the **Network** tab is selected, and then select the green **Play** button.
 4. Do the steps that reproduce the issue.
 5. Select the red **Stop** button.
-6. Select the **Save** button (disk icon), and save the HAR file (in Internet Explorer and Edge) *or* right-click the HAR file, and then select **Save as HAR with content** (in Chrome).
+6. Select the **Save** button (disk icon), and save the HAR file (in Internet Explorer and Microsoft Edge) *or* right-click the HAR file, and then select **Save as HAR with content** (in Chrome).
 
 ### F12 console output
 

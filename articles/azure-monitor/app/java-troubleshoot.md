@@ -31,7 +31,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 * Turn on logging to the IDE console window, by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with AI: INFO/WARN/ERROR for any suspicious logs.
 * Make sure that the correct ApplicationInsights.xml file has been successfully loaded by the Java SDK, by looking at the console's output messages for a "Configuration file has been successfully found" statement.
-* If the config file is not found, check the output messages to see where the config file is being searched for, and make sure that the ApplicationInsights.xml is located in one of those search locations. As a rule of thumb, you can place the config file near the Application Insights SDK JARs. For example: in Tomcat, this would mean the WEB-INF/classes folder. During developement you can place ApplicationInsights.xml in resources folder of your web project.
+* If the config file is not found, check the output messages to see where the config file is being searched for, and make sure that the ApplicationInsights.xml is located in one of those search locations. As a rule of thumb, you can place the config file near the Application Insights SDK JARs. For example: in Tomcat, this would mean the WEB-INF/classes folder. During development you can place ApplicationInsights.xml in resources folder of your web project.
 * Please also look at [GitHub issues page](https://github.com/Microsoft/ApplicationInsights-Java/issues) for known issues with the SDK.
 * Please ensure to use same version of Application Insights core, web, agent and logging appenders to avoid any version conflict issues.
 
@@ -42,7 +42,7 @@ Questions or problems with [Azure Application Insights in Java][java]? Here are 
 * Are you looking at the correct AI resource? Please match the iKey of your application to the resource where you are expecting telemetry. They should be the same.
 
 #### I don't see all the data I'm expecting
-* Open the Usage and estimated cost page and check whether [sampling](../../application-insights/app-insights-sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry.
+* Open the Usage and estimated cost page and check whether [sampling](../../azure-monitor/app/sampling.md) is in operation. (100% transmission means that sampling isn't in operation.) The Application Insights service can be set to accept only a fraction of the telemetry that arrives from your app. This helps you keep within your monthly quota of telemetry.
 * Do you have SDK Sampling turned on? If yes, data would be sampled at the rate specified for all the applicable types.
 * Are you running an older version of Java SDK? Starting with version 2.0.1, we have introduced fault tolerance mechanism to handle intermittent network and backend failures as well as data persistence on local drives.
 * Are you getting throttled due to excessive telemetry? If you turn on INFO logging, you will see a log message "App is throttled". Our current limit is 32k telemetry items/second.
@@ -155,11 +155,11 @@ Application Insights uses `org.apache.http`. This is relocated within Applicatio
 
 <!--Link references-->
 
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [data]: ../../azure-monitor/app/data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md
 [usage]: javascript.md
 

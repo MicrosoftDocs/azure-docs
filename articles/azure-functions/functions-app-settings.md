@@ -14,7 +14,7 @@ ms.author: glenga
 
 # App settings reference for Azure Functions
 
-App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are in [environment variables](functions-run-local.md#local-settings-file). This article lists the app settings that are available in function apps.
+App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-run-local.md#local-settings-file). This article lists the app settings that are available in function apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
@@ -174,7 +174,7 @@ By default Functions proxies will utilize a shortcut to send API calls from prox
 
 |Key|Value|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend url pointing to a function in the local Function will no longer be sent directly to the function, and will instead be directed back to the HTTP front end for the Function App|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend url pointing to a function in the local Function App will no longer be sent directly to the function, and will instead be directed back to the HTTP front end for the Function App|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|This is the default value. Calls with a  backend url pointing to a function in the local Function App will be forwarded directly to that Function|
 
 

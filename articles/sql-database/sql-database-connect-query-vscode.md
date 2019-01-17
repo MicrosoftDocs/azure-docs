@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/06/2018
+ms.date: 01/11/2019
 ---
 # Quickstart: Use Visual Studio Code to connect and query an Azure SQL Database
 
@@ -26,8 +26,8 @@ To complete this tutorial, you need:
 
 #### Install Visual Studio Code
 
-Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and [mssql for Visual Studio Code
-](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
+Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) and [mssql for Visual Studio Code
+](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
 ## Configure Visual Studio Code 
 

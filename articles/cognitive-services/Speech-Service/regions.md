@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
 ---
@@ -43,11 +43,24 @@ The Speech SDK is available in these regions for **speech recognition** and **tr
 
 ### Intent recognition
 
-**Intent recognition** for the Speech SDK shares regions support with LUIS. For a complete list of available regions, see [Publishing regions and endpoints - LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
+Available regions for **intent recognition** via the Speech SDK are the following:
 
-Available regions for **intent recognition** via the Speech SDK are listed on the [Language Understanding service region page](/azure/cognitive-services/luis/luis-reference-regions).
+ Global region | Region | Speech SDK Parameter
+ ------|-------|--------
+ Asia | East Asia | `eastasia`
+ Asia | Southeast Asia | `southeastasia`
+ Australia | Australia East | `australiaeast`
+ Europe | North Europe | `northeurope`
+ Europe | West Europe | `westeurope`
+ North America | East US | `eastus`
+ North America | East US 2 | `eastus2`
+ North America | South Central US | `southcentralus`
+ North America | West Central US | `westcentralus`
+ North America | West US | `westus`
+ North America | West US 2 | `westus2`
+ South America | Brazil South | `brazilsouth`
 
-For each publishing region listed, use the provided **API region name**. For example, use `westus` for West US.
+This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
 ## REST APIs
 

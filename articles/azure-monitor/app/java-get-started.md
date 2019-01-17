@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 01/10/2019
 ms.author: lagayhar
 ---
 # Get started with Application Insights in a Java web project
@@ -353,6 +353,14 @@ To collect data on other exceptions, you have two options:
 ## Monitor method calls and external dependencies
 [Install the Java Agent](java-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
 
+## W3C distributed tracing
+
+The Application Insights Java SDK now supports [W3C distributed tracing](https://w3c.github.io/trace-context/).
+
+The incoming SDK configuration is explained further in our article on [correlation](correlation.md#w3c-distributed-tracing).
+
+Outgoing SDK configuration is defined in the [AI-Agent.xml](java-agent.md) file.
+
 ## Performance counters
 Open **Settings**, **Servers**, to see a range of performance counters.
 
@@ -427,7 +435,7 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 </Channel>
 ```
 
-If you are using SpringBoot starter, add the following to your configuration file (application.properies):
+If you are using SpringBoot starter, add the following to your configuration file (application.properties):
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
@@ -483,9 +491,9 @@ You'll get charts of response times, plus email notifications if your site goes 
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../application-insights/app-insights-java-quick-start.md
+[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../application-insights/app-insights-metrics-explorer.md
+[metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

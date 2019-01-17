@@ -19,7 +19,7 @@ ms.author: maghan
 
 ---
 # Use ReportViewer in a Web Site Hosted in Azure
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 You can build a Microsoft Azure Web site with the Visual Studio ReportViewer control that displays a report stored on an Microsoft Azure Virtual Machine. The ReportViewer control is in a Web application that you build using the ASP.NET Web application template.
@@ -38,7 +38,7 @@ Review the “General recommendation and best practices” section in [SQL Serve
 
 > [!NOTE]
 > ReportViewer controls are shipped with Visual Studio, Standard Edition or above. If you are using the Web Developer Express Edition, you must install the [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747) to use the ReportViewer runtime features.
-> 
+>
 > ReportViewer configured in local processing mode is not supported in Microsoft Azure.
 
 ## Adding Assemblies to the Deployment Package
@@ -67,7 +67,7 @@ In remote processing mode, the ReportViewer control uses the following assemblie
 
 ### To configure for localized ReportViewer control
 1. Download and install the Microsoft Report Viewer 2012 Runtime redistributable package by following the above specified instructions.
-2. Create <language> folder in the project and copy the associated resource assembly files there. The resource assembly files to be copied are: **Microsoft.ReportViewer.Webforms.Resources.dll** and **Microsoft.ReportViewer.Common.Resources.dll**.Select the resource assembly files, and in the Properties pane, set **Copy to Output Directory** to “**Copy always**”.
+2. Create \<language\> folder in the project and copy the associated resource assembly files there. The resource assembly files to be copied are: **Microsoft.ReportViewer.Webforms.Resources.dll** and **Microsoft.ReportViewer.Common.Resources.dll**.Select the resource assembly files, and in the Properties pane, set **Copy to Output Directory** to “**Copy always**”.
 3. Set the Culture & UICulture for the web project. For more information about how to set the Culture and UI Culture for an ASP.NET Web page, see [How to: Set the Culture and UI Culture for ASP.NET Web Page Globalization](https://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## Configuring Authentication and Authorization
@@ -78,10 +78,10 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 
 > [!IMPORTANT]
 > If the Add Azure Deployment Project or Add Azure Cloud Service Project command does not appear in the shortcut menu in Solution Explorer, you may need to change the Target framework for the project to .NET Framework 4.
-> 
+>
 > The two commands provide essentially the same functionality. One or the other command will appear in the shortcut menu depending on which version of the Microsoft Azure SDK you have installed.
-> 
-> 
+>
+>
 
 ## Resources
 [Microsoft Reports](https://go.microsoft.com/fwlink/?LinkId=205399)
@@ -89,4 +89,3 @@ For instructions on publishing an ASP.NET Web application to Azure, see [How to:
 [SQL Server Business Intelligence in Azure Virtual Machines](../classic/ps-sql-bi.md)
 
 [Use PowerShell to Create an Azure VM With a Native Mode Report Server](../classic/ps-sql-report.md)
-
