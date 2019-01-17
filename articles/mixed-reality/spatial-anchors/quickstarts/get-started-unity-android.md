@@ -11,20 +11,24 @@ ms.date: 12/13/2018
 ms.topic: quickstart
 ms.service: spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to create a Spatial Anchor for my Android Unity app that can place, locate, and navigate to a 3D object that persists across devices and platforms.
+#Customer intent: As a Mixed Reality developer, I want to learn how to use Spatial Anchors in my Android Unity app that can place and locate a 3D object that persists across devices and platforms.
 ---
 # Quickstart: Create an Android Unity app with Spatial Anchors
 
-[Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. This tutorial covers how to create an Android Unity app using spatial anchors. When you're finished, you'll have an ARCore Android app built with Unity that can save and recall a spatial anchor.
+[Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
+using objects that persist their location across devices over time. This tutorial covers how to create an Android Unity
+app using Spatial Anchors. When you're finished, you'll have an ARCore Android app built with Unity that can save and
+recall a spatial anchor.
 
-You learn how to:
+You'll learn how to:
 
 > [!div class="checklist"]
+> * Create a Spatial Anchors account
 > * Prepare Unity build settings
 > * Download and import the ARCore SDK for Unity
 > * Configure the Spatial Anchors endpoint and account key
 > * Export the Android Studio project
-> * Run on an Android device
+> * Deploy and run on an Android device
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -73,7 +77,7 @@ Select **Export** to open a dialog. Then, select a folder to export the Android 
 
 When the export is complete, a folder will be displayed containing the exported Android Studio project.
 
-## Open the Android Studio project
+## Deploy the Android application
 
 Open Android Studio and select **Open an existing Android Studio project**. Then, select the exported Android Studio project and click **OK**.
 
@@ -94,4 +98,3 @@ Stop the app by selecting **Stop** from the Android Studio toolbar.
 ![Android Studio Stop](./media/get-started-unity-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]
-

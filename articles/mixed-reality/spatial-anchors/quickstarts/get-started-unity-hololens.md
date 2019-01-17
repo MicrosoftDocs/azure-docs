@@ -1,6 +1,6 @@
 ---
-title: Create HoloLens Unity app - Azure Spatial Anchors | Microsoft Docs
-description: Learn how to build a HoloLens app with Unity using Spatial Anchors.
+title: Quickstart - Create HoloLens Unity app with Azure Spatial Anchors | Microsoft Docs
+description: In this quickstart, you learn how to build a HoloLens app with Unity using Spatial Anchors.
 author: craigktreasure
 manager: aliemami
 services: spatial-anchors
@@ -11,18 +11,29 @@ ms.date: 12/14/2018
 ms.topic: quickstart
 ms.service: spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
+#Customer intent: As a Mixed Reality developer, I want to learn how to use Spatial Anchors in my HoloLens Unity app that can place and locate a 3D object that persists across devices and platforms.
 ---
 # Quickstart: Create a HoloLens Unity app using Spatial Anchors
 
-[Spatial Anchors](../overview.md) is a cross-platform developer service that makes it easy for you to create
-Mixed Reality experiences. This quickstart shows how to create a HoloLens Unity app using spatial anchors. When you're finished,
-you'll have an HoloLens app built with Unity that can save and recall a spatial anchor.
+[Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
+using objects that persist their location across devices over time. This tutorial covers how to create a HoloLens Unity
+app using Spatial Anchors. When you're finished, you'll have a HoloLens app built with Unity that can save and
+recall a spatial anchor.
+
+You'll learn how to:
+
+> [!div class="checklist"]
+> * Create a Spatial Anchors account
+> * Prepare Unity build settings
+> * Configure the Spatial Anchors endpoint and account key
+> * Export the HoloLens Visual Studio project
+> * Deploy and run on a HoloLens device
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-Before you get started, here's a list of prerequisites:
+To complete this quickstart, make sure you have:
 
 - A Windows machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> installed with the **Universal Windows Platform development** workload.
 - A HoloLens device with [developer mode](https://docs.microsoft.com/en-us/windows/mixed-reality/using-visual-studio) enabled.
@@ -51,7 +62,7 @@ In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open th
 
 [!INCLUDE [Configure Unity Scene](../../../../includes/spatial-anchors-unity-configure-scene.md)]
 
-## Export the HoloLens project
+## Export the HoloLens Visual Studio project
 
 Open **Build Settings** by selecting **File** -> **Build Settings**.
 
@@ -59,9 +70,9 @@ Under **Scenes In Build**, place a check mark next to the `MRCloudPlugin/Example
 
 Select **Build** to open a dialog. Then, select a folder to export the HoloLens Visual Studio project.
 
-When the export is complete, a folder will be displayed, which contains the exported HoloLens project.
+When the export is complete, a folder will be displayed containing the exported HoloLens project.
 
-## Open the HoloLens Visual Studio project
+## Deploy the HoloLens application
 
 In the folder, double-click on `HelloAR U3D.sln` to open the project in Visual Studio.
 

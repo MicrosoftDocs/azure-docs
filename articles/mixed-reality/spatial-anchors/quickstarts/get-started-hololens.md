@@ -1,6 +1,6 @@
 ---
-title: Create HoloLens app - Azure Spatial Anchors | Microsoft Docs
-description: Learn how to build a HoloLens app using Spatial Anchors.
+title: Quickstart - Create HoloLens app with Azure Spatial Anchors | Microsoft Docs
+description: In this quickstart, you learn how to build a HoloLens app using Spatial Anchors.
 author: craigktreasure
 manager: aliemami
 services: spatial-anchors
@@ -11,18 +11,19 @@ ms.date: 12/13/2018
 ms.topic: quickstart
 ms.service: spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
+#Customer intent: As a Mixed Reality developer, I want to learn how to use Spatial Anchors in my HoloLens app that can place and locate a 3D object that persists across devices and platforms.
 ---
 # Quickstart: Create a HoloLens app with Spatial Anchors
 
-[Spatial Anchors](../overview.md) is a cross-platform developer service that makes it easy for you to create
-Mixed Reality experiences. This quickstart shows how to create a HoloLens DirectX C++/WinRT app using spatial anchors. When you're finished,
-you'll have an HoloLens app that can save and recall a spatial anchor.
+[Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
+using objects that persist their location across devices over time. This tutorial covers how to create a HoloLens DirectX C++/WinRT
+app using Spatial Anchors. When you're finished, you'll have a HoloLens app that can save and recall a spatial anchor.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-Before you get started, here's a list of prerequisites:
+To complete this quickstart, make sure you have:
 
 - A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.17763.0)** component.
 - The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
