@@ -1,6 +1,6 @@
 ---
 title: Transform XML with XSLT maps - Azure Logic Apps | Microsoft Docs
-description: Add XSLT maps that transform XML in Azure Logic Apps with Enterprise Integration Pack
+description: How to use XSLT maps that transform XML in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,58 +12,131 @@ ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 07/08/2016
 ---
 
-# Add maps for XML transformation in Azure Logic Apps with Enterprise Integration Pack
+# Transform XML with maps in Azure Logic Apps with Enterprise Integration Pack
 
-Enterprise integration uses maps to transform XML data between formats. 
-A map is an XML document that defines the data in a document that 
-should be transformed into another format. 
+To transfer XML data between formats in enterprise integration scenarios, 
+logic apps linked to integration accounts can use maps, or more specifically, 
+Extensible Stylesheet Language Transformations (XSLT) maps. A map is an XML 
+document that describes how to transform data in a document into another format. 
 
-## Why use maps?
+When and why do you use maps? Suppose that you regularly receive B2B orders 
+or invoices from a customer who uses the YYYMMDD date format. However, 
+your organization uses the MMDDYYY date format. You can define and use a map 
+that transforms the YYYMMDD date format to the MMDDYYY format before storing 
+the order or invoice details in your customer activity database.
 
-Suppose that you regularly receive B2B orders or invoices from a customer who uses the YYYMMDD format for dates. However, in your organization, you store dates in the MMDDYYY format. You can use a map to *transform* the YYYMMDD date format into the MMDDYYY before storing the order or invoice details in your customer activity database.
+## Prerequisites
 
+* An Azure subscription. If you don't have a subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-## How do I create a map?
+* A basic [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+where you want to store your maps 
 
-You can create BizTalk Integration projects with the 
-[Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about the enterprise integration pack") for Visual Studio 2015. 
-You can then create an Integration Map file that lets you 
-visually map items between two XML schema files. 
-After you build this project, you will have an XSLT document.
+Before you can use your integration account and map in your logic app, 
+your logic app needs a link to that integration account. Learn 
+[how to link logic apps to integration accounts](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
+If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-If the map has a reference to an external assembly, then both must be uploaded to the integration account. They should be uploaded in a specific order, first the assembly and then the map that references the assembly.
+## Create maps
 
+To create an XSLT document you can use as a map, 
+you can use Visual Studio 2015 for creating a 
+BizTalk Integration project by using the 
+[Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). 
+In this project, you can build an integration map file, 
+which lets you visually map items between two XML schema files. 
+After you build this project, you get an XSLT document.
 
-## How do I add a map?
+If your map references an external assembly, you have to upload 
+*both the assembly and the map* to your integration account. 
+Make sure you upload the assembly first, and then upload the 
+map that references the assembly.
 
-1. In the Azure portal, select **Browse**.
+## Add referenced assemblies
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
+1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+with your Azure account credentials.
 
-2. In the filter search box, enter **integration**, 
-then select **Integration Accounts** from the results list.
+1. To find and open your integration account, 
+on the main Azure menu, select **All services**. 
+In the search box, enter "integration account". 
+Select **Integration accounts**.
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
+   ![Find your integration account](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
-3. Select the integration account where you want to add the map.
+1. Select the integration account where you want to add your assembly, 
+for example:
 
-	![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Select integration account](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
-4. Select the **Maps** tile.
+1. On your integration account's **Overview** page, 
+select the **Assemblies** tile.
 
-	![](./media/logic-apps-enterprise-integration-maps/map-1.png)
+   ![Select "Assemblies"](./media/logic-apps-enterprise-integration-maps/select-assemblies.png)
 
-5. After the Maps page opens, choose **Add**.
+1. Under **Assemblies**, choose **Add**. 
+
+   ![Choose "Add"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+
+1. Upload your assembly by following these steps:
+
+   1. Under **Add Assembly**, enter a name for your assembly. 
+
+   1. For assembly files that are 2 MB or smaller, leave **Small file** selected. 
+   Otherwise, choose **Large file (larger than 2 MB)**.
+
+   1. Next to the **Assembly** box, choose the folder icon.
+
+   1. Find and select the assembly you're uploading. 
+
+      In the **Assembly Name** property, the assembly's file 
+      name appears automatically after you select the assembly.
+
+      ![Upload assembly](./media/logic-apps-enterprise-integration-maps/upload-assembly-file.png)
+
+   1. After the file finishes uploading, choose **OK**. 
+
+   Your integration account's **Overview** page now 
+   shows the number of assemblies you uploaded. 
+
+## Add maps
+
+After you upload any assemblies that your map references, 
+you can now upload your map.
+
+1. If you haven't signed in already, sign in to the 
+<a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+with your Azure account credentials. 
+
+1. If your integration account isn't already open, 
+on the main Azure menu, select **All services**. 
+In the search box, enter "integration account". 
+Select **Integration accounts**.
+
+   ![Find your integration account](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
+
+1. Select the integration account where you want to add your map, 
+for example:
+
+   ![Select integration account](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
+
+1. On your integration account's **Overview** page, 
+select the **Maps** tile.
+
+   ![Choose "Maps"](./media/logic-apps-enterprise-integration-maps/select-maps.png)
+
+1. After the Maps page opens, choose **Add**.
 
 	![](./media/logic-apps-enterprise-integration-maps/map-2.png)  
 
-6. Enter a **Name** for your map. To upload the map file, 
+1. Enter a **Name** for your map. To upload the map file, 
 choose the folder icon on the right side of the **Map** text box. 
 After the upload process completes, choose **OK**.
 
 	![](./media/logic-apps-enterprise-integration-maps/map-3.png)
 
-7. After Azure adds the map to your integration account, 
+1. After Azure adds the map to your integration account, 
 you get an onscreen message that shows whether your map file 
 was added or not. After you get this message, 
 choose the **Maps** tile so you can view the newly added map.
@@ -71,21 +144,7 @@ choose the **Maps** tile so you can view the newly added map.
 	![](./media/logic-apps-enterprise-integration-maps/map-4.png)
 
 
-## How do I add an assembly?
-Open the integration account where you want to upload the assembly.
-
-1. Choose the **Assemblies** tile.
-
-	![integrationaccount-assembly-tile](./media/logic-apps-enterprise-integration-maps/assemblytile.png)
-
-2. After the Assemblies page opens, choose **Add**. Enter a **Name** for your assembly. To upload the assembly file, 
-choose the folder icon on the right side of the **Assembly** text box. 
-After the upload process completes, choose **OK**.
-
- 	![add-assembly](./media/logic-apps-enterprise-integration-maps/assemblyfile.png)
-
-
-## How do I edit a map?
+## Edit maps
 
 You must upload a new map file with the changes that you want. 
 You can first download the map for editing.
@@ -106,21 +165,22 @@ then select **Open**.
 
 	![](./media/logic-apps-enterprise-integration-maps/edit-2.png)
 
-## How to delete a map?
+## Delete maps
 
 1. Choose the **Maps** tile.
 
-2. After the Maps page opens, select the map you want to delete.
+1. After the Maps page opens, select the map you want to delete.
 
-3. Choose **Delete**.
+1. Choose **Delete**.
 
-	![](./media/logic-apps-enterprise-integration-maps/delete.png)
+   ![](./media/logic-apps-enterprise-integration-maps/delete.png)
 
-4. Confirm that you want to delete the map.
+1. Confirm that you want to delete the map.
 
-	![](./media/logic-apps-enterprise-integration-maps/delete-confirmation-1.png)
+   ![](./media/logic-apps-enterprise-integration-maps/delete-confirmation-1.png)
 
 ## Next Steps
+
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 * [Learn more about agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
 * [Learn more about transforms](logic-apps-enterprise-integration-transform.md "Learn about enterprise integration transforms")  
