@@ -12,11 +12,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/17/2019
   ms.author: v-gedod
 abstract:
-  description: The Bing Video Search API provides an experience similar to Bing.com/videos by returning videos that are relevant to your users' search queries.
+  description: The Bing Video Search API enables you to integrate Bing's video search capabilities in your applications. By sending search queries to the API, you can get and display relevant and high-quality videos similar to bing.com/videos.  
 sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/bing-video-search/overview
+          html: <p>Learn about the Bing Video Search API</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is the Bing Video Search API?
+        - href: /azure/cognitive-services/bing-video-search/concepts/sending-requests
+          html: <p>Learn how to send Video search queries to Bing</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Sending search queries
+        - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
+          html: <p>Learn how to filter search results, get video thumbnails, expand search queries</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Getting videos from the web
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
