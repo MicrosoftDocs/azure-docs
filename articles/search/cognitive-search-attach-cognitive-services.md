@@ -46,7 +46,9 @@ Continue to the next step, **Add enrichments**. For a description of skills avai
 
 ## Use billable resources
 
-For workloads numbering more than 20 documents daily, you need a billable Cognitive Services resource.
+For workloads numbering more than 20 enrichments daily, you need to attach a billable Cognitive Services resource. 
+
+Only API-bound skills are billed. Non-API-based skills like [custom skills](cognitive-search-create-custom-skill-example.md), [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), and [shaper](cognitive-search-skill-shaper.md) skills are not billed.
 
 1. In the **Import data** wizard in **Attach Cognitive Services**, select an existing resource or click **Create new Cognitive Services resource**.
 
