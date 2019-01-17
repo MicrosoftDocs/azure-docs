@@ -66,6 +66,8 @@ If you know the address range that your application request traffic will come fr
 
 ![ASE with Azure Firewall connection flow][5]
 
+This is just one example of how to configure your system. If you did follow this path then you would need to add a route to the ASE subnet route table so the reply traffic sent to the Application Gateway would go there directly. 
+
 ## Logging 
 
 Azure Firewall can send logs to Azure Storage, Event Hub or Log Analytics. To integrate your app with any supported destination, go to the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Log Analytics, then you can see logging for any traffic sent to Azure Firewall. To see the traffic that is being denied, open your Log Analytics portal > Logs and enter a query like 
