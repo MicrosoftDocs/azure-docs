@@ -74,7 +74,7 @@
     - name: Accelerated networking for Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
-      href: azure-vm-disaster-recovery-with-expressroute.
+      href: azure-vm-disaster-recovery-with-expressroute.md
   - name: About VMware VM disaster recovery to Azure
     items:
     - name: VMware disaster recovery overview
