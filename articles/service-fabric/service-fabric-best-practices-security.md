@@ -23,7 +23,7 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 ## KeyVault
 [Azure KeyVault](https://docs.microsoft.com/azure/key-vault/) is the recommended secrets management service for Azure Service Fabric applications and clusters.
 > [!NOTE]
-> Azure KeyVault and compute resources must be co-located in the same region.  
+> If certificates/secrets from a Keyvault deployed to Virtual Machine Scale Set, as a Virtual Machine Scale Set Secret, then the Keyvault and Virtual Machine Scale Set must be co-located.
 
 ## Provision Service Fabric Cluster Custom Domain Certificate
 The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provision your custom domain certificate:
