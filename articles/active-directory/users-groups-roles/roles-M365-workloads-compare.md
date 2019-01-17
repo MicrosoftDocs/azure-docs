@@ -21,12 +21,12 @@ ms.custom: it-pro
 
 # Compare administrator roles for workloads in Microsoft 365
 
-In this article, you can find the information needed to restrict a user's administrator permissions by assigning least privileged roles in Azure Active Directory (Azure AD). You will find administrator tasks organized by feature area and the least privileged role required to perform each task, along with additional non-Global Administrator roles that can perform the task.
+This document provides a list of Microsoft 365 (M365) workloads accompanied by links to role documentation and feature area API documentation. 
 
 ## Where to find documentation
 
-M365 workload | Role documentation | API documentation
-------------- | ------------------ | -----------------
+Microsoft 365 workload | Role documentation | API documentation
+---------------------- | ------------------ | -----------------
 Azure AD | [Azure AD admin roles](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<li>[Fetch role assignments](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Privileged Identity Management | See [Azure AD admin roles](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<li>[Fetch role assignments](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Exchange | [Exchange role-based access control](https://docs.microsoft.com/en-us/exchange/understanding-role-based-access-control-exchange-2013-help) |  [PowerShell for Exchange](https://docs.microsoft.com/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<li>[Fetch role assignments](https://docs.microsoft.com/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
