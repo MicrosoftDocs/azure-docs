@@ -31,9 +31,9 @@ When similar queries are clustered, QnA Maker suggests the user-based questions 
 
 ## How active learning works
 
-Active Learning is triggered based on the scores of top N answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible “suggestion” for each of the possible answers. The exact score difference logic is a function of the score root of the confidence score of the top answer.
+Active Learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. <!--The exact score difference logic is a function of the score root of the confidence score of the top answer.-->
 
-All the suggestions are then clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Therefore, active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety in terms of usage queries.
+All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
 
 ## Best practices
 
