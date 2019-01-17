@@ -40,20 +40,20 @@ Before you begin:
 
 * On Windows: [.NET Core 2.1 SDK or later](https://www.microsoft.com/net/download/windows)
 * On Mac: [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
-* All platforms:
+* On all platforms:
   * [Git](https://git-scm.com/downloads)
   * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later, available for Windows, Mac, and Linux
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
-## How Managed Service Identity works
+## About Managed Service Identity
 
 Azure Key Vault stores credentials securely so they aren’t in your code. However, you need to authenticate to Azure Key Vault to retrieve your keys. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Managed Service Identity (MSI) solves this issue by providing a _bootstrap identity_ that simplifies the process.
 
-When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the credentials for the service principal into that instance.
+When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance.
 
 ![MSI diagram](media/MSI.png)
 
-Next, your code calls a local metadata service available on the Azure resource to get an access token. Your code uses the access token it gets from the local MSI_ENDPOINT to authenticate to an Azure Key Vault service.
+Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. Your code uses the access token that it gets from the local MSI_ENDPOINT to authenticate to an Azure Key Vault service.
 
 ## Log in to Azure
 
@@ -200,7 +200,7 @@ To create a .NET Core web app and publish it to Azure, follow this [tutorial](..
 1. In the browser, go to the **About** page.  
     The value for **AppSecret** is displayed.
 
-## Enable a managed identity for the web app
+## Enable a managed identity
 
 Azure Key Vault provides a way to securely store credentials and other secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md) helps to solve this problem by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
 
@@ -226,7 +226,7 @@ Azure Key Vault provides a way to securely store credentials and other secrets, 
 >[!NOTE]
 >The command in this procedure is the equivalent of going to the [Azure portal](https://portal.azure.com) and switching the **Identity / System assigned** setting to **On** in the web application properties.
 
-## Assign permissions to your application to read secrets from your key vault
+## Assign permissions to your app
 
 Replace \<YourKeyVaultName> with the name of your key vault, and replace \<PrincipalId> with the value of the **PrincipalId** in the following command:
 
@@ -236,7 +236,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 This command gives the identity (MSI) of the app service permission to do **get** and **list** operations on your key vault.
 
-## Publish the web application to Azure
+## Publish the web app to Azure
 
 Publish your web app to Azure once again to verify that your live web app can fetch the secret value.
 
