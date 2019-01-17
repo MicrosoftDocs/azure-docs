@@ -67,22 +67,22 @@ This section explains how to use the sample script when you create a new cluster
 
 To work with Presto in an HDInsight cluster, take the following steps:
 
-1. Connect to the HDInsight cluster using SSH:
+1. Connect to the HDInsight cluster by using SSH:
    
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
    
-    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
      
 
-2. Start the Presto shell using the following command.
+2. Start the Presto shell by using the following command:
    
-        presto --schema default
+    `presto --schema default`
 
-3. Run a query on a sample table, **hivesampletable**, which is available on all HDInsight clusters by default.
+3. Run a query on a sample table, **hivesampletable**, which is available on all HDInsight clusters by default:
    
-		select count (*) from hivesampletable;
+	`select count (*) from hivesampletable;`
    
-	By default, [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. Hive connector is configured to use the default installed Hive installation, so all the tables from Hive will be automatically visible in Presto.
+	By default, [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. Hive connector is configured to use the default installed Hive installation. So all the tables from Hive are automatically visible in Presto.
 
 	For more information, see [Presto documentation](https://prestodb.io/docs/current/index.html).
 
@@ -94,13 +94,13 @@ Use the following steps to install Airpal on the edge node:
 
 1. Using SSH, connect to the headnode of the HDInsight cluster that has Presto installed:
    
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
    
-    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Once you are connected, run the following command.
+2. After you're connected, run the following command:
 
-		sudo slider registry  --name presto1 --getexp presto 
+	`sudo slider registry  --name presto1 --getexp presto` 
    
     You see output similar to the following JSON:
 
@@ -111,45 +111,45 @@ Use the following steps to install Airpal on the edge node:
     			"updatedTime" : "Mon Apr 03 20:13:41 UTC 2017"
   		} ]
 
-3. From the output, note the value for the **value** property. You will need this value while installing Airpal on the cluster edgenode. From the output above, the value that you will need is **10.0.0.12:9090**.
+3. From the output, note the value for the **value** property. You need this value while you install Airpal on the cluster edgenode. From the preceding output, the value that you need is **10.0.0.12:9090**.
 
-4. Use the template **[here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** to create an HDInsight cluster edgenode and provide the values as shown in the following screenshot.
+4. Use [this template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json) to create an HDInsight cluster edgenode. Provide the values as shown in the following screenshot.
 
 	![HDInsight install Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
 
-5. Click **Purchase**.
+5. Select **Purchase**.
 
-6. Once the changes are applied to the cluster configuration, you can access the Airpal web interface by using the following steps from the [Azure portal](https://portal.azure.com):
+6. After the changes are applied to the cluster configuration, access the Airpal web interface by using the following steps from the [Azure portal](https://portal.azure.com):
 
     1. From the left menu, select **All services**.
 
     1. Under **ANALYTICS**, select **HDInsight clusters**.
 
-    1. Select your cluster from the list, which will open the default view.
+    1. Select your cluster from the list, which opens the default view.
 
     1. From the default view, under **Settings**, select **Applications**.
 
 	    ![HDInsight launch Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-	1. From the **Installed Apps** page, local the table entry for **airpal**, and select **Portal**.
+	1. From the **Installed Apps** page, locate the table entry for **airpal**.Select **Portal**.
 
 	    ![HDInsight launch Airpal on Presto cluster](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-	1. When prompted, enter the admin credentials that you specified while creating the HDInsight Hadoop cluster.
+	1. When prompted, enter the admin credentials that you specified while you created the HDInsight Hadoop cluster.
 
 ## Customize a Presto installation on HDInsight cluster
 
-To customize the installation, use the following steps:
+To customize the installation, take the following steps:
 
 1. Using SSH, connect to the headnode of the HDInsight cluster that has Presto installed:
    
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`
    
-    For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Make your configuration changes in the file `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. For more information on Presto configuration, see [Presto configuration for YARN-based clusters](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
 
-3. Stop and kill the current running instance of Presto.
+3. Stop and terminate the current running instance of Presto:
 
 		sudo slider stop presto1 --force
 		sudo slider destroy presto1 --force
