@@ -1,5 +1,5 @@
 ---
-title: Understand billing account roles for Azure | Microsoft Docs
+title: Understand Microsoft Customer Agreement administrative roles in Azure
 description: Learn about billing roles for billing accounts in Azure.
 services: 'billing'
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: cwatson
 ---
-# Understand billing account roles in Azure
+# Understand Microsoft Customer Agreement administrative roles in Azure
 
-To help manage your Azure billing account, use the roles described in the following sections. These roles are specific to managing an Azure billing account and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
+To help manage your Azure billing account, use the roles described in the following sections. These roles are specific to managing billing for an account created for Microsoft customer agreement and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
 <!--- TODO - Add when you know you've got a billing account/MCA -->
 
@@ -85,7 +85,7 @@ The following tables show what role you need to complete tasks in the context of
 
 |Task|Billing account owner|Billing account contributor|Billing account reader|Basic purchaser|
 |---|---|---|---|---|
-|View all Azure subscription in the billing account|✔|✔|✔|✘|
+|View all Azure subscriptions in the billing account|✔|✔|✔|✘|
 
 ## Billing profile roles and tasks
 
