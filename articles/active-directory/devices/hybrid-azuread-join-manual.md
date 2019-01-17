@@ -173,7 +173,7 @@ For more information about verified domain names, see [Add a custom domain name 
 
 To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet. 
 
-![List of company domains](./media/hybrid-azuread-join-manual-steps/01.png)
+![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
 ## Set up issuance of claims
 
