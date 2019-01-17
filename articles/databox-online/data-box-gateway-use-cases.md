@@ -12,7 +12,7 @@ ms.author: alkohli
 
 # Use cases for Azure Data Box Gateway
 
-Azure Data Box Gateway is a cloud storage gateway device that resides on your premises and sends your image, media and other data to Azure. This cloud storage gateway is a virtual machine provisioned in your hypervisor. You write data to this virtual device using the NFS and SMB protocols which it then sends to Azure. This article provides you a detailed description of the scenarios where you can deploy this device.
+Azure Data Box Gateway is a cloud storage gateway device that resides on your premises and sends your image, media, and other data to Azure. This cloud storage gateway is a virtual machine provisioned in your hypervisor. You write data to this virtual device using the NFS and SMB protocols, which it then sends to Azure. This article provides you a detailed description of the scenarios where you can deploy this device.
 
 Use Data Box Gateway for the following scenarios:
 
@@ -66,11 +66,11 @@ Follow these steps to copy the data to Data Box and upload to Azure Storage.
 2. [Set up your Data Box](/azure/databox/data-box-deploy-set-up.md).
 3. [Copy data to Data Box via SMB](/azure/databox/data-box-deploy-copy-data.md).
 4. [Return the Data Box, verify the data upload to Azure](/azure/databox/data-box-deploy-picked-up.md).
-5. Once the data upload to Azure is complete, all the data should be in Azure storage containers. In the storage account for Data Box, go to the Blob (and File) container to make sure that all the data is copied. Make a note of the container name as you will use this name later. For instance, in the following screenshot, *databox* container will be used in the next phase.
+5. Once the data upload to Azure is complete, all the data should be in Azure storage containers. In the storage account for Data Box, go to the Blob (and File) container to make sure that all the data is copied. Make a note of the container name as you will use this name later. For instance, in the following screenshot, `databox` container will be used for the incremental transfer.
 
     ![Container with data on Data Box](media/data-box-gateway-use-cases/data-container1.png)
 
-This completes the initial seeding phase.
+This bulk transfer completes the initial seeding phase.
 
 ### Ongoing feed with Data Box Gateway
 
