@@ -16,32 +16,44 @@
     - name: Manage a Linux VM
       href: /azure/virtual-machines/linux/ansible-manage-linux-vm
       maintainContext: true
+    - name: Run a playbook in Cloud Shell
+      href: ./ansible-run-playbook-in-cloudshell.md
 - name: Tutorials 
   items:
-  - name: Run a playbook in Cloud Shell
-    href: ./ansible-run-playbook-in-cloudshell.md
-    maintainContext: true
-  - name: Manage dynamic inventories
-    href: ./ansible-manage-azure-dynamic-inventories.md
-    maintainContext: true
-  - name: Create and configure VMSS
-    href: ./ansible-create-configure-vmss.md
-  - name: Deploy app to VMSS
-    href: ./ansible-deploy-app-vmss.md
-  - name: Autoscale VMSS
-    href: ./ansible-auto-scale-vmss.md
-  - name: Create and configure AKS clusters
-    href: ./ansible-create-configure-aks.md
-  - name: Create and configure Azure Application Gateway
-    href: ./ansible-create-configure-application-gateway.md
-  - name: Create and configure Azure DB for MySQL
-    href: ./ansible-create-configure-mysql.md
-  - name: Create and configure Azure Web Apps
-    href: ./ansible-create-configure-azure-web-apps.md
-  - name: Scale Azure Web Apps
-    href: ./ansible-scale-azure-web-apps.md
-  - name: Create and configure route tables
-    href: ./ansible-create-configure-route-table.md
+  - name: AKS
+    items:
+    - name: Create and configure AKS clusters
+      href: ./ansible-create-configure-aks.md
+  - name: App Service
+    items:
+    - name: Create and configure Azure Web Apps
+      href: ./ansible-create-configure-azure-web-apps.md
+    - name: Scale Azure Web Apps
+      href: ./ansible-scale-azure-web-apps.md
+  - name: Application Gateway
+    items:
+    - name: Create and configure Azure Application Gateway
+      href: ./ansible-create-configure-application-gateway.md
+  - name: Databases
+    items:
+    - name: Create and configure Azure DB for MySQL
+      href: ./ansible-create-configure-mysql.md
+  - name: Dynamic inventory
+    items:
+    - name: Manage dynamic inventories
+      href: ./ansible-manage-azure-dynamic-inventories.md
+  - name: Virtual network
+    items:
+    - name: Create and configure route tables
+      href: ./ansible-create-configure-route-table.md
+  - name: VMSS
+    items:
+    - name: Create and configure VMSS
+      href: ./ansible-create-configure-vmss.md
+    - name: Deploy app to VMSS
+      href: ./ansible-deploy-app-vmss.md
+    - name: Autoscale VMSS
+      href: ./ansible-auto-scale-vmss.md
 - name: Reference
   items:
   - name: Playbook roles
