@@ -93,8 +93,8 @@ There is no change in the [Face - Find Similar] API; you only specify the model 
 If you'd like to compare the performances of the _recognition_v01_ and _recognition_v02_ models on your data, you will need to:
 
 1. Create two **PersonGroup**s with _recognition_v01_ and _recognition_v02_ respectively.
-2. Use your image data to create Persons for these two **PersonGroup**s, and trigger the training process with [PersonGroup - Train] API.
-3. Test faces on both **PersonGroup**s.
+1. Use your image data to create Persons for these two **PersonGroup**s, and trigger the training process with [PersonGroup - Train] API.
+1. Test faces on both **PersonGroup**s.
 
 If you normally specify a confidence threshold (a value between zero and one that determines how confident the model must be to identify a face), note that you may need to use different thresholds for different models. A threshold for one model is not meant to be shared to another and will not necessarily produce the same results.
 
