@@ -292,7 +292,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
       ```
 
    >[!Tip]
-   >Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
+   >Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
 
 6. Save the **deployment.template.json** file.
 
