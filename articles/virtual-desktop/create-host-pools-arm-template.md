@@ -15,13 +15,15 @@ Host pools are a collection of one or more identical virtual machines within Win
 
 Follow this section's instructions to create a host pool for a Windows Virtual Desktop tenant with an Azure Resource Manager (ARM) template provided by Microsoft. This article will tell you how to create a host pool in Windows Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Windows Virtual Desktop.
 
-## Prerequisites
+## What you need to run the ARM template
 
-In order to follow this article's instructions, you must have a Windows 10 multi-session image. You can either copy an existing VM image from the Azure Gallery to your storage account, or create your own custom VM image.
+Make sure you know the following things before running the ARM template:
 
-## Create a VM image
+- Where the source of the image you want to use is. Is it from Azure Gallery or is it custom?
+- Your domain join credentials.
+- Your Windows Virtual Desktop credentials.
 
-See Copy Windows 10 Enterprise multi-session images to your storage account to use a Windows 10 Enterprise multi-session image or see Create a VM image for automated deployment to create your own custom image.
+When you create a Windows Virtual Desktop host pool with the ARM template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image) and [Create a managed image of a generalized VM in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
 
 ## Run the ARM template for provisioning a new host pool
 
