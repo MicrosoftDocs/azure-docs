@@ -307,6 +307,9 @@ The [host.json](functions-host-json.md#queues) file contains settings that contr
 
 Use the Azure Queue storage output binding to write messages to a queue.
 
+> [!NOTE]
+> Base64 encoding is required when using queue bindings.
+
 ## Output - example
 
 See the language-specific example:
