@@ -14,7 +14,7 @@ ms.author: rosh
 ---
 # Quickstart: Perform a video search with the Bing Video Search SDK for C#
 
-Use this quickstart to begin searching for news with the Bing Video Search SDK for Java. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch). It contains more annotations and features.
+Use this quickstart to begin searching for news with the Bing Video Search SDK for Java. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), which contains more annotations and Bing Video Search features.
 
 ## Application dependencies
 
@@ -24,7 +24,7 @@ Use this quickstart to begin searching for news with the Bing Video Search SDK f
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-Install the Bing Video Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
+Install the Bing Video Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
 
 ```xml
   <dependencies>
@@ -114,40 +114,36 @@ Install the Bing Video Search SDK dependencies by using Maven, Gradle, or anothe
 
 1. Create a function called `VideoSearch()` that takes your subscription key as a string. Instantiate the search client created earlier.
     
-```java
-public static void VideoSearch(String subscriptionKey){
-    VideoSearchAPIImpl client = VideoSDK.getClient(subscriptionKey);
-    try{
-        VideosInner videoResults = client.searchs().list("SwiftKey");
-        System.out.println("\r\nSearch videos for query \"SwiftKey\"");
+    ```java
+    public static void VideoSearch(String subscriptionKey){
+        VideoSearchAPIImpl client = VideoSDK.getClient(subscriptionKey);
+        //...
+    }
+    ```
+2. Within `VideoSearch()`, Send a video search request using the client, and `SwiftKey` as the search term. If Bing Video Search returned a result, get the first result and print its id, name, and URL, along with the total number of videos returned. 
+    
+    ```java
+    VideosInner videoResults = client.searchs().list("SwiftKey");
 
-        if (videoResults == null){
-            System.out.println("Didn't see any video result data..");
+    if (videoResults == null){
+        System.out.println("Didn't see any video result data..");
+    }
+    else{
+        if (videoResults.value().size() > 0){
+            VideoObject firstVideoResult = videoResults.value().get(0);
+
+            System.out.println(String.format("Video result count: %d", videoResults.value().size()));
+            System.out.println(String.format("First video id: %s", firstVideoResult.videoId()));
+            System.out.println(String.format("First video name: %s", firstVideoResult.name()));
+            System.out.println(String.format("First video url: %s", firstVideoResult.contentUrl()));
         }
         else{
-            if (videoResults.value().size() > 0){
-                VideoObject firstVideoResult = videoResults.value().get(0);
-
-                System.out.println(String.format("Video result count: %d", videoResults.value().size()));
-                System.out.println(String.format("First video id: %s", firstVideoResult.videoId()));
-                System.out.println(String.format("First video name: %s", firstVideoResult.name()));
-                System.out.println(String.format("First video url: %s", firstVideoResult.contentUrl()));
-            }
-            else{
-                System.out.println("Couldn't find video results!");
-            }
+            System.out.println("Couldn't find video results!");
         }
     }
+    ```
 
-    catch (ErrorResponseException ex)
-    {
-        System.out.println("Encountered exception. " + ex.getLocalizedMessage());
-    }
-
-}
-```
-
-Call this search method from your main method.
+3. Call the search method from your main method.
 
     ```java
     public static void main(String[] args) {

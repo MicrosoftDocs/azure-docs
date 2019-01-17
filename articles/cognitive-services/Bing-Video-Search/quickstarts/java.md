@@ -14,7 +14,7 @@ ms.author: aahi
 ---
 # Quickstart: Search for videos using the Bing Video Search REST API and Java
 
-Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple Java application sends an HTTP video search query to the API, and displays the response. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) with additional error handling, and code annotations.
+Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple Java application sends an HTTP video search query to the API, and displays the response. While this application is written in Java, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingVideoSearchv7.java) with additional error handling, features, and code annotations.
 
 ## Prerequisites
 
