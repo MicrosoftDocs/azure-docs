@@ -47,9 +47,9 @@ Azure Stack offers the VPN gateway SKUs shown in the following table.
 
 |	| VPN gateway throughput |VPN gateway maximum IPsec tunnels |
 |-------|-------|-------|
-|**Basic SKU** 	| 100 Mbps	| 10	|
-|**Standard SKU** 		    | 100 Mbps 	| 10	|
-|**High Performance SKU** | 200 Mbps	| 5	|
+|**Basic SKU** 	| 100 Mbps	| 20	|
+|**Standard SKU** 		    | 100 Mbps 	| 20	|
+|**High Performance SKU** | 200 Mbps	| 10	|
 
 ### Resizing gateway SKUs
 
@@ -119,7 +119,7 @@ The following table lists the requirements for VPN gateways.
 |--|--|--|--|--|
 | **Site-to-Site connectivity (S2S connectivity)** | Not Supported | RouteBased VPN configuration | RouteBased VPN configuration | RouteBased VPN configuration |
 | **Authentication method**  | Not Supported | Pre-shared key for S2S connectivity  | Pre-shared key for S2S connectivity  | Pre-shared key for S2S connectivity  |   
-| **Maximum number of S2S connections**  | Not Supported | 10 | 10| 5|
+| **Maximum number of S2S connections**  | Not Supported | 20 | 20| 10|
 |**Active routing support (BGP)** | Not supported | Not supported | Supported | Supported |
 
 ### Gateway subnet
