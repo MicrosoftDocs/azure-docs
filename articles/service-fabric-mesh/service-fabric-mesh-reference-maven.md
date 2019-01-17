@@ -90,7 +90,7 @@ mvn azure-sfmesh:init -DapplicationName=helloworldserver
 Run the command below to create a network resource yaml. 
 
 ```cmd
-mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.4/22
+mvn azure-sfmesh:addnetwork -DnetworkName=helloworldservicenetwork -DnetworkAddressPrefix=10.0.0.0/22
 ```
 
 - Creates a network YAML in folder `servicefabric->appresources` named `network_helloworldservicenetwork`
@@ -110,12 +110,12 @@ mvn azure-sfmesh:addservice -DapplicationName=helloworldserver -DserviceName=hel
 Run the command below to create a gateway resource yaml. 
 
 ```cmd
-mvn azure-sfmesh:addgateway -DapplicationName=helloworldserver -DdestinationNetwork=helloworldservicenetwork -DgatewayName=helloworldgateway -DlistenerName=helloworldserviceListener -DserviceName=helloworldservice -DsourceNetwork=open -DtcpPort=80
+mvn azure-sfmesh:addgateway -DapplicationName=helloworldserver -DdestinationNetwork=helloworldservicenetwork -DgatewayName=helloworldgateway -DlistenerName=helloworldserviceListener -DserviceName=helloworldservice -DsourceNetwork=open -DtcpPort=8080
 ```
 
 - Creates a new gateway YAML in folder `servicefabric->appresources` named `gateway_helloworldgateway`
 - References `helloworldservicelistener` as the service listener that is listening to calls from this gateway. Also references the `helloworldservice` as the service, `helloworldservicenetwork` as the network and `helloworldserver` as the application. 
-- Listens for requests on port 80
+- Listens for requests on port 8080
 
 #### Add a new volume to your application
 Run the command below to create a volume resource yaml. 
