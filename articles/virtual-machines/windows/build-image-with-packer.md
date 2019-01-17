@@ -66,7 +66,6 @@ Create a file named *windows.json* and paste the following content. Enter your o
 | *client_secret*                     | Password you specified in `$securePassword` |
 | *tenant_id*                         | Output from `$sub.TenantId` command |
 | *subscription_id*                   | Output from `$sub.SubscriptionId` command |
-| *object_id*                         | View service principal object ID with `$sp.Id` |
 | *managed_image_resource_group_name* | Name of resource group you created in the first step |
 | *managed_image_name*                | Name for the managed disk image that is created |
 
@@ -79,7 +78,6 @@ Create a file named *windows.json* and paste the following content. Enter your o
     "client_secret": "P@ssw0rd!",
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "object_id": "a7dfb070-0d5b-47ac-b9a5-cf214fff0ae2",
 
     "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",
