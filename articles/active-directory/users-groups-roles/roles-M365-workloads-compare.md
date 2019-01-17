@@ -15,7 +15,7 @@ ms.date: 01/17/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-#As an Azure AD administrator, to delegate permissions quickly and accurately I want to know where the documentation is for admin roles in various Microsoft 365 workloads.
+#As an Azure AD administrator, to delegate permissions across Microsoft 365 workloads quickly and accurately I want to know where the documentation is for admin roles.
 
 ---
 
