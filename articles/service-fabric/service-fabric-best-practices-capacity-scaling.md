@@ -18,13 +18,7 @@ ms.author: pepogors
 
 ---
 # Capacity Planning and Scaling
-Before creating any Azure Service Fabric cluster it is important to [plan for capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) by considering many items during the process.
-* The number of node types your cluster needs to start out with
-* The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
-* The reliability and durability characteristics of the cluster
-
-> [!NOTE]
-> Scaling compute resources to source your application work load requires intentional planning, will nearly always take longer than an hour to complete for a production environment
+Before creating any Azure Service Fabric cluster or scaling compute resources hosting your cluster, it is important to [plan for capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). In addition to Nodetype and Cluster characteristics that you need to take into consideration when planning capacity, you need to plan for scaling operations to take longer than an hour to complete for a production environment, irrespective of the number of VMs you are adding.
 
 ## Vertical 
 [Vertical scaling](https://docs.microsoft.com/en-us/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) of a Node Type in Azure Service Fabric requires a number of steps and considerations that must be taken. 
