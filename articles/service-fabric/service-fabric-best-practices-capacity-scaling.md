@@ -29,10 +29,10 @@ Before creating any Azure Service Fabric cluster it is important to [plan for ca
 ## Vertical 
 [Vertical scaling](https://docs.microsoft.com/en-us/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) of a Node Type in Azure Service Fabric requires a number of steps and considerations that must be taken. 
 * The cluster must be healthy before scaling, otherwise you will only destabilize cluster further.
-* **Silver durability level or greater** is required for all Service Fabric Cluster NodeTypes that are hosting stateful services.
+* **Silver durability level or greater** is required for all Service Fabric Cluster NodeTypes that are hosting stateful services. 
 
 > [!NOTE]
-> Your primary NodeType that is hosting Stateful Service Fabric System Services, and must be Silver durability level or greater.
+> Your primary NodeType that is hosting Stateful Service Fabric System Services, and must be Silver durability level or greater. Once you enable silver durability, all the cluster operations like upgrades, adding or removing of nodes etc would be slower, since the system now optimizes for data safety over speed of operations.
 
 Given in place vertical scaling of a Virtual Machine Scale Set is a destructive operation, you have to horizontally scale your cluster by adding a new Scale Set with the desires SKU, and migrate your services to your desired SKU to complete a safe vertical scaling operation. Service Fabric [node properties and placement constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) are leveraged by your cluster to decide where to host your Applications services; so when vertically scaling your Primary Node Type, declaring identical property values for "nodeTypeRef" Virtual Machine Scale Set Service Fabric Extension, enables your cluster to choose an your provisioned scale set with those properties to host your Applications services. The following is a snippet of the Resource Manager template properties you will declare, with the same value for your new provisioned scale sets that you are scaling to, and is only supported as a temporary stateful for your cluster:
 ```json
