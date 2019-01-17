@@ -17,7 +17,7 @@ The AI algorithms driving [cognitive search pipelines](cognitive-search-concept-
 
 You can enrich a limited number of documents for free, or attach a billable Cognitive Services resource for larger and more frequent workloads. In this article, learn how to associate a Cognitive Services resource with your cognitive skillset to enrich data during [Azure Search indexing](search-what-is-an-index.md).
 
-If your pipeline consists exclusively of [custom skills](cognitive-search-create-custom-skill-example.md), you do not need to attach a Cognitive Services resource.
+If your pipeline consists exclusively of [custom skills](cognitive-search-create-custom-skill-example.md) or built-in [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), or [shaper](cognitive-search-skill-shaper.md) skills, you should attach a Cognitive Services resource to override the limits imposed by **Free** resource. You won't be charged for using these skills - none of them are associated with a Cognitive Services API.
 
 > [!NOTE]
 > As of December 21, 2018, you can associate a Cognitive Services resource with an Azure Search skillset. This allows us to charge for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.

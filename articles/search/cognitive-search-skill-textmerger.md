@@ -19,7 +19,7 @@ ms.custom: seodec2018
 The **Text Merge** skill consolidates text from a collection of fields into a single field. 
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API. However, you must [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) anyway to override the Free resource option (limited daily enrichments). Because there is no Cognitive Services API associated with this skill, you will not be charged for using this skill, even when a Cognitive Services resource is attached. 
+> This skill is not bound to a Cognitive Services API and there are no fees associated with this skill. However, you must [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) anyway to override the Free resource option that limits you to a small number of daily enrichments.
 
 ## @odata.type  
 Microsoft.Skills.Text.MergeSkill

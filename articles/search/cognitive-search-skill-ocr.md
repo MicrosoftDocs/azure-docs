@@ -15,7 +15,7 @@ ms.custom: seodec2018
 ---
 # OCR cognitive skill
 
-Optical character recognition (OCR) includes machine learning algorithms for analyzing shapes and patterns in images, rendering handwritten or typeface images as text string output. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. The **OCR** skill maps to the following functionality:
+Optical character recognition (OCR) skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. The **OCR** skill maps to the following functionality:
 
 + When textExtractionAlgorithm is set to "handwritten", the ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) functionality is used.
 + When textExtractionAlgorithm is set to "printed", the ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) functionality is used for languages other than English. For English, the new ["Recognize Text"](../cognitive-services/computer-vision/concept-recognizing-text.md) functionality for printed text is used.

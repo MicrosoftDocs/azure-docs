@@ -27,7 +27,6 @@ The **Named Entity Recognition** skill extracts named entities from text. Availa
 > Execution of built-in skills is a Cognitive Services charge, billed at the existing [pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
 . Image extraction pricing is an Azure Search charge, currently billed at preview pricing as described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). 
 
-
 ## @odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
