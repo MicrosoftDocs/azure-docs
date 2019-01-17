@@ -109,10 +109,10 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
+    ![Acadia Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
-
-    ![Acadia Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Acadia Client support team](https://www.systemsalliance.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
