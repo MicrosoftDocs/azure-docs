@@ -18,6 +18,45 @@ ms.date: 12/04/2018
 
 Microsoft provides a variety of product options to build, deploy, and manage your machine learning models. Compare these products and choose what you need to develop your machine learning solutions most effectively.
 
+
+** Machine learning in the cloud **
+
+| Cloud options | What it is | What you can do with it |
+|-|-|-|
+| [Azure Machine Learning service](#azure-machine-learning-services) | Managed cloud service for ML  | Train, deploy, and manage models in Azure using Python and CLI |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag&ndash;and&ndash;drop visual interface for ML | Build, experiment, and deploy models using preconfigured algorithms  (Python and R)|
+| [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
+| [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
+| [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop ML solutions in a pre-configured environment |
+
+** Machine learning on-premises **
+
+On-premises servers also may be run in a virtual machine in the cloud
+
+| On-premises options | What it is | What you can do with it |
+|-|-|-|
+| [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models inside SQL Server |
+| [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for predictive analysis | Build and deploy models with R and Python |
+
+** Machine learning development tools **
+
+| Tools | What it is | What you can do with it |
+|-|-|-|
+| [ML.NET](#mlnet) | Open-source, cross-platform ML SDK | Develop ML solutions for .NET applications |
+| [Windows ML](#windows-ml) | Windows 10 ML platform | Evaluate trained models on a Windows 10 device |
+
+
+
+
+
+
+
+
+
+
+
+
+
 | Machine learning product | What it is | What you can do with it |
 |-|-|-|
 | ***In the cloud*** | | |
