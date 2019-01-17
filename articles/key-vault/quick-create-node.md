@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Quickstart: Set and retrieve a secret from Azure Key Vault by using a Node web app 
 
-This quickstart shows you how to store a secret in Key Vault and how to retrieve it by using a web app. Using Key Vault helps keep the information secure. To see the secret value, you would have to run this on Azure. The quickstart uses Node.js and managed identities for Azure resources. You learn how to:
+This quickstart shows you how to store a secret in Azure Key Vault and how to retrieve it by using a web app. Using Key Vault helps keep the information secure. To see the secret value, you would have to run this on Azure. The quickstart uses Node.js and managed identities for Azure resources. You learn how to:
 
 * Create a key vault.
 * Store a secret in the key vault.
@@ -48,7 +48,7 @@ To log in to Azure by using the Azure CLI, enter:
 az login
 ```
 
-## Create resource group
+## Create a resource group
 
 Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -113,7 +113,7 @@ npm install
 
 This project uses two Node modules: [ms-rest-azure](https://www.npmjs.com/package/ms-rest-azure) and [azure-keyvault](https://www.npmjs.com/package/azure-keyvault).
 
-## Publish the web application to Azure
+## Publish the web app to Azure
 
 Create an [Azure App Service](https://azure.microsoft.com/services/app-service/) plan. You can store multiple web apps in this plan.
 
@@ -149,7 +149,7 @@ Browse to your newly created web app, and you should see that it's functioning. 
     ```
 The preceding command also creates a Git-enabled app that enables you to deploy to Azure from your local Git repository. The local Git repo is configured with this URL: https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git.
 
-After you finish the preceding command, you can add an Azure remote to your local Git repository. Replace `<url>` with the URL of the Git remote that you got from Enable Git for your app.
+After you finish the preceding command, you can add an Azure remote to your local Git repository. Replace `<url>` with the URL of the Git repo.
 
     ```
     git remote add azure <url>
@@ -169,7 +169,7 @@ This command is the equivalent of going to the portal and switching the **Identi
 
 ### Assign permissions to your application to read secrets from Key Vault
 
-Write down or copy the output of the command above. It should be in the format:
+Make note of the output of the previous command. It should be in the format:
         
         {
           "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -177,7 +177,7 @@ Write down or copy the output of the command above. It should be in the format:
           "type": "SystemAssigned"
         }
         
-Then, run this command using the name of your Key Vault and the value of PrincipalId copied from above:
+Then, run the following command by using the name of your key vault and the value of **principalId**:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
@@ -185,14 +185,13 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ## Deploy the Node app to Azure and retrieve the secret value
 
-Now that everything is set. Run the following command to deploy the app to Azure
+Run the following command to deploy the app to Azure:
 
 ```
 git push azure master
 ```
 
-After this when you browse https://<app_name>.azurewebsites.net you can see the secret value.
-Make sure that you replaced the name <YourKeyVaultName> with your vault name
+After this, when you browse to https://<app_name>.azurewebsites.net, you can see the secret value. Make sure that you replaced the name <YourKeyVaultName> with your vault name.
 
 ## Clean up resources
 
@@ -200,7 +199,7 @@ Delete the resource group, virtual machine, and all related resources when you n
 
 ## Next steps
 
-* [Azure Key Vault Home Page](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault Documentation](https://docs.microsoft.com/azure/key-vault/)
-* [Azure SDK For Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
-* [Azure REST API Reference](https://docs.microsoft.com/rest/api/keyvault/)
+* [Azure Key Vault home page](https://azure.microsoft.com/services/key-vault/)
+* [Azure Key Vault documentation](https://docs.microsoft.com/azure/key-vault/)
+* [Azure SDK for Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+* [Azure REST API reference](https://docs.microsoft.com/rest/api/keyvault/)
