@@ -205,13 +205,13 @@ Document ID: 3
 Document ID: 4
          Key phrases:
                 fútbol
-```
 
 ===== SENTIMENT ANALYSIS ======
 Document ID: 0 , Sentiment Score: 0.87
 Document ID: 1 , Sentiment Score: 0.11
 Document ID: 2 , Sentiment Score: 0.44
 Document ID: 3 , Sentiment Score: 1.00
+```
 
 ## Next steps
 
