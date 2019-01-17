@@ -22,10 +22,10 @@ from supported device on an on-going basis. These precise points of interest in 
 Anchors. Some example use cases enabled by Spatial Anchors include:
 
 1. Persisting virtual content in the real-world. An app can let a user place a virtual calendar on a conference room wall,
-    such that people that later enter the room can see the virtual calendar through a camera feed in a phone app or directly
-    in the environment through a HoloLens device. In an industrial setting, an app can present contextual information about
-    machines to users by simply asking them to point their mobile device camera at the machine, or by simply looking at
-    the machine through a HoloLens.
+   such that people that later enter the room can see the virtual calendar through a camera feed in a phone app or directly
+   in the environment through a HoloLens device. In an industrial setting, an app can present contextual information about
+   machines to users by simply asking them to point their mobile device camera at the machine, or by simply looking at
+   the machine through a HoloLens.
 
 2. Multi-user experiences. Spatial Anchors makes it easy for people in the same place to participate in multi-user mixed
    reality applications. For example, two people can start a game of mixed reality chess by first agreeing to place a
@@ -38,7 +38,7 @@ Anchors. Some example use cases enabled by Spatial Anchors include:
    in a connected fashion. Later when the user is completing the multi-step task, the app can ask for Anchors that are nearby
    (within a certain distance) of the current one and direct the user towards the next step in the task.
 
-Azure Spatial Anchors is comprised of a managed service as well as client SDKs for supported device platforms. The following
+Azure Spatial Anchors is comprised of a managed service and client SDKs for supported device platforms. The following
 sections provide information about getting started with building apps using Azure Spatial Anchors.
 
 ## Next steps
