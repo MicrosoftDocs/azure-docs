@@ -45,7 +45,7 @@ The following table describes the billing roles you use to manage your billing a
 The following tables show what role you need to complete tasks in the context of the billing account.
 <!--- TODO - add definition of billing account -->
 
-### Manage billing account
+### Manage billing account permissions and properties
 
 |Task|Billing account owner|Billing account contributor|Billing account reader|
 |---|---|---|---|
@@ -91,7 +91,7 @@ The following tables show what role you need to complete tasks in the context of
 
 The following tables show what role you need to complete tasks in the context of the billing profile. <!--- TODO - add definition of billing profile -->
 
-### Manage billing profile
+### Manage billing profile permissions, properties, and policies
 
 |Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|
 |---|---|---|---|---|
@@ -131,7 +131,7 @@ Track Azure credits balance for the billing profile|✔|✔|✔|✘|
 
 The following tables show what role you need to complete tasks in the context of invoice sections. <!--- TODO - add definition of invoice sections -->
 
-### Manage invoice sections
+### Manage invoice section permissions and properties
 
 |Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Purchaser|
 |---|---|---|---|---|
