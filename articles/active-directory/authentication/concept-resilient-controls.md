@@ -113,30 +113,48 @@ A contingency conditional access policy is a **disabled policy** that omits Azur
 * Use policies that restrict the access within the apps if a certain authentication level is not attained instead of simply falling back to full access. For example:
   * Configure a backup policy that sends the restricted session claim to Exchange and SharePoint.
   * If your organization uses Microsoft Cloud App Security, consider falling back to a policy that engages MCAS and then MCAS Allows read-only access but not uploads.
+* Name your policies to make sure it is easy to find the disabled contingency policies during a disruption. You should include the following elements in the policy name:
+  * A *label number* for the policy.
+  * Text to show, this policy is for emergencies only. For example: **ENABLE IN EMERGENCY**
+  * The *disruption* it applies to. For example: **During MFA Disruption**
+  * A *sequence number* to show the order you must activate the policies.
+  * The *apps* it applies to.
+  * The *controls* it will apply.
+  * The *conditions* it requires.
+  
+When you put every element together the naming standard of the policy can be as follows:
 
-The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access.
+`
+EMnnn - ENABLE IN EMERGENCY: [Disruption] [i/n] - [Apps] - [Controls] [Conditions]
+`
+
+The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. In this scenario, the organization typically requires MFA for all Exchange Online and SharePoint Online access, and the disruption in this case is the MFA provider for the customer has an outage (whether Azure MFA, on-premises MFA provider, or third-party MFA). This policy mitigates this outage by allowing specific targeted users access to these apps from trusted Windows devices only when they are accessing the app from their trusted corporate network. It will also exclude emergency accounts and core administrators from these restrictions. The targeted users will then gain access to Exchange Online and SharePoint Online, while other users will still not have access to the apps due to the outage. This example will require a named network location **CorpNetwork** and a security group **ContingencyAccess** with the target users, a group named **CoreAdmins** with the core administrators, and a group named **EmergencyAccess** with the emergency access accounts. The contingency requires four policies to provide the desired access. 
 
 **Example A - Contingency CA policies to restore Access to mission-critical Collaboration Apps:**
 
 * Policy 1: Require Domain Joined devices for Exchange and SharePoint
+  * Name: EM001 - ENABLE IN EMERGENCY: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure AD Join
   * Users and Groups: Include ContingencyAccess. Exclude CoreAdmins, and EmergencyAccess
   * Cloud Apps: Exchange Online and SharePoint Online
   * Conditions: Any
   * Grant Control: Require Domain Joined
   * State: Disabled
 * Policy 2: Block platforms other than Windows
+  * Name: EM002 - ENABLE IN EMERGENCY: MFA Disruption[2/4] - Exchange SharePoint - Block access except Windows
   * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
   * Cloud Apps: Exchange Online and SharePoint Online
   * Conditions: Device Platform Include All Platforms, exclude Windows
   * Grant Control: Block
   * State: Disabled
 * Policy 3: Block networks other than CorpNetwork
+  * Name: EM003 - ENABLE IN EMERGENCY: MFA Disruption[3/4] - Exchange SharePoint - Block access except Corporate Network
   * Users and Groups: Include all users. Exclude CoreAdmins, and EmergencyAccess
   * Cloud Apps: Exchange Online and SharePoint Online
   * Conditions: Locations Include any location, exclude CorpNetwork
   * Grant Control: Block
   * State: Disabled
 * Policy 4: Block EAS Explicitly
+  * Name: EM004 - ENABLE IN EMERGENCY: MFA Disruption[4/4] - Exchange - Block EAS for all users
   * Users and Groups: Include all users
   * Cloud Apps: Include Exchange Online
   * Conditions: Client apps: Exchange Active Sync
@@ -157,12 +175,14 @@ In this next example, **Example B - Contingency CA policies to allow mobile acce
 **Example B - Contingency CA policies:**
 
 * Policy 1: Block everyone not in the SalesContingency team
+  * Name: EM001 - ENABLE IN EMERGENCY: Device Compliance Disruption[1/2] - Salesforce - Block All users except SalesforceContingency
   * Users and Groups: Include all users. Exclude SalesAdmins and SalesforceContingency
   * Cloud Apps: Salesforce.
   * Conditions: None
   * Grant Control: Block
   * State: Disabled
 * Policy 2: Block the Sales team from any platform other than mobile (to reduce surface area of attack)
+  * Name: EM002 - ENABLE IN EMERGENCY: Device Compliance Disruption[2/2] - Salesforce - Block All platforms except iOS and Android
   * Users and Groups: Include SalesforceContingency. Exclude SalesAdmins
   * Cloud Apps: Salesforce
   * Conditions: Device Platform Include All Platforms, exclude iOS and Android
