@@ -27,6 +27,9 @@ Besides reducing Global Administrator overhead, delegating specialized privilege
 
 ## Delegate app administration
 
+
+These following roles each grant permissions to manage application registrations, single sign-on settings, user and group assignments, licensing, and consent. Only the **Application administrator** role grants permissions to manage Application Proxy settings. Neither role grants the ability to manage Conditional Access settings.
+
 To grant the ability to manage application access in the Azure portal:
 
 1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
@@ -34,8 +37,6 @@ To grant the ability to manage application access in the Azure portal:
 3. Open one of the following roles to see its member assignments:
   * **Application administrator**
   * **Cloud application administrator**
-  
-  These roles each grant permissions to manage application registrations, single sign-on settings, user and group assignments, licensing, and consent. Only the **Application administrator** role grants permissions to manage Application Proxy settings. Neither role grants the ability to manage Conditional Access settings.
 4. On the **Members** page for the role, select **Add member**.
 5. Select one or more members to add to the role. <!--Members can be users or groups.-->
 
