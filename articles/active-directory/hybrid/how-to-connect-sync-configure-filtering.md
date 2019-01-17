@@ -183,7 +183,7 @@ With this configuration, a new OU that was created under ManagedObjects isn't sy
 Make sure that you're using the November 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) or later build for these steps to work.
 
 > [!IMPORTANT]
-> Microsoft recommends you to not modify rules created by **Azure AD Connect**. In case you want to modify the rule then clone and disable the original rule, make any changes to the cloned rule. Please note that by doing so(disabling original rule) you will miss any bug fixes or features enabled through that rule.
+>Microsoft recommends to not modify the default rules created by **Azure AD Connect**. If you want to modify the rule, then clone it, and disable the original rule. Make any changes to the cloned rule. Please note that by doing so (disabling original rule) you will miss any bug fixes or features enabled through that rule.
 
 Attribute-based filtering is the most flexible way to filter objects. You can use the power of [declarative provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md) to control almost every aspect of when an object is synchronized to Azure AD.
 
