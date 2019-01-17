@@ -29,7 +29,7 @@ sections:
       text: Android
       href: quickstarts/get-started-android.md
     - image:
-        src: /media/logos/logo_windows.svg
+        src: /media/logos/logo_Windows.svg
       text: HoloLens
       href: quickstarts/get-started-hololens.md
     - image:
@@ -41,7 +41,7 @@ sections:
       text: Unity Android
       href: quickstarts/get-started-unity-android.md
     - image:
-        src: /media/logos/logo_windows.svg
+        src: /media/logos/logo_Windows.svg
       text: Unity HoloLens
       href: quickstarts/get-started-unity-android.md
     - image:
