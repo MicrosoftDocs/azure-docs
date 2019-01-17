@@ -25,11 +25,11 @@ ms.reviewer: sijuman
 
 The Python SDK supports API version profiles to target different cloud platforms such as Azure Stack and global Azure. You can use API profiles in creating solutions for a hybrid cloud. The Python SDK supports the following API profiles:
 
-1. **latest**  
+- **latest**  
     This profile targets the most recent API versions for all service providers in the Azure Platform.
-2. **2018-03-01-hybrid**     
+- **2018-03-01-hybrid**     
     This profile targets the latest API versions for all the resource providers in Azure Stack platform.
-2. **2017-03-09-profile**  
+- **2017-03-09-profile**  
     This profile targets the most compatible API versions of the resource providers supported by Azure Stack.
 
    For more information about API profiles and Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
@@ -59,11 +59,11 @@ In order to use the Python Azure SDK with Azure Stack, you must supply the follo
 
 Some of the code samples available for Azure Stack using Python SDK are:
 
-- [Manage Resources and Resource Groups](https://azure.microsoft.com/en-us/resources/samples/hybrid-resourcemanager-python-manage-resources/).
-- [Manage Storage Account](https://azure.microsoft.com/en-us/resources/samples/hybrid-storage-python-manage-storage-account/).
-- [Manage Virtual Machines](https://azure.microsoft.com/en-us/resources/samples/hybrid-compute-python-manage-vm/).
+- [Manage Resources and Resource Groups](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/).
+- [Manage Storage Account](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/).
+- [Manage Virtual Machines](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/).
 
-## Python Manage Virtual Machine Sample
+## Python manage virtual machine sample
 
 You can use the following code sample to perform common management tasks for virtual machines in your Azure Stack. The code sample shows you to:
 
