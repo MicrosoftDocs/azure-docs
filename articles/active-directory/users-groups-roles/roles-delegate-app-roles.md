@@ -65,7 +65,7 @@ As members of these roles, owners can manage only the enterprise applications th
 3. On the **Members** page for the role, select **Add member**.
 4. Select one or more members to add to the role. <!--Members can be users or groups.-->
 
-## To assign ownership to an enterprise application
+### To assign ownership to an enterprise application
 
 1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
 2. On the [Enterprise Applications page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/), select an enterprise app to open the Overview page for the app.
