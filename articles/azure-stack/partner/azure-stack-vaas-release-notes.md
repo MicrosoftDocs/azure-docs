@@ -23,6 +23,16 @@ ms.reviewer: johnhas
 
 This article has the release notes for Azure Stack Validation as a Service.
 
+## Version 4.0.5
+2019 January 17
+
+-  Disk Identification Test updated to address storage pool inconsistencies. Version: 5.1.14.0  -> 5.1.15.0
+-  Azure Stack Monthly Update Verification updated to address approved software and content validation inconsistencies. Version: 5.1.14.0  -> 5.1.15.0
+-  OEM Extension Package Verification updated to do perform necessary checks *before* the Azure Stack update step. Version: 5.1.14.0  -> 5.1.15.0
+-  Internal bug fixes
+
+
+
 ## Version 4.0.2
 
 2019 January 7
