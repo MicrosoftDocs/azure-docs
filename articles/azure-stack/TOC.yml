@@ -19,8 +19,6 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Evaluate Azure Stack
-    href: azure-stack-deploy-overview.md
   - name: Use the administration portal
     href: azure-stack-manage-portals.md
 - name: Tutorials

@@ -145,6 +145,7 @@ namespace AMSLiveTest
 
         private static ChannelInput CreateChannelInput()
         {
+	    // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.RTMP,
@@ -167,6 +168,7 @@ namespace AMSLiveTest
 
         private static ChannelPreview CreateChannelPreview()
         {
+	     // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl
