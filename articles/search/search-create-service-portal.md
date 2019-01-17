@@ -75,9 +75,9 @@ Remember to pin your service to the dashboard for easy access whenever you sign 
 
 ## Get a key and URL endpoint
 
-With few exceptions, using your new services requires that you provide the URL endpoint plus an authorization api-key. Quickstarts, tutorials, sample execution, and your custom code require both pieces of information. For instance, [Explore Azure Search REST APIs using Fiddler or Postman](search-fiddler.md) and [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md) ask you to provide the URL endpoint and key if you want to run any code.
+With few exceptions, using your new service requires that you provide the URL endpoint and an authorization api-key. Quickstarts, tutorials such as [Explore Azure Search REST APIs (Postman)](search-fiddler.md) and [How to use Azure Search from .NET](search-howto-dotnet-sdk.md), samples, and custom code all need an endpoint and key to run on your particular resource.
 
-1. In the service overview page, locate the URL endpoint on the left side of the page. 
+1. In the service overview page, locate and copy the URL endpoint on the left side of the page. 
 
    ![Service overview page with URL endpoint](./media/search-create-service-portal/url-endpoint.png "URL endpoint and other service details")
 
@@ -85,7 +85,7 @@ With few exceptions, using your new services requires that you provide the URL e
 
    ![Keys page showing primary and secondary keys](./media/search-create-service-portal/admin-api-keys.png "Admin api-keys for authorization")
 
-The exception is portal-based tasks, where you can create, load, and query indexes through selections in various tools. The portal acts as the front-end user interface to your Azure Search resource, and admin rights are in effect whenever you use the portal. For a portal tutorial, start with [Tutorial: Import, index, and query in Azure Search](search-get-started-portal.md).
+An endpoint and key are not needed for portal-based tasks. The portal is already linked to your Azure Search resource with admin rights. For a portal tutorial, start with [Tutorial: Import, index, and query in Azure Search](search-get-started-portal.md).
 
 ## Scale your service
 It can take a few minutes to create a service (15 minutes or more depending on the tier). After your service is provisioned, you can scale it to meet your needs. Because you chose the Standard tier for your Azure Search service, you can scale your service in two dimensions: replicas and partitions. Had you chosen the Basic tier, you can only add replicas. If you provisioned the free service, scale is not available.
