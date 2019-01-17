@@ -7,28 +7,30 @@ ms.author: crtreasu
 ---
 ## Create a Spatial Anchors Account
 
-Navigate to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
+1. Navigate to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
 
-From the left menu in the Azure portal, select **Create a resource**.
+2. From the left menu in the Azure portal, select **Create a resource**.
 
-Search for "Spatial Anchors" in the search bar.
+3. Search for "Spatial Anchors" in the search bar.
 
-Select **Spatial Anchors (preview)** to open a dialog and select **Create**.
+   ![Search for Spatial Anchors](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-In the **Spatial Anchors Account** form:
+4. Select **Spatial Anchors (preview)** to open a dialog and select **Create**.
 
-1. Specify a unique resource name.
-2. Select the subscription to attach the resource to.
-3. Create a resource group by selecting **Create new** and name the resource group **myResourceGroup** and select **OK**.
-   [!INCLUDE [resource group intro text](resource-group.md)]
-4. Select a location (region) where the resource will be placed.
-5. Select **New** to begin creating the resource.
+5. In the **Spatial Anchors Account** form:
 
-![](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
+   1. Specify a unique resource name.
+   2. Select the subscription to attach the resource to.
+   3. Create a resource group by selecting **Create new** and name the resource group **myResourceGroup** and select **OK**.
+      [!INCLUDE [resource group intro text](resource-group.md)]
+   4. Select a location (region) where the resource will be placed.
+   5. Select **New** to begin creating the resource.
 
-After the resource creation has completed successfully, the resource properties can be viewed. Make note of the
-resource's **Endpoint** value as it will be required later.
+   ![Create a resource](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-![](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+6. After the resource creation has completed successfully, the resource properties can be viewed. Make note of the
+   resource's **Endpoint** value as it will be required later.
 
-Under **Settings**, select **Key** and make a note of the **Key** value. This value is the `Account Key` and will be used later.
+   ![View resource properties](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+
+7. Under **Settings**, select **Key** and make a note of the **Key** value. This value is the `Account Key` and will be used later.
