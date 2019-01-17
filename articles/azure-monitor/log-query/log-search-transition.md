@@ -31,7 +31,7 @@ In Log Search, a list of filters are displayed as search results are delivered. 
 
 ![Log Search filter](media/log-search-transition/filter-log-search.png)
 
-In Azure Monitor logs, select _Filter (preview)_ to display filters. Click on the filter icon to display addition filters. Select a filter and click **Apply & Run** to run the query with the selected filter.
+In Azure Monitor logs, select *Filter (preview)* to display filters. Click on the filter icon to display addition filters. Select a filter and click **Apply & Run** to run the query with the selected filter.
 
 ![Logs filter](media/log-search-transition/filter-logs.png)
 
@@ -52,11 +52,11 @@ In Log Search, your saved searches are available through the action bar item **S
 ## Take action
 In Log Search, you can [start a runbook](take-action.md) from a search result by selectionselecting **Take action**.
 
-![Take action](take-action-log-search.png)
+![Take action](media/log-search-transition/take-action-log-search.png)
 
 In Azure Monitor logs, [create an alert from the log query](../platform/alerts-log.md). Configure an action group with one or more actions that will run in response to the alert.
 
-![Action group](action-group.png)
+![Action group](media/log-search-transition/action-group.png)
 
 ## Next steps
 

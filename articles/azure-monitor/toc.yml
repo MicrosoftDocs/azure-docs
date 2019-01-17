@@ -662,7 +662,7 @@
       - name: Language differences
         href: log-query/data-explorer-difference.md
       - name: Transition from log search
-        href: log-search-transition.md
+        href: log-query/log-search-transition.md
       - name: Get started
         items:
         - name: Get started with Analytics portal
