@@ -95,8 +95,7 @@ Here are the steps to set up the NuGet:
     >[!NOTE]
     >You may need to install the Microsoft.ServiceFabric.Diagnostics.Internal package in a similar fashion if not preinstalled before installing the Application Insights package
 
-4. Also install the `Microsoft.ApplicationInsights.ServiceFabric package.
-5. On the right, click on the two checkboxes next to the two services in the application, **VotingWeb** and **VotingData** and click **Install**.
+4. On the right, click on the two checkboxes next to the two services in the application, **VotingWeb** and **VotingData** and click **Install**.
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Click **OK** on the *Review Changes* dialog box that pops up, and accept the *License Acceptance*. This will complete adding the NuGet to the services.
 6. You now need to set up the telemetry initializer in the two services. To this, open up *VotingWeb.cs* and *VotingData.cs*. For both of them, do the following two steps:
