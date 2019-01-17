@@ -19,7 +19,7 @@ ms.date: 12/04/2018
 Microsoft provides a variety of product options to build, deploy, and manage your machine learning models. Compare these products and choose what you need to develop your machine learning solutions most effectively.
 
 
-** Machine learning in the cloud **
+**Machine learning in the cloud**
 
 | Cloud options | What it is | What you can do with it |
 |-|-|-|
@@ -29,7 +29,7 @@ Microsoft provides a variety of product options to build, deploy, and manage you
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop ML solutions in a pre-configured environment |
 
-** Machine learning on-premises **
+**Machine learning on-premises**
 
 On-premises servers also may be run in a virtual machine in the cloud
 
@@ -38,9 +38,9 @@ On-premises servers also may be run in a virtual machine in the cloud
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analytics engine embedded in SQL | Build and deploy models inside SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Standalone enterprise server for predictive analysis | Build and deploy models with R and Python |
 
-** Machine learning development tools **
+**Machine learning development tools**
 
-| Tools | What it is | What you can do with it |
+| Development tools | What it is | What you can do with it |
 |-|-|-|
 | [ML.NET](#mlnet) | Open-source, cross-platform ML SDK | Develop ML solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 ML platform | Evaluate trained models on a Windows 10 device |
