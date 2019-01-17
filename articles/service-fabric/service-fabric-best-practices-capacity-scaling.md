@@ -48,6 +48,9 @@ With your node properties and placement constraints declared, you need to execut
 ## Horizontal Scaling 
 Horizontal Scaling in Service Fabric can be done either [manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) or [programmatically](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
 
+> [!NOTE]
+> If you are scaling a nodetype that has a durablity of Silver or Gold, the scale out and in will be slow.
+
 ### Scaling Out
 Scaling out of a Service Fabric cluster can be done by increasing the instance count for a particular Vitrual Machine Scale Set. You can scale out programmatically by using the AzureClient and the ID for the desired scale set to increase the capacity.
 ```c#
