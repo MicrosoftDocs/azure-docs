@@ -172,6 +172,11 @@ Double-click on the exception displayed in red to see the entire exception messa
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and is not disabled.        |
 |Any other generic exception     | Do a search the internet for the possible solutions and work with your local IT support.         |
 
+Additionally you can download and run the [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) to check if there are any issues with Windows Update on the machine.
+
+> [!NOTE]
+> The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) states it is for Windows clients but it works on Windows Server as well.
+
 ## Linux
 
 ### Scenario: Update run fails to start
