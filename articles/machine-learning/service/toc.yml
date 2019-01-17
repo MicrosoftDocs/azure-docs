@@ -60,7 +60,7 @@
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
-    - name: Configure your dev environment
+    - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
     - name: Visual Studio Code extension
@@ -106,9 +106,7 @@
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX models	
-    items:    
-    - name: Create and deploy
-      href: how-to-build-deploy-onnx.md   
+    href: how-to-build-deploy-onnx.md   
   - name: Deploy models	
     items:    
     - name: Where and how to deploy
@@ -129,7 +127,8 @@
       href: how-to-run-batch-predictions.md
   - name: Monitor web services
     items:  
-    - name: Collect and evaluate model data 
+    - name: Collect & evaluate model data
+      displayName: track production
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
@@ -142,7 +141,7 @@
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: Use the Machine Learning CLI
-    displayName: cli command line command-line az ci/cd automate automated
+    displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Export and delete data
     displayName: gdpr    
