@@ -212,17 +212,11 @@ The following are post-installation known issues for this build version.
 
    The error occurs if you enable boot diagnostics on a VM but delete your boot diagnostics storage account. To work around this issue, recreate the storage account with the same name as you used previously.
 
-<!-- 2967447 - IS, ASDK --> 
+<!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
 - The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
 
 <!-- 2724873 - IS --> 
 - When using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, the first attempt to start or stop the scale unit might fail. If the cmdlet fails on the first run, run the cmdlet a second time. The second run should successfully complete the operation. 
-
-<!-- TBD - IS ASDK --> 
-- If provisioning an extension on a VM deployment takes too long, let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
-
-<!-- 1662991 IS ASDK --> 
-- Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
 
 <!-- 2724961- IS ASDK --> 
 - When you register the **Microsoft.Insight** resource provider in the subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page does not show metrics data.
