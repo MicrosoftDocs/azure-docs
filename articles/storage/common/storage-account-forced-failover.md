@@ -61,6 +61,8 @@ In the event of a regional disaster or primary unavailability, you can initiate 
 Supported Scenarios
 ===================
 
+These scenarios support forced failover of an Azure storage account
+
 VM Scenarios
 
 1.  Shutdown the VM
@@ -73,24 +75,24 @@ VM Scenarios
 
 5.  Check on how user can query LST for page blobs
 
-Azure Files Sync
+VNET – supported. No action required 
+ 
+ADLS gen 2 – supported
 
-Large File Shares
+Data used by the following features or services does not is not failed over. 
 
-Manage Disks – is not a supported scenario because Microsoft manages the storage account
+Azure Files Sync - not blocked, but need to reconfigure all settings after failover.
+Large File Shares - blocked - keep LFS data in separate accounts - use a different account - maintain their own DR - whole account cannot be failed over (for preview)
+Managed Disks – is not a supported scenario because Microsoft manages the storage account
+Archive scenarios - use different account for archive 
+Premium Block Blobs - GRS is not supported
 
-Archive scenarios
-
-VNET – do users have to recreate the VNET settings after failover is completed
-
-ADLS gen 2 –
-
-Premium Block Blobs -
 
 Best Practices
 ==============
 
-When do use force failover- only when primary unavailability and regional disaster. Since this will have data loss. For the best RPO, wait for Microsoft to try and bring up the primary. For RTO you can trigger failover.
+Leasing 
+
 
 
 
