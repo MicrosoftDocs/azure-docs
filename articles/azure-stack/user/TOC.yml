@@ -97,7 +97,7 @@
         href: azure-stack-network-overview.md
       - name: Networking considerations
         href: azure-stack-network-differences.md
-      - name: Connect to Azure
+      - name: VPN gateways
         items:
         - name: Connect using VPN
           href: azure-stack-connect-vpn.md
