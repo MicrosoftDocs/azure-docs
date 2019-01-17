@@ -33,7 +33,7 @@ A Key Vault (KV) certificate can be either created or imported into a key vault.
 Review [Azure Keyvault Certificate Creation Methods](https://docs.microsoft.com/azure/key-vault/create-certificate) for additional details.
 
 ## Deploy KeyVault Certificates to Service Fabric Cluster's Virtual Machine Scale Sets
-Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following are the Resource Manager template properties: 
+To deploy certificates from a co-located keyvault to a Virtual Machine Scale Set, use Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile), and the following are the Resource Manager template properties: 
 ```json
 "secrets": [
    {
@@ -49,6 +49,8 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
    }
 ]
 ```
+> [!NOTE]
+> The vault must be enabled for Resource Manager template deployment.
 
 ## ACL Certificate to your Service Fabric Cluster
 [Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how you ACL certificates to your Service Fabric Cluster, and the following are the Resource Manager template properties:
