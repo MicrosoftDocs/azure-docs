@@ -160,8 +160,6 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#HOLTop)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
