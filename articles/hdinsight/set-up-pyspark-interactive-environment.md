@@ -13,9 +13,7 @@ ms.date: 1/17/2019
 
 # Set up the PySpark interactive environment for Visual Studio Code
 
-The following steps show you how to set up the pyspark interactive environment on macOS and Linux.
-
-We use **python/pip** command to build virtual environment in your Home path. If you want to use another version, you need to change default version of **python/pip** command manually. 
+The following steps show you how to set up the pyspark interactive environment on macOS and Linux. For Windows environment, only step 1 and 2 are needed.
 
 1. Make sure **Python** and **pip** are installed.
  
@@ -25,12 +23,13 @@ We use **python/pip** command to build virtual environment in your Home path. If
 > It's not recommended to use the macOS system install of python.
 
 
-2. Install **virtualenv**
+2. Install **virtualenv**. We use **python/pip** command to build virtual environment in your Home path. If you want to use another version, you need to change default version of **python/pip** command manually.
    
    ```
    pip install virtualenv
    ```
-3. Install **libkrb5-dev** (for Linux only).
+
+3. For Linux only, please install **libkrb5-dev**.
        
    ```
    sudo apt-get install libkrb5-dev 
