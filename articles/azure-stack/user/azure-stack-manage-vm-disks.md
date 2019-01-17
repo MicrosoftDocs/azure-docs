@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ---
@@ -30,8 +30,6 @@ Beginning with version 1808, Azure Stack supports the use of managed disks and u
 **[Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)** simplify disk management for Azure IaaS VMs by managing the storage accounts associated with the VM disks. You only have to specify the size of disk you need, and Azure Stack creates and manages the disk for you.
 
 **[Unmanaged disks](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, require that you create a [storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) to store the disks. The disks you create are referred to as VM disks and are stored in containers in the storage account.
-
- 
 
 ### Best practice guidelines
 
@@ -74,10 +72,38 @@ Each unmanaged disk you add should be put in a separate container.
 3.  For the virtual machine, select **Disks** > **Add data disk**.       
     ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  In the **Attach new disk** pane, select **Location**. By default, the Location is set to the same container that holds the OS disk.      
-    ![Example: Set the disk location](media/azure-stack-manage-vm-disks/disk-location.png)
+4.  For the Data disk:
+    -  Enter the **LUN**. The LUN must be a valid number.
+    -  Select **Create disk**.
+    ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  Select the **Storage account** to use. Next, select the **Container** where you want to put the data disk. From the **Containers** page, you can create a new container if you want. You can then change the location for the new disk to its own container. When you use a separate container for each disk, you distribute the placement of the data disk that can improve performance. Choose **Select** to save the selection.     
+5.  In the create managed disk blade:
+    -  Enter the **Name** of the disk.
+    -  Select an existing or create a new **Resource group**.
+    -  Select the **Location**. By default, the Location is set to the same container that holds the OS disk.
+    -  Select the **Account type**. 
+        ![Example: Attach a new disk to the vm](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+
+       Premium disks (SSD) are backed by solid state drives and offer consistent, low-latency performance. They provide the best balance between price and performance, and are ideal for I/O-intensive applications and production workloads.
+       
+       Standard disks (HOD) are backed by magnetic drives and are preferable for applications where data is accessed infrequently. Zone- redundant disks are backed by Zone redundant storage (ZRS) that replicates your data across  multiple zones and are available even if a single zone is down. 
+
+    -  Select the **Source type**.
+
+       Create a disk from a snapshot of another disk, a blob in a storage account, or create an empty disk.
+
+       Snapshot
+
+
+
+    -  Select the **Size (GiB)**.
+
+       Standard disk costs increase based on the size of the disk. Premium disk costs and performance  increase based on the size of the disk. [Learn more](https://go.microsoft.com/fwlink/?linkid=843142)
+
+    -  Select **Create**. Azure Stack validates the managed disk.
+
+
+7.  Select the **Storage account** to use. Next, select the **Container** where you want to put the data disk. From the **Containers** page, you can create a new container if you want. You can then change the location for the new disk to its own container. When you use a separate container for each disk, you distribute the placement of the data disk that can improve performance. Choose **Select** to save the selection.     
     ![Example: Select a container](media/azure-stack-manage-vm-disks/select-container.png)
 
 6.  In the **Attach new disk** page, update the **Name**, **Type**, **Size**, and **Host caching** settings of the disk. Then select **OK** to save the new disk configuration for the VM.  
