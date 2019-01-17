@@ -66,7 +66,7 @@ Active learning is off by default. It needs to be turned on to see suggested que
 
     [![On the service settings page, toggle the Show Suggestions button](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Reduce the questions list by selecting **Filter by Suggestions** to see the suggested questions.
+1. Filter the knowledge base with question and answer pairs to only show suggestions by selecting **Filter by Suggestions**.
 
     [![On the service settings page, filter by suggestions to see just those question/answer pairs](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
