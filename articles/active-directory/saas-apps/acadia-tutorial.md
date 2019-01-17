@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: 148f4899-4619-4ce4-a17d-19662f1292dc
+ms.assetid: e02bfb28-b3c9-424c-8c42-0c8dfa12342a
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![Acadia Domain and URLs single sign-on information](common/idp-intiated.png)
 
@@ -107,9 +107,9 @@ To configure Azure AD single sign-on with [Application name], perform the follow
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/SAML2/POST`
 
-    c. Click **set additional URLs**.
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    d. In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/Login`
 
     ![Acadia Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
@@ -117,11 +117,11 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Acadia Client support team](https://www.systemsalliance.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Acadia** section, copy the appropriate URL(s) as per your requirement.
+7. On the **Set up Acadia** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -190,7 +190,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, a user called Britta Simon is created in Acadia. Acadia supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Acadia, a new one is created after authentication.
 
-### Test single sign-on
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
