@@ -183,7 +183,7 @@ namespace ConsoleApp1
 
 The application displays the following information:
 
-```Terminal
+```console
 ===== LANGUAGE EXTRACTION ======
 Document ID: 1 , Language: English
 Document ID: 2 , Language: Spanish
