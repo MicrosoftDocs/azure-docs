@@ -259,15 +259,15 @@ To prepare your Databricks cluster and get sample notebooks:
 
 1. Install and attach the Azure Machine Learning SDK package to your cluster.  
 
-    * [Create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) with one of these settings (choose only one of these options):
+    * [Create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) with one of these settings (_choose only one of these options_):
     
-        * To install Azure Machine Learning SDK without automated machine learning capability:
+        * To install Azure Machine Learning SDK _without_ automated machine learning capability:
             | Setting | Value |
             |----|---|
             |Source | Upload Python Egg or PyPI
             |PyPi Name | azureml-sdk[databricks]
     
-        * To install Azure Machine Learning SDK with automated machine learning:
+        * To install Azure Machine Learning SDK _with_ automated machine learning:
             | Setting | Value |
             |----|---|
             |Source | Upload Python Egg or PyPI
@@ -281,9 +281,13 @@ To prepare your Databricks cluster and get sample notebooks:
 
     If you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
 
-    When you're done, the library is attached as shown in the following image. Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
+    When you're done, the library is attached as shown in the following images. Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
 
-   ![SDK installed on Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+    * If you installed Azure Machine Learning SDK _without_ automated machine learning
+   ![SDK without automated machine learning installed on Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+
+    * If you installed Azure Machine Learning SDK _with_ automated machine learning
+   ![SDK with automated machine learning installed on Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
    If this step fails, restart your cluster by doing the following:
 

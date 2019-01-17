@@ -16,9 +16,9 @@ ms.date: 06/15/2018
 ms.author: yagup;jdial
 ---
 
-# Traffic analytics
+# Traffic Analytics
 
-Traffic analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
+Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 
 - Visualize network activity across your Azure subscriptions and identify hot spots.
 - Identify security threats to, and secure your network, with information such as open-ports, applications attempting internet access, and virtual machines (VM) connecting to rogue networks.
@@ -95,9 +95,6 @@ Your account must be a member of one of the following Azure [built-in roles](../
 |                   | Contributor            |
 |                   | Reader                 |
 |                   | Network Contributor    |
-|Classic            | Account administrator  |
-|                   | Service administrator  |
-|                   | Co-administrator       |
 
 If your account is not assigned to one of the built-in roles, it must be assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) that is assigned the following actions, at the subscription level:
 
