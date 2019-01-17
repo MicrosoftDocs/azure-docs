@@ -4,13 +4,13 @@ description: Overview about how to add your work and personal accounts to the Mi
 services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: sahenry
+ms.reviewer: olhaun
 
 ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/29/2018
+ms.date: 01/17/2019
 ms.author: lizross
 ---
 

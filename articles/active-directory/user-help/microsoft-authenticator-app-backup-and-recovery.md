@@ -9,7 +9,7 @@ ms.component: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/17/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ---

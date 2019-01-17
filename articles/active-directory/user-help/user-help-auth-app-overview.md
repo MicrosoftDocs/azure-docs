@@ -1,6 +1,6 @@
 ---
 title: Microsoft Authenticator app overview - Azure Active Directory | Microsoft Docs
-description: Learn about how to set up and use the Microsoft Authenticator app.
+description: Learn about the Microsoft Authenticator app, including what it is, how it works, and what information is included in this section of the content.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,12 +10,11 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 01/17/2019
 ms.author: lizross
 ---
 
-# Microsoft Authenticator app overview
-
+# What is the Microsoft Authenticator app
 The Microsoft Authenticator app helps you sign-in to your accounts if you use two factor verification. Two-factor verification helps you to access your accounts more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
 
 You can use the Microsoft Authenticator app in multiple ways, including:
