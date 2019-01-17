@@ -25,15 +25,12 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 > [!NOTE]
 > If certificates/secrets from a Keyvault deployed to Virtual Machine Scale Set, as a Virtual Machine Scale Set Secret, then the Keyvault and Virtual Machine Scale Set must be co-located.
 
-## Provision Service Fabric Cluster Custom Domain Certificate
-The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provision your custom domain certificate:
+## Create Certificate Authority Issued Service Fabric Certificate
+A Key Vault (KV) certificate can be either created or imported into a key vault. When a KV certificate is created the private key is created inside the key vault and never exposed to certificate owner. The following are ways to create a certificate in Key Vault: 
+**Create a self-signed certificate:** This will create a public-private key pair and associate it with a certificate. The certificate will be signed by its own key. 
+**Create a new certificate manually:** This will create a public-private key pair and generate an X.509 certificate signing request. The signing request can be signed by your registration authority or certification authority. The signed x509 certificate can be merged with the pending key pair to complete the KV certificate in Key Vault. Although this method requires more steps, it does provide you with greater security because the private key is created in and restricted to Key Vault. This is explained in the diagram below. 
 
-![Common Name Cert Creation][Image1]
-
-Portal Blade for Keyvault certificates:
-```bash
-https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.KeyVault/vaults/<YOUR VAULT>/certificates
-```
+Review [Azure Keyvault Certificate Creation Methods](https://docs.microsoft.com/azure/key-vault/create-certificate) for additional details.
 
 ## Deploy KeyVault Certificates to Service Fabric Cluster's Virtual Machine Scale Sets
 Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following are the Resource Manager template properties: 
