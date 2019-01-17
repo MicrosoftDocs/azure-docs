@@ -83,7 +83,7 @@ Once the stream has been connected, you are ready to create your personalized da
 
 * Device Location on a map (right)
 * Devices with their status and severity. (top left)
-* Devices with rules in place, and if there are any alarms going off for them (bottom left)
+* Devices with rules in place, and if there are any alerts going off for them (bottom left)
 
 ![PowerBi Visualization](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 

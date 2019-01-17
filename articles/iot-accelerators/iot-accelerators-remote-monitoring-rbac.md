@@ -25,8 +25,8 @@ Any user in the **Admin** role has full access to the solution, including the fo
 | Permission            | Admin | Read Only |
 |----------------       |-------|-----------|
 | View Solution         | Yes   | Yes       |
-| Update alarms         | Yes   | No        |
-| Delete alarms         | Yes   | No        |
+| Update alerts         | Yes   | No        |
+| Delete alerts         | Yes   | No        |
 | Create devices        | Yes   | No        |
 | Update devices        | Yes   | No        |
 | Delete devices        | Yes   | No        |
@@ -148,8 +148,8 @@ After to add the role to the app in the Azure portal, you need to define a polic
         "Id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
         "Role": "admin",
         "AllowedActions": [
-          "UpdateAlarms",
-          "DeleteAlarms",
+          "UpdateAlerts",
+          "DeleteAlerts",
           "CreateDevices",
           "UpdateDevices",
           "DeleteDevices",
