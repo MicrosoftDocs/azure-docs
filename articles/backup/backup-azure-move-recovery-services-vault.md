@@ -58,6 +58,12 @@ To register the subscription to **Move** your Recovery Services vault, run the f
   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
   ```
 
+4. Run the command
+
+  ```
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+  ```
+
 Wait for 30 minutes for the subscription to be whitelisted before you start with the move operation using the Azure portal or PowerShell.
 
 ## Use Azure portal to move a Recovery Services vault to different resource group

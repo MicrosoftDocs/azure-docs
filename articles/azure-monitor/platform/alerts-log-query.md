@@ -21,7 +21,7 @@ For example the following query is scoped to the _SecurityEvent_ table and searc
 SecurityEvent | where EventID == 4624 
 ```
 
-Queries that start with `search` or `union` allow you to search across multiple multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
+Queries that start with `search` or `union` allow you to search across multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
 
 ```Kusto
 search "Memory"
