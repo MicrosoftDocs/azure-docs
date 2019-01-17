@@ -197,7 +197,8 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive 
 
 > [!NOTE]
 > VSCode recommends you install Python extension for .py file. You can install the extension or close the dialog.
->     ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
+> 
+>![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 2. Connect to your Azure account if you haven't yet done so.
 
