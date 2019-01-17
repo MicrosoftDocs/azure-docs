@@ -6,13 +6,13 @@ author: alkohli
 
 ms.service: databox
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/17/2019
 ms.author: alkohli
 ---
 
 # Use cases for Azure Data Box Gateway
 
-Azure Data Box Gateway is a virtual device in your hypervisor that you can write data to via SMB or NFS. The device then sends data to Azure as blobs or files. This article provides you a detailed description of the scenarios where you can deploy this device.
+Azure Data Box Gateway is a cloud storage gateway device that resides on your premises and sends your image, media and other data to Azure. This cloud storage gateway is a virtual machine provisioned in your hypervisor. You write data to this virtual device using the NFS and SMB protocols which it then sends to Azure. This article provides you a detailed description of the scenarios where you can deploy this device.
 
 Use Data Box Gateway for the following scenarios:
 
@@ -27,11 +27,11 @@ Each of these scenarios is described in detail in the subsequent sections.
 
 ## Continuous data ingestion
 
-Cloud storage gateway is a component of Data Box Gateway. One of the primary advantages of this component is the ability to continuously ingest data into the device to copy to the cloud, regardless of the data size.
+One of the primary advantages of Data Box Gateway is the ability to continuously ingest data into the device to copy to the cloud, regardless of the data size.
 
 As the data is written to the gateway device, the device uploads the data to Azure Storage. The device automatically manages storage by removing the files locally while retaining the metadata when it reaches a certain threshold. Keeping a local copy of the metadata enables the gateway device to only upload the changes when the file is updated. The data uploaded to your gateway device should be as per the guidelines in [Data upload caveats](data-box-gateway-limits.md#data-upload-caveats).
 
-As the device fills up with data, it starts throttling the ingress rate (as needed) to match the rate at which data is uploaded to the cloud. To monitor the continuous ingestion on the device, you can use alerts. These alerts are raised once the throttling starts and are cleared once the throttling has stopped. 
+As the device fills up with data, it starts throttling the ingress rate (as needed) to match the rate at which data is uploaded to the cloud. To monitor the continuous ingestion on the device, you use alerts. These alerts are raised once the throttling starts and are cleared once the throttling has stopped.
 
 ## Cloud archival of data
 
@@ -50,13 +50,13 @@ Before you begin, make sure that you have a running Data Box Gateway device. Fol
         - [Register](/azure/storage/common/storage-lifecycle-management-concepts.md#register-for-preview) for the preview of Blob Lifecycle management service to use Archive tier.
         - Use the following policy to [Archive data on ingest](/azure/storage/blobs/storage-lifecycle-management-concepts.md#archive-data-at-ingest.md).
 - Once the blobs are marked as Archive, they can no longer be modified by the gateway unless they are moved to hot or cold tier. If the file is in the local storage, any changes made to the local copy (including deletes) are not uploaded to archive tier.
-- To read data in Archive storage, it must be rehydrated by changing the blob tier to hot or cool. Refreshing the share on the gateway does not rehydrate the blob.
+- To read data in Archive storage, it must be rehydrated by changing the blob tier to hot or cool. [Refreshing the share](data-box-gateway-manage-shares.md#refresh-shares) on the gateway does not rehydrate the blob.
 
 For more information, learn more about how to [Manage Azure Blob Storage Lifecycle](/azure/storage/common/storage-lifecycle-management-concepts.md).
 
 ## Initial bulk transfer followed by incremental transfer
 
-Use Data Box and Data Box Gateway together when you want to do a bulk upload of a large amount of data followed by incremental transfers. Use Data Box for the bulk transfer in an offline mode (initial seed) and Data Box Gateway for incremental transfers (ongoing feed) over the network. 
+Use Data Box and Data Box Gateway together when you want to do a bulk upload of a large amount of data followed by incremental transfers. Use Data Box for the bulk transfer in an offline mode (initial seed) and Data Box Gateway for incremental transfers (ongoing feed) over the network.
 
 ### Seed the data with Data Box
 
