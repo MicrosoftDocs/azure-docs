@@ -18,9 +18,7 @@ ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 
 # Roles you cannot manage in PIM
 
-Azure AD Privileged Identity Management (PIM) enables you to manage all Azure AD directory roles. PIM also enables you to manage all Azure resource roles (also known as [Azure role-based access control (RBAC) roles](../../role-based-access-control/overview.md)). This includes built-in roles and your custom roles attached to your management groups, subscriptions, resource groups and resources. For a complete list of Azure AD directory roles and Azure resources roles you can manage in PIM, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) and [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
-
-However, there are few roles that you cannot manage in PIM. This article describes the roles you cannot manage.
+Azure AD Privileged Identity Management (PIM) enables you to manage all [Azure AD directory roles](../users-groups-roles/directory-assign-admin-roles.md) and all [Azure resource roles](../../role-based-access-control/built-in-roles.md). This includes your custom roles attached to your management groups, subscriptions, resource groups, and resources. However, there are few roles that you cannot manage. This article describes the roles you cannot manage in PIM.
 
 ## Classic subscription administrator roles
 
