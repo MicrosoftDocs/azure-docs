@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/17/2019
 ms.author: diberry
 ---
 
@@ -33,7 +33,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
 This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results. 
 
-
+![Conceptual idea of running sample containers](../media/how-tos/container-instance-sample/containers.png)
 
 ## The sample containers
 
