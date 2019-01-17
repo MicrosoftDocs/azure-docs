@@ -24,7 +24,7 @@ The workflow generally follows this sequence:
 
 1. Develop machine learning training scripts in **Python**.
 1. Create and configure a **compute target**.
-1. **Submit the scripts** to the configured compute target to run in that environment. During training, the compute target stores run records to a **datastore**. There the records are saved to an **experiment**.
+1. **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are save as **runs** in the **workspace**, which is partitioned over **experiment**.
 1. **Query the experiment** for logged metrics from the current and past runs. If the metrics don't indicate a desired outcome, loop back to step 1 and iterate on your scripts.
 1. After a satisfactory run is found, register the persisted model in the **model registry**.
 1. Develop a scoring script.
