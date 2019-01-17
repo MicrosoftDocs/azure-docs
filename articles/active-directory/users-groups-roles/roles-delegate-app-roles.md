@@ -1,6 +1,6 @@
 ---
-title: Delegate app administrator roles in Azure Active Directory | Microsoft Docs
-description: Application access management delegating roles to grant permissions in Azure Active Directory
+title: Delegate application administrator roles - Azure Active Directory | Microsoft Docs
+description: Application access management delegating roles to grant permissions rights in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -23,7 +23,7 @@ ms.custom: it-pro
 
 The increasing number of apps proliferating in your organization can strain your resources if you place the burden for application access management on Global Administrators. This model only increases its overhead as time goes on. Azure Active Directory (Azure AD) supports granting less-privileged administrative roles to manage application access. Some delegation issues and general guidelines are provided in [Delegate administration in Azure Active Directory](roles-concept-delegation.md).
 
-Besides reducing Global Administrator overhead, delegating specialized privileges to manage application access tasks can improve your security posture and reduce the potential for costly mistakes. 
+Besides reducing Global Administrator overhead, delegating specialized privileges to manage application access tasks can improve your security posture and reduce the potential for costly mistakes.
 
 ## Delegate app administration
 
