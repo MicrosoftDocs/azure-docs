@@ -30,16 +30,16 @@ The solution to securing outbound addresses lies in use of a firewall device tha
 
 The steps to lock down egress from your existing ASE with Azure Firewall are:
 
-1. Enable service endpoints to SQL, Storage and Event Hub on your ASE subnet. To do this go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your apps have must be configured with service endpoints as well. 
+1. Enable service endpoints to SQL, Storage, and Event Hub on your ASE subnet. To do this, go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. When you have service endpoints enabled to Azure SQL, any Azure SQL dependencies that your apps have must be configured with service endpoints as well. 
 
    ![select service endpoints][2]
   
-1. Create a subnet in the VNet where your ASE is that is named AzureFirewallSubnet. Follow the directions in the [Azure Firewall documenation](https://docs.microsoft.com/azure/firewall/) to create your Azure Firewall.
+1. Create a subnet named AzureFirewallSubnet in the VNet where your ASE exists. Follow the directions in the [Azure Firewall documentation](https://docs.microsoft.com/azure/firewall/) to create your Azure Firewall.
 1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows Update. 
    
    ![Add application rule][1]
    
-1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority and set Allow. In the Rules section, provide a name, select **Any**, set * to Source and Destination addresses, and set the ports to 123. This is to allow the system to perform clock sync using NTP.
+1. From the Azure Firewall UI > Rules > Network rule collection, select Add network rule collection. Provide a name, priority and set Allow. In the Rules section, provide a name, select **Any**, set * to Source and Destination addresses, and set the ports to 123. This rule allows the system to perform clock sync using NTP. Create another rule the same way to port 12000 to help triage any system issues.
 
    ![Add NTP network rule][3]
 
@@ -51,7 +51,7 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
 
 #### Deploying your ASE behind a firewall
 
-The steps to deploy your ASE behind a firewall are the same as configuring your existing ASE with an Azure Firewall except you will need to create your ASE subnet and then follow the previous steps. To create your ASE in a pre-existing subnet you need to use a Resource Manager template as described in the document on [Creating your ASE with a Resource Manager template](https://docs.microsoft.com/azure/app-service/environment/create-from-template).
+The steps to deploy your ASE behind a firewall are the same as configuring your existing ASE with an Azure Firewall except you will need to create your ASE subnet and then follow the previous steps. To create your ASE in a pre-existing subnet, you need to use a Resource Manager template as described in the document on [Creating your ASE with a Resource Manager template](https://docs.microsoft.com/azure/app-service/environment/create-from-template).
 
 ## Application traffic 
 
@@ -66,15 +66,15 @@ If you know the address range that your application request traffic will come fr
 
 ![ASE with Azure Firewall connection flow][5]
 
-This is just one example of how to configure your system. If you did follow this path then you would need to add a route to the ASE subnet route table so the reply traffic sent to the Application Gateway would go there directly. 
+This use of the Application Gateway is just one example of how to configure your system. If you did follow this path, then you would need to add a route to the ASE subnet route table so the reply traffic sent to the Application Gateway would go there directly. 
 
 ## Logging 
 
-Azure Firewall can send logs to Azure Storage, Event Hub or Log Analytics. To integrate your app with any supported destination, go to the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Log Analytics, then you can see logging for any traffic sent to Azure Firewall. To see the traffic that is being denied, open your Log Analytics portal > Logs and enter a query like 
+Azure Firewall can send logs to Azure Storage, Event Hub, or Log Analytics. To integrate your app with any supported destination, go to the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Log Analytics, then you can see logging for any traffic sent to Azure Firewall. To see the traffic that is being denied, open your Log Analytics portal > Logs and enter a query like 
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
- This is very useful when first getting an application working if you are not completely aware of all of the application dependencies. You can learn more about Log Analytics from [Analyze Log Analytics data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+Integrating your Azure Firewall with Log Analytics is very useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Log Analytics from [Analyze Log Analytics data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
  
 ## Dependencies
 
@@ -100,9 +100,9 @@ The following information is only required if you wish to configure a firewall a
 | Endpoint | Details |
 |----------| ----- |
 | \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| \*:12000 | This is a monitoring endpoint. If blocked then some issues will be harder to triage but your ASE will continue to operate |
+| \*:12000 | This port is used for some system monitoring. If blocked then some issues will be harder to triage but your ASE will continue to operate |
 
-With an Azure Firewall you automatically get everything below configured with the FQDN tags. 
+With an Azure Firewall, you automatically get everything below configured with the FQDN tags. 
 
 #### FQDN HTTP/HTTPS dependencies 
 
