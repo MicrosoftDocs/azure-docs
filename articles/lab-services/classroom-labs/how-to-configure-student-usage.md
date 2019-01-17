@@ -87,6 +87,16 @@ You can do the following tasks on a student VM:
 - Delete the VM. 
 - View the number of hours that users used the virtual machine. 
 
+## Update number of virtual machines in lab
+To update the number of virtual machines in the lab, take the following steps in the **Virtual Machines** page:
+
+1. Select **Virtual machines** on the left menu. 
+2. Select **Lab capacity: &lt;number&gt; machine(s)** on the toolbar. 
+3. Enter the **number** of virtual machines.
+4. Select **Save**.
+
+    ![Virtual machines in the lab](../media/how-to-configure-student-usage/number-virtual-machines.png)
+
 
 ## Next steps
 See the following articles:
