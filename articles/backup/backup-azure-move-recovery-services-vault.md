@@ -58,6 +58,8 @@ To register the subscription to **Move** your Recovery Services vault, run the f
   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
   ```
 
+4. Run the command
+
   ```
   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
   ```
