@@ -129,6 +129,10 @@ select this trigger: **When a filed is added or modified - FTP**
 1. Provide the necessary details for your connection, 
 and then choose **Create**.
 
+   By default, this connector transfers files in text format. 
+   To transfer files in binary format, for example, where and 
+   when encoding is used, select **Binary Transport**.
+
    ![Create FTP server connection](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
 
 1. Next to the **Folder** box, choose the folder icon so a list appears. 
