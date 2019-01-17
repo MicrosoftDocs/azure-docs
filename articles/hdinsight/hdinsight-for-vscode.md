@@ -4,14 +4,12 @@ description: Learn how to use the Azure HDInsight Tools for Visual Studio Code t
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: ''
-author: jejiang
-
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.author: jejiang
+ms.date: 12/15/2018
 ---
 
 # Use Azure HDInsight Tools for Visual Studio Code

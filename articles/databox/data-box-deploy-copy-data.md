@@ -81,9 +81,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
     You should now see the shares as folders.
     
+    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
+
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *$root* folder in the storage account.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+     
 
 ## Copy data to Data Box
 
