@@ -64,6 +64,8 @@ If your applications have dependencies, they need to be added to your Azure Fire
 
 If you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is large or unspecified, then you can use a network appliance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
 
+![ASE with Azure Firewall connection flow][5]
+
 ## Logging 
 
 Azure Firewall can send logs to Azure Storage, Event Hub or Log Analytics. To integrate your app with any supported destination, go to the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Log Analytics, then you can see logging for any traffic sent to Azure Firewall. To see the traffic that is being denied, open your Log Analytics portal > Logs and enter a query like 
@@ -82,7 +84,6 @@ The following information is only required if you wish to configure a firewall a
 - Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers. 
 - Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not deploying Linux apps into your ASE, then these addresses do not need to be added to your firewall. 
 
-There is traffic also to 
 
 #### Service Endpoint capable dependencies 
 
@@ -97,8 +98,7 @@ There is traffic also to
 | Endpoint | Details |
 |----------| ----- |
 | \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| \*:12000 | Monitoring endpoint. If blocked then some issues will be harder to triage |
-
+| \*:12000 | This is a monitoring endpoint. If blocked then some issues will be harder to triage but your ASE will continue to operate |
 
 With an Azure Firewall you automatically get everything below configured with the FQDN tags. 
 
@@ -194,4 +194,4 @@ With an Azure Firewall you automatically get everything below configured with th
 [2]: ./media/firewall-integration/firewall-serviceendpoints.png
 [3]: ./media/firewall-integration/firewall-ntprule.png
 [4]: ./media/firewall-integration/firewall-routetable.png
-[5]: ./media/firewall-integration/firewall-routetable.png
+[5]: ./media/firewall-integration/firewall-topology.png
