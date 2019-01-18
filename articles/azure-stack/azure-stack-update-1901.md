@@ -37,9 +37,9 @@ The Azure Stack 1901 update build number is **1.1901.x.xx**.
 Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1811 before updating Azure Stack to 1901.
 
 > [!TIP]  
-> Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack hotfixes:
-> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
-> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+> Subscribe to the following *RSS* or *Atom* feeds to keep up with Azure Stack hotfixes:
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### Azure Stack hotfixes
 
