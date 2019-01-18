@@ -55,7 +55,7 @@ on a site-to-site VPN connection:
 
 5. Add/update/remove an IPsec/IKE policy for an existing connection.
 
-The instructions in this article help you set up and configure IPsec/IKE policies as shown in the following figure:
+The instructions in this article help you set up and configure IPsec/IKE policies, as shown in the following figure:
 
 ![Set up and configure IPsec/IKE policies](media/azure-stack-vpn-s2s/site-to-site.png)
 
@@ -110,7 +110,7 @@ For more information, see [RFC3526](https://tools.ietf.org/html/rfc3526) and 
 
 ## Part 3 - Create a new site-to-site VPN connection with IPsec/IKE policy
 
-This section walks you through the steps to create a site-to-site VPN connection with an IPsec/IKE policy. The following steps create the connection as shown in the following figure:
+This section walks you through the steps to create a site-to-site VPN connection with an IPsec/IKE policy. The following steps create the connection, as shown in the following figure:
 
 ![site-to-site-policy](media/azure-stack-vpn-s2s/site-to-site.png)
 
