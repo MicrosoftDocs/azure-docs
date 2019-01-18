@@ -1,56 +1,62 @@
 ---
-title: "Tutorial: Facebook content moderation - Azure Content Moderator"
+title: "Tutorial: Moderate Facebook content - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 01/10/2019
-ms.author: sajagtap
-
+ms.date: 01/18/2019
+ms.author: pafarley
+#tbd
 ---
 
-# Tutorial: Facebook content moderation with Content Moderator
+# Tutorial: Moderate Facebook posts and commands with Azure Content Moderator
 
-In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
+In this tutorial, you will learn how to use Azure Content Moderator to help moderate the posts and comments on a Facebook page. Facebook will send the content posted by visitors to the Content Moderator service. Then your Content Moderator workflows will either publish the content or create reviews within the Review tool, depending on the content scores and thresholds.
 
-The tutorial guides you through these steps:
+This tutorial shows you how to:
 
-1. Create a Content Moderator team.
-2. Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
-3. Create a Facebook Page and App, and connect it to Content Moderator.
+> [!div class="checklist"]
+> * Create a Content Moderator team.
+> * Create Azure Functions that listen for HTTP events from Content Moderator and Facebook.
+> * Link a Facebook page to Content Moderator using a Facebook application.
 
-After we are done, Facebook will send the content posted by the visitors to Content Moderator. Based on the match thresholds, your Content Moderator workflows either publish the content or create reviews within the review tool. 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The following figure shows the building blocks of the solution.
+This diagram illustrates each component of this scenario:
 
-![Facebook post moderation](images/tutorial-facebook-moderation.png)
+![Diagram of Content Moderator receiving information from Facebook through "FBListener" and sending information through "CMListener"](images/tutorial-facebook-moderation.png)
 
-## Create a Content Moderator team
+## Prerequisites
 
-Refer to the [Try Content Moderator on the web](quick-start.md) quickstart to sign up for Content Moderator and create a team.
+- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Content Moderator service and get your key.
+- A [Facebook account](https://www.facebook.com/).
 
-## Configure image moderation workflow (threshold)
+## Create a review team
 
-Refer to the [Workflows](review-tool-user-guide/workflows.md) page to configure a custom image workflow (threshold). Note the workflow **name**.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart for instructions on how to sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) and create a review team. Take note of the **Team ID** value on the **Credentials** page.
 
-## 3. Configure text moderation workflow (threshold)
+## Configure image moderation workflow
 
-Use steps similar to the [Workflows](review-tool-user-guide/workflows.md) page to configure a custom text threshold and workflow. Note the workflow **name**.
+Refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide to create a custom image workflow. This will allow Content Moderator to automatically check images on Facebook and send some to the Review tool. Take note of the workflow **name**.
+
+## Configure text moderation workflow
+
+Again, refer to the [Define, test, and use workflows](review-tool-user-guide/workflows.md) guide; this time create a custom text workflow. This will allow Content Moderator to automatically check text content. Take note of the workflow **name**.
 
 ![Configure Text Workflow](images/text-workflow-configure.PNG)
 
-Test your workflow by using the "Execute Workflow" button.
+Test your workflow using the **Execute Workflow** button.
 
 ![Test Text Workflow](images/text-workflow-test.PNG)
 
 ## Create Azure Functions
 
-Sign in to the [Azure Management Portal](https://portal.azure.com/) to create your Azure Functions. Follow these steps:
+Sign in to the [Azure Portal](https://portal.azure.com/) and follow these steps:
 
 1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page.
 2. Open the newly created Function App.
@@ -146,14 +152,15 @@ That's it!
 
 The solution sends all images and text posted on your Facebook page to Content Moderator. The workflows that you configured earlier are invoked. The content that does not pass your criteria defined in the workflows results in reviews within the review tool. The rest of the content gets published.
 
-## License
-
-All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more details, see [LICENSE](https://microsoft.mit-license.org/).
-
 ## Next steps
 
-1. [Watch a demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) of this solution from Microsoft Build 2017.
-1. [The Facebook sample on GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
-1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
-2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
-3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token
+In this tutorial, you set up a program to analyze product images for the purpose of tagging them by product type and allowing a review team to make informed decisions about content moderation. Next, learn more about the details of image moderation.
+
+> [!div class="nextstepaction"]
+> [TBD](./TBD.md)
+
+[Watch a demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) of this solution from Microsoft Build 2017.
+
+[The Facebook sample on GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+
+https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
