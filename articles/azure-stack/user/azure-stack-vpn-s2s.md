@@ -112,7 +112,7 @@ For more information, see [RFC3526](https://tools.ietf.org/html/rfc3526) and 
 
 This section walks you through the steps to create a site-to-site VPN connection with an IPsec/IKE policy. The following steps create the connection as shown in the following figure:
 
-![site-to-site-policy](media/azure-stack-s2s-vpn/s2s2.png)
+![site-to-site-policy](media/azure-stack-vpn-s2s/s2s2.png)
 
 For more detailed step-by-step instructions for creating a site-to-site VPN
 connection, see [Create a site-to-site VPN connection](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
