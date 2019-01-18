@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of creating a Channel tha
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
@@ -224,8 +224,8 @@ namespace EncodeLiveStreamWithAmsClear
         private static ChannelInput CreateChannelInput()
         {
             // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
-	    // IpV4 address with 4 numbers
-	    // CIDR address range
+            // IpV4 address with 4 numbers
+            // CIDR address range
 	    
             return new ChannelInput
             {
@@ -252,8 +252,8 @@ namespace EncodeLiveStreamWithAmsClear
         private static ChannelPreview CreateChannelPreview()
         {
             // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
-	    // IpV4 address with 4 numbers
-	    // CIDR address range
+            // IpV4 address with 4 numbers
+            // CIDR address range
 	    
             return new ChannelPreview
             {
