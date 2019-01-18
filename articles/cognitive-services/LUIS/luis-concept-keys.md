@@ -40,7 +40,7 @@ When you want to make **production endpoint queries**, create the Azure [LUIS su
 ## Endpoint key
 When you need **production endpoint queries**, create an Azure Resource then assign it to the LUIS app. 
 
-[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)
+[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
 When the Azure resource creation process is finished, [assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) to the app. 
 
