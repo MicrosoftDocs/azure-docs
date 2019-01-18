@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Stack site-to-site VPN connections | Microsoft Docs
-description: Learn about IPsec/IKE policy for S2S VPN or VNet-to-VNet connections in Azure Stack
+description: Learn about IPsec/IKE policy for site-to-site VPN or VNet-to-VNet connections in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: sethm
 ---
 
-# Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections
+# Configure IPsec/IKE policy for site-to-site VPN or VNet-to-VNet connections
 
 This article walks through the steps to configure an IPsec/IKE policy for site-to-site (S2S) VPN connections in Azure Stack.
 
-## IPsec and IKE policy parameters for Azure VPN gateways
+## IPsec and IKE policy parameters for VPN gateways
 
 The IPsec and IKE protocol standard supports a wide range of cryptographic algorithms in various combinations. To see which parameters are supported in Azure Stack, see [IPsec/IKE parameters](azure-stack-vpn-gateway-settings.md#ipsecike-parameters), which can help satisfy
 your compliance or security requirements.
@@ -32,18 +32,18 @@ policy and apply to a new or existing connection.
 
 Note the following important considerations when using these policies:
 
-1. The IPsec/IKE policy only works on the *Standard* and *HighPerformance* (route-based) gateway SKUs.
+- The IPsec/IKE policy only works on the *Standard* and *HighPerformance* (route-based) gateway SKUs.
 
-2. You can only specify **one** policy combination for a given connection.
+- You can only specify **one** policy combination for a given connection.
 
-3. You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification is not allowed.
+- You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification is not allowed.
 
-4. Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S connections cannot be established if the policies are incompatible.
+- Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. Site-to-site connections cannot be established if the policies are incompatible.
 
 ## Part 1 - Workflow to create and set IPsec/IKE policy
 
 This section outlines the workflow required to create and update the IPsec/IKE policy
-on a S2S VPN connection:
+on a site-to-site VPN connection:
 
 1. Create a virtual network and a VPN gateway.
 
@@ -74,26 +74,26 @@ The following table lists the supported cryptographic algorithms and key strengt
 | QM SA Lifetime                                       | (Optional: default values are used if not specified)<br />                         Seconds (integer; min. 300/default 27000 seconds)<br />                         KBytes (integer; min. 1024/default 102400000 KBytes) |                                                                          |
 | Traffic Selector                                     | Policy Based Traffic Selectors are not supported in Azure Stack.         |
 
-1. Your on-premises VPN device configuration must match or contain the following algorithms and parameters that you specify on the Azure IPsec/IKE policy:
+- Your on-premises VPN device configuration must match or contain the following algorithms and parameters that you specify on the Azure IPsec/IKE policy:
 
-   - IKE encryption algorithm (Main Mode / Phase 1)
-   - IKE integrity algorithm (Main Mode / Phase 1)
-   - DH Group (Main Mode / Phase 1)
-   - IPsec encryption algorithm (Quick Mode / Phase 2)
-   - IPsec integrity algorithm (Quick Mode / Phase 2)
-   - PFS Group (Quick Mode / Phase 2)
-   - The SA lifetimes are local specifications only, do not need to match.
+  - IKE encryption algorithm (Main Mode / Phase 1)
+  - IKE integrity algorithm (Main Mode / Phase 1)
+  - DH Group (Main Mode / Phase 1)
+  - IPsec encryption algorithm (Quick Mode / Phase 2)
+  - IPsec integrity algorithm (Quick Mode / Phase 2)
+  - PFS Group (Quick Mode / Phase 2)
+  - The SA lifetimes are local specifications only, do not need to match.
 
-2. If GCMAES is used as for IPsec Encryption algorithm, you must select the same GCMAES algorithm and key length for IPsec integrity; for example, using GCMAES128 for both.
+- If GCMAES is used as for IPsec Encryption algorithm, you must select the same GCMAES algorithm and key length for IPsec integrity; for example, using GCMAES128 for both.
 
-3. In the preceding table:
+- In the preceding table:
 
-   - IKEv2 corresponds to Main Mode or Phase 1
-   - IPsec corresponds to Quick Mode or Phase 2
-   - DH Group specifies the Diffie-Hellmen Group used in Main Mode or Phase 1
-   - PFS Group specified the Diffie-Hellmen Group used in Quick Mode or Phase 2
+  - IKEv2 corresponds to Main Mode or Phase 1
+  - IPsec corresponds to Quick Mode or Phase 2
+  - DH Group specifies the Diffie-Hellmen Group used in Main Mode or Phase 1
+  - PFS Group specified the Diffie-Hellmen Group used in Quick Mode or Phase 2
 
-4. IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure Stack VPN gateways.
+- IKEv2 Main Mode SA lifetime is fixed at 28,800 seconds on the Azure Stack VPN gateways.
 
 The following table lists the corresponding Diffie-Hellman Groups supported by the custom policy:
 
@@ -108,14 +108,14 @@ The following table lists the corresponding Diffie-Hellman Groups supported by t
 
 For more information, see [RFC3526](https://tools.ietf.org/html/rfc3526) and [RFC5114](https://tools.ietf.org/html/rfc5114).
 
-## Part 3 - Create a new S2S VPN connection with IPsec/IKE policy
+## Part 3 - Create a new site-to-site VPN connection with IPsec/IKE policy
 
-This section walks you through the steps to create a S2S VPN connection with an IPsec/IKE policy. The following steps create the connection as shown in the following figure:
+This section walks you through the steps to create a site-to-site VPN connection with an IPsec/IKE policy. The following steps create the connection as shown in the following figure:
 
-![s2s-policy](media/azure-stack-s2s-vpn/s2s2.png)
+![site-to-site-policy](media/azure-stack-s2s-vpn/s2s2.png)
 
-For more detailed step-by-step instructions for creating a S2S VPN
-connection, see [Create a S2S VPN connection](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+For more detailed step-by-step instructions for creating a site-to-site VPN
+connection, see [Create a site-to-site VPN connection](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 ### Prerequisites
 
@@ -200,7 +200,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
 $LNGPrefix61,$LNGPrefix62
 ```
 
-### Step 2 - Create a S2S VPN connection with an IPsec/IKE policy
+### Step 2 - Create a site-to-site VPN connection with an IPsec/IKE policy
 
 #### 1. Create an IPsec/IKE policy
 
@@ -215,9 +215,9 @@ $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 
 
 If you use GCMAES for IPsec, you must use the same GCMAES algorithm and key length for both IPsec encryption and integrity.
 
-#### 2. Create the S2S VPN connection with the IPsec/IKE policy
+#### 2. Create the site-to-site VPN connection with the IPsec/IKE policy
 
-Create an S2S VPN connection and apply the IPsec/IKE policy you created previously.
+Create an site-to-site VPN connection and apply the IPsec/IKE policy you created previously.
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
@@ -227,11 +227,11 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 ```
 
 > [!IMPORTANT]
-> Once an IPsec/IKE policy is specified on a connection, the Azure VPN gateway will only send or accept the IPsec/IKE proposal with specified cryptographic algorithms and key strengths on that particular connection. Make sure your on-premises VPN device for the connection uses or accepts the exact policy combination, otherwise the S2S VPN tunnel will not be established.
+> Once an IPsec/IKE policy is specified on a connection, the Azure VPN gateway will only send or accept the IPsec/IKE proposal with specified cryptographic algorithms and key strengths on that particular connection. Make sure your on-premises VPN device for the connection uses or accepts the exact policy combination, otherwise the site-to-site VPN tunnel will not be established.
 
 ## Part 4 - Update IPsec/IKE policy for a connection
 
-The previous section showed how to manage IPsec/IKE policy for an existing S2S connection. The following section walks through the following operations on a connection:
+The previous section showed how to manage IPsec/IKE policy for an existing site-to-site connection. The following section walks through the following operations on a connection:
 
 1. Show the IPsec/IKE policy of a connection
 2. Add or update the IPsec/IKE policy to a connection
