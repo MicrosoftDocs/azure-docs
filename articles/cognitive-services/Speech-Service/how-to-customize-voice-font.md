@@ -218,7 +218,7 @@ The custom endpoint is functionally identical to the standard endpoint that's us
 
 ## Language support
 
-Voice customization in the following languages:
+Voice customization is available in these languages:
 
 | Language | Locale |
 |----------|--------|
