@@ -47,5 +47,5 @@ Windows Defender Advanced Threat Protection | [Defender role-based access contro
 
 ## Next steps
 
-* [How to assign or remove azure AD administrator roles](directory-manage-roles-portal.md)
+* [How to assign or remove Azure AD administrator roles](directory-manage-roles-portal.md)
 * [Azure AD administrator roles reference](directory-assign-admin-roles.md)
