@@ -6,7 +6,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
@@ -125,3 +125,4 @@ The previous sections described how to create, view and manage metric alert rule
 - [Create metric alerts using Azure Resource Manager Templates](../../azure-monitor/platform/alerts-enable-template.md).
 - [Understand how metric alerts work](alerts-metric-overview.md).
 - [Understand the web hook schema for metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+

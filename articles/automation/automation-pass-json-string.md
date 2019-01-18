@@ -3,7 +3,7 @@ title: Pass a JSON object to an Azure Automation runbook
 description: How to pass parameters to a runbook as a JSON object
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
@@ -117,5 +117,6 @@ The runbook uses the values from the JSON file to start a VM.
 
 * To learn more about editing PowerShell and PowerShell Workflow runbooks with a textual editor, see [Editing textual runbooks in Azure Automation](automation-edit-textual-runbook.md) 
 * To learn more about creating and importing runbooks, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
+
 
 
