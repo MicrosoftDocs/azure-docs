@@ -71,7 +71,7 @@ for example:
    ![Select integration account](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
 1. On your integration account's **Overview** page, 
-select the **Assemblies** tile.
+under **Components**, select the **Assemblies** tile.
 
    ![Select "Assemblies"](./media/logic-apps-enterprise-integration-maps/select-assemblies.png)
 
@@ -95,10 +95,17 @@ select the **Assemblies** tile.
 
       ![Upload assembly](./media/logic-apps-enterprise-integration-maps/upload-assembly-file.png)
 
-   1. After the file finishes uploading, choose **OK**. 
+   1. When you're ready, choose **OK**. 
+   After your assembly file finishes uploading, 
+   the assembly appears in the **Assemblies** list.
 
-   Your integration account's **Overview** page now 
-   shows the number of assemblies you uploaded. 
+      ![Uploaded assemblies list](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies-list.png)
+
+      On your integration account's **Overview** page, 
+	  under **Components**, the **Assemblies** tile now 
+	  shows the number of uploaded assemblies, for example:
+
+      ![Uploaded assemblies](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
 
 ## Add maps
 
@@ -122,7 +129,7 @@ for example:
    ![Select integration account](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
 1. On your integration account's **Overview** page, 
-select the **Maps** tile.
+under **Components**, select the **Maps** tile.
 
    ![Choose "Maps"](./media/logic-apps-enterprise-integration-maps/select-maps.png)
 
