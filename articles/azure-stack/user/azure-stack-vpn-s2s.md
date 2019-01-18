@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 01/19/2019
 ms.author: sethm
 ---
 
@@ -57,7 +57,7 @@ on a site-to-site VPN connection:
 
 The instructions in this article help you set up and configure IPsec/IKE policies as shown in the following figure:
 
-![Set up and configure IPsec/IKE policies](media/azure-stack-s2s-vpn/s2s1.png)
+![Set up and configure IPsec/IKE policies](media/azure-stack-vpn-s2s/s2s1.png)
 
 ## Part 2 - Supported cryptographic algorithms and key strengths
 
