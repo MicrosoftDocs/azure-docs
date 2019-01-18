@@ -92,9 +92,11 @@ Each unmanaged disk you add should be put in a separate container.
 
        Create a disk from a snapshot of another disk, a blob in a storage account, or create an empty disk.
 
-       Snapshot
+      Snapshot
 
+      Blob in a storage account
 
+      Create an empty disk
 
     -  Select the **Size (GiB)**.
 
@@ -117,8 +119,8 @@ Each unmanaged disk you add should be put in a separate container.
 
 1.  [Prepare a .vhd file](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) for use as data disk for a VM. Upload that .vhd file to a storage account that you use with the VM that you want to attach the .vhd file to.
 
-  Plan to use a different container to hold the .vhd file than the container that holds the OS disk.   
-  ![Example: Upload a VHD file](media/azure-stack-manage-vm-disks/upload-vhd.png)
+    Plan to use a different container to hold the .vhd file than the container that holds the OS disk.   
+    ![Example: Upload a VHD file](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
 2.  After the .vhd file is uploaded, you are ready to attach the VHD to a VM. In the menu on the left, select  **Virtual machines**.  
  ![Example: Select a VM in the dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
