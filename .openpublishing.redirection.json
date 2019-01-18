@@ -34679,9 +34679,19 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/set-up-hybrid-hpcpack-cluster-paas",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-stack/azure-stack-deploy-overview.md",
       "redirect_url": "/azure/azure-stack/asdk/asdk-download",
       "redirect_document_id": false
-    }     
+    },
+	{
+      "source_path": "articles/active-directory/devices/hybrid-azuread-join-manual-steps.md",
+      "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-plan",
+      "redirect_document_id": true
+    }
   ]
 }
