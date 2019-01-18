@@ -54,33 +54,33 @@ On the **Management** tab, in **Monitoring** section, make sure that **Boot diag
  
 ![Create VM](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
-    > [!NOTE]
-    > The Boot diagnostics feature does not support premium storage account. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM.
-    >
+> [!NOTE]
+> The Boot diagnostics feature does not support premium storage account. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM.
+>
 
 ### Deploying from an Azure Resource Manager template
 
 If you are deploying from an Azure Resource Manager template, navigate to your virtual machine resource and append the diagnostics profile section. Set the API version header to "2015-06-15" or later. The latest version is "2018-10-01".
 
-    ```json
-    {
-          "apiVersion": "2018-10-01",
-          "type": "Microsoft.Compute/virtualMachines",
-          … 
-    ```
+```json
+{
+  "apiVersion": "2018-10-01",
+  "type": "Microsoft.Compute/virtualMachines",
+  … 
+```
 
 The diagnostics profile enables you to select the storage account where you want to put these logs.
 
-    ```json
-            "diagnosticsProfile": {
-                "bootDiagnostics": {
-                "enabled": true,
-                "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
-                }
-            }
-            }
-        }
-    ```
+```json
+    "diagnosticsProfile": {
+	"bootDiagnostics": {
+	"enabled": true,
+	"storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+	}
+    }
+    }
+}
+```
 
 For more information on deploying resources using templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
