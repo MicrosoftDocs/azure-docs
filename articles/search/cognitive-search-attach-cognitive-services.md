@@ -17,12 +17,12 @@ AI algorithms drive the [cognitive search pipelines](cognitive-search-concept-in
 
 You can enrich a limited number of documents for free, or attach a billable Cognitive Services resource for larger and more frequent workloads. In this article, learn how to associate a Cognitive Services resource with your cognitive skillset to enrich data during [Azure Search indexing](search-what-is-an-index.md).
 
-If your pipeline consists of skills unrelated to Cognitive Services APIs, you should still attach a Cognitive Services resource. Doing so overrides the **Free** resource that limits you to small quantity of enrichments per day. There is no charge for skills that are not bound to a Cognitive Serivces API. Unrelated skills include: [custom skills](cognitive-search-create-custom-skill-example.md), [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), and [shaper](cognitive-search-skill-shaper.md).
+If your pipeline consists of skills unrelated to Cognitive Services APIs, you should still attach a Cognitive Services resource. Doing so overrides the **Free** resource that limits you to small quantity of enrichments per day. There is no charge for skills that are not bound to a Cognitive Serivces API. These skills include: [custom skills](cognitive-search-create-custom-skill-example.md), [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), and [shaper](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > As of December 21, 2018, you can associate a Cognitive Services resource with an Azure Search skillset. This allows us to charge for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
 >
-> [Built-in cognitive skills](cognitive-search-predefined-skills.md) execution is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search charge, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400) or [How billing works](search-sku-tier.md#how-billing-works).
+> [Built-in cognitive skill](cognitive-search-predefined-skills.md) execution is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search charge, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400) or [How billing works](search-sku-tier.md#how-billing-works).
 
 
 ## Use Free resources
