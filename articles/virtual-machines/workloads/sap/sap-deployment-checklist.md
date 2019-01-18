@@ -54,8 +54,8 @@ In this phase, a migration of SAP workload onto Azure public cloud is planned. T
 		2.	[SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
 	6.	High Availability and disaster recovery architecture
 		1.	Define based on RTO and RPO what the high availability and disaster recovery architecture needs to look like
-		2.	For high availability within the same zone, check what the desired DBMS has to offer in Azure. Most DBMS offer synchronous methods of a synchronous hot standby, which we recommend for production systems. Also check the SAP related docuemntation for the different databases starting with [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) and related documents
-			1.	Be aware that using Windows Failover Cluster Service with shared disk configuration for the DBMS layer as, for example, described for SQL Server [here](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017) is **NOT** supported. Instead solutions like:
+		2.	For high availability within the same zone, check what the desired DBMS has to offer in Azure. Most DBMS offer synchronous methods of a synchronous hot standby, which we recommend for production systems. Also check the SAP related documentation for the different databases starting with [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) and related documents
+			1.	Using Windows Failover Cluster Service with shared disk configuration for the DBMS layer as, for example, described for SQL Server [here](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017) is **NOT** supported. Instead solutions like:
 				1.	[SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
 				2.	[Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
 				3.	[HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
@@ -184,7 +184,7 @@ In this phase, you usually deploy development systems, unit tests systems, and b
 
  
 ## Production Preparation Phase 
-This is the phase where you want to collect all the experiences and learnings of your non-production deployments and apply them in the future production deployments. Additionally to the phases before, you also need to prepare the work of the data transfer between your current hosting location and Azure. 
+In this phase, you want to collect all the experiences and learnings of your non-production deployments and apply them in the future production deployments. Additionally to the phases before, you also need to prepare the work of the data transfer between your current hosting location and Azure. 
 
 1.	Work through necessary SAP release upgrades of your production systems before moving into Azure
 2.	Agree with the business owners on the functional and business tests that need to be conducted after the migration of the production system
