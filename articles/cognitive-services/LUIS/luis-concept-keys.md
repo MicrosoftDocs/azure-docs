@@ -40,9 +40,9 @@ When you want to make **production endpoint queries**, create the Azure [LUIS su
 ## Endpoint key
 When you need **production endpoint queries**, create an Azure Resource then assign it to the LUIS app. 
 
-1. If you are new to Cognitive Services or new to Azure, create a [temporary key](https://azure.microsoft.com/en-us/try/cognitive-services/). If you have an Azure account, create a new resource in the portal. Language Understanding endpoint queries support two Azure Resource types: **Language Understanding** or the **Cognitive Service** resource. Remember the name used to create the resource, you need it when you assign the key to the app.
+[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)
 
-1. When the Azure resource creation process is finished, [assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) to the app. 
+When the Azure resource creation process is finished, [assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) to the app. 
 
     * The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
