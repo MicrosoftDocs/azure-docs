@@ -154,7 +154,7 @@ azure::storage::cloud_file_directory root_dir =
   share.get_root_directory_reference();
 
 // Output URI of each item.
-azure::storage::list_file_and_diretory_result_iterator end_of_results;
+azure::storage::list_file_and_directory_result_iterator end_of_results;
 
 for (auto it = directory.list_files_and_directories(); it != end_of_results; ++it)
 {

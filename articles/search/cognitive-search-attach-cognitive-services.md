@@ -7,22 +7,22 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/18/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
 # Attach a Cognitive Services resource with a skillset in Azure Search 
 
-The AI algorithms driving [cognitive search pipelines](cognitive-search-concept-intro.md) for processing unstructured data are based on [**Cognitive Services resources**](https://azure.microsoft.com/services/cognitive-services/). Resources like [**Computer Vision**](https://azure.microsoft.com/services/cognitive-services/computer-vision/) provide image analysis and optical character recognition (OCR) for extracting text and structure out of image files, while [**Text Analytics**](https://azure.microsoft.com/services/cognitive-services/text-analytics/) provides natural language processing such as entity recognition and key phrase extraction, to name a few.
+AI algorithms drive the [cognitive search pipelines](cognitive-search-concept-intro.md) used for processing unstructured data in an Azure Search indexing operation. These algorithms are based on [Cognitive Services resources](https://azure.microsoft.com/services/cognitive-services/), including [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR), and [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for entity recognition, key phrase extraction, and other enrichments.
 
 You can enrich a limited number of documents for free, or attach a billable Cognitive Services resource for larger and more frequent workloads. In this article, learn how to associate a Cognitive Services resource with your cognitive skillset to enrich data during [Azure Search indexing](search-what-is-an-index.md).
 
-If your pipeline consists of skills unrelated to Cognitive Services APIs, you should still attach a Cognitive Services resource, but you won't be billed for those skills. Unrelated skills include: [custom skills](cognitive-search-create-custom-skill-example.md), [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), and [shaper](cognitive-search-skill-shaper.md).
+If your pipeline consists of skills unrelated to Cognitive Services APIs, you should still attach a Cognitive Services resource. Doing so overrides the **Free** resource that limits you to a small quantity of enrichments per day. There is no charge for skills that are not bound to Cognitive Services APIs. These skills include: [custom skills](cognitive-search-create-custom-skill-example.md), [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), and [shaper](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > As of December 21, 2018, you can associate a Cognitive Services resource with an Azure Search skillset. This allows us to charge for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
 >
-> The execution of [built-in cognitive skills](cognitive-search-predefined-skills.md) is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search billable event, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400) or [How billing works](search-sku-tier.md#how-billing-works).
+> [Built-in cognitive skill](cognitive-search-predefined-skills.md) execution is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search charge, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400) or [How billing works](search-sku-tier.md#how-billing-works).
 
 
 ## Use Free resources
