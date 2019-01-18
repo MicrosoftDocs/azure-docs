@@ -195,10 +195,10 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive 
 
 1. Create a new work folder and a new .py file if you don't already have them.
 
-> [!NOTE]
-> VSCode recommends you install Python extension for .py file. You can install the extension or close the dialog.
-> 
->![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
+    > [!NOTE]
+    > VSCode recommends you install Python extension for .py file. You can install the extension or close the dialog.
+    > 
+    >![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 2. Connect to your Azure account if you haven't yet done so.
 
@@ -230,16 +230,6 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive 
 
 >[!NOTE]  
 >The clusters can maintain session information. The defined variable, function and corresponding values are kept in the session, so they can be referenced across multiple service calls for the same cluster. 
-
-### To disable environment check
-
-By default, HDInsight tools will check environment and install dependent packages when submit interactive PySpark queries. To disable environment check, set the **hdinsight.disablePysparkEnvironmentValidation** to **yes** under **USER SETTINGS**.
-
-   ![Set the environment check from settings](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check.png)
-
-Alternatively, click **Disable Validation** button when the dialog pops.
-
-   ![Set the environment check from dialog](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check-dialog.png)
 
 ### PySpark3 is not supported with Spark2.2/2.3
 

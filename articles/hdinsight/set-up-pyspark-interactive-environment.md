@@ -19,17 +19,17 @@ The following steps show you how to set up the pyspark interactive environment o
  
     ![Python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-> [!NOTE]
-> It's not recommended to use the macOS system install of python.
+    > [!NOTE]
+    > It's not recommended to use the macOS system install of python.
 
 
-2. Install **virtualenv**. We use **python/pip** command to build virtual environment in your Home path. If you want to use another version, you need to change default version of **python/pip** command manually.
+2. Install **virtualenv** by running command. We use **python/pip** command to build virtual environment in your Home path. If you want to use another version, you need to change default version of **python/pip** command manually.
    
    ```
    pip install virtualenv
    ```
 
-3. For Linux only, please install **libkrb5-dev**.
+3. For Linux only, please install **libkrb5-dev** by running command.
        
    ```
    sudo apt-get install libkrb5-dev 
