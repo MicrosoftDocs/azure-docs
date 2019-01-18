@@ -18,26 +18,22 @@ ms.author: pepogors
 
 ---
 # Capacity Planning and Scaling
-Before creating any Azure Service Fabric cluster it is important to [plan for capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) by considering many items during the process.
-* The number of node types your cluster needs to start out with
-* The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
-* The reliability and durability characteristics of the cluster
-
-> [!NOTE]
-> Scaling compute resources to source your application work load requires intentional planning, will nearly always take longer than an hour to complete for a production environment
+Before creating any Azure Service Fabric cluster or scaling compute resources hosting your cluster, it is important to [plan for capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). In addition to Nodetype and Cluster characteristics that you need to take into consideration when planning capacity, you need to plan for scaling operations to take longer than an hour to complete for a production environment, irrespective of the number of VMs you are adding.
 
 ## Vertical 
 [Vertical scaling](https://docs.microsoft.com/en-us/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) of a Node Type in Azure Service Fabric requires a number of steps and considerations that must be taken. 
 * The cluster must be healthy before scaling, otherwise you will only destabilize cluster further.
-* **Silver durability level or greater** is required for all Service Fabric Cluster NodeTypes that are hosting stateful services.
+* **Silver durability level or greater** is required for all Service Fabric Cluster NodeTypes that are hosting stateful services. 
 
 > [!NOTE]
-> Your primary NodeType that is hosting Stateful Service Fabric System Services, and must be Silver durability level or greater.
+> Your primary NodeType that is hosting Stateful Service Fabric System Services, and must be Silver durability level or greater. Once you enable silver durability, all the cluster operations like upgrades, adding or removing of nodes etc would be slower, since the system now optimizes for data safety over speed of operations.
 
-Given in place vertical scaling of a Virtual Machine Scale Set is a destructive operation, you have to horizontally scale your cluster by adding a new Scale Set with the desires SKU, and migrate your services to your desired SKU to complete a safe vertical scaling operation. Service Fabric [node properties and placement constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) are leveraged by your cluster to decide where to host your Applications services; so when vertically scaling your Primary Node Type, declaring identical property values for "nodeTypeRef" Virtual Machine Scale Set Service Fabric Extension, enables your cluster to choose an your provisioned scale set with those properties to host your Applications services. The following is a snippet of the Resource Manager template properties you will declare, with the same value for your new provisioned scale sets that you are scaling to, and is only supported as a temporary stateful for your cluster:
+Given in place vertical scaling of a Virtual Machine Scale Set is a destructive operation, you have to horizontally scale your cluster by adding a new Scale Set with the desires SKU, and migrate your services to your desired SKU to complete a safe vertical scaling operation. Changing a Virtual Machine Scale Set resource SKU is a destructive operation, because it reimages your hosts, removing all locally persisted state.
+
+Service Fabric [node properties and placement constraints](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#node-properties-and-placement-constraints) are leveraged by your cluster to decide where to host your Applications services; so when vertically scaling your Primary Node Type, declaring identical property values for "nodeTypeRef" Virtual Machine Scale Set Service Fabric Extension, enables your cluster to choose an your provisioned scale set with those properties to host your Applications services. The following is a snippet of the Resource Manager template properties you will declare, with the same value for your new provisioned scale sets that you are scaling to, and is only supported as a temporary stateful for your cluster:
 ```json
 "settings": {
-   "nodeTypeRef": ["[parameters('vmNodeType0Name')]"]
+   "nodeTypeRef": ["[parameters('primaryNodetypeName')]"]
 }
 ```
 > [!NOTE]
@@ -47,10 +43,13 @@ With your node properties and placement constraints declared, you need to execut
 1. Run Disable-ServiceFabricNode with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
 2. Run Get-ServiceFabricNode to make sure that the node has indeed transitioned to disabled. If not, wait until the node is disabled. You cannot hurry this step.
 3. Change the number of VMs by one in that Node type. The highest VM instance will now be removed.
-4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to the details on reliability tiers here.
+4. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants.
 
 ## Horizontal Scaling 
 Horizontal Scaling in Service Fabric can be done either [manually](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down) or [programmatically](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-programmatic-scaling).
+
+> [!NOTE]
+> If you are scaling a nodetype that has a durablity of Silver or Gold, the scale out and in will be slow.
 
 ### Scaling Out
 Scaling out of a Service Fabric cluster can be done by increasing the instance count for a particular Vitrual Machine Scale Set. You can scale out programmatically by using the AzureClient and the ID for the desired scale set to increase the capacity.
@@ -141,7 +140,7 @@ The reliability level is set in the properties section of the [Microsoft.Service
 ```
 ## Durability Levels
 > [!WARNING]
-> Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. 
+> Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. For production workloads, running Silver or above is recommended for safety reasons. Choose the right realiability based on the guidance in the [capacity planning documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
 
 The durability level must be set in two resources. The extension profile of the [Virtual Machine Scale Set resource](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile).
 ```json

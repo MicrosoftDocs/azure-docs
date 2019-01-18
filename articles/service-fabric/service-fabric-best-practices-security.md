@@ -23,20 +23,17 @@ For more information about [Azure Security Best Practices](https://docs.microsof
 ## KeyVault
 [Azure KeyVault](https://docs.microsoft.com/azure/key-vault/) is the recommended secrets management service for Azure Service Fabric applications and clusters.
 > [!NOTE]
-> Azure KeyVault and compute resources must be co-located in the same region.  
+> If certificates/secrets from a Keyvault deployed to Virtual Machine Scale Set, as a Virtual Machine Scale Set Secret, then the Keyvault and Virtual Machine Scale Set must be co-located.
 
-## Provision Service Fabric Cluster Custom Domain Certificate
-The following is the Portal Blade where you can provide the credentials for a KeyVault integrated CA to provision your custom domain certificate:
+## Create Certificate Authority Issued Service Fabric Certificate
+A Key Vault (KV) certificate can be either created or imported into a key vault. When a KV certificate is created the private key is created inside the key vault and never exposed to certificate owner. The following are ways to create a certificate in Key Vault: 
+**Create a self-signed certificate:** This will create a public-private key pair and associate it with a certificate. The certificate will be signed by its own key. 
+**Create a new certificate manually:** This will create a public-private key pair and generate an X.509 certificate signing request. The signing request can be signed by your registration authority or certification authority. The signed x509 certificate can be merged with the pending key pair to complete the KV certificate in Key Vault. Although this method requires more steps, it does provide you with greater security because the private key is created in and restricted to Key Vault. This is explained in the diagram below. 
 
-![Common Name Cert Creation][Image1]
-
-Portal Blade for Keyvault certificates:
-```bash
-https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.KeyVault/vaults/<YOUR VAULT>/certificates
-```
+Review [Azure Keyvault Certificate Creation Methods](https://docs.microsoft.com/azure/key-vault/create-certificate) for additional details.
 
 ## Deploy KeyVault Certificates to Service Fabric Cluster's Virtual Machine Scale Sets
-Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile) is how you reliably deploy KeyVault certificates to your Service Fabric Cluster's Virtual Machine Scale Sets, and the following are the Resource Manager template properties: 
+To deploy certificates from a co-located keyvault to a Virtual Machine Scale Set, use Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile), and the following are the Resource Manager template properties: 
 ```json
 "secrets": [
    {
@@ -52,9 +49,11 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
    }
 ]
 ```
+> [!NOTE]
+> The vault must be enabled for Resource Manager template deployment.
 
 ## ACL Certificate to your Service Fabric Cluster
-[Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is how you ACL certificates to your Service Fabric Cluster, and the following are the Resource Manager template properties:
+[Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher   Microsoft.Azure.ServiceFabric is used to configure your Nodes Security, to include ACL'ing certificates to your Service Fabric Cluster processes, and the following are the Resource Manager template properties:
 ```json
 "certificate": {
    "commonNames": [
@@ -64,8 +63,8 @@ Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/comput
 }
 ```
 
-## Declare Custom Domain Service Fabric Cluster Certificate
-Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure the custom domain common name property of your valid certificate, and the following are the Resource Manager template properties:
+## Declare Service Fabric Cluster Certificate by Common Name
+Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure declare your Service Fabric cluster certificate by Common Name, and the following are the Resource Manager template properties:
 ```json
 "certificateCommonNames": {
     "commonNames": [
@@ -77,17 +76,23 @@ Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/
     "x509StoreName": "[parameters('certificateStoreValue')]"
 }
 ```
-Your Service Fabric cluster will use your valid trusted installed certificate, that you declared by common name, which expires further into the future; when more than one valid certificate is installed on your Virtual Machine Scale Sets certificate store.
+> [!NOTE]
+> Service Fabric clusters will use the first valid certificate it finds in your hosts certificate store, and on Windows this will be the newest latest expiring certificate that matches your Common Name and Issuer Thumbprint.
 
-Given Azure domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, are owned by Microsoft; only Microsoft employees are authorized to provision certificates from Keyvault-Integrated Certificate Authorities for these domains; so you must provision and configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) if you to provision your Cluster certificate with a Subject Alternative Name value that resolves to a DNS name you own. After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following two Records Set to your DNS Zone:'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT an "Alias record set"; E.G. Use your Traffic Manager or Load Balancer's DNS name.
+Azure domains such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net are owned by Microsoft, Certificate Authorities will not issue certificates for domains to unauthorized users, so most users will need to purchase a domain from a registrar or be an authorized domain admin for a Certificate Authority to issue you a certificate with that common name.
 
-You should also update your Service Fabric Cluster "managementEndpoint" Resource Manager template property to your custom domain, so that portal can display the correct url to connect to your Service Fabric Explorer User Interface, and the follow is the snippet of the property you will update to your custom domain:
+For additional details on how to configure DNS Service to resolve your domain to a Microsoft IP address, please review how to configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
+
+> [!NOTE]
+> After delegating your domains name servers to your Azure DNS zone name servers, you will need to add the following two Records Set to your DNS Zone:'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve, and a 'C' record for Microsoft Subdomain you provisioned  that is NOT an "Alias record set"; E.G. Use your Traffic Manager or Load Balancer's DNS name. 
+
+To update your portal to display a custom DNS name for your Service Fabric Cluster "managementEndpoint", update the follow Service Fabric Cluster Resource Manager template properties:
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
 ```
 
 ## Encrypting Service Fabric Package Secret Values
-Common values that are encrypted in Service Fabric Packages include: Azure Container Registry (ACR) credentials, and environment variables.
+Common values that are encrypted in Service Fabric Packages include: Azure Container Registry (ACR) credentials, environment variables, settings, and Azure Volume plugin storage account keys.
 
 To [set up an encryption certificate and encrypt secrets on Windows clusters](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management-windows):
 
@@ -120,7 +125,8 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 After encrypting your will need to [specify encrypted secrets in Service Fabric Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application), and [decrypt encrypted secrets from service code](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code)
 
 ## Authenticate Service Fabric Applications to Azure Resources using Managed Service Identity (MSI)
-[Managed identities for Azure resources is a feature of Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
+[Managed identities for Azure resources is a feature of Active Directory](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work). Azure Service Fabric clusters are hosted on Virtual Machine Scale Sets, which support [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources), please review [Azure Services that support Azure Active Directory Authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication) to get the a list of services that MSI can be used to authenticate to.
+
 
 To [enable system-assigned managed identity during the creation of a virtual machines scale set or an existing virtual machines scale set](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity), declare the following Microsoft.Compute/virtualMachinesScaleSets" property:
 
@@ -189,7 +195,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 }
 ```
 > [!NOTE]
-> Please refer to your Antimalware documentation for configuring rules if not using Windows Defender; Windows Defender isn't supported on none windows Operating System distributions.
+> Please refer to your Antimalware documentation for configuring rules if not using Windows Defender; Windows Defender isn't supported on none windows operating system distributions.
 
 ## Next steps
 
