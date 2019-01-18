@@ -114,7 +114,7 @@ under **Components**, select the **Assemblies** tile.
       ![Uploaded assemblies](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
 
       For limits on assembly quantities in integration accounts, see 
-      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limit-and-config.md#artifact-capacity-limits.md#artifact-number-limits).
+      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limit-and-config.md#artifact-number-limits).
 
 ## Add maps
 
@@ -178,7 +178,7 @@ under **Components**, select the **Maps** tile.
       ![Uploaded maps](./media/logic-apps-enterprise-integration-maps/uploaded-maps.png)
 
       For limits on map quantities in integration accounts, see 
-      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limit-and-config.md#artifact-capacity-limits.md#artifact-number-limits).
+      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limit-and-config.md#artifact-number-limits).
 
 ## Edit maps
 
@@ -252,7 +252,6 @@ and choose **Delete**.
 
 ## Next steps
 
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
-* [Learn more about agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
-* [Learn more about transforms](logic-apps-enterprise-integration-transform.md "Learn about enterprise integration transforms")  
-
+* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)  
+* [Learn more about agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md)  
+* [Learn more about transforms](logic-apps-enterprise-integration-transform.md)
