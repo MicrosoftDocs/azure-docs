@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 1/16/2019
 ms.author: victorh
 ---
 
@@ -89,7 +89,7 @@ The URL redirect feature is tracked in the Azure DNS backlog. Use the feedback s
 
 Yes. Azure DNS supports the extended ASCII encoding set for TXT record sets. But you must use the latest version of the Azure REST APIs, SDKs, PowerShell, and the CLI. Versions older than October 1, 2017, or SDK 2.1 don't support the extended ASCII set. 
 
-For example, a user might provide a string as the value for a TXT record that has the extended ASCII character \128. An example is "abcd\128efgh." Azure DNS uses the byte value of this character, which is 128, in internal representation. At the time of DNS resolution, this byte value is returned in the response. Also note that "abc" and "\097\098\099" are interchangeable as far as resolution is concerned. 
+For example, you might provide a string as the value for a TXT record that has the extended ASCII character \128. An example is "abcd\128efgh." Azure DNS uses the byte value of this character, which is 128, in internal representation. At the time of DNS resolution, this byte value is returned in the response. Also note that "abc" and "\097\098\099" are interchangeable as far as resolution is concerned. 
 
 We follow [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone file master format escape rules for TXT records. For example, `\` now actually escapes everything per the RFC. If you specify `A\B` as the TXT record value, it's represented and resolved as just `AB`. If you really want the TXT record to have `A\B` at resolution, you need to escape the `\` again. As an example, specify `A\\B`.
 
@@ -190,7 +190,7 @@ To configure IDNs in Azure DNS, convert the zone name or record set name to puny
 
 Support for private domains is implemented by using the Private Zones feature. This feature is currently available in public preview. Private zones are managed by using the same tools as internet-facing Azure DNS zones. They're resolvable only from within your specified virtual networks. For more information, see the [overview](private-dns-overview.md).
 
-At this time, private zones aren't supported on the Azure portal. 
+Currently, private zones aren't supported on the Azure portal.
 
 For information on other internal DNS options in Azure, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -212,7 +212,7 @@ Yes. Customers can associate up to 10 Resolution virtual networks with a single 
 
 ### Can a virtual network that belongs to a different subscription be added as a Resolution virtual network to a private zone?
 
-Yes. The user must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several RBAC roles. For example, the Classic Network Contributor RBAC role has write permissions to virtual networks. For more information on RBAC roles, see [Role-based access control](../role-based-access-control/overview.md).
+Yes. You must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several RBAC roles. For example, the Classic Network Contributor RBAC role has write permissions to virtual networks. For more information on RBAC roles, see [Role-based access control](../role-based-access-control/overview.md).
 
 ### Will the automatically registered virtual machine DNS records in a private zone be automatically deleted when the virtual machines are deleted by the customer?
 
@@ -252,7 +252,7 @@ Yes. During the public preview, the following limitations exist.
 * If a Registration virtual network is specified, the DNS records for the VMs from that virtual network that are registered to the private zone can't be viewed or retrieved from PowerShell, the CLI, or APIs. The VM records are registered and resolve successfully.
 * Reverse DNS works only for private IP space in the Registration virtual network.
 * Reverse DNS for a private IP that's not registered in the private zone returns "internal.cloudapp.net" as the DNS suffix. This suffix can't be resolved. An example is a private IP for a virtual machine in a virtual network that's linked as a Resolution virtual network to a private zone.
-* A virtual network can't have any virtual machines with a NIC attached when it links for the first time to a private zone as a Registration or Resolution virtual network. In other words, the virtual network must be empty. The virtual network then can be non-empty for future linking as a Registration or Resolution virtual network to other private zones. 
+* A virtual network must be empty when it links for the first time to a private zone as a Registration or Resolution virtual network. The virtual network then can be non-empty for future linking as a Registration or Resolution virtual network to other private zones.
 * Conditional forwarding isn't supported, for example, to enable resolution between Azure and on-premises networks. Learn how customers can realize this scenario via other mechanisms. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### Are there any quotas or limits on zones or records for private zones?

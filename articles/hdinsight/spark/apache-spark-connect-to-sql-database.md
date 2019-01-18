@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 12/15/2018
 ---
 
 # Use HDInsight Spark cluster to read and write data to Azure SQL database

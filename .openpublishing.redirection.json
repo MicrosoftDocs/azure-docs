@@ -665,6 +665,41 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/hpcpack-cluster-options.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-options.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/windows/hpcpack-2016-cluster.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/overview",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-active-directory.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-cluster-active-directory",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-headnode.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/deploy-an-hpc-pack-2016-cluster-in-azure",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/hpcpack-cluster-submit-jobs.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-cluster-submit-jobs-in-azure",
+      "redirect_document_id": false
+    },
+		{
+      "source_path": "articles/virtual-machines/windows/excel-cluster-hpcpack.md",
+      "redirect_url": "https://docs.microsoft.com/powershell/high-performance-computing/excel-2016-offloading-to-azure-cluster",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md",
       "redirect_url": "/azure/virtual-machines/windows/publish-web-app-from-visual-studio",
       "redirect_document_id": true
@@ -3452,6 +3487,11 @@
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-troubleshooting.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-app-registration.md",
+      "redirect_url": "/azure/active-directory-b2c/tutorial-register-applications",
       "redirect_document_id": false
     },
     {
@@ -8790,6 +8830,11 @@
     {
       "source_path": "articles/azure-stack/user/azure-stack-manage-vm-backup.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-manage-vm-protect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-marketplace-publisher.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-create-and-publish-marketplace-item",
       "redirect_document_id": false
     },
     {
@@ -18961,11 +19006,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-stack/azure-stack-kv-manage-powershell.md",
-      "redirect_url": "/azure/azure-stack/user/azure-stack-kv-manage-powershell",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-stack/azure-stack-kv-push-secret-into-vm.md",
       "redirect_url": "/azure/azure-stack/user/azure-stack-kv-push-secret-into-vm",
       "redirect_document_id": false
@@ -22694,6 +22734,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-manage-with-automation.md",
+      "redirect_url": "/azure/storage/blobs/storage-blobs-overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/a8-a9-a10-a11-specs.md",
       "redirect_url": "/azure/virtual-machines/windows/sizes-hpc",
       "redirect_document_id": false
@@ -25169,6 +25214,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/marketplace/gtm-benefits.md",
+      "redirect_url": "/azure/marketplace/gtm-your-marketplace-benefits",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/grow-your-business-with-azure-marketplace.md",
+      "redirect_url": "/azure/marketplace/gtm-marketing-best-practices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/marketplace/grow-your-business-with-appsource.md",
+      "redirect_url": "/azure/marketplace/marketplace-publishers-guide",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/marketplace/billing-options-azure-marketplace.md",
       "redirect_url": "/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
       "redirect_document_id": true
@@ -25236,6 +25296,91 @@
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-support-common-issues.md",
       "redirect_url": "https://cloudpartner.azure.com",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-azure-certification.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/become-publisher",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-getting-started.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/publisher-guide-by-offer-type",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-portals.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/become-publisher",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-powershell-setup.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-pre-requisites.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-production.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-push-to-staging.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-marketplace-tab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-creation-prerequisites.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-solution-template-test-in-staging.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-post-publishing.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-update-existing-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
+      "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image",
       "redirect_document_id": false
     },
     {
@@ -29545,6 +29690,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/bing-news-search/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/bing-news-search/csharp",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cognitive-services/Bing-News-Search/tutorial-bing-news-search-single-page-app-source.md",
+        "redirect_url": "/azure/cognitive-services/bing-News-Search/tutorial-bing-news-search-single-page-app",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
+        "redirect_url": "/azure/cognitive-services/bing-News-search/news-search-sdk-quickstart",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
       "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
       "redirect_document_id": true
@@ -30449,11 +30609,6 @@
       "source_path": "articles/active-directory/active-directory-application-troubleshoot-content-map.md",
       "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory-b2c/tutorial-register-applications.md",
-      "redirect_url": "/azure/active-directory-b2c/tutorial-create-tenant",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
@@ -34509,9 +34664,24 @@
 	"redirect_url": "/azure/virtual-machines/workloads/sap/dbms_guide_general", 
 	"redirect_document_id": true },
     {
-      "source_path": "articles/media-services/video-indexer/faq.md",
-      "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
+      "source_path": "articles/cognitive-services/LUIS/luis-find-region-csharp.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-find-region-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-from-cloud-shell.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#is-there-a-powershell-command-to-the-endpoint-quota",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-deploy-overview.md",
+      "redirect_url": "/azure/azure-stack/asdk/asdk-download",
       "redirect_document_id": false
-    }
+    }     
   ]
 }

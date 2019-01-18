@@ -701,6 +701,8 @@
         items:
         - name: Examples
           href: log-query/examples.md
+        - name: Smart analytics
+          href: log-query/smart-analytics.md
         - name: Cross-resource searches
           href: log-query/cross-workspace-query.md
         - name: app expression
@@ -749,6 +751,8 @@
         items:  
         - name: Configure alerts on analytics query
           href: platform/alerts-log.md
+        - name: Log alert queries
+          href: platform/alerts-log-query.md
         - name: Webhook actions for log alerts
           href: platform/alerts-log-webhook.md
         - name: Troubleshooting log alerts
@@ -945,6 +949,12 @@
       href: /rest/api/monitor/
     - name: Logs
       href: /rest/api/loganalytics 
+  - name: Resource Manager template
+    items:
+    - name: Monitor
+      href: /azure/templates/microsoft.insights/allversions
+    - name: Logs
+      href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Metrics
     items:
     - name: Supported metrics
