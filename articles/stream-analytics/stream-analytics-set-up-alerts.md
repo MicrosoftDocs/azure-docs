@@ -7,7 +7,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 01/19/2019
 ms.custom: seodec18 
 ---
 # Set up alerts for Azure Stream Analytics jobs
@@ -17,6 +17,8 @@ It's important to monitor your Azure Stream Analytics job to ensure the job is r
 Rules can be set up on metrics through the portal and can be configured [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) over Operation Logs data.
 
 ## Set up alerts in the Azure portal
+
+The following example demonstrates how to set up alerts for when your job enters a failed state. This alert is recommended for all jobs.
 
 1. In the Azure portal, open the Stream Analytics job you want to create an alert for.
 
@@ -52,10 +54,10 @@ The following alerts are recommended for monitoring the performance of your Stre
 
 |Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
 |-|-|-|-|-|
-|SU% Utilization|Greater than|Maximum|80|There are multiple factors that increase SU% Utilization. You can scale with query parallelization or increase the number of streaming units.|
+|SU% Utilization|Greater than|Maximum|80|There are multiple factors that increase SU% Utilization. You can scale with query parallelization or increase the number of streaming units. For more information, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
 |Runtime errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the inputs, query, or outputs.|
-|Watermark delay|Greater than|Maximum|When average value of this metric over the last 15 minutes is greater than late arrival tolerance (in seconds). If you have not modified the late arrival tolerance, the default is set to 5 seconds.|Try increasing the number of SUs or parallelizing your query.|
-|Input deserialization errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the input.|
+|Watermark delay|Greater than|Maximum|When average value of this metric over the last 15 minutes is greater than late arrival tolerance (in seconds). If you have not modified the late arrival tolerance, the default is set to 5 seconds.|Try increasing the number of SUs or parallelizing your query. For more information on SUs, see [Understand and adjust Streaming Units](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). For more information on parallelizing your query, see [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).|
+|Input deserialization errors|Greater than|Total|0|Examine the activity or diagnostic logs and make appropriate changes to the input. For more information on diagnostic logs, see [Troubleshoot Azure Stream Analytics using diagnostics logs](stream-analytics-job-diagnostic-logs.md)|
 
 ## Get help
 

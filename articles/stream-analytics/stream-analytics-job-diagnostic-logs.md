@@ -7,7 +7,7 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/17/2018
+ms.date: 01/19/2018
 ms.custom: seodec18
 ---
 # Troubleshoot Azure Stream Analytics by using diagnostics logs
@@ -49,7 +49,7 @@ Activity logs are on by default and give high-level insights into operations per
 
 ## Send diagnostics to Log Analytics
 
-Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
+Turning on diagnostic logs and sending them to Log Analytics is highly recommended. Diagnostics logs are **off** by default. To turn on diagnostics logs, complete these steps:
 
 1.  Sign in to the Azure portal, and navigate to your Stream Analytics job. Under **Monitoring**, select **Diagnostics logs**. Then select **Turn on diagnostics**.
 
