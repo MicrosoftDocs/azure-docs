@@ -12,7 +12,7 @@ ms.date: 01/22/2019
 ms.author: diberry
 ---
 
-# Improve your knowledge base with active learning
+# Use active learning to improve knowledge base
 
 Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
 
