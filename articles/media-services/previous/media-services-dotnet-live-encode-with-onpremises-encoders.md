@@ -4,16 +4,15 @@ description: This topic shows how to use .NET to perform live encoding with on-p
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
-ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 01/17/2019
 ms.author: cenkdin;juliako
 
 ---
@@ -145,7 +144,10 @@ namespace AMSLiveTest
 
         private static ChannelInput CreateChannelInput()
         {
-	    // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
+            // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
+            // IpV4 address with 4 numbers
+            // CIDR address range
+	    
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.RTMP,
@@ -168,7 +170,10 @@ namespace AMSLiveTest
 
         private static ChannelPreview CreateChannelPreview()
         {
-	     // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
+            // When creating a Channel, you can specify allowed IP addresses in one of the following formats: 
+            // IpV4 address with 4 numbers
+            // CIDR address range
+	    
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl
