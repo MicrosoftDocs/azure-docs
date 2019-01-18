@@ -128,13 +128,13 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 2. Sign in to your [Power BI](https://powerbi.microsoft.com/en-us/) account.
 
-3. Click **My Workspace**.
+3. Click the workspace you used, **My Workspace**.
 
 4. Click **Datasets**.
 
-   You should see the listed dataset that you specified when you created the output for the Stream Analytics job.
+   You should see the dataset that you specified when you created the output for the Stream Analytics job.
 
-5. Click the listed dataset that you try to create a line chart with.
+5. For the dataset you created, click **Add Report** (the first icon to the right of the dataset name).
 
    ![Create a Microsoft Power BI report](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
