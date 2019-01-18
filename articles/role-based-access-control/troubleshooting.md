@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
@@ -38,8 +38,8 @@ This article answers common questions about role-based access control (RBAC), so
 ## Recover RBAC when subscriptions are moved across tenants
 
 - If you need steps for how to transfer a subscription to a different tenant, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md).
-- If you transfer a subscription to a different tenant and you don't see your role assignments, you must re-create the role assignments in the target tenant. All role assignments are permanently deleted from the source tenant and are not migrated to the target tenant.
-- If you are a Global Administration and you have lost access to a subscription, use the **Access management for Azure resources** switch to temporarily [elevate your access](elevate-access-global-admin.md) to regain access to the subscription.
+- When you transfer a subscription to a different tenant, all role assignments are permanently deleted from the source tenant and are not migrated to the target tenant. You must re-create your role assignments in the target tenant.
+- If you are a Global Administration and you have lost access to a subscription, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to regain access to the subscription.
 
 ## RBAC changes are not being detected
 
