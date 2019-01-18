@@ -415,6 +415,8 @@
         href: /rest/api/storagerp
       - name: Import/Export
         href: /rest/api/storageimportexport
+    - name: Resource Manager template
+      href: /azure/templates/microsoft.storage/allversions
   - name: Resources
     items:
     - name: Azure roadmap

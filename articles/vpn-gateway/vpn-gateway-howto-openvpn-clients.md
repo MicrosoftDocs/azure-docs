@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 1/15/2019
 ms.author: cherylmc
 
 ---
@@ -68,6 +68,10 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 7. Double-click the profile file to create the profile in tunnelblik.
 8. Launch Tunnelblik from the applications folder.
 9. Click on the Tunnelblik icon in the system tray and pick connect.
+
+> [!IMPORTANT]
+>Only iOS 11.0 and above and MacOS 10.13 and above are supported with OpenVPN protocol.
+>
 
 ## <a name="linux"></a>Linux clients
 
