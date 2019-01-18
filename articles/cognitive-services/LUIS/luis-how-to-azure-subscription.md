@@ -27,6 +27,8 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
 
 This procedure creates a **Language Understanding** resource. If you want a resource that can be used across Cognitive Services, create the all-in-one key **[Cognitive Service](../cognitive-services-apis-create-account.md)** instead of the Language Understanding resource. 
 
+This key should only be used for endpoint prediction queries. Do not sure this key for changes to the model or app. 
+
 1. Sign in to the **[Azure portal](https://ms.portal.azure.com/)**. 
 1. Select the green **+** sign in the upper left-hand panel and search for `Language Understanding` in the marketplace, then select on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
 
@@ -36,12 +38,9 @@ This procedure creates a **Language Understanding** resource. If you want a reso
 
     ![Azure API Choice](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. Once you create the Language Understanding resource, you can view the access keys generated in **Resource Management->Keys**.  
+1. Once you create the Language Understanding resource, you can view the access keys generated in **Resource Management->Keys**. Do not the keys. The next section will show you how to connect this new resource to a LUIS app in the LUIS portal. You need the name of the LUIS resource from step 3.
 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
-
-    Your next step is to sign in to your region's [LUIS](luis-reference-regions.md) portal and [assign the new LUIS endpoint key](#assign-endpoint-key). You need the name of the LUIS resource from step 3.
-
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -57,7 +56,7 @@ This procedure creates a **Language Understanding** resource. If you want a reso
 <a name="assign-resource"></a>
 
 
-## Assign Language Understanding or Cognitive Service resource in LUIS Portal
+## Assign resource key to LUIS app in LUIS Portal
 
 1. Sign in to the LUIS portal, choose an app to add the new key to, then select **Manage** in the top right menu, then select **Keys and endpoints**.
 
@@ -181,7 +180,7 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
 1. Remember to [assign this endpoint key](#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
 
-## Exceed pricing tier usage
+## How to fix out-of-quota errors when the key exceeds pricing tier usage
 Each tier allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an HTTP error of "429: Too Many Requests."
 
 Each tier allows accumulative requests per month. If the total requests are higher than the allowed rate, requests receive an HTTP error of "403: forbidden".  
