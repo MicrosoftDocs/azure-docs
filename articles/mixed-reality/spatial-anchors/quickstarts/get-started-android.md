@@ -32,7 +32,7 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A macOS or Windows machine with <a href="https://developer.android.com/studio/" target="_blank">Android Studio</a>.
+- A Windows or macOS machine with <a href="https://developer.android.com/studio/" target="_blank">Android Studio</a>.
 - An <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
