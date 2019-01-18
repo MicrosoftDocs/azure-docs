@@ -69,7 +69,7 @@ The public IP address is returned in the **PublicIpAddress** parameter. Write do
 
 ## Open port 80 for web traffic
 
-Because this virtual machine is going to run the IIS web server, you need to open port 80 to Internet traffic. Use the [az vm open-port](/cli/azure/vm#open-port) command to open the desired port.
+Because this virtual machine is going to run the IIS web server, you need to open port 80 to Internet traffic. Use the [az vm open-port](/cli/azure/vm) command to open the desired port.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
