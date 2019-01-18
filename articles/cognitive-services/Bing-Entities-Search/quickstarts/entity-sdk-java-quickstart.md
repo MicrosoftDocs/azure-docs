@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Entity Search SDK, Java"
+title: "title: "Quickstart: Search for entities with the Bing Entity Search SDK for Java"
 titlesuffix: Azure Cognitive Services
-description: Set up the Bing Entity Search SDK console application.
+description: Use this quickstart to search for entities with the Bing Entity Search SDK for Java
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -9,20 +9,20 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/19/2018
+ms.date: 01/19/2019
 ms.author: v-gedod
 ---
-# Quickstart: Bing Entity Search SDK with Java
+# Quickstart: Send a search request with the Bing Entity Search SDK for Java
 
-The Bing Entity Search SDK provides the REST API functionality for entity queries and parsing results. 
+Use this quickstart to begin searching for entities with the Bing Entity Search SDK for Java. While Bing Entity Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch).
 
-The [source code for Java Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) is available on Git Hub. 
+## Prerequisites
 
-## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 
 Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
-```
+
+```xml
   <dependencies>
   	<dependency>
   		<groupId>com.microsoft.azure.cognitiveservices</groupId>
@@ -31,6 +31,10 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
   	</dependency>
   </dependencies>
 ```
+
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+
+
 ## Entity Search client
 Add imports to the class implementation.
 ```
