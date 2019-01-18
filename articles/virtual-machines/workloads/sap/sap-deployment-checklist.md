@@ -54,7 +54,11 @@ In this phase, a migration of SAP workload onto Azure public cloud is planned. T
 		2.	[SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
 	6.	High Availability and disaster recovery architecture
 		1.	Define based on RTO and RPO what the high availability and disaster recovery architecture needs to look like
-		2.	For high availability within the same zone, check what the desired DBMS has to offer in Azure. Most DBMS offer synchronous methods of a synchronous hot standby, which we recommend for production systems.
+		2.	For high availability within the same zone, check what the desired DBMS has to offer in Azure. Most DBMS offer synchronous methods of a synchronous hot standby, which we recommend for production systems. Also check the SAP releated for the different databases starting with [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general) and related documents
+			1.	Be aware that using Windows Failover Cluster Service with shared disk configuration for the DBMS layer as e.g. described for SQL Server [here](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017) is **NOT** supported. Instead solutions like:
+				1.	[SQL Server AlwaysOn](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
+				2.	[Oracle Data Guard](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+				3.	[HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
 		3.	For disaster recovery across different Azure regions, check what possibilities are offered by the different DBMS vendors. Most of them support asynchronous replication or log-shipping
 		4.	For the SAP application layer, define whether you would run your business regression test systems, which ideally are replicas of your production deployments, in the same Azure region or your DR region. In the latter case, you can target that business regression system as DR target for your production
 		5.	If you decide not to place the non-production systems in the DR site, look into Azure Site Recovery as viable method of replicating the SAP application layer into the Azure DR region. See also [Set up disaster recovery for a multi-tier SAP NetWeaver app deployment](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap) 
@@ -99,6 +103,7 @@ The pilot can run before or in parallel to project planning and preparation. The
 		4.	For the different DBMS types, check the [generic SAP related DBMS documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) and the DBMS specific documentations the generic document points you to
 		5.	For SAP HANA, more details are documented in [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 		6.	Never mount Azure data disks to an Azure Linux VM by using the device ID. Instead, use the universally unique identifier (UUID). Be careful when you use graphical tools to mount Azure data disks, for example. Double-check the entries in /etc/fstab to make sure that the disks are mounted using the UUID
+			1.	More dtails can be found [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk)
 	3.	Networking
 		1.	Test and evaluate your VNet infrastructure and the distribution of your SAP applications across or within the different Azure virtual networks
 			1.	Evaluate the approach of hub and spoke virtual network architecture or microsegmentation within a single Azure virtual network based on
