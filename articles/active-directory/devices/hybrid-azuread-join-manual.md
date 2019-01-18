@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 01/17/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -26,7 +26,7 @@ With device management in Azure Active Directory (Azure AD), you can ensure that
 
 
 > [!TIP]
-> If using Azure AD Connect is an option for you, see [Select your scenario](hybrid-azuread-join-plan.md#select-your-scenario). By using Azure AD Connect, you can simplify the configuration of hybrid Azure AD join.
+> If using Azure AD Connect is an option for you, see the related tutorials for [managed](hybrid-azuread-join-managed-domains.md) or [federated](hybrid-azuread-join-federated-domains.md) domains. By using Azure AD Connect, you can significantly simplify the configuration of hybrid Azure AD join.
 
 If you have an on-premises Active Directory environment and you want to join your domain-joined devices to Azure AD, you can accomplish this by configuring hybrid Azure AD joined devices. In this tutorial, you learn how to:
 
@@ -173,7 +173,7 @@ For more information about verified domain names, see [Add a custom domain name 
 
 To get a list of your verified company domains, you can use the [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0) cmdlet. 
 
-![List of company domains](./media/hybrid-azuread-join-manual-steps/01.png)
+![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
 ## Set up issuance of claims
 
@@ -318,7 +318,7 @@ For more information about verified domain names, see [Add a custom domain name 
 
 To get a list of your verified company domains, you can use the [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0) cmdlet. 
 
-![List of company domains](./media/hybrid-azuread-join-manual-steps/01.png)
+![List of company domains](./media/hybrid-azuread-join-manual/01.png)
 
 ### Issue ImmutableID for the computer when one for users exists (for example, an alternate login ID is set)
 
@@ -492,7 +492,7 @@ To register Windows down-level devices, make sure that the setting to allow user
     
 The following policy must be set to **All**: **Users may register their devices with Azure AD**.
 
-![The All button that enables users to register devices](./media/hybrid-azuread-join-manual-steps/23.png)
+![The All button that enables users to register devices](./media/hybrid-azuread-join-manual/23.png)
 
 
 ### Configure the on-premises federation service 
@@ -559,4 +559,4 @@ If you're experiencing issues with completing hybrid Azure AD join for domain-jo
 
 
 <!--Image references-->
-[1]: ./media/hybrid-azuread-join-manual-steps/12.png
+[1]: ./media/hybrid-azuread-join-manual/12.png
