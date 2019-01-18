@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with 15Five, perform the following steps:
 
 ### Configure 15Five Single Sign-On
 
-To configure single sign-on on **15Five** side, you need to send the downloaded **Metadata XML** and appropriate copied URLs from Azure portal to [15Five support team](https://www.15five.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **15Five** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [15Five support team](https://www.15five.com/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
