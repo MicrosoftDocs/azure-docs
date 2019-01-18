@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -52,19 +52,16 @@ The users flagged for risk report in the Azure AD free and basic editions provid
 
 ![Risky Sign-ins](./media/concept-user-at-risk/03.png)
 
-Selecting a user opens the related user data blade. For users that are at risk, you can review the user’s sign-in history and reset the password if necessary.
-
-![Risky Sign-ins](./media/concept-user-at-risk/46.png)
-
+Selecting a user provides sign-in information. For users that are at risk, you can review the user’s sign-in history and reset the password if necessary.
 
 This dialog provides you with an option to:
 
 - Download the report
-
 - Search users
 
-![Risky Sign-ins](./media/concept-user-at-risk/16.png)
+    ![Risky Sign-ins](./media/concept-user-at-risk/16.png)
 
+For more detailed information, you need a premium license.
 
 ## Users at risk report for Azure AD premium editions
 
