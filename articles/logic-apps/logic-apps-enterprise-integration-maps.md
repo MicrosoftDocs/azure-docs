@@ -114,7 +114,7 @@ under **Components**, select the **Assemblies** tile.
       ![Uploaded assemblies](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
 
       For limits on assembly quantities in integration accounts, see 
-      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limit-and-config.md#artifact-number-limits).
+      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
 
 ## Add maps
 
@@ -163,7 +163,9 @@ under **Components**, select the **Maps** tile.
       appears in that property automatically after you select the map file. 
       However, you can use any unique name.
 
-      For limits on map sizes, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limit-and-config.md#artifact-capacity-limits).
+      For limits on map sizes, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). 
+      To add maps larger than 2 MB up to the size limit, 
+      [follow the steps in this section](#add-larger-map).
 
    1. When you're ready, choose **OK**. 
    After your map file finishes uploading, 
@@ -178,32 +180,59 @@ under **Components**, select the **Maps** tile.
       ![Uploaded maps](./media/logic-apps-enterprise-integration-maps/uploaded-maps.png)
 
       For limits on map quantities in integration accounts, see 
-      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limit-and-config.md#artifact-number-limits).
+      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). 
 
 <a name="add-larger-map"></a>
 
 ## Add maps larger than 2 MB
 
-To add a map file up to the [map size limit](../logic-apps/logic-apps-limit-and-config.md#artifact-capacity-limits), 
-you can use Azure Blob containers by following these steps, 
-which differ based on your blob container's access level: 
-**Public** or **No anonymous access**.
+To add a map file up to the [map size limit](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
+you need these items: 
 
-### Find blob container access level
+* [Azure storage account](../storage/common/storage-account-overview.md) 
+for creating a blob container. Learn how to 
+[create a storage account](../storage/common/storage-quickstart-create-account.md).
 
-1. Open Azure Storage Explorer.
+* Blob container for storing your maps. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-1. In the Storage Account window, 
-under **Blob Containers**, select the blob container.
+* [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), 
+which you can use for managing storage accounts and blob containers. If you don't have 
+this tool already, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, follow these [steps for connecting Azure Storage Explorer to your storage account](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-1. On the Storage Account toolbar, 
-choose **Security**. Then, choose the **Access Level** tab. 
+Your steps for adding maps differ based whether your blob container 
+has public access. So first, check your blob container's access level.
 
-1. In the **Access Level** section, check whether 
-**Public Container** or **Off: No anonymous access** 
-appears selected.
+### Check blob container access level
 
-### Add maps to containers with public access
+1. Open Azure Storage Explorer. 
+If you haven't already connected to your Azure subscription and storage account, 
+[follow these steps to connect now](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+
+1. In the explorer window, select {*your-Azure-subscription*} > 
+**Storage Accounts** > {*your-storage-account*} > 
+**Blob Containers** > {*your-blob-container*}.
+From your blob container's shortcut menu, 
+select **Set Public Access Level**. 
+
+   ![Check blob container access level](./media/logic-apps-enterprise-integration-maps/find-blob-container-access-level.png)
+
+1. Find the option that appears selected 
+and follow the steps for the selected option: 
+
+   * [**No public access**](#no-public-access)
+   * [**Public read access for container and blobs**](#public-read-access)
+
+   For example:
+
+   ![Check blob container access level](./media/logic-apps-enterprise-integration-maps/check-azure-blob-container-access-level.png)
+
+<a name="no-public-access"></a>
+
+### Add maps to containers with no public access
+
+<a name="public-read-access"></a>
+
+### Add maps to containers with public read access
 
 1. On the blob container toolbar, choose **Upload**. 
 Find and select your map file for uploading to your storage account. 
@@ -216,8 +245,6 @@ property, which has this value:
 
 1. Copy the URI. 
 
-
-### Add maps to containers with no anonymous access
 
 
 ## Edit maps
