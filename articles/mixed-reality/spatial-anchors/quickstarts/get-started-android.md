@@ -1,0 +1,76 @@
+---
+title: Quickstart - Create Android app with Azure Spatial Anchors | Microsoft Docs
+description: In this quickstart, you learn how to build an Android app using Spatial Anchors.
+author: craigktreasure
+manager: aliemami
+services: spatial-anchors
+
+ms.assetid: 3be3aa43-7748-40e6-a20b-f6030147baaa
+ms.author: crtreasu
+ms.date: 12/13/2018
+ms.topic: quickstart
+ms.service: spatial-anchors
+# ms.reviewer: MSFT-alias-of-reviewer
+#Customer intent: As a Mixed Reality developer, I want to learn how to use Spatial Anchors in my Android app that can place and locate a 3D object that persists across devices and platforms.
+---
+# Quickstart: Create an Android app with Spatial Anchors
+
+[Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
+using objects that persist their location across devices over time. This tutorial covers how to create an Android
+app using Spatial Anchors. When you're finished, you'll have an ARCore Android app that can save and recall a spatial anchor.
+
+You'll learn how to:
+
+> [!div class="checklist"]
+> * Create a Spatial Anchors account
+> * Configure the Spatial Anchors endpoint and account key
+> * Deploy and run on an Android device
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
+## Prerequisites
+
+To complete this quickstart, make sure you have:
+
+- A macOS or Windows machine with <a href="https://developer.android.com/studio/" target="_blank">Android Studio</a>.
+- An <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
+
+[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
+
+## Open the sample project
+
+[!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
+
+Open Android Studio.
+
+# [Java](#tab/openproject-java)
+
+Select **Open an existing Android Studio project** and select the project located at `java.android/samples/SampleAndroidJava/`.
+
+# [NDK](#tab/openproject-ndk)
+
+Select **Open an existing Android Studio project** and select the project located at `java.android/samples/SampleAndroidNDK/`.
+
+***
+
+## Configure the Spatial Anchors endpoint and account key
+
+**TODO**
+
+## Deploy the app to your Android device
+
+Power on the Android device, sign in, and connect it to the PC using a USB cable.
+
+Select **Run** from the Android Studio toolbar.
+
+![Android Studio Deploy and Run](./media/get-started-android/android-studio-deploy-run.png)
+
+Select the Android device in the **Select Deployment Target** dialog, and select **OK** to run the app on the Android device.
+
+Follow the instructions in the app to place and recall an anchor.
+
+Stop the app by selecting **Stop** from the Android Studio toolbar.
+
+![Android Studio Stop](./media/get-started-android/android-studio-stop.png)
+
+[!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]

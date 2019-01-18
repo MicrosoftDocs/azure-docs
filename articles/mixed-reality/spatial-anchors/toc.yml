@@ -1,0 +1,23 @@
+- name: Spatial Anchors Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Spatial Anchors
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create Android app
+    href: quickstarts/get-started-android.md
+  - name: Create HoloLens app
+    href: quickstarts/get-started-hololens.md
+  - name: Create iOS app
+    href: quickstarts/get-started-ios.md
+  - name: Create Unity app
+    items:
+    - name: Android
+      href: quickstarts/get-started-unity-android.md
+    - name: HoloLens
+      href: quickstarts/get-started-unity-hololens.md
+    - name: iOS
+      href: quickstarts/get-started-unity-ios.md
