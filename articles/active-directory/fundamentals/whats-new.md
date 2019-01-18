@@ -37,6 +37,8 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### Users removed from synchronization scope no longer switch to cloud-only accounts
 
+Note: This change has been reverted as per 1/17/2019
+
 **Type:** Fixed  
 **Service category:** User Management  
 **Product capability:** Directory
