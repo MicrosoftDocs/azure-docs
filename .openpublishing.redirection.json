@@ -26680,6 +26680,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-enable-subscription-management.md",
+      "redirect_url": "/azure/role-based-access-control/elevate-access-global-admin?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-azure-ad-controls-access-reviews-overview.md",
       "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
       "redirect_document_id": true
