@@ -15,13 +15,13 @@ ms.custom: seodec2018
 
 Cognitive search creates searchable information out of non-searchable content by attaching AI algorithms to an indexing pipeline. AI integration is through *cognitive skills*, enriching source documents en route to a search index in the following ways: 
 
-+ **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition.md), [language detection](cognitive-search-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, and [sentiment detection](cognitive-search-skill-sentiment-.md). With these skills, unstructured text assumes new structures, mapped to searchable and filterable fields in an index.
++ **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition.md), [language detection](cognitive-search-skill-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, and [sentiment detection](cognitive-search-skill-sentiment.md). With these skills, unstructured text can assume new forms, mapped as searchable and filterable fields in an index.
 
 + **Image processing** skills include [Optical Character Recognition (OCR)](cognitive-search-skill-ocr.md) and identification of [visual features](cognitive-search-skill-image-analysis.md), such as facial detection, image interpretation, image recognition (famous people and landmarks) or attributes like colors or image orientation. You can create text-representations of image content, searchable using all the query capabilities of Azure Search.
 
 ![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search pipeline overview")
 
-The cognitive skills in Azure Search are based on the machine learning models in Cognitive Services APIs: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) and  [Text Analysis](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+Cognitive skills in Azure Search are based on machine learning models in Cognitive Services APIs: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) and [Text Analysis](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
 
 Natural language and image processing is applied during the data ingestion phase, with results becoming part of a document's composition in a searchable index in Azure Search. Data is sourced as an Azure data set and then pushed through an indexing pipeline using whichever [built-in skills](cognitive-search-predefined-skills.md) you need. The architecture is extensible so if the built-in skills are not sufficient, you can create and attach [custom skills](cognitive-search-create-custom-skill-example.md) to integrate custom processing. Examples might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
@@ -87,7 +87,7 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 ## Where do I start?
 
-**Step 1: Create a search service in a region providing the APIs** 
+**Step 1: [Create an Azure Search resource](search-create-service-portal.md) in a region providing the APIs** 
 
 + West Central US
 + South Central US
