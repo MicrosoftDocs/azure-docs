@@ -19,6 +19,8 @@ This article provides a summary of the available methods to visualize log and me
 
 Visualizations such as charts and graphs can help you analyze your monitoring data to drill-down on issues and identify patterns. Depending on the tool you use, you may also have the option to share visualizations with other users inside and outside of your organization.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Azure Dashboards
 [Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure. They're particularly useful in providing single pane of glass over your Azure infrastructure and services allowing you to quickly identify important issues.
 
@@ -27,10 +29,10 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ### Advantages
 - Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including metrics analytics, log analytics, and Application Insights.
 - Supports both metrics and logs.
-- Combine data from multiple sources including output from [Metrics explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics queries](../azure-monitor/log-query/log-query-overview.md), and [maps](../azure-monitor/app/app-map.md) and availability in Application Insights.
+- Combine data from multiple sources including output from [metrics analytics](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log queries](log-query/log-query-overview.md), and [maps](../application-insights/app-insights-app-map.md) and [availability]() in Application Insights.
 - Option for personal or shared dashboards. Integrated with Azure [role based authentication (RBAC)](../role-based-access-control/overview.md).
 - Automatic refresh. Metrics refresh depends on time range with minimum of five minutes. Logs refresh at one minute.
-- Parameterized metrics dashboards with timestamp and custom parameters.
+- Parametrized metrics dashboards with timestamp and custom parameters.
 - Flexible layout options.
 - Full screen mode.
 
@@ -51,7 +53,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 ### Advantages
 - Rich visualizations for log data.
 - Export and import views to transfer them to other resource groups and subscriptions.
-- Integrates into Log Analytic management model with workspaces and monitoring solutions.
+- Integrates into Azure Monitor management model with workspaces and monitoring solutions.
 - [Filters](platform/view-designer-filters.md) for custom parameters.
 - Interactive, supports multi-level drill-in (view that drills into another view)
 
@@ -66,7 +68,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 
 ## Application Insights Workbooks
-[Workbooks](../azure-monitor/app/usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
+[Workbooks](../application-insights/app-insights-usage-workbooks.md) are interactive documents that provide deep insights into your data, investigation, and collaboration inside the team. Specific examples where workbooks are useful are troubleshooting guides and incident postmortem.
 
 ![Workbook](media/visualizations/workbook.png)
 
@@ -104,7 +106,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 
 ## Grafana
-[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](../azure-monitor/platform/grafana-plugin.md) to your Azure subscription to have it visualize your Azure metrics data.
+[Grafana](https://grafana.com/) is an open platform that excels in operational dashboards. It's particularly useful for detecting and isolating and triaging operational incidents. You can add [Grafana Azure Monitor data source plugin](../monitoring-and-diagnostics/monitor-send-to-grafana.md) to your Azure subscription to have it visualize your Azure metrics data.
 
 ![Grafana](media/visualizations/grafana.png)
 
@@ -135,7 +137,6 @@ You can access data in log and metric data in Azure Monitor through their API us
 - Learn about the [data collected by Azure Monitor](platform/data-collection.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Views in Azure Monitor](platform/view-designer.md).
-- Learn about [Workbooks in Application Insights](../azure-monitor/app/usage-workbooks.md).
-- Learn about [import log data into Power BI](../azure-monitor/platform/powerbi.md).
-- Learn about the [Grafana Azure Monitor data source plugin](../azure-monitor/platform/grafana-plugin.md).
-
+- Learn about [Workbooks in Application Insights](../application-insights/app-insights-usage-workbooks.md).
+- Learn about [import log data into Power BI](../log-analytics/log-analytics-powerbi.md).
+- Learn about the [Grafana Azure Monitor data source plugin](../monitoring-and-diagnostics/monitor-send-to-grafana.md).

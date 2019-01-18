@@ -1,6 +1,6 @@
 ---
-title: User-initiated Azure Automation Runbook Action in Log Analytics  | Microsoft Docs
-description: This article describes how to run an Automation runbook from a Log Analytics search result on-demand.
+title: User-initiated Azure Automation Runbook Action in Azure Monitor  | Microsoft Docs
+description: This article describes how to run an Automation runbook from an Azure Monitor log query result on-demand.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,9 +15,9 @@ ms.date: 05/04/2017
 ms.author: magoedte
 ---
 
-# Take Action with an Automation Runbook from a Log Analytics log search result
+# Take Action with an Automation Runbook from an Azure Monitor log query result
 
-From a log search result in Azure Log Analytics, you can now select **Take action** to run an Automation runbook.  The runbook can be used to remediate the issue or take some other action such as collect troubleshooting information, send an email, or create a service request. 
+From a log query result in Azure Monitor, you can now select **Take action** to run an Automation runbook.  The runbook can be used to remediate the issue or take some other action such as collect troubleshooting information, send an email, or create a service request. 
 
 ## Components and features used
 * [Azure Automation account](../../automation/automation-quickstart-create-account.md)
