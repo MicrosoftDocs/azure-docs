@@ -40,7 +40,7 @@ This procedure creates a **Language Understanding** resource. If you want a reso
 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
-    Your next step is to sign in to your region's [LUIS](luis-reference-regions.md) portal and [assign the new LUIS endpoint key](luis-how-to-azure-subscription.md#assign-endpoint-key). You need the name of the LUIS resource from step 3.
+    Your next step is to sign in to your region's [LUIS](luis-reference-regions.md) portal and [assign the new LUIS endpoint key](#assign-endpoint-key). You need the name of the LUIS resource from step 3.
 
 
 <a name="programmatic-key" ></a>
@@ -179,7 +179,7 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
     ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
 1.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
-1. Remember to [assign this endpoint key](luis-how-to-azure-subscription.md#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
+1. Remember to [assign this endpoint key](#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
 
 ## Exceed pricing tier usage
 Each tier allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an HTTP error of "429: Too Many Requests."
