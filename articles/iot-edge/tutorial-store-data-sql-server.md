@@ -35,10 +35,8 @@ An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 
-> [!NOTE]
-> If you're setting up a Windows device as your Edge device, you must configure it so that it uses Linux containers. See [Install Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows-with-linux.md) for the prerequisites and installation steps for configuring the IoT Edge runtime for Linux containers on Windows.
->
-> Also, although using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge, it can be used for development and testing purposes.
+  > [!NOTE]
+  > SQL Server only supports Linux containers. If you want to test this tutorial by using a Windows device as your Edge device, you must configure it so that it uses Linux containers. See [Install Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows-with-linux.md) for the prerequisites and installation steps for configuring the IoT Edge runtime for Linux containers on Windows.
 
 Cloud resources:
 
