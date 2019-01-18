@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-
+# Customer intent: As a key vault administrator, I want to set access policies and configure the key vault, so that I can ensure it's secure and auditors can properly monitor all activities for this key vault.
 ---
+
 # Secure your key vault
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, and passwords). Because this data is sensitive and business critical, you must secure access to your key vaults, allowing only authorized applications and users. This article provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access.
