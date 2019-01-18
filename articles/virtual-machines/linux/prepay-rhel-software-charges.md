@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2019
+ms.date: 01/18/2019
 ms.author: yashar
 ---
 # Prepay for Red Hat Enterprise Linux plans from Azure Reservations
@@ -21,7 +21,7 @@ Prepay for your Red Hat usage and save money over your pay-as-you-go costs. The 
 You can buy Red Hat software plans in the Azure portal. To buy a plan:
 
 - You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
-- For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
+- For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, the admin agents or sales agents can buy the Red Hat plans.
 
 ## Buy a Red Hat software plan
