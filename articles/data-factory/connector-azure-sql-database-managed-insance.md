@@ -138,7 +138,7 @@ For a full list of sections and properties available for use to define activitie
 
 ### Azure SQL Database Managed Instance as a source
 
-To copy data from Azure SQL Database Managed Instance, set the source type in the copy activity to **SqlSource**. The following properties are supported in the copy activity **source** section:
+To copy data from Azure SQL Database Managed Instance, set the source type in the copy activity to **SqlSource**. The following properties are supported in the copy activity source section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -149,7 +149,7 @@ To copy data from Azure SQL Database Managed Instance, set the source type in th
 
 Note the following points:
 
-- If **sqlReaderQuery** is specified for **SqlSource**, the copy activity runs this query against the managed instance source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters**, if the stored procedure takes parameters.
+- If **sqlReaderQuery** is specified for **SqlSource**, the copy activity runs this query against the managed instance source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either the **sqlReaderQuery** or **sqlReaderStoredProcedureName** property, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query  `select column1, column2 from mytable` runs against the managed instance. If the dataset definition doesn't have  "structure," all columns are selected from the table.
 
 **Example: Use a SQL query**
@@ -241,7 +241,7 @@ GO
 
 ### Azure SQL Database Managed Instance as a sink
 
-To copy data to Azure SQL Database Managed Instance, set the sink type in the copy activity to **SqlSink**. The following properties are supported in the copy activity **sink** section:
+To copy data to Azure SQL Database Managed Instance, set the sink type in the copy activity to **SqlSink**. The following properties are supported in the copy activity sink section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -249,12 +249,12 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 | writeBatchSize |This property inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are integers for the number of rows. |No (default: 10,000). |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the time span. An example is “00:30:00,” which is 30 minutes. |No. |
 | preCopyScript |This property specifies a SQL query for the copy activity to execute before writing data into the managed instance. It's invoked only once per copy run. You can use this property to clean up preloaded data. |No. |
-| sqlWriterStoredProcedureName |This name is for the stored procedure that defines how to apply source data into the target table. Examples of procedures are to do upserts or transforms by using your own business logic. <br/><br/>Note that this stored procedure is *invoked per batch*. To do an operation that runs only once and has nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. |No. |
+| sqlWriterStoredProcedureName |This name is for the stored procedure that defines how to apply source data into the target table. Examples of procedures are to do upserts or transforms by using your own business logic. <br/><br/>This stored procedure is *invoked per batch*. To do an operation that runs only once and has nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. |No. |
 | storedProcedureParameters |These parameters are used for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of the parameters must match the names and casing of the stored procedure parameters. |No. |
 | sqlWriterTableType |This property specifies a table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No. |
 
 > [!TIP]
-> When copying data to Azure SQL Database Managed Instance, the copy activity appends data to the sink table by default. To perform an upsert or additional business logic, use the stored procedure in SqlSink. For more information, see [Invoke a stored procedure for a SQL sink](#invoking-stored-procedure-for-sql-sink).
+> When copying data to Azure SQL Database Managed Instance, the copy activity appends data to the sink table by default. To perform an upsert or additional business logic, use the stored procedure in SqlSink. For more information, see [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-a-sql-sink).
 
 **Example 1: Append data**
 
@@ -290,7 +290,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 
 **Example 2: Invoke a stored procedure during copy for upsert**
 
-Learn more details from [Invoke a stored procedure from a SQL sink](#invoking-stored-procedure-for-sql-sink).
+Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -329,7 +329,7 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoking-st
 
 ## Identity columns in the target database
 
-This section provides an example that copies data from a source table with no identity column to a destination table with an identity column.
+The following example copies data from a source table with no identity column to a destination table with an identity column.
 
 **Source table**
 
@@ -400,7 +400,7 @@ Notice that your source and target table have different schema. The target table
 
 When copying data into Azure SQL Database Managed Instance, a stored procedure can be configured and invoked with additional parameters that you specify.
 
-You can use a stored procedure when built-in copy mechanisms don't serve the purpose. It's typically used when upsert (insert + update) or extra processing must be done before the final insertion of source data in the destination table. Extra processing can include tasks such as merging columns, looking up additional values, and insertion into multiple tables.
+You can use a stored procedure when built-in copy mechanisms don't serve the purpose. It's typically used when an upsert (update + insert) or extra processing must be done before the final insertion of source data in the destination table. Extra processing can include tasks such as merging columns, looking up additional values, and insertion into multiple tables.
 
 The following sample shows how to use a stored procedure to do an upsert into a table in the managed instance. The sample assumes that input data and the sink "Marketing" table each have three columns: ProfileID, State, and Category. Perform the upsert based on the ProfileID column, and apply for only a specific category.
 
@@ -472,7 +472,7 @@ The stored procedure feature takes advantage of [table-valued parameters](https:
 
 ## Data type mapping for Azure SQL Database Managed Instance
 
-When copying data to and from Azure SQL Database Managed Instance, the following mappings are used from Azure SQL Database Managed Instance data types to Azure Data Factory interim data types. To learn how to copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When copying data to and from Azure SQL Database Managed Instance, the following mappings are used from Azure SQL Database Managed Instance data types to Azure Data Factory interim data types. To learn how the copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 | Azure SQL Database Managed Instance data type | Azure Data Factory interim data type |
 |:--- |:--- |
