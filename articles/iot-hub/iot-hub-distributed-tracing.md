@@ -12,14 +12,16 @@ ms.author: jlian
 
 # Add correlation IDs to Azure IoT device-to-cloud messages with distributed tracing support for IoT Hub (preview)
 
-To better understand the flow of requests or IoT messages across services, consider the [distributed tracing pattern](#understand-Azure-IoT-distributed-tracing). In this public preview, IoT Hub is one of the first services to support distributed tracing. Enable distributed tracing for IoT Hub to:
+Microsoft Azure IoT Hub currently provides distributed tracing support as a [preview feature](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
-- Add [trace context](https://github.com/w3c/trace-context) (containing correlation IDs) to a subset (or all, configured via device twin) of your IoT device-to-cloud messages
-- Automatically log the trace context to [Azure Monitor diagnostic logs](iot-hub-monitor-resource-health.md)
-- Measure and understand message flow and latency from devices to IoT Hub and routing endpoints 
+IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you will be able trace IoT messages throughout the Azure services involved in your solution. For a background on distributed tracing see, [What is Distributed tracing?](../azure-monitor/app/distributed-tracing.md).
+
+Enabling distributed tracing for IoT Hub, gives you the ability to:
+
+- Add a [trace context](https://github.com/w3c/trace-context) to your IoT device messages. This trace context includes correlation IDs that allow you to correlate events from one component with events from another component. This trace context is configured on a [device twin](iot-hub-devguide-device-twins.md), and can be applied for subsets, or all IoT device messages.
+- Automatically log the trace context to [Azure Monitor diagnostic logs](iot-hub-monitor-resource-health.md).
+- Measure and understand message flow and latency from devices to IoT Hub and routing endpoints.
 - Start considering how you will implement distributed tracing for the non-Azure services in your IoT solution
-
-As more Azure services begin to support distributed tracing, you can start tracing IoT messages life cycles throughout Azure. 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
