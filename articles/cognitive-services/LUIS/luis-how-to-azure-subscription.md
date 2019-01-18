@@ -9,11 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/18/2019
 ms.author: diberry
 ---
 
-# Manage Azure endpoint subscription keys
+# Manage Azure resource keys for prediction endpoint queries
+
+If you are new to Cognitive Services or new to Azure, create a [temporary key](https://azure.microsoft.com/en-us/try/cognitive-services/). If you have an Azure account, create a new resource in the portal. Language Understanding endpoint queries support two Azure Resource types: **Language Understanding** or the **Cognitive Service** resource. Remember the name used to create the resource, you need it when you assign the key to the app.
 
 For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. 
 

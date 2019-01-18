@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -54,8 +54,14 @@ Do not use the following characters in intent and entity names:
 |`]`|Right bracket|
 |`\`|Backslash|
 
+## Key usage
+
+Language Understand has separate keys, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys).
+
 ## Key limits
+
 The authoring key has different limits for authoring and endpoint. The LUIS service endpoint key is only valid for endpoint queries.
+
 
 |Key|Authoring|Endpoint|Purpose|
 |--|--|--|--|
@@ -74,7 +80,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 
 ## Website sign in time period
 
-Your sign-in access is for **60 minutes**. After this time period, you will get this error. You need to log in again.
+Your sign-in access is for **60 minutes**. After this time period, you will get this error. You need to sign in again.
 
 [luis-get-started-create-app]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app
 [batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-test#batch-testing
