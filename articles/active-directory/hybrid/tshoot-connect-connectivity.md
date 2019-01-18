@@ -165,19 +165,19 @@ Failed to authorize user to perform action in Azure AD.
 ### Authentication Cancelled
 The multi-factor authentication (MFA) challenge was cancelled.
 
-### Connect To MS Online Failed
+### Connect To MS Online Failed {#connect-msolservice-failed}
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
-### Azure AD Global Admin Role Needed
+### Azure AD Global Admin Role Needed {#get-msoluserrole-failed}
 User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user. 
 
-### Privileged Identity Management Enabled
+### Privileged Identity Management Enabled {#privileged-identity-management}
 Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### Company Information Unavailable
+### Company Information Unavailable {#get-msolcompanyinformation-failed}
 Authentication was successful. Could not retrieve company information from Azure AD.
 
-### Domain Information Unavailable
+### Domain Information Unavailable {#get-msoldomain-failed}
 Authentication was successful. Could not retrieve domain information from Azure AD.
 
 ### Unspecified Authentication Failure
