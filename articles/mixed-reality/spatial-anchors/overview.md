@@ -18,8 +18,11 @@ Welcome to Azure Spatial Anchors. Spatial Anchors empowers developers with essen
 Mixed Reality applications. These applications may support Microsoft HoloLens, iOS-based devices supporting ARKit, and
 Android-based devices supporting ARCore. Azure Spatial Anchors enables developers to work mixed reality platforms to
 perceive spaces, designate precise points of interest, and to recall those points of interest from supported devices.
-These precise points of interest are referred to as Spatial Anchors. Some example use cases enabled by Spatial Anchors
-include:
+These precise points of interest are referred to as Spatial Anchors.
+
+## Examples
+
+Some example use cases enabled by Spatial Anchors include:
 
 1. Persisting virtual content in the real-world. An app can let a user place a virtual calendar on a conference room wall,
    that people can see using a phone app or a HoloLens device. In an industrial setting, a user could receive contextual

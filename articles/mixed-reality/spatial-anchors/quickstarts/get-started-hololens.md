@@ -19,6 +19,13 @@ ms.service: spatial-anchors
 using objects that persist their location across devices over time. This tutorial covers how to create a HoloLens DirectX C++/WinRT
 app using Spatial Anchors. When you're finished, you'll have a HoloLens app that can save and recall a spatial anchor.
 
+You'll learn how to:
+
+> [!div class="checklist"]
+> * Create a Spatial Anchors account
+> * Configure the Spatial Anchors endpoint and account key
+> * Deploy and run on a HoloLens device
+
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -27,7 +34,7 @@ To complete this quickstart, make sure you have:
 
 - A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.17763.0)** component.
 - The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-- A HoloLens device with [developer mode](https://docs.microsoft.com/en-us/windows/mixed-reality/using-visual-studio) enabled.
+- A HoloLens device with [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled.
 
 > [!NOTE]
 > This article requires a HoloLens device with the [Windows 10 October 2018 Update](https://blogs.windows.com/windowsexperience/2018/10/02/find-out-whats-new-in-windows-and-office-in-october/) (also known
