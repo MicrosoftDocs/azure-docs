@@ -9,19 +9,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
 #	Image Analysis cognitive skill
 
-The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
+The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. 
 
 > [!NOTE]
-> Starting December 21, 2018, you will be able to associate a Cognitive Services resource with an Azure Search skillset. This will allow us to start charging for skillset execution. On this date, we will also begin charging for image extraction as part of the document-cracking stage. Text extraction from documents will continue to be offered at no additional cost.
+> Starting December 21, 2018, you can [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) with an Azure Search skillset. This allows us to start charging for skillset execution. On this date, we also began charging for image extraction as part of the document-cracking stage. Text extraction from documents continues to be offered at no additional cost.
 >
-> The execution of built-in skills will be charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
-. Image extraction pricing will be charged at preview pricing, and is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
+> Execution of built-in skills is a Cognitive Services charge, billed at the existing [pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
+. Image extraction pricing is an Azure Search charge, currently billed at preview pricing as described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). 
 
 
 ## @odata.type  
