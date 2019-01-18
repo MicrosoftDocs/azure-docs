@@ -34682,6 +34682,11 @@
       "source_path": "articles/azure-stack/azure-stack-deploy-overview.md",
       "redirect_url": "/azure/azure-stack/asdk/asdk-download",
       "redirect_document_id": false
-    }     
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-azure-subscription.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-manage-keys.md",
+      "redirect_document_id": true
+    }         
   ]
 }
