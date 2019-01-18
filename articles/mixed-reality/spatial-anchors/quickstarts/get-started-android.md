@@ -55,7 +55,25 @@ Select **Open an existing Android Studio project** and select the project locate
 
 ## Configure the Spatial Anchors endpoint and account key
 
-**TODO**
+The next step is to use the endpoint and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
+
+# [Java](#tab/openproject-java)
+
+Open `Android/Java/app/src/main/java/com/microsoft/sampleandroid/ARActive.java`.
+
+Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
+
+Locate the `SpatialAnchorsEndpoint` field and replace `Set me` with the endpoint.
+
+# [NDK](#tab/openproject-ndk)
+
+Open `Android/NDK/app/src/main/cpp/spatial_anchors_application.cc`.
+
+Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
+
+Locate the `SpatialAnchorsEndpoint` field and replace `Set me` with the endpoint.
+
+***
 
 ## Deploy the app to your Android device
 
