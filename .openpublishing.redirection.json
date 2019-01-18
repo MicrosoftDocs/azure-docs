@@ -11683,11 +11683,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/machine-learning-competition-faq.md",
-      "redirect_url": "/azure/machine-learning/studio/competition-faq",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/machine-learning-consume-web-services.md",
       "redirect_url": "/azure/machine-learning/studio/consume-web-services",
       "redirect_document_id": false
@@ -11808,14 +11803,39 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-collections.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-gallery-competitions.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-competitions",
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-competitions.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/machine-learning/machine-learning-competition-faq.md",
+        "redirect_url": "/azure/machine-learning/studio/competition-faq",
+        "redirect_document_id": false
+      },
+      {
+          "source_path": "articles/machine-learning/studio/competition-faq.md",
+          "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+          "redirect_document_id": false
+      },
+      {
       "source_path": "articles/machine-learning/machine-learning-gallery-custom-modules.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-custom-modules",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/machine-learning/studio/gallery-custom-modules.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-gallery-experiments.md",
@@ -11823,6 +11843,11 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-experiments.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+        {
       "source_path": "articles/machine-learning/machine-learning-gallery-how-to-use-contribute-publish.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
       "redirect_document_id": false
@@ -11833,19 +11858,39 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-industries.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+{
       "source_path": "articles/machine-learning/machine-learning-gallery-jupyter-notebooks.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-jupyter-notebooks",
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-jupyter-notebooks.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+        {
       "source_path": "articles/machine-learning/machine-learning-gallery-solutions.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-solutions",
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-solutions.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-gallery-tutorials.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-tutorials",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/machine-learning/studio/gallery-tutorials.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-how-to-deploy-to-multiple-regions.md",
