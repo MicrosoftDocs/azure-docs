@@ -35,7 +35,10 @@
 #### [Promote your business with Microsoft](./gtm-promote-your-business.md)
 #### [Preferred solutions](./preferred-solutions.md) 
 
-### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
+### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)
+#### [Marketplace FAQs](./marketplace-faq-publisher-guide.md)
+#### [Marketplace terms](./marketplace-terms.md)
+#### [Marketplace participation policy](./marketplace-participation-policy.md)
 
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
