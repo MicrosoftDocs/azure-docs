@@ -199,4 +199,4 @@ We only covered the basics of wiring up OpenCensus for Python with the local for
 
 * [OpenCensus Python usage guide](https://opencensus.io/api/python/trace/usage.html)
 * [Application map](./../../azure-monitor/app/app-map.md)
-* [End-to-end performance monitoring](./../../application-insights/app-insights-tutorial-performance.md)
+* [End-to-end performance monitoring](./../../azure-monitor/learn/tutorial-performance.md)

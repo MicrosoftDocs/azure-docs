@@ -47,7 +47,7 @@ If the lock silently expires in the prefetch buffer, the message is treated as a
 
 If you need a high degree of reliability for message processing, and processing takes significant work and time, it is recommended that you use the prefetch feature conservatively, or not at all.
 
-If you need high throughout and message processing is commonly cheap, prefetch yields significant throughput benefits.
+If you need high throughput and message processing is commonly cheap, prefetch yields significant throughput benefits.
 
 The maximum prefetch count and the lock duration configured on the queue or subscription need to be balanced such that the lock timeout at least exceeds the cumulative expected message processing time for the maximum size of the prefetch buffer, plus one message. At the same time, the lock timeout ought not to be so long that messages can exceed their maximum [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) when they are accidentally dropped, thus requiring their lock to expire before being redelivered.
 

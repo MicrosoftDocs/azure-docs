@@ -131,7 +131,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Run the following command to create a stored procedure in your SQL database:
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -298,7 +298,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Switch to the **Stored Procedure** tab, and do the following steps: 
 
-    1. For **Stored procedure name**, select **sp_write_watermark**. 
+    1. For **Stored procedure name**, select **usp_write_watermark**. 
     2. To specify values for the stored procedure parameters, click **Import parameter**, and enter following values for the parameters: 
 
         | Name | Type | Value | 

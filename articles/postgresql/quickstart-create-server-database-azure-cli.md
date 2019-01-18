@@ -6,7 +6,7 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 01/09/2019
 ms.custom: mvc
 ---
 # Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI
@@ -56,7 +56,7 @@ admin-password | *secure password* | The password of the administrator user. It 
 
 
 The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
-+ `--sku-name B_Gen4_4` maps to Basic, Gen 4, and 4 vCores.
++ `--sku-name B_Gen4_1` maps to Basic, Gen 4, and 1 vCore. This option is the smallest SKU available.
 + `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
 + `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
@@ -67,10 +67,9 @@ The following example creates a PostgreSQL 9.6 server in West US named `mydemose
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 
-
-> [!IMPORTANT]
-> The server admin login and password that you specify here are required to log in to the server later in this quickstart. Remember or record this information for later use.
-
+> [!NOTE]
+> Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for more information.
+> 
 
 ## Configure a server-level firewall rule
 

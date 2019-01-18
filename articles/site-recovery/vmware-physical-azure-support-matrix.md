@@ -167,7 +167,7 @@ Guest/server encrypted disk | No
 Guest/server NFS | No
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
-Guest/server disk > 1 TB | Yes<br/><br/>Up to 4,095 GB
+Guest/server disk > 1 TB | Yes<br/><br/>Up to 4,095 GB<br/><br/> Disk must be larger than 1024 MB.
 Guest/server disk with 4K logical and 4k physical sector size | Yes
 Guest/server disk with 4K logical and 512 bytes physical sector size | Yes
 Guest/server volume with striped disk >4 TB <br/><br/>Logical volume management (LVM)| Yes

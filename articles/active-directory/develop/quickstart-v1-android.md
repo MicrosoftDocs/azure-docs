@@ -126,7 +126,7 @@ You can find all the configuration for this code sample in the ***src/main/java/
 
 1. Check the [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) for more info on the library mechanics and how to configure new scenarios and capabilities.
 2. In Native scenarios, the app will use an embedded Webview and will not leave the app. The `Redirect URI` can be arbitrary.
-3. Find any problems or have requests? You can create an issue or post on Stackoverflow with the tag `azure-active-directory`.
+3. Find any problems or have requests? You can create an issue or post on Stack Overflow with the tag `azure-active-directory`.
 
 ### Cross-app SSO
 
