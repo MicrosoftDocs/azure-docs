@@ -31,7 +31,7 @@ Microsoft Flow and Logic Apps are both *designer-first* integration services tha
 
 Microsoft Flow is built on top of Logic Apps. They share the same workflow designer and the same [connectors](../connectors/apis-list.md). 
 
-Microsoft Flow empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. On the other hand, Logic Apps can enable advanced integrations (for example, B2B processes) where enterprise-level Azure DevOps and security practices are required. It's typical for a business workflow to grow in complexity over time. Accordingly, you can start with a flow at first, and then convert it to a logic app as needed.
+Microsoft Flow empowers any office worker to perform simple integrations (for example, an approval process on a SharePoint Document Library) without going through developers or IT. Logic Apps can also enable advanced integrations (for example, B2B processes) where enterprise-level Azure DevOps and security practices are required. It's typical for a business workflow to grow in complexity over time. Accordingly, you can start with a flow at first, and then convert it to a logic app as needed.
 
 The following table helps you determine whether Microsoft Flow or Logic Apps is best for a particular integration:
 
