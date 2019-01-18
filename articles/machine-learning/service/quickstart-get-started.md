@@ -63,13 +63,13 @@ Azure Notebooks provides a free cloud platform for Jupyter notebooks that's prec
 
  ![Explore the workspace](./media/quickstart-get-started/explore_aml.png)
 
-1. Select **Open Azure Notebooks** to try your first experiment in Azure Notebooks.
+1. Select **Open Azure Notebooks** to try your first experiment in Azure Notebooks.  Azure Notebooks is a separate service that lets you run Jupyter notebooks for free in the cloud.  When you use this link to the service, information about how to connect to your workspace will be added to the library you create in Azure Notebooks.
 
  ![Open Azure Notebooks](./media/quickstart-get-started/explore_ws.png)
 
-1. Sign into Azure Notebooks with the same account you used to sign into the Azure portal. Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
+1. Sign into Azure Notebooks.  Make sure you sign in with the same account you used to sign into the Azure portal. Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
 
-1. After you sign in, a new tab opens and a `Clone Library` prompt appears. Cloning this library will load a set of notebooks into your Azure Notebooks account.  These notebooks help you explore the capabilities of Azure Machine Learning.
+1. After you sign in, a new tab opens and a `Clone Library` prompt appears. Cloning this library will load a set of notebooks and other files into your Azure Notebooks account.  These files help you explore the capabilities of Azure Machine Learning.
 
 1. Uncheck **Public** so that you don't share your workspace information with others.
 
