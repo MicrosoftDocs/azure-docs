@@ -55,7 +55,7 @@ Review the [Publisher Guide](https://docs.microsoft.com/azure/marketplace/market
 
 **How do I begin to publish in Azure Marketplace?**
 
-Start your Azure Marketplace listing by reviewing the [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Next, submit your application by completing the[Azure Marketplace Nomination Form](https://azuremarketplace.microsoft.com/sell/signup).
+Start your Azure Marketplace listing by reviewing the [Azure Marketplace Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) and [Becoming a Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). Next, submit your application by completing the [Azure Marketplace Nomination Form](https://azuremarketplace.microsoft.com/sell/signup).
 
 **Do I have to be a member of the Microsoft Partner Network (MPN) to list my applications and services in the Azure Marketplace?**
 
@@ -125,9 +125,9 @@ Virtual Machine & Azure Apps:
 1. Select the offer from the ‘All Offers’ tab.
 1. In the pane on the left side of the screen, select the SKUs tab.
 1. Select the SKU for deletion and click the ‘delete’ button for that SKU.
-1. [Republish](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-make-offer-live-on-azure-marketplace) the offer to Azure Marketplace.
+1. [Republish](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer) the offer to Azure Marketplace.
 
-For more information, see [Deleting an offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer).
+For more information, see [Deleting an offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-delete-offer).
 
 Web Apps (SaaS apps, Add-ons) & Consulting Services:
 1. In the Cloud Partner Portal, select the question mark icon and then click 'Support'.
@@ -182,7 +182,7 @@ Log a ticket with [Microsoft Support](https://support.microsoft.com/getsupport?o
 
 For general application support regarding usability or troubleshooting, contact [Cloud Partner Portal Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007).
 
-For billing and subscription issues with your Azure Marketplace purchase, contact [Azure Support]https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+For billing and subscription issues with your Azure Marketplace purchase, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 **Is there a support forum for Azure Marketplace?**
 
@@ -612,7 +612,7 @@ Look for an email from verify@microsoft.com with subject line “Action needed: 
 
 **What are the next steps after Dev Center verification?**
 
-Go to [Your programs](https://developer.microsoft.comdashboard/Account/Programs) and log into the Dev Center account. There should be a section titled **Recommended programs for you** and under which, a subsection titled **Azure**. Click **Get Started** and go through the process of setting up an Azure account.
+Go to [Your programs](https://developer.microsoft.com/en-us/dashboard/Account/Programs) and log into the Dev Center account. There should be a section titled **Recommended programs for you** and under which, a subsection titled **Azure**. Click **Get Started** and go through the process of setting up an Azure account.
 
 **Why is my Dev Center application rejected?**
 
