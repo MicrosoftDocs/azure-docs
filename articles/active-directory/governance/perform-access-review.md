@@ -18,7 +18,48 @@ ms.reviewer: mwahl
 
 # Start an access review with Azure AD Access Reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you  received an email from Microsoft that asks you to review access for members of a group or users with access to an application. 
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you received an email from Microsoft that asks you to review access for members of a group or users with access to an application. This article describes how to perform an access review.
+
+## Open the access review
+
+The first step to perform an access review is to find and open the access review.
+
+1. Open your email and look for an email from Microsoft that asks you review access. Here is an example email to review the access for a group.
+
+    ![Review access email](./media/perform-access-review/access-review-email.png)
+
+1. Click the **Start review >** link to open the access review.
+
+If you don't have the email, you can open your access reviews by following these steps:
+
+1. Sign in to the [Azure AD access panel](https://myapps.microsoft.com).
+
+    ![Azure AD access panel](./media/perform-access-review/myapps-access-panel.png)
+
+1. Click the user symbol in the upper-right corner of the page, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
+
+1. Click the **Access reviews** tile displayed on the right side of the page to see a list of the pending access reviews.
+
+    If the tile isn't visible, there are no access reviews to perform for that organization and no action is needed at this time.
+
+    ![Access reviews list](./media/perform-access-review/access-reviews-list.png)
+
+1. Click the **Begin review** link for the access review you want to perform.
+
+## Perform the access review
+
+Once you have opened the access review, you see the names of users who need to be reviewed.
+
+1. Review the list of users who need to be reviewed.
+
+    You might see only one name--your own--if the request was to review your own access.
+
+    ![Perform access review](./media/perform-access-review/perform-access-review.png)
+
+For each row on the list, you can decide whether to approve or deny the user's access. Select the row, and choose whether to approve or deny. (If you don't know the user, you can indicate that too.)
+
+The reviewer might require that you supply a justification for approving continued access or group membership.
+
 
 ## Open an access review
 
