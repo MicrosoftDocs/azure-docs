@@ -41,14 +41,7 @@ You can select the **Boot diagnostics** option to view the log and the screensho
 
 ## Enable diagnostics on a virtual machine created using the Azure Portal
 
-The following procedure is for a virtual machine created using the Resource Manager deployment model. For more information on creating virtual machines, see one of the following topics:
-
-* [Quickstart: Create a Windows virtual machine in the Azure portal](/virtual-machines/windows/)
-* [Quickstart: Create a Linux virtual machine in the Azure portal](/virtual-machines/linux/quick-create-portal)
- 
-Be sure that you select **Resource Manager** from the deployment model drop-down menu:
- 
-![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
+The following procedure is for a virtual machine created using the Resource Manager deployment model.
 
 On the **Management** tab, in **Monitoring** section, make sure that **Boot diagnostics** is turned on. From the **Diagnostics storage account** drop-down list, select a storage account in which to place the diagnostic files.
  
