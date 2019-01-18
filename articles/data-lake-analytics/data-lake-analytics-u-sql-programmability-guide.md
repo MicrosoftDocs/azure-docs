@@ -1773,7 +1773,7 @@ In this use case scenario, user-defined applier acts as a comma-delimited value 
 
 ```
 103	Z1AB2CD123XY45889	Ford,Explorer,2005,SUV,152345
-303	Y0AB2CD34XY458890	Shevrolet,Cruise,2010,4Dr,32455
+303	Y0AB2CD34XY458890	Chevrolet,Cruise,2010,4Dr,32455
 210	X5AB2CD45XY458893	Nissan,Altima,2011,4Dr,74000
 ```
 
