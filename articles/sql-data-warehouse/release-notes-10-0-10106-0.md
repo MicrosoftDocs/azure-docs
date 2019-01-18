@@ -13,7 +13,7 @@ ms.reviewer: twounder
 ---
 
 # What's new in Azure SQL Data Warehouse version - 10.0.10106.0?
-Azure SQL Data Warehouse (SQL DW) receives improvements continually. This article describes the new features and changes that have been introduced in SQL DW version 10.0.10106.0.
+Azure SQL Data Warehouse (SQL DW) is continuosly improving. This article describes the new features and changes that have been introduced in SQL DW version 10.0.10106.0.
 
 ## Query Restartability - CTAS and Insert/Select
 In rare situations (that is, intermittent network connection problems, node failures) queries executing in Azure SQL DW can fail. Longer running statements, such as [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) and INSERT-SELECT operations, are more exposed to this potential problem. With this release, Azure SQL DW implements retry logic for CTAS and INSERT-SELECT statements (in addition to SELECT statements announced previously), allowing the system to transparently handle these transient problems and preventing queries from failing. The number of retry attempts and the list of transient errors handled are system configured.
