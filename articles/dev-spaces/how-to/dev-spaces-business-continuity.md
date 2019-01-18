@@ -2,7 +2,7 @@
 
 ## Review disaster recovery guidance for Azure Kubernetes Service (AKS)
 
-Azure Dev Spaces is a feature of Azure Kubernetes Service (AKS). You should be aware of guidelines for disaster recovery in AKS, and consider whether they apply to the AKS clusters that you use for Dev Spaces. For more information, please reference [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-multi-region)
+Azure Dev Spaces is a feature of Azure Kubernetes Service (AKS). You should be aware of guidelines for disaster recovery in AKS and consider whether they apply to the AKS clusters that you use for Dev Spaces. For more information, please reference [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-multi-region)
 
 ## Enable Dev Spaces on AKS clusters in different regions
 
@@ -30,15 +30,15 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ## Deploy your team's baseline to each cluster
 
-When working with Dev Spaces, you typically deploy the entire application to a root dev space on your Kubernetes cluster (the `default` space, by default). The initial deployment includes all services and external resources (such as databases or queues) that the services depend on. Once you set up a complete baseline in the root dev space, you iterate on and debug individual services inside child dev spaces.
+When working with Dev Spaces, you typically deploy the entire application to a parent dev space on your Kubernetes cluster. By default, the `default` space is used. The initial deployment includes all services as well as the external resources that those services depend on, such as databases or queues. This is known as the *baseline*. Once you set up a baseline in the parent dev space, you iterate on and debug individual services inside child dev spaces.
 
-To ensure that you can continue to use Dev Spaces if there is an Azure region failure, consistently deploy updated versions of your baseline to clusters in multiple regions. For example, if you deploy your baseline via a CI/CD pipeline, modify the pipeline so that it deploys to multiple clusters in different regions.
+You should deploy the most recent versions of your baseline set of services to clusters in multiple regions. Updating your baseline services in this manner ensures that you can continue to use Dev Spaces if there is an Azure region failure. For example, if you deploy your baseline via a CI/CD pipeline, modify the pipeline so that it deploys to multiple clusters in different regions.
 
 ## Select the correct AKS cluster to use for Dev Spaces
 
 Once you've properly configured a backup cluster running your team's baseline, you can quickly switch over to the backup cluster at any time. Then you can rerun the individual services that you are working on in Dev Spaces.
 
-### Select a different cluster from the Azure CLI
+### Select a different cluster from the Azure Dev Spaces CLI
 
 You can quickly switch to a different cluster with the following command:
 
