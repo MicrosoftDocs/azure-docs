@@ -16,7 +16,7 @@ ms.author: danlep
 
 # Monitor and debug an Azure Batch .NET application with Application Insights
 
-[Application Insights](../application-insights/app-insights-overview.md) provides an elegant and powerful way for developers to monitor and debug 
+[Application Insights](../azure-monitor/app/app-insights-overview.md) provides an elegant and powerful way for developers to monitor and debug 
 applications deployed to Azure services. Use Application Insights to 
 monitor performance counters and exceptions as well as instrument your code 
 with custom metrics and tracing. Integrating Application Insights with your 
@@ -39,12 +39,12 @@ A sample C# solution with code to accompany this article is available on [GitHub
 
 * [Batch account and linked storage account](batch-account-create-portal.md)
 
-* [Application Insights resource](../application-insights/app-insights-create-new-resource.md)
+* [Application Insights resource](../azure-monitor/app/create-new-resource.md )
   
    * Use the Azure portal to create an Application Insights *resource*. Select the *General* **Application type**.
 
    * Copy the [instrumentation 
-key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) from the portal. It is required later in this article.
+key](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) from the portal. It is required later in this article.
   
   > [!NOTE]
   > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for the data stored in Application Insights. 
@@ -374,7 +374,7 @@ See [Sampling in Application Insights](../azure-monitor/app/sampling.md) for som
 
 
 ## Next steps
-* Learn more about [Application Insights](../application-insights/app-insights-overview.md).
+* Learn more about [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 * For Application Insights support in other languages, look at the 
 [languages, platforms, and integrations documentation](../azure-monitor/app/platforms.md).

@@ -116,6 +116,12 @@ This section answers frequently asked questions and discusses known issues with 
 
 ---
 
+**Q: What happens if an Adminstrator changes the retention period of a diagnostic setting?**
+
+**A**: The new retention policy will be applied to logs collected after the change. Logs collected before the policy change will be unaffected.
+
+---
+
 **Q: How much will it cost to store my data?**
 
 **A**: The storage costs depend on both the size of your logs and the retention period you choose. For a list of the estimated costs for tenants, which depend on the volume of logs generated, see the [Storage size for activity logs](#storage-size-for-activity-logs) section.

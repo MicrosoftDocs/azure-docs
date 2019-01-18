@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
 
 ---
 # Azure security policies monitored by Azure Security Center
-This article provides you with a list of Azure Policy definitions that can be monitored in Security Center.
+This article provides you with a list of Azure Policy definitions that can be monitored in Security Center. For more information about security policies, see [Working with security policies](tutorial-security-policy.md).
 
 ## Available security policies
 

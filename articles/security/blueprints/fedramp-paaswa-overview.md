@@ -170,7 +170,7 @@ Additionally, the following monitoring solutions are included as a part of this 
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/fedrampPaaSWebAppDFD) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![PaaS Web Application for FedRAMP threat model](images/fedramp-paaswa-threat-model.png?raw=true "PaaS Web Applicaiton for FedRAMP threat model")
+![PaaS Web Application for FedRAMP threat model](images/fedramp-paaswa-threat-model.png?raw=true "PaaS Web Application for FedRAMP threat model")
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint - FedRAMP High Customer Responsibility Matrix](https://aka.ms/blueprinthighcrm) lists all security controls required by the FedRAMP High baseline. The matrix denotes whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.

@@ -69,7 +69,7 @@ Including a policy in a blueprint enables the creation of the right pattern or d
 assignment of the blueprint. The policy inclusion makes sure that only approved or expected changes
 can be made to the environment to protect ongoing compliance to the intent of the blueprint.
 
-A policy can be included as one of many _artifacts_ in a blueprints definition. Blueprints also
+A policy can be included as one of many _artifacts_ in a blueprint definition. Blueprints also
 support using parameters with policies and initiatives.
 
 ## Blueprint definition

@@ -203,7 +203,7 @@ $RG = "YourResourceGroupName"
 
 $AppGw = get-azurermapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 
-# Choose either custom policy or prefedined policy and uncomment the one you want to use.
+# Choose either custom policy or predefined policy and uncomment the one you want to use.
 
 # SSL Custom Policy
 # Set-AzureRmApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw

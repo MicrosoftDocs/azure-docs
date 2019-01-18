@@ -35,7 +35,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 ## Regions that support Availability Zones
 
 - Central US
-- East US 2 (Preview)
+- East US 2
 - France Central
 - North Europe
 - Southeast Asia 
@@ -56,7 +56,7 @@ The Azure services that support Availability Zones are:
 - Zone-redundant storage
 - SQL Database
 - Event Hubs
-- Service Bus
+- Service Bus (Premium Tier Only)
 - VPN Gateway
 - ExpressRoute
 - Application Gateway (preview)

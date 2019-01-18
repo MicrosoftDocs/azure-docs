@@ -83,7 +83,7 @@ Before changing a peering, familiarize yourself with the [requirements and const
 
 **Commands**
 
-- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering#az_network_vnet_peering_list) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) to change peering settings.|
+- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) to change peering settings.|
 - **PowerShell**: [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) to retrieve view peering settings and [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) to change settings.
 
 ## Delete a peering
@@ -128,6 +128,7 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 - You can't resolve names in peered virtual networks using default Azure name resolution. To resolve names in other virtual networks, you must use [Azure DNS for private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or a custom DNS server. To learn how to set up your own DNS server, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Resources in peered virtual networks in the same region can communicate with each other with the same bandwidth and latency as if they were in the same virtual network. Each virtual machine size has its own maximum network bandwidth however. To learn more about maximum network bandwidth for different virtual machine sizes, see [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine sizes.
 - A virtual network can be peered to another virtual network, and also be connected to another virtual network with an Azure virtual network gateway. When virtual networks are connected through both peering and a gateway, traffic between the virtual networks flows through the peering configuration, rather than the gateway.
+- Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured to ensure the new routes are downloaded to the client.
 - There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## Permissions

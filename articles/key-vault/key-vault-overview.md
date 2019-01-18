@@ -66,7 +66,7 @@ When storing valuable data, you must take several steps. Security information mu
 - Providing standard Azure administration options via the portal, Azure CLI and PowerShell.
 - Automating certain tasks on certificates that you purchase from Public CAs, such as enrollment and renewal.
 
-In addition, Azure Key Vaults allow you to segregate application secrets. Applications may access only the vault that they are allowed to access, and they be limited to only perform specific operations. You can create an Azure Key Vault per application and restrict the secrets stored in a Key Vault to a specific application and team of developers.
+In addition, Azure Key Vaults allow you to segregate application secrets. Applications may access only the vault that they are allowed to access, and they can be limited to only perform specific operations. You can create an Azure Key Vault per application and restrict the secrets stored in a Key Vault to a specific application and team of developers.
 
 ### Integrate with other Azure services
 

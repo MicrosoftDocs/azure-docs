@@ -23,6 +23,8 @@ For more information on consenting to applications, see [Azure Active Directory 
 
 Granting admin consent requires you to sign in as global administrator, an application administrator, or a cloud application administrator.
 
+To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
+
 ## Grant admin consent to enterprise apps in the Azure portal
 
 To grant admin consent to an enterprise app:
