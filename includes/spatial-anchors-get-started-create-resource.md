@@ -34,3 +34,5 @@ ms.author: crtreasu
    ![View resource properties](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
 7. Under **Settings**, select **Key** and make a note of the **Key** value. This value is the `Account Key` and will be used later.
+
+   ![View account key](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
