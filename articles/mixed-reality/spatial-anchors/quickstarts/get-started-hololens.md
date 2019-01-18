@@ -51,7 +51,13 @@ Open `holo.cpp\samples\SampleHoloLens.sln` in Visual Studio.
 
 ## Configure the Spatial Anchors endpoint and account key
 
-**TODO**
+The next step is to use the endpoint and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
+
+Open `HoloLens/DirectX/ViewController.cpp`.
+
+Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
+
+Locate the `SpatialAnchorsEndpoint` field and replace `Set me` with the endpoint.
 
 ## Deploy the app to your HoloLens
 

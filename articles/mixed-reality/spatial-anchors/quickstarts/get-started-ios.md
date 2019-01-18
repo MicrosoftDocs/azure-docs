@@ -82,7 +82,25 @@ open ./SampleObjC.xcworkspace
 
 ## Configure the Spatial Anchors endpoint and account key
 
-**TODO**
+The next step is to use the endpoint and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
+
+# [Swift](#tab/openproject-swift)
+
+Open `iOS/Swift/SampleSwift/ViewController.swift`.
+
+Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
+
+Locate the `SpatialAnchorsEndpoint` field and replace `Set me` with the endpoint.
+
+# [Objective-C](#tab/openproject-objc)
+
+Open `iOS/Objective-C/SampleObj/ViewController.m`.
+
+Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
+
+Locate the `SpatialAnchorsEndpoint` field and replace `Set me` with the endpoint.
+
+***
 
 ## Deploy the app to your iOS device
 
