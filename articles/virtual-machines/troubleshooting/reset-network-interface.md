@@ -82,7 +82,7 @@ To reset network interface, follow these steps:
 6.	Change the **IP address** to another IP address that is available in the Subnet.
 7.	Select **Save**.
 8.	The virtual machine will restart to initialize the new NIC to the system.
-9.	Try to RDP to your machine.	. If successful, you can choose to revert the Private IP address back to the original.  
+9.	Try to RDP to your machine.	If successful, you can choose to revert the Private IP address back to the original.  
 
 #### Use Azure PowerShell
 
