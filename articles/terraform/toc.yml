@@ -23,6 +23,8 @@
       items:
         - name: Create a Kubernetes cluster with AKS and Terraform
           href: terraform-create-k8s-cluster-with-tf-and-aks.md
+        - name: Create a Kubernetes cluster with Applicaiton Gateway as ingress controller with AKS and Terraform
+          href: terraform-create-k8s-cluster-with-aks-appgw-ingress-using-tf.md
     - name: Infrastructure
       items:
         - name: Create a Terraform VM with MSI enabled
