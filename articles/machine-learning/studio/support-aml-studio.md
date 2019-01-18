@@ -8,8 +8,8 @@ ms.component: studio
 ms.topic: conceptual
 
 author: peterclu
-ms.author: peterclu
-ms.date: 01/15/2019 
+ms.author: amlstudiodocs
+ms.date: 01/18/2019 
 ---
 # Get support and training for Azure Machine Learning Studio
 
