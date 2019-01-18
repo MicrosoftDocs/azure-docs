@@ -34,7 +34,7 @@ This article shows how to reset the network interface for Azure Windows VM to re
 2.	Select the affected Virtual Machine.
 3.	Select **Networking** and then select the network Interface of the VM.
 
-    ![Network interface location](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
+    ![Network interface location](./media/reset-network-interface/select-network-interface-vm.png)
     
 4.	Select **IP configurations**.
 5.	Select the IP. 
