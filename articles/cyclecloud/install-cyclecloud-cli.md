@@ -20,21 +20,25 @@ The CycleCloud CLI requires an existing installation of Python 2.7. While most L
 
 ## CycleCloud CLI Installer File
 
-The CLI installer is distributed as part of the CycleCloud installation package and can be found in the `cycle_server/tools/` sub-directory. After installing CycleCloud, the CLI installer is also available in the `tools/` sub-directory of the CycleCloud installation directory, and from the About page.
+The CLI installer is distributed as part of CycleCloud installation package and can be found in the **/about** page 
+accessible by the **?** in the upper-right corner of the UI.  Use the **Download CLI Tools** button to 
+perform an in-browser download.
+
+![Download CLI installer](~/images/cli-download.png)
 
 ## CycleCloud CLI Installation for Linux
 
 Extract the contents of `cyclecloud-cli.zip` to a temporary directory:
 
-```azurecli-interactive
+```bash
 cd /tmp
 unzip /opt/cycle_server/tools/cyclecloud-cli.zip
 ```
 
-This will create a sub-directory named `cyclecloud-cli-installer-<VERSION>`. To complete the installation, run the `install.sh` script within the directory:
+This will create a sub-directory named `cyclecloud-cli-installer`. To complete the installation, run the `install.sh` script within the directory:
 
-``` script
-cd /tmp/cyclecloud-cli-installer*
+```bash
+cd /tmp/cyclecloud-cli-installer
 ./install.sh
 ```
 
