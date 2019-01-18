@@ -8,16 +8,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 01/18/2019
 ms.author: sajagtap
 
 ---
 
-# Define, test, and use workflows
+# Define, test, and use moderation workflows
 
 You can use the Azure Content Moderator workflow designer and APIs to define custom workflows and thresholds based on your content policies.
 
-Workflows "connect" to the Content Moderator API by using connectors. You can use other APIs if a connector for that API is available. The example here uses the Content Moderator connector that is included by default.
+Moderation workflows connect to the Content Moderator API. You can use other APIs if a connector for that API is available. The example here uses the Content Moderator connector that is included by default.
 
 ## Browse to the Workflows section
 
@@ -35,25 +35,27 @@ Select **Add Workflow**.
 
 Name your workflow, enter a description, and choose whether the workflow handles images or text.
 
-  ![Workflow name and description](images/ocr-workflow-step-1.PNG)
+  ![Workflow name and description](images/image-workflow-create.PNG)
 
 ## Define the evaluation criteria ("condition")
 
-In the following screenshot, you see the fields and the If-Then-Else selections that you need to define for your workflows. Choose a connector. This example uses **Content Moderator**. Depending on the connector you choose, the available options for output change.
+In the following screenshot, you see the fields and the If-Then-Else selections that you need to define for your workflows. Choose a connector. This example uses **Content Moderator**. Depending on the connector you choose, you will get different options for data output.
 
-  ![Define workflow condition](images/ocr-workflow-step-2-condition.PNG)
+![Select workflow connector](images/image-workflow-connect-to.PNG)
 
-After you choose the connector and its output that you want, select an operator and the value for the condition.
+Then, choose the desired output to use and set the conditions to check it against.
+
+![Define workflow condition](images/image-workflow-condition.PNG)
 
 ## Define the action to take
 
 Select the action to take and the condition to meet. The following example creates an image review, assigns a tag `a`, and highlights it for the condition shown. You also can combine multiple conditions to get the results you want. Optionally, add an alternative (Else) path.
 
-  ![Define workflow action](images/ocr-workflow-step-3-action.PNG)
+  ![Define workflow action](images/image-workflow-action.PNG)
 
 ## Save your workflow
 
-Finally, save the workflow, and note the workflow name. You need the name to start a moderation job by using the Review API.
+Note the workflow name; you need the name to start a moderation job by using the Review API. Finally, save the workflow using the **Save** button at the top of the page. 
 
 ## Test the workflow
 
@@ -61,25 +63,25 @@ Now that you defined a custom workflow, test it with sample content.
 
 Select the corresponding **Execute Workflow** button.
 
-  ![Workflow test](images/ocr-workflow-step-6-list.PNG)
+  ![Workflow test](images/image-workflow-execute.PNG)
 
 ### Upload a file
 
-Save the [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) to your local drive. To test the workflow, select **Choose File(s)** and upload the image.
+Save this [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) to your local drive. Then select **Choose File(s)** and upload the image.
 
-  ![Upload image file](images/ocr-workflow-step-7-upload.PNG)
+  ![a woman in a bathing suit](images/sample-racy.PNG)
 
 ### Track the workflow
 
-Track the workflow as it executes.
+Watch the progress of the workflow in the next popup window.
 
-  ![Track workflow execution](images/ocr-workflow-step-4-test.PNG)
+  ![Track workflow execution](images/image-workflow-job.PNG)
 
 ### Review any images flagged for human moderation
 
 To see the image review, go to the **Image** tab under **Review**.
 
-  ![Review images](images/ocr-sample-image-workflow1.PNG)
+  ![Review images](images/image-workflow-review.PNG)
 
 ## Next steps 
 
