@@ -1,6 +1,6 @@
 ---
-title: Run Azure Machine Learning workloads with automated machine learning on Apache Spark in Azure HDInsight
-description: Learn how to run Azure Machine Learning workloads with AutoML on Apache Spark in Azure HDInsight.
+title: Run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight
+description: Learn how to run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,9 +9,9 @@ ms.service: hdinsight
 ms.topic: howto
 ms.date: 01/14/2019
 ---
-# Run Azure Machine Learning workloads with automated machine learning on Apache Spark in Azure HDInsight
+# Run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight
 
-Azure Machine Learning is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Azure Machine Learning publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel. Automated machine learning helps create high-quality machine learning models using intelligent automation and optimization. AutoML decides the right algorithm and hyper parameters to use for specific problem types.
+Azure Machine Learning is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Azure Machine Learning publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel. Automated machine learning (AutoML) helps create high-quality machine learning models using intelligent automation and optimization. AutoML decides the right algorithm and hyper parameters to use for specific problem types.
 
 ## Install Azure Machine Learning on an HDInsight cluster
 
@@ -68,3 +68,4 @@ In the automated machine learning configuration, the property `spark_context` sh
 ## Next steps
 
 * For more information on the motivation behind automated machine learning, see [Release models at pace using Microsoft’s automated machine learning!](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/).
+* [AutoML project from Microsoft Research](https://www.microsoft.com/research/project/automl/)
