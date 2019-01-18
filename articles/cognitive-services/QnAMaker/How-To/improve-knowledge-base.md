@@ -8,21 +8,21 @@ displayName: active learning, suggestion, dialog prompt, train api, feedback loo
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/22/2019
 ms.author: diberry
 ---
 
-# Improve your knowledge base with Active Learning
+# Improve your knowledge base with active learning
 
 Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
 
 Your knowledge base doesn't change automatically. You must accept the suggestions in order for any change to take effect. These suggestions add questions but don't change or remove existing questions.
 
-## Active Learning
+## Active learning
 
-QnA Maker learns new question variations with implicit and expllicit feedback.
+QnA Maker learns new question variations with implicit and explicit feedback.
  
-* Auto learning – The ranker understands when a user question has multiple answers with scores which are very close and considers that as **implicit** feedback. 
+* Auto learning – The ranker understands when a user question has multiple answers with scores that are very close and considers that as **implicit** feedback. 
 * Train API – When multiple answers with little variation in scores are returned from the knowledge base, the client application can ask the user which question is the correct question. When the user selects the correct question, the user's **explicit** feedback is sent to QnA Maker with the Train API. 
 
 Either method provides the ranker with similar queries that are clustered.
@@ -31,7 +31,7 @@ When similar queries are clustered, QnA Maker suggests the user-based questions 
 
 ## How active learning works
 
-Active Learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. <!--The exact score difference logic is a function of the score root of the confidence score of the top answer.-->
+Active learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. <!--The exact score difference logic is a function of the score root of the confidence score of the top answer.-->
 
 All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
 
@@ -41,17 +41,17 @@ For best practices when using active learning, see [Best practices](../Concepts/
 
 ## Score proximity between knowledge base questions
 
-When a question's score is highly confident, such as 80%, the range of scores that are considered for active learning are wide, approximately within 10%. As the confidence score decreases, such as 40%, the range of scores descreases as well, approximately within 4%. 
+When a question's score is highly confident, such as 80%, the range of scores that are considered for active learning are wide, approximately within 10%. As the confidence score decreases, such as 40%, the range of scores decreases as well, approximately within 4%. 
 
 The algorithm to determine proximity is not a simple calculation. The ranges in the preceding examples are not meant to be fixed but should be used as a guide to understand the impact of the algorithm only.
 
 ## Turn on active learning
 
-Active learning is off by default. It needs to be turned on to see suggested questions. 
+Active learning is off by default. Turned it on to see suggested questions. 
 
 1. To turn active learning on, go to your **Service Settings** in the QnA Maker portal, in the top-right corner.  
 
-    ![On the service settings page, toggle on Active Learning](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![On the service settings page, toggle on Active learning](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. Find the QnA Maker service then toggle **Active Learning**. 
