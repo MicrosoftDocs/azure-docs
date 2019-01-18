@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/16/2019
 ms.author: spelluru
 
 ---
@@ -89,7 +89,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 1. You see the **dashboard** for the lab. 
     
     ![Classroom lab dashboard](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. Switch to the **Virtual machines** page, and confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
+4. Switch to the **Virtual machines** page by selecting Virtual machines on the left menu or by selecting Virtual machines tile. Confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -108,19 +108,12 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 ## Send registration link to students
 
 1. Switch to the **Users** view if you are not on the page already. 
-2. Select **Get registration link** tile.
+2. Select **Get registration link** on the toolbar.
+1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard.
 
-    ![Student registration link](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. 
-
-    ![Student registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. On the **User registration** dialog box, select **Close**. 
-4. Share the registration link with a student so that the student can register for the class. If you have the **Restrict option** setting enabled and have a list of users in the list, do the following actions:
-    1. Select the **email address** of the user in the list. 
-    2. You see a window from your default email program with the **TO** address filled in. 
-    3. Paste the **registration URL** you copied earlier. 
-    4. Send the **email**.
-
+    ![Registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
+1. On the **User registration** dialog box, select **Close**. 
+2. Share the registration link with a student so that the student can register for the class.
 
 ## Next steps
 In this tutorial, you created a classroom lab, and configured the lab. To learn how a student can access a VM in the lab using the registration link, advance to the next tutorial:

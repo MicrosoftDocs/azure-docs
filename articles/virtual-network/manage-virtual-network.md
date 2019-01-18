@@ -120,7 +120,7 @@ To add or remove an address range:
 
 **Commands**
 
-- Azure CLI: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## Change DNS servers
@@ -142,7 +142,7 @@ All VMs that are connected to the virtual network register with the DNS servers 
 
 **Commands**
 
-- Azure CLI: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## Delete a virtual network

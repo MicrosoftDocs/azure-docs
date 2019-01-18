@@ -59,7 +59,7 @@ To configure your application with the Conditional Access Application Control, f
 
 ## Test Conditional Access App Control
 
-To test the deployment of Azure AD applications with Conditional Access Application Control, follow the instructions in [Test the deployment for Azure AD apps](/cloud-app-security/proxy-deployment-aad#test-the-deployment).
+To test the deployment of Azure AD applications with Conditional Access Application Control, follow the instructions in [Test the deployment for Azure AD apps](/cloud-app-security/proxy-deployment-aad).
 
 
 
