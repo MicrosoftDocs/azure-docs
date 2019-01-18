@@ -55,11 +55,11 @@ For a device to connect to the solution accelerator, it must identify itself to 
 
 To add a device to your Remote Monitoring solution, complete the following steps on the **Devices** page in the solution:
 
-1. Choose **+ New device**, and then choose **Real** as the **Device type**:
+1. Choose **+ New device**, and then choose **Physical** as the **Device type**:
 
     ![Add a real device](media/iot-suite-selector-connecting/devicesprovision.png)
 
-1. Enter **Real-chiller** as the Device ID. Choose the **Symmetric Key** and **Auto generate keys** options:
+1. Enter **Physical-chiller** as the Device ID. Choose the **Symmetric Key** and **Auto generate keys** options:
 
     ![Choose device options](media/iot-suite-selector-connecting/devicesoptions.png)
 
