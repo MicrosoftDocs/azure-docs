@@ -25,10 +25,10 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
 
 ## Create Language Understanding endpoint key in the Azure portal
 
-This procedure creates a **Language Understanding** resource. If you want a resource that can be used across most Cognitive Services, create the all-in-one key **[Cognitive Service](../cognitive-services-apis-create-account.md)**.
+This procedure creates a **Language Understanding** resource. If you want a resource that can be used across Cognitive Services, create the all-in-one key **[Cognitive Service](../cognitive-services-apis-create-account.md)** instead of the Language Understanding resource. 
 
-1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)**. 
-1. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
+1. Sign in to the **[Azure portal](https://ms.portal.azure.com/)**. 
+1. Select the green **+** sign in the upper left-hand panel and search for `Language Understanding` in the marketplace, then select on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
 
@@ -171,11 +171,11 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
 
 ## Change pricing tier
 
-1.  In [Azure](https://portal.azure.com), find your LUIS subscription. Click the LUIS subscription.
+1.  In [Azure](https://portal.azure.com), find your LUIS subscription. Select the LUIS subscription.
     ![Find your LUIS subscription](./media/luis-usage-tiers/find.png)
-1.  Click **Pricing tier** in order to see the available pricing tiers. 
+1.  Select **Pricing tier** in order to see the available pricing tiers. 
     ![View pricing tiers](./media/luis-usage-tiers/subscription.png)
-1.  Click the pricing tier and click **Select** to save your change. 
+1.  Select the pricing tier and select **Select** to save your change. 
     ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
 1.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
     ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
