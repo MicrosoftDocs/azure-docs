@@ -61,7 +61,7 @@ your Dev Center account. Then your publisher profile page displays your Dev Cent
 >[!NOTE]
 >Dev Center Account registration is mandatory for publishing paid market place SKUs.
 
-If you don't have a [Developer Center Account](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md),
+If you don't have a [Developer Center Account](./cloud-partner-portal-dev-center-accounts-registration.md),
 you can create an account. Then add the registered email address as an
 owner on the Cloud Partner Portal for your offer. An owner can only add
 the registered email address to your publishing profile from the

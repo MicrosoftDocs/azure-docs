@@ -1,30 +1,25 @@
 ---
-title: Net# Neural Networks - Azure Machine Learning Studio | Microsoft Docs
-description: Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model using Net# with Azure Machine Learning Studio.
+title: Create custom neural networks with Net#
+titleSuffix: Azure Machine Learning Studio
+description: Syntax guide for the Net# neural networks specification language. Learn how to create custom neural network models in Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
-ms.service: machine-learning
+ms.service: machine-learning
 ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ---
 # Guide to Net# neural network specification language for Azure Machine Learning Studio
 
-Net# is a language developed by Microsoft that is used to define neural network architectures. Using Net# to define the structure of a neural network makes it possible to define complex structures such as deep neural networks or convolutions of arbitrary dimensions, which are known to improve learning on data such as image, audio, or video.
+Net# is a language developed by Microsoft that is used to define complex neural network architectures such as deep neural networks or convolutions of arbitrary dimensions. You can use complex structures to improve learning on data such as image, video, or audio.
 
 You can use a Net# architecture specification in these contexts:
 
 + All neural network modules in Microsoft Azure Machine Learning Studio: [Multiclass Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Two-Class Neural Network](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), and [Neural Network Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Neural network functions in MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) and [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)for the R language, and [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) for Python.
++ Neural network functions in Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) and [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)for the R language, and [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) for Python.
 
 
 This article describes the basic concepts and syntax needed to develop a custom neural network using Net#: 
@@ -39,17 +34,17 @@ This article describes the basic concepts and syntax needed to develop a custom 
 
 A neural network structure consists of nodes that are organized in layers, and weighted connections (or edges) between the nodes. The connections are directional, and each connection has a source node and a destination node.  
 
-Each trainable layer (a hidden or an output layer) has one or more **connection bundles**. A connection bundle consists of a source layer and a specification of the connections from that source layer. All the connections in a given bundle share the same source layer and the same destination layer. In Net#, a connection bundle is considered as belonging to the bundle's destination layer.
+Each trainable layer (a hidden or an output layer) has one or more **connection bundles**. A connection bundle consists of a source layer and a specification of the connections from that source layer. All the connections in a given bundle share source and destination layers. In Net#, a connection bundle is considered as belonging to the bundle's destination layer.
 
-Net# supports various kinds of connection bundles, which lets you customize the way inputs are mapped to hidden layers and mapped to the outputs.
+Net# supports various kinds of connection bundles, which let you customize the way inputs are mapped to hidden layers and mapped to the outputs.
 
 The default or standard bundle is a **full bundle**, in which each node in the source layer is connected to every node in the destination layer.
 
 Additionally, Net# supports the following four kinds of advanced connection bundles:
 
-+ **Filtered bundles**. The user can define a predicate by using the locations of the source layer node and the destination layer node. Nodes are connected whenever the predicate is True.
++ **Filtered bundles**. You can define a predicate by using the locations of the source layer node and the destination layer node. Nodes are connected whenever the predicate is True.
 
-+ **Convolutional bundles**. The user can define small neighborhoods of nodes in the source layer. Each node in the destination layer is connected to one neighborhood of nodes in the source layer.
++ **Convolutional bundles**. You can define small neighborhoods of nodes in the source layer. Each node in the destination layer is connected to one neighborhood of nodes in the source layer.
 
 + **Pooling bundles** and **Response normalization bundles**. These are similar to convolutional bundles in that the user defines small neighborhoods of nodes in the source layer. The difference is that the weights of the edges in these bundles are not trainable. Instead, a predefined function is applied to the source node values to determine the destination node value.
 
@@ -383,7 +378,7 @@ The example illustrates some basic commands as follows:
 
 + The first line defines the input layer (named `Data`). When you use the  `auto` keyword, the neural network automatically includes all feature columns in the input examples. 
 + The second line creates the hidden layer. The name `H` is assigned to the hidden layer, which has 200 nodes. This layer is fully connected to the input layer.
-+ The third line defines the output layer (named `O`), which contains 10 output nodes. If the neural network is used for classification, there is one output node per class. The keyword **sigmoid** indicates that the output function is applied to the output layer.
++ The third line defines the output layer (named `Out`), which contains 10 output nodes. If the neural network is used for classification, there is one output node per class. The keyword **sigmoid** indicates that the output function is applied to the output layer.
 
 ### Define multiple hidden layers: computer vision example
 

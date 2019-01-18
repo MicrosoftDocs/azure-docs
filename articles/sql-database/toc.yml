@@ -25,9 +25,9 @@
       href: sql-database-managed-instance-configure-p2s.md
   - name: Load data
     items:
-    - name: Import BACPAC into a single database
+    - name: Import BACPAC into a new database
       href: sql-database-import.md
-    - name: Restore a database backup to a Managed Instance
+    - name: Restore database backup to a Managed Instance
       href: sql-database-managed-instance-get-started-restore.md
   - name: Query
     href: sql-database-connect-query.md
@@ -100,6 +100,8 @@
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
+    - name: Migrate from Premium RS service tier
+      href: sql-database-service-tiers-prs.md
   - name: Compute & storage
     items:
     - name: Overview
@@ -114,7 +116,7 @@
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Single databases
     items:
-    - name: Single database
+    - name: Single database overview
       href: sql-database-single-index.yml
     - name: Create and manage
       href: sql-database-single-databases-manage.md
@@ -148,9 +150,9 @@
       href: sql-database-single-database-scale.md
   - name: Managed instances
     items:
-    - name: Managed instances
+    - name: Managed instances overview
       href: sql-database-managed-instance-index.yml
-    - name: Managed instance overview
+    - name: Managed instance capabilities
       href: sql-database-managed-instance.md
     - name: Management API reference
       href: sql-database-managed-instance-create-manage.md
@@ -162,7 +164,7 @@
       href: sql-database-managed-instance-transact-sql-information.md
   - name: Platform as a Service
     items:
-    - name: Platform as a Service
+    - name: Platform as a Service overview
       href: sql-database-paas.yml
     - name: Business continuity
       href: sql-database-business-continuity.md
@@ -194,9 +196,9 @@
         href: sql-database-disaster-recovery-drills.md
   - name: Security   
     items:
-    - name: Security
-      href: sql-database-security-index.yml
     - name: Security overview
+      href: sql-database-security-index.yml
+    - name: Security capabilities
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:
@@ -248,7 +250,7 @@
         href: transparent-data-encryption-byok-azure-sql.md
   - name: Scalability
     items:
-    - name: Scalability
+    - name: Scalability overview
       href: sql-database-scalability-index.yml
     - name: Scale Up/Down
       href: sql-database-scale-resources.md
@@ -282,6 +284,8 @@
     href: sql-database-features.md
   - name: Monitoring and tuning
     items:
+    - name: Monitoring and tuning overview
+      href: sql-database-monitoring-tuning-index.yml
     - name: Monitoring and performance tuning
       href: sql-database-monitor-tune-overview.md
     - name: Performance monitoring
@@ -302,25 +306,35 @@
         href: sql-database-performance.md
       - name: Database advisor performance recommendations
         href: sql-database-advisor.md
+  - name: Load and move data
+    items: 
+      - name: SQL Data Sync
+        href: sql-database-sync-data.md
+      - name: Transactional replication
+        href: sql-database-managed-instance-transactional-replication.md
   - name: Databases features
     items:
     - name: Databases features
       href: sql-database-develop-overview.md
-    - name: JSON data
-      href: sql-database-json-features.md
+    - name: Multi-model capabilities
+      href: sql-database-multi-model-features.md
     - name: In-memory
       href: sql-database-in-memory.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
 - name: How-to guides
   items:
+  - name: Overview
+    href: sql-database-howto.md
   - name: Single database 
     items: 
+    - name: Overview
+      href: sql-database-howto-single-database.md
     - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
     - name: Manage SQL database after migration
       href: sql-database-manage-after-migration.md
-    - name: Configure transactional replication
+    - name: Configure replication
       href: replication-to-sql-database.md
     - name: Configure threat detection
       href: sql-database-threat-detection.md
@@ -331,7 +345,9 @@
     - name: Configure geo-replication - Portal
       href: sql-database-geo-replication-portal.md
     - name: Configure security for geo-replicas
-      href: sql-database-geo-replication-security-config.md  
+      href: sql-database-geo-replication-security-config.md
+    - name: Try in-memory features
+      href: sql-database-in-memory-sample.md  
     - name: Enable automatic tuning
       href: sql-database-automatic-tuning-enable.md
     - name: Enable e-mail notifications for automatic tuning
@@ -392,6 +408,8 @@
         href: elastic-jobs-migrate.md
   - name: Managed instance
     items:
+    - name: Overview
+      href: sql-database-howto-managed-instance.md
     - name: Migrate to Managed instance
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed instance
@@ -426,8 +444,6 @@
       href: sql-database-export.md
     - name: Data sync
       items:
-      - name: SQL Data Sync
-        href: sql-database-sync-data.md
       - name: Data Sync Agent
         href: sql-database-data-sync-agent.md
       - name: Replicate schema changes
@@ -490,6 +506,8 @@
     items:
     - name: Connectivity
       href: sql-database-libraries.md
+    - name: Working with JSON data
+      href: sql-database-json-features.md
     - name: Use Spark Connector
       href: sql-database-spark-connector.md
     - name: Authenticate app 
@@ -602,6 +620,8 @@
     href: /sql/t-sql/language-reference
   - name: REST
     href: /rest/api/sql/
+  - name: Resource Manager templates for SQL
+    href: /azure/templates/microsoft.sql/allversions
   - name: SQL Server tools
     href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)

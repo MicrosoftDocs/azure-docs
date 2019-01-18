@@ -8,7 +8,7 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 01/08/2019
 ---
 # Optimize Apache Spark jobs
 
@@ -18,44 +18,44 @@ The following sections describe common Spark job optimizations and recommendatio
 
 ## Choose the data abstraction
 
-Spark 1.x uses RDDs to abstract data, and then Spark 2.x introduced DataFrames and DataSets. Consider the following relative merits:
+Earlier Spark versions use RDDs to abstract data, Spark 1.3 and 1.6 introduced DataFrames and DataSets, respectively. Consider the following relative merits:
 
 * **DataFrames**
-    * Best choice in most situations
-    * Provides query optimization through Catalyst
-    * Whole-stage code generation
-    * Direct memory access
-    * Low garbage collection (GC) overhead
-    * Not as developer-friendly as DataSets, as there are no compile-time checks or domain object programming
+    * Best choice in most situations.
+    * Provides query optimization through Catalyst.
+    * Whole-stage code generation.
+    * Direct memory access.
+    * Low garbage collection (GC) overhead.
+    * Not as developer-friendly as DataSets, as there are no compile-time checks or domain object programming.
 * **DataSets**
-    * Good in complex ETL pipelines where the performance impact is acceptable
-    * Not good in aggregations where the performance impact can be considerable
-    * Provides query optimization through Catalyst
-    * Developer-friendly by providing domain object programming and compile-time checks
-    * Adds serialization/deserialization overhead
-    * High GC overhead
-    * Breaks whole-stage code generation
+    * Good in complex ETL pipelines where the performance impact is acceptable.
+    * Not good in aggregations where the performance impact can be considerable.
+    * Provides query optimization through Catalyst.
+    * Developer-friendly by providing domain object programming and compile-time checks.
+    * Adds serialization/deserialization overhead.
+    * High GC overhead.
+    * Breaks whole-stage code generation.
 * **RDDs**
-    * In Spark 2.x, you do not need to use RDDs, unless you need to build a new custom RDD
-    * No query optimization through Catalyst
-    * No whole-stage code generation
-    * High GC overhead
-    * Must use Spark 1.x legacy APIs
+    * You do not need to use RDDs, unless you need to build a new custom RDD.
+    * No query optimization through Catalyst.
+    * No whole-stage code generation.
+    * High GC overhead.
+    * Must use Spark 1.x legacy APIs.
 
 ## Use optimal data format
 
-Spark supports many formats, such as csv, json, xml, parquet, orc, and avro. Spark can be extended to support many more formats with external data sources - for more information, see [Spark packages](https://spark-packages.org).
+Spark supports many formats, such as csv, json, xml, parquet, orc, and avro. Spark can be extended to support many more formats with external data sources - for more information, see [Apache Spark packages](https://spark-packages.org).
 
 The best format for performance is parquet with *snappy compression*, which is the default in Spark 2.x. Parquet stores data in columnar format, and is highly optimized in Spark.
 
 ## Select default storage
 
-When you create a new Spark cluster, you have the option to select Azure Blob Storage or Azure Data Lake Store as your cluster's default storage. Both options give you the benefit of long-term storage for transient clusters, so your data does not get automatically deleted when you delete your cluster. You can recreate a transient cluster and still access your data.
+When you create a new Spark cluster, you have the option to select Azure Blob Storage or Azure Data Lake Storage as your cluster's default storage. Both options give you the benefit of long-term storage for transient clusters, so your data does not get automatically deleted when you delete your cluster. You can recreate a transient cluster and still access your data.
 
 | Store Type | File System | Speed | Transient | Use Cases |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:**//url/ | **Standard** | Yes | Transient cluster |
-| Azure Data Lake Store | **adl:**//url/ | **Faster** | Yes | Transient cluster |
+| Azure Data Lake Storage | **adl:**//url/ | **Faster** | Yes | Transient cluster |
 | Local HDFS | **hdfs:**//url/ | **Fastest** | No | Interactive 24/7 cluster |
 
 ## Use the cache
@@ -67,7 +67,7 @@ Spark provides its own native caching mechanisms, which can be used through diff
     * Does not work with partitioning, which may change in future Spark releases.
 
 * Storage level caching (recommended)
-    * Can be implemented using [Alluxio](http://www.alluxio.org/).
+    * Can be implemented using [Alluxio](https://www.alluxio.org/).
     * Uses in-memory and SSD caching.
 
 * Local HDFS (recommended)
@@ -113,9 +113,9 @@ Bucketing is similar to data partitioning, but each bucket can hold a set of col
 
 Some advanced bucketing features are:
 
-* Query optimization based on bucketing meta-information
-* Optimized aggregations
-* Optimized joins
+* Query optimization based on bucketing meta-information.
+* Optimized aggregations.
+* Optimized joins.
 
 You can use partitioning and bucketing at the same time.
 
@@ -196,7 +196,7 @@ Monitor your query performance for outliers or other performance issues, by look
 Monitor your running jobs regularly for performance issues. If you need more insight into certain issues, consider one of the following performance profiling tools:
 
 * [Intel PAL Tool](https://github.com/intel-hadoop/PAT) monitors CPU, storage, and network bandwidth utilization.
-* [Oracle Java 8 Mission Control](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profiles Spark and executor code.
+* [Oracle Java 8 Mission Control](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) profiles Spark and executor code.
 
 Key to Spark 2.x query performance is the Tungsten engine, which depends on whole-stage code generation. In some cases, whole-stage code generation may be disabled. For example, if you use a non-mutable type (`string`) in the aggregation expression, `SortAggregate` appears instead of `HashAggregate`. For example, for better performance, try the following and then re-enable code generation:
 

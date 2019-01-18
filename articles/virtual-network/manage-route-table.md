@@ -1,14 +1,10 @@
-﻿---
-title: Create, change, or delete an Azure route table | Microsoft Docs
+---
+title: Create, change, or delete an Azure route table
+titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a route table.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -60,7 +56,7 @@ In the search box at the top of the portal, enter *route tables* in the search b
 1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
 2. Select the route table in the list that you want to view details for. Under **SETTINGS**, you can view the **Routes** in the route table and the **Subnets** the route table is associated to.
 3. To learn more about common Azure settings, see the following information:
-	*	[Activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+	*	[Activity log](../azure-monitor/platform/activity-logs-overview.md)
 	*	[Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
 	*	[Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 	*	[Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -155,7 +151,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 **Commands**
 
-- Azure CLI: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
+- Azure CLI: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## View details of a route

@@ -15,12 +15,12 @@ ROBOTS: NOINDEX
 # Use Apache Hive with Apache Hadoop on HDInsight with Remote Desktop
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-In this article, you will learn how to connect to an HDInsight cluster by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface (CLI).
+In this article, you will learn how to connect to an HDInsight cluster by using Remote Desktop, and then run Apache Hive queries by using the Hive Command-Line Interface (CLI).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Remote Desktop is only available on HDInsight clusters that use Windows as the operating system. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> For HDInsight 3.4 or greater, see [Use Hive with HDInsight and Beeline](apache-hadoop-use-hive-beeline.md) for information on running Hive queries directly on the cluster from a command-line.
+> For HDInsight 3.4 or greater, see [Use Apache Hive with HDInsight and Beeline](apache-hadoop-use-hive-beeline.md) for information on running Hive queries directly on the cluster from a command-line.
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following:
@@ -54,7 +54,7 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
    * **DROP TABLE**: Deletes the table and the data file if the table already exists.
    * **CREATE EXTERNAL TABLE**: Creates a new 'external' table in Hive. External tables store only the table definition in Hive (the data is left in the original location).
 
-     > [!NOTE]
+     > [!NOTE]  
      > External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
      >
      > Dropping an external table does **not** delete the data, only the table definition.
@@ -73,7 +73,7 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
 
    * **CREATE TABLE IF NOT EXISTS**: Creates a table if it does not already exist. Because the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Unlike **EXTERNAL** tables, dropping an internal table also deletes the underlying data.
      >
      >
@@ -92,17 +92,17 @@ As you can see, the Hive command provides an easy way to interactively run Hive 
 ## <a id="nextsteps"></a>Next steps
 For general information about Hive in HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 If you are using Tez with Hive, see the following documents for debugging information:
 
-* [Use the Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Use the Apache Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
+* [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

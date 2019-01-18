@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure MFA on a per app basis, so that my users have a convenient sign-on experience and our mission critical apps are protected with strong authentication.
@@ -82,11 +82,11 @@ In your policy, set:
 
     ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-3. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional Access**.
 
     ![Conditional access](./media/app-based-mfa/03.png)
  
-4. On the **Conditional Access** page, in the toolbar on the top, click **Add**.
+4. On the **Conditional Access** page, in the toolbar on the top, click **New policy**.
 
     ![Add](./media/app-based-mfa/04.png)
 

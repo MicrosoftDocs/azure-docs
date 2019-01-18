@@ -79,7 +79,7 @@ az group create --name TestRG1 --location eastus
 
 ## <a name="VNet"></a>3. Create a virtual network
 
-If you don't already have a virtual network, create one using the [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) command. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.
+If you don't already have a virtual network, create one using the [az network vnet create](/cli/azure/network/vnet) command. When creating a virtual network, make sure that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.
 
 >[!NOTE]
 >In order for this VNet to connect to an on-premises location, you need to coordinate with your on-premises network administrator to carve out an IP address range that you can use specifically for this virtual network. If a duplicate address range exists on both sides of the VPN connection, traffic does not route the way you may expect it to. Additionally, if you want to connect this VNet to another VNet, the address space cannot overlap with other VNet. Take care to plan your network configuration accordingly.
@@ -114,7 +114,7 @@ Use the following values:
 * The *--gateway-ip-address* is the IP address of your on-premises VPN device. Your VPN device cannot be located behind a NAT.
 * The *--local-address-prefixes* are your on-premises address spaces.
 
-Use the [az network local-gateway create](/cli/azure/network/local-gateway#az_network_local_gateway_create) command to add a local network gateway with multiple address prefixes:
+Use the [az network local-gateway create](/cli/azure/network/local-gateway) command to add a local network gateway with multiple address prefixes:
 
 ```azurecli-interactive
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --resource-group TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24

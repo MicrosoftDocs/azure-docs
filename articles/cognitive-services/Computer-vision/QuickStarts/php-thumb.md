@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Generate a thumbnail - REST, PHP - Computer Vision"
+title: "Quickstart: Generate a thumbnail - REST, PHP"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using the Computer Vision API with PHP.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Generate a thumbnail using the REST API and PHP in Computer Vision
 
@@ -28,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To create and run the sample, do the following steps:
 
-1. Install the PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) package.
+1. Install the PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) package.
    1. Open a command prompt window as an administrator.
    1. Run the following command:
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
 
@@ -96,7 +96,7 @@ This update includes the following improvements for Azure Stack.
 <!--  TBD – IS, ASDK --> 
 - *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template.  
 
-### Common Vulnerabilities and Exposures
+### Common vulnerabilities and exposures
 
 This update installs the following updates:  
 
@@ -250,8 +250,9 @@ The following are post-installation known issues for this build version.
 <!-- 2368581 - IS. ASDK --> 
 - An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a **Fabric VM creation error**, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads.
 
-
 ### Compute
+
+- When creating a [Dv2 series VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 VMs allow you to create 4, 8, 16, and 32 data disks respectively. However, the create VM pane shows 8, 16, 32, and 64 data disks.
 
 <!-- 3164607 – IS, ASDK -->
 - Reattaching a detached disk to the same virtual machine (VM) with the same name and LUN fails with an error such as **Cannot attach data disk 'datadisk' to VM 'vm1'**. The error occurs because the disk is currently being detached or the last detach operation failed. Please wait until the disk is completely detached and then try again or delete/detach the disk explicitly again. The workaround is to reattach it with a different name, or on a different LUN. 
@@ -312,7 +313,7 @@ Usage reports produced from the Azure Stack usage APIs show correct quantities a
 
    To find the CPU Percentage chart for the VM, go to the **Metrics** blade and show all the supported Windows VM guest metrics.
 
-
+- A Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, please use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
 ### Networking  
 
@@ -358,8 +359,10 @@ Usage reports produced from the Azure Stack usage APIs show correct quantities a
 
 
 ## Download the update
-You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload).
-  
+
+You can download the Azure Stack 1808 update package from [here](https://aka.ms/azurestackupdatedownload). 
+
+In connected scenarios only, Azure Stack deployments periodically check a secured endpoint and automatically notify you if an update is available for your cloud. For more information, see [managing updates for Azure Stack](azure-stack-updates.md).
 
 ## Next steps
 - To review the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state, see [Azure Stack servicing policy](azure-stack-servicing-policy.md).  

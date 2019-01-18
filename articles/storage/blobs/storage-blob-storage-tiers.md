@@ -6,7 +6,7 @@ author: kuhussai
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/09/2018
 ms.author: kuhussai
 ms.component: blobs
 ---
@@ -15,9 +15,9 @@ ms.component: blobs
 
 ## Overview
 
-Azure storage offers different storage tiers which allow you to store Blob object data in the most cost-effective manner. The available tiers include:
+Azure storage offers different storage tiers, which allow you to store Blob object data in the most cost-effective manner. The available tiers include:
 
-- **Premium storage (preview)** provides high performance hardware for data that is accessed frequently.
+- **Premium storage (preview)** provides high-performance hardware for data that is accessed frequently.
  
 - **Hot storage**: is optimized for storing data that is accessed frequently. 
 
@@ -43,15 +43,15 @@ Each of these data access scenarios benefits from a different storage tier that 
 
 ## Storage accounts that support tiering
 
-You may only tier your object storage data to Hot, Cool, or Archive in Blob storage or General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. However, customers can easily convert their existing GPv1 or Blob storage accounts to GPv2 accounts through a simple one-click process in the Azure portal. GPv2 provides a new pricing structure for blobs, files, and queues, and access to a variety of other new storage features as well. Furthermore, going forward some new features and prices cuts will only be offered in GPv2 accounts. Therefore, customers should evaluate using GPv2 accounts but only use them after reviewing the pricing for all services as some workloads can be more expensive on GPv2 than GPv1. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
+You may only tier your object storage data to Hot, Cool, or Archive in Blob storage and General Purpose v2 (GPv2) accounts. General Purpose v1 (GPv1) accounts do not support tiering. However, customers can easily convert their existing GPv1 or Blob storage accounts to GPv2 accounts through a simple one-click process in the Azure portal. GPv2 provides a new pricing structure for blobs, files, and queues, and access to a variety of other new storage features as well. Furthermore, going forward some new features and prices cuts will only be offered in GPv2 accounts. Therefore, customers should evaluate using GPv2 accounts but only use them after reviewing the pricing for all services as some workloads can be more expensive on GPv2 than GPv1. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
 Blob storage and GPv2 accounts expose the **Access Tier** attribute at the account level, which allows you to specify the default storage tier as Hot or Cool for any blob in the storage account that does not have an explicit tier set at the object level. For objects with the tier set at the object level, the account tier will not apply. The Archive tier can only be applied at the object level. You can switch between these storage tiers at any time.
 
 ## Premium access tier
 
-Available in preview is a Premium access tier which makes frequently accessed data available via high-performance hardware. Data stored in this tier is stored on solid-state drives, which are optimized for lower latency an higher transactional rates compared to traditional hard drives. The Premium access tier is available via the Block Blob storage account type only.
+Available in preview is a Premium access tier, which makes frequently accessed data available via high-performance hardware. Data stored in this tier is stored on solid-state drives, which are optimized for lower latency and higher transactional rates compared to traditional hard drives. The Premium access tier is available via the Block Blob storage account type only.
 
-This tier is ideal for workloads that require fast and consistent response times. Data that involves end-users such as interactive video editing, static web content, online transactions and the like are a good candidates for the Premium access tier. This tier is tailored for workloads that perform many small transactions, such as capturing telemetry data, messaging, and data transformation.
+This tier is ideal for workloads that require fast and consistent response times. Data that involves end-users such as interactive video editing, static web content, online transactions and the like are good candidates for the Premium access tier. This tier is tailored for workloads that perform many small transactions, such as capturing telemetry data, messaging, and data transformation.
 
 To use this tier, provision a new Block Blob storage account and start creating containers and blobs using the [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
@@ -59,7 +59,7 @@ During preview, the Premium access tier:
 
 - Is available as locally redundant storage (LRS)
 - Is only available in the following regions: US East 2, US Central, and US West
-- Does not support automatic tiering and data lifecycle management
+- Does not support object level tiering or automated tiering with data lifecycle management
 
 To learn how to register for the Premium access tier preview, see [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob).
 
@@ -82,7 +82,8 @@ Cool storage tier has lower storage costs and higher access costs compared to Ho
 
 Archive storage has the lowest storage cost and higher data retrieval costs compared to Hot and Cool storage. This tier is intended for data that can tolerate several hours of retrieval latency and will remain in the Archive tier for at least 180 days.
 
-While a blob is in Archive storage, it is offline and cannot be read (except the metadata, which is online and available), copied, overwritten, or modified. Nor can you take snapshots of a blob in Archive storage. However, you may use existing operations to delete, list, get blob properties/metadata, or change the tier of your blob.
+While a blob is in Archive storage, the blob data is offline and cannot be read, copied, overwritten, or modified. Nor can you take snapshots of a blob in Archive storage. However, the blob metadata remains online and available, allowing you to list the blob and its properties. For blobs in Archive, the only valid operations are GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, and DeleteBlob. 
+
 
 Example usage scenarios for the Archive storage tier include:
 
@@ -106,20 +107,30 @@ Blobs in all three storage tiers can co-exist within the same account. Any blob 
 > [!NOTE]
 > Archive storage and blob-level tiering only support block blobs. You also cannot change the tier of a block blob that has snapshots.
 
-Data stored in the Premium access tier cannot be tiered to Hot, Cool or Archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. To move data, you must synchronously copy blobs from Premium access to Hot using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. The *Put Block From URL* API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
+> [!NOTE]
+> Data stored in the Premium access tier cannot currently be tiered to Hot, Cool, or Archive using [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or using Azure Blob Storage lifecycle management. 
+> To move data, you must synchronously copy blobs from Premium access to Hot using the [Put Block From URL API](/rest/api/storageservices/put-block-from-url) or a version of AzCopy that supports this API. 
+> The *Put Block From URL* API synchronously copies data on the server, meaning the call completes only once all the data is moved from the original server location to the destination location.
 
 ### Blob lifecycle management
 Blob Storage lifecycle management (Preview) offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle. See [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md) to learn more.  
 
 ### Blob-level tiering billing
 
-When a blob is moved to a cooler tier (Hot->Cool, Hot->Archive, or Cool->Archive), the operation is billed as a write operation to the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. If a blob is moved to a warmer tier (Archive->Cool, Archive->Hot, or Cool->Hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply.
+When a blob is moved to a cooler tier (Hot->Cool, Hot->Archive, or Cool->Archive), the operation is billed as a write operation to the destination tier, where the write operation (per 10,000) and data write (per GB) charges of the destination tier apply. 
+When a blob is moved to a warmer tier (Archive->Cool, Archive->Hot, or Cool->Hot), the operation is billed as a read from the source tier, where the read operation (per 10,000) and data retrieval (per GB) charges of the source tier apply. The following table summarizes how tier changes are billed.
+
+| | **Write Charges (Operation + Access)** | **Read Charges (Operation + Access)** 
+| ---- | ----- | ----- |
+| **SetBlobTier Direction** | Hot->Cool, Hot->Archive, Cool->Archive | Archive->Cool, Archive->Hot, Cool->Hot
 
 If you toggle the account tier from Hot to Cool, you will be charged for write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only. There is no charge for this change in Blob storage accounts. You will be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle your Blob storage or GPv2 account from Cool to Hot. Early deletion charges for any blob moved out of the Cool or Archive tier may apply as well.
 
 ### Cool and Archive early deletion
 
 In addition to the per GB, per month charge, any blob that is moved into the cool tier (GPv2 accounts only) is subject to a Cool early deletion period of 30 days, and any blob that is moved into the Archive tier is subject to an Archive early deletion period of 180 days. This charge is prorated. For example, if a blob is moved to Archive and then deleted or moved to the Hot tier after 45 days, you will be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in archive.
+
+You may calculate the early deletion by using the blob property, **creation-time**, if there has been no access tier changes. Otherwise you can use when the access tier was last modified to Cool or Archive by viewing the blob property: **access-tier-change-time**. For more information on blob properties, see [Get Blob Properties](https://docs.microsoft.com/rest/api/storageservices/get-blob-properties).
 
 ## Comparison of the storage tiers
 
@@ -129,14 +140,14 @@ The following table shows a comparison of the Hot, Cool, and Archive storage tie
 | ---- | ----- | ----- | ----- |
 | **Availability** | 99.9% | 99% | N/A |
 | **Availability** <br> **(RA-GRS reads)**| 99.99% | 99.9% | N/A |
-| **Usage charges** | Higher storage costs, lower access and transaction costs | Lower storage costs, higher access and transaction costs | Lowest storage costs, highest access and transaction costs |
+| **Usage charges** | Higher storage costs, lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
 | **Minimum object size** | N/A | N/A | N/A |
 | **Minimum storage duration** | N/A | 30 days (GPv2 only) | 180 days
 | **Latency** <br> **(Time to first byte)** | milliseconds | milliseconds | < 15 hrs
 | **Scalability and performance targets** | Same as general-purpose storage accounts | Same as general-purpose storage accounts | Same as general-purpose storage accounts |
 
 > [!NOTE]
-> Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for more information.
+> Blob storage accounts support the same performance and scalability targets as general-purpose storage accounts. For more information, see [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 
 ## Quickstart scenarios
 
@@ -225,7 +236,7 @@ Each blob is always billed according to the tier indicated by the blob's **Acces
 
 **How do I determine if I will incur an early deletion charge when deleting or moving a blob out of the Cool or Archive tier?**
 
-Any blob that is deleted or moved out of the Cool (GPv2 accounts only) or Archive tier before 30 days and 180 days respectively will incur a prorated early deletion charge. You can determine how long a blob has been in the Cool or Archive tier by checking the **Access Tier Change Time** blob property, which provides a stamp of the last tier change. See [Cool and Archive early deletion](#cool-and-archive-early-deletion) section for more details.
+Any blob that is deleted or moved out of the Cool (GPv2 accounts only) or Archive tier before 30 days and 180 days respectively will incur a prorated early deletion charge. You can determine how long a blob has been in the Cool or Archive tier by checking the **Access Tier Change Time** blob property, which provides a stamp of the last tier change. For more information, see [Cool and Archive early deletion](#cool-and-archive-early-deletion).
 
 **Which Azure tools and SDKs support blob-level tiering and Archive storage?**
 

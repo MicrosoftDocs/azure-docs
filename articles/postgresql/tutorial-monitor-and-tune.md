@@ -1,7 +1,6 @@
 ---
 title: Tutorial on Monitoring and Tuning in Azure Database for PostgreSQL
 description: This tutorial walks through monitoring and tuning in Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql

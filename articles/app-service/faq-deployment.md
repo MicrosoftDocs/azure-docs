@@ -32,7 +32,7 @@ Here are some options for publishing your web app code:
 *   Deploy by using Visual Studio. If you have the Visual Studio solution, right-click the web application project, and then select **Publish**.
 *   Deploy by using an FTP client. In the Azure portal, download the publish profile for the web app that you want to deploy your code to. Then, upload the files to \site\wwwroot by using the same publish profile FTP credentials.
 
-For more information, see [Deploy your app to App Service](app-service-deploy-local-git.md).
+For more information, see [Deploy your app to App Service](deploy-local-git.md).
 
 ## I see an error message when I try to deploy from Visual Studio. How do I resolve this?
 
@@ -47,7 +47,7 @@ The tutorial [Create your first ASP.NET web app in Azure in five minutes](app-se
 
 ## What are the different types of deployment credentials?
 
-App Service supports two types of credentials for local Git deployment and FTP/S deployment. For more information about how to configure deployment credentials, see [Configure deployment credentials for App Service](app-service-deployment-credentials.md).
+App Service supports two types of credentials for local Git deployment and FTP/S deployment. For more information about how to configure deployment credentials, see [Configure deployment credentials for App Service](deploy-configure-credentials.md).
 
 ## What is the file or directory structure of my App Service web app?
 
@@ -59,7 +59,7 @@ If you see this message, it's likely that you are running into a disk quota in t
 
 ## How do I set up continuous deployment for my App Service web app?
 
-You can set up continuous deployment from several resources, including Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories. These options are available in the portal. [Continuous deployment to App Service](app-service-continuous-deployment.md) is a helpful tutorial that explains how to set up continuous deployment.
+You can set up continuous deployment from several resources, including Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox, and other Git repositories. These options are available in the portal. [Continuous deployment to App Service](deploy-continuous-deployment.md) is a helpful tutorial that explains how to set up continuous deployment.
 
 ## How do I troubleshoot issues with continuous deployment from GitHub and Bitbucket?
 
@@ -96,4 +96,4 @@ Continuous code deployment for both these options depends on existing developer 
 
 ## How do I use FTP or FTPS to deploy my app to App Service?
 
-For information about using FTP or FTPS to deploy your web app to App Service, see [Deploy your app to App Service by using FTP/S](app-service-deploy-ftp.md).
+For information about using FTP or FTPS to deploy your web app to App Service, see [Deploy your app to App Service by using FTP/S](deploy-ftp.md).

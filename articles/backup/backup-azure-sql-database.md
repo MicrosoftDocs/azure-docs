@@ -2,20 +2,13 @@
 title: Back up SQL Server databases to Azure | Microsoft Docs
 description: This tutorial explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords:
-
-ms.assetid:
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/02/2018
-ms.author: anuragm
-ms.custom:
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: raynew
+
 
 ---
 # Back up SQL Server databases to Azure
@@ -40,9 +33,9 @@ The following items are known limitations for the Public Preview:
 - The SQL virtual machine (VM) requires internet connectivity to access Azure public IP addresses. For details, see [Establish network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
 - Protect up to 2,000 SQL databases in one Recovery Services vault. Additional SQL databases should be stored in a separate Recovery Services vault.
 - [Backups of distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) have limitations.
-- SQL Server Always On Failover Cluster Instances (FCIs) aren't supported.
+- SQL Server Always On Failover Cluster Instances (FCIs) aren't supported for backup.
 - Use the Azure portal to configure Azure Backup to protect SQL Server databases. Azure PowerShell, the Azure CLI, and the REST APIs aren't currently supported.
-- Backup/restore operations for mirror databases, database snapshots and databases under FCI are not supported.
+- Backup/restore operations for FCI mirror databases, database snapshots and databases aren't supported.
 - Database with large number of files cannot be protected. The maximum number of files supported is not a very deterministic number, because it not only depends on the number of files but also depends on the path length of the files. Such cases are less prevalent though. We are building a solution to handle this.
 
 Please refer to [FAQ section](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) for more details on support/not supported scenarios.
@@ -132,7 +125,7 @@ The tradeoffs between the options are manageability, granular control, and cost.
 
 ## Set permissions for non-Marketplace SQL VMs
 
-To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension to be installed. If you use Azure Marketplace virtual machines, continue to [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine that hosts your SQL databases isn't created from the Azure Marketplace, complete the following procedure to install the extension and set the appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. TTo discover databases on the virtual machine, Azure Backup creates the account **NT Service\AzureWLBackupPluginSvc**. This account is used for backup and restore and needs to have SQL sysadmin permission. Moreover, Azure Backup will leverage **NT AUTHORITY\SYSTEM** account for DB discovery/Inquiry, so this account need to be a public login on SQL.
+To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension to be installed. If you use Azure Marketplace virtual machines, continue to [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine that hosts your SQL databases isn't created from the Azure Marketplace, complete the following procedure to install the extension and set the appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. TTo discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore and needs to have SQL sysadmin permission. Moreover, Azure Backup will leverage **NT AUTHORITY\SYSTEM** account for DB discovery/Inquiry, so this account need to be a public login on SQL.
 
 To configure permissions:
 
@@ -178,7 +171,7 @@ During the installation process, if you receive the error `UserErrorSQLNoSysadmi
 
     ![In the Login - New dialog box, select Search](./media/backup-azure-sql-database/new-login-search.png)
 
-3. The Windows virtual service account **NT Service\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in the **Enter the object name to select** box. Select **Check Names** to resolve the name.
+3. The Windows virtual service account **NT SERVICE\AzureWLBackupPluginSvc** was created during the virtual machine registration and SQL discovery phase. Enter the account name as shown in the **Enter the object name to select** box. Select **Check Names** to resolve the name.
 
     ![Select Check Names to resolve the unknown service name](./media/backup-azure-sql-database/check-name.png)
 
@@ -294,7 +287,7 @@ To configure protection for a SQL database:
 
     ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. Similarly, select the chevron to the left of the Always On availability group to view the list of databases. The following image is an example of a standalone instance and an Always On availability group.
+    The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On Availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. Similarly, select the chevron to the left of the Always On Availability group to view the list of databases. The following image is an example of a standalone instance and an Always On Availability group.
 
       ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -308,7 +301,7 @@ To configure protection for a SQL database:
     > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
     >
 
-      Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
+      Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
       ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -343,9 +336,7 @@ To configure protection for a SQL database:
 
 ## Auto-protect SQL Server in Azure VM  
 
-Auto-protection is a capability that lets you automatically protect all the existing databases as well as the future databases that you would add in a standalone SQL Server instance or a SQL Server Always On availability group.
-
-In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy so defined will only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
+Auto-protection allows you to automatically protect all existing databases and databases that you would add in future to a standalone SQL Server instance or a SQL Server Always On Availability group. Turning **ON** auto-protection and choosing a backup policy will apply for newly protected databases, the existing protected databases will continue to use previous policy.
 
 ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -475,7 +466,7 @@ You can also select a specific full or differential backup to restore to a speci
     - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. The effect of this option is to overwrite the original database.
 
     > [!Important]
-    > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. In this case, only the **Alternate Location** option is enabled.
+    > If the selected database belongs to an Always On Availability group, SQL Server doesn't allow the database to be overwritten. In this case, only the **Alternate Location** option is enabled.
     >
 
     ![Restore Configuration menu](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)

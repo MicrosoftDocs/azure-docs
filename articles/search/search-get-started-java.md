@@ -28,7 +28,7 @@ We used the following software to build and test this sample:
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## About the data
-This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
+This sample application uses data from the [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
 In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Predefined credentials and connection  information to the online data source are provided in the program code. In terms of data access, no further configuration is necessary.
 
@@ -81,7 +81,7 @@ All subsequent file modifications and run statements will be made against files 
 ## Configure the service URL and api-key
 1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and api-key.
 2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure Portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
-3. In **config.properties**, replace "Api Key" with the api-key for your service. Next, service name (the first component of the URL http://servicename.search.windows.net) replaces "service name" in the same file.
+3. In **config.properties**, replace "Api Key" with the api-key for your service. Next, service name (the first component of the URL https://servicename.search.windows.net) replaces "service name" in the same file.
    
     ![][5]
 

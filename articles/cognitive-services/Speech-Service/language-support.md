@@ -171,22 +171,7 @@ Voice customization is available for US English (en-US), mainland Chinese (zh-CN
 
 ## Speech translation
 
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the following Speech language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of these languages are available for [speech synthesis](language-support.md#text-languages).
-
-### Speech languages
-
-| Speech language   | Language code |
-|:----------- |-|
-| Arabic (Modern Standard)      | `ar` |
-| Chinese (Mandarin)      | `zh` |
-| English      | `en` |
-| French      | `fr` |
-| German      | `de` |
-| Italian      | `it` |
-| Japanese      | `jp` |
-| Portuguese (Brazilian)     | `pt` |
-| Russian      | `ru` |
-| Spanish      |  `es` |
+The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-Text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of these languages are available for [speech synthesis](language-support.md#text-languages).
 
 ### Text languages
 

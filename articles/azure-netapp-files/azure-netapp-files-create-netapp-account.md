@@ -20,13 +20,13 @@ ms.author: b-juche
 Creating a NetApp account enables you to set up a capacity pool and subsequently create a volume. You use the Azure NetApp Files blade to create a new NetApp account.
 
 ## Before you begin
-You must have been whitelisted for accessing the Microsoft.NetApp Azure Resource Provider and configured for using the Azure NetApp Files service.  
+You must have registered your subscription for using the NetApp Resource Provider and the public preview feature.
 
-[Azure NetApp Files Public Preview signup page](https://aka.ms/nfspublicpreview). 
+[Register for Azure NetApp Files](azure-netapp-files-register.md)
 
 ## Steps 
 
-1. Locate the preview Azure portal URL from your preview invitation, and log in to the portal. 
+1. Locate the preview Azure portal URL from your preview invitation, and sign in to the portal. 
 2.	Access the Azure NetApp Files blade by using one of the following methods:  
   * Search for **Azure NetApp Files** in the Azure portal search box.  
   * Click **All services** in the navigation, and then filter to Azure NetApp Files.  
@@ -55,6 +55,5 @@ You must have been whitelisted for accessing the Microsoft.NetApp Azure Resource
 
 ## Next steps  
 
-1. [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
-2. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-3. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
+[Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+

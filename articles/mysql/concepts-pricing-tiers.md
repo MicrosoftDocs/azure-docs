@@ -1,14 +1,11 @@
 ---
 title: Pricing tiers for Azure Database for MySQL
 description: This article describes the pricing tiers for Azure Database for MySQL.
-services: mysql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-ms.date: 12/11/2018
+ms.topic: conceptual
+ms.date: 01/15/2019
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -50,14 +47,14 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | South Central US | X | X |
 | West US | X | X |
 | West US 2 |  | X |
+| Brazil South | X | X |
 | Canada Central | X | X |
 | Canada East | X | X |
-| Brazil South | X | X |
 | North Europe | X | X |
 | West Europe |  | X |
 | France Central |  | X |
-| UK West |  | X |
 | UK South |  | X |
+| UK West |  | X |
 | East Asia | X | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
@@ -65,17 +62,22 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Australia Central 2 |  | X |
 | Australia Southeast |  | X |
 | Central India | X | X |
-| West India | X | X |
 | South India |  | X |
+| West India | X | X |
 | Japan East | X | X |
 | Japan West | X | X |
 | Korea Central |  | X |
 | Korea South |  | X |
+| China East 1 | X |  |
+| China East 2 |  | X |
+| China North 1 | X |  |
+| China North 2 |  | X |
 | Germany Central |  | X |
 | US DoD Central  | X |  |
 | US DoD East  | X |  |
 | US Gov Arizona |  | X |
 | US Gov Texas |  | X |
+| US Gov Virginia |  | X |
 
 ## Storage
 
