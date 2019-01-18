@@ -2,6 +2,7 @@
 title: Create or update client IDs and secrets in the Seller Dashboard
 description: To enable OAuth in your SharePoint Add-ins, create or delete client IDs and secrets, update or replace expiring client secrets, and associate them with your add-ins in the Seller Dashboard.
 ms.date: 1/11/2018
+localization_priority: Priority
 ---
 
 # Create or update client IDs and secrets in the Seller Dashboard

@@ -2,6 +2,7 @@
 title: Update or unpublish your add-in in Seller Dashboard
 description: Update, unpublish, or delete your solution from the Seller Dashboard.
 ms.date: 1/11/2018
+localization_priority: Normal
 ---
 
 # Update or unpublish your add-in in Seller Dashboard

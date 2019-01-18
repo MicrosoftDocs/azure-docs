@@ -2,6 +2,7 @@
 title: Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China
 description: Submit an additional copy of your add-in if you wish to distribute your add-in to Chinese users of Office 365 operated by 21Vianet.
 ms.date: 1/11/2018
+localization_priority: Normal
 ---
 
 # Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China
