@@ -34,7 +34,7 @@ The following diagram and table show how FPGAs compare to other processors.
 
 ## Project Brainwave on Azure
 
-[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) is a hardware architecture from Microsoft. It's based on Intel's FPGA devices, which data scientists and developers use to accelerate real-time AI calculations. This FPGA-enabled architecture offers performance, flexibility, and scale, and is available on Azure.
+[Project Brainwave](https://www.microsoft.com/en-us/research/project/project-brainwave/) is a hardware architecture from Microsoft. It's based on Intel's FPGA devices, which data scientists and developers use to accelerate real-time AI calculations. This FPGA-enabled architecture offers performance, flexibility, and scale, and is available on Azure.
 
 FPGAs make it possible to achieve low latency for real-time inferencing requests. Asynchronous requests (batching) aren't needed. Batching can cause latency, because more data needs to be processed. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower, compared to CPU and GPU processors.
 

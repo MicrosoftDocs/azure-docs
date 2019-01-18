@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/23/2018
+ms.date: 01/15/2019
 ms.author: jingwang
 
 ---
@@ -27,7 +27,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 You can copy data from MySQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this MySQL connector supports MySQL **version 5.1 and above**.
+Specifically, this MySQL connector supports MySQL **version 5.6 and 5.7**.
 
 ## Prerequisites
 
@@ -67,8 +67,8 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
         "type": "MySql",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -224,7 +224,6 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 | `tinytext` |`String` |
 | `varchar` |`String` |
 | `year` |`Int` |
-
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

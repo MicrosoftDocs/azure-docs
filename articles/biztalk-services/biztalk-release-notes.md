@@ -83,7 +83,7 @@ Tracking events are captured up to the EDI message processing and any correlatio
 The X12 Receive and Send settings ([Create an X12 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) provide information on the Protocol stage.  
 
 ### Update Agreement
-The BizTalk Services Portal allows you to modify the Qualifier of an Identity when an agreement is configured. This can result in inconsistence properties. For example, there is an agreement using ZZ:1234567 and ZZ:7654321 the Qualifier. In the BizTalk Services Portal profile settings, you change ZZ:1234567 to be 01:ChangedValue. You open the agreement and 01:ChangedValue is displayed instead of ZZ:1234567.
+The BizTalk Services Portal allows you to modify the Qualifier of an Identity when an agreement is configured. This can result in inconsistent properties. For example, there is an agreement using ZZ:1234567 and ZZ:7654321 the Qualifier. In the BizTalk Services Portal profile settings, you change ZZ:1234567 to be 01:ChangedValue. You open the agreement and 01:ChangedValue is displayed instead of ZZ:1234567.
 To modify the Qualifier of an identity, delete the agreement, update **Identities** in the partner profile and then recreate the agreement.  
 
 > AZURE.WARNING This behavior impacts X12 and AS2.  

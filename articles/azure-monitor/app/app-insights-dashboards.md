@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Navigation and Dashboards in the Application Insights portal
-After you have [set up Application Insights on your project](../../application-insights/app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
+After you have [set up Application Insights on your project](../../azure-monitor/app/app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
 
 ## Find your telemetry
 Sign in to the [Azure portal](https://portal.azure.com) and navigate to the Application Insights resource that you created for your app.
@@ -30,7 +30,7 @@ The overview blade (page) for your app shows a summary of the key diagnostic met
 You can customize any of the charts and grids and pin them to a dashboard. That way, you can bring together the key telemetry from different apps on a central dashboard.
 
 ## Dashboards
-The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](../../application-insights/app-insights-overview.md).
+The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
@@ -109,10 +109,10 @@ The overview blade is the gateway to more information about your app.
 * [**Search**](../../azure-monitor/app/diagnostic-search.md) - Investigate specific instances of events such as requests, exceptions, or log traces.
 * [**Analytics**](../../azure-monitor/app/analytics.md) - Powerful queries over your telemetry.
 * **Time range** - Adjust the range displayed by all the charts on the blade.
-* **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
+* **Delete** - Delete the Application Insights resource for this app. You should also either remove the Application Insights packages from your app code, or edit the [instrumentation key](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) in your app to direct telemetry to a different Application Insights resource.
 
 ### Essentials tab
-* [Instrumentation key](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) - Identifies this app resource.
+* [Instrumentation key](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) - Identifies this app resource.
 
 ### App navigation bar
 ![Left navigation bar](./media/app-insights-dashboards/app-left-nav-bar.png)
