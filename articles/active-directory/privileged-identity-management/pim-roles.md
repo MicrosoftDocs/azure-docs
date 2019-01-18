@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 01/17/2019
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ---
@@ -33,6 +33,9 @@ For more information about the classic subscription administrator roles, see [Cl
 ## What about Office 365 admin roles?
 
 Roles within Exchange Online or SharePoint Online, except for Exchange Administrator and SharePoint Administrator, are not represented in Azure AD and so cannot be managed in PIM. For more information about these Office 365 services, see [Office 365 admin roles](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
+
+> [!NOTE]
+> SharePoint Administrator has administrative access to SharePoint Online through the SharePoint Online admin center, and can perform almost any task in SharePoint Online. Eligible users may experience delays using this role within SharePoint after activating in PIM.
 
 ## Next steps
 
