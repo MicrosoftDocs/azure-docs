@@ -24,7 +24,7 @@ Monitoring solutions typically collect log data and provide queries and views to
 
 You can add monitoring solutions to Azure Monitor for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can [create management solutions](solutions-creating.md) to be used in their own environment or made available to customers through the community.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Use monitoring solutions
 Open the **Overview** page in Azure Monitor to display a tile for each solution installed in the workspace. 
