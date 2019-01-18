@@ -115,11 +115,13 @@ First, enable Azure AD single sign-on in the Azure portal:
 
 ### Configure Palo Alto Networks Captive Portal single sign-on
 
-1. In a different browser window, sign in to the Palo Alto website as an administrator.
+Next, set up single-sign on in Palo Alto Networks Captive Portal:
+
+1. In a different browser window, sign in to the Palo Alto Networks website as an administrator.
 
 2. Select the **Device** tab.
 
-	![The Palo Alto website Device tab](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
+	![The Palo Alto Networks website Device tab](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
 
 3. In the menu, select **SAML Identity Provider**, and then select **Import**.
 
@@ -127,9 +129,9 @@ First, enable Azure AD single sign-on in the Azure portal:
 
 4. In the **SAML Identity Provider Server Profile Import** dialog box, complete the following steps:
 
-	![Configure Palo Alto Single Sign-on](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
+	![Configure Palo Alto Networks single sign-on](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-	1. For **Profile Name**, enter a name, such as **AzureAD-CaptivePortal**.
+	1. For **Profile Name**, enter a name, like **AzureAD-CaptivePortal**.
 	
 	2. Next to **Identity Provider Metadata**, select **Browse**. Select the metadata.xml file that you downloaded in the Azure portal.
 	
@@ -179,9 +181,9 @@ Next, grant access to Palo Alto Networks Captive Portal so Britta Simon can use 
 
     ![The Add assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** pane, in the **Users** list, select **Britta Simon**. Select the **Select** button.
+5. In the **Users and groups** pane, in the **Users** list, select **Britta Simon**. Select **Select**.
 
-6. To add a role value to the SAML assertion, in the **Select role** pane, select the relevant role for the user. Select the **Select** button.
+6. To add a role value to the SAML assertion, in the **Select role** pane, select the relevant role for the user. Select **Select**.
 
 7. In the **Add assignment** pane, select **Assign**.
 
