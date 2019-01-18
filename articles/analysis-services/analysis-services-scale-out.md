@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -102,7 +102,7 @@ For SSMS, SSDT, and connection strings in PowerShell, Azure Function apps, and A
 
 **Issue:** Users get error **Cannot find server '\<Name of the server>' instance in connection mode 'ReadOnly'.**
 
-**Solution:** When selecting the **Separate the processing server from the querying pool** option, client connections using the default connection string (without :rw) are redirected to query pool replicas. If replicas in the query pool are not yet online because synchronization has not yet been completed, redirected client connections can fail. To prevent failed connections, choose not to separate the processing server from the querying pool until a scale-out and synchronization operation are complete. You can use the Memory and QPU metrics to monitor synchronization status.
+**Solution:** When selecting the **Separate the processing server from the querying pool** option, client connections using the default connection string (without :rw) are redirected to query pool replicas. If replicas in the query pool are not yet online because synchronization has not yet been completed, redirected client connections can fail. To prevent failed connections, there must be at least two servers in the query pool when performing a synchronization. Each server is synchronized individually while others remain online. If you choose to not have the processing server in the query pool during processing, you can choose to remove it from the pool for processing, and then add it back into the pool after processing is complete, but prior to synchronization. Use Memory and QPU metrics to monitor synchronization status.
 
 ## Related information
 
