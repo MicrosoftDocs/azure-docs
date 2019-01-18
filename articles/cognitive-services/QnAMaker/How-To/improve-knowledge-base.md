@@ -22,8 +22,8 @@ Your knowledge base doesn't change automatically. You must accept the suggestion
 
 QnA Maker learns new question variations with implicit and explicit feedback.
  
-* Auto learning – The ranker understands when a user question has multiple answers with scores that are very close and considers that as **implicit** feedback. 
-* Train API – When multiple answers with little variation in scores are returned from the knowledge base, the client application can ask the user which question is the correct question. When the user selects the correct question, the user's **explicit** feedback is sent to QnA Maker with the Train API. 
+* Implicit feedback – The ranker understands when a user question has multiple answers with scores that are very close and considers this as feedback. 
+* Explicit feedback – When multiple answers with little variation in scores are returned from the knowledge base, the client application asks the user which question is the correct question. The user's explicit feedback is sent to QnA Maker with the Train API." in the content. 
 
 Either method provides the ranker with similar queries that are clustered.
 
@@ -31,7 +31,7 @@ When similar queries are clustered, QnA Maker suggests the user-based questions 
 
 ## How active learning works
 
-Active learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. <!--The exact score difference logic is a function of the score root of the confidence score of the top answer.-->
+Active learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. 
 
 All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
 
@@ -78,7 +78,7 @@ Active learning is off by default. Turned it on to see suggested questions.
 
 1. Select **Save and Train** to save the changes to the knowledge base.
 
-<!--
+
 ## Determine best choice when several questions have similar scores
 
 When a question is too close in score to other questions, the client-application developer can choose to ask for clarification.
@@ -134,11 +134,11 @@ When the client application (such as a chat bot) receives the response, the top 
 }
 ```
 
-### Client application followup when questions have similar scores
+### Client application follow-up when questions have similar scores
 
-The client application developer chooses how far apart the question scores need to be to present a follow-up question. The follow-up question presents all the questions with an option for the user to select the question that most represents their intention. 
+The client application displays all the questions with an option for the user to select the question that most represents their intention. 
 
-The user selects one of the existing questions. The selected question should be sent to the Train API to continue the active learning feedback loop. 
+Once user selects one of the existing questions. The user feedback is sent to QnA Maker's [Train](http://www.aka.ms/activelearningsamplebot) API to continue the active learning feedback loop. 
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -146,7 +146,7 @@ Authorization: EndpointKey <endpoint-key>
 Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
--->
+
 ## Next Steps
  
 > [!div class="nextstepaction"]
