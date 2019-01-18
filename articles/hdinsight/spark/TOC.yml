@@ -99,7 +99,7 @@
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../../cosmos-db/lambda-architecture.md
         - name: Run Azure ML workloads with AutoML
-          href: apache-spark-run-azureml-automl.md
+          href: apache-spark-run-machine-learning-automl.md
           maintainContext: true
     - name: Spark streaming
       items:
