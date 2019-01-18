@@ -15,7 +15,7 @@ ms.date: 1/17/2019
 
 The following steps show you how to set up the pyspark interactive environment on macOS and Linux. For Windows environment, only step 1 and 2 are needed.
 
-1. Make sure **Python** and **pip** are installed.
+1. Make sure [Python](https://www.python.org/) and [pip](https://pip.pypa.io/en/stable/installing/) are installed.
  
     ![Python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
