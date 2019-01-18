@@ -226,8 +226,7 @@ For the Go-Live phase, you need to make sure to follow your playbooks you develo
 
 1. Verify that Azure portal monitoring and other monitoring tools are working.  Recommended tools are Perfmon (Windows) or SAR (Linux): 
 	1.	CPU Counters 
-		1.	Average CPU t
-		2.	ime – Total (all CPU)
+		1.	Average CPU time – Total (all CPU)
 		2.	Average CPU time – each individual processor (so 128 processors on m128 VM)
 		3.	CPU time kernel – each individual processor
 		4.	CPU time user – each individual processor
