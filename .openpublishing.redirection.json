@@ -8793,6 +8793,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-stack/azure-stack-connect-vpn.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-connect-vpn",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-vpn-gateway-settings.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-vpn-gateway-settings",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/azure-stack-create-vpn-connection-one-node-tp2.md",
       "redirect_url": "/azure/azure-stack/azure-stack-create-vpn-connection-one-node",
       "redirect_document_id": false
