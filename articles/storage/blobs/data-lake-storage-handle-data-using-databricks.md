@@ -33,35 +33,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete this tutorial:
 
-* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. Follow the instructions in the [Quickstart: Create an Azure SQL data warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md) article.
-* Create a database master key for the Azure SQL data warehouse. Follow the instructions in the [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) article.
-* [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
-* Download (**small_radio_json.json**) from the [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) repo and make note of the path where you save the file.
-* Sign in to the [Azure portal](https://portal.azure.com/).
-
-## Set aside storage account configuration
-
-You'll need the name of your storage account, and a file system endpoint URI.
-
-To get the name of your storage account in the Azure portal, choose **All Services** and filter on the term *storage*. Then, select **Storage accounts** and locate your storage account.
-
-To get the file system endpoint URI, choose **Properties**, and in the properties pane find the value of the **Primary ADLS FILE SYSTEM ENDPOINT** field.
-
-Paste both of these values into a text file. You'll need them soon.
-
-<a id="service-principal"/>
-
-## Create a service principal
-
-Create a service principal by following the guidance in this topic: [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-There's a few specific things that you'll have to do as you perform the steps in that article.
-
-:heavy_check_mark: When performing the steps in the [Create an Azure Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) section of the article,  make sure to set the **Sign-on URL** field of the **Create** dialog box to the endpoint URI that you just collected.
-
-:heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign your application to the **Blob Storage Contributor Role**.
-
-:heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
+> [!div class="checklist"]
+> * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md)
+> * Create a database master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+> * Create an Azure Data Lake Storage Gen2 account. See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+> * Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create the workspace
 
@@ -113,11 +89,40 @@ To perform the operations in this tutorial, you need a Spark cluster. Use the fo
 
 After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-## Create a file system
+## Create a file system and upload sample data
 
-To store data in your Data Lake Storage Gen2 storage account, you need to create a file system.
+ First, you create a file system in your Data Lake Storage Gen2 account. Then, you can upload a sample data file to Data Lake Store. You use this file later in Azure Databricks to run some transformations.
 
+1. Download the [small_radio_json.json](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) sample data file to your local file system.
+
+2. From the [Azure portal](https://portal.azure.com/), navigate to the Data Lake Storage Gen2 account that you created as a prerequisite to this tutorial.
+
+3. From the **Overview** page of the storage account, choose the **Open in Explorer** button.
+
+   ![Open Storage Explorer](./media/data-lake-storage-handle-data-using-databricks/data-lake-storage-open-storage-explorer.png "Open Storage Explorer")
+
+4. Choose the **Open Azure Storage Explorer** button to open Azure Storage Explorer.
+
+   ![Open Storage Explorer second prompt](./media/data-lake-storage-handle-data-using-databricks/data-lake-storage-open-storage-explorer-2.png "Open Storage Explorer second prompt")
+
+   Storage Explorer opens. You can create a file system and upload the sample data by using the guidance in this topic: [Quickstart: Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](data-lake-storage-explorer.md).
+
+<a id="service-principal"/>
+
+## Create a service principal
+
+Create a service principal by following the guidance in this topic: [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+There's a few specific things that you'll have to do as you perform the steps in that article.
+
+:heavy_check_mark: When performing the steps in the [Create an Azure Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) section of the article,  make sure to set the **Sign-on URL** field of the **Create** dialog box to the endpoint URI that you just collected.
+
+:heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign your application to the **Blob Storage Contributor Role**.
+
+:heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
 First, you create a notebook in your Azure Databricks workspace and then run code snippets to create the file system in your storage account.
+
+## Extract the data
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace that you created, and select **Launch Workspace**.
 
@@ -129,72 +134,38 @@ First, you create a notebook in your Azure Databricks workspace and then run cod
 
     ![Provide details for a notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "Provide details for a notebook in Databricks")
 
-    Select **Create**.
+4. Choose the **Create** button.
 
-4. Copy and paste the following code block into the first cell, but don't run this code yet.
+5. Copy and paste the following code block into the first cell, but don't run this code yet.
 
-    ```scala
-    val configs = Map(
-    "fs.azure.account.auth.type" -> "OAuth",
-    "fs.azure.account.oauth.provider.type" -> "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-    "fs.azure.account.oauth2.client.id" -> "<application-id>",
-    "fs.azure.account.oauth2.client.secret" -> "<authentication-key>"),
-    "fs.azure.account.oauth2.client.endpoint" -> "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
-    "fs.azure.createRemoteFileSystemDuringInitialization"->"true")
+   ```scala
+   spark.conf.set("dfs.adls.oauth2.access.token.provider.type", "ClientCredential")
+   spark.conf.set("dfs.adls.oauth2.client.id", "<application-id>")
+   spark.conf.set("dfs.adls.oauth2.credential", "<authentication-key>")
+   spark.conf.set("dfs.adls.oauth2.refresh.url", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   ```
 
-    dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<directory-name>",
-    mountPoint = "/mnt/<mount-name>",
-    extraConfigs = configs)
-    ```
-
-5. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Set aside storage account configuration](#config) and [Create a service principal](#service-principal) sections of this article. Set the `file-system-name`, `directory-name`, and `mount-name` placeholder values to whatever names you want to give the file system, directory, and mount point.
+   Replace  `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Create a service principal](#service-principal) section of this article.
 
 6. Press the **SHIFT + ENTER** keys to run the code in this block.
 
-## Upload the sample data
+7. You can now load the sample json file as a data frame in Azure Databricks. Paste the following code in a new cell. Replace the placeholders shown in brackets with your values.
 
-The next step is to upload a sample data file to the storage account to transform later in Azure Databricks.
+   ```scala
+   val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/data/small_radio_json.json")
+   ```
 
-Upload the sample data that you downloaded into your storage account. The method that you use to upload the data into your storage account differs depending on whether you have the hierarchical namespace enabled.
+   * Replace the  `file-system-name` placeholder value with the name that you gave your file system in Storage Explorer.
 
-You can use Azure Data Factory, distp, or AzCopy (version 10) to do the upload. AzCopy version 10 is currently only available via preview. To use AzCopy, paste in the following code into a command window:
+   * Replace the `storage-account-name` placeholder with the name of your storage account.
 
-```bash
-set ACCOUNT_NAME=<ACCOUNT_NAME>
-set ACCOUNT_KEY=<ACCOUNT_KEY>
-azcopy cp "<DOWNLOAD_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/data --recursive 
-```
+8. Press the **SHIFT + ENTER** keys to run the code in this block.
 
-## Extract the data
+9. Run the following code to see the contents of the data frame:
 
-To work with the sample data in Databricks, you need to extract the data from your storage account.
-
-Return to your Databricks notebook and enter the following code in a new cell in your notebook.
-
-Add the following snippet in an empty code cell. Replace the placeholders shown in brackets with the values that you saved earlier from the storage account.
-
-```scala
-dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
-dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
-```
-
-Select the Shift+Enter keys to run the code.
-
-You can now load the sample json file as a dataframe in Azure Databricks. Paste the following code in a new cell. Replace the placeholders shown in brackets with your values.
-
-```scala
-val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
-```
-
-Select the Shift+Enter keys to run the code.
-
-Run the following code to see the contents of the data frame:
-
-```scala
-df.show()
-```
-
+    ```scala
+    df.show()
+    ```
 You see an output similar to the following snippet:
 
 ```bash
@@ -302,7 +273,7 @@ val accessKey =  "<ACCESS_KEY>"
 Specify a temporary folder to use while moving data between Azure Databricks and Azure SQL Data Warehouse.
 
 ```scala
-val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
+val tempDir = "abfss://" + fileSystemName + "@" + storageURI +"/tempDirs"
 ```
 
 Run the following snippet to store Azure Blob storage access keys in the configuration. This action ensures that you don't have to keep the access key in the notebook in plain text.
