@@ -18,7 +18,7 @@ ms.author: magoedte
 
 ![AD Health Check symbol](./media/ad-assessment/ad-assessment-symbol.png)
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../azure-monitor-log-analytics-rebrand.md)]
 
 You can use the Active Directory Health Check solution to assess the risk and health of your server environments on a regular interval. This article helps you install and use the solution so that you can take corrective actions for potential problems.
 
