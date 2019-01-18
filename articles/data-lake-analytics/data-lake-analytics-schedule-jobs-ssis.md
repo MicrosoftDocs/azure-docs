@@ -36,7 +36,7 @@ You can get the U-SQL script from different places by using SSIS built-in functi
 
 In Azure Data Lake Analytics Task Editor, configure **SourceType** as **DiretInput**, and put the U-SQL statements into **USQLStatemnt**.
 
-For easy maintainence and code management, only put short U-SQL script as inline scripts, for example, you can call existing table valued functions and stored procedures in your U-SQL databases. 
+For easy maintenance and code management, only put short U-SQL script as inline scripts, for example, you can call existing table valued functions and stored procedures in your U-SQL databases. 
 
 ![Edit inline U-SQL script in SSIS task](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
