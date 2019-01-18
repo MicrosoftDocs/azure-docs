@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
 
 ---
@@ -74,8 +74,8 @@ To configure and test Azure AD single sign-on with Expiration Reminder, you need
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Expiration Reminder Single Sign-On](#configure-expiration-reminder-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Expiration Reminder test user](#create-expiration-reminder-test-user)** - to have a counterpart of Britta Simon in Expiration Reminder that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Expiration Reminder test user](#create-expiration-reminder-test-user)** - to have a counterpart of Britta Simon in Expiration Reminder that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with Expiration Reminder, perform the follo
     ![Expiration Reminder Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL:
-    `https://app.expirationreminder.net/account/sso`.
+    `https://app.expirationreminder.net/account/sso`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 

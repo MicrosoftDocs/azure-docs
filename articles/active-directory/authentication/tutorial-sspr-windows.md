@@ -31,6 +31,7 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
    or
    * [Hybrid Azure AD joined machine](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
 * Azure AD self-service password reset must be enabled.
+* If your Windows 10 machines are behind a proxy server or firewall, HTTPS traffic (443) to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com` should be allowed.
 
 ## Configure Reset password link using Intune
 
@@ -125,8 +126,6 @@ The following policy settings are known to interfere with the ability to reset p
    * Explorer.exe is replaced with a custom shell
 
 This feature does not work for networks with 802.1x network authentication deployed and the option “Perform immediately before user logon”. For networks with 802.1x network authentication deployed it is recommended to use machine authentication to enable this feature.
-
-If your Windows 10 machines are behind a proxy server or firewall, HTTPS traffic (443) to passwordreset.microsoftonline.com and ajax.aspnetcdn.com should be allowed.
 
 For Hybrid Domain Joined scenarios, a scenario exists where the SSPR workflow will complete without needing an Active Directory domain controller. Connectivity with a domain controller is required to use the new password for the first time.
 
