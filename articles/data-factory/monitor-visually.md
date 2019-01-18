@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 01/19/2018
 ms.author: shlo
 
 ---
@@ -129,6 +129,10 @@ Click on the 'Feedback' icon to give us feedback on various features or any issu
 You can raise alerts on supported metrics in Data Factory. Select Monitor -> Alerts & Metrics on the Data Factory Monitor page to get started.
 
 ![](media/monitor-visually/alerts01.png)
+
+For a seven-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Monitor-your-Azure-Data-Factory-pipelines-proactively-with-alerts/player]
 
 ### Create Alerts
 
