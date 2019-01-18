@@ -132,7 +132,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![image](common/edit-attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
 	| Name  | Source Attribute  | Namespace |
 	| --------------- | --------------- | --------------- |
@@ -228,13 +228,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 11. Sign out from current AWS account and login with other account where you want to configure single sign on with Azure AD.
 
-12. Perform step-9 to step-17 to create multiple roles that you want to setup for this account. If you have more than two accounts, please perform the same steps for all the accounts to create roles for them.
+12. Perform step-2 to step-10 to create multiple roles that you want to setup for this account. If you have more than two accounts, please perform the same steps for all the accounts to create roles for them.
 
 13. Once all the roles are created in the accounts, they show up in the **Roles** list for those accounts.
 
 	![Roles setup](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_listofroles.png)
 
-14. We need to capture all the Role ARN and Trusted Entities for all the roles across all the accounts, which we need to map manually with Azure AD application. 
+14. We need to capture all the Role ARN and Trusted Entities for all the roles across all the accounts, which we need to map manually with Azure AD application.
 
 15. Click on the roles to copy **Role ARN** and **Trusted Entities** values. You need these values for all the roles that you need to create in Azure AD.
 
@@ -258,7 +258,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. Change the version dropdown to **beta**. To fetch all the Service Principals from your tenant, use the following query:
 
-	 `https://graph.microsoft.com/beta/servicePrincipals`
+	`https://graph.microsoft.com/beta/servicePrincipals`
 
 	If you are using multiple directories, then you can use following pattern, which has your primary domain in it
 	`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
@@ -325,7 +325,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Graph explorer dialog box](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
-18. After the Service Principal is patched with more roles, you can assign Users/Groups to the respective roles. This can be done by going to portal and navigating to the Amazon Web Services application. Click on the **Users and Groups** tab on the top. 
+18. After the Service Principal is patched with more roles, you can assign Users/Groups to the respective roles. This can be done by going to portal and navigating to the Amazon Web Services application. Click on the **Users and Groups** tab on the top.
 
 19. We recommend you to create new groups for every AWS role so that you can assign that particular role in that group. Note that this is one to one mapping for one group to one role. You can then add the members who belong to that group.
 
@@ -333,15 +333,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
 
-> [!Note]
-> Nested groups are not supported when assigning groups.
+	> [!Note]
+	> Nested groups are not supported when assigning groups.
 
 21. To assign the role to the group, select the role and click on **Assign** button in the bottom of the page.
 
 	![Configure Single Sign-On Add](./media/aws-multi-accounts-tutorial/graph-explorer-new6.png)
 
-> [!Note]
-> Please note that you need to refresh your session in Azure portal to see new roles.
+	> [!Note]
+	> Please note that you need to refresh your session in Azure portal to see new roles.
 
 ### Test single sign-on
 
