@@ -17,7 +17,7 @@ ms.author: diberry
 
 You do not need to create subscription keys to use your free first-1000 endpoint queries. Once those endpoint queries are used, create an Azure resource in the [Azure portal](http://portal.azure.com), then assign that resource to a LUIS app in the [LUIS portal](https://www.luis.ai).
 
-If you recieve an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app. 
+If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app. 
 
 For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
@@ -58,7 +58,7 @@ This key should only be used for endpoint prediction queries. Do not sure this k
 
 ## Assign resource key to LUIS app in LUIS Portal
 
-1. Sign in to the LUIS portal, choose an app to add the new key to, then select **Manage** in the top right menu, then select **Keys and endpoints**.
+1. Sign in to the LUIS portal, choose an app to add the new key to, then select **Manage** in the top-right menu, then select **Keys and endpoints**.
 
     [ ![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
@@ -66,7 +66,7 @@ This key should only be used for endpoint prediction queries. Do not sure this k
 
     ![Assign a resource to your app](./media/luis-manage-keys/assign-key.png)
 
-1. Select a Tenant in the dialog associated with the email address you login with to the LUIS website.  
+1. Select a Tenant in the dialog associated with the email address your login with to the LUIS website.  
 
 1. Choose the **Subscription Name** associated with the Azure resource you want to add.
 
