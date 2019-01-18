@@ -24,18 +24,17 @@ Video Indexer is an artificial intelligence service that is part of Microsoft 
 
 ### What can I do with Video Indexer?
 
-Video Indexer can perform the following types of operations on media files:
+Some of the operations that Video Indexer can perform on media files include:
 
-* Identify and extract speech and identify speakers.
-* Identify and extract on-screen text in a video.
-* Identify and label objects in a video file.
-* Identify brands like Microsoft from audio tracks and on-screen text in a video.
-* Detect and recognize faces from a database of celebrities and a user-defined database of faces.
-* Extract keywords from video and audio content based on spoken and visual text.
-* Extract topics discussed but not necessarily explicitly mentioned in audio and video content based on spoken and visual text.
-* Create closed captions or subtitles from the audio track.
+* Identifying and extracting speech and identify speakers.
+* Identifying and extracting on-screen text in a video.
+* Detecting objects in a video file.
+* Identify brands (for example: Microsoft) from audio tracks and on-screen text in a video.
+* Detecting and recognizing faces from a database of celebrities and a user-defined database of faces.
+* Extracting topics discussed but not necessarily mentioned in audio and video content.
+* Creating closed captions or subtitles from the audio track.
 
-For more information, see [Overview](video-indexer-overview.md).
+For more information and more Video Indexer features, see [Overview](video-indexer-overview.md).
 
 ### How do I get started with Video Indexer?
 
