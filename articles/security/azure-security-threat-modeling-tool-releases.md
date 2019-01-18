@@ -20,16 +20,16 @@ ms.author: jegeib
 
 # Threat Modeling Tool Releases
 
-The Microsoft Threat Modeling Tool is currently released as a free [click-to-download](https://aka.ms/threatmodelingtool) application for Windows. This delivery mechanism allows us to push the latest improvements and bug fixes to customers each time they open the tool, making it easier to maintain and use.
+The Microsoft Threat Modeling Tool is currently released as a free [click-to-download](https://aka.ms/threatmodelingtool) application for Windows. This delivery mechanism allows us to push the latest improvements and bug fixes to customers each time they open the tool.
 
 ## System Requirements
 
 - Supported Operating Systems
   - Microsoft Windows 10
 - Additional Requirements
-  - An Internet connection is required to receive updates to the tool as well as templates.
+  - An Internet connection is required to receive updates to the tool and templates.
 
 ## Release Notes
 
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) - 9/12/2018
-- [Microsoft Threat Modeling Tool GA Release Version 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) - 11/1/2018
+- [Microsoft Threat Modeling Tool GA Release Version 7.1.50911.2](./azure-security-threat-modeling-tool-releases-71509112.md) - September 12 2018
+- [Microsoft Threat Modeling Tool GA Release Version 7.1.51023.1](./azure-security-threat-modeling-tool-releases-71510231.md) - November 1 2018
