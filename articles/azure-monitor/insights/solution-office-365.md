@@ -37,7 +37,7 @@ The following is required prior to this solution being installed and configured.
 This solution does not install any management packs in [connected management groups](../../azure-monitor/platform/om-agents.md).
   
 ## Install and configure
-Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-management-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
+Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-monitoring-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
 
 ### Required information
 Before you start this procedure, gather the following information.
@@ -369,7 +369,7 @@ At line:12 char:18
 ```
 
 ## Uninstall
-You can remove the Office 365 management solution using the process in [Remove a management solution](solutions.md#remove-a-management-solution). This will not stop data being collected from Office 365 into Log Analytics though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
+You can remove the Office 365 management solution using the process in [Remove a management solution](solutions.md#remove-a-monitoring-solution). This will not stop data being collected from Office 365 into Log Analytics though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
 
 1. Save the following script as *office365_unsubscribe.ps1*.
 
