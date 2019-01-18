@@ -2,6 +2,7 @@
 title: Seller Dashboard accessibility features
 description: Accessibility features include viewing pages in high-contrast and using keyboard shortcuts.
 ms.date: 1/11/2018
+localization_priority: Normal
 ---
 
 # Seller Dashboard accessibility features

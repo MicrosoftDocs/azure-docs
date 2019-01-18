@@ -2,6 +2,7 @@
 title: Create your AppSource listing
 description: Communicate to customers what your solution does and how it provides value to them by including its name, description, screenshots, and regional availability.
 ms.date: 1/11/2018
+localization_priority: Normal
 ---
 
 # Create your AppSource listing

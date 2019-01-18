@@ -2,6 +2,7 @@
 title: View acquisitions report
 description: Analyze your add-in performance and see funnel and acquisitions metrics.
 ms.date: 1/11/2018
+localization_priority: Normal
 ---
 
 # View the Acquisitions report in the dashboard
