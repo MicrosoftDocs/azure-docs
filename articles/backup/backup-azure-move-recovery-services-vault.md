@@ -37,9 +37,9 @@ Recovery Services vaults configured to use with **Azure Site Recovery** can’t 
 >
 >
 
-## Register the subscription to Move your Recovery Services vault
+## Register the source subscription to Move your Recovery Services vault
 
-To register the subscription to **Move** your Recovery Services vault, run the following cmdlets from PowerShell terminal:
+To register the source subscription to **Move** your Recovery Services vault, run the following cmdlets from PowerShell terminal:
 
 1. Sign in to your Azure account
 
