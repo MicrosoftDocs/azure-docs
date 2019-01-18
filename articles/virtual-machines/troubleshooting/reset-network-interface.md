@@ -32,17 +32,16 @@ This article shows how to reset the network interface for Azure Windows VM to re
 
 1.	Go to the [Azure portal](https://ms.portal.azure.com).
 2.	Select the affected Virtual Machine.
-3.	Select **Network Interfaces**.
-4.	Select **Networking** and then select the network Interface of the VM.
+3.	Select **Networking** and then select the network Interface of the VM.
 
     ![Network interface location](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
     
-5.	Select **IP configurations**.
-6.	Select the IP. 
-7.	If the **Private IP assignment**  is not  **Static**, change it to **Static**.
-8.	Change the **IP address** to another IP address that is available in the Subnet.
-1. The virtual machine will restart to initialize the new NIC to the system.
-10.	Try to RDP to your machine.	If successful, you can change the Private IP address back to the original if you would like. Otherwise, you can keep it. 
+4.	Select **IP configurations**.
+5.	Select the IP. 
+6.	If the **Private IP assignment**  is not  **Static**, change it to **Static**.
+7.	Change the **IP address** to another IP address that is available in the Subnet.
+8. The virtual machine will restart to initialize the new NIC to the system.
+9.	Try to RDP to your machine.	If successful, you can change the Private IP address back to the original if you would like. Otherwise, you can keep it. 
 
 #### Use Azure PowerShell
 
