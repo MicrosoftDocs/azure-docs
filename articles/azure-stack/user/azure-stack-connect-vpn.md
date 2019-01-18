@@ -143,7 +143,7 @@ Next, create the network resources in Azure Stack.
 
 ### Sign in as a user
 
-A service administrator can sign in as a user to test the plans, offers, and subscriptions that their users might use. If you don’t already have one, [create a user account](azure-stack-add-new-user-aad.md) before you sign in.
+A service administrator can sign in as a user to test the plans, offers, and subscriptions that their users might use. If you don’t already have one, [create a user account](../azure-stack-add-new-user-aad.md) before you sign in.
 
 ### Create the virtual network and a VM subnet
 
