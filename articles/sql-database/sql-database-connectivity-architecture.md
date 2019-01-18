@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 01/17/2019
 ---
 # Azure SQL Connectivity Architecture
 
@@ -123,7 +123,7 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 ## Script to change connection settings via PowerShell
 
 > [!IMPORTANT]
-> This script requires the [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+> This script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 The following PowerShell script shows how to change the connection policy.
 
