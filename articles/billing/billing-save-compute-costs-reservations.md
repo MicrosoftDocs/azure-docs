@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2019
+ms.date: 01/18/2019
 ms.author: cwatson
 
 ---
@@ -43,10 +43,15 @@ For Windows virtual machines and SQL Database, you can cover the licensing costs
 Azure customers with these subscriptions types can buy a reservation:
 
 - Enterprise agreement subscription offer type (MS-AZR-0017P or MS-AZR-0148P).
-- Pay-As-You-Go subscription offer type (MS-AZR-003P or MS-AZR-0023P). You must have the “Owner” role on the subscription to buy a reservation.
+- Pay-As-You-Go subscription offer type (MS-AZR-003P or MS-AZR-0023P).
 - Cloud Solution Provider (CSP) partners can use Azure portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to purchase Azure Reservations.
 
 A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types.
+
+ To buy a plan:
+
+- You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
+- For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 
 ## How is a reservation billed?
 
