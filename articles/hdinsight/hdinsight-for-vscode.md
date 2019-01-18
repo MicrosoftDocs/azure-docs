@@ -74,7 +74,7 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
     ![HDInsight Tools for Visual Studio Code login](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 3. To sign in, follow the sign-in instructions in the **OUTPUT** pane.
-    + For Azure global environment, **HDInsight:Login** command will trigger **Sign in to Azure** action in the HDInsight explorer and vice versa.
+    + For Azure global environment, **HDInsight: Login** command will trigger **Sign in to Azure** action in the HDInsight explorer and vice versa.
 
         ![Sign in instructions for azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
@@ -181,7 +181,7 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive 
     ```
 4. Right-click the script editor, select **HDInsight: Hive Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**. Select **HDInsight: Hive Batch** to submit the script, or use shortcut **Ctrl + Alt + H**. 
 
-5. Select the cluster if you haven't specified a default cluster. The tools also allow you to submit a block of code instead of the whole script file using the context menu. After a few moments the query results appear in a new tab.
+5. Select the cluster if you haven't specified a default cluster. The tools also allow you to submit a block of code instead of the whole script file using the context menu. After a few moments, the query results appear in a new tab.
 
    ![Interactive Hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
