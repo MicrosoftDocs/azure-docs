@@ -25,7 +25,7 @@ You'll learn how to:
 > [!div class="checklist"]
 > * Create a Spatial Anchors account
 > * Prepare Unity build settings
-> * Download and import the ARKit SDK for Unity
+> * Download and import the Unity ARKit Plugin
 > * Configure the Spatial Anchors endpoint and account key
 > * Export the Xcode project
 > * Deploy and run on an iOS device
@@ -56,6 +56,12 @@ Select **Switch Platform** to change the platform to **iOS**.
 ![Unity Build Settings](./media/get-started-unity-ios/unity-build-settings.png)
 
 Close the **Build Settings** window.
+
+## Download and import the Unity ARKit Plugin
+
+Download [Unity ARKit Plugin v2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip) and extract the archive.
+
+Copy the contents of the `Assets` folder from the extracted Unity ARKit Plugin folder to the sample's `Assets` folder.
 
 ## Configure the Spatial Anchors endpoint and account key
 
