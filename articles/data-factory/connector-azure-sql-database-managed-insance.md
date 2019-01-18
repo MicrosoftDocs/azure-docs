@@ -396,7 +396,7 @@ Notice that the target table has an identity column.
 
 Notice that your source and target table have different schema. The target table has an identity column. In this scenario, specify the "structure" property in the target dataset definition, which doesn’t include the identity column.
 
-## <a name="invoking-stored-procedure-for-sql-sink"></a> Invoke a stored procedure from a SQL sink
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
 When copying data into Azure SQL Database Managed Instance, a stored procedure can be configured and invoked with additional parameters that you specify.
 
