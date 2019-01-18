@@ -2,6 +2,7 @@
 title: Prepare localized apps and add-ins
 description: Obtain localized metadata and create descriptions for each language beyond the primary language.
 ms.date: 1/11/2018
+localization_priority: Normal
 ---
 
 # Prepare localized apps and add-ins

@@ -2,6 +2,7 @@
 title: Upload your package to AppSource
 description: Upload the manifest for your Office Add-in, SharePoint Add-in, Microsoft Teams app, or Power BI custom visual.
 ms.date: 1/11/2018
+localization_priority: Normal
 ---
 
 # Upload your package to AppSource

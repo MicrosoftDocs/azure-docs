@@ -2,6 +2,7 @@
 title: Decide on a pricing model for your AppSource submission
 description: Determine your pricing model during your design and development process; the one you choose influences the features and behavior you include.
 ms.date: 1/11/2018
+localization_priority: Normal
 ---
 
 # Decide on a pricing model for your AppSource submission

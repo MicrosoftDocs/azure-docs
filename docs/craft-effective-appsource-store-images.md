@@ -3,6 +3,7 @@ title: Craft effective AppSource store images
 description: Make sure that the images submitted for your app are legible, focused, and demonstrate value. 
 ms.date: 02/08/2018
 
+localization_priority: Normal
 ---
 
 # Craft effective AppSource store images
