@@ -36,7 +36,7 @@ For more information on working with permissions with domain-joined HDInsight, s
 
 If you aren't the administrator or owner of your Azure subscription, your account must have at least Contributor access to the resource group that contains the HDInsight cluster.
 
-Also, if you create an HDInsight cluster, someone with at least Contributor access to the Azure subscription must have previously registered the provider for HDInsight. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be done without creating a resource if you [register a provider by using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+If you create an HDInsight cluster, someone with at least Contributor access to the Azure subscription must have previously registered the provider for HDInsight. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be done without creating a resource if you [register a provider by using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
 
 Get more information on working with access management:
 
@@ -74,7 +74,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
   > [!IMPORTANT]  
   > Persisted script actions must have a unique name.
 
-    Ad hoc scripts aren't persisted. They aren't applied to worker nodes added to the cluster after the script has run. You can subsequently promote an ad hoc script to a persisted script or demote a persisted script to an ad hoc script.
+    Ad hoc scripts aren't persisted. They aren't applied to worker nodes added to the cluster after the script has run. Then you can promote an ad hoc script to a persisted script or demote a persisted script to an ad hoc script.
 
   > [!IMPORTANT]  
   > Script actions used during cluster creation are automatically persisted.
@@ -110,7 +110,7 @@ The script runs while HDInsight is being configured. The script runs in parallel
 > You can perform operations like stopping and starting services, including Apache Hadoop-related services. If you stop services, make sure that the Ambari service and other Hadoop-related services are running before the script completes. These services are required to successfully determine the health and state of the cluster while it's being created.
 
 
-During cluster creation, you can use multiple script actions at once. These scripts are invoked in the order in which they were specified.
+During cluster creation, you can use many script actions at once. These scripts are invoked in the order in which they were specified.
 
 > [!IMPORTANT]  
 > Script actions must complete within 60 minutes, or they timeout. During cluster provisioning, the script runs concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth might cause the script to take longer to finish than it does in your development environment.
@@ -220,7 +220,7 @@ Get more information on how to deploy a template:
 
 ### Use a script action during cluster creation from Azure PowerShell
 
-In this section, you use the [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you proceed, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](/powershell/azure/overview).
+In this section, you use the [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](/powershell/azure/overview).
 
 The following script shows how to apply a script action when you create a cluster by using PowerShell:
 
@@ -272,7 +272,7 @@ Go to the [Azure portal](https://portal.azure.com):
 
 ### Apply a script action to a running cluster from Azure PowerShell
 
-Before you proceed, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](/powershell/azure/overview).
+Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Install and configure Azure PowerShell](/powershell/azure/overview).
 
 The following example shows how to apply a script action to a running cluster:
 
@@ -289,7 +289,7 @@ After the operation finishes, you receive information similar to the following t
 
 ### Apply a script action to a running cluster from the Azure CLI
 
-Before you proceed, make sure you installed and configured the Azure CLI. For more information, see [Install the Azure classic CLI](../cli-install-nodejs.md).
+Before you start, make sure you installed and configured the Azure CLI. For more information, see [Install the Azure classic CLI](../cli-install-nodejs.md).
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -313,7 +313,7 @@ Before you proceed, make sure you installed and configured the Azure CLI. For mo
 
     If you omit parameters for this command, you're prompted for them. If the script you specify with `-u` accepts parameters, you can specify them by using the `-p` parameter.
 
-    Valid node types are `headnode`, `workernode`, and `zookeeper`. If the script should be applied to multiple node types, specify the types separated by a semicolon, **;**. For example, `-n headnode;workernode`.
+    Valid node types are `headnode`, `workernode`, and `zookeeper`. If the script should be applied to several node types, specify the types separated by a semicolon: `;`. For example, `-n headnode;workernode`.
 
     To persist the script, add `--persistOnSuccess`. You can also persist the script later by using `azure hdinsight script-action persisted set`.
 
@@ -405,7 +405,12 @@ The Microsoft Azure HDInsight service uses an ecosystem of open-source technolog
 
 Two types of open-source components are available in the HDInsight service:
 
-* **Built-in components**. These components are preinstalled on HDInsight clusters and provide core functionality of the cluster. For example, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager, the Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual), and the [Apache Mahout](https://mahout.apache.org/) library belong to this category. A full list of cluster components is available in [What are the Apache Hadoop components and versions available with HDInsight?](hdinsight-component-versioning.md)
+* **Built-in components**. These components are preinstalled on HDInsight clusters and provide core functionality of the cluster. The following components belong to this category:
+    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager
+    * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+    * The [Apache Mahout](https://mahout.apache.org/) 
+    
+    A full list of cluster components is available in [What are the Apache Hadoop components and versions available with HDInsight?](hdinsight-component-versioning.md)
 * **Custom components**. As a user of the cluster, you can install or use in your workload any component available in the community or created by you.
 
 > [!WARNING]  
@@ -433,7 +438,7 @@ You can use the Ambari web UI to view information logged by script actions. If t
 
     When prompted, enter the admin account name, **admin**, and password for the cluster. You might have to reenter the admin credentials in a web form.
 
-2. From the bar at the top of the page, select the **ops** entry. A list displays current and previous operations performed on the cluster through Ambari.
+2. From the bar at the top of the page, select the **ops** entry. A list displays current and previous operations done on the cluster through Ambari.
 
     ![Ambari web UI bar with ops selected](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
 
@@ -441,7 +446,7 @@ You can use the Ambari web UI to view information logged by script actions. If t
 
     ![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
-    To view the **STDOUT** and **STDERR** output, select the **run\customscriptaction** entry and drill down through the links. This output is generated when the script runs and might contain useful information.
+    To view the **STDOUT** and **STDERR** output, select the **run\customscriptaction** entry and drill down through the links. This output is generated when the script runs and might have useful information.
 
 ### Access logs from the default storage account
 
@@ -451,15 +456,15 @@ If cluster creation fails because of a script error, the logs are kept in the cl
 
     ![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-    Under this directory, the logs are organized separately for headnode, workernode, and zookeeper nodes. See the following examples:
+    Under this directory, the logs are organized separately for head node, worker node, and zookeeper node. See the following examples:
 
-    * **Headnode**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **Head node**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 
     * **Worker node**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 
     * **Zookeeper node**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* All **stdout** and **stderr** of the corresponding host is uploaded to the storage account. There is one **output-\*.txt** and **errors-\*.txt** for each script action. The **output-*.txt** file contains information about the URI of the script that was run on the host. The following text is an example of this information:
+* All **stdout** and **stderr** of the corresponding host is uploaded to the storage account. There's one **output-\*.txt** and **errors-\*.txt** for each script action. The **output-*.txt** file contains information about the URI of the script that was run on the host. The following text is an example of this information:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -506,9 +511,9 @@ If your cluster was created before March 15, 2016, you might not see an entry in
 
 There are two exceptions:
 
-* If your cluster was created before September 1, 2015. This date is when script actions were introduced. Any cluster created before this date couldn't have used script actions for cluster creation.
+* Your cluster was created before September 1, 2015. This date is when script actions were introduced. Any cluster created before this date couldn't have used script actions for cluster creation.
 
-* If you used multiple script actions during cluster creation. Or you used the same name for multiple scripts or the same name, same URI, but different parameters for multiple scripts. In these cases, you get the following error:
+* You used multiple script actions during cluster creation. Or you used the same name for multiple scripts or the same name, same URI, but different parameters for multiple scripts. In these cases, you get the following error:
 
     No new script actions can be run on this cluster because of conflicting script names in existing scripts. Script names provided at cluster creation must be all unique. Existing scripts are run on resize.
 

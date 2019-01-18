@@ -14,7 +14,7 @@ ms.author: hrasheed
 ---
 # Install and use Presto on Hadoop-based HDInsight clusters
 
-In this document, you learn how to install Presto on Hadoop-based Adobe HDInsight clusters by using script action. You also learn how to install Airpal on an existing Presto HDInsight cluster.
+This document explains how to install Presto on Hadoop-based Adobe HDInsight clusters by using script actions. You also learn how to install Airpal on an existing Presto HDInsight cluster.
 
 HDInsight also offers the Starburst Presto application for Apache Hadoop clusters. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
 
@@ -32,7 +32,7 @@ HDInsight also offers the Starburst Presto application for Apache Hadoop cluster
 > Apache projects also have project sites on [https://apache.org](https://apache.org). An example is [Hadoop](https://hadoop.apache.org/).
 
 
-## Install Presto by using script action
+## Install Presto by using script actions
 
 This section explains how to use the sample script when you create a new cluster by using the Azure portal: 
 
@@ -135,7 +135,7 @@ Use the following steps to install Airpal on the edge node:
 
 	    ![Installed apps](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-	1. When prompted, enter the admin credentials that you specified while you created the Hadoop-based HDInsight cluster.
+	1. When prompted, enter the admin credentials that you specified when you created the Hadoop-based HDInsight cluster.
 
 ## Customize a Presto installation on HDInsight cluster
 
@@ -149,14 +149,14 @@ To customize the installation, take the following steps:
 
 2. Make your configuration changes in the file `/var/lib/presto/presto-hdinsight-master/appConfig-default.json`. For more information on Presto configuration, see [Presto configuration options for YARN-based clusters](https://prestodb.io/presto-yarn/installation-yarn-configuration-options.html).
 
-3. Stop and terminate the current running instance of Presto:
+3. Stop and kill the current running instance of Presto:
 
 	`sudo slider stop presto1 --force`
 	`sudo slider destroy presto1 --force`
 
 4. Start a new instance of Presto with the customization:
 
-	`sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources` `/var/lib/presto/presto-hdinsight-master/resources-default.json`
+	`sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json`
 
 5. Wait for the new instance to be ready. Note the Presto coordinator address:
 
@@ -174,7 +174,7 @@ TPC-DS is the industry standard for measuring the performance of many decision-s
 
 * [Install Apache Giraph on HDInsight Hadoop clusters, and use Giraph to process large-scale graphs](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on Hadoop-based HDInsight clusters. With Giraph, you can perform graph processing by using Hadoop. It can also be used with Azure HDInsight.
 
-* [ Install and use Apache Solr on HDInsight Hadoop clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on Hadoop-based HDInsight clusters. By using Solr, you can perform powerful search operations on stored data.
+* [Install and use Apache Solr on HDInsight Hadoop clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on Hadoop-based HDInsight clusters. By using Solr, you can perform powerful search operations on stored data.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

@@ -37,13 +37,13 @@ The Azure portal exposes most of the cluster properties. By using Azure Resource
 
 1.  Under **Featured**, select **HDInsight**.
    
-    ![Create a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png)
+    ![Create a new cluster in the Azure portal](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "Creating a new cluster in the Azure portal")
 
 1. On the **HDInsight** page, select **Custom (size, settings, apps)**.
 
 1. Select **1 Basics**. Then enter the following information.
 
-	![Configure basic settings](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-basics.png)
+	![Configure basic settings](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-basics.png "Creating a new cluster in the Azure portal")
 
 	* Enter the **Cluster Name**. This name must be globally unique.
 
@@ -52,7 +52,7 @@ The Azure portal exposes most of the cluster properties. By using Azure Resource
 	* Select **Cluster type**. Then select the type of cluster you want to create. Examples are Hadoop and Apache Spark. The **Operating system** will be **Linux**. Next, select a cluster type version. Use the default version if you don't know what to choose. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
      
     	> [!IMPORTANT]  
-    	> HDInsight clusters come in a variety of types. They correspond to the workload or technology that the cluster is tuned for. There's no supported method to create a cluster that combines multiple types. Examples are Apache Storm and Apache HBase on one cluster.
+    	> HDInsight clusters come in a variety of types. They correspond to the workload or technology that the cluster is tuned for. There's no supported method to create a cluster that combines multiple types. Examples are Storm and HBase on one cluster.
 		
     * For **Cluster login username** and **Cluster login password**, provide the username and password for the admin user.
 
@@ -75,7 +75,7 @@ The Azure portal exposes most of the cluster properties. By using Azure Resource
 
 5. From **3 Storage**, specify whether you want Azure Storage or Azure Data Lake Storage as your default storage. For more information, see the following table.
 
-	 ![Set storage settings](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png)
+	 ![Set storage settings](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Creating a new cluster in the Azure portal")
 
 	 | Storage                                      | Description |
 	 |----------------------------------------------|-------------|
@@ -89,14 +89,14 @@ The Azure portal exposes most of the cluster properties. By using Azure Resource
 	 Select **Next** to move to the next page.
 
 
-6. From **4 Applications (optional)**, select any desired applications. Microsoft, independent software vendors (ISVs), or you can develop these applications. For more information, see [Install applications during cluster creation](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. From **4 Applications (optional)**, select any applications that you want. Microsoft, independent software vendors (ISVs), or you can develop these applications. For more information, see [Install applications during cluster creation](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
     Select **Next** to move to the next page.
 
 
 6. **5 Cluster size** displays information about the nodes that are used for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of running the cluster is also shown.
    
-    ![Specify node pricing tiers](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-nodes.png)
+    ![Specify node pricing tiers](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-nodes.png "Specify number of cluster nodes")
    
    > [!IMPORTANT]  
    > If you plan on more than 32 worker nodes, select a head node size with at least eight cores and 14 GB RAM. Plan the nodes either at cluster creation or by scaling the cluster after creation. 
@@ -123,7 +123,7 @@ The Azure portal exposes most of the cluster properties. By using Azure Resource
     The icons in the window are explained as follows:
     
     * The **Overview** tab provides all the essential information about the cluster. Examples are the name, the resource group it belongs to, the location, the operating system, and the URL for the cluster dashboard.
-    * **Dashboard** directs you to the Apache Ambari portal associated with the cluster.
+    * **Dashboard** directs you to the Ambari portal associated with the cluster.
     * **Secure Shell** provides information needed to access the cluster by using SSH.
     * By using **Scale cluster**, you can increase the number of worker nodes associated with the cluster.
 	* **Delete** deletes the HDInsight cluster.
