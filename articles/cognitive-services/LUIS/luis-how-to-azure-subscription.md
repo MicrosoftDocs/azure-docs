@@ -15,71 +15,33 @@ ms.author: diberry
 
 # Using subscription keys with your LUIS app
 
-For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. 
+You do not need to create subscription keys to use your free first-1000 endpoint queries. Once those endpoint queries are used, create an Azure resource in the [Azure portal](http://portal.azure.com), then assign that resource to a LUIS app in the [LUIS portal](https://www.luis.ai).
 
-> [!NOTE]
-> Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
+If you recieve an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app. 
+
+For testing and prototype only, use the free (F0) tier. For production systems, use a [paid](https://aka.ms/luis-price-tier) tier. Do not use the [authoring key](luis-concept-keys.md#authoring-key) for endpoint queries in production.
 
 <a name="create-luis-service"></a>
-## Create LUIS endpoint key
+
+## Create Language Understanding endpoint key in the Azure portal
+
+This procedure creates a **Language Understanding** resource. If you want a resource that can be used across most Cognitive Services, create the all-in-one key **[Cognitive Service](../cognitive-services-apis-create-account.md)**.
 
 1. Sign in to **[Microsoft Azure](https://ms.portal.azure.com/)**. 
-2. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
+1. Click the green **+** sign in the upper left-hand panel and search for “LUIS” in the marketplace, then click on **Language Understanding** and follow the **create experience** to create a LUIS subscription account. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
 
-3. Configure the subscription with settings including account name, pricing tiers, etc. 
+1. Configure the subscription with settings including account name, pricing tiers, etc. 
 
     ![Azure API Choice](./media/luis-azure-subscription/azure-api-choice.png) 
 
-4. Once you create the LUIS service, you can view the access keys generated in **Resource Management->Keys**.  
+1. Once you create the Language Understanding resource, you can view the access keys generated in **Resource Management->Keys**.  
 
     ![Azure Keys](./media/luis-azure-subscription/azure-keys.png)
 
-    > [!Note] 
-    > Sign in to your region's [LUIS](luis-reference-regions.md) website and [assign the new LUIS endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key). You need the name of the LUIS subscription from step 3.
+    Your next step is to sign in to your region's [LUIS](luis-reference-regions.md) portal and [assign the new LUIS endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key). You need the name of the LUIS resource from step 3.
 
-## Change LUIS pricing tier
-
-1.  In [Azure](https://portal.azure.com), find your LUIS subscription. Click the LUIS subscription.
-    ![Find your LUIS subscription](./media/luis-usage-tiers/find.png)
-2.  Click **Pricing tier** in order to see the available pricing tiers. 
-    ![View pricing tiers](./media/luis-usage-tiers/subscription.png)
-3.  Click the pricing tier and click **Select** to save your change. 
-    ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
-4.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
-    ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
-5. Remember to [assign this endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
-
-## Exceed pricing tier usage
-Each tier allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an HTTP error of "429: Too Many Requests."
-
-Each tier allows accumulative requests per month. If the total requests are higher than the allowed rate, requests receive an HTTP error of "403: forbidden".  
-
-## Viewing summary usage
-You can view LUIS usage information in Azure. The **Overview** page shows recent summary information including calls and errors. If you make a LUIS endpoint request, then immediately watch the **Overview page**, allow up to five minutes for the usage to show up.
-
-![Viewing summary usage](./media/luis-usage-tiers/overview.png)
-
-## Customizing usage charts
-Metrics provides a more detailed view into the data.
-
-![Default metrics](./media/luis-usage-tiers/metrics-default.png)
-
-You can configure your metrics charts for time period and metric type. 
-
-![Custom metrics](./media/luis-usage-tiers/metrics-custom.png)
-
-## Total transactions threshold alert
-If you would like to know when you have reached a certain transaction threshold, for example 10,000 transactions, you can create an alert. 
-
-![Default alerts](./media/luis-usage-tiers/alert-default.png)
-
-Add a metric alert for the **total calls** metric for a certain time period. Add email addresses of all people that should receive the alert. Add webhooks for all systems that should receive the alert. You can also run a logic app when the alert is triggered. 
-
-# Add an Azure LUIS resource to app
-
-After you create a LUIS resource in the Azure portal, assign the resource to the LUIS app and get the correct endpoint URL. Use this endpoint URL to get LUIS predictions.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -95,27 +57,25 @@ After you create a LUIS resource in the Azure portal, assign the resource to the
 <a name="assign-resource"></a>
 
 
-## Assign resource in LUIS Portal
+## Assign Language Understanding or Cognitive Service resource in LUIS Portal
 
-1. Create a LUIS key on the [Azure portal](https://portal.azure.com). For further instructions, see [Creating an endpoint key using Azure](luis-how-to-azure-subscription.md).
- 
-2. Select **Manage** in the top right menu, then select **Keys and endpoints**.
+1. Sign in to the LUIS portal, choose an app to add the new key to, then select **Manage** in the top right menu, then select **Keys and endpoints**.
 
     [ ![Keys and endpoints page](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
-3. In order to add the LUIS, select **Assign Resource +**.
+1. In order to add the LUIS, select **Assign Resource +**.
 
     ![Assign a resource to your app](./media/luis-manage-keys/assign-key.png)
 
-4. Select a Tenant in the dialog associated with the email address you login with to the LUIS website.  
+1. Select a Tenant in the dialog associated with the email address you login with to the LUIS website.  
 
-5. Choose the **Subscription Name** associated with the Azure resource you want to add.
+1. Choose the **Subscription Name** associated with the Azure resource you want to add.
 
-6. Select the **LUIS resource name**. 
+1. Select the **LUIS resource name**. 
 
-7. Select **Assign resource**. 
+1. Select **Assign resource**. 
 
-8. Find the new row in the table and copy the endpoint URL. It is correctly constructed to make an HTTP GET request to the LUIS endpoint for a prediction. 
+1. Find the new row in the table and copy the endpoint URL. It is correctly constructed to make an HTTP GET request to the LUIS endpoint for a prediction. 
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -172,7 +132,6 @@ Add the **spellCheck=true** querystring parameter and the **bing-spell-check-sub
 }
 ```
 
-
 ### Publishing regions
 
 Learn more about publishing [regions](luis-reference-regions.md) including publishing in [Europe](luis-reference-regions.md#publishing-to-europe), and [Australia](luis-reference-regions.md#publishing-to-australia). Publishing regions are different from authoring regions. Create an app in the authoring region corresponding to the publishing region you want for the query endpoint.
@@ -210,12 +169,43 @@ For automation purposes such as a CI/CD pipeline, you may want to automate the a
 
     When this API is successful, it returns a 201 - created status. 
 
-## Next steps
+## Change pricing tier
 
-Use your key to publish your app in the **Publish app** page. For instructions on publishing, see [Publish app](luis-how-to-publish-app.md).
+1.  In [Azure](https://portal.azure.com), find your LUIS subscription. Click the LUIS subscription.
+    ![Find your LUIS subscription](./media/luis-usage-tiers/find.png)
+1.  Click **Pricing tier** in order to see the available pricing tiers. 
+    ![View pricing tiers](./media/luis-usage-tiers/subscription.png)
+1.  Click the pricing tier and click **Select** to save your change. 
+    ![Change your LUIS payment tier](./media/luis-usage-tiers/plans.png)
+1.  When the pricing change is complete, a pop-up window verifies the new pricing tier. 
+    ![Verify your LUIS payment tier](./media/luis-usage-tiers/updated.png)
+1. Remember to [assign this endpoint key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **Publish** page and use it in all endpoint queries. 
 
-See [Keys in LUIS](luis-concept-keys.md) to understand LUIS authoring and endpoint key concepts.
+## Exceed pricing tier usage
+Each tier allows endpoint requests to your LUIS account at a specific rate. If the rate of requests is higher than the allowed rate of your metered account per minute or per month, requests receive an HTTP error of "429: Too Many Requests."
 
+Each tier allows accumulative requests per month. If the total requests are higher than the allowed rate, requests receive an HTTP error of "403: forbidden".  
+
+## Viewing summary usage
+You can view LUIS usage information in Azure. The **Overview** page shows recent summary information including calls and errors. If you make a LUIS endpoint request, then immediately watch the **Overview page**, allow up to five minutes for the usage to show up.
+
+![Viewing summary usage](./media/luis-usage-tiers/overview.png)
+
+## Customizing usage charts
+Metrics provides a more detailed view into the data.
+
+![Default metrics](./media/luis-usage-tiers/metrics-default.png)
+
+You can configure your metrics charts for time period and metric type. 
+
+![Custom metrics](./media/luis-usage-tiers/metrics-custom.png)
+
+## Total transactions threshold alert
+If you would like to know when you have reached a certain transaction threshold, for example 10,000 transactions, you can create an alert. 
+
+![Default alerts](./media/luis-usage-tiers/alert-default.png)
+
+Add a metric alert for the **total calls** metric for a certain time period. Add email addresses of all people that should receive the alert. Add webhooks for all systems that should receive the alert. You can also run a logic app when the alert is triggered. 
 
 ## Next steps
 
