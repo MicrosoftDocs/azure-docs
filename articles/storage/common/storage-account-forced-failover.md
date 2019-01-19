@@ -102,7 +102,7 @@ Leasing
 
 1.  From your Azure Storage account, open the Geo Replication pane
 
-    ![](media/storage-account-forced-failover/portal-failover-prepare.png)
+    ![](media/storage-disaster-recovery-guidance/portal-failover-prepare.png)
 
 2.  Verify that your storage account is configured for GRS or RA-GRS. If it is not, you can upgrade the account to use GRS or RA-GRS using the **Configuration** settings.
 
@@ -110,11 +110,11 @@ Leasing
 
 4.  Click on Prepare for failover (preview) to understand implications of failover and confirm failover.
 
-    ![](media/storage-account-forced-failover/portal-failover-confirm.png)
+    ![](media/storage-disaster-recovery-guidance/portal-failover-confirm.png)
 
 5.  After you type in ‘yes’ failover will start. The status of end point and failover is indicated as shown below.
 6. 
-    ![](media/storage-account-forced-failover/portal-failover-in-progress.png)
+    ![](media/storage-disaster-recovery-guidance/portal-failover-in-progress.png)
 
 6.  Primary and Secondary endpoints will be swapped after failover.
 

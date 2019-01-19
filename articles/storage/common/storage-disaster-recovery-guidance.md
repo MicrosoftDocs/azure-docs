@@ -17,7 +17,6 @@ Microsoft strives to ensure that Azure services are always available. However, u
 
 Azure Storage supports customer-managed forced failover (preview) for geo-redundant storage accounts. With forced failover, you can initiate the failover process for your storage account if the primary region becomes unavailable. The failover updates the secondary region to become the primary region for your storage account. Once the failover is complete, clients can begin writing to the new primary region.
 
-
 This article describes to use geo-redundancy to how you can fail over to the secondary region in the event that the primary region becomes unavailable. and how to prepare your storage account for recovery with the least amount of customer impact.
 
 ## Choose the right redundancy option
@@ -31,7 +30,7 @@ All storage accounts are replicated for redundancy. Which redundancy option you 
 Other Azure Storage redundancy options include zone-redundant storage (ZRS), which replicates your data across availability zones in a single region, and locally redundant storage (LRS), which replicates your data in a single data center in a single region. If your storage account is configured for ZRS or LRS, you can convert that account to use GRS or RA-GRS. Configuring your account for geo-redundant storage incurs additional costs. For more information, see [Azure Storage replication](storage-redundancy.md).
 
 > [!WARNING]
-> Cross-region data replication is an asynchronous process that involves a delay, so writes to the primary region that have not yet been replicated to the secondary region will be lost in the event of an outage. The **Last Sync Time** property indicates the last time that data from the primary region is guaranteed to be written to the secondary region. All writes prior to the **Last Sync Time** are also available on the secondary, while writes happening after the **Last Sync Time** may not yet have been written to the secondary. Use this property in the event of an outage to determine which writes have been replicated to the secondary region.
+> Cross-region data replication is an asynchronous process that involves a delay, so write operations to the primary region that have not yet been replicated to the secondary region will be lost in the event of an outage. 
 
 ## Design for high availability
 
@@ -42,142 +41,122 @@ It's important to design your application for high availability from the start. 
 * [Designing highly available applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md): Design guidance for building applications to take advantage of RA-GRS.
 * [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md): A tutorial that shows how to build a highly available application that automatically switches between endpoints as failures and recoveries are simulated. 
 
+Additionally, keep in mind these best practices for maintaining high availability for your Azure Storage data:
+
+* Block blobs: Turn on [soft delete](../blobs/storage-blob-soft-delete.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* Files: Use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](storage-powershell-guide-full.md) to copy your files to another storage account in a different region.
+* Disks: Use the [Azure Backup service](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines.
+* Tables – use [AzCopy](storage-use-azcopy.md) to export table data to another storage account in a different region.
+
 ## Track outages
 
 Customers may subscribe to the [Azure Service Health Dashboard](https://azure.microsoft.com/status/) to track the health and status of Azure Storage and other Azure services.
 
 Microsoft also recommends that you design your application to prepare for the possibility of write failures, and to expose these in a way that alerts you to the possibility of an outage in the primary region.
 
-## Understand the forced failover process
-
-Customer-managed forced failover (preview) enables you to control when you fail over to the secondary region, rather than waiting for Microsoft to initiate the failover. When you force a failover to the secondary region, clients can immediately begin writing data to the secondary endpoint. Forced failover helps you to maintain high availability for your customers even in the event of an outage in the primary region.
-
-### How a failover works
-
-Under normal circumstances, a client writes data to an Azure Storage account in the primary region, and that data is replicated asynchronously to the secondary region. The following image shows the scenario when the primary region is available:
-
-![Clients write data to the storage account in the primary region](media/storage-account-forced-failover/primary-available.png)
-
-If the primary region becomes unavailable for any reason, the client is no longer able to write to the storage account. The following image shows the scenario where the primary has become unavailable, but no recovery has happened yet:
-
-![The primary is unavailable, so clients cannot write data](media/storage-account-forced-failover/primary-unavailable-before-failover.png)
-
-The customer initiates the failover to the secondary region. The failover process updates the DNS entry provided by Azure Storage so that the secondary endpoint becomes the new primary endpoint for your storage account, as shown in the following image:
-
-
-
-![The failover converts the secondary into the new primary and writes resume](media/storage-account-forced-failover/new-primary-after-failover.png) 
-
-Write access is restored for GRS and RA-GRS accounts once the DNS entry has been updated and requests are being directed to the new primary region. Existing storage service endpoints for blobs, tables, queues, and files remain the same after the failover.
-
-> [!IMPORTANT]
-> After the failover is complete, the storage account is configured to use LRS in the new primary region. To resume replication to the new secondary, configure the account to use geo-redundant storage again (either RA-GRS or GRS).
->
-> Keep in mind that converting an LRS account to RA-GRS or GRS incurs a cost. This cost applies to updating the storage account in the new primary region to use RA-GRS or GRS after a failover.  
-
-
-
-
-Azure Storage supports customer-managed forced failover (preview) for geo-redundant storage accounts. With forced failover, you can initiate the failover process for your storage account if the primary region becomes unavailable.
-
-If an outage or regional disaster renders the primary region unavailable, then a failover to the secondary region restores write access to your storage account.  
-
-
-## Prepare for failover
-
-
-### Failover options
-
-In the event of an outage in the primary region, you have two options for failing over to the secondary region. These options are described in greater detail later in this article: 
-
-- **Customer-managed forced failover (preview)**: Forced failover enables you to control when you fail over to the secondary region, rather than waiting for Microsoft to initiate the failover. When you force a failover to the secondary region, clients can immediately begin writing data to the secondary endpoint. Forced failover helps you to maintain high availability for your customers.
-
-    Forced failover can result in data loss. Use forced failover only when the primary region becomes unavailable and your application requires high availability. Because you decide when to initiate a forced failover, you can force a failure to improve your RTO.   
-
-- **Microsoft-managed failover**: By default, Microsoft attempts to restore service to the primary region in the event of an outage. If the primary region cannot be restored in a timely fashion, then a failover is initiated. In this case, no action on your part is required, but you must wait for the failover to complete.
-
-    If your application does not require high availability, then for optimal RPO, allow Microsoft to manage the failover. 
-
-
-## Customer-managed forced failover (preview)
-
-Forced failover gives customers the option to fail over their entire storage account to the secondary region if the primary region becomes unavailable for any reason. All data in the storage account, including blob, file, queue, and table data, is failed over to secondary region. 
-
-If your application requires high availability, forced failover helps you maintain that availability in the event that the primary region becomes unavailable. You can quickly force a failover to the secondary to get your application up and running again.
-
-### About the preview
+## About the forced failover preview
 
 Forced failover is available in preview for all customers using GRS or RA-GRS with Azure Resource Manager deployments. General-purpose v1, General-purpose v2, and Blob storage account types are supported. Forced failover is currently available in these regions:
 
-- US-West 2
+- US West 2
 - US West Central
 
 The preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
-### Risk of data loss
+### Additional considerations 
 
-Forced failover comes at the cost of possible data loss. It's important to understand the implications of initiating a forced failover.  
+Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover.
 
-Because data is written asynchronously from the primary region to the secondary region, there is always a delay before the secondary region is fully up-to-date with write operations made to the primary region. If the primary region becomes unavailable, the most recent writes may not have been replicated to the secondary region.
+#### Azure virtual machine disks
 
-When you force a failover, data in the primary region is lost as the secondary region becomes the new primary region. All data already replicated to the secondary is maintained. However, any data that has not yet been written to the secondary will be lost permanently. 
+Microsoft recommends converting unmanaged disks to managed disks.
 
-Proceed with a forced failover only if it's more important that your data be highly available than durable. If you cannot risk data loss, then do not perform a forced failover. Instead, wait for Microsoft to perform a managed failover to maximize your data recovery.
+Azure VM disks are stored as page blobs in Azure Storage. When a VM is running in Azure, any disks attached to the VM are leased. A forced failover cannot proceed when there is a lease on a blob. To perform the failover, follow these steps:
 
-Use the **Last Sync Time** property to determine when your data was last synced to the secondary region. This value provides a timestamp for the last guaranteed replication of the primary data. You can use it to estimate the amount of data loss you may incur by initiating a forced failover.
+1. Shut down the VM.
+1. Perform the forced failover.
+1. Reattach VM disks and restart your VMs in the new primary region.
 
-### Microsoft-managed failover
+Any data stored in a VM's temporary disk is lost when the VM is shut down.
 
-If you choose not to force a failover, then Microsoft will trigger a failover if the primary region cannot be recovered in timely fashion. In deciding to fail over, Microsoft evaluates the trade-offs between recovery time objective (RTO) and recovery point objective (RPO) and attempts to maximize each based on the situation. For more information about RTO and RPO, see [Designing resilient applications for Azure](https://docs.microsoft.com/azure/architecture/resiliency/).
+#### Azure File Sync
 
-Before and during a Microsoft-managed failover, you won't have write access to your storage account. You can read from the secondary during the failover if your storage account is configured for RA-GRS. 
+Azure File Sync supports forced failover. However, you will need to reconfigure all Azure File Sync settings after the failover is complete.
+
+### Unsupported features or services
+
+The following features or services are not supported for forced failover for the preview release:
+
+- Azure Data Lake Storage Gen2 hierarchical file shares cannot be failed over.
+- A storage account containing Azure managed disks for virtual machines cannot be failed over. The storage account containing managed disks is managed by Microsoft.
+- A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
+- A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
+- A storage account containing large (premium???) Azure File shares cannot be failed over.  
+
+## Understand the forced failover process
+
+Customer-managed forced failover (preview) enables you to fail your entire storage account over to the secondary region if the primary becomes unavailable for any reason. When you force a failover to the secondary region, clients can immediately begin writing data to the secondary endpoint. Forced failover helps you to maintain high availability for your customers.
+
+### How a forced failover works
+
+Under normal circumstances, a client writes data to an Azure Storage account in the primary region, and that data is replicated asynchronously to the secondary region. The following image shows the scenario when the primary region is available:
+
+![Clients write data to the storage account in the primary region](media/storage-disaster-recovery-guidance/primary-available.png)
+
+If the primary region becomes unavailable for any reason, the client is no longer able to write to the storage account. The following image shows the scenario where the primary has become unavailable, but no recovery has happened yet:
+
+![The primary is unavailable, so clients cannot write data](media/storage-disaster-recovery-guidance/primary-unavailable-before-failover.png)
+
+The customer initiates the forced failover to the secondary region. The failover process updates the DNS entry provided by Azure Storage so that the secondary endpoint becomes the new primary endpoint for your storage account, as shown in the following image:
+
+![Customer initiates forced failover to secondary region](media/storage-disaster-recovery-guidance/failover-to-secondary.png)
+
+Write access is restored for GRS and RA-GRS accounts once the DNS entry has been updated and requests are being directed to the new primary region. Existing storage service endpoints for blobs, tables, queues, and files remain the same after the failover.
+
+> [!IMPORTANT]
+> After the failover is complete, the storage account is configured to be locally redundant in the new primary region. To resume replication to the new secondary, configure the account to use geo-redundant storage again (either RA-GRS or GRS).
+>
+> Keep in mind that converting an LRS account to RA-GRS or GRS incurs a cost. This cost applies to updating the storage account in the new primary region to use RA-GRS or GRS after a failover.  
+
+### Anticipate data loss
+
+> [!CAUTION]
+> A forced failover usually involves some data loss. It's important to understand the implications of initiating a forced failover.  
+
+Because data is written asynchronously from the primary region to the secondary region, there is always a delay before a write to the primary region is replicated to the secondary region. If the primary region becomes unavailable, the most recent writes may not yet have been replicated to the secondary region.
+
+When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region and the storage account is configured to be locally redundant. All data already replicated to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been replicated to the secondary is lost permanently. 
+
+The **Last Sync Time** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. All data written prior to the **Last Sync Time** property is available on the secondary, while data written after the **Last Sync Time** may not have been written to the secondary and may be lost. Use this property in the event of an outage to estimate the amount of data loss you may incur by initiating a forced failover.
+
+### Use caution when failing back
+
+After you fail over from the primary to the secondary region, your storage account is configured to be locally redundant in the new primary region. You can configure the account for geo-redundancy again by updating it to use GRS or RA-GRS. When the account is configured for geo-redundancy again after a failover, the new primary region immediately begins replicating data to the new secondary region, which was the primary before the original failover. However, it may take a period of time before existing data in the primary is fully replicated to the new secondary.
+
+After the storage account is reconfigured for geo-redundancy, it's possible to fail back from the new primary to the new secondary. In this case, the original primary region prior to the failover becomes the primary region again, and is configured to be locally redundant. All data in the post-failover primary region (the original secondary) is then lost. If most of the data in the storage account has not been replicated to the new secondary before you fail back, you could suffer a major data loss. 
+
+To avoid a major data loss, check the **Last Sync Time** property before failing back. 
+
+### Prepare for failover
+
+
+
+
+
+## Microsoft-managed failover
+
+In extreme circumstances where a region is lost due to a significant disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Until the Microsoft-managed failover has completed, you won't have write access to your storage account. Your applications can read from the secondary region if your storage account is configured for RA-GRS. 
+
+
+
+
 
 <TODO> After the failover happens - ??? why copy the data to another storage account? hasn't the secondary become the primary???
 
 If you chose [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recommended) for your storage accounts, you will have read access to your data from the secondary region. You can use tools such as [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), and the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) to copy data from the secondary region into another storage account in an unimpacted region, and then point your applications to that storage account for both read and write availability.
 
-Microsoft-managed failovers are supported for all storage accounts configured for GRS or RA-GRS. Both Azure Resource Manager and Classic deployments are supported. General-purpose v1, General-purpose v2, and Blob storage account types are supported. Forced failover is currently available for storage accounts in all regions.
-
-## Supported services and features 
-
-<TODO>
-
-These scenarios support forced failover of an Azure storage account
-
-VM Scenarios
-
-1.  Shutdown the VM
-
-2.  Conduct failover
-
-3.  After failover is completed, vhds are only copied so you will need to reattach the vhds and restart the VMs in the new primary region
-
-4.  Any data in the temp disk will be lost
-
-5.  Check on how user can query LST for page blobs
-
-VNET – supported. No action required 
- 
-ADLS gen 2 – supported
-
-Data used by the following features or services does not is not failed over. 
-
-Azure Files Sync - not blocked, but need to reconfigure all settings after failover.
-Large File Shares - blocked - keep LFS data in separate accounts - use a different account - maintain their own DR - whole account cannot be failed over (for preview)
-Managed Disks – is not a supported scenario because Microsoft manages the storage account
-Archive scenarios - use different account for archive 
-Premium Block Blobs - GRS is not supported
 
 
-## Additional best practices for resiliency
-There are some recommended approaches to back up your storage data on a regular basis.
-
-* VM Disks – Use the [Azure Backup service](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines.
-* Block blobs – Turn on [soft delete](../blobs/storage-blob-soft-delete.md) to protect against object-level deletions and overwrites, or copy the blobs to another storage account in another region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* Tables – use [AzCopy](storage-use-azcopy.md) to export the table data into another storage account in another region.
-* Files – use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](storage-powershell-guide-full.md) to copy your files to another storage account in another region.
-
-For information about creating applications that take full advantage of the RA-GRS feature, please check out [Designing Highly Available Applications using RA-GRS Storage](../storage-designing-ha-apps-with-ragrs.md)
 
 ## See also
 
