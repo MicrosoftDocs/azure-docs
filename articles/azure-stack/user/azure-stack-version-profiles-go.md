@@ -82,7 +82,7 @@ To run a sample of Go code on Azure Stack, follow these steps:
 
 3. If not available, create a subscription and save the subscription ID to be used later. For information about creating a subscription, see [Create subscriptions to offers in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-4. Create a service principal with **Subscription** scope and **Owner** role. Save the service principal ID and secret. For information about creating a service principal for Azure Stack, see [Create service principal](../azure-stack-create-service-principals.md#create-service-principal-for-azure-ad). Your Azure Stack environment is now set up.
+4. Create a service principal with **Subscription** scope and **Owner** role. Save the service principal ID and secret. For information about creating a service principal for Azure Stack, see [Create service principal](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad). Your Azure Stack environment is now set up.
 
 5. Import a service module from the Go SDK profile in your code. The current version of Azure Stack profile is **2017-03-09**. For example, to import network module from **2017-03-09** profile type, use the following code:
 
@@ -128,7 +128,7 @@ To get the **Authorizer** property from Azure Active Directory using the Go SDK,
 
 The Authorizer must be set as the authorizer for the resource client. There are different ways to get authorizer tokens on Azure Stack by using client credentials:
 
-1. If a service principal with owner role on the subscription is available, skip this step. Otherwise create a [service principal](../azure-stack-create-service-principals.md) and assign it an "owner" role [scoped to your subscription]( ../azure-stack-create-service-principals.md#assign-role-to-service-principal). Save the service principal application ID and secret.
+1. If a service principal with owner role on the subscription is available, skip this step. Otherwise create a [service principal](azure-stack-create-service-principals.md) and assign it an "owner" role [scoped to your subscription](azure-stack-create-service-principals.md#assign-role-to-service-principal). Save the service principal application ID and secret.
 
 2. Import the **adal** package from Go-AutoRest in your code.
 
