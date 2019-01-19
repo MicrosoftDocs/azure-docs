@@ -50,7 +50,7 @@ Parameters are case-sensitive.
 
 ```json
  {
-    "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill ",
+    "@odata.type": "#Microsoft.Skills.Text.LanguageDetectionSkill",
     "inputs": [
       {
         "name": "text",
