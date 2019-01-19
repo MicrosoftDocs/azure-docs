@@ -1,51 +1,62 @@
 ---
-title: Planning for an Azure Storage outage | Microsoft Docs
+title: Disaster recovery and failover - Azure Storage
 description: Learn how to plan and prepare for an Azure Storage outage.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/18/2019
 ms.author: tamram
 ms.component: common
 ---
 
-# Planning for an Azure Storage outage
+# Disaster recovery and failover in Azure Storage
 
-Microsoft strives to ensure that Azure services are always available. Occasionally, unplanned service outages do occur in one or more regions. If your application requires resiliency, you will want to have a disaster recovery plan in place for handling outages. This article describes what happens in the event that the primary region becomes unavailable and how to prepare your storage account for recovery with the least amount of customer impact.
+Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur from time to time in one or more regions. If your application requires resiliency, Microsoft recommends using geo-redundant storage, so that your data is replicated in a second region. Additionally, customers should have a disaster recovery plan in place for handling a regional service outage. A key part of a disaster recovery plan is preparing to fail over to the secondary region in the event that the primary region becomes unavailable. 
+
+Azure Storage supports customer-managed forced failover (preview) for geo-redundant storage accounts. With forced failover, you can initiate the failover process for your storage account if the primary region becomes unavailable. The failover updates the secondary region to become the primary region for your storage account. Once the failover is complete, clients can begin writing to the new primary region.
+
+
+This article describes to use geo-redundancy to how you can fail over to the secondary region in the event that the primary region becomes unavailable. and how to prepare your storage account for recovery with the least amount of customer impact.
 
 ## Choose the right redundancy option
 
-All storage accounts are replicated for redundancy. Which redundancy option you choose depends on the level of resiliency you need. For optimal protection against outages, you will want to geo-replicate your data, with or without the option of read access from the secondary region. 
+All storage accounts are replicated for redundancy. Which redundancy option you choose for your account depends on the level of resiliency you need. For  protection against regional outages, choose geo-redundant storage, with or without the option of read access from the secondary region:  
 
-**Geo-redundant storage (GRS)** replicates your data asynchronously in two geographic regions that are at least hundreds of miles apart. If the primary region suffers an outage, then the secondary region serves as a redundant source for your data. A failover, initiated either by Microsoft or by you, transforms the secondary region into the primary region.
+**Geo-redundant storage (GRS)** replicates your data asynchronously in two geographic regions that are at least hundreds of miles apart. If the primary region suffers an outage, then the secondary region serves as a redundant source for your data. You can initiate a failover to transform the secondary region into the primary region.
 
-**Read-access geo-redundant storage (RA-GRS)** provides geo-replication with read access to the secondary. If an outage occurs in the primary region, your applications can continue to read from the secondary region during the recovery process RAGRS. Microsoft recommends RA-GRS for maximum resiliency for your data.
+**Read-access geo-redundant storage (RA-GRS)** provides geo-redundant storage with the additional benefit of read access to the secondary region. If an outage occurs in the primary region, applications configured for RA-GRS and designed for high availability can continue to read from the secondary region. Microsoft recommends RA-GRS for maximum resiliency for your applications.
 
-> [!IMPORTANT]
-> Cross-region data replication is an asynchronous process that involves a delay, so writes that have not yet been replicated to the secondary region may be lost in the event of an outage. The **Last Sync Time** property indicates the last time that the secondary was updated from the primary. Use this property in the event of an outage to determine when the last full write to primary region was replicated to the secondary region.
+Other Azure Storage redundancy options include zone-redundant storage (ZRS), which replicates your data across availability zones in a single region, and locally redundant storage (LRS), which replicates your data in a single data center in a single region. If your storage account is configured for ZRS or LRS, you can convert that account to use GRS or RA-GRS. Configuring your account for geo-redundant storage incurs additional costs. For more information, see [Azure Storage replication](storage-redundancy.md).
 
-For more information about redundancy options, see [Azure Storage replication](storage-redundancy.md).
+> [!WARNING]
+> Cross-region data replication is an asynchronous process that involves a delay, so writes to the primary region that have not yet been replicated to the secondary region will be lost in the event of an outage. The **Last Sync Time** property indicates the last time that data from the primary region is guaranteed to be written to the secondary region. All writes prior to the **Last Sync Time** are also available on the secondary, while writes happening after the **Last Sync Time** may not yet have been written to the secondary. Use this property in the event of an outage to determine which writes have been replicated to the secondary region.
+
+## Design for high availability
+
+It's important to design your application for high availability from the start. Refer to these Azure resources for guidance in designing your application and planning for disaster recovery:
+
+* [Designing resilient applications for Azure](https://docs.microsoft.com/azure/architecture/resiliency/): An overview of the key concepts for architecting highly available applications in Azure.
+* [Availability checklist](https://docs.microsoft.com/azure/architecture/checklist/availability): A checklist for verifying that your application implements the best design practices for high availability.
+* [Designing highly available applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md): Design guidance for building applications to take advantage of RA-GRS.
+* [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md): A tutorial that shows how to build a highly available application that automatically switches between endpoints as failures and recoveries are simulated. 
 
 ## Track outages
 
 Customers may subscribe to the [Azure Service Health Dashboard](https://azure.microsoft.com/status/) to track the health and status of Azure Storage and other Azure services.
 
-It's also recommended that you design your application to prepare for write failures, and to expose these in a way that alerts you to the possibility of a failure in the primary region.
-
-## Design for high availability
-
-It's important to design your application for high availability from the start. Every customer should also prepare their own disaster recovery plan. The effort to recover from a storage outage typically involves both operations personnel and automated procedures in order to return your applications to a functioning state. Refer to these Azure resources for guidance in designing your application and creating your disaster recovery plan:
-
-* [Designing resilient applications for Azure](https://docs.microsoft.com/azure/architecture/resiliency/): An overview of the key concepts for architecting highly available applications in Azure.
-* [Availability checklist](https://docs.microsoft.com/azure/architecture/checklist/availability): A checklist for verifying that your application implements the best design practices for high availability.
-* [Designing highly available applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md): Design guidance for building applications to take advantage of RA-GRS.
-* [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md): A tutorial for  
+Microsoft also recommends that you design your application to prepare for the possibility of write failures, and to expose these in a way that alerts you to the possibility of an outage in the primary region.
 
 ## Understand the failover process
 
-If an outage or regional disaster renders the primary region unavailable, then a failover to the secondary region restores write access to your data. Read access remains available during the failover process if your storage account is configured for RA-GRS. If your account is configured for GRS, then read access becomes available only once the failover is complete. For this reason, Microsoft recommends RA-GRS for maximum resilience. 
+Azure Storage supports customer-managed forced failover (preview) for geo-redundant storage accounts. With forced failover, you can initiate the failover process for your storage account if the primary region becomes unavailable.
+
+If an outage or regional disaster renders the primary region unavailable, then a failover to the secondary region restores write access to your storage account.  
+
+
+## Prepare for failover
+
 
 ### Failover options
 
