@@ -44,7 +44,7 @@ The following diagram shows the general process for deploying the cluster.
     Enter the values you need to set up the Kubernetes cluster, including:
     -  **User name**: The user name for the Linux virtual machines that are part of the Kubernetes cluster and DVM.
     -  **SSH public key**: The key that's used for the authorization of all Linux machines that were created as part of the Kubernetes cluster and DVM.
-    -  **Service principle**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you created your service principal. 
+    -  **Service principal**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you created your service principal. 
     -  **Client secret**: They key you created when you created your service principal.
 
 2. Create the deployment VM and custom script extension.

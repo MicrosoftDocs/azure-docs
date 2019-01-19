@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/18/2019
 ms.author: raynew
 
 ---
@@ -107,7 +107,8 @@ Paravirtualized storage devices | Devices exported by paravirtualized drivers ar
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Device/Mount point naming convention | Device name or mount point name should be unique. Ensure that no two devices/mount points have case sensitive names. </br> Example: Naming two devices of same virtual machine as *device1* and *Device1* is not allowed.
-Directories | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. The following directories (if set up as separate partitions/file-systems) all must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot should be on a disk partition and not be an LVM volume.<br/><br/> From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, above restrictions are not applicable.
+Directories | Before [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. The following directories (if set up as separate partitions/file-systems) all must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br>2. /boot should be on a disk partition and not be an LVM volume.<br/><br/> From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) onwards, above restrictions are not applicable. /boot on LVM volume across more than one disks is not supported.
+Boot directory | Multiple boot disks on a virtual machine is not supported <br/><br/> A machine without boot disk cannot be protected
 
 Free space requirements| 2 GB on the /root partition <br/><br/> 250 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from Mobility Service version 9.10 onward. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
@@ -153,6 +154,7 @@ Accelerated Networking | No
 ## Storage
 **Component** | **Supported**
 --- | ---
+Dynamic disk | Operation System disk must be a basic disk. <br/><br/>Data disks can be dynamic disks
 Host NFS | Yes for VMware<br/><br/> No for physical servers
 Host SAN (iSCSI/FC) | Yes
 Host vSAN | Yes for VMware<br/><br/> N/A for physical servers

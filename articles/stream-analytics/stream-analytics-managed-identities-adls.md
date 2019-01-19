@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
 ---
 
@@ -16,9 +16,9 @@ Azure Stream Analytics supports managed identity authentication with Azure Data 
 
 Visit the [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog post to sign up for this preview and read more about new features.
 
-This article shows you two ways to enable managed identity for an Azure Stream Analytics job that outputs to an Azure Data Lake Storage Gen1: through the Azure portal and through Azure Resource Manager template deployment.
+This article shows you two ways to enable managed identity for an Azure Stream Analytics job that outputs to an Azure Data Lake Storage Gen1 through the Azure portal, Azure Resource Manager template deployment, and Azure Stream Analytics tools for Visual Studio.
 
-## Enable Managed Identity with Azure portal
+## Azure portal
 
 1. Start by creating a new Stream Analytics job or by opening an existing job in Azure portal. From the menu bar located on the left side of the screen, select **Managed Identity (preview)** located under **Configure**.
 
@@ -59,6 +59,28 @@ This article shows you two ways to enable managed identity for an Azure Stream A
    ![Stream Analytics access list in portal](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    To learn more about Data Lake Storage Gen1 file system permissions, see [Access Control in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+## Stream Analytics tools for Visual Studio
+
+1. In JobConfig.json, set **Use System-assigned Identity** to **True**.
+
+   ![Stream Analytics job config managed identities](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
+
+2. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity (preview)**.
+
+   ![ADLS output managed identities](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
+
+3. Fill out the rest of the properties, and click **Save**.
+
+4. Click **Submit to Azure** in the query editor.
+
+   When you submit the job, the tools do two things:
+
+   * Automatically creates a service principal for the identity of the Stream Analytics job in Azure Active Directory. The life cycle of the newly created identity will be managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.
+
+   * Automatically set **Write** and **Execute** permissions for the ADLS Gen1 prefix path used in the job and assign it to this folder and all children.
+
+5. You can generate the Resource Manager templates with the following property using [Stream Analytics CI.CD Nuget package](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) version 1.5.0 or above on a build machine (outside of Visual Studio). Follow the Resource Manager template deployment steps in the next section to get the service principal and grant access to the service principal via PowerShell.
 
 ## Resource Manager template deployment
 
@@ -148,3 +170,5 @@ This article shows you two ways to enable managed identity for an Azure Stream A
 ## Next steps
 
 * [Create a Data lake Store output with stream analytics](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Test Stream Analytics queries locally with Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Test live data locally using Azure Stream Analytics tools for Visual Studio](stream-analytics-live-data-local-testing.md) 
