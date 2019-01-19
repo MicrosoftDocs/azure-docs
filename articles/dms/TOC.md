@@ -25,9 +25,10 @@
 ## [Database migration scenario status](resource-scenario-status.md)
 ## [Overview of prerequisites](pre-reqs.md)
 ## [Network topologies for Azure SQL DB Managed Instance migrations](resource-network-topologies.md)
-## [Known Issues - Online migration to Azure SQL DB](known-issues-azure-sql-online.md)
-## [Known Issues - Online migration to Azure DB for MySQL](known-issues-azure-mysql-online.md)
-## [Known Issues - Online migration to Azure DB for PostgreSQL](known-issues-azure-postgresql-online.md)
+## Known issues
+### [Known Issues - Online migration to Azure SQL DB](known-issues-azure-sql-online.md)
+### [Known Issues - Online migration to Azure DB for MySQL](known-issues-azure-mysql-online.md)
+### [Known Issues - Online migration to Azure DB for PostgreSQL](known-issues-azure-postgresql-online.md)
 ## [Service and tools available for data migration scenarios](dms-tools-matrix.md)
 ## [Frequently Asked Questions](faq.md)
 ## [User Voice Feedback](https://feedback.azure.com/forums/906100-azure-database-migration-service)
