@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To complete this tutorial:
 
 > [!div class="checklist"]
-> * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse].(../../sql-data-warehouse/create-data-warehouse-portal.md)
+> * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md).
 > * Create a database master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 > * Create an Azure Data Lake Storage Gen2 account. See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
 > * Sign in to the [Azure portal](https://portal.azure.com/).
@@ -66,7 +66,7 @@ In this section, you create an Azure Databricks workspace by using the Azure por
 
     ![Databricks deployment tile](./media/data-lake-storage-handle-data-using-databricks/databricks-deployment-tile.png "Databricks deployment tile")
 
-## CCreate a Spark cluster in Azure Databricks
+## Create a Spark cluster in Azure Databricks
 
 1. In the Azure portal, go to the Databricks workspace that you created, and select **Launch Workspace**.
 
