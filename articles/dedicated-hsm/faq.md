@@ -53,7 +53,7 @@ At this time, Azure Dedicated HSM only provides HSMs with password-based authent
 
 ### Q: Will Azure Dedicated HSM host my HSMs for me?
 
-Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any cusotmer provided devices.
+Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any customer provided devices.
 
 ### Q: Does Azure Dedicated HSM support PIN/ETF features or meet PCI HSM v1 or v2 certification requirements?
 
