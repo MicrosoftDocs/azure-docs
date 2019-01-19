@@ -27,7 +27,7 @@ translation.priority.mt:
 # Storage Analytics Logging
 Storage Analytics logs detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
- Storage Analytics logging is not enabled by default for your storage account. You can enable it in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Get Blob Service Properties](Get-Blob-Service-Properties.md), [Get Queue Service Properties](Get-Queue-Service-Properties.md), and [Get Table Service Properties](Get-Table-Service-Properties.md) operations to enable Storage Analytics for each service.
+ Storage Analytics logging is not enabled by default for your storage account. You can enable it in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Get Blob Service Properties](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Get Queue Service Properties](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties), and [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) operations to enable Storage Analytics for each service.
 
  Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its Blob endpoint but not in its Table or Queue endpoints, only logs pertaining to the Blob service will be created.
 
@@ -229,4 +229,4 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 ## See Also
  [Storage Analytics Log Format](storage-analytics-log-format.md)
  [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-and-status-messages.md)
- [About Storage Analytics Metrics](About-Storage-Analytics-Metrics.md)
+ [Storage Analytics Metrics](storage-analytics-metrics.md)

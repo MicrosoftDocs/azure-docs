@@ -40,7 +40,7 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 
  For example, if you perform a **GetBlob** operation on your Blob service, Storage Analytics Metrics will log the request and include it in the aggregated data for both the Blob service as well as the **GetBlob** operation. However, if no **GetBlob** operation is requested during the hour, an entity will not be written to the *$MetricsTransactionsBlob* for that operation.  
 
- Transaction metrics are recorded for both user requests and requests made by Storage Analytics itself. For example, requests by Storage Analytics to write logs and table entities are recorded. For more information on how these requests are billed, see [Storage Analytics and Billing](Storage-Analytics-and-Billing.md)  
+ Transaction metrics are recorded for both user requests and requests made by Storage Analytics itself. For example, requests by Storage Analytics to write logs and table entities are recorded. For more information on how these requests are billed, see [Storage Analytics](storage-analytics.md)  
 
 ## Capacity Metrics  
 
@@ -71,15 +71,20 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 
  These tables are automatically created when Storage Analytics is enabled for a storage service endpoint. They are accessed via the namespace of the storage account, for example: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. The metrics tables do not appear in a listing operation, and must be accessed directly via the table name.  
 
-##  How to enable Storage Metrics using the Azure portal  
-You can enable metrics on a storage account by using the [Azure portal](https://portal.azure.com).
+## How to enable metrics using the Azure portal
+Follow these steps to enable metrics in the [Azure portal](https://portal.azure.com):
 
-Follow the steps in [How to enable metrics using the Azure portal](/azure/storage/storage-enable-and-view-metrics#how-to-enable-metrics-using-the-azure-portal) to enable metrics on a storage account.
+1. Navigate to your storage account.
+1. Select **Diagnostics** from the **Menu** pane.
+1. Ensure that **Status** is set to **On**.
+1. Select the metrics for the services you wish to monitor.
+1. Specify a retention policy to indicate how long to retain metrics and log data.
+1. Select **Save**.
+
+The [Azure portal](https://portal.azure.com) does not currently enable you to configure minute metrics in your storage account; you must enable minute metrics using PowerShell or programmatically.
 
 > [!NOTE]
 >  Note that the Azure portal does not currently enable you to configure minute metrics in your storage account. You must enable minute metrics using PowerShell or programmatically.  
-
-For more information, see [About Storage Analytics Metrics](About-Storage-Analytics-Metrics.md).  
 
 ## How to enable Storage Metrics using PowerShell  
 You can use PowerShell on your local machine to configure Storage Metrics in your storage account by using the Azure PowerShell cmdlet **Get-AzureStorageServiceMetricsProperty** to retrieve the current settings, and the cmdlet **Set-AzureStorageServiceMetricsProperty** to change the current settings.  
@@ -127,7 +132,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 For more information about using a .NET language to configure Storage Metrics, see [Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
 
-For general information about configuring Storage Metrics using the REST API, see [Enabling and Configuring Storage Analytics](Enabling-and-Configuring-Storage-Analytics.md).  
+For general information about configuring Storage Metrics using the REST API, see [Enabling and Configuring Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ##  Viewing Storage Metrics  
 After you configure Storage Analytics metrics to monitor your storage account, Storage Analytics records the metrics in a set of well-known tables in your storage account. You can configure charts to view hourly metrics in the [Azure portal](https://portal.azure.com):
