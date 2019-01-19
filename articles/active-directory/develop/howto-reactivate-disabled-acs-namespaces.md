@@ -28,7 +28,7 @@ On October 3, 2018, we announced (through email and [a blog post](https://azure.
 
 ## Why your namespace is disabled
 
-If you haven't opted in for the extension, we'll start to disable ACS namespaces starting November 7, 2018. You must have requested the extension to February 4, 2019 already; otherwise, you will not be able to enable them through PowerShell.
+If you haven't opted in for the extension, we'll start to disable ACS namespaces starting November 7, 2018. You must have requested the extension to February 4, 2019 already; otherwise, you will not be able to enable the namespaces through PowerShell.
 
 > [!NOTE]
 > You must be a service administrator or co-administrator of the subscription to run the PowerShell commands and request an extension.
