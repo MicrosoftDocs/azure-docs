@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery and failover - Azure Storage
+title: Disaster recovery and forced failover (preview) - Azure Storage
 description: Learn how to plan and prepare for an Azure Storage outage.
 services: storage
 author: tamram
@@ -11,7 +11,7 @@ ms.author: tamram
 ms.component: common
 ---
 
-# Disaster recovery and failover in Azure Storage
+# Disaster recovery and forced failover (preview) in Azure Storage
 
 Microsoft strives to ensure that Azure services are always available. However, unplanned service outages may occur from time to time in one or more regions. If your application requires resiliency, Microsoft recommends using geo-redundant storage, so that your data is replicated in a second region. Additionally, customers should have a disaster recovery plan in place for handling a regional service outage. A key part of a disaster recovery plan is preparing to fail over to the secondary region in the event that the primary region becomes unavailable. 
 
@@ -48,7 +48,35 @@ Customers may subscribe to the [Azure Service Health Dashboard](https://azure.mi
 
 Microsoft also recommends that you design your application to prepare for the possibility of write failures, and to expose these in a way that alerts you to the possibility of an outage in the primary region.
 
-## Understand the failover process
+## Understand the forced failover process
+
+Customer-managed forced failover (preview) enables you to control when you fail over to the secondary region, rather than waiting for Microsoft to initiate the failover. When you force a failover to the secondary region, clients can immediately begin writing data to the secondary endpoint. Forced failover helps you to maintain high availability for your customers even in the event of an outage in the primary region.
+
+### How a failover works
+
+Under normal circumstances, a client writes data to an Azure Storage account in the primary region, and that data is replicated asynchronously to the secondary region. The following image shows the scenario when the primary region is available:
+
+![Clients write data to the storage account in the primary region](media/storage-account-forced-failover/primary-available.png)
+
+If the primary region becomes unavailable for any reason, the client is no longer able to write to the storage account. The following image shows the scenario where the primary has become unavailable, but no recovery has happened yet:
+
+![The primary is unavailable, so clients cannot write data](media/storage-account-forced-failover/primary-unavailable-before-failover.png)
+
+The customer initiates the failover to the secondary region. The failover process updates the DNS entry provided by Azure Storage so that the secondary endpoint becomes the new primary endpoint for your storage account, as shown in the following image:
+
+
+
+![The failover converts the secondary into the new primary and writes resume](media/storage-account-forced-failover/new-primary-after-failover.png) 
+
+Write access is restored for GRS and RA-GRS accounts once the DNS entry has been updated and requests are being directed to the new primary region. Existing storage service endpoints for blobs, tables, queues, and files remain the same after the failover.
+
+> [!IMPORTANT]
+> After the failover is complete, the storage account is configured to use LRS in the new primary region. To resume replication to the new secondary, configure the account to use geo-redundant storage again (either RA-GRS or GRS).
+>
+> Keep in mind that converting an LRS account to RA-GRS or GRS incurs a cost. This cost applies to updating the storage account in the new primary region to use RA-GRS or GRS after a failover.  
+
+
+
 
 Azure Storage supports customer-managed forced failover (preview) for geo-redundant storage accounts. With forced failover, you can initiate the failover process for your storage account if the primary region becomes unavailable.
 
@@ -70,26 +98,6 @@ In the event of an outage in the primary region, you have two options for failin
 
     If your application does not require high availability, then for optimal RPO, allow Microsoft to manage the failover. 
 
-### How a failover works
-
-Under normal circumstances, a client writes data to an Azure Storage account in the primary region, and that data is replicated asynchronously to the secondary region. The following image shows the scenario when the primary region is available:
-
-![Clients write data to the storage account in the primary region](media/storage-account-forced-failover/primary-available.png)
-
-If the primary region becomes unavailable for any reason, the client is no longer able to write to the storage account, and data in the account is no longer replicated to the secondary region. The following image shows the scenario where the primary has become unavailable, but no recovery has happened yet:
-
-![The primary is unavailable, so clients cannot write data](media/storage-account-forced-failover/primary-unavailable-before-failover.png)
-
-The primary region fails over to the secondary region. Whether initiated by the customer or by Microsoft, the failover process involves updating the DNS entry provided by Azure Storage to swap the primary and secondary regions. The storage endpoint that was previously your secondary endpoint then becomes your primary endpoint, as shown in the following image:
-
-![The failover converts the secondary into the new primary and writes resume](media/storage-account-forced-failover/new-primary-after-failover.png) 
-
-While DNS changes are propagating, read access to the secondary region remains available for accounts configured with RA-GRS. Write access is restored for GRS and RA-GRS accounts once the DNS changes are complete and requests are being directed to the new primary region. 
-
-> [!IMPORTANT]
-> After the failover is complete, the storage account is configured to use LRS in the new primary region. To resume replication to the new secondary, configure the account to use RA-GRS or GRS again. Existing storage service endpoints for blobs, tables, queues, and files remain the same after the failover.
->
-> Keep in mind that converting an LRS account to RA-GRS or GRS incurs a cost. This cost applies to updating the storage account in the new primary region to use RA-GRS or GRS after a failover.  
 
 ## Customer-managed forced failover (preview)
 
