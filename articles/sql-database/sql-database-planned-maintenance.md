@@ -20,19 +20,24 @@ Learn how to prepare for planned maintenance events on your Azure SQL database.
 
 ## What is a planned maintenance event
 
-The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and [retry logic](sql-database-connectivity-issues.md#retry-logic-for-transient-errors) helps reduce the impact. If you continue to experience login errors, please contact support.
+For each database, Azure SQL DB maintains a quorum of database replicas where one replica is the primary. At all times a primary replica must be online servicing, and at least one secondary replica must be healthy. During planned maintenance, members of the database quorum will go offline one at a time, with the intent that there is one responding primary replica and one secondary replica online at all times in order for no client downtime to occur. When the primary replica needs to be brought offline, a reconfiguration/failover process will occur in which one secondary replica will become the new primary.  
+
+##What to expect during a planned maintenance event
+
+Reconfigurations/failovers generally occur within 5-30 seconds **(Girish to confirm)**. If already connected, your application must reconnect to the healthy copy new primary replica of your database. On the other hand, if a new connection is attempted while the database is undergoing a reconfiguration before the new primary replica is online, you get error 40613 (Database Unavailable): “Database '{databasename}' on server '{servername}' is not currently available. Please retry the connection later.”. If your database has a long running query, this query will be interrupted during a reconfiguration and will need to be restarted.
+
+## Retry Logic
+
+Any client production application that connects to a cloud database service should implement a robust connection [retry logic](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Frequency
 
-On average, at least one planned maintenance event occurs each month. Please note maintenance events will be paused during regular business hours from 8am - 5pm local time to minimize impact.
+On average, 1.7 planned maintenance event occurs each month **(Girish to confirm)**.  Please note maintenance events will be paused during regular business hours from 8am - 5pm local time (of the resource) to minimize impact. [Removed until the feature goes live]
 
 ## Resource Health
 
 If your SQL database is experiencing login failures, check the [Resource Health](../service-health/resource-health-overview.md#getting-started) window in the [Azure portal](https://portal.azure.com) for the current status of your database. The Health History section contains the downtime reason for each event (when available).
 
-## Retry Logic
-
-Any client production application that connects to a cloud database service should implement a robust connection retry logic with backoff logic, as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Next steps
 
