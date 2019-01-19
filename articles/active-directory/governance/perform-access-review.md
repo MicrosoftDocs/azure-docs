@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 07/16/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) simplifies how enterprises manage access to ap
 
 The first step to perform an access review is to find and open the access review.
 
-1. Open your email and look for an email from Microsoft that asks you review access. Here is an example email to review the access for a group.
+1. Open your email and look for an email from Microsoft that asks you to review access. Here is an example email to review the access for a group.
 
     ![Review access email](./media/perform-access-review/access-review-email.png)
 
@@ -36,9 +36,9 @@ If you don't have the email, you can open your access reviews by following these
 
     ![Azure AD access panel](./media/perform-access-review/myapps-access-panel.png)
 
-1. Click the user symbol in the upper-right corner of the page, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
+1. In the upper-right corner of the page, click the user symbol, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
 
-1. Click the **Access reviews** tile displayed on the right side of the page to see a list of the pending access reviews.
+1. On the right side of the page, click the **Access reviews** tile to see a list of the pending access reviews.
 
     If the tile isn't visible, there are no access reviews to perform for that organization and no action is needed at this time.
 
@@ -50,42 +50,26 @@ If you don't have the email, you can open your access reviews by following these
 
 Once you have opened the access review, you see the names of users who need to be reviewed.
 
-1. Review the list of users who need to be reviewed.
+1. Review the list of users to decide whether to approve or deny access.
 
-    You might see only one name--your own--if the request was to review your own access.
+    If the request was to review your own access, you might see only your name.
 
     ![Perform access review](./media/perform-access-review/perform-access-review.png)
 
-For each row on the list, you can decide whether to approve or deny the user's access. Select the row, and choose whether to approve or deny. (If you don't know the user, you can indicate that too.)
+1. Click row to open the window to specify the action to take.
 
-The reviewer might require that you supply a justification for approving continued access or group membership.
+1. Click **Approve** or **Deny**. (If you don't know the user, you can indicate that too.)
 
+    ![Perform access review](./media/perform-access-review/approve-deny.png)
 
-## Open an access review
+    The reviewer might require that you supply a reason for approving continued access or group membership.
 
-To see the pending access reviews, click the review access link in the email. Starting in August 2018, the email notifications for Azure AD roles have an updated design. The following shows an example email that is sent when a user is invited to be a reviewer. 
+1. Click **Save**.
 
-![Review access email](./media/perform-access-review/new-ar-email.png)
+    If you want to change your answer and approve a previously denied user or deny a previously approved user, select the row and update the response. You can do this step until the access review is finished.
 
-If you don't have the email, you can locate the access reviews by following these steps:
-
-1. Sign in on the [Azure AD access panel](https://myapps.microsoft.com).
-
-2. Select the user symbol in the upper-right corner of the page, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
-
-3. If a tile labeled **Access reviews** is on the right side of the page, select it. If the tile isn't visible, there are no access reviews to perform for that organization and no action is needed at this time.
-
-## Fill out an access review
-
-When you select an access review from the list, you see the names of users who need to be reviewed. You might see only one name--your own--if the request was to review your own access.
-
-For each row on the list, you can decide whether to approve or deny the user's access. Select the row, and choose whether to approve or deny. (If you don't know the user, you can indicate that too.)
-
-The reviewer might require that you supply a justification for approving continued access or group membership.
+    If a user is denied access, they aren't removed immediately. They are removed when the review is finished or when an administrator stops the review.
 
 ## Next steps
 
-A user's denied access isn't removed immediately. It can be removed when the review is finished or when an administrator stops the review. If you want to change your answer and approve a previously denied user or deny a previously approved user, select the row, reset the response, and select a new response. You can do this step until the access review is finished.
-
-
-
+- [Complete an access review of members of a group or users' access to an application in Azure AD](complete-access-review.md)
