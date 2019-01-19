@@ -283,7 +283,7 @@ When you submit the pipeline, Azure Machine Learning service checks the dependen
 ```python
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
-pipeline_run.wait_for_completion()
+pipeline_run1.wait_for_completion()
 ```
 
 When you first run a pipeline, Azure Machine Learning:
