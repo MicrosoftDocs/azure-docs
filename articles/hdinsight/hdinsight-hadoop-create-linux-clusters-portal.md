@@ -101,7 +101,7 @@ The Azure portal exposes most of the cluster properties. By using Azure Resource
    > [!IMPORTANT]  
    > If you plan on more than 32 worker nodes, select a head node size with at least eight cores and 14 GB RAM. Plan the nodes either at cluster creation or by scaling the cluster after creation. 
    > 
-   > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+   > For more information on node sizes and associated costs, see [Azure HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
    
     Select **Next** to move to the next page.
 
