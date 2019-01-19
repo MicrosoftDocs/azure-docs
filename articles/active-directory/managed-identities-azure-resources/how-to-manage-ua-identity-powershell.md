@@ -4,7 +4,7 @@ description: Step by step instructions on how to create, list and delete user-as
 services: active-directory
 documentationcenter: 
 author: daveba
-manager: mtillman
+manager: daveba
 editor: 
 
 ms.service: active-directory
