@@ -57,7 +57,7 @@ Managed Instances can only be accessed through a private IP address. There are n
 
 ## Create an Azure AD login for a Managed Instance using SSMS
 
-The first Azure AD login must be created by the standard SQL Server account (non Azure AD) that is a `sysadmin`. See the following articles for examples of connecting to your Managed Instance:
+The first Azure AD login must be created by the standard SQL Server account (non-azure AD) that is a `sysadmin`. See the following articles for examples of connecting to your Managed Instance:
 
 - [Quickstart: Configure Azure VM to connect to an Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md)
 - [Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md)
@@ -65,7 +65,7 @@ The first Azure AD login must be created by the standard SQL Server account (non
 > [!IMPORTANT]
 > The Azure AD admin used to setup the Managed Instance cannot be used to create an Azure AD login within the Managed Instance. You must create the first Azure AD login using a SQL Server account that is a `sysadmin`. This is a temporary limitation that will be removed once Azure AD logins become GA. You will see the following error if you try to use an Azure AD admin account to create the login: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
-1. Log into your Managed Instance using a standard SQL Server account (non Azure AD) that is a `sysadmin`, using [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Log into your Managed Instance using a standard SQL Server account (non-azure AD) that is a `sysadmin`, using [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. In **Object Explorer**, right-click the server and choose **New Query**.
 
@@ -99,11 +99,11 @@ The first Azure AD login must be created by the standard SQL Server account (non
 
     ![native-login.png](media/sql-database-managed-instance-security-tutorial/native-login.png)
 
-See the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) article for more information on the syntax.
+For more information, see [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
 ## Granting permissions to allow the creation of Managed Instance logins
 
-To provision other logins, SQL Server roles or permissions must be granted to the principal (SQL or Azure AD).
+To create other Azure AD logins, SQL Server roles or permissions must be granted to the principal (SQL or Azure AD).
 
 ### SQL authentication
 
@@ -114,7 +114,7 @@ To provision other logins, SQL Server roles or permissions must be granted to th
 - To allow the newly created Azure AD login the ability to create other logins for other Azure AD users, groups, or applications, grant the login `sysadmin` or `securityadmin` server role. 
 - At a minimum, **ALTER ANY LOGIN** permission must be granted to the Azure AD login to create other Azure AD logins. 
 - By default, the standard permission granted to newly created Azure AD logins in master is: **CONNECT SQL** and **VIEW ANY DATABASE**.
-- The `sysadmin` server role can be granted to multiple Azure AD logins within a Managed Instance.
+- The `sysadmin` server role can be granted to many Azure AD logins within a Managed Instance.
 
 To add the login to the `sysadmin` server role:
 
@@ -141,9 +141,10 @@ To add the login to the `sysadmin` server role:
 Once the Azure AD login has been created, and provided with `sysadmin` privileges, that login can create additional logins using the **FROM EXTERNAL PROVIDER** clause with **CREATE LOGIN**.
 
 1. Connect to the Managed Instance server with the Azure AD login, using SQL Server Management Studio. Enter your Managed Instance server name. For Authentication in SSMS, there are three options to choose from when logging in with an Azure AD account:
-    1. Active Directory - Universal with MFA support
-    1. Active Directory - Password
-    1. Active Directory - Integrated
+
+    - Active Directory - Universal with MFA support
+    - Active Directory - Password
+    - Active Directory - Integrated </br>
 
     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
@@ -210,13 +211,13 @@ Once the Azure AD login has been created, and provided with `sysadmin` privilege
 
 ## Create an Azure AD user from the Azure AD login and give permissions
 
-Authorization to individual databases works much in the same way in Managed Instance as it does with SQL Server on-premise. A user can be created from the login in the specific database that the user needs access to, and be provided with permissions on that database, or added to a database role.
+Authorization to individual databases works much in the same way in Managed Instance as it does with SQL Server on-premise. A user can be created from an existing login in a database, and be provided with permissions on that database, or added to a database role.
 
 Now that we've created a database called **MyMITestDB**, and a login that only has default permissions, the next step is to create a user from that login. At the moment, the login can connect to the Managed Instance, and see all the databases, but can't interact with the databases. If you sign in with the Azure AD account that has the default permissions, and try to expand the newly created database, you'll see the following error:
 
 ![ssms-db-not-accessible.png](media/sql-database-managed-instance-security-tutorial/ssms-db-not-accessible.png)
 
-See [Getting Started with Database Engine Permissions](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions) for more information on granting database permissions.
+For more information on granting database permissions, see [Getting Started with Database Engine Permissions](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
 
 ### Create an Azure AD user and create a sample table
 
@@ -256,7 +257,7 @@ See [Getting Started with Database Engine Permissions](/sql/relational-databases
     > [!IMPORTANT]
     > When creating a **USER** from an Azure AD login, specify the user_name as the same login_name from **LOGIN**.
 
-    See the [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) article for additional information regarding the syntax.
+    For more information, see [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
 1. In a new query window, create a test table using the following T-SQL command:
 
@@ -333,7 +334,7 @@ For the user to see data in the database, we can provide [database-level roles](
 
 ## Impersonating Azure AD server-level principals (logins)
 
-Impersonation of Azure AD server-level principals (logins) is supported for Azure AD accounts with Azure AD logins in Managed Instances. 
+Managed Instance supports the impersonation of Azure AD server-level principals (logins).
 
 ### Test impersonation
 
@@ -353,13 +354,13 @@ Impersonation of Azure AD server-level principals (logins) is supported for Azur
     GO
     ```
 
-1. Use the following command to see that the user you are impersonating when executing the stored procedure is **bob@aadsqlmi.net**.
+1. Use the following command to see that the user you're impersonating when executing the stored procedure is **bob@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo
     ```
 
-1. Test impersonation by using the EXECUTE AS LOGIN statement command:
+1. Test impersonation by using the EXECUTE AS LOGIN statement:
 
     ```sql
     EXECUTE AS LOGIN = 'bob@aadsqlmi.net'
@@ -407,7 +408,7 @@ Cross-database queries are supported for Azure AD accounts with Azure AD logins.
     GO
     ```
 
-1. Sign into the Managed Instance using SQL Server Management Studio as a member of the Azure AD group _mygroup_ and execute the cross-database SELECT statement:
+1. Sign into the Managed Instance using SQL Server Management Studio as a member of the Azure AD group _mygroup_. Open a new query window and execute the cross-database SELECT statement:
 
     ```sql
     USE MyMITestDB
@@ -419,10 +420,10 @@ Cross-database queries are supported for Azure AD accounts with Azure AD logins.
 
 ## Additional scenarios supported for Azure AD logins (public preview) 
 
-- SQL Agent management and jobs execution is supported for Azure AD logins.
+- SQL Agent management and job executions are supported for Azure AD logins.
 - Database backup and restore operations can be executed by Azure AD logins.
 - [Auditing](sql-database-managed-instance-auditing.md) of all statements related to Azure AD logins and authentication events.
-- Dedicated administrator connection for Azure AD logins which are members of the `sysadmin` server-role.
+- Dedicated administrator connection for Azure AD logins that are members of the `sysadmin` server-role.
 - Azure AD logins are supported with using the [sqlcmd Utility](/sql/tools/sqlcmd-utility) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) tool.
 - Logon triggers are supported for logon events coming from Azure AD logins.
 - Service Broker and DB mail can be setup using Azure AD logins.
