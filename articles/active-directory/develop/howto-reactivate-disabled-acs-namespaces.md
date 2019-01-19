@@ -28,7 +28,7 @@ On October 3, 2018, we announced (through email and [a blog post](https://azure.
 
 ## Why your namespace is disabled
 
-If you haven't opted in for the extension, we'll start to disable ACS namespaces starting November 7, 2018. If you missed the communications and would still like to opt in for the extension to February 4, 2019, follow the instructions in the following sections.
+If you haven't opted in for the extension, we'll start to disable ACS namespaces starting November 7, 2018. You must have requested the extension to February 4, 2019 already; otherwise, you will not be able to enable them through PowerShell.
 
 > [!NOTE]
 > You must be a service administrator or co-administrator of the subscription to run the PowerShell commands and request an extension.
@@ -81,11 +81,11 @@ We will start disabling namespaces for customers who have requested extensions t
 
 After March 4, 2019, customers will no longer be able to re-enable any namespaces through PowerShell.
 
-Further extensions will no longer be automatically approved. If you need additional time to migrate, contact [Azure support](https://portal.azure.com) to provide a detailed migration timeline.
+Further extensions will no longer be automatically approved. If you need additional time to migrate, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support) to provide a detailed migration timeline.
 
 ### To request an extension
 
-1. Create a new support request from the [Azure portal](https://portal.azure.com).
+1. Log in to the Azure portal and create a [new support request](https://portal.azure.com/#create/Microsoft.Support).
 1. Fill in the new support request form as shown in the following example.
 
     | Support request field | Value |
