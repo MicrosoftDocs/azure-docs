@@ -97,6 +97,16 @@
         href: azure-stack-network-overview.md
       - name: Networking considerations
         href: azure-stack-network-differences.md
+      - name: VPN gateways
+        items:
+        - name: Connect using VPN
+          href: azure-stack-connect-vpn.md
+        - name: About VPN gateway
+          href: azure-stack-vpn-gateway-about-vpn-gateways.md
+        - name: Configure IPSec/IKE connection policies
+          href: azure-stack-vpn-s2s.md
+        - name: VPN gateway settings
+          href: azure-stack-vpn-gateway-settings.md
       - name: iDNS for Azure Stack
         href: azure-stack-understanding-dns.md
       - name: DNS in Azure Stack

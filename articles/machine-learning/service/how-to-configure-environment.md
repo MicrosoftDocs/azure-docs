@@ -10,7 +10,7 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
 ---
 
@@ -63,13 +63,15 @@ To get started developing with Azure Notebooks, see [Get started with Azure Mach
 
 The DSVM is a customized virtual machine (VM) image. It's designed for data science work that's pre-configured with:
 
-  - Packages such as TensorFlow, PyTorch, Scikit-learn, XGBoost, and the Azure Machine Learning SDK.
-  - Popular data science tools such as Spark Standalone and Drill.
-  - Azure tools such as the Azure CLI, AzCopy, and Storage Explorer.
-  - Integrated development environments (IDEs) such as Visual Studio Code, PyCharm, and RStudio.
-  - Jupyter Notebook Server. 
+  - Packages such as TensorFlow, PyTorch, Scikit-learn, XGBoost, and the Azure Machine Learning SDK
+  - Popular data science tools such as Spark Standalone and Drill
+  - Azure tools such as the Azure CLI, AzCopy, and Storage Explorer
+  - Integrated development environments (IDEs) such as Visual Studio Code and PyCharm
+  - Jupyter Notebook Server
 
-The Azure Machine Learning SDK works on either the Ubuntu or Windows version of the DSVM. To use the DSVM as a development environment, do the following:
+The Azure Machine Learning SDK works on either the Ubuntu or Windows version of the DSVM. But if you plan to use the DSVM as a compute target as well, only Ubuntu is supported.
+
+To use the DSVM as a development environment, do the following:
 
 1. Create a DSVM in either of the following environments:
 
