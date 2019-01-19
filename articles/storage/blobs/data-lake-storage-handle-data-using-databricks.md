@@ -168,20 +168,20 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
     ```scala
     df.show()
     ```
-You see an output similar to the following snippet:
+   You see an output similar to the following snippet:
 
-```bash
-+---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
-|               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
-+---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
-| El Arrebato         |Logged In| Annalyse|     F|            2|Montgomery|234.57914| free  |  Killeen-Temple, TX|   PUT|NextSong|1384448062332|     1879|Quiero Quererte Q...|   200|1409318650332|   309|
-| Creedence Clearwa...|Logged In|   Dylann|     M|            9|    Thomas|340.87138| paid  |       Anchorage, AK|   PUT|NextSong|1400723739332|       10|        Born To Move|   200|1409318653332|    11|
-| Gorillaz            |Logged In|     Liam|     M|           11|     Watts|246.17751| paid  |New York-Newark-J...|   PUT|NextSong|1406279422332|     2047|                DARE|   200|1409318685332|   201|
-...
-...
-```
+   ```bash
+   +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
+   |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
+   +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
+   | El Arrebato         |Logged In| Annalyse|     F|            2|Montgomery|234.57914| free  |  Killeen-Temple, TX|   PUT|NextSong|1384448062332|     1879|Quiero Quererte Q...|   200|1409318650332|   309|
+   | Creedence Clearwa...|Logged In|   Dylann|     M|            9|    Thomas|340.87138| paid  |       Anchorage, AK|   PUT|NextSong|1400723739332|       10|        Born To Move|   200|1409318653332|    11|
+   | Gorillaz            |Logged In|     Liam|     M|           11|     Watts|246.17751| paid  |New York-Newark-J...|   PUT|NextSong|1406279422332|     2047|                DARE|   200|1409318685332|   201|
+   ...
+   ...
+   ```
 
-You have now extracted the data from Azure Data Lake Storage Gen2 into Azure Databricks.
+   You have now extracted the data from Azure Data Lake Storage Gen2 into Azure Databricks.
 
 ## Transform data in Azure Databricks
 
@@ -320,9 +320,9 @@ The SQL Data Warehouse connector uses Azure Blob storage as temporary storage to
 
    ![Verify the sample table](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table.png "Verify sample table")
 
-   Run a select query to verify the contents of the table. The table should have the same data as the **renamedColumnsDF** dataframe.
+ 7. Run a select query to verify the contents of the table. The table should have the same data as the **renamedColumnsDF** dataframe.
 
-   ![Verify the sample table content](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "Verify the sample table content")
+    ![Verify the sample table content](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "Verify the sample table content")
 
 ## Clean up resources
 
