@@ -22,7 +22,7 @@ Learn how to prepare for planned maintenance events on your Azure SQL database.
 
 For each database, Azure SQL DB maintains a quorum of database replicas where one replica is the primary. At all times a primary replica must be online servicing, and at least one secondary replica must be healthy. During planned maintenance, members of the database quorum will go offline one at a time, with the intent that there is one responding primary replica and one secondary replica online at all times in order for no client downtime to occur. When the primary replica needs to be brought offline, a reconfiguration/failover process will occur in which one secondary replica will become the new primary.  
 
-##What to expect during a planned maintenance event
+## What to expect during a planned maintenance event
 
 Reconfigurations/failovers generally occur within 5-30 seconds **(Girish to confirm)**. If already connected, your application must reconnect to the healthy copy new primary replica of your database. On the other hand, if a new connection is attempted while the database is undergoing a reconfiguration before the new primary replica is online, you get error 40613 (Database Unavailable): “Database '{databasename}' on server '{servername}' is not currently available. Please retry the connection later.”. If your database has a long running query, this query will be interrupted during a reconfiguration and will need to be restarted.
 
