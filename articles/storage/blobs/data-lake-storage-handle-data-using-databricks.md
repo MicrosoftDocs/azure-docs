@@ -22,10 +22,9 @@ This tutorial covers the following tasks:
 > [!div class="checklist"]
 > * Create an Azure Databricks workspace.
 > * Create a Spark cluster in Azure Databricks.
-> * Create an Azure Data Lake Storage Gen2 capable account.
-> * Upload data to Azure Data Lake Storage Gen2.
-> * Create a notebook in Azure Databricks.
-> * Extract data from Data Lake Storage Gen2.
+> * Create a file system and upload data to Azure Data Lake Storage Gen2.
+> * Create a service principal.
+> * Extract data from the Data Lake Store.
 > * Transform data in Azure Databricks.
 > * Load data into Azure SQL Data Warehouse.
 
@@ -36,12 +35,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To complete this tutorial:
 
 > [!div class="checklist"]
-> * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md)
+> * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse].(../../sql-data-warehouse/create-data-warehouse-portal.md)
 > * Create a database master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 > * Create an Azure Data Lake Storage Gen2 account. See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
 > * Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create the workspace
+## Create an Azure Databricks workspace
 
 In this section, you create an Azure Databricks workspace by using the Azure portal.
 
@@ -67,7 +66,7 @@ In this section, you create an Azure Databricks workspace by using the Azure por
 
     ![Databricks deployment tile](./media/data-lake-storage-handle-data-using-databricks/databricks-deployment-tile.png "Databricks deployment tile")
 
-## Create the Spark cluster
+## CCreate a Spark cluster in Azure Databricks
 
 1. In the Azure portal, go to the Databricks workspace that you created, and select **Launch Workspace**.
 
@@ -141,20 +140,21 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 5. Copy and paste the following code block into the first cell.
 
    ```scala
-   spark.conf.set("dfs.adls.oauth2.access.token.provider.type", "ClientCredential")
-   spark.conf.set("dfs.adls.oauth2.client.id", "<application-id>")
-   spark.conf.set("dfs.adls.oauth2.credential", "<authentication-key>")
-   spark.conf.set("dfs.adls.oauth2.refresh.url", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
+   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    ```
 
-   Replace  `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Create a service principal](#service-principal) section of this article.
+5. In this code block, replace the `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Set aside storage account configuration](#config). Replace the `storage-account-name` placeholder value with the name of your storage account.
 
 6. Press the **SHIFT + ENTER** keys to run the code in this block.
 
 7. You can now load the sample json file as a data frame in Azure Databricks. Paste the following code in a new cell. Replace the placeholders shown in brackets with your values.
 
    ```scala
-   val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/data/small_radio_json.json")
+   val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
    ```
 
    * Replace the  `file-system-name` placeholder value with the name that you gave your file system in Storage Explorer.
@@ -191,6 +191,7 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
 
    ```scala
    val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+   specificColumnsDf.show()
    ```
 
    You receive output as shown in the following snippet:
@@ -320,7 +321,7 @@ The SQL Data Warehouse connector uses Azure Blob storage as temporary storage to
 
    ![Verify the sample table](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table.png "Verify sample table")
 
- 7. Run a select query to verify the contents of the table. The table should have the same data as the **renamedColumnsDF** dataframe.
+7. Run a select query to verify the contents of the table. The table should have the same data as the **renamedColumnsDF** dataframe.
 
     ![Verify the sample table content](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "Verify the sample table content")
 
