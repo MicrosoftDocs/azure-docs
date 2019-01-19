@@ -128,7 +128,7 @@ To get the **Authorizer** property from Azure Active Directory using the Go SDK,
 
 The Authorizer must be set as the authorizer for the resource client. There are different ways to get authorizer tokens on Azure Stack by using client credentials:
 
-1. If a service principal with owner role on the subscription is available, skip this step. Otherwise create a [service principal](azure-stack-create-service-principals.md) and assign it an "owner" role [scoped to your subscription](azure-stack-create-service-principals.md#assign-role-to-service-principal). Save the service principal application ID and secret.
+1. If a service principal with owner role on the subscription is available, skip this step. Otherwise create a [service principal](azure-stack-create-service-principals.md) and assign it an "owner" role [scoped to your subscription](azure-stack-create-service-principals.md#assign-the-service-principal-to-a-role). Save the service principal application ID and secret.
 
 2. Import the **adal** package from Go-AutoRest in your code.
 
