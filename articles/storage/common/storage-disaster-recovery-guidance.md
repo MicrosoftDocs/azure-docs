@@ -1,6 +1,6 @@
 ---
 title: Disaster recovery and forced failover (preview) - Azure Storage
-description: Learn how to plan and prepare for an Azure Storage outage.
+description: Azure Storage supports customer-managed forced failover (preview) for geo-redundant storage accounts. With forced failover, you can initiate the failover process for your storage account if the primary region becomes unavailable.
 services: storage
 author: tamram
 
@@ -43,10 +43,10 @@ It's important to design your application for high availability from the start. 
 
 Additionally, keep in mind these best practices for maintaining high availability for your Azure Storage data:
 
-* Block blobs: Turn on [soft delete](../blobs/storage-blob-soft-delete.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* Files: Use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](storage-powershell-guide-full.md) to copy your files to another storage account in a different region.
-* Disks: Use the [Azure Backup service](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines.
-* Tables – use [AzCopy](storage-use-azcopy.md) to export table data to another storage account in a different region.
+* **Disks:** Use [Azure Backup](https://azure.microsoft.com/services/backup/) to back up the VM disks used by your Azure virtual machines. Also consider using [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) to protect your VMs in the event of a regional disaster.
+* **Block blobs:** Turn on [soft delete](../blobs/storage-blob-soft-delete.md) to protect against object-level deletions and overwrites, or copy block blobs to another storage account in a different region using [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* **Files:** Use [AzCopy](storage-use-azcopy.md) or [Azure PowerShell](storage-powershell-guide-full.md) to copy your files to another storage account in a different region.
+* **Tables:** use [AzCopy](storage-use-azcopy.md) to export table data to another storage account in a different region.
 
 ## Track outages
 
@@ -65,7 +65,7 @@ The preview is intended for non-production use only. Production service-level ag
 
 ### Additional considerations 
 
-Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover.
+Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover during the preview period.
 
 #### Azure virtual machine disks
 
@@ -141,24 +141,15 @@ To avoid a major data loss, check the **Last Sync Time** property before failing
 
 
 
+## Alternative to forced failover
 
+If your storage account is configured for RA-GRS, then you have read access to your data in the secondary region. If you prefer not to fail over in the event of an outage in the primary region, you can use tools such as [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), or the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) to copy data from your storage account in the secondary region to another storage account in an unaffected region. You can then point your applications to that storage account for both read and write availability.
 
 ## Microsoft-managed failover
 
 In extreme circumstances where a region is lost due to a significant disaster, Microsoft may initiate a regional failover. In this case, no action on your part is required. Until the Microsoft-managed failover has completed, you won't have write access to your storage account. Your applications can read from the secondary region if your storage account is configured for RA-GRS. 
 
-
-
-
-
-<TODO> After the failover happens - ??? why copy the data to another storage account? hasn't the secondary become the primary???
-
-If you chose [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recommended) for your storage accounts, you will have read access to your data from the secondary region. You can use tools such as [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md), and the [Azure Data Movement library](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) to copy data from the secondary region into another storage account in an unimpacted region, and then point your applications to that storage account for both read and write availability.
-
-
-
-
 ## See also
 
-* [Azure Site Recovery service](https://azure.microsoft.com/services/site-recovery/)
-* [Azure Backup service](https://azure.microsoft.com/services/backup/)
+* 
+* 
