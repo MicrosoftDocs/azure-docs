@@ -211,17 +211,15 @@
     href: /azure/templates/microsoft.machinelearning/allversions
 - name: Resources
   items:
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: R developer's guide 
     href: ../r-developers-guide.md
   - name: Custom Neural Networks with Net#
     href: azure-ml-netsharp-reference-guide.md
+  - name: Get support
+    href: support-aml-studio.md
   - name: Compare our ML products
     href: ../service/overview-more-machine-learning.md       

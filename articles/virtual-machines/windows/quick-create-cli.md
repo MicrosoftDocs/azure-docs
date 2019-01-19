@@ -101,7 +101,7 @@ With IIS installed and port 80 now open on your VM from the Internet, use a web 
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, VM, and all related resources:
+When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and all related resources:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
