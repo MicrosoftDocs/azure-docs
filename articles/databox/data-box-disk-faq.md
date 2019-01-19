@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data 
-description: Contains frquently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
+description: Contains frequently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
 author: alkohli
 
