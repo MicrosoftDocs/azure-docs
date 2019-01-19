@@ -72,9 +72,9 @@ To run a sample of Go code on Azure Stack, follow these steps:
    ```json
    { "galleryEndpoint": "https://portal.local.azurestack.external:30015/",  
      "graphEndpoint": "https://graph.windows.net/",  
-     "portal Endpoint": "https://portal.local.azurestack.external/", 
+     "portal Endpoint": "https://portal.local.azurestack.external/",
      "authentication": {
-       "loginEndpoint": "https://login.windows.net/", 
+       "loginEndpoint": "https://login.windows.net/",
        "audiences": ["https://management.<yourtenant>.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
      }
    }
@@ -134,7 +134,7 @@ The Authorizer must be set as the authorizer for the resource client. There are 
 
    ```go
    package main
-   import "github.com/Azure/go-autorest/autorest/adal" 
+   import "github.com/Azure/go-autorest/autorest/adal"
    ```
 
 3. Create an **oauthConfig** by using NewOAuthConfig method from **adal** module.
@@ -155,9 +155,9 @@ The Authorizer must be set as the authorizer for the resource client. There are 
 4. Finally, create a service principal token by using the `NewServicePrincipalToken` method from the **adal** module:
 
    ```go
-   package main 
+   package main
 
-   import "github.com/Azure/go-autorest/autorest/adal" 
+   import "github.com/Azure/go-autorest/autorest/adal"
 
    func CreateToken() (adal.OAuthTokenProvider, error) {
        var token adal.OAuthTokenProvider
@@ -169,7 +169,7 @@ The Authorizer must be set as the authorizer for the resource client. There are 
            activeDirectoryResourceID)
        return token, err
    ```
-  
+
     Set `<activeDirectoryResourceID>` to one of the values in the "audience" list from the **ResourceManagerUrl** metadata retrieved in the previous section of this article.
     Set `<clientID>` to the service principal application ID saved when service principal was created in the previous section of this article.
     Set `<clientSecret>` to the service principal application secret saved when the service principal was created in the previous section of this article.
@@ -182,7 +182,7 @@ This section shows a sample of Go code that creates a virtual network on Azure S
 > To run the code in this example, verify that the subscription used has the **Network** resource provider listed as **Registered**. To verify, look for the subscription in the Azure Stack portal, and select **Resource providers.**
 
 1. Import the required packages in your code. Use the latest available profile on Azure Stack to import the network module:
-  
+
    ```go
    package main
 
@@ -196,7 +196,7 @@ This section shows a sample of Go code that creates a virtual network on Azure S
    )
    ```
 
-2. Define your environment variables. To create a virtual network you need to have a resource group. 
+2. Define your environment variables. To create a virtual network you need to have a resource group.
 
    ```go
    var (
@@ -212,7 +212,7 @@ This section shows a sample of Go code that creates a virtual network on Azure S
    ```
 
 3. Now that you have defined your environment variables, add a method to create an authentication token by using the **adal** package. See details about authentication in the previous section.
-  
+
    ```go
    //CreateToken creates a service principal token
    func CreateToken() (adal.OAuthTokenProvider, error) {
