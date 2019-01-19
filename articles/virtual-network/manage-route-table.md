@@ -151,7 +151,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 **Commands**
 
-- Azure CLI: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
+- Azure CLI: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## View details of a route

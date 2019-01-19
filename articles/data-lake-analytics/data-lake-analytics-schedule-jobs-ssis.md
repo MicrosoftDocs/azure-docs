@@ -34,7 +34,7 @@ You can get the U-SQL script from different places by using SSIS built-in functi
 
 ## Scenario 1-Use inline script call tvfs and stored procs
 
-In Azure Data Lake Analytics Task Editor, configure **SourceType** as **DiretInput**, and put the U-SQL statements into **USQLStatement**.
+In Azure Data Lake Analytics Task Editor, configure **SourceType** as **DirectInput**, and put the U-SQL statements into **USQLStatemnt**.
 
 For easy maintenance and code management, only put short U-SQL script as inline scripts, for example, you can call existing table valued functions and stored procedures in your U-SQL databases. 
 

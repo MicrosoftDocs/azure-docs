@@ -50,7 +50,13 @@ You can use the following tools to create or configure a VNet:
 * A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](virtual-networks-using-network-configuration-file.md) article.
 
 ### What address ranges can I use in my VNets?
-Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16.
+Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16. 
+You cannot add the following address ranges:
+* 224.0.0.0/4 (Multicast)
+* 255.255.255.255/32 (Broadcast)
+* 127.0.0.0/8 (Loopback)
+* 169.254.0.0/16 (Link-local)
+* 168.63.129.16/32 (Internal DNS)
 
 ### Can I have public IP addresses in my VNets?
 Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.

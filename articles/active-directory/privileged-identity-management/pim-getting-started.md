@@ -28,7 +28,7 @@ To use PIM, you must have one of the following licenses:
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
 
-For more information, see [Subscription requirements to use PIM](subscription-requirements.md).
+For more information, see [License requirements to use PIM](subscription-requirements.md).
 
 ## First person to use PIM
 

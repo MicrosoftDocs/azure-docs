@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.author: diberry
 ---
 
@@ -28,7 +28,7 @@ It is important to author LUIS apps in [regions](luis-reference-regions.md#publi
 
 An authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The authoring key is provided to author your LUIS app or to test endpoint queries. 
 
-To find the authoring Key, log in to [LUIS](luis-reference-regions.md#luis-website) and click on the account name in the upper-right navigation bar to open **Account Settings**.
+To find the authoring Key, sign in to [LUIS](luis-reference-regions.md#luis-website) and click on the account name in the upper-right navigation bar to open **Account Settings**.
 
 ![authoring Key](./media/luis-concept-keys/programatic-key.png)
 
@@ -38,15 +38,17 @@ When you want to make **production endpoint queries**, create the Azure [LUIS su
 > For convenience, many of the samples use the Authoring key since it provides a few endpoint calls in its [quota](luis-boundaries.md#key-limits).  
 
 ## Endpoint key
- When you need **production endpoint queries**, create a [LUIS key](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in the Azure portal. Remember the name used to create the key, you need it when you add the key to the app.
+When you need **production endpoint queries**, create an Azure Resource then assign it to the LUIS app. 
 
-When the LUIS subscription process is finished, [assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) to the app. 
+[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
-The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
+When the Azure resource creation process is finished, [assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) to the app. 
 
-The endpoint key can be used for all your LUIS apps or for specific LUIS apps. 
+    * The endpoint key allows a quota of endpoint hits based on the usage plan you specified when creating the key. See [Cognitive Services Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) for pricing information.
 
-Do not use the endpoint key for authoring LUIS apps. 
+    * The endpoint key can be used for all your LUIS apps or for specific LUIS apps. 
+
+    * Do not use the endpoint key for authoring LUIS apps. 
 
 ## Use endpoint key in query
 The LUIS endpoint accepts two styles of query, both use the endpoint key, but in different places:
@@ -71,9 +73,10 @@ Publishing regions are different from authoring regions. Make sure you create an
 ## Key limit errors
 If you exceed your per second quota, you receive an HTTP 429 error. If you exceed your per month quota, you receive an HTTP 403 error. Fix these errors by getting a LUIS [endpoint](#endpoint-key) key, [assigning](luis-how-to-manage-keys.md#assign-endpoint-key) the key to the app on the **Publish** page of the [LUIS](luis-reference-regions.md#luis-website) website.
 
-## Automating assignment of the endpoint key
+## Assignment of the endpoint key
 
-In order to assign the endpoint key to a LUIS app, you must use the LUIS website for the correct authoring and publishing [regions](luis-reference-regions.md). There is **no** automated method of doing this, regardless of mechanism such as with an Azure resource manager script, Azure CLI, programmatic SDK, or with the APIs.
+You can [assign](luis-how-to-manage-keys.md) the endpoint key in the [LUIS portal](https://www.luis.ai) or via the corresponding APIs. 
+
 
 ## Next steps
 
