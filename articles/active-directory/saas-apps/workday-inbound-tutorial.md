@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2018
+ms.date: 01/19/2019
 ms.author: chmutali
 
 ---
@@ -722,21 +722,19 @@ Once your attribute mapping configuration is complete, you can now [enable and l
 Once the Workday provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
 
 > [!TIP]
-> By default when you turn on the provisioning service, it will initial provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then it may cause the provisioning job to fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
+> By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
 
 1. In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
 2. Click **Save**.
 
-3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in Workday.
+3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the Workday tenant. 
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. [See the provisioning reporting guide for detailed instructions on how to read the audit logs](../manage-apps/check-status-user-account-provisioning.md)
+4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. Refer to the [Troubleshooting](#troubleshooting-provisioning-issues) section for instructions on how to review the audit logs and fix provisioning errors.
 
 5. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
 
    ![Azure portal](./media/workday-inbound-tutorial/wd_3.png)
-
-In case you run into errors, please refer to the [Troubleshooting](#troubleshooting-provisioning-issues) section for guidance on fixing the errors. 
 
 ## Frequently Asked Questions (FAQ)
 
@@ -889,7 +887,7 @@ Yes, one Provisioning Agent can be configured to handle multiple AD domains as l
 
 #### How do I back up or export a working copy of my Workday Provisioning Attribute Mapping and Schema?
 
-You can use Microsoft Graph API to export your Workday User Provisioning configuration. Refer to the steps in the section [Exporting and Importing your Workday User Provisioning Attribute Mapping configuration](#exporting-and-importing-your-workday-user-provisioning-attribute-mapping-configuration) for details.
+You can use Microsoft Graph API to export your Workday User Provisioning configuration. Refer to the steps in the section [Exporting and Importing your Workday User Provisioning Attribute Mapping configuration](#exporting-and-importing-your-configuration) for details.
 
 #### How do I sync mobile numbers from Workday based on user consent for public usage?
 
@@ -918,6 +916,7 @@ Here is how you can handle such requirements for constructing *CN* or *displayNa
 
 * Each Workday attribute is retrieved using an underlying XPATH API expression, which is configurable in  **Attribute Mapping -> Advanced Section -> Edit attribute list for Workday**. Here is the default XPATH API expression for Workday *PreferredFirstName*, *PreferredLastName*, *Company* and *SupervisoryOrganization* attributes.
 
+     [!div class="mx-tdCol2BreakAll"]
      | Workday Attribute | API XPATH Expression |
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
@@ -1235,7 +1234,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 16. When finished, remember to set **Provisioning Status** back to **On** and save.
 
-## Exporting and Importing your Workday User Provisioning Attribute Mapping configuration
+## Exporting and importing your configuration
 
 This section describes how to use the Microsoft Graph API and Graph Explorer to export your Workday Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
 
