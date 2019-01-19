@@ -1,5 +1,5 @@
 ---
-title: "Storage Analytics Metrics Table Schema"
+title: "Storage Analytics Metrics Table Schema (Classic)"
 ms.custom: na
 ms.date: 2016-08-05
 ms.prod: azure
@@ -24,7 +24,7 @@ translation.priority.mt:
   - zh-cn
   - zh-tw
 ---
-# Storage Analytics Metrics Table Schema
+# Storage Analytics Metrics Table Schema (Classic)
 Storage Analytics Metrics aggregates transaction data and capacity data for a storage account. Transactions metrics are recorded for the Blob, Table, Queue, and File services. Currently, capacity metrics are only recorded for the Blob service. Transaction data and capacity data is stored in well-known tables, as described in the following table:  
 
 |Metrics Level|Table Names|Supported for Versions|  
