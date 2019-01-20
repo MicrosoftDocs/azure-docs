@@ -207,7 +207,7 @@ Finally, you call `builder.preview()` and can see the derived column next to the
 
 Now, pass in the number of rows you want to `skip` from the top to see rows further down.
 
-```
+```python
 builder.preview(skip=30)
 ```
 
@@ -378,7 +378,7 @@ dataflow.head(5)
 Alternatively, use the `ColumnSelector` expression to drop columns that match a regex expression. In this example, you drop all the columns that match the expression `Column*|.*longitude|.*latitude`.
 
 ```python
-dataflow = dataflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
+dataflow = dataflow.drop_columns(dprep.ColumnSelector('Column*|.*longitude|.*latitude', True, True))
 dataflow.head(5)
 ```
 
