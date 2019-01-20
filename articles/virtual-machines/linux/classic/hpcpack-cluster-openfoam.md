@@ -72,7 +72,7 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpclab\hpcuser.
 3. Create a file named C:\cred.xml and copy the RSA key data into it. A sample cred.xml file is at the end of this article.
    
-   ```
+   ```xml
    <ExtendedData>
      <PrivateKey>Copy the contents of private key here</PrivateKey>
      <PublicKey>Copy the contents of public key here</PublicKey>
@@ -382,7 +382,7 @@ Optionally use [EnSight](http://www.ensight.com/) to visualize and analyze the r
 
 ## Sample files
 ### Sample XML configuration file for cluster deployment by PowerShell script
- ```
+ ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -419,7 +419,7 @@ Optionally use [EnSight](http://www.ensight.com/) to visualize and analyze the r
 ```
 
 ### Sample cred.xml file
-```
+```xml
 <ExtendedData>
   <PrivateKey>-----BEGIN RSA PRIVATE KEY-----
 MIIEpQIBAAKCAQEAxJKBABhnOsE9eneGHvsjdoXKooHUxpTHI1JVunAJkVmFy8JC
@@ -509,7 +509,7 @@ ENVIRONMENT_LD_SO_CONF=no
 ```
 
 ### Sample settings.sh script
-```
+```bash
 #!/bin/bash
 
 # impi
@@ -527,13 +527,13 @@ export WM_MPLIB=INTELMPI
 
 
 ### Sample hpcimpirun.sh script
-```
+```bash
 #!/bin/bash
 
 # The path of this script
 SCRIPT_PATH="$( dirname "${BASH_SOURCE[0]}" )"
 
-# Set mpirun runtime evironment
+# Set mpirun runtime environment
 source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 export MPI_ROOT=$I_MPI_ROOT
 export I_MPI_FABRICS=shm:dapl
