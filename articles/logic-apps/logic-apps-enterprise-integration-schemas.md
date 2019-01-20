@@ -1,6 +1,6 @@
 ---
-title: Add schemas for XML validation - Azure Logic Apps | Microsoft Docs
-description: Create schemas that validate XML documents in Azure Logic Apps with Enterprise Integration Pack
+title: Validate XML with schemas - Azure Logic Apps | Microsoft Docs
+description: Add schemas to validate XML documents in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,44 +9,74 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
-ms.date: 07/29/2016
+ms.date: 01/22/2019
 ---
 
 # Validate XML with schemas in Azure Logic Apps with Enterprise Integration Pack
 
-Schemas confirm that the XML documents you receive are valid and have the expected data in a predefined format. Schemas also help validate messages that are exchanged in a B2B scenario.
+To check that documents use valid XML and have the expected data 
+in the predefined format for enterprise integration scenarios 
+in Azure Logic Apps, your logic app can use schemas. 
+A schema can also validate messages that logic apps exchange
+in business-to-business (B2B) scenarios.
 
-## Add a schema
+For limits related to integration accounts and artifacts such as schemas, 
+see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-1. In the Azure portal, select **All services**.
+## Prerequisites
 
-	![Azure portal, "All services"](media/logic-apps-enterprise-integration-schemas/overview-11.png)
+* An Azure subscription. If you don't have a subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-2. In the filter search box, enter **integration**, 
-and select **Integration Accounts** from the results list.
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
+where you store your schemas and other artifacts for enterprise 
+integration and business-to-business (B2B) solutions.
 
-	![Filter search box](media/logic-apps-enterprise-integration-schemas/overview-21.png)
+You don't need a logic app when creating and adding schemas. However, 
+to use a schema, your logic app needs linking to an integration account 
+where you store that map. Learn 
+[how to link logic apps to integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). 
+If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-3. Select the **integration account** where you want to add the schema.
+## Add schemas
 
-	![List of integration accounts](media/logic-apps-enterprise-integration-schemas/overview-31.png)
+1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+with your Azure account credentials.
 
-4. Choose the **Schemas** tile.
+1. To find and open your integration account, 
+on the main Azure menu, select **All services**. 
+In the search box, enter "integration account". 
+Select **Integration accounts**.
 
-	![Example integration account, "Schemas"](media/logic-apps-enterprise-integration-schemas/schema-11.png)
+   ![Find integration account](./media/logic-apps-enterprise-integration-schemas/find-integration-account.png)
 
-### Add a schema file smaller than 2 MB
+1. Select the integration account where you want to add your schema, 
+for example:
 
-1. In the **Schemas** blade that opens (from the preceding steps), 
-choose **Add**.
+   ![Select integration account](./media/logic-apps-enterprise-integration-schemas/select-integration-account.png)
 
-	![Schemas blade, "Add"](media/logic-apps-enterprise-integration-schemas/schema-21.png)
+1. On your integration account's **Overview** page, 
+under **Components**, select the **Schemas** tile.
 
-2. Enter a name for your schema. Upload the schema file by 
+   ![Select "Schemas"](./media/logic-apps-enterprise-integration-schemas/select-schemas.png)
+
+1. After the **Schemas** page opens, choose **Add**.
+
+   ![Choose "Add"](./media/logic-apps-enterprise-integration-schemas/add-schema.png)
+
+1. Enter a name for your schema. 
+1. ### Add schema less than 2 MB
+
+
+Upload the schema file by 
 selecting the folder icon next to the **Schema** box. 
 After the upload process completes, select **OK**.
 
-	![Screenshot of "Add Schema", with "Small file" highlighted](media/logic-apps-enterprise-integration-schemas/schema-31.png)
+   ![Screenshot of "Add Schema", with "Small file" highlighted](media/logic-apps-enterprise-integration-schemas/schema-31.png)
+
+Now follow the steps to add a schema that's either 
+smaller than 2 MB or larger than 2 MB, up to the limit.
+
 
 ### Add a schema file larger than 2 MB (up to 8 MB maximum)
 
