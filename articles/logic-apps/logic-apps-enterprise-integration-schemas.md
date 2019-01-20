@@ -64,21 +64,40 @@ under **Components**, select the **Schemas** tile.
 
    ![Choose "Add"](./media/logic-apps-enterprise-integration-schemas/add-schema.png)
 
-1. Enter a name for your schema. 
-1. ### Add schema less than 2 MB
+Based on your schema (.xsd) file's size, follow the 
+steps for uploading a schema that's either 
+[up to 2 MB](#smaller-schema) or 
+[more than 2 MB, up to 8 MB](#larger-schema).
 
+<a name="smaller-schema"></a>
 
-Upload the schema file by 
-selecting the folder icon next to the **Schema** box. 
-After the upload process completes, select **OK**.
+### Upload schemas up to 2 MB
 
-   ![Screenshot of "Add Schema", with "Small file" highlighted](media/logic-apps-enterprise-integration-schemas/schema-31.png)
+1. Under **Add Schema**, enter a name for your schema. 
+Keep **Small file** selected. Next to the **Schema** box, 
+choose the folder icon. Find and select the schema you're uploading, 
+for example:
 
-Now follow the steps to add a schema that's either 
-smaller than 2 MB or larger than 2 MB, up to the limit.
+   ![Upload smaller schema](./media/logic-apps-enterprise-integration-schemas/upload-smaller-schema-file.png)
 
+1. When you're ready, choose **OK**.
 
-### Add a schema file larger than 2 MB (up to 8 MB maximum)
+   After your schema finishes uploading, 
+   the schema appears in the **Schemas** list.
+
+<a name="larger-schema"></a>
+
+### Upload schemas more than 2 MB, up to 8 MB
+
+1. Under **Add Schema**, enter a name for your schema. 
+Choose **Large file (larger than 2 MB)**. 
+
+   The **Content URI** box now appears, 
+   rather than the **Schema** box. 
+   You can now enter the location for the 
+   blob container where you're storing your schema.
+
+### Store schemas more than 2 MB
 
 These steps differ based on the blob container access level: **Public** or **No anonymous access**.
 
