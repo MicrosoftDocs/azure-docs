@@ -109,7 +109,7 @@ You will also need to provide credentials for your blob storage account into `$c
 > 
 > 
 
-As you can see above, instead of constructing 10 different BES job configuration json files, you dynamically create the config string instead. Then feed it to the *jobConfigString* parameter of the **InvokeAmlWebServceBESEndpoint** cmdlet. There's really no need to keep a copy on disk.
+As you can see above, instead of constructing 10 different BES job configuration json files, you dynamically create the config string instead. Then feed it to the *jobConfigString* parameter of the **Invoke-AmlWebServiceBESEndpoint** cmdlet. There's really no need to keep a copy on disk.
 
 If everything goes well, after a while you should see 10 .iLearner files, from *model001.ilearner* to *model010.ilearner*, in your Azure storage account. Now you're ready to update the 10 scoring web service endpoints with these models using the **Patch-AmlWebServiceEndpoint** PowerShell cmdlet. Remember again that you can only patch the non-default endpoints you programmatically created earlier.
 
