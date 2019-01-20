@@ -18,8 +18,6 @@ In this article, learn how to create an Azure Search resource in the [Azure port
 
 [ ![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif) ](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
-![Azure Search resource in the portal](media/search-create-service-portal/azure-search-resource-label.png "Look for this resource in the portal")
-
 Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help with getting started, see [Manage Azure Search with PowerShell](search-manage-powershell.md).
 
 ## Subscribe (free or paid)
