@@ -84,7 +84,7 @@ First, [set-up a new Azure Linux VM][azure_vm_setup] to act as a host for your n
   3. Add and **Outgoing Rule** for **port 80**. Be sure to allow incoming from any address.
 
 ### Set the DNS Name Label
-  1. Go to the [The Public IP Adresses][azure_ips] page.
+  1. Go to the [The Public IP Addresses][azure_ips] page.
   2. Select the Public IP that correspends with your Virtual Machine.
   3. Set the **DNS Name Label** in the **Configuration** section. In the case of this example it will look something like this *your-domain-label*.centralus.cloudapp.azure.com
 
