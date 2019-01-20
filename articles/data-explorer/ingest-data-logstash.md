@@ -108,10 +108,10 @@ output {
 | --- | --- | --- |
 | **path** | The Logstash plugin writes events to temporary files before sending them to Azure Data Explorer. This parameter includes a path where files should be written and a time expression for file rotation to trigger an upload to the Azure Data Explorer service.|
 | **ingest_url** | The Kusto endpoint for ingestion-related communication.|
-| **app_id app_key app_tenant**| Credentials required to connect to Azure Data Explorer. Be sure to use an application with ingest privileges. |
-| **database**| Database name to place events |
-| **table** | Target table name to place events |
-| **mapping** | Mapping is used to map an incoming event json string into the correct row format (defines which property goes into which column) |
+| **app_id**,  **app_key**, and **app_tenant**| Credentials required to connect to Azure Data Explorer. Be sure to use an application with ingest privileges. |
+| **database**| Database name to place events. |
+| **table** | Target table name to place events. |
+| **mapping** | Mapping is used to map an incoming event json string into the correct row format (defines which property goes into which column). |
 
 ## Run Logstash
 
