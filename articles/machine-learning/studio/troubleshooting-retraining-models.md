@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot retraining a Machine Learning Studio classic web service
 titleSuffix: Azure Machine Learning Studio
-description: Identify and correct common issues encounted when you are retraining the model for an Azure Machine Learning Studio web service.
+description: Identify and correct common issues encountered when you are retraining the model for an Azure Machine Learning Studio web service.
 services: machine-learning
 ms.service: machine-learning
 ms.component: studio
