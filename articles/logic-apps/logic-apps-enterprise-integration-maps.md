@@ -199,8 +199,8 @@ for creating a blob container. Learn how to
 which you can use for managing storage accounts and blob containers. If you don't have 
 this tool already, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, follow these [steps for connecting Azure Storage Explorer to your storage account](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
-Your steps for adding maps differ based whether your blob container 
-has public access. So first, check your blob container's access level.
+Your steps for adding maps differ based whether or not your blob container 
+has public read access. So first, check your blob container's access level.
 
 ### Check blob container access level
 
@@ -220,7 +220,7 @@ select **Set Public Access Level**.
 and follow the steps for the selected option: 
 
    * [**No public access**](#no-public-access)
-   * [**Public read access for container and blobs**](#public-read-access)
+   * [**Public read access** (any)](#public-read-access)
 
    For example:
 
