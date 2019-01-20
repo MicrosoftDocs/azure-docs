@@ -24,7 +24,7 @@ ExpressRoute is comprised of a pair of circuits for high availability that are a
 Microsoft Azure provides a growing number of services that you can offer to your customers. ExpressRoute helps you and your customers take advantage of these services by providing high speed low latency access to the Microsoft Azure environment.
 
 ## Microsoft Azure management
-Microsoft provides CSPs with APIs to manage the Azure customer subscriptions by allowing programmatic integration with your own service management systems. Supported management capabilities can be found [here](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
+Microsoft provides CSPs with APIs to manage the Azure customer subscriptions by allowing programmatic integration with your own service management systems. Supported management capabilities can be found [here](/previous-versions/windows/mt844538(v=win.10)).
 
 ## Microsoft Azure resource management
 The contract you have with your customer will determine how the subscription will be managed. The CSP can directly manage the creation and maintenance of resources or the customer can maintain control of the Microsoft Azure subscription and create the Azure resources as they need. If your customer manages the creation of resources in their Microsoft Azure subscription they will use one of two models: “*Connect-Through*” model, or “*Direct-To*” model. These models are described in detail in the following sections.  
