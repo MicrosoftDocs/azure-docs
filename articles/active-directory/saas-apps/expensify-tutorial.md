@@ -98,7 +98,7 @@ To configure Azure AD single sign-on with Expensify, perform the following steps
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Expensify Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![Expensify Domain and URLs single sign-on information](common/sp-intiated.png)
 
 	In the **Sign on URL** text box, type a URL:
     `https://www.expensify.com/authentication/saml/login`
@@ -123,13 +123,13 @@ To enable SSO in Expensify, you first need to enable **Domain Control** in the a
    
 ![Configure Single Sign-On](./media/expensify-tutorial/tutorial_expensify_51.png)
 	
-a. Sign on to your Expensify application.
+1. Sign on to your Expensify application.
 	
-b. In the left panel, click **Settings** and navigate to **SAML**.
+2. In the left panel, click **Settings** and navigate to **SAML**.
 	
-c. Toggle the **SAML Login** option as **Enabled**.
+3. Toggle the **SAML Login** option as **Enabled**.
 	
-d. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
+4. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
 
 ### Create an Azure AD test user 
 
