@@ -35,6 +35,8 @@
   items:
     - name: Deploy using a template
       href: deploy-template.md
+    - name: Integrate with load balancer
+      href: integrate-lb.md
 - name: Reference
   items:
   - name: Azure CLI

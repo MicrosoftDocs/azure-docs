@@ -1,17 +1,11 @@
 ---
-title: Autoscaling and Zone-redundant Application Gateway in Azure (Public Preview) | Microsoft Docs
+title: Autoscaling and Zone-redundant Application Gateway in Azure (Public Preview)
 description: This article provides information on web application firewall request size limits and exclusion lists in Application Gateway with the Azure portal.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom:
-ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 1/10/2019
 ms.author: victorh
 
 ---
@@ -20,7 +14,7 @@ ms.author: victorh
 
 Application Gateway and Web Application Firewall (WAF) are now available in Public Preview under a new v2 SKU that offers performance enhancements and adds support for critical new features like autoscaling, zone redundancy, and support for static VIPs. Existing features under the generally available SKU continue to be supported in the new v2 SKU, with a few exceptions listed in known limitations section. The new v2 SKUs include the following enhancements:
 
-- **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. Hence, the SKU offers true elasticity. In the new SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) as well as in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see lots of variances in the application traffic.
+- **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. Hence, the SKU offers true elasticity. In the new SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see lots of variances in the application traffic.
    
    > [!NOTE]
    > Autoscaling is not currently available for WAF SKU. Configure WAF with fixed capacity mode, instead of autoscaling mode.
@@ -35,10 +29,10 @@ Application Gateway and Web Application Firewall (WAF) are now available in Publ
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## Supported regions
-Autoscaling SKU is available in East US 2, US Central, West US2, France Central, West Europe, and South East Asia.
+Autoscaling SKU is available in East US 2, US Central, West US2, North Central US, West US, South Central US, France Central, West Europe, North Europe, UK West, South East Asia, and Japan East.
 
 ## Pricing
-During preview, there is no charge. You will be billed for resources other than application gateway, such as Key Vault, virtual machines, etc. 
+During preview, there is no charge. You are billed for resources other than application gateway, such as Key Vault, virtual machines, etc. 
 
 ## Known issues and limitations
 

@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Create Metric Alerts for Logs in Azure Monitor  
 
@@ -67,7 +67,7 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
 
 ```json
 {
-	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"convertRuleName": {
@@ -284,7 +284,7 @@ Say the above JSON is saved as metricfromLogsAlert.json - then it can be coupled
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "convertRuleName": {
@@ -352,3 +352,4 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 * Learn more about the [ metric alerts](https://aka.ms/createmetricalert).
 * Learn about [log alerts in Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Learn about [alerts in Azure](alerts-overview.md).
+

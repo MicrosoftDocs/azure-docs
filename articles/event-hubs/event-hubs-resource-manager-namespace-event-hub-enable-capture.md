@@ -24,7 +24,7 @@ This article shows how to use an Azure Resource Manager template that creates an
 
 This article also shows how to specify that events are captured into either Azure Storage Blobs or an Azure Data Lake Store, based on the destination you choose.
 
-For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates].
+For more information about creating templates, see [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates]. For the JSON syntax and properties to use in a template, see [Microsoft.EventHub resource types](/azure/templates/microsoft.eventhub/allversions).
 
 For more information about patterns and practices for Azure Resources naming conventions, see [Azure Resources naming conventions][Azure Resources naming conventions].
 

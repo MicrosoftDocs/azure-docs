@@ -214,7 +214,7 @@ iotedge list
 If you want to remove the IoT Edge installation from your Windows device, use the following command from an administrative PowerShell window. This command removes the IoT Edge runtime, along with your existing configuration and the Moby engine data. 
 
 ```PowerShell
-. {Invoke-WebRequest} -useb aka.ms/iotedge-win} | Invoke-Expression; `
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
 ```
 

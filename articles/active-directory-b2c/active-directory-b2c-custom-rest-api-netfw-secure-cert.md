@@ -37,7 +37,7 @@ This article details how to:
 To set up **Azure App Service** to require client certificates, set the web app `clientCertEnabled` site setting to *true*. To make this change, in the Azure portal, open your web app page. In the left navigation, under **Settings** select **SSL Settings**. In the **Client Certificates** section, turn on the **Incoming client certificate** option.
 
 >[!NOTE]
->Make sure that your Azure App Service plan is Standard or greater. For more information, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Make sure that your Azure App Service plan is Standard or greater. For more information, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/azure/app-service/overview-hosting-plans).
 
 >[!NOTE]
 >For more information about setting the **clientCertEnabled** property, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).

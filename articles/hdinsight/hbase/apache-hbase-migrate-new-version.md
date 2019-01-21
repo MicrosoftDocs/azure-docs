@@ -22,16 +22,16 @@ Job-based clusters, such as [Apache Spark](https://spark.apache.org/) and [Apach
 4. Import transient data.
 5. Start jobs and continue processing on the new cluster.
 
-To upgrade an [Apache HBase](http://hbase.apache.org/) cluster some additional steps are needed, as described in this article.
+To upgrade an [Apache HBase](https://hbase.apache.org/) cluster some additional steps are needed, as described in this article.
 
-> [!NOTE]
+> [!NOTE]  
 > The downtime while upgrading should be minimal, on the order of minutes. This downtime is caused by the steps to flush all in-memory data, then the time to configure and restart the services on the new cluster. Your results will vary, depending on the number of nodes, amount of data, and other variables.
 
 ## Review Apache HBase compatibility
 
-Before upgrading Apache HBase, ensure the HBase versions on the source and destination clusters are compatible. For more information, see [Hadoop components and versions available with HDInsight](../hdinsight-component-versioning.md).
+Before upgrading Apache HBase, ensure the HBase versions on the source and destination clusters are compatible. For more information, see [Apache Hadoop components and versions available with HDInsight](../hdinsight-component-versioning.md).
 
-> [!NOTE]
+> [!NOTE]  
 > We highly recommend that you review the version compatibility matrix in the [HBase book](https://hbase.apache.org/book.html#upgrading).
 
 Here is an example version compatibility matrix, where Y indicates compatibility and N indicates a potential incompatibility:
@@ -50,7 +50,7 @@ Here is an example version compatibility matrix, where Y indicates compatibility
 | Dependency compatibility | N | Y | Y |
 | Operational compatibility | N | N | Y |
 
-> [!NOTE]
+> [!NOTE]  
 > Any breaking incompatibilities should be described in the HBase version release notes.
 
 ## Upgrade with same Apache HBase major version
@@ -199,7 +199,7 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
 9. Restart all required services as indicated by Ambari.
 10. Point your application to the new cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > The static DNS for your application changes when upgrading. Rather than hard-coding this DNS, you can configure a CNAME in your domain name's DNS settings that points to the cluster's name. Another option is to use a configuration file for your application that you can update without redeploying.
 
 11. Start the ingestion to see if everything is functioning as expected.
@@ -207,7 +207,7 @@ The following scenario is for upgrading from HDInsight 3.4 to 3.6 (both come wit
 
 ## Next steps
 
-To learn more about [Apache HBase](http://hbase.apache.org/) and upgrading HDInsight clusters, see the following articles:
+To learn more about [Apache HBase](https://hbase.apache.org/) and upgrading HDInsight clusters, see the following articles:
 
 * [Upgrade an HDInsight cluster to a newer version](../hdinsight-upgrade-cluster.md)
 * [Monitor and manage Azure HDInsight using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md)

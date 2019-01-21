@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 01/01/2018
 ms.author: juliako
 ms.custom: seodec18
 
@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 # Assets
 
-In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an Asset, they can be used in the Media Services encoding, streaming, analyzing content workflows. For more information, see the [Upload digital files into Assets](#upload-digital-files-into-assets) section below.
+In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) contains digital files (including video, audio, images, thumbnail collections, text tracks, and closed caption files) and the metadata about these files. After the digital files are uploaded into an Asset, they can be used in the Media Services encoding, streaming, analyzing content workflows. For more information, see the [Upload digital files into Assets](#upload-digital-files-into-assets) section below.
 
 An Asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the Asset are stored as block blobs in that container. Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to [Cool or Archive storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Archive** storage is suitable for archiving source files when no longer needed (for example, after they have been encoded).
 
@@ -227,3 +227,5 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 ## Next steps
 
 [Stream a file](stream-files-dotnet-quickstart.md)
+
+[Differences between Media Services v2 and v3](migrate-from-v2-to-v3.md)

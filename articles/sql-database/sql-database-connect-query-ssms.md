@@ -16,7 +16,7 @@ ms.date: 12/04/2018
 ---
 # Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
 
-You can use [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) to manage any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows. This quickstart shows you how to use SSMS to connect to an Azure SQL database and then run Transact-SQL statements to query, insert, update, and delete data. 
+In this quickstart, you'll use [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) to connect to an Azure SQL database. You'll then run Transact-SQL statements to query, insert, update, and delete data. You can use SSMS to manage any SQL infrastructure, from SQL Server to SQL Database for Microsoft Windows.  
 
 ## Prerequisites
 
@@ -69,11 +69,11 @@ In SMSS, connect to your Azure SQL Database server.
 
 ## Query data
 
-Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL code to query for the top 20 products by category.
+Run this [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL code to query for the top 20 products by category.
 
-1. In Object Explorer, right-click **mySampleDatabase** and select **New Query**. A blank query window opens that is connected to your database.
+1. In Object Explorer, right-click **mySampleDatabase** and select **New Query**. A new query window connected to your database opens.
 
-1. In the query window, paste this SQL query.
+2. In the query window, paste this SQL query.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -84,11 +84,11 @@ Use the following [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Tra
 
 3. On the toolbar, select **Execute** to retrieve data from the `Product` and `ProductCategory` tables.
 
-    ![query to retrieve data from 2 tables](./media/sql-database-connect-query-ssms/query2.png)
+    ![query to retrieve data from two tables](./media/sql-database-connect-query-ssms/query2.png)
 
 ## Insert data
 
-Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL code to create a new product in the `SalesLT.Product` table.
+Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL code to create a new product in the `SalesLT.Product` table.
 
 1. Replace the previous query with this one.
 
@@ -111,7 +111,7 @@ Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
            ,GETDATE() );
    ```
 
-2. Select **Execute**  to insert a new row in the Product table. The **Messages** pane displays **(1 row affected)**.
+2. Select **Execute**  to insert a new row in the `Product` table. The **Messages** pane displays **(1 row affected)**.
 
 ## View the result
 
@@ -128,7 +128,7 @@ Use the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
  
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -138,11 +138,11 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Select **Execute** to update the specified row in the Product table. The **Messages** pane displays **(1 row affected)**.
+2. Select **Execute** to update the specified row in the `Product` table. The **Messages** pane displays **(1 row affected)**.
 
 ## Delete data
 
-Use the following [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL code to remove the new product that you previously added.
+Run this [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL code to remove your new product.
 
 1. Replace the previous query with this one.
 
@@ -151,7 +151,7 @@ Use the following [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Select **Execute** to delete the specified row in the Product table. The **Messages** pane displays **(1 row affected)**.
+2. Select **Execute** to delete the specified row in the `Product` table. The **Messages** pane displays **(1 row affected)**.
 
 ## Next steps
 

@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -69,7 +69,14 @@ Open Certificate Manager MMC console and connect to the Local Machine certificat
 
 1. Select **Yes, Export the Private Key**, and then click **Next**.
 
-1. In the Export File Format section, select **Export all Extended Properties** and then click **Next**.
+1. In the Export File Format section:
+    
+    - Select **Include all certificates in the certificate if possible**.  
+    - Select **Export all Extended Properties**.  
+    - Select **Enable certificate privacy**.  
+    - Click **Next**.  
+    
+    ![Certificate export wizard with selected options](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. Select **Password** and provide a password for the certificates. Remember this password as it is used as a deployment parameter. Select **Next**.
 
@@ -78,4 +85,5 @@ Open Certificate Manager MMC console and connect to the Local Machine certificat
 1. Select **Finish**.
 
 ## Next steps
+
 [Validate PKI certificates](azure-stack-validate-pki-certs.md)

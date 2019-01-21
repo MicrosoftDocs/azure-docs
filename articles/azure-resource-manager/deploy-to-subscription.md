@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2018
+ms.date: 01/15/2018
 ms.author: tomfitz
 ---
 # Create resource groups and resources for an Azure subscription
@@ -284,7 +284,7 @@ The following example assigns an existing policy definition to the subscription.
 }
 ```
 
-To apply a built-in policy to your Azure subscription, use the following Azure CLI commands. In this example, the policy doesn't have parameters
+To apply a built-in policy to your Azure subscription, use the following Azure CLI commands:
 
 ```azurecli-interactive
 # Built-in policy that does not accept parameters
@@ -310,7 +310,7 @@ New-AzureRmDeployment `
   -policyName auditRGLocation
 ```
 
-To apply a built-in policy to your Azure subscription, use the following Azure CLI commands. In this example, the policy has parameters.
+To apply a built-in policy to your Azure subscription, use the following Azure CLI commands:
 
 ```azurecli-interactive
 # Built-in policy that accepts parameters
@@ -385,7 +385,7 @@ You can [define](../azure-policy/policy-definition.md) and assign a policy in th
 }
 ```
 
-To create the policy definition in your subscription, and apply it to the subscription, use the following CLI command.
+To create the policy definition in your subscription, and apply it to the subscription, use the following CLI command:
 
 ```azurecli-interactive
 az deployment create \
@@ -403,9 +403,9 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## Assign role
+## Assign role at subscription
 
-The following example assigns a role to a user or group.
+The following example assigns a role to a user or group for the subscription. In this example, you don't specify a scope for the assignment because the scope is automatically set to the subscription.
 
 ```json
 {
@@ -434,7 +434,7 @@ The following example assigns a role to a user or group.
 }
 ```
 
-To assign an Active Directory group to a role for your subscription, use the following Azure CLI commands.
+To assign an Active Directory group to a role for your subscription, use the following Azure CLI commands:
 
 ```azurecli-interactive
 # Get ID of the role you want to assign
@@ -463,6 +463,94 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id
+```
+
+## Assign role at scope
+
+The following subscription-level template assigns a role to a user or group that is scoped to a resource group within the subscription. The scope must be at or below the level of deployment. You can deploy to a subscription and specify a role assignment scoped to a resource group within that subscription. However, you can't deploy to a resource group and specify a role assignment scope to the subscription.
+
+To assign the role at a scope, use a nested deployment. Notice that the resource group name is specified both in the properties for the deployment resource and in the scope property of the role assignment.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "principalId": {
+            "type": "string"
+        },
+        "roleDefinitionId": {
+            "type": "string"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "assignRole",
+            "resourceGroup": "[parameters('rgName')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/roleAssignments",
+                            "name": "[guid(parameters('principalId'), deployment().name)]",
+                            "apiVersion": "2017-09-01",
+                            "properties": {
+                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
+                                "principalId": "[parameters('principalId')]",
+                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+To assign an Active Directory group to a role for your subscription, use the following Azure CLI commands:
+
+```azurecli-interactive
+# Get ID of the role you want to assign
+role=$(az role definition list --name Contributor --query [].name --output tsv)
+
+# Get ID of the AD group to assign the role to
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
+
+az deployment create \
+  -n demoRole \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
+  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
+```
+
+To deploy this template with PowerShell, use:
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id `
+  -rgName demoRg
 ```
 
 ## Next steps
