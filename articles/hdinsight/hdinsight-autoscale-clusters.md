@@ -13,19 +13,23 @@ ms.author: hrasheed
 ---
 # Automatically scale HDInsight clusters
 
-Azure HDInsight’s Cluster Autoscale feature automatically scales the cluster size up and down based on load within a predefined range. During creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale will keep monitoring the resource requirements of the analytics load and intelligently scale the number of worker nodes up and down This feature will allow enterprise to become more cost effective.
+Azure HDInsight’s cluster Autoscale feature automatically scales the cluster size up and down based on load within a predefined range. During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly.
 
 ## Getting Started
 
-## Enable Autoscale
+### Create cluster with Azure portal
 
-### Create cluster with UX portal
+During creation of a new cluster, you can select ‘Custom (size, settings, apps)’ option. 
 
-During creation of a new cluster, you can select ‘Custom (size, settings, apps)’ tab. When it goes to ‘Cluster size’ step, you will see the ‘worker node Autoscale (preview) ’ option. By checking this option, you can specify:
+![Enable custom cluster creation](./media/hdinsight-autoscale-clusters/cluster-creation-custom-options.png)
+
+When it goes to ‘Cluster size’ step, you will see the ‘worker node Autoscale (preview) ’ option. By checking this option, you can specify:
 
 * The initial number of worker nodes
 * The minimum number of worker nodes
 * The maximum number of worker nodes
+
+![Enable worker node autoscale option](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
 
 The initial number of worker nodes must fall within the minimum and maximum, inclusive. It defines the initial size of the cluster when it is created.
 
@@ -33,9 +37,9 @@ After you choose the VM type of each node type, you will be able to see the esti
 
 Your subscription has a capacity quota for each region. The total number of cores of your head nodes combined with the maximum number of worker nodes can’t exceed the capacity quota. However, this quota is a soft limit; you can always create a support ticket to get it increased easily.
 
-### Create cluster with ARM template
+### Create cluster with an Resource Manager template
 
-When you create an HDInsight cluster with an ARM template, you need to add the following settings in the “computeProfile” “workernode” section:
+When you create an HDInsight cluster with an Resource Manager template, you need to add the following settings in the “computeProfile” “worker node” section:
 
 ```json
 {                            
@@ -59,32 +63,32 @@ When you create an HDInsight cluster with an ARM template, you need to add the f
 }
 ```
 
-A complete ARM template example is included in the appendix.  
-Enable Autoscale for a running cluster
+A complete Resource Manager template example is included in the appendix.  
+
+### Enable Autoscale for a running cluster
+
 Enabling Autoscale for a running cluster is not supported during private preview. It must be enabled during cluster creation.
 
-## Monitoring 
+## Monitoring
 
-You can view the cluster scale up and down history as part of the cluster metrics. You can list all scale actions over the past day, week or longer period of time. 
+You can view the cluster scale up and down history as part of the cluster metrics. You can list all scale actions over the past day, week, or longer period of time.
 
+## Disable and modify Autoscale
 
-## Disable and Modify Autoscale
-
-Disable Autoscale for a running cluster and  modifying Autoscale settings for a running cluster is not supported in private preview. You have to delete this cluster and create a new cluster to delete or modify the settings.
-
+Disabling Autoscale or  modifying Autoscale settings for a running cluster is not supported in private preview. You must delete the cluster and create a new cluster to delete or modify the settings.
 
 ## How it works
 
-### Metrics Monitoring
+### Metrics monitoring
 
 Autoscale continuously monitors the cluster and collects the following metrics:
 
-1. Total Pending CPU : The total number of cores required to start execution of all pending containers.
-2. Total Pending Memory: The total memory (in MB) required to start execution of all pending containers.
-3. Total Free CPU: The sum of all unused cores on the active worker nodes.
-4. Total Free Memory: The sum of unused memory (in MB) on the active worker nodes.
-5. Used Memory per Node: This represents the load on a worker node. A worker node on which 10 GB of memory is used is considered under more load than a worker with 2 GB of used memory.
-6. Number of Application Masters per Node: This represents the number of Application Master (AM) containers running on a worker node. A worker node hosting 2 AM containers is considered more important than a worker node hosting 0 AM containers.
+1. **Total Pending CPU**: The total number of cores required to start execution of all pending containers.
+2. **Total Pending Memory**: The total memory (in MB) required to start execution of all pending containers.
+3. **Total Free CPU**: The sum of all unused cores on the active worker nodes.
+4. **Total Free Memory**: The sum of unused memory (in MB) on the active worker nodes.
+5. **Used Memory per Node**: The load on a worker node. A worker node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.
+6. **Number of Application Masters per Node**: The number of Application Master (AM) containers running on a worker node. A worker node hosting 2 AM containers is considered more important than a worker node hosting 0 AM containers.
 
 The above metrics are checked every 60 seconds. Autoscale will make scale up and scale down decisions based on these metrics.
 
@@ -104,24 +108,19 @@ When the following conditions are detected, Autoscale will issue a scale down re
 * Total pending CPU is less than total free CPU for more than 10 minutes.
 * Total pending memory is less than total free memory for more than 10 minutes.
 
-Based on the number of AM containers per node as well as the current CPU and memory requirements, Autoscale will issue a request to remove N nodes, specifying which nodes are potential candidates for removal. By default, 2 nodes will be removed in one cycle.
+Based on the number of AM containers per node as well as the current CPU and memory requirements, Autoscale will issue a request to remove N nodes, specifying which nodes are potential candidates for removal. By default, two nodes will be removed in one cycle.
 
 ## FAQ
 
-1. Which type of clusters will support Autoscale?
-Answer:  In the first private preview release, Spark, MapReduce and Hive cluster types will support Autoscale. 
-2. Which types of node can scale up and down?
-Answer: Only the worker nodes can be scaled up and down. Head nodes and edge nodes can’t be scaled.
-3.	When can I enable/disable Autoscale?
-Answer: You can only enable/disable Autoscale during cluster creation.
-4.	How will this feature be charged to customers?
-Answer: There is no separate charge for this feature. It is included in the HDI markup.
-5.	What will happen if this customer exceeds the total core quota limit?
-Answer: You will receive an error message saying ‘the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota.’
+1. **Which type of clusters will support Autoscale?** Answer:  In the first private preview release, Spark, MapReduce, and Hive cluster types will support Autoscale. 
+2. **Which types of node can scale up and down?** Answer: Only the worker nodes can be scaled up and down. Head nodes and edge nodes can’t be scaled.
+3.	**When can I enable/disable Autoscale?** Answer: You can only enable/disable Autoscale during cluster creation.
+4.	**How will this feature be charged to customers?** Answer: There is no separate charge for this feature. It is included in the HDI markup.
+5.	**What will happen if this customer exceeds the total core quota limit?** Answer: You will receive an error message saying ‘the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota.’
 6.	Will Autoscale follow a predefined time schedule?
 Answer: Customized scheduling rules are on our roadmap, but are not included in the private preview. We are targeting to support them in the GA version.
 7.	Can I specify 0 as the minimum number of worker nodes?
-Answer: No. At least 1 worker node needs to be kept active.
+Answer: No. At least one worker node needs to be kept active.
 8.	Which version of HDI is supported?
 Answer: Autoscale is supported in HDI 3.6. HDI 4.0 support will be added later.
 9.	Will ESP clusters be supported?
@@ -129,6 +128,7 @@ Answer: ESP clusters are not supported at the beginning of the private preview. 
 
  
 ## Appendix
+```json
 ARM Template
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -272,3 +272,4 @@ ARM Template
         }
     ]
 }
+```
