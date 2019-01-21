@@ -744,7 +744,7 @@ Once the Workday provisioning app configurations have been completed, you can tu
   * [How do I manage delivery of passwords for new hires and securely provide a mechanism to reset their password?](#how-do-i-manage-delivery-of-passwords-for-new-hires-and-securely-provide-a-mechanism-to-reset-their-password)
   * [Does the solution support assigning on-premises AD groups to the user?](#does-the-solution-support-assigning-on-premises-ad-groups-to-the-user)
   * [Which Workday APIs does the solution use to query and update Workday worker profiles?](#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles)
-  * [Why Workday to Azure AD provisioning app is not supported with Azure AD Connect?](#why-workday-to-azure-ad-provisioning-app-is-not-supported-with-azure-ad-connect)
+  * [Why "Workday to Azure AD" user provisioning app is not supported if we have deployed Azure AD Connect?](#why-workday-to-azure-ad-user-provisioning-app-is-not-supported-if-we-have-deployed-azure-ad-connect)
 
 * **Provisioning Agent questions**
   * [What is the GA version of the Provisioning Agent?](#what-is-the-ga-version-of-the-provisioning-agent)
@@ -780,7 +780,7 @@ As part of the hiring process, HR teams usually run a background check and vet t
 
 #### Does the solution support assigning on-premises AD groups to the user?
 
-This functionality is not supported natively. Recommended workaround is to deploy a PowerShell script that queries the Azure AD Graph API endpoint for audit log data and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
+This functionality is not supported currently. Recommended workaround is to deploy a PowerShell script that queries the Azure AD Graph API endpoint for audit log data and use that to trigger scenarios such as group assignment. This PowerShell script can be attached to a task scheduler and deployed on the same box running the provisioning agent.  
 
 #### Which Workday APIs does the solution use to query and update Workday worker profiles?
 
@@ -789,9 +789,19 @@ The solution currently uses the following Workday APIs:
 * Get_Workers (v21.1) for fetching worker information
 * Maintain_Contact_Information (v26.1) for the Work Email Writeback feature
 
-#### Why Workday to Azure AD provisioning app is not supported with Azure AD Connect?
+#### Why "Workday to Azure AD" user provisioning app is not supported if we have deployed Azure AD Connect?
 
 When Azure AD is used in hybrid mode (where it contains a mix of cloud + on-premises users), it's important to have a clear definition of "source of authority". Typically hybrid scenarios require deployment of Azure AD Connect. When Azure AD Connect is deployed, on-premises AD is the source of authority. Introducing the Workday to Azure AD connector into the mix can lead to a situation where Workday attribute values could potentially overwrite the values set by Azure AD Connect. Hence use of "Workday to Azure AD" provisioning app is not supported when Azure AD Connect is enabled. In such situations, we recommend using "Workday to AD User" provisioning app for getting users into on-premises AD and then syncing them into Azure AD using Azure AD Connect.
+
+#### How do I suggest improvements or request new features related to Workday and Azure AD integration?
+
+Your feedback is highly valued as it helps us set the direction for the future releases and enhancements. We welcome all feedback and encourage you to submit your idea or improvement suggestion in the [feedback forum of Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory). For specific feedback related to the Workday integration, select the category *SaaS Applications* and search using the keywords *Workday* to find existing feedback related to the Workday.
+
+![UserVoice SaaS Apps](media/workday-inbound-tutorial/uservoice_saas_apps.png)
+
+![UserVoice Workday](media/workday-inbound-tutorial/uservoice_workday_feedback.png)
+
+When suggesting a new idea, please check to see if someone else has already suggested a similar feature. In that case, you can up vote the feature or enhancement request. You can also leave a comment regarding your specific use case to show your support for the idea and demonstrate how the feature will be valuable for you too.
 
 ### Provisioning Agent questions
 
