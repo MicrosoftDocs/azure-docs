@@ -34,9 +34,7 @@ The following table shows the **write consistency mapping** between Azure Cosmos
 | LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY	| Consistent Prefix | Global Consistent Prefix |
 | QUORUM, SERIAL | Strong	| Linearizability |
 | LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY	| Consistent Prefix | Global Consistent Prefix |
-| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE	| Bounded Staleness | <ul><li>Bounded Staleness.</li>
-<li>At most K versions or t time behind.</li>
-<li>Read latest committed value in the region.</li></ul> |
+| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE	| Bounded Staleness | <ul><li>Bounded Staleness.</li><li>At most K versions or t time behind.</li><li>Read latest committed value in the region.</li></ul> |
 | ONE, LOCAL_ONE, ANY	| Consistent Prefix	| Per-region Consistent Prefix |
 
 The following table shows the **Read consistency mapping** between Azure Cosmos DB and Cassandra:
@@ -59,9 +57,7 @@ LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE	|Consistent Prefix	| Glob
 LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE	|Consistent Prefix	|Global Consistent Prefix |
 |ALL	|Strong	| Linearizability |
 | LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM	| Consistent Prefix	| Global Consistent Prefix |
-| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |	Bounded Staleness	| <ul><li>Bounded Staleness.</li>
-<li>At most K versions or t time behind. </li>
-<li>Read latest committed value in the region.</li></ul>
+| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |	Bounded Staleness	| <ul><li>Bounded Staleness.</li><li>At most K versions or t time behind. </li><li>Read latest committed value in the region.</li></ul>
 | LOCAL_ONE, ONE |Consistent Prefix	| Per-region Consistent Prefix |
 | LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM	| Consistent Prefix	| Per-region Consistent Prefix |
 
