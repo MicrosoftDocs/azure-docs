@@ -4,7 +4,7 @@ description: A quickstart that walks you through the process of using a Linux VM
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: bryanla
 
 ms.service: active-directory
