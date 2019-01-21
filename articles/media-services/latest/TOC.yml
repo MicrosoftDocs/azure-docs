@@ -85,6 +85,8 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
+  - name: Monitor data with Azure Monitor
+    href: media-services-azure-monitor-overview.md
   - name: Azure Media Player
     href: use-azure-media-player.md
 - name: How-to guides
@@ -163,6 +165,8 @@
     href: /azure/templates/microsoft.media/allversions
   - name: Event Grid schemas
     href: media-services-event-schemas.md
+  - name: Diagnostic logs schemas
+    href: media-services-diagnostic-logs-schema.md
   - name: DRM licenses
     items:
     - name: PlayReady license template
