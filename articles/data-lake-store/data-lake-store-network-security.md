@@ -1,6 +1,6 @@
 ---
 title: Network security in Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Understand how the IP firewall and virtual network integration work in Azure Data Lake Storage Gen1
+description: Understand how virtual network integration works in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -18,7 +18,7 @@ ms.author: elsung
 ---
 # Virtual network integration for Azure Data Lake Storage Gen1 - Preview
 
-This article introduces virtual network integration for Azure Data Lake Storage Gen1, which is in preview. With virtual network integration, you can configure your accounts to accept traffic only from specific virtual networks and subnets. 
+This article introduces virtual network integration for Azure Data Lake Storage Gen1. With virtual network integration, you can configure your accounts to accept traffic only from specific virtual networks and subnets. 
 
 This feature helps to secure your Data Lake Storage account from external threats.
 
@@ -69,11 +69,11 @@ Some available options are:
 
 ## Limitations
 
-- HDI clusters that were created before Data Lake Storage Gen1 virtual network integration support was available must be re-created to support this new feature.
+- HDInsight clusters that were created before Data Lake Storage Gen1 virtual network integration support was available must be re-created to support this new feature.
  
-- When you create a new HDInsight cluster and select a Data Lake Storage Gen1 account with virtual network integration enabled, the process fails. First, disable the virtual network rule. Or on the **Firewall and virtual networks** blade of the Data Lake Storage account, select **Allow access from all networks and services**. For more information, see the [Exceptions](##Exceptions) section.
+- When you create a new HDInsight cluster and select a Data Lake Storage Gen1 account with virtual network integration enabled, the process fails. First, disable the virtual network rule. Or on the **Firewall and virtual networks** blade of the Data Lake Storage account, select **Allow access from all networks and services**. Then create the HDInsight cluster before finally re-enabling the virtual network rule or de-selecting **Allow access from all networks and services**. For more information, see the [Exceptions](##Exceptions) section.
 
-- The Data Lake Storage Gen1 virtual network integration preview doesn't work with [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Data Lake Storage Gen1 virtual network integration doesn't work with [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
 - File and folder data in your virtual network-enabled Data Lake Storage Gen1 account isn't accessible from the portal. This restriction includes access from a VM that’s within the virtual network and activities such as using Data Explorer. Account management activities continue to work. File and folder data in your virtual network-enabled Data Lake Storage account is accessible via all non-portal resources. These resources include SDK access, PowerShell scripts, and other Azure services when they don't originate from the portal. 
 
