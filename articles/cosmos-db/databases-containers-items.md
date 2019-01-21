@@ -73,7 +73,7 @@ An Azure Cosmos container has a set of system defined properties. Depending on t
 
 | **System defined property** | **System generated or user-settable** | **Purpose** | **SQL API** | **Cassandra API** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | System generated | Unique identifier of container | Yes | No | No | No | No |
+|_id | System generated | Unique identifier of container | Yes | No | No | No | No |
 |_etag | System generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |_ts | System generated | Last updated timestamp of the container | Yes | No | No | No | No |
 |_self | System generated | Addressable URI of the container | Yes | No | No | No | No |
