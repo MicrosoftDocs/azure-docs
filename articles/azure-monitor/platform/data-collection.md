@@ -41,7 +41,7 @@ Each metric value has the following properties:
 ### Multi-dimensional metrics
 Dimensions of a metric are name-value pairs that carry additional data to describe the metric value. For example, a metric _Available disk space_ can have a dimension called _Drive_ with values _C:_, _D:_, which would allow viewing either available disk space across all drives or for each drive individually. 
 
-The example below illustrates two datasets for a hypothetical metric called _Network Throughput_. The first dataset has no dimensions. The second dataset shows the values with two dimensions, I_P Address_ and _Direction_:
+The example below illustrates two datasets for a hypothetical metric called _Network Throughput_. The first dataset has no dimensions. The second dataset shows the values with two dimensions, _IP Address_ and _Direction_:
 
 ### Network Throughput
 
