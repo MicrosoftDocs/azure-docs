@@ -25,7 +25,7 @@ ms.custom: mvc
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-The examples in this article require version 6.0 or later of Azure PowerShell. If you're running PowerShell locally and you don't have version 6.0 or later, [update your version](/powershell/azure/install-azurerm-ps). You also need to run `Connect-AzureRmAccount` to create a connection with Azure. For local installations, you must also [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/) to create a new Azure Active Directory group.
+The examples in this article require version 6.0 or later of Azure PowerShell. If you're running PowerShell locally and you don't have version 6.0 or later, [update your version](/powershell/azure/azurerm/install-azurerm-ps). You also need to run `Connect-AzureRmAccount` to create a connection with Azure. For local installations, you must also [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/) to create a new Azure Active Directory group.
 
 ## Understand scope
 

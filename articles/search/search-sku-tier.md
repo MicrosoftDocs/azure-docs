@@ -58,7 +58,7 @@ Most customers bring just a portion of total capacity online, holding the rest i
 
 ### Billing for image extraction in cognitive search
 
-If you are extracting images from files in a cognitive search indexing pipeline, you are charged for that operation in your Azure Search bill. The parameter that triggers image extraction is **imageAction** in an [indexer configuration](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). If **imageAction** is set to none (default), there are no charges for image extraction.
+If you are extracting images from files in a cognitive search indexing pipeline, you are charged for that operation in your Azure Search bill. The parameter that triggers image extraction is **imageAction** in an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters). If **imageAction** is set to none (default), there are no charges for image extraction.
 
 Pricing is subject to change, but is always documented on the [Pricing Details](https://azure.microsoft.com/pricing/details/search/) page for Azure Search. 
 

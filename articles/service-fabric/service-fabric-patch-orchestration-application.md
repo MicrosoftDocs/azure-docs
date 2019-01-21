@@ -140,6 +140,9 @@ Application along with installation scripts can be downloaded from [Archive link
 
 Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
+> [!IMPORTANT]
+> The v1.3.0 (latest) of Patch Orchestration Application has a known issue running on Windows Server 2012. If you are running Windows Server 2012, please download v1.2.2 of the application [here](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). SFPkg link [here](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
+
 ## Configure the app
 
 The behavior of the patch orchestration app can be configured to meet your needs. Override the default values by passing in the application parameter during application creation or update. Application parameters can be provided by specifying `ApplicationParameter` to the `Start-ServiceFabricApplicationUpgrade` or `New-ServiceFabricApplication` cmdlets.

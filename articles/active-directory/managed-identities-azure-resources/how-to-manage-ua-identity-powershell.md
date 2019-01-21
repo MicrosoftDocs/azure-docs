@@ -4,7 +4,7 @@ description: Step by step instructions on how to create, list and delete user-as
 services: active-directory
 documentationcenter: 
 author: daveba
-manager: mtillman
+manager: daveba
 editor: 
 
 ms.service: active-directory
@@ -30,7 +30,7 @@ In this article, you learn how to create, list and delete a user-assigned manage
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - Install [the latest version of Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) if you haven't already.
-- If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 5.7.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+- If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 5.7.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). 
 - If you are running PowerShell locally, you also need to: 
     - Run `Login-AzureRmAccount` to create a connection with Azure.
     - Install the [latest version of PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
