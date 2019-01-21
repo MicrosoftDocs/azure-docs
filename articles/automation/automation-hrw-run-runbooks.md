@@ -3,7 +3,7 @@ title: Run runbooks on Azure Automation Hybrid Runbook Worker
 description: This article provides information about running runbooks on machines in your local datacenter or cloud provider with the Hybrid Runbook Worker role.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/17/2018
@@ -249,3 +249,4 @@ If your runbooks aren't completing successfully, review the troubleshooting guid
 
 * To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).
 * To understand the different ways to work with PowerShell runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
+
