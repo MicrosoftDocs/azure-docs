@@ -35,7 +35,7 @@ To view the AzureRm.RecoveryServices.Backup PowerShell cmdlet reference, see the
 
 To begin:
 
-1. [Download the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (the minimum version required is: 1.4.0)
+1. [Download the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (the minimum version required is: 1.4.0)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 

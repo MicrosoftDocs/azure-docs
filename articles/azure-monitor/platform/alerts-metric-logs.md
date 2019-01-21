@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Create Metric Alerts for Logs in Azure Monitor  
 
@@ -352,3 +352,4 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 * Learn more about the [ metric alerts](https://aka.ms/createmetricalert).
 * Learn about [log alerts in Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Learn about [alerts in Azure](alerts-overview.md).
+
