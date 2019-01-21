@@ -12,35 +12,40 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 01/19/2019
 ms.author: glenga
 ---
 
 # How to use the Azure WebJobs SDK for event-driven background processing
 
-This article provides guidance on how to write code for [the Azure WebJobs SDK](webjobs-sdk-get-started.md). The documentation applies to versions 2.x and 3.x except where noted otherwise. The main change introduced by 3.x is the use of .NET Core instead of .NET Framework.
+This article provides guidance on how to write code for [the Azure WebJobs SDK](webjobs-sdk-get-started.md). The documentation applies to both version 3.x and 2.x of the WebJobs SDK. Where API differences exist, examples of both are provided. The main change introduced by version 3.x is the use of .NET Core instead of .NET Framework.
 
 >[!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK, and this article links to Azure Functions documentation for some topics. Note the following differences between Functions and the WebJobs SDK:
-> * Azure Functions version 1.x corresponds to WebJobs SDK version 2.x, and Azure Functions 2.x corresponds to WebJobs SDK 3.x. Source code repositories follow the WebJobs SDK numbering, and many have v2.x branches, with the master branch currently having 3.x code.
+> * Azure Functions version 2.x corresponds to WebJobs SDK version 3.x, and Azure Functions 1.x corresponds to WebJobs SDK 2.x. Source code repositories follow the WebJobs SDK numbering.
 > * Sample code for Azure Functions C# class libraries is like WebJobs SDK code except you don't need a `FunctionName` attribute in a WebJobs SDK project.
-> * Some binding types are only supported in Functions, such as HTTP, webhook, and Event Grid (which is based on HTTP). 
+> * Some binding types are only supported in Functions, such as HTTP, webhook, and Event Grid (which is based on HTTP).
 > 
-> For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs). 
+> For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
 ## Prerequisites
 
-This article assumes you have read [Get started with the WebJobs SDK](webjobs-sdk-get-started.md).
+This article assumes you have read and completed the tasks in [Get started with the WebJobs SDK](webjobs-sdk-get-started.md).
 
-## JobHost
+## Host
 
-The `JobHost` object is the runtime container for functions: it listens for triggers and calls functions. You create the `JobHost` in your code and write code to customize its behavior.
+The host object is the runtime container for functions.  It listens for triggers and calls functions. In version 3.x, the host is an implementation of `IHost`, and in version 2.x you use the `JobHost` object. You create host instance in your code and write code to customize its behavior.
 
-This is a key difference between using the WebJobs SDK directly and using it indirectly by using Azure Functions. In Azure Functions, the service controls the `JobHost`, and you can't customize it by writing code. Azure Functions lets you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, which limits the kinds of customizations you can do.
+This is a key difference between using the WebJobs SDK directly and using it indirectly by using Azure Functions. In Azure Functions, the service controls the host, and you can't customize it by writing code. Azure Functions lets you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, which limits the kinds of customizations you can do.
 
-### JobHost connection strings
+### Host connection strings
 
 The WebJobs SDK looks for Storage and Service Bus connection strings in  *local.settings.json* when you run locally, or in the WebJob's environment when you run in Azure. If you want to use your own names for these connection strings, or store them elsewhere, you can set them in code, as shown here:
+
+#### Version 3.x
+
+
+#### Version 2.x
 
 ```cs
 static void Main(string[] args)
@@ -48,20 +53,21 @@ static void Main(string[] args)
     var _storageConn = ConfigurationManager
         .ConnectionStrings["MyStorageConnection"].ConnectionString;
 
-    var _dashboardConn = ConfigurationManager
-        .ConnectionStrings["MyDashboardConnection"].ConnectionString;
+    //// Dashboard logging is deprecated; use Application Insights.
+    //var _dashboardConn = ConfigurationManager
+    //    .ConnectionStrings["MyDashboardConnection"].ConnectionString;
 
     JobHostConfiguration config = new JobHostConfiguration();
     config.StorageConnectionString = _storageConn;
-    config.DashboardConnectionString = _dashboardConn;
+    //config.DashboardConnectionString = _dashboardConn;
     JobHost host = new JobHost(config);
     host.RunAndBlock();
 }
 ```
 
-### JobHost development settings
+### Host development settings
 
-The `JobHostConfiguration` class has a `UseDevelopmentSettings` method that you can call to make local development more efficient. Here are some of the settings that this method changes:
+You can run the host in development mode to make local development more efficient. Here are some of the settings that are changed when running in development mode:
 
 | Property | Development setting |
 | ------------- | ------------- |
@@ -69,7 +75,32 @@ The `JobHostConfiguration` class has a `UseDevelopmentSettings` method that you 
 | `Queues.MaxPollingInterval`  | A low value to ensure queue methods are triggered immediately.  |
 | `Singleton.ListenerLockPeriod` | 15 seconds to aid in rapid iterative development. |
 
-The following example shows how to use development settings. To make `config.IsDevelopment` return `true` when running locally, set a local environment variable named `AzureWebJobsEnv` with value `Development`.
+The way that you enable development mode depends on the SDK version. 
+
+#### Version 3.x
+
+Version 3.x uses the standard ASP.NET Core APIs. Call the [UseEnvironment](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. Pass a string named `development`, as in the following example:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.UseEnvironment("development");
+    builder.ConfigureWebJobs(b =>
+            {
+                b.AddAzureStorageCoreServices();
+            });
+    var host = builder.Build();
+    using (host)
+    {
+        host.Run();
+    }
+}
+```
+
+#### Version 2.x
+
+The `JobHostConfiguration` class has a `UseDevelopmentSettings` method that enables development mode.  The following example shows how to use development settings. To make `config.IsDevelopment` return `true` when running locally, set a local environment variable named `AzureWebJobsEnv` with value `Development`.
 
 ```cs
 static void Main()
@@ -98,6 +129,12 @@ If your WebJob is running in a Free or Shared App Service Plan, your application
 
 The setting must be configured before any HTTP requests are made. For this reason, the WebJobs host shouldn't try to adjust the setting automatically; there may be HTTP requests that occur before the host starts and this can lead to unexpected behavior. The best approach is to set the value immediately in your `Main` method before initializing the `JobHost`, as shown in the following example
 
+#### Version 3.x
+
+
+
+#### Version 2.x
+
 ```csharp
 static void Main(string[] args)
 {
@@ -122,14 +159,6 @@ Automatic triggers call a function in response to an event. For an example, see 
 To trigger a function manually, use the `NoAutomaticTrigger` attribute, as shown in the following example:
 
 ```cs
-static void Main(string[] args)
-{
-    JobHost host = new JobHost();
-    host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
-}
-```
-
-```cs
 [NoAutomaticTrigger]
 public static void CreateQueueMessage(
     TextWriter logger,
@@ -140,6 +169,15 @@ public static void CreateQueueMessage(
     logger.WriteLine("Creating queue message: ", message);
 }
 ```
+
+```cs
+static void Main(string[] args)
+{
+    JobHost host = new JobHost();
+    host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
+}
+```
+
 
 ## Input and output bindings
 
@@ -309,7 +347,7 @@ public static void CreateQueueMessage(
     string outputQueueName = "outputqueue" + DateTime.Now.Month.ToString();
     QueueAttribute queueAttribute = new QueueAttribute(outputQueueName);
     CloudQueue outputQueue = binder.Bind<CloudQueue>(queueAttribute);
-    outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
+    outputQueue.AddMessageAsync(new CloudQueueMessage(queueMessage));
 }
 ```
 
@@ -447,8 +485,8 @@ The queue and blob triggers automatically prevent a function from processing a q
 The timer trigger automatically ensures that only one instance of the timer runs, so you don't get more than one function instance running at a given scheduled time.
 
 If you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the [Singleton attribute](#singleton-attribute).
-	
-## Filters 
+
+## Filters
 
 Function Filters (preview) provide a way to customize the WebJobs execution pipeline with your own logic. Filters are similar to [ASP.NET Core Filters](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters). They can be implemented as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
 
