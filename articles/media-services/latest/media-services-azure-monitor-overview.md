@@ -43,11 +43,11 @@ You can view metrics using the Azure portal either from Azure Monitor or from yo
 
 #### Azure Monitor - Metrics 
 
-In the Azure portal, navigate to Monitor -> Metrics. 
+In the Azure portal, navigate to **Monitor** -> **Metrics**.
 
 ![Navigate to Monitor -> Metrics](media/media-services-azure-monitor/azure-monitor-metrics1.png)
 
-Add a chart for your Media Services resource. 
+Add a chart for your Media Services resource.
 
 ![Find your Media Services resource](media/media-services-azure-monitor/azure-monitor-metrics2.png)
 
@@ -57,7 +57,7 @@ Add metrics that you want to monitor.
 
 #### Media Services account - Metrics
 
-In the Azure portal, navigate to your account -> Metrics. 
+In the Azure portal, navigate to <*your account*> -> **Metrics**.
 
 ![Navigate to Media Services account -> Metrics](media/media-services-azure-monitor/media-services-account-metrics1.png)
 
@@ -73,16 +73,14 @@ Currently, you can get the following diagnostic logs:
 
 |Name|Description|
 |---|---|
-|Key delivery service request||
-|Streaming endpoint||
-
-### Schemas and examples
-
-[Diagnostic logs schemas](media-services-diagnostic-logs-schema.md)
+|Key delivery service request|Logs that show the delivery service request information. For more details, see [schema](media-services-diagnostic-logs-schema.md)|
+|Streaming endpoint|Logs that show the streaming endpoint information. For more details, see [schema](media-services-diagnostic-logs-schema.md)|
 
 ### Access diagnostic logs
 
 To enable diagnostic logs for your Media Services Azure Resource Manager resource, use the following Azure CLI command. In the command, you need to provide the storage account into which you want for the Media Services logs to be written.
+
+TODO
 
 ### View diagnostic logs
 
