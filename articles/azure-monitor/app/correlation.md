@@ -37,7 +37,7 @@ Let's take an example of an application called Stock Prices, which shows the cur
 
 You can analyze the resulting telemetry by running a query:
 
-```
+```kusto
 (requests | union dependencies | union pageViews)
 | where operation_Id == "STYz"
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
