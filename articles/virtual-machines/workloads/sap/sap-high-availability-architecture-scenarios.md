@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
