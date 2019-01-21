@@ -3,7 +3,7 @@ title: Adaptive application controls in Azure Security Center | Microsoft Docs
 description: This document helps you to use adaptive application control in Azure Security Center to whitelist applications running in Azure VMs.
 services: security-center
 documentationcenter: na
-author: v-mohabe
+author: monhaber
 manager: mbaldwin
 editor: ''
 
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2019
-ms.author: v-mohabe
+ms.author: monhaber
 
 ---
 # Adaptive application controls in Azure Security Center
 Learn how to configure application control in Azure Security Center using this walkthrough.
 
 ## What are adaptive application controls in Security Center?
-Adaptive application controls is an intelligent, automated end-to-end application whitelisting solution from Azure Security Center. It helps you control which applications can run on your VMs located in Azure, which among other benefits helps harden your VMs against malware. Security Center uses machine learning to analyze the applications running on your VMs and helps you apply the specific whitelisting rules using this intelligence. This capability greatly simplifies the process of configuring and maintaining application whitelisting policies, enabling you to:
+Adaptive application control is an intelligent, automated end-to-end application whitelisting solution from Azure Security Center. It helps you control which applications can run on your VMs located in Azure, which, among other benefits, helps harden your VMs against malware. Security Center uses machine learning to analyze the applications running on your VMs and helps you apply the specific whitelisting rules using this intelligence. This capability greatly simplifies the process of configuring and maintaining application whitelisting policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 - Comply with your organization's security policy that dictates the use of only licensed software.
@@ -69,7 +69,7 @@ The **Groups of VMs** section contains three tabs:
 
   ![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-3. In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply an application whitelising policy to. Next, you see two lists:
+3. In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply an application whitelisting policy to. Next, you see two lists:
 
   - **Recommended applications**: a list of applications that are frequent on the VMs within this group, and are recommended to be allowed to run.
   - **More applications**: a list of applications that are either less frequent on the VMs within this group or that are known as Exploitables (see more below), and recommended for review.
