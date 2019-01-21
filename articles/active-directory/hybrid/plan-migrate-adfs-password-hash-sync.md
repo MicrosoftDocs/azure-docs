@@ -249,7 +249,7 @@ To verify that password hash synchronization works correctly, complete the **Tro
 4. Go to the **Additional tasks** page, select **Troubleshoot**, and then select **Next**.
 5. On the **Troubleshooting** page, select **Launch** to start the troubleshooting menu in PowerShell.
 6. On the main menu, select **Troubleshoot password hash synchronization**.
-7. On the sub menu, select **Password hash synchronization does not work at all**.
+7. On the submenu, select **Password hash synchronization does not work at all**.
 
 For troubleshooting issues, see [Troubleshoot password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization).
 
@@ -465,7 +465,7 @@ It's important to frequently roll over the Kerberos decryption key of the AZUREA
 
 Initiate the rollover of the seamless SSO Kerberos decryption key on the on-premises server that's running Azure AD Connect.
 
-For more information, see [How do I roll over the Kerberos decryption key of the AZUREADSSOACC computer account?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)
+For more information, see [How do I roll over the Kerberos decryption key of the AZUREADSSOACC computer account?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq).
 
 ## Next steps
 
