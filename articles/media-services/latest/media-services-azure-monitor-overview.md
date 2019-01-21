@@ -19,7 +19,7 @@ ms.author: juliako
 
 # Monitor Media Services metrics and diagnostic logs
 
-Azure Media Services uses [Azure Monitor](../../azure-monitor/overview.md) to enable you to monitor metrics and diagnostic logs that help you understand how your applications are performing. If there are critical conditions identified in the data, you can choose to be alerted so you can quickly respond to issues. 
+Azure Media Services uses [Azure Monitor](../../azure-monitor/overview.md) to enable you to monitor metrics and diagnostic logs that help you understand how your applications are performing. You can create alerts and notifications for the metrics and diagnostic logs or archive them to Storage accounts, Event Hubs, OMS Log Analytics or to 3rd party services.
 
 For detailed information, see [Metrics](../../azure-monitor/platform/data-collection.md) and [Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
@@ -31,11 +31,11 @@ Currently, you can view the following metrics:
 
 |Name|Description|
 |---|---|
-|Requests|Gives details around total # of requests serviced by streaming endpoint|
+|Requests|Gives details around total # of requests serviced by streaming endpoint.|
 |Egress|Total number of egress bytes. For example, bytes streamed by streaming endpoint.|
 |Success end to end Latency| Gives information about end to end latency of successful requests.|
 
-You can view metrics using [the Azure portal](#view-metrics-using-portal) or [query metrics using the Azure CLI](#query-metrics-using-cli). 
+You can [view metrics using the Azure portal](#view-metrics-using-portal) or [query metrics using the Azure CLI](#query-metrics-using-cli). 
 
 ### View metrics using portal 
 
@@ -73,8 +73,8 @@ Currently, you can get the following diagnostic logs:
 
 |Name|Description|
 |---|---|
-|Key delivery service request|Logs that show the delivery service request information. For more details, see [schema](media-services-diagnostic-logs-schema.md)|
-|Streaming endpoint|Logs that show the streaming endpoint information. For more details, see [schema](media-services-diagnostic-logs-schema.md)|
+|Key delivery service request|Logs that show the delivery service request information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
+|Streaming endpoint|Logs that show the streaming endpoint information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
 
 ### Access diagnostic logs
 
@@ -90,7 +90,7 @@ To view the logs in the storage account, use the Azure CLI or the Azure portal.
 
 TODO
 
-### View logs with portal
+#### View logs with portal
 
 TODO
 
