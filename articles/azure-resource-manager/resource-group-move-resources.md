@@ -301,7 +301,7 @@ The operation may run for several minutes.
 
 ### Recovery Services limitations
 
-To move a Recovery Services vault, you must enroll in the [limited public preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ To move a Recovery Services vault, register your subscription for [limited public preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
 Currently, you can move one Recovery Services vault, per region, at a time. You can't move vaults that back up Azure Files, Azure File Sync, or SQL in IaaS virtual machines.
 
