@@ -93,14 +93,14 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 
 	    ![Add user](./media/tutorial-create-custom-lab/add-user.png)
 
-## Cleanup resources
+## Clean up resources
 The next tutorial shows how a lab user can claim and connect to a VM in the lab. If you don't want to do that tutorial, and clean up the resources created as part of this tutorial, follow these steps: 
 
 1. In the Azure portal, select **Resource groups** in the menu. 
 
 	![Resource groups](./media/tutorial-create-custom-lab/resource-groups.png)
 1. Select your resource group in which you created the lab. 
-2. Select **Delete resource group** from the toolbar. Deleting a resource group deletes all the resources in the group including the lab. 
+1. Select **Delete resource group** from the toolbar. Deleting a resource group deletes all the resources in the group including the lab. 
 
 	![Lab resource group](./media/tutorial-create-custom-lab/lab-resource-group.png)
 1. Repeat these steps to delete the additional resource group created for you with the name `<your resource group name><random numbers>`. For example: `splab3988722144001`. The VMs are created in this resource group rather than in the resource group in which the lab exists. 
