@@ -3,7 +3,7 @@ title: Adaptive application controls in Azure Security Center | Microsoft Docs
 description: This document helps you to use adaptive application control in Azure Security Center to whitelist applications running in Azure VMs.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: v-mohabe
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2018
-ms.author: rkarlin
+ms.date: 01/21/2019
+ms.author: v-mohabe
 
 ---
 # Adaptive application controls in Azure Security Center
