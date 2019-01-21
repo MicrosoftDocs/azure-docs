@@ -1,14 +1,14 @@
 ---
-title: Retain IP addresses during Azure VM failover with Azure Site Recovery | Microsoft Docs
+title: Retain IP addresses after Azure VM failover with Azure Site Recovery | Microsoft Docs
 description: Describes how to retain IP addresses when failing over Azure VMs for disaster recovery to a secondary region with Azure Site Recovery
 ms.service: site-recovery
-ms.date: 11/27/2018
-author: mayurigupta13
+ms.date: 1/21/2019
+author: sideeksh
 ms.topic: conceptual
-ms.author: mayg
+ms.author: sideeksh
 
 ---
-# Retain IP addresses during failover
+# Retain IP addresses after failover
 
 [Azure Site Recovery](site-recovery-overview.md) enables disaster recovery for Azure VMs by replicating VMs to another Azure region, failing over if an outage occurs, and failing back to the primary region when things are back to normal.
 
@@ -17,6 +17,7 @@ During failover, you might want to keep the IP addressing in the target region i
 - By default, when you enable disaster recovery for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. For a full explanation of how Site Recovery handles addressing, [review this article](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 - For simple applications, the default configuration is sufficient. For more complex apps, you might need to provision additional resource to make sure that connectivity works as expected after failover.
 
+Site Recovery allows failover of VMs with multiple IP addresses if and only if each IP address is associated with a single NIC. Site Recovery does not support failover of VMs with multiple IP addresses if these IP addresses are associated with the same NIC. 
 
 This article provides some examples for retaining IP addresses in more complex example scenarios. The examples include:
 
