@@ -122,7 +122,6 @@ To configure Azure AD single sign-on with Clever, perform the following steps:
 	| Firstname  | user.givenname |
 	| Lastname  | user.surname |
 
-
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
 	![image](common/new-save-attribute.png)
