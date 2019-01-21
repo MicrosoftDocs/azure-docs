@@ -39,7 +39,7 @@ The following table shows the **write consistency mapping** between Azure Cosmos
 
 The following table shows the **Read consistency mapping** between Azure Cosmos DB and Cassandra:
 
-| From Cassandra | To Azure Cosmos DB | Guarantee |
+| Cassandra | Azure Cosmos DB | Guarantee |
 | - | - | - |
 | ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Strong	| Linearizability|
 | ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO	|Strong |	Linearizability |
