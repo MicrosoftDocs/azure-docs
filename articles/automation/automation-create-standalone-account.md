@@ -3,7 +3,7 @@ title: Create a standalone Azure Automation account
 description: This article walks you through the steps of creating, testing, and using an example security principal authentication in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
@@ -106,3 +106,4 @@ The following table summarizes resources for the Classic Run As account.
 * To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md).
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md).
 * To get started with Python2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md).
+
