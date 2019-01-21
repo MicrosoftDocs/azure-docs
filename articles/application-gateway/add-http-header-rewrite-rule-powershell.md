@@ -58,7 +58,7 @@ $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name rewriteRuleSet1 -
 ## Retrieve configuration of your existing application gateway
 
 ```azurepowershell
-$appgw1 = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
+$appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
 ```
 
 ## Retrieve configuration of your existing request routing rule
