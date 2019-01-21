@@ -4,7 +4,7 @@ description: Step by step instructions on how to create and delete user-assigned
 services: active-directory
 documentationcenter: 
 author: daveba
-manager: mtillman
+manager: daveba
 editor: 
 
 ms.service: active-directory
