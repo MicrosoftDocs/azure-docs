@@ -106,7 +106,7 @@ To move a subscription to the new pricing model, just select the box and then se
 
 ## Automate moving to the new pricing model
 
-The scripts below require the Azure PowerShell Module. To check if you have the latest version see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+The scripts below require the Azure PowerShell Module. To check if you have the latest version see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.1.0).
 
 Once you have the latest version of Azure PowerShell, you would first need to run ``Connect-AzureRmAccount``.
 
