@@ -43,7 +43,7 @@ You can analyze the resulting telemetry by running a query:
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-In the results, note that all telemetry items share the root `operation_Id`. When page makes the Ajax call, a new unique ID (`qJSXU`) is assigned to the dependency telemetry and the ID of the pageView is used as `operation_ParentId`. The server request then uses the Ajax ID as `operation_ParentId`, etc.
+In the results, note that all telemetry items share the root `operation_Id`. When an Ajax call is made from the page, a new unique ID (`qJSXU`) is assigned to the dependency telemetry and the ID of the pageView is used as `operation_ParentId`. The server request then uses the Ajax ID as `operation_ParentId`.
 
 | itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
@@ -75,7 +75,7 @@ We're transitioning to [W3C distributed tracing format](https://w3c.github.io/tr
 #### Enable W3C distributed tracing support for classic ASP.NET apps
 
 This feature is available in `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` packages starting with version 2.8.0-beta1.
-It's turned off by default. To turn it on, change `ApplicationInsights.config`:
+It's disabled by default. To enable it, change `ApplicationInsights.config`:
 
 - Under `RequestTrackingTelemetryModule`, add the `EnableW3CHeadersExtraction` element with value set to `true`.
 - Under `DependencyTrackingTelemetryModule`, add the `EnableW3CHeadersInjection` element with value set to `true`.
@@ -83,7 +83,7 @@ It's turned off by default. To turn it on, change `ApplicationInsights.config`:
 #### Enable W3C distributed tracing support for ASP.NET Core apps
 
 This feature is in `Microsoft.ApplicationInsights.AspNetCore` version 2.5.0-beta1 and in `Microsoft.ApplicationInsights.DependencyCollector` version 2.8.0-beta1.
-It's turned off by default. To turn it on, set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
+It's disabled by default. To enable it, set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
