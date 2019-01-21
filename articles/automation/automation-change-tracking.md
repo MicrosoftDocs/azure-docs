@@ -3,7 +3,7 @@ title: Track changes with Azure Automation
 description: The Change Tracking solution helps you identify software and Windows Service changes that occur in your environment.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
@@ -273,3 +273,4 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
 * Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+
