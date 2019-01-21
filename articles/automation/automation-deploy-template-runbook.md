@@ -3,7 +3,7 @@ title: Deploy an Azure Resource Manager template in an Azure Automation runbook
 description: How to deploy an Azure Resource Manager template stored in Azure Storage from a runbook
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
@@ -258,4 +258,5 @@ and Resource Manager templates to deploy all your Azure resources.
 * To find other useful Azure Automation runbooks, see
 [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
 * To find other useful Resource Manager templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)
+
 

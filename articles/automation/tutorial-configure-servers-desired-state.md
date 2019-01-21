@@ -3,7 +3,7 @@ title: Configure servers to a desired state and manage drift with Azure Automati
 description: Tutorial - Manage server configurations with Azure Automation State Configuration
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 manager: carmonm
