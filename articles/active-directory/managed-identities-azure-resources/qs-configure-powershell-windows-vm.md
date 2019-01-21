@@ -4,7 +4,7 @@ description: Step by step instructions for configuring managed identities for Az
 services: active-directory
 documentationcenter: 
 author: daveba
-manager: mtillman
+manager: daveba
 editor: 
 
 ms.service: active-directory
