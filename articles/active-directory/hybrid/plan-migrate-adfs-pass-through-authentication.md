@@ -325,7 +325,7 @@ First, enable pass-through authentication:
 Next, deploy additional authentication agents:
 
 1. In the Azure portal, go to **Azure Active Directory** > **Azure AD Connect**, and then select **Pass-through authentication**.
-2. On the **Pass-through authentication** page, select the **Download** button 
+2. On the **Pass-through authentication** page, select the **Download** button. 
 3. On the **Download agent** page, select **Accept terms and download**.
  
    The authentication agent starts to download. Install the secondary authentication agent on a domain-joined server.
@@ -433,7 +433,7 @@ It's important to frequently roll over the Kerberos decryption key of the AZUREA
 
 Initiate the rollover of the seamless SSO Kerberos decryption key on the on-premises server that's running Azure AD Connect.
 
-For more information, see [How do I roll over the Kerberos decryption key of the AZUREADSSOACC computer account?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)
+For more information, see [How do I roll over the Kerberos decryption key of the AZUREADSSOACC computer account?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq).
 
 ## Monitoring and logging
 
