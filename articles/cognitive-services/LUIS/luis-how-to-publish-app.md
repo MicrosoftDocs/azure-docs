@@ -58,6 +58,6 @@ For more information about the JSON endpoint response with sentiment analysis, s
 
 ## Next steps
 
-* See [Manage keys](./luis-how-to-manage-keys.md) to add keys to Azure subscription key to LUIS and how to set the Bing Spell Check key and include all intents in results.
+* See [Manage keys](./luis-how-to-azure-subscription.md) to add keys to Azure subscription key to LUIS and how to set the Bing Spell Check key and include all intents in results.
 * See [Train and test your app](luis-interactive-test.md) for instructions on how to test your published app in the test console.
 
