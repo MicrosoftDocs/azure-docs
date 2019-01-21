@@ -20,7 +20,7 @@ ms.author: monhaber
 # Improve your secure score in Azure Security Center
 
 
-With so many services offering security benefits, it is often hard to know what steps to take first to secure and harden your workload. The Azure secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first. This helps you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is a tool that helps you assess your workload security posture.
+With so many services offering security benefits, it's often hard to know what steps to take first to secure and harden your workload. The Azure secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first. This helps you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is a tool that helps you assess your workload security posture.
 
 ## Secure score calculation
 
@@ -41,7 +41,7 @@ To view your overall secure score:
 2. At the top you can see Secure score highlights:
    - The **Overall secure score** represents the score per policies, per selected subscription
    - **Secure score by category** shows you which resources need the most attention
-   - **Top recommendations by secure score impact** provides you with a list of the recommendations that will improve your secure score the most if you remediate them.
+   - **Top recommendations by secure score impact** provides you with a list of the recommendations that will improve your secure score the most if you implement them.
  
    ![secure score](./media/security-center-secure-score/secure-score-dashboard.png)
 
