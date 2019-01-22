@@ -3,7 +3,7 @@ title: Runbook Output and Messages in Azure Automation
 description: Desribes how to create and retrieve output and error messages from runbooks in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/04/2018
@@ -228,4 +228,5 @@ For more information on how to configure integration with Log Analytics to colle
 ## Next steps
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
 * To understand how to design and use child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
+
 

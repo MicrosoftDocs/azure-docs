@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.component: logs
+ms.subservice: logs
 ---
 # Stream Azure Diagnostic Logs to Log Analytics
 
@@ -95,3 +95,4 @@ In the Log Search blade in the portal or Advanced Analytics experience as part o
 ## Next steps
 
 * [Read more about Azure Diagnostic Logs](diagnostic-logs-overview.md)
+

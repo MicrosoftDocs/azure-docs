@@ -4,7 +4,7 @@ description: This article provides an overview of how to use Azure Automation Up
 services: automation
 author: zjalexander
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
@@ -210,3 +210,4 @@ Continue to the overview for the Update Management solution.
 
 > [!div class="nextstepaction"]
 > [Update Management solution](../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2fautomation%2ftoc.json)
+

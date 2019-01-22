@@ -33,7 +33,7 @@ The troubleshooting process is as follows:
 
 For the VM that uses managed disk, see [Troubleshoot a Managed Disk VM by attaching a new OS disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
-To perform these troubleshooting steps, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+To perform these troubleshooting steps, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
 
 In the following examples, replace parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
@@ -67,7 +67,7 @@ Virtual hard disks and VMs are two distinct resources in Azure. A virtual hard d
 
 The first step to recover your VM is to delete the VM resource itself. Deleting the VM leaves the virtual hard disks in your storage account. After the VM is deleted, you attach the virtual hard disk to another VM to troubleshoot and resolve the errors.
 
-Delete the VM with [az vm delete](/cli/azure/vm#az_vm_delete). The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
+Delete the VM with [az vm delete](/cli/azure/vm). The following example deletes the VM named `myVM` from the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 
