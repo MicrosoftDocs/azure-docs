@@ -15,7 +15,7 @@ ms.date: 01/22/2018
 ---
 # Create, configure, and manage elastic jobs
 
-In this article, you will learn how to create, configure, and manage elastic jobs. If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](job-automation-overview.md).
+In this article, you will learn how to create, configure, and manage elastic jobs. If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](sql-database-job-automation-overview.md).
 
 ## Create and configure the agent
 
