@@ -39,7 +39,7 @@ managed disks* policy definition.
 
    ![Assign a policy definition](./media/assign-policy-portal/select-assign-policy.png)
 
-1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either a management group or subscription. Optionally, select a resource group. A scope determines what resources or grouping of resources the policy assignment gets enforced on.  Then click **Select** at the bottom of the **Scope** page.
+1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting subscription and optionally a resource group. A scope determines what resources or grouping of resources the policy assignment gets enforced on.  Then click **Select** at the bottom of the **Scope** page.
 
    This example uses the **Contoso** subscription. Your subscription will differ.
 
