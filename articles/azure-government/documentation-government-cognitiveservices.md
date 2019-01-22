@@ -26,7 +26,7 @@ To see an overview of Cognitive Services on Azure Government, [click here](docum
 > Billing for the Computer Vision API, Face API, and Translator Text API will begin on 11/1/2018.
 
 ## Prerequisites
-* Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)
+* Install and Configure [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0)
 * Connect [PowerShell with Azure Government](documentation-government-get-started-connect-with-ps.md)
 
 ## Part 1: Provision Cognitive Services Accounts

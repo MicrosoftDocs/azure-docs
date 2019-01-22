@@ -105,7 +105,7 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
 
 
 #### Assign RBAC roles to users with PowerShell: 
-1. Install [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Install [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 2. Run the following commands: 
 
     ```azurepowershell

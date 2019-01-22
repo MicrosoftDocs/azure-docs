@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
-ms.component: 
+ms.subservice: 
 ---
  
 # Manage usage and costs for Log Analytics
@@ -332,4 +332,5 @@ When you receive an alert, use the steps in the following section to troubleshoo
 * Change [performance counter configuration](data-sources-performance-counters.md).
 * To modify your event collection settings, review [event log configuration](data-sources-windows-events.md).
 * To modify your syslog collection settings, review [syslog configuration](data-sources-syslog.md).
+
 

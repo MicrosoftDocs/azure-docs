@@ -19,15 +19,198 @@ The following sections show the mapping between the data consistency requested b
 
 ## <a id="cassandra-mapping"></a>Mapping between Apache Cassandra and Azure Cosmos DB consistency levels
 
-This table shows the "read consistency" mapping between the Apache Cassandra 4.x client and the default consistency level in Azure Cosmos DB. The table shows multi-region and single-region deployments.
+This table shows the consistency mapping between the Apache Cassandra and consistency levels in Azure Cosmos DB. For each of Cassandra Read and Write consistency levels, the corresponding Cosmos DB Consistency Level provides stronger, i.e., stricter guarantees.
 
-| **Apache Cassandra 4.x** | **Azure Cosmos DB (multi-region)** | **Azure Cosmos DB (single region)** |
-| - | - | - |
-| ONE, TWO, THREE | Consistent prefix | Consistent prefix |
-| LOCAL_ONE | Consistent prefix | Consistent prefix |
-| QUORUM, ALL, SERIAL | Bounded staleness is the default. Strong is in private preview. | Strong |
-| LOCAL_QUORUM | Bounded staleness | Strong |
-| LOCAL_SERIAL | Bounded staleness | Strong |
+
+<table>
+<tr> 
+  <th rowspan="2">Cassandra Consistency Level</th> 
+  <th rowspan="2">Cosmos DB Consistency Level</th> 
+  <th colspan="3">Write Consistency Mapping</th> 
+  <th colspan="3">Read Consistency Mapping</th> 
+</tr> 
+
+
+ 
+ <tr> 
+  <th>Cassandra</th> 
+  <th>Cosmos DB</th> 
+  <th>Guarantee</th> 
+  <th>From Cassandra</th> 
+  <th>To Cosmos DB</th> 
+  <th>Guarantee</th> 
+ </tr> 
+ 
+  <tr> 
+  <td rowspan="6">ALL</td> 
+  <td rowspan="6">Strong</td> 
+  <td>ALL</td> 
+  <td>Strong</td> 
+  <td>Linearizability</td> 
+  <td>ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE</td> 
+  <td>Strong</td> 
+  <td>Linearizability</td> 
+ </tr> 
+ 
+ <tr> 
+  <td rowspan="2">EACH_QUORUM</td> 
+  <td rowspan="2">Strong</td> 
+  <td rowspan="2">Linearizability</td> 
+  <td>ALL, QUORUM, SERIAL,  LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO</td> 
+  <td>Strong</td> 
+  <td >Linearizability</td> 
+ </tr> 
+ 
+ <tr>
+ <td>LOCAL_ONE, ONE</td>
+  <td>Consistent Prefix</td>
+   <td>Global Consistent Prefix</td>
+ </tr>
+ 
+
+ <tr> 
+  <td rowspan="2">QUORUM, SERIAL</td> 
+  <td rowspan="2">Strong</td> 
+  <td rowspan="2">Linearizability</td> 
+  <td>ALL, QUORUM, SERIAL</td> 
+  <td>Strong</td> 
+  <td >Linearizability</td> 
+ </tr> 
+
+ <tr>
+   <td>LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td>
+   <td>Consistent Prefix</td>
+   <td>Global Consistent Prefix</td>
+ </tr>
+ 
+ 
+ <tr> 
+ <td>LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, <b>ANY</b></td> 
+  <td>Consistent Prefix</td> 
+  <td>Global Consistent Prefix</td> 
+  <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td> 
+  <td>Consistent Prefix</td> 
+  <td>Global Consistent Prefix</td>
+ </tr> 
+ 
+ 
+  <tr> 
+  <td rowspan="6">EACH_QUORUM</td> 
+  <td rowspan="6">Strong</td> 
+  <td rowspan="2">EACH_QUORUM</td> 
+  <td rowspan="2">Strong</td> 
+  <td rowspan="2">Linearizability</td> 
+  <td>ALL, QUORUM, SERIAL,  LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO</td> 
+  <td>Strong</td> 
+  <td>Linearizability</td> 
+ </tr> 
+ 
+ <tr>
+ <td>LOCAL_ONE, ONE</td>
+  <td>Consistent Prefix</td>
+   <td>Global Consistent Prefix</td>
+ </tr>
+ 
+ 
+ 
+ <tr> 
+  <td rowspan="2">QUORUM, SERIAL</td> 
+  <td rowspan="2">Strong</td> 
+  <td rowspan="2">Linearizability</td> 
+  <td>ALL, QUORUM, SERIAL</td> 
+  <td>Strong</td> 
+  <td>Linearizability</td> 
+ </tr> 
+ 
+ <tr>
+ <td>LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td>
+  <td>Consistent Prefix</td>
+   <td>Global Consistent Prefix</td>
+ </tr>
+ 
+ 
+  <tr> 
+  <td rowspan="2">LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY</td> 
+  <td rowspan="2">Consistent Prefix</td> 
+  <td rowspan="2">Global Consistent Prefix</td> 
+  <td>ALL</td> 
+  <td>Strong</td> 
+  <td>Linearizability</td> 
+ </tr> 
+ 
+ <tr>
+ <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td>
+  <td>Consistent Prefix</td>
+   <td>Global Consistent Prefix</td>
+ </tr>
+
+
+  <tr> 
+  <td rowspan="4">QUORUM</td> 
+  <td rowspan="4">Strong</td> 
+  <td rowspan="2">QUORUM, SERIAL</td> 
+  <td rowspan="2">Strong</td> 
+  <td rowspan="2">Linearizability</td> 
+  <td>ALL, QUORUM, SERIAL</td> 
+  <td>Strong</td> 
+  <td>Linearizability</td> 
+ </tr> 
+ 
+ <tr>
+ <td>LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td>
+  <td>Consistent Prefix</td>
+   <td>Global Consistent Prefix</td>
+ </tr>
+ 
+ 
+ <tr> 
+  <td rowspan="2">LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY</td> 
+  <td rowspan="2">Consistent Prefix </td> 
+  <td rowspan="2">Global Consistent Prefix </td> 
+  <td>ALL</td> 
+  <td>Strong</td> 
+  <td>Linearizability</td> 
+ </tr> 
+ 
+ <tr>
+ <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td>
+  <td>Consistent Prefix</td>
+   <td>Global Consistent Prefix</td>
+ </tr>
+ 
+ <tr> 
+  <td rowspan="4">LOCAL_QUORUM, THREE, TWO</td> 
+  <td rowspan="4">Bounded Staleness</td> 
+  <td rowspan="2">LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td> 
+  <td rowspan="2">Bounded Staleness</td> 
+  <td rowspan="2">Bounded Staleness.<br/>
+At most K versions or t time behind.<br/>
+Read latest committed value in the region. 
+</td> 
+  
+  <td>QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE</td> 
+  <td>Bounded Staleness</td> 
+  <td>Bounded Staleness.<br/>
+At most K versions or t time behind. <br/>
+Read latest committed value in the region. </td> 
+ </tr> 
+ 
+ <tr>
+ <td>LOCAL_ONE, ONE</td>
+  <td>Consistent Prefix</td>
+   <td>Per-region Consistent Prefix</td>
+ </tr>
+ 
+ 
+ <tr> 
+  <td>ONE, LOCAL_ONE, ANY</td> 
+  <td>Consistent Prefix </td> 
+  <td >Per-region Consistent Prefix </td> 
+  <td>LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM</td> 
+  <td>Consistent Prefix</td> 
+  <td>Per-region Consistent Prefix</td> 
+ </tr> 
+</table>
 
 ## <a id="mongo-mapping"></a>Mapping between MongoDB 3.4 and Azure Cosmos DB consistency levels
 
