@@ -88,10 +88,6 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 This update includes the following new features and improvements for Azure Stack:
 
-- New features go here.
-
-- ...
-
 ## Fixed issues
 
 - Fixed an issue in which the portal showed an option to create policy-based VPN gateways, which are not supported in Azure Stack. This option has been removed from the portal.
