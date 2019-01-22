@@ -38,26 +38,23 @@ see [Limits and configuration information for Azure Logic Apps](../logic-apps/lo
 where you store your maps and other artifacts for enterprise 
 integration and business-to-business (B2B) solutions.
 
-You don't need a logic app when creating and adding maps. However, 
-to use a map, your logic app needs linking to an integration account 
-where you store that map. Learn 
+* If your map references an external assembly, you have to upload 
+*both the assembly and the map* to your integration account. 
+Make sure you *upload your assembly first*, and then upload the 
+map that references the assembly.
+
+  Also, if your assembly is [2 MB or smaller](#smaller-assembly), 
+  you can upload your assembly directly in the Azure portal. 
+  However, if your assembly is [larger than 2 MB up to 8 MB](#larger-assembly), 
+  you need an Azure blob container where you store your assembly 
+  and the content URI for that container so you can provide that 
+  location later when you add the assembly to your integration account.
+
+You don't need a logic app when creating and adding maps. 
+However, to use a map, your logic app needs linking to 
+an integration account where you store that map. Learn 
 [how to link logic apps to integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-
-## Create maps
-
-To create an XSLT document you can use as a map, 
-you can use Visual Studio 2015 for creating a 
-BizTalk Integration project by using the 
-[Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). 
-In this project, you can build an integration map file, 
-which lets you visually map items between two XML schema files. 
-After you build this project, you get an XSLT document.
-
-If your map references an external assembly, you have to upload 
-*both the assembly and the map* to your integration account. 
-Make sure you upload the assembly first, and then upload the 
-map that references the assembly.
 
 ## Add referenced assemblies
 
@@ -85,36 +82,71 @@ under **Components**, select the **Assemblies** tile.
 
    ![Choose "Add"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
-1. Upload the assembly by following these steps:
+Based on your assembly file's size, follow the 
+steps for uploading an assembly that's either 
+[up to 2 MB](#smaller-assembly) or 
+[more than 2 MB, up to 8 MB](#larger-assembly).
+For limits on assembly quantities in integration accounts, see 
+[Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
 
-   1. Under **Add Assembly**, enter a name for your assembly.
+<a name="smaller-assembly"></a>
 
-   1. For assembly files that are 2 MB or smaller, leave **Small file** selected. 
-   Otherwise, choose **Large file (larger than 2 MB)**.
+### Upload assemblies up to 2 MB
 
-   1. Next to the **Assembly** box, choose the folder icon.
+1. Under **Add Assembly**, enter a name for your assembly.
+Keep **Small file** selected. Next to the **Assembly** box, 
+choose the folder icon. Find and select the assembly you're uploading, 
+for example:
 
-   1. Find and select the assembly you're uploading, for example: 
+   ![Upload smaller assembly](./media/logic-apps-enterprise-integration-maps/upload-assembly-file.png)
 
-      ![Upload assembly](./media/logic-apps-enterprise-integration-maps/upload-assembly-file.png)
+   In the **Assembly Name** property, the assembly's file 
+   name appears automatically after you select the assembly.
 
-      In the **Assembly Name** property, the assembly's file 
-      name appears automatically after you select the assembly.
+1. When you're ready, choose **OK**.
 
-   1. When you're ready, choose **OK**. 
    After your assembly file finishes uploading, 
    the assembly appears in the **Assemblies** list.
 
-      ![Uploaded assemblies list](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies-list.png)
+   ![Uploaded assemblies list](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies-list.png)
 
-      On your integration account's **Overview** page, 
-      under **Components**, the **Assemblies** tile now 
-      shows the number of uploaded assemblies, for example:
+   On your integration account's **Overview** page, 
+   under **Components**, the **Assemblies** tile now 
+   shows the number of uploaded assemblies, for example:
 
-      ![Uploaded assemblies](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
+   ![Uploaded assemblies](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
 
-      For limits on assembly quantities in integration accounts, see 
-      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+<a name="larger-assembly"></a>
+
+### Upload assemblies more than 2 MB
+
+To upload an assembly that's larger than 2 MB but only up to 8 MB,
+follow these steps. 
+
+1. Under **Add Assembly**, enter a name for your assembly.
+Choose **Large file (larger than 2 MB)**. 
+
+   The **Content URI** box now appears, 
+   rather than the **Assembly** box. 
+
+1. In the **Content URI** box, enter the location for 
+the blob container where you're storing your assembly.
+
+   On your integration account's **Overview** page, 
+   under **Components**, the **Assemblies** tile now 
+   shows the number of uploaded assemblies, for example:
+
+   ![Uploaded assemblies](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
+
+## Create maps
+
+To create an XSLT document you can use as a map, 
+you can use Visual Studio 2015 for creating a 
+BizTalk Integration project by using the 
+[Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). 
+In this project, you can build an integration map file, 
+which lets you visually map items between two XML schema files. 
+After you build this project, you get an XSLT document.
 
 ## Add maps
 

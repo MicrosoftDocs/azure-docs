@@ -31,10 +31,35 @@ see [Limits and configuration information for Azure Logic Apps](../logic-apps/lo
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 where you store your schemas and other artifacts for enterprise 
 integration and business-to-business (B2B) solutions.
+If your schema is [2 MB or smaller](#smaller-schema), 
+you can upload your schema directly in the Azure portal. 
 
-You don't need a logic app when creating and adding schemas. However, 
-to use a schema, your logic app needs linking to an integration account 
-where you store that map. Learn 
+  However, if your schema is larger than 2 MB but not larger than the 
+  [schema size limit](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
+  you can upload your schema to an Azure storage account 
+  and then reference that storage account from your integration account. 
+  To complete this task, you need an Azure blob container 
+  where you store your schema and the content URI for that 
+  container so you can provide that location later when you 
+  add the schema to your integration account. Here are the 
+  items you need: 
+
+  * [Azure storage account](../storage/common/storage-account-overview.md) 
+  for creating a blob container. Learn how to 
+  [create a storage account](../storage/common/storage-quickstart-create-account.md).
+
+  * Blob container for storing your schema. Learn how to 
+  [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md).
+
+  * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), 
+  which you can use for managing storage accounts and 
+  blob containers. If you don't have this tool already, 
+  [download and install Azure Storage Explorer](https://www.storageexplorer.com/). 
+  Then, follow these [steps for connecting Azure Storage Explorer to your storage account](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+
+You don't need a logic app when creating and adding schemas. 
+However, to use a schema, your logic app needs linking to 
+an integration account where you store that schema. Learn 
 [how to link logic apps to integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -50,8 +75,8 @@ Select **Integration accounts**.
 
    ![Find integration account](./media/logic-apps-enterprise-integration-schemas/find-integration-account.png)
 
-1. Select the integration account where you want to add your schema, 
-for example:
+1. Select the integration account where you 
+want to add your schema, for example:
 
    ![Select integration account](./media/logic-apps-enterprise-integration-schemas/select-integration-account.png)
 
@@ -87,21 +112,21 @@ for example:
 
 <a name="larger-schema"></a>
 
-### Upload schemas more than 2 MB, up to 8 MB
+### Upload schemas more than 2 MB
 
-1. Under **Add Schema**, enter a name for your schema. 
-Choose **Large file (larger than 2 MB)**. 
+<a name="add-schema-storage-account"></a>
 
-   The **Content URI** box now appears, 
-   rather than the **Schema** box. 
-   You can now enter the location for the 
-   blob container where you're storing your schema.
+Add larger schemas to storage accounts
+[larger than 2 MB up to 8 MB](#larger-schema)
 
-### Store schemas more than 2 MB
 
-These steps differ based on the blob container access level: **Public** or **No anonymous access**.
+Your steps for adding maps differ based whether or not your blob container 
+has public read access. So first, check your blob container's access level.
 
-**To determine this access level**
+
+
+First, determine your blob container's access level: 
+**Public read access** or ****.
 
 1.	Open **Azure Storage Explorer**. 
 
@@ -147,6 +172,14 @@ your newly added schema should appear.
 
 	![Your integration account, with "Schemas" and the new schema highlighted](media/logic-apps-enterprise-integration-schemas/schema-41.png)
 
+1. Under **Add Schema**, enter a name for your schema. 
+Choose **Large file (larger than 2 MB)**. 
+
+   The **Content URI** box now appears, 
+   rather than the **Schema** box. 
+   You can now enter the location for the 
+   blob container where you're storing your schema.
+
 ## Edit schemas
 
 1. Choose the **Schemas** tile.
@@ -186,5 +219,6 @@ choose **Yes**.
 	![Your integration Account, with "Schemas" highlighted](media/logic-apps-enterprise-integration-schemas/delete-31.png)
 
 ## Next steps
+
 * [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about the enterprise integration pack").  
 
