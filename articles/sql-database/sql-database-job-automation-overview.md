@@ -165,7 +165,7 @@ The following image shows a job agent executing jobs across the different types 
 
 ![Elastic Job agent conceptual model](media/elastic-jobs-overview/conceptual-diagram.png)
 
-## Elastic Job components
+### Elastic Job components
 
 |Component  | Description (additional details are below the table) |
 |---------|---------|
@@ -175,7 +175,7 @@ The following image shows a job agent executing jobs across the different types 
 |[**Job**](#job)  |  A job is a unit of work that is composed of one or more [job steps](#job-step). Job steps specify the T-SQL script to run, as well as other details required to execute the script.  |
 
 
-### Elastic Job agent
+#### Elastic Job agent
 
 An Elastic Job agent is the Azure resource for creating, running, and managing jobs. The Elastic Job agent is an Azure resource you create in the portal ([PowerShell](elastic-jobs-powershell.md) and REST are also supported). 
 
@@ -183,7 +183,7 @@ Creating an **Elastic Job agent** requires an existing SQL database. The agent c
 
 The Elastic Job agent is free. The job database is billed the same rate as any SQL database.
 
-### Job database
+#### Job database
 
 The *Job database* is used for defining jobs and tracking the status and history of job executions. The *Job database* is also used to store agent metadata, logs, results, job definitions, and also contains many useful stored procedures, and other database objects, for creating, running, and managing jobs using T-SQL.
 
@@ -192,7 +192,7 @@ For the current preview, an existing Azure SQL database (S0 or higher) is requir
 The *Job database* doesn't literally need to be new, but should be a clean, empty, S0 or higher service tier. The recommended service tier of the *Job database* is S1 or higher, but really depends on the performance needs of your job(s): number of job steps, how many times, and how frequently jobs are run. For example, an S0 database might be sufficient for a job agent that runs few jobs an hour, but running a job every minute might not be performant enough, and a higher service tier might be better.
 
 
-#### Job database permissions
+##### Job database permissions
 
 During job agent creation, a schema, tables, and a role called *jobs_reader* are created in the *Job database*. The role is created with the following permission and is designed to give administrators finer access control for job monitoring:
 
@@ -206,7 +206,7 @@ During job agent creation, a schema, tables, and a role called *jobs_reader* are
 
 
 
-### Target group
+#### Target group
 
 A *target group* defines the set of databases a job step will execute on. A target group can contain any number and combination of the following:
 
@@ -238,11 +238,11 @@ The following examples show how different target group definitions are dynamical
 **Example 5** and **Example 6** show advanced scenarios where Azure SQL Servers, elastic pools, and databases, can be combined using include and exclude rules.<br>
 **Example 7** shows that the shards in a shard map can also be evaluated at job run time.
 
-### Job
+#### Job
 
 A *job* is a unit of work that is executed on a schedule or as a one-time job. A job consists of one or more *job steps*.
 
-#### Job step
+##### Job step
 
 Each job step specifies a T-SQL script to execute, one or more target groups to run the T-SQL script against, and the credentials the job agent needs to connect to the target database. Each job step has customizable timeout and retry policies, and can optionally specify output parameters.
 
@@ -253,7 +253,7 @@ The outcome of a job's steps on each target database are recorded in detail, and
 #### Job history
 
 Job execution history is stored in the *Job database*. A system cleanup job purges execution history that is older than 45 days. To remove history less than 45 days old, call the **sp_purge_history** stored procedure in the *Job database*.
-## Agent performance, capacity, and limitations
+### Agent performance, capacity, and limitations
 
 Elastic Jobs use minimal compute resources while waiting for long-running jobs to complete.
 
@@ -261,7 +261,7 @@ Depending on the size of the target group of databases and the desired execution
 
 Currently, the preview is limited to 100 concurrent jobs.
 
-### Prevent jobs from reducing target database performance
+#### Prevent jobs from reducing target database performance
 
 To ensure resources aren't overburdened when running jobs against databases in a SQL elastic pool, jobs can be configured to limit the number of databases a job can run against at the same time.
 
