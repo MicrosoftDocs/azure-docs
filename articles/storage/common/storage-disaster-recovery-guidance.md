@@ -100,7 +100,19 @@ To avoid a major data loss, check the **Last Sync Time** property before failing
 
 ## Initiate a forced failover
 
-portal/PS
+You can initiate a forced failover from the Azure portal or from PowerShell.
+
+### Azure portal
+
+To initiate a forced failover from the Azure portal, follow these steps:
+
+1. Navigate to your storage account.
+2. Under **Settings**, select **Geo-replication**. 
+3. Check that your storage account is configured for geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). If it's not, then select **Configuration** under **Settings** to update your account to be geo-redundant. 
+4. The **Last Sync Time** property indicates how far the secondary is behind from the primary. **Last Sync Time** provides an estimate of the extent of data loss that you will experience after the failover is completed.
+5. Select on **Prepare for failover (preview)** to understand implications of failover and confirm failover.
+
+### PowerShell
 
 ## About the forced failover preview
 
@@ -151,5 +163,5 @@ In extreme circumstances where a region is lost due to a significant disaster, M
 
 ## See also
 
-* 
-* 
+* [Designing highly available applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+* [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md) 
