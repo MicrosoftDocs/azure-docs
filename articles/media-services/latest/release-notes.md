@@ -31,6 +31,14 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
 
+## January 2018
+
+### Media Encoder Standard and MPI files 
+
+When encoding with Media Encoder Standard, for each .mp4 output file produced as a result of the encoding job, an .mpi file is generated and added to the output. The MPI file is needed for dynamic packaging and streaming performance improvements. 
+
+You should not modify or remove the MPI file.
+
 ## December 2018
 
 Updates from the GA release of the V3 API include:
