@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -145,9 +145,25 @@ When you run the repair action, you need to specify the BMC IP address.
 
 To run the repair action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## Shutdown
+
+The **shutdown** action fist moves all active workloads to the remaining nodes in the same scale unit. Then the action gracefully shuts down the scale unit node.
+
+After you start a node that was shutdown, you need to run the [resume](#resume) action. Earlier workloads that were running on the node do not fail back.
+
+If the shutdown operation fails, attempt the [drain](#drain) operation followed by the shutdown operation.
+
+To run the shutdown action, open an elevated PowerShell prompt, and run the following cmdlet:
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## Next steps
 

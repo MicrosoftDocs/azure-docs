@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
 ---

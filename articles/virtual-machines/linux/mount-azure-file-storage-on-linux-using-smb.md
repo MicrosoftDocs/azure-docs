@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-
+ms.component: files
 ---
 
 # Mount Azure File storage on Linux VMs using SMB
