@@ -10,89 +10,68 @@ ms.author: yalavi
 ms.reviewer: mbullwin
 ---
 
-# Alerts with dynamic thresholds in Azure Monitor (Limited Private Preview)
+# Metric Alerts with Dynamic Thresholds in Azure Monitor (Public Preview)
 
-Alerts with dynamic thresholds are an enhancement to Azure Metric Alerts in Azure Monitor, which leverage advanced Machine Learning (ML) capabilities to learn metrics' historical behavior to automatically calculate baselines and use them as alert thresholds.
+Metric Alert with Dynamic Thresholds detection leverages advanced machine learning (ML) to learn metrics' historical behavior, identify patterns and anomalies that indicate possible service issues. It provides support of both a simple UI and operations at scale by allowing users to configure alert rules through the Azure Resource Manager API, in a fully automated manner.
 
-The benefits of using dynamic thresholds are:
+Once an alert rule is created, it will fire only when the monitored metric doesn’t behave as expected, based on its tailored thresholds.
 
-- Save the hassle associated with setting a predefined rigid boundary as the monitor automatically learns the historical performance of the metric and applies ML algorithms to determine alert thresholds.
-- They can identify seasonal behavior and alert only on deviations from the expected seasonal behavior. Metric alerts with dynamic thresholds will not trigger if your service is regularly idle on the weekends and then spikes every Monday. Currently supported: hourly, daily, and weekly seasonality.
-- Continuously learns the metric performance and is adaptive to metric changes.
+We would love to hear your feedback, keep it coming at azurealertsfeedback@microsoft.com.
 
-Dynamic threshold-based alerts are available for all Azure monitor based metric sources listed in this [article](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#what-resources-can-i-create-near-real-time-metric-alerts-for).
+## Why and when is using dynamic condition type recommended?
 
-## Sign up to access the preview
+1. **Scalable Alerting** – Dynamic Thresholds alerts rules can create tailored thresholds for hundreds of metric series at a time. Yet providing the same ease of defining an alert rule on a single metric. Using either the UI or the Azure Resource Manager API results in fewer alert rules to manage. The scalable approach is especially useful when dealing with metric dimensions or when applying to multiple resources, like all subscription resources. Which translates to a significant time saving on management and creation of alerts rules. [Learn more about how to configure Metric Alerts with Dynamic Thresholds using templates](alerts-metric-create-templates.md).
 
-To take this capability for a spin, [sign up for the preview](https://aka.ms/DynamicThresholdMetricAlerts). As always, we would love to hear your feedback, keep it coming at [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
+1. **Smart Metric Pattern Recognition** – Using our unique ML technology, we’re able to automatically detect metric patterns and adapt to metric changes over time, which may often include seasonality (Hourly / Daily / Weekly). Adapting to the metrics’ behavior over time and alerting based on deviations from its pattern relieves the burden of knowing the “right” threshold for each metric. The ML algorithm used in Dynamic Thresholds is designed to prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern.
 
-## How to configure alerts with dynamic thresholds
+1. **Intuitive Configuration** – Dynamic Thresholds allow setting up metric alerts using high-level concepts, alleviating the need to have extensive domain knowledge about the metric.
 
-Alerts with dynamic thresholds can be configured through Alerts in Azure Monitor
+## How to configure alerts rules with Dynamic Thresholds?
 
-![Alerts preview](media/alerts-dynamic-thresholds/0001.png)
+Alerts with Dynamic Thresholds can be configured through Metric Alerts in Azure Monitor. [Learn more about how to configure Metric Alerts](alerts-metric.md).
 
-## Creating an alert rule with dynamic thresholds
+## How are the thresholds calculated?
 
-1. From the Alerts pane under Monitor, select the **New Alert Rule** button to create a new alert in Azure.
+Dynamic Threshold continuously learns the data of the metric series and tries to model it using a set of algorithms and methods., and tries to model it using a set of algorithms and methods. It detects patterns in the data such as seasonality (Hourly / Daily / Weekly), and is able to handle noisy metrics (such as machine CPU or memory) as well as metrics with low dispersion (such as availability and error rate).
 
-   ![New Alert Rule](media/alerts-dynamic-thresholds/002.png)
+The thresholds are selected in such a way that a deviation from these thresholds indicates an anomaly in the metric behavior.
 
-2. The Create rule section is shown with the three parts consisting of: _Define alert condition_, _Define alert details_, and _Define action group_. First begin with the _Define alert condition_ section use the **Select Target** link to specify the target, by selecting a resource. Once an appropriate resource is chosen, click the Done button.
+## What does 'Sensitivity' setting in Dynamic Thresholds mean?
 
-   ![Select Target](media/alerts-dynamic-thresholds/0003.png)
+Alert threshold sensitivity is a high-level concept that controls the amount of deviation from metric behavior required to trigger an alert.
+This option doesn't require domain knowledge about the metric like static threshold. The options available are:
 
-3. Next use the **Add criteria** button to view a list of signal options available for the resource and from the signal list choose an appropriate **metric** option. (For example Percentage CPU.)
+- High – The thresholds will be tight and close to the metric series pattern. Alert rule will be triggered on smallest deviation, resulting in more alerts.
+- Medium – Less tight and more balanced thresholds, fewer alerts than with high sensitivity (default).
+- Low – The thresholds will be loose with more distance from metric series pattern. Alert rule will only trigger on large deviation, resulting in less alerts.
 
-   ![Add criteria](media/alerts-dynamic-thresholds/004.png)
+## What are the 'Operator' setting options in Dynamic Thresholds?
 
-4. On the Configure signal logic screen, in the Alert logic section you have the option to switch the condition to a type of Dynamic, which will automatically generate the Dynamic thresholds (red lines) alongside the metric (blue line).
+Dynamic Thresholds alerts rule can create tailored thresholds based on metric behavior for both upper and lower bounds using the same alert rule.
+You can choose the alert to be triggered on one of the following three conditions:
 
-   ![Dynamic](media/alerts-dynamic-thresholds/005.png)
+- Greater than the upper threshold or lower than the lower threshold (default)
+- Greater than the upper threshold
+- Lower than the lower threshold.
 
-5. The thresholds appearing in the chart are calculated based on the last seven days of historical data, once an alert is created, the Dynamic thresholds will acquire additional historical data that is available and will continuously learn based on new data to make the thresholds more accurate.
+## What do the advanced settings in Dynamic Thresholds mean?
 
-6. Additional Alert logic settings:
-   - Condition - You can choose the alert to be triggered on one of the following three conditions:
-       - Greater than the upper threshold or lower than the lower threshold (default)
-       - Greater than the upper threshold
-       - Lower than the lower threshold.
-   - Time aggregation: Average (default), sum, min max.
-   - Alert Sensitivity:
-       - High – More alerts, as alert will be triggered on smallest deviation.
-       - Med – Less sensitive than high, fewer alerts than with high sensitivity (default)
-       - Low – The least sensitive threshold.
+**Failing Periods** - Dynamic Thresholds also allows you to configure “Number violations to trigger the alert”, a minimum number of deviations required within a certain time window for the system to raise an alert (the default time window is four deviations in 20 minutes). The user can configure failing periods and choose what to be alerted on by changing the failing periods and time window. This ability reduces alert noise generated by transient spikes. For example:
 
-    ![Alert logic settings](media/alerts-dynamic-thresholds/00007.png)
+To trigger an alert when the issue is continuous for 20 minutes, 4 consecutive times in a given period grouping of 5 minutes, use the following settings:
 
-7. Evaluated based on:
-    -  What time duration, the Alert should look for the specified condition by choosing from the **Period**.
+![Failing periods settings for continuous issue for 20 minutes, 4 consecutive times in a given period grouping of 5 minutes](media/alerts-dynamic-thresholds/0008.png)
 
-    ![Evaluated based on](media/alerts-dynamic-thresholds/007.png)
+To trigger an alert when there was a violation from a Dynamic Thresholds in 20 minutes out of the last 30 minutes with period of 5 minutes, use the following settings:
 
-   > [!NOTE]
-   > Supported Period values: 5 minutes, 10 minutes, 30 minutes and 1 hour.
+![Failing periods settings for issue for 20 minutes out of the last 30 minutes with period grouping of 5 minutes](media/alerts-dynamic-thresholds/0009.png)
 
-   To reduce alert noise generated by transient spikes, we recommend using the “Number violations to trigger the alert” settings. This functionality enables you to get an alert only if the threshold was violated X consecutive times, or Y times out of last Z periods. For example:
+**Ignore data before** - Users may also optionally define a start date from which the system should begin calculating the thresholds from. A typical use case may occur when a resource was a running in a testing mode and is now promoted to serve a production workload, and therefore the behavior of any metric during the testing phase should be disregarded.
 
-    To trigger an alert when the issue is continuous for 15 minutes, 3 consecutive times in a given period of 5 minutes, use the following settings:
+## Will slow behavior change in the metric trigger an alert?
 
-   ![Evaluated based on](media/alerts-dynamic-thresholds/0008.png)
+Probably not. Dynamic Thresholds are good for detecting significant deviations rather than slowly evolving issues.
 
-    To trigger an alert when there was a violation from a Dynamic threshold in 15 minutes out of the last 30 minutes with period of 5 minutes, use the following settings:
+## How much data is used to preview and then calculate thresholds?
 
-   ![Evaluated based on](media/alerts-dynamic-thresholds/0009.png)
-
-8. Currently users can have alerts with dynamic threshold criteria as a single criteria.
-
-   ![Create rule](media/alerts-dynamic-thresholds/010.png)
-
-## Q & A
-
-- Q: If the metric slowly changes over time, will this trigger an alert with dynamic thresholds?
-
-- A: Probably no. Dynamic thresholds are good for detecting significant deviations rather than slowly evolving issues.
-
-- Q: Can I configure dynamic thresholds through an API?
-
-- A: We’re working on it.
+The thresholds appearing in the chart, before an alert rule is created on the metric, are calculated based on the last 10 days of historical data, once an alert rule is created, the Dynamic Thresholds will acquire additional historical data that is available and will continuously learn based on new data to make the thresholds more accurate.

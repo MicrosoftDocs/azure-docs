@@ -33,10 +33,10 @@ of individuals with \"owner\" role need to agree to comply with the
 [Microsoft Privacy Statement](https://www.microsoft.com/privacystatement/default.aspx),
 and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
-## To start creating a Cortana Inteligence offer
+## To start creating a Cortana Intelligence offer
 
 Once all the pre-requisites have been met, you are ready to start
-authoring your Cortana Inteligence offer.
+authoring your Cortana Intelligence offer.
 
 1.  Sign in to the [cloud partner portal](http://cloudpartner.azure.com/).
 2.  On the left navigation bar, select **+ New offer**.
