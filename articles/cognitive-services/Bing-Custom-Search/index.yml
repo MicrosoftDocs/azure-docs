@@ -33,7 +33,7 @@ sections:
           image:
             src: ../media/index/i_guidelines.svg
           title: Create a custom Bing search instance
-        - href: /azure/cognitive-services/bing-custom-search/bing-custom-search/hosted-ui
+        - href: /azure/cognitive-services/bing-custom-search/hosted-ui
           html: <p>Learn how to easily integrate a hosted UI into webpages and web apps.</p>
           image:
             src: ../media/index/i_guidelines.svg

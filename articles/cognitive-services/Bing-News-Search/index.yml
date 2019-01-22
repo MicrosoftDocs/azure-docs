@@ -29,12 +29,12 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: What is the Bing News Search API?
-        - href: /azure/cognitive-services/bing-news-search/send-search-queries
+        - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
           html: <p>Learn how to send search requests to the Bing News Search API.</p>
           image:
             src: ../media/index/i_guidelines.svg
           title: Sending search queries
-        - href: /azure/cognitive-services/bing-news-search/search-for-news
+        - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
           html: <p>Learn how to search for multiple types and categories of news.</p>
           image:
             src: ../media/index/i_guidelines.svg
