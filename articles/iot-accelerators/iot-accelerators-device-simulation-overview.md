@@ -25,7 +25,7 @@ When you develop an IoT Solution, experimentation and testing are essential part
 
 ![Sample drone simulation](media/iot-accelerators-device-simulation-overview/dronesimulation.png)
 
-With Device Simulation, you can define device models to simulate your physical devices. This model includes message formats, twin properties, and methods. You can also simulate complex device behaviors with JavaScript.
+With Device Simulation, you can define device models to simulate your real devices. This model includes message formats, twin properties, and methods. You can also simulate complex device behaviors with JavaScript.
 
 You can run simulations for one to thousands of devices connecting to any IoT hub. To help with testing, you can optionally deploy an IoT hub along with Device Simulation for a standalone environment.
 

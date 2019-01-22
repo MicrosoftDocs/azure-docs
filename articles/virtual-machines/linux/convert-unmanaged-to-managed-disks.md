@@ -16,6 +16,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
+ms.component: disks
 ---
 
 # Convert a Linux virtual machine from unmanaged disks to managed disks

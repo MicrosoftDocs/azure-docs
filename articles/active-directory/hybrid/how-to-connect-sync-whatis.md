@@ -4,7 +4,7 @@ description: Explains how Azure AD Connect sync works and how to customize.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6

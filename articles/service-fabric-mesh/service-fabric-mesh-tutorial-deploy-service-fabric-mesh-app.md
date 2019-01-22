@@ -102,7 +102,8 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Open a web browser and navigate to the URL to see the website running in Azure.
 
-## Set up Service Fabric Mesh CLI 
+## Set up Service Fabric Mesh CLI
+
 You can use the Azure Cloud Shell or a local installation of the Azure CLI for the remaining steps. Install Azure Service Fabric Mesh CLI extension module by following these [instructions](service-fabric-mesh-howto-setup-cli.md).
 
 ## Check application deployment status
@@ -113,6 +114,14 @@ The application name for the tutorial app is `todolistapp`. Gather the details o
 
 ```azurecli-interactive
 az mesh app show --resource-group $rg --name todolistapp
+```
+
+## Get the IP address of your deployment
+
+If you want to get the IP address for your application, use the following command:
+  
+```azurecli-interactive
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 ## See all applications currently deployed to your subscription

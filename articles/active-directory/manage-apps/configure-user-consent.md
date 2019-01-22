@@ -3,7 +3,7 @@ title: Configure user consent to an application - Azure Active Directory | Micro
 description: Learn how to manage the way users consent to application permissions. You can simplify the user experience by granting admin consent. These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.component: app-mgmt
