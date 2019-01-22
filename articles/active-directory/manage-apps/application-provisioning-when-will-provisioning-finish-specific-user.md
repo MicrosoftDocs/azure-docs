@@ -4,7 +4,7 @@ description: How to find out when a critically important user be able to access 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

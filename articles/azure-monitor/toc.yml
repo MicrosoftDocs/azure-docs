@@ -262,7 +262,7 @@
       - name: Azure apps
         items:
         - name: Azure app service
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: Add continuous monitoring
@@ -661,6 +661,8 @@
         href: log-query/query-language.md
       - name: Language differences
         href: log-query/data-explorer-difference.md
+      - name: Transition from log search
+        href: log-query/log-search-transition.md
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -701,6 +703,10 @@
         items:
         - name: Examples
           href: log-query/examples.md
+        - name: Write efficient queries
+          href: log-query/log-query-performance.md
+        - name: Smart analytics
+          href: log-query/smart-analytics.md
         - name: Cross-resource searches
           href: log-query/cross-workspace-query.md
         - name: app expression
@@ -735,7 +741,7 @@
           href: platform/alerts-metric.md
         - name: Create, view and manage classic metric alerts in Azure Monitor
           href: platform/alerts-classic-portal.md
-        - name: Alerts with dynamic thresholds
+        - name: Metric Alerts with Dynamic Thresholds
           href: platform/alerts-dynamic-thresholds.md
         - name: Configure metric alerts on logs
           href: platform/alerts-metric-logs.md

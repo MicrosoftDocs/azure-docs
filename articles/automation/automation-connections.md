@@ -3,10 +3,10 @@ title: Connection assets in Azure Automation
 description: Connection assets in Azure Automation contain the information required to connect to an external service or application from a runbook or DSC configuration. This article explains the details of connections and how to work with them in both textual and graphical authoring.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/15/2019
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -19,6 +19,16 @@ When you create a connection, you must specify a *connection type*. The connecti
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each automation account. This key is stored in a system managed Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset. This process is managed by Azure Automation.
+
+## Connection types
+
+There are three types of built in connections available in Azure Automation:
+
+* **Azure** - This connection can be used to manage classic resources.
+* **AzureClassicCertificate** - This connection is used by the **AzureClassicRunAs** account.
+* **AzureServicePrincipal** - This connection is used by the **AzureRunAs** account.
+
+In most cases you do not need to create a connection resource as it is created when you create a [RunAs account](manage-runas-account.md).
 
 ## Windows PowerShell Cmdlets
 
@@ -149,3 +159,4 @@ azure_credential = get_automation_runas_credential(runas_connection)
 - Review [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow) to understand how to direct and control the flow of logic in your runbooks.  
 
 - To learn more about Azure Automation's use of PowerShell modules and best practices for creating your own PowerShell modules to work as Integration Modules within Azure Automation, see [Integration Modules](automation-integration-modules.md).  
+

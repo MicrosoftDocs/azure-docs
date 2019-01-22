@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Supported resources for metric alerts in Azure Monitor
@@ -119,3 +119,4 @@ The POST operation contains the following JSON payload and schema for all near n
 * Learn more about the new [Alerts experience](../../azure-monitor/platform/alerts-overview.md).
 * Learn about [log alerts in Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Learn about [alerts in Azure](../../azure-monitor/platform/alerts-overview.md).
+

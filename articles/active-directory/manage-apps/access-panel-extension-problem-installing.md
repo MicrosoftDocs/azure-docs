@@ -4,7 +4,7 @@ description: Fix common errors encountered when you install the access panel bro
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

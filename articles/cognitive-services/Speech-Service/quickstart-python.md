@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Recognize speech in Python using the Speech Service SDK'
+title: 'Quickstart: Recognize speech, Python - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Python using the Speech Service SDK
+description: Use this guide to create a speech-to-text console application using the Speech SDK for Python. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: chlandsi
 ---
 
-# Quickstart: Using the Speech Service from Python
+# Quickstart: Recognize speech with the Speech SDK for Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,7 +34,7 @@ Before you get started, here's a list of prerequisites:
 
 * On Windows, you also need the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform.
 
-## Get the Speech SDK Python package
+## Install the Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -56,7 +56,7 @@ If you have a problem or are missing a feature, have a look at our [support page
 
 ## Create a Python application using the Speech SDK
 
-### Running the sample in a terminal
+### Run the sample
 
 You can either copy the [code](#quickstart-code) from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console
 
@@ -66,11 +66,11 @@ python quickstart.py
 
 or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Cognitive Services Speech samples repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
 
-### Quickstart code
+### Sample code
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-### Installing the Speech SDK Python package and running the sample in Visual Studio Code
+### Install and use the Speech SDK with Visual Studio Code
 
 1. [Download](https://www.python.org/downloads/) and install a 64-bit version (3.5 or later) of Python on your computer.
 1. [Download](https://code.visualstudio.com/Download) and install Visual Studio Code.
