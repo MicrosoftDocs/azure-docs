@@ -104,11 +104,8 @@ To configure Azure AD single sign-on with IDrive, perform the following steps:
 
     ![[Application Name] Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL:
      `https://www.idrive.com/idrive/login/loginForm`
-
-    > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [IDrive support team](https://www.idrive.com/support) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal. 
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
