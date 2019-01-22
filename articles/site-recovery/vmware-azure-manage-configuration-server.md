@@ -133,10 +133,12 @@ You run update rollups to update the configuration server. Updates can be applie
 - If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
 - If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-Links to update rollups for upgrading to all versions of the configuration server are available in the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery).
+For detailed guidance on Azure Site Recovery components support statement refer [here](https://aka.ms/asr_support_statement).
+Links to update rollups for upgrading to all versions of the configuration server are available [here](https://aka.ms/asr_update_rollups).
 
 > [!IMPORTANT]
-> With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.
+> With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.</br>
+> For detailed guidance on Azure Site Recovery components support statement refer [here](https://aka.ms/asr_support_statement).
 
 Upgrade the server as follows:
 
@@ -154,6 +156,7 @@ Upgrade the server as follows:
     ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Click **Finish** to close the installer.
+8. To upgrade rest of the Site Recovery components, refer to our [upgrade guidance](https://aka.ms/asr_vmware_upgrades).
 
 ## Delete or unregister a configuration server
 
