@@ -112,7 +112,7 @@ Exit the SSH session with the *myVm2* VM.
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all the resources it has:
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group and all the resources it has:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
