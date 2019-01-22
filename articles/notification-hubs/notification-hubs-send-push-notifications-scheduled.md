@@ -31,7 +31,7 @@ Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy b
 var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 ```
 
-## Cancel scheduled notificaitons
+## Cancel scheduled notifications
 Also, you can cancel a previously scheduled notification using its notificationId:
 
 ```c#
