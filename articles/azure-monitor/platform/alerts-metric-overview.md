@@ -7,7 +7,7 @@ ms.author: snmuvva
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: alerts
+ms.subservice: alerts
 
 ---
 
@@ -133,3 +133,4 @@ If you are using classic metric alerts today and are looking to see if metric al
 - [Learn how to create, view and manage metric alerts in Azure](alerts-metric.md)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Learn more about action groups](action-groups.md)
+
