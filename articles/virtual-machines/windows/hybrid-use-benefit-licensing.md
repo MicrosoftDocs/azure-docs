@@ -50,7 +50,7 @@ To create a VM with Azure Hybrid Benefit for Windows Server, use the toggle unde
 
 ### Powershell
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVM" `
     -Location "East US" `
@@ -91,17 +91,17 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "Windows_Server"
-    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
 - Convert Windows Server VMs with benefit back to pay-as-you-go
 
     ```powershell
-    $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
+    $vm = Get-AzVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "None"
-    Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
+    Update-AzVM -ResourceGroupName rg-name -VM $vm
     ```
     
 ### CLI
@@ -120,7 +120,7 @@ From portal VM blade, you can view the toggle for Azure Hybrid Benefit for Windo
 ### Powershell
 The following example shows the license type for a single VM
 ```powershell
-Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+Get-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
 Output:
@@ -154,7 +154,7 @@ From the Virtual Machine or Virtual machine scale sets resource blade, you can v
 
 ### Powershell
 ```powershell
-$vms = Get-AzureRMVM 
+$vms = Get-AzVM 
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 

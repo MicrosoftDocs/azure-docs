@@ -90,7 +90,7 @@ Prepare your application for downtime. To do a clean migration, you have to stop
 
 Prepare your application for downtime. To do a clean migration, you have to stop all the processing in the current system. Only then you can get it to consistent state which you can migrate to the new platform. Downtime duration depends the amount of data in the disks to migrate.
 
-This part requires the Azure PowerShell module version 6.0.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). You also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+This part requires the Azure PowerShell module version 6.0.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-az-ps). You also need to run `Connect-AzAccount` to create a connection with Azure.
 
 
 Create variables for common parameters.
@@ -122,8 +122,8 @@ $dataDiskName = 'dataDisk1'
 Create a managed OS disk using the VHD from the classic VM. Make sure that you have provided the complete URI of the OS VHD to the $osVhdUri parameter. Also, enter **-AccountType** as **Premium_LRS** or **Standard_LRS** based on type of disks (premium or standard) you are migrating to.
 
 ```powershell
-$osDisk = New-AzureRmDisk -DiskName $osDiskName '
-   -Disk (New-AzureRmDiskConfig '
+$osDisk = New-AzDisk -DiskName $osDiskName '
+   -Disk (New-AzDiskConfig '
    -AccountType Premium_LRS '
    -Location $location '
    -CreateOption Import '
@@ -134,8 +134,8 @@ $osDisk = New-AzureRmDisk -DiskName $osDiskName '
 Attach the OS disk to the new VM.
 
 ```powershell
-$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
-$VirtualMachine = Set-AzureRmVMOSDisk '
+$VirtualMachine = New-AzVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+$VirtualMachine = Set-AzVMOSDisk '
    -VM $VirtualMachine '
    -ManagedDiskId $osDisk.Id '
    -StorageAccountType Premium_LRS '
@@ -146,16 +146,16 @@ $VirtualMachine = Set-AzureRmVMOSDisk '
 Create a managed data disk from the data VHD file and add it to the new VM.
 
 ```powershell
-$dataDisk1 = New-AzureRmDisk '
+$dataDisk1 = New-AzDisk '
    -DiskName $dataDiskName '
-   -Disk (New-AzureRmDiskConfig '
+   -Disk (New-AzDiskConfig '
    -AccountType Premium_LRS '
    -Location $location '
    -CreationOption Import '
    -SourceUri $dataVhdUri ) '
    -ResourceGroupName $resourceGroupName
 	
-$VirtualMachine = Add-AzureRmVMDataDisk '
+$VirtualMachine = Add-AzVMDataDisk '
    -VM $VirtualMachine '
    -Name $dataDiskName '
    -CreateOption Attach '
@@ -166,28 +166,28 @@ $VirtualMachine = Add-AzureRmVMDataDisk '
 Create the new VM by setting public IP, virtual network, and NIC.
 
 ```powershell
-$publicIp = New-AzureRmPublicIpAddress '
+$publicIp = New-AzPublicIpAddress '
    -Name ($VirtualMachineName.ToLower()+'_ip') '
    -ResourceGroupName $resourceGroupName '
    -Location $location '
    -AllocationMethod Dynamic
 	
-$vnet = Get-AzureRmVirtualNetwork '
+$vnet = Get-AzVirtualNetwork '
    -Name $virtualNetworkName '
    -ResourceGroupName $resourceGroupName
 	
-$nic = New-AzureRmNetworkInterface '
+$nic = New-AzNetworkInterface '
    -Name ($VirtualMachineName.ToLower()+'_nic') '
    -ResourceGroupName $resourceGroupName '
    -Location $location '
    -SubnetId $vnet.Subnets[0].Id '
    -PublicIpAddressId $publicIp.Id
 	
-$VirtualMachine = Add-AzureRmVMNetworkInterface '
+$VirtualMachine = Add-AzVMNetworkInterface '
    -VM $VirtualMachine '
    -Id $nic.Id
 	
-New-AzureRmVM -VM $VirtualMachine '
+New-AzVM -VM $VirtualMachine '
    -ResourceGroupName $resourceGroupName '
    -Location $location
 ```

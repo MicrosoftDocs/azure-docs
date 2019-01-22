@@ -160,7 +160,7 @@ The version of the API you specify in your template affects which properties you
 Use these opportunities for getting the latest API versions:
 
 - REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
+- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
 - Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## Parameters and variables
@@ -439,7 +439,7 @@ You can see the status of the installed extensions from the Extensions settings 
 
 ![Get extension status](./media/template-description/virtual-machines-show-extensions.png)
 
-You can also get extension information by using the **Get-AzureRmVMExtension** PowerShell command, the **vm extension get** Azure CLI command, or the **Get extension information** REST API.
+You can also get extension information by using the **Get-AzVMExtension** PowerShell command, the **vm extension get** Azure CLI command, or the **Get extension information** REST API.
 
 ## Deployments
 

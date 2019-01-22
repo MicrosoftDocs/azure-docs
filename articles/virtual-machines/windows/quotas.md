@@ -27,10 +27,10 @@ The vCPU quotas for virtual machines and virtual machine scale sets are arranged
  
 ## Check usage
 
-You can use the [Get-AzureRmVMUsage](/powershell/module/azurerm.compute/get-azurermvmusage) cmdlet to check on your quota usage.
+You can use the [Get-AzVMUsage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmusage) cmdlet to check on your quota usage.
 
 ```azurepowershell-interactive
-Get-AzureRmVMUsage -Location "East US"
+Get-AzVMUsage -Location "East US"
 ```
 
 The output will look similar to this:

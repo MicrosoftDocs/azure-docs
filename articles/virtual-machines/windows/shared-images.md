@@ -47,12 +47,12 @@ To complete the example in this article, you must have an existing managed image
  
 ## Create VMs from an image
 
-Once the image version is complete, you can create one or more new VMs. Using the simplified parameter set for the [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet, you just need to provide image ID of the image version. 
+Once the image version is complete, you can create one or more new VMs. Using the simplified parameter set for the [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet, you just need to provide image ID of the image version. 
 
 This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the *East US* datacenter.
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
    -ResourceGroupName "myResourceGroup" `
    -Name "myVMfromImage" `
    -Image $imageVersion.Id `
@@ -68,10 +68,10 @@ New-AzureRmVm `
 
 ## Clean up resources
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
+When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myGalleryRG
+Remove-AzResourceGroup -Name myGalleryRG
 ```
 
 ## Next steps

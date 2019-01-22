@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/11/2018
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 

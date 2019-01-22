@@ -65,19 +65,19 @@ First, start a PowerShell prompt. For migration, you need to set up your environ
 Sign in to your account for the Resource Manager model.
 
 ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
 ```
 
 Get the available subscriptions by using the following command:
 
 ```powershell
-    Get-AzureRMSubscription | Sort Name | Select Name
+    Get-AzSubscription | Sort Name | Select Name
 ```
 
 Set your Azure subscription for the current session. This example sets the default subscription name to **My Azure Subscription**. Replace the example subscription name with your own.
 
 ```powershell
-    Select-AzureRmSubscription –SubscriptionName "My Azure Subscription"
+    Select-AzSubscription –SubscriptionName "My Azure Subscription"
 ```
 
 > [!NOTE]
@@ -88,13 +88,13 @@ Set your Azure subscription for the current session. This example sets the defau
 Register with the migration resource provider by using the following command:
 
 ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+    Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
 Please wait five minutes for the registration to finish. You can check the status of the approval by using the following command:
 
 ```powershell
-    Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 ```
 
 Make sure that RegistrationState is `Registered` before you proceed.
@@ -125,7 +125,7 @@ You can use the following PowerShell command to check the current number of vCPU
 This example checks the availability in the **West US** region. Replace the example region name with your own.
 
 ```powershell
-Get-AzureRmVMUsage -Location "West US"
+Get-AzVMUsage -Location "West US"
 ```
 
 ## Step 6: Run commands to migrate your IaaS resources
