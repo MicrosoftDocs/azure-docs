@@ -86,7 +86,7 @@
   - name: Deploy and manage notification hubs using Azure PowerShell
     href: notification-hubs-deploy-and-manage-powershell.md            
   - name: Securely push notifications to users
-    href: notification-hubs-push-notification-security.md
+    href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
   - name: Create notification hub using SDKs
     items:
     - name: Create notification hub - .NET
