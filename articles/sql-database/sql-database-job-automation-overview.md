@@ -109,7 +109,8 @@ EXECUTE msdb.dbo.sysmail_add_profileaccount_sp
 ```
 
 You would also need to enable Database Mail on Managed Instance:
-```
+
+```sql
 GO
 EXEC sp_configure 'show advanced options', 1;  
 GO  
@@ -125,7 +126,7 @@ In systems with multiple Managed Instance or SQL Servers, many individuals can s
 
 You can create operators using SSMS or Transact-SQL script shown in the following example:
 
-```
+```sql
 EXEC msdb.dbo.sp_add_operator 
     @name=N'Mihajlo Pupun', 
 		@enabled=1, 
@@ -134,7 +135,7 @@ EXEC msdb.dbo.sp_add_operator
 
 You can modify any job and assign operator that will be notified via email if job completes, fails, or succeeds using SSMS or the following Transact-SQL script:
 
-```
+```sql
 EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
 		@notify_level_email=3,                        -- Options are: 1 on succeed, 2 on failure, 3 on complete
 		@notify_email_operator_name=N'Mihajlo Pupun'
