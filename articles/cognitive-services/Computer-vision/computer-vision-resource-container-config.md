@@ -27,6 +27,7 @@ Configuration settings in Computer Vision containers are hierarchical, and all c
 * [Billing](#billing-configuration-setting)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Http proxy credential settings](#http-proxy-credentials-settings)
 * [Logging](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
@@ -110,6 +111,28 @@ The following table describes the configuration settings supported under the `Fl
 | `SendBufferSize` | Integer | The network buffer space, in bytes, allocated for send operations. The default value is 32768 bytes (32 kilobytes). |
 | `TlsConnectionEstablishmentTimeoutMs` | Integer | The timeout, in milliseconds, to establish a SSL/TLS connection with the Fluentd server. The default value is 10000 milliseconds (10 seconds).<br/> If `UseTLS` is set to false, this value is ignored. |
 | `UseTLS` | Boolean | Indicates whether the container should use SSL/TLS for communicating with the Fluentd server. The default value is false. |
+
+
+## Http proxy credentials setting
+
+If you need to configure an HTTP proxy for making outbound requests, use these two arguments:
+
+| Name | Data type | Description |
+|--|--|--|
+|HTTP_PROXY|string|the proxy to use, e.g. http://proxy:8888|
+|HTTP_PROXY_CREDS|string|any credentials needed to authenticate against the proxy, e.g. username:password.|
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
+--mount type=bind,src=/home/azureuser/output,target=/output \
+mcr.microsoft.com/azure-cognitive-services/keyphrase \
+Eula=accept \
+Billing=https://eastasia.api.cognitive.microsoft.com/text/analytics/v2.0 \
+ApiKey=123456789 \
+HTTP_PROXY=http://190.169.1.6:3128 \
+HTTP_PROXY_CREDS=jerry:123456 \
+Logging:Disk:LogLevel=Debug Logging:Disk:Format=json
+```
 
 ## Logging configuration settings
 
