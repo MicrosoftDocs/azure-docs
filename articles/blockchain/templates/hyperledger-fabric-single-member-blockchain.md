@@ -1,5 +1,5 @@
 ---
-title: Hyperledger Fabric Consortium
+title: Hyperledger Fabric Consortium Single Member
 description: Use the Hyperledger Fabric Consortium solution template to deploy and configure a single member network
 services: azure-blockchain
 keywords: 
