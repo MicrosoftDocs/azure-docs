@@ -6,6 +6,7 @@
   - name: About Azure Blockchain Workbench
     href: overview.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create blockchain app
     href: create-app.md
