@@ -94,7 +94,7 @@ If you'd like to compare the performances of the _recognition_v01_ and _recognit
 
 1. Create two **PersonGroup**s with _recognition_v01_ and _recognition_v02_ respectively.
 1. Use your image data to detect faces and register them to **Person**s for these two **PersonGroup**s, and trigger the training process with [PersonGroup - Train] API.
-1. Test faces on both **PersonGroup**s.
+1. Test with [Face - Identify] on both **PersonGroup**s and compare the results.
 
 If you normally specify a confidence threshold (a value between zero and one that determines how confident the model must be to identify a face), note that you may need to use different thresholds for different models. A threshold for one model is not meant to be shared to another and will not necessarily produce the same results.
 
