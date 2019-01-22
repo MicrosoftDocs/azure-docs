@@ -24,7 +24,7 @@ You can list the server configuration parameters for the server **mydemoserver.p
 az postgres server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 ## Show server configuration parameter details
-To show details about a particular configuration parameter for a server, run the [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show)  command.
+To show details about a particular configuration parameter for a server, run the [az postgres server configuration show](/cli/azure/postgres/server/configuration)  command.
 
 This example shows details of the **log\_min\_messages** server configuration parameter for server **mydemoserver.postgres.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive

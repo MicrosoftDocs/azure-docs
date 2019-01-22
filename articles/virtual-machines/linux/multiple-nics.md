@@ -127,7 +127,7 @@ az vm nic add \
     --nics myNic3
 ```
 
-Start the VM with [az vm start](/cli/azure/vm#az_vm_start):
+Start the VM with [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -151,7 +151,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Start the VM with [az vm start](/cli/azure/vm#az_vm_start):
+Start the VM with [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM

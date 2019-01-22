@@ -203,7 +203,7 @@ Results are displayed as soon as they're available. If Contoso fixes issues, it 
 > [!NOTE]
 > For large-scale assessments:
 > - Run multiple assessments concurrently and view the state of the assessments on the **All Assessments** page.
-> - Consolidate assessments into a [SQL Server database](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
+> - Consolidate assessments into a [SQL Server database](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017).
 > - Consolidate assessments into a [Power BI report](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
 ## Step 3: Prepare for VM assessment by using Azure Migrate

@@ -103,7 +103,7 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 **Commands**
 
-- **Azure CLI**: [az network vnet peering delete](/cli/azure/network/vnet/peering#az_network_vnet_peering_delete)
+- **Azure CLI**: [az network vnet peering delete](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
 
 ## Requirements and constraints 

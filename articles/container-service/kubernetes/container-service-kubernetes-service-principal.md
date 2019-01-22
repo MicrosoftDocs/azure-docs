@@ -147,7 +147,7 @@ Output (shown here truncated):
 ...
 ```
 
-If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) command to update the credentials:
+If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp) command to update the credentials:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

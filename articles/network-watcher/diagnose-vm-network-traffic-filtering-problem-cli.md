@@ -239,7 +239,7 @@ The checks in this quickstart tested Azure configuration. If the checks return e
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains:
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

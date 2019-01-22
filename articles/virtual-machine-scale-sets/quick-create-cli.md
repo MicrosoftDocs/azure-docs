@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 
 ## Create a scale set
-Before you can create a scale set, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Before you can create a scale set, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -84,7 +84,7 @@ az network lb rule create \
 
 
 ## Test your scale set
-To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
+To see your scale set in action, access the sample web application in a web browser. Obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip). The following example obtains the IP address for *myScaleSetLBPublicIP* created as part of the scale set:
 
 ```azurecli-interactive
 az network public-ip show \
