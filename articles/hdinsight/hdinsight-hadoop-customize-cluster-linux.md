@@ -192,7 +192,7 @@ This section explains the different ways you can use script actions when you cre
 
     ![Multiple script actions](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts.png)
 
-    When you're done adding scripts, use the __Select__ button and then the __Next__ button to return to the __Cluster summary__ section.
+    When you're done adding scripts, select the __Select__ button and then the __Next__ button to return to the __Cluster summary__ section.
 
 3. To create the cluster, select __Create__ from the __Cluster summary__ selection.
 
@@ -268,7 +268,7 @@ Go to the [Azure portal](https://portal.azure.com):
 
     Use the __Persist this script action__ entry to make sure the script is applied during scaling operations.
 
-5. Finally, use the **Create** button to apply the script to the cluster.
+5. Finally, select the **Create** button to apply the script to the cluster.
 
 ### Apply a script action to a running cluster from Azure PowerShell
 
@@ -357,7 +357,7 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [Apply a
 
     ![Script actions, Properties](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-6. You can also use the ellipsis, **...**, to the right of entries on the script actions section to perform actions.
+6. You can also select the ellipsis, **...**, to the right of entries on the script actions section to perform actions.
 
     ![Script actions, ellipsis](./media/hdinsight-hadoop-customize-cluster-linux/deletepromoted.png)
 
@@ -406,19 +406,21 @@ The Microsoft Azure HDInsight service uses an ecosystem of open-source technolog
 Two types of open-source components are available in the HDInsight service:
 
 * **Built-in components**. These components are preinstalled on HDInsight clusters and provide core functionality of the cluster. The following components belong to this category:
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager
-    * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
-    * The [Apache Mahout](https://mahout.apache.org/) 
+
+    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
+    * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+    * [Apache Mahout](https://mahout.apache.org/). 
     
     A full list of cluster components is available in [What are the Apache Hadoop components and versions available with HDInsight?](hdinsight-component-versioning.md)
+
 * **Custom components**. As a user of the cluster, you can install or use in your workload any component available in the community or created by you.
 
 > [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported. Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you further troubleshoot the issue. Microsoft Support might be able to resolve the issue. Or they might ask you to engage available channels for the open-source technologies where deep expertise for that technology is found. Many community sites can be used. Examples are [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [https://stackoverflow.com](https://stackoverflow.com). 
+> Custom components receive commercially reasonable support to help you further troubleshoot the issue. Microsoft Support might be able to resolve the issue. Or they might ask you to engage available channels for the open-source technologies where deep expertise for that technology is found. Many community sites can be used. Examples are [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com). 
 >
-> Apache projects also have project sites on [https://apache.org](https://apache.org). An example is [Hadoop](https://hadoop.apache.org/).
+> Apache projects also have project sites on the [Apache website](https://apache.org). An example is [Hadoop](https://hadoop.apache.org/).
 
 The HDInsight service provides several ways to use custom components. The same level of support applies, no matter how a component is used or installed on the cluster. The following list describes the most common ways that custom components  are used on HDInsight clusters:
 
@@ -434,7 +436,7 @@ You can use the Ambari web UI to view information logged by script actions. If t
 
 ### The Apache Ambari web UI
 
-1. In your browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
+1. In your browser, go to https://CLUSTERNAME.azurehdinsight.net. Replace **CLUSTERNAME** with the name of your HDInsight cluster.
 
     When prompted, enter the admin account name, **admin**, and password for the cluster. You might have to reenter the admin credentials in a web form.
 
@@ -497,7 +499,7 @@ ImportError: cannot import name BlobService
 
 __Cause__. This error occurs if you upgrade the Python Azure Storage client that's included with the HDInsight cluster. HDInsight expects Azure Storage client 0.20.0.
 
-__Resolution__. To resolve this error, manually connect to each cluster node by using `ssh`. Use the following command to reinstall the correct storage client version:
+__Resolution__. To resolve this error, manually connect to each cluster node by using `ssh`. Run the following command to reinstall the correct storage client version:
 
 ```bash
 sudo pip install azure-storage==0.20.0

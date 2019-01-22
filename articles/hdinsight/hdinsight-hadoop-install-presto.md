@@ -14,7 +14,7 @@ ms.author: hrasheed
 ---
 # Install and use Presto on Hadoop-based HDInsight clusters
 
-This document explains how to install Presto on Hadoop-based Adobe HDInsight clusters by using script actions. You also learn how to install Airpal on an existing Presto HDInsight cluster.
+This article explains how to install Presto on Hadoop-based Adobe HDInsight clusters by using script actions. You also learn how to install Airpal on an existing Presto HDInsight cluster.
 
 HDInsight also offers the Starburst Presto application for Apache Hadoop clusters. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
 
@@ -27,16 +27,16 @@ HDInsight also offers the Starburst Presto application for Apache Hadoop cluster
 > [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported. Microsoft Support will help to isolate and resolve issues related to these components.
 > 
-> Custom components like Presto receive commercially reasonable support to help you further troubleshoot the issue. This support might resolve the issue. Or you might be asked to engage available channels for the open-source technologies where deep expertise for that technology is found. There are many community sites that can be used. Examples are [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [https://stackoverflow.com](https://stackoverflow.com). 
+> Custom components like Presto receive commercially reasonable support to help you further troubleshoot the issue. This support might resolve the issue. Or you might be asked to engage available channels for the open-source technologies where deep expertise for that technology is found. There are many community sites that can be used. Examples are [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com). 
 >
-> Apache projects also have project sites on [https://apache.org](https://apache.org). An example is [Hadoop](https://hadoop.apache.org/).
+> Apache projects also have project sites on the [Apache website](https://apache.org). An example is [Hadoop](https://hadoop.apache.org/).
 
 
 ## Install Presto by using script actions
 
 This section explains how to use the sample script when you create a new cluster by using the Azure portal: 
 
-1. Start to provision a cluster by using the steps in [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md). Make sure you create the cluster by using the **Custom** cluster creation flow. The cluster must meet the following requirements:
+1. Start to provision a cluster by taking the steps in [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md). Make sure you create the cluster by using the **Custom** cluster creation flow. The cluster must meet the following requirements:
 
 	* It must be a Hadoop cluster with HDInsight version 3.6.
 
@@ -48,8 +48,8 @@ This section explains how to use the sample script when you create a new cluster
    
    * **NAME**. Enter a friendly name for the script action.
    * **Bash script URI**. `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`.
-   * **HEAD**. Check this option.
-   * **WORKER**. Check this option.
+   * **HEAD**. Select this option.
+   * **WORKER**. Select this option.
    * **ZOOKEEPER**. Leave this check box blank.
    * **PARAMETERS**. Leave this field blank.
 
@@ -74,7 +74,7 @@ To work with Presto in an HDInsight cluster, take the following steps:
     For more information, see [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
      
 
-2. Start the Presto shell by using the following command:
+2. Start the Presto shell by running the following command:
    
     `presto --schema default`
 
@@ -82,7 +82,7 @@ To work with Presto in an HDInsight cluster, take the following steps:
    
 	`select count (*) from hivesampletable;`
    
-	By default, [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. The Hive connector is configured to use the default installed Hive installation. So all the tables from Hive are automatically visible in Presto.
+	By default, [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) and [TPCH](https://prestodb.io/docs/current/connector/tpch.html) connectors for Presto are already configured. The Hive connector is configured to use the default Hive installation. So all the tables from Hive are automatically visible in Presto.
 
 	For more information, see [Presto documentation](https://prestodb.io/docs/current/index.html).
 
@@ -90,7 +90,7 @@ To work with Presto in an HDInsight cluster, take the following steps:
 
 [Airpal](https://github.com/airbnb/airpal#airpal) is an open-source web-based query interface for Presto. For more information on Airpal, see [Airpal documentation](https://github.com/airbnb/airpal#airpal).
 
-Use the following steps to install Airpal on the edge node:
+Take the following steps to install Airpal on the edge node:
 
 1. By using SSH, connect to the head node of the HDInsight cluster that has Presto installed:
    
@@ -119,7 +119,7 @@ Use the following steps to install Airpal on the edge node:
 
 5. Select **Purchase**.
 
-6. After the changes are applied to the cluster configuration, access the Airpal web interface by using the following steps from the [Azure portal](https://portal.azure.com):
+6. After the changes are applied to the cluster configuration, access the Airpal web interface by taking the following steps from the [Azure portal](https://portal.azure.com):
 
     1. From the left menu, select **All services**.
 
