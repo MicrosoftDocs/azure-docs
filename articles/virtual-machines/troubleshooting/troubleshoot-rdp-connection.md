@@ -103,7 +103,7 @@ If you haven't already, [install and configure the latest Azure PowerShell](/pow
 The following examples use variables such as `myResourceGroup`, `myVM`, and `myVMAccessExtension`. Replace these variable names and locations with your own values.
 
 > [!NOTE]
-> You reset the user credentials and the RDP configuration by using the [Set-AzureRmVMAccessExtension](/powershell/module/azurerm.compute/set-azurermvmaccessextension) PowerShell cmdlet. In the following examples, `myVMAccessExtension` is a name that you specify as part of the process. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"` to check the properties of the VM. To view the name, look under the 'Extensions' section of the output.
+> You reset the user credentials and the RDP configuration by using the [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension) PowerShell cmdlet. In the following examples, `myVMAccessExtension` is a name that you specify as part of the process. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"` to check the properties of the VM. To view the name, look under the 'Extensions' section of the output.
 
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
 
@@ -112,7 +112,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     The follow example resets the RDP connection on a VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location Westus -Name "myVMAccessExtension"
     ```
 2. **Verify Network Security Group rules**. This troubleshooting step verifies that you have a rule in your Network Security Group to permit RDP traffic. The default port for RDP is TCP port 3389. A rule to permit RDP traffic may not be created automatically when you create your VM.
@@ -120,7 +120,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     First, assign all the configuration data for your Network Security Group to the `$rules` variable. The following example obtains information about the Network Security Group named `myNetworkSecurityGroup` in the resource group named `myResourceGroup`:
    
     ```powershell
-    $rules = Get-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
+    $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
         -Name "myNetworkSecurityGroup"
     ```
    
@@ -160,7 +160,7 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     Now, update the credentials on your VM. The following example updates the credentials on a VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" `
+    Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
         -VMName "myVM" -Location WestUS -Name "myVMAccessExtension" `
         -UserName $cred.GetNetworkCredential().Username `
         -Password $cred.GetNetworkCredential().Password
@@ -170,14 +170,14 @@ After each troubleshooting step, try connecting to your VM again. If you still c
     The following example restarts the VM named `myVM` in the resource group named `myResourceGroup`:
    
     ```powershell
-    Restart-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
+    Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **Redeploy your VM**. This troubleshooting step redeploys your VM to another host within Azure to correct any underlying platform or networking issues.
    
     The following example redeploys the VM named `myVM` in the `WestUS` location and in the resource group named `myResourceGroup`:
    
     ```powershell
-    Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+    Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
 6. **Verify routing**. Use Network Watcher's [Next hop](../../network-watcher/network-watcher-check-next-hop-portal.md) capability to confirm that a route isn't preventing traffic from being routed to or from a virtual machine. You can also review effective routes to see all effective routes for a network interface. For more information, see [Using effective routes to troubleshoot VM traffic flow](../../virtual-network/diagnose-network-routing-problem.md).

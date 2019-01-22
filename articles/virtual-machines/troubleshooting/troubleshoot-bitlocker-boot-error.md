@@ -53,17 +53,17 @@ If this method does not the resolve the problem, follow these steps to restore t
     $rgName = "myResourceGroup"
     $osDiskName = "ProblemOsDisk"
 
-    New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzureRmDisk -diskName $osDiskName -ResourceGroupName $rgName
+    New-AzDiskUpdateConfig -EncryptionSettingsEnabled $false |Update-AzDisk -diskName $osDiskName -ResourceGroupName $rgName
 
     $recoveryVMName = "myRecoveryVM" 
     $recoveryVMRG = "RecoveryVMRG" 
-    $OSDisk = Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $osDiskName;
+    $OSDisk = Get-AzDisk -ResourceGroupName $rgName -DiskName $osDiskName;
 
-    $vm = get-AzureRMVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
+    $vm = get-AzVM -ResourceGroupName $recoveryVMRG -Name $recoveryVMName 
 
-    Add-AzureRmVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
+    Add-AzVMDataDisk -VM $vm -Name $osDiskName -ManagedDiskId $osDisk.Id -Caching None -Lun 3 -CreateOption Attach 
 
-    Update-AzureRMVM -VM $vm -ResourceGroupName $recoveryVMRG
+    Update-AzVM -VM $vm -ResourceGroupName $recoveryVMRG
     ```
      You cannot attach a managed disk to a VM that was restored from a blob image.
 
@@ -72,7 +72,7 @@ If this method does not the resolve the problem, follow these steps to restore t
 4. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands to sign in to Azure subscription:
 
     ```Powershell
-    Add-AzureRMAccount -SubscriptionID [SubscriptionID]
+    Add-AzAccount -SubscriptionID [SubscriptionID]
     ```
 
 5. Run the following script to check the name of the BEK file:
