@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: ADSyncTools PowerShell Reference | Microsoft Docs'
 description: This document provides reference information for the ADSyncTools.psm1 PowerShell module.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018

@@ -4,7 +4,7 @@ description: This topic describes the architecture of Azure AD Connect sync and 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
