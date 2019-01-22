@@ -12,6 +12,7 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: seodec18 
+ms.component: disks
 ---
 
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

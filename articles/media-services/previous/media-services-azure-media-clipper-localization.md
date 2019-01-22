@@ -110,7 +110,7 @@ For example, the following sample defines the localized English strings:
         'AdvancedSettings.allAudioTracks': 'All audio tracks selected',
         'AdvancedSettings.someAudioTracks': '{0} audio tracks selected',
         'AdvancedSettings.includeAllAudioTracks': 'Include all audio tracks',
-        'AssetsPanel.loadingError': 'Failed to retreive assets from server.',
+        'AssetsPanel.loadingError': 'Failed to retrieve assets from server.',
         'AssetsPanel.retry': 'Retry?',
         'CommandBar.prevFrameTitle': 'Move one frame backwards',
         'CommandBar.prevKeyFrameTitle': 'Move one GOP backwards',

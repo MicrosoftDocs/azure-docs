@@ -5,7 +5,7 @@ keywords: The Azure AD Connect installation wizard lets you configure maintenanc
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory

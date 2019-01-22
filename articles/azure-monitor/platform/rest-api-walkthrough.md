@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
-ms.component: ""
+ms.subservice: ""
 ---
 # Azure Monitoring REST API walkthrough
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -692,3 +692,4 @@ Invoke-RestMethod -Uri $request `
 * View the [Supported metrics with Azure Monitor](metrics-supported.md).
 * Review the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Review the [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+
