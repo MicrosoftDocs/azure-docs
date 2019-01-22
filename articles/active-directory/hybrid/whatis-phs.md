@@ -3,7 +3,7 @@ title: 'What is password hash synchronization with Azure AD? | Microsoft Docs'
 description: Describes password hash synchronization.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article

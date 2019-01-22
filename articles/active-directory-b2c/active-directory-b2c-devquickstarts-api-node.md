@@ -683,7 +683,7 @@ var findById = function(id, fn) {
 var oidcStrategy = new OIDCBearerStrategy(options,
     function(token, done) {
         log.info('verifying the user');
-        log.info(token, 'was the token retreived');
+        log.info(token, 'was the token retrieved');
         findById(token.sub, function(err, user) {
             if (err) {
                 return done(err);

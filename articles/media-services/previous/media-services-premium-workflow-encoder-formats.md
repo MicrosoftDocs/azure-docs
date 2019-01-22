@@ -27,9 +27,9 @@ ms.author: juliako;anilmur
 
 This document contains a list of input and output file formats and codecs that are supported by the public preview version of the **Media Encoder Premium Workflow** encoder.
 
-[Media Encoder Premium Worflow Input Formats and Codecs](#input_formats)
+[Media Encoder Premium Workflow Input Formats and Codecs](#input_formats)
 
-[Media Encoder Premium Worflow Output Formats and Codecs](#output_formats)
+[Media Encoder Premium Workflow Output Formats and Codecs](#output_formats)
 
 **Media Encoder Premium Workflow** supports closed captioning described in [this](#closed_captioning) section. 
 
