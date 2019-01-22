@@ -77,7 +77,7 @@ There is no change in the [Face - Identify] API; you only specify the model vers
 
 ## Find similar faces with specified model
 
-You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModelType` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create].
+You can also specify a recognition model for similarity search. You can assign the model version with `recognitionModel` when creating the face list with [FaceList - Create] API or [LargeFaceList - Create].
 
 See the following code example for the .NET client library.
 
