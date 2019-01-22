@@ -4,11 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-<<<<<<< HEAD
-ms.date: 01/11/2019
-=======
 ms.date: 01/17/2019
->>>>>>> f3a29db85ae89ff4210bb802a864bb9f33df3130
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
