@@ -23,6 +23,7 @@ Add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to t
 
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
+
 ## Add your personal Microsoft account
 You can add your personal Microsoft account by first turning on two-factor verification, and then by adding the account to the app.
 
