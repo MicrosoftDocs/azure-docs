@@ -34,6 +34,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 * The Az and the AzureRM PowerShell modules.
     - The Az module can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
     - The AzureRM PowerShell module can be installed by executing the following PowerShell cmdlet:
+    
         ```PowerShell
         Install-Module AzureRM
         ```
