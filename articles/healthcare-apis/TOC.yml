@@ -1,17 +1,17 @@
-- name: Microsoft Healthcare APIs documentation
+- name: Azure API for FHIR documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About Microsoft Healthcare APIs
+  - name: About Azure API for FHIR
     href: overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Healthcare APIs - Portal
+  - name: Deploy Azure API for FHIR - Portal
     href: fhir-paas-portal-quickstart.md
-  - name: Deploy Healthcare APIs - PowerShell
+  - name: Deploy Azure API for FHIR - PowerShell
     href: fhir-paas-powershell-quickstart.md
-  - name: Deploy Healthcare APIs - CLI
+  - name: Deploy Azure API for FHIR - CLI
     href: fhir-paas-cli-quickstart.md
   - name: Deploy OSS FHIR server - Portal
     href: fhir-oss-portal-quickstart.md
