@@ -154,3 +154,5 @@ If you no longer want multiple tenants in Azure Stack, you can disable multi-ten
 
 - [Manage delegated providers](azure-stack-delegated-provider.md)
 - [Azure Stack key concepts](azure-stack-key-features.md)
+- [Manage usage and billing for Azure Stack as a Cloud Service Provider](azure-stack-add-manage-billing-as-a-csp.md)
+- [Add tenant for usage and billing to Azure Stack](azure-stack-csp-howto-register-tenants.md)

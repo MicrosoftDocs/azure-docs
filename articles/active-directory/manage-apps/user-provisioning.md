@@ -4,7 +4,7 @@ description: An introduction to how you can use Azure AD to automatically provis
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na

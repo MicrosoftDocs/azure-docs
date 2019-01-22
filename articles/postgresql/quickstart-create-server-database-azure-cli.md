@@ -203,7 +203,7 @@ Clean up all resources you created in the quickstart by deleting the [Azure reso
 az group delete --name myresourcegroup
 ```
 
-If you would just like to delete the one newly created server, you can run [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete) command.
+If you would just like to delete the one newly created server, you can run [az postgres server delete](/cli/azure/postgres/server) command.
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```

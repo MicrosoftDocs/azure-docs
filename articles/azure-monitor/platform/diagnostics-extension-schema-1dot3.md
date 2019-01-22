@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
+ms.subservice: diagnostic-extension
 ---
 # Azure Diagnostics 1.3 and later configuration schema
 > [!NOTE]
@@ -688,3 +688,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
  *Tree: Root - DiagnosticsConfiguration - IsEnabled*
 
  Boolean. Use `true` to enable the diagnostics or `false` to disable the diagnostics.
+

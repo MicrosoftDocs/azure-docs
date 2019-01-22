@@ -26,7 +26,7 @@ In this guide, you learn how to:
 Before you can back up an Azure file share, ensure that it's present in one of the [supported Storage Account types](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Once you have verified this, you can protect your file shares.
 
 ## Limitations for Azure file share backup during Preview
-Backup for Azure File shares is in Preview. Azure File Shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
+Backup for Azure file shares is in Preview. Azure file shares in both general-purpose v1 and general-purpose v2 storage accounts are supported. The following backup scenarios aren't supported for Azure file shares:
 - You can't protect Azure file shares in Storage Accounts with [read-access geo-redundant storage](../storage/common/storage-redundancy-grs.md) (RA-GRS) replication*.
 - You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
 - There is no CLI available for protecting Azure Files using Azure Backup.
@@ -41,7 +41,7 @@ Backup for Azure File shares is in Preview. Azure File Shares in both general-pu
 Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS), East US (EUS), East US 2 (EUS2), North Europe (NE), SouthEast Asia (SEA), West Europe (WE) and West US 2 (WUS2).
 
 ## Configuring backup for an Azure file share
-All backup data is stored in Recovery Services vaults. This tutorial assumes you already have established an Azure file share. To back up your Azure file share:
+This tutorial assumes you already have established an Azure file share. To back up your Azure file share:
 
 1. Create a Recovery Services vault in the same region as your file share. If you already have a vault, open your vault's Overview page and click **Backup**.
 
