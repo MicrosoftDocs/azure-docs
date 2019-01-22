@@ -49,9 +49,9 @@ The following image shows an example DNS query. The contoso.net and partners.con
 2. The local DNS server does not have the record so it makes a request to their root name server.
 3. The root name server does not have the record, but knows the address of the `.net` name server, it provides that address to the DNS server
 4. The local DNS server sends the request to the `.net` name server.
-5. The `.net` name server does not have the record but does know the address of the `contoso.net` name server. In this case it responds with the address of the name server for the DNS zone hosted in Azure DNS.
+5. The `.net` name server does not have the record but does know the address of the `contoso.net` name server. In this case, it responds with the address of the name server for the DNS zone hosted in Azure DNS.
 6. The local DNS server sends the request to the name server for the `contoso.net` zone hosted in Azure DNS.
-7. The zone `contoso.net` does not have the record but knows the name server for `partners.contoso.net` and responds with that. In this case it is a DNS zone hosted in Azure DNS.
+7. The zone `contoso.net` does not have the record but knows the name server for `partners.contoso.net` and responds with the address. In this case, it is a DNS zone hosted in Azure DNS.
 8. The local DNS server sends the request to the name server for the `partners.contoso.net` zone.
 9. The `partners.contoso.net` zone has the A record and responds with the IP address.
 10. The local DNS server provides the IP address to the client
