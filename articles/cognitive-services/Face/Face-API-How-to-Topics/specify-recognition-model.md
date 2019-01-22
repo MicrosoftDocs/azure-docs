@@ -35,7 +35,7 @@ Face detection identifies the visual landmarks of human faces and finds their bo
 
 The recognition model is used when the face features are extracted, so you can specify a model version when performing the Detect operation.
 
-When using the [Face - Detect] API, assign the model version with the `recognitionModelType` parameter.
+When using the [Face - Detect] API, assign the model version with the `recognitionModel` parameter.
 
 Available values:
 - `recognition_v01`
