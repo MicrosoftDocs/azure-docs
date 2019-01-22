@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Audit and receive notifications about important actions in your Azure subscription
@@ -94,3 +94,4 @@ In this quick start, you performed an operation to generate an Activity Log even
 
 > [!div class="nextstepaction"]
 > [Archive monitoring data](./../../azure-monitor/learn/tutorial-archive-data.md)
+

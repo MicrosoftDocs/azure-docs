@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
+ms.component: disks
 
 ---
 # Attach a data disk to a Windows VM with PowerShell

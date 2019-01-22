@@ -1,6 +1,6 @@
 ---
 title: Setup your application in the Publishing Portal | Microsoft Docs
-description: Instructions in how to setup your applicatoin in the Cloud Publishing Portal.
+description: Instructions in how to setup your application in the Cloud Publishing Portal.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: pbutlerm

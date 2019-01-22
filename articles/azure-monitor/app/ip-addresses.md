@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 01/22/2019
 ms.author: mbullwin
 ---
 # IP addresses used by Application Insights and Log Analytics
@@ -22,7 +22,7 @@ The [Azure Application Insights](../../azure-monitor/app/app-insights-overview.m
 > 
 
 > [!TIP]
-> Subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/application-insights/ip-addresses.md.atom to your favorite RSS/ATOM reader to get notified of the latest changes.
+> Subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom to your favorite RSS/ATOM reader to get notified of the latest changes.
 > 
 > 
 

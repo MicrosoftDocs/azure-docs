@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring
 
@@ -71,3 +71,4 @@ This article will be continually updated will links & details regarding the new 
 
 * Learn about the [new unified Azure Monitor](../../azure-monitor/overview.md).
 * Learn more about the new [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
+
