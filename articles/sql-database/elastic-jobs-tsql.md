@@ -1189,7 +1189,7 @@ GO
 
 ## Job views
 
-The following views are available in the [jobs database](elastic-jobs-overview.md#job-database).
+The following views are available in the [jobs database](sql-database-job-automation-overview.md#job-database).
 
 
 |View  |Description  |
