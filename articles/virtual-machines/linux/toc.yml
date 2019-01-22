@@ -235,10 +235,6 @@
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
-  - name: Move VMs
-    items:
-    - name: Move Azure VMs to another region
-      href: ../../site-recovery/azure-to-azure-tutorial-move.md 
   - name: Manage costs
     items:
     - name: Prepay for VMs - Azure reservations

@@ -67,9 +67,6 @@ In case you have chosen to manually manage updates, follow these steps:
 4. Select the VMs that you want to apply the update to, and then click **OK**.
 
 ## Between two on-premises VMM sites
-
-Please refer to the [support statement](#support-statement-for-azure-site-recovery) before proceeding with upgrades
-
 1. Download the latest update Rollup for Microsoft Azure Site Recovery Provider.
 2. Install Update Rollup first on the on-premises VMM server that is managing the recovery site.
 3. After the recovery site is updated, install Update Rollup on the VMM server that is managing the primary site.
@@ -78,8 +75,6 @@ Please refer to the [support statement](#support-statement-for-azure-site-recove
 > If the VMM is a Highly Available VMM (Clustered VMM), make sure that you install the upgrade on all nodes of the cluster where the VMM service is installed.
 
 ## Between an on-premises VMM site and Azure
-Please refer to the [support statement](#support-statement-for-azure-site-recovery) before proceeding with upgrades
-
 1. Download Update Rollup for Microsoft Azure Site Recovery Provider.
 2. Install Update Rollup on the on-premises VMM server.
 3. Install the latest agent MARS agent on all Hyper-V hosts.
@@ -89,8 +84,6 @@ Please refer to the [support statement](#support-statement-for-azure-site-recove
 
 ## Between an on-premises Hyper-V site and Azure
 
-Please refer to the [support statement](#support-statement-for-azure-site-recovery) before proceeding with upgrades
-
 1. Download Update Rollup for Microsoft Azure Site Recovery Provider.
 2. Install the provider on each node of the Hyper-V servers that you have registered in Azure Site Recovery.
 
@@ -98,8 +91,6 @@ Please refer to the [support statement](#support-statement-for-azure-site-recove
 > If your Hyper-V is a Host Clustered Hyper-V server, make sure that you install the upgrade on all nodes of the cluster
 
 ## Between an on-premises VMware or physical site to Azure
-
-Please refer to the [support statement](#support-statement-for-azure-site-recovery) before proceeding with upgrades
 
 1. Install the update first on your on-premises management server. This is the server that has the Configuration server and Process server roles. 
 2. If you have scale-out process servers, update them next.
