@@ -27,7 +27,7 @@ To apply tags to resources, the user must have write access to that resource typ
 
 ## PowerShell
 
-The examples in this article require version 6.0 or later of Azure PowerShell. If you don't have version 6.0 or later, [update your version](/powershell/azure/install-azurerm-ps).
+The examples in this article require version 6.0 or later of Azure PowerShell. If you don't have version 6.0 or later, [update your version](/powershell/azure/azurerm/install-azurerm-ps).
 
 To see the existing tags for a *resource group*, use:
 

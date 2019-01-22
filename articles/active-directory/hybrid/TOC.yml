@@ -280,7 +280,7 @@
       href: tshoot-connect-objectsync.md
     - name: Password hash synchronization
       href: tshoot-connect-password-hash-synchronization.md
-    - name: Pass-through autentication
+    - name: Pass-through authentication
       href: tshoot-connect-pass-through-authentication.md
     - name: Single sign-on
       href: tshoot-connect-sso.md

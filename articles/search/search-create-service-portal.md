@@ -16,7 +16,7 @@ Azure Search is a standalone resource used to plug in a search experience in cus
 
 In this article, learn how to create an Azure Search resource in the [Azure portal](https://portal.azure.com/). 
 
-![Azure Search resource in the portal](media/search-create-service-portal/azure-search-resource-label.png "Look for this resource in the portal")
+[ ![Animated GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif) ](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Prefer PowerShell? Use the Azure Resource Manager [service template](https://azure.microsoft.com/resources/templates/101-azure-search-create/). For help with getting started, see [Manage Azure Search with PowerShell](search-manage-powershell.md).
 
