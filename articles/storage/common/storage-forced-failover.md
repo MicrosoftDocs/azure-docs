@@ -1,0 +1,58 @@
+---
+title: Initiate a customer-managed forced failover (preview) - Azure Storage
+description: Learn how to initiate a forced failover in the event that the primary endpoint for your storage account becomes unavailable. The failover updates the secondary region to become the primary region for your storage account.
+services: storage
+author: tamram
+
+ms.service: storage
+ms.topic: article
+ms.date: 01/22/2019
+ms.author: tamram
+ms.component: common
+---
+
+# Initiate a customer-managed forced failover (preview)
+
+If the primary endpoint for your geo-redundant storage account becomes unavailable for any reason, you can initiate a customer-managed forced failover (preview). A forced failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary region. Forced failover enables you to maintain high availability for your applications.
+
+This article shows how to initiate a forced failover for your storage account using the Azure portal, PowerShell, or Azure CLI. To learn more about forced failover, see [Disaster recovery and forced failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
+
+> [!WARNING]
+> A forced failover typically results in some data loss. To understand the implications of a forced failover and to prepare for data loss, review [Understand the forced failover process](storage-disaster-recovery-guidance.md#understand-the-forced-failover-process).
+
+## Prerequisites
+
+Before you can perform a forced failover on your storage account, make sure that you have performed the following steps:
+
+- Register for the customer-managed forced failover preview. For information about how to register, see [About the preview](storage-disaster-recovery-guidance.md#about-the-preview).
+- Make sure that your storage account is configured to use either geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). For more information about geo-redundant storage, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md). 
+
+## Force a failover from the Azure portal
+
+To initiate a forced failover from the Azure portal, follow these steps:
+
+1. Navigate to your storage account.
+2. Under **Settings**, select **Geo-replication**. The following image shows the geo-replication and failover status of a storage account.
+
+    ![Screenshot showing geo-replication and failover status](media/storage-forced-failover/portal-failover-prepare.png)
+
+3. Verify that your storage account is configured for geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). If it's not, then select **Configuration** under **Settings** to update your account to be geo-redundant. 
+4. The **Last Sync Time** property indicates how far the secondary is behind from the primary. **Last Sync Time** provides an estimate of the extent of data loss that you will experience after the failover is completed.
+5. Select **Prepare for failover (preview)**. 
+6. Review the confirmation dialog. When you are ready, enter **Yes** to confirm and initiate the failover.
+
+    ![Screenshot showing confirmation dialog for a forced failover](media/storage-forced-failover/portal-failover-confirm.png)
+
+### PowerShell
+
+To initiate a forced failover from PowerShell, execute the following command:
+
+```powershell
+Invoke-AzureRmStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
+```
+
+## Next steps
+
+- [Disaster recovery and forced failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md)
+- [Designing highly available applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md)
+- [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md) 
