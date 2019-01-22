@@ -184,8 +184,18 @@ The Bill of Material (BOM) or the manifest files contain the list of the files t
 Before you begin, make sure that your Data Box has completed prepare to ship. Follow these steps to download BOM or manifest files:
 
 1. Go to the local web UI for your Data Box. You will see that the Data Box has completed the prepare to ship. When the device preparation is complete, your device status is displayed as **Ready to ship**.
+
+    ![Device ready to ship](media/data-box-portal-admin/ready-to-ship.png)
+
 2. Click **Download list of files** to download the list of files that were copied on your Data Box.
-3. In File Explorer, you will see that separate files are generated depending on the protocol used to connect to the device and the Azure Storage type used.
+
+    ![Click Download list of files](media/data-box-portal-admin/download-list-of-files.png)
+
+3. In File Explorer, you will see that separate list of files are generated depending on the protocol used to connect to the device and the Azure Storage type used.
+
+    ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png)
+
+   The following table maps the file names to the Azure Storage type and the connection protocol used.
 
     |File name  |Azure Storage type  |Connection protocol used |
     |---------|---------|---------|
