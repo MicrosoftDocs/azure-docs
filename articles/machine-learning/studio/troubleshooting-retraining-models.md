@@ -39,7 +39,7 @@ With all the pieces in place, the major steps you must take to retrain the model
 ### Check to see if you have the correct PATCH URL
 The PATCH URL you are using must be the one associated with the new scoring endpoint you added to the scoring web service. There are a number of ways to obtain the PATCH URL:
 
-**Option 1: Programatically**
+**Option 1: Programmatically**
 
 To get the correct PATCH URL:
 
