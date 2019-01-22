@@ -39,4 +39,4 @@ ms.author: danlep
 |currentDedicated|Int32|The number of compute nodes currently assigned to the pool.|
 |targetDedicated|Int32|The number of compute nodes that are requested for the pool.|
 |enableAutoScale|Bool|Specifies whether the pool size automatically adjusts over time.|
-|isAutoPool|Bool|Speficies whether the pool was created via a job's AutoPool mechanism.|
+|isAutoPool|Bool|Specifies whether the pool was created via a job's AutoPool mechanism.|

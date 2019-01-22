@@ -142,6 +142,9 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+> [!IMPORTANT]
+> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
+
 ### Enable periodic backup
 After defining policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
 
@@ -218,9 +221,13 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+## Known Issues
+- Ensure that the retention duration is configured to be less than 24 days. 
+- Backup Restore service doesn't come up on locales where the decimal separator is other than '.'
+- Backup Restore service fails to come up on cluster secured with gMSA based security.
+
 ## Limitation/ caveats
 - No Service Fabric built in PowerShell cmdlets.
-- No support for Service Fabric CLI.
 - No support for Service Fabric clusters on Linux.
 
 ## Next steps

@@ -91,7 +91,7 @@ For more information, see [Vertically scale Azure virtual machine with Azure Aut
 You can set up autoscale via
 
 * [Azure portal](../../azure-monitor/platform/autoscale-get-started.md)
-* [PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+* [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Cross-platform Command Line Interface (CLI)](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 

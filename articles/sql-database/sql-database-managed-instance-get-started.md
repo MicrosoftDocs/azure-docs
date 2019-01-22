@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 11/28/2018
+ms.date: 01/15/2019
 ---
 # Quickstart: Create an Azure SQL Database Managed Instance
 
@@ -41,6 +41,7 @@ The following steps show you how to create a Managed Instance.
    |**Managed instance name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Managed instance admin login**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Don't use "serveradmin" as that is a reserved server-level role.|
    |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   |**Collation**|The collation that you want to use for your Managed Instance|For information about collations, see [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations).|
    |**Location**|The location in which you want to create the Managed Instance|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
    |**Virtual network**|Select either **Create new virtual network** or a valid virtual network and subnet.| If a network/subnet is greyed-out it is must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new Managed Instance. For information regarding the requirements for configuring the network environment for a Managed Instance, see [Configure a VNet for Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md). |
    |**Resource group**|A new or existing resource group|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|

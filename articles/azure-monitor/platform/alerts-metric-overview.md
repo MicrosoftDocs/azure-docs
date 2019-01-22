@@ -7,7 +7,7 @@ ms.author: snmuvva
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: alerts
+ms.subservice: alerts
 
 ---
 
@@ -90,7 +90,7 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 ## Supported resource types for metric alerts
 
-You can find the full list of supported resource types in this [article](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+You can find the full list of supported resource types in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 If you are using classic metric alerts today and are looking to see if metric alerts support the all the resource types you are using, the following table shows the resource types supported by classic metric alerts and if they are supported by metric alerts today or not.
 
@@ -133,3 +133,4 @@ If you are using classic metric alerts today and are looking to see if metric al
 - [Learn how to create, view and manage metric alerts in Azure](alerts-metric.md)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Learn more about action groups](action-groups.md)
+

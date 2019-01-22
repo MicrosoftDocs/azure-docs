@@ -81,6 +81,8 @@
       href: dns-reverse-dns-for-azure-services.md
   - name: Import and export a DNS zone file
     href: dns-import-export.md
+  - name: Delegate a subdomain
+    href: delegate-subdomain.md
   - name: Integrate with other Azure services
     href: dns-for-azure-services.md
   - name: Protect DNS zones and records
@@ -113,6 +115,8 @@
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html
   - name: REST
     href: /rest/api/dns/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/dns-allversions
 - name: Related
   items:
   - name: Application Gateway

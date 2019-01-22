@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Create Metric Alerts for Logs in Azure Monitor  
 
 ## Overview
-Azure Monitor supports [metric alert type](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) which has benefits over the [classic alerts](../../azure-monitor/platform/alerts-classic-portal.md). Metrics are available for [large list of Azure services](../../azure-monitor/platform/metrics-supported.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`. 
+Azure Monitor supports [metric alert type](../../azure-monitor/platform/alerts-metric-near-real-time.md) which has benefits over the [classic alerts](../../azure-monitor/platform/alerts-classic-portal.md). Metrics are available for [large list of Azure services](../../azure-monitor/platform/metrics-supported.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`. 
 
 You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premise. The supported Log Analytics solutions are listed below:
 - [Performance counters](../../azure-monitor/platform/data-sources-performance-counters.md) for Windows & Linux machines
@@ -46,7 +46,7 @@ Before Metric for Logs gathered on Log Analytics data works, the following must 
 4. **Log Analytics solutions configured to send logs**: Log Analytics solution should have the required logs/data corresponding to [metrics supported for Log Analytics workspaces](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) enabled. For example, for *% Available Memory* counter of it must be configured in [Performance counters](../../azure-monitor/platform/data-sources-performance-counters.md) solution first.
 
 ## Configuring Metric Alert for Logs
- metric alerts can be created and managed using the Azure portal, Resource Manager Templates, REST API, PowerShell, and Azure CLI. Since Metric Alerts for Logs, is a variant of  metric alerts - once the prerequisites are done, metric alert for logs can be created for specified Log Analytics workspace. All characteristics and functionalities of [ metric alerts](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) will be applicable to metric alerts for logs, as well; including payload schema, applicable quota limits, and billed price.
+ metric alerts can be created and managed using the Azure portal, Resource Manager Templates, REST API, PowerShell, and Azure CLI. Since Metric Alerts for Logs, is a variant of  metric alerts - once the prerequisites are done, metric alert for logs can be created for specified Log Analytics workspace. All characteristics and functionalities of [ metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) will be applicable to metric alerts for logs, as well; including payload schema, applicable quota limits, and billed price.
 
 For step-by-step details and samples - see [creating and managing  metric alerts](https://aka.ms/createmetricalert). Specifically, for Metric Alerts for Logs - follow the instructions for managing  metric alerts and ensure the following:
 - Target for  metric alert is a valid *Log Analytics workspace*
@@ -67,7 +67,7 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
 
 ```json
 {
-	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"convertRuleName": {
@@ -284,7 +284,7 @@ Say the above JSON is saved as metricfromLogsAlert.json - then it can be coupled
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "convertRuleName": {
@@ -352,3 +352,4 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 * Learn more about the [ metric alerts](https://aka.ms/createmetricalert).
 * Learn about [log alerts in Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Learn about [alerts in Azure](alerts-overview.md).
+

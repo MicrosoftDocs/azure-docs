@@ -274,7 +274,8 @@
 ##### [Problem configuring user provisioning - gallery app](manage-apps/application-provisioning-config-problem.md)
 ##### [Problem saving administrator credentials while configuring user provisioning gallery app](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Users are not provisioned - gallery app](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
-##### [Wrong users provisioned - galler app](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [Wrong users provisioned - gallery app](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [SCIM compatibility issues - non-gallery app](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Single sign-on
 ##### [Choose a method](manage-apps/single-sign-on-modes.md)

@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Webhook actions for log alert rules
@@ -68,13 +68,13 @@ This example payload would resolve to something like the following when sent to 
 ```
 As all variables in a custom webhook have to specified within JSON enclosure like "#searchinterval", the resultant webhook will also have variable data inside enclosure like "00:05:00".
 
-To include search results in a custom payload, ensure that **IncudeSearchResults** is set as a top-level property in the json payload. 
+To include search results in a custom payload, ensure that **IncludeSearchResults** is set as a top-level property in the json payload. 
 
 ## Sample payloads
 This section shows sample payload for webhook for Log Alerts, including when payload is standard and when its custom.
 
 > [!NOTE]
-> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [Log Analytics alert management](alerts-metric.md). But for log alerts using [Application Insights](../../application-insights/app-insights-analytics.md), the standard webhook payload is based on Action Group schema.
+> To ensure backward compatibility, standard webhook payload for alerts using Azure Log Analytics is same as [Log Analytics alert management](alerts-metric.md). But for log alerts using [Application Insights](../../azure-monitor/app/analytics.md), the standard webhook payload is based on Action Group schema.
 
 ### Standard Webhook for Log Alerts 
 Both of these examples have stated a dummy payload with only two columns and two rows.
@@ -193,7 +193,8 @@ Following is a sample payload for a custom webhook action for any log alert.
 
 ## Next steps
 - Learn about [Log Alerts in Azure Alerts ](alerts-unified-log.md)
-- Understand [managaing log alerts in Azure](alerts-log.md)
+- Understand [managing log alerts in Azure](alerts-log.md)
 - Create and manage [action groups in Azure](action-groups.md)
-- Learn more about [Application Insights](../../application-insights/app-insights-analytics.md)
+- Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
 - Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+

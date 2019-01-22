@@ -126,7 +126,7 @@ If you want more detailed migration report about your projects, trainings and do
 * You are only permitted to migrate once per project.  If you need to repeat a migration on a project, please contact us.
 * Currently, the Custom Translator supports 36 languages translating from and to English and we are working hard to add additional languages.  Hub does not require baseline models and therefore supports several thousand languages.  You can migrate an unsupported language pair, however we will only perform the migration of documents and project definitions.  We will not be able to train the new model.  Furthermore, these documents and projects will be displayed as inactive in order to indicate that they can't be used at this time. If support is added for these projects and/or documents, they will become active and trainable.
 * Custom Translator does not currently support monolingual training data.  Like unsupported language pairs, you can migrate monolingual documents, but they show as inactive until monolingual data is supported.  
-* Custom Translator requires 10k parallel sentences in order to train.  Microsoft Hub could train on a smaller set of data.  If a training is migrated which does not meet this requirement, it will be trained.
+* Custom Translator requires 10k parallel sentences in order to train.  Microsoft Hub could train on a smaller set of data. If a training is migrated which does not meet this requirement, it will not be trained.
 
 
 ## Custom Translator versus Hub

@@ -22,7 +22,7 @@ When creating a cluster, you can use a Script Action to modify cluster nodes as 
 
 During cluster creation, the script enumerates the files, copies them to the `/usr/lib/customhivelibs/` directory on head and worker nodes, then adds them to the `hive.aux.jars.path` property in the `core-site.xml` file. On Linux-based clusters, it also updates the `hive-env.sh` file with the location of the files.
 
-> [!NOTE]
+> [!NOTE]  
 > Using the script actions in this article makes the libraries available in the following scenarios:
 >
 > * **Linux-based HDInsight** - when using a Hive client, **WebHCat**, and **HiveServer2**.
@@ -36,7 +36,7 @@ For **Linux-based clusters**: [https://hdiconfigactions.blob.core.windows.net/li
 
 For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 **Requirements**
@@ -49,14 +49,14 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
 * The WASB path to the container must be specified as a parameter to the Script Action. For example, if the jars are stored in a container named **libs** on a storage account named **mystorage**, the parameter would be **wasb://libs@mystorage.blob.core.windows.net/**.
 
-  > [!NOTE]
+  > [!NOTE]  
   > This document assumes that you have already created a storage account, blob container, and uploaded the files to it.
   >
-  > If you have not created a storage account, you can do so through the [Azure portal](https://portal.azure.com). You can then use a utility such as [Azure Storage Explorer](http://storageexplorer.com/) to create a container in the account and upload files to it.
+  > If you have not created a storage account, you can do so through the [Azure portal](https://portal.azure.com). You can then use a utility such as [Azure Storage Explorer](https://storageexplorer.com/) to create a container in the account and upload files to it.
 
 ## Create a cluster using the script
 
-> [!NOTE]
+> [!NOTE]  
 > The following steps create a Linux-based HDInsight cluster. To create a Windows-based cluster, select **Windows** as the cluster OS when creating the cluster, and use the Windows (PowerShell) script instead of the bash script.
 >
 > You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
@@ -67,7 +67,7 @@ For **Windows-based clusters**: [https://hdiconfigactions.blob.core.windows.net/
 
    * **NAME**: Enter a friendly name for the script action.
 
-   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **SCRIPT URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh.
 
    * **HEAD**: Check this option.
 

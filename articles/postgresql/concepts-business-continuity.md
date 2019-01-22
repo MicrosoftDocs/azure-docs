@@ -41,7 +41,7 @@ One option is to wait for your server to come back online when the data center o
 The other option is to use the Azure Database for PostgreSQL's geo-restore feature that restores the server using geo-redundant backups. These backups are accessible even when the region your server is hosted in is offline. You can restore from these backups to any other region and bring your server back online.
 
 > [!IMPORTANT]
-> Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using mysqldump of your existing server and restore it to a newly created configured with geo-redundant backups.
+> Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using pg_dump of your existing server and restore it to a newly created configured with geo-redundant backups.
 
 ## Next steps
 - To learn more about the automated backups, see [Backups in Azure Database for PostgreSQL](concepts-backup.md). 

@@ -13,7 +13,7 @@ ms.author: danlep
 
 # Deploy container instances that use GPU resources
 
-To run certain compute-intensive workloads on Azure Container Instances, deploy your container groups with *GPU resources*. The container instances can access one or more NVIDIA Tesla GPUs while running container workloads such as CUDA and deep learning applications.
+To run certain compute-intensive workloads on Azure Container Instances, deploy your [container groups](container-instances-container-groups.md) with *GPU resources*. The container instances in the group can access one or more NVIDIA Tesla GPUs while running container workloads such as CUDA and deep learning applications.
 
 As shown in this article, you can add GPU resources when you deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md).
 
@@ -83,7 +83,7 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
 ## YAML example
 
-Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
+One way to add GPU resources is to deploy a container group by using a [YAML file](container-instances-multi-container-yaml.md). Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainergroup* specifying a container instance with a K80 GPU. The instance runs a sample CUDA vector addition application. The resource requests are sufficient to run the workload.
 
 ```YAML
 additional_properties: {}
@@ -130,7 +130,7 @@ Done
 
 ## Resource Manager template example
 
-Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) training job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/). The resource requests are sufficient to run the workload.
+Another way to deploy a container group with GPU resources is by using a [Resource Manager template](container-instances-multi-container-group.md). Start by creating a file named `gpudeploy.json`, then copy the following JSON into it. This example deploys a container instance with a V100 GPU that runs a [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) training job against the [MNIST dataset](http://yann.lecun.com/exdb/mnist/). The resource requests are sufficient to run the workload.
 
 ```JSON
 {

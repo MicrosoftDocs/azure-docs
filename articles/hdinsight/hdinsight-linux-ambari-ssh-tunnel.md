@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 12/15/2018
 ms.author: hrasheed
 
 ---
@@ -43,7 +43,7 @@ If you use Script Actions to customize your cluster, any services or utilities t
 
 * A web browser that can be configured to use a SOCKS5 proxy.
 
-    > [!WARNING]
+    > [!WARNING]  
     > The SOCKS proxy support built into Windows Internet settings does not support SOCKS5, and does not work with the steps in this document. The following browsers rely on Windows proxy settings, and do not currently work with the steps in this document:
     >
     > * Microsoft Edge
@@ -74,7 +74,7 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
 
 ## <a name="useputty"></a>Create a tunnel using PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) is a graphical SSH client for Windows. If you are not familiar with PuTTY, see the [PuTTY documentation](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use the following steps to create an SSH tunnel using PuTTY:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) is a graphical SSH client for Windows. If you are not familiar with PuTTY, see the [PuTTY documentation](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). Use the following steps to create an SSH tunnel using PuTTY:
 
 ### Create or load a session
 
@@ -116,16 +116,16 @@ Once the command finishes, traffic sent to port 9876 on the local computer is ro
    > [!NOTE]  
    > Selecting **Remote DNS** resolves Domain Name System (DNS) requests by using the HDInsight cluster. This setting resolves DNS using the head node of the cluster.
 
-2. Verify that the tunnel works by visiting a site such as [http://www.whatismyip.com/](http://www.whatismyip.com/). The IP returned should be one used by the Microsoft Azure datacenter.
+2. Verify that the tunnel works by visiting a site such as [https://www.whatismyip.com/](https://www.whatismyip.com/). The IP returned should be one used by the Microsoft Azure datacenter.
 
 ## Verify with Ambari web UI
 
 Once the cluster has been established, use the following steps to verify that you can access service web UIs from the Ambari Web:
 
-1. In your browser, go to http://headnodehost:8080. The `headnodehost` address is sent over the tunnel to the cluster and resolve to the head node that Ambari is running on. When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, reenter the information.
+1. In your browser, go to http\://headnodehost:8080. The `headnodehost` address is sent over the tunnel to the cluster and resolve to the head node that Ambari is running on. When prompted, enter the admin user name (admin) and password for your cluster. You may be prompted a second time by the Ambari web UI. If so, reenter the information.
 
    > [!NOTE]  
-   > When using the http://headnodehost:8080 address to connect to the cluster, you are connecting through the tunnel. Communication is secured using the SSH tunnel instead of HTTPS. To connect over the internet using HTTPS, use https://clustername.azurehdinsight.net, where **clustername** is the name of the cluster.
+   > When using the http\://headnodehost:8080 address to connect to the cluster, you are connecting through the tunnel. Communication is secured using the SSH tunnel instead of HTTPS. To connect over the internet using HTTPS, use https\://clustername.azurehdinsight.net, where **clustername** is the name of the cluster.
 
 2. From the Ambari Web UI, select HDFS from the list on the left of the page.
 
@@ -145,7 +145,7 @@ Once the cluster has been established, use the following steps to verify that yo
     ![Image of the NameNode UI](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]  
-   > Notice the URL for this page; it should be similar to **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. This URI is using the internal fully qualified domain name (FQDN) of the node, and is only accessible when using an SSH tunnel.
+   > Notice the URL for this page; it should be similar to **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. This URI is using the internal fully qualified domain name (FQDN) of the node, and is only accessible when using an SSH tunnel.
 
 ## Next steps
 

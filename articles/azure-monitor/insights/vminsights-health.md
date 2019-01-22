@@ -1,5 +1,5 @@
 ---
-title: Monitor virtual machine health with Azure Monitor for VMs (Preview)| Microsoft Docs
+title: Monitor virtual machine health with Azure Monitor for VMs (preview)| Microsoft Docs
 description: This article describes how you understand the health of the virtual machine and underlying operating system with Azure Monitor for VMs.
 services: azure-monitor
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 10/25/2018
 ms.author: magoedte
 ---
 
-# Understand the health of your Azure virtual machines with Azure Monitor for VMs (Preview)
+# Understand the health of your Azure virtual machines with Azure Monitor for VMs (preview)
 Azure includes multiple services that individually perform a specific role or task in the monitoring space, but providing an in-depth health perspective of the operating system hosted on Azure virtual machines wasn't available.  While you could monitor for different conditions using Log Analytics or Azure Monitor, they were not designed to model and represent health of core components or overall health of the virtual machine.  With Azure Monitor for VMs health feature, it proactively monitors the availability and performance of the Windows or Linux guest OS with a model that represent key components and their relationships, criteria that specifies how to measure the health of those components, and alert you when an unhealthy condition is detected.  
 
 Viewing the overall health state of the Azure VM and underlying operating system can be observed from two perspectives with Azure Monitor for VMs health, directly from the virtual machine or across all VMs in a resource group from Azure Monitor.

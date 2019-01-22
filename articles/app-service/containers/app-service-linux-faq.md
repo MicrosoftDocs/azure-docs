@@ -189,5 +189,5 @@ You can submit your idea at the [Web Apps feedback forum](https://aka.ms/webapps
 ## Next steps
 
 - [What is Azure App Service on Linux?](app-service-linux-intro.md)
-- [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Set up staging environments in Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Continuous Deployment with Web App for Containers](./app-service-linux-ci-cd.md)
