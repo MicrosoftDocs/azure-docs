@@ -104,10 +104,10 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 - **[Point-in-time restores](sql-database-recovery-using-backups.md)**:
 
   SQL Database supports recovery to any point in time within the automatic backup retention period.
-- **[Active geo-replication](sql-database-geo-replication-overview.md)**:
+- **[Active geo-replication](sql-database-active-geo-replication.md)**:
 
   SQL Database allows you to configure up to four readable secondary databases in either the same or globally distributed Azure data centers.  For example, if you have a SaaS application with a catalog database that has a high volume of concurrent read-only transactions, use active geo-replication to enable global read scale and remove bottlenecks on the primary that are due to read workloads.
-- **[Failover groups](sql-database-geo-replication-overview.md)**:
+- **[Auto-failover groups](sql-database-auto-failover-group.md)**:
 
   SQL Database allows you to enable high availability and load balancing at global scale, including transparent geo-replication and failover of large sets of databases and elastic pools. Failover groups and active geo-replication enables creation of globally distributed SaaS applications with minimal administration overhead leaving all the complex monitoring, routing, and failover orchestration to SQL Database.
 - **[Zone-redundant databases](sql-database-high-availability.md)**:

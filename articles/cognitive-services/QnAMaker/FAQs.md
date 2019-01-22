@@ -1,7 +1,7 @@
 ---
 title: FAQ - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: List of frequently asked questions for QnA Maker service
+description: The currated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,8 +10,11 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
+ms.custom: seodec18
 ---
-# Frequently Asked Questions
+# Frequently Asked Questions for QnA Maker
+
+The currated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 
 ## Manage the knowledge base
 

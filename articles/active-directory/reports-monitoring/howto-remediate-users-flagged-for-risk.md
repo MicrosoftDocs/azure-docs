@@ -28,7 +28,7 @@ If unusual activities that may indicate unauthorized access to some of your user
 
 ## Access the users flagged for risk report
 
-You can review users flagged for risk through the [users at risk report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) in the Azure portal. If you don't have Azure AD, you can sign up for free at [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
+You can review users flagged for risk through the [users at risk report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers) in the Azure portal. If you don't have Azure AD, you can sign up for free at [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
 
 From the users flagged for risk report, you can take the following actions for each user:
 

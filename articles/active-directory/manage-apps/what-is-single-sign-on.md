@@ -3,12 +3,12 @@ title: Single sign-on to applications - Azure Active Directory | Microsoft Docs
 description: Learn how to choose a single sign-on method when configuring applications in Azure Active Directory (Azure AD). Use single sign-on so users don't need to remember passwords for every application, and to simplify the administration of account management.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
 
@@ -57,14 +57,13 @@ SAML-based single sign-on is supported for applications that use any of these pr
 
 - SAML 2.0
 - WS-Federation
-- OpenID connect
 
 To configure an application for SAML-based single sign-on, see [Configure SAML-based single sign-on](configure-single-sign-on-portal.md). Also, many applications have [application-specific tutorials](../saas-apps/tutorial-list.md) that step you through configuring SAML-based single sign-on for specific applications. 
 
 For more information about how the SAML protocol works, see [Single sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md).
 
 ## Password-based SSO
-With password-based sign-on, the application authenticates to the application with a username and password. End-users sign in to the application the first time they access it. After the first sign-on, Azure Active Directory supplies the username and password to the application. 
+With password-based sign-on, end-users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure Active Directory supplies the username and password to the application. 
 
 Password-based single sign-on uses the existing authentication process provided by the application. When you enable password single sign-on for an application, Azure AD collects and securely stores user names and passwords for the application. User credentials are stored in an encrypted state in the directory. 
 
@@ -76,7 +75,7 @@ Use password-based single sign-on when:
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
 - Internet Explorer 11 on Windows 7 or later
-- Edge on Windows 10 Anniversary Edition or later 
+- Microsoft Edge on Windows 10 Anniversary Edition or later 
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 

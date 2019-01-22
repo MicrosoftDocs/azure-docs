@@ -6,18 +6,14 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
-
 ms.custom: H1Hack27Feb2017
-
 ---
 # Creating a management solution file in Azure (Preview)
 > [!NOTE]
@@ -40,7 +36,7 @@ You can use any text editor to work with solution files, but we recommend levera
 The basic structure of a management solution file is the same as a [Resource Manager Template](../../azure-resource-manager/resource-group-authoring-templates.md#template-format), which is as follows.  Each of the sections below describes the top-level elements and their contents in a solution.  
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0",
        "parameters": {  },
        "variables": {  },

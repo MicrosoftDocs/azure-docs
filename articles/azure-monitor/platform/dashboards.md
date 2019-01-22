@@ -10,11 +10,9 @@ ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: 
 ---
 
 # Create a custom dashboard for use in Log Analytics
@@ -28,7 +26,7 @@ This guide helps you understand how Log Analytics dashboards can visualize all o
 
 All the custom dashboards that you create in the OMS portal are also available in the OMS Mobile App. See the following pages for more information about the apps.
 
-* [OMS mobile app from the Microsoft Store](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+* [OMS mobile app from the Microsoft Store](https://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 * [OMS mobile app from Apple iTunes](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
 
 ![mobile dashboard](./media/dashboards/oms-search-mobile.png)
@@ -83,4 +81,4 @@ To remove a tile, navigate to the My Dashboard view and click **Customize** to e
 ![Remove a Tile](./media/dashboards/oms-dashboards-remove-tile.png)
 
 ## Next steps
-* Create [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics to generate notifications and to remediate problems.
+* Create [alerts](../../azure-monitor/platform/alerts-overview.md) in Log Analytics to generate notifications and to remediate problems.

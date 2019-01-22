@@ -2,15 +2,21 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Search
+  - name: What is Azure Search
     href: search-what-is-azure-search.md
+  - name: What is cognitive search
+    href: cognitive-search-concept-intro.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a service
     href: search-create-service-portal.md
-  - name: Try cognitive search
-    href: cognitive-search-quickstart-blob.md
+  - name: Portal
+    items:
+    - name: Import, index, and query using tools
+      href: search-get-started-portal.md
+    - name: Try cognitive search
+      href: cognitive-search-quickstart-blob.md
   - name: .NET
     items:
     - name: Create an index
@@ -31,8 +37,6 @@
       href: search-fiddler.md
 - name: Tutorials
   items:
-  - name: Use built-in tools
-    href: search-get-started-portal.md
   - name: Learn cognitive search APIs
     href: cognitive-search-tutorial-blob.md
   - name: Index Azure blobs
@@ -49,17 +53,17 @@
     href: https://azure.microsoft.com/resources/samples/?service=search
 - name: Concepts
   items:
-  - name: Cognitive search (Preview)
-    href: cognitive-search-concept-intro.md
   - name: Full text search
     href: search-lucene-query-architecture.md
 - name: How-to guides
   items:
   - name: Cognitive search (Preview)
     items:
+    - name: Attach a Cognitive Services resource
+      href: cognitive-search-attach-cognitive-services.md
     - name: Define a skillset
       href: cognitive-search-defining-skillset.md
-    - name: Reference an annotation
+    - name: Reference an annotation    
       href: cognitive-search-concept-annotations-syntax.md
     - name: Map to index fields
       href: cognitive-search-output-field-mapping.md
@@ -141,13 +145,13 @@
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
     - name: Synonyms
       href: search-synonyms.md
-  - name: Index data
+  - name: Load and refresh data
     items:
-    - name: Load data
+    - name: Data import overview
       href: search-what-is-data-import.md
     - name: Rebuild an index
       href: search-howto-reindex.md
-    - name: Import wizard (portal)
+    - name: Import data (portal)
       href: search-import-data-portal.md
     - name: Index large data sets
       href: search-howto-large-index.md
@@ -233,6 +237,8 @@
     href: /rest/api/searchmanagement
   - name: REST (Preview)
     href: search-api-preview.md
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.search/searchservices
   - name: Predefined skills (Preview) 
     href: cognitive-search-predefined-skills.md
     items:
@@ -242,7 +248,7 @@
       href: cognitive-search-skill-language-detection.md
     - name: Named Entity Recognition
       href: cognitive-search-skill-named-entity-recognition.md
-    - name: Enity Recognition
+    - name: Entity Recognition
       href: cognitive-search-skill-entity-recognition.md
     - name: Text Merger
       href: cognitive-search-skill-textmerger.md
@@ -273,7 +279,7 @@
     - name: Job listings app
       href: http://aka.ms/azjobsdemo
     - name: Search Analyzer demo
-      href: http://alice.unearth.ai/
+      href: https://alice.unearth.ai/
     - name: Search use cases
       href: https://searchsamples.azurewebsites.net/
   - name: FAQ

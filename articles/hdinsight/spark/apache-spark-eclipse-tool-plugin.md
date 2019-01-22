@@ -14,11 +14,11 @@ ms.author: hrasheed
 
 Use HDInsight Tools in Azure Toolkit for [Eclipse](https://www.eclipse.org/) to develop [Apache Spark](https://spark.apache.org/) applications written in [Scala](https://www.scala-lang.org/) and submit them to an Azure HDInsight Spark cluster, directly from the Eclipse IDE. You can use the HDInsight Tools plug-in in a few different ways:
 
-* To develop and submit a Scala Spark application on an HDInsight Spark cluster
-* To access your Azure HDInsight Spark cluster resources
-* To develop and run a Scala Spark application locally
+* To develop and submit a Scala Spark application on an HDInsight Spark cluster.
+* To access your Azure HDInsight Spark cluster resources.
+* To develop and run a Scala Spark application locally.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > You can use this tool to create and submit applications only for an HDInsight Spark cluster on Linux.
 > 
 > 
@@ -72,7 +72,7 @@ You can link a normal cluster by using the Ambari managed username. Similarly, f
    
    ![link cluster dialog](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
    > ![storage explorer in Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
@@ -201,7 +201,7 @@ You can use HDInsight Tools in Azure Toolkit for Eclipse to run Spark Scala appl
 ### Prerequisite
 While you're running the local Spark Scala application on a Windows computer, you might get an exception as explained in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). This exception occurs because **WinUtils.exe** is missing in Windows. 
 
-To resolve this error, you need [download the executable](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**, and then add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
+To resolve this error, you need [download the executable](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) to a location like **C:\WinUtils\bin**, and then add the environment variable **HADOOP_HOME** and set the value of the variable to **C\WinUtils**.
 
 ### Run a local Spark Scala application
 1. Start Eclipse and create a project. In the **New Project** dialog box, make the following choices, and then select **Next**.

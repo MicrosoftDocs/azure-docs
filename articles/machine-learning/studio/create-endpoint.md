@@ -1,23 +1,18 @@
 ---
-title: Creating Web service endpoints in Machine Learning - Azure Machine Learning Studio | Microsoft Docs
-description: Creating Web service endpoints in Azure Machine Learning
-services: machine-learning
-documentationcenter: ''
+title: Creating Web service endpoints
+titleSuffix: Azure Machine Learning Studio
+description: Creating Web service endpoints in Azure Machine Learning. Each endpoint in the Web service is independently addressed, throttled, and managed.
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
+
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
 ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
+ms.custom: seodec18
 ms.date: 10/04/2016
 ---
-# Creating endpoints 
+# Creating endpoints for deployed Azure Machine Learning Studio web services
 > [!NOTE]
 >  This topic describes techniques applicable to a **Classic** Machine Learning Web service.
 > 
@@ -27,7 +22,7 @@ When you create Web services that you sell forward to your customers, you need t
 
 To accomplish this, Azure Machine Learning Studio allows you to create multiple endpoints for a deployed Web service. Each endpoint in the Web service is independently addressed, throttled, and managed. Each endpoint is a unique URL and authorization key that you can distribute to your customers.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Adding endpoints to a Web service
 There are two ways to add an endpoint to a Web service.

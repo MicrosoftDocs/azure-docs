@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Azure Key Vault with an Azure web app in .NET | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with an Azure web app in .NET - Azure Key Vault | Microsoft Docs
 description: Tutorial - Configure an ASP.NET core application to read a secret from Key vault
 services: key-vault
 documentationcenter: 
@@ -10,7 +10,7 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 Azure Key Vault helps you protect secrets such as API keys and database connection strings. It provides you with access to your applications, services, and IT resources.
 
-In this tutorial, you learn how to create an Azure web application that can read information from an Azure key vault. The process uses managed identities for Azure resources. For more information about Azure web applications, see [Azure Web Apps](../app-service/app-service-web-overview.md).
+In this tutorial, you learn how to create an Azure web application that can read information from an Azure key vault. The process uses managed identities for Azure resources. For more information about Azure web applications, see [Azure App Service](../app-service/overview.md).
 
 The article shows you how to:
 
@@ -128,7 +128,7 @@ Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to 
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Import the following code in the About.cshtml.cs file:
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -136,7 +136,7 @@ Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to 
 
 4. Your code in the AboutModel class should like this:
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -216,7 +216,7 @@ Azure Key Vault provides a way to securely store credentials and other secrets, 
 
 1. Make a note of the `PrincipalId` when you publish the application to Azure. The output of the command in step 1 should be in the following format:
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -252,4 +252,4 @@ Now, you've now successfully created a web app in .NET that stores and fetches i
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Azure Key Vault Developer's Guide](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault Developer's Guide](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

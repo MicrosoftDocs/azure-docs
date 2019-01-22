@@ -27,7 +27,7 @@ Use the best Spark version for your cluster.  The HDInsight service includes sev
 When you create a new cluster, there are multiple Spark versions to choose from. To see the full list,  [HDInsight Components and Versions](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)
 
 
-> [!NOTE]
+> [!NOTE]  
 > The default version of Apache Spark in the HDInsight service may change without notice. If you have a version dependency, Microsoft recommends that you specify that particular version when you create clusters using .NET SDK, Azure PowerShell, and Azure Classic CLI.
 
 Apache Spark has three system configuration locations:
@@ -70,7 +70,7 @@ To see and change individual Spark configuration values, select any link with th
 
 If you create a non-default set of configuration values, then you can also see the history of your configuration updates.  This configuration history can be helpful to see which non-default configuration has optimal performance.
 
-> [!NOTE]
+> [!NOTE]  
 > To see, but not change, common Spark cluster configuration settings, select the **Environment** tab on the top-level **Spark Job UI** interface.
 
 ## Configuring Spark executors
@@ -83,7 +83,7 @@ Spark jobs use worker resources, particularly memory, so it's common to adjust S
 
 Three key parameters that are often adjusted to tune Spark configurations to improve application requirements are `spark.executor.instances`, `spark.executor.cores`, and `spark.executor.memory`. An Executor is a process launched for a Spark application. An Executor runs on the worker node and is responsible for the tasks for the application. For each cluster, the default number of executors, and the executor sizes, is calculated based on the number of worker nodes and the worker node size. These are stored in `spark-defaults.conf` on the cluster head nodes.  You can edit these values in a running cluster by selecting the **Custom spark-defaults** link in the Ambari web UI.  After you make changes, you're prompted by the UI to **Restart** all the affected services.
 
-> [!NOTE]
+> [!NOTE]  
 > These three configuration parameters can be configured at the cluster level (for all applications that run on the cluster) and also specified for each individual application.
 
 Another source of information about the resources being used by the Spark Executors is the Spark Application UI.  In the Spark UI, select the **Executors** tab to display Summary and Detail views of the configuration and resources consumed by the executors.  These views can help you determine whether to change default values for Spark executors for the entire cluster, or a particular set of job executions.
@@ -117,15 +117,15 @@ YARN controls the maximum sum of memory used by the containers on each Spark nod
 
 Spark clusters in HDInsight include a number of components by default. Each of these components includes default configuration values, which can be overridden as needed.
 
-* Spark Core - Spark Core, Spark SQL, Spark streaming APIs, GraphX, and MLlib
-* Anaconda - a python package manager
-* [Apache Livy](https://livy.incubator.apache.org/) - the Apache Spark REST API, used to submit remote jobs to an HDInsight Spark cluster
-* [Jupyter](https://jupyter.org/) and [Apache Zeppelin](https://zeppelin.apache.org/) notebooks - interactive browser-based UI for interacting with your Spark cluster
-* ODBC driver  - connects Spark clusters in HDInsight to business intelligence (BI) tools such as Microsoft Power BI and Tableau
+* Spark Core - Spark Core, Spark SQL, Spark streaming APIs, GraphX, and Apache Spark MLlib.
+* Anaconda - a python package manager.
+* [Apache Livy](https://livy.incubator.apache.org/) - the Apache Spark REST API, used to submit remote jobs to an HDInsight Spark cluster.
+* [Jupyter](https://jupyter.org/) and [Apache Zeppelin](https://zeppelin.apache.org/) notebooks - interactive browser-based UI for interacting with your Spark cluster.
+* ODBC driver  - connects Spark clusters in HDInsight to business intelligence (BI) tools such as Microsoft Power BI and Tableau.
 
 For applications running in the Jupyter notebook, use the `%%configure` command to make configuration changes from within the notebook itself. These configuration changes will be applied to the Spark jobs run from your notebook instance. You should make such changes at the beginning of the application, before you run your first code cell. The changed configuration is applied to the Livy session when it gets created.
 
-> [!NOTE]
+> [!NOTE]  
 > To change the configuration at a later stage in the application, use the `-f` (force) parameter. However, all progress in the application will be lost.
 
 The code below shows how to change the configuration for an application running in a Jupyter notebook.

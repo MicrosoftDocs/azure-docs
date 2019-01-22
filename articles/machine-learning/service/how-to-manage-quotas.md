@@ -1,5 +1,6 @@
 ---
-title: How to manage and request quotas for Azure Machine Learning service
+title: Manage and request resource quotas
+titleSuffix: Azure Machine Learning service
 description: This how-to guide explains the various quotas on resources for Azure Machine Learning and how to view and request more quota.
 services: machine-learning
 ms.service: machine-learning
@@ -10,6 +11,7 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
 # Manage and request quotas for Azure resources
@@ -22,7 +24,7 @@ Keep these quotas in mind as you design and scale up your Azure ML resources for
 
 + A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support.
 
-+ Your quota is shared across all the services in your subscriptions including Azure Machine Learning service. The only exception is Azure Machine Learning compute which has a seperate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
++ Your quota is shared across all the services in your subscriptions including Azure Machine Learning service. The only exception is Azure Machine Learning compute which has a separate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
 
 + Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, and so on.
 

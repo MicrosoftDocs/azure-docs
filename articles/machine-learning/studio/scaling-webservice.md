@@ -1,24 +1,18 @@
 ---
-title: Scale a Machine Learning Studio web service - Azure | Microsoft Docs
+title: Scale a Machine Learning Studio web service
+titleSuffix: Azure Machine Learning Studio
 description: Learn how to increase concurrency of an Azure Machine Learning Studio web service by adding additional endpoints.
-services: machine-learning
-documentationcenter: ''
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
+
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
 ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-keywords: azure machine learning, web services, operationalization, scaling, endpoint, concurrency
-ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: NA
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/23/2017
 ---
-# Scaling an Azure Machine Learning web service by adding additional endpoints
+# Scaling an Azure Machine Learning Studio web service by adding additional endpoints
 > [!NOTE]
 > This topic describes techniques applicable to a **Classic** Machine Learning web service. 
 > 

@@ -43,7 +43,7 @@ sections:
         image:
           src: media/index/i_perftier.svg
         title: Price/service tiers
-      - href: /azure/sql-database/sql-database-scale-resources
+      - href: /azure/sql-database/sql-database-scalability-index
         html: <p>Easily scale up, scale out, or shard your databases depending on your needs to improve performance of your application.</p>
         image:
           src: media/index/i_scale.svg
@@ -73,11 +73,11 @@ sections:
         image:
           src: media/index/i_security.svg
         title: Advanced security
-      - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
-        html: <p>Built-in intelligence helps you dramatically reduce the costs of running and managing databases and maximizes both performance and security of your application.</p>
+      - href: /azure/sql-database/sql-database-monitoring-tuning-index
+        html: <p>Built-in monitoring and intelligent tuning help you dramatically reduce the costs of running and managing databases and maximizes performance of your application.</p>
         image:
           src: media/index/i_intelligence.svg
-        title: Built-in intelligence
+        title: Monitoring and tuning
 
 - title: 5-Minute Quickstarts
   items:

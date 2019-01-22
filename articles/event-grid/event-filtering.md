@@ -2,12 +2,12 @@
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.author: tomfitz
+ms.date: 01/21/2019
+ms.author: spelluru
 ---
 
 # Understand event filtering for Event Grid subscriptions
@@ -43,7 +43,7 @@ The JSON syntax for filtering by event type is:
 
 ```json
 "filter": {
-  "subjectBeginsWith": "blobServices/default/containers/mycontainer/log",
+  "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
   "subjectEndsWith": ".jpg"
 }
 
@@ -137,6 +137,7 @@ Advanced filtering has the following limitations:
 * 512 characters per string value
 * Five values for **in** and **not in** operators
 * The key can only have one level of nesting (like data.key1)
+* Custom event schemas can be filtered only on top-level fields
 
 The same key can be used in more than one filter.
 

@@ -13,8 +13,12 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 
+ROBOTS: NOINDEX
+
 ---
 # Store Batch AI job input and output with Azure Storage
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 This guide describes how to use Azure Storage for storing input and output files when running a job. Azure Storage is one of several storage options supported by Batch AI. Batch AI integrates with Azure Storage by mounting Azure Storage systems to a Batch AI job or cluster filesystem, allowing seamless access to files stored in the cloud. 
 
@@ -72,7 +76,7 @@ To mount an Azure Storage volume to a job created with the Azure CLI, use the `m
 - <FILE_SHARE_NAME> - the name of the file share
 - <BLOB_CONTAINER_NAME> - the name of the Blob container
 
-To mount Azure Storage volumes with the Azure Batch AI SDKs, set the `mount_volumes` (Python) or `MountVolumes` (C#, Java) property on `JobCreateParameters`. You must provide the storage account's credentials when mounting volumes with Azure Batch AI SDKs. View the schemas for mounting volumes in [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), and [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable).
+To mount Azure Storage volumes with the Azure Batch AI SDKs, set the `mount_volumes` (Python) or `MountVolumes` (C#, Java) property on `JobCreateParameters`. You must provide the storage account's credentials when mounting volumes with Azure Batch AI SDKs. View the schemas for mounting volumes in [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), and [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai.mountvolumes?view=azure-java-stable).
 
 ### Mount volumes to a cluster
 

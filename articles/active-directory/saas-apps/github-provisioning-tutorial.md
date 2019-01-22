@@ -33,7 +33,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 *   A user account in GitHub with Admin permissions 
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to Github teams on the Business plan or better.
+> The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to GitHub teams on the Business plan or better.
 
 ## Assigning users to GitHub
 

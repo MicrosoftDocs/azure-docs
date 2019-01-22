@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 01/16/2019
 ms.author: juliako
 
 ---
@@ -86,7 +86,7 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ### Create a live event
 
-This section shows how to create a **pass-through** type of LiveEvent (LiveEventEncodingType set to None). If you want to create a LiveEvent that is enabled for live encoding set LiveEventEncodingType to Basic. 
+This section shows how to create a **pass-through** type of LiveEvent (LiveEventEncodingType set to None). If you want to create a LiveEvent that is enabled for live encoding set LiveEventEncodingType to Standard. 
 
 Some other things that you might want to specify when creating the live event are:
 
@@ -97,6 +97,8 @@ Some other things that you might want to specify when creating the live event ar
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this LiveEvent. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').
     
     If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
+    
+    The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
 
 When creating the event, you can specify to auto start it. 
 
@@ -104,7 +106,7 @@ When creating the event, you can specify to auto start it.
 
 ### Get ingest URLs
 
-Once the channel is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
+Once the LiveEvent is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 

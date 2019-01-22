@@ -10,7 +10,7 @@ ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
 # Customer intent: As an Azure AD Administrator, I want to enhance user authentication with MFA to make sure the user is who they say they are.

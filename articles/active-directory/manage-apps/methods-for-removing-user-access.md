@@ -4,7 +4,7 @@ description: Understand how to remove a user's access to an application
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid:
 ms.service: active-directory
@@ -67,5 +67,6 @@ To **disable all future user consent operations in your entire directory**, foll
 6.  Set the **Users can allow apps to access company data on their behalf** toggle to **No** and click the Save button.
 
 
-# Next steps
+## Next steps
+
 [Managing access to apps](what-is-access-management.md)

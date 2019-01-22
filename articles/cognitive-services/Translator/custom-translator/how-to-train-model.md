@@ -24,19 +24,15 @@ To train a model:
 
     -  Document name: Name of the document.
 
-    -  Pairing: If this document is a parallel or monolingual document.
-
-    - Monolingual documents are currently not supported for training.
+    -  Pairing: If this document is a parallel or monolingual document. Monolingual documents are currently not supported for training.
 
     -  Document type: Can be training, tuning, testing, or dictionary.
 
     -  Language pair: This show the source and target language for the project.
 
-    -  Source sentences: Shows the number of sentences extracted from the
-    - source file.
+    -  Source sentences: Shows the number of sentences extracted from the source file.
 
-    -  Target sentences: Shows the number of sentences extracted from the
-    - target file.
+    -  Target sentences: Shows the number of sentences extracted from the target file.
 
     ![Train model](media/how-to/how-to-train-model.png)
 

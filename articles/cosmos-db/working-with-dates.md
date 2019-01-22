@@ -1,7 +1,6 @@
 ---
 title: Working with dates in Azure Cosmos DB
 description: Learn about how to work with dates in Azure Cosmos DB.
-services: cosmos-db
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ---
 # Working with Dates in Azure Cosmos DB
-Azure Cosmos DB delivers schema flexibility and rich indexing via a native [JSON](http://www.json.org) data model. All Azure Cosmos DB resources including databases, containers, documents, and stored procedures are modeled and stored as JSON documents. As a requirement for being portable, JSON (and Azure Cosmos DB) supports only a small set of basic types: String, Number, Boolean, Array, Object, and Null. However, JSON is flexible and allow developers and frameworks to represent more complex types using these primitives and composing them as objects or arrays. 
+Azure Cosmos DB delivers schema flexibility and rich indexing via a native [JSON](https://www.json.org) data model. All Azure Cosmos DB resources including databases, containers, documents, and stored procedures are modeled and stored as JSON documents. As a requirement for being portable, JSON (and Azure Cosmos DB) supports only a small set of basic types: String, Number, Boolean, Array, Object, and Null. However, JSON is flexible and allow developers and frameworks to represent more complex types using these primitives and composing them as objects or arrays. 
 
 In addition to the basic types, many applications need the [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) type to represent dates and timestamps. This article describes how developers can store, retrieve, and query dates in Azure Cosmos DB using the .NET SDK.
 
 ## Storing DateTimes
-By default, the [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) serializes DateTime values as [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) strings. Most applications can use the default string representation for DateTime for the following reasons:
+By default, the [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) serializes DateTime values as [ISO 8601](https://www.iso.org/iso/catalogue_detail?csnumber=40874) strings. Most applications can use the default string representation for DateTime for the following reasons:
 
 * Strings can be compared, and the relative ordering of the DateTime values is preserved when they are transformed to strings. 
 * This approach doesn't require any custom code or attributes for JSON conversion.

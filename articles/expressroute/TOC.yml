@@ -45,6 +45,8 @@
     href: expressroute-erdirect-about.md
   - name: About ExpressRoute Global Reach
     href: expressroute-global-reach.md
+  - name: ExpressRoute Global Reach Application Scenario
+    href: expressroute-global-reach-app-scenario.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -103,9 +105,9 @@
     href: expressroute-howto-coexist-resource-manager.md
   - name: Configure ExpressRoute Direct
     items:
-    - name: Configure ExpressRoute Direct - PowerShell
+    - name: Azure PowerShell
       href: expressroute-howto-erdirect.md
-    - name: Configure ExpressRoute Direct - CLI
+    - name: Azure CLI
       href: expressroute-howto-expressroute-direct-cli.md 
   - name: Configure route filters for Microsoft peering
     items:

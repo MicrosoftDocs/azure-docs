@@ -1,6 +1,6 @@
 ---
 title: Log Analytics for Service Providers | Microsoft Docs
-description: Log Analytics can help Managed Service Providers (MSPs), large Enterprises, Independent Sofware Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
+description: Log Analytics can help Managed Service Providers (MSPs), large Enterprises, Independent Software Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.component: 
 ---
 
 # Log Analytics for Service Providers
@@ -59,7 +58,7 @@ The disadvantages of this architecture are:
 * It might be hard to separate the data between the customers when they are merged into a single workspace. The only good method to do so is to use the computer's fully qualified domain name (FQDN) or via the Azure subscription ID. 
 * All data from all customers will be stored in the same region with a single bill and same retention and configuration settings.
 * Azure fabric and PaaS services such as Azure Diagnostics and Azure Audit Logs requires the workspace to be in the same tenant as the resource, thus they cannot send the logs to the central workspace.
-* All VM agents from all customers will be authenticated to the cental workspace using the same workspace ID and key. There is no method to block logs from a specific customer without interrupting other customers.
+* All VM agents from all customers will be authenticated to the central workspace using the same workspace ID and key. There is no method to block logs from a specific customer without interrupting other customers.
 
 
 ### 3. Hybrid - Logs are stored in workspace located in the customer's tenant and some of them are pulled to a central location.
@@ -75,7 +74,7 @@ There are two options to implement the central location in Log Analytics:
 
 ## Next Steps
 * Automate creation and configuration of workspaces using [Resource Manager templates](template-workspace-configuration.md)
-* Automate creation of workspaces using [PowerShell](../../log-analytics/log-analytics-powershell-workspace-configuration.md) 
-* Use [Alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to integrate with existing systems
+* Automate creation of workspaces using [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
+* Use [Alerts](../../azure-monitor/platform/alerts-overview.md) to integrate with existing systems
 * Generate summary reports using [Power BI](../../azure-monitor/platform/powerbi.md)
 * Review the process of [configuring Log Analytics and Power BI to monitor multiple CSP customers](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Perform a search with Python - Bing Web Search API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using Python and receive a JSON response.
+description: Use this quickstart to send requests to the Bing Web Search REST API using Python, and receive a JSON response
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,6 +10,7 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
+ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Python.
 ---
 
@@ -76,7 +77,7 @@ rows = "\n".join(["""<tr>
 HTML("<table>{0}</table>".format(rows))
 ```
 
-## Sample code on Github
+## Sample code on GitHub
 
 If you'd like to run this code locally, the complete [sample is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
 

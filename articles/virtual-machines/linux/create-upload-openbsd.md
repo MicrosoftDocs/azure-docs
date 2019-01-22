@@ -64,7 +64,7 @@ On the VM where you installed the OpenBSD operating system 6.1, which added Hype
     ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
-6. The latest release of the Azure agent can always be found on [Github](https://github.com/Azure/WALinuxAgent/releases). Install the agent as follows:
+6. The latest release of the Azure agent can always be found on [GitHub](https://github.com/Azure/WALinuxAgent/releases). Install the agent as follows:
 
     ```sh
     git clone https://github.com/Azure/WALinuxAgent 
