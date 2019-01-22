@@ -31,7 +31,7 @@ You should be familiar with the concepts of AI face detection and identification
 
 ## Detect faces with specified model
 
-Face detection identifies the visual landmarks of human faces and finds their bounding-box locations. It also extracts the face's features and stores them in Azure Storage for use in identification. All of this information forms the representation of one face.
+Face detection identifies the visual landmarks of human faces and finds their bounding-box locations. It also extracts the face's features and stores them for use in identification. All of this information forms the representation of one face.
 
 The recognition model is used when the face features are extracted, so you can specify a model version when performing the Detect operation.
 
