@@ -13,7 +13,7 @@ manager: yuvalm
 ---
 # Team Development with Azure Dev Spaces
 
-In this tutorial, you'll learn how to use multiple dev spaces to work simultaneously in different development environments, keeping separate work in separate dev spaces in the same cluster.
+In this tutorial, you'll learn how a team of developers can simultaneously collaborate in the same Kubernetes cluster using Dev Spaces.
 
 ## Learn about team development
 So far you've been running your application's code as if you were the only developer working on the app. In this section, you'll learn how Azure Dev Spaces streamlines team development:
@@ -30,8 +30,7 @@ Your sample application isn't very complex at the moment. But in real-world deve
 * Some developers resort to simulating, or mocking up, many of their service dependencies. This approach can help, but managing those mocks can soon impact development cost. Plus, this approach leads to your development environment looking very different from production, which allows subtle bugs to creep in.
 * It follows that doing any type of integration testing becomes difficult. Integration testing can only realistically happen post-commit, which means you see problems later in the development cycle.
 
-![](../articles/dev-spaces/media/common/microservices-challenges.png)
-
+    ![](../articles/dev-spaces/media/common/microservices-challenges.png)
 
 ### Work in a shared dev space
 With Azure Dev Spaces, you can set up a *shared* dev space in Azure. Each developer can focus on just their part of the application, and can iteratively develop *pre-commit code* in a dev space that already contains all the other services and cloud resources that their scenarios depend on. Dependencies are always up-to-date, and developers are working in a way that mirrors production.
@@ -48,18 +47,13 @@ _Without_ using Dev Spaces, Scott would have a few ways to develop and test his 
 * ONLY run *mywebapi*, and make manual REST calls to test. This doesn't test the full end-to-end flow.
 * Add development-focused code to *webfrontend* that allows the developer to send requests to a different instance of *mywebapi*. This complicates the *webfrontend* service.
 
-### Download sample code
-For the sake of time, let's download sample code from a GitHub repository. Go to https://github.com/Azure/dev-spaces/tree/azds_updates and select **Clone or Download** to download the GitHub repository.
-
-> [!Note]
-> We specifically want the `azds_updates` branch for this step, *not* the `master` branch. The `azds_updates` branch contains updates we asked you to make manually in previous tutorial sections as well as some pre-configured Dev Spaces assets.
-
 ### Set up your baseline
 First we'll need to deploy a baseline of our services. This deployment will represent the "last known good" so you can easily compare the behavior of your local code vs. the checked-in version. We'll then create a child space based on this baseline so we can test our changes to *mywebapi* within the context of the larger application.
 
-1. Clone the [_azds_updates_ branch of the example application](https://github.com/Azure/dev-spaces/tree/azds_updates). This branch contains additional configuration and changes for this tutorial that are not present in the master branch.
+1. Clone the [Dev Spaces sample application](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. Checkout the remote branch *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
 1. Close all VS Code windows for both services. (This is a Preview limitation.)
-1. Select the _dev_ space: `azds space select --name dev`
+1. Select the _dev_ space: `azds space select --name dev`. When prompted to select a parent dev space, select _\<none\>_.
 1. Navigate to the _mywebapi_ directory and execute: `azds up -d`
 1. Navigate to the _webfrontend_ directory and execute: `azds up -d`
 1. Execute `azds list-uris` to see the public endpoint for _webfrontend_
@@ -92,6 +86,6 @@ When prompted, select _dev_ as the **parent dev space**. This means our new spac
 Keeping with our introductory hypothetical, we've used the name _scott_ for the new space so peers can identify who is working in it. But it can be called anything you like, and be flexible about what it means, like _sprint4_ or _demo_. Whatever the case, _dev_ serves as the baseline for all developers working on a piece of this application:
 ![](../articles/dev-spaces/media/common/ci-cd-space-setup.png)
 
-Run the `azds space list` command to see a list of all the spaces in the dev environment. An asterisk (*) appears next to the currently selected space. In your case, the space named _dev/scott_ was automatically selected when it was created. (You can select another space at any time with the `azds space select` command.)
+Run the `azds space list` command to see a list of all the spaces in the dev environment. The _Selected_ column indicates which space you currently have selected (true/false). In your case, the space named _dev/scott_ was automatically selected when it was created. You can select another space at any time with the `azds space select` command.
 
 Let's see it in action.

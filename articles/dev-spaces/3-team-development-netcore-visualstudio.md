@@ -14,7 +14,7 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 
 # Team Development with Azure Dev Spaces
 
-In this tutorial, you'll learn how to use multiple dev spaces to work simultaneously in different development environments, keeping separate work in separate dev spaces in the same cluster.
+In this tutorial, you'll learn how a team of developers can simultaneously collaborate in the same Kubernetes cluster using Dev Spaces.
 
 ## Learn about team development
 
@@ -52,9 +52,16 @@ _Without_ using Dev Spaces, Scott would have a few ways to develop and test his 
 ### Set up your baseline
 First we'll need to deploy a baseline of our services. This deployment will represent the "last known good" so you can easily compare the behavior of your local code vs. the checked-in version. We'll then create a child space based on this baseline so we can test our changes to *mywebapi* within the context of the larger application.
 
-1. Clone the [_azds_updates_ branch of the example application](https://github.com/Azure/dev-spaces/tree/azds_updates). This branch contains additional configuration and changes for this tutorial that are not present in the master branch.
+1. Clone the [Dev Spaces sample application](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. Checkout the remote branch *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
 1. Close any F5/debug sessions for both services, but keep the projects open in their Visual Studio windows.
-1. Switch to the Visual Studio window with the _mywebapi_ project and press Ctrl+F5 to run the service without the debugger attached.
+1. Switch to the Visual Studio window with the _mywebapi_ project.
+1. Right-click on the project in **Solution Explorer** and select **Properties**.
+1. Select the **Debug** tab on the left to show the Azure Dev Spaces settings.
+1. Select **Change** to create the space that will be used when you F5 or Ctrl+F5 the service.
+1. In the Space dropdown, select **\<Create New Space…\>**.
+1. Make sure the parent space is set to **\<none\>**, and enter space name **dev**. Click OK.
+1. Press Ctrl+F5 to run _mywebapi_ without the debugger attached.
 1. Switch to the Visual Studio window with the _webfrontend_ project and press Ctrl+F5 to run it as well.
 
 > [!Note]
@@ -74,7 +81,7 @@ Do the following to create a new space:
 2. Right-click on the project in **Solution Explorer** and select **Properties**.
 3. Select the **Debug** tab on the left to show the Azure Dev Spaces settings.
 4. From here, you can change or create the cluster and/or space that will be used when you F5 or Ctrl+F5. *Make sure the Azure Dev Space you created earlier is selected*.
-5. In the Space dropdown, select **<Create New Space…>**.
+5. In the Space dropdown, select **\<Create New Space…\>**.
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 

@@ -15,11 +15,33 @@ manager: yuvalm
 ### Run the service
 
 1. Hit F5 (or type `azds up` in the Terminal Window) to run the service. The service will automatically run in your newly selected space _dev/scott_. 
-1. You can confirm that your service is running in its own space by running `azds list-up` again. First, you'll notice an instance of *mywebapi* is now running in the _dev/scott_ space (the version running in _dev_ is still running but it is not listed). If you run `azds list-uris`, you will notice that the access point URL for *webfrontend* is prefixed with the text "scott.s.". This URL is unique to the _dev/scott_ space. The special URL signifies that requests sent to the "Scott URL" will try to first route to services in the _dev/scott_ space, but if that fails, they will fall back to services in the _dev_ space.
+1. You can confirm that your service is running in its own space by running `azds list-up` again. You'll notice an instance of *mywebapi* is now running in the _dev/scott_ space (the version running in _dev_ is still running but it is not listed).
+
+    ```
+    Name                      DevSpace  Type     Updated  Status
+    mywebapi                  scott     Service  3m ago   Running
+    mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
+    webfrontend               dev       Service  26m ago  Running
+    ```
+
+1. Run `azds list-uris`, and notice the access point URL for *webfrontend*.
+
+    ```
+    Uri                                                                        Status
+    -------------------------------------------------------------------------  ---------
+    http://localhost:53831 => mywebapi.scott:80                                Tunneled
+    http://dev.s.dev.webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
+    ```
+
+1. Instead of "dev.s." as the URL prefix, substitute with "scott.s." in your web browser. Notice this updated URL still resolves. This URL is unique to the _dev/scott_ space. The special URL signifies that requests sent to the "Scott URL" will try to first route to services in the _dev/scott_ space, but if that fails, they will fall back to services in the _dev_ space.
+
+<!--
+TODO: replace 2 & 3 with below once bug#753164 and PR#158827 get pushed to production.
+
+You can confirm that your service is running in its own space by running `azds list-up` again. First, you'll notice an instance of *mywebapi* is now running in the _dev/scott_ space (the version running in _dev_ is still running but it is not listed). If you run `azds list-uris`, you will notice that the access point URL for *webfrontend* is prefixed with the text "scott.s.". This URL is unique to the _dev/scott_ space. The special URL signifies that requests sent to the "Scott URL" will try to first route to services in the _dev/scott_ space, but if that fails, they will fall back to services in the _dev_ space.
 
 ```
 Name                      DevSpace  Type     Updated  Status
-------------------------  --------  -------  -------  -------
 mywebapi                  scott     Service  3m ago   Running
 mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
 webfrontend               dev       Service  26m ago  Running
@@ -31,6 +53,7 @@ Uri                                                                        Statu
 http://localhost:53831 => mywebapi.scott:80                                Tunneled
 http://scott.s.dev.webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
 ```
+-->
 
 ![](../articles/dev-spaces/media/common/space-routing.png)
 
