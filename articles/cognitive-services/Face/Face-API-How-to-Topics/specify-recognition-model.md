@@ -47,7 +47,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-If you are using the client library, you can assign the value for `recognitionModelType` by passing a string representing the version.
+If you are using the client library, you can assign the value for `recognitionModel` by passing a string representing the version.
 If you leave it unassigned, the default model version (_recognition_v01_) will be used.
 
 ```csharp
