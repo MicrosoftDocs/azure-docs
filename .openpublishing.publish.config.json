@@ -307,6 +307,12 @@
       "url": "https://github.com/Azure-Samples/cognitive-services-containers-samples",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-fbPageModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-fbPageModeration",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
