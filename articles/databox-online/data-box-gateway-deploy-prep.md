@@ -143,7 +143,7 @@ The activation key is used to register all the Data Box Gateway devices that nee
 
 > [!IMPORTANT]
 > - The activation key expires 3 days after it is generated. 
-> - If the key has epxired, generate a new key. The older key is not valid.
+> - If the key has expired, generate a new key. The older key is not valid.
 
 ## Next steps
 

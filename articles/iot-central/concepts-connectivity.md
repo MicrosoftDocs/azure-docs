@@ -49,14 +49,13 @@ Connecting a single device to IoT Central using SAS is easy and takes only a few
 
     Below are the references for other languages you might want to use.
 
-    *   **C language:** If you are using C, follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
+    *   **C language:** If you are using C, follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
 
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
-         
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
 
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
 
     *   **Node.js:**  If you want to use Node.js [use the step-by-step instructions here](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
@@ -114,12 +113,12 @@ If you are using the **MxChip** device to connect follow [the step-by-step instr
 
 Below are the references for other languages you might want to use.
 
-   *   **C language:** If you are using C follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
+   *   **C language:** If you are using C follow [this C sample device client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) to connect a sample device. Use the following settings in the sample.   
          ```
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
-         static const char* const SYMMETRIC_KEY_VALUE = "Enter Primary Symmetric key here";
-         static const char* const REGISTRATION_NAME = "Enter Device Id here";
+         ## Enter the Device Id and Symmetric keys 
+         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
     * **Node.js:**  If you want to use Node.js [use the step-by-step instructions here](tutorial-add-device.md#prepare-the-client-code), start from the section **Prepare the client code**.
 

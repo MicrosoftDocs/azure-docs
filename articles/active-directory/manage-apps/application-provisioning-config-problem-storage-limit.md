@@ -4,7 +4,7 @@ description: How to troubleshoot common issues faced when configuring user provi
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

@@ -2,13 +2,13 @@
 title: Map custom field to Azure Event Grid schema
 description: Describes how to convert your custom schema to the Azure Event Grid schema.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: tomfitz
+ms.date: 01/07/2019
+ms.author: spelluru
 ---
 
 # Map custom fields to Event Grid schema

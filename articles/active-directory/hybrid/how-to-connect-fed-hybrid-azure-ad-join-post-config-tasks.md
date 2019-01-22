@@ -4,7 +4,7 @@ description: This document details post configuration tasks needed to complete t
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid:
 ms.service: active-directory

@@ -104,7 +104,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
 4. On the **Setup** page, you see the option to install Log Analytics agents and configure the agents for monitoring in the **Common Settings** view. As previously explained, if you installed and configured Log Analytics agents, select the **Setup** view to configure the capability you want to use. 
 
-   **Performance Monitor**: Choose the protocol to use for synthetic transactions in the **Default** Performance Monitor rule, and select **Save & Continue**. This protocol selection only holds for the system-generated default rule. You need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the **Default** rule settings on the **Performance Monitor** tab (it appears after you complete your day-0 configuration) and change the protocol later. If you don't want the rPerfomance Monitor capability, you can disable the default rule from the **Default** rule settings on the **Performance Monitor** tab.
+   **Performance Monitor**: Choose the protocol to use for synthetic transactions in the **Default** Performance Monitor rule, and select **Save & Continue**. This protocol selection only holds for the system-generated default rule. You need to choose the protocol each time you create a Performance Monitor rule explicitly. You can always move to the **Default** rule settings on the **Performance Monitor** tab (it appears after you complete your day-0 configuration) and change the protocol later. If you don't want the Performance Monitor capability, you can disable the default rule from the **Default** rule settings on the **Performance Monitor** tab.
 
    ![Performance Monitor view](media/network-performance-monitor/npm-synthetic-transactions.png)
     
@@ -266,7 +266,7 @@ If you are an NPM user creating an alert via Azure Portal:
 
 Each time you create an alert, NPM creates a query based log alert rule in Azure Monitor. 
 This query is triggerred every 5 mins by default. Azure monitor does not charge for the first 250 log alert rules created, and any alert rules above the 250 log alert rules limit will be billed as per [Alerts pricing in Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Notifications are charged separately as per [Notifications pricing in Azure Monitor pricig page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Notifications are charged separately as per [Notifications pricing in Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 
 ## Pricing

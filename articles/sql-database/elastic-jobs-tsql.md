@@ -17,7 +17,7 @@ ms.date: 06/14/2018
 
 This article provides many example scenarios to get started working with Elastic Jobs using T-SQL.
 
-The examples use the [stored procedures](#job-stored-procedures) and [views](#job-views) available in the [*job database*](elastic-jobs-overview.md#job-database).
+The examples use the [stored procedures](#job-stored-procedures) and [views](#job-views) available in the [*job database*](sql-database-job-automation-overview.md#job-database).
 
 Transact-SQL (T-SQL) is used to create, configure, execute, and manage jobs. Creating the Elastic Job agent is not supported in T-SQL, so you must first create an *Elastic Job agent* using the portal, or [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
@@ -47,7 +47,7 @@ GO
 ## Create a target group (servers)
 
 The following example shows how to execute a job against all databases in a server.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 
 ```sql
@@ -72,7 +72,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## Exclude a single database
 
 The following example shows how to execute a job against all databases in a server, except for the database named *MappingDB*.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -115,7 +115,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## Create a target group (pools)
 
 The following example shows how to target all the databases in one or more elastic pools.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -140,7 +140,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## Deploy new schema to many databases
 
 The following example shows how to deploy new schema to all databases.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 
 ```sql
@@ -189,7 +189,7 @@ By default the job agent will look to create the table to store the returned res
 2. Additional column for internal_execution_id with the data type of uniqueidentifier.
 3. A nonclustered index named "IX_<TableName>_Internal_Execution_ID" on the internal_execution_id column.
 
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following commands:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following commands:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -260,7 +260,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## View job definitions
 
 The following example shows how to view current job definitions.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -281,7 +281,7 @@ select * from jobs.jobsteps
 ## Begin ad-hoc execution of a job
 
 The following example shows how to start a job immediately.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -304,7 +304,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## Schedule execution of a job
 
 The following example shows how to schedule a job for future execution.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -319,7 +319,7 @@ EXEC jobs.sp_update_job
 ## Monitor job execution status
 
 The following example shows how to view execution status details for all jobs.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -348,7 +348,7 @@ ORDER BY start_time DESC
 ## Cancel a job
 
 The following example shows how to cancel a job.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -367,7 +367,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## Delete old job history
 
 The following example shows how to delete job history prior to a specific date.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -381,7 +381,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## Delete a job and all its job history
 
 The following example shows how to delete a job and all related job history.  
-Connect to the [*job database*](elastic-jobs-overview.md#job-database) and run the following command:
+Connect to the [*job database*](sql-database-job-automation-overview.md#job-database) and run the following command:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -396,7 +396,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## Job stored procedures
 
-The following stored procedures are in the [jobs database](elastic-jobs-overview.md#job-database).
+The following stored procedures are in the [jobs database](sql-database-job-automation-overview.md#job-database).
 
 
 
@@ -1189,7 +1189,7 @@ GO
 
 ## Job views
 
-The following views are available in the [jobs database](elastic-jobs-overview.md#job-database).
+The following views are available in the [jobs database](sql-database-job-automation-overview.md#job-database).
 
 
 |View  |Description  |

@@ -55,7 +55,7 @@ System error 53 or system error 67 can occur if port 445 outbound communication 
 
 To check if your firewall or ISP is blocking port 445, use the [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) tool or `Test-NetConnection` cmdlet. 
 
-To use the `Test-NetConnection` cmdlet, the AzureRM PowerShell module must be installed, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resoure-group-name>` with the relevant names for your storage account.
+To use the `Test-NetConnection` cmdlet, the AzureRM PowerShell module must be installed, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resoure-group-name>` with the relevant names for your storage account.
 
    
     $resourceGroupName = "<your-resource-group-name>"

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure advanced threat detection | Microsoft Docs
 description: Learn about Azure AD Identity Protection and its capabilities.
 services: security
@@ -53,7 +53,7 @@ Examples of some of the ways that Azure Identity Protection can help secure your
 -	Provide basic workflows to track investigations.
 -	Provide easy access to remediation actions such as password reset.
 
-[Risk-based, conditional-access policies](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[Risk-based, conditional-access policies](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 -	Mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges.
 -	Block or secure risky user accounts.
 -	Require users to register for multi-factor authentication.
