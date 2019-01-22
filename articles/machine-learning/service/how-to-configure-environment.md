@@ -18,7 +18,7 @@ In this document, learn how to configure a development environment to work with 
 
 This document focuses on the following specific environments and tools:
 
-* [Azure Notebooks](#aznotebooks): A Jupyter Notebooks service hosted in the Azure cloud. It is __the easiest__ way to get started, as the Azure Machine Learning SDK is already installed.
+* [Azure Notebooks](#anotebooks): A Jupyter Notebooks service hosted in the Azure cloud. It is __the easiest__ way to get started, as the Azure Machine Learning SDK is already installed.
 * [The Data Science Virtual Machine](#dsvm): A __pre-configured development/experimentation environment__ in the Azure cloud that is __designed for data science work__ and can be deployed to either CPU only VM instances or GPU based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular ML / deep learning frameworks, tools, and editors for developing ML solutions. It is probably __the most complete__ development environment for ML on the Azure platform.
 * [Jupyter Notebooks](#jupyter): If you're already using Jupyter Notebooks, the SDK has some extras that you should install.
 * [Visual Studio Code](#vscode): If you use Visual Studio Code, there are some useful extensions that you can install.
@@ -51,7 +51,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 To get started developing with Azure Notebooks, follow the [Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
-By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

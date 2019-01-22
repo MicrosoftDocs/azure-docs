@@ -43,7 +43,7 @@ You can connect to any suitably configured Azure virtual machine using the **Dir
 
 ![Prompt to collect server information for the Direct Compute option](media/project-compute-tier-direct.png)
 
-If the following conditions are true, the drop-down list also shows [Data Science Virtual Machine (DSVM)](/machine-learning/data-science-virtual-machine) instances:
+If the following conditions are true, the drop-down list also shows [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) instances:
 
 - You're signed into Azure Notebooks with an account that uses Azure Active Directory (AAD), such as a company account.
 - Your account is connected to an Azure subscription.
@@ -53,7 +53,7 @@ If the following conditions are true, the drop-down list also shows [Data Scienc
 
 When you select a DSVM instance, Azure Notebooks may prompt you for credentials.
 
-To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intromd). You *must* use the **Data Science Virtual Machine for Linux (Ubuntu)** image because Azure Notebooks doesn't display DSVMs that use the Windows or CentOS images.
+To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md). You *must* use the **Data Science Virtual Machine for Linux (Ubuntu)** image because Azure Notebooks doesn't display DSVMs that use the Windows or CentOS images.
 
 ## Edit project metadata
 
