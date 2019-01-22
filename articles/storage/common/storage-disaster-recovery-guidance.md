@@ -30,7 +30,7 @@ All storage accounts are replicated for redundancy. Which redundancy option you 
 Other Azure Storage redundancy options include zone-redundant storage (ZRS), which replicates your data across availability zones in a single region, and locally redundant storage (LRS), which replicates your data in a single data center in a single region. If your storage account is configured for ZRS or LRS, you can convert that account to use GRS or RA-GRS. Configuring your account for geo-redundant storage incurs additional costs. For more information, see [Azure Storage replication](storage-redundancy.md).
 
 > [!WARNING]
-> Cross-region data replication is an asynchronous process that involves a delay, so write operations to the primary endpoint that have not yet been replicated to the secondary endpoint will be lost in the event of an outage. 
+> Geo-redundant storage carries a risk of data loss. Data is replicated to the secondary region asynchronously, meaning there is a delay between when data  written to the primary region is written to the secondary region. In the event of an outage, write operations to the primary endpoint that have not yet been replicated to the secondary endpoint will be lost. 
 
 ## Design for high availability
 
@@ -102,7 +102,7 @@ To avoid a major data loss, check the value of the **Last Sync Time** property b
 
 ## Initiate a forced failover
 
-You can initiate a forced failover from the Azure portal or from PowerShell.
+You can initiate a forced failover from the Azure portal, PowerShell, Azure CLI, or the Azure Storage resource provider API. For more information on how to initiate a failover, see [Initiate a customer-managed forced failover (preview)](storage-forced-failover.md).
 
 ## About the preview
 
