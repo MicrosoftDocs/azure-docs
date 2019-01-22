@@ -42,7 +42,7 @@ The following Azure resources are added automatically to your workspace when the
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.6. It requires version 1.0.2 or later.
+> Code in this article requires  Azure Machine Learning SDK version 1.0.2 or later and was tested with version 1.0.6.
 
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
