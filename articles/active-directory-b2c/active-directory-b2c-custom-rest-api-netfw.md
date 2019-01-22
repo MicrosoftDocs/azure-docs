@@ -46,7 +46,7 @@ Overview:
 * Use the RESTful service in the user journey.
 * Send input claims and read them in your code.
 * Validate the user's first name.
-* Send back a loyalty number. 
+* Send back a loyalty number.
 * Add the loyalty number to a JSON Web Token (JWT).
 
 ## Prerequisites
@@ -73,11 +73,11 @@ Complete the steps in the [Getting started with custom policies](active-director
 ## Step 2: Prepare the REST API endpoint
 
 ### Step 2.1: Add data models
-The models represent the input claims and output claims data in your RESTful service. Your code reads the input data by deserializing the input claims model from a JSON string to a C# object (your model). The ASP.NET web API automatically deserializes the output claims model back to JSON and then writes the serialized data to the body of the HTTP response message. 
+The models represent the input claims and output claims data in your RESTful service. Your code reads the input data by deserializing the input claims model from a JSON string to a C# object (your model). The ASP.NET web API automatically deserializes the output claims model back to JSON and then writes the serialized data to the body of the HTTP response message.
 
 Create a model that represents input claims by doing the following:
 
-1. If Solution Explorer is not already open, select **View** > **Solution Explorer**. 
+1. If Solution Explorer is not already open, select **View** > **Solution Explorer**.
 2. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**.
 
     ![Add model](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
@@ -124,7 +124,7 @@ Create a model that represents input claims by doing the following:
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
@@ -237,20 +237,20 @@ The `loyaltyNumber` claim is not yet defined in our schema. Add a definition wit
 </BuildingBlocks>
 ```
 
-## Step 5: Add a claims provider 
-Every claims provider must have one or more technical profiles, which determine the endpoints and protocols needed to communicate with the claims provider. 
+## Step 5: Add a claims provider
+Every claims provider must have one or more technical profiles, which determine the endpoints and protocols needed to communicate with the claims provider.
 
-A claims provider can have multiple technical profiles for various reasons. For example, multiple technical profiles might be defined because the claims provider supports multiple protocols, endpoints can have varying capabilities, or releases can contain claims that have a variety of assurance levels. It might be acceptable to release sensitive claims in one user journey but not in another. 
+A claims provider can have multiple technical profiles for various reasons. For example, multiple technical profiles might be defined because the claims provider supports multiple protocols, endpoints can have varying capabilities, or releases can contain claims that have a variety of assurance levels. It might be acceptable to release sensitive claims in one user journey but not in another.
 
 The following XML snippet contains a claims provider node with two technical profiles:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: Defines your RESTful service. 
-   * `Proprietary` is described as the protocol for a RESTful-based provider. 
-   * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service. 
+* **TechnicalProfile Id="REST-API-SignUp"**: Defines your RESTful service.
+   * `Proprietary` is described as the protocol for a RESTful-based provider.
+   * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service.
 
    In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (a conflict error), the error message is displayed to the user. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (a conflict error), the error message is displayed to the user.
 
 Locate the `<ClaimsProviders>` node, and then add the following XML snippet under the `<ClaimsProviders>` node:
 
@@ -325,7 +325,7 @@ After you add the new claim, the relying party code looks like this:
 
 2. Select **Identity Experience Framework**.
 
-3. Open **All Policies**. 
+3. Open **All Policies**.
 
 4. Select **Upload Policy**.
 
@@ -350,7 +350,7 @@ After you add the new claim, the relying party code looks like this:
 
     ![Test your policy](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  In the **Given Name** box, type a name (other than "Test").  
+4. In the **Given Name** box, type a name (other than "Test").  
     Azure AD B2C signs up the user and then sends a loyaltyNumber to your application. Note the number in this JWT.
 
 ```
@@ -377,7 +377,7 @@ After you add the new claim, the relying party code looks like this:
 ## (Optional) Download the complete policy files and code
 * After you complete the [Get started with custom policies](active-directory-b2c-get-started-custom.md) walkthrough, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [Sample policy files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * You can download the complete code from [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
-	
+
 ## Next steps
 * [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

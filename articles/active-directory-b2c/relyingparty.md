@@ -100,7 +100,7 @@ The **DefaultUserJourney** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | An identifier of the user journey in the policy. For more informaiton, see [user journeys](userjourneys.md) |
+| ReferenceId | Yes | An identifier of the user journey in the policy. For more information, see [user journeys](userjourneys.md) |
 
 ## UserJourneyBehaviors
 

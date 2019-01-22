@@ -75,5 +75,5 @@ You can write a [PowerShell script](../../azure-monitor/app/powershell.md) to cr
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 
