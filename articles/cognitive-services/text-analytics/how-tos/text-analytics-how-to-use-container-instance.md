@@ -402,10 +402,8 @@ az group delete --name cogserv-container-rg
 
 ## Next steps 
 
-* Use more [Cognitive Service Containers](../../cognitive-services-container-support.md)
-
-> [!div class="nextstepaction"]
-> [Use the Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
+* Use the Text Analytics Connected Service](../vs-text-connected-service.md)
 
 
 <!--

@@ -168,4 +168,4 @@ For example, the following command defines a Docker bind mount to the `D:\Output
 
 ## Next steps
 
-* Use more [Cognitive Service Containers](../cognitive-services-container-support.md)
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

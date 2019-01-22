@@ -216,4 +216,4 @@ The Face container doesn't use input or output mounts to store training or datab
 
 ## Next steps
 
-* Use more [Cognitive Service Containers](../cognitive-services-container-support.md)
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
