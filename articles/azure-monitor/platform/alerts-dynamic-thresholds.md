@@ -16,6 +16,8 @@ Metric Alert with Dynamic Thresholds detection leverages advanced machine learni
 
 Once an alert rule is created, it will fire only when the monitored metric doesn’t behave as expected, based on its tailored thresholds.
 
+We would love to hear your feedback, keep it coming at azurealertsfeedback@microsoft.com.
+
 ## Why and when is using dynamic condition type recommended?
 
 1. **Scalable Alerting** – Dynamic Thresholds alerts rules can create tailored thresholds for hundreds of metric series at a time. Yet providing the same ease of defining an alert rule on a single metric. Using either the UI or the Azure Resource Manager API results in fewer alert rules to manage. The scalable approach is especially useful when dealing with metric dimensions or when applying to multiple resources, like all subscription resources. Which translates to a significant time saving on management and creation of alerts rules. [Learn more about how to configure Metric Alerts with Dynamic Thresholds using templates](alerts-metric-create-templates.md).
