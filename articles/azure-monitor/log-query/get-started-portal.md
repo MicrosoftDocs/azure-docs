@@ -19,7 +19,7 @@ ms.author: bwren
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In this tutorial you will learn how to use Log Analytics in the Azure portal to write Azure Monitor log queries. It will teach you how to:
+In this tutorial you will learn how to use Azure Monitor log analytics in the Azure portal to write Azure Monitor log queries. It will teach you how to:
 
 - Write simple queries
 - Understand the schema of your data
@@ -30,8 +30,8 @@ In this tutorial you will learn how to use Log Analytics in the Azure portal to 
 - Export and share queries
 
 
-## Meet Log Analytics
-Log Analytics is a web tool used to write and execute Azure Monitor log queries. Open it by selecting **Logs** in the Azure Monitor menu. It starts with a new blank query.
+## Meet log analytics
+Log analytics is a web tool used to write and execute Azure Monitor log queries. Open it by selecting **Logs** in the Azure Monitor menu. It starts with a new blank query.
 
 ![Home page](media/get-started-portal/homepage.png)
 
@@ -78,7 +78,7 @@ Start by getting everything in the _Event_ table.
 Event
 ```
 
-Log Analytics automatically scopes results by:
+Log analytics automatically scopes results by:
 
 - Time range:  By default, queries are limited to the last 24 hours.
 - Number of results: Results are limited to maximum of 10,000 records.
@@ -116,7 +116,7 @@ The results table often includes a lot of columns. You might find that some of t
 
 
 ## Select a time range
-By default, Log Analytics applies the _last 24 hours_ time range. To use a different range, select another value through the time picker and click **Run**. In addition to the preset values, you can use the _Custom time range_ option to select an absolute range for your query.
+By default, log analytics applies the _last 24 hours_ time range. To use a different range, select another value through the time picker and click **Run**. In addition to the preset values, you can use the _Custom time range_ option to select an absolute range for your query.
 
 ![Time picker](media/get-started-portal/time-picker.png)
 
@@ -170,7 +170,7 @@ You can save either the entire query page, or a single query as a function. Func
 
 ![Save function](media/get-started-portal/save-function.png)
 
-Log Analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
+Log analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
 
 ## Load queries
 The Query Explorer icon is at the top-right area. This lists all saved queries by category. It also enables you to mark specific queries as Favorites to quickly find them in the future. Double-click a saved query to add it to the current window.
@@ -178,7 +178,7 @@ The Query Explorer icon is at the top-right area. This lists all saved queries b
 ![Query explorer](media/get-started-portal/query-explorer.png)
 
 ## Export and share as link
-Log Analytics supports several exporting methods:
+Log analytics supports several exporting methods:
 
 - Excel: Save the results as a CSV file.
 - Power BI: Export the results to power BI. See [Import Azure Monitor log data into Power BI](../../azure-monitor/platform/powerbi.md) for details.

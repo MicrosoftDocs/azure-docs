@@ -25,7 +25,7 @@ Log data collected by Azure Monitor is stored in a Log Analytics workspace, whic
 
 ## Log queries
 
-You require a log query to retrieve any log data from Azure Monitor.  Whether you're [analyzing data in the portal](portals.md), [configuring an alert rule](../platform/alerts-metric.md) to be notified of a particular condition, or retrieving data using the [Log Analytics API](https://dev.loganalytics.io/), you will use a query to specify the data you want.  This article describes how log queries are used in Azure Monitor and provides concepts that should understand before creating one.
+You require a log query to retrieve any log data from Azure Monitor.  Whether you're [analyzing data in the portal](portals.md), [configuring an alert rule](../platform/alerts-metric.md) to be notified of a particular condition, or retrieving data using the [Azure Monitor Logs API](https://dev.loganalytics.io/), you will use a query to specify the data you want.  This article describes how log queries are used in Azure Monitor and provides concepts that should understand before creating one.
 
 
 
@@ -33,13 +33,13 @@ You require a log query to retrieve any log data from Azure Monitor.  Whether yo
 
 The different ways that you will use log queries in Azure Monitor include the following:
 
-- **Portals.** You can perform interactive analysis of log data in the [Azure portal](portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
+- **Portal.** You can perform interactive analysis of log data in the [Azure portal](portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
 - **Alert rules.** [Alert rules](../platform/alerts-overview.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - **Dashboards.** You can pin the results of any query into an [Azure dashboard](../platform/dashboards.md) which allow you to visualize log and metric data together and optionally share with other Azure users. 
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](../platform/view-designer.md).  Log queries provide the data used by [tiles](../platform/view-designer-tiles.md) and [visualization parts](../platform/view-designer-parts.md) in each view.  
 - **Export.**  When you import log data from Azure Monitor into Excel or [Power BI](../platform/powerbi.md), you create a log query to define the data to export.
 - **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve log data from Azure Monitor.  This cmdlet requires a query to determine the data to retrieve.
-- **Log Analytics API.**  The [Log Analytics log search API](../platform/alerts-overview.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Azure Monitor to determine the data to retrieve.
+- **Azure Monitor Logs API.**  The [Azure Monitor Logs API](../platform/alerts-overview.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Azure Monitor to determine the data to retrieve.
 
 ![Log searches](media/log-query-overview/queries-overview.png)
 
@@ -100,5 +100,5 @@ While [Application Insights](../app/app-insights-overview.md) stores application
 
 ## Next steps
 
-- Learn about the [portals that you use to create and edit log searches](../log-query/portals.md).
+- Learn about using [log analytics to create and edit log searches](../log-query/portals.md).
 - Check out a [tutorial on writing queries](../log-query/get-started-queries.md) using the new query language.
