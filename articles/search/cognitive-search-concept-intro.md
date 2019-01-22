@@ -93,12 +93,14 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + South Central US
 + East US
 + East US 2
++ West US
 + West US 2
 + Canada Central
 + West Europe
 + UK South
 + North Europe
 + Brazil South
++ East Asia
 + Southeast Asia
 + Central India
 + Australia East
