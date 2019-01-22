@@ -63,9 +63,7 @@ In the Azure portal, navigate to <*your account*> -> **Metrics**.
 
 Then, add a chart and a metric that you want to monitor.
 
-### Query metrics using CLI
-
-TODO
+For more information, see [Monitoring data collected by Azure Monitor](../../azure-monitor/platform/data-collection.md).
 
 ## Media Services diagnostic logs
 
@@ -76,23 +74,9 @@ Currently, you can get the following diagnostic logs:
 |Key delivery service request|Logs that show the delivery service request information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
 |Streaming endpoint|Logs that show the streaming endpoint information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
 
-### Access diagnostic logs
+### Collect and consume log data from your Azure resources
 
-To enable diagnostic logs for your Media Services Azure Resource Manager resource, use the following Azure CLI command. In the command, you need to provide the storage account into which you want for the Media Services logs to be written.
-
-TODO
-
-### View diagnostic logs
-
-To view the logs in the storage account, use the Azure CLI or the Azure portal.
-
-#### View logs with CLI
-
-TODO
-
-#### View logs with portal
-
-TODO
+See [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 # Next steps 
 
