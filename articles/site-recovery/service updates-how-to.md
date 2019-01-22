@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/8/2019
-ms.author: rajanaki
+ms.author: rajanaki 
 
 ---
 # Service updates in Azure Site Recovery
