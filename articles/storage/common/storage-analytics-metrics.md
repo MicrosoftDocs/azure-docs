@@ -1,17 +1,16 @@
 ---
-title: "Storage Analytics Metrics (Classic)"
+title: "Azure Storage analytics metrics (Classic)"
 ms.custom: na
-ms.date: 2017-01-30
+ms.date: 01/30/2017
 ms.prod: azure
 ms.reviewer: na
 ms.service: storage
 ms.suite: na
 ms.tgt_pltfrm: na
-ms.topic: reference
 ms.assetid: c944c107-684c-47bf-92bf-5ce32689b7ae
 caps.latest.revision: 20
 author: tamram
-manager: carolz
+manager: twooley
 translation.priority.mt:
   - de-de
   - es-es
@@ -24,7 +23,7 @@ translation.priority.mt:
   - zh-cn
   - zh-tw
 ---
-# Storage Analytics Metrics (Classic)
+# Azure Storage analytics metrics (Classic)
 Storage Analytics can store metrics that include aggregated transaction statistics and capacity data about requests to a storage service. Transactions are reported at both the API operation level as well as at the storage service level, and capacity is reported at the storage service level. Metrics data can be used to analyze storage service usage, diagnose issues with requests made against the storage service, and to improve the performance of applications that use a service.  
 
  Storage Analytics metrics are enabled by default for new storage accounts. You can configure metrics in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the Set Service Properties operations to enable Storage Analytics for each service.  
@@ -33,7 +32,7 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 >  Storage Analytics metrics are available for the Blob, Queue, Table, and File services.
 >  Storage Analytics metrics become classic and Storage Metrics have been released. Please start using [Storage Metrics in Azure Monitor](storage-metrics-in-azure-monitor.md)
 
-## Transaction Metrics  
+## Transaction metrics  
  A robust set of data is recorded at hourly or minute intervals for each storage service and requested API operation, including ingress/egress, availability, errors, and categorized request percentages. You can see a complete list of the transaction details in the [Storage Analytics Metrics Table Schema](Storage-Analytics-Metrics-Table-Schema.md) topic.  
 
  Transaction data is recorded at two levels – the service level and the API operation level. At the service level, statistics summarizing all requested API operations are written to a table entity every hour even if no requests were made to the service. At the API operation level, statistics are only written to an entity if the operation was requested within that hour.  
@@ -42,10 +41,10 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 
  Transaction metrics are recorded for both user requests and requests made by Storage Analytics itself. For example, requests by Storage Analytics to write logs and table entities are recorded. For more information on how these requests are billed, see [Storage Analytics](storage-analytics.md)  
 
-## Capacity Metrics  
+## Capacity metrics  
 
 > [!NOTE]
->  Currently, capacity metrics are only available for the Blob service. Capacity metrics for the Table, Queue, and File services will be available in future versions of Storage Analytics.  
+>  Currently, capacity metrics are only available for the Blob service.
 
  Capacity data is recorded daily for a storage account’s Blob service, and two table entities are written. One entity provides statistics for user data, and the other provides statistics about the `$logs` blob container used by Storage Analytics. The *$MetricsCapacityBlob* table includes the following statistics:  
 
@@ -57,7 +56,7 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 
  For more information about the capacity metrics, see [Storage Analytics Metrics Table Schema](Storage-Analytics-Metrics-Table-Schema.md).  
 
-## How Metrics Are Stored  
+## How metrics are stored  
  All metrics data for each of the storage services is stored in three tables reserved for that service: one table for transaction information, one table for minute transaction information, and another table for capacity information. Transaction and minute transaction information consists of request and response data, and capacity information consists of storage usage data. Hour metrics, minute metrics, and capacity for a storage account’s Blob service is can be accessed in tables that are named as described in the following table.  
 
 |Metrics Level|Table Names|Supported for Versions|  
@@ -71,7 +70,7 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 
  These tables are automatically created when Storage Analytics is enabled for a storage service endpoint. They are accessed via the namespace of the storage account, for example: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. The metrics tables do not appear in a listing operation, and must be accessed directly via the table name.  
 
-## How to enable metrics using the Azure portal
+## Enable metrics using the Azure portal
 Follow these steps to enable metrics in the [Azure portal](https://portal.azure.com):
 
 1. Navigate to your storage account.
@@ -86,7 +85,7 @@ The [Azure portal](https://portal.azure.com) does not currently enable you to co
 > [!NOTE]
 >  Note that the Azure portal does not currently enable you to configure minute metrics in your storage account. You must enable minute metrics using PowerShell or programmatically.  
 
-## How to enable Storage Metrics using PowerShell  
+## Enable Storage metrics using PowerShell  
 You can use PowerShell on your local machine to configure Storage Metrics in your storage account by using the Azure PowerShell cmdlet **Get-AzureStorageServiceMetricsProperty** to retrieve the current settings, and the cmdlet **Set-AzureStorageServiceMetricsProperty** to change the current settings.  
 
 The cmdlets that control Storage Metrics use the following parameters:  
@@ -114,7 +113,7 @@ Get-AzureStorageServiceMetricsProperty -MetricsType Hour
 
 For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
-## How to enable Storage Metrics programmatically  
+## Enable Storage metrics programmatically  
 In addition to using the Azure portal or the Azure PowerShell cmdlets to control Storage Metrics, you can also use one of the Azure Storage APIs. For example, if you are using a .NET language you can use the Storage Client Library.  
 
 The classes **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**, and **CloudFileClient** all have methods such as **SetServiceProperties** and **SetServicePropertiesAsync** that take a **ServiceProperties** object as a parameter. You can use the **ServiceProperties** object to configure Storage Metrics. For example, the following C# snippet shows how to change the metrics level and retention days for the hourly queue metrics:  
@@ -134,7 +133,7 @@ For more information about using a .NET language to configure Storage Metrics, s
 
 For general information about configuring Storage Metrics using the REST API, see [Enabling and Configuring Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
-##  Viewing Storage Metrics  
+##  Viewing Storage metrics  
 After you configure Storage Analytics metrics to monitor your storage account, Storage Analytics records the metrics in a set of well-known tables in your storage account. You can configure charts to view hourly metrics in the [Azure portal](https://portal.azure.com):
 
 1. Navigate to your storage account in the [Azure portal](https://portal.azure.com).
@@ -237,8 +236,8 @@ The capacity used by the metrics tables is also billable. You can use the follow
 
 -   The capacity table for blobs has two rows added each day, provided you have opted-in for logs. This implies that every day, the size of this table increases by up to approximately 300 bytes.
 
-## See Also  
+## See also  
  [How To Monitor a Storage Account](http://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
  [Storage Analytics Metrics Table Schema](storage-analytics-metrics-table-schema.md)   
- [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-and-status-messages.md)   
+ [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-status-messages.md)   
  [Storage Analytics Logging](storage-analytics-logging.md)

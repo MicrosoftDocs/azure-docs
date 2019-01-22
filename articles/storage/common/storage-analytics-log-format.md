@@ -1,17 +1,16 @@
 ---
-title: "Storage Analytics Log Format"
+title: "Azure Storage analytics log format"
 ms.custom: na
-ms.date: 2016-06-29
+ms.date: 06/29/2016
 ms.prod: azure
 ms.reviewer: na
 ms.service: storage
 ms.suite: na
 ms.tgt_pltfrm: na
-ms.topic: reference
 ms.assetid: f2bc5951-c6f4-4496-9b8e-be95a328eb36
 caps.latest.revision: 18
 author: tamram
-manager: carolz
+manager: twooley
 translation.priority.mt:
   - de-de
   - es-es
@@ -24,7 +23,7 @@ translation.priority.mt:
   - zh-cn
   - zh-tw
 ---
-# Storage Analytics Log Format
+# Azure Storage analytics log format
 Each log entry conforms to a standard log format that is determined by the version of Storage Analytics Logging. The first field in a log entry always specifies the version number. Consumers of logging data can take a dependency on this field as well as the following aspects of a log entry:  
 
 -   All fields, populated or empty, will be separated by a semicolon “;”  
@@ -38,7 +37,7 @@ Each log entry conforms to a standard log format that is determined by the versi
 > [!NOTE]
 >  Any field that may contain a quote (“), a semicolon (;), or a newline (\n) is HTML encoded and quoted.  
 
-## Log Entry Format  
+## Log entry format  
  Each version 1.0 log entry adheres to the following format:  
 
  `<version-number>;<request-start-time>;<operation-type>;<request-status>;<http-status-code>;<end-to-end-latency-in-ms>;<server-latency-in-ms>;<authentication-type>;<requester-account-name>;<owner-account-name>;<service-type>;<request-url>;<requested-object-key>;<request-id-header>;<operation-count>;<requester-ip-address>;<request-version-header>;<request-header-size>;<request-packet-size>;<response-header-size>;<response-packet-size>;<request-content-length>;<request-md5>;<server-md5>;<etag-identifier>;<last-modified-time>;<conditions-used>;<user-agent-header>;<referrer-header>;<client-request-id>`  
@@ -49,8 +48,8 @@ Each log entry conforms to a standard log format that is determined by the versi
 |----------------|----------------|----------------|-------------|  
 |`<version-number>`|string|The version of Storage Analytics Logging used to record the entry.|`1.0`|  
 |`<request-start-time>`|timestamp|The time in UTC when the request was received by Storage Analytics.|`2011-08-09T21:44:36.2481552Z`|  
-|`<operation-type>`|string|The type of REST operation performed. See the [Storage Analytics Logged Operations and Status Messages](Storage-Analytics-Logged-Operations-and-Status-Messages.md) topic for a list of possible operations.|`GetBlob`|  
-|`<request-status>`|string|The status of the requested operation. See the [Storage Analytics Logged Operations and Status Messages](Storage-Analytics-Logged-Operations-and-Status-Messages.md) topic for a list of possible status messages. In version 2017-04-17 and later, `ClientOtherError` is not used. Instead, this field contains the [error code](https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes).  |`Success`|  
+|`<operation-type>`|string|The type of REST operation performed. See the [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-status-messages.md) topic for a list of possible operations.|`GetBlob`|  
+|`<request-status>`|string|The status of the requested operation. See the [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-status-messages.md) topic for a list of possible status messages. In version 2017-04-17 and later, `ClientOtherError` is not used. Instead, this field contains the [error code](https://docs.microsoft.com/rest/api/storageservices/Common-REST-API-Error-Codes).  |`Success`|  
 |`<http-status-code>`|string|The HTTP status code for the request. If the request is interrupted, this value may be set to `Unknown`.|`200`|  
 |`<end-to-end-latency-in-ms>`|duration|The total time in milliseconds to perform the requested operation, including the time to read the incoming request and send the response to the requester.|`39`|  
 |`<server-latency-in-ms>`|duration|The total time in milliseconds to perform the requested operation. This value does not include network latency (the time to read the incoming request and send the response to the requester).|`22`|  
@@ -78,7 +77,7 @@ Each log entry conforms to a standard log format that is determined by the versi
 |`<referrer-header>`|string|The `Referer` header value, in quotes.|`"http://contoso.com/about.html"`|  
 |`<client-request-id>`|string|The `x-ms-client-request-id` header value included in the request, in quotes.|`"8/9/2011 9:44:36 PM 45ef1c0f-8c71-4153-bc88-38589f63fbfc"`|  
 
-## Sample Log Entries  
+## Sample log entries  
 
 ### Get Blob  
  The following sample log entry applies to an anonymous **GetBlob** request:  
@@ -115,6 +114,6 @@ Each log entry conforms to a standard log format that is determined by the versi
 
  `1.0;2011-08-09T18:02:40.6526789Z;CopyBlobDestination;Success;201;28;28;authenticated;myaccount;myaccount;blob;"https://myaccount.blob.core.windows.net/thumbnails/lake.jpg?timeout=30000";"/myaccount/thumbnails/lakebck.jpg";85ba10a5-b7e2-495e-8033-588e08628c5d;2;268.20.203.21:4362;2009-09-19;505;0;188;0;0;;;;;;;;"8/9/2011 6:02:40 PM 683803d3-538f-4ba8-bc7c-24c83aca5b1a"`  
 
-## See Also  
+## See also  
  [Storage Analytics Logging](storage-analytics-logging.md)   
- [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-and-status-messages.md)
+ [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-status-messages.md)

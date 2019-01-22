@@ -1,17 +1,16 @@
 ---
-title: "Storage Analytics Logging"
+title: "Azure Storage analytics logging"
 ms.custom: na
-ms.date: 2017-01-30
+ms.date: 01/30/2007
 ms.prod: azure
 ms.reviewer: na
 ms.service: storage
 ms.suite: na
 ms.tgt_pltfrm: na
-ms.topic: reference
 ms.assetid: 1727932c-8a3b-4502-86ac-c89931d54bac
 caps.latest.revision: 24
 author: tamram
-manager: carolz
+manager: twooley
 translation.priority.mt:
   - de-de
   - es-es
@@ -24,7 +23,7 @@ translation.priority.mt:
   - zh-cn
   - zh-tw
 ---
-# Storage Analytics Logging
+# Azure Storage analytics logging
 Storage Analytics logs detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
  Storage Analytics logging is not enabled by default for your storage account. You can enable it in the [Azure portal](https://portal.azure.com/); for details, see [Monitor a storage account in the Azure portal](/azure/storage/storage-monitor-storage-account). You can also enable Storage Analytics programmatically via the REST API or the client library. Use the [Get Blob Service Properties](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Get Queue Service Properties](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties), and [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) operations to enable Storage Analytics for each service.
@@ -34,7 +33,7 @@ Storage Analytics logs detailed information about successful and failed requests
 > [!NOTE]
 >  Storage Analytics logging is currently available only for the Blob, Queue, and Table services. However, premium storage account is not supported.
 
-## Logging Authenticated Requests
+## Logging authenticated requests
  The following types of authenticated requests are logged:
 
 -   Successful requests
@@ -45,9 +44,9 @@ Storage Analytics logs detailed information about successful and failed requests
 
 -   Requests to analytics data
 
- Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](Storage-Analytics-Logged-Operations-and-Status-Messages.md) and [Storage Analytics Log Format](Storage-Analytics-Log-Format.md) topics.
+ Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](Storage-Analytics-Logged-Operations-Status-Messages.md) and [Storage Analytics Log Format](Storage-Analytics-Log-Format.md) topics.
 
-## Logging Anonymous Requests
+## Logging anonymous requests
  The following types of anonymous requests are logged:
 
 -   Successful requests
@@ -58,9 +57,9 @@ Storage Analytics logs detailed information about successful and failed requests
 
 -   Failed GET requests with error code 304 (Not Modified)
 
- All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](Storage-Analytics-Logged-Operations-and-Status-Messages.md) and [Storage Analytics Log Format](Storage-Analytics-Log-Format.md) topics.
+ All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](Storage-Analytics-Logged-Operations-Status-Messages.md) and [Storage Analytics Log Format](Storage-Analytics-Log-Format.md) topics.
 
-## How Logs are Stored
+## How logs are stored
  All logs are stored in block blobs in a container named `$logs`, which is automatically created when Storage Analytics is enabled for a storage account. The `$logs` container is located in the blob namespace of the storage account, for example: `http://<accountname>.blob.core.windows.net/$logs`. This container cannot be deleted once Storage Analytics has been enabled, though its contents can be deleted.
 
 > [!NOTE]
@@ -70,7 +69,7 @@ Storage Analytics logs detailed information about successful and failed requests
 
  Duplicate records may exist for logs created in the same hour. You can determine if a record is a duplicate by checking the **RequestId** and **Operation** number.
 
-### Log Naming Conventions
+### Log naming conventions
  Each log will be written in the following format:
 
  `<service-name>/YYYY/MM/DD/hhmm/<counter>.log`
@@ -97,7 +96,7 @@ Storage Analytics logs detailed information about successful and failed requests
 
  When a storage request is logged, the resulting log name correlates to the hour when the requested operation completed. For example, if a GetBlob request was completed at 6:30PM on 7/31/2011, the log would be written with the following prefix: `blob/2011/07/31/1800/`
 
-### Log Metadata
+### Log metadata
  All log blobs are stored with metadata that can be used to identify what logging data the blob contains. The following table describes each metadata attribute:
 
 |Attribute|Description|
@@ -118,12 +117,12 @@ Storage Analytics logs detailed information about successful and failed requests
 -   `LogVersion=1.0`
 
 
-##  <a name="HowtoenableStorageLoggingusingtheWindowsAzureManagementPortal"></a> How to enable Storage Logging using the Azure portal  
+##  <a name="HowtoenableStorageLoggingusingtheWindowsAzureManagementPortal"></a> Enable Storage logging using the Azure portal  
 In the Azure portal, use the **Diagnostics** blade to control Storage Logging, accessible from the **MONITORING** section of a storage account's **Menu blade**.
 
 You can specify the storage services that you want to log, and the retention period (in days) for the logged data.  
 
-##  <a name="HowtoenableStorageLoggingusingPowerShell"></a> How to enable Storage Logging using PowerShell  
+##  <a name="HowtoenableStorageLoggingusingPowerShell"></a> Enable Storage logging using PowerShell  
  You can use PowerShell on your local machine to configure Storage Logging in your storage account by using the Azure PowerShell cmdlet **Get-AzureStorageServiceLoggingProperty** to retrieve the current settings, and the cmdlet **Set-AzureStorageServiceLoggingProperty** to change the current settings.  
 
  The cmdlets that control Storage Logging use a **LoggingOperations** parameter that is a string containing a comma-separated list of request types to log. The three possible request types are **read**, **write**, and **delete**. To switch off logging, use the value **none** for the **LoggingOperations** parameter.  
@@ -144,7 +143,7 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Table
 
  For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
-##  <a name="HowtoenableStorageLoggingprogrammatically"></a> How to enable Storage Logging programmatically  
+##  <a name="HowtoenableStorageLoggingprogrammatically"></a> Enable Storage logging programmatically  
  In addition to using the Azure portal or the Azure PowerShell cmdlets to control Storage Logging, you can also use one of the Azure Storage APIs. For example, if you are using a .NET language you can use the Storage Client Library.  
 
  The classes **CloudBlobClient**, **CloudQueueClient**, and **CloudTableClient** all have methods such as **SetServiceProperties** and **SetServicePropertiesAsync** that take a **ServiceProperties** object as a parameter. You can use the **ServiceProperties** object to configure Storage Logging. For example, the following C# snippet shows how to change what is logged and the retention period for queue logging:  
@@ -164,7 +163,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  For general information about configuring Storage Logging using the REST API, see [Enabling and Configuring Storage Analytics](http://msdn.microsoft.com/library/azure/hh360996.aspx).  
 
-##  <a name="FindingyourStorageLogginglogdata"></a> Finding your Storage Logging log data  
+##  <a name="FindingyourStorageLogginglogdata"></a> Find your Storage logging log data  
  When you have configured Storage Logging to log request data from your storage account, it saves the log data to blobs in a container named **$logs** in your storage account. This container does not show up if you list all the containers in your account, but if you use your storage-browsing tool to navigate to the container directly, you will see all the blobs that contain your logging data. Storage Logging uses a naming convention for the blobs to make it easy to identify the blob in which you are interested. Within your **$logs** container, the blobs are named as follows:  
 
 ```  
@@ -202,7 +201,7 @@ foreach {
 
  For information about listing blobs programmatically, see [Enumerating Blob Resources](http://msdn.microsoft.com/library/azure/hh452233.aspx) and [Setting and Retrieving Properties and Metadata for Blob Resources](http://msdn.microsoft.com/library/azure/dd179404.aspx).  
 
-##  <a name="DownloadingStorageLogginglogdata"></a> Downloading Storage Logging log data  
+##  <a name="DownloadingStorageLogginglogdata"></a> Download Storage logging log data  
  To view and analyze your log data, you should download the blobs that contain the log data you are interested in to a local machine. Many storage-browsing tools enable you to download blobs from your storage account; you can also use the Azure Storage team provided command-line Azure Copy Tool (**AzCopy**) to download your log data.  
 
  To make sure you download the log data you are interested in and to avoid downloading the same log data more than once:  
@@ -224,9 +223,9 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
  For an example of how to download your log data programmatically, see the blog post [Windows Azure Storage Logging: Using Logs to Track Storage Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) and search for the word "DumpLogs" on the page.  
 
- When you have downloaded your log data, you can view the log entries in the files. These log files use a delimited text format that many log reading tools are able to parse, including Microsoft Message Analyzer (for more information, see the guide [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Different tools have different facilities for formatting, filtering, sorting, ad searching the contents of your log files. For more information about the Storage Logging log file format and content, see [Storage Analytics Log Format](storage-analytics-logging.md) and [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-and-status-messages.md).
+ When you have downloaded your log data, you can view the log entries in the files. These log files use a delimited text format that many log reading tools are able to parse, including Microsoft Message Analyzer (for more information, see the guide [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Different tools have different facilities for formatting, filtering, sorting, ad searching the contents of your log files. For more information about the Storage Logging log file format and content, see [Storage Analytics Log Format](storage-analytics-logging.md) and [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-status-messages.md).
 
-## See Also
+## See also
  [Storage Analytics Log Format](storage-analytics-log-format.md)
- [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-and-status-messages.md)
+ [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-status-messages.md)
  [Storage Analytics Metrics](storage-analytics-metrics.md)

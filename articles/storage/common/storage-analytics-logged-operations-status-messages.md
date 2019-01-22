@@ -1,17 +1,16 @@
 ---
-title: "Storage Analytics Logged Operations and Status Messages"
+title: "Azure Storage analytics logged operations and status messages"
 ms.custom: na
-ms.date: 2016-06-29
+ms.date: 06/29/2016
 ms.prod: azure
 ms.reviewer: na
 ms.service: storage
 ms.suite: na
 ms.tgt_pltfrm: na
-ms.topic: reference
 ms.assetid: e96d4080-b09f-435c-834d-7a3ac170b602
 caps.latest.revision: 21
 author: tamram
-manager: carolz
+manager: twooley
 translation.priority.mt:
   - de-de
   - es-es
@@ -24,19 +23,19 @@ translation.priority.mt:
   - zh-cn
   - zh-tw
 ---
-# Storage Analytics Logged Operations and Status Messages
+# Azure Storage analytics logged operations and status messages
 This topic lists the storage service operations and status messages that are recorded by Storage Analytics.  
 
-## Logged Request Status Messages  
+## Logged request status messages  
  The following table contains the status messages that are logged and reported in metrics data. A definition for each column is listed below:  
 
-1.  **Status Message**: The status message for a request logged by Storage Analytics. This value is included in log entries and is the name of a column in each Metrics table.  
+*  **Status Message**: The status message for a request logged by Storage Analytics. This value is included in log entries and is the name of a column in each Metrics table.  
 
-2.  **Description**: A description of the status message including HTTP verbs and status codes, if applicable.  
+*  **Description**: A description of the status message including HTTP verbs and status codes, if applicable.  
 
-3.  **Billable**: A yes/no value that indicates whether or not the request is billable. For more information on billing in Azure Storage, see [Understanding Azure Storage Billing - Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).  
+*  **Billable**: A yes/no value that indicates whether or not the request is billable. For more information on billing in Azure Storage, see [Understanding Azure Storage Billing - Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).  
 
-4.  **Availability**: A yes/no value that indicates whether or not the request is included in the availability calculation for a storage service or a specific API operation. All unexpected errors result in reduced availability for the storage service or the specified API operation.  
+*  **Availability**: A yes/no value that indicates whether or not the request is included in the availability calculation for a storage service or a specific API operation. All unexpected errors result in reduced availability for the storage service or the specified API operation.  
 
 |Status Message|Information|Billable|Availability|  
 |--------------------|-----------------|--------------|------------------|  
@@ -65,7 +64,7 @@ This topic lists the storage service operations and status messages that are rec
 |**AnonymousNetworkError**|Anonymous request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration.|Yes|Yes|  
 |**SASNetworkError**|SAS request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration.|Yes|Yes|  
 
-## Logged Operations  
+## Logged operations  
  The following table contains the operations that are logged for the corresponding storage service:  
 
 |Storage Service|Operation|  
@@ -74,7 +73,7 @@ This topic lists the storage service operations and status messages that are rec
 |[Table Service REST API](https://docs.microsoft.com/rest/api/storageservices/Table-Service-REST-API)|-   **EntityGroupTransaction**<br />-   **CreateTable**<br />-   **DeleteTable**<br />-   **DeleteEntity**<br />-   **InsertEntity**<br />-   **InsertOrMergeEntity**<br />-   **InsertOrReplaceEntity**<br />-   **QueryEntity**<br />-   **QueryEntities**<br />-   **QueryTable**<br />-   **QueryTables**<br />-   **UpdateEntity**<br />-   **MergeEntity**<br />-   **SetTableServiceProperties**<br />-   **GetTableServiceProperties**<br />-   **TablePreflightRequest**|  
 |[Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API)|-   **ClearMessages**<br />-   **CreateQueue**<br />-   **DeleteQueue**<br />-   **DeleteMessage**<br />-   **GetQueueMetadata**<br />-   **GetQueue**<br />-   **GetMessage**<br />-   **GetMessages**<br />-   **ListQueues**<br />-   **PeekMessage**<br />-   **PeekMessages**<br />-   **PutMessage**<br />-   **SetQueueMetadata**<br />-   **SetQueueServiceProperties**<br />-   **GetQueueServiceProperties**<br />-   **UpdateMessage**<br />-   **QueuePreflightRequest**|  
 
-## See Also  
+## See also  
  [Storage Analytics Logging](storage-analytics-logging.md)   
  [Storage Analytics Metrics](storage-analytics-metrics.md)   
  [Storage Analytics Metrics Table Schema](storage-analytics-metrics-table-schema.md)
