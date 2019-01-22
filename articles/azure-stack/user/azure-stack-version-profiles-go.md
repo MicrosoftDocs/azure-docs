@@ -120,7 +120,7 @@ To run a sample of Go code on Azure Stack, follow these steps:
    vnetClient .CreateOrUpdate( )
    ```
 
-For a complete example of creating a virtual network on Azure Stack by using the Go SDK profile, see the [Example](#example).
+For a complete example of creating a virtual network on Azure Stack by using the Go SDK profile, see the [example](#example).
 
 ## Authentication
 
@@ -150,7 +150,7 @@ The Authorizer must be set as the authorizer for the resource client. There are 
    }
    ```
 
-   Set `<activeDirectoryEndpoint>` to the value of the `loginEndpoint` property from the `ResourceManagerUrl` metadata retrieved on the previous section of this document. Set `<tenantID>` value to your Azure Stack tenant ID.
+   Set `<activeDirectoryEndpoint>` to the value of the `loginEndpoint` property from the `ResourceManagerUrl` metadata retrieved on the previous section of this document. Set the `<tenantID>` value to your Azure Stack tenant ID.
 
 4. Finally, create a service principal token by using the `NewServicePrincipalToken` method from the **adal** module:
 
@@ -176,7 +176,7 @@ The Authorizer must be set as the authorizer for the resource client. There are 
 
 ## Example
 
-This section shows a sample of Go code that creates a virtual network on Azure Stack. For complete examples of the Go SDK, see the [Azure Go SDK samples repository](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack samples are available under the hybrid path inside service folders of the repository.
+This example shows a sample of Go code that creates a virtual network on Azure Stack. For complete examples of the Go SDK, see the [Azure Go SDK samples repository](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack samples are available under the hybrid path inside service folders of the repository.
 
 > [!NOTE]  
 > To run the code in this example, verify that the subscription used has the **Network** resource provider listed as **Registered**. To verify, look for the subscription in the Azure Stack portal, and select **Resource providers.**
@@ -196,7 +196,7 @@ This section shows a sample of Go code that creates a virtual network on Azure S
    )
    ```
 
-2. Define your environment variables. To create a virtual network you need to have a resource group.
+2. Define your environment variables. To create a virtual network, you must have a resource group.
 
    ```go
    var (
@@ -211,7 +211,7 @@ This section shows a sample of Go code that creates a virtual network on Azure S
    )
    ```
 
-3. Now that you have defined your environment variables, add a method to create an authentication token by using the **adal** package. See details about authentication in the previous section.
+3. Now that you have defined your environment variables, add a method to create an authentication token by using the **adal** package. For more information about authentication, see the previous section.
 
    ```go
    //CreateToken creates a service principal token
