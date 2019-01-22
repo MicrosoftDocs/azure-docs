@@ -246,7 +246,7 @@ If you did not use the Split Copy tool to copy data, you will need to validate y
     ![Checksum output](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
 
     > [!TIP]
-    > - Reset the tool beween two runs.
+    > - Reset the tool between two runs.
     > - Use option 1 if dealing with large data set containing small files (~ KBs). This option only validates the files, as checksum generation may take a very long time and the performance could be very slow.
 
 3. If using multiple disks, run the command for each disk.
