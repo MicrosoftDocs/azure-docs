@@ -3,7 +3,7 @@ title: Set up MySQL on a Linux VM in Azure| Microsoft Docs
 description: Learn how to install the MySQL stack on a Linux virtual machine (Ubuntu or Red Hat family OS) in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,40 +14,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2016
-ms.author: zarhoads
+ms.date: 01/18/2019
+ms.author: cynthn
 
 ---
 # How to install MySQL on Azure
 In this article, you will learn how to install and configure MySQL on an Azure virtual machine running Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## Install MySQL on your virtual machine
-> [!NOTE]
-> You must already have a Microsoft Azure virtual machine running Linux in order to complete this tutorial. Please see the
-> [Azure Linux VM tutorial](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to create and set up a Linux VM with `mysqlnode` as the VM name and `azureuser` as user before proceeding.
-> 
-> 
+## Prerequisites
 
-In this case, use 3306 port as the MySQL port.  
+You need an Azure virtual machine running Linux in order to complete this tutorial. Please see the [Azure Linux VM tutorial](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to create and set up a Linux VM with `mysqlnode` as the VM name and `azureuser` as user before proceeding.
+ 
 
-Connect to the Linux VM you created via putty. If this is the first time you use Azure Linux VM, see how to use putty connect to a Linux VM [here](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## Install MySQL on Ubuntu
 
-We will use repository package to install MySQL5.6 as an example in this article. Actually, MySQL5.6 has more improvement in performance than MySQL5.5.  More information [here](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
+In this example, we are using 3306 as the MySQL port.  
 
-### How to install MySQL5.6 on Ubuntu
-We will use Linux VM with Ubuntu from Azure here.
+Create an SSH connection to the VM.
 
-* Step 1: Install MySQL Server 5.6
-    Switch to `root` user:
+Switch to `root` user:
   
-            #[azureuser@mysqlnode:~]sudo su -
-  
-    Install mysql-server 5.6:
-  
-            #[root@mysqlnode ~]# apt-get update
-            #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
+```bashsu
+do su -
+apt-get update
+apt-get -y install mysql-server-5.6
   
     During installation, you will see a dialog window poping up to ask you to set MySQL root password below, and you need set the password here.
   
