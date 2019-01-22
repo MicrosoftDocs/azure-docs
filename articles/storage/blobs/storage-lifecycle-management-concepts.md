@@ -173,7 +173,6 @@ The following sample rule filters the account to run the actions only on `contai
     }
   ]
 }
-
 ```
 
 ### Rule filters
@@ -223,19 +222,18 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
     {
       "name": "agingRule",
       "type": "Lifecycle",
-      "definition":
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "container1/foo", "container2/bar" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-              "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
-            }
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "container1/foo", "container2/bar" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
+            "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
           }
         }
+      }
     }
   ]
 }
@@ -252,22 +250,20 @@ Some data stays idle in the cloud and is rarely, if ever, accessed once stored. 
     {
       "name": "archiveRule",
       "type": "Lifecycle",
-      "definition":
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archivecontainer" ]
-          },
-          "actions": {
-            "baseBlob": {
-                "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
-            }
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "archivecontainer" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
           }
         }
+      }
     }
   ]
 }
-
 ```
 
 ### Expire data based on age
@@ -281,17 +277,16 @@ Some data is expected to expire days or months after creation to reduce costs or
     {
       "name": "expirationRule",
       "type": "Lifecycle",
-      "definition":
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "delete": { "daysAfterModificationGreaterThan": 365 }
-            }
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "delete": { "daysAfterModificationGreaterThan": 365 }
           }
         }
+      }
     }
   ]
 }
@@ -308,18 +303,17 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
     {
       "name": "snapshotRule",
       "type": "Lifecycle",
-      "definition":
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activedata" ]
-          },
-          "actions": {
-            "snapshot": {
-              "delete": { "daysAfterCreationGreaterThan": 90 }
-            }
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "activedata" ]
+        },
+        "actions": {
+          "snapshot": {
+            "delete": { "daysAfterCreationGreaterThan": 90 }
           }
         }
+      }
     }
   ]
 }
