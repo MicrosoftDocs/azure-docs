@@ -41,7 +41,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 10. Click **Done**
 
-11. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alerts with Dynamic Thresholds criteria as a single criterion.
+11. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alert rules with Dynamic Thresholds criteria as a single criterion.
 
 12. Fill in **Alert details** like **Alert Rule Name**, **Description** and **Severity**
 
