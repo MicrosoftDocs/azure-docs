@@ -4,7 +4,7 @@ description: Guidance for the specific errors when signing into an application y
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

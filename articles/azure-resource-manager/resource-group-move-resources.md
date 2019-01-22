@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: tomfitz
 
 ---
@@ -52,6 +52,7 @@ The following list provides a general summary of Azure services that can be move
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Data Explorer
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
@@ -162,6 +163,7 @@ From September 24, 2018, you can move managed disks. This support means you can 
 The following scenarios aren't yet supported:
 
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
+* Managed Disks in Availability Zones cannot be moved to a different subscription
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
 
