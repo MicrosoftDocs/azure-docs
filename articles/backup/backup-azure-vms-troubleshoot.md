@@ -52,7 +52,6 @@ You can troubleshoot errors encountered while using Azure Backup with the inform
 
 ## Restore
 
-
 | Error details | Workaround |
 | --- | --- |
 | Restore failed with a cloud internal error. |<ol><li>The cloud service to which you're trying to restore is configured with DNS settings. You can check: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>If **Address** is configured, then DNS settings are configured.<br> <li>The cloud service to which to you're trying to restore is configured with **ReservedIP**, and existing VMs in the cloud service are in the stopped state. You can check that a cloud service has reserved an IP by using the following PowerShell cmdlets: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>You're trying to restore a virtual machine with the following special network configurations into the same cloud service: <ul><li>Virtual machines under load balancer configuration, internal and external.<li>Virtual machines with multiple reserved IPs. <li>Virtual machines with multiple NICs. </ul><li>Select a new cloud service in the UI or see [restore considerations](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) for VMs with special network configurations.</ol> |
@@ -66,6 +65,15 @@ You can troubleshoot errors encountered while using Azure Backup with the inform
 | The resource group quota has been reached: <br>Delete some resource groups from the Azure portal or contact Azure Support to increase the limits. |None |
 | The selected subnet doesn't exist: <br>Select a subnet that exists. |None |
 | The Backup service doesn't have authorization to access resources in your subscription. |To resolve this error, first restore disks by using the steps in [Restore backed-up disks](backup-azure-arm-restore-vms.md#create-new-restore-disks). Then use the PowerShell steps in [Create a VM from restored disks](backup-azure-vms-automation.md#restore-an-azure-vm). |
+
+### UserErrorOlrNotSupported - The selected restore operation type is not supported.
+
+**Error code**: UserErrorOlrNotSupported <br>
+**Error message**: The selected restore operation type is not supported. <br>
+
+Your restore failed because you are performing [**Replace existing**](backup-azure-arm-restore-vms.md#replace-existing-disks) operation for an [unsupported scenario](backup-azure-arm-restore-vms.md#restore-options)
+
+To resolve this issue, use [**Create New**](backup-azure-arm-restore-vms.md#create-new-restore-disks) option instead of **Replace existing** option.
 
 ## Backup or restore takes time
 If your backup takes more than 12 hours, or restore takes more than 6 hours:
