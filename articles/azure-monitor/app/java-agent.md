@@ -28,7 +28,7 @@ If you have [instrumented your Java web app with Application Insights][java], yo
 To use the Java agent, you install it on your server. Your web apps must be instrumented with the [Application Insights Java SDK][java]. 
 
 ## Install the Application Insights agent for Java
-1. On the machine running your Java server, [download the agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Please ensure to download the same verson of Java Agent as Application Insights Java SDK core and web packages.
+1. On the machine running your Java server, [download the agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Please ensure to download the same version of Java Agent as Application Insights Java SDK core and web packages.
 2. Edit the application server startup script, and add the following JVM:
    
     `javaagent:`*full path to the agent JAR file*
@@ -90,6 +90,23 @@ By default, `reportExecutionTime` is true and `reportCaughtExceptions` is false.
 
 > [!NOTE]
 > AI-Agent.xml and the agent jar file should be in the same folder. They are often placed together in the `/resources` folder of the project. 
+
+### Spring Rest Template
+
+In order for Application Insights to successfully instrument HTTP calls made with Spring's Rest Template, use of the Apache HTTP Client is required. By default Spring's Rest Template is not configured to use the Apache HTTP Client. By specifying [HttpComponentsClientHttpRequestfactory](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/client/HttpComponentsClientHttpRequestFactory.html) in the constructor of a Spring Rest Template, it will use Apache HTTP.
+
+Here's an example of how to do this with Spring Beans. This is a very simple example which uses the default settings of the factory class.
+
+```java
+@bean
+public ClientHttpRequestFactory httpRequestFactory() {
+return new HttpComponentsClientHttpRequestFactory()
+}
+@Bean(name = 'myRestTemplate')
+public RestTemplate dcrAccessRestTemplate() {
+    return new RestTemplate(httpRequestFactory())
+}
+```
 
 #### Enable W3C distributed tracing
 

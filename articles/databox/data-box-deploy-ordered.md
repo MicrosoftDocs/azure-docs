@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -18,7 +18,7 @@ Azure Data Box is a hybrid solution that allows you to import your on-premises d
 This tutorial describes how you can order an Azure Data Box. In this tutorial, you learn about:
 
 > [!div class="checklist"]
-> * Sign up for Data Box
+> * Prerequisites to deploy Data Box
 > * Order a Data Box
 > * Track the order
 > * Cancel the order
@@ -59,7 +59,7 @@ Perform the following steps in the Azure portal to order a device.
 4. Check if Data Box service is available in your region. Enter or select the following information and click **Apply**. 
     |Setting  |Value  |
     |---------|---------|
-    |Subscription     | Select an EA, CSP, or Pay as you go subscription for Data Box service. <br> The subscription is linked to your billing account.       |
+    |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Transfer type     | Select **Import to Azure**.        |
     |Source country     |	Select the country where your data currently resides.         |
     |Destination Azure region     | 	Select the Azure region where you want to transfer data.        |
@@ -75,7 +75,7 @@ Perform the following steps in the Azure portal to order a device.
     |Name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
     |Resource group     |	Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Destination Azure region     | Select a region for your storage account. <br> For more information, go to [region availability](data-box-overview.md#region-availability).        |
-    |Storage account(s)     | Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General purpose v1**, **General purpose v2**, or **Blob storage account**.        |
+    |Storage account(s)     | Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General purpose v1**, **General purpose v2**, or **Blob storage account**. You cannot use storage accounts that have rules configured. The storage accounts must **allow access from all networks** in the fireworks and virtual networks section.|
     
 7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Click **Next**.
 
@@ -90,7 +90,7 @@ Perform the following steps in the Azure portal to order a device.
 
 ## Track the order
 
-After you have placed the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
+After you have placed the order, you can track the status of the order from Azure portal. Go to your Data Box order and then go to **Overview** to view the status. The portal shows the order in **Ordered** state.
 
 If the device is not available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
 

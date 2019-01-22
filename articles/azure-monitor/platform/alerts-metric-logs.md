@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Create Metric Alerts for Logs in Azure Monitor

@@ -38,7 +38,7 @@ First, create a resource group with [az group create](/cli/azure/group#az_group_
 az group create --name myResourceGroup --location westus
 ```
 
-Create a storage account to hold your virtual disks with [az storage account create](/cli/azure/storage/account#az_storage_account_create). The following example creates a storage account named `mystorageaccount`:
+Create a storage account to hold your virtual disks with [az storage account create](/cli/azure/storage/account). The following example creates a storage account named `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -129,7 +129,7 @@ az group create --name myResourceGroup --location westus
 
 ## Create a storage account
 
-Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account#az_storage_account_create). Any VMs with unmanaged disks that you create from your custom disk need to be in the same storage account as that disk. 
+Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account). Any VMs with unmanaged disks that you create from your custom disk need to be in the same storage account as that disk. 
 
 The following example creates a storage account named `mystorageaccount` in the resource group previously created:
 

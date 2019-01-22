@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##
@@ -107,3 +107,4 @@ To receive updates about changes to these IP addresses we recommend you configur
 * Learn more about [rate limiting](../../azure-monitor/platform/alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](../../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+

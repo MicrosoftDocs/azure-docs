@@ -90,7 +90,7 @@ Your dashboard displays the various settings that are required to configure and 
    
    On the **Web proxy settings** page, do the following:
    
-   a. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FDQN:Port number`. HTTPS URLs are not supported.
+   a. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
 
    b. Under **Authentication**, select **None** or **NTLM**.
 

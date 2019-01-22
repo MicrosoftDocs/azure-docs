@@ -7,7 +7,7 @@ ms.author: snmuvva
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: alerts
+ms.subservice: alerts
 
 ---
 

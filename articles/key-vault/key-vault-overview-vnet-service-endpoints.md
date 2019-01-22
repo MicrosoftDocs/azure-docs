@@ -68,6 +68,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure SQL Database|[Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Storage Service Encryption using customer-managed keys in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Encryption of data in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) with a customer-managed key.|
+|Azure databricks|[Fast, easy, and collaborative Apache Spark–based analytics service](../azure-databricks/what-is-azure-databricks.md)|
 
 
 

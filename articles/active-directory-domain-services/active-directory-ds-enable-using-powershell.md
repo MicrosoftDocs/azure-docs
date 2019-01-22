@@ -27,7 +27,7 @@ This article shows you how to enable Azure Active Directory (AD) Domain Services
 Follow the instructions in the article to [install the Azure AD PowerShell module and connect to Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### Install and configure Azure PowerShell
-Follow the instructions in the article to [install the Azure PowerShell module and connect to your Azure subscription](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Follow the instructions in the article to [install the Azure PowerShell module and connect to your Azure subscription](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## Task 2: Create the required service principal in your Azure AD directory
