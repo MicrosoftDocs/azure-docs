@@ -167,5 +167,6 @@ In extreme circumstances where a region is lost due to a significant disaster, M
 
 ## See also
 
+* [Initiate a customer-managed forced failover (preview)](storage-forced-failover.md)
 * [Designing highly available applications using RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Tutorial: Build a highly available application with Blob storage](../blobs/storage-create-geo-redundant-storage.md) 
