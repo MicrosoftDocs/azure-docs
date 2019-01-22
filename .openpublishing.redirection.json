@@ -29610,6 +29610,11 @@
         "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/endpoint-entities.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-search/entity-search-endpoint",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-sdk-java-quickstart.md",
       "redirect_url": "/azure/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-java-quickstart",
       "redirect_document_id": true
