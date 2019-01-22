@@ -4,15 +4,12 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-<<<<<<< HEAD
-ms.date: 01/10/2019
-=======
 ms.date: 01/17/2019
->>>>>>> 960dbb17a150cbb577df773df6b47a34d1a1ad3c
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
+
 # Troubleshoot errors with runbooks
 
 ## Authentication errors when working with Azure Automation runbooks
