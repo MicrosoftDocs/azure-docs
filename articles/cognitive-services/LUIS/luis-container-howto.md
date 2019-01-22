@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ---
 
@@ -379,3 +379,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings
 * Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+* Use more [Cognitive Service Containers](../cognitive-services-container-support.md)

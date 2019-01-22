@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 01/22/2019
 ms.author: diberry
 ---
 
@@ -401,6 +401,8 @@ az group delete --name cogserv-container-rg
 * [kubectl for Docker Users](https://kubernetes.io/docs/reference/kubectl/docker-cli-to-kubectl/)
 
 ## Next steps 
+
+* Use more [Cognitive Service Containers](../../cognitive-services-container-support.md)
 
 > [!div class="nextstepaction"]
 > [Use the Text Analytics Connected Service](../vs-text-connected-service.md)

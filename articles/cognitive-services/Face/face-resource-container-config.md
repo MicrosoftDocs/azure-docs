@@ -213,3 +213,7 @@ For example, the following command defines a Docker bind mount to the `D:\Output
   ```
 
 The Face container doesn't use input or output mounts to store training or database data. Instead, the Face container provides storage scenarios for managing training and database data. For more information about using storage scenarios, see [Storage scenario settings](#storage-scenario-settings).
+
+## Next steps
+
+* Use more [Cognitive Service Containers](../cognitive-services-container-support.md)

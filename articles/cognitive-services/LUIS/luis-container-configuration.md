@@ -190,3 +190,7 @@ ApiKey={APPLICATION_ID} \
 
 * Review [How to install and run containers](luis-container-howto.md)
 * Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+
+## Next steps
+
+* Use more [Cognitive Service Containers](../cognitive-services-container-support.md)

@@ -165,3 +165,7 @@ For example, the following command defines a Docker bind mount to the `D:\Output
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## Next steps
+
+* Use more [Cognitive Service Containers](../cognitive-services-container-support.md)

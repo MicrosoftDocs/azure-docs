@@ -170,3 +170,4 @@ The following docker examples are for the sentiment analysis container.
 ## Next steps
 
 * Review [How to install and run containers](how-tos/text-analytics-how-to-install-containers.md)
+* Use more [Cognitive Service Containers](../cognitive-services-container-support.md)
