@@ -30,7 +30,8 @@ You have a choice of two routes to apply Application Insights to your .NET web a
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code.
 * **Run time:** Instrument your web app on the server, as described below, without rebuilding and redeploying the code.
-* Note: If you use build time instrumentation, run time instrumention will not work even if it is turned on. As long as the run time instrumentation detected there is Application Insights SDK dependency in your application, it will stop working to avoid duplicated data collection.
+> [!NOTE]
+> If you use build time instrumentation, run time instrumention will not work even if it is turned on.
 
 Here's a summary of what you get by each route:
 
