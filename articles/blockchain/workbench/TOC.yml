@@ -71,6 +71,6 @@
   - name: Ethereum Proof-of-Work consortium
     href: ../templates/ethereum-deployment.md
   - name: Hyperledger Fabric consortium
-    href: ../templates/hyperledger-consortium-blockchain.md
+    href: ../templates/hyperledger-fabric-consortium-blockchain.md
   - name: Hyperledger Fabric single member
     href: ../templates/hyperledger-fabric-single-member-blockchain.md
