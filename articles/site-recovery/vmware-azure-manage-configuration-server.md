@@ -170,7 +170,7 @@ Upgrade the server as follows:
 
 You can optionally delete the configuration server by using PowerShell.
 
-1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) the Azure PowerShell module.
+1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) the Azure PowerShell module.
 2. Sign in to your Azure account by using this command:
 
     `Connect-AzureRmAccount`

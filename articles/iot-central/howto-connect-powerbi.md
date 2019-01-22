@@ -24,7 +24,7 @@ Use the Azure IoT Central Analytics Power BI solution template to create a power
 
 This solution template sets up the pipeline that takes the data in your Azure Blob storage account from [Continuous data export](howto-export-data.md). This data flows through to Azure Functions, Azure Data Factory, and Azure SQL Database to process and transform the data. The output can be visualized and analyzed in a Power BI report that you can download as a PBIX file. All of these resources are created in your Azure subscription, so you can customize each component to suit your needs. This solution template is completely open-sourced, so you can learn more about the architecture and extend the solution by visiting the [GitHub repo](https://aka.ms/iotcentralgithubpowerbisolutiontemplate).
 
-## Get the [Azure IoT Central Analytics solution template](https://aka.ms/iotcentralpowerbisolutiontemplate) from Microsoft AppSource
+## Get the [Azure IoT Central Analytics solution template](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate) from Microsoft AppSource.
 
 ## Prerequisites
 Setting up the template requires the following:
@@ -47,7 +47,7 @@ The second report dives deeper into events and shows a historical view of errors
 
 ## Resources
 
-Visit AppSource to get the [Azure IoT Central Analytics solution template](https://aka.ms/iotcentralpowerbisolutiontemplate).
+Visit AppSource to get the [Azure IoT Central Analytics solution template](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate).
 
 Visit the [GitHub repo](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) to learn more about the architecture and extend the solution.
 

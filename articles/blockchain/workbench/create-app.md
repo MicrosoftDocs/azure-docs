@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2019
+ms.date: 01/08/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -275,7 +275,7 @@ Add the constructor function to your contract in your `HelloBlockchain.sol` smar
 
 ```
     // constructor function
-    function HelloBlockchain(string message) public
+    constructor(string message) public
     {
         Requestor = msg.sender;
         RequestMessage = message;

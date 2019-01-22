@@ -4,7 +4,7 @@ description: A tutorial that walks you through the process of using a user-assig
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi

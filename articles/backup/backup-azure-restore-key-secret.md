@@ -57,7 +57,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 
 ## Restore secret
 
-If your Azure VM without Azure AD is encrypted using BEK only (for both Windows and Linux VMs), generate the secret name and value through above commands and feed it to set secret cmdlet to put the secret (BEK) back in the key vault.
+Use the JSON file generated above to get secret name and value and feed it to set secret cmdlet to put the secret (BEK) back in the key vault. Use these cmdlets if your **VM is encrypted using BEK and KEK**.
 
 **Use these cmdlets if your Windows VM is encrypted using BEK and KEK.**
 
@@ -79,7 +79,7 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-If your Azure VM with AD is **encrypted using BEK only**, generate secret blob file from the JSON and feed it to restore secret cmdlet to put the secret (BEK) back in the key vault.
+Use the JSON file generated above to get secret name and value and feed it to set secret cmdlet to put the secret (BEK) back in the key vault. Use these cmdlets if your **VM is encrypted using BEK** only.
 
 ```
 PS C:\> $secretDestination = 'C:\secret.blob'

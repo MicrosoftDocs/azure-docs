@@ -1,5 +1,6 @@
 ---
-title: Using tags in Azure Content Moderator | Microsoft Docs
+title: Use custom tags for content moderation - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Content Moderator includes default tags, and you can create custom tags for moderating content specific to your business.
 services: cognitive-services
 author: sanjeev3
@@ -7,15 +8,16 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/25/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# About Tags #
+# Create and use moderation Tags
 
 In addition to the two default tags, **isadult** (**a**) and **isracy** (**r**), you can create custom tags for more targeted scanning. These custom tags are then available for human reviewers to assign to images or text.
 
-## Create tags ##
+## Create tags
 
 1.	Select Tags from the Settings tab.
 
@@ -29,7 +31,7 @@ In addition to the two default tags, **isadult** (**a**) and **isracy** (**r**),
 
 ![Defining Content Moderation Tags](images/tags-2-define.png)
 
-## Using Custom Tags ##
+## Using Custom Tags
 
 Custom tags are used during human review. They display on the preview, and the reviewer selects it by clicking on it.
 
@@ -43,6 +45,6 @@ While you can’t delete the two default tags, **isadult** and **isracy**, you c
 
 ![Deleting Content Moderation Tags](images/tags-5-delete.png)
 
-## Next steps ##
+## Next steps
 
 To learn how to use tags for image moderation, see [Review moderated images](Review-Moderated-Images.md).

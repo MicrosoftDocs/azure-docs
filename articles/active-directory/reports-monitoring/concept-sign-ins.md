@@ -157,7 +157,7 @@ If you need more flexibility, you can use the script solution. Clicking **Script
 
 If you want to run the script on a **Windows 10** machine, you need to perform a few additional steps first. 
 
-1. Install the [AzureRM module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+1. Install the [AzureRM module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
 2. Import the module by opening a PowerShell prompt and running the command **Import-Module AzureRM**.
 3. Run **Set-ExecutionPolicy unrestricted** and choose **Yes to All**. 
 4. Now you can run the downloaded PowerShell script in administrator mode to generate the CSV file.
@@ -229,6 +229,12 @@ When you click on a day in the app usage graph, you get a detailed list of the s
 The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
 
 ![Sign-in activity](./media/concept-sign-ins/11.png "Sign-in activity")
+
+## Office 365 activity logs
+
+You can view Office 365 activity logs from the [Office 365 Admin Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, only the Office 365 Admin Center provides a full view of the Office 365 activity logs. 
+
+You can also access the Office 365 activity logs programmatically using the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## Next steps
 

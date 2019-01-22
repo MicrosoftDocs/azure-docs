@@ -354,6 +354,8 @@
         href: cloudfoundry-get-started.md
       - name: Deploy your first app
         href: cloudfoundry-deploy-your-first-app.md
+    - name: Cassandra
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: OpenShift
       items:
       - name: OpenShift overview
@@ -391,12 +393,7 @@
       - name: MS SQL on Linux
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: High Performance Computing (HPC)
-      href: hpcpack-cluster-options.md
-      items:
-      - name: Run NAMD
-        href: classic/hpcpack-cluster-namd.md
-      - name: Install NVIDIA GPU drivers
-        href: n-series-driver-setup.md
+      href: https://docs.microsoft.com/powershell/high-performance-computing/overview
     - name: IBM Db2 pureScale
       items:
       - name: Architecture
@@ -526,6 +523,8 @@
     href: https://azure.microsoft.com/develop/python/
   - name: REST
     href: /rest/api/compute
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.compute/allversions
 - name: Resources
   items:
   - name: Author templates
