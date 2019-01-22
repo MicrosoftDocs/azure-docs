@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Use Azure role-based access controls to define access to the Kubernetes configuration file in Azure Kubernetes Service (AKS)
 
-You can interact with Kubernetes clusters using the `kubectl` tool. The Azure CLI provides an easy way to get the access credentials and configuration information to connect to your AKS clusters using `kubectl`. To limit who can get that Kubernetes configuration (*kubeconfig*) information and the permissions they then have, you can use Azure role-based access controls (RBAC).
+You can interact with Kubernetes clusters using the `kubectl` tool. The Azure CLI provides an easy way to get the access credentials and configuration information to connect to your AKS clusters using `kubectl`. To limit who can get that Kubernetes configuration (*kubeconfig*) information and to limit the permissions they then have, you can use Azure role-based access controls (RBAC).
 
 This article shows you how to assign RBAC roles that limit who can get the configuration information for an AKS cluster.
 
