@@ -366,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 You can log in to your Azure account (Azure Resource Manager mode) by running:
 
 ```powershell>
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 Click [**HERE**](../../azure-resource-manager/powershell-azure-resource-manager.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
@@ -398,7 +398,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```

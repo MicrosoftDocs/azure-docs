@@ -68,10 +68,10 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 
 ### PowerShell
 
-The Azure Resource Manager PowerShell module can be used to retrieve information about Azure VMs. To see information about a VM, such as the provisioning state for the Azure VM Agent, use [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm):
+The Azure Resource Manager PowerShell module can be used to retrieve information about Azure VMs. To see information about a VM, such as the provisioning state for the Azure VM Agent, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm):
 
 ```powershell`
-Get-AzureRmVM
+Get-AzVM
 ```
 
 The following condensed example output shows the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
@@ -88,7 +88,7 @@ OSProfile                  :
 The following script can be used to return a concise list of VM names and the state of the VM Agent:
 
 ```PowerShell
-$vms = Get-AzureRmVM
+$vms = Get-AzVM
 
 foreach ($vm in $vms) {
     $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Windowsconfiguration | Select ProvisionVMAgent
