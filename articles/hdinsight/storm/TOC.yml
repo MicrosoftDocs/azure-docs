@@ -270,6 +270,8 @@
     href: /rest/api/hdinsight/
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Related
   items:
   - name: Windows clusters

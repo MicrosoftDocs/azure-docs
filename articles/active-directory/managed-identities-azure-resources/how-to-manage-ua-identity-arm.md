@@ -4,7 +4,7 @@ description: Step by step instructions on how to create and delete user-assigned
 services: active-directory
 documentationcenter: 
 author: daveba
-manager: mtillman
+manager: daveba
 editor: 
 
 ms.service: active-directory
@@ -67,7 +67,7 @@ To create a user-assigned managed identity, use the following template. Replace 
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
       "name": "[parameters('resourceName')]",
-      "apiVersion": "2015-08-31-PREVIEW",
+      "apiVersion": "2018-11-30",
       "location": "[resourceGroup().location]"
     }
   ],

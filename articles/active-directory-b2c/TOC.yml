@@ -18,7 +18,13 @@
   items:
   - name: 1 - Create B2C tenant
     href: tutorial-create-tenant.md
-  - name: 2 - Authenticate accounts
+  - name: 2 - Register applications
+    href: tutorial-register-applications.md
+  - name: 3 - Create user flows
+    href: tutorial-create-user-flows.md
+  - name: 4 - Customize the UI
+    href: tutorial-customize-ui.md
+  - name: Authenticate accounts
     items:
     - name: ASP.NET
       href: active-directory-b2c-tutorials-web-app.md
@@ -26,7 +32,7 @@
       href: active-directory-b2c-tutorials-desktop-app.md
     - name: Single page
       href: active-directory-b2c-tutorials-spa.md
-  - name: 3 - Grant API access
+  - name: Grant API access
     items:
     - name: ASP.NET
       href: active-directory-b2c-tutorials-web-api.md
@@ -34,8 +40,6 @@
       href: active-directory-b2c-tutorials-desktop-app-webapi.md
     - name: Single page
       href: active-directory-b2c-tutorials-spa-webapi.md
-  - name: Customize the UI
-    href: tutorial-customize-ui.md
 - name: Samples
   href: code-samples.md
 - name: Concepts
@@ -263,8 +267,6 @@
     href: active-directory-b2c-access-tokens.md
   - name: Pass through access token
     href: idp-pass-through-user-flow.md
-  - name: Register your application
-    href: active-directory-b2c-app-registration.md
   - name: Report usage
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Resource owner password credentials

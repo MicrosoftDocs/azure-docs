@@ -56,7 +56,7 @@ admin-password | *secure password* | The password of the administrator user. It 
 
 
 The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
-+ `--sku-name B_Gen4_1` maps to Basic, Gen 4, and 1 vCore.
++ `--sku-name B_Gen4_1` maps to Basic, Gen 4, and 1 vCore. This option is the smallest SKU available.
 + `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
 + `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
@@ -203,7 +203,7 @@ Clean up all resources you created in the quickstart by deleting the [Azure reso
 az group delete --name myresourcegroup
 ```
 
-If you would just like to delete the one newly created server, you can run [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete) command.
+If you would just like to delete the one newly created server, you can run [az postgres server delete](/cli/azure/postgres/server) command.
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```

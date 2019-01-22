@@ -4,11 +4,12 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/17/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
+
 # Troubleshoot errors with runbooks
 
 ## Authentication errors when working with Azure Automation runbooks
@@ -123,6 +124,46 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 ## Common errors when working with runbooks
 
+###<a name="child-runbook-object"></a>Child runbook returns error when the output stream contains objects rather than simple data types
+
+#### Issue
+
+You receive the following error when invoking a childrunbook with the `-Wait` switch and the output stream contains and object:
+
+```
+Object reference not set to an instance of an object
+```
+
+#### Cause
+
+There is a known issue where the [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) does not handle the output stream correctly if it contains objects.
+
+#### Resolution
+
+To resolve this it is recommended that you instead implement a polling logic and use the [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet to retrieve the output. A sample of this logic is defined in the following example.
+
+```powershell
+$automationAccountName = "ContosoAutomationAccount"
+$runbookName = "ChildRunbookExample"
+$resourceGroupName = "ContosoRG"
+
+function IsJobTerminalState([string] $status) {
+    return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
+}
+
+$job = Start-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
+$pollingSeconds = 5
+$maxTimeout = 10800
+$waitTime = 0
+while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
+   Start-Sleep -Seconds $pollingSeconds
+   $waitTime += $pollingSeconds
+   $job = $job | Get-AzureRmAutomationJob
+}
+
+$jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+```
+
 ### <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
 #### Issue
@@ -227,6 +268,8 @@ This error can be caused by the following reasons:
 
 3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
+4. Your runbook attempted to call a an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
+
 #### Resolution
 
 Any of the following solutions fix the problem:
@@ -236,6 +279,8 @@ Any of the following solutions fix the problem:
 * Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).  
 
 * Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the memory and network limits that Azure sandboxes are.
+
+* If you need to call a process (such as .exe or subprocess.call) in a runbook, you'll need to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 

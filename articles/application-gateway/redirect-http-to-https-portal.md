@@ -24,7 +24,7 @@ In this article, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This tutorial requires the Azure PowerShell module version 3.6 or later to create a certificate and install IIS. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). To run the commands in this tutorial, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+This tutorial requires the Azure PowerShell module version 3.6 or later to create a certificate and install IIS. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). To run the commands in this tutorial, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create a self-signed certificate
 

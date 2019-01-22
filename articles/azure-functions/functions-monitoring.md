@@ -653,7 +653,7 @@ For the Azure CLI,  use the following commands to sign in, choose your subscript
 ```azurecli
 az login
 az account list
-az account set <subscriptionNameOrId>
+az account set --subscription <subscriptionNameOrId>
 az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 

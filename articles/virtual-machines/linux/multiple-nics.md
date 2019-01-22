@@ -62,7 +62,7 @@ az network nsg create \
 ```
 
 ## Create and configure multiple NICs
-Create two NICs with [az network nic create](/cli/azure/network/nic#az_network_nic_create). The following example creates two NICs, named *myNic1* and *myNic2*, connected the network security group, with one NIC connecting to each subnet:
+Create two NICs with [az network nic create](/cli/azure/network/nic). The following example creates two NICs, named *myNic1* and *myNic2*, connected the network security group, with one NIC connecting to each subnet:
 
 ```azurecli
 az network nic create \
@@ -100,7 +100,7 @@ Add routing tables to the guest OS by completing the steps in [Configure the gue
 ## Add a NIC to a VM
 The previous steps created a VM with multiple NICs. You can also add NICs to an existing VM with the Azure CLI. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](change-vm-size.md).
 
-Create another NIC with [az network nic create](/cli/azure/network/nic#az_network_nic_create). The following example creates a NIC named *myNic3* connected to the back-end subnet and network security group created in the previous steps:
+Create another NIC with [az network nic create](/cli/azure/network/nic). The following example creates a NIC named *myNic3* connected to the back-end subnet and network security group created in the previous steps:
 
 ```azurecli
 az network nic create \

@@ -7,7 +7,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/07/2018
-ms.topic: article
+ms.topic: quickstart
 ---
 
 # Run Ansible with Bash in Azure Cloud Shell
