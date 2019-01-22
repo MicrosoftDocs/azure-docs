@@ -112,7 +112,7 @@ az policy definition create \
 
 ## Assign the policy
 
-This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create). Any VM created in the **myResourceGroup** resource group will not be able to install the Linux VM Access or the Custom Script extensions for Linux. The resource group must exist before you can assign the policy.
+This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment). Any VM created in the **myResourceGroup** resource group will not be able to install the Linux VM Access or the Custom Script extensions for Linux. The resource group must exist before you can assign the policy.
 
 Use [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) to get your subscription ID to use in place of the one in the example.
 

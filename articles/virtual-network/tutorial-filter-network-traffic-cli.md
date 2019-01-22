@@ -66,7 +66,7 @@ az network asg create \
 
 ### Create a network security group
 
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNsg*: 
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNsg*: 
 
 ```azurecli-interactive 
 # Create a network security group

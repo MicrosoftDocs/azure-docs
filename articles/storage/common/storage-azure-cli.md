@@ -32,7 +32,7 @@ This guide assumes that you understand the basic concepts of Azure Storage. It a
 Download and install the Azure CLI by following the instructions outlined in [Install the Azure CLI](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> If you have trouble with the installation, check out the [Installation Troubleshooting](/cli/azure/install-az-cli2#installation-troubleshooting) section of the article, and the [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.
+> If you have trouble with the installation, check out the [Installation Troubleshooting](/cli/azure/install-az-cli2) section of the article, and the [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.
 >
 
 ## Working with the CLI

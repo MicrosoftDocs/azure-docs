@@ -51,7 +51,7 @@ List the access keys for your storage account with [az storage account keys list
 az storage account keys list --resource-group myResourceGroup --account-name mystorageaccount
 ```
 
-Create a container within your storage account using the storage key you obtained with [az storage container create](/cli/azure/storage/container#az_storage_container_create). The following example creates a container named `mydisks` using the storage key value from `key1`:
+Create a container within your storage account using the storage key you obtained with [az storage container create](/cli/azure/storage/container). The following example creates a container named `mydisks` using the storage key value from `key1`:
 
 ```azurecli
 az storage container create --account-name mystorageaccount \
@@ -161,7 +161,7 @@ info:    storage account keys list command OK
 Make a note of `key1` as you will use it to interact with your storage account in the next steps.
 
 ## Create a storage container
-In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your disks. A storage account can contain any number of containers. Create a container with [az storage container create](/cli/azure/storage/container#az_storage_container_create).
+In the same way that you create different directories to logically organize your local file system, you create containers within a storage account to organize your disks. A storage account can contain any number of containers. Create a container with [az storage container create](/cli/azure/storage/container).
 
 The following example creates a container named `mydisks`:
 

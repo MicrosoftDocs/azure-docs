@@ -75,7 +75,7 @@ az vmss show \
     --output table
 ```
 
-You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#az_vmss_scale). The following example sets the number of VMs in your scale set to *5*:
+You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss). The following example sets the number of VMs in your scale set to *5*:
 
 ```azurecli
 az vmss scale \
