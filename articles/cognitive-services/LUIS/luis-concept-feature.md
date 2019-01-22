@@ -19,10 +19,9 @@ In machine learning, a *feature* is a distinguishing trait or attribute of data 
 Add features to a language model to provide hints about how to recognize input that you want to label or classify. Features help LUIS recognize both intents and entities, but features are not intents or entities themselves. Instead, features might provide examples of related terms.  
 
 ## What is a phrase list feature?
-
-A phrase list is a list of words or phrases that are significantly importance to your application. The list act as a strong signal to the machine learning algorithms.
-
 A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This list is not a closed [list entity](luis-concept-entity-types.md#types-of-entities) (exact text matches) of matched words.
+
+A phrase list adds to the vocabulary of the app domain as a second signal to LUIS about those words.
 
 ## Phrase lists help all models
 
