@@ -34,7 +34,6 @@ You can choose whether you want to be notified by email of the alert conditions 
 > [!NOTE]
 > You can enter a maximum of 20 email addresses per virtual array.
 
-
 After you enable email notification for a virtual array, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
 #### To enable email notification for alerts
@@ -58,8 +57,8 @@ After you enable email notification for a virtual array, members of the notifica
       
       > [!NOTE]
       > If the test notification message can't be sent, the StorSimple Device Manager service will display an appropriate message. Click **OK**, wait a few minutes, and then try to send your test notification message again.
-      > 
-      > 
+      >
+      >
    5. At the bottom of the page, click **Save** to save your configuration. When prompted for confirmation, click **Yes**.
       
       ![Alerts test notification email sent](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
@@ -97,11 +96,11 @@ Click an alert in the list to get additional details for the alert, including th
 
 You can copy the alert details to a text file if you need to send the information to Microsoft Support. After you have followed the recommendation and resolved the alert condition on-premises, you should clear the alert from the list. Select the alert from the list and then click **Clear**. To clear multiple alerts, select each alert, click any column except the **Alert** column, and then click **Clear** after you have selected all the alerts to be cleared.
 
-When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue. 
+When you click **Clear**, you will have the opportunity to provide comments about the alert and the steps that you took to resolve the issue.
 
 ![alert comments](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
-Some events will be cleared by the system if another event is triggered with new information. 
+Some events will be cleared by the system if another event is triggered with new information.
 
 ## Sort and review alerts
 
@@ -126,7 +125,7 @@ The following tables list some of the StorSimple alerts that you might encounter
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Device *<device name>* is not connected to the cloud. |The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device. |
+| Device *\<device name>* is not connected to the cloud. |The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device. |
 
 ### Configuration alerts
 
@@ -158,9 +157,8 @@ The following tables list some of the StorSimple alerts that you might encounter
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Password for <*device name*> will expire in <*number*> days. |Password warning. |Your password will expire in <number< days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-virtual-array-change-device-admin-password.md). |
+| Password for <*device name*> will expire in <*number*> days. |Password warning. |Your password will expire in \<number> days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## Next steps
 
 * [Learn about the StorSimple Virtual Array](storsimple-ova-overview.md).
-
