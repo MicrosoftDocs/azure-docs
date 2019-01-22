@@ -33,7 +33,7 @@ Access to LinkedIn information within Microsoft apps and services makes it easie
 
 You must be an Azure Active Directory Admin to manage the setting for your organization. You can enable it for all users, or for a specific set of users.
 
-1. To enable or disable the account connections integration, follow the steps in [LinkedIn integration](linkedin-integration.md).
+1. To enable or disable the integration, follow the steps in [LinkedIn integration](linkedin-integration.md).
 2. When you announce the LinkedIn integration in your organization, point your users to the FAQ about [LinkedIn information in Microsoft apps and services](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). The article provides information about where LinkedIn information shows up, how to connect accounts, and more.
 
 ## User consent for data access in Microsoft and LinkedIn
