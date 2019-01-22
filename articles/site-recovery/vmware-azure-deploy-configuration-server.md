@@ -6,8 +6,8 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: mayg
+ms.date: 01/22/2018
+ms.author: ramamill
 ---
 
 # Deploy a configuration server
@@ -139,7 +139,7 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
     Refer to [VMware to Azure replication architecture](vmware-azure-architecture.md) to learn more about configuration server and its functionalities.
 5. Where can I find the latest version of Configuration server?
 
-    For steps to upgrade the configuration server through the portal, see [Upgrade the configuration server](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). You can also directly download it from [Microsoft Download Center](https://aka.ms/asrconfigurationserver). For detailed instructions on how to upgrade all Site Recovery components, refer [here](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+    For steps to upgrade the configuration server through the portal, see [Upgrade the configuration server](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For detailed instructions on how to upgrade all Site Recovery components, refer [here](https://aka.ms/asr_how_to_upgrade).
 6. Where can I download the passphrase for configuration server?
 
     Refer to [this article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) to download the passphrase.
@@ -159,6 +159,8 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
 11. Can I set up configuration server on Azure?
 
     It is recommended to set up configuration server on on-premises environment with direct line-of-sight with v-Center and to minimize data transfer latencies. You can take scheduled backups of configuration server for [failback purposes](vmware-azure-manage-configuration-server.md#failback-requirements).
+
+For more FAQ on configuration server, refer to our [documentation on configuration server common questions](vmware-azure-common-questions.md#configuration-server) .
 
 ## Troubleshoot deployment issues
 

@@ -72,7 +72,7 @@ The following steps outline the process to set up a local environment for UI dev
 
 ## Customize the layout
 
-Each page in the Remote Monitoring solution is composed of a set of controls, referred to as *panels* in the source code. The **Dashboard** page is made up of five panels: Overview, Map, Alarms, Telemetry, and Analytics. You can find the source code that defines each page and its panels in the [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub repository. For example, the code that defines the **Dashboard** page, its layout, and the panels on the page is located in the [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) folder.
+Each page in the Remote Monitoring solution is composed of a set of controls, referred to as *panels* in the source code. The **Dashboard** page is made up of five panels: Overview, Map, Alerts, Telemetry, and Analytics. You can find the source code that defines each page and its panels in the [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub repository. For example, the code that defines the **Dashboard** page, its layout, and the panels on the page is located in the [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) folder.
 
 Because the panels manage their own layout and sizing, you can easily modify the layout of a page. Make the following changes to the **PageContent** element in the `src/components/pages/dashboard/dashboard.js` file to:
 
@@ -330,7 +330,7 @@ The telemetry chart now shows the five minutes of telemetry data:
 
 ## Add a new KPI
 
-The **Dashboard** page displays KPIs in the **Analytics** panel. These KPIs are calculated in the `src/components/pages/dashboard/dashboard.js` file. The KPIs are rendered by the `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` file. The following steps describe how to calculate and render a new KPI value on the **Dashboard** page. The example shown is to add a new percentage change in warning alarms KPI:
+The **Dashboard** page displays KPIs in the **Analytics** panel. These KPIs are calculated in the `src/components/pages/dashboard/dashboard.js` file. The KPIs are rendered by the `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` file. The following steps describe how to calculate and render a new KPI value on the **Dashboard** page. The example shown is to add a new percentage change in warning alerts KPI:
 
 1. Open the `src/components/pages/dashboard/dashboard.js` file. Modify the **initialState** object to include a **warningAlertsChange** property as follows:
 
@@ -360,7 +360,7 @@ The **Dashboard** page displays KPIs in the **Analytics** panel. These KPIs are 
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 
