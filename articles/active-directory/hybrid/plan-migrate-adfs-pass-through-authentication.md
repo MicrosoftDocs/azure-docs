@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Migrate from federation to pass-through authentication
 description: This article has information about moving your hybrid identity environment from federation to pass-through authentication.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
