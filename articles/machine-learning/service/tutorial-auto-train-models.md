@@ -616,7 +616,7 @@ To automatically train a model, take the following steps:
 
 ### Define settings for autogeneration and tuning
 
-Define the experiment parameter and model settings for autogeneration and tuning. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these deafult settings will take approximately 10-15 min, but if you want a shorter run time, reduce either `iterations` or `iteration_timeout_minutes`.
+Define the experiment parameter and model settings for autogeneration and tuning. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 10-15 min, but if you want a shorter run time, reduce either `iterations` or `iteration_timeout_minutes`.
 
 
 |Property| Value in this tutorial |Description|
