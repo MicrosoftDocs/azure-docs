@@ -33506,7 +33506,7 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md",
-      "redirect_url": "/azure/azure-monitor/platform/tutorial-dashboards",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-schema",
       "redirect_document_id": true
     },
     {
