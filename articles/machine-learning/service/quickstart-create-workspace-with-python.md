@@ -42,7 +42,8 @@ The following Azure resources are added automatically to your workspace when the
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.6.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.6. It requires version 1.0.2 or later.
+
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
@@ -54,7 +55,6 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
-The code in this article requires the Azure Machine Learning SDK version 1.0.2 or later.
 
 Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
