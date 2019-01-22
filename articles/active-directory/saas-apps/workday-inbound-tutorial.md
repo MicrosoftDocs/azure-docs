@@ -1041,7 +1041,7 @@ See also:
 
 Use the function [NormalizeDiacritics](../manage-apps/functions-for-customizing-application-data.md#normalizediacritics) to remove special characters in first name and last name of the user, while constructing the email address or CN value for the user.
 
-## Troubleshooting provisioning issues
+## Troubleshooting tips
 
 This section provides specific guidance on how to troubleshoot provisioning issues with your Workday integration using the Azure AD Audit Logs and Windows Server Event Viewer logs. It builds on top of the generic troubleshooting steps and concepts captured in the [Tutorial: Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
 
@@ -1051,7 +1051,7 @@ This section covers the following aspects of troubleshooting:
 * [Setting up Azure portal Audit Logs for service troubleshooting](#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
 * [Understanding logs for AD User Account create operations](#understanding-logs-for-ad-user-account-create-operations)
 * [Understanding logs for Manager update operations](#understanding-logs-for-manager-update-operations)
-
+* [Resolving commonly encountered errors](#resolving-commonly-encountered-errors)
 
 ### Setting up Windows Event Viewer for agent troubleshooting
 
@@ -1081,7 +1081,7 @@ This section covers the following aspects of troubleshooting:
 
 When a new hire in Workday is detected (let's say with Employee ID *21023*), the Azure AD provisioning service attempts to create a new AD user account for the worker and in the process creates 4 audit log records as described below:
 
-  ![Audit log create ops](media/workday-inbound-tutorial/wd_audit_logs_02.png)
+  [ ![Audit log create ops](media/workday-inbound-tutorial/wd_audit_logs_02.png) ](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 When you click on any of the audit log records, the **Activity Details** page opens up. Here is what the **Activity Details** page displays for each log record type.
 
@@ -1139,17 +1139,17 @@ When you click on any of the audit log records, the **Activity Details** page op
 
   Look for a HTTP POST record corresponding to the timestamp of the export operation with *Event ID = 2*. This record will contain the attribute values sent by the provisioning service to the provisioning agent.
 
-  ![SCIM Add](media/workday-inbound-tutorial/wd_event_viewer_05.png)
+  [![SCIM Add](media/workday-inbound-tutorial/wd_event_viewer_05.png)](media/workday-inbound-tutorial/wd_event_viewer_05.png#lightbox)
 
   Immediately following the above event, there should be another event that captures the response of the create AD account operation. This event returns the new objectGuid created in AD and it is set as the TargetAnchor attribute in the provisioning service.
 
-  ![SCIM Add](media/workday-inbound-tutorial/wd_event_viewer_06.png)
+  [![SCIM Add](media/workday-inbound-tutorial/wd_event_viewer_06.png)](media/workday-inbound-tutorial/wd_event_viewer_06.png)
 
-### Understanding logs for Manager update operations
+### Understanding logs for manager update operations
 
 The manager attribute is a reference attribute in AD. The provisioning service does not set the manager attribute as part of the user creation operation. Rather the manager attribute is set as part of an *update* operation after AD account is created for the user. Expanding the example above, let’s say a new hire with Employee ID "21451" is activated in Workday and the new hire’s manager (*21023*) already has an AD account. In this scenario, searching the Audit logs for user 21451 shows up 5 entries.
 
-  ![Manager Update](media/workday-inbound-tutorial/wd_audit_logs_03.png)
+  [ ![Manager Update](media/workday-inbound-tutorial/wd_audit_logs_03.png) ](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 The first 4 records are like the ones we explored as part of the user create operation. The 5th record is the export associated with manager attribute update. The log record displays the result of AD account manager update operation, which is performed using the manager’s *objectGuid* attribute.
 
@@ -1169,7 +1169,12 @@ The first 4 records are like the ones we explored as part of the user create ope
 
 ### Resolving commonly encountered errors
 
-This section covers commonly seen errors with Workday user provisioning and how to resolve it.
+This section covers commonly seen errors with Workday user provisioning and how to resolve it. The errors are grouped as follows:
+
+* [Provisioning agent errors](#provisioning-agent-errors)
+* [Connectivity errors](#connectivity-errors)
+* [AD user account creation errors](#ad-user-account-creation-errors)
+* [AD user account update errors](#ad-user-account-update-errors)
 
 #### Provisioning agent errors
 
@@ -1179,6 +1184,16 @@ This section covers commonly seen errors with Workday user provisioning and how 
 |2.| The Windows Service 'Microsoft Azure AD Connect Provisioning Agent' is in *Starting* state and does not switch to *Running* state. | As part of the installation, the agent wizard creates a local account (**NT Service\\AADConnectProvisioningAgent**) on the server and this is the **Log On** account used for starting the service. If a security policy on your Windows server prevents local accounts from running the services, you will encounter this error. | Open the *Services console*. Right click on the Windows Service 'Microsoft Azure AD Connect Provisioning Agent' and in the Log On tab specify the account of a domain administrator to run the service. Restart the service. |
 |3.| When configuring the provisioning agent with your AD domain in the step *Connect Active Directory*, the wizard takes a long time trying to load the AD schema and eventually times out. | This error usually shows up if the wizard is unable to contact the AD domain controller server due to firewall issues. | On the *Connect Active Directory* wizard screen, while providing the credentials for your AD domain, there is an option called *Select domain controller priority*. Use this option to select a domain controller that is in the same site as the agent server and ensure that there are no firewall rules blocking the communication. |
 
+#### Connectivity errors
+
+If the provisioning service is unable to connect to Workday or Active Directory, it could cause the provisioning to go into a quarantined state. Use the table below to troubleshoot connectivity issues.
+
+|#|Error Scenario |Probable Causes|Recommended Resolution|
+|--|---|---|---|
+|1.| When you click on **Test Connection**, you get the error message: *There was an error connecting to Active Directory. Please ensure that the on-premises Provisioning Agent is running and it is configured with the correct Active Directory domain.* | This error usually shows up if the provisioning agent is not running or there is a firewall blocking communication between Azure AD and the provisioning agent. You may also see this error, if the domain is not configured in the Agent Wizard. | Open the *Services* console on the Windows server to confirm that the agent is running. Open the provisioning agent wizard and confirm that the right domain is registered with the agent.  |
+|2.| The provisioning job goes into quarantine state over the weekends (Fri-Sat) and we get an email notification that there is an error with the synchronization. | One of the common causes for this error is the planned Workday downtime. If you are using a Workday implementation tenant, please note that Workday has scheduled down time for its implementation tenants over weekends (usually from Friday evening to Saturday morning) and during that period the Workday provisioning apps may go into quarantine state as it is not able to connect to Workday. It gets back to normal state once the Workday implementation tenant is back online. In rare cases, you may also see this error, if the password of the Integration System User changed due to tenant refresh or if the account is in locked or expired state. | Check with your Workday administrator or integration partner to see when Workday schedules downtime to ignore alert messages during the downtime period and confirm availability once Workday instance is back online.  |
+
+
 #### AD user account creation errors
 
 |#|Error Scenario |Probable Causes|Recommended Resolution|
@@ -1186,11 +1201,14 @@ This section covers commonly seen errors with Workday user provisioning and how 
 |1.| Export operation failures in the audit log with the message *Error: OperationsError-SvcErr: An operation error occurred. No superior reference has been configured for the directory service. The directory service is therefore unable to issue referrals to objects outside this forest.* | This error usually shows up if the *Active Directory Container* OU is not set correctly or if there are issues with the Expression Mapping used for *parentDistinguishedName*. | Check the *Active Directory Container* OU parameter for typos. If you are using *parentDistinguishedName* in the attribute mapping ensure that it always evaluates to a known container within the AD domain. Check the *Export* event in the audit logs to see the generated value. |
 |2.| Export operation failures in the audit log with error code: *SystemForCrossDomainIdentityManagementBadResponse* and message *Error: ConstraintViolation-AtrErr: A value in the request is invalid. A value for the attribute was not in the acceptable range of values. \nError Details: CONSTRAINT_ATT_TYPE - company*. | While this error is specific to the *company* attribute, you may see this error for other attributes like *CN* as well. This error appears due to AD enforced schema constraint. By default, the attributes like *company* and *CN* in AD have an upper limit of 64 characters. If the value coming from Workday is more than 64 characters, then you will see this error message. | Check the *Export* event in the audit logs to see the value for the attribute reported in the error message. Consider truncating the value coming from Workday using the [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) function or changing the mappings to an AD attribute that does not have similar length constraints.  |
 
-#### Synchronization rule action errors
+#### AD user account update errors
+
+During the AD user account update process, the provisioning service reads information from both Workday and AD, runs the attribute mapping rules and determines if any change needs to take effect. Accordingly an update event is triggered. If any of these steps encounters a failure, it is logged in the audit logs. Use the table below to troubleshoot common update errors.
 
 |#|Error Scenario |Probable Causes|Recommended Resolution|
 |--|---|---|---|
 |1.| Synchronization rule action failures in the audit log with the message *EventName = EntrySynchronizationError and ErrorCode = EndpointUnavailable*. | This error shows up if the provisioning service is unable to retrieve user profile data from Active Directory due to a processing error encountered by the on-premises provisioning agent. | Check the Provisioning Agent Event Viewer logs for error events that indicate issues with the read operation (Filter by Event ID #2). |
+|2.| The manager attribute in AD does not get updated for certain users in AD. | The most likely cause of this error is if you are using scoping rules and the user's manager is not part of the scope. You may also run into this issue if the manager's matching ID attribute (e.g. EmployeeID) is not found in the target AD domain or not set to the correct value. | Review the scoping filter and add the manager user in scope. Check the manager's profile in AD to make sure that there is a value for the matching ID attribute. |
 
 ## Managing your configuration
 
@@ -1348,7 +1366,7 @@ In the Microsoft Graph Explorer, run the following GET query replacing [serviceP
 
 You will get a response as shown below. Copy the "id attribute" present in the response. This value is the **ProvisioningJobId** and will be used to retrieve the underlying schema metadata.
 
-   ![Provisioning Job Id](./media/workday-inbound-tutorial/wd_export_03.png)
+   [![Provisioning Job Id](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### Step 4: Download the Provisioning Schema
 
@@ -1373,11 +1391,11 @@ In the Microsoft Graph Explorer, configure the following PUT query, replacing [s
 
 In the "Request Body" tab, copy the contents of the JSON schema file.
 
-   ![Request Body](./media/workday-inbound-tutorial/wd_export_04.png)
+   [![Request Body](./media/workday-inbound-tutorial/wd_export_04.png)](./media/workday-inbound-tutorial/wd_export_04.png#lightbox)
 
 In the "Request Headers" tab, add the Content-Type header attribute with value “application/json”
 
-   ![Request Headers](./media/workday-inbound-tutorial/wd_export_05.png)
+   [![Request Headers](./media/workday-inbound-tutorial/wd_export_05.png)](./media/workday-inbound-tutorial/wd_export_05.png#lightbox)
 
 Click on the "Run Query" button to import the new schema.
 
