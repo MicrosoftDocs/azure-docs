@@ -34771,6 +34771,11 @@
         "source_path": "articles/active-directory/devices/hybrid-azuread-join-manual-steps.md",
         "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-plan",
         "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-data-lake-storage-gen2.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-compare-storage-options",
+        "redirect_document_id": true
     }
   ]
 }

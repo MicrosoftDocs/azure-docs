@@ -498,6 +498,12 @@ CLR modules placed in Managed Instance and linked servers/distributed queries th
 
 **Workaround**: Use context connections in CLR module if possible.
 
+### TDE encrypted databases don't support user initiated backups
+
+You cannot execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that is encrypted with Transparent Data Encryption (TDE). TDE forces backups to be encrypted with internal TDE keys, and the key cannot be exported, so you will not be able to restore the backup.
+
+**Workaround**: Use automatic backups and point-in-time restore, or disable encryption on database.
+
 ## Next steps
 
 - For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
