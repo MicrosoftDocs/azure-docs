@@ -4,7 +4,7 @@ description: Address problems you might encounter when there is no working Conne
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
