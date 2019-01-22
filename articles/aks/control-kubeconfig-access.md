@@ -124,7 +124,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 ## Next steps
 
-For enhanced security and access to AKS clusters, [integrate Azure Active Directory authentication][aad-integration].
+For enhanced security on access to AKS clusters, [integrate Azure Active Directory authentication][aad-integration].
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config
