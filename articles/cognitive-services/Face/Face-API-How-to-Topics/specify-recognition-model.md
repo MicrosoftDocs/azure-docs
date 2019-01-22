@@ -71,7 +71,7 @@ await faceServiceClient.CreatePersonGroupAsync(personGroupId, "My Friends", "rec
 
 In this code, a **PersonGroup** with id `myfriends` is created, and it is set up to use the new _recognition_v02_ model to extract face features.
 
-Correspondingly, you need to specify which model to use when identifying faces against this PersonGroup (through [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration, otherwise the identification result might be incorrect.
+Correspondingly, you need to specify which model to use when identifying faces against this **PersonGroup** (through the [Face - Detect] API). The model you use should always be consistent with the **PersonGroup**'s configuration; otherwise, the operation will fail due to incompatible models.
 
 There is no change in the [Face - Identify] API; you only specify the model version in detection.
 
