@@ -51,6 +51,8 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 To get started developing with Azure Notebooks, follow the [Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
+By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 The Data Science Virtual Machine (DSVM) is a customized virtual machine (VM) image **designed for data science work** that is pre-configured with:

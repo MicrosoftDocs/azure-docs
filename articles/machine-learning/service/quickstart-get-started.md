@@ -58,7 +58,7 @@ This example shows how the workspace can help you keep track of information gene
 
 ### Open a notebook 
 
-Azure Notebooks provides a free cloud platform for Jupyter notebooks that are preconfigured with everything you need to run Machine Learning.  
+[Azure Notebooks](https://notebooks.azure.com) provides a free cloud platform for Jupyter notebooks that is preconfigured with everything you need to run Machine Learning.  
 
 Select `Open Azure Notebooks` to try your first experiment.
 
