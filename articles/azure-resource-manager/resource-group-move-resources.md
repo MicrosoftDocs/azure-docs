@@ -11,8 +11,8 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
-ms.author: tomfitz
+ms.date: 01/22/2019
+ms.author: tmfitz
 
 ---
 # Move resources to new resource group or subscription
@@ -52,6 +52,7 @@ The following list provides a general summary of Azure services that can be move
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Data Explorer
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
