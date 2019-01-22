@@ -3,7 +3,7 @@ title: Get started with the Microsoft Authenticator app - Azure Active Directory
 description: Learn how to upgrade to the latest version of Microsoft Authenticator.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 
 ms.service: active-directory

@@ -4,7 +4,7 @@ title: User help for authentication, apps, and device management - Azure Active 
 description: User help is for people that need help setting up and using security info, two-step verification, self-service password resets, device management, the Microsoft Authenticator app, and the My Apps portal.  
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 layout: LandingPage
 
 ms.service: active-directory

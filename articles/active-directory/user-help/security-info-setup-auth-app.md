@@ -3,7 +3,7 @@ title: Set up security info to use an authenticator app - Azure Active Directory
 description: Set up your security info to verify your identity using the Microsoft Authenticator app.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory

@@ -3,7 +3,7 @@ title: Backup and recover with Microsoft Authenticator app - Azure Active Direct
 description: Learn how to backup and recover your account credentials, using the Microsoft Authenticator app.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.component: user-help
 ms.service: active-directory

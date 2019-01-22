@@ -3,7 +3,7 @@ title: Set up security info to use text messaging - Azure Active Directory | Mic
 description: Set up your security info to verify your identity using a text (SMS) message.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory

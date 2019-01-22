@@ -3,7 +3,7 @@ title: Security info (preview) overview - Azure Active Directory | Microsoft Doc
 description: Learn about how to set up and use security info.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory

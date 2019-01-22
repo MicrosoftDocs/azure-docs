@@ -4,7 +4,7 @@ description: Manage how you use Azure Multi-Factor Authentication including chan
 services: active-directory
 keywords: multifactor authentication client, authentication problem, correlation ID
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 

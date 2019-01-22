@@ -3,7 +3,7 @@ title: Microsoft Authenticator phone sign-in - Azure and Microsoft accounts | Mi
 description: Use your phone to sign in to your Microsoft account instead of typing your password. This article answers FAQs about this feature.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity

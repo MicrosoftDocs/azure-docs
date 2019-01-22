@@ -3,7 +3,7 @@ title: Set up security info to use phone calls - Azure Active Directory| Microso
 description: Set up your security info to verify your identity using a mobile device or work phone number.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
