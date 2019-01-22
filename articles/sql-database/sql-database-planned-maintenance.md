@@ -32,7 +32,7 @@ Any client production application that connects to a cloud database service shou
 
 ## Frequency
 
-On average, 1.7 planned maintenance event occurs each month **(Girish to confirm)**.  Please note maintenance events will be paused during regular business hours from 8am - 5pm local time (of the resource) to minimize impact. [Removed until the feature goes live]
+On average, 1.7 planned maintenance event occurs each month. Please note maintenance events will be paused during regular business hours from 8am - 5pm local time (of the resource) to minimize impact. (Will be removed until wisetime feature goes live)
 
 ## Resource Health
 
