@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
-ms.component: ""
+ms.subservice: ""
 ---
 # Monitoring usage and estimated costs
 

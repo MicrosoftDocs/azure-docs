@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Create, view, and manage log alerts using Azure Monitor  
 
@@ -241,4 +241,5 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
 * Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+
 

@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 # Get started with Autoscale in Azure
 This article describes how to set up your Autoscale settings for your resource in the Microsoft Azure portal.
@@ -127,3 +127,4 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 [12]: ./media/autoscale-get-started/scale-definition-json.png
 [13]: ./media/autoscale-get-started/disable-autoscale.png
 [14]: ./media/autoscale-get-started/set-manualscale.png
+
