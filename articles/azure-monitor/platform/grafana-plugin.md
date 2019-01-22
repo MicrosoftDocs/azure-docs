@@ -8,7 +8,7 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: ""
+ms.subservice: ""
 ---
 
 # Monitor your Azure services in Grafana
@@ -163,3 +163,4 @@ If you've setup a Grafana environment on Azure, you are charged when VMs are run
 
 ## Next steps
 * [Overview of Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md)
+
