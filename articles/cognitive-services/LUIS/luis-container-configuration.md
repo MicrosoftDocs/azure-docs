@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual 
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry 
 ---
 
@@ -30,6 +30,7 @@ This container has the following configuration settings:
 |Yes|[Billing](#billing-setting)|Specifies the endpoint URI of the service resource on Azure.|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|
+|No|[Http Proxy](#http-proxy-credentials-settings)|Configure an HTTP proxy for making outbound requests.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
 |Yes|[Mounts](#mount-settings)|Read and write data from host computer to container and from container back to host computer.|
 
@@ -72,6 +73,10 @@ This setting can be found in the following places:
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## Http proxy credentials settings
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging settings
  
@@ -185,3 +190,4 @@ ApiKey={APPLICATION_ID} \
 
 * Review [How to install and run containers](luis-container-howto.md)
 * Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
