@@ -105,49 +105,49 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/SecretToken1.png)
 	
-7. Click on **Configure SAML** to open the **Configuration SAML** options. 
+	Click on **Configure SAML** to open the **Configuration SAML** options. 
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/SecretToken2.png)
 	
-8. Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, then save the settings. Copy the **Base URL** to **Tenant URL**, and **Bearer Token**  to **Secret Token** in the Azure portal.
+	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, then save the settings. Copy the **Base URL** to **Tenant URL**, and **Bearer Token**  to **Secret Token** in the Azure portal.
 
-9. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler Beta. If the connection fails, ensure your Zscaler Beta account has Admin permissions and try again.
+7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler Beta. If the connection fails, ensure your Zscaler Beta account has Admin permissions and try again.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/testConnection.png)
 	
-10. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
+8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/Notification.png)
 
-11. Click **Save**.
+9. Click **Save**.
 
-12. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zscaler Beta**.
+10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Zscaler Beta**.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/UserMappings.png)
 
-13. Review the user attributes that are synchronized from Azure AD to Zscaler Beta in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Beta for update operations. Select the **Save** button to commit any changes.
+11. Review the user attributes that are synchronized from Azure AD to Zscaler Beta in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Beta for update operations. Select the **Save** button to commit any changes.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/UserAttributeMappings.png)
 
-14. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zscaler Beta**.
+12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Zscaler Beta**.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/GroupMappings.png)
 
-15. Review the group attributes that are synchronized from Azure AD to Zscaler Beta in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Beta for update operations. Select the **Save** button to commit any changes.
+13. Review the group attributes that are synchronized from Azure AD to Zscaler Beta in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Beta for update operations. Select the **Save** button to commit any changes.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/GroupAttributeMappings.png)
 
-16. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./../active-directory-saas-scoping-filters.md).
+14. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](./../active-directory-saas-scoping-filters.md).
 
-17. To enable the Azure AD provisioning service for Zscaler Beta, change the **Provisioning Status** to **On** in the **Settings** section.
+15. To enable the Azure AD provisioning service for Zscaler Beta, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/ProvisioningStatus.png)
 
-18. Define the users and/or groups that you would like to provision to Zscaler Beta by choosing the desired values in **Scope** in the **Settings** section.
+16. Define the users and/or groups that you would like to provision to Zscaler Beta by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/Scoping.png)
 
-19. When you are ready to provision, click **Save**.
+17. When you are ready to provision, click **Save**.
 
 	![Zscaler Beta Provisioning](./media/zscaler-beta-provisioning-tutorial/SaveProvisioning.png)
 
