@@ -15,36 +15,34 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 
 # Using CI/CD with Azure Dev Spaces
 
-This article guides you through setting up a simple continuous integration/continuous deployment (CI/CD) pipeline on an AKS cluster with Dev Spaces enabled. We provide a sample application and use Azure DevOps Pipelines to configure the CI/CD pipeline. After configuring this CI/CD pipe, you can continue to use your cluster for inner-loop development.
+This article guides you through setting up a continuous integration/continuous deployment (CI/CD) pipeline on an AKS cluster with Dev Spaces enabled. We provide a sample application and use Azure DevOps Pipelines to configure the CI/CD pipeline. Configuring CI/CD will automatically deploy application updates whenever committed code is pushed to your source repository, and you can also continue using your cluster for testing and debugging pre-commit code on-demand with Azure Dev Spaces.
 
-After using Azure Dev Spaces and discovering how easy it is to convert code into a running Kubernetes service, it may be tempting to try and use the Dev Spaces tooling in your CI/CD system to `azds up` your projects to avoid having to build and push a Docker image to a repository, set per-release Helm chart variables, etc. However, we don't recommend going with that approach. One of the primary goals of Azure Dev Spaces is to make inner-loop (code/run/debug) development scenarios run as _closely_ as possible to a Production environment. This provides more predictability and confidence for developers by avoiding the addition of development-only configuration or runtimes.
-
-So, a CI/CD system in a Dev Spaces-enabled environment ideally shouldn't look much different than CI/CD in a non-Dev Spaces environment. This tutorial will guide you on how to create a simple CI/CD system for our sample applications, but none of the components or strategies used should look much different than what you may already be used to.
+After using Azure Dev Spaces and discovering how easy it is to convert code into a running Kubernetes service, it may be tempting to try and use the Dev Spaces tooling in your CI/CD system to `azds up` your projects to avoid having to build and push a Docker image to a repository, set per-release Helm chart variables, etc. However, we don't recommend going with that approach because Dev Spaces inserts configuration that streamlines development experiences, and you probably don’t want to run this in production (for example, opening debugger ports, streaming all logs, and routing requests to app code under development).
 
 ## Prerequisites
-* Have an existing [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled](../1-get-started-netcore.md)
-* Have the [Azure Dev Spaces CLI installed](upgrade-tools.md)
-* Have an existing [Azure DevOps organization with a project](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
-* Have an existing [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
-    * Have the Azure Container Registry [administrator account](../../container-registry/container-registry-authentication.md#admin-account) details available
+* [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled](../1-get-started-netcore.md)
+* [Azure Dev Spaces CLI installed](upgrade-tools.md)
+* [Azure DevOps organization with a project](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
+    * Azure Container Registry [administrator account](../../container-registry/container-registry-authentication.md#admin-account) details available
 * [Authorize your AKS cluster to pull from your Azure Container Registry](../../container-registry/container-registry-auth-aks.md)
 
 ## Download sample code
-For the sake of time, let's create a fork of our sample code GitHub repository. Go to https://github.com/Azure/dev-spaces and select **Fork**. Once the fork process is complete, **Clone** your forked version of the repository locally. By default the _master_ branch will have been checked out, but we've included some time-saving changes in the _azds_updates_ branch, which should also have been transferred during your fork.
-
-Note that we specifically want the _azds_updates_ branch for this step, *not* the _master_ branch. The _azds_updates_ branch contains updates we asked you to make manually in the previous tutorial section, as well as some pre-made YAML and JSON files for streamlining the deployment of the CI/CD system.
+For the sake of time, let's create a fork of our sample code GitHub repository. Go to https://github.com/Azure/dev-spaces and select **Fork**. Once the fork process is complete, **Clone** your forked version of the repository locally. By default the _master_ branch will be checked out, but we've included some time-saving changes in the _azds_updates_ branch which should also have been transferred during your fork. The _azds_updates_ branch contains updates we ask you to make manually in the Dev Spaces tutorial sections, as well as some pre-made YAML and JSON files for streamlining the deployment of the CI/CD system. You can use a command like `git checkout -b azds_updates origin/azds_updates` to checkout the _azds_updates_ branch in your local repository.
 
 ## Dev Spaces setup
 Create a new space called _dev_ using the `azds space select` command. The _dev_ space will be used by your CI/CD pipeline to push your code changes. It will also be used to create _child spaces_ based on _dev_.
 
 ```cmd
-azds space select -n dev -y
+azds space select -n dev
 ```
+
+When prompted to select a parent dev space, select _\<none\>_.
 
 The _dev_ space will always contain the latest state of the repository, a baseline, so that developers can create _child spaces_ from _dev_ to test their isolated changes within the context of the larger app. This concept is discussed in more detail in the Dev Spaces tutorials.
 
 ## Creating the build definition
-First click on your profile photo in the upper-right of the Azure DevOps site, open the preview features pane, and disable the _New YAML pipeline creation experience_:
+Open your Azure DevOps team project in a web browser and navigate to the _Pipelines_ section. First, click on your profile photo in the upper-right of the Azure DevOps site, open the preview features pane, and disable the _New YAML pipeline creation experience_:
 
 ![Opening preview features pane](../media/common/preview-feature-open.png)
 
