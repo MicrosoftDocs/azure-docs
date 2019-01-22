@@ -70,6 +70,7 @@ See also:
 | Azure Active Directory (AD) | \*.onmicrosoft.com | \*.partner.onmschina.cn |
 | Azure AD logon | [https://login.microsoftonline.com](https://login.windows.net/) | [https://login.partner.microsoftonline.cn](https://login.chinacloudapi.cn/) |
 | Azure AD Graph API | [https://graph.windows.net](https://graph.windows.net/) | [https://graph.chinacloudapi.cn](https://graph.chinacloudapi.cn/) |
+| Microsoft Graph | [https://graph.microsoft.com](https://graph.microsoft.com/) | [https://microsoftgraph.chinacloudapi.cn](https://microsoftgraph.chinacloudapi.cn/) |
 | Cognitive Services | <https://api.projectoxford.ai/face/v1.0> | <https://api.cognitive.azure.cn/face/v1.0> |
 | Azure Key Vault API | \*.vault.azure.net | \*.vault.azure.cn |
 | Logon with PowerShell: <br>- Classic Azure <br>- Azure Resource Manager <br>- Azure AD| - Add-AzureAccount<br>- Connect-AzureRmAccount <br> - Connect-msolservice |  - Add-AzureAccount -Environment AzureChinaCloud <br> - Connect-AzureRmAccount -Environment AzureChinaCloud <br>- Connect-msolservice -AzureEnvironment AzureChinaCloud | | |
