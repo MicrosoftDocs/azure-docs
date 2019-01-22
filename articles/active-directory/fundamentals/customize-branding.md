@@ -3,7 +3,7 @@ title: Add branding to your organization's sign-in page - Azure Active Directory
 description: Instructions about how to add your organization's branding to the Azure Active Directory sign-in page.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity

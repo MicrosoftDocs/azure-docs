@@ -34762,7 +34762,11 @@
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-keys.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
       "redirect_document_id": true
-    },         
+    }, 
+	{ "source_path": "articles/virtual-machines/workloads/sap/suse-quickstart.md", 
+	"redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist", 
+	"redirect_document_id": true 
+    },        
     {
         "source_path": "articles/active-directory/devices/hybrid-azuread-join-manual-steps.md",
         "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-plan",
