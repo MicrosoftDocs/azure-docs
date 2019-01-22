@@ -55,7 +55,7 @@
   - name: 5 - Push location-based notifications
     items:
     - name: Windows
-      href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
+      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
 - name: Samples
   items:
   - name: Code samples

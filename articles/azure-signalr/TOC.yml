@@ -44,6 +44,8 @@
     href: https://github.com/aspnet/Home/wiki/Roadmap
   - name: FAQs
     href: signalr-faq.md
+  - name: SignalR Service subscription level limits
+    href: https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#signalr-service-limits 
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos
