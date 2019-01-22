@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/22/2019
 ms.author: tamram
 ms.component: common
 ---
@@ -54,45 +54,6 @@ Customers may subscribe to the [Azure Service Health Dashboard](https://azure.mi
 
 Microsoft also recommends that you design your application to prepare for the possibility of write failures, and to expose these in a way that alerts you to the possibility of an outage in the primary region.
 
-## About the forced failover preview
-
-Forced failover is available in preview for all customers using GRS or RA-GRS with Azure Resource Manager deployments. General-purpose v1, General-purpose v2, and Blob storage account types are supported. Forced failover is currently available in these regions:
-
-- US West 2
-- US West Central
-
-The preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
-
-### Additional considerations 
-
-Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover during the preview period.
-
-#### Azure virtual machine disks
-
-Microsoft recommends converting unmanaged disks to managed disks.
-
-Azure VM disks are stored as page blobs in Azure Storage. When a VM is running in Azure, any disks attached to the VM are leased. A forced failover cannot proceed when there is a lease on a blob. To perform the failover, follow these steps:
-
-1. Shut down the VM.
-1. Perform the forced failover.
-1. Reattach VM disks and restart your VMs in the new primary region.
-
-Any data stored in a VM's temporary disk is lost when the VM is shut down.
-
-#### Azure File Sync
-
-Azure File Sync supports forced failover. However, you will need to reconfigure all Azure File Sync settings after the failover is complete.
-
-### Unsupported features or services
-
-The following features or services are not supported for forced failover for the preview release:
-
-- Azure Data Lake Storage Gen2 hierarchical file shares cannot be failed over.
-- A storage account containing Azure managed disks for virtual machines cannot be failed over. The storage account containing managed disks is managed by Microsoft.
-- A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
-- A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
-- A storage account containing large (premium???) Azure File shares cannot be failed over.  
-
 ## Understand the forced failover process
 
 Customer-managed forced failover (preview) enables you to fail your entire storage account over to the secondary region if the primary becomes unavailable for any reason. When you force a failover to the secondary region, clients can immediately begin writing data to the secondary endpoint. Forced failover helps you to maintain high availability for your customers.
@@ -137,9 +98,48 @@ After the storage account is reconfigured for geo-redundancy, it's possible to f
 
 To avoid a major data loss, check the **Last Sync Time** property before failing back. 
 
-### Prepare for failover
+## Initiate a forced failover
 
+portal/PS
 
+## About the forced failover preview
+
+Forced failover is available in preview for all customers using GRS or RA-GRS with Azure Resource Manager deployments. General-purpose v1, General-purpose v2, and Blob storage account types are supported. Forced failover is currently available in these regions:
+
+- US West 2
+- US West Central
+
+The preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+
+### Additional considerations 
+
+Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover during the preview period.
+
+#### Azure virtual machine disks
+
+Microsoft recommends converting unmanaged disks to managed disks.
+
+Azure VM disks are stored as page blobs in Azure Storage. When a VM is running in Azure, any disks attached to the VM are leased. A forced failover cannot proceed when there is a lease on a blob. To perform the failover, follow these steps:
+
+1. Shut down the VM.
+1. Perform the forced failover.
+1. Reattach the VM disks and restart your VMs in the new primary region.
+
+Any data stored in a temporary disk is lost when the VM is shut down.
+
+#### Azure File Sync
+
+Azure File Sync supports forced failover. However, you will need to reconfigure all Azure File Sync settings after the failover is complete.
+
+### Unsupported features or services
+
+The following features or services are not supported for forced failover for the preview release:
+
+- Azure Data Lake Storage Gen2 hierarchical file shares cannot be failed over.
+- A storage account containing Azure managed disks for virtual machines cannot be failed over. The storage account containing managed disks is managed by Microsoft.
+- A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
+- A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
+- A storage account containing large (premium???) Azure File shares cannot be failed over.  
 
 ## Alternative to forced failover
 
