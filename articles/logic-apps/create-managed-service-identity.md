@@ -8,7 +8,7 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/22/2019
 ---
 
 # Authenticate and access resources with managed identities in Azure Logic Apps
@@ -130,7 +130,7 @@ workflow definition includes these additional properties:
 
 | Property | Value | Description | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant | 
+| **principalId** | <*principal-ID*> | A Globally Unique Identifier (GUID) that represents the logic app in the Azure AD tenant and sometimes appears as an "object ID" or `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | A Globally Unique Identifier (GUID) that represents the Azure AD tenant where the logic app is now a member. Inside the Azure AD tenant, the service principal has the same name as the logic app instance. | 
 ||| 
 
