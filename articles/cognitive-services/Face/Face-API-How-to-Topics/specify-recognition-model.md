@@ -43,7 +43,7 @@ Available values:
 
 So, a request URL for the [Face - Detect] API will look like this:
 ```
-https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModelType]
+https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel]
 &subscription-key=<Subscription key>
 ```
 
