@@ -199,7 +199,11 @@ By clicking an item, you get more details about the sign-in operation:
 - Date
 - MFA Required
 - Sign-in status
- 
+
+> [!NOTE]
+> IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
+> Currently in Azure AD reports, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
+
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
 ![Sign-in activity](./media/concept-sign-ins/08.png "Sign-in activity")

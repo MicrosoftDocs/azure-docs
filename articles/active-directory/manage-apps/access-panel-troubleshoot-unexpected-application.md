@@ -4,7 +4,7 @@ description: Troubleshoot why an application is appearing in the Access Panel
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

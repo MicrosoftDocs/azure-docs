@@ -17,7 +17,7 @@ You can use simulated devices in the Remote Monitoring solution to test its beha
 This article describes the device model schema that specifies the capabilities and behavior of a simulated device. The device model is stored in a JSON file.
 
 > [!NOTE]
-> This device model schema is only for simulated devices hosted in the device simulation service. If you want to create a physical device, see [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
+> This device model schema is only for simulated devices hosted in the device simulation service. If you want to create a real device, see [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
 
 The following articles are related to the current article:
 

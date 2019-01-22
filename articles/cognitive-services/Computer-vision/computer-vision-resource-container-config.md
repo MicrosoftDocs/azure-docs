@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -27,6 +27,7 @@ Configuration settings in Computer Vision containers are hierarchical, and all c
 * [Billing](#billing-configuration-setting)
 * [Eula](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Http proxy credential settings](#http-proxy-credentials-settings)
 * [Logging](#logging-configuration-settings)
 * [Mounts](#mounts-configuration-settings)
 
@@ -111,6 +112,11 @@ The following table describes the configuration settings supported under the `Fl
 | `TlsConnectionEstablishmentTimeoutMs` | Integer | The timeout, in milliseconds, to establish a SSL/TLS connection with the Fluentd server. The default value is 10000 milliseconds (10 seconds).<br/> If `UseTLS` is set to false, this value is ignored. |
 | `UseTLS` | Boolean | Indicates whether the container should use SSL/TLS for communicating with the Fluentd server. The default value is false. |
 
+
+## Http proxy credentials settings
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## Logging configuration settings
 
 The `Logging` configuration settings manage ASP.NET Core logging support for your container. You can use the same configuration settings and values for your container that you can for an ASP.NET Core application. The following logging providers are supported by Computer Vision containers:
@@ -159,3 +165,7 @@ For example, the following command defines a Docker bind mount to the `D:\Output
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## Next steps
+
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

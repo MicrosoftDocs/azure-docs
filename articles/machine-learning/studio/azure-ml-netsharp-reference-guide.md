@@ -253,7 +253,7 @@ For more information about pooling layers, see these articles:
 
 ## Response normalization bundles
 
-**Response normalization** is a local normalization scheme that was first introduced by Geoffrey Hinton, et al, in the paper [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
+**Response normalization** is a local normalization scheme that was first introduced by Geoffrey Hinton, et al, in the paper [ImageNet Classification with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
 
 Response normalization is used to aid generalization in neural nets. When one neuron is firing at a very high activation level, a local response normalization layer suppresses the activation level of the surrounding neurons. This is done by using three parameters (`α`, `β`, and `k`) and a convolutional structure (or neighborhood shape). Every neuron in the destination layer **y** corresponds to a neuron **x** in the source layer. The activation level of **y** is given by the following formula, where `f` is the activation level of a neuron, and `Nx` is the kernel (or the set that contains the neurons in the neighborhood of **x**), as defined by the following convolutional structure:  
 
