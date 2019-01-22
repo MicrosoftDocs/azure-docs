@@ -15,7 +15,7 @@ Threat intelligence-based filtering can be enabled for your firewall to alert an
 
 If threat intelligence-based filtering is enabled, the associated rules are processed before any of the NAT rules, network rules, or application rules.
 
-You can choose to just log an alert when a rule is triggered, just block, or both.
+You can choose to just log an alert when a rule is triggered, or alert and block.
 
 [portal screenshot]
 
