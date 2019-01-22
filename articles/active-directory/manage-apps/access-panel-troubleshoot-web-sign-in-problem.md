@@ -4,7 +4,7 @@ description: Guidance to troubleshoot issues you may encounter while trying to s
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
@@ -60,7 +60,7 @@ For password-based SSO, the end user’s browsers can be:
 
 -   Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
 
--   Edge on Windows 10 Anniversary Edition or later 
+-   Microsoft Edge on Windows 10 Anniversary Edition or later 
 
 -   Chrome -- on Windows 7 or later, and on MacOS X or later
 

@@ -171,7 +171,7 @@ Microsoft currently doesn't provide support for right-to-left languages. You can
 ### Social identity provider translations
 Microsoft provides the `ui_locales` OIDC parameter to social logins. But some social identity providers, including Facebook and Google, don't honor them. 
 ### Browser behavior
-Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Edge currently does not request a language and goes straight to the default language.
+Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently does not request a language and goes straight to the default language.
 
 ### Supported languages
 

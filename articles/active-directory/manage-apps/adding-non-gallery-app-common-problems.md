@@ -1,10 +1,10 @@
 ---
 title: Problem adding a non-gallery application | Microsoft Docs
-description: Understand the common problems people face when adding custom non-gallery applications 
+description: Understand common problems people face when adding custom non-gallery applications 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

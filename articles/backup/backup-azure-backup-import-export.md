@@ -103,7 +103,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
     * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
     * BitLocker is enabled on the copy computer.
     * Azure PowerShell 3.7.0 is installed.
-    * The latest compatible browsers (Edge or Internet Explorer 11) are installed and JavaScript is enabled. 
+    * The latest compatible browsers (Microsoft Edge or Internet Explorer 11) are installed and JavaScript is enabled. 
     * The copy computer can access the Azure portal. If necessary, the copy computer can be the same as the source computer.
     
     > [!IMPORTANT] 

@@ -11,11 +11,10 @@ ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/18/2019
 ms.author: barclayn
-
+#Customer intent: As an Azure Key Vault administrator I want to enable logging and see what information is logged by Key Vault
 ---
 # Azure Key Vault Logging
 
@@ -35,7 +34,7 @@ Use this tutorial to help you get started with Azure Key Vault logging, to creat
 > [!NOTE]
 > This tutorial does not include instructions for how to create key vaults, keys, or secrets. For this information, see [Get started with Azure Key Vault](key-vault-get-started.md). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
 >
-> Currently, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Azure PowerShell instructions.
+> This article provides Azure PowerShell instructions for updating the diagnostic logging. However, the same can be enabled by using Azure Monitor in the Azure portal in the **Diagnostic logs** section. 
 >
 >
 
@@ -109,7 +108,7 @@ To enable logging for Key Vault, we'll use the Set-AzureRmDiagnosticSetting cmdl
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-The output for this includes:
+The output will look like this:
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -152,7 +151,7 @@ To list all the blobs in this container, type:
 Get-AzureStorageBlob -Container $container -Context $sa.Context
 ```
 
-The output will look something similar to this:
+The output will look similar to this:
 
 **Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
@@ -226,6 +225,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 will return a log entry similar to the one shown below:
 
+```json
     {
         "records":
         [
@@ -246,6 +246,7 @@ will return a log entry similar to the one shown below:
             }
         ]
     }
+```
 
 The following table lists the field names and descriptions.
 

@@ -8,11 +8,12 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Text moderation
+# Learn text moderation concepts
 
 Use Content Moderator’s machine-assisted text moderation and [human review](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
 

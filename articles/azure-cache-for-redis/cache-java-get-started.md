@@ -35,7 +35,7 @@ You can use any code editor to complete the steps in this quickstart. However, [
 
 ## Prerequisites
 
-[Apache Maven](http://maven.apache.org/)
+[Apache Maven](https://maven.apache.org/)
 
 
 

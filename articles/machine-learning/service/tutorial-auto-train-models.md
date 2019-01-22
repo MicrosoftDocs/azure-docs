@@ -620,7 +620,7 @@ Define the experiment parameter and model settings for autogeneration and tuning
 |**primary_metric**| spearman_correlation | Metric that you want to optimize.|
 |**preprocess**| True | By using **True**, the experiment can preprocess the input.|
 |**verbosity**| logging.INFO | Controls the level of logging.|
-|**n_cross_validationss**|5|Number of cross-validation splits.|
+|**n_cross_validations**|5|Number of cross-validation splits.|
 
 
 

@@ -7,7 +7,7 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
 ---
 
@@ -196,3 +196,4 @@ CheckResultMessageArguments : {}
 ## Next steps
 
 To troubleshoot more issues with your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md).
+

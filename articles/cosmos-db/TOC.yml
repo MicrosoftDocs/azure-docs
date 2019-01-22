@@ -296,6 +296,8 @@
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
           href: /rest/api/cosmos-db-resource-provider/
+        - name: Resource Manager template
+          href: /azure/templates/microsoft.documentdb/databaseaccounts
     - name: Azure Cosmos DB's API for MongoDB
       items: 
       - name: Introduction
@@ -456,8 +458,6 @@
     items:
     - name: Manage database account
       href: how-to-manage-database-account.md
-    - name: Configure time to live
-      href: how-to-time-to-live.md
     - name: Global distribution
       items:
       - name: Manage consistency
@@ -476,10 +476,12 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
-    - name: Indexing
-      items:
-      - name: Configure indexing
-        href: how-to-manage-indexing-policy.md
+      - name: Configure time to live
+        href: how-to-time-to-live.md
+      - name: Indexing
+        items:
+        - name: Configure indexing
+          href: how-to-manage-indexing-policy.md
     - name: Security
       items:
       - name: Configure IP firewall

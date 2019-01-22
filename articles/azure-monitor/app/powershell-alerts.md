@@ -14,7 +14,7 @@ ms.date: 10/31/2016
 ms.author: mbullwin
 ---
 # Use PowerShell to set alerts in Application Insights
-You can automate the configuration of [alerts](../../azure-monitor/app/alerts.md) in [Application Insights](../../application-insights/app-insights-overview.md).
+You can automate the configuration of [alerts](../../azure-monitor/app/alerts.md) in [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 In addition, you can [set webhooks to automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md).
 

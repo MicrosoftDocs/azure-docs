@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -54,6 +54,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 **Geography** | **Storage location**
 --- | ---
 Azure Government | US Gov Virginia
+Asia | Southeast Asia
 Europe | North Europe or West Europe
 Unites States | East US or West Central US
 

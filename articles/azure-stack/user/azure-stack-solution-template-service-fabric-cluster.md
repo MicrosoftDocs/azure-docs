@@ -116,7 +116,7 @@ Use the following script to create the KeyVault and add the *cluster certificate
 
 
 For more information, see [Manage KeyVault on Azure Stack with
-PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell).
 
 ## Deploy the Marketplace item
 

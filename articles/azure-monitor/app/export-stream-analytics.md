@@ -19,7 +19,7 @@ ms.author: mbullwin
 In this example, we'll create an adaptor that takes data from Application Insights, renames and processes some of the fields, and pipes it into Power BI.
 
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../application-insights/app-insights-export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../azure-monitor/app/export-power-bi.md ). The path illustrated here is just an example to illustrate how to process exported data.
 > 
 > 
 
@@ -192,7 +192,7 @@ Wait until the job is Running.
 
 ## See results in Power BI
 > [!WARNING]
-> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../application-insights/app-insights-export-power-bi.md). The path illustrated here is just an example to illustrate how to process exported data.
+> There are much better and easier [recommended ways to display Application Insights data in Power BI](../../azure-monitor/app/export-power-bi.md ). The path illustrated here is just an example to illustrate how to process exported data.
 > 
 > 
 
@@ -217,5 +217,5 @@ Noam Ben Zeev shows how to process exported data using Stream Analytics.
 ## Next steps
 * [Continuous export](export-telemetry.md)
 * [Detailed data model reference for the property types and values.](export-data-model.md)
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 
