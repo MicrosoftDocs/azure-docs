@@ -41,7 +41,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 10. Click **Done**
 
-11. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alerts with Dynamic Thresholds criteria as a single criterion.
+11. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alert rules with Dynamic Thresholds criteria as a single criterion.
 
 12. Fill in **Alert details** like **Alert Rule Name**, **Description** and **Severity**
 
@@ -86,10 +86,10 @@ The previous sections described how to create, view and manage metric alert rule
     az monitor metrics alert --help
     ```
 
-3. You can create a simple metric alert rule that monitors if average Percentage CPU on a VM is greater than 70
+3. You can create a simple metric alert rule that monitors if average Percentage CPU on a VM is greater than 90
 
     ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90"
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
 4. You can view all the metric alerts in a resource group using the following command

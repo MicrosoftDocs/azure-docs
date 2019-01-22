@@ -4,7 +4,7 @@ description: This topic provides steps for how to troubleshoot issues with objec
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.service: active-directory
 ms.workload: identity

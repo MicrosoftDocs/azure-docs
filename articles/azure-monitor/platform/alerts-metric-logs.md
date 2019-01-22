@@ -25,14 +25,14 @@ You can use metric alerts on popular Log Analytics logs extracted as metrics as 
 
 There are many benefits for using **Metric Alerts for Logs** over query based [Log Alerts](../../azure-monitor/platform/alerts-log.md) in Azure; some of them are listed below:
 
-- Metric Alerts offer near-real time monitoring capability and Metric Alerts for Logs forks data from log source to ensure the same
-- Metric Alerts are stateful - only notifying once when alert is fired and once when alert is resolved; as opposed to Log alerts, which are stateless and keep firing at every interval if the alert condition is met
-- Metric Alerts for Log provide multiple dimensions, allowing filtering to specific values like Computers, OS Type, etc. simpler; without the need for penning query in analytics
+- Metric Alerts offer near-real time monitoring capability and Metric Alerts for Logs forks data from log source to ensure the same.
+- Metric Alerts are stateful - only notifying once when alert is fired and once when alert is resolved; as opposed to Log alerts, which are stateless and keep firing at every interval if the alert condition is met.
+- Metric Alerts for Log provide multiple dimensions, allowing filtering to specific values like Computers, OS Type, etc. simpler; without the need for penning query in analytics.
 
 > [!NOTE]
 > Specific metric and/or dimension will only be shown if data for it exists in chosen period. These metrics are available for customers with Azure Log Analytics workspaces.
 
-## Metrics and Dimensions Supported for Logs
+## Metrics and dimensions supported for logs
 
  Metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. The full list of metrics supported for Logs from [Log Analytics workspaces](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) is listed; across supported solutions.
 
