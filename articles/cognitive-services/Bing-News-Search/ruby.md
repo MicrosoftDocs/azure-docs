@@ -22,7 +22,7 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Prerequisites
 
-* Ruby [2.4 or later](https://www.ruby-lang.org/downloads/)
+* Ruby [2.4 or later](https://www.ruby-lang.org/en/downloads/)
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
