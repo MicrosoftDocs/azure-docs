@@ -64,7 +64,7 @@
       href: custom-roles-rest.md
   - name: View activity logs
     href: change-history-report.md
-  - name: Elevate access for Global admin
+  - name: Elevate access to manage all subscriptions
     href: elevate-access-global-admin.md
   - name: Manage access for external users
     href: role-assignments-external-users.md

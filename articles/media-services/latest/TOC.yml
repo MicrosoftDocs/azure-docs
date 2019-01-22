@@ -143,12 +143,12 @@
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
-  - name: SDKs/Tools
+  - name: REST
+    href: https://aka.ms/ams-v3-rest-ref
+  - name: Azure CLI
+    href: https://aka.ms/ams-v3-cli-ref    
+  - name: SDKs
     items:
-    - name: REST
-      href: https://aka.ms/ams-v3-rest-ref
-    - name: Azure CLI
-      href: https://aka.ms/ams-v3-cli-ref
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-ref
     - name: Java
@@ -159,8 +159,8 @@
       href: https://aka.ms/ams-v3-nodejs-ref
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
-    - name: Resource Manager template
-      href: /azure/templates/microsoft.media/allversions
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.media/allversions
   - name: Event Grid schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
