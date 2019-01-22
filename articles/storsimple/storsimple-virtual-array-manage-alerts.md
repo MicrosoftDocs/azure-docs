@@ -125,21 +125,21 @@ The following tables list some of the StorSimple alerts that you might encounter
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Device *\<device name>* is not connected to the cloud. |The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device. |
+| Device *<device name\>* is not connected to the cloud. |The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device. |
 
 ### Configuration alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | On-premises virtual device configuration unsupported. |Slow performance. |The current configuration may result in performance degradation. Ensure that your server meets the minimum configuration requirements. For more information, go to [StorSimple Virtual Array Requirements](storsimple-ova-system-requirements.md). |
-| You are running out of provisioned disk space on <*device name*>. |Disk space warning. |You are running low on provisioned disk space. To free up space, consider moving workloads to another volume or share or deleting data. |
+| You are running out of provisioned disk space on <*device name*\>. |Disk space warning. |You are running low on provisioned disk space. To free up space, consider moving workloads to another volume or share or deleting data. |
 
 ### Job failure alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Backup of <*device name*> couldn’t be completed. |Backup job failure. |Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation. |
-| Clone of <*device name*> couldn’t be completed. |Clone job failure. |Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation. |
+| Backup of <*device name*\> couldn’t be completed. |Backup job failure. |Could not create a backup. Consider one of the following:<ul><li>Connectivity issues could be preventing the backup operation from successfully completing. Ensure that there are no connectivity issues. For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) for your virtual device.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul> Resolve the issues, clear the alert and retry the operation. |
+| Clone of <*device name*\> couldn’t be completed. |Clone job failure. |Could not create a clone. Consider one of the following:<ul><li>Your backup list may not be valid. Refresh the list to verify it is still valid.</li><li>Connectivity issues could be preventing the clone operation from successfully completing. Ensure that there are no connectivity issues.</li><li>You have reached the available storage limit. To free up space, consider deleting any backups that are no longer needed.</li></ul>Resolve the issues, clear the alert and retry the operation. |
 
 ### Networking alerts
 | Alert text | Event | More information / recommended actions |
@@ -151,13 +151,13 @@ The following tables list some of the StorSimple alerts that you might encounter
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
 | You are experiencing unexpected delays in data transfer. |Slow data transfer. |Throttling errors occur when you exceed the scalability targets of a storage service. The storage service does this to ensure that no single client or tenant can use the service at the expense of others. For more information on troubleshooting your Azure storage account, go to [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| You are running low on local reservation disk space on <*device name*>. |Slow response time. |10% of the total provisioned size for <*device name*> is reserved on the local device and you are now running low on the reserved space. The workload on <*device name*> is generating a higher rate of churn or you might have recently migrated a large amount of data. This may result in reduced performance. Consider one of the following actions to resolve this:<ul><li>Increase the cloud bandwidth to this device.</li><li>Reduce or move workloads to another volume or share.</li></ul> |
+| You are running low on local reservation disk space on <*device name*\>. |Slow response time. |10% of the total provisioned size for <*device name*\> is reserved on the local device and you are now running low on the reserved space. The workload on <*device name*\> is generating a higher rate of churn or you might have recently migrated a large amount of data. This may result in reduced performance. Consider one of the following actions to resolve this:<ul><li>Increase the cloud bandwidth to this device.</li><li>Reduce or move workloads to another volume or share.</li></ul> |
 
 ### Security alerts
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Password for <*device name*> will expire in <*number*> days. |Password warning. |Your password will expire in \<number> days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-virtual-array-change-device-admin-password.md). |
+| Password for <*device name*\> will expire in <*number*\> days. |Password warning. |Your password will expire in <*number*\> days. Consider changing your password. For more information, go to [Change the StorSimple Virtual Array device administrator password](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## Next steps
 
