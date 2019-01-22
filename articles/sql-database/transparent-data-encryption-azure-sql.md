@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ---
 # Transparent data encryption for SQL Database and Data Warehouse
 
@@ -54,6 +54,9 @@ You don't need to decrypt databases for operations within Azure. The transparent
 - Active geo-replication
 - Creation of a database copy
 - Restore of backup file to Azure SQL Managed Instance
+
+> [!IMPORTANT]
+> Taking manual COPY-ONLY backup of a database encrypted by service-managed TDE is not allowed in Azure SQL Managed Instance, since certificate used for encryption is not accessible. Use point-in-time-restore feature to move this type of database to another Managed Instance.
 
 When you export a transparent data encryption-protected database, the exported content of the database isn't encrypted. This exported content is stored in un-encrypted BACPAC files. Be sure to protect the BACPAC files appropriately and enable transparent data encryption after import of the new database is finished.
 

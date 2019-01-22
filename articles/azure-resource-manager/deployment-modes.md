@@ -21,7 +21,7 @@ When deploying your resources, you specify that the deployment is either an incr
 
 When deploying resources:
 
-* In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template.
+* In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template. Those resources that are still specified, but are not being deployed due to a condition evaluated to be false, are not deleted, however.
 * In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template.
 
 For both modes, Resource Manager tries to create all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, the operation results in no change. If you change the property values for a resource, the resource is updated with those new values. If you try to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.

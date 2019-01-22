@@ -4,7 +4,7 @@ description: This article lists all releases of Azure AD Connect and Azure AD Sy
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na

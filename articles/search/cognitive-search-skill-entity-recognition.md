@@ -39,7 +39,7 @@ Parameters are case-sensitive and are all optional.
 | categories	| Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. If no category is provided, all types are returned.|
 |defaultLanguageCode |	Language code of the input text. The following languages are supported: `de, en, es, fr, it`|
 |minimumPrecision | Unused. Reserved for future use. |
-|includeTypelessEntites | When set to true if the text contains a well known entity, but cannot be categorized into one of the supported categories, it will be returned as part of the `"entities"` complex output field. Default is `false` |
+|includeTypelessEntities | When set to true if the text contains a well known entity, but cannot be categorized into one of the supported categories, it will be returned as part of the `"entities"` complex output field. Default is `false` |
 
 
 ## Skill inputs

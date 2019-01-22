@@ -3,7 +3,7 @@ title: Sign up for premium editions - Azure Active Directory| Microsoft Docs
 description: Instructions about how to sign up for Azure Active Directory Premium editions.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.component: fundamentals
