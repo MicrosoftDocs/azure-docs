@@ -71,7 +71,7 @@ Currently, you can get the following diagnostic logs:
 
 |Name|Description|
 |---|---|
-|Key delivery service request|Logs that show the delivery service request information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
+|Key delivery service request|Logs that show the key delivery service request information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
 |Streaming endpoint|Logs that show the streaming endpoint information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
 
 ### Collect and consume log data from your Azure resources
