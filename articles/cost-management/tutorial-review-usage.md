@@ -89,7 +89,7 @@ Azure Cost Management also provides cost-saving recommendations for Azure servic
 
 Alerts allow you to automatically notify stakeholders of spending anomalies and overspending risks. You can create alerts using reports that support alerts based on budget and cost thresholds.
 
-This example uses the **Actual Cost Over Time** report to send a notification when your spending on an Azure VM  nears your total budget. In this scenario, you have a total budget of $20,000 and you want to receive a notification when costs are approaching half of your budget, $9,000, and an additonal alert when costs reach $10,000.
+This example uses the **Actual Cost Over Time** report to send a notification when your spending on an Azure VM  nears your total budget. In this scenario, you have a total budget of $20,000 and you want to receive a notification when costs are approaching half of your budget, $9,000, and an additional alert when costs reach $10,000.
 
 1. From the menu at the top of the Cloudyn portal, select **Costs** > **Cost Analysis** > **Actual Cost Over Time**. 
 2. Set **Groups** to **Service** and set **Filter on the service** to **Azure/VM**. 
@@ -98,7 +98,7 @@ This example uses the **Actual Cost Over Time** report to send a notification wh
 5. Select the **Threshold** tab and then select  **Actual Cost vs. Threshold**. 
    1. In the **Red alert** threshold box enter 10000. 
    2. In the **Yellow alert** threshold box enter 9000. 
-   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to recieve. When you receive the total number of alerts that you specified, no additional alerts are sent. 
+   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to recieve. When you recieve the total number of alerts that you specified, no additional alerts are sent. 
 6. Select **Save**.
 
 ![Example showing red and yellow alerts based on spending thresholds](./media/tutorial-review-usage/schedule-alert01.png)
