@@ -3,15 +3,14 @@ title: Node.Js, Angular app using MongoB API (Part1)
 titleSuffix: Azure Cosmos DB
 description: Learn how to create a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB with this video based tutorial series.
 author: johnpapa
-
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-
+ms.reviewer: sngun
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB
 

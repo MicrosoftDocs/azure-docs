@@ -43,12 +43,12 @@ Application Insights SDKs are available for a range of application types: web se
 ### How is the data is collected?
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](../../azure-monitor/app/asp-net.md) or [at run time](../../application-insights/app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](../../azure-monitor/app/javascript.md), which loads into the end-user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](../../azure-monitor/app/asp-net.md) or [at run time](../../azure-monitor/app/monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](../../azure-monitor/app/javascript.md), which loads into the end-user's browser along with the page.
   
   * Each SDK has a number of [modules](../../azure-monitor/app/configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
 * In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [J2EE servers](../../azure-monitor/app/java-agent.md) can have such agents.
-* [Availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
+* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
 
 ### What kinds of data are collected?
 The main categories are:
@@ -59,7 +59,7 @@ The main categories are:
 * Client and server context - OS, locale, device type, browser, screen resolution.
 * [Exceptions](../../azure-monitor/app/asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
 * [Dependencies](../../azure-monitor/app/asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
-* [Availability tests](../../application-insights/app-insights-monitor-web-app-availability.md) - duration of test and steps, responses.
+* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) - duration of test and steps, responses.
 * [Trace logs](../../azure-monitor/app/asp-net-trace-logs.md) and [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
 
 [More detail](#data-sent-by-application-insights).
@@ -83,7 +83,7 @@ Raw data points (that is, items that you can query in Analytics and inspect in S
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 90 days.
 
-[Debug snapshots](../../application-insights/app-insights-snapshot-debugger.md) are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
+[Debug snapshots](../../azure-monitor/app/snapshot-debugger.md) are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
 ## Who can access the data?
 The data is visible to you and, if you have an organization account, your team members. 
@@ -199,7 +199,7 @@ We do not recommend explicitly setting your application to only use TLS 1.2 unle
 |.NET | Supported, configuration varies by version. | For detailed configuration info for .NET 4.7 and earlier versions refer to [these instructions](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Status Monitor | Supported, configuration required | Status Monitor relies on [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) to support TLS 1.2.
 |Node.js |  Supported, in v10.5.0, configuration may be required. | Use the [official Node.js TLS/SSL documentation](https://nodejs.org/api/tls.html) for any application specific configuration. |
-|Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Java | Supported, JDK support for TLS 1.2 was added in [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) and [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 uses [TLS 1.2 by default](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
 | Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
 | Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
@@ -291,8 +291,8 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 [config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ../../application-insights/app-insights-monitor-performance-live-website-now.md
-[start]: ../../application-insights/app-insights-overview.md
+[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

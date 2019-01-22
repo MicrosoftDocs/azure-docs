@@ -40,7 +40,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## Access with Kubernetes secret
 
-In some instances, you might not be able to assign the required role to the auto-generated AKS service principal granting it access to ACR. For example, due to your organization's security model, you might not have sufficient permission in your Azure AD directory to assign a role to the AKS-generated service principal. In such a case, you can create a new service principal, then grant it access to the container registry using a Kubernetes image pull secret.
+In some instances, you might not be able to assign the required role to the auto-generated AKS service principal granting it access to ACR. For example, due to your organization's security model, you might not have sufficient permissions in your Azure Active Directory tenant to assign a role to the AKS-generated service principal. Assigning a role to a service principal requires your Azure AD account to have write permission to your Azure AD tenant. If you don't have permission, you can create a new service principal, then grant it access to the container registry using a Kubernetes image pull secret.
 
 Use the following script to create a new service principal (you'll use its credentials for the Kubernetes image pull secret). Modify the `ACR_NAME` variable for your environment before running the script.
 

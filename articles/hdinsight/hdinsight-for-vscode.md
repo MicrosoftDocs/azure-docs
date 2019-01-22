@@ -4,14 +4,12 @@ description: Learn how to use the Azure HDInsight Tools for Visual Studio Code t
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: ''
-author: jejiang
-
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.author: jejiang
+ms.date: 12/15/2018
 ---
 
 # Use Azure HDInsight Tools for Visual Studio Code
@@ -125,7 +123,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a Cluster**.
 2. Select **Generic Livy Endpoint**.
-3. Enter the generic Livy endpoint, for example: http://10.172.41.42:18080.
+3. Enter the generic Livy endpoint, for example: http\://10.172.41.42:18080.
 4. Select **Basic** when need authorization for the generic Livy endpoint, otherwise, select **None**.
 5. Input user name when select **Basic** in step4.
 6. Input password when select **Basic** in step4.

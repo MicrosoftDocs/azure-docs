@@ -2,11 +2,10 @@
 title: Azure Cosmos DB compliance 
 description: This article describes certification coverage for Azure Cosmos DB compliance offerings.
 author: dharmas-cosmos
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: dharmas-cosmos
+ms.author: dharmas
 ms.reviewer: sngun
 
 ---

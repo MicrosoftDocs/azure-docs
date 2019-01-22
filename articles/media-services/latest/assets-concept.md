@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 01/01/2018
 ms.author: juliako
 ms.custom: seodec18
 
@@ -227,3 +227,5 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 ## Next steps
 
 [Stream a file](stream-files-dotnet-quickstart.md)
+
+[Differences between Media Services v2 and v3](migrate-from-v2-to-v3.md)

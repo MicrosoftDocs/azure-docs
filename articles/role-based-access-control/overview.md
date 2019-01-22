@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -76,7 +76,7 @@ Azure has introduced data operations (currently in preview) that enable you to g
 
 ### Scope
 
-*Scope* is the boundary that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a [Website Contributor](built-in-roles.md#website-contributor), but only for one resource group.
+*Scope* is the set of resources that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a [Website Contributor](built-in-roles.md#website-contributor), but only for one resource group.
 
 In Azure, you can specify a scope at multiple levels: [management group](../azure-resource-manager/management-groups-overview.md), subscription, resource group, or resource. Scopes are structured in a parent-child relationship.
 
@@ -97,6 +97,12 @@ The following diagram shows an example of a role assignment. In this example, th
 ![Role assignment to control access](./media/overview/rbac-overview.png)
 
 You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to 2000 role assignments in each subscription. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
+
+## Multiple role assignments
+
+So what happens if you have multiple overlapping role assignments? RBAC is an additive model, so your effective permissions are the addition of your role assignments. Consider the following example where a user is granted the Contributor role at the subscription scope and the Reader role on a resource group. The addition of the Contributor permissions and the Reader permissions is effectively the Contributor role for the resource group. Therefore, in this case, the Reader role assignment has no impact.
+
+![Multiple role assignments](./media/overview/rbac-multiple-roles.png)
 
 ## Deny assignments
 

@@ -166,7 +166,7 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
 ## Related information
 
-* [Regular expression](luis-concept-entity-types.md#regex) entity concepts
+* [Regular expression](luis-concept-entity-types.md#regular-expression-entity) entity concepts
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)

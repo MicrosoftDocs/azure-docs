@@ -51,7 +51,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to get started with Content Moderator by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
+    text: Learn how to get started with Content Moderator by selecting an arrow link <img src="images/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:

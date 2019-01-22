@@ -362,7 +362,7 @@ For more information about querying policy events, see the [Policy Events](/rest
 The Azure PowerShell module for Policy is available on the PowerShell Gallery as
 [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). Using
 PowerShellGet, you can install the module using `Install-Module -Name AzureRM.PolicyInsights` (make sure you have the latest [Azure
-PowerShell](/powershell/azure/install-azurerm-ps) installed):
+PowerShell](/powershell/azure/azurerm/install-azurerm-ps) installed):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet

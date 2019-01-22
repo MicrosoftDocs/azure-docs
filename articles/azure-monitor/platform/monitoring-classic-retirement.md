@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring
 
 Azure Monitor has now become a unified full stack monitoring service, which now supports ‘One Metric’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy. 
 
-With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, will be deprecated by June 2019.
+With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, **will be deprecated by June 2019**.
 
  ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
@@ -25,9 +25,9 @@ Azure Monitor’s newer metric platform will now power monitoring coming from Ap
 
 The new unified Monitoring and Alerting for Application Insights will encompass:
 
-- **Application Insights Platform metrics** – which provides popular prebuilt metrics from Application Insights product. For more information, see this article on using [Platform Metrics for Application Insights on new Azure Monitor](../../application-insights/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
-- **Application Insights Availability and Web test** -which provides you the ability to assess the responsiveness and availability of your web app or server. For more information, see this article on using [Availability Tests and Alerts for Application Insights on new Azure Monitor](../../application-insights/app-insights-monitor-web-app-availability.md).
-- **Application Insights Custom metrics** – which lets you define and emit their own metrics for monitoring and alerts. For more information, see this article on using [Custom Metric for Application Insights on new Azure Monitor](../../application-insights/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+- **Application Insights Platform metrics** – which provides popular prebuilt metrics from Application Insights product. For more information, see this article on using [Platform Metrics for Application Insights on new Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
+- **Application Insights Availability and Web test** -which provides you the ability to assess the responsiveness and availability of your web app or server. For more information, see this article on using [Availability Tests and Alerts for Application Insights on new Azure Monitor](../../azure-monitor/app/monitor-web-app-availability.md).
+- **Application Insights Custom metrics** – which lets you define and emit their own metrics for monitoring and alerts. For more information, see this article on using [Custom Metric for Application Insights on new Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Application Insights Failure Anomalies (part of Smart Detection)** – which automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed HTTP requests or dependency calls. Application Insights Failure Anomalies (part of Smart Detection) as part of new Azure Monitor, will be available soon and we will update this doc with links on the next iteration as it is rolled-out in the coming months.
 
 ## Unified Metrics & Alerts for other Azure resources
@@ -45,7 +45,7 @@ Older classic monitoring and alerting will be retired on 30 June 2019; including
 
 - Older (classic) metrics and alerts for Azure resources as currently available via [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal; accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Older (classic) platform and custom metrics for Application Insights as well as alerting on them as currently available via [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal and accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
-- Older (classic) Failure Anomalies alert currently available as [Smart Detection inside Application Insights](../../application-insights/app-insights-proactive-diagnostics.md) in the Azure portal; with alerts configured shown in [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal
+- Older (classic) Failure Anomalies alert currently available as [Smart Detection inside Application Insights](../../azure-monitor/app/proactive-diagnostics.md) in the Azure portal; with alerts configured shown in [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal
 
 All classic monitoring and alerting systems including corresponding [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure portal page](../../azure-monitor/platform/alerts-classic-portal.md), and [Resource Template](../../azure-monitor/platform/alerts-enable-template.md) will remain usable until end of June 2019. 
 
@@ -71,3 +71,4 @@ This article will be continually updated will links & details regarding the new 
 
 * Learn about the [new unified Azure Monitor](../../azure-monitor/overview.md).
 * Learn more about the new [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
+

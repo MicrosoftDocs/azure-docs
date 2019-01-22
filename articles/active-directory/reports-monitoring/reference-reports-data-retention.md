@@ -39,6 +39,18 @@ In this article, you learn about the data retention policies for the different a
 
 ---
 
+### How soon can I see activities data after getting a premium license?
+
+If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take one or two days for the data to show up in the reports after you upgrade to a premium license.
+
+---
+
+### Can I see last month's data after getting an Azure AD premium license?
+
+If you recently switched to a premium version (including a trial version), you can see data up to 7 days initially. When data accumulates, you can see data for the past 30 days.
+
+---
+
 ### When does Azure AD start collecting security signal data?  
 
 For security signals, the collection process starts when you opt-in to use the **Identity Protection Center**. 

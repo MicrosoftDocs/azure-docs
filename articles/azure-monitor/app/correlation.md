@@ -9,13 +9,13 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/10/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
 ---
 # Telemetry correlation in Application Insights
 
-In the world of micro services, every logical operation requires work done in various components of the service. Each of these components can be separately monitored by [Application Insights](../../application-insights/app-insights-overview.md). The web app component communicates with authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows you to detect which component is responsible for failures or performance degradation.
+In the world of micro services, every logical operation requires work done in various components of the service. Each of these components can be separately monitored by [Application Insights](../../azure-monitor/app/app-insights-overview.md). The web app component communicates with authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component in its turn can query data from other services and use cache-provider components and notify the billing component about this call. Application Insights supports distributed telemetry correlation. It allows you to detect which component is responsible for failures or performance degradation.
 
 This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers the context propagation techniques and protocols. It also covers the implementation of the correlation concepts on different languages and platforms.
 
@@ -96,6 +96,43 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+#### Enable W3C distributed tracing support for Java apps
+
+Incoming:
+
+**J2EE apps** add the following to the `<TelemetryModules>` tag inside ApplicationInsights.xml
+
+```xml
+<Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
+   <Param name = "W3CEnabled" value ="true"/>
+   <Param name ="enableW3CBackCompat" value = "true" />
+</Add>
+```
+
+**Spring Boot apps** add the following properties:
+
+`azure.application-insights.web.enable-W3C=true`
+`azure.application-insights.web.enable-W3C-backcompat-mode=true`
+
+Outgoing:
+
+Add the following to AI-Agent.xml:
+
+```xml
+<Instrumentation>
+        <BuiltIn enabled="true">
+            <HTTP enabled="true" W3C="true" enableW3CBackCompat="true"/>
+        </BuiltIn>
+    </Instrumentation>
+```
+
+> [!NOTE]
+> Backward compatibility mode is enabled by default and the enableW3CBackCompat parameter is optional and should be used only when you want to turn it off. 
+
+Ideally this would be the case when all your services have been updated to newer version of SDKs supporting W3C protocol. It is highly recommended to move to newer version of SDKs with W3C support as soon as possible. 
+
+Make sure that both **incoming and outgoing configurations are exactly same**.
+
 ## Open tracing and Application Insights
 
 The [Open Tracing data model specification](https://opentracing.io/) and Application Insights data models map in the following way:
@@ -162,7 +199,7 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 
 - [Write custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
 - [Learn more about](../../azure-monitor/app/app-map.md#set-cloudrolename) setting cloud_RoleName for other SDKs.
-- Onboard all components of your micro service on Application Insights. Check out [supported platforms](../../application-insights/app-insights-platforms.md).
+- Onboard all components of your micro service on Application Insights. Check out [supported platforms](../../azure-monitor/app/platforms.md).
 - See [data model](../../azure-monitor/app/data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).
 - [Application Insights config reference](configuration-with-applicationinsights-config.md)

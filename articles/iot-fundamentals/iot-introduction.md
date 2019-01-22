@@ -31,6 +31,8 @@ Devices are generally made up of a circuit board with sensors attached that conn
 
 Two devices that are frequently used for prototyping are the basic MX Chip IoT Devkit from Microsoft and Raspberry PI devices. The MX Chip Devkit has sensors built in for temperature, pressure, humidity, as well as a gyroscope and accelerometer, a magnetometer and a Wi-Fi chip. Raspberry PI is an IoT device to which you can attach many different kinds of sensors, so you can select exactly what you need for your scenario. 
 
+For more information about available IoT devices, check out the industry's largest [catalog of devices certified for IoT](https://catalog.azureiotsolutions.com/alldevices).
+
 The [IoT Device SDKs](../iot-hub/iot-hub-devguide-sdks.md) enable you to build apps that run on your devices so they can perform the tasks you need. With the SDKs, you can send telemetry to your IoT hub, receive messages and updates from the IoT Hub, and so on.
 
 ### Communication

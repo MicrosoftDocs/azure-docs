@@ -24,7 +24,7 @@ There are three kinds of alerts:
 
 * **Metric alerts** tell you when a metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views. 
 * [**Web tests**][availability] tell you when your site is unavailable on the internet, or responding slowly. [Learn more][availability].
-* [**Proactive diagnostics**](../../application-insights/app-insights-proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
+* [**Proactive diagnostics**](../../azure-monitor/app/proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
 
 We focus on metric alerts in this article.
 
@@ -36,7 +36,7 @@ Open the Alert rules blade, and then use the add button.
 * Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
 * The name that you give to the alert must be unique within the resource group (not just your application).
 * Be careful to note the units in which you're asked to enter the threshold value.
-* If you check the box "Email owners...", alerts are sent by email to everyone who has access to this resource group. To expand this set of people, add them to the [resource group or subscription](../../application-insights/app-insights-resources-roles-access-control.md) (not the resource).
+* If you check the box "Email owners...", alerts are sent by email to everyone who has access to this resource group. To expand this set of people, add them to the [resource group or subscription](../../azure-monitor/app/resources-roles-access-control.md) (not the resource).
 * If you specify "Additional emails", alerts are sent to those individuals or groups (whether or not you checked the "email owners..." box). 
 * Set a [webhook address](../../azure-monitor/platform/alerts-webhooks.md) if you have set up a web app that responds to alerts. It is called both when the alert is Activated and when it is Resolved. (But note that at present, query parameters are not passed through as webhook properties.)
 * You can Disable or Enable the alert: see the buttons at the top of the blade.
@@ -46,7 +46,7 @@ Open the Alert rules blade, and then use the add button.
 * Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Access Control blade. [Learn about access control][roles].
 
 > [!NOTE]
-> In the alerts blade, you see that there's already an alert set up: [Proactive Diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md). The automatic alert monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
+> In the alerts blade, you see that there's already an alert set up: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). The automatic alert monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
 > 
 > 
 
@@ -84,10 +84,10 @@ Popular alerts include:
 * **Server response time** for the server side of web applications. As well as setting up alerts, keep an eye on this metric to see if it varies disproportionately with high request rates: variation might indicate that your app is running out of resources. 
 * **Server exceptions** - to see them, you have to do some [additional setup](../../azure-monitor/app/asp-net-exceptions.md).
 
-Don't forget that [proactive failure rate diagnostics](../../application-insights/app-insights-proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
+Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
 
 ## Automation
-* [Use PowerShell to automate setting up alerts](../../application-insights/app-insights-powershell-alerts.md)
+* [Use PowerShell to automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
 * [Use webhooks to automate responding to alerts](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## Video
@@ -95,15 +95,15 @@ Don't forget that [proactive failure rate diagnostics](../../application-insight
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## See also
-* [Availability web tests](../../application-insights/app-insights-monitor-web-app-availability.md)
-* [Automate setting up alerts](../../application-insights/app-insights-powershell-alerts.md)
-* [Proactive diagnostics](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
+* [Proactive diagnostics](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
-[platforms]: ../../application-insights/app-insights-platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
-[start]: ../../application-insights/app-insights-overview.md
+[platforms]: ../../azure-monitor/app/platforms.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

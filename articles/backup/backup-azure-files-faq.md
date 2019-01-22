@@ -89,11 +89,14 @@ Yes. If you chose **Retain Backup Data** when you stopped protection, then you c
 
 ## Manage Backup
 
+### Can I use PowerShell to configure/manage/restore backups of Azure File shares? <br/>
+Yes. Please refer to the detailed documentation [here](backup-azure-afs-automation.md)
+
 ### Can I access the snapshots taken by Azure Backups and mount it? <br/>
 All Snapshots taken by Azure Backup can be accessed by Viewing Snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files (preview)](../storage/files/storage-snapshots-files.md).
 
 ### What is the maximum retention I can configure for Backups? <br/>
-Backup for Azure file shares offers the ability to retain your daily backups up to 120 days.
+Backup for Azure file shares offers the ability to configure policies with retention up to 180 days. However, using the ["On-demand backup" option in PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup), you can retain a recovery point even for 10 years.
 
 ### What happens when I change the Backup policy for an Azure file share? <br/>
 When a new policy is applied on file share(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they're marked for pruning in the next cleanup job and deleted.

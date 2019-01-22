@@ -72,7 +72,7 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
 ### To provide additional verification for work or school accounts
 1.	In the **Accounts** screen of the Microsoft Authenticator app, select the drop-down arrow next to the account you want to recover.
 
-    ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
+    ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additional-accts.png)
 
 2.	Select **Scan QR code to recover**, and then scan the QR code.
 

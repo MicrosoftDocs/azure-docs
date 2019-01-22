@@ -25,7 +25,7 @@ Azure HDInsight enables you to create an ML Services cluster. This option allows
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Click **Create a resource** > **Data + Analytics** > **HDInsight**.
+2. Navigate to **+ Create a resource** > **Analytics** > **HDInsight**.
 
 3. From **Basics**, enter the following information:
 
