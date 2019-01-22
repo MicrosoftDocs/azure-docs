@@ -26,7 +26,7 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *mystorageaccount*, and *myVM*.
 
-First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+First, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -53,7 +53,7 @@ az network vnet subnet create \
     --address-prefix 10.0.2.0/24
 ```
 
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup*:
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \

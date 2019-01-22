@@ -54,7 +54,7 @@ It takes a few minutes for the deployment to finish.
 
 
 ## Deploy your first NGINX container
-To view details of your VM, including the DNS name, use [az vm show](/cli/azure/vm#az_vm_show):
+To view details of your VM, including the DNS name, use [az vm show](/cli/azure/vm):
 
 ```azurecli
 az vm show \

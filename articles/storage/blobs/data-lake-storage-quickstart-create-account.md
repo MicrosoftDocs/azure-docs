@@ -217,7 +217,7 @@ az storage account create `
 
 ### Clean up resources
 
-To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

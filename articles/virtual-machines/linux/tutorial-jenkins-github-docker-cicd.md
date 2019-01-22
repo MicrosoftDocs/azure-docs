@@ -73,7 +73,7 @@ Before you can create a VM, create a resource group with [az group create](/cli/
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az_vm_create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
+Now create a VM with [az vm create](/cli/azure/vm). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \

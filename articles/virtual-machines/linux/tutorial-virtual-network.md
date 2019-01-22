@@ -167,7 +167,7 @@ A network security group can be created at the same time as a VM using the [az v
 
 In some cases, it may be helpful to pre-create an NSG, such as when default SSH rules should not be created, or when the NSG should be attached to a subnet. 
 
-Use the [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) command to create a network security group.
+Use the [az network nsg create](/cli/azure/network/nsg) command to create a network security group.
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG

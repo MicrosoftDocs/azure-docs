@@ -146,7 +146,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Virtual NICs are created with [az network nic create](/cli/azure/network/nic#az_network_nic_create). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
+Virtual NICs are created with [az network nic create](/cli/azure/network/nic). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
 
 ```bash
 for i in `seq 1 3`; do
