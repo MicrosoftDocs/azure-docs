@@ -169,7 +169,7 @@ Select the following options, as shown in the picture:
 
 Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country permit data storage in the region where the workspace exists.
 
-You can also configure traffic analytics using the [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell cmdlet in AzureRm PowerShell module version 6.2.1 or later. Run `Get-Module -ListAvailable AzureRM` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+You can also configure traffic analytics using the [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell cmdlet in AzureRm PowerShell module version 6.2.1 or later. Run `Get-Module -ListAvailable AzureRM` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## View traffic analytics
 
