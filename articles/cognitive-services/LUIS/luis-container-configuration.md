@@ -13,7 +13,7 @@ ms.date: 01/02/2019
 ms.author: diberry 
 ---
 
-# Configure Language Understanding docker containers 
+# Configure Language Understanding Docker containers 
 
 The Language Understanding (LUIS) container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
 
