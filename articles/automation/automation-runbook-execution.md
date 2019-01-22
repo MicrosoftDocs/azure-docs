@@ -28,25 +28,25 @@ Your jobs have access to your Azure resources by making a connection to your Azu
 
 ## Where to run your runbooks
 
-Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). A sandbox is a shared environment in Azure that can be used by multiple jobs, jobs using the same sandbox are bound by the resource limitations of the sandbox. Hybrid Runbook Workers can be used to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned computers. Most runbooks can easily be ran in the Azure sandboxes. There are specific scenarios where choosing a Hybrid Runbook over an Azure sandbox to execute your runbook may be recommended. See the following table for a list of some example scenarios:
+Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). A sandbox is a shared environment in Azure that can be used by multiple jobs. Jobs using the same sandbox are bound by the resource limitations of the sandbox. Hybrid Runbook Workers can be used to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned computers. Most runbooks can easily be ran in the Azure sandboxes. There are specific scenarios where choosing a Hybrid Runbook over an Azure sandbox to execute your runbook may be recommended. See the following table for a list of some example scenarios:
 
 |Task|Best Choice|Notes|
 |---|---|---|
+|Integrate with Azure resources|Azure Sandbox|Hosted in azure, authentication is simpler. If you are using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
+|Optimal performance to manage azure resources|Azure Sandbox|Script is ran in the same environment, which in turn has less latency|
+|Minimize operational costs|Azure Sandbox|There is no compute overhead, no need for a VM|
 |Long running script|Hybrid Runbook Worker|Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
 |Interact with Local services|Hybrid Runbook Worker|Can have access directly to host machine|
 |Require 3rd party software and executables|Hybrid Runbook Worker|You manage the OS and can install software|
-|Integrate with Azure resources|Azure Sandbox|Hosted in azure, authentication is simpler. If you are using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook worker|
 |Resource intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
-|Optimal performance to manage azure resources|Azure Sandbox|Script is ran in the same environment, which in turn has less latency|
-|Minimize operational costs|Azure Sandbox|There is no compute overhead, no need for a VM|
 |Using modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> **WinSCP** - dependency on winscp.exe </br> **IISAdministration** - Needs IIS to be enabled|
 |Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be xcopyable|
 |Using runbooks or modules that require .NET Framework different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there is no way to upgrade it|
 
 ## Runbook behavior
 
-Runbooks execute based on the logic that is defined inside them. If a runbook is interrupted, the runbook restarts at the beginning. This behavior requires runbooks to be written in a way where they support being restarted if there was transient issues.
+Runbooks execute based on the logic that is defined inside them. If a runbook is interrupted, the runbook restarts at the beginning. This behavior requires runbooks to be written in a way where they support being restarted if there were transient issues.
 
 ### Creating resources
 
@@ -75,11 +75,11 @@ Careful consideration should be made when authoring runbooks. As mentioned earli
 
 ### Tracking progress
 
-It is a good practice to author runbooks to be modular in nature. This makes it easier to create the logic in the runbook to be restartable. Tracking progress in a runbook is a good way to ensure that the logic in a runbook is executed correctly if there were issues. Some possible ways to track the progress of the runbook is by using an external source such as storage accounts, a database, or shared files. By tracking the state externally, you can create logic in your runbook to first check the state of the last action the runbook took and based off the results either skip or continue specific tasks in the runbook.
+It is a good practice to author runbooks to be modular in nature. This means structuring the logic in the runbook such that it can be reused and restarted easily. Tracking progress in a runbook is a good way to ensure that the logic in a runbook is executed correctly if there were issues. Some possible ways to track the progress of the runbook is by using an external source such as storage accounts, a database, or shared files. By tracking the state externally, you can create logic in your runbook to first check the state of the last action the runbook took and based off the results either skip or continue specific tasks in the runbook.
 
 ### Prevent concurrent jobs
 
-Some runbooks may require logic that limits the number of concurrent jobs that can be running. In this case, it's important to implement logic to check to see if a runbook already has a running job. A basic example of how you may do this behavior is shown in the following example:
+Some runbooks may behave strangely if they are running across multiple jobs at the same time. In this case, it's important to implement logic to check to see if a runbook already has a running job. A basic example of how you may do this behavior is shown in the following example:
 
 ```powershell
 # Authenticate to Azure
