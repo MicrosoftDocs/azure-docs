@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -115,24 +115,7 @@ The following table describes the configuration settings supported under the `Fl
 
 ## Http proxy credentials setting
 
-If you need to configure an HTTP proxy for making outbound requests, use these two arguments:
-
-| Name | Data type | Description |
-|--|--|--|
-|HTTP_PROXY|string|the proxy to use, e.g. http://proxy:8888|
-|HTTP_PROXY_CREDS|string|any credentials needed to authenticate against the proxy, e.g. username:password.|
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
---mount type=bind,src=/home/azureuser/output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing=https://eastasia.api.cognitive.microsoft.com/text/analytics/v2.0 \
-ApiKey=123456789 \
-HTTP_PROXY=http://190.169.1.6:3128 \
-HTTP_PROXY_CREDS=jerry:123456 \
-Logging:Disk:LogLevel=Debug Logging:Disk:Format=json
-```
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## Logging configuration settings
 
