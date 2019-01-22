@@ -68,13 +68,13 @@
     href: notification-hubs-enterprise-push-notification-architecture.md
   - name: Device registrations
     href: notification-hubs-push-notification-registration-management.md    
-  - name: Security model
-    href: notification-hubs-push-notification-security.md
     items:
     - name: Tags for registrations
       href: notification-hubs-tags-segment-push-message.md
     - name: Template registrations
       href: notification-hubs-templates-cross-platform-push-messages.md    
+  - name: Security model
+    href: notification-hubs-push-notification-security.md
 - name: How-to guides
   items: 
   - name: Send cross-platform notifications
