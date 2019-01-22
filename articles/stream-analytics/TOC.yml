@@ -154,7 +154,7 @@
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
-    - name: Diagnostic logs
+    - name: Activity and diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
   - name: Integrate with machine learning
     items:
