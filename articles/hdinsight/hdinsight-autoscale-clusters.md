@@ -1,5 +1,5 @@
 ---
-title: Automatically scale HDInsight clusters 
+title: Automatically scale Azure HDInsight clusters 
 description: Use the HDInsight Autoscale feature to automatically scale clusters
 services: hdinsight
 author: hrasheed-msft
@@ -11,9 +11,9 @@ ms.date: 01/21/2019
 ms.author: hrasheed
 
 ---
-# Automatically scale HDInsight clusters
+# Automatically scale Azure HDInsight clusters
 
-Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in the cluster up and down based on load within a predefined range. During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There is no additional charge for this feature.
+Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down based on load within a predefined range. During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down accordingly. There is no additional charge for this feature.
 
 ## Getting Started
 
