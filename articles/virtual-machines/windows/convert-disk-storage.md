@@ -22,13 +22,13 @@ ms.author: ramankum
 
 Azure Managed Disks offers three storage type options: [Premium SSD](../windows/premium-storage.md), [Standard SSD](../windows/disks-standard-ssd.md), and [Standard HDD](../windows/standard-storage.md). You can switch a managed disk between storage types with minimal downtime, based on your performance needs. Switching between storage types is not supported for an unmanaged disk; however, you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md).
 
-This article shows how to convert a managed disk from standard to premium, and vice versa, by using Azure PowerShell. If you need to install or upgrade PowerShell, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+This article shows how to convert a managed disk from standard to premium, and vice versa, by using Azure PowerShell. If you need to install or upgrade PowerShell, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 
 ## Prerequisites
 
 * Because the conversion requires a restart of the virtual machine (VM), you should schedule the migration of your disks storage during a pre-existing maintenance window. 
 * If you're using an unmanaged disk, first [convert it to a managed disk](convert-unmanaged-to-managed-disks.md) to allow you to switch it between the storage types. 
-* The examples in this article require the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). Run [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) to create a connection with Azure.
+* The examples in this article require the Azure PowerShell module version 6.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). Run [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) to create a connection with Azure.
 
 
 ## Convert all the managed disks of a VM from standard to premium

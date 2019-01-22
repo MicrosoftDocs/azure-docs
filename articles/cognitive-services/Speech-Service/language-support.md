@@ -59,6 +59,9 @@ The Microsoft speech recognition API supports the following languages. Different
 
 The text-to-speech REST API supports these voices, each of which supports a specific language and dialect, identified by locale.
 
+> [!IMPORTANT]
+> Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
+
 ### Neural voices (Preview)
 
 Neural text-to-speech is a new type of speech synthesis powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.

@@ -34,7 +34,7 @@ To invoke methods on your devices, use the **Devices** page in the Remote Monito
 
 1. Select the device you provisioned in the list of devices on the **Devices** page:
 
-    ![Select your physical device](media/iot-suite-visualize-connecting/devicesselect.png)
+    ![Select your real device](media/iot-suite-visualize-connecting/devicesselect.png)
 
 1. To display a list of the methods you can call on your device, choose **Jobs**, then **Run method**. To schedule a job to run on multiple devices, you can select multiple devices in the list. The **Jobs** panel shows the types of method common to all the devices you selected.
 
