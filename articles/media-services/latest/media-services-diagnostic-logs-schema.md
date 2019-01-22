@@ -23,26 +23,11 @@ Azure Media Services uses [Azure Monitor](../../azure-monitor/overview.md) to en
 
 For detailed information, see [Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
-This article describes Media Services Diagnostic logs schemas.
+This article describes Media Services diagnostic logs schemas.
 
-## Common schema properties 
+## Top-level diagnostic logs schema
 
-This section describes the properties that are common between other Media Services diagnostic logs. 
-
-|Name|Description|
-|---|---|
-|resourceId|The Azure resource ID.|
-|operationName|The operation name.|
-|operationVersion|The operation version.|
-|category|The log category name. For example, "KeyDeliveryRequests".|
-|resultType|The result type. For example, Started, InProgress, Succeeded, Failed.|
-|resultSignature|The result signature. The HTTP status code of response. For example, OK, Forbidden.|
-|durationMs|The duration of the operation.|
-|callerIpAddress|The caller IP address.|
-|CorrelationId|The operation correlation ID.|
-|identity|The caller identity. Includes the following:<br/>"issuer" - The token issuer.<br/>"audience"- The token audience.<br/>"claims"-The token claims.|
-|level|The log severity level.|
-|location|The Azure region for the resource.|
+For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../azure-monitor/platform/tutorial-dashboards.md).
 
 ## Key delivery log schema
 
@@ -51,19 +36,19 @@ These properties are specific to a key delivery log schema.
 |Name|Description|
 |---|---|
 |keyId|The ID of the requested key.|
+|keyType|Could be one of the following values: "Clear" (no encryption), "FairPlay", "PlayReady", or "Widevine".|
 |policyName|The Azure Resource Manager name of the policy.|
 |tokenType|The token type.|
-|identity|The identity from the token.|
-|errorMessage|The error message.|
+|statusMessage|The status message.|
 
-### Example
+### KeyDeliveryRequests examples
 
-The following is a key delivery service request log example:
+Properties of the key delivery requests schema.
 
 ```json
 {
     "time": "2019-01-11T17:59:10.4908614Z",
-    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/SBKEY/PROVIDERS/MICROSOFT.MEDIA/MEDIASERVICES/SBDNSTEST",
+    "resourceId": "/SUBSCRIPTIONS/628BDDD1-D701-4273-8A5C-6AE0BD476C83/RESOURCEGROUPS/SBKEY/PROVIDERS/MICROSOFT.MEDIA/MEDIASERVICES/SBDNSTEST",
     "operationName": "MICROSOFT.MEDIA/MEDIASERVICES/CONTENTKEYS/READ",
     "operationVersion": "1.0",
     "category": "KeyDeliveryRequests",
@@ -72,25 +57,47 @@ The following is a key delivery service request log example:
     "durationMs": 315,
     "identity": {
         "authorization": {
-            "issuer": "http://testissuer",
-            "audience": "urn:testsudience"
+            "issuer": "http://testacs",
+            "audience": "urn:test"
         },
         "claims": {
-            "urn:microsoft:azure:mediaservices:contentkeyidentifier": "00000000-0000-0000-0000-0000000000000",
-            "iss": "http://testissuer",
-            "aud": "urn:testsudience",
+            "urn:microsoft:azure:mediaservices:contentkeyidentifier": "3321e646-78d0-4896-84ec-c7b98eddfca5",
+            "iss": "http://testacs",
+            "aud": "urn:test",
             "exp": "1547233138"
         }
     },
     "level": "Informational",
     "location": "uswestcentral",
     "properties": {
-        "requestId": "00000000-0000-0000-0000-0000000000000",
+        "requestId": "b0243468-d8e5-4edf-a48b-d408e1661050",
         "keyType": "Clear",
-        "keyId": "00000000-0000-0000-0000-0000000000000",
-        "policyName": "00000000-0000-0000-0000-0000000000000",
+        "keyId": "3321e646-78d0-4896-84ec-c7b98eddfca5",
+        "policyName": "56a70229-82d0-4174-82bc-e9d3b14e5dbf",
         "tokenType": "JWT",
         "statusMessage": "OK"
+    }
+} 
+```
+```json
+ {
+    "time": "2019-01-11T17:59:33.4676382Z",
+    "resourceId": "/SUBSCRIPTIONS/628BDDD1-D701-4273-8A5C-6AE0BD476C83/RESOURCEGROUPS/SBKEY/PROVIDERS/MICROSOFT.MEDIA/MEDIASERVICES/SBDNSTEST",
+    "operationName": "MICROSOFT.MEDIA/MEDIASERVICES/CONTENTKEYS/READ",
+    "operationVersion": "1.0",
+    "category": "KeyDeliveryRequests",
+    "resultType": "Failed",
+    "resultSignature": "Unauthorized",
+    "durationMs": 2,
+    "level": "Error",
+    "location": "uswestcentral",
+    "properties": {
+        "requestId": "875af030-b77c-416b-b7e1-58f23ebec182",
+        "keyType": "Clear",
+        "keyId": "3321e646-78d0-4896-84ec-c7b98eddfca5",
+        "policyName": "56a70229-82d0-4174-82bc-e9d3b14e5dbf",
+        "tokenType": "None",
+        "statusMessage": "No token present in authorization header or URL."
     }
 } 
 ```
