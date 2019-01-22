@@ -97,9 +97,9 @@ When you create a Baidu cloud push project, you receive your app ID, API key, an
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-6. In your notification hub, select **Notification Services** and then **Baidu (Android China)**.
+&emsp;&emsp;6. In your notification hub, select **Notification Services** and then **Baidu (Android China)**.
 
-    ![Azure Notification Hubs - Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
+&emsp;&emsp;&emsp;&emsp;![Azure Notification Hubs - Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 
 7. Scroll down to the Baidu notification settings section. Enter the API key and secret key that you obtained from the Baidu console, in the Baidu cloud push project. Then click Save.
 

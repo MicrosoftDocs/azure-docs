@@ -77,9 +77,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-6. Select **Google (GCM)** in the **NOTIFICATION SETTINGS** category, enter the **API key** for the GCM project, and click **Save**.
+&emsp;&emsp;6. Select **Google (GCM)** in the **NOTIFICATION SETTINGS** category, enter the **API key** for the GCM project, and click **Save**.
 
-      ![Azure Notification Hubs - Google (GCM)](media/notification-hubs-chrome-get-started/configure-gcm-api-key.png)
+&emsp;&emsp;&emsp;&emsp;![Azure Notification Hubs - Google (GCM)](media/notification-hubs-chrome-get-started/configure-gcm-api-key.png)
 
 ## <a id="connect-app"></a>Connect your Chrome App to the notification hub
 
