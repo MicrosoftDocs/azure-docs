@@ -96,7 +96,7 @@ This update includes the following new features and improvements for Azure Stack
 
 - Fixed an issue in which the portal showed an option to create policy-based VPN gateways, which are not supported in Azure Stack. This option has been removed from the portal.
 
-- <!-- 16523695 – IS, ASDK -->
+<!-- 16523695 – IS, ASDK -->
 - Fixed an issue in which after updating your DNS Settings for your Virtual Network from **Use Azure Stack DNS** to **Custom DNS**, the instances were not updated with the new setting.
 
 - <!-- 3235634 – IS, ASDK -->
