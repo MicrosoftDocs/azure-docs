@@ -26,7 +26,7 @@ Another way to bind the SSL certificate is to use the MySQL command-line interfa
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 > [!NOTE]
-> When using newer versions of the MySQL command-line interface on Windows, you may receive an error `SSL connection error: Certificate signature check failed`. If this occurs, replace the `--ssl-ca` command with `--ssl`.
+> When using newer versions of the MySQL command-line interface on Windows, you may receive an error `SSL connection error: Certificate signature check failed`. If this occurs, replace the `--ssl-ca={filepath}` parameter with `--ssl`.
 
 ## Enforcing SSL connections in Azure 
 ### Using the Azure portal
