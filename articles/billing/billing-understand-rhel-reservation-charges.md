@@ -78,8 +78,6 @@ Azure portal marketplace names:
 
 Azure portal marketplace name:
 
-- ?
-
 |Red Hat VM | MeterId | Ratio|Example VM size|
 | ------- | --- | ------------------------| --- | --- |
 |1-4 vCPU VM License |4d902611-eed7-4060-a33e-3c7fdbac6406|1|D4s_v3|
@@ -88,8 +86,6 @@ Azure portal marketplace name:
 ### Red Hat Enterprise Linux with HA
 
 Azure portal marketplace names:
-
-- ?
 
 |Red Hat VM | MeterId | Ratio|Example VM size|
 | ------- |------------------------| --- | --- |
