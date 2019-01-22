@@ -58,7 +58,7 @@ In the pop-up browser window, enter your Azure account user name and password. A
 You might have to specify the subscription that you used to create your key vault. Enter the following command to see the subscriptions for your account:
 
 ```PowerShell
-    Get-AzureRmSubscription
+Get-AzureRmSubscription
 ```
 
 Then, to specify the subscription that's associated with the key vault you'll be logging, enter:
@@ -73,7 +73,7 @@ Pointing PowerShell to the right subscription is an important step, especially i
 
 Although you can use an existing storage account for your logs, we'll create a storage account that will be dedicated to Key Vault logs. For convenience for when we have to specify this later, we'll store the details in a variable named **sa**.
 
-For additional ease of management, we'll also use the same resource group as the one that contains the key vault. From the [getting-started tutorial](key-vault-get-started.md), this resource group is named **ContosoResourceGroup**, and we'll continue to use the East Asia location. Substitute these values for your own, as applicable:
+For additional ease of management, we'll also use the same resource group as the one that contains the key vault. From the [getting-started tutorial](key-vault-get-started.md), this resource group is named **ContosoResourceGroup**, and we'll continue to use the East Asia location. Replace these values with your own, as applicable:
 
 ```PowerShell
  $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
@@ -126,7 +126,7 @@ What's logged:
 * Operations on the key vault itself, including creation, deletion, setting key vault access policies, and updating key vault attributes such as tags.
 * Operations on keys and secrets in the key vault, including:
   * Creating, modifying, or deleting these keys or secrets.
-  * Signing, verifying, encrypting, decrypting, wrapping and unwraping keys, getting secrets, and listing keys and secrets (and their versions).
+  * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
 * Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.  
 
 ## <a id="access"></a>Access your logs
