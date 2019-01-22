@@ -502,7 +502,7 @@ You can also nest the calls to the operator like in the query below.
 
 As with other query operators, if the referenced properties in the conditional expression are missing in any item, or if the types being compared are different, then those items are excluded in the query results.
 
-The Coalesce (??) operator can be used to efficiently check for the presence of a property (a.k.a. is defined) in an item. This operator is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
+The Coalesce (??) operator can be used to efficiently check for the presence of a property in an item. This operator is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
