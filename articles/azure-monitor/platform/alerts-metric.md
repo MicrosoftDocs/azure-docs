@@ -86,10 +86,10 @@ The previous sections described how to create, view and manage metric alert rule
     az monitor metrics alert --help
     ```
 
-3. You can create a simple metric alert rule that monitors if average Percentage CPU on a VM is greater than 70
+3. You can create a simple metric alert rule that monitors if average Percentage CPU on a VM is greater than 90
 
     ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90"
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
 4. You can view all the metric alerts in a resource group using the following command
