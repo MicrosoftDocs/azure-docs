@@ -9,6 +9,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: windows
 ms.component: disks
+ms.component: disks
 ---
 
 # Scalability and performance targets for VM disks on Windows
