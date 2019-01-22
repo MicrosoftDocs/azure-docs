@@ -113,7 +113,7 @@ The following table describes the configuration settings supported under the `Fl
 | `UseTLS` | Boolean | Indicates whether the container should use SSL/TLS for communicating with the Fluentd server. The default value is false. |
 
 
-## Http proxy credentials setting
+## Http proxy credentials settings
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 

@@ -30,6 +30,7 @@ This container has the following configuration settings:
 |Yes|[Billing](#billing-setting)|Specifies the endpoint URI of the service resource on Azure.|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|
+|No|[Http Proxy](#http-proxy-credentials-settings)|Configure an HTTP proxy for making outbound requests.|
 |No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
 |Yes|[Mounts](#mount-settings)|Read and write data from host computer to container and from container back to host computer.|
 
@@ -73,7 +74,7 @@ This setting can be found in the following places:
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## Http proxy credentials setting
+## Http proxy credentials settings
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
