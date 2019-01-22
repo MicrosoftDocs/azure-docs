@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 
@@ -34,7 +34,7 @@ Managed Disks simplifies disk management for IaaS VMs by managing the [storage a
 | Feature | Azure (global) | Azure Stack |
 | --- | --- | --- |
 |Encryption for Data at Rest |Azure Storage Service Encryption (SSE), Azure Disk Encryption (ADE)     |BitLocker 128-bit AES encryption      |
-|Image          | Support managed custom image |Not yet supported|
+|Image          | Support managed custom image |Supported|
 |Backup options |Support Azure Backup Service |Not yet supported |
 |Disaster recovery options |Support Azure Site Recovery |Not yet supported|
 |Disk types     |Premium SSD, Standard SSD (Preview), and Standard HDD |Premium SSD, Standard HDD |
