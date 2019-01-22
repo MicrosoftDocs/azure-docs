@@ -31,7 +31,12 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 
     > [!Note]  
     > Azure File Sync does not yet support PowerShell 6+ on either Windows Server 2012 R2 or Windows Server 2016.
-* The Azure PowerShell module on the servers you would like to use with Azure File Sync. For more information on how to install the Azure PowerShell modules, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). We always recommend using the latest version of the Azure PowerShell modules. 
+* The Az and the AzureRM PowerShell modules.
+    - The Az module can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+    - The AzureRM PowerShell module can be installed by executing the following PowerShell cmdlet:
+        ```PowerShell
+        Install-Module AzureRM
+        ```
 
 ## Prepare Windows Server to use with Azure File Sync
 For each server that you intend to use with Azure File Sync, including each server node in a Failover Cluster, disable **Internet Explorer Enhanced Security Configuration**. This is required only for initial server registration. You can re-enable it after the server has been registered.
@@ -142,7 +147,7 @@ When you are finished, select **Create** to deploy the Storage Sync Service.
 Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the Azure PowerShell modules.
 
 > [!Note]  
-> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureStorageSync` was chosen to match the `Login-AzAccount` cmdlet alias in the Azure PowerShell module. This error message (and cmdlet) will be removed the Azure File Sync agent is added to the Azure PowerShell module.
+> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureStorageSync` was chosen to match the `Login-AzAccount` cmdlet alias in the Azure PowerShell module. This error message (and cmdlet) will be removed when the Azure File Sync agent is added to the Azure PowerShell module.
 
 ```PowerShell
 $acctInfo = Login-AzAccount
