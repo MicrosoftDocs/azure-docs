@@ -4,7 +4,7 @@ description: Azure DevOps Projects makes it easy to get started on Azure. It hel
 author: shizn
 manager: 
 ms.author: xshi
-ms.date: 01/08/2019
+ms.date: 01/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -98,7 +98,7 @@ In the previous sections, Azure DevOps Projects automatically configured a full 
 
     ![Edit build pipeline](media/how-to-devops-project/click-edit-button.png)
 
-3. In the panel that opens, you can examine the tasks that occur when your build pipeline runs. The build pipeline performs various tasks, such as fetching sources from the Git repository, building IoT Edge module images, pushing IoT Edge modules to a container registry, and publishing outputs that are used for deployments. To learn more about Azure IoT Edge tasks in Azure DevOps, see [Configure Azure Pipelines for continuous integration](how-to-ci-cd.md#configure-azure-pipelines-for-continuous-integration).
+3. In the panel that opens, you can examine the tasks that occur when your build pipeline runs. The build pipeline performs various tasks, such as fetching sources from the Git repository, building IoT Edge module images, pushing IoT Edge modules to a container registry, and publishing outputs that are used for deployments. To learn more about Azure IoT Edge tasks in Azure DevOps, see [Configure Azure Pipelines for continuous integration](how-to-ci-cd.md#configure-continuous-integration).
 
 4. Select the **Pipeline** header at the top of the build pipeline to open the pipeline details. Change the name of your build pipeline to something more descriptive.
 
@@ -120,7 +120,7 @@ In the previous sections, Azure DevOps Projects automatically configured a full 
 
 11. Next to the **Drop** icon, select the **Continuous deployment trigger** that looks like a lightning bolt. This release pipeline has enabled the trigger, which runs a deployment every time there is a new build artifact available. Optionally, you can disable the trigger so that your deployments require manual execution.  
 
-12. In the menu for your release pipeline, select **Tasks** then choose the **dev** stage from the dropdown list. DevOps Projects created a release stage for you that creates an IoT hub, creates an IoT Edge device in that hub, deploys the sample module from the build pipeline, and provisions a virtual machine to run as your IoT Edge device. To learn more about Azure IoT Edge tasks for CD, see [Configure Azure Pipelines for continuous deployment](how-to-ci-cd.md#configure-azure-pipelines-for-continuous-deployment).
+12. In the menu for your release pipeline, select **Tasks** then choose the **dev** stage from the dropdown list. DevOps Projects created a release stage for you that creates an IoT hub, creates an IoT Edge device in that hub, deploys the sample module from the build pipeline, and provisions a virtual machine to run as your IoT Edge device. To learn more about Azure IoT Edge tasks for CD, see [Configure Azure Pipelines for continuous deployment](how-to-ci-cd.md#configure-continuous-deployment).
 
    ![View continuous deployment tasks](media/how-to-devops-project/dev-release.png)
 

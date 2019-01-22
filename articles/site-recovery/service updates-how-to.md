@@ -43,7 +43,7 @@ Azure Site Recovery publishes service updates on a regular basis - including the
 2. Refer our [Service Updates](https://azure.microsoft.com/updates/?product=site-recovery) to find out which version of Site Recovery components support the specific versionn you want to upgrade to.
 3. First, upgrade to the latest Site Recover version.
 4. Now, upgrade the OS/Kernel to the desired versions.
-5. Perform a a reboot.
+5. Perform a reboot.
 6. This will ensure that the OS/Kernel version on your machines are upgraded to the latest version, and also that the latest Site Recovery changes which are required to support the new version are also loaded on the source machine.
 
 

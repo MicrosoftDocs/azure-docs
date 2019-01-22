@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
 
@@ -281,3 +281,4 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
+

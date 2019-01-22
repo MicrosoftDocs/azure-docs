@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: ""
+ms.subservice: ""
 ---
 
 # Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
@@ -196,3 +196,4 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
+

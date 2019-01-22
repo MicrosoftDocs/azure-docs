@@ -368,7 +368,7 @@ Trip and fare tables can be joined by medallion, hack_license, and pickup_time.
 
 For each level of passenger count, calculate the number of records, average tip amount, variance of tip amount, percentage of tipped trips.
 
-    // contigency table
+    // contingency table
     @trip_summary8 =
         SELECT passenger_count,
                COUNT(*) AS cnt,

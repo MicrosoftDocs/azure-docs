@@ -41,7 +41,7 @@ az group create --name $RgName --location $Location
 	
 # Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
 # do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
-# of IP adresses unique to each Azure region. Download and view the file from
+# of IP addresses unique to each Azure region. Download and view the file from
 # https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists the ranges for each region.
 
 PipName="myPublicIP"
