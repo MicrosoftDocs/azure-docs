@@ -10,7 +10,7 @@ metadata:
   ms.service: azure-monitor
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 01/11/2019
+  ms.date: 01/22/2019
   ms.author: bwren
 abstract:
   description: Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
@@ -24,7 +24,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Log Analytics</a>
-    - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Application Insights</a>
+    - html: <a href="/azure/azure-monitor/azure-monitor-app-hub">Application Insights</a>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
