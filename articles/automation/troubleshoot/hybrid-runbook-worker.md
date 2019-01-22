@@ -3,7 +3,7 @@ title: Troubleshooting - Azure Automation Hybrid Runbook Workers
 description: This article provides information troubleshooting Azure Automation Hybrid Runbook Workers
 services: automation
 ms.service: automation
-ms.component: 
+ms.subservice: 
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/11/2018
@@ -180,3 +180,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/)
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 * If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+

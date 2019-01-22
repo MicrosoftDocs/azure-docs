@@ -40,7 +40,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group#create).
+A resource group is a logical container into which Azure resources are deployed and managed. Create a resource group using [az group create](/cli/azure/group).
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
@@ -74,7 +74,7 @@ az network public-ip create \
 
 ## Create an application gateway
 
-Use [az network application-gateway create](/cli/azure/network/application-gateway#create) to create the application gateway named myAppGateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPAddress* that you previously created.
+Use [az network application-gateway create](/cli/azure/network/application-gateway) to create the application gateway named myAppGateway. When you create an application gateway using the Azure CLI, you specify configuration information, such as capacity, sku, and HTTP settings. The application gateway is assigned to *myAGSubnet* and *myPublicIPAddress* that you previously created.
 
 ```azurecli-interactive
 az network application-gateway create \

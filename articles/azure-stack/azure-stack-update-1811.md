@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/15/2019
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -37,9 +37,9 @@ The Azure Stack 1811 update build number is **1.1811.0.101**.
 Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1809 before updating Azure Stack to 1811.
 
 > [!TIP]  
-> Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack hotfixes:
-> - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
-> - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
+> Subscribe to the following *RSS* or *Atom* feeds to keep up with Azure Stack hotfixes:
+> - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
+> - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
 
 ### Azure Stack hotfixes
 
@@ -159,7 +159,7 @@ This update includes the following new features and improvements for Azure Stack
 
 - The existing PEP cmdlet to retrieve the BitLocker recovery keys is renamed in 1811, from Get-AzsCsvsRecoveryKeys to Get-AzsRecoveryKeys. For more information on how to retrieve the BitLocker recovery keys, see [instructions on how to retrieve the keys](azure-stack-security-bitlocker.md).
 
-## Common Vulnerabilities and Exposures
+## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
 
@@ -251,6 +251,22 @@ The following are post-installation known issues for this build version.
 ### Compute
 
 - When creating a new Windows Virtual Machine (VM), the **Settings** blade requires that you select a public inbound port in order to proceed. In 1811, this setting is required, but has no effect. This is because the feature depends on Azure Firewall, which is not implemented in Azure Stack. You can select **No Public Inbound Ports**, or any of the other options to proceed with VM creation. The setting will have no effect.
+
+- When creating a new Windows Virtual Machine (VM), the following error may be displayed:
+
+   `'Failed to start virtual machine 'vm-name'. Error: Failed to update serial output settings for VM 'vm-name'`
+
+   The error occurs if you enable boot diagnostics on a VM but delete your boot diagnostics storage account. To work around this issue, recreate the storage account with the same name as you used previously.
+
+- When creating a [Dv2 series VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 VMs allow you to create 4, 8, 16, and 32 data disks respectively. However, the create VM pane shows 8, 16, 32, and 64 data disks.
+
+- Usage records on Azure Stack may contain unexpected capitalization; for example:
+
+   `{"Microsoft.Resources":{"resourceUri":"/subscriptions/<subid>/resourceGroups/ANDREWRG/providers/Microsoft.Compute/
+   virtualMachines/andrewVM0002","location":"twm","tags":"null","additionalInfo":
+   "{\"ServiceType\":\"Standard_DS3_v2\",\"ImageType\":\"Windows_Server\"}"}}`
+
+   In this example, the name of the resource group should be **AndrewRG**. You can safely ignore this inconsistency.
 
 <!-- 3235634 – IS, ASDK -->
 - To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.

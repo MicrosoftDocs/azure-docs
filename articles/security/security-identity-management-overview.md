@@ -150,9 +150,8 @@ With Azure AD Privileged Identity Management, you can:
 
 Learn more:
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Roles in Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
-* [Azure AD Privileged Identity Management: How to add or remove a user role](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [What is Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md)
+* [Assign Azure AD directory roles in PIM](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## Identity protection
 

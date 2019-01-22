@@ -342,7 +342,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
     ![Deploy app service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and clilck **Save**.-sql
+18. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and clilck **Save**.
 
     ![Save WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

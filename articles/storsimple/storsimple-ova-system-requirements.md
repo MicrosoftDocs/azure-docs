@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2017
+ms.date: 01/11/2019
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
@@ -37,7 +37,7 @@ The software requirements include the information on the supported web browsers,
 | **Hypervisor** | **Version** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 and later |
-| VMware ESXi |5.0, 5.5, and 6.0 <br> (6.5 is not supported.) |
+| VMware ESXi |5.0, 5.5, 6.0, and 6.5. |
 
 > [!IMPORTANT]
 > Do not install VMware tools on your StorSimple Virtual Array; this will result in an unsupported configuration.

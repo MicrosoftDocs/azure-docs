@@ -4,7 +4,7 @@ description: Explains how to troubleshoot SQL connectivity issues that occur wit
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

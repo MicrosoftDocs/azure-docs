@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Create, view, and manage log alerts using Azure Monitor  
 
@@ -143,7 +143,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
     "alertLocation": "southcentralus",
     "alertName": "samplelogalert",
     "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDesription": "Sample log search alert",
+    "alertDescription": "Sample log search alert",
     "alertStatus": "true",
     "alertSource":{
         "Query":"requests",
@@ -174,7 +174,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
     "location": "[variables('alertLocation')]",
     "tags":{"[variables('alertTag')]": "Resource"},
     "properties":{
-       "description": "[variables('alertDesription')]",
+       "description": "[variables('alertDescription')]",
        "enabled": "[variables('alertStatus')]",
        "source": {
            "query": "[variables('alertSource').Query]",
@@ -241,4 +241,5 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
 * Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+
 

@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
 # Azure Stack registration
-You can register your Azure Stack Development Kit (ASDK) installation with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. Registration is required to support full Azure Stack functionality, including marketplace syndication. Registration is recommended because it enables you to test important Azure Stack functionality like marketplace syndication and usage reporting. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration. However, ASDK users aren't charged for any usage they report.
+You can register your Azure Stack Development Kit (ASDK) installation with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. Registration is required to support full Azure Stack functionality, including marketplace syndication. Registration is required to enable you to test important Azure Stack functionality like marketplace syndication and usage reporting. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration. However, ASDK users aren't charged for any usage they report.
 
 If you do not register your ASDK, you might see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
 
@@ -33,6 +33,8 @@ $ExecutionContext.SessionState.LanguageMode
 
 Ensure the output returns **FullLanguageMode**. If any other language mode is returned, registration will need to be run on another computer or the language mode will need to be set to **FullLanguageMode** before continuing.
 
+The Azure AD account used for registration needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription. We recommend that you register Azure Stack with Azure using least-privilege administration by [creating a service account to use for registration](..\azure-stack-registration-role.md) rather than using global administrator credentials.
+
 ## Register Azure Stack with Azure
 Follow these steps to register the ASDK with Azure.
 
@@ -41,7 +43,7 @@ Follow these steps to register the ASDK with Azure.
 
 1. Open a PowerShell console as an administrator.  
 
-2. Run the following PowerShell commands to register your ASDK installation with Azure. You will need to sign in to both your Azure subscription and the local ASDK installation. If you don’t have an Azure subscription yet, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.<br><br>If you are running the registration script on more than one instance of Azure Stack using the same Azure Subscription ID, set a unique name for the registration when you run the **Set-AzsRegistration** cmdlet. The **RegistrationName** parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script will fail.
+2. Run the following PowerShell commands to register your ASDK installation with Azure. You will need to sign in to both your Azure subscription and the local ASDK installation. If you don’t have an Azure subscription yet, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.<br><br>Set a unique name for the registration when you run the **Set-AzsRegistration** cmdlet. The **RegistrationName** parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script will fail.
 
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 

@@ -35,21 +35,22 @@ Get-AzureRmVMImageOffer | `
 Get-AzureRmVMImageSku
 ```
 <!-- 
-Get-AzureRmVMImagePublisher -Location USGovVirginia | `
-Get-AzureRmVMImageOffer | `
-Get-AzureRmVMImageSku | `
+Get-AzVMImagePublisher -Location USGovVirginia | `
+Get-AzVMImageOffer | `
+Get-AzVMImageSku | `
 Select-Object @{Name="Entry";Expression={"| " + $_.PublisherName + " | " + $_.Offer +  " | " + $_.Skus + " |" }} | `
 Select-Object -ExpandProperty Entry | `
 Out-File vm-images.md
 -->
 
-The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of December 11, 2018.
+The table below contains a snapshot of the list of virtual machine images available in Azure Government via Resource Manager as of January 10, 2019.
 
 |Publisher|Offer|SKU|
 | --- | --- | --- |
 | 128technology | 128t_networking_platform | 128t_networking_platform |
 | a10networks | a10-vthunder-adc | vthunder_410_byol |
 | a10networks | a10-vthunder-adc | vthunder_byol |
+| a10networks | vthunder-414-gr1 | vthunder-414gr1-byol |
 | accessdata-group | adlab64-sw-cloud | 22000111 |
 | accessdata-group | adlab64-sw-cloud | 22000112 |
 | ACEPublishing | f5-big-ip | f5-bigip-virtual-edition-best-byol |
@@ -74,7 +75,10 @@ The table below contains a snapshot of the list of virtual machine images availa
 | barracudanetworks | barracuda-spam-firewall | byol |
 | barracudanetworks | waf | byol |
 | barracudanetworks | waf | hourly |
+| barracudanetworks | waf | private-waf-hourly-blackboard |
+| barracudanetworks | waf | private-waf-hourly-fusion |
 | barracudanetworks | waf | private-waf-hourly-teletracking1 |
+| barracudanetworks | waf | private-waf-hourly-us-agency-for-int-dev |
 | batch | rendering-centos73 | rendering |
 | batch | rendering-windows2016 | rendering |
 | beyondtrust | beyondinsight | uvm-azm |
@@ -271,6 +275,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l1 | cis-ws2016-l1 |
 | center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 |
 | checkpoint | check-point-cg-r8020-blink | mgmt-byol |
+| checkpoint | check-point-cg-r8020-blink | sg-byol |
 | checkpoint | check-point-r77-10 | SG-BYOL |
 | checkpoint | check-point-vsec-r80 | sg-byol |
 | checkpoint | check-point-vsec-r80-blink | sg-byol |
@@ -284,6 +289,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | cisco | cisco-csr-1000v | 16_9-byol |
 | cisco | cisco-csr-1000v | 3_16 |
 | cisco | cisco-csr-1000v | csr-azure-byol |
+| cisco | cisco-csr-1000v | v16_10-byol |
 | cisco | cisco-ftdv | ftdv-azure-byol |
 | cisco | cisco-meraki-vmx100 | vmx100 |
 | cisco | cisco_cloud_vedge_17_2_4 | cisco_vedge_azurecloud_18_2_0 |
@@ -314,6 +320,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | cognosys | 1-click-secured-joomla-on-ubuntu-1804-lts | 1-click-secured-joomla-on-ubuntu-18-04-lts |
 | cognosys | centos-7-4 | hardened-centos-7-4 |
 | cognosys | centos-7-5 | hardened-centos-7-5 |
+| cognosys | secured-redmine-on-centos | secured-redmine-on-centos |
 | cognosys | sql-server-2007-web-win2016-debug-utilities | sql-server-2017-web-win2016-debug-utilities |
 | cognosys | sql-server-2016-sp1-ent-win2016-debug-utilities | sql-server-2016-sp1-ent-win2016-debug-utilities |
 | cognosys | sql-server-2016-sp1-std-win2016-debug-utilities | sql-server-2016-sp1-std-win2016-debug-utilities |
@@ -340,12 +347,15 @@ The table below contains a snapshot of the list of virtual machine images availa
 | credativ | Debian | 9 |
 | credativ | Debian | 9-beta |
 | credativ | debian-test | sid |
+| cyxtera | appgatesdp-vm | v4_2_vm |
 | datastax | datastax-enterprise | datastaxenterprise |
 | dellemc | dell-emc-avamar-virtual-edition | avamar-virtual-edition-1810 |
 | dellemc | dell-emc-avamar-virtual-edition | avamar-virtual-edition-751 |
 | dellemc | dell-emc-datadomain-virtual-edition | ddve-31-ver-060100 |
 | dellemc | dell-emc-datadomain-virtual-edition | ddve-31-ver-060101 |
+| dellemc | dell-emc-datadomain-virtual-edition-v4 | ddve-40-ver-060200 |
 | dellemc | dell-emc-networker-virtual-edition | networker-virtual-edition-181 |
+| dellemc | dellemc-networker-virtual-edition | networker-virtual-edition-182 |
 | dell_software | uccs | uccs |
 | delphix | delphix_dynamic_data_platform | dynamic_data_platform_for_azure_5-1-8-0 |
 | derdack | enterprisealert | enterprisealert-2017-datacenter-10cal |
@@ -384,6 +394,13 @@ The table below contains a snapshot of the list of virtual machine images availa
 | f5-networks | f5-big-ip-byol | f5-big-all-2slot-byol |
 | f5-networks | f5-big-ip-byol | f5-big-ltm-1slot-byol |
 | f5-networks | f5-big-ip-byol | f5-big-ltm-2slot-byol |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-awf-200m-hourly |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-awf-25m-hourly |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-awf-byol |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-ltm-200m-hourly |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-ltm-25m-hourly |
+| f5-networks | f5-big-ip-cloud-edition | f5-big-ip-per-app-ve-ltm-byol |
+| f5-networks | f5-big-ip-cloud-edition | f5-bigiq-virtual-edition-byol |
 | f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-1g-good-hourly |
 | f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-200m-good-hourly |
 | f5-networks | f5-big-ip-good | f5-bigip-virtual-edition-25m-good-hourly |
@@ -402,6 +419,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | flashgrid-inc | flashgrid-skycluster | skycluster-ol-priv-byol |
 | flashgrid-inc | flashgrid-skycluster | skycluster-rh |
 | flashgrid-inc | flashgrid-skycluster | skycluster-rh-priv-byol |
+| forcepoint-llc | forcepoint-ngfw | ngfw_byol |
+| forcepoint-llc | forcepoint-ngfw | ngfw_payg |
 | fortinet | fortinet-fortianalyzer | fortinet-fortianalyzer |
 | fortinet | fortinet-fortimanager | fortinet-fortimanager |
 | fortinet | fortinet_fortigate-vm_v5 | fortinet_fg-vm |
@@ -433,6 +452,9 @@ The table below contains a snapshot of the list of virtual machine images availa
 | informatica | big-data-management-10-2-1 | informatica-big-data-management-v-10-2-1 |
 | informatica | platform_10_2_hf1_domain_rhel-7-3_byol | byol_rhel_platform_10_2_hf1 |
 | informatica | platform_10_2_hf1_domain_windows_byol | byol_win_platform_10_2_hf1 |
+| isvtestukbigcat | test_test_120520180725001 | testtestukbigcatvm001 |
+| isvtestuklegacy | testtest12192018070501 | isvtestuklegacysku2 |
+| isvtestuklegacy | testtestvmoffer121720180842 | testtestvmoffer01 |
 | isvtestuklegacy | test_test_111920181025-003 | isvtestuklegacyvm003 |
 | isvtestuklegacy | test_test_111920181130-004 | isvtestuklegacyvm004 |
 | isvtestuklegacy | test_test_111920181210-005 | isvtestuklegacyvm005 |
@@ -581,6 +603,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-Latest-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | VS-2017-Ent-WS2016 |
 | MicrosoftVisualStudio | VisualStudio | vs-2019-preview-ws2016 |
+| MicrosoftVisualStudio | visualstudio2019 | vs-2019-ent-preview-ws2016 |
 | MicrosoftWindowsDesktop | Test-offer-legacy-id | RS3-Pro |
 | MicrosoftWindowsDesktop | Windows-10 | RS2-Pro |
 | MicrosoftWindowsDesktop | Windows-10 | RS2-ProN |
@@ -664,12 +687,14 @@ The table below contains a snapshot of the list of virtual machine images availa
 | Oracle | Oracle-Linux | 6.8 |
 | Oracle | Oracle-Linux | 7.2 |
 | orfast-technologies | orfast-mam-1 | orasft_mam_01 |
+| outsystems | os11-vm-baseimage | lifetime |
 | outsystems | os11-vm-baseimage | os11-ws2016 |
+| outsystems | os11-vm-baseimage | platformserver |
 | paloaltonetworks | panorama | byol |
 | paloaltonetworks | vmseries1 | bundle1 |
 | paloaltonetworks | vmseries1 | bundle2 |
 | paloaltonetworks | vmseries1 | byol |
-| panzura-file-system | panzura-freedom-filer-v7110 | fd-vm-azure-byol |
+| panzura-file-system | azura-freedom-filer-v7110 | fd-vm-azure-byol |
 | panzura-file-system | panzura-cloud-filer | fd-vm-azure-byol |
 | panzura-file-system | panzura-freedom-filer-7140-13222 | fd-vm-azure-byol |
 | panzura-file-system | panzura-freedom-filer-716-13549 | fd-vm-azure-byol |
@@ -689,6 +714,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | radiant-logic | radiantone-vms | node-redhat-7-5 |
 | radiant-logic | radiantone-vms | node-ubuntu-18-04-lts |
 | radiant-logic | radiantone-vms | node-ws-2016 |
+| radware | alteon-va-cluster-monitor | alteon-va-cluster-monitoring |
 | radware | radware-alteon-va | radware-alteon-ng-va-adc |
 | rapid7 | nexpose-scan-engine | nexpose-scan-engine |
 | rapid7 | rapid7-vm-console | rapid7-vm-console |
@@ -743,23 +769,23 @@ The table below contains a snapshot of the list of virtual machine images availa
 | SUSE | openSUSE-Leap | 42.3 |
 | SUSE | SLES | 11-SP4 |
 | SUSE | SLES | 12-SP3 |
+| SUSE | SLES | 12-SP4 |
 | SUSE | SLES | 15 |
 | SUSE | SLES-BYOS | 11-SP4 |
 | SUSE | SLES-BYOS | 12-SP3 |
+| SUSE | SLES-BYOS | 12-SP4 |
 | SUSE | SLES-BYOS | 15 |
 | SUSE | SLES-HPC | 12-SP3 |
-| SUSE | SLES-SAP-BYOS | 12-SP1 |
 | SUSE | SLES-SAP-BYOS | 12-SP2 |
 | SUSE | SLES-SAP-BYOS | 12-SP3 |
+| SUSE | SLES-SAP-BYOS | 12-SP4 |
 | SUSE | SLES-SAP-BYOS | 15 |
 | SUSE | SLES-SAPCAL | 11-SP4 |
 | SUSE | SUSE-CaaSP-Admin-BYOS | 2.1 |
 | SUSE | SUSE-CaaSP-Cluster-BYOS | 2.1 |
 | SUSE | SUSE-Manager-Proxy-BYOS | 3-2 |
-| SUSE | SUSE-Manager-Proxy-BYOS | 3.0 |
 | SUSE | SUSE-Manager-Proxy-BYOS | 3.1 |
 | SUSE | SUSE-Manager-Server-BYOS | 3-2 |
-| SUSE | SUSE-Manager-Server-BYOS | 3.0 |
 | SUSE | SUSE-Manager-Server-BYOS | 3.1 |
 | suse-byos | sles-byos | 12-sp1 |
 | tableau | tableau-server | bring-your-own-license |
@@ -846,6 +872,8 @@ The table below contains a snapshot of the list of virtual machine images availa
 | teradata | teradata-querygrid-manager-intellisphere | teradata-querygrid-manager-intellisphere |
 | teradata | teradata-rest-services | teradata-rest-services-byol |
 | teradata | teradata-server-management | teradata-server-management-byol |
+| teradata | teradata-unity | teradata-unity |
+| teradata | teradata-unity-intellisphere | teradata-unity-intellisphere |
 | teradata | teradata-viewpoint | teradata-viewpoint-multiple-systems-byol |
 | teradata | teradata-viewpoint | teradata-viewpoint-single-system-byol |
 | teradata | teradata-viewpoint | teradata-viewpoint-single-system-data-lab-byol |
@@ -853,6 +881,7 @@ The table below contains a snapshot of the list of virtual machine images availa
 | thales-vormetric | ciphertrust-ckm | ciphertrust-ckm |
 | thales-vormetric | vormetric-dsm | dsm-6-0-2-5162 |
 | thales-vormetric | vormetric-dsm-6-1-0 | dsm-6-1-0-9118 |
+| thales-vormetric | vormetric-dsm-6-1-0 | dsm-6-1-0-9229 |
 | thales-vormetric | vts-2_2_0_2604 | vts-2_2_0_2604 |
 | uniprint-net | uniprint-infinity | up_demo01 |
 | veeam | veeam-backup-replication | veeam-backup-replication-95 |

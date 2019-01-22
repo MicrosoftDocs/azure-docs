@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: jeffgilb
-ms.reviewer: georgel
+ms.reviewer: jiahan
 ---
 
 # SQL resource provider 1.1.33.0 release notes
