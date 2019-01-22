@@ -7,7 +7,7 @@ ms.subservice: database-features
 ms.custom: 
 ms.devlang: 
 ms.topic: overview
-author: jovanpop_msft
+author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
@@ -16,9 +16,9 @@ ms.date: 01/22/2019
 # Automate management tasks using database jobs
 
 Azure SQL Database enables you to create and schedule jobs that could be periodically executed against one or many databases to run T-SQL queries and perform maintenance tasks. 
-Every job logs the status of execution and also automatically retry operations if any failure occurs.
+Every job logs the status of execution and also automatically retries the operations if any failure occurs.
 You can define target database or groups of Azure SQL databases where the job will be executed, and also define schedules for running a job.
-A job handles the task of logging in to target database. You also define, maintain and persist Transact-SQL scripts to be executed across a group of Azure SQL databases.
+A job handles the task of logging in to target database. You also define, maintain, and persist Transact-SQL scripts to be executed across a group of Azure SQL databases.
 
 There are several scenarios when you could use job automation:
 - Automate management tasks and schedule then to run every weekday, after hours, etc.
@@ -30,11 +30,11 @@ There are several scenarios when you could use job automation:
   - Aggregate data from a collection of Azure SQL databases into a single destination table.
   - Execute longer running data processing queries across a large set of databases, for example the collection of customer telemetry. Results are collected into a single destination table for further analysis.
 - Data movements
- - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databaes and apply changed in the database.
+ - Create jobs that replicate changes made in your databases to other databases or collect updates made in remote databases and apply changed in the database.
  - Create jobs that load data from or to your databases using SQL Server Integration Services (SSIS).
 
 The following job scheduling technologies are available in Azure SQL Database:
-- **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Managed Instance. SQL Agent Jobs are not available in Singeton databases.
+- **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Managed Instance. SQL Agent Jobs are not available in Singleton databases.
 - **Elastic Database Jobs** are Job Scheduling service that executes custom jobs on one or many Azure SQL Databases.
 
 It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Database Managed Instance), and the Database Elastic Job agent (available for Singleton SQL Database and SQL Data Warehouse).
@@ -47,18 +47,18 @@ It is worth noting a couple of differences between SQL Agent (available on-premi
 ## SQL Agent Jobs
 
 SQL Agent Jobs are specified series of T-SQL scripts against your database. Use jobs to define an administrative task that can be run one or more times and monitored for success or failure.
-A job can run on one local server or on multiple remote servers. SQL Agent Job is a internal Database Engine component that is executed within the Managed Instance service.
+A job can run on one local server or on multiple remote servers. SQL Agent Job is an internal Database Engine component that is executed within the Managed Instance service.
 There are several key concepts in SQL Agent Jobs:
-- **Job steps** set of one or many steps that should be executed within the job. For every job step you cna define retry strategy and the action that shoudl happen if the job step succeed or fails.
+- **Job steps** set of one or many steps that should be executed within the job. For every job step you can define retry strategy and the action that should happen if the job step succeeds or fails.
 - **Schedules** define when the job should be executed.
 - **Notifications** enables you to define rules that will be used to notify operators via emails once the job completes.
 
 ### Job steps
 
 SQL Agent Job steps are sequences of actions that SQL Agent should execute. Every step has the following step that should be executed if the step succeeds or fails, number of retries in a case of failure.
-SQL Agent enables you to create different types of the job steps, such as Transact-SQL job steps that executes a single Transact-SQL batch against the database, or OS command/PowerShell steps that can execute custom OS script, SSIS job steps enable you to load data using SSIS runtime, or [replication](sql-database-managed-instance-transactional-replication.md) steps that can publis changes from your database to other databases.
+SQL Agent enables you to create different types of the job steps, such as Transact-SQL job step that executes a single Transact-SQL batch against the database, or OS command/PowerShell steps that can execute custom OS script, SSIS job steps enable you to load data using SSIS runtime, or [replication](sql-database-managed-instance-transactional-replication.md) steps that can publish changes from your database to other databases.
 
-[Transactional replication](sql-database-managed-instance-transactional-replication.md) is a Database Engine feature that enables you to publish the changes made on one or multiple tables in one database and publish/distribute them to a set of subcriber ddatabases. Publishing of the changes is implemented using SQL Agent Jobs using the following job step types:
+[Transactional replication](sql-database-managed-instance-transactional-replication.md) is a Database Engine feature that enables you to publish the changes made on one or multiple tables in one database and publish/distribute them to a set of subscriber databases. Publishing of the changes is implemented using the following SQL Agent job step types:
 - Transaction-log reader.
 - Snapshot.
 - Distributor.
@@ -73,7 +73,7 @@ Other types of job steps are not currently supported, including:
 A schedule specifies when a job runs. More than one job can run on the same schedule, and more than one schedule can apply to the same job.
 A schedule can define the following conditions for the time when a job runs:
 - Whenever Instance is restarted (or when SQL Server Agent starts). Job is activated after every failover.
-- One time, at a specific date and time, which is usefull for delayed execution of some job.
+- One time, at a specific date and time, which is useful for delayed execution of some job.
 - On a recurring schedule.
 
 > [!Note]
@@ -83,7 +83,7 @@ A schedule can define the following conditions for the time when a job runs:
 
 SQL Agent jobs enable you to get notifications when the job finishes successfully  or failed. You can receive email notification via email.
 
-First, you you need to setup email account that will be used to sent the email notifications and assign it to the email profile called `AzureManagedInstance_dbmail_profile`, as shown in the following sample:
+First, you would need to setup email account that will be used to send the email notifications and assign the account to the email profile called `AzureManagedInstance_dbmail_profile`, as shown in the following sample:
 
 ```sql
 -- Create a Database Mail account
@@ -120,7 +120,7 @@ GO
 RECONFIGURE 
 ```
 
-You can notify operator that something happened with your SQL Agent jobs. An operator defines a contact information for an individual responsible for the maintenance of one or more Managed Instance. Sometime, operator responsibilities are assigned to one individual.
+You can notify operator that something happened with your SQL Agent jobs. An operator defines a contact information for an individual responsible for the maintenance of one or more Managed Instances. Sometime, operator responsibilities are assigned to one individual.
 In systems with multiple Managed Instance or SQL Servers, many individuals can share operator responsibilities. An operator does not contain security information, and does not define a security principal.
 
 You can create operators using SSMS or Transact-SQL script shown in the following example:
@@ -133,19 +133,18 @@ EXEC msdb.dbo.sp_add_operator
 ```
 
 You can modify any job and assign operator that will be notified via email if job completes, fails, or succeeds using SSMS or the following Transact-SQL script:
+
 ```
 EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
 		@notify_level_email=3,                        -- Options are: 1 on succeed, 2 on failure, 3 on complete
 		@notify_email_operator_name=N'Mihajlo Pupun'
 ```
 
-SQL Server can notify operators of alerts through email alerts.
-
 ### SQL Agent Job Limitations
 
 Some of the SQL Agent features that are available in SQL Server are not supported in Managed Instance:
 - SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.
-- Enabling/disabling Agent is ncurrently not supported in Managed Instance. SQL Agent is always running.
+- Enabling/disabling Agent is currently not supported in Managed Instance. SQL Agent is always running.
 - Notifications are partially supported
  - Pager is not supported.
  - NetSend is not supported.
@@ -172,7 +171,7 @@ The following image shows a job agent executing jobs across the different types 
 |[**Elastic Job agent**](#elastic-job-agent) |  The Azure resource you create to run and manage Jobs.   |
 |[**Job database**](#job-database)    |    An Azure SQL database the job agent uses to store job related data, job definitions, etc.      |
 |[**Target group**](#target-group)      |  The set of servers, pools, databases, and shard maps to run a job against.       |
-|[**Job**](#job)  |  A job is a unit of work that is comprised of one or more [job steps](#job-step). Job steps specify the T-SQL script to run, as well as other details required to execute the script.  |
+|[**Job**](#job)  |  A job is a unit of work that is composed of one or more [job steps](#job-step). Job steps specify the T-SQL script to run, as well as other details required to execute the script.  |
 
 
 ### Elastic Job agent
@@ -267,7 +266,7 @@ To ensure resources aren't overburdened when running jobs against databases in a
 
 ## Next steps
 
-- [Waht is SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) 
+- [What is SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) 
 - [How to create and manage elastic jobs](elastic-jobs-overview.md) 
 - [Create and manage Elastic Jobs using PowerShell](elastic-jobs-powershell.md) 
 - [Create and manage Elastic Jobs using Transact-SQL (T-SQL)](elastic-jobs-tsql.md) 

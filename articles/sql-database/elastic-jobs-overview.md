@@ -15,7 +15,7 @@ ms.date: 01/22/2018
 ---
 # Create, configure, and manage elastic jobs
 
-In this artice, you will learn how to create, configure, and manage elastic jobs. If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](job-automation-overview.md).
+In this article, you will learn how to create, configure, and manage elastic jobs. If you have not used Elastic jobs, [learn more about the job automation concepts in Azure SQL Database](job-automation-overview.md).
 
 ## Create and configure the agent
 
@@ -43,7 +43,7 @@ Jobs use [database scoped credentials](/sql/t-sql/statements/create-database-sco
 Setting up the proper credentials to run a job can be a little confusing, so keep the following points in mind:
 
 - The database scoped credentials must be created in the *Job database*.
-- **All target databases must have a login with [sufficient permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) for the job to complete successfully** (jobuser in the diagram below).
+- **All target databases must have a login with [sufficient permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) for the job to complete successfully** (`jobuser` in the diagram below).
 - Credentials are expected to be reused across jobs, and the credential passwords are encrypted and secured from users who have read-only access to job objects.
 
 The following image is designed to assist in understanding and setting up the proper job credentials. **Remember to create the user in every database (all *target user dbs*) the job needs to run**.
