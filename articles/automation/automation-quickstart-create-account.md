@@ -7,7 +7,7 @@ ms.author: csand
 ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 ms.custom: mvc
 ---
 
@@ -66,3 +66,4 @@ In this quickstart, you’ve deployed an Automation account, started a runbook j
 
 > [!div class="nextstepaction"]
 > [Automation Quickstart - Create Runbook](./automation-quickstart-create-runbook.md)
+

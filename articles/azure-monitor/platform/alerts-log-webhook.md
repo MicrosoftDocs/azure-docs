@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Webhook actions for log alert rules
@@ -197,3 +197,4 @@ Following is a sample payload for a custom webhook action for any log alert.
 - Create and manage [action groups in Azure](action-groups.md)
 - Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
 - Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+
