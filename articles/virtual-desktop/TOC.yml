@@ -38,6 +38,10 @@
     href: diagnostics-role-service.md
   - name: Delegated access in Windows Virtual Desktop (Preview)
     href: delegated-access-virtual-desktop.md
+  - name: Host pool load-balancing methods (Preview)
+    href: host-pool-load-balancing.md
+  - name: Configure the Windows Virtual Desktop load-balancing method (Preview)
+    href: configure-host-pool-load-balancing.md
 - name: How-to
   items:
   - name: Connect to a Remote Desktop environment
