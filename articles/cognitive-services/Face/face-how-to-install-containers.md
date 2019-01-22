@@ -21,147 +21,177 @@ Face provides a standardized Linux container for Docker, named Face, which detec
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Prerequisites
+
+In order to run any of the Text Analytics containers, you must have the following:
+
 ## Preparation
 
-You must meet the following prerequisites before using the Face container:
+You must meet the following prerequisites before using Text Analytics containers:
 
-**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../azure-stack/index.yml). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+|Required|Purpose|
+|--|--|
+|Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
+|Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
+|Text Analytics resource |In order to use the container, you must have:<br><br>A [_Text Analytics_](text-analytics-how-to-access-key.md) Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Text Analytics Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
-Docker must be configured to allow the containers to connect with and send billing data to Azure.
+### The host computer
 
-**Familiarity with Microsoft Container Registry and Docker**: You should have a basic understanding of both Microsoft Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.  
+The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
 
-For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+* [Azure Kubernetes Service](../../../aks/index.yml)
+* [Azure Container Instances](../../../container-instances/index.yml)
+* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../../azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](../../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+
 
 ### Container requirements and recommendations
 
-The Face container requires a minimum of 1 CPU core, at least 2.6 gigahertz (GHz) or faster, and 4 gigabytes (GB) of allocated memory, but we recommend at least 2 CPU cores and 6 GB of allocated memory.
+The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
 
-## Request access to the private container registry
+| Container | Minimum | Recommended |
+|-----------|---------|-------------|
+|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |
+|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |
+|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |
 
-You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Face container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
+Core and memory correspond to the `--cpus` and `--memory` settings which are used as part of the `docker run` command.
 
-> [!IMPORTANT]
-> You must use an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
+## Get the container image with `docker pull`
 
-If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
+Container images for Text Analytics are available from Microsoft Container Registry. 
 
-## Create a Face resource on Azure
+| Container | Repository |
+|-----------|------------|
+|Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+|Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
+|Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-You must create a Face resource on Azure if you want to use the Face container. After you create the resource, you then use the subscription key and endpoint URL from the resource to instantiate the container. For more information about instantiating a container, see [Instantiate a container from a downloaded container image](#instantiate-a-container-from-a-downloaded-container-image).
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry..
 
-Perform the following steps to create and retrieve information from a Face resource:
+For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
 
-1. Create a Face resource in the Azure portal.  
-   If you want to use the Face container, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](../cognitive-services-apis-create-account.md).
+* [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757)
+* [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759)
+* [Sentiment Analysis](https://go.microsoft.com/fwlink/?linkid=2018654)
 
-1. Get the endpoint URL and subscription key for the Azure resource.  
-   Once the Azure resource is created, you must use the endpoint URL and subscription key from that resource to instantiate the corresponding Face container. You can copy the endpoint URL and subscription key from, respectively, the Quick Start and Keys pages of the Face resource on the Azure portal.
 
-## Log in to the private container registry
-
-There are several ways to authenticate with the private container registry for Cognitive Services Containers, but the recommended method from the command line is by using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
-
-Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command, as shown in the following example, to log into `containerpreview.azurecr.io`, the private container registry for Cognitive Services Containers. Replace *\<username\>* with the user name and *\<password\>* with the password provided in the credentials you received from the Azure Cognitive Services team.
-
-```docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
-
-If you have secured your credentials in a text file, you can concatenate the contents of that text file, using the `cat` command, to the `docker login` command as shown in the following example. Replace *\<passwordFile\>* with the path and name of the text file containing the password and *\<username\>* with the user name provided in your credentials.
-
-```docker
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
-
-## Download container images from the private container registry
-
-The container image for the Face container is available from a private Docker container registry, named `containerpreview.azurecr.io`, in Azure Container Registry. The container image for the Face container must be downloaded from the repository to run the container locally.
-
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example, to download the latest Face container image from the repository, use the following command:
+### Docker pull for the Key phrase extraction container
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
 
-For a full description of available tags for the Face container, see [Recognize Text](https://go.microsoft.com/fwlink/?linkid=2018655) on Docker Hub.
+### Docker pull for the language detection container
 
-> [!TIP]
-> You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
+```Docker
+docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
+```
 
-## Instantiate a container from a downloaded container image
+### Docker pull for the sentiment container
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command:
+```Docker
+docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
+```
 
-* Instantiates a container from the Face container image
-* Allocates two CPU cores and 6 gigabytes (GB) of memory
+### Listing the containers
+
+You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
+
+```Docker
+docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
+```
+
+
+## How to use the container
+
+Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
+
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
+1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
+
+## Run the container with `docker run`
+
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters:
+
+| Placeholder | Value |
+|-------------|-------|
+|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Text Analytics Keys page.  |
+|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Text Analytics Overview page.|
+
+Replace these parameters with your own values in the following example `docker run` command.
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+mcr.microsoft.com/azure-cognitive-services/keyphrase \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
+```
+
+This command:
+
+* Runs a key phrase container from the container image
+* Allocates one CPU cores and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits
+* Automatically removes the container after it exits. The container image is still available on the host computer. 
 
-```Docker
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789
-```
+More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to instantiate the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-Once instantiated, you can call operations from the container by using the container's host URI. For example, the following host URI represents the Face container that was instantiated in the previous example:
+## Query the container's prediction endpoint
 
-```http
-http://localhost:5000/
-```
+The container provides REST-based query prediction endpoint APIs. 
+
+Use the host, https://localhost:5000, for container APIs.
+
+## Stop the container
+
+[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
+
+## Troubleshooting
+
+If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+
+## Container's API documentation
+
+The container provides a full set of documentation for the endpoints as well as a `Try it now` feature. This feature allows you to enter your settings into a web-based HTML form and make the query without having to write any code. Once the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format required. 
 
 > [!TIP]
-> You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the Face container that was instantiated in the previous example:
+> Read the [OpenAPI specification](https://swagger.io/docs/specification/about/), describing the API operations supported by the container, from the `/swagger` relative URI. For example:
 >
 >  ```http
 >  http://localhost:5000/swagger
 >  ```
 
-You can either [call the REST API operations](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage) available from your container, or use the [Azure Cognitive Services Face Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/) client library to call those operations.  
-> [!IMPORTANT]
-> You must have Azure Cognitive Services Face Client Library version 2.0 or later if you want to use the client library with your container.
+## Billing
 
-The only difference between calling a given operation from your container and calling that same operation from a corresponding service on Azure is that you'll use the host URI of your container, rather than the host URI of an Azure region, to call the operation. For example, if you wanted to use a Face instance running in the West US Azure region to detect faces, you would call the following REST API operation:
+The Text Analytics containers send billing information to Azure, using a _Text Analytics_ resource on your Azure account. 
 
-```http
-POST https://westus.api.cognitive.microsoft.com/face/v1.0/detect
-```
+Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
 
-If you wanted to use a Face container running on your local machine under its default configuration to detect faces, you would call the following REST API operation:
-
-```http
-POST http://localhost:5000/face/v1.0/detect
-```
-
-### Billing
-
-The Face container sends billing information to Azure, using a corresponding Face resource on your Azure account. The following command-line options are used by the Face container for billing purposes:
+The `docker run` command uses the following arguments for billing purposes:
 
 | Option | Description |
 |--------|-------------|
-| `ApiKey` | The API key of the Face resource used to track billing information.<br/>The value of this option must be set to an API key for the provisioned Face Azure resource specified in `Billing`. |
-| `Billing` | The endpoint of the Face resource used to track billing  information.<br/>The value of this option must be set to the endpoint URI of a provisioned Face Azure resource.|
+| `ApiKey` | The API key of the _Text Analytics_ resource used to track billing information. |
+| `Billing` | The endpoint of the _Text Analytics_ resource used to track billing information.|
 | `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
 
 > [!IMPORTANT]
 > All three options must be specified with valid values, or the container won't start.
 
-For more information about these options, see [Configure containers](face-resource-container-config.md).
+For more information about these options, see [Configure containers](../text-analytics-resource-container-config.md).
 
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running Face containers. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running Text Analytics containers. In summary:
 
-* Face provides one Linux container for Docker, named Face, to detect faces or identify faces using a people database.
-* Container images are downloaded from a private container registry in Azure.
+* Text Analytics provides three Linux containers for Docker, encapsulating key phrase extraction, language detection, and sentiment analysis.
+* Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Face containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
