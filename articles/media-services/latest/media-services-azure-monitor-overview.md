@@ -19,11 +19,11 @@ ms.author: juliako
 
 # Monitor Media Services metrics and diagnostic logs
 
-Azure Media Services uses [Azure Monitor](../../azure-monitor/overview.md) to enable you to monitor metrics and diagnostic logs that help you understand how your applications are performing. You can create alerts and notifications for the metrics and diagnostic logs or archive them to Storage accounts, Event Hubs, OMS Log Analytics or to 3rd party services.
+Azure Media Services uses [Azure Monitor](../../azure-monitor/overview.md) to enable you to monitor metrics and diagnostic logs that help you understand how your applications are performing. You can create alerts and notifications for the metrics and diagnostic logs. You can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use 3rd party services.
 
-For detailed information, see [Metrics](../../azure-monitor/platform/data-collection.md) and [Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md).
+For detailed information, see [Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
-This topic discusses currently available Media Services [metrics](#media-services-metrics) and [diagnostic logs](#media-services-diagnostic-logs).
+This topic discusses currently available [Media Services Metrics](#media-services-metrics) and [Media Services Diagnostic logs](#media-services-diagnostic-logs).
 
 ## Media Services metrics
 
