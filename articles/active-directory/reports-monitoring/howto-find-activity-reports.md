@@ -114,7 +114,7 @@ You can access reports about detected risk events in the **Security** section of
 
 ## Troubleshoot issues with activity reports
 
-### Missing data in the downloaded Azure Active Directory activity logs
+### Missing data in the downloaded activity logs
 
 #### Symptoms 
 
