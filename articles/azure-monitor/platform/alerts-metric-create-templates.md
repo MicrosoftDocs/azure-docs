@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
 
@@ -1369,3 +1369,4 @@ az group deployment create \
 * Read more about [alerts in Azure](alerts-overview.md)
 * Learn how to [create an action group with Resource Manager templates](action-groups-create-resource-manager-template.md)
 * For the JSON syntax and properties, see [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) template reference.
+
