@@ -104,6 +104,9 @@ When you select a risk event, you get a detailed report view for this risk event
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/457.png)
 
+> [!IMPORTANT]
+> Sometimes, you may find a risk event without a corresponding sign-in entry in the [sign-ins report](concept-sign-ins.md). This is because Identity Protection evaluates risk for both **interactive** and **non-interactive** sign-ins, whereas the sign-ins report shows only the interactive sign-ins.
+
 When you select a user, you get a detailed report view for this user that enables you to:
 
 - Open the All sign-ins view
