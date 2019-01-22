@@ -324,7 +324,7 @@ Administrators must configure SSO to:
 Follow these steps:
 
 1. Open a PowerShell instance as azurestack\AzureStackAdmin.
-2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 4. Run the **Create-AADIdentityApp.ps1** script. When you're prompted, enter the Azure AD tenant ID that you're using for your Azure Stack deployment. For example, enter **myazurestack.onmicrosoft.com**.
 5. In the **Credential** window, enter your Azure AD service admin account and password. Select **OK**.
@@ -368,7 +368,7 @@ Administrators must configure SSO to:
 Follow these steps:
 
 1. Open a PowerShell instance as azurestack\AzureStackAdmin.
-2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 4. Run the **Create-ADFSIdentityApp.ps1** script.
 5. In the **Credential** window, enter your AD FS cloud admin account and password. Select **OK**.

@@ -126,7 +126,7 @@ The following tables list some of the StorSimple alerts that you might encounter
 
 | Alert text | Event | More information / recommended actions |
 |:--- |:--- |:--- |
-| Device *<device name>* is not connected to the cloud. |The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device. |
+| Device <*device name*> is not connected to the cloud. |The named device cannot connect to the cloud. |Could not connect to the cloud. This could be due to one of the following:<ul><li>There may be a problem with the network settings on your device.</li><li>There may be a problem with the storage account credentials.</li></ul>For more information on troubleshooting connectivity issues, go to the [local web UI](storsimple-ova-web-ui-admin.md) of the device. |
 
 ### Configuration alerts
 

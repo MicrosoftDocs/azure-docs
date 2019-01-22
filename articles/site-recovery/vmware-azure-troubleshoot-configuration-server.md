@@ -68,7 +68,6 @@ In order to resolve vCenter discovery failures, ensure that vCenter server is ad
 ## Change the IP address of the configuration server
 
 We strongly recommend that you don't change the IP address of a configuration server. Ensure that all IP addresses that are assigned to the configuration server are static IP addresses. Don't use DHCP IP addresses.
->>>>>>> c842cff5a0480caa5183dbb7afe5016a7061c7b9
 
 ## ACS50008: SAML token is invalid
 
@@ -78,7 +77,7 @@ To avoid this error, ensure that the time on your system clock isn't different f
 
 A certificate that's required to authenticate Site Recovery can't be created. Rerun setup after you ensure that you're running setup as a local administrator.
 
-## Register the source machine with the configuration server
+## Register source machine with configuration server
 
 ### If the source machine runs Windows
 
