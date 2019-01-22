@@ -25,13 +25,13 @@ Consider the scenario where a data set gets frequent access during the early sta
 
 ## Storage account support
 
-The lifecycle management policy is available with both General Purpose v2 (GPv2) accounts and Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account via a simple one-click process. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).  
+The lifecycle management policy is available with both General Purpose v2 (GPv2) accounts and Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account via a simple one-click process. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
-## Pricing 
+## Pricing
 
 The lifecycle management feature is free of charge in preview. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## Register for preview 
+## Register for preview
 To enroll in public preview, you'll need to submit a request to register this feature to your subscription. Requests are usually approved within two weeks. Upon approval, all existing and new GPv2 or Blob storage accounts in the following regions include the feature: West US 2, West Central US, East US 2, and West Europe. Preview only supports block blob. As with most previews, you shouldn't use this feature for production workloads until it reaches GA.
 
 To submit a request, run the following PowerShell or CLI commands.
@@ -43,7 +43,7 @@ To submit a request, run the following PowerShell or CLI commands.
 To submit a request:
 
 ```powershell
-Register-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage 
+Register-AzProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 You can check the registration approval status with the following command:
 ```powershell
@@ -53,7 +53,7 @@ With approval and proper registration, you receive the *Registered* state when y
 
 ### Azure CLI
 
-To submit a request: 
+To submit a request:
 ```cli
 az feature register --namespace Microsoft.Storage --name DLM
 ```
@@ -64,9 +64,9 @@ az feature show --namespace Microsoft.Storage --name DLM
 With approval and proper registration, you receive the *Registered* state when you submit the previous requests.
 
 
-## Add or remove a policy 
+## Add or remove a policy
 
-You can add, edit, or remove a policy using Azure portal, [PowerShell](https://www.powershellgallery.com/packages/Az.Storage), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate), or client tools in the following languages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+You can add, edit, or remove a policy using Azure portal, [PowerShell](https://www.powershellgallery.com/packages/Az.Storage), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/storage-preview/storage/account/management-policy?view=azure-cli-latest#ext-storage-preview-az-storage-account-management-policy-create), [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate), or client tools in the following languages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2).
 
 ### Azure portal
 
@@ -79,9 +79,9 @@ You can add, edit, or remove a policy using Azure portal, [PowerShell](https://w
 ### PowerShell
 
 ```powershell
-$rules = '{ ... }' 
+$rules = '{ ... }'
 
-Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
+Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules
 
 Get-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName]
 ```
@@ -140,7 +140,7 @@ Each rule within the policy requires three parameters:
 Each rule definition includes a filter set and an action set. The [filter set](#rule-filters) limits rule actions to a certain set of objects within a container or objects names. The [action set](#rule-actions) applies the tier or delete actions to the filtered set of objects.
 
 ### Sample rule
-The following sample rule filters the account to run the actions only on `container1/foo`. Run the following actions for all the objects that exist inside `container1` **AND** starts with `foo`: 
+The following sample rule filters the account to run the actions only on `container1/foo`. Run the following actions for all the objects that exist inside `container1` **AND** starts with `foo`:
 
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
@@ -150,10 +150,10 @@ The following sample rule filters the account to run the actions only on `contai
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "ruleFoo", 
-      "type": "Lifecycle", 
+      "name": "ruleFoo",
+      "type": "Lifecycle",
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -199,7 +199,7 @@ In preview, lifecycle management supports tiering and deletion of blobs and dele
 | tierToArchive | Support blobs currently at hot or cool tier | Not supported |
 | delete        | Supported                                   | Supported     |
 
->[!NOTE] 
+>[!NOTE]
 If you define more than one action on the same blob, lifecycle management applies the least expensive action to the blob. For example, action `delete` is cheaper than action `tierToArchive`. Action `tierToArchive` is cheaper than action `tierToCool`.
 
 In preview, the action execution conditions are based on age. Base blobs use the last modified time to track age, and blob snapshots use the snapshot creation time to track age.
@@ -207,7 +207,7 @@ In preview, the action execution conditions are based on age. Base blobs use the
 | Action execution condition | Condition value | Description |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | Valid condition for base blob actions |
-| daysAfterCreationGreaterThan     | Integer value indicating the age in days | Valid condition for blob snapshot actions | 
+| daysAfterCreationGreaterThan     | Integer value indicating the age in days | Valid condition for blob snapshot actions |
 
 ## Examples
 The following examples demonstrate how to address common scenarios with lifecycle policy rules.
@@ -219,11 +219,11 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "agingRule", 
-      "type": "Lifecycle", 
-      "definition": 
+      "name": "agingRule",
+      "type": "Lifecycle",
+      "definition":
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
@@ -235,35 +235,35 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
               "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
             }
           }
-        }      
+        }
     }
   ]
 }
 ```
 
-### Archive data at ingest 
+### Archive data at ingest
 
 Some data stays idle in the cloud and is rarely, if ever, accessed once stored. Archive this data immediately once it's ingested. The following lifecycle policy is configured to archive data at ingest. This example transitions block blobs in the storage account within container `archivecontainer` immediately into an archive tier. The immediate transition is accomplished by acting on blobs 0 days after last modified time:
 
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "archiveRule", 
-      "type": "Lifecycle", 
-      "definition": 
+      "name": "archiveRule",
+      "type": "Lifecycle",
+      "definition":
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
             "prefixMatch": [ "archivecontainer" ]
           },
           "actions": {
-            "baseBlob": { 
+            "baseBlob": {
                 "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
             }
           }
-        }      
+        }
     }
   ]
 }
@@ -277,11 +277,11 @@ Some data is expected to expire days or months after creation to reduce costs or
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "expirationRule", 
-      "type": "Lifecycle", 
-      "definition": 
+      "name": "expirationRule",
+      "type": "Lifecycle",
+      "definition":
         {
           "filters": {
             "blobTypes": [ "blockBlob" ]
@@ -291,7 +291,7 @@ Some data is expected to expire days or months after creation to reduce costs or
               "delete": { "daysAfterModificationGreaterThan": 365 }
             }
           }
-        }      
+        }
     }
   ]
 }
@@ -304,29 +304,29 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "snapshotRule", 
-      "type": "Lifecycle", 
-      "definition": 
+      "name": "snapshotRule",
+      "type": "Lifecycle",
+      "definition":
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
             "prefixMatch": [ "activedata" ]
           },
-          "actions": {            
+          "actions": {
             "snapshot": {
               "delete": { "daysAfterCreationGreaterThan": 90 }
             }
           }
-        }      
+        }
     }
   ]
 }
 ```
-## FAQ - I created a new policy, why are the actions not run immediately? 
+## FAQ - I created a new policy, why are the actions not run immediately?
 
-The platform runs the lifecycle policy once a day. Once you set a new policy, it can take up to 24 hours for some actions (such as tiering and deletion) to start and run.  
+The platform runs the lifecycle policy once a day. Once you set a new policy, it can take up to 24 hours for some actions (such as tiering and deletion) to start and run.
 
 ## Next steps
 
