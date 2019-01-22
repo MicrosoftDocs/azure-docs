@@ -127,7 +127,7 @@ The following connection string format can be used to connect to a SQL Server da
 The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The code below reads the results returned from a SQL Server database into a Pandas data frame:
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
 Now you can work with the Pandas data frame as covered in the article [Process Azure Blob data in your data science environment](data-blob.md).
 

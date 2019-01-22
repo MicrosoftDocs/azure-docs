@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/21/2019
 ms.author: raynew
 
 ---
@@ -21,7 +21,7 @@ This article summarizes supported configurations and components when you deploy 
 --- | ---
 **Azure portal** | Supported
 **PowerShell** | [Azure to Azure replication with PowerShell](azure-to-azure-powershell.md)
-**REST API** | Not currently supported
+**REST API** | Supported
 **CLI** | Not currently supported
 
 
