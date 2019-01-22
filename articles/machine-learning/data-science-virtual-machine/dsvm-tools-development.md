@@ -1,12 +1,12 @@
 ---
 title: Data Science Virtual Machine development tools - Azure | Microsoft Docs
-description: Data Science Virtual machine development tools.
+description: Learn about the tools and integrated development environments that are pre-installed on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning

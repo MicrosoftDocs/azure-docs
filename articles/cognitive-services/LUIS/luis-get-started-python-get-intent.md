@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: get intent - Python" 
+title: Get intent, Python
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
 services: cognitive-services

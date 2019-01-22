@@ -8,7 +8,6 @@ layout: LandingPage
 ms.assetid: 
 ms.service: advisor
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz

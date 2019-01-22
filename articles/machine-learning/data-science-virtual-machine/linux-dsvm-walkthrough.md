@@ -1,11 +1,13 @@
 ---
-title: Data science with the Linux Data Science Virtual Machine on Azure| Microsoft Docs
+title: Learn how to use Linux Data Science Virtual Machine
+titleSuffix: Azure
 description: How to perform several common data science tasks with the Linux Data Science VM.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
@@ -95,7 +97,7 @@ The *spam* column was read as an integer, but it's actually a categorical variab
 
     data$spam <- as.factor(data$spam)
 
-To do some exploratory analysis, use the [ggplot2](http://ggplot2.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
+To do some exploratory analysis, use the [ggplot2](https://ggplot2.tidyverse.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
@@ -312,19 +314,19 @@ The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-pla
 
 > [!NOTE]
 > To use the Python Package Manager (via the `pip` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > To use the Conda installer (via the `conda` command) from a Jupyter notebook in the current kernel, the following command may be used in code cell, for example:
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 

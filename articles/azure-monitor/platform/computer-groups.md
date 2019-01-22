@@ -6,16 +6,13 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-
 ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.component: 
 ---
 
 # Computer groups in Log Analytics log searches
@@ -29,7 +26,7 @@ You can create a computer group in Log Analytics using any of the methods in the
 |:--- |:--- |
 | Log search |Create a log search that returns a list of computers. |
 | Log Search API |Use the Log Search API to programmatically create a computer group based on the results of a log search. |
-| Active Directory |Automatically scan the group membership of any agent computers that are members of an Active Directory domain and create a group in Log Analytics for each security group. |
+| Active Directory |Automatically scan the group membership of any agent computers that are members of an Active Directory domain and create a group in Log Analytics for each security group. (Windows machines only)|
 | Configuration Manager | Import collections from System Center Configuration Manager  and create a group in Log Analytics for each. |
 | Windows Server Update Services |Automatically scan WSUS servers or clients for targeting groups and create a group in Log Analytics for each. |
 
@@ -58,7 +55,10 @@ Use the following procedure to create a computer group from a log search in the 
 
 
 ### Active Directory
-When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any domain joined computers with the Log Analytics agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
+When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any Windows domain joined computers with the Log Analytics agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each Windows computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
+
+> [!NOTE]
+> Imported Active Directory groups only contain Windows machines.
 
 You configure Log Analytics to import Active Directory security groups from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **Active Directory**, and then **Import Active Directory group memberships from computers**.  There is no further configuration required.
 
@@ -78,7 +78,7 @@ When groups have been imported, the menu lists the number of computers with grou
 ### System Center Configuration Manager
 When you configure Log Analytics to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. 
 
-Before you can import Configuration Manager collections, you must [connect Configuration Manager to Log Analytics](../../log-analytics/log-analytics-sccm.md).  You can then configure the import from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **SCCM**, and then **Import Configuration Manager collection memberships**.  There is no further configuration required.
+Before you can import Configuration Manager collections, you must [connect Configuration Manager to Log Analytics](../../azure-monitor/platform/collect-sccm.md).  You can then configure the import from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **SCCM**, and then **Import Configuration Manager collection memberships**.  There is no further configuration required.
 
 ![Computer groups from SCCM](media/computer-groups/configure-sccm.png)
 

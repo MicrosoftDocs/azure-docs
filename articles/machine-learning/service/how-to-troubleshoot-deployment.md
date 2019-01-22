@@ -1,5 +1,6 @@
 ---
-title: Deployment troubleshooting guide for Azure Machine Learning service
+title: Deployment troubleshooting guide
+titleSuffix: Azure Machine Learning service
 description: Learn how to workaround, solve, and troubleshoot the common Docker deployment errors with AKS and ACI using  Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
@@ -9,6 +10,7 @@ ms.author: haining
 author: hning86
 ms.reviewer: jmartens
 ms.date: 12/04/2018
+ms.custom: seodec18
 ---
 
 # Troubleshooting Azure Machine Learning service AKS and ACI deployments
@@ -86,10 +88,10 @@ If system is unable to build the Docker image, the `image.wait_for_creation()` c
 print(image.image_build_log_uri)
 
 # if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images()['myimg'].image_build_log_uri)
+print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items():
+for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 The image log uri is a SAS URL pointing to a log file stored in your Azure blob storage. Simply copy and paste the uri into a browser window and you can download and view the log file.
@@ -108,7 +110,7 @@ You can print out detailed Docker engine log messages from the service object.
 print(service.get_logs())
 
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices()['mysvc'].get_logs())
+print(ws.webservices['mysvc'].get_logs())
 ```
 
 ### Debug the Docker image locally
@@ -217,10 +219,6 @@ def run(input_data):
 ## Next steps
 
 Learn more about deployment: 
-* [How to deploy to ACI](how-to-deploy-to-aci.md)
+* [How to deploy and where](how-to-deploy-and-where.md)
 
-* [How to deploy to AKS](how-to-deploy-to-aks.md)
-
-* [Tutorial part 1: train model](tutorial-train-models-with-aml.md)
-
-* [Tutorial part 2: deploy model](tutorial-deploy-models-with-aml.md)
+* [Tutorial: Train & deploy models](tutorial-train-models-with-aml.md)

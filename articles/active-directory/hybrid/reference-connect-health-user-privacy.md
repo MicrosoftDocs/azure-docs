@@ -4,7 +4,7 @@ description: This document describes user privacy with Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity

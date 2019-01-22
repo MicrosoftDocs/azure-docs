@@ -19,7 +19,7 @@ Learn how to create [Apache Spark](https://spark.apache.org/) cluster in Azure H
 
 In this quickstart, you use Azure PowerShell to create an HDInsight Spark cluster. The cluster uses Azure Storage Blobs as the cluster storage. For more information on using Data Lake Storage Gen2, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Billing for HDInsight clusters is prorated per minute, whether you are using them or not. Be sure to delete your cluster after you have finished using it. For more information, see the [Clean up resources](#clean-up-resources) section of this article.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 Creating an HDInsight cluster includes creating the following Azure objects and resources:
 
 - An Azure resource group. An Azure resource group is a container for Azure resources. 
-- An Azure storage account or an Azure Data Lake Store.  Each HDInsight cluster requires a dependent data storage. In this quickstart, you create a storage account.
+- An Azure storage account or Azure Data Lake Storage.  Each HDInsight cluster requires a dependent data storage. In this quickstart, you create a storage account.
 - An HDInsight cluster of different cluster types.  In this quickstart, you create a Spark 2.3 cluster.
 
 You use a PowerShell script to create the resources.  When you run the script, you are prompted to enter the following values:
@@ -114,7 +114,7 @@ You use a PowerShell script to create the resources.  When you run the script, y
     ```
 It takes about 20 minutes to create the cluster. The cluster must be created before you can proceed to the next session.
 
-If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Create a Jupyter notebook
 
@@ -171,7 +171,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
 2. From the **File** menu on the notebook, select **Close and Halt**. Shutting down the notebook releases the cluster resources.
 
 ## Clean up resources
-HDInsight saves your data in Azure Storage or Azure Data Lake Store, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. If you plan to work on the tutorial listed in [Next steps](#next-steps) immediately, you might want to keep the cluster.
+HDInsight saves your data in Azure Storage or Azure Data Lake Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. If you plan to work on the tutorial listed in [Next steps](#next-steps) immediately, you might want to keep the cluster.
 
 Switch back to the Azure portal, and select **Delete**.
 

@@ -67,10 +67,12 @@ There are a few things you need to know and a couple of things that you need in 
 ### What to know
 You should have an operational understanding of the following technologies:
 
-- [Windows cluster technologies](https://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server Failover Cluster Instances](https://msdn.microsoft.com/library/ms189134.aspx).
+- [Windows cluster technologies](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server Failover Cluster Instances](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Also, you should have a general understanding of the following technologies:
+One important difference is that on a Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+
+Additionally, you should have a general understanding of the following technologies:
 
 - [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure resource groups](../../../azure-resource-manager/resource-group-portal.md)

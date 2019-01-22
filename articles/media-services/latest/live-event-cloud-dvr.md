@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
 
 ---
 
 # Using a cloud DVR
 
-A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) enables you to control the properties of the outgoing live stream, such as how much of the stream is recorded (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The relationship between a **LiveEvent** and its **LiveOutput**s relationship is similar to traditional television broadcast, whereby a channel (**LiveEvent**) represents a constant stream of video and a recording (**LiveOutput**) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). You can record television using a Digital Video Recorder (DVR) – the equivalent feature in LiveEvents is managed via the ArchiveWindowLength property. It is an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
+A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) enables you to control the properties of the outgoing live stream, such as how much of the stream is recorded (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The relationship between a **LiveEvent** and its **LiveOutput**s is similar to traditional television broadcast, whereby a channel (**LiveEvent**) represents a constant stream of video and a recording (**LiveOutput**) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). You can record television using a Digital Video Recorder (DVR) – the equivalent feature in LiveEvents is managed via the ArchiveWindowLength property. It is an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
 
 ## LiveOutput
 
@@ -32,7 +32,10 @@ Each **LiveOutput** is associated with an **Asset**, which it uses to record the
 A **LiveEvent** supports up to three concurrently running **LiveOutput**s so you can create at most 3 recordings/archives from one live stream. This allows you to publish and archive different parts of an event as needed. Suppose you need to broadcast a 24x7 live linear feed, and create "recordings" of the different programs throughout the day to offer to customers as on-demand content for catch-up viewing. For this scenario, you first create a primary LiveOutput, with a short archive window of 1 hour or less – this is the primary live stream that your viewers would tune into. You would create a **StreamingLocator** for this **LiveOutput** and publish it to your application or web site as the "Live" feed. While the **LiveEvent** is running, you can programmatically create a second concurrent **LiveOutput** at the beginning of a program (or 5 minutes early to provide some handles to trim later). This second **LiveOutput** can be deleted 5 minutes after the program ends. With this second **Asset**, you can create a new **StreamingLocator** to publish this program as an on-demand asset in your application's catalog. You can repeat this process multiple times for other program boundaries or highlights that you wish to share as on-demand videos, all while the "Live" feed from the first **LiveOutput** continues to broadcast the linear feed. 
 
 > [!NOTE]
-> **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the Asset.  
+> **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the asset. 
+>
+> If you have published **Streaming Locator**s on the asset for the **LiveOutput**, the event (up to the DVR window length) will continue to be viewable until the end time of the **Streaming Locator** or till when you delete the locator, whichever comes first.   
+  
 
 ## Next steps
 

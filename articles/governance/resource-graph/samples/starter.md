@@ -1,5 +1,5 @@
 ---
-title: Starter Azure Resource Graph queries
+title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries.
 services: resource-graph
 author: DCtheGeek
@@ -8,7 +8,7 @@ ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: mvc
+ms.custom: seodec18
 ---
 # Starter Resource Graph queries
 

@@ -27,7 +27,9 @@ There are two places where you review reported risk events:
  - **Azure AD reporting** - Risk events are part of Azure AD's security reports. For more information, see the [users at risk security report](concept-user-at-risk.md) and the [risky sign-ins security report](concept-risky-sign-ins.md).
 
  - **Azure AD Identity Protection** - Risk events are also part of the reporting capabilities of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-    
+
+In addition, you can use the [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to gain programmatic access to security detections using Microsoft Graph. For more information, see [Get started with Azure Active Directory Identity Protection and Microsoft Graph](../identity-protection/graph-get-started.md). 
+
 Currently, Azure Active Directory detects six types of risk events:
 
 - [Users with leaked credentials](#leaked-credentials) 

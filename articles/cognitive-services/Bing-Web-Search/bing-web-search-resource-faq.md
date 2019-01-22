@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions (FAQ) - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Get answers to common questions about the Bing Web Search API.
+description: Get answers to common questions about using the Bing Web Search API.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,6 +10,7 @@ ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: aahi
+ms.custom: seodec2018
 ---
 
 # Frequently asked questions (FAQ)

@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 01/10/2019
 ms.author: raynew
 ---
 
@@ -24,6 +24,18 @@ The continuous discovery appliance only collects performance data continuously, 
 
 - Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
 
+### Deletion of Azure Migrate projects and associated Log Analytics workspace
+
+When you delete an Azure Migrate project, it deletes the migration project along with all the groups and assessments. However, if you have attached a Log Analytics workspace to the project, it does not automatically delete the Log Analytics workspace. This is because the same Log Analytics workspace might be used for multiple use cases. If you would like to delete the Log Analytics workspace as well, you need to do it manually.
+
+1. Browse to the Log Analytics workspace attached to the project.
+   a. If you have not deleted the migration project yet, you can find the link to the workspace from the project overview page in the Essentials section.
+
+   ![LA Workspace](./media/troubleshooting-general/LA-workspace.png)
+
+   b. If you already deleted the migration project,  click **Resource Groups** in the left pane in Azure portal and go to the Resource Group in which the workspace was created and then browse to it.
+2. Follow the instructions [in this article](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete the workspace.
+
 ### Migration project creation failed with error *Requests must contain user identity headers*
 
 This issue can happen for users who do not have access to the Azure Active Directory (Azure AD) tenant of the organization. When a user is added to an Azure AD tenant for the first time, he/she receives an email invite to join the tenant. Users need to go to the email and accept the invitation to get successfully added to the tenant. If you are unable to see the email, reach out to a user who already has access to the tenant and ask them to resend the invitation to you using the steps specified [here](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users).
@@ -36,32 +48,34 @@ If you are unable to export the assessment report from the portal, try using the
 
 1. Install *armclient* on your computer (if you don’t have it already installed):
 
-a. In an administrator Command Prompt window, run the following command:
-       *@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"*
+  a. In an administrator Command Prompt window, run the following command:
+    ```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
 
-b.In an administrator Windows PowerShell window, run the following command:
-       *choco install armclient*
+  b. In an administrator Windows PowerShell window, run the following command:
+    ```choco install armclient```
 
 2.	Get the download URL for the assessment report using Azure Migrate REST API
 
-a.	In an administrator Windows PowerShell window, run the following command:
-       *armclient login*
-This opens the Azure login pop-up where you need to logon to Azure.
+  a.	In an administrator Windows PowerShell window, run the following command:
+      ```armclient login```
 
-b.	In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
+  This opens the Azure login pop-up where you need to logon to Azure.
 
-       *armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02*
+  b.	In the same PowerShell window, run the following command to get the download URL for the assessment report (replace the URI parameters with the appropriate values, sample API request below)
 
-Sample request and output:
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
-PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+       Sample request and output:
+
+       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
 esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
 018_12_16_21/downloadUrl?api-version=2018-02-02
 {
   "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
-  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"
+  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
 
 3. Copy the URL from the response and open it in a browser to download the assessment report.
+
 4. Once the report is downloaded, use Excel to browse to the downloaded folder and open the file in Excel to view it.
 
 ### Performance data for disks and networks adapters shows as zeros
@@ -76,13 +90,13 @@ You can go to the **Essentials** section in the **Overview** page of the project
 
    ![Project location](./media/troubleshooting-general/geography-location.png)
 
-## Collector errors
+## Collector issues
 
 ### Deployment of Azure Migrate Collector failed with the error: The provided manifest file is invalid: Invalid OVF manifest entry.
 
 1. Verify if Azure Migrate Collector OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
 2. If it still fails and if you are using VMware vSphere Client to deploy the OVF, try deploying it through vSphere Web Client. If it still fails, try using different web browser.
-3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5, try to deploy the OVA directly on ESXi host by following the below steps:
+3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on ESXi host by following the below steps:
   - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
   - Go to Home > Inventory
   - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
@@ -132,7 +146,7 @@ Azure Migrate collector downloads PowerCLI and installs it on the appliance. Fai
 2. Go to the directory C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. Run the script InstallPowerCLI.ps1
 
-### Error UnhandledException Internal error occured: System.IO.FileNotFoundException
+### Error UnhandledException Internal error occurred: System.IO.FileNotFoundException
 
 This issue could occur due to an issue with VMware PowerCLI installation. Follow the below steps to resolve the issue:
 
@@ -153,7 +167,22 @@ If the issue still happens in the latest version, it could be because the collec
 3. Identify the correct port number to connect to the vCenter.
 4. Finally check if the vCenter server is up and running.
 
+### Antivirus exclusions
+
+To harden the Azure Migrate appliance, you need to exclude the following folders in the appliance from antivirus scanning:
+
+- Folder that has the binaries for Azure Migrate Service. Exclude all sub-folders.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web Applciation. Exclude all sub-folders.
+  %SystemDrive%\inetpub\wwwroot
+- Local Cache for Database and log files. Azure migrate service needs RW access to this folder.
+  %SystemDrive%\Profiler
+
 ## Dependency visualization issues
+
+### I am unable to find the dependency visualization functionality for Azure Government projects.
+
+Azure Migrate depends on Service Map for the dependency visualization functionality and since Service Map is currently unavailable in Azure Government, this functionality is not available in Azure Government.
 
 ### I installed the Microsoft Monitoring Agent (MMA) and the dependency agent on my on-premises VMs, but the dependencies are now showing up in the Azure Migrate portal.
 
@@ -237,14 +266,14 @@ To collect Event Tracing for Windows, do the following:
 2. Press F12 to start the Developer Tools. If needed, clear the setting **Clear entries on navigation**.
 3. Click the **Network** tab, and start capturing network traffic:
  - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being capture. If it doesn't appear, click the black circle to start
- - In Edge/IE, recording should start automatically. If it doesn't, click the green play button.
+ - In Microsoft Edge/IE, recording should start automatically. If it doesn't, click the green play button.
 4. Try to reproduce the error.
 5. After you've encountered the error while recording, stop recording, and save a copy of the recorded activity:
  - In Chrome, right-click and click **Save as HAR with content**. This zips and exports the logs as a .har file.
- - In Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
+ - In Microsoft Edge/IE, click the **Export captured traffic** icon. This zips and exports the log.
 6. Navigate to the **Console** tab to check for any warnings or errors. To save the console log:
  - In Chrome, right-click anywhere in the console log. Select **Save as**, to export and zip the log.
- - In Edge/IE, right-click on the errors and select **Copy all**.
+ - In Microsoft Edge/IE, right-click on the errors and select **Copy all**.
 7. Close Developer Tools.
 
 ## Collector error codes and recommended actions

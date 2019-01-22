@@ -6,16 +6,13 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: ''
-
 ms.assetid: 
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Create a data pipeline with the Data Collector API

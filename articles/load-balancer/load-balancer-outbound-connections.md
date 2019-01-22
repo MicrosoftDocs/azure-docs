@@ -1,10 +1,12 @@
 ---
-title: Outbound connections in Azure | Microsoft Docs
+title: Outbound connections in Azure
+titlesuffix: Azure Load Balancer
 description: This article explains how Azure enables VMs to communicate with public internet services.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -84,9 +86,9 @@ An example is an Azure Resource Manager deployment where the application relies 
 
 ### <a name="multife"></a> Multiple frontends for outbound flows
 
-#### Load Balancer Standard
+#### Standard Load Balancer
 
-Load Balancer Standard uses all candidates for outbound flows at the same time when [multiple (public) IP frontends](load-balancer-multivip-overview.md) is present. Each frontend multiplies the number of available preallocated SNAT ports if a load balancing rule is enabled for outbound connections.
+Standard Load Balancer uses all candidates for outbound flows at the same time when [multiple (public) IP frontends](load-balancer-multivip-overview.md) is present. Each frontend multiplies the number of available preallocated SNAT ports if a load balancing rule is enabled for outbound connections.
 
 You can choose to suppress a frontend IP address from being used for outbound connections with a new load balancing rule option:
 

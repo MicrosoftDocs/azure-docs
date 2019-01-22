@@ -1,44 +1,39 @@
 ---
-title: Retrain a Classic web service - Azure Machine Learning Studio | Microsoft Docs
+title: Retrain a Classic web service
+titleSuffix: Azure Machine Learning Studio
 description: Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
-services: machine-learning
-documentationcenter: ''
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
+
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
 ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 04/19/2017
 ---
-# Retrain a Classic web service
-The Predictive Web Service you deployed is the default scoring endpoint. Default endpoints are kept in sync with the original training and scoring experiments, and therefore the trained model for the default endpoint cannot be replaced. To retrain the web service, you must add a new endpoint to the web service. 
+# Retrain a Classic Azure Machine Learning Studio web service
+The Predictive Web Service you deployed is the default scoring endpoint. Default endpoints are kept in sync with the original training and scoring experiments, and therefore the trained model for the default endpoint cannot be replaced. To retrain the web service, you must add a new endpoint to the web service.
 
 ## Prerequisites
-You must have set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](retrain-models-programmatically.md). 
+You must have set up a training experiment and a predictive experiment as shown in [Retrain Machine Learning models programmatically](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> The predictive experiment must be deployed as a Classic machine learning web service. 
-> 
-> 
+> The predictive experiment must be deployed as a Classic machine learning web service.
+>
+>
 
 For additional information on Deploying web services, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
 ## Add a new endpoint
-The Predictive Web Service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your web service to with a new trained model, you must create a new scoring endpoint. 
+The Predictive Web Service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your web service to with a new trained model, you must create a new scoring endpoint.
 
 To create a new scoring endpoint, on the Predictive Web Service that can be updated with the trained model:
 
 > [!NOTE]
 > Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
-> 
-> 
+>
+>
 
 There are two ways in which you can add a new end point to a web service:
 
@@ -46,7 +41,7 @@ There are two ways in which you can add a new end point to a web service:
 2. Use the Microsoft Azure Web Services portal
 
 ### Programmatically add an endpoint
-You can add scoring endpoints using the sample code provided in this [github repository](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
+You can add scoring endpoints using the sample code provided in this [GitHub repository](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### Use the Microsoft Azure Web Services portal to add an endpoint
 1. In Machine Learning Studio, on the left navigation column, click Web Services.

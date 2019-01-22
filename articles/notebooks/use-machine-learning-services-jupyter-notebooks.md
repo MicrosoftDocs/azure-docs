@@ -1,6 +1,6 @@
 ---
 title: Use Azure Machine Learning Services in Azure Notebooks
-description: An overview of the sample notebooks for Azure Machine Learning Services that you can use with Azure Notebooks. 
+description: An overview of the sample notebooks for Azure Machine Learning Services that you can use with Azure Notebooks.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -24,7 +24,7 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 
 1. Sign into [Azure Notebooks](https://notebooks.azure.com/).
 1. Select **My Projects** to navigate to the projects dashboard.
-1. Select the **Upload GitHub Repo** (the up arrow) button open the **Upload Github Repository** popup.
+1. Select the **Upload GitHub Repo** (the up arrow) button open the **Upload GitHub Repository** popup.
 1. In the popup, enter `Azure/MachineLearningNotebooks` in **GitHub repository**, provide a name for the project in **Project Name** like "Azure ML Services", provide an identifier in **Project ID**, clear **Public** if you want, then select **Import**.
 
     ![Import Azure Machine Learning Notebook sample into your Notebooks account](media/azureml-import-project.png)

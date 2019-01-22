@@ -1,7 +1,7 @@
 ---
 title: Categorizing images - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to categorizing images using the Computer Vision API.
+description: Learn concepts related to the image categorization feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -11,9 +11,10 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Categorizing images
+# Image categorization with Computer Vision
 
 In addition to tagging and descriptions, Computer Vision returns the taxonomy-based categories defined in previous versions. These categories are organized as a taxonomy with parent/child hereditary hierarchies. All categories are in English. They can be used alone or with our new tagging models.
 
@@ -21,13 +22,13 @@ In addition to tagging and descriptions, Computer Vision returns the taxonomy-ba
 
 Based on a list of 86 concepts seen in the following diagram, an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](category-taxonomy.md).
 
-![grouped lists of all the categories in the category taxonomy](./Images/analyze_categories-v2.png)
+![Grouped lists of all the categories in the category taxonomy](./Images/analyze_categories-v2.png)
 
 ## Image categorization examples
 
 The following JSON response illustrates what Computer Vision returns when categorizing the example image based on its visual features.
 
-![Woman Roof](./Images/woman_roof.png)
+![A woman on the roof of an apartment building](./Images/woman_roof.png)
 
 ```json
 {
@@ -50,10 +51,10 @@ The following table illustrates a typical image set and the category returned by
 
 | Image | Category |
 |-------|----------|
-| ![Family Photo](./Images/family_photo.png) | people_group |
-| ![Cute Dog](./Images/cute_dog.png) | animal_dog |
-| ![Outdoor Mountain](./Images/mountain_vista.png) | outdoor_mountain |
-| ![Vision Analyze Food Bread](./Images/bread.png) | food_bread |
+| ![Four people posed together as a family](./Images/family_photo.png) | people_group |
+| ![A puppy sitting in a grassy field](./Images/cute_dog.png) | animal_dog |
+| ![A person standing on a mountain rock at sunset](./Images/mountain_vista.png) | outdoor_mountain |
+| ![A pile of bread roles on a table](./Images/bread.png) | food_bread |
 
 ## Next steps
 

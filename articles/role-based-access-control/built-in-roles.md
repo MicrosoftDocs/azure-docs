@@ -88,13 +88,13 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Managed Identity Operator](#managed-identity-operator) | Read and Assign User Assigned Identity |
 | [Management Group Contributor](#management-group-contributor) | Management Group Contributor Role |
 | [Management Group Reader](#management-group-reader) | Management Group Reader Role |
-| [Monitoring Contributor](#monitoring-contributor) | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Monitoring Contributor](#monitoring-contributor) | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Monitoring Metrics Publisher](#monitoring-metrics-publisher) | Enables publishing metrics against Azure resources |
-| [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Network Contributor](#network-contributor) | Lets you manage networks, but not access to them. |
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. |
 | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. |
-| [Azure Cache for Redis Contributor](#redis-cache-contributor) | Lets you manage Azure Cache for Rediss, but not access to them. |
+| [Azure Cache for Redis Contributor](#redis-cache-contributor) | Lets you manage Azure Cache for Redis, but not access to them. |
 | [Resource Policy Contributor (Preview)](#resource-policy-contributor-preview) | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. |
 | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. |
@@ -1190,7 +1190,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Description** | Can read all monitoring data and edit monitoring settings. See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
@@ -1234,7 +1234,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Description** | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
@@ -1285,11 +1285,11 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage Azure Cache for Rediss, but not access to them. |
+> | **Description** | Lets you manage Azure Cache for Redis, but not access to them. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role Assignments |
-> | Microsoft.Cache/redis/* | Create and manage Azure Cache for Rediss |
+> | Microsoft.Cache/redis/* | Create and manage Azure Cache for Redis |
 > | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |

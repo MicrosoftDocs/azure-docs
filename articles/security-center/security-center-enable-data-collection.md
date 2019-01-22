@@ -259,7 +259,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
     a.	[Install the OMS virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md)
     
     b.	[Install the OMS virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md)
-5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../log-analytics/log-analytics-quick-collect-azurevm.md).
+5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
   > [!NOTE]
   > The section **Collect event and performance data** is optional.

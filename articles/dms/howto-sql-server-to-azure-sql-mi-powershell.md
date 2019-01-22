@@ -4,13 +4,13 @@ description: Learn to migrate from on-premises SQL Server to Azure SQL DB Manage
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 01/15/2019
 ---
 
 # Migrate SQL Server on-premises to Azure SQL Database Managed Instance using Azure PowerShell
@@ -233,6 +233,13 @@ if (($mytask.ProjectTask.Properties.State -eq "Running") -or ($mytask.ProjectTas
 {
   write-host "migration task running"
 }
+```
+
+## Deleting the DMS instance
+After the migration is complete, you can delete the Azure DMS instance:
+
+```powershell
+Remove-AzureRmDms -ResourceGroupName myResourceGroup -ServiceName MyDMS
 ```
 
 ## Next steps

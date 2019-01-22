@@ -24,7 +24,7 @@ ms.custom: mvc
 
 Azure Cache for Redis gives you access to a dedicated Azure Cache for Redis, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This article shows you how to get started with Azure Cache for Redis using the [Jedis](https://github.com/xetorthio/jedis) Azure Cache for Redis client for Java.
+This article shows you how to get started with Azure Cache for Redis using the [Jedis](https://github.com/xetorthio/jedis) Redis client for Java.
 
 ![Cache app completed](./media/cache-java-get-started/cache-app-complete.png)
 
@@ -35,7 +35,7 @@ You can use any code editor to complete the steps in this quickstart. However, [
 
 ## Prerequisites
 
-[Apache Maven](http://maven.apache.org/)
+[Apache Maven](https://maven.apache.org/)
 
 
 
@@ -115,7 +115,7 @@ public class App
         System.out.println( "\nCache Command  : SET Message" );
         System.out.println( "Cache Response : " + jedis.set("Message", "Hello! The cache is working from Java!"));
 
-        // Demostrate "SET Message" executed as expected...
+        // Demonstrate "SET Message" executed as expected...
         System.out.println( "\nCache Command  : GET Message" );
         System.out.println( "Cache Response : " + jedis.get("Message"));
 

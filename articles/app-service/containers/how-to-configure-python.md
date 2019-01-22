@@ -1,5 +1,5 @@
 ---
-title: Configure Python apps for Azure App Service on Linux
+title: Configure Python apps on Linux - Azure App Service
 description: This tutorial describes options for authoring and configuring Python apps for Azure App Service on Linux.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
+ms.custom: seodec18
 
 ---
 
@@ -56,9 +57,9 @@ This container has the following characteristics:
 During startup, the App Service on Linux container runs the following steps:
 
 1. Check for and apply a custom startup command, if provided.
-1. Check for the existence of a Django app's *wsgi.py* file, and if so, launch Gunicorn using that file.
-1. Check for a file named *application.py* and if found, launch Gunicorn using `application:app` assuming a Flask app.
-1. If no other app is found, start a default app that's built into the container.
+2. Check for the existence of a Django app's *wsgi.py* file, and if so, launch Gunicorn using that file.
+3. Check for a file named *application.py* and if found, launch Gunicorn using `application:app` assuming a Flask app.
+4. If no other app is found, start a default app that's built into the container.
 
 The following sections provide additional details for each option.
 
@@ -129,4 +130,4 @@ If the App Service doesn't find a custom command, a Django app, or a Flask app, 
 - **You see the message "Service Unavailable" in the browser.** The browser has timed out waiting for a response from App Service, which indicates that App Service started the Gunicorn server, but the arguments that specify the app code are incorrect.
   - Refresh the browser, especially if you're using the lowest pricing tiers in your App Service Plan. The app may take longer to start up when using free tiers, for example, and becomes responsive after you refresh the browser.
   - Check that your app is structured as App Service expects for [Django](#django-app) or [Flask](#flask-app), or use a [custom startup command](#custom-startup-command).
-  - Use SSH or the Kudu Console to connect to the App Service, then examine the diagnostic logs stored in the *LogFiles* folder. For more information on logging, see [Enable diagnostics logging for web apps in Azure App Service](../web-sites-enable-diagnostic-log.md).
+  - Use SSH or the Kudu Console to connect to the App Service, then examine the diagnostic logs stored in the *LogFiles* folder. For more information on logging, see [Enable diagnostics logging for web apps in Azure App Service](../troubleshoot-diagnostic-logs.md).

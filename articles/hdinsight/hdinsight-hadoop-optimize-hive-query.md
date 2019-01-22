@@ -10,7 +10,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ---
-# Optimize Hive queries in Azure HDInsight
+# Optimize Apache Hive queries in Azure HDInsight
 
 In Azure HDInsight, there are several cluster types and technologies that can run Apache Hive queries. When you create your HDInsight cluster, choose the appropriate cluster type to help optimize performance for your workload needs. 
 
@@ -32,7 +32,7 @@ Increasing the number of worker nodes in an HDInsight cluster allows the work to
 
 For more information about scaling HDInsight, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md)
 
-## Use Tez instead of Map Reduce
+## Use Apache Tez instead of Map Reduce
 
 [Apache Tez](https://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
@@ -118,16 +118,16 @@ For more information, see [Partitioned Tables](https://cwiki.apache.org/confluen
 ## Use the ORCFile format
 Hive supports different file formats. For example:
 
-* **Text**: the default file format and works with most scenarios
-* **Avro**: works well for interoperability scenarios
-* **ORC/Parquet**: best suited for performance
+* **Text**: the default file format and works with most scenarios.
+* **Avro**: works well for interoperability scenarios.
+* **ORC/Parquet**: best suited for performance.
 
 ORC (Optimized Row Columnar) format is a highly efficient way to store Hive data. Compared to other formats, ORC has the following advantages:
 
-* support for complex types including DateTime and complex and semi-structured types
-* up to 70% compression
-* indexes every 10,000 rows, which allow skipping rows
-* a significant drop in run-time execution
+* support for complex types including DateTime and complex and semi-structured types.
+* up to 70% compression.
+* indexes every 10,000 rows, which allow skipping rows.
+* a significant drop in run-time execution.
 
 To enable ORC format, you first create a table with the clause *Stored as ORC*:
 
@@ -165,7 +165,7 @@ Next, you insert data to the ORC table from the staging table. For example:
     FROM lineitem;
    ```
    
-You can read more on the ORC format in the [Hive Language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+You can read more on the ORC format in the [Apache Hive Language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## Vectorization
 
@@ -190,10 +190,10 @@ There are more optimization methods that you can consider, for example:
 In this article, you have learned several common Hive query optimization methods. To learn more, see the following articles:
 
 * [Use Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analyze flight delay data by using Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
-* [Analyze Twitter data using Hive in HDInsight](hdinsight-analyze-twitter-data.md)
-* [Analyze sensor data using the Hive Query Console on Hadoop in HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
-* [Use Hive with HDInsight to analyze logs from websites](hadoop/apache-hive-analyze-website-log.md)
+* [Analyze flight delay data by using Apache Hive in HDInsight](hdinsight-analyze-flight-delay-data.md)
+* [Analyze Twitter data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data.md)
+* [Analyze sensor data using the Apache Hive Query Console on Apache Hadoop in HDInsight](hadoop/apache-hive-analyze-sensor-data.md)
+* [Use Apache Hive with HDInsight to analyze logs from websites](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

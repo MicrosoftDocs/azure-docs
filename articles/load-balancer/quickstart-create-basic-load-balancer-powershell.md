@@ -1,11 +1,12 @@
 ---
-title: Quickstart:Create a Basic Load Balancer - Azure PowerShell | Microsoft Docs
+title: 'Quickstart: Create a Basic Load Balancer - Azure PowerShell'
+titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a Basic Load Balancer using PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -13,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
-ms:custom: mvc
+ms:custom: seodec18
 ---
 
 # <a name="get-started"></a>Quickstart: Create a public load balancer using Azure PowerShell
@@ -21,7 +22,7 @@ This quickstart shows you how to create Basic Load Balancer using Azure PowerShe
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 ## Create a resource group
 
@@ -271,7 +272,7 @@ The `-AsJob` parameter creates the VM as a background task, so the PowerShell pr
  
 Install IIS with a custom web page on both backend VMs as follows:
 
-1. Get the Public IP address of the Load Balancer. Using `Get-AzureRmPublicIPAdress`, obtain the Public IP address of the Load Balancer.
+1. Get the Public IP address of the Load Balancer. Using `Get-AzureRmPublicIPAddress`, obtain the Public IP address of the Load Balancer.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

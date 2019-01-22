@@ -1,15 +1,12 @@
 ---
-title: "Tutorial: Create a Basic internal load balancer by using the Azure portal | Microsoft Docs"
+title: 'Tutorial: Create an internal load balancer - Azure portal'
+titlesuffix: Azure Load Balancer
 description: This tutorial shows you how to create an internal Basic load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
-author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region. 
-
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -17,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Tutorial: Balance internal traffic load with a Basic load balancer in the Azure portal
@@ -58,9 +55,6 @@ First, create a virtual network (VNet). In the VNet, create two VMs to use for t
    - **Instance Details** > **Availability Options**: 
      1. Drop down and select **Availability set**. 
      2. Select **Create new**, type *MyAvailabilitySet*, and select **OK**.
-   - **Administrator Account** > **Username**: Type *azureuser*.
-   - **Administrator Account** > **Password**: Type *Azure1234567*. 
-     Retype the password in the **Confirm password** field.
    
 1. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**. 
    
@@ -208,7 +202,7 @@ First, connect to all three VMs with Remote Desktop (RDP).
    
 1. On the Windows Security screen, select **More choices** and then **Use a different account**. 
    
-   Enter username *azureuser* and password *Azure1234567*, and select **OK**.
+   Enter username and password and then select **OK**.
    
 1. Respond **Yes** to any certificate prompt. 
    

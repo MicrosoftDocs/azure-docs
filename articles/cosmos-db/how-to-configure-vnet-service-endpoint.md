@@ -2,7 +2,6 @@
 title: Configure virtual network and subnet-based access for your Azure Cosmos DB account
 description: This document describes the steps required to set up a virtual network service endpoint for Azure Cosmos DB. 
 author: kanshiG
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
@@ -84,7 +83,7 @@ To ensure that you have access to Azure Cosmos DB metrics from the portal, you n
 
 Use the following steps to configure a service endpoint to an Azure Cosmos DB account by using Azure PowerShell:  
 
-1. Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) and [sign in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) and [sign in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
 
 1. Enable the service endpoint for an existing subnet of a virtual network.  
 

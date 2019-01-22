@@ -6,16 +6,13 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: ''
-
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: json
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Manage Log Analytics using Azure Resource Manager templates
@@ -62,7 +59,7 @@ The following parameters set a default value:
 
     ```json
     {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -115,7 +112,7 @@ The following parameters set a default value:
     ```
 2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
-4. You are ready to deploy this template. You use either PowerShell or the command line to cretae the workspace.
+4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace.
 
    * For PowerShell use the following commands from the folder containing the template:
    
