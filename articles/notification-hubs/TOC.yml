@@ -73,6 +73,8 @@
       href: notification-hubs-tags-segment-push-message.md
     - name: Template registrations
       href: notification-hubs-templates-cross-platform-push-messages.md    
+  - name: Security model
+    href: notification-hubs-push-notification-security.md
 - name: How-to guides
   items: 
   - name: Send cross-platform notifications
@@ -80,7 +82,11 @@
   - name: Push rich content to devices
     href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
   - name: Send scheduled notifications
-    href: notification-hubs-send-push-notifications-scheduled.md                  
+    href: notification-hubs-send-push-notifications-scheduled.md      
+  - name: Deploy and manage notification hubs using Azure PowerShell
+    href: notification-hubs-deploy-and-manage-powershell.md            
+  - name: Securely push notifications to users
+    href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
   - name: Create notification hub using SDKs
     items:
     - name: Create notification hub - .NET
