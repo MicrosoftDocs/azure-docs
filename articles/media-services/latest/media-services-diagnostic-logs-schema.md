@@ -31,7 +31,9 @@ For detailed description of the top-level diagnostic logs schema, see [Supported
 
 ## Key delivery log schema
 
-These properties are specific to a key delivery log schema.
+### Properties
+
+These properties are specific to the key delivery log schema.
 
 |Name|Description|
 |---|---|
@@ -41,7 +43,7 @@ These properties are specific to a key delivery log schema.
 |tokenType|The token type.|
 |statusMessage|The status message.|
 
-### KeyDeliveryRequests examples
+### Examples
 
 Properties of the key delivery requests schema.
 
@@ -79,6 +81,7 @@ Properties of the key delivery requests schema.
     }
 } 
 ```
+
 ```json
  {
     "time": "2019-01-11T17:59:33.4676382Z",
