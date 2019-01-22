@@ -4,7 +4,7 @@ description: Explains the steps that are required to implement Azure AD joined d
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.component: devices
