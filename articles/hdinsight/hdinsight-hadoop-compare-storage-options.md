@@ -23,7 +23,7 @@ This article provides an overview of these different storage types and their uni
 
 For more information on Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](/../storage/blobs/data-lake-storage-introduction.md).
 
-Azure Data Lake Storage (ADLS) Gen2 takes core features from Azure Data Lake Storage Gen1 such as a Hadoop compatible file system, Azure Active Directory, and POSIX-based access control lists (ACLs) and integrates them into Azure Blob Storage. This combination allows you to take advantage of the performance of Azure Data Lake Storage Gen1 while also using Blob Storage’s tiering and data life-cycle management.
+Azure Data Lake Storage Gen2 takes core features from Azure Data Lake Storage Gen1 such as a Hadoop compatible file system, Azure Active Directory, and POSIX-based access control lists (ACLs) and integrates them into Azure Blob Storage. This combination allows you to take advantage of the performance of Azure Data Lake Storage Gen1 while also using Blob Storage’s tiering and data life-cycle management.
 
 ### Core functionality of Azure Data Lake Storage Gen2
 
@@ -49,13 +49,13 @@ For more information, see [What is managed identities for Azure resources](../ac
 
 Apache Hadoop applications natively expect to read and write data from local disk storage. A Hadoop filesystem driver like ABFS enables Hadoop applications to work with cloud storage by emulating regular Hadoop file system operations. The driver converts those commands received from the application into operations that the actual cloud storage platform understands.
 
-Previously, the Hadoop filesystem driver would convert all filesystem operations to Azure Storage REST API calls on the client side and then invoke the REST API. This client-side conversion, however, resulted in multiple REST API calls for a single filesystem operation like a file rename. ABFS has moved some of the Hadoop filesystem logic from the client-side to the server-side and the ADLS Gen2 API now runs in parallel with the Blob API. This migration improves performance because now common Hadoop filesystem operations can be executed with one REST API call.
+Previously, the Hadoop filesystem driver would convert all filesystem operations to Azure Storage REST API calls on the client side and then invoke the REST API. This client-side conversion, however, resulted in multiple REST API calls for a single filesystem operation like a file rename. ABFS has moved some of the Hadoop filesystem logic from the client-side to the server-side and the Azure Data Lake Storage Gen2 API now runs in parallel with the Blob API. This migration improves performance because now common Hadoop filesystem operations can be executed with one REST API call.
 
-For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop](/../storage/data-lake-storage/abfs-driver.md).
+For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop](/../storage/blobs/data-lake-storage-abfs-driver.md).
 
-#### ADLS Gen 2 URI scheme
+#### Azure Data Lake Storage Gen 2 URI scheme
 
-ADLS Gen2 uses a new URI scheme for accessing files in Azure storage from HDInsight:
+Azure Data Lake Storage Gen2 uses a new URI scheme for accessing files in Azure storage from HDInsight:
 
 `abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
@@ -153,7 +153,7 @@ Azure Data Lake Storage Gen1 is an enterprise-wide hyper-scale repository for bi
 
 Data Lake Storage Gen1 can be accessed from Hadoop (available with an HDInsight cluster) using the WebHDFS-compatible REST APIs. It is designed to enable analytics on the stored data and is tuned for performance for data analytics scenarios. Out of the box, it includes all the enterprise-grade capabilities—security, manageability, scalability, reliability, and availability—essential for real-world enterprise use cases.
 
-![Azure Data Lake](/../data-lake-store/media/data-lake-store-overview/data-lake-store-concept.png)
+![Azure Data Lake Storage](./media/hdinsight-hadoop-compare-storage-options/data-lake-store-concept.png "HDInsight Storage Architecture")
 
 Some of the key capabilities of Data Lake Storage Gen1 include the following.
 
