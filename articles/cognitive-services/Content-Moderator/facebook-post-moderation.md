@@ -59,16 +59,11 @@ Test your workflow using the **Execute Workflow** button.
 Sign in to the [Azure Portal](https://portal.azure.com/) and follow these steps:
 
 1. Create an Azure Function App as shown on the [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page.
-2. Open the newly created Function App.
-3. Within the App, navigate to **Platform features -> Application Settings**
-4. Define the following [application settings](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings):
+2. Go to the newly created Function App.
+3. Within the App, go to the **Platform features** tab and select **Application settings**. In the **Application settings** section of the next page, scroll to the bottom of the list and click **Add new setting**. Add the following key/value pairs
 
-> [!NOTE]
-> The **cm: Region** should be the name of the region (without any spaces).
-> For example, **westeurope**, not West Europe, **westcentralus**, not West Central US, and so on.
->
 
-| App Setting | Description   | 
+| App Setting name | value   | 
 | -------------------- |-------------|
 | cm:TeamId   | Your Content Moderator TeamId  | 
 | cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) | 
@@ -79,25 +74,26 @@ Sign in to the [Azure Portal](https://portal.azure.com/) and follow these steps:
 | fb:VerificationToken | The secret token, also used to subscribe to the Facebook feed events |
 | fb:PageAccessToken | The Facebook graph api access token does not expire and allows the function Hide/Delete posts on your behalf. |
 
-5. Create a new **HttpTrigger-CSharp** function named **FBListener**. This function receives events from Facebook. Create this function by following these steps:
+Click the **Save** button at the top of the page.
 
-    1. Keep the [Azure Functions Creation](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page open for reference.
-    2. Click the **+** add to create new function.
-    3. Instead of the built-in templates, choose the **Get started on your own/custom function** option.
-    4. Click on the tile that says **HttpTrigger-CSharp**.
+1. Using the **+** button on the left pane, to bring up the New function pane.
+
+![Azure Functions pane with the Add Function button highlighted.](images/new-function.png)
+
+Then click **+ New function** at the top of the page. This function receives events from Facebook. Create this function by following these steps:
+
+    4. Click on the tile that says **Http trigger**.
     5. Enter the name **FBListener**. The **Authorization Level** field should be set to **Function**.
     6. Click **Create**.
-    7. Replace the contents of the **run.csx** with the contents from [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
+    7. Replace the contents of the **run.csx** with the contents from **FbListener/run.csx**
 
-6. Create a new **HttpTrigger-CSharp** function named **CMListener**. This function receives events from Content Moderator. Follow these steps to create this function.
+[!code-csharp[FBListener: csx file](~/samples-fbPageModeration/blob/master/FbListener/run.csx?range=1-160)]
 
-    1. Keep the [Azure Functions Creation](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page open for reference.
-    2. Click the **+** add to create new function.
-    3. Instead of the built-in templates, choose the **Get started on your own/custom function** option.
-    4. Click on the tile that says **HttpTrigger-CSharp**
-    5. Enter the name **CMListener**. The **Authorization Level** field should be set to **Function**.
-    6. Click **Create**.
-    7. Replace the contents of the **run.csx** with the contents from [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
+6. Create a new **Http trigger** function named **CMListener**. This function receives events from Content Moderator. Follow these steps to create this function.
+
+    7. Replace the contents of the **run.csx** with the contents from **CMListener/run.csx**
+
+[!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
 
 ## Configure the Facebook page and App
 1. Create a Facebook App.
