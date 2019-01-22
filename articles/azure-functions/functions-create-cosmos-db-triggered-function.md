@@ -16,7 +16,7 @@ ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 
-Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](..\cosmos-db\serverless-computing-database.md).
+Learn how to create a function triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
 
 ![View message in the logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 

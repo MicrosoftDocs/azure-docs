@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
 ---
 
@@ -108,7 +108,7 @@ steps:
       [property]: [value]
 ```
 
-The `build` step type supports the following parameters:
+The `build` step type supports the parameters in the following table. The `build` step type also supports all build options of the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, such as `--build-arg` to set build-time variables.
 
 | Parameter | Description | Optional |
 | --------- | ----------- | :-------: |
@@ -118,7 +118,7 @@ The `build` step type supports the following parameters:
 
 ### Properties: build
 
-The `build` step type supports the following properties You can find details of these properties in the [Task step properties](#task-step-properties) section of this article.
+The `build` step type supports the following properties. You can find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
 | | | |
 | -------- | ---- | -------- |
@@ -435,5 +435,5 @@ For single-step builds, see the [ACR Tasks overview](container-registry-tasks-ov
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
+[az-acr-run]: /cli/azure/acr#az-acr-run
 [az-configure]: /cli/azure/reference-index#az-configure

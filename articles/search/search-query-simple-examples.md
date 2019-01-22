@@ -1,5 +1,5 @@
 ---
-title: Simple query examples for Azure Search | Microsoft Docs
+title: Simple query examples - Azure Search
 description: Simple query examples for full text search, filter search, geo search, faceted search, and other query strings used to query an Azure Search index.
 author: HeidiSteen
 manager: cgronlun
@@ -9,6 +9,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Simple syntax query examples for building queries in Azure Search

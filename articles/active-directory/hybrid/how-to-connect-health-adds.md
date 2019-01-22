@@ -3,8 +3,8 @@ title: Using Azure AD Connect Health with AD DS | Microsoft Docs
 description: This is the Azure AD Connect Health page that will discuss how to monitor AD DS.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
-manager: mtillman
+author: zhiweiwangmsft
+manager: daveba
 editor: curtand
 
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700

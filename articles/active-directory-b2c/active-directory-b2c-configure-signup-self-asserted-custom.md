@@ -273,8 +273,8 @@ Verified email is enabled by default in the `<TechnicalProfile Id="LocalAccountS
 
 ## Next steps
 
-Add the new claim to the flows for social account logins by changing the TechnicalProfiles listed below. These are used by social/federated account logins to write and read the user data using the alternativeSecurityId as the locator.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+If your policy supports social accounts, add the new claim to the flows for social account logins by changing the technical profiles listed below. These claims are used by social account logins to collect and write data from the user.
+
+1. Locate the technical profile **SelfAsserted-Social** and add the output claim. The order of the claims in **OutputClaims** controls the order that Azure AD B2C renders the claims on the screen. For example, `<OutputClaim ClaimTypeReferenceId="city" />`.
+2. Locate the technical profile **AAD-UserWriteUsingAlternativeSecurityId** and add the persist claim. For example, `<PersistedClaim ClaimTypeReferenceId="city" />`.
+3. Locate the technical profile **AAD-UserReadUsingAlternativeSecurityId** and add the output claim. For example, `<OutputClaim ClaimTypeReferenceId="city" />`.

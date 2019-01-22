@@ -4,7 +4,7 @@ description: Describes how to put your Office 365 user resources close to the us
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid:
 ms.service: active-directory
@@ -26,7 +26,7 @@ By default, Office 365 resources for your users are located in the same geo as y
 By setting the attribute **preferredDataLocation**, you can define a user's geo. You can have the user's Office 365 resources, such as the mailbox and OneDrive, in the same geo as the user, and still have one tenant for your entire organization.
 
 > [!IMPORTANT]
-> Multi-Geo is currently available to customers with a minimum of 2,500 Office 365 Services subscriptions. Please talk to your Microsoft representative for details.
+> Multi-Geo is currently available to customers with a minimum of 5000 Office 365 Services subscriptions. Please talk to your Microsoft representative for details.
 >
 >
 

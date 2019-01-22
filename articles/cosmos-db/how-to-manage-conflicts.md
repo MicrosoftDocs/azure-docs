@@ -1,9 +1,7 @@
 ---
 title: Learn how to manage conflicts between regions in Azure Cosmos DB
 description: Learn how to manage conflicts in Azure Cosmos DB
-services: cosmos-db
 author: christopheranderson
-
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
@@ -12,11 +10,11 @@ ms.author: chrande
 
 # Manage conflicts between regions
 
-With multi-region writes, when a data conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies using different language platforms.
+With multi-region writes, when a data conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies by using different language platforms.
 
 ## Create a custom conflict resolution policy
 
-These samples show how to set up a container with a custom conflict resolution policy. These conflicts will show up in the conflict feed.
+These samples show how to set up a container with a custom conflict resolution policy. These conflicts show up in the conflict feed.
 
 ### <a id="create-custom-conflict-resolution-policy-dotnet"></a>.NET SDK
 
@@ -79,9 +77,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## Create a custom conflict resolution policy with stored procedure
+## Create a custom conflict resolution policy with a stored procedure
 
-These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts will **not** show up in the conflict feed unless there is an error in your stored procedure.
+These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -98,7 +96,7 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
   });
 ```
 
-You'll need to create the `resolver` stored procedure after the creation of your container.
+After your container is created, you must create the `resolver` stored procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Java Async SDK
 
@@ -110,7 +108,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-You'll need to create the `resolver` stored procedure after the creation of your container.
+After your container is created, you must create the `resolver` stored procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>Java Sync SDK
 
@@ -123,7 +121,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-You'll need to create the `resolver` stored procedure after the creation of your container.
+After your container is created, you must create the `resolver` stored procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -142,7 +140,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-You'll need to create the `resolver` stored procedure after the creation of your container.
+After your container is created, you must create the `resolver` stored procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>Python SDK
 
@@ -150,11 +148,11 @@ You'll need to create the `resolver` stored procedure after the creation of your
 
 ```
 
-You'll need to create the `resolver` stored procedure after the creation of your container.
+After your container is created, you must create the `resolver` stored procedure.
 
-## Create a last writer wins conflict resolution policy
+## Create a last-writer-wins conflict resolution policy
 
-These samples show how to set up a container with a last writer wins conflict resolution policy. If the path isn't set or it's invalid, it will default to the `_ts` property (the timestamp field). These conflicts will **not** show up in the conflict feed.
+These samples show how to set up a container with a last-writer-wins conflict resolution policy. If the path isn't set or it's invalid, it defaults to the `_ts` property. This property is the timestamp field. These conflicts don't show up in the conflict feed.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -206,7 +204,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-If you omit the `conflictResolutionPath` property, it will default to the `_ts` property.
+If you leave out the `conflictResolutionPath` property, it defaults to the `_ts` property.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
 
@@ -223,7 +221,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## Read from conflict feed
 
-These samples show how to read from a container's conflict feed. Conflicts only show up in the conflict feed if they weren't resolved automatically.
+These samples show how to read from a container's conflict feed. Conflicts show up in the conflict feed only if they weren't resolved automatically.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
@@ -244,9 +242,9 @@ for (Conflict conflict : response.getResults()) {
 ### <a id="read-from-conflict-feed-java-sync"></a>Java Sync SDK
 
 ```java
-Iterator<Conflict> conflictsIterartor = client.readConflicts(this.collectionLink, null).getQueryIterator();
-while (conflictsIterartor.hasNext()) {
-    Conflict conflict = conflictsIterartor.next();
+Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();
+while (conflictsIterator.hasNext()) {
+    Conflict conflict = conflictsIterator.next();
     /* Do something with conflict */
 }
 ```
@@ -264,8 +262,8 @@ const { result: conflicts } = await container.conflicts.readAll().toArray();
 ### <a id="read-from-conflict-feed-python"></a>Python
 
 ```python
-conflicts_iterartor = iter(client.ReadConflicts(self.manual_collection_link))
-conflict = next(conflicts_iterartor, None)
+conflicts_iterator = iter(client.ReadConflicts(self.manual_collection_link))
+conflict = next(conflicts_iterator, None)
 while conflict:
     # Do something with conflict
     conflict = next(conflicts_iterator, None)
@@ -273,8 +271,8 @@ while conflict:
 
 ## Next steps
 
-You can now move on to learning the following Cosmos DB concepts:
+Learn about the following Azure Cosmos DB concepts:
 
 * [Partitioning and data distribution](partition-data.md)
-* [Indexing in Cosmos DB](indexing-policies.md)
+* [Indexing in Azure Cosmos DB](indexing-policies.md)
 

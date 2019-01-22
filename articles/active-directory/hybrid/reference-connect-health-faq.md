@@ -4,7 +4,7 @@ description: This FAQ answers questions about Azure AD Connect Health. This FAQ 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
@@ -56,7 +56,7 @@ Example:
 
 **Q: Does Azure AD Connect Health support Azure Germany Cloud?**
 
-Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report-preview). 
+Azure AD Connect Health is not supported in Germany Cloud except for the [sync errors report feature](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
 
 | Roles | Features | Supported in German Cloud |
 | ------ | --------------- | --- |

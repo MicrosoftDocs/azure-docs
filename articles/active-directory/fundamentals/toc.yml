@@ -15,8 +15,6 @@
     href: active-directory-groups-view-azure-portal.md
 - name: 'Concepts'
   items:
-  - name: Azure identity management
-    href: identity-fundamentals.md
   - name: Identity secure score
     href: identity-secure-score.md 
   - name: Groups and access management
@@ -84,7 +82,5 @@
     href: active-directory-faq.md
   - name: Azure Active Directory deployment plans
     href: active-directory-deployment-plans.md
-  - name: Manage your Azure AD Directory
-    href: active-directory-administer.md
-  - name: Azure identity solutions
-    href: understand-azure-identity-solutions.md    
+  - name: Archive for What's new? in Azure AD
+    href: whats-new-archive.md    

@@ -234,7 +234,7 @@ forecast results from Azure machine learning (cold path).
 ### Setup Hot Path Dashboard
 The following steps guide you how to visualize real-time data
 output from Stream Analytics jobs that were generated at the time of
-solution deployment. A [Power BI online](http://www.powerbi.com/)
+solution deployment. A [Power BI online](https://www.powerbi.com/)
 account is required to perform the following steps. If you don't have an
 account, you can [create one](https://powerbi.microsoft.com/pricing).
 
@@ -248,7 +248,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
      you have added the output, click **"Start"** at the bottom of the page to start the Stream
      Analytics job. You should get a confirmation message (for example,
      "Starting stream analytics job myteststreamingjob12345asablob succeeded").
-2. Log in to [Power BI online](http://www.powerbi.com)
+2. Log in to [Power BI online](https://www.powerbi.com)
 
    * On the left panel, Datasets section in My Workspace, you should be able to see a new dataset showing on the left panel of Power BI. This is the streaming data you pushed from Azure Stream Analytics in the previous step.
    * Make sure the ***Visualizations*** pane is open and is shown on the
@@ -269,7 +269,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 In cold path data pipeline, the essential goal is to get the demand forecast of each region. Power BI connects to an Azure SQL database as its data source, where the prediction results are stored.
 
 > [!NOTE]
-> 1) It takes few hours to collect enough forecast results for the dashboard. We recommend you start this process 2-3 hours after you lunch the data generator. 2) In this step, the prerequisite is to download and install the free software [Power BI desktop](https://powerbi.microsoft.com/desktop).
+> 1) It takes few hours to collect enough forecast results for the dashboard. We recommend you start this process 2-3 hours after you lunch the data generator. 2) In this step, the prerequisite is to download and install the free software [Power BI desktop](https://powerbi.microsoft.com/desktop).
 >
 >
 
@@ -306,7 +306,7 @@ In cold path data pipeline, the essential goal is to get the demand forecast of 
    * Once you're guided back to the previous page, close the window. A message pops out - click **Apply**. Lastly, click the **Save** button to save
      the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you see new predictions reflected in your visualizations when you refresh the data.
 3. (Optional) Publish the cold path dashboard to [Power BI
-    online](http://www.powerbi.com/). Note that this step needs a Power BI account (or Office 365 account).
+    online](https://www.powerbi.com/). Note that this step needs a Power BI account (or Office 365 account).
 
    * Click **"Publish"** and few seconds later a window appears
      displaying "Publishing to Power BI Success!" with a green

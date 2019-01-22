@@ -63,7 +63,7 @@ SQL Data Warehouse performs a geo-backup once per day to a [paired data center](
 Geo-backups are on by default. If your data warehouse is Gen1, you can [opt out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups for Gen2 as data protection is a built-in guaranteed.
 
 > [!NOTE]
-> If you require a shorter RPO for geo-backups, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse in a different region. Once you have restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. and then pause. Should you need an active copy of the data warehouse, you can resume which should take only a few minutes.
+> If you require a shorter RPO for geo-backups, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse in a different region. Once you have restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. and then pause.<!-- should this be removed or is something missing? --> Should you need an active copy of the data warehouse, you can resume which should take only a few minutes.
 >
 
 

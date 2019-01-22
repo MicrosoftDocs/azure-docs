@@ -1,3 +1,10 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+---
 ## Go to your API Management instance
 
 ![Navigate to API Management instance](./media/api-management-navigate-to-instance/00-FindResource-01.png)

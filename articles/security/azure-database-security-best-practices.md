@@ -118,7 +118,7 @@ Because an authorized user like a security administrator or a database administr
 - Make sure that users and applications use separate accounts to authenticate. This way, you can limit the permissions granted to users and applications and reduce the risk of malicious activity.
 - Implement database-level security by using fixed database roles (such as db_datareader or db_datawriter). Or you can create custom roles for your application to grant explicit permissions to selected database objects.
 
-For other ways to encrypt your data, consider:
+For other ways to secure your data, consider:
 
 - [Cell-level encryption](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) to encrypt specific columns or even cells of data with different encryption keys.
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), which allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access).

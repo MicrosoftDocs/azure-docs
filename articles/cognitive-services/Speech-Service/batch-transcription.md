@@ -1,28 +1,31 @@
 ---
-title: Use the Azure Batch Transcription API
+title: How to use Batch Transcription - Speech Services
 titlesuffix: Azure Cognitive Services
-description: Samples for transcribing large volumes of audio content.
+description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 12/06/2018
 ms.author: panosper
+ms.custom: seodec18
 ---
 
-# Use batch transcription
+# Why use Batch transcription?
 
-Batch transcription is ideal if you have large amounts of audio in storage. By using the REST API, you can point to audio files by shared access signature (SAS) URI and asynchronously receive transcriptions.
+Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
+
+>[!NOTE]
+> A standard subscription (S0) for Speech Services is required to use batch transcription. Free subscription keys (F0) will not work. For additional information, see [pricing and limits](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
 
 ## The Batch Transcription API
 
 The Batch Transcription API offers asynchronous speech-to-text transcription, along with additional features. It is a REST API that exposes methods for:
 
 1. Creating batch processing requests
-1. Query Status 
+1. Query Status
 1. Downloading transcriptions
 
 > [!NOTE]
@@ -32,16 +35,16 @@ The Batch Transcription API offers asynchronous speech-to-text transcription, al
 
 The Batch Transcription API supports the following formats:
 
-Name| Channel  |
-----|----------|
-mp3 |   Mono   |   
-mp3 |  Stereo  | 
-wav |   Mono   |
-wav |  Stereo  |
-opus|   Mono   |
-opus|  Stereo  |
+| Format | Codec | Bitrate | Sample Rate |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
+| MP3 | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
+| OGG | OPUS | 16-bit | 8 or 16 kHz, mono, stereo |
 
-For stereo audio streams, batch transcription splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The output of a channel, including properties for setting up the profanity filter and the punctuation model, is shown in the following JSON sample:
+> [!NOTE]
+> The Batch Transcription API requires an S0 key (paying tier). It does not work with a free (f0) key.
+
+For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON sample shows the output of a channel, includuing properties for setting up the profanity filter and the punctuation model.
 
 ```json
 {
@@ -59,9 +62,19 @@ For stereo audio streams, batch transcription splits the left and right channel 
 > [!NOTE]
 > The Batch Transcription API uses a REST service for requesting transcriptions, their status, and associated results. You can use the API from any language. The next section describes how the API is used.
 
+### Query parameters
+
+These parameters may be included in the query string of the REST request.
+
+| Parameter | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `none` which disables profanity filtering, `masked` which replaces profanity with asterisks, `removed` which removes all profanity from the result, or `tags` which adds "profanity" tags. The default setting is `masked`. | Optional |
+| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `none` which disables punctuation, `dictated` which implies explicit punctuation, `automatic` which lets the decoder deal with punctuation, or `dictatedandautomatic` which implies dictated punctuation marks or automatic. | Optional |
+
+
 ## Authorization token
 
-As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md). If you plan to get transcriptions from our baseline models, creating a key is all you need to do. 
+As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md). If you plan to get transcriptions from our baseline models, creating a key is all you need to do.
 
 If you plan to customize and use a custom model, add the subscription key to the custom speech portal by doing the following:
 
@@ -92,19 +105,19 @@ Customize the following sample code with a subscription key and an API key. This
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-         
+
             return new CrisClient(client);
         }
 ```
 
-After you get the token, specify the SAS URI that points to the audio file that requires transcription. The rest of the code iterates through the status and displays the results. At first, you set up the key, region, models to use, and the SA, as shown in the following code snippet. Next, you instantiate the client and the POST request. 
+After you get the token, specify the SAS URI that points to the audio file that requires transcription. The rest of the code iterates through the status and displays the results. At first, you set up the key, region, models to use, and the SA, as shown in the following code snippet. Next, you instantiate the client and the POST request.
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
-    
-            // SAS URI 
+
+            // SAS URI
             private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
@@ -113,14 +126,14 @@ After you get the token, specify the SAS URI that points to the audio file that 
 
             // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-            
+
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
 Now that you've made the request, you can query and download the transcription results, as shown in the following code snippet:
 
 ```cs
-  
+
             // get all transcriptions for the user
             transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
@@ -138,9 +151,9 @@ Now that you've made the request, you can query and download the transcription r
                             // not created from here, continue
                             continue;
                         }
-                            
+
                         completed++;
-                            
+
                         // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
@@ -152,7 +165,7 @@ Now that you've made the request, you can query and download the transcription r
                             Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
-                    
+
                     break;
                     case "Running":
                     running++;
@@ -160,7 +173,7 @@ Now that you've made the request, you can query and download the transcription r
                     case "NotStarted":
                     notStarted++;
                     break;
-                    
+
                     }
                 }
             }
@@ -174,7 +187,7 @@ For full details about the preceding calls, see our [swagger document](https://w
 
 Take note of the asynchronous setup for posting audio and receiving transcription status. The client that you create is a .NET HTTP client. There's a `PostTranscriptions` method for sending the audio file details and a `GetTranscriptions` method for receiving the results. `PostTranscriptions` returns a handle, and `GetTranscriptions` uses it to create a handle to get the transcription status.
 
-The current sample code doesn't specify a custom model. The service uses the baseline models for transcribing the file or files. To specify the models, you can pass on the same method as the model IDs for the acoustic and the language model. 
+The current sample code doesn't specify a custom model. The service uses the baseline models for transcribing the file or files. To specify the models, you can pass on the same method as the model IDs for the acoustic and the language model.
 
 If you don't want to use the baseline, pass model IDs for both acoustic and language models.
 

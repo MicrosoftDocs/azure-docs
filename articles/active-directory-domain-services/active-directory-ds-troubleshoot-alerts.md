@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory Domain Services: Troubleshoot alerts | Microsoft Docs'
 description: Troubleshoot alerts for Azure AD Domain Services
 services: active-directory-ds
@@ -175,7 +175,7 @@ Azure AD Domain Services creates specific resources while deploying in order to 
 
 This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md)
 
-## AADDDS111: Service principal unauthorized
+## AADDS111: Service principal unauthorized
 
 **Alert message:**
 

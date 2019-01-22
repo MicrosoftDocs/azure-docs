@@ -29,7 +29,7 @@ There are several errors that could be causing you to not be able to sign into a
 
 * Compare the resource you’re requesting access to in code with the configured permissions in the **Required Resources** tab to make sure you only request resources you’ve configured.
 
-* See [Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory) for any similar errors or problems.
+* See [Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory) for any similar errors or problems.
 
 ## Next steps
 
@@ -39,4 +39,4 @@ There are several errors that could be causing you to not be able to sign into a
 
 [Consent and Permissioning for Azure AD v2.0 converged Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
-[Azure AD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)
+[Azure AD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory>)

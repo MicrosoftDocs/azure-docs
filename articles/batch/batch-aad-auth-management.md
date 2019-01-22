@@ -24,7 +24,7 @@ Applications that call the Azure Batch Management service authenticate with [Azu
 
 The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview].
 
-In this article, we explore using Azure AD to authenticate from applications that use the Batch Management .NET library. We show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. We use the [AccountManagment][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library.
+In this article, we explore using Azure AD to authenticate from applications that use the Batch Management .NET library. We show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. We use the [AccountManagement][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library.
 
 To learn more about using the Batch Management .NET library and the AccountManagement sample, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 

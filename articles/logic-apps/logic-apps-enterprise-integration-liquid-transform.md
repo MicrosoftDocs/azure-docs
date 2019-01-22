@@ -41,7 +41,8 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 
 1. For this example, create the sample Liquid template described in this step.
 If you want to use any filters in your Liquid template, make sure those filters start with uppercase. 
-Learn more about [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters). 
+Learn more about [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), 
+which use [DotLiquid](https://dotliquidmarkup.org/) and C# naming conventions.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -136,7 +137,7 @@ Liquid is not limited to only JSON transformations. Here are other available tra
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   Here are sample input and output:
+   Here are sample inputs and outputs:
   
    ![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
@@ -149,7 +150,7 @@ Liquid is not limited to only JSON transformations. Here are other available tra
         {{item}}
     {% endJSONArrayFor -%}]
    ```
-   Here are sample input and output:
+   Here are sample inputs and outputs:
 
    ![Example output XML to JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
@@ -161,7 +162,7 @@ Liquid is not limited to only JSON transformations. Here are other available tra
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
 
-   Here are sample input and output:
+   Here are sample inputs and outputs:
 
    ![Example output XML to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 

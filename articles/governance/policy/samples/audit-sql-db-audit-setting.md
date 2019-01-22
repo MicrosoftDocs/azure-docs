@@ -1,5 +1,5 @@
 ---
-title: Azure Policy sample - Audit SQL DB level audit Setting
+title: Sample - Audit SQL DB level audit Setting
 description: This sample policy audits SQL database audit settings if those settings do not match a specified setting.
 services: azure-policy
 author: DCtheGeek
@@ -8,7 +8,6 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
 ---
 # Audit SQL DB level audit setting
 

@@ -1,12 +1,12 @@
 ---
 title: Set up disaster recovery fo a multi-tier IIS-based web application using Azure Site Recovery | Microsoft Docs
 description: Learn how to replicate IIS web farm virtual machines using Azure Site Recovery.
-author: nsoneji
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: nisoneji
+ms.date: 11/27/2018
+ms.author: mayg
 
 ---
 # Set up disaster recovery for a multi-tier IIS-based web application

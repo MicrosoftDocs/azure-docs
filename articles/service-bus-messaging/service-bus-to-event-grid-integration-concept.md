@@ -32,10 +32,7 @@ To enable the feature, you need the following items:
 ![19][]
 
 ### Verify that you have contributor access
-
-Go to your Service Bus namespace, and then select **Access control (IAM)**, as shown here:
-
-![1][]
+Go to your Service Bus namespace, and then select **Access control (IAM)**, and select **Role assignments** tab. Verify that you have the contributor access to the namespace. 
 
 ### Events and event schemas
 
@@ -151,7 +148,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## PowerShell instructions
 
-Make sure you have Azure PowerShell installed. [Download the installer](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Select **Windows + X**, and then open a new PowerShell console with Administrator permissions. Alternatively, you can use a command shell within the Azure portal.
+Make sure you have Azure PowerShell installed. [Download the installer](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.4.0). Select **Windows + X**, and then open a new PowerShell console with Administrator permissions. Alternatively, you can use a command shell within the Azure portal.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount

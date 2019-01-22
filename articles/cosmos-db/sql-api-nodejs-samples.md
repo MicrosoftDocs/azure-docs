@@ -1,13 +1,9 @@
 ---
-title: Node.js examples for Azure Cosmos DB | Microsoft Docs
+title: Node.js examples for Azure Cosmos DB
 description: Find Node.js examples on GitHub for common tasks in Azure Cosmos DB, including CRUD operations.
-services: cosmos-db
 author: deborahc
-editor: monicar
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.devlang: na
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/24/2018
 ms.author: deborahc
@@ -92,7 +88,7 @@ The [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/IndexM
 | [Create a container with default indexPolicy, then update this online](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/IndexManagement/app.js#L435-L507) |[Containers.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest#create)
 
 
-For more information about indexing, see [Azure Cosmos DB indexing policies](indexing-policies.md).
+For more information about indexing, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Server-side programming examples
 The [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) file of the [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) project shows how to perform the following tasks.
@@ -102,5 +98,5 @@ The [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/Server
 | [Create a stored procedure](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ServerSideScripts/JS/upsert.js#L12-L72) |[StoredProcedures.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedures?view=azure-node-latest) |
 | [Execute a stored procedure](https://github.com/Azure/azure-cosmos-js/blob/216672a679ab389e5b341280eeacab1cab3691e4/samples/ServerSideScripts/app.js#L44) |[StoredProcedure.execute](https://docs.microsoft.com/javascript/api/%40azure/cosmos/storedprocedure?view=azure-node-latest#execute) |
 
-For more information about server-side programming, see [Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs](programming.md).
+For more information about server-side programming, see [Azure Cosmos DB server-side programming: Stored procedures, database triggers, and UDFs](stored-procedures-triggers-udfs.md).
 

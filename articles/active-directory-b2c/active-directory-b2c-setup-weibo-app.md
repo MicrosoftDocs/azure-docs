@@ -21,19 +21,19 @@ ms.component: B2C
 
 ## Create a Weibo application
 
-To use a Weibo account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Weibo account, you can get it at [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us).
+To use a Weibo account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Weibo account, you can get it at [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us).
 
-1. Sign in to the [Weibo developer portal](http://open.weibo.com/) with your Weibo account credentials.
+1. Sign in to the [Weibo developer portal](https://open.weibo.com/) with your Weibo account credentials.
 2. After signing in, select your display name in the top-right corner.
 3. In the dropdown, select **编辑开发者信息** (edit developer information).
 4. Enter the required information and select **提交** (submit).
 5. Complete the email verification process.
-6. Go to the [identity verification page](http://open.weibo.com/developers/identity/edit).
+6. Go to the [identity verification page](https://open.weibo.com/developers/identity/edit).
 7. Enter the required information and select **提交** (submit).
 
 ### Register a Weibo application
 
-1. Go to the [new Weibo app registration page](http://open.weibo.com/apps/new).
+1. Go to the [new Weibo app registration page](https://open.weibo.com/apps/new).
 2. Enter the necessary application information.
 3. Select **创建** (create).
 4. Copy the values of **App Key** and **App Secret**. You need both of these to add the identity provider to your tenant.

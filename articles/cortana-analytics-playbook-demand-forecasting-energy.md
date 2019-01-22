@@ -130,7 +130,7 @@ As can be seen from this table, it is quite important to distinguish between the
 An important role of a [smart grid](https://en.wikipedia.org/wiki/Smart_grid) is to dynamically and constantly optimize and adjust for the changing consumption patterns. Power consumption can be impacted by short-term changes that are mainly caused by temperature fluctuations (*e.g.*, more power is used for air condition or heating). At the same time, power consumption is also
 influenced by long-term trends. These may include seasonality effects, national holidays, long-term consumption growth, and even economic factors such as consumer index, oil price, and GDP.
 
-In this use case, [eSmart](http://www.esmartsystems.com/) wanted to deploy a cloud-based solution that enables predicting the propensity of an overload situation on any given substation of the grid. In particular, eSmart wanted to identify substations that are likely to overload within the next hour, so an immediate action could be taken to avoid or resolve that situation.
+In this use case, [eSmart](https://www.esmartsystems.com/) wanted to deploy a cloud-based solution that enables predicting the propensity of an overload situation on any given substation of the grid. In particular, eSmart wanted to identify substations that are likely to overload within the next hour, so an immediate action could be taken to avoid or resolve that situation.
 
 An accurate and fast performing prediction requires implementation of three predictive models:
 
@@ -345,23 +345,23 @@ In recent years advanced algorithms have been developed to accommodate time seri
 
 > [!NOTE]
 > This section is not intended to be used as a machine learning and forecasting overview but rather as a short survey of modeling techniques that are commonly used for demand forecasting. For more information and educational material about time series forecasting, we highly
-> recommend the online book [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
+> recommend the online book [Forecasting: principles and practice](https://www.otexts.org/).
 > 
 > 
 
-#### [**MA (Moving Average)**](https://www.otexts.org/fpp/6/2)
+#### **MA (Moving Average)**
 Moving average is one of the first analytical techniques that has been used for time series forecasting and it is still one of the most commonly used techniques as of today. It is also the foundation for more advanced forecasting techniques. With moving average we are forecasting
 the next data point by averaging over the K most recent points, where K denotes the order of the moving average.
 
 The moving average technique has the effect of smoothing the forecast and therefore may not handle well large volatility in the data.
 
-#### [**ETS (Exponential Smoothing)**](https://www.otexts.org/fpp/7/5)
+#### **ETS (Exponential Smoothing)**
 Exponential Smoothing (ETS) is a family of various methods which use weighted average of recent data points in order to predict the next data point. The idea is to assign higher weights to more recent values and gradually decrease this weight for older measured values. There are a
-number of different methods with this family, some of them include handling of seasonality in the data such as [Holt-Winters Seasonal Method](https://www.otexts.org/fpp/7/5).
+number of different methods with this family, some of them include handling of seasonality in the data such as Holt-Winters Seasonal Method.
 
 Some of these methods also factor in the seasonality of the data.
 
-#### [**ARIMA (Auto Regression Integrated Moving Average)**](https://www.otexts.org/fpp/8)
+#### **ARIMA (Auto Regression Integrated Moving Average)**
 Auto Regression Integrated Moving Average (ARIMA) is another family of methods which is commonly used for time series forecasting. It practically combines auto-regression methods with moving average. Auto-regression methods use regression models by taking previous time series values in order to compute the next date point. ARIMA methods also apply differencing methods that include calculating the difference between data points and using those instead of the original measured value. Finally, ARIMA also makes use of the moving average
 techniques that are discussed above. The combination of all of these methods in various ways is what constructs the family of ARIMA methods.
 
@@ -397,7 +397,7 @@ Once we have nailed down the modeling phase and validated the model performance 
 Within the context of energy demand forecast, our aim is to invoke continuous and periodic forecasts while ensuring that fresh data is available for the model and that the forecasted data is sent back to the consuming client.
 
 ### Web Services Deployment
-The main deployable building block in Azure ML is the web service. This is the most effective way to enable consumption of a predictive model in the cloud. The Web service encapsulates the model and wraps it up with a [RESTful](http://www.restapitutorial.com/) API (Application Programming Interface). The API can be used as part of any client code as illustrated in the diagram below.
+The main deployable building block in Azure ML is the web service. This is the most effective way to enable consumption of a predictive model in the cloud. The Web service encapsulates the model and wraps it up with a [RESTful](https://www.restapitutorial.com/) API (Application Programming Interface). The API can be used as part of any client code as illustrated in the diagram below.
 
 ![We Service Deployment and Consumption](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 

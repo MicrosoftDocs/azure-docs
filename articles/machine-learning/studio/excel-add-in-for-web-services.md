@@ -1,21 +1,16 @@
 ---
-title: Excel add-in for Machine Learning Web services | Microsoft Docs
+title: Excel add-in for web services
+titleSuffix: Azure Machine Learning Studio
 description: How to use Azure Machine Learning Web services directly in Excel without writing any code.
-services: machine-learning
-documentationcenter: ''
-author: marthalc
-ms.author: marthalc
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
 
-
-ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 2/1/2018
-
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/01/2018
 ---
 # Excel Add-in for Azure Machine Learning Studio web services
 Excel makes it easy to call web services directly without the need to write any code.
@@ -25,7 +20,7 @@ Excel makes it easy to call web services directly without the need to write any 
 1. Open the [sample Excel file](https://aka.ms/amlexcel-sample-2), which contains the Excel add-in and data about passengers on the Titanic. 
  
 > [!NOTE]
-> You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated everytime there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
+> You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated every time there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
 
 2. Choose the web service by clicking it - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" in this example.
    

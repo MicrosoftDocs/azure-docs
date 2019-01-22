@@ -1,5 +1,5 @@
 ---
-title: Lucene query examples for Azure Search | Microsoft Docs
+title: Lucene query examples - Azure Search
 description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Search service.
 author: HeidiSteen
 manager: cgronlun
@@ -9,6 +9,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Lucene syntax query examples for building advanced queries in Azure Search
@@ -169,7 +170,7 @@ When setting the factor level, the higher the boost factor, the more relevant th
 
 ## Example 6: Regex
 
-A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
+A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
 
 In this query, search for jobs with either the term Senior or Junior: `search=business_title:/(Sen|Jun)ior/``.
 

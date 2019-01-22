@@ -4,7 +4,7 @@ description: Explains how to troubleshoot connectivity issues with Azure AD Conn
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
@@ -42,7 +42,7 @@ Of these URLs, the following table is the absolute bare minimum to be able to co
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Used to download CRL lists. |
 | \*.verisign.com |HTTP/80 |Used to download CRL lists. |
-| \*.entrust.com |HTTP/80 |Used to download CRL lists for MFA. |
+| \*.entrust.net |HTTP/80 |Used to download CRL lists for MFA. |
 | \*.windows.net |HTTPS/443 |Used to sign in to Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Used for MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |

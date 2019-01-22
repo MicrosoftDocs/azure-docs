@@ -637,7 +637,7 @@ The **PercentSuccess** metric captures the percent of operations that were succe
 It is important to note that these operations have completed successfully and therefore do not affect other metrics such as availability. Some examples of operations that execute successfully but that can result in unsuccessful HTTP status codes include:
 
 * **ResourceNotFound** (Not Found 404), for example from a GET request to a blob that does not exist.
-* **ResouceAlreadyExists** (Conflict 409), for example from a **CreateIfNotExist** operation where the resource already exists.
+* **ResourceAlreadyExists** (Conflict 409), for example from a **CreateIfNotExist** operation where the resource already exists.
 * **ConditionNotMet** (Not Modified 304), for example from a conditional operation such as when a client sends an **ETag** value and an HTTP **If-None-Match** header to request an image only if it has been updated since the last operation.
 
 You can find a list of common REST API error codes that the storage services return on the page [Common REST API Error Codes](https://msdn.microsoft.com/library/azure/dd179357.aspx).
@@ -800,7 +800,7 @@ You can also use the Application Insights feature for Azure DevOps as part of yo
 * Make sure your web service is available and responsive. Whether your app is a web site or a device app that uses a web service, it can test your URL every few minutes from locations around the world, and let you know if there's a problem.
 * Quickly diagnose any performance issues or exceptions in your web service. Find out if CPU or other resources are being stretched, get stack traces from exceptions, and easily search through log traces. If the app's performance drops below acceptable limits, Microsoft can send you an email. You can monitor both .NET and Java web services.
 
-You can find more information at [What is Application Insights](../../application-insights/app-insights-overview.md).
+You can find more information at [What is Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 <!--Anchors-->
 [Introduction]: #introduction

@@ -4,13 +4,13 @@ description: Learn how about SQL Server database migration to Azure SQL Database
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: migration
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer:
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
 ---
@@ -29,7 +29,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 
 ## Method 1: Migration with downtime during the migration
 
- Use this method to migrate to a single or a pooled database if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](sql-database-migrate-your-sql-server-database.md).
+ Use this method to migrate to a single or a pooled database if you can afford some downtime or you are performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](../dms/tutorial-sql-server-to-azure-sql.md).
 
 The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method. For migration to Managed Instance, see [Migration to a Managed Instance](sql-database-managed-instance-migrate.md).
 

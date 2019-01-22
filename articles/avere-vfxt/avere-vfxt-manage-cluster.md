@@ -58,11 +58,11 @@ To shut down, reboot, or remove a node, find the node in the list on the **FXT N
 > [!NOTE] 
 > IP addresses might move among cluster nodes when the number of active nodes changes.
 
-Read [Cluster > FXT Nodes](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>) in the Avere cluster settings guide for more information.
+Read [Cluster > FXT Nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) in the Avere cluster settings guide for more information.
 
 ### Stop or reboot the cluster with Avere Control Panel
 
-The **System Maintenance** settings page has commands for restarting cluster services, rebooting the cluster, or safely powering the cluster down. Read [Administration > System Maintenance](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>) (in the Avere cluster settings guide) for details.
+The **System Maintenance** settings page has commands for restarting cluster services, rebooting the cluster, or safely powering the cluster down. Read [Administration > System Maintenance](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (in the Avere cluster settings guide) for details.
 
 When a cluster is shutting down, it posts state messages to the **Dashboard** tab at first. After a few moments, the Avere Control Panel session will stop responding, which means that the cluster has shut down.
 
@@ -76,7 +76,7 @@ The vfxt.py script can be used for these cluster management tasks:
 
 Like Avere Control Panel, vfxt.py operations try to make sure changed data is stored permanently on back-end storage before shutting down or destroying the cluster or node. This makes it a safer option than the Avere portal.
 
-vfxt.py is preinstalled on the cluster controller VM. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
+vfxt.py is preinstalled on the cluster controller VM. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 A complete vfxt.py usage guide is available on GitHub: [Cloud cluster management with vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 

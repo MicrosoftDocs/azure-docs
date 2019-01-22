@@ -3,7 +3,7 @@ title: Respond to security incidents with Azure Security Center | Microsoft Docs
 description: This document explains how to use Azure Security Center for an incident response scenario.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
-ms.author: yurid
+ms.date: 11/28/2018
+ms.author: rkarlin
 
 ---
 # Using Azure Security Center for an incident response

@@ -3,7 +3,7 @@ title: Azure Automation Hybrid Runbook Worker
 description: This article provides information on installing and using Hybrid Runbook Worker, which is a feature of Azure Automation that you can use to run runbooks on machines in your local datacenter or cloud provider.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/25/2018
@@ -89,7 +89,7 @@ To remove a group, you first need to remove the Hybrid Runbook Worker from every
 
 ### Hybrid Worker role
 
-For the Hybrid Runbook Worker to connect to and register with Log Analytics, it must have access to the port number and the URLs that are described in this section. This access is on top to the [ports and URLs required for Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) to connect to Log Analytics.
+For the Hybrid Runbook Worker to connect to and register with Log Analytics, it must have access to the port number and the URLs that are described in this section. This access is on top to the [ports and URLs required for Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) to connect to Log Analytics.
 
 If you use a proxy server for communication between the agent and the Log Analytics service, ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the internet, you must configure your firewall to permit access. If you use the Log Analytics gateway as a proxy, ensure it is configured for hybrid workers. For instructions on how to do this, see [Configure the Log Analytics gateway for Automation Hybrid Workers](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
@@ -145,3 +145,4 @@ To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting H
 ## Next steps
 
 To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+

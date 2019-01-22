@@ -10,7 +10,7 @@ ms.date: 07/17/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: As an Azure AD Administrator, I want to protect user authentication so I deploy SSPR so that when users have trouble signing-in they can reset their passwords using something they know.
@@ -62,7 +62,7 @@ Now lets test your SSPR configuration with a test user. Since Microsoft enforces
 
 ## Clean up resources
 
-It's easy to disable self-service password reset. Open your Azure AD tenant and go to **Password Reset** > **Properties**, and then select **None** under **Self Service Password Reset Enabled**.
+It's easy to disable self-service password reset. Open your Azure AD tenant and go to **Properties** > **Password Reset**, and then select **None** under **Self Service Password Reset Enabled**.
 
 ## Next steps
 

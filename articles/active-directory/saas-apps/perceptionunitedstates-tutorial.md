@@ -206,7 +206,7 @@ The objective of this section is to create a test user in the Azure portal calle
   
 ### Create a Perception United States (Non-UltiPro) test user
 
-In this section, you create a user called Britta Simon in Perception United States (Non-UltiPro). Work with [Perception United States (Non-UltiPro) support team](http://www.ultimatesoftware.com/Contact/ContactUs) to add the users in the Perception United States (Non-UltiPro) platform.
+In this section, you create a user called Britta Simon in Perception United States (Non-UltiPro). Work with [Perception United States (Non-UltiPro) support team](https://www.ultimatesoftware.com/Contact/ContactUs) to add the users in the Perception United States (Non-UltiPro) platform.
 
 ### Assign the Azure AD test user
 

@@ -1,24 +1,18 @@
 ---
-title: How to consume an Azure Machine Learning Web service | Microsoft Docs
-description: Once a machine learning service is deployed, the RESTFul Web service that is made available can be consumed either as real-time request-response service or as a batch execution service.
-services: machine-learning
-documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
-
-ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
-ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
+title: Consume web service
+titleSuffix: Azure Machine Learning Studio
+description: Once a machine learning service is deployed from Azure Machine Learning Studio, the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/02/2017
 
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 06/02/2017
 ---
-# How to consume an Azure Machine Learning Web service
+# How to consume an Azure Machine Learning Studio web service
 
 Once you deploy an Azure Machine Learning predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
 
@@ -28,7 +22,7 @@ You can find more information about how to create and deploy a Machine Learning 
 * For details on how to deploy a Web service, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
 * For more information about Machine Learning in general, visit the [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## Overview
 With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
@@ -87,7 +81,7 @@ In the [Azure Machine Learning Web Services Portal](https://services.azureml.net
 1. Click **WEB SERVICES** on the top menu.
 2. Click the Web service for which you want to retrieve the key.
 
-Click **Use Web Service** to get the URIs for the Request-Reposonse and Batch Execution Services and Sample code in C#, R, and Python.
+Click **Use Web Service** to get the URIs for the Request-Response and Batch Execution Services and Sample code in C#, R, and Python.
 
 Click **Swagger API** to get Swagger based documentation for the APIs called from the supplied URIs.
 
@@ -182,7 +176,7 @@ namespace CallRequestResponseService
                 {
                     Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
+                    // Print the headers - they include the request ID and the timestamp,
                     // which are useful for debugging the failure
                     Console.WriteLine(response.Headers.ToString());
 
@@ -243,7 +237,7 @@ try:
 except urllib2.HTTPError, error: 
     print("The request failed with status code: " + str(error.code))
 
-    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    # Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
     print(error.info())
     print(json.loads(error.read())) 
 ```
@@ -295,7 +289,7 @@ if (httpStatus >= 400)
 {
 print(paste("The request failed with status code:", httpStatus, sep=" "))
 
-# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+# Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
 print(headers)
 }
 

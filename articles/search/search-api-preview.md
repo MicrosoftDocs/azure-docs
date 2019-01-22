@@ -1,5 +1,5 @@
 ---
-title: Azure Search Service REST API Version 2017-11-11-Preview | Microsoft Docs
+title: Preview REST API for Azure Search 2017-11-11-Preview - Azure Search
 description: Azure Search Service REST API Version 2017-11-11-Preview includes experimental features such as Synonyms and moreLikeThis searches.
 services: search
 author: HeidiSteen
@@ -12,6 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 06/28/2018
 ms.author: HeidiSteen
+ms.custom: seodec2018
 
 ---
 # Azure Search Service REST api-version 2017-11-11-Preview

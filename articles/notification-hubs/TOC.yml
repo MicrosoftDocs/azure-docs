@@ -55,7 +55,7 @@
   - name: 5 - Push location-based notifications
     items:
     - name: Windows
-      href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
+      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
 - name: Samples
   items:
   - name: Code samples
@@ -107,6 +107,8 @@
     href: /powershell/module/azurerm.notificationhubs
   - name: REST API
     href: /rest/api/notificationhubs
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.notificationhubs/allversions
 - name: Resources
   items:
   - name: FAQ

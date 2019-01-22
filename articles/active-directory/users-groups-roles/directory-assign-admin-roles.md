@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/16/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -22,7 +22,7 @@ ms.custom: it-pro
 
 Using Azure Active Directory (Azure AD), you can designate separate administrators to serve different functions. Administrators can be designated in the Azure AD portal to perform tasks such as adding or changing users, assigning administrative roles, resetting user passwords, managing user licenses, and managing domain names.
 
-The Global Administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. Only Global Administrators can delegate administrator roles.
+The Global Administrator has access to all administrative features. By default, the person who signs up for an Azure subscription is assigned the Global Administrator role for the directory. Only Global Administrators and Privileged Role Administrators can delegate administrator roles.
 
 ## Assign or remove administrator roles
 
@@ -46,7 +46,8 @@ The following administrator roles are available:
 
 * **[Cloud Device Administrator](#cloud-device-administrator)**: Users in this role can enable, disable, and delete devices in Azure AD and read Windows 10 BitLocker keys (if present) in the Azure portal. The role does not grant permissions to manage any other properties on the device.
 
-* **[Compliance Administrator](#compliance-administrator)**: Users with this role have management permissions within in the Office 365 Security & Compliance Center and Exchange Admin Center. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Compliance Administrator](#compliance-administrator)**: Users with this role have permissions to manage compliance-related features in the Microsoft 365 compliance center, Microsoft 365 security center, Microsoft 365 admin center, and Azure. Users can also manage all features within the Exchange admin center, Compliance Manager, and Teams & Skype for Business admin center and create support tickets for Azure and Microsoft 365. More information is available at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). 
+
 
 * **[Conditional Access Administrator](#conditional-access-administrator)**: Users with this role have the ability to manage Azure Active Directory conditional access settings.
   > [!NOTE]
@@ -172,15 +173,11 @@ Users in this role can add, remove, and update license assignments on users, gro
   *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
   *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
+## Role Permissions
 The following tables describe the specific permissions in Azure Active Directory given to each role. Some roles may have additional permissions in Microsoft services outside of Azure Active Directory.
 
 ### Application Administrator
 Can create and manage all aspects of app registrations and enterprise apps.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -197,6 +194,7 @@ Can create and manage all aspects of app registrations and enterprise apps.
 | microsoft.aad.directory/appRoleAssignments/read | Read appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/delete | Delete appRoleAssignments in Azure Active Directory. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/basic/read | Read policies.applicationConfiguration property in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/basic/update | Update policies.applicationConfiguration property in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Create policies in Azure Active Directory. |
@@ -204,15 +202,18 @@ Can create and manage all aspects of app registrations and enterprise apps.
 | microsoft.aad.directory/policies/applicationConfiguration/owners/read | Read policies.applicationConfiguration property in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/owners/update | Update policies.applicationConfiguration property in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Read policies.applicationConfiguration property in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/delete | Delete servicePrincipals in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/delete | Delete servicePrincipals in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
-| microsoft.aad.reports/allEntities/read | Read Azure AD Reports. |
+| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -220,11 +221,6 @@ Can create and manage all aspects of app registrations and enterprise apps.
 
 ### Application Developer
 Can create application registrations independent of the ‘Users can register applications’ setting.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -237,11 +233,6 @@ Can create application registrations independent of the ‘Users can register ap
 Can perform common billing related tasks like updating payment information.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
@@ -250,20 +241,15 @@ Can perform common billing related tasks like updating payment information.
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | Update basic properties on organization in Azure Active Directory. |
 | microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Update organization.trustedCAsForPasswordlessAuth property in Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Desktop Analytics Administrator
 Can access and manage Desktop management tools and services including Intune.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -272,20 +258,15 @@ Can access and manage Desktop management tools and services including Intune.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Manage all aspects of Desktop Analytics. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Cloud Application Administrator
 Can create and manage all aspects of app registrations and enterprise apps except App Proxy.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -301,6 +282,7 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 | microsoft.aad.directory/appRoleAssignments/create | Create appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/delete | Delete appRoleAssignments in Azure Active Directory. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/create | Create policies in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/basic/read | Read policies.applicationConfiguration property in Azure Active Directory. |
 | microsoft.aad.directory/policies/applicationConfiguration/basic/update | Update policies.applicationConfiguration property in Azure Active Directory. |
@@ -310,13 +292,16 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 | microsoft.aad.directory/policies/applicationConfiguration/policyAppliedTo/read | Read policies.applicationConfiguration property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/delete | Delete servicePrincipals in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
-| microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
-| microsoft.aad.reports/allEntities/read | Read Azure AD Reports. |
+| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -325,27 +310,19 @@ Can create and manage all aspects of app registrations and enterprise apps excep
 ### Cloud Device Administrator
 Full access to manage devices in Azure AD.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
 | microsoft.aad.directory/devices/delete | Delete devices in Azure Active Directory. |
 | microsoft.aad.directory/devices/disable | Disable devices in Azure Active Directory. |
 | microsoft.aad.directory/devices/enable | Enable devices in Azure Active Directory. |
-| microsoft.aad.reports/allEntities/read | Read Azure AD Reports. |
+| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
 ### Company Administrator
 Can manage all aspects of Azure AD and Microsoft services that use Azure AD identities.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the  role.
-  >
-  >
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -354,9 +331,11 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.cloudAppSecurity. |
 | microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Create and delete administrativeUnits, and read and update all properties in Azure Active Directory. |
 | microsoft.aad.directory/applications/allProperties/allTasks | Create and delete applications, and read and update all properties in Azure Active Directory. |
 | microsoft.aad.directory/appRoleAssignments/allProperties/allTasks | Create and delete appRoleAssignments, and read and update all properties in Azure Active Directory. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.aad.directory/contacts/allProperties/allTasks | Create and delete contacts, and read and update all properties in Azure Active Directory. |
 | microsoft.aad.directory/contracts/allProperties/allTasks | Create and delete contracts, and read and update all properties in Azure Active Directory. |
 | microsoft.aad.directory/devices/allProperties/allTasks | Create and delete devices, and read and update all properties in Azure Active Directory. |
@@ -378,38 +357,38 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.aad.directory/serviceAction/enableDirectoryFeature | Can perform the Enabledirectoryfeature service action in Azure Active Directory |
 | microsoft.aad.directory/serviceAction/getAvailableExtentionProperties | Can perform the Getavailableextentionproperties service action in Azure Active Directory |
 | microsoft.aad.directory/servicePrincipals/allProperties/allTasks | Create and delete servicePrincipals, and read and update all properties in Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.directory/subscribedSkus/allProperties/allTasks | Create and delete subscribedSkus, and read and update all properties in Azure Active Directory. |
 | microsoft.aad.directory/users/allProperties/allTasks | Create and delete users, and read and update all properties in Azure Active Directory. |
 | microsoft.aad.directorySync/allEntities/allTasks | Perform all actions in Azure AD Connect. |
 | microsoft.aad.identityProtection/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
-| microsoft.aad.reports/allEntities/allTasks | Read and configure Azure AD Reports. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.advancedThreatProtection/allEntities/read | Read all resources in microsoft.azure.advancedThreatProtection. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.commerce.billing/allEntities/allTasks | Manage all aspects of Office 365 billing. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
+| microsoft.office365.desktopAnalytics/allEntities/allTasks | Manage all aspects of Desktop Analytics. |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.lockbox/allEntities/allTasks | Manage all aspects of Office 365 Customer Lockbox |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read | Read securityMessages in microsoft.office365.messageCenter. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI. |
 | microsoft.office365.protectionCenter/allEntities/allTasks | Manage all aspects of Office 365 Protection Center. |
+| microsoft.office365.securityComplianceCenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.securityComplianceCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.sharepoint. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
+| microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Read all resources in microsoft.windows.defenderAdvancedThreatProtection. |
 
 ### Compliance Administrator
 Can read and manage compliance configuration and reports in Azure AD and Office 365.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -418,9 +397,9 @@ Can read and manage compliance configuration and reports in Azure AD and Office 
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Manage all aspects of Office 365 Compliance Manager |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -431,11 +410,6 @@ Can read and manage compliance configuration and reports in Azure AD and Office 
 ### Conditional Access Administrator
 Can manage conditional access capabilities.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Read policies.conditionalAccess property in Azure Active Directory. |
@@ -445,14 +419,10 @@ Can manage conditional access capabilities.
 | microsoft.aad.directory/policies/conditionalAccess/owners/read | Read policies.conditionalAccess property in Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/owners/update | Update policies.conditionalAccess property in Azure Active Directory. |
 | microsoft.aad.directory/policies/conditionalAccess/policiesAppliedTo/read | Read policies.conditionalAccess property in Azure Active Directory. |
+| microsoft.aad.directory/policies/conditionalAccess/tenantDefault/update | Update policies.conditionalAccess property in Azure Active Directory. |
 
-### Customer LockBox Access Approver
-Can approve Microsoft support requests to access customer organizational data.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
+### CRM Service Administrator
+Can manage all aspects of the Dynamics 365 product.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -461,16 +431,28 @@ Can approve Microsoft support requests to access customer organizational data.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.powerApps.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Customer LockBox Access Approver
+Can approve Microsoft support requests to access customer organizational data.
+
+  > [!NOTE]
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.lockbox/allEntities/allTasks | Manage all aspects of Office 365 Customer Lockbox |
 
 ### Device Administrators
 Members of this role are added to the local administrators group on Azure AD-joined devices.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -480,21 +462,12 @@ Members of this role are added to the local administrators group on Azure AD-joi
 ### Directory Readers
 Can read basic directory information. For granting access to applications, not intended for users.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the  role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/administrativeUnits/basic/read | Read basic properties on administrativeUnits in Azure Active Directory. |
 | microsoft.aad.directory/administrativeUnits/members/read | Read administrativeUnits.members property in Azure Active Directory. |
-| microsoft.aad.directory/applications/audience/read | Read applications.audience property in Azure Active Directory. |
-| microsoft.aad.directory/applications/authentication/read | Read applications.authentication property in Azure Active Directory. |
 | microsoft.aad.directory/applications/basic/read | Read basic properties on applications in Azure Active Directory. |
-| microsoft.aad.directory/applications/credentials/read | Read applications.credentials property in Azure Active Directory. |
 | microsoft.aad.directory/applications/owners/read | Read applications.owners property in Azure Active Directory. |
-| microsoft.aad.directory/applications/permissions/read | Read applications.permissions property in Azure Active Directory. |
 | microsoft.aad.directory/applications/policies/read | Read applications.policies property in Azure Active Directory. |
 | microsoft.aad.directory/contacts/basic/read | Read basic properties on contacts in Azure Active Directory. |
 | microsoft.aad.directory/contacts/memberOf/read | Read contacts.memberOf property in Azure Active Directory. |
@@ -532,8 +505,6 @@ Can read basic directory information. For granting access to applications, not i
 | microsoft.aad.directory/users/appRoleAssignments/read | Read users.appRoleAssignments property in Azure Active Directory. |
 | microsoft.aad.directory/users/basic/read | Read basic properties on users in Azure Active Directory. |
 | microsoft.aad.directory/users/directReports/read | Read users.directReports property in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedBy/read | Read users.invitedBy property in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedUsers/read | Read users.invitedUsers property in Azure Active Directory. |
 | microsoft.aad.directory/users/manager/read | Read users.manager property in Azure Active Directory. |
 | microsoft.aad.directory/users/memberOf/read | Read users.memberOf property in Azure Active Directory. |
 | microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Read users.oAuth2PermissionGrants property in Azure Active Directory. |
@@ -543,11 +514,6 @@ Can read basic directory information. For granting access to applications, not i
 
 ### Directory Synchronization Accounts
 Only used by Azure AD Connect service.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the  role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -559,29 +525,29 @@ Only used by Azure AD Connect service.
 | microsoft.aad.directory/policies/owners/read | Read policies.owners property in Azure Active Directory. |
 | microsoft.aad.directory/policies/owners/update | Update policies.owners property in Azure Active Directory. |
 | microsoft.aad.directory/policies/policiesAppliedTo/read | Read policies.policiesAppliedTo property in Azure Active Directory. |
+| microsoft.aad.directory/policies/tenantDefault/update | Update policies.tenantDefault property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/read | Read servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/update | Update servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/read | Read servicePrincipals.appRoleAssignments property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/appRoleAssignments/update | Update servicePrincipals.appRoleAssignments property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/audience/update | Update servicePrincipals.audience property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/authentication/update | Update servicePrincipals.authentication property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/basic/read | Read basic properties on servicePrincipals in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/basic/update | Update basic properties on servicePrincipals in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/create | Create servicePrincipals in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/credentials/update | Update servicePrincipals.credentials property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/memberOf/read | Read servicePrincipals.memberOf property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Read servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/read | Read servicePrincipals.owners property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/owners/update | Update servicePrincipals.owners property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/ownedObjects/read | Read servicePrincipals.ownedObjects property in Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/permissions/update | Update servicePrincipals.permissions property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/read | Read servicePrincipals.policies property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
 | microsoft.aad.directorySync/allEntities/allTasks | Perform all actions in Azure AD Connect. |
 
 ### Directory Writers
 Can read & write basic directory information. For granting access to applications, not intended for users.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -602,33 +568,8 @@ Can read & write basic directory information. For granting access to application
 | microsoft.aad.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
 
-### Dynamics 365 Administrator
-Can manage all aspects of the Dynamics 365 product. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Dynamics 365 Service Administrator." It is "Dynamics 365 Administrator" in the Azure portal.
-
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  > This role also has additonal permissions outside of Azure Active Directory. For more information, see role description above.
-  >
-  >
-
-| **Actions** | **Description** |
-| --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.powerApps.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
-| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-
-### Exchange Administrator
-Can manage all aspects of the Exchange product. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Exchange Service Administrator." It is "Exchange Administrator" in the Azure portal.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
+### Exchange Service Administrator
+Can manage all aspects of the Exchange product.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -637,14 +578,15 @@ Can manage all aspects of the Exchange product. In Microsoft Graph API, Azure AD
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
+| microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
 | microsoft.aad.directory/groups/unified/create | Create Office 365 Groups. |
 | microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
-| microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
 | microsoft.aad.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
 | microsoft.aad.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.exchange/allEntities/allTasks | Manage all aspects of Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -652,19 +594,12 @@ Can manage all aspects of the Exchange product. In Microsoft Graph API, Azure AD
 ### Guest Inviter
 Can invite guest users independent of the ‘members can invite guests’ setting.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the  role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Read users.appRoleAssignments property in Azure Active Directory. |
 | microsoft.aad.directory/users/basic/read | Read basic properties on users in Azure Active Directory. |
 | microsoft.aad.directory/users/directReports/read | Read users.directReports property in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedBy/read | Read users.invitedBy property in Azure Active Directory. |
 | microsoft.aad.directory/users/inviteGuest | Invite guest users in Azure Active Directory. |
-| microsoft.aad.directory/users/invitedUsers/read | Read users.invitedUsers property in Azure Active Directory. |
 | microsoft.aad.directory/users/manager/read | Read users.manager property in Azure Active Directory. |
 | microsoft.aad.directory/users/memberOf/read | Read users.memberOf property in Azure Active Directory. |
 | microsoft.aad.directory/users/oAuth2PermissionGrants/basic/read | Read users.oAuth2PermissionGrants property in Azure Active Directory. |
@@ -675,28 +610,19 @@ Can invite guest users independent of the ‘members can invite guests’ settin
 ### Helpdesk Administrator
 Can reset passwords for non-administrators and Helpdesk Administrators.
 
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
 | microsoft.aad.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Information Protection Administrator
 Can manage all aspects of the Azure Information Protection product.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -711,13 +637,8 @@ Can manage all aspects of the Azure Information Protection product.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
-### Intune Administrator
-Can manage all aspects of the Intune product. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Intune Service Administrator." It is "Intune Administrator" in the Azure portal.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
+### Intune Service Administrator
+Can manage all aspects of the Intune product.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -730,6 +651,7 @@ Can manage all aspects of the Intune product. In Microsoft Graph API, Azure AD G
 | microsoft.aad.directory/contacts/create | Create contacts in Azure Active Directory. |
 | microsoft.aad.directory/contacts/delete | Delete contacts in Azure Active Directory. |
 | microsoft.aad.directory/devices/basic/update | Update basic properties on devices in Azure Active Directory. |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
 | microsoft.aad.directory/devices/create | Create devices in Azure Active Directory. |
 | microsoft.aad.directory/devices/delete | Delete devices in Azure Active Directory. |
 | microsoft.aad.directory/devices/registeredOwners/update | Update devices.registeredOwners property in Azure Active Directory. |
@@ -750,30 +672,21 @@ Can manage all aspects of the Intune product. In Microsoft Graph API, Azure AD G
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### License Administrator
 Can manage product licenses on users and groups.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
 | microsoft.aad.directory/users/usageLocation/update | Update users.usageLocation property in Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
-### Skype for Business Administrator
-Can manage all aspects of the Skype for Business product. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Skype for Business Service Administrator." It is "Skype for Business Administrator" in the Azure portal.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
+### Lync Service Administrator
+Can manage all aspects of the Skype for Business product.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -782,9 +695,9 @@ Can manage all aspects of the Skype for Business product. In Microsoft Graph API
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -793,27 +706,17 @@ Can manage all aspects of the Skype for Business product. In Microsoft Graph API
 Can read messages and updates for their organization in Office 365 Message Center only. 
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 
 ### Partner Tier1 Support
 Do not use - not intended for general use.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -838,19 +741,14 @@ Do not use - not intended for general use.
 | microsoft.aad.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
 | microsoft.aad.directory/users/restore | Restore deleted users in Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Partner Tier2 Support
 Do not use - not intended for general use.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -878,19 +776,14 @@ Do not use - not intended for general use.
 | microsoft.aad.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
 | microsoft.aad.directory/users/restore | Restore deleted users in Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
-### Power BI Administrator
-Can manage all aspects of the Power BI product. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Power BI Service Administrator." It is "Power BI Administrator" in the Azure portal.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
+### Power BI Service Administrator
+Can manage all aspects of the Power BI product.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -899,20 +792,15 @@ Can manage all aspects of the Power BI product. In Microsoft Graph API, Azure AD
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Privileged Role Administrator
 Can manage role assignments in Azure AD,  and all aspects of Privileged Identity Management.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -928,29 +816,20 @@ Can manage role assignments in Azure AD,  and all aspects of Privileged Identity
 Can read sign-in and audit reports.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.reports/allEntities/read | Read Azure AD Reports. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
 ### Security Administrator
 Can read security information and reports,  and manage configuration in Azure AD and Office 365.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -960,16 +839,20 @@ Can read security information and reports,  and manage configuration in Azure AD
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
+| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
 | microsoft.aad.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
 | microsoft.aad.directory/policies/create | Create policies in Azure Active Directory. |
 | microsoft.aad.directory/policies/delete | Delete policies in Azure Active Directory. |
 | microsoft.aad.directory/policies/owners/update | Update policies.owners property in Azure Active Directory. |
+| microsoft.aad.directory/policies/tenantDefault/update | Update policies.tenantDefault property in Azure Active Directory. |
 | microsoft.aad.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.aad.identityProtection/allEntities/update | Update all resources in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.protectionCenter/allEntities/read | Read all aspects of Office 365 Protection Center. |
 | microsoft.office365.protectionCenter/allEntities/update | Update all resources in microsoft.office365.protectionCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -978,21 +861,19 @@ Can read security information and reports,  and manage configuration in Azure AD
 Can read security information and reports in Azure AD and Office 365.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.aad.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
+| microsoft.aad.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.protectionCenter/allEntities/read | Read all aspects of Office 365 Protection Center. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
@@ -1000,30 +881,20 @@ Can read security information and reports in Azure AD and Office 365.
 Can read service health information and manage support tickets.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
-### SharePoint Administrator
-Can manage all aspects of the SharePoint service. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the Azure portal.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
+### SharePoint Service Administrator
+Can manage all aspects of the SharePoint service.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -1032,13 +903,15 @@ Can manage all aspects of the SharePoint service. In Microsoft Graph API, Azure 
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
-| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
 | microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/create | Create Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
 | microsoft.aad.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
 | microsoft.aad.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
@@ -1047,21 +920,15 @@ Can manage all aspects of the SharePoint service. In Microsoft Graph API, Azure 
 Can manage calling and meetings features within the Microsoft Teams service.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
@@ -1070,49 +937,32 @@ Can manage calling and meetings features within the Microsoft Teams service.
 Can troubleshoot communications issues within Teams using advanced tools.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
 ### Teams Communications Support Specialist
 Can troubleshoot communications issues within Teams using basic tools.
 
   > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
-
-  > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
   >
   >
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
-### Teams Administrator
-Can manage the Microsoft Teams service. In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Teams Service Administrator." It is "Teams Administrator" in the Azure portal.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
+### Teams Service Administrator
+Can manage the Microsoft Teams service.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -1122,25 +972,21 @@ Can manage the Microsoft Teams service. In Microsoft Graph API, Azure AD Graph A
 | **Actions** | **Description** |
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | Read groups.hiddenMembers property in Azure Active Directory. |
-| microsoft.aad.directory/policies/basic/read | Read basic properties on policies in Azure Active Directory. |
-| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/appRoleAssignments/update | Update groups.unified property in Azure Active Directory. |
 | microsoft.aad.directory/groups/unified/basic/update | Update basic properties of Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/create | Create Office 365 Groups. |
+| microsoft.aad.directory/groups/unified/delete | Delete Office 365 Groups. |
 | microsoft.aad.directory/groups/unified/members/update | Update membership of Office 365 Groups. |
 | microsoft.aad.directory/groups/unified/owners/update | Update ownership of Office 365 Groups. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
 ### User Account Administrator
 Can manage all aspects of users and groups, including resetting passwords for limited admins.
-
-  > [!NOTE]
-  > This role inherits additional permissions from the Directory Readers role.
-  >
-  >
 
 | **Actions** | **Description** |
 | --- | --- |
@@ -1170,9 +1016,9 @@ Can manage all aspects of users and groups, including resetting passwords for li
 | microsoft.aad.directory/users/password/update | Update passwords for all users in Azure Active Directory. See online documentation for more detail. |
 | microsoft.aad.directory/users/restore | Restore deleted users in Azure Active Directory. |
 | microsoft.aad.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
-| microsoft.azure.accessService/allEntities/allTasks | Manage all aspects of Azure Access service. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 

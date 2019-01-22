@@ -37,7 +37,7 @@ Azure Storage Explorer is supported on the following versions of Windows:
 
 For all versions of Windows, .NET Framework 4.6.2 or greater is required.
 
-[Download and install Storage Explorer](http://www.storageexplorer.com)
+[Download and install Storage Explorer](https://www.storageexplorer.com)
 
 # [macOS](#tab/macos)
 
@@ -45,7 +45,7 @@ Azure Storage Explorer is supported on the following versions of macOS:
 
 * macOS 10.12 "Sierra" and later versions
 
-[Download and install Storage Explorer](http://www.storageexplorer.com)
+[Download and install Storage Explorer](https://www.storageexplorer.com)
 
 # [Linux](#tab/linux)
 
@@ -66,7 +66,7 @@ You must also have the following dependencies/libraries installed to run Azure S
 
 The Azure Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
 
-[Download and install Storage Explorer](http://www.storageexplorer.com)
+[Download and install Storage Explorer](https://www.storageexplorer.com)
 
 ---
 

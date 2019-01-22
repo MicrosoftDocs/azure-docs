@@ -3,7 +3,7 @@ title: Runbook and module galleries for Azure Automation
 description: Runbooks and modules from Microsoft and the community are available for you to install and use in your Azure Automation environment.  This article describes how you can access these resources and to contribute your runbooks to the gallery.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018
@@ -12,6 +12,9 @@ manager: carmonm
 ---
 # Runbook and module galleries for Azure Automation
 Rather than creating your own runbooks and modules in Azure Automation, you can access a variety of scenarios that have already been built by Microsoft and the community.  You can either use these scenarios without modification or you can use them as a starting point and edit them for your specific requirements.
+
+> [!NOTE]
+> The new [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) are not supported in Azure Automation. Any scripts downloaded from the PowerShell Gallery with these cmdlets will not work in Azure Automation.
 
 You can get runbooks from the [Runbook Gallery](#runbooks-in-runbook-gallery) and modules from the [PowerShell Gallery](#modules-in-powerShell-gallery).  You can also contribute to the community by sharing scenarios that you develop, see [Adding a runbook to the gallery](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 
@@ -62,7 +65,7 @@ Microsoft encourages you to add runbooks to the Runbook Gallery that you think w
 * Automation updates the Gallery once an hour, so you won’t see your contributions immediately.
 
 ## Modules in PowerShell Gallery
-PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](http://www.powershellgallery.com).  You can launch this gallery from the Azure portal and install them directly into Azure Automation or you can download them and install them manually.  
+PowerShell modules contain cmdlets that you can use in your runbooks, and existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](https://www.powershellgallery.com).  You can launch this gallery from the Azure portal and install them directly into Azure Automation or you can download them and install them manually.  
 
 ### To import a module from the Automation Module Gallery with the Azure portal
 1. In the Azure portal, open your Automation account.
@@ -99,4 +102,5 @@ You can send requests to [User Voice](https://feedback.azure.com/forums/246290-a
 ## Next Steps
 * To get started with runbooks, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
 * To understand the differences between PowerShell and PowerShell Workflow with runbooks, see [Learning PowerShell workflow](automation-powershell-workflow.md)
+
 

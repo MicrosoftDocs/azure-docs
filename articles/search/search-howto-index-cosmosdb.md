@@ -1,6 +1,6 @@
 ---
-title: Indexing an Azure Cosmos DB data source for Azure Search | Microsoft Docs
-description: This article shows you how to create an Azure Search indexer with an Azure Cosmos DB data source.
+title: Index an Azure Cosmos DB data source - Azure Search 
+description: Crawl an Azure Cosmos DB data source and ingest data in a full text searchable index in Azure Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
 
 ms.date: 10/17/2018
 author: mgottein 
@@ -11,6 +11,7 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
+ms.custom: seodec2018
 ---
 # Connecting Cosmos DB with Azure Search using indexers
 
@@ -32,7 +33,7 @@ In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates 
 <a name="supportedAPIs"></a>
 ## Supported API types
 
-Although Azure Cosmos DB supports a variety of data models and APIs, Azure Search indexer production support extends to the SQL API only. Support for MongoDB API is currently in public preview.  
+Although Azure Cosmos DB supports a variety of data models and APIs, Azure Search indexer production support extends to the SQL API only. Support for the Azure Cosmos DB's API for MongoDB is currently in public preview.  
 
 Support for additional APIs is forthcoming. To help us prioritize which ones to support first, please cast your vote on the User Voice web site:
 

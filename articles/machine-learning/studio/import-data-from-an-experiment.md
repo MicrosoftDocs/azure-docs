@@ -1,26 +1,18 @@
 ---
-title: Import data into Machine Learning Studio from another experiment | Microsoft Docs
+title: Import data into Machine Learning Studio from another experiment
+titleSuffix: Azure Machine Learning Studio
 description: How to save training data in Azure Machine Learning Studio and use it in another experiment.
-keywords: import data,data,data sources,training data
-services: machine-learning
-documentationcenter: ''
-author: deguhath
-ms.author: deguhath
-manager: jhubbard
-editor: cgronlun
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
 
-ms.assetid: 7da9dcec-5693-4bb6-8166-15904e7f75c3
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=deguhath, previous-author=deguhath
 ms.date: 03/20/2017
-
 ---
 # Import your data into Azure Machine Learning Studio from another experiment
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 There will be times when you'll want to take an intermediate result from one experiment and use it as part of another experiment. To do this, you save the module as a dataset:
 
