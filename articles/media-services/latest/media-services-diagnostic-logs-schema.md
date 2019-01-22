@@ -105,12 +105,6 @@ Properties of the key delivery requests schema.
 } 
 ```
 
-## Streaming endpoint log schema
-
-```json
-{TODO}
-```
-
 ## Next steps
 
 [Monitor Media Services metrics and diagnostic logs](media-services-azure-monitor-overview.md)
