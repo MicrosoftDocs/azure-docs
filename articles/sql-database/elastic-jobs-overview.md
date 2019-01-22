@@ -19,10 +19,10 @@ In this article, you will learn how to create, configure, and manage elastic job
 
 ## Create and configure the agent
 
-1. Create or identify an empty S0 or higher SQL database. This will be used as the *Job database* during Elastic Job agent creation.
+1. Create or identify an empty S0 or higher SQL database. This database will be used as the *Job database* during Elastic Job agent creation.
 2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent), or with [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
-   ![Elastic Job agent create](media/elastic-jobs-overview/create-elastic-job-agent.png)
+   ![Creating Elastic Job agent](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## Create, run, and manage jobs
 
@@ -44,7 +44,7 @@ Setting up the proper credentials to run a job can be a little confusing, so kee
 
 - The database scoped credentials must be created in the *Job database*.
 - **All target databases must have a login with [sufficient permissions](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) for the job to complete successfully** (`jobuser` in the diagram below).
-- Credentials are expected to be reused across jobs, and the credential passwords are encrypted and secured from users who have read-only access to job objects.
+- Credentials can be reused across jobs, and the credential passwords are encrypted and secured from users who have read-only access to job objects.
 
 The following image is designed to assist in understanding and setting up the proper job credentials. **Remember to create the user in every database (all *target user dbs*) the job needs to run**.
 
@@ -55,10 +55,8 @@ The following image is designed to assist in understanding and setting up the pr
 A few best practice considerations for working with Elastic Jobs:
 
 - Limit usage of the APIs to trusted individuals.
-- Credentials should have the least privileges necessary to perform the job step. For additional information, see [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
-- When using a server and/or pool target group member, it is highly suggested to create a separate credential with rights on the master database to view/list databases which is used to expand the database lists of the server(s) and/or pool(s) prior to the job execution.
-
-
+- Credentials should have the least privileges necessary to perform the job step. For more information, see [Authorization and Permissions SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- When using a server and/or pool target group member, it is highly suggested to create a separate credential with rights on the master database to view/list databases that is used to expand the database lists of the server(s) and/or pool(s) prior to the job execution.
 
 ## Agent performance, capacity, and limitations
 

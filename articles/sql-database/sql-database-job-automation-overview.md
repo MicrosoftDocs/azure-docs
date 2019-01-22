@@ -51,7 +51,7 @@ A job can run on one local server or on multiple remote servers. SQL Agent Job i
 There are several key concepts in SQL Agent Jobs:
 - **Job steps** set of one or many steps that should be executed within the job. For every job step you can define retry strategy and the action that should happen if the job step succeeds or fails.
 - **Schedules** define when the job should be executed.
-- **Notifications** enables you to define rules that will be used to notify operators via emails once the job completes.
+- **Notifications** enable you to define rules that will be used to notify operators via emails once the job completes.
 
 ### Job steps
 
@@ -83,7 +83,7 @@ A schedule can define the following conditions for the time when a job runs:
 
 SQL Agent jobs enable you to get notifications when the job finishes successfully  or failed. You can receive email notification via email.
 
-First, you would need to setup email account that will be used to send the email notifications and assign the account to the email profile called `AzureManagedInstance_dbmail_profile`, as shown in the following sample:
+First, you would need to set up the email account that will be used to send the email notifications and assign the account to the email profile called `AzureManagedInstance_dbmail_profile`, as shown in the following sample:
 
 ```sql
 -- Create a Database Mail account

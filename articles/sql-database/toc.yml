@@ -315,7 +315,7 @@
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
     - name: Job automation 
-      href: job-automation-overview.md
+      href: sql-database-job-automation-overview.md
 - name: How-to guides
   items:
   - name: Overview
