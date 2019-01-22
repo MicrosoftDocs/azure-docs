@@ -115,8 +115,8 @@ To configure Azure AD single sign-on with Collaborative Innovation, perform the 
 
 6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
 
-	| Name | Namespace  |  Source Attribute|
-	| ---------------| --------------- | --------- |
+	| Name | Source Attribute|
+	| ---------------| --------------- |
 	| givenname | user.givenname |
 	| surname | user.surname |
 	| emailaddress | user.userprincipalname |
