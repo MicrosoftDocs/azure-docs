@@ -16,7 +16,7 @@ manager: peterpr
 
 Use Azure Logic Apps to build automated scalable workflows that integrate apps and data across cloud services and on-premises systems. Azure Logic Apps has many connectors across many Azure services, Microsoft services, and other Software-As-A-Service (SaaS) products. Using the IoT Central connector in Azure Logic Apps, you can trigger workflows when a rule is triggered in IoT Central. You can also use the actions in the IoT Central connector to create a device, update a device's properties and settings, or delete a device. 
 
-You can use the IoT Central connector in Microsoft Flow. Both Azure Logic Apps and Microsoft Flow are designer-first integration services, but target slightly different audiences. Flow empowers any office worker to build the business workflows they need. Logic Apps empowers IT Pros to build the integrations they need to connect data. Compare Flow and Logic Apps [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs). Learn about how to build workflows with the IoT Central connector in Microsoft Flow [here](howto-add-microsoft-flow.md). 
+You can use the IoT Central connector in Microsoft Flow. Both Azure Logic Apps and Microsoft Flow are designer-first integration services, but target slightly different audiences. Flow empowers any office worker to build the business workflows they need. Logic Apps empowers IT Pros to build the integrations they need to connect data. Compare Flow and Logic Apps [here](https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs). Learn about how to build workflows with the IoT Central connector in Microsoft Flow [here](howto-add-microsoft-flow.md). 
 
 ## Prerequisites
 
