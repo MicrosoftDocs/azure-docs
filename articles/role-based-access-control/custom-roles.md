@@ -112,3 +112,4 @@ Just like built-in roles, the `AssignableScopes` property specifies the scopes t
 - [Create custom roles using Azure PowerShell](custom-roles-powershell.md)
 - [Create custom roles using Azure CLI](custom-roles-cli.md)
 - [Understand role definitions](role-definitions.md)
+- [Troubleshoot RBAC in Azure](troubleshooting.md)

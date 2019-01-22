@@ -25,11 +25,12 @@ ms.reviewer: sijuman
 
 The Python SDK supports API version profiles to target different cloud platforms such as Azure Stack and global Azure. You can use API profiles in creating solutions for a hybrid cloud. The Python SDK supports the following API profiles:
 
-1. **latest**  
-    The profile targets the most recent API versions for all service providers in the Azure Platform.
-2. **2017-03-09-profile**  
-   **2017-03-09-profile**  
-   The profile targets the API versions of the resource providers supported by Azure Stack.
+- **latest**  
+    This profile targets the most recent API versions for all service providers in the Azure Platform.
+- **2018-03-01-hybrid**     
+    This profile targets the latest API versions for all the resource providers in Azure Stack platform.
+- **2017-03-09-profile**  
+    This profile targets the most compatible API versions of the resource providers supported by Azure Stack.
 
    For more information about API profiles and Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
 
@@ -52,10 +53,19 @@ In order to use the Python Azure SDK with Azure Stack, you must supply the follo
 | Subscription ID | AZURE_SUBSCRIPTION_ID | The [subscription ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) is how you access offers in Azure Stack. |
 | Client Secret | AZURE_CLIENT_SECRET | The service principal application secret saved when the service principal was created. |
 | Resource Manager Endpoint | ARM_ENDPOINT | See the [Azure Stack resource manager endpoint](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resource Location | AZURE_RESOURCE_LOCATION | The resource location of your Azure Stack Environment.
 
 ## Python samples for Azure Stack
 
-You can use the following code samples to perform common management tasks for virtual machines in your Azure Stack. The code samples show you to:
+Some of the code samples available for Azure Stack using Python SDK are:
+
+- [Manage Resources and Resource Groups](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/).
+- [Manage Storage Account](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/).
+- [Manage Virtual Machines](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/).
+
+## Python manage virtual machine sample
+
+You can use the following code sample to perform common management tasks for virtual machines in your Azure Stack. The code sample shows you to:
 
 - Create virtual machines:
   - Create a Linux virtual machine
@@ -72,7 +82,7 @@ You can use the following code samples to perform common management tasks for vi
 - List virtual machines
 - Delete a virtual machine
 
-To review the code that performs these operations, see the **run_example()** function in the Python script **Hybrid/unmanaged-disks/example.py** in the GitHub repo [virtual-machines-python-manage](https://github.com/Azure-Samples/virtual-machines-python-manage).
+To review the code that performs these operations, see the **run_example()** function in the Python script **example.py** in the GitHub repo [Hybrid-Compute-Python-Manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
 Each operation is clearly labeled with a comment and a print function. The examples are not necessarily in the order shown in this list.
 
@@ -95,13 +105,13 @@ Each operation is clearly labeled with a comment and a print function. The examp
 4. Clone the repository:
 
     ```bash
-    git clone https://github.com/Azure-Samples/virtual-machines-python-manage.git
+    git clone https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM.git
     ```
 
 5. Install the dependencies using pip:
 
     ```bash
-    cd virtual-machines-python-manage\Hybrid
+    cd Hybrid-Compute-Python-Manage-VM
     pip install -r requirements.txt
     ```
 
@@ -115,6 +125,7 @@ Each operation is clearly labeled with a comment and a print function. The examp
     export AZURE_CLIENT_SECRET={your client secret}
     export AZURE_SUBSCRIPTION_ID={your subscription id}
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
+    export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
 8. In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in the Azure Stack marketplace. These can be either [downloaded from Azure](../azure-stack-download-azure-marketplace-item.md), or added to the [Platform Image Repository](../azure-stack-add-vm-image.md).
@@ -122,17 +133,9 @@ Each operation is clearly labeled with a comment and a print function. The examp
 9. Run the sample:
 
     ```python
-    python unmanaged-disks\example.py
+    python example.py
     ```
 
-## Notes
-
-You may be tempted to try to retrieve a VM's OS disk by using `virtual_machine.storage_profile.os_disk`. In some cases, this may do what you want, but be aware that it gives you an **OSDisk** object. In order to update the OS disk size, as `example.py` does, you a **Disk** object, not an **OSDisk** object. `example.py` gets the **Disk** object with the following properties:
-
-```python
-os_disk_name = virtual_machine.storage_profile.os_disk.name
-os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
-```
 
 ## Next steps
 

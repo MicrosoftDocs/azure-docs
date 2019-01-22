@@ -154,7 +154,7 @@ To configure Azure AD single sign-on with Jamf Pro, perform the following steps:
 
 	e. Paste the value `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` in the **GROUP ATTRIBUTE NAME** textbox.
 
-7. On the same page scroll down upto **IDENTITY PROVIDER** under the **Single Sign-On** section and perform the following steps:
+7. On the same page scroll to **IDENTITY PROVIDER** under the **Single Sign-On** section and perform the following steps:
 
 	![Jamf Pro Configuration](./media/jamfprosamlconnector-tutorial/configure3.png)
 

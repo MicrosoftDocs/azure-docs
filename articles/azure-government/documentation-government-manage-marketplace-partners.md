@@ -60,7 +60,7 @@ If you want to confirm that your solution has been published or test it, you nee
 
 To obtain an account:
 
-1. Request an [Azure Government trial account](https://azuregov.microsoft.com/trial/azuregovtrial).
+1. Request an [Azure Government trial account](https://azure.microsoft.com/global-infrastructure/government/request/?ReqType=Trial).
     * Indicate that your organization is a *Solution Provider Serving U.S. Federal, State, Local or Tribal Government Entities*.
 1. Wait for 3 - 5 business days for your account to be provisioned.
 1. Log in to the [Azure Government portal](https://portal.azure.us) with your newly created account.

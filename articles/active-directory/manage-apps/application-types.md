@@ -4,7 +4,7 @@ description: How to see all applications in your tenant and understand how appli
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

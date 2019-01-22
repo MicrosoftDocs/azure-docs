@@ -4,7 +4,7 @@ description: Get an overview of the supported settings in an Azure Active Direct
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory

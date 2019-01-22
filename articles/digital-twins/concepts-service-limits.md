@@ -30,7 +30,7 @@ During the public preview, each Azure subscription can create or run only one Az
 
 In turn, each Azure Digital Twins instance can have:
 
-- Exactly one **IoTHub** resource.
+- Exactly one embedded **IoTHub** resource that's created automatically during service provisioning.
 - Exactly One **EventHub** endpoint for the event type **DeviceMessage**.
 - Up to three **EventHub**, **ServiceBus**, or **EventGrid** endpoints of the event type **SensorChange**, **SpaceChange**, **TopologyOperation**, or **UdfCustom**.
 
