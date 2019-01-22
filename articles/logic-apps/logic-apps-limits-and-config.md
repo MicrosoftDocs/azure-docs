@@ -291,7 +291,7 @@ used by these connectors, based on the regions where your logic apps exist.
 These addresses appear under the **Outbound** heading in this section, 
 and are sorted by region. 
 
-For [Azure Government](/azure-government/documentation-government-welcome) 
+For [Azure Government](/azure-government/documentation-government-overview) 
 and [Azure China 21Vianet](/azure/china/china-welcome), 
 reserved IP addresses for connectors aren't currently available.
 
