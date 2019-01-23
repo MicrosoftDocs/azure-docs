@@ -209,10 +209,6 @@ Use the following steps to connect to Azure Stack:
       ```
     * AD FS environments
 
-        * Sign in as a user using a web browser:  
-           ```azurecli  
-           az login
-           ```
         * Sign in as a user using a web browser with a device code:  
            ```azurecli  
            az login --use-device-code
