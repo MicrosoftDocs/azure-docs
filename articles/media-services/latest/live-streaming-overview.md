@@ -111,7 +111,7 @@ A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) enables yo
 > [!NOTE]
 > **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the asset. 
 >
-> If you have published **Streaming Locator**s on the asset for the **LiveOutput**, the event (up to the DVR window length) will continue to be viewable until the end time of the **Streaming Locator** or untill you delete the locator, whichever comes first.   
+> If you have published **Streaming Locator**s of the asset used in the **LiveOutput**, the event (up to the DVR window length) will continue to be viewable until the end time of the locator or until you delete the locator, whichever comes first.   
 
 For more information, see [Using cloud DVR](live-event-cloud-dvr.md).
 
