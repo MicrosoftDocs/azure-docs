@@ -259,6 +259,19 @@ To delete and create a new certificate, follow the steps below:
 
 11. Under the **SAML Signing Certificate** section, click **remove** to remove the **Unused** certificate.
 
+## SAML Request not present in the request
+
+*Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.*
+
+**Possible cause**
+
+Azure AD wasn’t able to identify the SAML request within the URL parameters in the HTTP request. This can happen if the application is not using HTTP Redirect Binding for sending the SAML request to Azure AD.
+
+**Resolution**
+
+The application needs to send the SAML request encoded into the location header using HTTP Redirect Binding. For more information about how to implement it, read the section HTTP Redirect Binding in the [SAML protocol specification document](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
+
 ## Problem when customizing the SAML claims sent to an application
 
 To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.

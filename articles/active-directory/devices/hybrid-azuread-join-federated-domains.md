@@ -71,11 +71,11 @@ The configuration steps in this article are based on this wizard. If you have an
 
 Hybrid Azure AD join requires the devices to have access to the following Microsoft resources from inside your organization's network:  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - Your organization's STS (federated domains)
-- https://autologon.microsoftazuread-sso.com (If you are using or planning to use Seamless SSO)
+- https\://autologon.microsoftazuread-sso.com (If you are using or planning to use Seamless SSO)
 
 Beginning with Windows 10 1803, if the instantaneous Hybrid Azure AD join for federated domain like AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that is subsequently used to complete the device registration for Hybrid Azure AD join.
 

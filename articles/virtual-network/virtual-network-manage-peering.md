@@ -83,7 +83,7 @@ Before changing a peering, familiarize yourself with the [requirements and const
 
 **Commands**
 
-- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering#az_network_vnet_peering_list) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) to change peering settings.|
+- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) to change peering settings.|
 - **PowerShell**: [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) to retrieve view peering settings and [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) to change settings.
 
 ## Delete a peering

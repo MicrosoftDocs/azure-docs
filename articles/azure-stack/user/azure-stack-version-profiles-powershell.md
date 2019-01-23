@@ -39,6 +39,7 @@ The following table lists the required API profile version and PowerShell admini
 
 | Version No. | API version profile | PS admin module moniker |
 | --- | --- | --- |
+| 1811 or later | 2018-03-01-hybrid | 1.6.0 |
 | 1808 or later | 2018-03-01-hybrid | 1.5.0 |
 | 1804 or later | 2017-03-09-profile | 1.4.0 |
 | Versions before 1804 | 2017-03-09-profile | 1.2.11 |

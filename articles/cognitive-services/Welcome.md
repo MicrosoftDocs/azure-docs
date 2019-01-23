@@ -8,7 +8,7 @@ manager: cgronlund
 ms.service: cognitive-services
 ms.component: 
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme 
 ---
 
@@ -85,6 +85,14 @@ All APIs have a free trial plan.  As paid offerings become available for each AP
 The APIs in Cognitive Services are hosted on a growing network of Microsoft-managed data centers. You can find the regional availability for each API in [Azure region list](https://azure.microsoft.com/regions).
 
 Looking for a region we don't support yet? Let us know by filing a feature request on our [UserVoice forum](https://cognitive.uservoice.com/).
+
+## Supported cultural languages
+
+ Cognitive Services supports a wide range of cultural languages at the service level. You can find the language availability for each API in the [supported languages list](language-support.md).
+
+ ## Container support
+
+ Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Service Containers](cognitive-services-container-support.md).
 
 ## Support
 

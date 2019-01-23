@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
 
 ---
@@ -75,8 +75,8 @@ To configure and test Azure AD single sign-on with InstaVR Viewer, you need to c
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure InstaVR Viewer Single Sign-On](#configure-instavr-viewer-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create InstaVR Viewer test user](#create-instavr-viewer-test-user)** - to have a counterpart of Britta Simon in InstaVR Viewer that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create InstaVR Viewer test user](#create-instavr-viewer-test-user)** - to have a counterpart of Britta Simon in InstaVR Viewer that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -102,14 +102,14 @@ To configure Azure AD single sign-on with InstaVR Viewer, perform the following 
     ![InstaVR Viewer Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`.
-	
+    `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+
 	> [!NOTE]
 	> There is no fixed pattern for Sign on URL. It is generated when the InstaVR Viewer customer does web packaging. It is unique for every customer and package. For getting the exact Sign on URL you need to login to your InstaVR Viewer instance and do web packaging.
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-	`https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`. 
-	
+	`https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+
 	> [!NOTE]
 	> The Identifier value is not real. Update this value with the actual Identifier value which is explained later in this tutorial.
 

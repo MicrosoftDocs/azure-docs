@@ -33,7 +33,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## View VMs in a scale set
-To view a list of VM instance in a scale set, use [az vmss list-instances](/cli/azure/vmss#list-instances). The following example lists all VM instances in the scale set named *myScaleSet* in the *myResourceGroup* resource group. Provide your own values for these names:
+To view a list of VM instance in a scale set, use [az vmss list-instances](/cli/azure/vmss). The following example lists all VM instances in the scale set named *myScaleSet* in the *myResourceGroup* resource group. Provide your own values for these names:
 
 ```azurecli
 az vmss list-instances \
@@ -104,7 +104,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### Start VMs in a scale set
-To start one or more VMs in a scale set, use [az vmss start](/cli/azure/vmss#az_vmss_start). The `--instance-ids` parameter allows you to specify one or more VMs to start. If you do not specify an instance ID, all VMs in the scale set are started. To start multiple VMs, separate each instance ID with a space.
+To start one or more VMs in a scale set, use [az vmss start](/cli/azure/vmss). The `--instance-ids` parameter allows you to specify one or more VMs to start. If you do not specify an instance ID, all VMs in the scale set are started. To start multiple VMs, separate each instance ID with a space.
 
 The following example starts instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your own values as follows:
 

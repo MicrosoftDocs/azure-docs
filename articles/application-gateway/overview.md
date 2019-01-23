@@ -113,6 +113,22 @@ Application Gateway now supports the ability to rewrite headers of the incoming 
 
 For more information about this public preview feature, see [Rewrite HTTP headers](rewrite-http-headers.md).
 
+## Sizing
+
+Application Gateway is currently offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
+
+For a complete list of application gateway limits, see [Application Gateway service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+The following table shows an average performance throughput for each application gateway instance with SSL offload enabled:
+
+| Average back-end page response size | Small | Medium | Large |
+| --- | --- | --- | --- |
+| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.
+
 ## Next steps
 
 Depending on your requirements and environment, you can create a test Application Gateway using either the Azure portal, Azure PowerShell, or Azure CLI:

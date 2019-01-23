@@ -661,6 +661,8 @@
         href: log-query/query-language.md
       - name: Language differences
         href: log-query/data-explorer-difference.md
+      - name: Transition from log search
+        href: log-query/log-search-transition.md
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -701,6 +703,8 @@
         items:
         - name: Examples
           href: log-query/examples.md
+        - name: Write efficient queries
+          href: log-query/log-query-performance.md
         - name: Smart analytics
           href: log-query/smart-analytics.md
         - name: Cross-resource searches

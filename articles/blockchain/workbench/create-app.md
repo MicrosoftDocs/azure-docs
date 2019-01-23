@@ -275,7 +275,7 @@ Add the constructor function to your contract in your `HelloBlockchain.sol` smar
 
 ```
     // constructor function
-    function HelloBlockchain(string message) public
+    constructor(string message) public
     {
         Requestor = msg.sender;
         RequestMessage = message;

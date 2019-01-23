@@ -45,7 +45,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 You need to work with your Azure Stack administrator to set up your service principal when using AD FS as your identity solution. The service principal gives your application access to Azure Stack resources.
 
-1. Your Azure Stack administrator provides you with a certificate and the information for the service principle. This information should look like:
+1. Your Azure Stack administrator provides you with a certificate and the information for the service principal. This information should look like:
 
     ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -56,7 +56,7 @@ You need to work with your Azure Stack administrator to set up your service prin
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. Assign your new service principle a role as a contributor to your subscription. For instructions, see [Assign a role](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
+2. Assign your new service principal a role as a contributor to your subscription. For instructions, see [Assign a role](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
 
 3. Create a key vault to store your certificate for deployment.
 

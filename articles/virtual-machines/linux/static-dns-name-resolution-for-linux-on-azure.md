@@ -77,7 +77,7 @@ az group create --name myResourceGroup --location westus
 
 The next step is to build a virtual network to launch the VMs into. The virtual network contains one subnet for this walkthrough. For more information on Azure virtual networks, see [Create a virtual network](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Create the virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
+Create the virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -100,7 +100,7 @@ az network nsg create \
 ```
 
 ## Add an inbound rule to allow SSH
-Add an inbound rule for the network security group with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). The following example creates a rule named `myRuleAllowSSH`:
+Add an inbound rule for the network security group with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule named `myRuleAllowSSH`:
 
 ```azurecli
 az network nsg rule create \

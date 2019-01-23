@@ -53,7 +53,7 @@ This script uses the following commands to create a resource group, virtual mach
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Lists storage accounts |
 | [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Checks that a storage account name is valid and that it doesn't already exist |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | Lists keys for the storage accounts |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | Lists keys for the storage accounts |
 | [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Checks whether the blob exists |
 | [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Creates a container in a storage account. |
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Creates a blob in the container by uploading the VHD. |

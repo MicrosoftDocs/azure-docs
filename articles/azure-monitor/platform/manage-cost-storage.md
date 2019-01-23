@@ -164,7 +164,7 @@ To get a list of computers sending **billed data types** (some data types are fr
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Use these `union withsource = tt *` queries sparingly as scans across data data typres are expensive to execute. 
+Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute. 
 
 This can be extended to return the count of computers per hour that are sending billed data types:
 

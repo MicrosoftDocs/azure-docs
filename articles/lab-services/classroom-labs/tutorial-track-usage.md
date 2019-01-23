@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
 
 ---
@@ -33,7 +33,7 @@ In this tutorial, you do the following actions:
 1. Navigate to [Azure Lab Services website](https://labs.azure.com). 
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts.
 3. On the **My labs** page, select the lab for which you want to track the usage. 
-4. Select **Users** tab. You see students who have registered with your lab. Select **Registration link**, copy the link, and send it any new student who hasn't registered with your lab yet. 
+4. Select **Users** on the left menu or **Users** tile. You see students who have registered with your lab. Select **Registration link**, copy the link, and send it any new student who hasn't registered with your lab yet. 
 
     ![Registered users](../media/tutorial-track-usage/registered-users.png)
 
@@ -51,6 +51,8 @@ As you hover the mouse over a row in the list of virtual machine, you see contro
 - Start a VM
 - Stop a VM
 - Delete a VM
+
+You can also use toolbar buttons to start, stop, or delete a VM. 
 
 
 

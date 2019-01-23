@@ -226,6 +226,10 @@ If you don't see the VM you want to enable for replication, it might be because 
 
 ### Fix the problem
 
+>[!NOTE] 
+>
+>Make sure to update the ""AzureRM.Resources"" module before using the below script. ​
+
 You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should be able to see the VM after removing the stale configuration.
 
 ## Unable to select Virtual machine for protection 
