@@ -192,7 +192,7 @@ namespace EncodeLiveStreamWithAmsClear
         public static IChannel CreateAndStartChannel()
         {
             var channelInput = CreateChannelInput();
-            var channePreview = CreateChannelPreview();
+            var channelPreview = CreateChannelPreview();
             var channelEncoding = CreateChannelEncoding();
 
             ChannelCreationOptions options = new ChannelCreationOptions
@@ -200,7 +200,7 @@ namespace EncodeLiveStreamWithAmsClear
                 EncodingType = ChannelEncodingType.Standard,
                 Name = ChannelName,
                 Input = channelInput,
-                Preview = channePreview,
+                Preview = channelPreview,
                 Encoding = channelEncoding
             };
 
