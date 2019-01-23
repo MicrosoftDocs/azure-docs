@@ -72,7 +72,7 @@
     - name: Service principal authentication
       href: container-registry-auth-service-principal.md
     - name: Managed identity authentication
-      href: container-registry-auth-managed-identity.md
+      href: container-registry-authentication-managed-identity.md
     - name: Azure Container Instances
       href: container-registry-auth-aci.md
     - name: Azure Kubernetes Service (AKS)

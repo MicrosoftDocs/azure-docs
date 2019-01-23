@@ -51,7 +51,7 @@ If you don't already have an Azure container registry, create a registry and pus
 
 This article assumes you have the `aci-helloworld:v1` container image stored in your registry. The examples use a registry name of *myContainerRegistry*. Replace with your own registry and image names in later steps.
 
-## Create a Docker-enabled virtual machine
+## Create a Docker-enabled VM
 
 Create a Docker-enabled Ubuntu virtual machine. You also need to install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) on the virtual machine. If you already have an Azure virtual machine, skip this step to create the virtual machine.
 
@@ -102,7 +102,7 @@ Follow the steps in [Install Azure CLI with apt](/cli/azure/install-azure-cli-ap
 
 Exit the SSH session.
 
-## Example 1: Use a user-assigned identity to access a container registry
+## Example 1: Access with a user-assigned identity
 
 ### Create an identity
 
@@ -178,7 +178,7 @@ You should see a `Login succeeded` message. You can then run `docker` commands w
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
-## Example 2: Use a system-assigned identity to access a container registry
+## Example 2: Access with a system-assigned identity
 
 ### Configure the VM with a system-managed identity
 
