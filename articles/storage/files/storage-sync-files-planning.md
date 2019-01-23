@@ -201,6 +201,9 @@ If you are using an on-premises backup solution, backups should be performed on 
 > [!Note]  
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
+> [!Note]  
+> VSS snapshots (including Previous Versions tab) are not currently supported on volumes which have cloud tiering enabled. If cloud tiering is enabled, use the Azure file share snapshots to restore a file from backup.
+
 ### Encryption solutions
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
 
