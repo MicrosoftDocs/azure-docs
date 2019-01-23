@@ -56,7 +56,7 @@ sections:
         text: "Go"
       - image:
           src: media/index/logo_java.svg
-        href: web-search-sdk-java-quickstart
+        href: web-sdk-java-quickstart
         text: "Java"
       - image:
           src: media/index/logo_nodejs.svg
@@ -68,7 +68,7 @@ sections:
         text: "PHP"
       - image:
           src: media/index/logo_python.svg
-        href:  web-search-sdk-python-quickstart
+        href:  web-sdk-python-quickstart
         text: "Python"
       - image:
           src: media/index/logo_ruby.svg

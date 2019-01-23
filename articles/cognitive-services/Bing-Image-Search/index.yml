@@ -64,7 +64,7 @@ sections:
         text: "PHP"
       - image:
           src: media/index/logo_python.svg
-        href: image-search-sdk-python-quickstart
+        href: image-sdk-python-quickstart
         text: "Python"
       - image:
           src: media/index/logo_ruby.svg

@@ -57,10 +57,10 @@ sections:
     rows:
       - title: ''
         values:
-        - href: quickstarts/visual-search-sdk-c-sharp
-        - href: quickstarts/java
-        - href: quickstarts/visual-search-sdk-node
-        - href: quickstarts/visual-search-sdk-python
+        - href: visual-search-sdk-c-sharp
+        - href: java
+        - href: visual-search-sdk-node
+        - href: visual-search-sdk-python
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
