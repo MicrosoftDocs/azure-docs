@@ -99,6 +99,7 @@
         href: tutorial-create-route-table-cli.md
       - name: Ansible
         href: /azure/ansible/ansible-create-configure-route-table
+        maintainContext: true
     - name: Service endpoints
       items:
       - name: Azure PowerShell
