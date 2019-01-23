@@ -62,11 +62,11 @@ This article applies to Billing account for a Microsoft Customer Agreement. [Che
    | Original amount      | The original amount of credit |
    | Status               | The current status of credit. Status can be active, used, expired, or expiring |
 
-[!INCLUDE [Check for a Microsoft Customer Agreement](../../includes/billing-check-mca.md)]
+[!INCLUDE [Check your access to a Billing account for Microsoft Customer Agreement](../../includes/billing-check-mca.md)]
 
 ## How credits are used in Microsoft Customer Agreement
 
-In Microsoft customer agreement, you use Billing profiles to customize how you pay your invoices. A Billing profile contains information like billing address and payment methods. A monthly invoice is generated for each Billing profile and you use the payment methods to pay the invoice.
+For Microsoft customer agreement, you use Billing profiles to customize how you pay your invoices. A Billing profile contains information like billing address and payment methods. A monthly invoice is generated for each Billing profile and you use the payment methods to pay the invoice.
 
 Azure credits are one of the payment methods. You add credit or Microsoft provides you credit. You assign the credit to a Billing profile. When an invoice is generated for the Billing profile, credits are automatically applied to the total billed amount to calculate the amount that you need to pay. You pay the remaining amount with another payment method like check or wire transfer.
 

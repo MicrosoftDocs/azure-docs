@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: amberb
 ---
-
 ## Check your access to a Billing account for Microsoft Customer Agreement
 
 Check the agreement type to determine whether you have access to a Billing account for a Microsoft Customer Agreement.
