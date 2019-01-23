@@ -5,7 +5,7 @@ services: active-directory
 keywords: enterprise state roaming, windows cloud
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.component: devices

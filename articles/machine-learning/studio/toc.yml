@@ -40,6 +40,16 @@
     - name: 6 - Access web service
       displayName: consume
       href: walkthrough-6-access-web-service.md
+  - name: R quick start
+    href: r-quickstart.md
+- name: Samples
+  items:
+  - name: Available datasets
+    href: use-sample-datasets.md
+  - name: Azure AI Gallery
+    href: gallery-how-to-use-contribute-publish.md
+- name: Concepts
+  items:
   - name: Data Science for Beginners
     items:
     - name: 1 - Five questions
@@ -52,19 +62,6 @@
       href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
     - name: 5 - Copy other people's work
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
-  - name: R quick start
-    href: r-quickstart.md
-- name: Samples
-  items:
-  - name: Sample experiments
-    displayName: gallery
-    href: sample-experiments.md
-  - name: Sample datasets
-    href: use-sample-datasets.md
-  - name: Azure AI Gallery
-    href: gallery-how-to-use-contribute-publish.md
-- name: Concepts
-  items:
   - name: Model management
     displayName: deploy, consume, web service
     href: deploy-consume-web-service-guide.md
@@ -102,6 +99,9 @@
     - name: Use PowerShell to create models
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
+    - name: Try experiments in AI Gallery
+      displayName: gallery
+      href: sample-experiments.md
     - name: Choose algorithms
       href: algorithm-choice.md
     - name: Algorithm cheat sheet
@@ -207,8 +207,6 @@
     href: web-service-error-codes.md
   - name: REST management APIs
     href: /rest/api/machinelearning
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.machinelearning/allversions
 - name: Resources
   items:
   - name: Azure Roadmap

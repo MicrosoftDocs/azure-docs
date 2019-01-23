@@ -26,11 +26,12 @@ Status Monitor is used to instrument a .NET application hosted in IIS either on-
 
 ![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-You have a choice of three routes to apply Application Insights to your .NET web applications:
+You have a choice of two routes to apply Application Insights to your .NET web applications:
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code.
 * **Run time:** Instrument your web app on the server, as described below, without rebuilding and redeploying the code.
-* **Both:** Build the SDK into your web app code, and also apply the run-time extensions. Get the best of both options.
+> [!NOTE]
+> If you use build time instrumentation, run time instrumention will not work even if it is turned on.
 
 Here's a summary of what you get by each route:
 

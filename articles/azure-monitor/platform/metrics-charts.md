@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: vitalyg
-ms.component: metrics
+ms.subservice: metrics
 ---
 
 # Azure Monitor Metrics Explorer
@@ -137,3 +137,4 @@ After configuring your chart, click on the **Chart Actions** menu in the right t
 ## Next steps
 
   Read [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) to learn about the best practices for creating actionable dashboards with metrics.
+

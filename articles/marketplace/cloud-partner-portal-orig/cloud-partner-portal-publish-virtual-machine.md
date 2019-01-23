@@ -84,7 +84,7 @@ A SKU shows up under the parent offer in Azure Marketplace and shows up as its o
     - SKUs
     - Marketplace
     - Support
-Each view contains a set of fields for you to fill out. Required fields are indicated with a red asterix (\*)
+Each view contains a set of fields for you to fill out. Required fields are indicated with a red asterisk (\*)
 
 ## To configure Offer Settings
 

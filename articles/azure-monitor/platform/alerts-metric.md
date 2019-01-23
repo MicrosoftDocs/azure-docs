@@ -25,23 +25,23 @@ The following procedure describes how to create a metric alert rule in Azure por
     > [!TIP]
     > Most resource blades also have **Alerts** in their resource menu under **Monitoring**, you could create alerts from there as well.
 
-3. Click **Select target**, in the context pane that loads, select a target resource that you want to modify. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
+3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
 
-4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
+4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-5. Once you have selected a target resource, click on **Add criteria**
+5. Once you have selected a target resource, click on **Add condition**.
 
 6. You will see a list of signals supported for the resource, select the metric you want to create an alert on.
 
-7. You will see a chart for the metric for the last 6 hours. Define the **Period**, **Frequency**, **Operator** and **Threshold**, this will determine the logic which the metric alert rule will evaluate.
+7. Optionally, refine the metric by adjusting **Period** and **Aggregation**. If the metric has dimensions, you will see **Dimensions** table presented. Select one or more values per dimension. The metric alert will run evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](alerts-metric-overview.md). You can also **Select \*** for any of the dimensions. **Select \*** will dynamically scale the selection to all current and future values for a dimension.
 
-8. Using the metric chart you can determine what might be a reasonable threshold.
+8. You will see a chart for the metric for the last 6 hours. Define the alert parameters; **Condition Type**, **Frequency**, **Operator** and **Threshold** or **Sensitivity**, this will determine the logic which the metric alert rule will evaluate. [Learn more about Dynamic Thresholds condition type and sensitivity options](alerts-dynamic-thresholds.md).
 
-9. Optionally, if the metric has dimensions, you will see Dimensions table presented. Select one or more values per dimension. The metric alert will run evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](alerts-metric-overview.md). You can also **Select \*** for any of the dimensions. **Select \*** will dynamically scale the selection to all current and future values for a dimension.
+9. If you are using a static threshold, the metric chart can help determine what might be a reasonable threshold. If you are using a Dynamic Thresholds, the metric chart will display the calculated thresholds based on recent data.
 
 10. Click **Done**
 
-11. Optionally, add another criteria if you want to monitor a complex alert rule
+11. Optionally, add another criteria if you want to monitor a complex alert rule. Currently users can have alert rules with Dynamic Thresholds criteria as a single criterion.
 
 12. Fill in **Alert details** like **Alert Rule Name**, **Description** and **Severity**
 
@@ -67,7 +67,7 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
 
 4. Click on the name of the metric alert rule you want to edit
 
-5. In the Edit Rule, click on the **Alert criteria** you want to edit. You can change the metric, threshold and other fields as required
+5. In the Edit Rule, click on the **Alert criteria** you want to edit. You can change the metric, threshold condition and other fields as required
 
     > [!NOTE]
     > You can't edit the **Target resource** and **Alert Rule Name** after the metric alert is created.
@@ -86,10 +86,10 @@ The previous sections described how to create, view and manage metric alert rule
     az monitor metrics alert --help
     ```
 
-3. You can create a simple metric alert rule that monitors if average Percentage CPU on a VM is greater than 70
+3. You can create a simple metric alert rule that monitors if average Percentage CPU on a VM is greater than 90
 
     ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90"
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
 4. You can view all the metric alerts in a resource group using the following command
@@ -124,5 +124,6 @@ The previous sections described how to create, view and manage metric alert rule
 
 - [Create metric alerts using Azure Resource Manager Templates](../../azure-monitor/platform/alerts-enable-template.md).
 - [Understand how metric alerts work](alerts-metric-overview.md).
+- [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md).
 - [Understand the web hook schema for metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
 
