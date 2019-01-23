@@ -4,7 +4,7 @@ description: Best practices for managing Service Fabric as infrastructure as cod
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: timlt
+manager: jeanpaul.connock  
 editor: ''
 
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
@@ -17,12 +17,16 @@ ms.date: 01/11/2019
 ms.author: pepogors
 
 ---
+
 # Infrastructure as Code 
-In a production scenario, Azure Service Fabric clusters should be created using Resource Manager templates. Resource Manager templates allow for a greater level of control of resource properties and ensure that you have a consistent resource model.
 
-Sample Resource Manager templates are available for Windows and Linux in the[Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template.  Download azuredeploy.json and azuredeploy.parameters.json and edit files in your favorite text editor to meet your custom requirements. 
+In a production scenario, create Azure Service Fabric clusters using Resource Manager templates. Resource Manager templates provide greater control of resource properties and ensure that you have a consistent resource model.
 
+Sample Resource Manager templates are available for Windows and Linux in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. Download `azuredeploy.json` and `azuredeploy.parameters.json` and edit them to meet your custom requirements.
+
+JTW - no intro.
 Creating a resource using Azure CLI
+
 ```azurecli
 ResourceGroupName="sfclustergroup"
 Location="westus"
@@ -32,6 +36,7 @@ az group deployment create --name $ResourceGroupName  --template-file azuredeplo
 ```
 
 Creating a resource using Powershell
+
 ```powershell
 $ResourceGroupName="sfclustergroup"
 $Location="westus"
@@ -43,7 +48,9 @@ New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Templ
 ```
 
 ## Azure Service Fabric Resources
-[You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource), and the following are the Resource Manager template resources you would use to deploy your application:
+
+You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager. See [Manage applications and services as Azure Resource Manager resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) for details. The following are the Resource Manager template resources you would use to deploy your application: (JTW - do you mean these are examples or that they simply serve the purpose)
+
 ```json
 {
     "apiVersion": "2017-07-01-preview",
@@ -71,6 +78,7 @@ New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Templ
 }
 ```
 
+(JTW - what requires this)
 Which requires you to [create a sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric Application package. The following python script is an example of how to create a sfpkg:
 
 ```python
