@@ -118,7 +118,7 @@ az network application-gateway address-pool create \
 
 ### Add backend listeners
 
-Add the backend listeners that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gatewaywork_application_gateway_http_listener_create).
+Add the backend listeners that are needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway http-listener create \

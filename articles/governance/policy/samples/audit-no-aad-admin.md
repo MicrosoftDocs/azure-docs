@@ -6,7 +6,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 01/23/2019
 ms.author: dacoulte
 ---
 # Audit no Azure Active Directory administrator
@@ -30,9 +30,9 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal), 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name "audit-if-no-sql-active-directory-admin" -DisplayName "Audit If no AAD Admin" -description "Aduit If there is no AAD Admin assigned to this server" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-if-no-sql-active-directory-admin/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-if-no-sql-active-directory-admin/azurepolicy.parameters.json' -Mode All
+$definition = New-AzPolicyDefinition -Name "audit-if-no-sql-active-directory-admin" -DisplayName "Audit If no AAD Admin" -description "Aduit If there is no AAD Admin assigned to this server" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-if-no-sql-active-directory-admin/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/audit-if-no-sql-active-directory-admin/azurepolicy.parameters.json' -Mode All
 $definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -PolicyDefinition $definition
+$assignment = New-AzPolicyAssignment -Name <assignmentname> -Scope <scope>  -PolicyDefinition $definition
 $assignment
 ```
 
@@ -41,7 +41,7 @@ $assignment
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## Deploy with Azure CLI
