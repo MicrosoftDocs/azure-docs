@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Entity search SDK, Node"
+title: "Quickstart: Send a search request with the Bing Entity Search SDK for Node.js"
 titleSuffix: Azure Cognitive Services
-description: Setup for Entity search SDK console application with Node.
+description: Use this quickstart to search for entities with the Bing Entity Search SDK for Node.js
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -9,46 +9,57 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
-ms.date: 02/12/2018
+ms.date: 01/22/2019
 ms.author: v-gedod
 ---
 
-# Quickstart: Bing Entity Search SDK with Node
+# Quickstart: Send a search request with the Bing Entity Search SDK for Node.js
 
-The Bing Entity Search SDK contains the functionality of the REST API for entity queries and parsing results. 
+Use this quickstart to begin searching for entities with the Bing Entity Search SDK for Node.js. While Bing Entity Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
 
-The [source code for C# Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) is available on Git Hub.
-## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+## Prerequisites
 
-To set up a console application using the Bing Entity Search SDK:
-* Run `npm install ms-rest-azure` in your development environment.
-* Run `npm install azure-cognitiveservices-entitysearch` in your development environment.
+* The latest version of [Node.js](https://nodejs.org/en/download/).
 
-## Entity Search client
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
-```
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
-```
-Then, instantiate the client, and search for results:
-```
-const EntitySearchAPIClient = require('azure-cognitiveservices-entitysearch');
+* The [Bing Entity Search SDK for Node.js](https://www.npmjs.com/package/azure-cognitiveservices-entitysearch)
 
-let entitySearchApiClient = new EntitySearchAPIClient(credentials);
+To install the Bing Entity Search SDK:
 
-entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
-    console.log(result.queryContext);
-    console.log(result.entities.value);
-    console.log(result.entities.value[0].description);
-}).catch((err) => {
-    throw err;
-});
+1. Run `npm install ms-rest-azure` in your development environment.
+2. Run `npm install azure-cognitiveservices-entitysearch` in your development environment.
 
-```
-The code prints `result.value` items to the console without parsing any text.  The results, if any per category, will include:
-- _type: 'Thing'
-- _type: 'ImageObject'
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
+
+
+## Create and initialize the application
+
+1. Create a new JavaScript file in your favorite IDE or editor, and add the following requirements. 
+    
+    ```javascript
+    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const EntitySearchAPIClient = require('azure-cognitiveservices-entitysearch');
+    ```
+
+2. Create an instance of `CognitiveServicesCredentials` using your subscription key. Then create an instance of the search client with it.
+
+    ```javascript
+    let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
+    let entitySearchApiClient = new EntitySearchAPIClient(credentials);
+    ```
+
+## Send a request and receive a response
+
+2. Send an entities search request with `entitiesOperations.search()`. After receiving a response, print out the `queryContext`, number of returned results, and the description of the first result.
+      
+    ```javascript
+    entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
+        console.log(result.queryContext);
+        console.log(result.entities.value);
+        console.log(result.entities.value[0].description);
+    }).catch((err) => {
+        throw err;
+    });
+    ```
 
 <!-- Removing until we can replace with a sanitized version.
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
@@ -56,4 +67,5 @@ The code prints `result.value` items to the console without parsing any text.  T
 
 ## Next steps
 
-[Cognitive services Node.js SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+> [!div class="nextstepaction"]
+> [Create a single-page web app](../tutorial-bing-entities-search-single-page-app.md)

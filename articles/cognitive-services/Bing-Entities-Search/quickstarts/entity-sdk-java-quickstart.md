@@ -1,5 +1,5 @@
 ---
-title: "title: "Quickstart: Search for entities with the Bing Entity Search SDK for Java"
+title: "Quickstart: Search for entities with the Bing Entity Search SDK for Java"
 titlesuffix: Azure Cognitive Services
 description: Use this quickstart to search for entities with the Bing Entity Search SDK for Java
 services: cognitive-services
@@ -23,59 +23,94 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
 Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 
 ```xml
-  <dependencies>
-  	<dependency>
-  		<groupId>com.microsoft.azure.cognitiveservices</groupId>
-  		<artifactId>azure-cognitiveservices-entitysearch</artifactId>
-  		<version>0.0.1-beta-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
+<dependency>
+  <groupId>com.microsoft.azure.cognitiveservices</groupId>
+  <artifactId>azure-cognitiveservices-entitysearch</artifactId>
+  <version>1.0.2</version>
+</dependency>
 ```
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 
-## Entity Search client
-Add imports to the class implementation.
-```
-import com.microsoft.azure.cognitiveservices.entitysearch.*;
-import com.microsoft.azure.cognitiveservices.entitysearch.implementation.EntitySearchAPIImpl;
-import com.microsoft.azure.cognitiveservices.entitysearch.implementation.SearchResponseInner;
-import com.microsoft.rest.credentials.ServiceClientCredentials;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+## Create and initialize a project
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-```
-Implement the **EntitySearchAPIImpl** client, which requires an instance of the **ServiceClientCredentials** class.
-```
-public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
-    return new EntitySearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
-            new ServiceClientCredentials() {
+1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+
+    ```java
+    import com.microsoft.azure.cognitiveservices.entitysearch.*;
+    import com.microsoft.azure.cognitiveservices.entitysearch.implementation.EntitySearchAPIImpl;
+    import com.microsoft.azure.cognitiveservices.entitysearch.implementation.SearchResponseInner;
+    import com.microsoft.rest.credentials.ServiceClientCredentials;
+    import okhttp3.Interceptor;
+    import okhttp3.OkHttpClient;
+    import okhttp3.Request;
+    import okhttp3.Response;
+    
+    import java.io.IOException;
+    import java.util.ArrayList;
+    import java.util.List;
+    ```
+
+
+
+## Create a search client
+
+2. Implement the `dominantEntityLookup` client, which requires your API endpoint, and an instance of the `ServiceClientCredentials` class.
+
+    ```java
+    public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
+        return new EntitySearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
+                new ServiceClientCredentials() {
+                //...
+                }
+    )};
+    ```
+
+    To implement the `ServiceClientCredentials`, follow these steps:
+
+    1. override the `applyCredentialsFilter()` function, with a `OkHttpClient.Builder` object as a parameter. 
+        
+        ```java
+        //...
+        new ServiceClientCredentials() {
                 @Override
                 public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                    builder.addNetworkInterceptor(
-                            new Interceptor() {
-                                @Override
-                                public Response intercept(Interceptor.Chain chain) throws IOException {
-                                    Request request = null;
-                                    Request original = chain.request();
-                                    // Request customization: add request headers
-                                    Request.Builder requestBuilder = original.newBuilder()
-                                            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-                                    request = requestBuilder.build();
-                                    return chain.proceed(request);
-                                }
-                            });
+                //...
+                }
+        //...
+        ```
+    
+    2. Within `applyCredentialsFilter()`, call `builder.addNetworkInterceptor()`. Create a new `Interceptor` object, and override its `intercept()` method to take a `Chain` interceptor object.
+
+        ```java
+        //...
+        builder.addNetworkInterceptor(
+            new Interceptor() {
+                @Override
+                public Response intercept(Chain chain) throws IOException {
+                //...    
                 }
             });
-}
+        ///...
+        ```
 
-```
+    3. Within the `intercept` function, create variables for your request. Use `Request.Builder()` to build your request. Add your subscription key to the `Ocp-Apim-Subscription-Key` header, and return `chain.proceed()` on the request object.
+            
+        ```java
+        //...
+        public Response intercept(Chain chain) throws IOException {
+            Request request = null;
+            Request original = chain.request();
+            Request.Builder requestBuilder = original.newBuilder()
+                    .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+            request = requestBuilder.build();
+            return chain.proceed(request);
+        }
+        //...
+        ```
+
+
 Search for the single entity "Satya Nadella" and print a short description.
 ```
 public static void dominantEntityLookup(final String subscriptionKey)
