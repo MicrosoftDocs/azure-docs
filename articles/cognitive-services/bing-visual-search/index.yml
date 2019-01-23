@@ -63,7 +63,7 @@ sections:
         - href: quickstarts/python
       - title: "SDK"
         - href: quickstarts/visual-search-sdk-c-sharp
-        - href: 
+        - href: ''
         - href: quickstarts/visual-search-sdk-node
         - href: quickstarts/visual-search-sdk-python
 - title: Step-by-Step Tutorials
