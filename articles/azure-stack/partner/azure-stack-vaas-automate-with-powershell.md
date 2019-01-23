@@ -23,9 +23,8 @@ ROBOTS: NOINDEX
 
 Validation as a Service (VaaS) provides the ability to automate the launching of tests using the **LaunchVaaSTests.ps1** script.
 
-You can use PowerShell for the following workflow:
-
-- Test Pass
+> [!NOTE]
+> Automation is only available for the Test Pass workflow. The Package Validation and Solution Validation workflows are only supported through the VaaS portal.
 
 In this tutorial, you learn how to create a script that:
 
