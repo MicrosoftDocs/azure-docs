@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 12/03/2018
+ ms.date: 01/22/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -13,38 +13,31 @@
 
 Azure managed disks currently offers four disk types, three of which are generally available and one that is currently in preview. These four disk types each have their own appropriate target customer scenarios, they are as follows:
 
-|Disk Type  |Scenario  |
-|---------|---------|
-|Ultra SSD (Preview)     |IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.         |
-|Premium SSD     |Production and performance sensitive workloads         |
-|Standard SSD     |Web servers, lightly used enterprise applications and Dev/Test         |
-|Standard HDD     |Backup, Non-critical, Infrequent access         |
-
 ## Disk comparison
 
-The following table provides a comparison of Standard HDD, Standard SSD, Premium SSD, and Ultra SSD for managed disks to help you decide what to use.
+The following table provides a comparison of standard hard disk drives (HDD), standard solid state drives (SSD), premium SSD, and ultra SSD (preview) for managed disks to help you decide what to use.
 
-|   |Azure Ultra SSD (Preview)   |Azure Premium Disk   |Azure Standard SSD   |Azure Standard HDD   |
+|   | Ultra SSD (preview)   | Premium Disk   | Standard SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
-|Disk Type   |SSD   |SSD   |SSD   |HDD   |
-|Scenario   |IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and Dev/Test   |Backup, Non-critical, Infrequent access   |
-|Disk size   |65,536 GiB (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)    |4,095 (GA) GiB, 32,767 GiB (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)   |
-|Max Throughput   |2,000 MiB/s (Preview)   |250 (GA) MiB/s, 750 MiB/s (Preview)   |60 MiB/s (GA), 500 MiB/s (Preview)   |60 Mib/s (GA), 500 MiB/s (Preview)   |
+|Disk type   |SSD   |SSD   |SSD   |HDD   |
+|Scenario   |IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and dev/test   |Backup, non-critical, infrequent access   |
+|Disk size   |65,536 gibibyte (GiB) (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)    |4,095 (GA) GiB, 32,767 GiB (Preview)   |4,095 GiB (GA), 32,767 GiB (Preview)   |
+|Max throughput   |2,000 MiB/s (Preview)   |250 (GA) MiB/s, 750 MiB/s (Preview)   |60 MiB/s (GA), 500 MiB/s (Preview)   |60 Mib/s (GA), 500 MiB/s (Preview)   |
 |Max IOPS   |160,000 (Preview)   |7500 (GA), 20,000 (Preview)   |500 (GA), 2,000 (Preview)   |500 (GA), 2,000 (Preview)   |
 
-## Ultra SSD (Preview)
+## Ultra SSD (preview)
 
-Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Sine additional benefits of Ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
+Azure ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
 ### Performance
 
-When you provision an Ultra SSD, you have the option to independently configure the capacity and the performance of the disk. Ultra SSDs come in several fixed sizes, ranging from 4 GiB up to 64 TiB, and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput. Ultra SSDs can only be used as data disks. We recommend using Premium SSDs as OS disks.
+When you provision an ultra SSD, you can independently configure the capacity and the performance of the disk. Ultra SSDs come in several fixed sizes, ranging from 4 GiB up to 64 TiB, and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput. Ultra SSDs can only be used as data disks. We recommend using Premium SSDs as OS disks.
 
 Some key capabilities of Ultra SSD are:
 
-- Disk Capacity: Ultra SSD capacity ranges from 4 GiB up to 64 TiB.
+- Disk capacity: Ultra SSD capacity ranges from 4 GiB up to 64 TiB.
 - Disk IOPS: Ultra SSDs support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS. The minimum disk IOPS are 100 IOPS.
-- Disk Throughput: With Ultra SSDs, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum disk throughput is 1 MiB.
+- Disk throughput: With ultra SSDs, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum disk throughput is 1 MiB.
 
 ### Disk size
 
@@ -60,23 +53,23 @@ Some key capabilities of Ultra SSD are:
 |512     |80,000         |2,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2,000         |
 
-### Ultra SSD Preview Scope and Limitations
+### Ultra SSD preview scope and limitations
 
-During preview, Ultra SSD Disks:
+During preview, ultra SSD Disks:
 
 - Will be initially supported in East US 2 in a single Availability Zone  
 - Can only be used with Availability Zones (Availability Sets and Single VM deployments outside of Zones will not have the ability to attach an Ultra SSD Disk)
 - Are only supported on ES/DS v3 VMs
 - Are only available as data disks and only support 4k physical sector size  
-- Can only be created as Empty disks  
-- Currently can only be deployed using Resource Manager templates, CLI, and Python SDK.
-- Does not (yet) support disk snapshots, VM Images, Availability Sets, Virtual Machine Scale Sets and Azure Disk Encryption.
-- Does not (yet) support integration with Azure Backup or Azure Site Recovery.
-- As with [most previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until General Availability (GA).
+- Can only be created as empty disks  
+- Currently can only be deployed using Azure Resource Manager templates, CLI, and the python SDK.
+- Does not yet support disk snapshots, VM Images, Availability Sets, Virtual Machine Scale Sets and Azure Disk Encryption.
+- Does not yet support integration with Azure Backup or Azure Site Recovery.
+- As with [most previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until general availability (GA).
 
 ## Premium SSD
 
-Azure Premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (I/O)-intensive workloads. To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium SSDs. Premium SSDs are suitable for mission-critical production applications.
+Azure premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium SSDs. Premium SSDs are suitable for mission-critical production applications.
 
 ### Disk size
 
@@ -90,7 +83,7 @@ Sizes marked with an asterisk are currently in preview.
 
 ## Standard SSD
 
-Azure Standard Solid State Drives (SSD) managed disks are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Standard SSD offers a good entry level experience for those who wish to move to the cloud, especially if you experience issues with the variance of workloads running on your HDD solutions on premises. Standard SSDs deliver better availability, consistency, reliability, and latency compared to HDD Disks. Standard SSDs are suitable for Web servers, low IOPS application servers, lightly used enterprise applications, and Dev/Test workloads.
+Azure standard SSDs are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Standard SSD offers a good entry level experience for those who wish to move to the cloud, especially if you experience issues with the variance of workloads running on your HDD solutions on premises. Standard SSDs deliver better availability, consistency, reliability, and latency compared to HDD disks. Standard SSDs are suitable for Web servers, low IOPS application servers, lightly used enterprise applications, and Dev/Test workloads.
 
 ### Disk size
 
@@ -104,7 +97,7 @@ Sizes marked with an asterisk are currently in preview.
 
 ## Standard HDD
 
-Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard SSD and HDD disks for Dev/Test scenarios and less critical workloads. Standard Storage is available in all Azure regions.
+Azure standard HDDs deliver reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With standard storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard SSD and HDD disks for dev/test scenarios and less critical workloads. Standard storage is available in all Azure regions.
 
 ### Disk size
 
@@ -120,11 +113,11 @@ Sizes marked with an asterisk are currently in preview.
 
 When using managed disks, the following billing considerations apply:
 
-- Disk Type
+- Disk type
 - managed disk Size
 - Snapshots
 - Outbound data transfers
-- Number of Transactions
+- Number of transactions
 
 **Managed disk size**: managed disks are billed on the provisioned size. Azure maps the provisioned size (rounded up) to the nearest offered disk size. For details of the disk sizes offered, see the tables above. Each disk maps to a supported provisioned disk size offering and is billed accordingly. For example, if you provisioned a 200 GiB Standard SSD, it maps to the disk size offer of E15 (256 GiB). Billing for any provisioned disk is prorated hourly by using the monthly price for the Premium Storage offer. For example, if you provisioned an E10 disk and deleted it after 20 hours, you're billed for the E10 offering prorated to 20 hours. This is regardless of the amount of actual data written to the disk.
 
