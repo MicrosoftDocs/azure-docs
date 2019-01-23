@@ -337,7 +337,7 @@ properties at this time:
 ```json
 {
     "accept" : {
-        "address" : "wss://dc-node.servicebus.windows.net:443/$hc/{path}?..."
+        "address" : "wss://dc-node.servicebus.windows.net:443/$hc/{path}?...",
         "id" : "4cb542c3-047a-4d40-a19f-bdc66441e736",
         "connectHeaders" : {
             "Host" : "...",
@@ -395,8 +395,8 @@ If there is an error, the service can reply as follows:
 | 403  | Forbidden      | The URL is not valid.
 | 500  | Internal Error | Something went wrong in the service
 
- After the connection has been established, the server shuts down the WebSocket
- when the sender WebSocket shuts down, or with the following status:
+After the connection has been established, the server shuts down the WebSocket
+when the sender WebSocket shuts down, or with the following status:
 
 | WS Status | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
@@ -407,17 +407,17 @@ If there is an error, the service can reply as follows:
 
 ##### Rejecting the socket
 
- Rejecting the socket after inspecting the `accept` message requires a similar
- handshake so that the status code and status description communicating the
- reason for the rejection can flow back to the sender.
+Rejecting the socket after inspecting the `accept` message requires a similar
+handshake so that the status code and status description communicating the
+reason for the rejection can flow back to the sender.
 
- The protocol design choice here is to use a WebSocket handshake (that is
- designed to end in a defined error state) so that listener client
- implementations can continue to rely on a WebSocket client and do not need to
- employ an extra, bare HTTP client.
+The protocol design choice here is to use a WebSocket handshake (that is
+designed to end in a defined error state) so that listener client
+implementations can continue to rely on a WebSocket client and do not need to
+employ an extra, bare HTTP client.
 
- To reject the socket, the client takes the address URI from the `accept`
- message and appends two query string parameters to it, as follows:
+To reject the socket, the client takes the address URI from the `accept`
+message and appends two query string parameters to it, as follows:
 
 | Param                   | Required | Description                              |
 | ----------------------- | -------- | ---------------------------------------- |
@@ -502,13 +502,13 @@ The JSON content for `request` is as follows:
    not forwarded:
 
   * `Connection` (RFC7230, Section 6.1)
-  * `Content-Length`  (RFC7230, Section 3.3.2)
-  * `Host`  (RFC7230, Section 5.4)
-  * `TE`  (RFC7230, Section 4.3)
-  * `Trailer`  (RFC7230, Section 4.4)
-  * `Transfer-Encoding`  (RFC7230, Section 3.3.1)
+  * `Content-Length` (RFC7230, Section 3.3.2)
+  * `Host` (RFC7230, Section 5.4)
+  * `TE` (RFC7230, Section 4.3)
+  * `Trailer` (RFC7230, Section 4.4)
+  * `Transfer-Encoding` (RFC7230, Section 3.3.1)
   * `Upgrade` (RFC7230, Section 6.7)
-  * `Close`  (RFC7230, Section 8.1)
+  * `Close` (RFC7230, Section 8.1)
 
 * **requestTarget** – string. This property holds the  ["Request Target" (RFC7230, Section 5.3)](https://tools.ietf.org/html/rfc7230#section-5.3) of the request. This includes
   the query string portion, which is stripped of ALL `sb-hc-` prefixed parameters.
@@ -604,8 +604,8 @@ If there is an error, the service can reply as follows:
 | 403  | Forbidden       | The URL has expired.
 | 500  | Internal Error  | Something went wrong in the service
 
- After the connection has been established, the server shuts down the WebSocket
- when the client's HTTP socket shuts down, or with the following status:
+After the connection has been established, the server shuts down the WebSocket
+when the client's HTTP socket shuts down, or with the following status:
 
 | WS Status | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
@@ -669,12 +669,12 @@ The query string parameter options are as follows:
 | `sb-hc-token`  | Yes\*     | The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right.
 | `sb-hc-id`     | No        | An optional ID that enables end-to-end diagnostic tracing and is made available to the listener during the accept handshake.
 
- The `{path}` is the URL-encoded namespace path of the preconfigured Hybrid
- Connection on which to register this listener. The `path` expression can be
- extended with a suffix and a query string expression to communicate further. If
- the Hybrid Connection is registered under the path `hyco`, the `path`
- expression can be `hyco/suffix?param=value&...` followed by the query string
- parameters defined here. A complete expression may then be as follows:
+The `{path}` is the URL-encoded namespace path of the preconfigured Hybrid
+Connection on which to register this listener. The `path` expression can be
+extended with a suffix and a query string expression to communicate further. If
+the Hybrid Connection is registered under the path `hyco`, the `path`
+expression can be `hyco/suffix?param=value&...` followed by the query string
+parameters defined here. A complete expression may then be as follows:
 
 ```
 wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id=...&]sbc-hc-token=...
