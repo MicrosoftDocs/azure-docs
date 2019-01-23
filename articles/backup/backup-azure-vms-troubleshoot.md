@@ -51,6 +51,7 @@ You can troubleshoot errors encountered while using Azure Backup with the inform
 | Backup failed to cancel the job: <br>Wait until the job finishes. |None |
 
 ## Restore
+
 | Error details | Workaround |
 | --- | --- |
 | Restore failed with a cloud internal error. |<ol><li>The cloud service to which you're trying to restore is configured with DNS settings. You can check: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>If **Address** is configured, then DNS settings are configured.<br> <li>The cloud service to which to you're trying to restore is configured with **ReservedIP**, and existing VMs in the cloud service are in the stopped state. You can check that a cloud service has reserved an IP by using the following PowerShell cmdlets: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>You're trying to restore a virtual machine with the following special network configurations into the same cloud service: <ul><li>Virtual machines under load balancer configuration, internal and external.<li>Virtual machines with multiple reserved IPs. <li>Virtual machines with multiple NICs. </ul><li>Select a new cloud service in the UI or see [restore considerations](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) for VMs with special network configurations.</ol> |
@@ -94,7 +95,7 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 * To update the Linux VM Agent, follow the instructions in the article [Updating the Linux VM Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
     > [!NOTE]
-    > Always use the distribution repository to update the agent. 
+    > Always use the distribution repository to update the agent.
 
     Don't download the agent code from GitHub. If the latest agent isn't available for your distribution, contact the distribution support for instructions to acquire the latest agent. You can also check the latest [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) information in the GitHub repository.
 

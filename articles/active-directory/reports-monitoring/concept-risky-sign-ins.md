@@ -58,9 +58,9 @@ All editions of Azure AD provide you with risky sign-ins reports. However, the l
 
 The Azure AD free and basic editions provide you with a list of risky sign-ins that have been detected for your users. Each record contains the following attributes:
 
-- **User** - The name of the user that was used during the sign-in operation
-- **IP** - The IP address of the device that was used to connect to Azure Active Directory
-- **Location** - The location used to connect to Azure Active Directory
+- **User** - The name of the user that was used during the sign-in operation.
+- **IP** - The IP address of the device that was used to connect to Azure Active Directory.
+- **Location** - The location used to connect to Azure Active Directory. This is a best effort approximation based on traces, registry data, reverse look ups and other information.
 - **Sign-in time** - The time when the sign-in was performed
 - **Status** - The status of the sign-in
 
@@ -103,6 +103,9 @@ When you select a risk event, you get a detailed report view for this risk event
 - Manually close risk events. 
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> Sometimes, you may find a risk event without a corresponding sign-in entry in the [sign-ins report](concept-sign-ins.md). This is because Identity Protection evaluates risk for both **interactive** and **non-interactive** sign-ins, whereas the sign-ins report shows only the interactive sign-ins.
 
 When you select a user, you get a detailed report view for this user that enables you to:
 

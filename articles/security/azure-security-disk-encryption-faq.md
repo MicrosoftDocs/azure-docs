@@ -133,7 +133,7 @@ If this workflow isn't possible, relying on [Storage Service Encryption](../stor
 
 ## What encryption method does Azure Disk Encryption use?
 
-On Windows, ADE uses the Bitlocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
+On Windows, ADE uses the BitLocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
 On Linux, ADE uses the dmcrypt default of aes-xts-plain64 with a 256-bit volume master key.
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
