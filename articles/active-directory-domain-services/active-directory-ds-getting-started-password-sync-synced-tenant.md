@@ -4,7 +4,7 @@ description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
