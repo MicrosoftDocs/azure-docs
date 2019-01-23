@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Machine Learning Studio Documentation
 metadata:
   title: Documentation - Azure Machine Learning Studio Tutorials, Reference | Microsoft Docs 
-  description: Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
+  description: Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
   services: machine-learning
   ms.service: machine-learning
   ms.component: studio
@@ -16,7 +16,7 @@ metadata:
   ms.date: 01/24/2019
   
 abstract:
-  description: Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
+  description: Machine Learning Studio is a collaborative, drag-and-drop tool for building, testing, and deploying predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
 
 sections:
         
@@ -27,17 +27,17 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="create-experiment">Create your first experiment</a>
+    - html: <a href="create-experiment">Create your first Studio experiment</a>
     - html: <a href="algorithm-choice">Choose the best algorithm</a>
-    - html: <a href="deploy-consume-web-service-guide">Operationalize your model</a>
-    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Learn about Data Science</a>
+    - html: <a href="deploy-consume-web-service-guide">Deploy models as web services</a>
+    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Read about "Data Science for beginners"</a>
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Follow extended tutorials that walk you through creating and deploying models:'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="walkthrough-develop-predictive-solution">Create and deploy a predictive solution</a>
     - html: <a href="azure-ml-customer-churn-scenario">Customer churn example</a>
