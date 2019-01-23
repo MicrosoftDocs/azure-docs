@@ -211,7 +211,7 @@ The response provides the updated information on the brand that you updated foll
   "referenceUrl": null,
   "id": 97974,
   "name": "Example",
-  "accountId": "SampeAccountId",
+  "accountId": "SampleAccountId",
   "lastModifierUserName": "SampleUserName",
   "Created": "2018-04-25T14:59:52.7433333",
   "lastModified": "2018-04-25T15:37:50.67",
