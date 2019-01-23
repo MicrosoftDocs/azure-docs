@@ -63,7 +63,7 @@ sections:
         values:
         - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-the-azure-portal      
         - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-powershell      
-        - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-azure-cli      
+        - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account      
         - href: 
         - href: 
         - href: 

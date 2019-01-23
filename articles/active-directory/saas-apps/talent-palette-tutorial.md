@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/30/2018
+ms.date: 01/17/2019
 ms.author: jeedes
 
 ---
@@ -75,8 +75,8 @@ To configure and test Azure AD single sign-on with Talent Palette, you need to c
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Talent Palette Single Sign-On](#configure-talent-palette-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Talent Palette test user](#create-talent-palette-test-user)** - to have a counterpart of Britta Simon in Talent Palette that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Talent Palette test user](#create-talent-palette-test-user)** - to have a counterpart of Britta Simon in Talent Palette that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -102,14 +102,14 @@ To configure Azure AD single sign-on with Talent Palette, perform the following 
     ![Talent Palette Domain and URLs single sign-on information](common/both_replyurl.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
-    `https://talent-p.net/saml/acs/<tenantID>`.
+    `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     ![Talent Palette Domain and URLs single sign-on information](common/both_signonurl.png)
-   
+
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://talent-p.net/saml/sso/<tenantID>`.
+    `https://talent-p.net/saml/sso/<tenantID>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Talent Palette Client support team](mailto:talent-support@pa-consul.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

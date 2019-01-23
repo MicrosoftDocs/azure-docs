@@ -10,7 +10,7 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
 ---
 
@@ -50,7 +50,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 - On Windows, you need the command prompt or Anaconda prompt (installed by Anaconda and Miniconda).
 
-## <a id="anotebooks"></a>Azure Notebooks
+## <a id="aznotebooks"></a>Azure Notebooks
 
 [Azure Notebooks](https://notebooks.azure.com) (preview) is an interactive development environment in the Azure cloud. It's the easiest way to get started with Azure Machine Learning development.
 
@@ -59,17 +59,21 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 To get started developing with Azure Notebooks, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
 
+By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 The DSVM is a customized virtual machine (VM) image. It's designed for data science work that's pre-configured with:
 
-  - Packages such as TensorFlow, PyTorch, Scikit-learn, XGBoost, and the Azure Machine Learning SDK.
-  - Popular data science tools such as Spark Standalone and Drill.
-  - Azure tools such as the Azure CLI, AzCopy, and Storage Explorer.
-  - Integrated development environments (IDEs) such as Visual Studio Code, PyCharm, and RStudio.
-  - Jupyter Notebook Server. 
+  - Packages such as TensorFlow, PyTorch, Scikit-learn, XGBoost, and the Azure Machine Learning SDK
+  - Popular data science tools such as Spark Standalone and Drill
+  - Azure tools such as the Azure CLI, AzCopy, and Storage Explorer
+  - Integrated development environments (IDEs) such as Visual Studio Code and PyCharm
+  - Jupyter Notebook Server
 
-The Azure Machine Learning SDK works on either the Ubuntu or Windows version of the DSVM. To use the DSVM as a development environment, do the following:
+The Azure Machine Learning SDK works on either the Ubuntu or Windows version of the DSVM. But if you plan to use the DSVM as a compute target as well, only Ubuntu is supported.
+
+To use the DSVM as a development environment, do the following:
 
 1. Create a DSVM in either of the following environments:
 
@@ -259,15 +263,15 @@ To prepare your Databricks cluster and get sample notebooks:
 
 1. Install and attach the Azure Machine Learning SDK package to your cluster.  
 
-    * [Create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) with one of these settings (choose only one of these options):
+    * [Create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) with one of these settings (_choose only one of these options_):
     
-        * To install Azure Machine Learning SDK without automated machine learning capability:
+        * To install Azure Machine Learning SDK _without_ automated machine learning capability:
             | Setting | Value |
             |----|---|
             |Source | Upload Python Egg or PyPI
             |PyPi Name | azureml-sdk[databricks]
     
-        * To install Azure Machine Learning SDK with automated machine learning:
+        * To install Azure Machine Learning SDK _with_ automated machine learning:
             | Setting | Value |
             |----|---|
             |Source | Upload Python Egg or PyPI
@@ -281,9 +285,13 @@ To prepare your Databricks cluster and get sample notebooks:
 
     If you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
 
-    When you're done, the library is attached as shown in the following image. Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
+    When you're done, the library is attached as shown in the following images. Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
 
-   ![SDK installed on Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+    * If you installed Azure Machine Learning SDK _without_ automated machine learning
+   ![SDK without automated machine learning installed on Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+
+    * If you installed Azure Machine Learning SDK _with_ automated machine learning
+   ![SDK with automated machine learning installed on Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
    If this step fails, restart your cluster by doing the following:
 

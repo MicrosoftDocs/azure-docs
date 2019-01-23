@@ -165,7 +165,7 @@ Now that you've made your first call to the Bing Web Search API, let's look at a
 
 ### Limit the number of results returned by Bing
 
-This sample uses the `count` and `offset` parameters to limit the number of results returned using the SDK's [`search` method](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). The `name` and `URL` for the first result are printed.
+This sample uses the `count` and `offset` parameters to limit the number of results returned using the SDK's [`search` method](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). The `name` and `URL` for the first result are printed.
 
 1. Add this code to your Python project:
     ```python
@@ -176,7 +176,7 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
         try:
             '''
             Set the query, offset, and count using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(query="Best restaurants in Seattle", offset=10, count=20)
             print("\r\nSearching for \"Best restaurants in Seattle\"")
@@ -202,7 +202,7 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
 
 ### Filter for news and freshness
 
-This sample uses the `response_filter` and `freshness` parameters to filter search results using the SDK's [`search` method](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search). The search results returned are limited to news articles and pages that Bing has discovered within the last 24 hours. The `name` and `URL` for the first result are printed.
+This sample uses the `response_filter` and `freshness` parameters to filter search results using the SDK's [`search` method](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations). The search results returned are limited to news articles and pages that Bing has discovered within the last 24 hours. The `name` and `URL` for the first result are printed.
 
 1. Add this code to your Python project:
     ```python
@@ -212,7 +212,7 @@ This sample uses the `response_filter` and `freshness` parameters to filter sear
         try:
             '''
             Set the query, response_filter, and freshness using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(query="xbox",
                 response_filter=["News"],
@@ -250,7 +250,7 @@ This sample uses the `response_filter` and `freshness` parameters to filter sear
 
 ### Use safe search, answer count, and the promote filter
 
-This sample uses the `answer_count`, `promote`, and `safe_search` parameters to filter search results using the SDK's [`search` method](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). The `name` and `URL` for the first result are displayed.
+This sample uses the `answer_count`, `promote`, and `safe_search` parameters to filter search results using the SDK's [`search` method](https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python). The `name` and `URL` for the first result are displayed.
 
 1. Add this code to your Python project:
     ```python
@@ -262,7 +262,7 @@ This sample uses the `answer_count`, `promote`, and `safe_search` parameters to 
         try:
             '''
             Set the query, answer_count, promote, and safe_search parameters using the SDK's search method. See:
-            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search.
+            https://docs.microsoft.com/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python.
             '''
             web_data = client.web.search(
                 query="Niagara Falls",

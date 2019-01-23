@@ -31,7 +31,7 @@ Specifically, this Google Cloud Storage connector supports copying files as-is o
 To copy data from Google Cloud Storage, make sure you have been granted the following permissions:
 
 - **For copy activity execution:**: `s3:GetObject` and `s3:GetObjectVersion` for Object Operations.
-- **For Data Factory GUI authoring**: `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` for Bucket Operations permissions are additionally required for operations like test connection and browse/navigate file paths. If you don't want to grant these permission, skip test connection in linked service creation page and speicify the path directly in dataset settings.
+- **For Data Factory GUI authoring**: `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` for Bucket Operations permissions are additionally required for operations like test connection and browse/navigate file paths. If you don't want to grant these permission, skip test connection in linked service creation page and specify the path directly in dataset settings.
 
 ## Getting started
 

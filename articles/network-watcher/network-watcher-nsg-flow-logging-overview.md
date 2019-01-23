@@ -30,10 +30,12 @@ While flow logs target NSGs, they are not displayed the same as the other logs. 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
- 
+You can analyze flow logs and gain insights into your network traffic using [traffic analytics](traffic-analytics.md).
+
 The same retention policies seen for other logs apply to flow logs. You can set log retention policy from 1 day to 2147483647 days. If a retention policy is not set, the logs are maintained forever.
 
-You can also analyze flow logs using [traffic analytics](traffic-analytics.md).
+> [!NOTE] 
+> Using the retention policy feature with NSG Flow Logging may result in a high volume of storage operations and the associated costs. If you do not require the retention policy feature, we recommend that you set this value to 0.
 
 
 ## Log file
@@ -68,7 +70,7 @@ Flow logs include the following properties:
 
 ## NSG flow logs version 2
 > [!NOTE] 
-> Flow Logs Version 2 are only available in the West Central US Region. Configuration is available through the Azure Portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
+> Flow Logs Version 2 are only available in the West Central US Region. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
 
 Version 2 of the logs introduces flow state. You can configure which version of flow logs you receive. To learn how to enable flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
 
@@ -85,6 +87,12 @@ For continuation *C* and end *E* flow states, byte and packet counts are aggrega
 For continuation *C* and end *E* flow states, byte and packet counts are aggregate counts from the time of the previous flow tuple record. Referencing the previous example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
 
 The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.
+
+## NSG Flow Logging Considerations
+
+**Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend that NSG flow logging is enabled on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. See [how traffic is evaluated](../virtual-network/security-overview.md#how-traffic-is-evaluated) for more information on Network Security Groups. 
+
+**Flow Logging Costs**: NSG flow logging is billed on the volume of logs produced. High traffic volume can result in large flow log volume and the associated costs. NSG Flow log pricing does not include the underlying costs of storage. Using the retention policy feature with NSG Flow Logging may result in a high volume of storage operations and the associated costs. If you do not require the retention policy feature, we recommend that you set this value to 0. See [Network Watcher Pricing](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) and [Azure Storage Pricing](https://azure.microsoft.com/en-us/pricing/details/storage/) for additional details.
 
 ## Sample log records
 

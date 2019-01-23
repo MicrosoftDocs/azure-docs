@@ -44,7 +44,7 @@ The following properties are supported for Oracle Service Cloud linked service:
 | type | The type property must be set to: **OracleServiceCloud** | Yes |
 | host | The URL of the Oracle Service Cloud instance.  | Yes |
 | username | The user name that you use to access Oracle Service Cloud server.  | Yes |
-| password | The password corresponding to the user name that you provided in the username key. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | The password corresponding to the user name that you provided in the username key. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |

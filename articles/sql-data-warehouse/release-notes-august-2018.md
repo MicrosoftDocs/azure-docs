@@ -30,7 +30,7 @@ You can drill into each category to see the recommendations for the specific ale
 | Title | Description |
 |:---|:---|
 | **Potential Query failures when the split count exceeds max limit** |When the 1 million upper bound file-split limit is exceeded an unhandled exception caused the SQL Engine to dump, and all queries failed. This fix addresse the issue by handling the exception correctly and returning an error without causing queries to fail. |
-| **Increased ExternalMoveReadersPerNode default value to improve load perfomance** |This issue was caused by the ExternalMoveReadersPerNode property setting being out of sync with the service fabric setting. This regression caused a degraded Gen2 load performance. The fix brings Gen2 load performance back within optimized design parameters.|
+| **Increased ExternalMoveReadersPerNode default value to improve load performance** |This issue was caused by the ExternalMoveReadersPerNode property setting being out of sync with the service fabric setting. This regression caused a degraded Gen2 load performance. The fix brings Gen2 load performance back within optimized design parameters.|
 
 
 ## Next steps

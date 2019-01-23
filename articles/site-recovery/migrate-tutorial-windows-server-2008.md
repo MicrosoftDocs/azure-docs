@@ -115,7 +115,7 @@ Select and verify target resources.
 1. To create a new replication policy, click **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 2. In **Create replication policy**, specify a policy name.
 3. In **RPO threshold**, specify the recovery point objective (RPO) limit. An alert is generated if the replication RPO exceeds this limit.
-4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
+4. In **Recovery point retention**, specify how long (in hours) the retention window is for each recovery point. Replicated servers can be recovered to any point in this window. Up to 24 hours retention is supported for machines replicated to premium storage, and 72 hours for standard storage.
 5. In **App-consistent snapshot frequency**, specify **Off**. Click **OK** to create the policy.
 
 The policy is automatically associated with the configuration server.
@@ -150,13 +150,13 @@ Run a failover for the machines you want to migrate.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
 3. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shut down the server before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 4. Check that the Azure VM appears in Azure as expected.
-5. In **Replicated items**, right-click the VM > **Complete Migration**. This does the following:
+5. In **Replicated items**, right-click the server > **Complete Migration**. This does the following:
 
-    - Finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+    - Finishes the migration process, stops replication for the server, and stops Site Recovery billing for the serve.
     - This step cleans up the replication data. It doesn't delete the migrated VMs.
 
    ![Complete migration](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **Don't cancel a failover in progress**: VM replication is stopped before failover starts. If you cancel a failover in progress, failover stops, but the VM won't replicate again.
+> **Don't cancel a failover in progress**: Server replication is stopped before failover starts. If you cancel a failover in progress, failover stops, but the server won't continue to replicate.

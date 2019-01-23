@@ -4,7 +4,7 @@ description: Guidance to troubleshoot issues you may encounter while trying to s
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

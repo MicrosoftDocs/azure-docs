@@ -24,7 +24,7 @@ sections:
   - type: paragraph
     text: 'Learn how to set up the workspace and resources for Azure Machine Learning service using a quickstart:'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: Get started using <a href="quickstart-get-started">Azure portal</a>.
     - html: Get started using <a href="quickstart-create-workspace-with-python">Python</a>.
@@ -34,10 +34,10 @@ sections:
   - type: paragraph
     text: 'Learn how to prep data, set up experiments, and operationalize your machine learning models:'
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Train & deploy image classification models</a> (<b>two-part tutorial</b>).
-    - html: <a href="tutorial-data-prep">Prep data & use automated ML</a> to train and tune regression models  (<b>two-part tutorial</b>).<br>&nbsp;
+    - html: <a href="tutorial-train-models-with-aml">Train and deploy image classification models</a> (<b>two-part series</b>).
+    - html: <a href="tutorial-data-prep">Prep data and use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).<br>&nbsp;
   - type: paragraph
     text: '<b>Samples</b>: Explore the service with these <a href="https://aka.ms/aml-notebooks">Jupyter notebooks</a> on GitHub.'
 
