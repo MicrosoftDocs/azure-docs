@@ -25,12 +25,12 @@ The tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Create a key vault.
-> * Store a secret in the key vault.
+> * Add a secret to the key vault.
 > * Retrieve a secret from the key vault.
-> * Create an Azure web application.
-> * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the web app.
-> * Grant the required permissions for the web application to read data from the key vault.
-> * Run the web application on Azure.
+> * Create an Azure web app.
+> * Enable a managed identity for the web app.
+> * Assign permission for the web app.
+> * Run the web app on Azure.
 
 Before you begin:
 * Read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
@@ -194,7 +194,7 @@ To create a .NET Core web app and publish it to Azure, follow this [tutorial](..
     }
     ```
 
-## Run the app
+## Run the web app
 
 1. On the main menu of Visual Studio 2017, select **Debug** > **Start** with or without debugging. 
 1. In the browser, go to the **About** page.  
