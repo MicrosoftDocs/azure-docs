@@ -362,7 +362,7 @@ This section only applies to classic alerts and will help you optimize your aler
 
 * For alerts on failures from X out of Y locations, the **bulk/group** option if enabled, sends to users with admin/co-admin roles.  Essentially _all_ administrators of the _subscription_ will recieve notifications.
 
-* For alerts on availability metrics (or any Application Insights metrics for that matter, the **bulk/group** option if enabled, sends to users with owner, contributor or reader roles in the subscription. So in effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+* For alerts on availability metrics, (or any Application Insights metrics for that matter) the **bulk/group** option if enabled, sends to users with owner, contributor or reader roles in the subscription. So in effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
 
 > [!NOTE]
 > If you currently use the **bulk/group** option, and disable it, you will not be able to revert the change.
