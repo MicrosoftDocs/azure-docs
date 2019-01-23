@@ -153,7 +153,7 @@ The solution includes other useful queries that can help you manage your ESXi ho
 
 
 #### Save queries
-Saving search queries is a standard feature in Log Analytics and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](../platform/dashboards.md) page where you can create your own custom dashboards.
+Saving search queries is a standard feature in Log Analytics and can help you keep any queries that you’ve found useful. After you create a query that you find useful, save it by clicking the **Favorites**. A saved query lets you easily reuse it later from the [My Dashboard](../learn/tutorial-logs-dashboards.md) page where you can create your own custom dashboards.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
