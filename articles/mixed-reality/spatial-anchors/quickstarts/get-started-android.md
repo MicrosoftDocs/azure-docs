@@ -45,11 +45,11 @@ Open Android Studio.
 
 # [Java](#tab/openproject-java)
 
-Select **Open an existing Android Studio project** and select the project located at `java.android/samples/SampleAndroidJava/`.
+Select **Open an existing Android Studio project** and select the project located at `Android/Java/`.
 
 # [NDK](#tab/openproject-ndk)
 
-Select **Open an existing Android Studio project** and select the project located at `java.android/samples/SampleAndroidNDK/`.
+Select **Open an existing Android Studio project** and select the project located at `Android/NDK/`.
 
 ***
 
