@@ -89,4 +89,4 @@ For details on creating a Logic App with Application Insights, see [Automate App
 Now that you've learned how to alert on issues, advance to the next tutorial to learn how to analyze how users are interacting with your application.
 
 > [!div class="nextstepaction"]
-> [Understand users](../../application-insights/app-insights-tutorial-users.md)
+> [Understand users](../../azure-monitor/learn/tutorial-users.md)

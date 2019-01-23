@@ -4,7 +4,7 @@ description: Step by step instructions and examples for using an Azure VM manage
 services: active-directory
 documentationcenter: 
 author: daveba
-manager: mtillman
+manager: daveba
 editor: 
 
 ms.service: active-directory

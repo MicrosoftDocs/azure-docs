@@ -59,7 +59,7 @@ IoT Edge device:
   * Windows Server 2019
 * Enable virtualization so that your device can host containers
    * If it's a Windows computer, enable the containers feature. In the start bar, navigate to **Turn Windows features on or off** and check the box next to **Containers**.
-   * If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2 GB memory.
+   * If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2-GB memory.
 
 ## Create an IoT hub
 
@@ -109,7 +109,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 Install the Azure IoT Edge runtime on your IoT Edge device and configure it with a device connection string.
 ![Diagram - Start the runtime on device](./media/quickstart/start-runtime.png)
 
-The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** facilitates deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** manages communications between modules on the IoT Edge device, and between the device and IoT Hub.
+The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an IoT Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** manages deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** handles communications between modules on the IoT Edge device, and between the device and IoT Hub.
 
 The installation script also includes a container engine called Moby that manages the container images on your IoT Edge device. 
 
@@ -171,14 +171,16 @@ Your IoT Edge device is now configured. It's ready to run cloud-deployed modules
 
 ## Deploy a module
 
-Manage your Azure IoT Edge device from the cloud to deploy a module that will send telemetry data to IoT Hub.
+Manage your Azure IoT Edge device from the cloud to deploy a module that sends telemetry data to IoT Hub.
 ![Diagram - deploy module from cloud to device](./media/quickstart/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## View generated data
 
-In this quickstart, you created a new IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to push an IoT Edge module to run on the device without having to make changes to the device itself. In this case, the module that you pushed creates environmental data that you can use for the tutorials.
+In this quickstart, you registered an IoT Edge device and installed the IoT Edge runtime on it. Then, you used the Azure portal to deploy an IoT Edge module to run on the device without having to make changes to the device itself. 
+
+In this case, the module that you pushed creates sample data that you can use for testing. The simulated temperature sensor module generates environment data that you can use for testing later. The simulated sensor is monitoring both a machine and the environment around the machine. For example, this sensor might be in a server room, on a factory floor, or on a wind turbine. The message includes ambient temperature and humidity, machine temperature and pressure, and a timestamp. The IoT Edge tutorials use the data created by this module as test data for analytics.
 
 Confirm that the module deployed from the cloud is running on your IoT Edge device.
 
@@ -200,6 +202,7 @@ iotedge logs SimulatedTemperatureSensor -f
    ![View the data from your module](./media/quickstart/iotedge-logs.png)
 
 You can also watch the messages arrive at your IoT hub by using the [Azure IoT Hub Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (formerly Azure IoT Toolkit extension). 
+
 
 ## Clean up resources
 
@@ -226,26 +229,9 @@ Remove the IoT Edge runtime. If you plan on reinstalling IoT Edge, leave out the
    Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
-When the IoT Edge runtime is removed, the containers that it created are stopped, but still exist on your device. View all containers.
-
-   ```powershell
-   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
-   ```
-
-   >[!TIP]
-   >The **-H** (host) flag in the docker commands point to the moby engine that was installed along with the IoT Edge runtime. If you use both docker and moby on the same machine, the host flag allows you to specify which engine you're using for a given command. If you only want to use moby, you can set the **DOCKER_HOST** environment variable to point to npipe:////./pipe/iotedge_moby_engine.
-
-Delete the containers that were created on your device by the IoT Edge runtime. 
-
-   ```powershell
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
-   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
-   ```
-   
 ## Next steps
 
-In this quickstart, you created a new IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a test device generating raw data about its environment.
+In this quickstart, you created an IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a test device generating raw data about its environment.
 
 You are ready to continue on to any of the other tutorials to learn how Azure IoT Edge can help you turn this data into business insights at the edge.
 

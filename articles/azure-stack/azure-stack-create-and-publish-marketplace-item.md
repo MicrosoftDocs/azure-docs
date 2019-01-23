@@ -128,7 +128,7 @@ ms.reviewer: avishwan
 | --- | --- | --- | --- | --- |
 | Name |X |String |[A-Za-z0-9]+ | |
 | Publisher |X |String |[A-Za-z0-9]+ | |
-| Version |X |String |[SemVer v2](http://semver.org/) | |
+| Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### Metadata
 

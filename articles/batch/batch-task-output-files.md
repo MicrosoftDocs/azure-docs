@@ -47,7 +47,7 @@ For example, if you are writing your application in C#, use the [Azure Storage c
 
 ```csharp
 CloudBlobContainer container = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
-await conainer.CreateIfNotExists();
+await container.CreateIfNotExists();
 ```
 
 ## Get a shared access signature for the container

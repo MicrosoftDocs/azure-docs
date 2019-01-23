@@ -58,11 +58,11 @@ To shut down, reboot, or remove a node, find the node in the list on the **FXT N
 > [!NOTE] 
 > IP addresses might move among cluster nodes when the number of active nodes changes.
 
-Read [Cluster > FXT Nodes](<http://library.averesystems.com/ops_guide/4_7/gui_fxt_nodes.html#gui-fxt-nodes>) in the Avere cluster settings guide for more information.
+Read [Cluster > FXT Nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) in the Avere cluster settings guide for more information.
 
 ### Stop or reboot the cluster with Avere Control Panel
 
-The **System Maintenance** settings page has commands for restarting cluster services, rebooting the cluster, or safely powering the cluster down. Read [Administration > System Maintenance](<http://library.averesystems.com/ops_guide/4_7/gui_system_maintenance.html#gui-system-maintenance>) (in the Avere cluster settings guide) for details.
+The **System Maintenance** settings page has commands for restarting cluster services, rebooting the cluster, or safely powering the cluster down. Read [Administration > System Maintenance](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (in the Avere cluster settings guide) for details.
 
 When a cluster is shutting down, it posts state messages to the **Dashboard** tab at first. After a few moments, the Avere Control Panel session will stop responding, which means that the cluster has shut down.
 

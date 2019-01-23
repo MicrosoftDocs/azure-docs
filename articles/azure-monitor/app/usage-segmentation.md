@@ -17,7 +17,7 @@ ms.author: daviste
 
 # Users, sessions, and events analysis in Application Insights
 
-Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](../../application-insights/app-insights-overview.md).
+Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use. Analyze business and usage telemetry by using [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![Screenshot of Application Insights Users](./media/usage-segmentation/0001-users.png)
 

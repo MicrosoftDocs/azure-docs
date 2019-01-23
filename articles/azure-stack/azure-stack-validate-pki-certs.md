@@ -12,21 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 1/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
 
 # Validate Azure Stack PKI certificates
 
-The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. You should validate certificates by leaving  enough time to test and reissue certificates if necessary.
+The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). You can use the tool to validate that  the [generated PKI certificates](azure-stack-get-pki-certs.md) are suitable for pre-deployment. Validate certificates by leaving  enough time to test and reissue certificates if necessary.
 
 The Readiness Checker tool performs the following certificate validations:
 
 - **Read PFX**  
-    Checks for valid PFX file, correct password, and warns if public information is not protected by the password. 
+    Checks for valid PFX file, correct password, and whether the public information isn't protected by the password. 
 - **Signature algorithm**  
-    Checks that the signature algorithm is not SHA1.
+    Checks that the signature algorithm isn't SHA1.
 - **Private Key**  
     Checks that the private key is present and is exported with the local machine attribute. 
 - **Cert chain**  
@@ -82,8 +82,8 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
     
      - Place your certificate(s) in the appropriate directories created in the previous step. For example:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
-        - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
+        - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
+        - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
 
 3. In the PowerShell window, change the values of **RegionName** and **FQDN** appropriate to the Azure Stack environment and run the following:
 

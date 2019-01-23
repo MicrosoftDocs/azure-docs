@@ -19,7 +19,7 @@ ms.author: mbullwin
 *I'm having trouble setting up my:*
 
 * [.NET app](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
-* [Monitoring an already-running app](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
+* [Monitoring an already-running app](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot)
 * [Azure diagnostics](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](../../azure-monitor/app/java-troubleshoot.md)
 
@@ -38,7 +38,7 @@ ms.author: mbullwin
 * [Cloud Services on Azure](../../azure-monitor/app/cloudservices.md)
 * [App servers running in Docker](../../azure-monitor/app/docker.md)
 * [Single-page web apps](../../azure-monitor/app/javascript.md)
-* [Sharepoint](sharepoint.md)
+* [SharePoint](sharepoint.md)
 * [Windows desktop app](../../azure-monitor/app/windows-desktop.md)
 * [Other platforms](../../azure-monitor/app/platforms.md)
 
@@ -135,7 +135,7 @@ We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http
 
 You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-You can [use Power BI](../../application-insights/app-insights-export-power-bi.md) to display your request telemetry on a map.
+You can [use Power BI](../../azure-monitor/app/export-power-bi.md ) to display your request telemetry on a map.
 
 
 ## <a name="data"></a>How long is data retained in the portal? Is it secure?
@@ -295,5 +295,5 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 
 [data]: ../../azure-monitor/app/data-retention-privacy.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

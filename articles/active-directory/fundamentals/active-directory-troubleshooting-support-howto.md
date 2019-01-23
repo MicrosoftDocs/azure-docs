@@ -4,7 +4,7 @@ description: Instructions about how to get help and open a support ticket for Az
 services: active-directory
 documentationcenter: na
 author: eross-msft
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual

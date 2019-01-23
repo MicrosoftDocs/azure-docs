@@ -35,7 +35,7 @@ Today, a workspace provides:
 
 * A geographic location for data storage
 * Data isolation to define different user access rights
-* Scope for configuration of settings like retention and data capping
+* Scope for configuration of settings like [pricing tier](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retention](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) and [data capping](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
 
 From consumption point of view, we recommend you create as few workspaces as possible. It makes administration and query experience easier and quicker. But, based on the preceding characteristics, you may want to create multiple workspaces if:
 
@@ -140,96 +140,6 @@ Use these roles to give users access at different scopes:
 - Resource - Access to only the specified workspace
 
 We recommend you perform assignments at the resource level (workspace) to assure accurate access control.  Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
-
-## Link an existing workspace to an Azure subscription
-All workspaces created after September 26, 2016 must be linked to an Azure subscription at creation time. Workspaces created before this date must be linked to a workspace when you sign in. When you create the workspace from the Azure portal, or when you link your workspace to an Azure subscription, your Azure Active Directory is linked as your organizational account.
-
-### To link a workspace to an Azure subscription in the Azure portal
-1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.  
-
-2. On the Log Analytics subscriptions pane, click **Add**.  
-
-    ![list of workspaces](./media/manage-access/workspace-link-existing-01.png)
-
-3. From the **Log Analytics workspace** pane, click **Link existing**.  
-
-4. Click **Configure required settings**.  
-
-5. You see the list of workspaces that are not yet linked to your Azure account. Select the workspace.  
-   
-6. If needed, you can change values for the following items:
-   * Subscription
-   * Resource group
-   * Location
-   * Pricing tier  
-
-7. Click **OK**. The workspace is now linked to your Azure account.
-
-> [!NOTE]
-> If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the workspace that you created using the OMS portal.  To grant access to this account from the OMS portal, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
->
->
-
-## Upgrade a workspace to a paid plan
-There are three workspace plan types for OMS: **Free**, **Standalone**, and **OMS**.  If you are on the *Free* plan, there is a limit of 500 MB of data per day sent to Log Analytics.  If you exceed this amount, you need to change your workspace to a paid plan to avoid not collecting data beyond this limit. You can change your plan type at any time.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
-
-### Using entitlements from an OMS subscription
-To use the entitlements that come from purchasing OMS E1, OMS E2 OMS or OMS Add-On for System Center, choose the *OMS* plan of OMS Log Analytics.
-
-When you purchase an OMS subscription, the entitlements are added to your Enterprise Agreement. Any Azure subscription that is created under this agreement can use the entitlements. All workspaces on these subscriptions use the OMS entitlements.
-
-To ensure that usage of a workspace is applied to your entitlements from the OMS subscription, you need to:
-
-1. Create your workspace in an Azure subscription that is part of the Enterprise Agreement that includes the OMS subscription
-
-2. Select the *OMS* plan for the workspace
-
-> [!NOTE]
-> If your workspace was created before September 26, 2016 and your Log Analytics pricing plan is *Premium*, then this workspace uses entitlements from the OMS Add-On for System Center. You can also use your entitlements by changing to the *OMS* pricing tier.
->
->
-
-The OMS subscription entitlements are not visible in the Azure portal. You can see entitlements and usage in the Enterprise Portal.  
-
-If you need to change the Azure subscription that your workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
-
-### Using Azure Commitment from an Enterprise Agreement
-If you do not have an OMS subscription, you pay for each component of OMS separately and the usage appears on your Azure bill.
-
-If you have Azure monetary commitment on the enterprise enrollment to which your Azure subscriptions are linked, usage of Log Analytics will automatically debit against the remaining monetary commit.
-
-If you need to change the Azure subscription that the workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
-
-### Change a workspace to a paid pricing tier in the Azure portal
-1. In the Azure portal, from the Log Analytics subscriptions pane, select a workspace.
-
-2. From the workspace pane, under **General**, select **Pricing tier**.  
-
-3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
-    ![Selected pricing plan](./media/manage-access/workspace-pricing-tier-info.png)
-
-> [!NOTE]
-> If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
->
->
-
-### Change a workspace to a paid pricing tier in the OMS portal
-
-To change the pricing tier using the OMS portal, you must have an Azure subscription.
-
-1. In the OMS portal, click the **Settings** tile.
-
-2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
-
-3. Click the pricing tier you want to use.
-
-4. Click **Save**.  
-
-    ![subscription and data plans](./media/manage-access/subscription-tab.png)
-
-Your new data plan is displayed in the OMS portal ribbon at the top of your web page.
-
-![OMS ribbon](./media/manage-access/data-plan-changed.png)
 
 ## Next steps
 * See [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.

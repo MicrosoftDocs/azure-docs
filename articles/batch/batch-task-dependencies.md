@@ -119,7 +119,7 @@ To create the dependency, provide the first and last task IDs in the range to th
 > [!IMPORTANT]
 > When you use task ID ranges for your dependencies, only tasks with IDs representing integer values will be selected by the range. So the range `1..10` will select tasks `3` and `7`, but not `5flamingoes`. 
 > 
-> Leading zeroes are not signficant when evaluating range dependencies, so tasks with string identifiers `4`, `04` and `004` will all be *within* the range and they will all be treated as task `4`, so the first one to complete will satisfy the dependency.
+> Leading zeroes are not significant when evaluating range dependencies, so tasks with string identifiers `4`, `04` and `004` will all be *within* the range and they will all be treated as task `4`, so the first one to complete will satisfy the dependency.
 > 
 > Every task in the range must satisfy the dependency, either by completing successfully or by completing with a failure that’s mapped to a dependency action set to **Satisfy**. See the [Dependency actions](#dependency-actions) section for details.
 >

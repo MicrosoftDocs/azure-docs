@@ -31,7 +31,7 @@ The following script provides an example of gathering the required information, 
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get the details of the VM to be moved to the Availablity Set
+# Get the details of the VM to be moved to the Availability Set
     $originalVM = Get-AzureRmVM `
 	   -ResourceGroupName $resourceGroup `
 	   -Name $vmName

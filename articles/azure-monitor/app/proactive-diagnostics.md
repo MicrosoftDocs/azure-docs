@@ -14,7 +14,7 @@ ms.date: 10/31/2016
 ms.author: mbullwin
 ---
 # Smart Detection in Application Insights
- Smart Detection automatically warns you of potential performance problems in your web application. It performs proactive analysis of the telemetry that your app sends to [Application Insights](../../application-insights/app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
+ Smart Detection automatically warns you of potential performance problems in your web application. It performs proactive analysis of the telemetry that your app sends to [Application Insights](../../azure-monitor/app/app-insights-overview.md). If there is a sudden rise in failure rates, or abnormal patterns in client or server performance, you get an alert. This feature needs no configuration. It operates if your application sends enough telemetry.
 
 You can access Smart Detection alerts both from the emails you receive, and from the Smart Detection blade.
 

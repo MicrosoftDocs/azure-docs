@@ -265,7 +265,7 @@ The **Machine Security** pane shows data from the Security and Audit solution fo
 ![Machine Security pane](media/service-map/machine-security.png)
 
 ## Updates integration
-Service Map integration with Update Management is automatic when both solutions are enabled and configured in your Log Anlaytics workspace.
+Service Map integration with Update Management is automatic when both solutions are enabled and configured in your Log Analytics workspace.
 
 The **Machine Updates** pane displays data from the Update Management solution for the selected server. The pane lists a summary of any missing updates for the server during the selected time range.
 

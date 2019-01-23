@@ -29,7 +29,7 @@ To view the **AzureRm.RecoveryServices.Backup** PowerShell cmdlet reference, see
 ## Setup and registration
 
 > [!NOTE]
-> As noted in [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), support for new features in the AzureRM module ends in November 2018. Support is provided for backup of Azure file shares with the new Az PowerShell module that's now generally available.
+> As noted in [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0), support for new features in the AzureRM module ends in November 2018. Support is provided for backup of Azure file shares with the new Az PowerShell module that's now generally available.
 
 Follow these steps to begin.
 

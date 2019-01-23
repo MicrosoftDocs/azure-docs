@@ -3,7 +3,7 @@ title: Deployment plans - Azure Active Directory | Microsoft Docs
 description: End-to-end guidance about how to deploy many Azure Active Directory capabilities.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.component: fundamentals

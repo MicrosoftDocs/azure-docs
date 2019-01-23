@@ -195,6 +195,8 @@
     href: /cli/azure/mysql
   - name: REST API
     href: /rest/api/mysql
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.dbformysql/allversions
   - name: Data-in replication stored procedures
     href: reference-data-in-stored-procedures.md
 - name: Resources

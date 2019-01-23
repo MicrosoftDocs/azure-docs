@@ -28,10 +28,10 @@
     href: cli-samples.md
 - name: Concepts
   items:
+  - name: Migrate from v2 to v3
+    href: migrate-from-v2-to-v3.md
   - name: Accounts
     items:
-    - name: Migrate from v2 to v3
-      href: migrate-from-v2-to-v3.md
     - name: Quotas and limitations
       href: limits-quotas-constraints.md   
     - name: Storage accounts
@@ -65,9 +65,8 @@
   - name: Handling Event Grid events
     href: reacting-to-media-services-events.md      
   - name: Protecting content
+    href: content-protection-overview.md  
     items:
-    - name: Overview
-      href: content-protection-overview.md
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
   - name: Analyzing content
@@ -119,10 +118,18 @@
       href: job-state-events-cli-how-to.md 
   - name: Protect content
     items:
-    - name: With AES-128 - .NET
+    - name: AES-128 dynamic encryption - .NET
       href: protect-with-aes128.md    
-    - name: With DRM - .NET
+    - name: DRM dynamic encryption - .NET
       href: protect-with-drm.md
+    - name: Get content key policy - .NET
+      href: get-content-key-policy-dotnet-howto.md
+    - name: Offline FairPlay for iOS 
+      href: offline-fairplay-for-ios.md
+    - name: Offline Widevine for Android
+      href: offline-widevine-for-android.md
+    - name: Offline PlayReady for Windows 10
+      href: offline-plaready-streaming-for-windows-10.md     
   - name: Create filters
     items:
     - name: With .NET
@@ -135,12 +142,12 @@
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
-  - name: SDKs/Tools
+  - name: REST
+    href: https://aka.ms/ams-v3-rest-ref
+  - name: Azure CLI
+    href: https://aka.ms/ams-v3-cli-ref    
+  - name: SDKs
     items:
-    - name: REST
-      href: https://aka.ms/ams-v3-rest-ref
-    - name: Azure CLI
-      href: https://aka.ms/ams-v3-cli-ref
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-ref
     - name: Java
@@ -151,6 +158,8 @@
       href: https://aka.ms/ams-v3-nodejs-ref
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.media/allversions
   - name: Event Grid schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
@@ -191,3 +200,6 @@
     href: release-notes.md
   - name: FAQ
     href: frequently-asked-questions.md
+  - name: Azure clouds and regions
+    href: azure-clouds-regions.md
+

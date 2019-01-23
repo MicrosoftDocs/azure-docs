@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/14/2018
+ms.date: 1/7/2019
 ms.author: raiye
 
 ---
@@ -39,6 +39,9 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **January 7, 2019**
+The December Guest OS has released.
+
 ###### **December 14, 2018**
 The November Guest OS has released.
 
@@ -57,9 +60,6 @@ The July Guest OS has released.
 ###### **July 3, 2018**
 The June Guest OS has released.
 
-###### **June 1, 2018**
-The May Guest OS has released.
-
 ## Releases
 ## Family 5 releases
 **Windows Server 2016**
@@ -72,13 +72,13 @@ The May Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-5.26_201812-01 |January 7, 2019 |Post 5.28 |
 | WA-GUEST-OS-5.25_201811-01 |December 14, 2018 |Post 5.27 |
-| WA-GUEST-OS-5.24_201810-01 |November 8, 2018 |Post 5.26 |
+|~~WA-GUEST-OS-5.24_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |October 12, 2018 |December 14, 2018 |
 |~~WA-GUEST-OS-5.22_201808-01~~ |September 12, 2018 |November 8, 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |July 3, 2018 |September 12, 2018 |
-|~~WA-GUEST-OS-5.19_201805-01~~ |June 1, 2018 |August 3, 2018 |
 
 ## Family 4 releases
 **Windows Server 2012 R2**
@@ -87,13 +87,13 @@ The May Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-4.61_201812-01 |January 7, 2019 |Post 4.63 |
 | WA-GUEST-OS-4.60_201811-01 |December 14, 2018 |Post 4.62 |
-| WA-GUEST-OS-4.59_201810-01 |November 8, 2018 |Post 4.61 |
+|~~WA-GUEST-OS-4.59_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |October 12, 2018 |December 14, 2018 |
 |~~WA-GUEST-OS-4.57_201808-01~~ |September 12, 2018 |November 8, 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |July 3, 2018 |September 12, 2018 |
-|~~WA-GUEST-OS-4.54_201805-01~~ |June 1, 2018 |August 3, 2018 |
 
 ## Family 3 releases
 **Windows Server 2012**
@@ -102,13 +102,13 @@ The May Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-3.68_201812-01 |January 7, 2019 |Post 3.70 |
 | WA-GUEST-OS-3.67_201811-01 |December 14, 2018 |Post 3.69 |
-| WA-GUEST-OS-3.66_201810-01 |November 8, 2018 |Post 3.68 |
+|~~WA-GUEST-OS-3.66_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |October 12, 2018 |December 14, 2018 |
 |~~WA-GUEST-OS-3.64_201808-01~~ |September 12, 2018 |November 8, 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |July 3, 2018 |September 12, 2018 |
-|~~WA-GUEST-OS-3.61_201805-01~~ |June 1, 2018 |August 3, 2018 |
 
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
@@ -117,13 +117,13 @@ The May Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-2.81_201812-01 |January 7, 2019 |Post 2.83 |
 | WA-GUEST-OS-2.80_201811-01 |December 14, 2018 |Post 2.82 |
-| WA-GUEST-OS-2.79_201810-01 |November 8, 2018 |Post 2.81 |
+|~~WA-GUEST-OS-2.79_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~|October 12, 2018 |December 14, 2018 |
 |~~WA-GUEST-OS-2.77_201808-01~~ |September 12, 2018 |November 8, 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |July 3, 2018 |September 12, 2018 |
-|~~WA-GUEST-OS-2.74_201805-01~~ |June 1, 2018 |August 3, 2018|
 
 ## MSRC patch updates
 The list of patches that are included with each monthly Guest OS release is available [here][patches].

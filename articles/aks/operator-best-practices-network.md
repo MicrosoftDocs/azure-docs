@@ -136,7 +136,7 @@ This article focused on network connectivity and security. For more information 
 [app-gateway-ingress]: https://github.com/Azure/application-gateway-kubernetes-ingress
 [nginx]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
 [contour]: https://github.com/heptio/contour
-[haproxy]: http://www.haproxy.org
+[haproxy]: https://www.haproxy.org
 [traefik]: https://github.com/containous/traefik
 [barracuda-waf]: https://www.barracuda.com/products/webapplicationfirewall/models/5
 

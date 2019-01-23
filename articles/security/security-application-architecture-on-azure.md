@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: terrylan
 
 ---
@@ -22,16 +22,9 @@ To help secure your cloud-based solutions on Microsoft Azure, a strong architect
 
 We have the following to help you with your architectural investigations and designs:
 
-* Architectural infographics
 * Architectural blueprints
 * Cloud and enterprise symbol set
 * 3D blueprint Visio template
-
-## Architectural infographics
-Microsoft publishes several architectural related posters/infographics. They include:
-
-* [Building Real-World Cloud Applications](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Scaling with Cloud Services](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## Architectural blueprints
 Microsoft publishes a set of high-level [architectural blueprints](https://aka.ms/azblueprints) showing how to build specific types of systems using Microsoft products.
