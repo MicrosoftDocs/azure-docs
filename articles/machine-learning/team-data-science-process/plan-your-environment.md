@@ -17,7 +17,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 What resources are required for you to create an environment that can perform advanced analytics processing on a dataset? This article suggests a series of questions to ask that can help identify tasks and resources relevant your scenario.
 
-The learn about order of high-level steps for predictive analytics, see [What is the Team Data Science Process (TDSP)?](overview.md). Each step requires specific resources for the tasks relevant to your particular scenario.
+To learn about the order of high-level steps for predictive analytics, see [What is the Team Data Science Process (TDSP)?](overview.md). Each step requires specific resources for the tasks relevant to your particular scenario.
 
 Answer key questions in the following areas to identify your scenario:
 
@@ -58,8 +58,8 @@ You may need to move the data several times during the analytics process. A comm
 
 For procedures and resources to ingest or load data into a variety of different storage and processing environments, see:
 
-* [Load data into storage environments for analytics](ingest-data.md).
-* [Import your training data into Azure Machine Learning Studio from various data sources](../studio/import-data.md).
+* [Load data into storage environments for analytics](ingest-data.md)
+* [Import your training data into Azure Machine Learning Studio from various data sources](../studio/import-data.md)
 
 ### Does the data need to be moved on a regular schedule or modified during migration?
 
@@ -102,7 +102,7 @@ These questions are key to planning your storage and processing environments. Th
 Take the Azure Machine Learning Studio environment for example:
 
 * For a list of the data formats and types supported by Azure Machine Learning Studio, see [Data formats and data types supported](../studio/import-data.md#data-formats-and-data-types-supported).
-* For information on data limitations for Azure Machine Learning Studio, see [How large can the dataset be for my modules?](../studio/faq.md#how-large-can-the-data-set-be-for-my-modules).
+* For information on data limitations for Azure Machine Learning Studio, see [How large can the dataset be for my modules?](../studio/faq.md#ModuleLimit)
 
 For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
 
