@@ -63,8 +63,7 @@ applied to artifact resources during assignment of a blueprint if the assignment
 **Read Only** or **Do Not Delete** option. The deny action is added by the managed identity of the
 blueprint assignment and can only be removed from the artifact resources by the same managed
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
-lock outside Blueprints. Removal of the deny action and the lock is only possible by removing the
-blueprint assignment, which can only be performed by individuals with appropriate rights.
+lock outside Blueprints.
 
 > [!IMPORTANT]
 > Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny assignments deny action's
