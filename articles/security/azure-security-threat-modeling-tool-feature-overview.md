@@ -204,5 +204,5 @@ After you finish changing priorities and updating the status of each generated t
 
 ## Next steps
 
-* To contribute a template for the community, go to our [GitHub](https://github.com/Microsoft/threat-modeling-templates) page. 
-* To get started with the tool, go to the [Download](https://aka.ms/tmtpreview) page.
+- Send your questions, comments and concerns to tmtextsupport@microsoft.com. **[Download](https://aka.ms/threatmodelingtool)** the Threat Modeling Tool to get started.
+- To contribute a template for the community, go to our [GitHub](https://github.com/Microsoft/threat-modeling-templates) page.

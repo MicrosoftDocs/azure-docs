@@ -77,7 +77,7 @@ You can also use the special claims transformations functions.
 
 ## Adding claims
 
-When adding a claim, you can specify the attribute name (which doesn’t strictly need to follow a URI pattern as per the SAML spec). Set the value to any user attribute that is stored in the directory.
+When adding a claim, you can specify the attribute name (which doesn’t strictly need to follow a URI pattern as per the SAML spec). Set the value to any user attribute that is stored in the directory or use a contant value as an static entry for all users in your organization.
 
 ![Add User Attribute][7]
 

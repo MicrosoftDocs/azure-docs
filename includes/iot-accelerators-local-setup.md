@@ -5,16 +5,16 @@
  author: avneet723
  ms.service: iot-accelerators
  ms.topic: include
- ms.date: 10/29/2018
+ ms.date: 01/17/2019
  ms.author: avneet723
  ms.custom: include file
 ---
 
 ## Download the source code
 
-The Remote Monitoring source code repositories include the Docker configuration files you need to run the microservices Docker images.
+The Remote Monitoring source code repositories include the source code and the Docker configuration files you need to run the microservices Docker images.
 
-To clone and create a local version of the repository, use your command-line environment to navigate to a suitable folder on your local machine. Then run one of the following sets of commands to clone either the .NET or Java repository:
+To clone and create a local version of the repository, use your command-line environment to navigate to a suitable folder on your local machine. Then run one of the following sets of commands to clone either the .NET repository:
 
 To download the latest version of the .NET microservice implementations, run:
 
@@ -27,7 +27,7 @@ cd azure-iot-pcs-remote-monitoring-dotnet
 git submodule foreach git pull origin master
 ```
 
-To download the latest version of the Java microservice implementations, run:
+This article assumes you are using the .NET microservices. There are also Java implementations available. To download the latest version of the Java microservice implementations, run:
 
 ```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
@@ -65,11 +65,13 @@ If you've not yet created the required Azure resources, follow these steps:
 
     The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses. You can delete this resource group once you no longer need the corresponding resources.
 
-    The script also adds a set of environment variables with a prefix **PCS** to your local machine. When you launch the Docker containers locally, they read their configuration values from these environment variables.
+    The script also adds a set of environment variables with a prefix **PCS** to your local machine. When you launch the Docker containers or microservice projects locally, they read their configuration values from these environment variables.
 
-> [!TIP]
-> When the script completes, it displays a list of environment variables. If you save these values to the **services\\scripts\\local\\.env** file, you can use them for future solution accelerator deployments. Note that any environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
+    > [!TIP]
+    > When the script completes, it also saves the environment variables to a file called **\<your home folder\>\\.pcs\\\<solution name\>.env**. You can use them for future solution accelerator deployments. Note that any environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
+
+1. Exit from your command-line environment.
 
 ### Use existing Azure resources
 
-If you've already created the required Azure resources, create the corresponding environment variables on your local machine. You may have saved these values in the **services\\scripts\\local\\.env** file as part of your last deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
+If you've already created the required Azure resources, create the corresponding environment variables on your local machine. These may be saved in the **\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.

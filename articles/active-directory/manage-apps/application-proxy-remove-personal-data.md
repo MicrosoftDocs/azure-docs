@@ -3,7 +3,7 @@ title: Remove personal data - Azure Active Directory Application Proxy | Microso
 description:  Remove personal data from connectors installed on devices for Azure Active Directory Application Proxy.
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.component: app-mgmt

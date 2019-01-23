@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
 
 ---
@@ -59,14 +59,7 @@ Media Services enables you to deliver your content encrypted dynamically (**Dyna
 
 If desired, you can also apply Dynamic Filtering, which can be used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 
-### New capabilities for live streaming in v3
-
-With the v3 APIs of Media Services, you benefit from the following new features:
-
-- New low latency mode. For more information, see [latency](live-event-latency.md).
-- Improved RTMP support (increased stability and more source encoder support).
-- RTMPS secure ingest.<br/>When you create a LiveEvent, you get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS.   
-- You can stream live events that are up to 24 hours long when using Media Services for transcoding a single bitrate contribution feed into an output stream that has multiple bitrates. 
+For information about new capabilities for live streaming in v3, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md).
 
 ## LiveEvent types
 
