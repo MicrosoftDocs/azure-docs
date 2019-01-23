@@ -49,7 +49,7 @@ The following tests should be executed in the following order for monthly softwa
 ## Apply the monthly update
 
 1. Select an agent to execute tests against.
-1. Schedule "Monthly Azure Stack Update Verification"
+1. Schedule **Monthly Azure Stack Update Verification**
 1. Provide the location to the OEM extension package currently deployed on the stamp, and the location to the OEM extension package that will be applied during the update. To ensure these packages can be used during the test see [managing packages for validation](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
 1. Follow the steps in the UI from the selected agent.
 
