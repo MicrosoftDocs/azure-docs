@@ -35,7 +35,7 @@ Each step can be performed independently or as part of a single deployment comma
 
 Model registration allows you to store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.
  
-Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models. The Azure Machine Learning service supports models stored using any model that can be loaded using Python 3. 
+Registered models are identified by name and version. Each time you register a model with the same name as an existing one, the registry increments the version. You can also provide additional metadata tags during registration that can be used when searching for models. The Azure Machine Learning service supports models any model that can be loaded using Python 3. 
 
 You can't delete models that are being used by an image.
 
@@ -59,7 +59,7 @@ The image can also include SDK components for logging and monitoring. The SDK lo
 Azure Machine Learning supports the most popular frameworks, but in general any framework that can be pip installed can work.
 
 When your workspace was created, so were other several other Azure resources used by that workspace.
-All the objects used to create the image are stored in the Azure storage account in your workspace. The image is created and stored in the Azure Container Registry. You can provide additional metadata tags when creating the image, which are also stored by the image registry and can be queried to find your image.
+All the objects used to create the image are stored in the Azure storage account in your workspace. You can provide additional metadata tags when creating the image, which are also stored by the image registry and can be queried to find your image.
 
 For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
 
