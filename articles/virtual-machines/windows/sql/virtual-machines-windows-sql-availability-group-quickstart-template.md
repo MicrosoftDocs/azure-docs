@@ -65,9 +65,9 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
    | **Existing Vm List** | The SQL Server VMs you want to participate in the availability group, and as such, be part of this new cluster. Separate these values with a comma and a space (ex: SQLVM1, SQLVM2). |
    | **SQL Server Version** | Select the SQL Server version of your SQL Server VMs from the drop-down. Currently only SQL 2016 and SQL 2017 images are supported. |
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
-   | **Existing Domain Account** | An existing domain account that has sysadmin access to the SQL Server (ex: domain\account), and has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds). | 
+   | **Existing Domain Account** | An existing domain account that has sysadmin access to the SQL Server, and has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) (ex: domain\account). | 
    | **Domain Account Password** | The password for the previously mentioned domain account. | 
-   | **Existing Sql Service Account** | The domain user account that is being used to control the SQL Server service. This information can be found using the [**SQL Server Configuration Manager**](/sql/relational-databases/sql-server-configuration-manager). |
+   | **Existing Sql Service Account** | The domain user account that is being used to control the SQL Server service. This information can be found using the [**SQL Server Configuration Manager**](/sql/relational-databases/sql-server-configuration-manager) (ex: domain\account). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
    | **Cloud Witness Name** | This is a new Azure storage account that will be created and used for the cloud witness. This name could  be modified. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |
