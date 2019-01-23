@@ -27,13 +27,16 @@ ms.date: 10/18/2018
 ## Release notes
 
 ### <a name="0.10.1-preview"/>0.10.1-preview
-* Add support for SAS Token, TablePermissions, ServiceProperties and ServiceStats for Azure Storage Table endpoints. [!NOTE] Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client side encryption.
+* Add support for SAS token, operations of TablePermissions, ServiceProperties, and ServiceStats against Azure Storage Table endpoints. 
+   > [!NOTE] Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client-side encryption.
 
 ### <a name="0.10.0-preview"/>0.10.0-preview
-* Add support for core CRUD, batch and query operations against Azure Storage Table endpoints. [!NOTE] Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client side encryption.
+* Add support for core CRUD, batch, and query operations against Azure Storage Table endpoints. 
+   > [!NOTE] Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client-side encryption.
 
 ### <a name="0.9.1-preview"/>0.9.1-preview
-* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md). [!NOTE] Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.
+* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md). 
+   > [!NOTE] Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.
 
 ## Release and Retirement dates
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
