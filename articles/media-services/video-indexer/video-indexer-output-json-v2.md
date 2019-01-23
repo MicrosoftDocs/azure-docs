@@ -330,7 +330,7 @@ Example:
 |name|The name of the face. It can be 'Unknown #0, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|A description of the celebrity. |
-|thumbnalId|The ID of the thumbnail of that face.|
+|thumbnailId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently, just Bing.|
