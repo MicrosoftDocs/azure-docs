@@ -23,7 +23,7 @@ You can check the Azure credit balance for your Billing profile in the Azure por
 
 You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits.](#products-that-arent-covered-by-azure-credits)
 
-This article applies to Billing account for a Microsoft Customer Agreement. [Check if you have a Microsoft Customer Agreement](#check-for-a-microsoft-customer-agreement).
+This article applies to Billing account for a Microsoft Customer Agreement. [Check if you have a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
 
 ## Check credit balance on the Azure portal
 
