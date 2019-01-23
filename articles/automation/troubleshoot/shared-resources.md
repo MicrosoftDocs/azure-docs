@@ -33,6 +33,66 @@ To resolve this issue, you must remove the module that is stuck in the **Importi
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
+### <a name="module-fails-to-import"></a>Scenario: Module fails to import or cmdlets can't be executed after importing
+
+#### Issue
+
+A module fails to import or imports successfully, but no cmdlets are extracted.
+
+#### Cause
+
+Some common reasons that a module might not successfully import to Azure Automation are:
+
+* The structure doesn't match the structure that Automation needs it to be in.
+* The module depends on another module that hasn't been deployed to your Automation account.
+* The module is missing its dependencies in the folder.
+* The `New-AzureRmAutomationModule` cmdlet is being used to upload the module, and you haven't given the full storage path or haven't loaded the module by using a publicly accessible URL.
+
+#### Resolution
+
+Any of the following solutions fix the problem:
+
+* Make sure that the module follows the following format:
+  ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, ModuleName.psd1)
+* Open the .psd1 file and see if the module has any dependencies. If it does, upload these modules to the Automation account.
+* Make sure that any referenced .dlls are present in the module folder.
+
+### <a name="all-modules-suspended"></a>Scenario: Update-AzureModule.ps1 suspends when updating modules
+
+#### Issue
+
+When using the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook to update your Azure modules the module update the update process gets suspended.
+
+#### Cause
+
+The default setting to determine how many modules get updated simultaneously is 10 when using the `Update-AzureModule.ps1` script. The update process is prone to errors when too many modules are being updated at the same time.
+
+#### Resolution
+
+It's not common that all the AzureRM modules are required in the same Automation account. It's recommended to only import the AzureRM modules that you need.
+
+> [!NOTE]
+> Avoid importing the **AzureRM** module. Importing the **AzureRM** modules causes all **AzureRM.\*** modules to be imported, this is not recommened.
+
+If the update process suspends, you need to add the `SimultaneousModuleImportJobCount` parameter to the `Update-AzureModules.ps1` script and provide a lower value than the default that is 10. It's recommended if you implement this logic, to start with a value of 3 or 5. `SimultaneousModuleImportJobCount` is a parameter of the `Update-AutomationAzureModulesForAccount` system runbook that is used to update Azure modules. This change makes the process run longer, but has a better chance of completing. The following example shows the parameter and where to put it in the runbook:
+
+ ```powershell
+         $Body = @"
+            {
+               "properties":{
+               "runbook":{
+                   "name":"Update-AutomationAzureModulesForAccount"
+               },
+               "parameters":{
+                    ...
+                    "SimultaneousModuleImportJobCount":"3",
+                    ... 
+               }
+              }
+           }
+"@
+```
+
 ## Run As accounts
 
 ### <a name="unable-create-update"></a>Scenario: You're unable to create or update a Run As account
@@ -53,7 +113,7 @@ You don't have the permissions that you need to create or update the Run As acco
 
 To create or update a Run As account, you must have appropriate permissions to the various resources used by the Run As account. To learn about the permissions needed to create or update a Run As account, see [Run As account permissions](../manage-runas-account.md#permissions).
 
-If the issue is due to a lock, verify that the lock is ok to remove and navigate to the resource that is locked, right-click the lock and choose **Delete** to remove the lock.
+If the issue is because of a lock, verify that the lock is ok to remove it. Then navigate to the resource that is locked, right-click the lock and choose **Delete** to remove the lock.
 
 ## Next steps
 

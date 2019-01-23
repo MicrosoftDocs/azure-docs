@@ -209,7 +209,7 @@ az vm create \
 
 ### Resize a VM
 
-After a VM has been deployed, it can be resized to increase or decrease resource allocation. You can view the current of size of a VM with [az vm show](/cli/azure/vm#az_vm_show):
+After a VM has been deployed, it can be resized to increase or decrease resource allocation. You can view the current of size of a VM with [az vm show](/cli/azure/vm):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
@@ -226,7 +226,7 @@ If the desired size is available, the VM can be resized from a powered-on state,
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
+If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the [az vm deallocate]( /cli/azure/vm) command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. The public IP address also changes unless a static IP address is being used. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
