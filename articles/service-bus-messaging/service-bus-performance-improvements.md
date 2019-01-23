@@ -3,13 +3,14 @@ title: Best practices for improving performance using Azure Service Bus | Micros
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # Best Practices for performance improvements using Service Bus Messaging
