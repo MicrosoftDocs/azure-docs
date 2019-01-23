@@ -20,11 +20,15 @@ ms.reviewer: jroth
 # How to change the licensing model for a SQL Server virtual machine in Azure
 This article describes how to change the licensing model for a SQL Server virtual machine in Azure using the new SQL VM resource provider - **Microsoft.SqlVirtualMachine**. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-per-usage, and bring your own license (BYOL). And now, using either PowerShell or Azure CLI, you can modify which licensing model your SQL Server VM uses. 
 
-The **Pay-per-usage** model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
+The **Pay-per-usage** (PAYG) model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 
-The **Bring-your-own-license** model is also known as the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), and it allows you to use your own SQL Server license with a VM running SQL Server. For more information about prices, see [SQL Server VM pricing guide](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
+The **Bring-your-own-license** (BYOL) model is also known as the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), and it allows you to use your own SQL Server license with a VM running SQL Server. For more information about prices, see [SQL Server VM pricing guide](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
 
 Switching between the two license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
+
+  >[!NOTE]
+  > - The ability to convert the licensing model is currently only available when starting with a PAYG SQL Server VM image. If you start with a BYOL image from the portal, you will not be able to convert that image to PAYG. 
+  > - CSP customers can utilize the AHB benefit by first deploying a PAYG VM and then converting it to BYOL. 
 
 ## Prerequisites
 The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
@@ -35,11 +39,8 @@ The use of the SQL VM resource provider requires the SQL IaaS extension. As such
 ## Register existing SQL server VM with new resource provider
 The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). SQL Server VMs deployed after December 2018 are automatically registered with the new resource provider. However, existing VMs that were deployed prior to this date need to be manually registered with the resource provider before they are able to switch their licensing model. 
 
-
-
-
+  > [!NOTE] 
   > If you drop your SQL VM resource, you will go back to the hard coded license setting of the image. 
-
 
 ### PowerShell
 
@@ -73,7 +74,7 @@ New-AzureRmResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupN
 You can also register the new SQL VM resource provider using the portal. To do so follow these steps:
 1. Open the Azure portal and navigate to **All Services**. 
 1. Navigate to **Subscriptions** and select the subscription of interest.  
-1. In the **Subscriptions** blade, navigate to **Resource Provider**. 
+1. In the **Subscriptions** blade, navigate to **Resource providers**. 
 1. Type `sql` in the filter to bring up the SQL-related resource providers. 
 1. Select either *Register*, *Re-register*, or *Unregister* for the  **Microsoft.SqlVirtualMachine** provider depending on your desired action. 
 

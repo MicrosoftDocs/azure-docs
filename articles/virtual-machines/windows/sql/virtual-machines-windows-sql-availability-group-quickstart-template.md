@@ -65,14 +65,21 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
    | **Existing Vm List** | The SQL Server VMs you want to participate in the availability group, and as such, be part of this new cluster. Separate these values with a comma and a space (ex: SQLVM1, SQLVM2). |
    | **SQL Server Version** | Select the SQL Server version of your SQL Server VMs from the drop-down. Currently only SQL 2016 and SQL 2017 images are supported. |
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
-   | **Existing Domain Account** | An existing domain account that has sysadmin access to the SQL Server. | 
+   | **Existing Domain Account** | An existing domain account that has sysadmin access to the SQL Server (ex: domain\account), and has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds). | 
    | **Domain Account Password** | The password for the previously mentioned domain account. | 
-   | **Existing Sql Service Account** | The domain user account that is being used to control the SQL Server service. This information can be found using the [**SQL Server Configuration Manager**](https://docs.microsoft.com/sql/relational-databases/sql-server-configuration-manager?view=sql-server-2017). |
+   | **Existing Sql Service Account** | The domain user account that is being used to control the SQL Server service. This information can be found using the [**SQL Server Configuration Manager**](/sql/relational-databases/sql-server-configuration-manager). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
+   | **Cloud Witness Name** | This is a new Azure storage account that will be created and used for the cloud witness. This name could  be modified. |
+   | **\_artifacts Location** | This field is set by default and should not be modified. |
+   | **\_artifacts Location Sas Token** | This field is left intentionally blank. |
    | &nbsp; | &nbsp; |
 
 1. If you agree to the terms and conditions, select the checkbox next to **I Agree to the terms and conditions stated above** and select **Purchase** to finalize the Quickstart template deployment. 
 1. To monitor your deployment, either select the deployment from the **Notifications** bell icon in your top navigation banner or navigate to your **Resource Group** in the Azure portal, select **Deployments** in the **Settings** field, and choose the 'Microsoft.Template' deployment. 
+
+  >[!NOTE]
+  > Credentials provided during template deployment are only stored for the length of the deployment. After deployment completes, those passwords are removed, and you will be asked to provide them again should you add further SQL Server VMs to the cluster. 
+
 
 ## Step 2 - Manually create the availability group 
 Manually create the availability group as you normally would, using either [PowerShell](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017),  [SQL Server Management Studio](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) or [Transact-SQL](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
