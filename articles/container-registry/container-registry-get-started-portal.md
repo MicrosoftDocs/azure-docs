@@ -40,7 +40,7 @@ When the **Deployment succeeded** message appears, select the container registry
 
 Take note of the value of the **Login server**. You use this value in the following steps while working with your registry with the Azure CLI and Docker.
 
-## Log in to ACR
+## Log in to registry
 
 Before pushing and pulling container images, you must log in to the ACR instance. Here, use the [az acr login][az-acr-login] command in the Azure CLI.
 
@@ -50,78 +50,21 @@ az acr login --name <acrName>
 
 The command returns `Login Succeeded` once completed. 
 
-To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following [docker pull][docker-pull] command to pull an existing image from Docker Hub.
-
-```bash
-docker pull busybox
-```
-
-Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server. Run the following command to obtain the full login server name (all lowercase) of the ACR instance. 
-
-```azurecli
-az acr show --name myContainerRegistry007 --query "{acrLoginServer:loginServer}" --output table
-```
-
-Tag the image using the [docker tag][docker-tag] command. Replace `<acrLoginServer>` with the login server name of your ACR instance.
-
-```bash
-docker tag busybox <acrLoginServer>/busybox:v1
-```
-
-Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace `<acrLoginServer>` with the login server name of your ACR instance. This example creates the **busybox** repository, containing the `busybox:v1` image.
-
-```bash
-docker push <acrLoginServer>/busybox:v1
-```
-
-Output from a successful `docker push` command is similar to:
-
-```
-The push refers to repository [mycontainerregistry007.azurecr.io/busybox]
-31ba1ebd9cf5: Pushed
-cd07853fe8be: Pushed
-73f25249687f: Pushed
-d8fbd47558a8: Pushed
-44ab46125c35: Pushed
-5bef08742407: Pushed
-v1: digest: sha256:662dd8e65ef7ccf13f417962c2f77567d3b132f12c95909de6c85ac3c326a345 size: 527
-```
+[!INCLUDE [container-registry-quickstart-docker-push](../../includes/container-registry-quickstart-docker-push.md)]
 
 ## List container images
 
-After pushing the image to your container registry, remove the `busybox:v1` image from your local environment. (Note that this [docker rmi][docker-rmi] command does not remove the image from the **busybox** repository in your Azure container registry.)
-
-```bash
-docker rmi <acrLoginServer>/busybox:v1
-```
-
-To list the images in your ACR instance, navigate to your registry in the portal and select **Repositories**, then select the repository you created with `docker push`.
+To list the images in your registry, navigate to your registry in the portal and select **Repositories**, then select the repository you created with `docker push`.
 
 In this example, we select the **busybox** repository, and we can see the `v1`-tagged image under **TAGS**.
 
 ![List container images in the Azure portal][qs-portal-09]
 
-## Run image from ACR
-
-Now, you can pull and run the `busybox:v1` container image from your container registry. This [docker run][docker-run] example displays the current date and time:
-
-```bash
-docker run <acrLoginServer>/busybox:v1 date
-```
-
-Example output:
-
-```
-Unable to find image 'mycontainerregistry007.azurecr.io/busybox:v1' locally
-v1: Pulling from busybox
-Digest: sha256:662dd8e65ef7ccf13f417962c2f77567d3b132f12c95909de6c85ac3c326a345
-Status: Downloaded newer image for mycontainerregistry007.azurecr.io/busybox:v1
-Wed Jan 23 00:45:03 UTC 2019
-```
+[!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
 ## Clean up resources
 
-To clean up your resources, navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded click on **Delete resource group** to remove the resource group, ACR instance, and all container images.
+To clean up your resources, navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded click on **Delete resource group** to remove the resource group, the container registry, and the container images stored there.
 
 ![Delete resource group in the Azure portal][qs-portal-08]
 
