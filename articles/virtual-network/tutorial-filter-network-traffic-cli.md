@@ -124,7 +124,7 @@ az network vnet create \
   --address-prefixes 10.0.0.0/16
 ```
 
-Add a subnet to a virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). The following example adds a subnet named *mySubnet* to the virtual network and associates the *myNsg* network security group to it:
+Add a subnet to a virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). The following example adds a subnet named *mySubnet* to the virtual network and associates the *myNsg* network security group to it:
 
 ```azurecli-interactive
 az network vnet subnet create \
