@@ -25,25 +25,36 @@ ROBOTS: NOINDEX
 
 Microsoft will periodically release updates to the Azure Stack software. These updates are provided to Azure Stack coengineering partners. The updates are provided in advance of publicly available. You can check the updates against your solution and provide feedback to Microsoft.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
+Microsoft software updates to Azure Stack are designated using a naming convention, for example, 1803 indicating the update is for March 2018. For information about the Azure Stack update policy, cadence and release notes are available, see [Azure Stack servicing policy](https://docs.microsoft.com/azure/azure-stack/azure-stack-servicing-policy).
 
-## Apply monthly update
+## Prerequisites
 
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+Before you exercise the monthly update process in VaaS, you should be familiar with the following items:
 
-## Create a workflow
+- [Validation as a Service key concepts](azure-stack-vaas-key-concepts.md)
+- [Interactive feature verification testing](azure-stack-vaas-interactive-feature-verification.md)
 
-Update validations use the same workflow as **Solution Validation**.
+## Required tests
 
-## Run tests
+The following tests should be executed in the following order for monthly package validation updates:
 
-1. Update validations use the same workflow as **Solution Validation**. 
+1. Monthly Azure Stack Update Verification
+2. Cloud Simulation Engine
 
-2. Follow the instructions at [Run Solution Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Select the following tests instead:
-    - Monthly Azure Stack Update Verification
-    - Cloud Simulation Engine
+## Validating software updates
 
-You don't need to request package signing for update validations.
+1. Create a new **Package Validation** workflow.
+
+2. Follow the instructions from [Run Package Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
+
+### Apply the monthly update
+
+Each phase in the Monthly azure Stack Validation test require manual step you will be prompted to execute:
+
+1. **Azure Stack Update**: Update Azure Stack to the latest build available from Microsoft.
+2. **OEM Update**: Update the OEM extension package to the latest version
+
+Monthly Azure Stack Update Verification requires no other steps, but if you have questions or concerns, please conatact [VaaS Help](mailto:vaashelp@microsoft.com)
 
 ## Next steps
 
