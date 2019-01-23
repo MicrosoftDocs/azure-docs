@@ -5,7 +5,7 @@ description: Learn where the Azure Active Directory user activity reports are in
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
