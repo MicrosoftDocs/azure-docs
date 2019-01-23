@@ -340,3 +340,4 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[acr-aks-secrets]: ../container-registry/container-registry-auth-aks#access-with-kubernetes-secret.md
