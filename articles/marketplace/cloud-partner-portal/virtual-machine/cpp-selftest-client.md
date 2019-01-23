@@ -1,7 +1,7 @@
 ---
-title: Self-test client to pre-validate an Azure SaaS application | Microsoft Docs
-description: How to create a self-test client for pre-validating an Azure SaaS application.
-services: Azure, Marketplace, Cloud Partner Portal, 
+title: Self-test client to pre-validate a virtual machine - Azure Marketplace | Microsoft Docs
+description: How to create a self-test client for pre-validating a virtual machine image for the Azure Marketplace.
+services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
 documentationcenter:
 author: dan-wesley
 manager: Patrick.Butler  
@@ -13,13 +13,14 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 01/23/2018
 ms.author: pbutlerm
 ---
 
-# Create a self-test client to pre-validate an Azure SaaS application
+# Create a self-test client to pre-validate an Azure virtual machine image
 
 Use this article as a guide for creating a client service that consumes the self-test API. You can use the self-test API to pre-validate a virtual machine (VM) to ensure it meets the latest Azure Marketplace publishing requirements. This client service enables you to test a VM before you submit your offer for Microsoft certification.
+
 
 ## Development and testing overview
 
@@ -36,15 +37,17 @@ The high-level steps for creating a self-test client are:
 
 After you create the client, you can test it against your VM.
 
+
 ### Self-test client authorization
 
 The following diagram shows how authorization works for service to service calls using client credentials (shared secret or certificate.)
 
 ![Client authorization process](./media/stclient-dev-process.png)
 
+
 ## The self-test client API
 
-The API has the following structure.
+The self-test API contains a single endpoint that supports only the POST method.  It has the following structure.
 
 ```
 Uri:             https://isvapp.azurewebsites.net/selftest
@@ -68,16 +71,19 @@ The following table describes the API fields.
 
 |      Field         |    Description    |
 |  ---------------   |  ---------------  |
-|        Authorization            |         The  “Bearer xxxx-xxxx-xxxx-xxxxx” string contains the Azure Active Directory (AD) client token, which can be created by using PowerShell.          |
-|          DNSName          |         The DNS Name of the VM that you’re going to test.          |
-|          User          |          User name for connecting to and signing in to the virtual machine.         |
-|           Password         |         The password for connecting to and signing in to the VM.          |
-|          OS          |         The operating system of the VM, either “Linux” or “Windows”.          |
-|         PortNo           |         The open port number for connecting to the VM. The port number is usually “22” for Linux and “5986” for Windows.          |
+|  Authorization     |  The  “Bearer xxxx-xxxx-xxxx-xxxxx” string contains the Azure Active Directory (AD) client token, which can be created by using PowerShell.          |
+|  DNSName           |  DNS Name of the VM to test    |
+|  User              |  User name for signing into the VM         |
+|  Password          |  Password for signing into the VM          |
+|  OS                |  Operating system of the VM: either `Linux` or `Windows`          |
+|  PortNo            |  Open port number for connecting to the VM. The port number is typically `22` for Linux and `5986` for Windows.          |
+|  |  |
+
 
 ## Consuming the API
 
 You can consume the self-test API using PowerShell or cURL.
+
 
 ### Use PowerShell to consume the API on the Linux OS
 
@@ -85,7 +91,7 @@ To call the API in PowerShell, follow these steps:
 
 1. Use the `Invoke-WebRequest` command to call the API.
 2. The method is Post and content type is JSON, as shown in the following code example and screen capture.
-3. Create the Body parameters in JSON format.
+3. Specify the body parameters in JSON format.
 
 The following code example shows a PowerShell call to the API.
 
@@ -105,7 +111,6 @@ $Body = @{
 $res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers; 
 $Content = $res | ConvertFrom-Json
 ```
-
 The following screen capture shows an example for calling the API in PowerShell.
 
 ![Call API with PowerShell for Linux OS](./media/stclient-call-api-ps-linuxvm.png)
@@ -133,8 +138,8 @@ The following screen capture, which shows `$res.Content`, gives you the details 
 
 ![JSON results from PowerShell call to Linux](./media/stclient-pslinux-rescontent-json.png)
 
-The following screen capture shows an example of JSON test results viewed in an online JSON viewer.
-(for example, [Code Beautify](https://codebeautify.org/jsonviewer), [JSON Viewer](https://jsonformatter.org/json-viewer))
+The following screen capture shows an example of JSON test results viewed in an online JSON viewer
+(for example, [Code Beautify](https://codebeautify.org/jsonviewer) or [JSON Viewer](https://jsonformatter.org/json-viewer)).
 
 ![JSON results from PowerShell call to Linux VM](./media/stclient-consume-api-pslinux-json.png)
 
@@ -186,7 +191,6 @@ For ($i=0; $i -lt $testresult.Tests.Length; $i++)
     Write-Host "Result: $($testresult.Tests[$i].Result)"
     Write-Host "ActualValue: $($testresult.Tests[$i].ActualValue)"
 }
-
 ```
 
 The following screen capture, which shows `$res.Content`, gives you the details of your test results in JSON format.
@@ -200,7 +204,7 @@ The following screen capture shows test results viewed in an online JSON viewer.
 
 ### Use cURL to consume the API on the Linux OS
 
-To call the API with cURL follow these steps:
+To call the API with cURL, follow these steps:
 
 1. Use the curl command to call the API.
 2. The method is Post and content type is JSON, as shown in the following code snippet.
@@ -220,6 +224,7 @@ The following screen capture shows the JSON results from the curl call.
 
 ![JSON results from curl call](./media/stclient-consume-api-curl-json.png)
 
+
 ## Choose the Azure AD tenant for the app
 
 Use the following steps to choose the Azure AD tenant where you want to create your application.
@@ -231,7 +236,7 @@ Use the following steps to choose the Azure AD tenant where you want to create y
 
 3. On the left-hand navigation bar, select **All services** and then select **Azure Active Directory**.
 
-   In the following steps, you might need the tenant name (or directory name) or the tenant ID (or directory ID).
+   In the following steps, you may need the tenant name (or directory name) or the tenant ID (or directory ID).
 
    **To get tenant information:**
   
@@ -290,7 +295,7 @@ Use the following steps to register the client app.
     - Under **VALUE**, copy the key.
 
      >[!Important]
-     >You won’t be able to see the key value after you exit the Keys form.
+     >You won’t be able to see the key value after you exit the **Keys** form.
 
     ![Key value form](./media/stclient-create-key.png)
 
@@ -515,4 +520,4 @@ The following snippets show test results in JSON format.
 
 ## Next steps
 
-After you've successfully tested your Azure SaaS application, you can [Publish the offer](./cpp-publish-offer.md)
+After you've successfully tested your Azure virtual machine, you can [Publish the offer](./cpp-publish-offer.md).
