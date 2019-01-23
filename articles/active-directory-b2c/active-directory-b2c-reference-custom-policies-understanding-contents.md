@@ -1,25 +1,23 @@
 ---
-title: 'Azure Active Directory B2C: Understanding custom policies of the starter pack | Microsoft Docs'
-description: A topic on Azure Active Directory B2C custom policies
+title: Understanding custom policies of the starter pack in Azure Active Directory B2C | Microsoft Docs
+description: A topic on Azure Active Directory B2C custom policies.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
 
 # Understanding the custom policies of the Azure AD B2C Custom Policy starter pack
 
 This section lists all the core elements of the B2C_1A_base policy that comes with the **Starter Pack** and that is leveraged for authoring your own policies through the inheritance of the *B2C_1A_base_extensions policy*.
 
-As such, it more particularly focusses on the already defined claim types, claims transformations, content definitions, claims providers with their technical profile(s), and the core user journeys.
+As such, it more particularly focuses on the already defined claim types, claims transformations, content definitions, claims providers with their technical profile(s), and the core user journeys.
 
 > [!IMPORTANT]
 > Microsoft makes no warranties, express or implied, with respect to the information provided hereafter. Changes may be introduced at any time, before GA time, at GA time, or after.
@@ -86,7 +84,7 @@ The following claims are required to pass on special parameters (including some 
 | *grant_type* | Special parameter passed for local account authentication to login.microsoftonline.com |
 | *scope* | Special parameter passed for local account authentication to login.microsoftonline.com |
 | *client_id* | Special parameter passed for local account authentication to login.microsoftonline.com |
-| *objectIdFromSession* | Parameter provided by the default session management provider to indicate that the object id has been retrieved from an SSO session |
+| *objectIdFromSession* | Parameter provided by the default session management provider to indicate that the object ID has been retrieved from an SSO session |
 | *isActiveMFASession* | Parameter provided by the MFA session management to indicate that the user has an active MFA session |
 
 ### Additional (optional) claims that can be collected
@@ -191,7 +189,7 @@ This section depicts the technical profiles already declared per claim provider 
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### Technical profiles for Trustframework Policy Engine TechnicalProfiles
+### Technical profiles for the trust framework policy engine
 
 Currently, no technical profiles are defined for the **Trustframework Policy Engine TechnicalProfiles** claims provider.
 

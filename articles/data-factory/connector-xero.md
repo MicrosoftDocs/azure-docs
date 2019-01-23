@@ -1,5 +1,5 @@
 ---
-title: Copy data from Xero using Azure Data Factory (Beta) | Microsoft Docs
+title: Copy data from Xero using Azure Data Factory (Preview) | Microsoft Docs
 description: Learn how to copy data from Xero to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -10,21 +10,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/12/2018
+
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from Xero using Azure Data Factory (Beta)
+# Copy data from Xero using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Xero. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and provide feedback. Do not use it in production environments.
+> This connector is currently in preview. You can try it out and provide feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 
@@ -39,7 +36,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Xero connector.
 
@@ -52,7 +49,7 @@ The following properties are supported for Xero linked service:
 | type | The type property must be set to: **Xero** | Yes |
 | host | The endpoint of the Xero server (`api.xero.com`).  | Yes |
 | consumerKey | The consumer key associated with the Xero application. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| privateKey | The private key from the .pem file that was generated for your Xero private application, see [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Include all the text from the .pem file including the Unix line endings(\n), see sample below.<br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| privateKey | The private key from the .pem file that was generated for your Xero private application, see [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Note to **generate the privatekey.pem with numbits of 512** using `openssl genrsa -out privatekey.pem 512`; 1024 is not supported. Include all the text from the .pem file including the Unix line endings(\n), see sample below.<br/><br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether the host name is required in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |
@@ -91,7 +88,12 @@ Include all the text from the .pem file including the Unix line endings(\n).
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Xero dataset.
 
-To copy data from Xero, set the type property of the dataset to **XeroObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Xero, set the type property of the dataset to **XeroObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **XeroObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -103,7 +105,8 @@ To copy data from Xero, set the type property of the dataset to **XeroObject**. 
         "linkedServiceName": {
             "referenceName": "<Xero linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -119,7 +122,7 @@ To copy data from Xero, set the source type in the copy activity to **XeroSource
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **XeroSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Contacts"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM Contacts"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

@@ -1,23 +1,18 @@
 ---
 title: Create, edit, or extend JSON for logic app definitions - Azure Logic Apps | Microsoft Docs
-description: Author and customize logic app definitions in JSON
-author: ecfan
-manager: SyntaxC4
-editor: ''
+description: Author and extend JSON for logic app definitions in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.author: estfan; LADocs
 ---
 
-# Create, edit, or customize JSON for logic app definitions
+# Create, edit, or extend JSON for logic app definitions in Azure Logic Apps
 
 When you create enterprise integration 
 solutions with automated workflows in 
@@ -180,7 +175,7 @@ Here's a basic definition:
 
 ``` json
 {
-    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "uri": {
@@ -239,7 +234,7 @@ the company name because the first five characters are not used.
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {
@@ -312,7 +307,7 @@ using square brackets: `parameters[...]`
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "specialCategories": {
@@ -408,7 +403,7 @@ Learn more about [date formatting](../logic-apps/logic-apps-workflow-definition-
 
 ``` json
 {
-  "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "order": {

@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Service Bus Relay Documentation
+metadata:
+  title: Azure Service Bus Relay Documentation
+  meta.description: Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.
+  services: service-bus-relay
+  author: spelluru
+  manager: femila
+  ms.service: service-bus-relay
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/21/2018
+  ms.author: spelluru
+abstract:
+  description: Azure Relay service facilitates hybrid applications between on-premises and cloud environments within a corporate enterprise network and the public cloud, without having to open a firewall connection or require intrusive changes to a corporate network infrastructure.
+sections:
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: <b>Hybrid Connections:</b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">Send and receive messages - .NET Web Sockets</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started">Send and receive messages - .NET HTTP</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-node-get-started">Send and receive messages - Node.js Web Sockets</a>  
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started">Send and receive messages - Node.js HTTP</a>      
+  - type: paragraph
+    text: <b>Windows Communication Foundation (WCF) Relay:</b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay">Expose an on-premises WCF service to a web application in the cloud</a>
+    - html: <a href="/azure/service-bus-relay/service-bus-relay-tutorial">Expose an on-premises WCF service to a WCF client outside your network</a>
+    - html: <a href="/azure/service-bus-relay/service-bus-relay-rest-tutorial">Expose an on-premises WCF service to an application outside your network</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Samples on GitHub
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections">Hybrid Connections</a>
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay">Windows Communication Foundation (WCF)</a>    
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.relay?view=azure-dotnet">.NET Framework</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/servicebus/">REST API Reference</a></p>

@@ -1,26 +1,24 @@
 ---
-title: Create a public Load Balancer Standard with zone-redundant Public IP address frontend using Azure portal | Microsoft Docs
-description: Learn how to create a public Load Balancer Standard with zone-redundant Public IP address frontend with the Azure portal
+title: Create a Load Balancer with zone-redundant frontend - Azure portal
+titlesuffix: Azure Load Balancer
+description: Learn how to create a public Standard Load Balancer with zone-redundant Public IP address frontend with the Azure portal
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ---
 
-#  Create a public Load Balancer Standard with zone-redundant Public IP address frontend using Azure portal
+#  Create a Standard Load Balancer with zone-redundant frontend using Azure portal
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address. A single frontend IP address on a Standard Load Balancer is zone-redundant by default.
+This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zone-redundant frontend using a Public IP Standard address. A single frontend IP address on a Standard Load Balancer is zone-redundant by default.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -42,9 +40,6 @@ Log in to the Azure portal at https://portal.azure.com.
     >[!NOTE] 
     > The public IP created in this step is of Standard SKU and is zone-redundant by default. 
 8. Under **Location**, select **East US2**, and then click **OK**. The load balancer then starts to deploy and takes a few minutes to successfully complete deployment.
-
-    ![create zone-redundant Load Balancer Standard with the Azure portal](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
-
 
 ## Next steps
 - Learn more about [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).

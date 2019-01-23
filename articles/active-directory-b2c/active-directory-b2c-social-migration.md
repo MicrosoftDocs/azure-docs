@@ -1,17 +1,16 @@
 ---
-title: 'Azure Active Directory B2C: Migrate users with social identities'
-description: 'Discuss core concepts on the migration of users with social identities into Azure AD B2C using Graph API'
+title: Migrate users with social identities in Azure Active Directory B2C | Microsoft Docs
+description: Discuss core concepts on the migration of users with social identities into Azure AD B2C using Graph API.
 services: active-directory-b2c
-documentationcenter: ''
-author: davidmu
+author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
+ms.component: B2C
 ---
 
 # Azure Active Directory B2C: Migrate users with social identities

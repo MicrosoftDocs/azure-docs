@@ -1,8 +1,8 @@
 ---
-title: Run tasks under user accounts in Azure Batch | Microsoft Docs
+title: Run tasks under user accounts - Azure Batch | Microsoft Docs
 description: Configure user accounts for running tasks in Azure Batch
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: 
@@ -14,7 +14,9 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: danlep
+ms.author: lahugh
+ms.custom: seodec18
+
 ---
 
 # Run tasks under user accounts in Batch
@@ -169,8 +171,8 @@ Console.WriteLine("Creating pool [{0}]...", poolId);
 // Create a pool using the cloud service configuration.
 pool = batchClient.PoolOperations.CreatePool(
     poolId: poolId,
-    targetDedicatedComputeNodes: 3,                                                         
-    virtualMachineSize: "small",                                                
+    targetDedicatedComputeNodes: 3,
+    virtualMachineSize: "standard_d1_v2",
     cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   
 
 // Add named user accounts.
@@ -330,6 +332,4 @@ The Batch service version 2017-01-01.4.0 introduces a breaking change, replacing
 
 ## Next steps
 
-### Batch Forum
-
-The [Azure Batch Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch) on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful pinned posts, and post your questions as they arise while you build your Batch solutions.
+* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).

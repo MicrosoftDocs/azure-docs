@@ -1,0 +1,48 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure portal customization documentation 
+metadata:
+    description: Learn how to customize the Azure portal.
+    services: azure portal
+    documentationcenter: ''
+    author: cwatson-cat
+    manager: dougeby
+    editor: ''
+    ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
+    ms.service: azure-portal
+    ms.devlang: na
+    ms.topic: landing-page
+    ms.tgt_pltfrm: na
+    ms.workload: na
+    ms.date: 10/08/2018
+    ms.author: cwatson
+
+abstract:
+  description: The Azure portal is web-based unified console that allows you to build, manage, and monitor everything from simple web apps to complex cloud applications. It includes a customizable dashboard and accessibility options.
+ 
+sections:
+
+  - items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/azure-preview-portal-supported-browsers-devices
+          html: <p>Run the Azure portal on all modern desktop, tablet devices, and browsers.</p>
+          title: Supported browsers and devices
+        - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+          html: <p>Change the contrast or color scheme in the Azure portal.</p>
+          title: Turn on high contrast
+        - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+          html: <p>Learn about the keyboard shortcuts that work throughout the Azure portal.</p>
+          title: Keyboard shortcuts
+        - href: /azure/azure-portal/azure-portal-dashboards
+          html: <p>Create multiple dashboards and share them with others who have access to your Azure subscriptions.</p>
+          title: Create and share Azure dashboard
+        - href: /azure/azure-portal/azure-portal-dashboard-share-access
+          html: <p>Publish and share a dashboard with other users in your organization.</p>
+          title: Share dashboards by using RBAC
+        - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+          html: <p>Programmatically create and publish dashboards for your organization</p>
+          title: Programmatically create Azure dashboards

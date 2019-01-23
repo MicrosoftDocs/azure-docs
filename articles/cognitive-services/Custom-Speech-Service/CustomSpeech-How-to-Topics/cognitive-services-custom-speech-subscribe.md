@@ -12,6 +12,9 @@ ms.author: panosper
 ---
 
 # Obtain subscription keys
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 To get started using the Azure Custom Speech Service, you first need to link your user account to an Azure subscription. Subscriptions to free and paid tiers are available. For information about the tiers, see the [pricing page](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
 ## Get a subscription key
@@ -26,7 +29,7 @@ To get started using the Azure Custom Speech Service, you first need to link you
         ![Cognitive Services APIs](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
     
-2. Fill in the following required fields:
+1. Fill in the following required fields:
 
       a. **Account name**. Use a name that works for you. Remember this name so that you can find your Cognitive Services subscription in the resources list.
 
@@ -40,7 +43,7 @@ To get started using the Azure Custom Speech Service, you first need to link you
 
       ![Cognitive Services account creation](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-blade.png)
 
-3. You should find either a view on your dashboard or a service with the provided account name in your resources list. When you select it, you can see an overview of your service. In the list on the left, under **Resource Management**, select **Keys**. Copy **KEY 1**.
+1. You should find either a view on your dashboard or a service with the provided account name in your resources list. When you select it, you can see an overview of your service. In the list on the left, under **Resource Management**, select **Keys**. Copy **KEY 1**.
 
       This subscription key is required in the next steps.
 
@@ -52,7 +55,7 @@ To get started using the Azure Custom Speech Service, you first need to link you
 
       ![Overview Subscription ID](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys.png)
 
-4. To enter your subscription key, on the ribbon at the upper right, select your user account. On the drop-down menu, select **Subscriptions**.
+1. To enter your subscription key, on the ribbon at the upper right, select your user account. On the drop-down menu, select **Subscriptions**.
 
       ![Subscriptions menu item](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-selection.png)
 
@@ -60,7 +63,7 @@ To get started using the Azure Custom Speech Service, you first need to link you
 
     ![Subscriptions table](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
 
-5. Select **Add new**. Enter a name for the subscription and the subscription key. It can be either **KEY 1** (primary key) or **KEY 2** (secondary key) from your subscription.
+1. Select **Add new**. Enter a name for the subscription and the subscription key. It can be either **KEY 1** (primary key) or **KEY 2** (secondary key) from your subscription.
 
       ![Subscription key name](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
 

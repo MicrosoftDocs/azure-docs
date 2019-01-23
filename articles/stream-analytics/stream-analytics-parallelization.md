@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
+ms.date: 05/07/2018
 ---
 # Leverage query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
@@ -30,14 +30,23 @@ All Azure Stream Analytics input can take advantage of partitioning:
 
 ### Outputs
 
-When you work with Stream Analytics, you can take advantage of partitioning for most output sinks. More information about output partitioning is available on the [partitioning section of the output page](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
+When you work with Stream Analytics, you can take advantage of partitioning in the outputs:
+-	Azure Data Lake Storage
+-	Azure Functions
+-	Azure Table
+-	Blob storage (can set the partition key explicitly)
+-	Cosmos DB  (need to set the partition key explicitly)
+-	Event Hubs (need to set the partition key explicitly)
+-	IoT Hub  (need to set the partition key explicitly)
+-	Service Bus
+- SQL and SQL Data Warehouse with optional partitioning: see more information on the [Output to Azure SQL Database page](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
+Power BI doesn't support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
 For more information about partitions, see the following articles:
 
 * [Event Hubs features overview](../event-hubs/event-hubs-features.md#partitions)
-* [Data partitioning](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)
+* [Data partitioning](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
 
 
 ## Embarrassingly parallel jobs
@@ -49,13 +58,13 @@ An *embarrassingly parallel* job is the most scalable scenario we have in Azure 
 
 3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#outputs) for more details.
 
-4. The number of input partitions must equal the number of output partitions. Blob storage output doesn't currently support partitions. But that's okay, because it inherits the partitioning scheme of the upstream query. Here are examples of partition values that allow a fully parallel job:  
+4. The number of input partitions must equal the number of output partitions. Blob storage output can support partitions and inherits the partitioning scheme of the upstream query. When a partition key for Blob storage is specified, data is partitioned per input partition thus the result is still fully parallel. Here are examples of partition values that allow a fully parallel job:
 
    * 8 event hub input partitions and 8 event hub output partitions
-   * 8 event hub input partitions and blob storage output  
-   * 8 Iot hub input partitions and 8 event hub output partitions
-   * 8 blob storage input partitions and blob storage output  
-   * 8 blob storage input partitions and 8 event hub output partitions  
+   * 8 event hub input partitions and blob storage output
+   * 8 event hub input partitions and blob storage output partitioned by a custom field with arbitrary cardinality
+   * 8 blob storage input partitions and blob storage output
+   * 8 blob storage input partitions and 8 event hub output partitions
 
 The following sections discuss some example scenarios that are embarrassingly parallel.
 
@@ -66,9 +75,11 @@ The following sections discuss some example scenarios that are embarrassingly pa
 
 Query:
 
+```SQL
     SELECT TollBoothId
     FROM Input1 Partition By PartitionId
     WHERE TollBoothId > 100
+```
 
 This query is a simple filter. Therefore, we don't need to worry about partitioning the input that is being sent to the event hub. Notice that the query includes **PARTITION BY PartitionId**, so it fulfills requirement #2 from earlier. For the output, we need to configure the event hub output in the job to have the partition key set to **PartitionId**. One last check is to make sure that the number of input partitions is equal to the number of output partitions.
 
@@ -79,9 +90,11 @@ This query is a simple filter. Therefore, we don't need to worry about partition
 
 Query:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 This query has a grouping key. Therefore, the events grouped together must be sent to the same Event Hub partition. Since in this example we group by TollBoothID, we should be sure that TollBoothID is used as the partition key when the events are sent to Event Hub. Then in ASA, we can use **PARTITION BY PartitionId** to inherit from this partition scheme and enable full parallelization. Since the output is blob storage, we don't need to worry about configuring a partition key value, as per requirement #4.
 
@@ -97,9 +110,9 @@ In this case, it doesn't matter what the query is. If the input partition count 
 
 ### Query using non-partitioned output
 * Input: Event hub with 8 partitions
-* Output: PowerBI
+* Output: Power BI
 
-PowerBI output doesn't currently support partitioning. Therefore, this scenario is not embarrassingly parallel.
+Power BI output doesn't currently support partitioning. Therefore, this scenario is not embarrassingly parallel.
 
 ### Multi-step query with different PARTITION BY values
 * Input: Event hub with 8 partitions
@@ -107,6 +120,7 @@ PowerBI output doesn't currently support partitioning. Therefore, this scenario 
 
 Query:
 
+```SQL
     WITH Step1 AS (
     SELECT COUNT(*) AS Count, TollBoothId, PartitionId
     FROM Input1 Partition By PartitionId
@@ -116,6 +130,7 @@ Query:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By TollBoothId
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 As you can see, the second step uses **TollBoothId** as the partitioning key. This step is not the same as the first step, and it therefore requires us to do a shuffle. 
 
@@ -129,6 +144,7 @@ A query can have one or many steps. Each step is a subquery defined by the **WIT
 
 Query:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -137,6 +153,7 @@ Query:
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute,3), TollBoothId
+```
 
 This query has two steps.
 
@@ -168,20 +185,25 @@ You can see some **examples** in the table below.
 
 The following query calculates the number of cars within a three-minute window going through a toll station that has three tollbooths. This query can be scaled up to six SUs.
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 To use more SUs for the query, both the input data stream and the query must be partitioned. Since the data stream partition is set to 3, the following modified query can be scaled up to 18 SUs:
 
+```SQL
     SELECT COUNT(*) AS Count, TollBoothId
     FROM Input1 Partition By PartitionId
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+```
 
 When a query is partitioned, the input events are processed and aggregated in separate partition groups. Output events are also generated for each of the groups. Partitioning can cause some unexpected results when the **GROUP BY** field is not the partition key in the input data stream. For example, the **TollBoothId** field in the previous query is not the partition key of **Input1**. The result is that the data from TollBooth #1 can be spread in multiple partitions.
 
 Each of the **Input1** partitions will be processed separately by Stream Analytics. As a result, multiple records of the car count for the same tollbooth in the same Tumbling window will be created. If the input partition key can't be changed, this problem can be fixed by adding a non-partition step to aggregate values across partitions, as in the following example:
 
+```SQL
     WITH Step1 AS (
         SELECT COUNT(*) AS Count, TollBoothId
         FROM Input1 Partition By PartitionId
@@ -191,6 +213,7 @@ Each of the **Input1** partitions will be processed separately by Stream Analyti
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1
     GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
 
 This query can be scaled to 24 SUs.
 
@@ -222,11 +245,11 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 
 <!--Link references-->
 
-[microsoft.support]: http://support.microsoft.com
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[microsoft.support]: https://support.microsoft.com
+[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
 

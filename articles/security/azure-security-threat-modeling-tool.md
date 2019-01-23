@@ -3,9 +3,9 @@ title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: main page for the Microsoft Threat Modeling Tool, containing information on getting started with the tool, including the Threat Modeling process
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
+ms.date: 02/16/2017
+ms.author: jegeib
 
 ---
 
@@ -43,7 +43,7 @@ The table below contains important links to get you started with the Threat Mode
 
 | Step  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
-| **1** | [Download the Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
+| **1** | [Download the Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Read Our getting started guide](./azure-security-threat-modeling-tool-getting-started.md)    |
 | **3** | [Get familiar with the features](./azure-security-threat-modeling-tool-feature-overview.md)   |
 | **4** | [Learn about generated threat categories](./azure-security-threat-modeling-tool-threats.md)   |

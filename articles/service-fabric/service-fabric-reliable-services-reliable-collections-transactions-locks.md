@@ -3,18 +3,18 @@ title: Transactions And Lock Modes in Azure Service Fabric Reliable Collections 
 description: Azure Service Fabric Reliable State Manager and Reliable Collections Transactions and Locking.
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak
 
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: mcoskun
+ms.author: twhitney
 
 ---
 # Transactions and lock modes in Azure Service Fabric Reliable Collections

@@ -1,21 +1,17 @@
----
+﻿---
 title: "Run analytics queries against tenant databases using Azure SQL Data Warehouse | Microsoft Docs"
-description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
-keywords: "sql database tutorial"
-services: "sql-database"
-documentationcenter: ""
-author: "stevestein"
-manager: "jhubbard"
-editor: "MightyPen"
-
-ms.service: "sql-database"
-ms.custom: "scale out apps"
-ms.workload: "Inactive"
-ms.tgt_pltfrm: ""
-ms.devlang: ""
-ms.topic: "article"
-ms.date: "11/08/2017"
-ms.author: "anjangsh; billgib; genemi"
+description: "Cross-tenant analytics queries using data extracted from Azure SQL Database, SQL Data Warehouse, Azure Data Factory, or Power BI."
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: anumjs
+ms.author: anjangsh
+ms.reviewer: MightyPen, sstein
+manager: craigg
+ms.date: 09/19/2018
 ---
 # Explore SaaS analytics with Azure SQL Database, SQL Data Warehouse, Data Factory, and Power BI
 
@@ -42,7 +38,7 @@ SaaS applications hold a potentially vast amount of tenant data in the cloud. Th
 
 Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse for query.
 
-This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be an SQL Database or a SQL Data Warehouse. This tutorial uses [SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) as the analytics store.
+This tutorial presents an end-to-end analytics scenario for the Wingtip Tickets application. First, [Azure Data Factory (ADF)](../data-factory/introduction.md) is used as the orchestration tool to extract tickets sales and related data from each tenant database. This data is loaded into staging tables in an analytics store. The analytics store could either be an SQL Database or a SQL Data Warehouse. This tutorial uses [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) as the analytics store.
 
 Next, the extracted data is transformed and loaded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
 
@@ -83,7 +79,7 @@ This tutorial explores analytics over ticket sales data. In this step, you gener
 2. Press **F5** to run the script and create ticket purchasing history for all the venues. With 20 tenants, the script generates tens of thousands of tickets and may take 10 minutes or more.
 
 ### Deploy SQL Data Warehouse, Data Factory, and Blob Storage 
-In the Wingtip Tickets app, the tenants' transactional data is distributed over many databases. Azure Data Factory (ADF) is used to orchestrate the Extract, Load, and Transform (ELT) of this data into the data warehouse. To load data into SQL Data Warehouse most efficiently, ADF extracts data into intermediate blob files and then uses [PolyBase](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading) to load the data into the data warehouse.   
+In the Wingtip Tickets app, the tenants' transactional data is distributed over many databases. Azure Data Factory (ADF) is used to orchestrate the Extract, Load, and Transform (ELT) of this data into the data warehouse. To load data into SQL Data Warehouse most efficiently, ADF extracts data into intermediate blob files and then uses [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) to load the data into the data warehouse.   
 
 In this step, you deploy the additional resources used in the tutorial: a SQL Data Warehouse called _tenantanalytics_, an Azure Data Factory called _dbtodwload-\<user\>_, and an Azure storage account called _wingtipstaging\<user\>_. The storage account is used to temporarily hold extracted data files as blobs before they are loaded into the data warehouse. This step also deploys the data warehouse schema and defines the ADF pipelines that orchestrate the ELT process.
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* and set:
@@ -138,14 +134,14 @@ This section explores the objects created in the data factory. The following fig
 
 ![adf_overview](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
-In the overview page, switch to **Author** tab on the left panel and observe that there are three [pipelines](https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities) and three [datasets](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) created.
+In the overview page, switch to **Author** tab on the left panel and observe that there are three [pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) and three [datasets](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) created.
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
 The three nested pipelines are: SQLDBToDW, DBCopy, and TableCopy.
 
 **Pipeline 1 - SQLDBToDW** looks up the names of the tenant databases stored in the Catalog database (table name: [__ShardManagement].[ShardsGlobal]) and for each tenant database, executes the **DBCopy** pipeline. Upon completion, the provided **sp_TransformExtractedData** stored procedure schema, is executed. This stored procedure transforms the loaded data in the staging tables and populates the star-schema tables.
 
-**Pipeline 2 - DBCopy** looks up the names of the source tables and columns from a configuration file stored in blob storage.  The **TableCopy** pipeline is then run for each of the four tables: TicketFacts, CustomerFacts, EventFacts, and VenueFacts. The **[Foreach](https://docs.microsoft.com/en-us/azure/data-factory/control-flow-for-each-activity)** activity executes in parallel for all 20 databases. ADF allows a maximum of 20 loop iterations to be run in parallel. Consider creating multiple pipelines for more databases.    
+**Pipeline 2 - DBCopy** looks up the names of the source tables and columns from a configuration file stored in blob storage.  The **TableCopy** pipeline is then run for each of the four tables: TicketFacts, CustomerFacts, EventFacts, and VenueFacts. The **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** activity executes in parallel for all 20 databases. ADF allows a maximum of 20 loop iterations to be run in parallel. Consider creating multiple pipelines for more databases.    
 
 **Pipeline 3 - TableCopy** uses row version numbers in SQL Database (_rowversion_) to identify rows that have been changed or updated. This activity looks up the start and the end row version for extracting rows from the source tables. The **CopyTracker** table stored in each tenant database tracks the last row extracted from each source table in each run. New or changed rows are copied to the corresponding staging tables in the data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues**, and **raw_Events**. Finally the last row version is saved in the **CopyTracker** table to be used as the initial row version for the next extraction. 
 
@@ -227,7 +223,7 @@ You can drill into the data again to see if this mad rush is true for all events
 
 This plot of cumulative ticket sales over time for Contoso Concert Hall for each event shows that the mad rush does not happen for all events. Play around with the filter options to explore sale trends for other venues.
 
-The insights into ticket selling patterns might lead Wingtip Tickets to optimize their business model. Instead of charging all tenants equally, perhaps Wingtip should introduce service tiers with different performance levels. Larger venues that need to sell more tickets per day could be offered a higher tier with a higher service level agreement (SLA). Those venues could have their databases placed in pool with higher per-database resource limits. Each service tier could have an hourly sales allocation, with additional fees charged for exceeding the allocation. Larger venues that have periodic bursts of sales would benefit from the higher tiers, and Wingtip Tickets can monetize their service more efficiently.
+The insights into ticket selling patterns might lead Wingtip Tickets to optimize their business model. Instead of charging all tenants equally, perhaps Wingtip should introduce service tiers with different compute sizes. Larger venues that need to sell more tickets per day could be offered a higher tier with a higher service level agreement (SLA). Those venues could have their databases placed in pool with higher per-database resource limits. Each service tier could have an hourly sales allocation, with additional fees charged for exceeding the allocation. Larger venues that have periodic bursts of sales would benefit from the higher tiers, and Wingtip Tickets can monetize their service more efficiently.
 
 Meanwhile, some Wingtip Tickets customers complain that they struggle to sell enough tickets to justify the service cost. Perhaps in these insights there is an opportunity to boost ticket sales for underperforming venues. Higher sales would increase the perceived value of the service. Right click fact_Tickets and select **New measure**. Enter the following expression for the new measure called **AverageTicketsSold**:
 

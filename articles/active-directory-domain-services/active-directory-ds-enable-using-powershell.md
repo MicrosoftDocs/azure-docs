@@ -3,18 +3,19 @@ title: 'Enable Azure Active Directory Domain Services using PowerShell | Microso
 description: Enable Azure Active Directory Domain Services using PowerShell
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Enable Azure Active Directory Domain Services using PowerShell
@@ -26,14 +27,14 @@ This article shows you how to enable Azure Active Directory (AD) Domain Services
 Follow the instructions in the article to [install the Azure AD PowerShell module and connect to Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### Install and configure Azure PowerShell
-Follow the instructions in the article to [install the Azure PowerShell module and connect to your Azure subscription](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Follow the instructions in the article to [install the Azure PowerShell module and connect to your Azure subscription](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## Task 2: Create the required service principal in your Azure AD directory
 Type the following PowerShell command to create the service principal required for Azure AD Domain Services in your Azure AD directory.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
 ## Task 3: Create and configure the 'AAD DC Administrators' group
@@ -162,7 +163,7 @@ Connect-AzureAD
 Connect-AzureRmAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `

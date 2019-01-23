@@ -1,24 +1,26 @@
 ﻿---
-title: Get started with the Knowledge Exploration Service | Microsoft Docs
-description: Use Knowledge Exploration Service (KES) to create an engine for an interactive search experience across academic publications in Microsoft Cognitive Services.
+title: "Example: Getting started - Knowledge Exploration Service API"
+titlesuffix: Azure Cognitive Services
+description: Use Knowledge Exploration Service (KES) API to create an engine for an interactive search experience across academic publications.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
 ---
 
-<a name="getting-started"></a>
 # Get started with the Knowledge Exploration Service
+
 In this walkthrough, you use the Knowledge Exploration Service (KES) to create the engine for an interactive search experience for academic publications. You can install the command line tool, [`kes.exe`](CommandLine.md), and all example files from the [Knowledge Exploration Service SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
 
 The academic publications example contains a sample of 1000 academic papers published by researchers at Microsoft.  Each paper is associated with a title, publication year, authors, and keywords. Each author is represented by an ID, name, and affiliation at the time of publication. Each keyword can be associated with a set of synonyms (for example, the keyword "support vector machine" can be associated with the synonym "svm").
 
-<a name="defining-schema"></a>
 ## Define the schema
+
 The schema describes the attribute structure of the objects in the domain. It specifies the name and data type for each attribute in a JSON file format. The following example is the content of the file *Academic.schema*.
 
 ```json
@@ -56,8 +58,8 @@ For the *Keyword* attribute, allow synonyms to match the canonical keyword value
 
 For additional information about the schema definition, see [Schema Format](SchemaFormat.md).
 
-<a name="generating-data"></a>
 ## Generate data
+
 The data file describes the list of the publications to index, with each line specifying the attribute values of a paper in [JSON format](http://json.org/).  The following example is a single line from the data file *Academic.data*, formatted for readability:
 
 ```
@@ -88,16 +90,16 @@ To differentiate the likelihood of different papers, specify the relative log pr
 
 For more information, see [Data Format](DataFormat.md).
 
-<a name="building-index"></a>
 ## Build a compressed binary index
+
 After you have a schema file and data file, you can build a compressed binary index of the data objects by using [`kes.exe build_index`](CommandLine.md#build_index-command). In this example, you build the index file *Academic.index* from the input schema file *Academic.schema* and data file *Academic.data*. Use the following command:
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
 For rapid prototyping outside of Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) can build small indices locally, from data files containing up to 10,000 objects. For larger data files, you can either run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or perform a remote build in Azure. For details, see [Scaling up](#scaling-up).
 
-<a name="authoring-grammar"></a>
 ## Use an XML grammar specification
+
 The grammar specifies the set of natural language queries that the service can interpret, as well as how these natural language queries are translated into semantic query expressions. In this example, you use the grammar specified in *academic.xml*:
 
 ```xml
@@ -193,14 +195,14 @@ The grammar specifies the set of natural language queries that the service can i
 
 For more information about the grammar specification syntax, see [Grammar Format](GrammarFormat.md).
 
-<a name="compiling-grammar"></a>
 ## Compile the grammar
+
 After you have an XML grammar specification, you can compile it into a binary grammar by using [`kes.exe build_grammar`](CommandLine.md#build_grammar-command). Note that if the grammar imports a schema, the schema file needs to be located in the same path as the grammar XML. In this example, you build the binary grammar file *Academic.grammar* from the input XML grammar file *Academic.xml*. Use the following command:
 
 `kes.exe build_grammar Academic.xml Academic.grammar`
 
-<a name="hosting-index"></a>
 ## Host the grammar and index in a web service
+
 For rapid prototyping, you can host the grammar and index in a web service on the local machine, by using [`kes.exe host_service`](CommandLine.md#host_service-command). You can then access the service via [web APIs](WebAPI.md) to validate the data correctness and grammar design. In this example, you host the grammar file *Academic.grammar* and index file *Academic.index* at http://localhost:8000/. Use the following command:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
@@ -216,8 +218,8 @@ You can also directly call various [web APIs](WebAPI.md) to test natural languag
 
 Outside of Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) is limited to indices of up to 10,000 objects. Other limits include an API rate of 10 requests per second, and a total of 1000 requests before the process automatically terminates. To bypass these restrictions, run the command from within a [Windows VM in Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), or deploy to an Azure cloud service by using the [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) command. For details, see [Deploying service](#deploying-service).
 
-<a name="scaling-up"></a>
 ## Scale up to host larger indices
+
 When you are running `kes.exe` outside of Azure, the index is limited to 10,000 objects. You can build and host larger indices by using Azure. Sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/). Alternatively, if you subscribe to Visual Studio or MSDN, you can [activate subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). These offer some Azure credits each month.
 
 To allow `kes.exe` access to an Azure account, [download the Azure Publish Settings file](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) from the Azure portal. If prompted, sign into the desired Azure account. Save the file as *AzurePublishSettings.xml* in the working directory from where `kes.exe` runs.
@@ -238,8 +240,8 @@ Note that it might take 5-10 minutes to provision a temporay VM to build the ind
 
 Paging slows down the build process. To avoid paging, use a VM with three times the amount of RAM as the input data file size for index building. Use a VM with 1 GB more RAM than the index size for hosting. For a list of available VM sizes, see [Sizes for virtual machines](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-<a name="deploying-service"></a>
 ## Deploy the service
+
 After you have a grammar and index, you are ready to deploy the service to an Azure cloud service. To create a new Azure cloud service, see [How to create and deploy a cloud service](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md). Do not specify a deployment package at this point.  
 
 When you have created the cloud service, you can use [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) to deploy the service. An Azure cloud service has two deployment slots: production and staging. For a service that receives live user traffic, you should initially deploy to the staging slot. Wait for the service to start up and initialize itself. Then you can send a few requests to validate the deployment and verify that it passes basic tests.
@@ -254,8 +256,8 @@ For a list of available VM sizes, see [Sizes for virtual machines](../../../arti
 
 After you deploy the service, you can call the various [web APIs](WebAPI.md) to test natural language interpretation, query completion, structured query evaluation, and histogram computation.  
 
-<a name="testing-service"></a>
 ## Test the service
+
 To debug a live service, browse to the host machine from a web browser. For a local service deployed via [host_service](#hosting-service), visit `http://localhost:<port>/`.  For an Azure cloud service deployed via [deploy_service](#deploying-service), visit `http://<serviceName>.cloudapp.net/`.
 
 This page contains a link to information about basic API call statistics, as well as the grammar and index hosted at this service. This page also contains an interactive search interface that demonstrates the use of the web APIs. Enter queries into the search box to see the results of the [interpret](interpretMethod.md), [evaluate](evaluateMethod.md), and [calchistogram](calchistogramMethod.md) API calls. The underlying HTML source of this page also serves as an example of how to integrate the web APIs into an app, to create a rich, interactive search experience.

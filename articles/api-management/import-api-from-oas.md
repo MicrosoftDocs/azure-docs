@@ -3,7 +3,7 @@ title: Import an OpenAPI specification using the Azure portal | Microsoft Docs
 description: Learn how to import an OpenAPI specification with API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -18,10 +18,10 @@ ms.author: apimpm
 ---
 # Import an OpenAPI specification
 
-This article shows how to import an "OpenAPI specification" back-end API residing at http://conferenceapi.azurewebsites.net?format=json. This back-end API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API.
+This article shows how to import an "OpenAPI specification" back-end API residing at https://conferenceapi.azurewebsites.net?format=json. This back-end API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API.
 
 > [!IMPORTANT]
-> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
+> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
 
 In this article, you learn how to:
 
@@ -47,7 +47,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
     |Setting|Value|Description|
     |---|---|---|
-    |**OpenAPI Specification**|http://conferenceapi.azurewebsites.net?format=json|References the service implementing the API. API management forwards requests to this address.|
+    |**OpenAPI Specification**|https://conferenceapi.azurewebsites.net?format=json|References the service implementing the API. API management forwards requests to this address.|
     |**Display name**|*Demo Conference API*|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json. <br/>This name is displayed in the Developer portal.|
     |**Name**|*demo-conference-api*|Provides a unique name for the API. <br/>If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|
     |**Description**|Provide an optional description of the API.|If you press tab after entering the service URL, APIM will fill out this field based on what is in the json.|
@@ -61,11 +61,11 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.
 
+![Test API](./media/api-management-get-started/01-import-first-api-01.png)
+
 1. Select the API you created in the previous step.
 2. Press the **Test** tab.
-
-    ![Test API](./media/api-management-get-started/test-api.png)
-1. Click on **GetSpeakers**.
+3. Click on **GetSpeakers**.
 
     The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
 4. Press **Send**.

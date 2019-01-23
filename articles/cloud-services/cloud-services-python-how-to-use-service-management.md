@@ -398,7 +398,7 @@ To learn more about how to capture a Windows virtual machine in the classic depl
 ## <a name="What's Next"> </a>Next steps
 Now that you've learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) and perform complex tasks easily to manage your Python application.
 
-For more information, see the [Python Developer Center](/develop/python/).
+For more information, see the [Python Developer Center](https://azure.microsoft.com/develop/python/).
 
 [What is service management?]: #WhatIs
 [Concepts]: #Concepts
@@ -422,4 +422,4 @@ For more information, see the [Python Developer Center](/develop/python/).
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
-[cloud service]:/services/cloud-services/
+[cloud service]:/azure/cloud-services/

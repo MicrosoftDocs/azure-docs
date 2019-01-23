@@ -1,18 +1,16 @@
 ---
-title: 'Application Insights to troubleshoot Custom Policies - Azure AD B2C | Microsoft Docs'
-description: how to setup Application Insights to trace the execution of custom policies
+title: Application Insights to troubleshoot Custom Policies in Azure Active Directory B2C | Microsoft Docs
+description: how to setup Application Insights to trace the execution of custom policies.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
 
 # Azure Active Directory B2C: Collecting Logs
@@ -106,7 +104,7 @@ The version of the viewer that reads events from Application Insights is located
 >[!NOTE]
 >Currently, the detailed activity logs described here are designed **ONLY** to aid in development of custom policies. Do not use development mode in production.  Logs collect all claims sent to and from the identity providers during development.  If used in production, the developer assumes responsibility for PII (Privately Identifiable Information) collected in the App Insights log that they own.  These detailed logs are only collected when the policy is placed on **DEVELOPMENT MODE**.
 
-[Github Repository for Unsupported Custom Policy Samples and Related tools](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+[GitHub Repository for Unsupported Custom Policy Samples and Related tools](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
 
 
 

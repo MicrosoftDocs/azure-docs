@@ -10,7 +10,7 @@ editor: vturecek
 ms.assetid: 75516e1e-ee57-4bc7-95fe-71ec42d452b2
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
@@ -122,5 +122,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 ## Next steps
 * [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication.md)
+* [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
 

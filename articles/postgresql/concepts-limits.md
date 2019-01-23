@@ -1,43 +1,33 @@
 ---
 title: Limitations in Azure Database for PostgreSQL
 description: This article describes limitations in Azure Database for PostgreSQL, such as number of connection and storage engine options.
-services: postgresql
-author: kamathsun
-ms.author: sukamat
-manager: kfile
-editor: jasonwhowell
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 1/22/2019
 ---
 # Limitations in Azure Database for PostgreSQL
 The following sections describe capacity and functional limits in the database service.
 
-## Pricing Tier Maximums
-Azure Database for PostgreSQL has multiple pricing tiers you can choose from when creating a server. For more information, see [Pricing tiers in Azure Database for PostgreSQL](concepts-pricing-tiers.md).  
+## Maximum connections
+The maximum number of connections per pricing tier and vCores are as follows: 
 
-There is a maximum number of connections, compute units, and storage in each pricing tier, as follows: 
-
-|Pricing Tier| Compute Generation| vCore(s)| Max Connections |
-|---|---|---|---|
-|Basic| Gen 4| 1| 50 |
-|Basic| Gen 4| 2| 100 |
-|Basic| Gen 5| 1| 50 |
-|Basic| Gen 5| 2| 100 |
-|General Purpose| Gen 4| 2| 150|
-|General Purpose| Gen 4| 4| 250|
-|General Purpose| Gen 4| 8| 480|
-|General Purpose| Gen 4| 16| 950|
-|General Purpose| Gen 4| 32| 1500|
-|General Purpose| Gen 5| 2| 150|
-|General Purpose| Gen 5| 4| 250|
-|General Purpose| Gen 5| 8| 480|
-|General Purpose| Gen 5| 16| 950|
-|General Purpose| Gen 5| 32| 1500|
-|Memory Optimized| Gen 5| 2| 150|
-|Memory Optimized| Gen 5| 4| 250|
-|Memory Optimized| Gen 5| 8| 480|
-|Memory Optimized| Gen 5| 16| 950|
+|**Pricing Tier**| **vCore(s)**| **Max Connections** |
+|---|---|---|
+|Basic| 1| 50 |
+|Basic| 2| 100 |
+|General Purpose| 2| 150|
+|General Purpose| 4| 250|
+|General Purpose| 8| 480|
+|General Purpose| 16| 950|
+|General Purpose| 32| 1500|
+|General Purpose| 64| 1900|
+|Memory Optimized| 2| 300|
+|Memory Optimized| 4| 500|
+|Memory Optimized| 8| 960|
+|Memory Optimized| 16| 1900|
+|Memory Optimized| 32| 1900|
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already
@@ -46,18 +36,22 @@ The Azure system requires five connections to monitor the Azure Database for Pos
 
 ## Functional limitations
 ### Scale operations
-1.	Dynamic scaling of servers across pricing tiers is currently not supported. That is, switching between Basic, General Purpose, or Memory Optimized tiers.
-2.	Decreasing server storage size is currently not supported.
+- Dynamic scaling to and from the Basic pricing tiers is currently not supported.
+- Decreasing server storage size is currently not supported.
 
 ### Server version upgrades
-- Automated migration between major database engine versions is currently not supported.
+- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./howto-migrate-using-dump-and-restore.md) it to a server that was created with the new engine version.
 
-### Subscription management
-- Dynamically moving servers across subscriptions and resource groups is currently not supported.
+### VNet service endpoints
+- Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
-### Point-in-time-restore (PITR)
-1.	When using the PITR feature, the new server is created with the same configurations as the server it is based on.
-2.	Restoring a deleted server is not supported.
+### Restoring a server
+- When using the PITR feature, the new server is created with the same pricing tier configurations as the server it is based on.
+- The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
+- Restoring a deleted server is not supported.
+
+### UTF-8 characters on Windows
+- In some scenarios, UTF-8 characters are not supported fully in open source PostgreSQL on Windows, which affects Azure Database for PostgreSQL. Please see the thread on [Bug #15476 in the postgresql-archive](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) for more information.
 
 ## Next steps
 - Understand [what’s available in each pricing tier](concepts-pricing-tiers.md)

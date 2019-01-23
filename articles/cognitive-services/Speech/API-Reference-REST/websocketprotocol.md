@@ -1,18 +1,21 @@
 ---
-title: Microsoft speech recognition WebSocket protocol | Microsoft Docs
-description: Protocol documentation for Speech Service based on WebSockets
+title: Bing Speech WebSocket Protocol | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Protocol documentation for Bing Speech based on WebSockets
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
-# Speech Service WebSocket protocol
+# Bing Speech WebSocket protocol
 
-  Speech Service is a cloud-based platform that features the most advanced algorithms available for converting spoken audio to text. The Speech Service protocol defines the [connection setup](#connection-establishment) between client applications and the service and the speech recognition messages exchanged between counterparts ([client-originated Messages](#client-originated-messages) and [service-originated messages](#service-originated-messages)). In addition, [telemetry messages](#telemetry-schema) and [error handling](#error-handling) are described.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+Bing Speech is a cloud-based platform that features the most advanced algorithms available for converting spoken audio to text. The Bing Speech protocol defines the [connection setup](#connection-establishment) between client applications and the service and the speech recognition messages exchanged between counterparts ([client-originated Messages](#client-originated-messages) and [service-originated messages](#service-originated-messages)). In addition, [telemetry messages](#telemetry-schema) and [error handling](#error-handling) are described.
 
 ## Connection establishment
 

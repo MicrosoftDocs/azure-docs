@@ -1,20 +1,20 @@
 ---
-title: 'Azure Active Directory B2C: Custom Policies Landing Page | Microsoft Docs'
-description: Developing consumer-facing applications with Azure Active Directory B2C using Custom Policies
+title: Azure Active Directory B2C custom policies | Microsoft Docs
+description: Developing consumer-facing applications with Azure Active Directory B2C using Custom Policies.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/06/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
-# Azure Active Directory B2C: Sign up and sign in consumers in your applications using custom policies
+
+# Sign up and sign in consumers in your applications using custom policies in Azure Active Directory B2C
+
 Custom policies are configuration files that define the behavior of your Azure AD B2C tenant. They can be fully edited by an identity developer to complete a near unlimited number of tasks.
 
 ## How-to articles

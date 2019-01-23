@@ -28,7 +28,7 @@ sections:
       href: /azure/virtual-machine-scale-sets/quick-create-portal
     - image: 
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
-      text: Azure CLI 2.0
+      text: Azure CLI
       href: /azure/virtual-machine-scale-sets/quick-create-cli
     - image: 
         src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
@@ -41,11 +41,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Create and manage a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">Azure CLI 2.0</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure Powershell</a>
-    - html: Use data disks with the <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">Azure CLI 2.0</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure Powershell</a>
-    - html: Use a custom VM image with the <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI 2.0</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a>
-    - html: Deploy apps to a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI 2.0</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure Powershell</a>
-    - html: Autoscale a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI 2.0</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a>
+    - html: Create and manage a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure Powershell</a>
+    - html: Use data disks with the <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure Powershell</a>
+    - html: Use a custom VM image with the <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure Powershell</a>
+    - html: Deploy apps to a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure Powershell</a>
+    - html: Autoscale a scale set with the <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">Azure CLI</a> or <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure Powershell</a>
 - title: Samples
   items:
   - type: paragraph
@@ -54,5 +54,5 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">Azure CLI 2.0</a>
+    - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">Azure CLI</a>
     - html: <a href="/azure/virtual-machine-scale-sets/powershell-samples">Azure PowerShell</a>

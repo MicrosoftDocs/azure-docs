@@ -3,9 +3,9 @@ title: "Azure Analysis Services tutorial lesson 4: Create relationships | Micros
 description: Describes how to create relationships in the Azure Analysis Services tutorial project. 
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -20,7 +20,7 @@ Estimated time to complete this lesson: **10 minutes**
 This topic is part of a tabular modeling tutorial, which should be completed in order. Before performing the tasks in this lesson, you should have completed the previous lesson: [Lesson 3: Mark as Date Table](../tutorials/aas-lesson-3-mark-as-date-table.md). 
   
 ## Review existing relationships and add new relationships  
-When you imported data by using Get Data, you got seven tables from the AdventureWorksDW2014 database. Generally, when you import data from a relational source, existing relationships are automatically imported together with the data. In order for Get Data to automatically create relationships in the data model, there must be relationsips between tables at the data source.
+When you imported data by using Get Data, you got seven tables from the AdventureWorksDW2014 database. Generally, when you import data from a relational source, existing relationships are automatically imported together with the data. In order for Get Data to automatically create relationships in the data model, there must be relationships between tables at the data source.
 
 Before you proceed with authoring your model, you should verify those relationships between tables were created properly. For this tutorial, you also add three new relationships.  
 

@@ -1,21 +1,15 @@
 ---
-title: U-SQL programmability guide for Azure Data Lake | Microsoft Docs
-description: Learn about the set of services in Azure Data Lake that enable you to create a cloud-based big data platform.
+title: U-SQL programmability guide for Azure Data Lake
+description: Learn about the set of services in Azure Data Lake Analytics that enable you to create a cloud-based big data platform.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-
-
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/30/2017
+author: saveenr
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
+ms.topic: conceptual
+ms.date: 06/30/2017
 ---
 
 # U-SQL programmability guide
@@ -1304,7 +1298,7 @@ string val = row.Get<string>(col.Name)
 
 This approach enables you to build a flexible outputter for any metadata schema.
 
-The output data is written to file by using `System.IO.StreamWriter`. The stream parameter is set to `output.BaseStrea` as part of `IUnstructuredWriter output`.
+The output data is written to file by using `System.IO.StreamWriter`. The stream parameter is set to `output.BaseStream` as part of `IUnstructuredWriter output`.
 
 Note that it's important to flush the data buffer to the file after each row iteration. In addition, the `StreamWriter` object must be used with the Disposable attribute enabled (default) and with the **using** keyword:
 
@@ -1779,7 +1773,7 @@ In this use case scenario, user-defined applier acts as a comma-delimited value 
 
 ```
 103	Z1AB2CD123XY45889	Ford,Explorer,2005,SUV,152345
-303	Y0AB2CD34XY458890	Shevrolet,Cruise,2010,4Dr,32455
+303	Y0AB2CD34XY458890	Chevrolet,Cruise,2010,4Dr,32455
 210	X5AB2CD45XY458893	Nissan,Altima,2011,4Dr,74000
 ```
 

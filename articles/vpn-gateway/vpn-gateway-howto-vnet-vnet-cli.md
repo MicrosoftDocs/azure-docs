@@ -83,7 +83,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 ### Before you begin
 
-Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+Before beginning, install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="Plan"></a>Plan your IP address ranges
 

@@ -1,22 +1,18 @@
 ---
-title: Configure reverse lookup zones for an SMTP banner check in Azure| Microsoft Docs
+title: Configure reverse lookup zones for an SMTP banner check in Azure
+titlesuffix: Azure Virtual Network
 description: Describes how to configure reverse lookup zones for an SMTP banner check in Azure
 services: virtual-network
 documentationcenter: virtual-network
 author: genlin
-manager: WillChen
-editor: ''
-tags: azure-resource-manager
-
-
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 02/06/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.custom: 
+
 ---
 
 #  Configure reverse lookup zones for an SMTP banner check
@@ -40,7 +36,7 @@ When you configure the PTR records, make sure that the IP address and the revers
     Set-AzureRmPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
                         
     1) ReverseFqdn matches fqdn of any public ip resource under the subscription; 
-    2) ReverseFqdn resolves to the fqdn (through CName records chain) of any public ip resource under the subcription; 
+    2) ReverseFqdn resolves to the fqdn (through CName records chain) of any public ip resource under the subscription; 
     3) It resolves to the ip address (through CName and A records chain) of a static public ip resource under the subscription. 
 
 If you manually change your SMTP banner to match our default reverse FQDN, the remote mail server can still fail because it may expect the SMTP banner host to match the MX record for the domain.

@@ -1,18 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Customize the Azure AD B2C user interface (UI) dynamically by using custom policies'
+title: Customize the Azure Active Directory B2C user interface (UI) dynamically by using custom policies | Microsoft Docs
 description: Support multiple branding experiences with HTML5/CSS content that changes dynamically at runtime.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure Active Directory B2C: Configure the UI with dynamic content by using custom policies
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -174,7 +174,7 @@ Locate the `<img>` element that contains the `ID` value *background_background_i
 
 3. In the **CORS** window, in the **Allowed Origins** box, do either of the following:
 
-    * Enter the URL or URLs that you want to allow JavaScript calls to come from.
+    * Enter the URL or URLs that you want to allow JavaScript calls to come from. You need to use all lowercase letters in the URLs that you enter.
     * Enter an asterisk (*) to specify that all origin domains are accepted.
 
 4. Select **Save**.
@@ -189,7 +189,7 @@ Your HTML5 template is ready to use. However, it is not available in the `Conten
 * Your content server is enabled for CORS.
 
     >[!NOTE]
-    >To verify that the site where you're hosting your content has enabled CORS and can test CORS requests, go to the [test-cors.org](http://test-cors.org/) website. 
+    >To verify that the site where you're hosting your content has enabled CORS and can test CORS requests, go to the [test-cors.org](https://test-cors.org/) website. 
 
 * Your served content is secure over **HTTPS**.
 * You are using *absolute URLS*, such as *https://yourdomain/content*, for all links, CSS content, and images.

@@ -2,13 +2,12 @@
 title: Mount a gitRepo volume Azure Container Instances
 description: Learn how to mount a gitRepo volume to clone a Git repository into your container instances
 services: container-instances
-author: mmacy
-manager: timlt
+author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/16/2018
-ms.author: marsma
+ms.date: 06/15/2018
+ms.author: danlep
 ---
 
 # Mount a gitRepo volume in Azure Container Instances
@@ -77,6 +76,28 @@ The resulting directory structure of the two cloned repos defined in the precedi
 
 To see an example of container instance deployment with an Azure Resource Manager template, see [Deploy multi-container groups in Azure Container Instances](container-instances-multi-container-group.md).
 
+## Private Git repo authentication
+
+To mount a gitRepo volume for a private Git repository, specify credentials in the repository URL. Typically, credentials are in the form of a user name and a personal access token (PAT) that grants scoped access to the repository.
+
+For example, the Azure CLI `--gitrepo-url` parameter for a private GitHub repository would appear similar to the following (where "gituser" is the GitHub user name, and "abcdef1234fdsa4321abcdef" is the user's personal access token):
+
+```azurecli
+--gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
+```
+
+For an Azure Repos Git repository, specify any user name (you can use "azurereposuser" as in the following example) in combination with a valid PAT:
+
+```azurecli
+--gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
+```
+
+For more information about personal access tokens for GitHub and Azure Repos, see the following:
+
+GitHub: [Creating a personal access token for the command line][pat-github]
+
+Azure Repos: [Create personal access tokens to authenticate access][pat-repos]
+
 ## Next steps
 
 Learn how to mount other volume types in Azure Container Instances:
@@ -87,6 +108,8 @@ Learn how to mount other volume types in Azure Container Instances:
 
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
+[pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+[pat-repos]: https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

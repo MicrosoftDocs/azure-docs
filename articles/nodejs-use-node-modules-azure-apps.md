@@ -18,13 +18,13 @@ ms.author: tarcher
 
 ---
 # Using Node.js Modules with Azure applications
-This document provides guidance on using Node.js modules with applications hosted on Azure. It provides guidance on ensuring that your application uses a specific version of module as well as using native modules with Azure.
+This document provides guidance on using Node.js modules with applications hosted on Azure. It provides guidance on ensuring that your application uses a specific version of a module as well as using native modules with Azure.
 
 If you are already familiar with using Node.js modules, **package.json** and **npm-shrinkwrap.json** files, the following information provides a quick summary of what is discussed in this article:
 
 * Azure App Service understands **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
 
-* Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package. It is possible to enable support for installing modules using **package.json** or **npm-shrinkwrap.json** files on Cloud Services; however, this configuration requires customization of the default scripts used by Cloud Service projects. For an example of how to configure this environment, see [Azure Startup task to run npm install to avoid deploying node modules](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
+* Azure Cloud Services expects all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package. It is possible to enable support for installing modules using **package.json** or **npm-shrinkwrap.json** files on Cloud Services; however, this configuration requires customization of the default scripts used by Cloud Service projects. For an example of how to configure this environment, see [Azure Startup task to run npm install to avoid deploying node modules](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [!NOTE]
 > Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM is dependent on the operating system hosted by the Virtual Machine.
@@ -34,7 +34,7 @@ If you are already familiar with using Node.js modules, **package.json** and **n
 ## Node.js Modules
 Modules are loadable JavaScript packages that provide specific functionality for your application. Modules are usually installed using the **npm** command-line tool, however some modules (such as the http module) are provided as part of the core Node.js package.
 
-When modules are installed, they are stored in the **node\_modules** directory at the root of your application directory structure. Each module within the **node\_modules** directory maintains its own **node\_modules** directory that contains any modules that it depends on, and this behavior repeats for every module all the way down the dependency chain. This environment allows each module installed to have its own version requirements for the modules it depends on, however it can result in quite a large directory structure.
+When modules are installed, they are stored in the **node\_modules** directory at the root of your application directory structure. Each module within the **node\_modules** directory maintains its own directory that contains any modules that it depends on, and this behavior repeats for every module all the way down the dependency chain. This environment allows each module installed to have its own version requirements for the modules it depends on, however it can result in quite a large directory structure.
 
 Deploying the **node\_modules** directory as part of your application increases the size of the deployment when compared to using a **package.json** or **npm-shrinkwrap.json** file; however, it does guarantee that the versions of the modules used in production are the same as the modules used in development.
 
@@ -47,7 +47,7 @@ Azure App Service does not support all native modules, and might fail when compi
 
   * Before compiling, check that your local Node.js installation has matching architecture and the version is as close as possible to the one used in Azure (the current values can be checked on runtime from properties **process.arch** and **process.version**).
 
-* Azure App Service can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. For a video showing how to configure that environment, see [Custom Website Deployment Scripts with Kudu].
+* Azure App Service can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. For a video showing how to configure that environment, see [Custom Website Deployment Scripts with Kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
 
 ### Using a package.json file
 
@@ -81,7 +81,7 @@ When your application is ready for production, you can lock down version require
 > 
 
 ## Next steps
-Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js web app](app-service/app-service-web-get-started-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux].
+Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [build and deploy a Node.js web app](app-service/app-service-web-get-started-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 For more information, see the [Node.js Developer Center](/nodejs/azure/).
 

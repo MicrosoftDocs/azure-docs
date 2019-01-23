@@ -14,6 +14,9 @@ ms.author: panosper
 
 
 # Migrate deployments to the new pricing model
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 As of July 2017, Custom Speech Service offers a [new pricing model](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). The new model is *easier to understand*, *simpler to calculate costs*, and *more flexible* in terms of scaling. For scaling, Microsoft has introduced the concept of a scale unit. Each scale unit can handle five concurrent requests. The scaling for concurrent requests in the old model was set at 5 concurrent requests for tier S0, and it was set at 12 concurrent requests for tier S1. We have opened these limits to offer you greater flexibility with your use-case requirements.
 
 If you run an old S0 or S1 tier, we recommend that you migrate your existing deployments to the new S2 tier. The new S2 tier covers both the S0 and S1 tiers. You can see the available options in the following figure:

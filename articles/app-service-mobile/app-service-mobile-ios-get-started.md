@@ -13,25 +13,29 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 08/17/2018
 ms.author: crdun
-
 ---
 # Create an iOS app
+
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Overview
-This tutorial shows how to add [Azure Mobile Apps](app-service-mobile-value-prop.md), a cloud backend service, to an iOS app. We'll first create a new mobile backend. Then, we'll use a simple *Todo list* iOS app to store data in Azure.
+
+This tutorial shows how to add [Azure App Service Mobile Apps](app-service-mobile-value-prop.md), a cloud backend service, to an iOS app. The first step is to create a new mobile backend on Azure. Then, download a simple *Todo list* iOS sample app that stores data in Azure.
 
 To complete this tutorial, you need a Mac and [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 
 ## Step I: Create a new Azure mobile app backend
+
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## Step II: Configure the backend project
+
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## Step III: Download and run the iOS app
+
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 
 <!-- URLs -->

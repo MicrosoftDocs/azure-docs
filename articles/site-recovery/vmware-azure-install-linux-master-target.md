@@ -1,23 +1,24 @@
 ---
-title: Install a Linux master target server for failover from Azure to on-premises| Microsoft Docs
-description: Before reprotecting a Linux virtual machine, you need a Linux master target server. Learn how to install one.
+title: Install a Linux master target server for failback to an on-premises site | Microsoft Docs
+description: Learn how to set up a Linux master target server for failback to an on-premises site during disaster recovery of VMware VMs to Azure using Azure Site Recovery.
+author: mayurigupta13
 services: site-recovery
-documentationcenter: ''
-author: nsoneji
-manager: gauravd
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
-ms.author: nisoneji
-
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: mayg
 ---
-# Install a Linux master target server
+
+
+# Install a Linux master target server for failback
 After you fail over your virtual machines to Azure, you can fail back the virtual machines to the on-premises site. To fail back, you need to reprotect the virtual machine from Azure to the on-premises site. For this process, you need an on-premises master target server to receive the traffic. 
 
 If your protected virtual machine is a Windows virtual machine, then you need a Windows master target. For a Linux virtual machine, you need a Linux master target. Read the following steps to learn how to create and install a Linux master target.
 
 > [!IMPORTANT]
 > Starting with release of the 9.10.0 master target server, the latest master target server can be only installed on an Ubuntu 16.04 server. New installations aren't allowed on  CentOS6.6 servers. However, you can continue to upgrade your old master target servers by using the 9.10.0 version.
+> Master target server on LVM is not supported.
 
 ## Overview
 This article provides instructions for how to install a Linux master target.
@@ -58,7 +59,7 @@ The following supported Ubuntu kernels are supported.
 Take the following the steps to install the Ubuntu 16.04.2 64-bit
 operating system.
 
-1.   Go to the [download link](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64), choose the closest mirror anddownload an Ubuntu 16.04.2 minimal 64-bit ISO.
+1.   Go to the [download link](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choose the closest mirror anddownload an Ubuntu 16.04.2 minimal 64-bit ISO.
 Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  Select **English** as your preferred language, and then select **Enter**.
@@ -237,18 +238,13 @@ Use the following steps to create a retention disk:
 
 1. Attach a new 1-TB disk to the Linux master target virtual machine, and then start the machine.
 
-2. Use the **multipath -ll** command to learn the multipath ID of the retention disk.
-	
-  	 `multipath -ll`
+2. Use the **multipath -ll** command to learn the multipath ID of the retention disk: **multipath -ll**
 
-		![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![Multipath ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Format the drive, and then create a file system on the new drive.
-
+3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
 	
-	`mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-	
-	![Creating a file system on the drive](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. After you create the file system, mount the retention disk.
 
@@ -332,9 +328,9 @@ After the installation has finished, register the configuration server by using 
      Wait until the script finishes. If the master target is registered successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
 
 
-### Install VMware tools on the master target server
+### Install VMware tools / open-vm-tools on the master target server
 
-You need to install VMware tools on the master target so that it can discover the data stores. If the tools are not installed, the reprotect screen isn't listed in the data stores. After installation of the VMware tools, you need to restart.
+You need to install VMware tools or open-vm-tools on the master target so that it can discover the data stores. If the tools are not installed, the reprotect screen isn't listed in the data stores. After installation of the VMware tools, you need to restart.
 
 ### Upgrade the master target server
 

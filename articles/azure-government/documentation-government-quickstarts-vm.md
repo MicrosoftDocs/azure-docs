@@ -1,108 +1,146 @@
 ---
-title: Create a VM for Azure Government quickstart| Microsoft Docs
-description: This provides a series of quickstarts for using Functions with Azure Government
+title: Create Virtual Machines in Azure Government | Microsoft Docs
+description: This tutorial shows steps for creating Virtual Machines with Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
-manager: zakramer
+author: Juliako
+manager: femila
 
-ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
 ms.service: azure-government
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/11/2017
-ms.author: yujhong
+ms.date: 08/10/2018
+ms.author: yujhongmicrosoft; juliako
 
+#Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government and provision a VM in the Azure Government cloud because i want to be sure that my agency meets government security and compliance requirements.
 ---
-# Virtual Machines on Azure Government
-This quickstart will help you get started using Virtual Machines on Azure Government. Using VMs with Azure Government is similar to using it with the Azure commercial platform, with a [few exceptions](documentation-government-compute.md#virtual-machines).
 
-To learn more about Azure Virtual Machines, click [here](../virtual-machines/index.md).
+# Tutorial: Create Virtual Machines 
 
-## Part 1: Virtual Network
+Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. For example, your workload may include using virtual machines. Before provisioning a VM, you need to create and configure a virtual network for your environment. A virtual network enables resources to securely communicate with each other (within Azure and with servers accessing Azure).
 
-### Prerequisites
-Before completing this section, you must have:
+This tutorial shows how to connect to Azure Government, create a virtual network and a virtual machine on this network in Azure Government cloud. The Azure Government marketplace provides a VM library, in this tutorial we use "Data Science Virtual Machine - Windows 2016 CSP". To learn more about Azure Virtual Machines and see end-to-end scenarios, see [Virtual Machines Documentation](../virtual-machines/index.yml).
 
-+ An active Azure Government subscription.
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
+In this tutorial, you learn how to:
 
-### Create a new Virtual Network
-1. Navigate to the [Azure Government portal](https://portal.azure.us) and login with your Azure Government credentials.
-2. Click on the green + New in the upper left blade and click on Networking | Virtual Network. 
+> [!div class="checklist"]
+> * Connect to Azure Government
+> * Create a Virtual Network
+> * Create a Virtual Machine
 
-  ![createvn1](./media/documentation-government-quickstarts-vm1.png)
-3. Make sure the deployment model is set to "Resource Manager" and click Create.
-4. Fill out the following fields and click Create.
+> [!VIDEO https://www.youtube.com/embed/cyucpJXKMRs]
 
-  >[!Note]
-  > Your Subscription box will look different from below.
-  >
-  >
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
-   ![createvn2](./media/documentation-government-quickstarts-vm2.png)
+## Prerequisites
+
+* Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
+* Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
+
+## Sign in to Azure Government 
+
+To connect, browse to the portal at [https://portal.azure.us](https://portal.azure.us) and sign in with your Azure Government credentials. 
+
+Once you sign in, you should see "Microsoft Azure Government" in the upper left of the main navigation bar.
+
+![Azure Government Portal](./media/connect-with-portal/azure-gov-portal.png)
+
+## Create a new Virtual Network
+ 
+Click on **Create a resource** in the upper left corner on the portal and click on **Networking** > **Virtual Network**. 
+
+![createvn1](./media/create-virtual-machines/documentation-government-quickstarts-vm1.png)
+
+In the **Create Virtual Network** dialog, use the following settings.
+
+| Setting | Suggested Value | Description |
+|-|-|-|
+| Name| vnettest | Name of the Virtual Network. |
+| Address space | 10.128.0.0/24 | The Virtual Network address range. |
+| Subscription | Azure Government Free Trial | |
+| Resource group|vnettestgroup|Create a new resource group.|
+| Location | USGov Virginia |Choose one of the Azure Government locations.|
+| Subnet | vnetsubnet||
+| Address range |10.128.0.0/26|The subnet's address range in CIDR notation (for example, 192.168.1.0/24). It must be contained by the address space of the virtual network. The address range of a subnet, which is in use can't be edited.|
+
+Navigate to **Virtual networks** from the menu on the left and click on the Virtual Network you created. Under **Settings** click **Subnets**.
+
+![createvn3](./media/create-virtual-machines/documentation-government-quickstarts-vm3.png)
+
+On the top left-hand corner of the page choose **Subnet**. In the **Add subnet** dialog, use the following settings.
+
+| Setting | Suggested Value | Description |
+|-|-|-|
+|Name|subnet-vnet|The name of the virtual network.|
+|Address range|10.128.0.64/28|The subnet's address range in CIDR notation (for example, 192.168.1.0/24). It must be contained by the address space of the virtual network. The address range of a subnet, which is in use can't be edited.|
+|Network security group|None||
+|Route table|None||
+
+Click **Ok**. When finished select **Gateway Subnet** from the top of the window. 
+
+![createvn6](./media/create-virtual-machines/documentation-government-quickstarts-vm7.png)
+
+You will have address range shown below. Press **Ok**.  
+
+![createvn7](./media/create-virtual-machines/documentation-government-quickstarts-vm8.png)
   
-5. Navigate to "Virtual networks" from the menu on the left and click on the Virtual Network you just created. Under "Settings" click on "Subnets".
+At the end of this step, you should have the Virtual Network running on Azure Government.
 
-  ![createvn3](./media/documentation-government-quickstarts-vm3.png)
-6. On the top left-hand corner of the page choose "Subnet" and fill out the following fields.
+## Create a new Virtual Machine
 
-  ![createvn5](./media/documentation-government-quickstarts-vm5.png)
-7. Click "Ok" when finished and navigate to the top left hand corner again. Click on "Gateway Subnet".
+In the Azure Government portal, select **Create a resource** in the upper left corner and click on **Compute**. 
 
-  ![createvn6](./media/documentation-government-quickstarts-vm7.png)
-8. Enter the address range shown below ad click "Ok". You have now created a Virtual Network on Azure Government.
+Search for "Data science" and then click on "Data Science Virtual Machine - Windows 2016 CSP". 
 
-  ![createvn7](./media/documentation-government-quickstarts-vm8.png)
-  
-## Part 2: Virtual Machine
+![createvn8](./media/create-virtual-machines/documentation-government-quickstarts-vm9.png)
 
-### Prerequisites
-Before completing this section you must have:
+Scroll to the bottom of the window on the right and click **Create**. In the **Basics** dialog, use the following settings and click **Ok**.
 
-+ An active Azure Government subscription.
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
-+ A Virtual Network running on Azure Government.
-If you don't already have a Virtual Network, complete the "Create a new Virtual Network" section above.
+| Setting | Suggested Value | Description |
+|-|-|-|
+|Name|vm-test|The name of the VM.|
+|VM disk type|HDD|The type of physical hard disk type to use for the VM storage. This would be the same as installing HDD or SSD disks in your server on-premises.|
+|User name |vmtest||
+|Password|A password| Choose a password that you will remember!|
+|Subscription|Your subscription||
+|Resource group|vnettestgroup|Choose existing resource, same group as you created earlier.|
+|Location|USGov Virginia|Our virtual network is hosted in Virginia, so this VM has to be in the US Virginia region as well.||
 
-### Create a new Virtual Machine
+Open the Supported disk type dropdown box and select HDD. Click **View All** in the options at the top right corner. Scroll down the A4_v2 size and select it. Click on Select.
 
-1. Navigate to the [Azure Government portal](https://portal.azure.us) and login with your Azure Government credentials.
+![createvn10](./media/create-virtual-machines/documentation-government-quickstarts-vm11.png)
 
-2. Click on the green + New in the upper left corner and click on "Compute". 
+On the left hand of settings box click on **Network** and select the **vnettest** virtual network.
 
-3. Search for "Data science" and then click on "Data Science Virtual Machine - Windows 2016 CSP". 
+Click on **Subnet** and choose the subnet that you created. 
 
-  ![createvn8](./media/documentation-government-quickstarts-vm9.png)
-4. Click on "Create". Then fill out the fields and click "Ok".
+![createvn12](./media/create-virtual-machines/documentation-government-quickstarts-vm13.png)
 
-  >[!Note]
-  > Choose a password that you will remember!
-  >
-  >
+Click on **Public IP address** and then click **Ok**.
 
-  ![createvn9](./media/documentation-government-quickstarts-vm10.png)
-5. Open the Supported disk type dropdown box and select HDD. Click on "View All" in the options at the top right corner. Scroll down the A4_v2 size and select it. Click on Select.
+![createvn13](./media/create-virtual-machines/documentation-government-quickstarts-vm14.png)
 
-  ![createvn10](./media/documentation-government-quickstarts-vm11.png)
-6. On the left hand "Settings" box click on "Network" and select your Virtual Network.
+Click **Ok** to create the VM.
 
-  ![createvn11](./media/documentation-government-quickstarts-vm12.png)
-7. Click on "Subnet" and choose the subnet that you just created. 
-
-  ![createvn12](./media/documentation-government-quickstarts-vm13.png)
-8. Click on "Public IP address" and then click on "Ok".
-
-  ![createvn13](./media/documentation-government-quickstarts-vm14.png)
-9. Now we can create the VM by clicking "Ok".
-
-10. Once the validation step has completed click "Ok" and you should see the following screen.
-
-  ![createvn14](./media/documentation-government-quickstarts-vm15.png)
-  
 The VM will now be provisioned. It will take several minutes to complete, but afterwards you will be able to connect to the VM with RDP using the public IP address.
+
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, you can delete them by deleting the resource group.
+
+From the left menu in the Azure Government portal, select Resource groups and then select **vnettestgroup**.
+
+On the resource group page, make sure that the listed resources are the ones you want to delete.
+
+Select **Delete**, type **vnettestgroup** in the text box, and then select **Delete**.
+
 ## Next steps
-For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+
+This tutorial showed you how to create Virtual Machines in Azure Government. To see the latest information and insights on building cloud solution for the Azure Government Cloud, check out Azure Government blog.
+
+> [!div class="nextstepaction"]
+> [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
+

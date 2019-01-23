@@ -41,7 +41,7 @@ For existing key vaults, you can use this PowerShell cmdlet:
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
 
-## Us CLI to set up Key Vault
+## Use CLI to set up Key Vault
 To create a key vault by using the command-line interface (CLI), see [Manage Key Vault using CLI](../../key-vault/key-vault-manage-with-cli2.md#create-a-key-vault).
 
 For CLI, you have to create the key vault before you assign the deployment policy. You can do this by using the following command:

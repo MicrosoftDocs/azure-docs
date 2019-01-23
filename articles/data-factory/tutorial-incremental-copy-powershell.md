@@ -3,25 +3,20 @@ title: 'Incrementally copy a table by using Azure Data Factory | Microsoft Docs'
 description: 'In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+
+ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: shlo
+ms.author: yexu
 ---
 # Incrementally load data from an Azure SQL database to Azure Blob storage
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage. 
-
-
-> [!NOTE]
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you use version 1 of the Data Factory service, which is generally available, see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 You perform the following steps in this tutorial:
 
@@ -37,7 +32,7 @@ You perform the following steps in this tutorial:
 ## Overview
 Here is the high-level solution diagram: 
 
-![Incrementally load data](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
+![Incrementally load data](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
 Here are the important steps to create this solution: 
 
@@ -60,8 +55,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 * **Azure SQL Database**. You use the database as the source data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
-* **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one. Create a container named adftutorial. 
-* **Azure PowerShell**. Follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md) for steps to create one. Create a container named adftutorial. 
+* **Azure PowerShell**. Follow the instructions in [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ### Create a data source table in your SQL database
 1. Open SQL Server Management Studio. In **Server Explorer**, right-click the database, and choose **New Query**.
@@ -132,7 +127,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Run the following command to create a stored procedure in your SQL database:
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -188,7 +183,7 @@ Note the following points:
     ```
 
 * To create Data Factory instances, the user account you use to sign in to Azure must be a member of contributor or owner roles, or an administrator of the Azure subscription.
-* Currently, Data Factory version 2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
+* For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Storage, SQL Database, etc.) and computes (Azure HDInsight, etc.) used by the data factory can be in other regions.
 
 
 ## Create linked services
@@ -471,7 +466,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     				"type": "SqlServerStoredProcedure",
     				"typeProperties": {
     
-    					"storedProcedureName": "sp_write_watermark",
+    					"storedProcedureName": "usp_write_watermark",
     					"storedProcedureParameters": {
     						"LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
     						"TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}

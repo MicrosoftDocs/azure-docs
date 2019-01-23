@@ -185,7 +185,7 @@ When you configure network interfaces for a first-time device deployment, the ha
    * If the interface is healthy but not enabled, the **ifIndex** status is shown as **NotPresent**.
    * If the interface does not exist, it does not appear in this list. The StorSimple Device Manager service UI will still show this interface in a failed state.
 
-For more information on how to use this cmdlet, go to [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx) in the Windows PowerShell cmdlet reference.
+For more information on how to use this cmdlet, go to [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps) in the Windows PowerShell cmdlet reference.
 
 The following sections show samples of output from the `Get-NetAdapter` cmdlet.
 

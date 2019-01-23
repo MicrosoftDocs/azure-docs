@@ -3,7 +3,7 @@ title: Create and Manage an Azure Virtual Machine Using C# | Microsoft Docs
 description: Use C# and Azure Resource Manager to deploy a virtual machine and all its supporting resources.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cynthn
+ms.author: zarhoads
 
 ---
 # Create and manage Windows VMs in Azure using C# #
@@ -52,7 +52,7 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 ## Create credentials
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../../azure-resource-manager/resource-group-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, make sure that you have access to an [Active Directory service principal](../../active-directory/develop/howto-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 ### Create the authorization file
 

@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Stack - PowerShell | Microsoft Docs
-description: In this tutorial, you install the ASDK from the command line.
+description: In this article, you install the ASDK from the command line using PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,25 +12,15 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: 
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
 
-# Tutorial: deploy the ASDK from the command line
-In this tutorial, you deploy the Azure Stack Development Kit (ASDK) from the command line in a non-production environment. 
-
+# Deploy the ASDK from the command line
 The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Download and extract the deployment package
-> * Prepare the development kit host computer 
-> * Perform post-deployment configurations
-> * Register with Azure
 
 ## Prerequisites 
 Prepare the development kit host computer. Plan your hardware, software, and network. The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS). Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
@@ -97,6 +87,8 @@ Run the following PowerShell commands to deploy the development kit using Azure 
   ```
 
 A few minutes into ASDK installation you will be prompted for Azure AD credentials. You must provide global administrator credentials for your Azure AD tenant. 
+
+After deployment, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
 
 ### Deploy Azure Stack using AD FS 
 To deploy the development kit **using AD FS as the identity provider**, run the following PowerShell commands (you just need to add the -UseADFS parameter): 
@@ -173,16 +165,5 @@ You must register Azure Stack with Azure so that you can [download Azure marketp
 ## Next steps
 Congratulations! After completing these steps, you’ll have a development kit environment with both [administrator](https://adminportal.local.azurestack.external) and [user](https://portal.local.azurestack.external) portals. 
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Download and extract the deployment package
-> * Prepare the development kit host computer 
-> * Perform post-deployment configurations
-> * Register with Azure
-
-Advance to the next tutorial to learn how to add an Azure Stack marketplace item.
-
-> [!div class="nextstepaction"]
-> [Add an Azure Stack marketplace item](asdk-marketplace-item.md)
+[Post ASDK installation configuration tasks](asdk-post-deploy.md)
 

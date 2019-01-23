@@ -1,25 +1,17 @@
 ---
 title: What workloads can you protect with Azure Site Recovery? | Microsoft Docs
 description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service. 
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 3/16/2018
+services: site-recovery
+ms.topic: conceptual
+ms.date: 12/31/2018
 ms.author: raynew
 
 ---
 # What workloads can you protect with Azure Site Recovery?
 
-This article describes workloads and applications you can replicate with the [Azure Site Recovery](site-recovery-overview.md) service.
+This article describes workloads and applications you can protect for disaster recovery with the [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 
@@ -39,7 +31,7 @@ Site Recovery contributes to application-level protection and recovery as follow
 * Near-synchronous replication, with RPOs as low as 30 seconds to meet the needs of most critical business apps.
 * App-consistent snapshots, for single or multi-tier applications.
 * Integration with SQL Server AlwaysOn, and partnership with other application-level replication technologies, including AD replication, SQL AlwaysOn, Exchange Database Availability Groups (DAGs) and Oracle Data Guard.
-* Flexible recovery plans, that enable you to recover an entire application stack with a single click, and include to include external scripts and manual actions in the plan.
+* Flexible recovery plans, that enable you to recover an entire application stack with a single click, and to include external scripts and manual actions in the plan.
 * Advanced network management in Site Recovery and Azure to simplify app network requirements, including the ability to reserve IP addresses, configure load-balancing, and integration with Azure Traffic Manager, for low RTO network switchovers.
 * A rich automation library that provides production-ready, application-specific scripts that can be downloaded and integrated with recovery plans.
 
@@ -51,13 +43,12 @@ Site Recovery can replicate any app running on a supported machine. In addition,
 | Active Directory, DNS |Y |Y |Y |Y |Y|
 | Web apps (IIS, SQL) |Y |Y |Y |Y |Y|
 | System Center Operations Manager |Y |Y |Y |Y |Y|
-| Sharepoint |Y |Y |Y |Y |Y|
+| SharePoint |Y |Y |Y |Y |Y|
 | SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft)|
 | Exchange (non-DAG) |Y |Y |Y |Y |Y|
 | Remote Desktop/VDI |Y |Y |Y |Y |Y|
 | Linux (operating system and apps) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft)|
 | Dynamics AX |Y |Y |Y |Y |Y|
-| Oracle |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft)|
 | Windows File Server |Y |Y |Y |Y |Y|
 | Citrix XenApp and XenDesktop |Y|N/A |Y |N/A |Y |
 

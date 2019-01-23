@@ -2,8 +2,8 @@
 title: Create an application gateway with a web application firewall - Azure portal | Microsoft Docs
 description: Learn how to create an application gateway with a web application firewall by using the Azure portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 
@@ -11,7 +11,7 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
-ms.author: davidmu
+ms.author: victorh
 
 ---
 
@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 ## Log in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 
@@ -117,7 +117,7 @@ In this example, you create two virtual machines to be used as backend servers f
 ### Add backend servers
 
 1. Click **All resources**, and then click **myAppGateway**.
-2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
+2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
 
     ![Add backend servers](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)

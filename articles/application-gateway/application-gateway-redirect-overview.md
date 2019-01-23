@@ -4,7 +4,7 @@ description: Learn about the redirect capability in Azure Application Gateway
 services: application-gateway
 documentationcenter: na
 author: amsriva
-manager: timlt
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
@@ -32,4 +32,4 @@ With this change, customers would need to create a new redirect configuration ob
 
 ### Next steps
 
-[Configure URL redirection on an application gateway](application-gateway-configure-redirect-powershell.md)
+[Configure HTTP to HTTPS redirection on an application gateway](redirect-http-to-https-portal.md)

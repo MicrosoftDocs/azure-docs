@@ -44,7 +44,7 @@ In this session, learn how Azure Active Directory and Microsoft Advanced Threat 
 
 [Security in a Cloud-Enabled World](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
-Experts lead you through the customer responsibility roadmap in the [Microsoft Cloud Security for Enterprise Architects](http://www.microsoft.com/download/48121) poster. The experts also provide recommendations for modernizing each part of your security posture, including governance, containment strategies, security operations, high-value asset protection, information protection, and user and device security, with a particular emphasis on protecting administrative control. Learn from the same framework that the Microsoft cybersecurity team uses to assess customers' cloud security and to build them a security roadmap.
+Experts lead you through the customer responsibility roadmap in the [Microsoft Cloud Security for Enterprise Architects](https://www.microsoft.com/download/48121) poster. The experts also provide recommendations for modernizing each part of your security posture, including governance, containment strategies, security operations, high-value asset protection, information protection, and user and device security, with a particular emphasis on protecting administrative control. Learn from the same framework that the Microsoft cybersecurity team uses to assess customers' cloud security and to build them a security roadmap.
 
 [Microsoft Azure IaaS Deep Dive](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
 

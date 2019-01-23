@@ -1,21 +1,14 @@
 ---
-title: 'Azure Backup: application-consistent backups of Linux VMs | Microsoft Docs'
+title: 'Azure Backup: application-consistent backups of Linux VMs'
 description: Create application-consistent backups of your Linux virtual machines to Azure. This article explains configuring the script framework to back up Azure-deployed Linux VMs. This article also includes troubleshooting information.
 services: backup
-documentationcenter: dev-center-name
 author: anuragmehrotra
 manager: shivamg
 keywords: app-consistent backup; application-consistent Azure VM backup; Linux VM backup; Azure Backup
-
-ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm;markgal
-
+ms.author: anuragm
 ---
 
 # Application-consistent backup of Azure Linux VMs
@@ -41,7 +34,7 @@ Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-
    - **VMSnapshotScriptPluginConfig.json**: Permission “600.” For example, only “root” user should have “read” and “write” permissions to this file, and no user should have “execute” permissions.
 
    - **Pre-script file**: Permission “700.”  For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.
-  
+
    - **Post-script** Permission “700.” For example, only “root” user should have “read”, “write”, and “execute” permissions to this file.
 
    > [!Important]
@@ -63,8 +56,8 @@ Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-
     - **preScriptNoOfRetries**: Set the number of times the pre-script should be retried if there is any error before terminating. Zero means only one try and no retry if there is a failure.
 
     - **postScriptNoOfRetries**:  Set the number of times the post-script should be retried if there is any error before terminating. Zero means only one try and no retry if there is a failure.
-    
-    - **timeoutInSeconds**: Specify individual timeouts for the pre-script and the post-script.
+
+    - **timeoutInSeconds**: Specify individual timeouts for the pre-script and the post-script (maximum value can be 1800).
 
     - **continueBackupOnFailure**: Set this value to **true** if you want Azure Backup to fall back to a file system consistent/crash consistent backup if pre-script or post-script fails. Setting this to **false** fails the backup in case of script failure (except when you have single-disk VM that falls back to crash-consistent backup regardless of this setting).
 

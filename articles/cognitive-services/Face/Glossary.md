@@ -1,13 +1,14 @@
 ---
-title: Glossary for the Face API Service | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: Glossary - Face API Service
+titleSuffix: Azure Cognitive Services
 description: The glossary explains terms that you might encounter as you work with the Face API Service.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
@@ -16,7 +17,7 @@ ms.author: sbowles
 
 ## A
 
-#### <a name="Attributes"></a>Attributes
+#### Attributes
 
 Attributes are optional in the [detection](#Detection-Face-Detection) results, such as [age](#Age-Attribute), [gender](#Gender-Attribute), [head pose](#Head-Pose-Attribute), [facial hair](#Facial-Hair-Attribute), [smiling](#Smile-Attribute).
 They can be obtained from the [detection](#Detection-Face-Detection) API by specifying the query parameters: returnFaceAttributes. Attributes give extra information regarding selected [faces](#Face); in addition to the [face ID](#Face-ID) and the [rectangle](#Face-Rectangle).
@@ -24,7 +25,7 @@ They can be obtained from the [detection](#Detection-Face-Detection) API by spec
 For more details, please refer to the guide
 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Age-Attribute"></a>Age (Attribute)
+#### Age (Attribute)
 
 Age is one of the [attributes](#Attributes) that describes the age of a particular face. The age attribute is optional in the [detection](#Detection-Face-Detection) results, and can be controlled with a [detection](#Detection-Face-Detection) request by specifying the returnFaceAttributes parameter.
 
@@ -35,14 +36,14 @@ For more details, please refer to the guide
 
 ## C
 
-#### <a name="Candidate"></a>Candidate
+#### Candidate
 
 Candidates are essentially [identification](#Identification) results (e.g. identified persons and level of confidence in detections). A candidate is represented by the [PersonID](#Person-ID) and [confidence](#Confidence), indicating that the person is identified with a high level of confidence.
 
 For more details, please refer to the guide
 [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-#### <a name="Confidence"></a>Confidence
+#### Confidence
 
 Confidence is a measurement revealing the similarity between [faces](#Face) or [Person](#Person) in numerical values –which is used in [identification](#Identification), and [verification](#Verification) to indicate the similarities of searched, identified and verified results.
 
@@ -53,7 +54,7 @@ For more details, please refer to the following guides:
 
 ## D
 
-#### <a name="Detection-Face-Detection"></a>Detection/Face Detection
+#### Detection/Face Detection
 
 Face detection is the action of locating faces in images. Users can upload an image or specify an image URL in the request. The detected faces are returned with [face IDs](#Face-ID)	indicating a unique identity in Face API. The rectangles indicate the face locations in the image in pixels, as well as the optional [attributes](#Attributes) for each face such as [age](#Age-Attribute), [gender](#Gender-Attribute), [head pose](#Head-Pose-Attribute), [facial hair](#Facial-Hair-Attribute) and [smiling](#Smile-Attribute).
 
@@ -64,14 +65,14 @@ For more details, please refer to the guide
 
 ## F
 
-#### <a name="Face"></a>Face
+#### Face
 
 Face is a unified term for the results derived from Face API related with detected faces. Ultimately, face is represented by a unified identity ([Face ID](#Face-ID)), a specified region in images ([Face Rectangle](#Face-Rectangle)), and extra face related [attributes](#Face-Attributes-Facial-Attributes), such as [age](#Age-Attribute), [gender](#Gender-Attribute), [landmarks](#Face-Landmarks-Facial-Landmarks) and [head pose](#Head-Pose-Attribute). Additionally, faces can be returned from [detection](#Detection-Face-Detection).
 
 For more details, please refer to the guide
 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Face-API"></a>Face API
+#### Face API
 
 Face API is a cloud-based API that provides the most advanced algorithms for face detection and recognition. The main functionality of Face API can be divided into two categories: face [detection](#Detection-Face-Detection) with [attributes](#Face-Attributes-Facial-Attributes), and face [recognition](#Recognition).
 
@@ -83,18 +84,18 @@ For more details, please refer to the following guides:
 [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239),
 [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-#### <a name="Face-Attributes-Facial-Attributes"></a>Face Attributes/Facial Attributes
+#### Face Attributes/Facial Attributes
 
 Please see [Attributes](#Attributes).
 
-#### <a name="Face-ID"></a>Face ID
+#### Face ID
 
 Face ID is derived from the [detection](#Detection-Face-Detection) results, in which a string represents a [face](#Face) in [Face API](#Face-API).
 
 For more details, please refer to the guide
 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Face-Landmarks-Facial-Landmarks"></a>Face Landmarks/Facial Landmarks
+#### Face Landmarks/Facial Landmarks
 
 Landmarks are optional in the [detection](#Detection-Face-Detection) results; which are semantic facial points, such as the eyes, nose and mouth (illustrated in following figure). Landmarks can be controlled with a [detection](#Detection-Face-Detection) request by the Boolean number returnFaceLandmarks. If returnFaceLandmarks is set as true, the returned faces will have landmark attributes.
 
@@ -103,21 +104,21 @@ For more details, please refer to the guide
 
 ![HowToDetectFace](./Images/landmarks.1.jpg)
 
-#### <a name="Face-Rectangle"></a>Face Rectangle
+#### Face Rectangle
 
 Face rectangle is derived from the [detection](#Detection-Face-Detection) results, which is an upright rectangle (left, top, width, height) in images in pixels. The top-left corner of a [face](#Face) (left, top), besides the width and height, indicates face sizes in x and y axes respectively.
 
 For more details, please refer to the guide
 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Facial-Hair-Attribute"></a>Facial Hair (Attribute)
+#### Facial Hair (Attribute)
 
 Facial hair is one of the [attributes](#Attributes) used to describe the facial hair length of the available faces. The facial hair attribute is optional in the [detection](#Detection-Face-Detection) results, and can be controlled with a [detection](#Detection-Face-Detection) request by returnFaceAttributes. If returnFaceAttributes contains 'facialHair', the returned faces will have facial hair attributes.
 
 For more details, please refer to the guide
 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="FaceList"></a>FaceList
+#### FaceList
 
 FaceList is a collection of [PersistedFace](#PersistedFace) and is the unit of [Find Similar](#Find-Similar). A FaceList comes with a [FaceList ID](#FaceList-ID), as well as other attributes such as [Name](#Name) and [User Data](#UserData-User-Data).
 
@@ -125,7 +126,7 @@ For more details, please refer to the following guides:
 [FaceList - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b),
 [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
-#### <a name="FaceList-ID"></a>FaceList ID
+#### FaceList ID
 
 FaceList ID is a user provided string used as an identifier of a [FaceList](#FaceList). The FaceList ID must be unique within the subscription.
 
@@ -133,7 +134,7 @@ For more details, please refer to the following guides:
 [FaceList - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b),
 [FaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c).
 
-#### <a name="Find-Similar"></a>Find Similar
+#### Find Similar
 
 This API is used to search/query similar faces based on a collection of faces. Query faces and face collections are represented as [face IDs](#Face-ID) or [FceList ID](#FaceList-ID)/[LargeFaceList ID](#LargeFaceList-ID) in the request. Returned results are searched similar faces, represented by [face IDs](#Face-ID) or [PersistedFace IDs](#PersistedFace-ID).
 
@@ -144,21 +145,21 @@ For more details, please refer to the following guides:
 
 ## G
 
-#### <a name="Gender-Attribute"></a>Gender (Attribute)
+#### Gender (Attribute)
 
 Gender is one of the [attributes](#Attributes) used to describe the genders of the available faces. The gender attribute is optional in the [detection](#Detection-Face-Detection) results, and can be controlled with a [detection](#Detection-Face-Detection) request by returnFaceAttributes. If returnfaceAttributes contains 'gender', the returned faces will have gender attributes.
 
 For more details, please refer to the guide
 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### <a name="Grouping"></a>Grouping
+#### Grouping
 
 Face grouping is the grouping of a collection of faces according to facial similarities. Face collections are indicated by the face ID collections in the request. As a result of grouping, similar faces are grouped together as [groups](#Groups), and faces that are not similar to any other face are merged together as a messy group. There is at the most, one [messy group](#Messy-Group) in the grouping result.
 
 For more details, please refer to the guide
 [Face - Group](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-#### <a name="Groups"></a>Groups
+#### Groups
 
 Groups are derived from the [grouping](#Grouping) results. Each group contains a collection of similar faces, where faces are indicated by [face IDs](#Face-ID).
 
@@ -167,7 +168,7 @@ For more details, please refer to the guide
 
 ## H
 
-#### <a name="Head-Pose-Attribute"></a>Head Pose (Attribute)
+#### Head Pose (Attribute)
 
 Head pose is one of the [attributes](#Attributes) that represents face orientation in 3D space according to roll, pitch and yaw angles, as shown in following figure. The value ranges of roll and yaw are [-180, 180] and [-90, 90] in degrees. In the current version, the pitch value returned from detection is always 0. The head pose attribute is optional in the [detection](#Detection-Face-Detection) results, and can be controlled with a [detection](#Detection-Face-Detection) request by the returnFaceAttributes parameter. If returnFaceAttributes parameter contains 'headPose', the returned faces will have head pose attributes.
 
@@ -178,7 +179,7 @@ For more details, please refer to the guide
 
 ## I
 
-#### <a name="Identification"></a>Identification
+#### Identification
 
 Identification is to identify one or more faces from a LargePersonGroup/PersonGroup.
 A [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup) is a collection of [Persons](#Person).
@@ -200,7 +201,7 @@ For more details, please refer to the following guides:
 [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244),
 [PersonGroup - Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249).
 
-#### <a name="Is-Identical"></a>IsIdentical
+#### IsIdentical
 
 IsIdentical is a Boolean field of [verification](#Verification) results indicating whether two faces belong to the same person.
 
@@ -217,7 +218,7 @@ For more details, please refer to the guide
 
 Please see [face landmarks](#Face-Landmarks-Facial-Landmarks).
 
-#### <a name="LargeFaceList"></a>LargeFaceList
+#### LargeFaceList
 
 LargeFaceList is a collection of [PersistedFace](#PersistedFace) and is the unit of [Find Similar](#Find-Similar). A LargeFaceList comes with a [LargeFaceList ID](#LargeFaceList-ID), as well as other attributes such as [Name](#Name) and [User Data](#UserData-User-Data).
 
@@ -226,7 +227,7 @@ For more details, please refer to the following guides:
 [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce),
 [LargeFaceList - List Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158db4d2de3616c086f2d6).
 
-#### <a name="LargeFaceList-ID"></a>LargeFaceList ID
+#### LargeFaceList ID
 
 LargeFaceList ID is a user provided string used as an identifier of a [LargeFaceList](#LargeFaceList). The LargeFaceList ID must be unique within the subscription.
 
@@ -234,7 +235,7 @@ For more details, please refer to the following guides:
 [LargeFaceList - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc),
 [LargeFaceList - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a15827cd2de3616c086f2ce).
 
-#### <a name="LargePersonGroup"></a>LargePersonGroup
+#### LargePersonGroup
 
 LargePersonGroup is a collection of [Persons](#Person) and is the unit of [Identification](#Identification). A LargePersonGroup comes with a [LargePersonGroup ID](#LargePersonGroup-ID), as well as other attributes such as [Name](#Name) and [User Data](#UserData-User-Data).
 
@@ -243,7 +244,7 @@ For more details, please refer to the following guides:
 [LargePersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acebb6ac60f11b48b5a9e),
 [LargePersonGroup Person - List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adda06ac60f11b48b5aa1).
 
-#### <a name="LargePersonGroup-ID"></a>LargePersonGroup ID
+#### LargePersonGroup ID
 
 LargePersonGroup ID is a user provided string used as an identifier of a [LargePersonGroup](#LargePersonGroup). The LargePersonGroup ID must be unique within the subscription.
 
@@ -253,7 +254,7 @@ For more details, please refer to the following guides:
 
 ## M
 
-#### <a name="Messy-Group"></a>Messy group
+#### Messy group
 
 Messy group is derived from the [grouping](#Grouping) results; which contains faces not similar to any other face. Each face in a messy group is indicated by the [face ID](#Face-ID).
 
@@ -272,7 +273,7 @@ For more details, please refer to the following guides:
 [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c),
 [PersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
-#### <a name="Name"></a>Name (LargePersonGroup/PersonGroup)
+#### Name (LargePersonGroup/PersonGroup)
 
 Name is also a user friendly descriptive string for [LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup). Unlike the [LargePersonGroup ID](#LargePersonGroup-ID)/[PersonGroup ID](#PersonGroup-ID), the name of LargePersonGroups/PersonGroups can be duplicated within a subscription.
 
@@ -286,7 +287,7 @@ For more details, please refer to the following guides:
 
 ## P
 
-#### <a name="PersistedFace"></a>PersistedFace
+#### PersistedFace
 
 PersistedFace is a data structure in Face API. PersistedFace comes with a [PersistedFace ID](#PersistedFace-ID), as well as other attributes such as [Name](#Name), and [User Data](#UserData-User-Data).
 
@@ -296,7 +297,7 @@ For more details, please refer to the following guides:
 [LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42),
 [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-#### <a name="Person-ID"></a>Person ID
+#### Person ID
 
 Person ID is generated when a [PersistedFace](#PersistedFace) is created successfully. A string is created to represent this Face in [Face API](#Face-API).
 
@@ -306,7 +307,7 @@ For more details, please refer to the following guides:
 [LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42),
 [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-#### <a name="Person"></a>Person
+#### Person
 
 Person is a data structure managed in Face API. Person comes with a [Person ID](#Person-ID), as well as other attributes such as [Name](#Name), a collection of [PersistedFace](#PersistedFace), and [User Data](#UserData-User-Data).
 
@@ -316,7 +317,7 @@ For more details, please refer to the following guides:
 [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c),
 [PersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
-#### <a name="Person-ID"></a>Person ID
+#### Person ID
 
 Person ID is generated when a [Person](#Person) is created successfully. A string is created to represent this person in [Face API](#Face-API).
 
@@ -326,7 +327,7 @@ For more details, please refer to the following guides:
 [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c),
 [PersonGroup Person - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523f).
 
-#### <a name="PersonGroup"></a>PersonGroup
+#### PersonGroup
 
 PersonGroup is a collection of [Persons](#Person) and is the unit of [Identification](#Identification). A PersonGroup comes with a [PersonGroup ID](#PersonGroup-ID), as well as other attributes such as [Name](#Name) and [User Data](#UserData-User-Data).
 
@@ -335,7 +336,7 @@ For more details, please refer to the following guides:
 [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246),
 [PersonGroup Person - List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241).
 
-#### <a name="PersonGroup-ID"></a>PersonGroup ID
+#### PersonGroup ID
 
 PersonGroup ID is a user provided string used as an identifier of a [PersonGroup](#PersonGroup). The group ID must be unique within the subscription.
 
@@ -351,7 +352,7 @@ Please see [Head Pose](#Head-Pose-Attribute).
 
 ## R
 
-#### <a name="Recognition"></a>Recognition
+#### Recognition
 
 Recognition is a popular application area for face technologies, such as [Find Similar](#Find-Similar), [Grouping](#Grouping), [Identify](#Identification),[verifying two faces same or not](#Verification).
 
@@ -367,7 +368,7 @@ Please see [face rectangle](#Face-Rectangle).
 
 ## S
 
-#### <a name="Smile-Attribute"></a>Smile (Attribute)
+#### Smile (Attribute)
 
 Smile is one of the [attributes](#Attributes) used to describe the smile expression of the available faces. The smile attribute is optional in the [detection](#Detection-Face-Detection) results, and can be controlled with a [detection](#Detection-Face-Detection) request by returnFaceAttributes. If returnFaceAttributes contains 'smile', the returned faces will have smile attributes.
 
@@ -378,7 +379,7 @@ For more details, please refer to the guide
 
 Please see [Find Similar](#Find-Similar).
 
-#### <a name="Status-Train"></a>Status (Train)
+#### Status (Train)
 
 Status is a string used to describe the procedure for [Training LargeFaceList/LargePersonGroups/PersonGroups](#Train), including 'notstarted', 'running', 'succeeded', 'failed'.
 
@@ -393,7 +394,7 @@ Subscription key is a string that you need to specify as a query string paramete
 
 ## T
 
-#### <a name="Train"></a>Train (LargeFaceList/LargePersonGroup/PersonGroup)
+#### Train (LargeFaceList/LargePersonGroup/PersonGroup)
 
 This API is used to pre-process the [LargeFaceList](#LargeFaceList)/[LargePersonGroup](#LargePersonGroup)/[PersonGroup](#PersonGroup) to ensure the [Find Similar](#Find-Similar)/[Identification](#Identification) performance. If the training is not operated, or the [Training Status](#Status-Train) is not shown as succeeded, the identification for this PersonGroup will result in failure.
 
@@ -405,7 +406,7 @@ For more details, please refer to the following guides:
 
 ## U
 
-#### <a name="UserData-User-Data"></a>UserData/User Data
+#### UserData/User Data
 
 User data is extra information associated with [Person](#Person) and [PersonGroup](#PersonGroup)/[LargePersonGroup](#LargePersonGroup). User data is set by users to make data easier to use, understand and remember.
 
@@ -421,7 +422,7 @@ For more details, please refer to the following guides:
 
 ## V
 
-#### <a name="Verification"></a>Verification
+#### Verification
 
 This API is used to verify whether two faces are the same or not. Both faces are represented as face IDs in the request. Verified results contain a Boolean field ([isIdentical](#Is-Identical)) indicating same if true and a number field ([confidence](#Confidence)) indicating the level of confidence.
 

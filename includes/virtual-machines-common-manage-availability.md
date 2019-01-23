@@ -17,7 +17,7 @@ There are three scenarios that can lead to virtual machine in Azure being impact
 * **Unplanned Hardware Maintenance Event** occurs when the Azure platform predicts that the hardware or any platform component associated to a physical machine, is about to fail. When the platform predicts a failure, it will issue an unplanned hardware maintenance event to reduce the impact to the virtual machines hosted on that hardware. Azure uses Live Migration technology to migrate the Virtual Machines from the failing hardware to a healthy physical machine. Live Migration is a VM preserving operation that only pauses the Virtual Machine for a short time. Memory, open files, and network connections are maintained, but performance might be reduced before and/or after the event. In cases where Live Migration cannot be used, the VM will experience Unexpected Downtime, as described below.
 
 
-* **An Unexpected Downtime** rarely occurs when the hardware or the physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same datacenter. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved. 
+* **An Unexpected Downtime** is when the hardware or the physical infrastructure for the virtual machine fails unexpectedly. This can include local network failures, local disk failures, or other rack level failures. When detected, the Azure platform automatically migrates (heals) your virtual machine to a healthy physical machine in the same datacenter. During the healing procedure, virtual machines experience downtime (reboot) and in some cases loss of the temporary drive. The attached OS and data disks are always preserved. 
 
   Virtual machines can also experience downtime in the unlikely event of an outage or disaster that affects an entire datacenter, or even an entire region. For these scenarios, Azure provides protection options including  [availability zones](../articles/availability-zones/az-overview.md) and [paired regions](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
@@ -28,7 +28,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 
 * [Configure multiple virtual machines in an availability set for redundancy]
 * [Use managed disks for VMs in an availability set]
-* [Use Scheduled Events to proactively response to VM impacting events ] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Use scheduled events to proactively response to VM impacting events](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configure each application tier into separate availability sets]
 * [Combine a Load Balancer with availability sets]
 * [Use availability zones to protect from datacenter level failures]
@@ -63,6 +63,10 @@ If you plan to use VMs with [unmanaged disks](../articles/virtual-machines/windo
 2. **Review the [limits](../articles/storage/common/storage-scalability-targets.md) on the number of unmanaged disks in a Storage account** before adding more VHDs to a storage account
 3. **Use separate storage account for each VM in an Availability Set.** Do not share Storage accounts with multiple VMs in the same Availability Set. It is acceptable for VMs across different Availability Sets to share storage accounts if above best practices are followed
 ![Unmanaged disks FDs](./media/virtual-machines-common-manage-availability/umd-updated.png)
+
+## Use scheduled events to proactively respond to VM impacting events
+
+When you subscribe to [scheduled events](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), your VM is notified about upcoming maintenance events that can impact your VM. When scheduled events are enabled, your virtual machine is given a minimum amount of time before the maintenance activity is performed. For example, Host OS updates that might impact your VM are queued up as events that specify the impact, as well as a time at which the maintenance will be performed if no action is taken. Schedule events are also queued up when Azure detects imminent hardware failure that might impact your VM, which allows you to decide when the healing should be performed. Customers can use the event to perform tasks prior to the maintenance, such as saving state, failing over to the secondary, and so on. After you complete your logic for gracefully handling the maintenance event, you can approve the outstanding scheduled event to allow the platform to proceed with maintenance.
 
 ## Configure each application tier into separate availability sets
 If your virtual machines are all nearly identical and serve the same purpose for your application, we recommend that you configure an availability set for each tier of your application.  If you place two different tiers in the same availability set, all virtual machines in the same application tier can be rebooted at once. By configuring at least two virtual machines in an availability set for each tier, you guarantee that at least one virtual machine in each tier is available.

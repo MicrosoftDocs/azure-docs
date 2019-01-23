@@ -1,21 +1,20 @@
 ---
-title: Quickstart:Create a Basic Load Balancer - Azure PowerShell | Microsoft Docs
+title: 'Quickstart: Create a Basic Load Balancer - Azure PowerShell'
+titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a Basic Load Balancer using PowerShell
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-tags: azure-resource-manager
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
-ms:custom: mvc
+ms:custom: seodec18
 ---
 
 # <a name="get-started"></a>Quickstart: Create a public load balancer using Azure PowerShell
@@ -23,7 +22,7 @@ This quickstart shows you how to create Basic Load Balancer using Azure PowerShe
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 ## Create a resource group
 
@@ -41,7 +40,7 @@ To access your app on the Internet, you need a public IP address for the load ba
 $publicIP = New-AzureRmPublicIpAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
+  -AllocationMethod "Static" `
   -Name "myPublicIP"
 ```
 ## Create Basic Load Balancer
@@ -81,7 +80,7 @@ $probe = New-AzureRmLoadBalancerProbeConfig `
   ```
 
 ### Create a load balancer rule
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you also define the health probe to use.
+A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you also define the health probe to use.
 
 Create a load balancer rule with [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). The following example creates a load balancer rule named *myLoadBalancerRule* and balances traffic on *TCP* port *80*:
 
@@ -194,14 +193,14 @@ $rule2 = New-AzureRmNetworkSecurityRuleConfig `
 Create a network security group with [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
 
 ```azurepowershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup`
+$nsg = New-AzureRmNetworkSecurityGroup `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'myNetworkSecurityGroup'`
+-Name 'myNetworkSecurityGroup' `
 -SecurityRules $rule1,$rule2
 ```
 
-###Create NICs
+### Create NICs
 Create virtual NICs created with [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). The following example creates two virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
 
 ```azurepowershell-interactive
@@ -248,7 +247,7 @@ Set an administrator username and password for the VMs with [Get-Credential](htt
 $cred = Get-Credential
 ```
 
-Now you can create the VMs with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates two VMs and the required virtual network components if they do not already exist:
+Now you can create the VMs with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The following example creates two VMs and the required virtual network components if they do not already exist. During the VM creation below example, the previously created NICs are associated with the VMs since they are assigned the same virtual network (*myVnet*) and subnet (*mySubnet*):
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -273,7 +272,7 @@ The `-AsJob` parameter creates the VM as a background task, so the PowerShell pr
  
 Install IIS with a custom web page on both backend VMs as follows:
 
-1. Get the Public IP address of the Load Balancer. Using `Get-AzureRmPublicIPAdress`, obtain the Public IP address of the Load Balancer.
+1. Get the Public IP address of the Load Balancer. Using `Get-AzureRmPublicIPAddress`, obtain the Public IP address of the Load Balancer.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `
@@ -327,4 +326,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroupLB
 ```
 
 ## Next steps
-- [Learn more about Azure Load Balancer](load-balancer-overview.md)
+
+In this quickstart, you created a Basic Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer tutorials](tutorial-load-balancer-basic-internal-portal.md)

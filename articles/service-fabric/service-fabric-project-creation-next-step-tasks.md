@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
@@ -31,7 +31,7 @@ Or, try out one of the following walk-throughs and create your first...
 - [Guest executable service on Windows](quickstart-guest-app.md) 
 - [Windows container application](service-fabric-get-started-containers.md) 
 
-You may also be interested in trying out our [sample applications](http://aka.ms/servicefabricsamples).
+You may also be interested in trying out our [sample applications](https://aka.ms/servicefabricsamples).
 
 ## Have questions or feedback?  Need to report an issue?
 Read through [common questions](service-fabric-common-questions.md) and find answers on what Service Fabric can do and how it should be used.

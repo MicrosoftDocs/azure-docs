@@ -3,7 +3,7 @@ title: Create a SQL Server Windows VM in the portal | Microsoft Docs
 description: This tutorial shows how to create a Windows SQL Server 2017 virtual machine in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -11,8 +11,9 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/12/2017
-ms.author: jroth
+ms.date: 05/11/2018
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 
 # Quickstart: Create a SQL Server 2017 Windows virtual machine in the Azure portal
@@ -68,11 +69,9 @@ On the **Basics** window, provide the following information:
 
 ## Choose virtual machine size
 
-On the **Size** step, choose a virtual machine size in the **Choose a size** window. The window initially displays recommended machine sizes based on the image you selected. 
+1. On the **Size** step, choose a virtual machine size in the **Choose a size** window.
 
-1. Click **View all** to see all available machine sizes.
-
-1. For this quickstart, select **D2S_V3**. The portal shows the estimated monthly machine cost for continuous use (not including SQL Server licensing costs). Note that the Developer Edition has no extra licensing costs for SQL Server. For more specific pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+   For this quickstart, select **D2S_V3**. The portal shows the estimated monthly machine cost for continuous use (not including SQL Server licensing costs). Note that the Developer Edition has no extra licensing costs for SQL Server. For more specific pricing information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
    > [!TIP]
    > The **D2S_V3** machine size saves money while testing. But for production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
@@ -81,7 +80,14 @@ On the **Size** step, choose a virtual machine size in the **Choose a size** win
 
 ## Configure optional features
 
-On the **Settings** window, click **OK** to select the defaults.
+1. In the **Settings** window, select the **RDP (3389)** port in the **Select public inbound ports** list if you want to remote desktop into the VM.
+
+   ![Inbound ports](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
+
+   > [!NOTE]
+   > You can select the **MS SQL (1433)** port to access SQL Server remotely. However, this is not necessary, because the **SQL Server settings** step provides this option as well. If you do select port 1433 at this step, it will be opened irregardless of your selections in the **SQL Server settings** step.
+
+1. Click **OK** to save your changes and continue.
 
 ## SQL Server settings
 

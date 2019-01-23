@@ -1,27 +1,17 @@
 ---
-title: 'First look: Protect Azure VMs with a recovery services vault | Microsoft Docs'
-description: Protect Azure VMs with a recovery services vault. Use backups of Resource Manager-deployed VMs, Classic-deployed VMs and Premium Storage VMs, Encrypted VMs, VMs on Managed Disks to protect your data. Create and register a recovery services vault. Register VMs, create policy, and protect VMs in Azure.
+title: Back up Azure VMs with the Azure Backup service
+description: Learn how to back up Azure VMs with the Azure Backup service
 services: backup
-documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
-editor: ''
-keyword: backups; vm backup
-
-ms.assetid: 45e773d6-c91f-4501-8876-ae57db517cd1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/18/2018
-ms.author: markgal;jimpark
-ms.custom: H1Hack27Feb2017
-
+ms.topic: conceptual
+ms.date: 12/17/2018
+ms.author: raynew
 ---
-# Back up Azure virtual machines to Recovery Services vault
+# Back up Azure VMs with the Azure Backup service
 
-This article explains how to configuring protection for a virtual machine from Virtual machines operations menu, or the Recovery Services vault. Recovery Services vaults protect:
+This article explains how to configure protection for a virtual machine from Virtual machines operations menu, or the Recovery Services vault. Recovery Services vaults protect:
 
 * Azure Resource Manager-deployed VMs
 * Classic VMs
@@ -33,10 +23,12 @@ This article explains how to configuring protection for a virtual machine from V
 
 For more information on protecting Premium storage VMs, see the article, [Back up and Restore Premium Storage VMs](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup). For more information on support for managed disk VMs, see [Back up and restore VMs on managed disks](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). For more information on pre and post-script framework for Linux VM backup see [Application consistent Linux VM backup using pre-script and post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-To find out more about what you can and can't backup, see [Prepare your environment to back up Azure VMs](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+To find out more about what you can and can't backup, see [Prepare your environment to back up Azure VMs](backup-azure-arm-vms-prepare.md#before-you-start).
 
 > [!NOTE]
-> This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
+> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service.
+The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>`
+<br>Eg: AzureBackupRG_northeurope_1
 >
 >
 
@@ -95,11 +87,11 @@ Use the following steps to configure the backup job from the Virtual Machine ope
 
   Until the initial backup has completed, **Last backup status** shows as **Warning(Initial backup pending)**. To see when the next scheduled backup job occurs, under **Summary** click the name of the policy. The Backup Policy menu opens and shows the time of the scheduled backup.
 
-10. To protect the virtual machine, click **Backup now**. 
+10. To protect the virtual machine, click **Backup now**.
 
   ![click Backup now to run the initial backup](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  The Backup Now menu opens. 
+  The Backup Now menu opens.
 
   ![shows the Backup Now blade](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -184,7 +176,7 @@ To edit the storage replication setting:
   ![View the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. In the new vault's Management menu, use the vertical slide to scroll down to the Manage section, and click **Backup Infrastructure** to open the Backup Infrastructure menu.
- 
+
    ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. In the Backup Infrastructure menu, click **Backup Configuration** to open the **Backup Configuration** menu.
@@ -291,6 +283,11 @@ To run the initial backup job:
 
   Deployment notifications let you know the backup job has been triggered, and that you can monitor the progress of the job on the Backup jobs page. Depending on the size of your VM, creating the initial backup may take a while.
 
+  > [!NOTE]
+  > - All the data being backed up by Azure Backup is encrypted at rest through [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  >
+  >
+
 6. To view or track the status of the initial backup, on the vault dashboard, on the **Backup Jobs** tile click **In progress**.
 
   ![Backup Jobs tile](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
@@ -318,8 +315,8 @@ The following table provides additional information about the VM Agent for Windo
 
 | **Operation** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Installing the VM Agent |<li>Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation. <li>[Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |<li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You need Administrator privileges to complete the installation. <li> [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
-| Updating the VM Agent |Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. |Follow the instructions on [updating the Linux VM Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Ensure that no backup operation is running while the VM Agent is being updated. |
+| Installing the VM Agent |<li>Download and install the [agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation. <li>[Update the VM property](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |<li> Install the latest [Linux agent](https://github.com/Azure/WALinuxAgent) from GitHub. You need Administrator privileges to complete the installation. <li> [Update the VM property](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed. |
+| Updating the VM Agent |Updating the VM Agent is as simple as reinstalling the [VM Agent binaries](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Ensure that no backup operation is running while the VM agent is being updated. |Follow the instructions on [updating the Linux VM Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Ensure that no backup operation is running while the VM Agent is being updated. |
 | Validating the VM Agent installation |<li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. |N/A |
 
 ### Backup extension
@@ -332,7 +329,8 @@ If you have issues accomplishing some of the tasks in this article, consult the
 [Troubleshooting guidance](backup-azure-vms-troubleshoot.md).
 
 ## Pricing
-The cost of backing up Azure VMs is based on the number of protected instances. For a definition of a protected instance, see [What is a protected instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). For an example of calculating the cost of backing up a virtual machine, see [How are protected instances calculated](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). See the Azure Backup Pricing page for information about [Backup Pricing](https://azure.microsoft.com/pricing/details/backup/).
+The cost of backing up Azure VMs is based on the number of protected instances. For a definition of a protected instance, see [What is a protected instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). See the Azure Backup Pricing page for information about [Backup Pricing](https://azure.microsoft.com/pricing/details/backup/).
 
-## Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+## Next steps
+
+[Manage](backup-azure-manage-vms.md) your backups.

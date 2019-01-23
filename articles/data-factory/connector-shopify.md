@@ -1,5 +1,5 @@
 ---
-title: Copy data from Shopify using Azure Data Factory (Beta) | Microsoft Docs
+title: Copy data from Shopify using Azure Data Factory (Preview) | Microsoft Docs
 description: Learn how to copy data from Shopify to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -10,21 +10,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from Shopify using Azure Data Factory (Beta)
+# Copy data from Shopify using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Shopify. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> This connector is currently in Beta. You can try it out and give us feedback. Do not use it in production environments.
+> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 
@@ -34,7 +31,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Shopify connector.
 
@@ -73,7 +70,12 @@ The following properties are supported for Shopify linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Shopify dataset.
 
-To copy data from Shopify, set the type property of the dataset to **ShopifyObject**. There is no additional type-specific property in this type of dataset.
+To copy data from Shopify, set the type property of the dataset to **ShopifyObject**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **ShopifyObject** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -85,7 +87,8 @@ To copy data from Shopify, set the type property of the dataset to **ShopifyObje
         "linkedServiceName": {
             "referenceName": "<Shopify linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -94,14 +97,14 @@ To copy data from Shopify, set the type property of the dataset to **ShopifyObje
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Shopify source.
 
-### ShopifySource as source
+### Shopify as source
 
 To copy data from Shopify, set the source type in the copy activity to **ShopifySource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ShopifySource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 
