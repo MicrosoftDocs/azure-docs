@@ -35,6 +35,8 @@
     href: register-public-azure-ad-client-app.md
   - name: Register a service client application
     href: register-service-azure-ad-client-app.md
+  - name: Find identity object IDs
+    href: find-identity-object-ids.md
 - name: Resources
   items:
   - name: FAQ
