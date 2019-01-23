@@ -458,7 +458,7 @@ namespace EncodeLiveStreamWithAmsClear
         /// <param name="operationId">The operation Id.</param> 
         /// <param name="channel">
         /// If the operation succeeded, 
-        /// the entity Id associated with the sucessful operation is returned in the out parameter.</param>
+        /// the entity Id associated with the successful operation is returned in the out parameter.</param>
         /// <returns>Returns false if the operation is still in progress; otherwise, true.</returns> 
         private static bool IsCompleted(IOperation operation, out string entityId)
         {
