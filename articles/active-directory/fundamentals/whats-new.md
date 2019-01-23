@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -33,6 +33,117 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 This page is updated monthly, so revisit it regularly. If you're looking for items that are older than 6 months, you can find them in the [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 ---
+## January 2019
+
+### Azure AD Application Proxy cookie settings
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+
+We've introduced three new cookie settings, available for your apps that are published through Application Proxy:
+
+- **Use HTTP-Only cookie.** Sets the **HTTPOnly** flag on your Application Proxy access and session cookies. Turning this setting on provides additional security benefits, such as helping to prevent copying or modifying of cookies through client-side scripting. We recommend you turn this flag on (choose **Yes**) for the added benefits.
+
+- **Use secure cookie.** Sets the **Secure** flag on your Application Proxy access and session cookies. Turning this setting on provides additional security benefits, by making sure cookies are only transmitted over TLS secure channels, such as HTTPS. We recommend you turn this flag on (choose **Yes**) for the added benefits.
+
+- **Use persistent cookie.** Prevents access cookies from expiring when the web browser is closed. These cookies last for the lifetime of the access token. However, the cookies are reset if the expiration time is reached or if the user manually deletes the cookie. We recommend you keep the default setting **No**, only turning the setting on for older apps that don't share cookies between processes.
+
+For more information about the new cookies, see [Cookie settings for accessing on-premises applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
+
+---
+
+### Cloud Solution Providers can resell Azure AD B2C using Azure CSP subscriptions
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+We've added Azure AD B2C to the Azure Cloud Solution Providers (CSP) program, where CSPs (such as, system integrators) enjoy discounted CSP-targeted programs and incentives. This addition means CSPs can now invoice Azure Active Directory B2C and the other Azure Resources using Azure CSP subscriptions, allowing CSPs to invoice the full solution to their customers, under their own terms.
+
+CSP Subscription administrators can link, move, and delete Azure AD B2C relationships using the Azure AD B2C and Azure resources interfaces, such as API, CLI, or the Azure portal. Because management and role-based access control (RBAC) happens through tenant-based roles, not subscription-based roles, Azure AD B2C isn't affected by the association between the Azure AD B2C tenant and the Azure CSP subscription.
+
+For more information about the CSP program, see [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/).
+
+---
+
+### New Federated Apps available in Azure AD app gallery - January 2019
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+In January 2019, we've added these 35 new apps with Federation support to the app gallery:
+
+[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial), [Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial), [Talent Palette](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial), [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial), [Cisco Umbrella](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial), [Zscaler Internet Access Administrator](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial), [Expiration Reminder](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial), [InstaVR Viewer](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial), [CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial), [Verb](https://app.verb.net/login), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial), [OpenLattice](https://openlattice.com/agora), [TheOrgWiki](https://www.theorgwiki.com/signup), [Pavaso Digital Close](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial), [GoodPractice Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial), [Cloud Service PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial), [AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial), [iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial), [Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial), [CallPlease](https://webapp.callplease.com/create-account/create-account.html), [GTNexus SSO System](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial), [CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial), [Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial), [Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial), [Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial), [ARES for Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial), [K2 for Office 365](https://www.k2.com/O365), [Xledger](https://www.xledger.net/), [iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial), [HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial), [Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial), [Korn Ferry ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial), [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/caf%c3%a9xportal%28meetings%29-tutorial), [Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial), [Adoddle cSaas Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)        
+
+For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
+
+---
+
+### New enhancements added for Azure AD Identity Protection (Public preview)
+
+**Type:** Changed feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+We're excited to announce that we've added the following enhancements to the Azure AD Identity Protection public preview offering, including:
+
+- An updated and more integrated user interface
+
+- Additional APIs
+
+- Improved risk assessment through machine learning
+
+- Product-wide alignment across risky users and risky sign-ins
+
+For more information about the enhancements, see https://aka.ms/IdentityProtectionDocs to learn more and to share your thoughts through the in-product prompts.
+
+---
+
+[608091](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=608091&triage=true&fullScreen=false&_a=edit)
+
+### Enhanced export for Azure resource role membership
+
+**Type:** New feature  
+**Service category:** Privileged Identity Management  
+**Product capability:** Privileged Identity Management
+
+Privileged Identity Management (PIM) customers can now export their Active and Eligible members at the Resource scope-level, or choose to export the memberships for all child resources within the resource container. This is an enhancement from previous, where PIM customers had to go to each specific resource to export the Active and Eligible membership list to a CSV file.
+
+Why is this a good thing? Need for more info link.
+
+---
+
+[488533](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=488533&triage=true&fullScreen=false&_a=edit)
+
+### New App Lock feature for the Microsoft Authenticator app on iOS and Android devices
+
+**Type:** New feature  
+**Service category:** Microsoft Authenticator App  
+**Product capability:** Identity Security & Protection
+ 
+You can now require authentication each time the app is opened! Protect your codes, app information, and settings by enabling App Lock in the settings.
+
+For more information, see https://docs.microsoft.com/en-us/azure/active-directory/user-help/microsoft-authenticator-app-faq. There is nothing on this page that talks about App Lock. We need to send them somewhere with info about how to turn it on, how to use it, etc.
+
+---
+
+[9872](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=9872&triage=true&fullScreen=false&_a=edit)
+
+### Templates for Azure AD B2C consumer experience
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+
+We have released some new default templates that are currently available for V2 user flows.  These new templates are a huge improvement from our default experience and we are looking to make it default once we have gone through the release process.  Go ahead and try these out by going to page layouts and selecting a new one from the command bar.  
+
+Need for more information link
+
+---
+
 ## November/December 2018
 
 ### Users removed from synchronization scope no longer switch to cloud-only accounts
@@ -800,165 +911,5 @@ This is an opt-in public preview. Admins can turn on the new experience (if desi
 This feature lets non-admins verify their identity while resetting a password using a notification or code from Microsoft Authenticator (or any other authenticator app). After admins turn on this self-service password reset method, users who have registered a mobile app through aka.ms/mfasetup or aka.ms/setupsecurityinfo can use their mobile app as a verification method while resetting their password.
 
 Mobile app notification can only be turned on as part of a policy that requires two methods to reset your password.
-
----
-
-## June 2018
-
-### Change notice: Security fix to the delegated authorization flow for apps using Azure AD Activity Logs API
-
-**Type:** Plan for change  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
-
-Due to our stronger security enforcement, we’ve had to make a change to the permissions for apps that use a delegated authorization flow to access [Azure AD Activity Logs APIs](https://aka.ms/aadreportsapi). This change will occur by **June 26, 2018**.
-
-If any of your apps use Azure AD Activity Log APIs, follow these steps to ensure the app doesn’t break after the change happens.
-
-**To update your app permissions**
-
-1. Sign in to the Azure portal, select **Azure Active Directory**, and then select **App Registrations**.
-2. Select your app that uses the Azure AD Activity Logs API, select **Settings**, select **Required permissions**, and then select the **Windows Azure Active Directory** API.
-3. In the **Delegated permissions** area of the **Enable access** blade, select the box next to **Read directory** data, and then select **Save**.
-4. Select **Grant permissions**, and then select **Yes**.
-    
-    >[!Note]
-    >You must be a Global administrator to grant permissions to the app.
-
-For more information, see the [Grant permissions](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal#grant-permissions) area of the Prerequisites to access the Azure AD reporting API article.
-
----
-
-### Configure TLS settings to connect to Azure AD services for PCI DSS compliance
-
-**Type:** New feature  
-**Service category:** N/A  
-**Product capability:** Platform
-
-Transport Layer Security (TLS) is a protocol that provides privacy and data integrity between two communicating applications and is the most widely deployed security protocol used today.
-
-The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has determined that early versions of TLS and Secure Sockets Layer (SSL) must be disabled in favor of enabling new and more secure app protocols, with compliance starting on **June 30, 2018**. This change means that if you connect to Azure AD services and require PCI DSS-compliance, you must disable TLS 1.0. Multiple versions of TLS are available, but TLS 1.2 is the latest version available for Azure Active Directory Services. We highly recommend moving directly to TLS 1.2 for both client/server and browser/server combinations.
-
-Out-of-date browsers might not support newer TLS versions, such as TLS 1.2. To see which versions of TLS are supported by your browser, go to the [Qualys SSL Labs](https://www.ssllabs.com/) site and click **Test your browser**. We recommend you upgrade to the latest version of your web browser and preferably enable only TLS 1.2.
-
-**To enable TLS 1.2, by browser**
-
-- **Microsoft Edge and Internet Explorer (both are set using Internet Explorer)**
-
-    1. Open Internet Explorer, select **Tools** > **Internet Options** > **Advanced**.
-    2. In the **Security** area, select **use TLS 1.2**, and then select **OK**.
-    3. Close all browser windows and restart Internet Explorer. 
-
-- **Google Chrome**
-
-    1. Open Google Chrome, type *chrome://settings/* into the address bar, and press **Enter**.
-    2. Expand the **Advanced** options, go to the **System** area, and select **Open proxy settings**.
-    3. In the **Internet Properties** box, select the **Advanced** tab, go to the **Security** area, select **use TLS 1.2**, and then select **OK**.
-    4. Close all browser windows and restart Google Chrome.
-
-- **Mozilla Firefox**
-
-    1. Open Firefox, type *about:config* into the address bar, and then press **Enter**.
-    2. Search for the term, *TLS*, and then select the **security.tls.version.max** entry.
-    3. Set the value to **3** to force the browser to use up to version TLS 1.2, and then select **OK**.
-
-        >[!NOTE]
-        >Firefox version 60.0 supports TLS 1.3, so you can also set the security.tls.version.max value to **4**.
-
-    4. Close all browser windows and restart Mozilla Firefox.
-
----
-
-### New Federated Apps available in Azure AD app gallery - June 2018
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
- 
-In June 2018, we've added these 15 new apps with Federation support to the app gallery:
-
-[Skytap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skytap-tutorial), [Settling music](https://docs.microsoft.com/azure/active-directory/active-directory-saas-settlingmusic-tutorial), [SAML 1.1 Token enabled LOB App](https://docs.microsoft.com/azure/active-directory/active-directory-saas-saml-tutorial), [Supermood](https://docs.microsoft.com/azure/active-directory/active-directory-saas-supermood-tutorial), [Autotask](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [Endpoint Backup](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [Skyhigh Networks](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skyhighnetworks-tutorial), Smartway2, [TonicDM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tonicdm-tutorial), [Moconavi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-moconavi-tutorial), [Zoho One](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zohoone-tutorial), [SharePoint on-premises](https://docs.microsoft.com/azure/active-directory/active-directory-saas-sharepoint-on-premises-tutorial), [ForeSee CX Suite](https://docs.microsoft.com/azure/active-directory/active-directory-saas-foreseecxsuite-tutorial), [Vidyard](https://docs.microsoft.com/azure/active-directory/active-directory-saas-vidyard-tutorial), [ChronicX](https://docs.microsoft.com/azure/active-directory/active-directory-saas-chronicx-tutorial)
-
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing). 
-
----
-
-### Azure AD Password Protection is available in public preview
-
-**Type:** New feature  
-**Service category:** Identity Protection  
-**Product capability:** User Authentication
-
-Use Azure AD Password Protection to help eliminate easily guessed passwords from your environment. Eliminating these passwords helps to lower the risk of compromise from a password spray type of attack.
-
-Specifically, Azure AD Password Protection helps you:
-
-- Protect your organization's accounts in both Azure AD and Windows Server Active Directory (AD). 
-- Stops your users from using passwords on a list of more than 500 of the most commonly used passwords, and over 1 million character substitution variations of those passwords.
-- Administer Azure AD Password Protection from a single location in the Azure AD portal, for both Azure AD and on-premises Windows Server AD.
-
-For more information about Azure AD Password Protection, see [Eliminate bad passwords in your organization](https://aka.ms/aadpasswordprotectiondocs).
-
----
-
-### New "all guests" conditional access policy template created during Terms of Use (ToU) creation
-
-**Type:** New feature  
-**Service category:** Terms of Use  
-**Product capability:** Governance
-
-During the creation of your Terms of Use (ToU), a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
-
-For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
-
----
-
-### New "custom" conditional access policy template created during Terms of Use (ToU) creation
-
-**Type:** New feature  
-**Service category:** Terms of Use  
-**Product capability:** Governance
-
-During the creation of your Terms of Use (ToU), a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
-
-For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
-
----
-
-### New and comprehensive guidance about deploying Azure Multi-Factor Authentication
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Identity Security & Protection
- 
-We've released new step-by-step guidance about how to deploy Azure Multi-Factor Authentication (MFA) in your organization.
-
-To view the MFA deployment guide, go to the [Identity Deployment Guides](https://aka.ms/DeploymentPlans) repo on GitHub. To provide feedback about the deployment guides, use the [Deployment Plan Feedback form](https://aka.ms/deploymentplanfeedback). If you have any questions about the deployment guides, contact us at [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
-
----
-
-### Azure AD delegated app management roles are in public preview
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** Access Control
-
-Admins can now delegate app management tasks without assigning the Global Administrator role. The new roles and capabilities are:
-
-- **New standard Azure AD admin roles:**
-
-    - **Application Administrator.** Grants the ability to manage all aspects of all apps, including registration, SSO settings, app assignments and licensing, App proxy settings, and consent (except to Azure AD resources).
-
-    - **Cloud Application Administrator.** Grants all of the Application Administrator abilities, except for App proxy because it doesn't provide on-premises access.
-
-    - **Application Developer.** Grants the ability to create app registrations, even if the **allow users to register apps** option is turned off.
-
-- **Ownership (set up per-app registration and per-enterprise app, similar to the group ownership process:**
- 
-    - **App Registration Owner.** Grants the ability to manage all aspects of owned app registration, including the app manifest and adding additional owners.
-
-    - **Enterprise App Owner.** Grants the ability to manage many aspects of owned enterprise apps, including SSO settings, app assignments, and consent (except to Azure AD resources).
-
-For more information about public preview, see the [Azure AD delegated application management roles are in public preview!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. For more information about roles and permissions, see [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
 ---
