@@ -27,11 +27,10 @@ Locked** state. The following table can be used to determine the state of a reso
 
 |Mode|Artifact Resource Type|State|Description|
 |-|-|-|-|
-|Don't Lock|*|Not Locked|Resources are not protected by Blueprints.|
-|Read Only|Resource group|Cannot Edit / Delete|The resource group is read only, but changes can be made to non-locked resources within the resource group.|
+|Don't Lock|*|Not Locked|Resources aren't protected by Blueprints. This state is also used for resources added to a **Read Only** or **Do Not Delete** resource group artifact from outside a blueprint assignment.|
+|Read Only|Resource group|Cannot Edit / Delete|The resource group is read only. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
 |Read Only|Non-resource group|Read Only|The resource can't be altered in any way -- no changes and it can't be deleted.|
-|Do Not Delete|Resource group|Cannot Delete|The resource group can be altered, but can't be deleted. Changes can be made to non-locked resources within the resource group.|
-|Do Not Delete|Non-resource group|Cannot Delete|The resources can be altered, but can't be deleted.|
+|Do Not Delete|*|Cannot Delete|The resources can be altered, but can't be deleted. **Not Locked** resources can be added, moved, changed, or deleted from this resource group.|
 
 ## Overriding locking states
 
