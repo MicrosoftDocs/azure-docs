@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: iainfou
 ---
 
@@ -16,9 +16,12 @@ When you run modern, microservices-based applications in Kubernetes, you often w
 
 This article shows you how to use network policies to control the flow of traffic between pods in AKS.
 
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
 ## Before you begin
 
-You need the Azure CLI version 2.0.54 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.55 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Overview of network policy
 
@@ -63,11 +66,12 @@ Provide your own secure *SP_PASSWORD*. If desired, replace the *RESOURCE_GROUP_N
 
 ```azurecli-interactive
 SP_PASSWORD=mySecurePassword
-RESOURCE_GROUP_NAME=myResourceGroup
+RESOURCE_GROUP_NAME=myResourceGroup-NP
 CLUSTER_NAME=myAKSCluster
+LOCATION=canadaeast
 
 # Create a resource group
-az group create --name $RESOURCE_GROUP_NAME --location eastus
+az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
 
 # Create a virtual network and subnet
 az network vnet create \
@@ -77,7 +81,7 @@ az network vnet create \
     --subnet-name myAKSSubnet \
     --subnet-prefix 10.240.0.0/16
 
-# Create a service principal and read in the application ID and password
+# Create a service principal and read in the application ID
 read SP_ID <<< $(az ad sp create-for-rbac --password $SP_PASSWORD --skip-assignment --query [appId] -o tsv)
 
 # Wait 15 seconds to make sure that service principal has propagated
@@ -99,6 +103,8 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
+    --kubernetes-version 1.12.4 \
+    --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
