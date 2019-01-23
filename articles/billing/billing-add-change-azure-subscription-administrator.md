@@ -63,8 +63,7 @@ Only an [Owner](../role-based-access-control/built-in-roles.md#owner) can be add
 
 ### Adding a guest user as a Co-administrator
 
-[Guest users](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md
-) that have been assigned the Co-administrator role might see some differences as compared to member users with the Co-administrator role. Consider the following scenario:
+[Guest users](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) that have been assigned the Co-administrator role might see some differences as compared to member users with the Co-administrator role. Consider the following scenario:
 
 - User A with an Azure AD Work or School account is a Service administrator for an Azure subscription.
 - User B has a Microsoft account.
