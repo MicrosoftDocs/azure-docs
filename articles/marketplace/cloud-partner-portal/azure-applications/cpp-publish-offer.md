@@ -32,7 +32,7 @@ The following table lists and describes each publishing step, and provides a tim
 |  **Publishing Step**           | **Time**    | **Description**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validate prerequisites         | < 15 min    | Offer information and offer settings are validated.                        |
-| Validate influenced revenue settings | < 15 min  |      |
+| Validate influenced revenue settings | < 15 min  | Azure resource usage attribution for the offer is checked.             |
 | Certification                  | < 1 day     | Offer is analyzed by the Azure Certification Team. The offer is scanned for viruses, malware, safety compliance, and security issues. The offer is checked to see that it meets all the eligibility criteria. For more information, see [prerequisites](./cpp-prerequisites.md). Feedback is provided if an issue is found. |
 | Test Drive validation          | < 2 hours   | (Optional) If a Test Drive is present, Microsoft validates that it can be deployed and replicated.  |
 | Packaging and lead generation registration | < 1 hour  | Offer’s technical assets are packaged for customer use and the lead systems are configured and deployed. |

@@ -48,7 +48,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 The code in this article requires the Azure Machine Learning SDK version 1.0.2 or later.
 
-Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
+Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://docs.conda.io/en/latest/miniconda.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 ### Install Miniconda
 

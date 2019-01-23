@@ -5,7 +5,7 @@ description: Learn how to download and use a PowerShell script to access signin 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4afe0c73-aee8-47f1-a6cb-2d71fd6719d1
