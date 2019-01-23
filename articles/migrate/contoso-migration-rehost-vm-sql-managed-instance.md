@@ -427,7 +427,7 @@ To set up the source environment Contoso admins do the following:
 
 Now, Contoso admins configure the target replication environment:
 
-1. In **Prepare infrastructure** > **Target**, they selecs the target settings.
+1. In **Prepare infrastructure** > **Target**, they select the target settings.
 2. Site Recovery checks that there's a storage account and network in the specified target.
 
 ### Create a replication policy
@@ -468,7 +468,7 @@ Now, Contoso admins can start replicating WebVM.
 
     ![Enable replication - Select the VM](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. They check that the correct replication policy is selected, and enable replication for **WEBVM**. They tracs replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
+5. They check that the correct replication policy is selected, and enable replication for **WEBVM**. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 6. In **Essentials** in the Azure portal, they can see status for the VMs that are replicating to Azure:
 
     ![Infrastructure view](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
@@ -514,7 +514,7 @@ Contoso admins need to create a Database Migration Service project, and then mig
         ![Database Migration Service - Configure migration settings](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. They save the migration settings, and then run the migration.
-6. In **Overview**, they monitos the migration status.
+6. In **Overview**, they monitor the migration status.
 
     ![Database Migration Service - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
