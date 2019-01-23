@@ -18,14 +18,14 @@ ms.reviewer: mal
 
 # Use one-time passcodes to authenticate B2B guest users
 
-The one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Google federation, Azure AD, or a Microsoft Account. With the one-time passcode feature, when a guest user redeems their invitation or accesses the shared resource, they receive a temporary code via email that they enter while signing in.
+The one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Google federation, Azure AD, or Microsoft account (MSA). With the one-time passcode feature, the guest user receives a temporary code via email when they redeem an invitation or access a shared resource. Then they enter this code to continue signing in.
 
 This feature is currently available for preview (see [Opting in to the preview](#opting-in-to-the-preview) below). After preview, this feature will be turned on by default for all tenants.
 
 > [!NOTE]
 > One-time passcode users must sign in using a link that includes the tenant context, for example `https://myapps.microsoft.com/<tenant id>`. Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or the Teams common endpoint will result in an error. 
 
-## User experience for the invited B2B user using an email one-time passcode 
+## User experience for the invited B2B user using a one-time passcode 
 With one-time passcode authentication, the guest user can redeem your invitation by clicking a direct link or by using the invitation email. In either case, a message in the browser indicates that a code will be sent to the guest user's email address. The guest user selects **Send code**:
  
    ![Access Panels manage app](media/one-time-passcode/otp-send-code.png)
@@ -37,20 +37,20 @@ A passcode is sent to the user’s email address. The user retrieves the passcod
 The guest user is now authenticated, and they can see the shared resource or continue signing in. 
 
 > [!NOTE]
-> One-time passcodes are valid for 30 minutes. After 30 minutes, that specific one-time passcode is no longer valid for sign-in, and the user must request a new one. User sessions expire after 24 hours. After that time, the guest user receives a new passcode when they access the resource. Session expiration provides added security, especially after a guest user no longer needs access.
+> One-time passcodes are valid for 30 minutes. After 30 minutes, that specific one-time passcode is no longer valid, and the user must request a new one. User sessions expire after 24 hours. After that time, the guest user receives a new passcode when they access the resource. Session expiration provides added security, especially after a guest user no longer needs access.
 
 ## When does a guest user get a one-time passcode?
 
-When a guest user redeems an invitation or uses a link to a resource that has been shared with them, they’ll receive a one-time passcode if 
+When a guest user redeems an invitation or uses a link to a resource that has been shared with them, they’ll receive a one-time passcode if:
 - An Alternate ID (private preview feature) has not been set up for their account 
 - They do not have an Azure AD account 
-- They do not have a Microsoft Account (MSA) 
+- They do not have a Microsoft account 
 - The inviting tenant did not set up Google federation for @gmail.com and @googlemail.com users or direct federation (private preview feature) for the user’s domain name 
 
-At the time of invitation, there's no indication that the user you're inviting will get a one-time passcode. But when the guest user signs in, the one-time passcode will be the fallback method for authentication if other methods can't be used. 
+At the time of invitation, there's no indication that the user you're inviting will use one-time passcode authentication. But when the guest user signs in, one-time passcode authentication will be the fallback method if no other authentication methods can be used. 
 
 > [!NOTE]
-> When a user redeems a one-time passcode and later obtains a Microsoft-backed or federated account, they'll continue to be authenticated using a one-time passcode. If you want to update their authentication method, you can delete their guest user account and reinvite them.
+> When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update their authentication method, you can delete their guest user account and reinvite them.
 
 ### Examples
 - Guest user alexdoe@gmail.com is invited to Fabrikam, which does not have Google federation set up. Alex does not have a Microsoft account. He'll receive a one-time passcode for authentication.
@@ -60,7 +60,7 @@ At the time of invitation, there's no indication that the user you're inviting w
 It may take a few minutes for the opt-in action to take effect.
 
 ### To opt in using the Azure AD portal
-1.	Sign in to the Azure portal as an Azure AD global administrator.
+1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
 2.	In the navigation pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Organizational Relationships**.
 4.	Select **Settings**.
@@ -121,7 +121,7 @@ Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
 It may take a few minutes for the opt-out action to take effect. If you turn off the preview, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite the user to enable them to sign in again.
 
 ### To turn off preview using the Azure AD portal
-1.	Sign in to the Azure portal as an Azure AD global administrator.
+1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
 2.	In the navigation pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Organizational Relationships**.
 4.	Select **Settings**.
