@@ -127,7 +127,7 @@ The agentkeepalive module ensures that sockets are reused on your Azure webapp V
 
 Example [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuration:
 
-```nodejs
+```javascript
 var keepaliveAgent = new Agent({
     maxSockets: 40,
     maxFreeSockets: 10,
@@ -149,7 +149,7 @@ If you believe your application is consuming too much CPU and you cannot explain
 
 For example, let's say you have a hello world app that you want to profile as follows:
 
-```nodejs
+```javascript
 var http = require('http');
 function WriteConsoleLog() {
     for(var i=0;i<99999;++i) {
@@ -179,7 +179,7 @@ Run the command `npm install v8-profiler`.
 This command installs the v8-profiler under node\_modules directory and all of its dependencies.
 Now, edit your server.js to profile your application.
 
-```nodejs
+```javascript
 var http = require('http');
 var profiler = require('v8-profiler');
 var fs = require('fs');

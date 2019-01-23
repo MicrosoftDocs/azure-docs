@@ -48,7 +48,7 @@ To create and run the sample, do the following steps:
 1. Open a command prompt window.
 1. At the prompt, use the `node` command to run the file. For example, `node get-thumbnail.js`.
 
-```nodejs
+```javascript
 'use strict';
 
 const request = require('request');

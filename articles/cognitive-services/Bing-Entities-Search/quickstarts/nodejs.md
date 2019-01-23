@@ -31,7 +31,7 @@ To run this application, follow these steps.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let https = require ('https');

@@ -84,7 +84,7 @@ Copy and store the key to be used in the subsequent steps.
 ### Step 3: Create an Azure Batch service client
 Following code snippet first imports the azure-batch Node.js module and then creates a Batch Service client. You need to first create a SharedKeyCredentials object with the Batch account key copied from the previous step.
 
-```nodejs
+```javascript
 // Initializing Azure Batch variables
 
 var batch = require('azure-batch');
@@ -129,7 +129,7 @@ An Azure Batch pool consists of multiple VMs (also known as Batch Nodes). Azure 
 
 The following code snippet creates the configuration parameter objects.
 
-```nodejs
+```javascript
 // Creating Image reference configuration for Ubuntu Linux VM
 var imgRef = {publisher:"Canonical",offer:"UbuntuServer",sku:"14.04.2-LTS",version:"latest"}
 
@@ -152,7 +152,7 @@ Once the pool configuration is defined, you can create the Azure Batch pool. The
 
 The following code snippet creates an Azure Batch pool.
 
-```nodejs
+```javascript
 // Create a unique Azure Batch pool ID
 var poolid = "pool" + customerDetails.customerid;
 var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicatedComputeNodes:numVms,enableAutoScale:false };
@@ -164,7 +164,7 @@ var pool = batch_client.pool.add(poolConfig,function(error,result){
 
 You can check the status of the pool created and ensure that the state is in "active" before going ahead with submission of a Job to that pool.
 
-```nodejs
+```javascript
 var cloudPool = batch_client.pool.get(poolid,function(error,result,request,response){
         if(error == null)
         {
@@ -286,13 +286,13 @@ A preparation task is specified during the submission of Azure Batch job. Follow
 
 Following code snippet shows the preparation task script configuration sample:
 
-```nodejs
+```javascript
 var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles:[{'blobSource':'Blob SAS URI','filePath':'startup_prereq.sh'}],waitForSuccess:true,runElevated:true}
 ```
 
 If there are no prerequisites to be installed for your tasks to run, you can skip the preparation tasks. Following code creates a job with display name "process csv files."
 
- ```nodejs
+ ```javascript
  // Setting up Batch pool configuration
  var pool_config = {poolId:poolid}
  // Setting up Job configuration along with preparation task
@@ -318,7 +318,7 @@ If we look at the [Python script](https://github.com/shwetams/azure-batchclient-
 
 Assuming we have four containers "con1", "con2", "con3","con4" following code shows submitting for tasks to the Azure batch job "process csv" we created earlier.
 
-```nodejs
+```javascript
 // storing container names in an array
 var container_list = ["con1","con2","con3","con4"]
     container_list.forEach(function(val,index){           

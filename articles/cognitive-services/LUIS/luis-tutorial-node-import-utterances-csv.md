@@ -112,7 +112,7 @@ In order to use this application, you need to change the values in the index.js 
 Open the index.js file, and change these values at the top of the file.
 
 
-```nodejs
+```javascript
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";

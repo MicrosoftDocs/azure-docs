@@ -29,7 +29,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 3. Replace the `subscriptionKey` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let https = require ('https');

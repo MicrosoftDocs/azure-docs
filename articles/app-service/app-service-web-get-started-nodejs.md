@@ -146,7 +146,7 @@ The Node.js sample code is running in an Azure App Service web app.
 
 Using a text editor, open the `index.js` file in the Node.js app, and make a small change to the text in the call to `response.end`:
 
-```nodejs
+```javascript
 response.end("Hello Azure!");
 ```
 

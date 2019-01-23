@@ -38,7 +38,7 @@ The following code translates speech from one language to another.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 /* To install this dependency, run:
 npm install websocket
 */

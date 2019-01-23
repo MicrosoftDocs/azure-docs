@@ -124,7 +124,7 @@ The Node.js web API sample uses the Passport.js library to enable Azure AD B2C t
 1. Open the `index.js` file in the Node.js web API sample.
 2. Configure the sample with the Azure AD B2C tenant registration information. Change the following lines of code:
 
-```nodejs
+```javascript
 var tenantID = "<your-tenant-name>.onmicrosoft.com";
 var clientID = "<Application ID for your Node.js Web API>";
 var policyName = "B2C_1_SiUpIn";  // Sign-in / sign-up policy name

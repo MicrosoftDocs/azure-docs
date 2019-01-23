@@ -336,7 +336,7 @@ To validate that the DNS response returns a LUIS endpoint, request the Traffic M
 
 The following Node.js code makes a request for the parent profile and returns a LUIS endpoint:
 
-```nodejs
+```javascript
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {

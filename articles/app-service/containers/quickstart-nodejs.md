@@ -140,7 +140,7 @@ In the Cloud Shell, type `nano index.js` to open the nano text editor.
 
  Make a small change to the text in the call to `response.end`:
 
-```nodejs
+```javascript
 response.end("Hello Azure!");
 ```
 
