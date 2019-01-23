@@ -1,6 +1,6 @@
 ---
 title: Encode an asset with Media Encoder Standard using .NET | Microsoft Docs
-description: This article shows how to use .NET to encode an asset using Media Encoder Strandard.
+description: This article shows how to use .NET to encode an asset using Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
