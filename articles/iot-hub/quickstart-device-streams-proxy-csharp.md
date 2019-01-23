@@ -138,7 +138,7 @@ Navigate to `device-streams-proxy/device` in your unzipped project folder. You w
 | Argument name | Argument value |
 |----------------|-----------------|
 | `deviceConnectionString` | The connection string of the device you created earlier. |
-| `targetServiceHostName` | The IP address where SSH server (this would be `localhost` if the same IP where device-local proxy is running). |
+| `targetServiceHostName` | The IP address where SSH server listens on (this would be `localhost` if the same IP where device-local proxy is running). |
 | `targetServicePort` | The port used by your application protocol (by default, this would be port 22 for SSH).  |
 
 Compile and run the code as follows:
@@ -169,7 +169,7 @@ Console output on the service-side (the service-local proxy listens on port 2222
 
 ![Alt text](./media/quickstart-device-streams-proxy-csharp/service-console-output.png "Service-local proxy output")
 
-Console output on the device-local proxy which connects to the SSH daemon at IP_address:22:
+Console output on the device-local proxy which connects to the SSH daemon at `IP_address:22`:
 
 ![Alt text](./media/quickstart-device-streams-proxy-csharp/device-console-output.png "Device-local proxy output")
 
@@ -230,7 +230,7 @@ dotnet run $DeviceConnectionString localhost 3389
 dotnet run %DeviceConnectionString% localhost 3389
 ```
 
-Now use your RDP client program and connect to service-local proxy on port 2222 (this was an arbitrary available port you chose ealier).
+Now use your RDP client program and connect to service-local proxy on port 2222 (this was an arbitrary available port you chose earlier).
 
 ![Alt text](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.PNG "RDP connects to serivce-local proxy")
 

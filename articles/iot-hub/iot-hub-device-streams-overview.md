@@ -49,7 +49,7 @@ Programmatic creation of a device stream using the SDK involves the following st
 
 2. The service-side program initiates a device stream when needed by providing the device ID (_not_ the IP address).
 
-3. IoT hub notifies the device-side program by invoking the callback registered in step 1. The device may implement accept or reject the stream initiation request. This logic can be specific to your application scenario. If the stream request is rejected by the device, IoT Hub informs the service accordingly; otherwise, the steps below follow.
+3. IoT hub notifies the device-side program by invoking the callback registered in step 1. The device may accept or reject the stream initiation request. This logic can be specific to your application scenario. If the stream request is rejected by the device, IoT Hub informs the service accordingly; otherwise, the steps below follow.
 
 4. The device creates a secure outbound TCP connection to the streaming endpoint over port 443 and upgrades the connection to a WebSocket. The URL of the streaming endpoint as well as the credentials to use to authenticate are both provided to the device by IoT Hub as part of the request sent in step 3.
 
@@ -95,7 +95,7 @@ az iot hub show --name <YourIoTHubName>
 
 ## Troubleshoot via Device Streams Activity Logs
 
-You can setup Azure Log Analytics to collect the activity log of device streams in your IoT Hub. This can be very helpful in troubleshooting scenarios.
+You can set up Azure Log Analytics to collect the activity log of device streams in your IoT Hub. This can be very helpful in troubleshooting scenarios.
 
 Follow the steps below to configure Azure Log Analytics for your IoT Hub's device stream activities:
 
@@ -117,7 +117,7 @@ Follow the steps below to configure Azure Log Analytics for your IoT Hub's devic
 
 ## Regional Availability
 
-During public preview, IoT Hub device streams is available in the Central US and Central US EUAP regions. Please make sure you create your hub in one of these regions. 
+During public preview, IoT Hub device streams are available in the Central US and Central US EUAP regions. Please make sure you create your hub in one of these regions. 
 
 
 ## SDK Availability
