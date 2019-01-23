@@ -22,7 +22,41 @@ As you create and manage Azure Service Fabric clusters, you are providing networ
 
 Review Azure [Service Fabric Networking Patterns](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) to learn how to create clusters that use the following features: Existing virtual network or subnet, Static public IP address, Internal-only load balancer, or Internal and external load balancer.
 
-## Cluster networking
+## Infrastructure Networking
+Maximize your Virtual Machine’s performance with Accelerated Networking, by declaring enableAcceleratedNetworking to true in your Resource Manager template, setting your Virtual Machine Scale Set resource enableAcceleratedNetworking  networkInterfaceConfiguration property 
+```json
+"networkInterfaceConfigurations": [
+  {
+    "name": "[concat(variables('nicName'), '-0')]",
+    "properties": {
+      "enableAcceleratedNetworking": true,
+      "ipConfigurations": [
+        {
+        "name": "[concat(variables('nicName'),'-',0)]",
+        "properties": {
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "[variables('lbPoolID0')]"
+            }
+          ],
+          "loadBalancerInboundNatPools": [
+            {
+              "id": "[variables('lbNatPoolID0')]"
+            }
+          ],
+          "subnet": {
+            "id": "[variables('subnet0Ref')]"
+          }
+         }
+        }
+      ],
+      "primary": true
+    }
+  }
+]
+```
+
+## Cluster Networking
 
 * Service Fabric clusters can be deployed into an existing virtual network by following the steps outlined in [Service Fabric networking patterns](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
@@ -33,7 +67,7 @@ Review Azure [Service Fabric Networking Patterns](https://docs.microsoft.com/azu
 
 * Use a [static public IP address](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#static-public-ip-address-1) for your cluster.
 
-## Application networking
+## Application Networking
 
 * To run Windows container workloads, use [open networking mode](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) to make service-to-service communication easier.
 
