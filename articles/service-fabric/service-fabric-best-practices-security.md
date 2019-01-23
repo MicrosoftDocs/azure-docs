@@ -118,7 +118,7 @@ Generate a self-signed certificate for encrypting your secret:
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
 ```
 
-Use the instructions in [Deploy KeyVault certificates to Service Fabric cluster virtual machine scale sets](JTW - add link) to deploy Key Vault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets.
+Use the instructions in [Deploy Key Vault certificates to Service Fabric cluster virtual machine scale sets](#deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets) to deploy Key Vault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets.
 
 Encrypt your secret using the following PowerShell command, and then update your Service Fabric application manifest with the encrypted value:
 
@@ -135,7 +135,7 @@ user@linux:~$ openssl req -newkey rsa:2048 -nodes -keyout TestCert.prv -x509 -da
 user@linux:~$ cat TestCert.prv >> TestCert.pem
 ```
 
-Use the instructions in [Deploy KeyVault certificates to Service Fabric cluster virtual machine scale sets](JTW - add link) to your Service Fabric Cluster's Virtual Machine Scale Sets.
+Use the instructions in [Deploy Key Vault certificates to Service Fabric cluster virtual machine scale sets](#deploy-key-vault-certificates-to-service-fabric-cluster-virtual-machine-scale-sets) to your Service Fabric Cluster's Virtual Machine Scale Sets.
 
 Encrypt your secret using the following commands, and then update your Service Fabric Application Manifest with the encrypted value:
 
