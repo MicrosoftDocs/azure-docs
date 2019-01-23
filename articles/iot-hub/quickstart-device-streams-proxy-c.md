@@ -174,7 +174,6 @@ A device must be registered with your IoT hub before it can connect. In this sec
     # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     $ ./iothub_client_c2d_streaming_proxy_sample
 
-
     # In Windows
     # Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
@@ -189,7 +188,7 @@ As discussed [above](#how-it-works) establishing an end-to-end stream to tunnel 
 
 Assuming that both the device- and service-local proxies are running, now use your SSH client program and connect to service-local proxy on port 2222 (instead of the SSH daemon directly). 
 
-```azurecli-interactive
+```
 ssh <username>@localhost -p 2222
 ```
 
