@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ---
 
-# Azure Cosmos DB SQL language reference 
+# SQL language reference for Azure Cosmos DB 
 
 Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax, which is compatible with SQL API accounts. For a walkthrough of example SQL queries, see [SQL queries in Cosmos DB](how-to-sql-query.md).  
   

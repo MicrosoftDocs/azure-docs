@@ -8,7 +8,7 @@ ms.date: 10/17/2018
 ms.author: chrande
 ---
 
-# Manage consistency levels in Azure Cosmos DB
+# Configure consistency levels on an Azure Cosmos account
 
 This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 

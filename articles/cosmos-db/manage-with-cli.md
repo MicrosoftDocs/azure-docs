@@ -8,7 +8,7 @@ ms.date: 10/23/2018
 ms.author: mjbrown
 
 ---
-# Manage Azure Cosmos DB resources using Azure CLI
+# Manage Azure Cosmos DB resources with Azure CLI
 
 The following guide describes commands to automate management of your Azure Cosmos DB accounts, databases and containers using Azure CLI. It also includes commands to scale container throughput. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](https://docs.microsoft.com/cli/azure/cosmosdb). You can also find more examples in [Azure CLI samples for Azure Cosmos DB](cli-samples.md), including how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
 
