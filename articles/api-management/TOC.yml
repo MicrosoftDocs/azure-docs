@@ -217,6 +217,8 @@
         href: /rest/api/apimanagement/
       - name: REST (original)
         href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
+      - name: Resource Manager template
+        href: /azure/templates/microsoft.apimanagement/allversions
 - name: Resources
   items:
       - name: FAQ

@@ -403,7 +403,7 @@ The following shows the response to the previous request. The response contains 
 }
 ```
 
-To get a list of the merchants that offer the product online (see the [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer-offercount) field), call the API again and set `modules` to ShoppingSources. Then, set the `insightsToken` query parameter to the token found in the product summary image.  
+To get a list of the merchants that offer the product online (see the [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) field), call the API again and set `modules` to ShoppingSources. Then, set the `insightsToken` query parameter to the token found in the product summary image.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

@@ -188,7 +188,7 @@ The *-v* parameter in our `curl` command outputs verbose information, including 
 [...]
 ```
 
-Now add */hello-world-two* path to the address, such as *https://demo.azure.com/hello-world-two*. The second demo application with the custom title is returned, as shown in the following condensed example output:
+Now add */hello-world-two* path to the address, such as `https://demo.azure.com/hello-world-two`. The second demo application with the custom title is returned, as shown in the following condensed example output:
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two

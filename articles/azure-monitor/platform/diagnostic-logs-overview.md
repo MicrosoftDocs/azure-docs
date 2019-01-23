@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
+ms.subservice: logs
 ---
 # Collect and consume log data from your Azure resources
 
@@ -77,7 +77,7 @@ Collection of diagnostic logs can be enabled [as part of creating a resource in 
 
 You can enable collection of resource diagnostic logs in the Azure portal after a resource has been created either by going to a specific resource or by navigating to Azure Monitor. To enable this via Azure Monitor:
 
-1. In the [Azure portal](http://portal.azure.com), navigate to Azure Monitor and click on **Diagnostic Settings**
+1. In the [Azure portal](https://portal.azure.com), navigate to Azure Monitor and click on **Diagnostic Settings**
 
     ![Monitoring section of Azure Monitor](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 
@@ -228,5 +228,6 @@ Adding a diagnostic setting brings up the Diagnostic Settings view, where you ca
 ## Next steps
 
 * [Stream resource diagnostic logs to **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
-* [Change resource diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Change resource diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/)
 * [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+

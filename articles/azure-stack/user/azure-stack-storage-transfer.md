@@ -157,7 +157,7 @@ This sample assume you have successfully [Installed PowerShell for Azure Stack](
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
 $ARMEndPoint = "https://management.local.azurestack.external" 
-$GraphAudiance = "https://graph.windows.net/" 
+$GraphAudience = "https://graph.windows.net/" 
 $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
 
 $SubscriptionName = "basic" # Update with the name of your subscription.
@@ -166,7 +166,7 @@ $StorageAccountName = "azsblobcontainer" # Give a name to your new storage accou
 $Location = "Local" # Choose "Local" as an example.
 $ContainerName = "photo" # Give a name to your new container.
 $ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
-$DestinationFolder = "C:\temp\downlaod" # A destination directory in your local computer.
+$DestinationFolder = "C:\temp\download" # A destination directory in your local computer.
 
 # Import the Connect PowerShell module"
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
@@ -304,7 +304,7 @@ Microsoft Azure storage explorer is a standalone app from Microsoft. It allows y
 
 ## Blobfuse 
 
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual direcectory scheme with the use of forward-slash `/` as a delimiter. Blobfuse works on both Azure and Azure Stack. 
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash `/` as a delimiter. Blobfuse works on both Azure and Azure Stack. 
 
 To learn more about mounting Blob storage as a file system with Blobfuse on Linux, see [How to mount Blob storage as a file system with Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
 

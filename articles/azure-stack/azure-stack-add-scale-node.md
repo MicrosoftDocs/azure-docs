@@ -102,6 +102,7 @@ The status for scale unit and scale unit nodes can be retrieved using PowerShell
 
 ### Status for the add node operation 
 **For a scale unit:**
+
 |Status               |Description  |
 |---------------------|---------|
 |Running              |All nodes are actively participating in the scale unit.|
@@ -112,6 +113,7 @@ The status for scale unit and scale unit nodes can be retrieved using PowerShell
 
 
 **For a scale unit node:**
+
 |Status                |Description  |
 |----------------------|---------|
 |Running               |The node is actively participating in the scale unit.|

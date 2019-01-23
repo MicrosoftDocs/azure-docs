@@ -1,5 +1,5 @@
 ---
-title: Setting up self-service application access management in Azure Active Directory | Microsoft Docs
+title: Set up self-service group management in Azure AD | Microsoft Docs
 description: Create and manage security groups or Office 365 groups in Azure Active Directory and request security group or Office 365 group memberships
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.date: 09/11/2018
+ms.date: 01/14/2019
 ms.author: curtand
 
 ms.reviewer: krbain
@@ -19,9 +19,10 @@ ms.custom: it-pro
 
 ---
 # Set up Azure Active Directory for self-service group management
+
 Your users can create and manage their own security groups or Office 365 groups in Azure Active Directory (Azure AD). Users can also request security group or Office 365 group memberships, and then the owner of the group can approve or deny membership. Day-to-day control of group membership can be delegated to the people who understand the business context for that membership. Self-service group management features are available only for security groups and Office 365 groups, but not for mail-enabled security groups or distribution lists.
 
-Self-service group management currently services two essential scenarios: delegated group management and self-service group management.
+Self-service group management services two scenarios: 
 
 * **Delegated group management**
     An example is an administrator who is managing access to a SaaS application that the company is using. Managing these access rights is becoming cumbersome, so this administrator asks the business owner to create a new group. The administrator assigns access for the application to the new group, and adds to the group all people already accessing to the application. The business owner then can add more users, and those users are automatically provisioned to the application. The business owner doesn't need to wait for the administrator to manage access for users. If the administrator grants the same permission to a manager in a different business group, then that person can also manage access for their own users. Neither the business owner nor the manager can view or manage each other’s users. The administrator can still see all users who have access to the application and block access rights if needed.

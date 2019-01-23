@@ -322,7 +322,7 @@ Now that you have completed the initial setup and configuration, next you will w
      })
      .catch(err => {
        console.error(err);
-       console.error("Shutting down because there was an error settinig up the database.");
+       console.error("Shutting down because there was an error setting up the database.");
        process.exit(1);
      });
 

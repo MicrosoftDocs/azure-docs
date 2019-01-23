@@ -64,7 +64,7 @@ All of the Text Analytics API endpoints accept raw text data. The current limit 
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,000 characters as measured by `String.Length`. |
+| Maximum size of a single document | 5,000 characters as measured by [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 

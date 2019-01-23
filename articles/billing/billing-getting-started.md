@@ -85,7 +85,7 @@ After you get your services running, regularly check how much they're costing yo
 
     ![Screenshot of the cost analysis view in Azure portal](./media/billing-getting-started/cost-analysis.PNG)
 
-4. You can filter by different properties like [tags](#tags), resource group, and timespan. Click **Apply** to confirm the filters and **Download** if you want to export the view to a Comma-Separated Values (.csv) file.
+4. You can filter by different properties like [tags](#tags), resource type, resource group, and timespan. Click **Apply** to confirm the filters and **Download** if you want to export the view to a Comma-Separated Values (.csv) file.
 
 5. Additionally, you can click a resource to see your daily spend history and how much the resource costs each day.
 

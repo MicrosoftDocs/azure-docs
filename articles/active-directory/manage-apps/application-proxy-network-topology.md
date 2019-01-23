@@ -4,7 +4,7 @@ description: Covers network topology considerations when using Azure AD Applicat
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.component: app-mgmt

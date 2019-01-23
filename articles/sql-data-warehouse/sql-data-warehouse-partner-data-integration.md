@@ -77,7 +77,7 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 
 <!--[bryte_systems_marketplace]:https://azure.microsoft.com/marketplace/partners/bryte/bryteflow-cdc-free-trial/--> 
 
-[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/partners/informatica/informatica-cloud-services/
+[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.ics-byol
 
 <!--[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
 [informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/-->

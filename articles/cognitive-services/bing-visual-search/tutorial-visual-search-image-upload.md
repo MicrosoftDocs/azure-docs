@@ -624,7 +624,7 @@ The `addShopping()` function creates a link for any returned shopping results by
 
 ### Products insights
 
-The `addProducts()` function creates a link for any returned shopping results by iterating through the list of `Products` actions, and appending an `<img>` tag to the outside `<div>` for each.
+The `addProducts()` function creates a link for any returned products results by iterating through the list of `Products` actions, and appending an `<img>` tag to the outside `<div>` for each.
 
 ```javascript
 

@@ -16,7 +16,7 @@ ms.author: mbullwin
 ---
 # Smart Detection - Performance Anomalies
 
-[Application Insights](../../application-insights/app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
 
 This feature requires no special setup, other than configuring your app for Application Insights (on [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md), or [Node.js](../../azure-monitor/app/nodejs.md), and in [web page code](../../azure-monitor/app/javascript.md)). It is active when your app generates enough telemetry.
 
@@ -74,7 +74,7 @@ Emails about Smart Detections performance anomalies are limited to one email per
 
   * Not yet, but you can:
     * [Set up alerts](../../azure-monitor/app/alerts.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](../../application-insights/app-insights-export-power-bi.md), where you can analyze it yourself.
+    * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](../../azure-monitor/app/export-power-bi.md ), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
@@ -102,7 +102,7 @@ Where is the problem? Is the server slow to respond, is the page very long, or d
 
 Open the Browsers metric blade. The segmented display of browser page load time shows where the time is going. 
 
-* If **Send Request Time** is high, either the server is responding slowly, or the request is a post with a lot of data. Look at the [performance metrics](../../application-insights/app-insights-web-monitor-performance.md#metrics) to investigate response times.
+* If **Send Request Time** is high, either the server is responding slowly, or the request is a post with a lot of data. Look at the [performance metrics](../../azure-monitor/app/web-monitor-performance.md#metrics) to investigate response times.
 * Set up [dependency tracking](../../azure-monitor/app/asp-net-dependencies.md) to see whether the slowness is due to external services or your database.
 * If **Receiving Response** is predominant, your page and its dependent parts - JavaScript, CSS, images and so on (but not asynchronously loaded data) are long. Set up an [availability test](../../azure-monitor/app/monitor-web-app-availability.md), and be sure to set the option to load dependent parts. When you get some results, open the detail of a result and expand it to see the load times of different files.
 * High **Client Processing time** suggests scripts are running slowly. If the reason isn't obvious, consider adding some timing code and send the times in trackMetric calls.

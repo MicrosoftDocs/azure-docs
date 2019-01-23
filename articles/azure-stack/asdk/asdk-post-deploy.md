@@ -41,6 +41,19 @@ You can install the latest Azure Stack PowerShell module with or without Interne
 
 - **With an internet connection** from the ASDK host computer. Run the following PowerShell script to install these modules on your development kit installation:
 
+  - Azure Stack 1811 or later:
+
+    ``` PowerShell
+    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
+    Install-Module -Name AzureRm.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+
+    # Install Azure Stack Module Version 1.6.0.
+    Install-Module -Name AzureStack -RequiredVersion 1.6.0
+    ```
+
   - Azure Stack 1808 or later:
 
     ``` PowerShell
@@ -91,7 +104,7 @@ You can install the latest Azure Stack PowerShell module with or without Interne
   Save-Package `
     -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
   
-  # AzureStack requries 1.5.0 for version 1808, 1.4.0 for versions after 1803, and 1.2.11 for versions before 1803
+  # AzureStack requires 1.5.0 for version 1808, 1.4.0 for versions after 1803, and 1.2.11 for versions before 1803
   Save-Package `
     -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
   ```

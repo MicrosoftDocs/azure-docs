@@ -56,7 +56,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. There are two types of activities: [data movement activities](data-factory-data-movement-activities.md) and [data transformation activities](data-factory-data-transformation-activities.md). In this tutorial, you create a pipeline with one activity (Hive activity).
 
-The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section.
+The following section provides the complete Resource Manager template for defining Data Factory entities so that you can quickly run through the tutorial and test the template. To understand how each Data Factory entity is defined, see [Data Factory entities in the template](#data-factory-entities-in-the-template) section. To learn about the JSON syntax and properties for Data Factory resources in a template, see [Microsoft.DataFactory resource types](/azure/templates/microsoft.datafactory/allversions).
 
 ## Data Factory JSON template
 The top-level Resource Manager template for defining a data factory is: 

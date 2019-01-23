@@ -40,7 +40,7 @@ To complete the example in this tutorial, you must have an existing virtual mach
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the AzureRM module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+If you choose to install and use the PowerShell locally, this tutorial requires the AzureRM module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## Prepare VM
 

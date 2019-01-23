@@ -4,7 +4,7 @@ description: Introduction to using Terraform to vesion and deploy Azure infrastr
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, overview, plan, apply, automate
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

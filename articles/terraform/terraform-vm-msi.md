@@ -4,7 +4,7 @@ description: Use Marketplace image to create Terraform Linux virtual machine wit
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, virtual machine, remote state, azure
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

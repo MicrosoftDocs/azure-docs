@@ -1,6 +1,6 @@
 ---
 title: View all your billing accounts in Azure portal  | Microsoft Docs
-description: Learn how to view both your personal and Enteprise Agreement billing accounts in Azure portal.
+description: Learn how to view both your personal and Enterprise Agreement billing accounts in Azure portal.
 services: ''
 documentationcenter: ''
 author: amberbhargava

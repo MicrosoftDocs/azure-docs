@@ -1,14 +1,16 @@
 ---
-title: Define and use workflows in Azure Content Moderator | Microsoft Docs
-description: Learn how to create custom workflows based on your content policies.
+title: Define and use content moderation workflows - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: You can use the Azure Content Moderator workflow designer and APIs to define custom workflows and thresholds based on your content policies.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/07/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Define, test, and use workflows

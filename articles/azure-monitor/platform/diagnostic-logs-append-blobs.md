@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
-ms.component: logs
+ms.subservice: logs
 ---
 # Prepare for format change to Azure Monitor diagnostic logs archived to a storage account
 
@@ -131,3 +131,4 @@ Custom tools should be updated to handle both the current format and the JSON Li
 
 * Learn about [archiving resource diagnostic logs to a storage account](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Learn about [archiving activity log data to a storage account](./../../azure-monitor/platform/archive-activity-log.md)
+

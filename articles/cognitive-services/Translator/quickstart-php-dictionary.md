@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Find alternate translations, PHP - Translator Text API"
+title: "Look up words with bilingual dictionary, PHP - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with PHP.
 services: cognitive-services
@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf
 ---
-# Quickstart: Find alternate translations with the Translator Text REST API (PHP)
+# Quickstart: Look up words with bilingual dictionary using PHP
 
 In this quickstart, you find details of possible alternate translations for a term, and also usage examples of those alternate translations, using the Translator Text API.
 

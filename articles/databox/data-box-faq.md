@@ -1,13 +1,13 @@
 ---
 title: Microsoft Azure Data Box FAQ | Microsoft Docs in data 
-description: Contains frquently asked questions and answers for Azure Data Box, a cloud solution that enables you to transfer large amounts of data into Azure.
+description: Contains frequently asked questions and answers for Azure Data Box, a cloud solution that enables you to transfer large amounts of data into Azure.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/27/2018
+ms.date: 01/16/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -42,7 +42,7 @@ A. If you have 40 - 500 TB of data that you want to transfer to Azure, you would
 A. Data Box is available at a nominal charge for 10 days. When you select the product model while creating an order in the Azure portal, the charges for the device are displayed. Shipping is also free, however, the charges for Azure storage apply. For more information, go to [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/). 
 
 ### Q. What is the maximum amount of data I can transfer with Data Box in one instance?
-A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer upto 80 TB of data with Data Box. To transfer more data, you need to order more devices.
+A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer up to 80 TB of data with Data Box. To transfer more data, you need to order more devices.
 
 ### Q. How can I check if Data Box is available in my region? 
 A.  For information on which countries the Data Box is available, go to [region availability](data-box-overview.md#region-availability).  
@@ -110,6 +110,9 @@ A. If the system fault indicator LED is on, it indicates that your system is not
 ### Q. I can't access the Data Box unlock password in the Azure portal. Why would this be?
 A. If you are not able to access the unlock password in the Azure portal, check the permissions on your subscription and storage account. Ensure that you have contributor or owner permission at resource group level. If not, then you need to have at least Data Box Operator role permission to see the access credentials.
 
+### Q. Is port channel configuration supported on Data Box? How about MPIO?
+A. We do not support port channel configuration, Multipath IO (MPIO) configuration, or vLAN configuration on Data Box.
+
 ## Track status
 
 ### Q. How do I track the Data Box from when I placed the order to shipping the device back? 
@@ -124,7 +127,7 @@ A. You can go to your Data Box order in the Azure portal and go to **Overview**.
 ## Migrate data
 
 ### Q. What is the maximum data size that can be used with Data Box?  
-A.  Data Box has a usable storage capacity of 80 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 80 TB. For larger data sizes upto 500 TB, you can order multiple Data Box devices. For data sizes exceeding 500 TB, sign up for Data Box Heavy.  
+A.  Data Box has a usable storage capacity of 80 TB. You can use a single Data Box device for data that ranges in size from 40 TB - 80 TB. For larger data sizes up to 500 TB, you can order multiple Data Box devices. For data sizes exceeding 500 TB, sign up for Data Box Heavy.  
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box? 
 A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). 
@@ -184,7 +187,9 @@ For more information, go to [Data Box security features](data-box-security.md).
 
 ### Q. I have finished Prepare to Ship and shut down the device. Can I still add more data to Data Box?
 A. Yes. You can turn on the device and add more data. You will need to run **Prepare to Ship** again once you have completed data copy.
-  
+
+### Q. I received my device and it is not booting up? How do I ship the device back?
+A. If your device is not booting, go to your order in the Azure portal. Download a shipping label and affix that on the device. For more information, go to [Download shipping label](data-box-portal-admin.md#download-shipping-label).
 
 ## Verify and upload
 
@@ -218,17 +223,17 @@ A.  Azure Data Box service natively provides reports that you can use for your c
 ### What type of reporting is available to support chain of custody?
 A.  Following reporting is available to support chain of custody:
 
-- Transport logistics from DHL and UPS.
+- Transport logistics from UPS.
 - Logging of powering on and user share access.
 - Manifest file with a 64-bit cyclic redundancy check (CRC-64) or checksum for each file ingested successfully into the Data Box.
 - Reporting of files that failed to upload to Azure storage account.
 - Sanitization of the Data Box device (as per NIST 800 88R1 standards) after data is copied to your Azure storage account.
 
-### Are the carrier tracking logs ( from UPS/DHL) available? 
+### Are the carrier tracking logs (from UPS) available? 
 A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier’s website with the order tracking number and get the tracking information.
 
 ### Can I transport the Data Box to Azure datacenter? 
-A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS/DHL.
+A.  No. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS.
 
 
 ## Next steps
