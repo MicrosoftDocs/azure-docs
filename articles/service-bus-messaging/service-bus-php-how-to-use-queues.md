@@ -3,9 +3,9 @@ title: How to use Service Bus queues with PHP | Microsoft Docs
 description: Learn how to use Service Bus queues in Azure. Code samples written in PHP.
 services: service-bus-messaging
 documentationcenter: php
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 09/10/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # How to use Service Bus queues with PHP

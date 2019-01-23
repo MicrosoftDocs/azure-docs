@@ -3,9 +3,9 @@ title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft D
 description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide

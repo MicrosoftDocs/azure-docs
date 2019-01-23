@@ -17,7 +17,7 @@ ms.topic: article
 You can easily migrate your [Microsoft Translator Hub](https://hub.microsofttranslator.com/) workspace and projects to Custom Translator. Migration is initiated from Microsoft Hub by selecting a workspace or project, then selecting a workspace in Custom Translator, and then selecting the trainings you want to transfer.  After the migration starts, the selected training settings will be transferred with all relevant documents.  Deployed models are trained and can be autodeployed upon completion.
 
 These actions are performed during migration:
-* All documents and project definitions will have their names transferred with the addition of “hub_” prefixed to the name.  Auto-generated test and tuning data will be named hub_systemtune_<modelid> or hub_systemtest_<modelid>.  
+* All documents and project definitions will have their names transferred with the addition of “hub_” prefixed to the name.  Auto-generated test and tuning data will be named hub_systemtune_\<modelid> or hub_systemtest_\<modelid>.  
 * Any trainings that were in the deployed state when the migration takes place will automatically be trained using the documents of the Hub training.  This training will not be charged to your subscription.  If auto-deploy was selected for the migration, the trained model will be deployed upon completion. Regular hosting charges will be applied.  
 * Any migrated trainings that were not in the deployed state will be put into the migrated draft state.   In this state, you will have the option of training a model with the migrated definition, but regular training charges will apply.
 * At any point, the BLEU score migrated from the Hub training can be found in the TrainingDetails page of the model in the “Bleu score in MT Hub” heading.
@@ -36,7 +36,6 @@ To migrate [Microsoft Translator Hub](https://hub.microsofttranslator.com/) work
 You will find your destination Workspace ID on Custom Translator Settings page: 
 
 1.	Go to "Setting" page in the Custom Translator portal.
-
 2.	You will find the Workspace ID in the Basic Information section.
 
     ![How to find destination workspace ID](media/how-to/how-to-find-destination-ws-id.png)
