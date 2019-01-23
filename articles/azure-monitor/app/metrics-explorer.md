@@ -191,14 +191,6 @@ From a metric chart, you can click the Analytics icon to get directly to the equ
     If you want to set different filters on different charts, create them in different blades, save them as separate favorites. If you want, you can pin them to the dashboard so that you can see them alongside each other.
 * If you group a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing 'group by', or choose a different grouping property.
 * Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](../../azure-monitor/app/monitor-performance-live-website-now.md), and [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). It isn't available for Azure websites.
-## Troubleshooting
-*I don't see any data on my chart.*
-
-* Filters apply to all the charts on the blade. Make sure that, while you're focusing on one chart, you didn't set a filter that excludes all the data on another.
-
-    If you want to set different filters on different charts, create them in different blades, save them as separate favorites. If you want, you can pin them to the dashboard so that you can see them alongside each other.
-* If you group a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing 'group by', or choose a different grouping property.
-* Performance data (CPU, IO rate, and so on) is available for Java web services, Windows desktop apps, [IIS web apps and services if you install status monitor](../../azure-monitor/app/monitor-performance-live-website-now.md), and [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). It isn't available for Azure websites.
 
 ## Video
 
