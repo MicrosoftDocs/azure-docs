@@ -1,6 +1,6 @@
 ---
-title: Supported FHIR features in Azure - Microsoft Healthcare APIs 
-description: This article explains which features of the FHIR specification that are implemented in Microsoft Healthcare APIs
+title: Supported FHIR features in Azure - Azure API for FHIR 
+description: This article explains which features of the FHIR specification that are implemented in Azure API for FHIR
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # Features
 
-Microsoft Healthcare APIs provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR Server.
+Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR Server.
 
 ## FHIR version
 
@@ -111,7 +111,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Next steps
 
-In this article, you've read about the supported FHIR features in Microsoft Healthcare APIs. Next deploy an FHIR API in Azure.
+In this article, you've read about the supported FHIR features in Azure API for FHIR. Next deploy an FHIR API in Azure.
  
 >[!div class="nextstepaction"]
 >[Deploy Open Source FHIR server](fhir-oss-powershell-quickstart.md)

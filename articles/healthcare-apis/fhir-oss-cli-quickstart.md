@@ -1,5 +1,5 @@
 ---
-title: Deploy Open Source FHIR server Azure using Azure CLI - Microsoft Healthcare APIs
+title: Deploy Open Source FHIR server for Azure using Azure CLI
 description: This quickstart explains how to deploy the Open Source Microsoft FHIR server for Azure.
 services: healthcare-apis
 author: hansenms
@@ -11,7 +11,7 @@ ms.author: mihansen
 
 # Quickstart: Deploy Open Source FHIR server using Azure CLI
 
-In this quickstart, you'll learn how to deploy an Open Source FHIR server in Azure using the Azure CLI.
+In this quickstart, you'll learn how to deploy an Open Source FHIR&reg; server in Azure using the Azure CLI.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
