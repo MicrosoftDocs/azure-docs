@@ -29,7 +29,7 @@ You can get started quickly with one of the recommended built-in presets based o
 
 Starting with January 2019, when encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for dynamic packaging and streaming scenarios.
 
-> [!NoTE]
+> [!NOTE]
 > You should not modify or remove the MPI file, or take any dependency in your service on the existence (or not) of such a file.
 
 ## Built-in presets
