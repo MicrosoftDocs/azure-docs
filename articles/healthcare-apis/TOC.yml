@@ -5,7 +5,7 @@
   - name: About Azure API for FHIR
     href: overview.md
   - name: About Open Source FHIR Server for Azure
-    href: overviewOSS.md
+    href: overview-open-source-server.md
 - name: Quickstarts
   expanded: true
   items:
@@ -15,11 +15,11 @@
     href: fhir-paas-powershell-quickstart.md
   - name: Deploy Azure API for FHIR - CLI
     href: fhir-paas-cli-quickstart.md
-  - name: Deploy OSS FHIR server - Portal
+  - name: Deploy OSS FHIR Server - Portal
     href: fhir-oss-portal-quickstart.md
   - name: Deploy OSS FHIR Server - PowerShell
     href: fhir-oss-powershell-quickstart.md
-  - name: Deploy OSS FHIR server - CLI
+  - name: Deploy OSS FHIR Server - CLI
     href: fhir-oss-cli-quickstart.md
 - name: Tutorials
   expanded: false
