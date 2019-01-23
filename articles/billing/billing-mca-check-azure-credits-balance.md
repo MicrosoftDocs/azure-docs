@@ -21,7 +21,7 @@ ms.author: amberb
 
 You can check the Azure credit balance for your Billing profile in the Azure portal. Use credits to pay for products that are covered by the credits.
 
-You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits.](#products-that-aren't-covered-by-azure-credits)
+You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits.](#products-that-arent-covered-by-azure-credits)
 
 This article describes how to use Azure portal to check credit balance for your Billing profile.
 
