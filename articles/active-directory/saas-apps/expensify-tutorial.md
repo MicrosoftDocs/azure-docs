@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/21/2019
+ms.date: 01/23/2019
 ms.author: jeedes
 
 ---
@@ -98,10 +98,13 @@ To configure Azure AD single sign-on with Expensify, perform the following steps
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Expensify Domain and URLs single sign-on information](common/sp-intiated.png)
+    ![Expensify Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	In the **Sign on URL** text box, type a URL:
+	a. In the **Sign on URL** text box, type a URL:
     `https://www.expensify.com/authentication/saml/login`
+
+	b. In the **Identifier (Entity ID)** text box, type a URL:
+    `https://www.expensify.com`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
