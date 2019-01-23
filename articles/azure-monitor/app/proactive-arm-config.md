@@ -156,7 +156,7 @@ This section only applies to smart detection classic alerts and will help you op
 
 * We recommend the use of specific recipients for smart detection/classic alert notifications.
 
-* For smart detection alerts, the **bulk/group** check-box option if enabled, sends to users with owner, contributor, or reader roles in the subscription. So in effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+* For smart detection alerts, the **bulk/group** check-box option, if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
 
 > [!NOTE]
 > If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.

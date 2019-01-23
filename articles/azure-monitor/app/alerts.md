@@ -88,11 +88,11 @@ Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/p
 
 ## Who receives the (classic) alert notifications?
 
-This section only applies to classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md)and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). To control alert notification in the new alerts experience use [action groups](../platform/action-groups.md).
+This section only applies to classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md) and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). To control alert notification in the new alerts experience use [action groups](../platform/action-groups.md).
 
 * We recommend the use of specific recipients for classic alert notifications.
 
-* For alerts on any Application Insights metrics (including availability metrics), the **bulk/group** check-box option if enabled, sends to users with owner, contributor or reader roles in the subscription. So in effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+* For alerts on any Application Insights metrics (including availability metrics), the **bulk/group** check-box option, if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
 
 > [!NOTE]
 > If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.
