@@ -12,6 +12,7 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
+#Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
 
 # What are Microsoft Flow, Logic Apps, Functions, and WebJobs?
@@ -112,17 +113,17 @@ A flow can call a logic app. A logic app can call a function, and a function can
 
 The integration between Microsoft Flow, Logic Apps, and Functions continues to improve over time. You can build something in one service and use it in the other services.
 
+You can get more information on integration services by using the following links:
+
+* [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Logic Apps Live webcast](https://aka.ms/logicappslive)
+* [Microsoft Flow frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+
 ## Next steps
 
 Get started by creating your first flow, logic app, or function app. Select any of the following links:
 
 * [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Create your first Azure Function](functions-create-first-azure-function.md)
-
-Or, get more information on integration services by using the following links:
-
-* [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
-* [Logic Apps Live webcast](https://aka.ms/logicappslive)
-* [Microsoft Flow frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Create your first Azure function](functions-create-first-azure-function.md)
