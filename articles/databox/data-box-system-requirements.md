@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Azure Data Box system requirements
 
-This article describes the important system requirements for your Microsoft Azure Data Box and for the clients connecting to the Data Box. We recommend that you review the information carefully before you deploy your Data Box, and then refer back to it as necessary during the deployment and subsequent operation.
+This article describes the important system requirements for your Microsoft Azure Data Box and for the clients connecting to the Data Box. We recommend you review the information carefully before you deploy your Data Box, and then refer back to it as necessary during the deployment and subsequent operation.
 
 The system requirements include:
 
@@ -48,10 +48,10 @@ Here is a list of the supported storage accounts and the storage types for the D
 | **Storage account / Supported storage types** | **Block blob** |**Page blob** |**Azure Files** |**Notes**|
 | --- | --- | -- | -- | -- |
 | Classic Standard | Y | Y | Y |
-| General purpose v1 Standard  | Y | Y | Y | Both hot and cool are supported.|
-| General purpose v1 Premium  |  | Y| | Data should be 512 bytes aligned such as vhd/vhdx. |
-| General purpose v2 Standard  | Y | Y | Y | Both hot and cool are supported.|
-| General purpose v2 Premium  |  |Y | |Data should be 512 bytes aligned such as vhd/vhdx. |
+| General-purpose v1 Standard  | Y | Y | Y | Both hot and cool are supported.|
+| General-purpose v1 Premium  |  | Y| | Data should be 512 bytes aligned such as vhd/vhdx. |
+| General-purpose v2 Standard  | Y | Y | Y | Both hot and cool are supported.|
+| General-purpose v2 Premium  |  |Y | |Data should be 512 bytes aligned such as vhd/vhdx. |
 | Blob storage Standard |Y | | |Both hot and cool are supported. |
 
 >[!NOTE]
@@ -83,7 +83,7 @@ Here is a list of web browsers supported for the local web UI.
 
 ## Networking requirements
 
-Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used to copy data but the copy speeds are impacted.
+Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used to copy data but the copy speeds are impacted.
 
 ## Next step
 
