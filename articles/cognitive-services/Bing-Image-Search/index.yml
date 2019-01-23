@@ -48,15 +48,15 @@ sections:
     items:
       - image:
           src: media/index/logo_csharp.svg
-        href: quickstarts/csharp
+        href: image-search-sdk-quickstart
         text: "C&#35;"
       - image:
           src: media/index/logo_java.svg
-        href: quickstarts/java
+        href: image-sdk-java-quickstart
         text: "Java"
       - image:
           src: media/index/logo_nodejs.svg
-        href: quickstarts/nodejs
+        href: image-search-sdk-node-quickstart
         text: "Node.js"
       - image:
           src: media/index/logo_php.svg
@@ -64,7 +64,7 @@ sections:
         text: "PHP"
       - image:
           src: media/index/logo_python.svg
-        href: quickstarts/python
+        href: image-search-sdk-python-quickstart
         text: "Python"
       - image:
           src: media/index/logo_ruby.svg

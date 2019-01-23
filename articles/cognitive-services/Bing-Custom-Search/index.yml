@@ -47,7 +47,7 @@ sections:
     items:
       - image:
           src: media/logo_Csharp.svg
-        href: call-endpoint-csharp
+        href: sdk-csharp-quick-start
         text: "C&#35;"
       - image:
           src: media/logo_java.svg
