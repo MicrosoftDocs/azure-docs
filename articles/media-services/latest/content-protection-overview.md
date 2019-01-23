@@ -35,9 +35,9 @@ To successfully complete your "content protection" system/application design, yo
 
 1. Azure Media Services code
   
-  * License templates for PlayReady, Widevine and/or FairPlay. The templates let you configure rights and permissions for each of the used DRMs
-  * License delivery authorization, specifying the logic of authorization check based on claims in JWT
-  * Content keys, streaming protocols and corresponding DRMs applied, defining DRM encryption
+  * Configure license templates for PlayReady, Widevine and/or FairPlay. The templates let you configure rights and permissions for each of the used DRMs.
+  * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
+  * Configure DRM encryption by specifying content keys and streaming protocols that should be used.
 
   > [!NOTE]
   > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
