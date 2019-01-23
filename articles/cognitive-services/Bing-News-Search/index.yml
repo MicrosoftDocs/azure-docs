@@ -48,15 +48,15 @@ sections:
     items:
       - image:
           src: media/index/logo_csharp.svg
-        href: csharp
+        href: news-search-sdk-quickstart
         text: "C&#35;"
       - image:
           src: media/index/logo_java.svg
-        href: java
+        href: news-sdk-java-quickstart
         text: "Java"
       - image:
           src: media/index/logo_nodejs.svg
-        href: nodejs
+        href: news-search-sdk-node-quickstart
         text: "Node.js"
       - image:
           src: media/index/logo_php.svg
@@ -64,7 +64,7 @@ sections:
         text: "PHP"
       - image:
           src: media/index/logo_python.svg
-        href: python
+        href: news-search-sdk-python-quickstart
         text: "Python"
       - image:
           src: media/index/logo_ruby.svg
@@ -75,7 +75,7 @@ sections:
   - type: paragraph
     text: 'Develop applications using the Bing News Search API:'
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">Source code</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">Single-page web app</a>
 - title: Samples
   items:
   - type: paragraph
