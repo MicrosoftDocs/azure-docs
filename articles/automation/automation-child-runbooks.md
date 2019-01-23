@@ -3,7 +3,7 @@ title: Child runbooks in Azure Automation
 description: Describes the different methods for starting a runbook in Azure Automation from another runbook and sharing information between them.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/17/2019
@@ -116,3 +116,4 @@ The following table summarizes the differences between the two methods for calli
 
 * [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
 * [Runbook output and messages in Azure Automation](automation-runbook-output-and-messages.md)
+

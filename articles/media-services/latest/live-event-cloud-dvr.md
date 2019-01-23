@@ -34,8 +34,7 @@ A **LiveEvent** supports up to three concurrently running **LiveOutput**s so you
 > [!NOTE]
 > **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the asset. 
 >
-> If you have published **Streaming Locator**s on the asset for the **LiveOutput**, the event (up to the DVR window length) will continue to be viewable until the end time of the **Streaming Locator** or till when you delete the locator, whichever comes first.   
-  
+> If you have published the **LiveOutput** asset using a **StreamingLocator**, the **LiveEvent** (up to the DVR window length) will continue to be viewable until the **StreamingLocator**’s expiry or deletion, whichever comes first.
 
 ## Next steps
 

@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
@@ -33,7 +33,8 @@ Azure SQL Database Managed Instance can be deployed on two hardware generation (
 | Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, vCore=1 LP (hyper-thread) |
 | Compute | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memory | 7 GB per vCore | 5.1 GB per vCore |
-| Max storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
+| Max storage (General Purpose) |  8 TB | 1 TB |
+| Max storage (Business Critical) | 8 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 ### Service tier characteristics
 
@@ -47,8 +48,7 @@ Managed Instance has two service tiers - General Purpose and Business Critical. 
 | Max storage per database | Determined by the max storage size per instance | Determined by the max storage size per instance |
 | Max number of databases per instance | 100 | 100 |
 | Max database files per instance | Up to 280 | 32,767 files per database |
-| Data/Log IOPS (approximate) | 500-7500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
-| Instance Log throughput | 22MB/s per instance | 3MB/s per vCore<br/>Max 48MB/s |
+| Data/Log IOPS (approximate) | 500-7500 per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines ce Log throughput | 22MB/s per instance | 3MB/s per vCore<br/>Max 48MB/s |
 | Data throughput (approximate) | 100-250 MB/s per file<br/>\*[Depends on the file size](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48MB/s per vCore |
 | IO latency (approximate) | 5-10 ms | 1-2 ms |
 | Max tempDB size | 192-1920 GB (24 GB per vCore) | No constraints - limited by the max instance storage size |

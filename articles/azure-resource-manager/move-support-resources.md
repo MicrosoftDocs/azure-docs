@@ -10,7 +10,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 01/22/2018
 ms.author: tomfitz
 
 ---
@@ -367,6 +367,11 @@ After finding the resource provider and resource type, use the tables in this ar
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |
 | vaults | Yes | Yes |
+
+## Microsoft.Kusto
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
+| clusters | Yes | Yes |
 
 ## Microsoft.LabServices
 | Resource type | Resource group | Subscription |

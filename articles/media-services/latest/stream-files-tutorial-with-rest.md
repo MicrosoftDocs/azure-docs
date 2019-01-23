@@ -30,7 +30,7 @@ This tutorial shows you how to:
 > * Access the Media Services API
 > * Download Postman files
 > * Configure Postman
-> * Send reqests using Postman
+> * Send requests using Postman
 > * Test the streaming URL
 > * Clean up resources
 

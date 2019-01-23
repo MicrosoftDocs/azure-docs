@@ -12,6 +12,7 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
 ---
+
 # Deploy Azure Machine Learning Studio Workspace Using Azure Resource Manager
 
 Using an Azure Resource Manager deployment template saves you time by giving you a scalable way to deploy interconnected components with a validation and retry mechanism. To set up Azure Machine Learning Workspaces, for example, you need to first configure an Azure storage account and then deploy your workspace. Imagine doing this manually for hundreds of workspaces. An easier alternative is to use an Azure Resource Manager template to deploy an Azure Machine Learning Workspace and all its dependencies. This article takes you through this process step-by-step. For a great overview of Azure Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
@@ -134,7 +135,7 @@ After the workspace is provisioned, you can also automate many Azure Machine Lea
 * Learn more about [authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md). 
 * Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates). 
 * Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
-
+* See the [Resource Manager template reference help](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
 <!--Image references-->
 [1]: ./media/deploy-with-resource-manager-template/azuresubscription.png
 [2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
