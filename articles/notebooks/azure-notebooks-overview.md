@@ -20,7 +20,7 @@ ms.author: kraigb
 
 Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. [Jupyter](https://jupyter.org/) (formerly IPython) is an open-source project that lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations onto a single, sharable canvas, the *notebook* (image courtesy of jupyter.org):
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Jupyter notebooks")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Examples of Jupyter notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Because of this powerful combination of code, graphics, and explanatory text, Jupyter has become popular for many uses including data science instruction, data cleaning and transformation, numerical simulation, statistical modeling, and the development of machine learning models.
 
