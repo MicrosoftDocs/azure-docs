@@ -53,7 +53,7 @@ Some key capabilities of Ultra SSD are:
 |512     |80,000         |2,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2,000         |
 
-### Ultra SSD preview scope and limitations
+### Preview scope and limitations
 
 During preview, ultra SSD Disks:
 
