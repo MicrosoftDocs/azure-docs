@@ -102,7 +102,7 @@ Some other things that you might want to specify when creating the live event ar
 
 * When creating the event, you can specify to auto start it. 
 
-    When autostart is set to true, the Live Event will be started after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing.
+    When autostart is set to true, the Live Event will be started after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
