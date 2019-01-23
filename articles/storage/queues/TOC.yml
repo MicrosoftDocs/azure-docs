@@ -98,7 +98,7 @@
     - name: Azure Automation
       href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Initiate a forced failover
-      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      href: ../common/storage-forced-failover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Secure
     items:
     - name: Security guide
