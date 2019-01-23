@@ -8,7 +8,7 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
-manager: mtillman
+manager: daveba
 ---
 
 # Services that support managed identities for Azure resources

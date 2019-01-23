@@ -12,9 +12,9 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/18/2019
 ms.author: barclayn
-
+#Customer intent: As an Azure Key Vault administrator I want to enable logging and see what information is logged by Key Vault
 ---
 # Azure Key Vault Logging
 

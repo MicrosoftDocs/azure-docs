@@ -3,9 +3,9 @@ title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft D
 description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
@@ -223,14 +223,14 @@ Any property that application needs to defines should be mapped to AMQP's `appli
 | to |Application-defined destination identifier, not interpreted by Service Bus. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
 | subject |Application-defined message purpose identifier, not interpreted by Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | reply-to |Application-defined reply-path indicator, not interpreted by Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
+| correlation-id |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Application-defined content-type indicator for the body, not interpreted by Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
 | content-encoding |Application-defined content-encoding indicator for the body, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
 | absolute-expiry-time |Declares at which absolute instant the message expires. Ignored on input (header TTL is observed), authoritative on output. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |Declares at which time the message was created. Not used by Service Bus |Not accessible through the Service Bus API. |
 | group-id |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Counter identifying the relative sequence number of the message inside a session. Ignored by Service Bus. |Not accessible through the Service Bus API. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### Message annotations
 

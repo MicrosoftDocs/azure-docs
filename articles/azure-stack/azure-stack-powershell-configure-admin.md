@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -25,7 +25,7 @@ You can configure the Azure Stack to use PowerShell to manage resources such as 
 
 ## Prerequisites
 
-Run the following prerequisites either from the [development kit](./asdk/asdk-connect.md#connect-with-rdp) or from a Windows-based external client if you are [connected to the ASDK through VPN](./asdk/asdk-connect.md#connect-with-vpn). 
+Run the following prerequisites either from the [development kit](./asdk/asdk-connect.md#connect-with-rdp) or from a Windows-based external client if you're [connected to the ASDK through VPN](./asdk/asdk-connect.md#connect-with-vpn). 
 
  - Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
  - Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
@@ -63,15 +63,13 @@ Connect to the Azure Stack operator environment with PowerShell with Azure Activ
 
   # Sign in to your environment
 
-  $cred = get-credential
-
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
-    -TenantId $tenantId `
-    -Credential $cred
+    -TenantId $tenantId
   ```
 
-
+> [!Note]  
+> AD FS only supports interactive authentication with user identities. If a credential object is required you must use a service principal (SPN). For more information on setting up a service principal with Azure Stack and AS FS as your identity management service, see [Manage service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## Test the connectivity
 

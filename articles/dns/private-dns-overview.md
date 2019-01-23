@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
 ---
 
@@ -56,12 +56,12 @@ Azure DNS provides the following capabilities:
 
 ## Limitations
 
-Azure DNS has following limitations:
+Azure DNS has the following limitations:
 
 * Only one registration virtual network is allowed per private zone.
-* Up to 10 resolution virtual networks are allowed per private zone.
+* Up to 10 resolution virtual networks are allowed per private zone. This limit will be removed when this feature is generally available.
 * A specific virtual network can be linked to only one private zone as a registration virtual network.
-* A specific virtual network can be linked to up to 10 private zones as a resolution virtual network.
+* A specific virtual network can be linked to up to 10 private zones as a resolution virtual network. This limit will be removed when this feature is generally available.
 * If you specify a registration virtual network, the DNS records for the VMs from that virtual network that are registered to the private zone are not viewable or retrievable from the Azure Powershell and Azure CLI APIs. The VM records are indeed registered and will resolve successfully.
 * Reverse DNS works only for private IP space in the registration virtual network.
 * Reverse DNS for a private IP that isn't registered in the private zone (for example, a private IP for a virtual machine in a virtual network that is linked as a resolution virtual network to a private zone) returns *internal.cloudapp.net* as the DNS suffix. However, this suffix isn't resolvable.

@@ -4,7 +4,7 @@ description: Discusses problem areas that provide guidance to troubleshoot issue
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

@@ -24,7 +24,7 @@ This article describes how to use Azure PowerShell to find VM images in the Azur
 
 You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, the [Azure portal](https://portal.azure.com), or the [Azure CLI](../linux/cli-ps-findimage.md). 
 
-Make sure that you've installed and configured the latest [Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+Make sure that you've installed and configured the latest [Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 

@@ -3,7 +3,7 @@ title: Tutorial - Enable a web application to authenticate with accounts using A
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for an ASP.NET web application.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.author: davidmu
 ms.date: 11/30/2018

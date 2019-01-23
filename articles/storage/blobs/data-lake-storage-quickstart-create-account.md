@@ -203,7 +203,7 @@ az group create `
 
 ### Create a general-purpose v2 storage account
 
-To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account create `
