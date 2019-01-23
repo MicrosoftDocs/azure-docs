@@ -27,7 +27,7 @@ This article provides a list of Microsoft 365 workloads accompanied by links to 
 
 Microsoft 365 workload | Role content | API content
 ---------------------- | ------------------ | -----------------
-Admin roles in Office 365 and Microsoft 365 Business plans | [Security permissions](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | 
+Admin roles in Office 365 and Microsoft 365 Business plans | [Security permissions](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Not available
 Azure AD | [Azure Active Directory (Azure AD) admin roles](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Fetch role assignments](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Azure Advanced Threat Protection | [Azure ATP role groups](https://docs.microsoft.com/azure-advanced-threat-protection/atp-role-groups) | Not available
 Azure Information Protection | See [Azure AD admin roles](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Fetch role assignments](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
