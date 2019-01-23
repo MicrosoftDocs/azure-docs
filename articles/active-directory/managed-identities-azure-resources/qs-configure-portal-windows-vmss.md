@@ -3,7 +3,7 @@ title: How to configure managed Identities for Azure resources on a virtual mach
 description: Step by step instructions for configuring managed identities for Azure resources on a virtual machine scale set using the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: daveba
+ms.author: priyamohanram
 ---
 
 # Configure managed identities for Azure resources on a virtual machine scale set using the Azure portal

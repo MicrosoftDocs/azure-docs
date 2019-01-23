@@ -3,7 +3,7 @@ title: How to configure managed identities for Azure resources on an Azure VM us
 description: Step by step instructions for configuring managed identities for Azure resources on an Azure VM using PowerShell.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
-ms.author: daveba
+ms.author: priyamohanram
 ---
 
 # Configure managed identities for Azure resources on an Azure VM using PowerShell

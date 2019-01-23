@@ -3,7 +3,7 @@ title: How to view the service principal of a managed identity using Azure CLI
 description: Step-by-step instructions for viewing the service principal of a managed identity using Azure CLI.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
-ms.author: daveba
+ms.author: priyamohanram
 ---
 
 # View the service principal of a managed identity using Azure CLI

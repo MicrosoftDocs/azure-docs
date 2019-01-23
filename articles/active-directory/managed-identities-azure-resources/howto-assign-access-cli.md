@@ -3,7 +3,7 @@ title: How to assign a managed identity access to an Azure resource using Azure 
 description: Step by step instructions for assigning a managed identity on one resource, access to another resource, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: daveba
+ms.author: priyamohanram
 ---
 
 # Assign a managed identity access to a resource using Azure CLI
