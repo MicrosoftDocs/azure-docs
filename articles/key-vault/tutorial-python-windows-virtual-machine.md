@@ -1,6 +1,6 @@
 ---
-title: Tutorial - How to use Azure Key Vault with Azure Windows Virtual Machine in Python | Microsoft Docs
-description: Tutorial Configure an ASP.NET core application to read a secret from Key vault
+title: Tutorial - Use Azure Key Vault with a Windows virtual machine in Python | Microsoft Docs
+description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
 documentationcenter: 
 author: prashanthyv
@@ -15,40 +15,43 @@ ms.author: pryerram
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
-# Tutorial: How to use Azure Key Vault with Azure Windows Virtual Machine in Python
 
-Azure Key Vault helps you to protect secrets such as API Keys, Database Connection strings needed to access your applications, services, and IT resources.
+# Tutorial: Use Azure Key Vault with a Windows virtual machine in Python
 
-In this tutorial, you follow the necessary steps for getting an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. In the following you learn how to:
+Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
+
+This tutorial shows you how to get a console application to read information from Azure Key Vault. To do so, you use managed identities for Azure resources. 
+
+The tutorial shows you how to:
 
 > [!div class="checklist"]
 > * Create a key vault.
-> * Store a secret in the key vault.
+> * Add a secret to the key vault.
 > * Retrieve a secret from the key vault.
-> * Create an Azure Virtual Machine.
+> * Create an Azure virtual machine.
 > * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the Virtual Machine.
 > * Grant the required permissions for the console application to read data from the key vault.
-> * Retrieve secrets from Key Vault
 
-Before we go any further, please read the [basic concepts](key-vault-whatis.md#basic-concepts).
+Before you begin:
+* Read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
+* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 ## Prerequisites
-* All platforms:
-  * Git ([download](https://git-scm.com/downloads)).
-  * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. This is available for Windows, Mac, and Linux.
+On all platforms:
+* [Git](https://git-scm.com/downloads)
+* This tutorial requires that you run the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later locally. It's available for Windows, Mac, and Linux.
 
-This tutorial makes use of Managed Service Identity
+This tutorial makes use of Managed Service Identity (MSI).
 
-## What is Managed Service Identity and how does it work?
-Before we go any further let's understand MSI. Azure Key Vault can store credentials securely so they aren’t in your code, but to retrieve them you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential! A classic bootstrap problem. Through the magic of Azure and Azure AD, MSI provides a “bootstrap identity” that makes it much simpler to get things started.
+## About Managed Service Identity
 
-Here’s how it works! When you enable MSI for an Azure service such as Virtual Machines, App Service, or Functions, Azure creates a [Service Principal](key-vault-whatis.md#basic-concepts) for the instance of the service in Azure Active Directory, and injects the credentials for the Service Principal into the instance of the service. 
+Before you go any further, it will help to understand MSI. Azure Key Vault can store credentials securely so that they aren’t displayed in your code. To retrieve them, you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Through the magic of Azure and Azure Active Directory (Azure AD), MSI provides a *bootstrap identity* that makes it much simpler to get things started.
+
+Here’s how it works: When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](key-vault-whatis.md#basic-concepts) for the instance of the service in Azure AD. MSI injects the service principal credentials into the instance of the service. 
 
 ![MSI](media/MSI.png)
 
-Next, Your code calls a local metadata service available on the Azure resource to get an access token.
-Your code uses the access token it gets from the local MSI_ENDPOINT to authenticate to an Azure Key Vault service. 
+Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. To authenticate to an Azure Key Vault service, your code uses the access token that it gets from the local MSI_ENDPOINT. 
 
 ## Log in to Azure
 
@@ -60,90 +63,92 @@ az login
 
 ## Create a resource group
 
-Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Select a resource group name and fill in the placeholder.
-The following example creates a resource group in the West US location:
+1. Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. 
+1. Select a resource group name and fill in the placeholder. The following example creates a resource group in the West US location:
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-The resource group that you just created is used throughout this article.
+You use your newly created resource group throughout this tutorial.
 
 ## Create a key vault
 
-Next you create a key vault in the resource group that you created in the previous step. Provide the following information:
+To create a key vault in the resource group that you created in the preceding step, provide the following information:
 
-* Key vault name: The name must be a string of 3-24 characters and must contain only (0-9, a-z, A-Z, and -).
-* Resource group name.
-* Location: **West US**.
+* Key vault name: a string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
+* Resource group name
+* Location: **West US**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
-At this point, your Azure account is the only one that's authorized to perform any operations on this new vault.
+At this point, your Azure account is the only one that's authorized to perform operations on this new key vault.
 
 ## Add a secret to the key vault
 
-We're adding a secret to help illustrate how this works. You might be storing a SQL connection string or any other information that you need to keep securely but make available to your application.
+We're adding a secret to help illustrate how this works. The secret might be a SQL connection string or any other information that you need to keep both secure and available to your application.
 
-Type the following commands to create a secret in the key vault called **AppSecret**. This secret will store the value **MySecret**.
+To create a secret in the key vault called **AppSecret**, enter the following command:
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
-## Create a Virtual Machine
-Follow the below links to create a Windows Virtual Machine
+This secret stores the value **MySecret**.
 
-[Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli) 
+## Create a virtual machine
+To create a virtual machine by using the Azure CLI, do the following:
+1. Step 1.
+1. Step 2.
+1. etc.
 
-[Powershell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
+For more information, see [Quickstart: Create a Windows virtual machine with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli). 
 
-[Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+You can also create a virtual machine by using [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) or [the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
-## Assign identity to Virtual Machine
-In this step we're creating a system assigned identity to the virtual machine by running the following command in Azure CLI
+## Assign an identity to the VM
+In this step, you create a system-assigned identity for the virtual machine by running the following command in the Azure CLI:
 
-```
+```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Please note the systemAssignedIdentity shown below. 
-The output of the above command would be 
+Note the system-assigned identity that's displayed in the following code. The output of the preceding command would be: 
 
-```
+```azurecli
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
 }
 ```
 
-## Give Virtual Machine Identity permission to Key Vault
-Now we can give the above created identity permission to Key Vault by running the following command
+## Assign permission to the VM identity
+Now you can assign the previously created identity permission to your key vault by running the following command:
 
-```
+```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## Login to the Virtual Machine
+## Sign in to the virtual machine
 
 You can follow this [tutorial](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)
 
-## Create and run Sample Python App
+## Create and run a sample Python app
 
-The below is just an example file named "Sample.py". 
-It uses [requests](http://docs.python-requests.org/en/master/) library to make HTTP GET calls.
+In the next section is an example file named *Sample.py*. It uses a [requests](http://docs.python-requests.org/en/master/) library to make HTTP GET calls.
 
-## Edit Sample.py
-After creating Sample.py open the file and copy the below code
+## Edit the Sample.py file
 
-```
+After you create *Sample.py*, open the file and copy the following code:
+
 The below is a 2 step process. 
-1. Fetch a token from the local MSI endpoint on the VM which in turn fetches a token from Azure Active Directory
-2. Pass the token to Key Vault and fetch your secret 
+1. Fetch a token from the local MSI endpoint on the VM. Doing so also fetches a token from Azure AD.
+1. Pass the token to your key vault, and then fetch your secret. 
+
 ```
     # importing the requests library 
     import requests 
@@ -154,22 +159,27 @@ The below is a 2 step process.
     r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
       
     # extracting data in json format 
-    # This request gets a access_token from Azure Active Directory using the local MSI endpoint
+    # This request gets a access_token from Azure AD using the local MSI endpoint
     data = r.json() 
     
-    # Step 2: Pass the access_token received from previous HTTP GET call to Key Vault
+    # Step 2: Pass the access_token received from previous HTTP GET call to your key vault
     KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
     kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
     
     print(kvSecret.json()["value"])
 ```
 
-By running you should see the secret value 
+You can display the secret value by running the following code: 
+
 ```
 python Sample.py
 ```
 
-The above code shows you how to do operations with Azure Key Vault in an Azure Windows Virtual Machine. 
+The preceding code shows you how to do operations with Azure Key Vault in a Windows virtual machine. 
+
+## Clean up resources
+
+When they are no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the VM, and then select **Delete**.
 
 ## Next steps
 
