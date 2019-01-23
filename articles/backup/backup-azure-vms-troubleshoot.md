@@ -66,15 +66,6 @@ You can troubleshoot errors encountered while using Azure Backup with the inform
 | The selected subnet doesn't exist: <br>Select a subnet that exists. |None |
 | The Backup service doesn't have authorization to access resources in your subscription. |To resolve this error, first restore disks by using the steps in [Restore backed-up disks](backup-azure-arm-restore-vms.md#create-new-restore-disks). Then use the PowerShell steps in [Create a VM from restored disks](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
-### UserErrorOlrNotSupported - The selected restore operation type is not supported.
-
-**Error code**: UserErrorOlrNotSupported <br>
-**Error message**: The selected restore operation type is not supported. <br>
-
-Your restore failed because you are performing [**Replace existing**](backup-azure-arm-restore-vms.md#replace-existing-disks) operation for an [unsupported scenario](backup-azure-arm-restore-vms.md#restore-options)
-
-To resolve this issue, use [**Create New**](backup-azure-arm-restore-vms.md#create-new-restore-disks) option instead of **Replace existing** option.
-
 ## Backup or restore takes time
 If your backup takes more than 12 hours, or restore takes more than 6 hours:
 * Understand [factors that contribute to backup time](backup-azure-vms-introduction.md#time-considerations) and [factors that contribute to restore time](backup-azure-vms-introduction.md#restore-considerations).
