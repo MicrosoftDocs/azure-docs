@@ -17,7 +17,7 @@
     href: faq.md
   - name: What's new?
     href: whats-new.md
-- name: Get Started
+- name: Tutorials
   items:
   - name: Create your first experiment
     displayName: quickstart
@@ -40,7 +40,7 @@
     - name: 6 - Access web service
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: R quick start
+  - name: Get started in R
     href: r-quickstart.md
 - name: Samples
   items:
