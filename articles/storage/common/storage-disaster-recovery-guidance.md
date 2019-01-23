@@ -155,7 +155,6 @@ The following features or services are not supported for forced failover for the
 - Azure Data Lake Storage Gen2 hierarchical file shares cannot be failed over.
 - A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
-- A storage account containing large Azure File shares cannot be failed over. Attach your large Azure File shared to a storage account that you do not plan to fail over.
 
 ## Copying data as an alternative to failover
 
