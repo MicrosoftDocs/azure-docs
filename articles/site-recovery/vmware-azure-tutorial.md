@@ -177,7 +177,7 @@ Enable replication can be performed as follows:
 6. In **Target**, select the subscription and the resource group in which you want to create the failed-over VMs. We're using the Resource Manager deployment model. 
 7. Select the Azure storage account you want to use to replicate data, and the Azure network and subnet to which Azure VMs connect when they're created after failover.
 8. Select **Configure now for selected machines** to apply the network setting to all VMs on which you enable replication. Select **Configure later** to select the Azure network per machine.
-9. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then select **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve.
+9. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then select **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
 10. In **Properties** > **Configure properties**, select the account to be used by the process server to automatically install Mobility Service on the machine.
 11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected.
 12. Select **Enable Replication**. Site Recovery installs the Mobility Service when replication is enabled for a VM.

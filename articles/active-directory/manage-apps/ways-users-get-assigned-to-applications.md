@@ -4,7 +4,7 @@ description: Understand how users get assigned to an application in your tenant
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

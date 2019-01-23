@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
 
 ---
@@ -30,17 +30,25 @@ This article gives a detailed overview, guidance, and includes diagrams of the m
 
 Here are the steps for a live streaming workflow:
 
-1. Create a **Live Event**.
-2. Create a new **Asset** object.
-3. Create a **Live Output** and use the asset name that you created.
-4. Create a **Streaming Policy** and **Content Key** if you intend to encrypt your content with DRM.
-5. If not using DRM, create a **Streaming Locator** with the built-in **Streaming Policy** types.
-6. List the paths on the **Streaming Policy** to get back the URLs to use (these are deterministic).
-7. Get the hostname for the **Streaming Endpoint** you wish to stream from (make sure the Streaming Endpoint is running). 
-8. Combine the URL from step 6 with the hostname in step 7 to get your full URL.
-9. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event by deleting the **Streaming Locator**.
+1. Make sure the **StreamingEndpoint** is running. 
+2. Create a **LiveEvent**. 
+  
+    When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
+3. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.<br/>See [recommended live encoders](recommended-on-premises-live-encoders.md).
+4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
+5. Create a new **Asset** object.
+6. Create a **LiveOutput** and use the asset name that you created.
 
-For more information, see a [Live streaming tutorial](stream-live-tutorial-with-api.md) that is based on the [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) sample.
+     The **LiveOutput** will archive the stream into the **Asset**.
+7. Create a **StreamingLocator** with the built-in **StreamingPolicy** types.
+
+    If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
+8. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
+9. Get the hostname for the **Streaming Endpoint** you wish to stream from.
+10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
+11. If you wish to stop making your **LiveEvent** viewable, you need to stop streaming the event and delete the **StreamingLocator**.
+
+For more information, see the [Live streaming tutorial](stream-live-tutorial-with-api.md).
 
 ## Overview of main components
 
@@ -59,14 +67,7 @@ Media Services enables you to deliver your content encrypted dynamically (**Dyna
 
 If desired, you can also apply Dynamic Filtering, which can be used to control the number of tracks, formats, bitrates, and presentation time windows that are sent out to the players. For more information, see [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 
-### New capabilities for live streaming in v3
-
-With the v3 APIs of Media Services, you benefit from the following new features:
-
-- New low latency mode. For more information, see [latency](live-event-latency.md).
-- Improved RTMP support (increased stability and more source encoder support).
-- RTMPS secure ingest.<br/>When you create a LiveEvent, you get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS.   
-- You can stream live events that are up to 24 hours long when using Media Services for transcoding a single bitrate contribution feed into an output stream that has multiple bitrates. 
+For information about new capabilities for live streaming in v3, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md).
 
 ## LiveEvent types
 
@@ -105,7 +106,7 @@ A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) enables yo
 > [!NOTE]
 > **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the asset. 
 >
-> If you have published **Streaming Locator**s on the asset for the **LiveOutput**, the event (up to the DVR window length) will continue to be viewable until the end time of the **Streaming Locator** or till when you delete the locator, whichever comes first.   
+> If you have published the **LiveOutput** asset using a **StreamingLocator**, the **LiveEvent** (up to the DVR window length) will continue to be viewable until the **StreamingLocator**’s expiry or deletion, whichever comes first.
 
 For more information, see [Using cloud DVR](live-event-cloud-dvr.md).
 

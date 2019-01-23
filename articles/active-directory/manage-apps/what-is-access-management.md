@@ -4,7 +4,7 @@ description: Describes how Azure Active Directory enables organizations to speci
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory

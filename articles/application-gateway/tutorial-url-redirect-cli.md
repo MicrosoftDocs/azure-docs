@@ -179,7 +179,7 @@ az network application-gateway url-path-map rule create \
 
 ### Add redirection configuration
 
-You can configure redirection for the listener using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway#az-network_application_gateway_redirect_config_create).
+You can configure redirection for the listener using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

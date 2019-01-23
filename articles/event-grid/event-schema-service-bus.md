@@ -7,7 +7,7 @@ manager: darosa
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 01/17/2019
 ms.author: babanisa
 ---
 
