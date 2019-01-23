@@ -22,15 +22,17 @@ Azure HDInsight’s cluster Autoscale feature automatically scales the number of
 > [!Note]
 > Autoscale is currently only supported for Azure HDInsight Hive, MapReduce and Spark clusters version 3.6.
 
-Follow the steps in [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) and when you reach step 5, **Cluster size**, select **Worker node Autoscale (preview)** as shown below. 
+Complete HDInsight cluster creation steps using the Azure Portal can be found at [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).  Enabling Autoscale during the creation process requires a few deviations from the usual installation steps.  
 
-![Enable worker node autoscale option](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
+1. Select **Custom (size, settings, apps)** rather than **Quick create**.
+2. On Custom step 5 **Cluster size**, check the **Worker node autoscale** checkbox.
+3. Enter the desired values for:  
+  &#8226; Initial **Number of Worker nodes**.  
+  &#8226; **Minimum** number of worker nodes.  
+  &#8226; **Maximum** number of worker nodes.  
 
-By checking this option, you can specify:
+![Enable worker node autoscale option](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
 
-* The initial number of worker nodes
-* The minimum number of worker nodes
-* The maximum number of worker nodes
 
 The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it is created. The minimum number of worker nodes must be greater than zero.
 
@@ -38,12 +40,12 @@ After you choose the VM type for each node type, you will be able to see the est
 
 Your subscription has a capacity quota for each region. The total number of cores of your head nodes combined with the maximum number of worker nodes can’t exceed the capacity quota. However, this quota is a soft limit; you can always create a support ticket to get it increased easily.
 
-> [!Note]
+> [!Note]  
 > If you exceed the total core quota limit, You will receive an error message saying ‘the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota.’
 
 ### Create cluster with an Resource Manager template
 
-When you create an HDInsight cluster with an Resource Manager template, you need to add the following settings in the “computeProfile” “worker node” section:
+Complete HDInsight cluster creation steps using Resource Manager templates can be found at [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  When you create an HDInsight cluster with an Azure Resource Manager template, you need to add the following settings in the “computeProfile” “workernode” section and edit it accordingly:
 
 ```json
 {                            
