@@ -3,7 +3,7 @@ title: My Apps portal overview - Azure Active Directory | Microsoft Docs
 description: Learn about the My Apps portal and troubleshoot potential problems.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
