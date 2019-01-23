@@ -9,7 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-# Choosing a disk type
+# Select a disk type
 
 Azure managed disks currently offers four disk types, three of which are generally available and one that is currently in preview. These four disk types each have their own appropriate target customer scenarios, they are as follows:
 
