@@ -1,5 +1,5 @@
 ---
-title: Hyperledger Fabric Consortium
+title: Hyperledger Fabric Consortium Single Member
 description: Use the Hyperledger Fabric Consortium solution template to deploy and configure a single member network
 services: azure-blockchain
 keywords: 
@@ -134,7 +134,7 @@ The details screen will show you a summary of the deployment, followed by three 
     to connect to the first VM in your network; For Hyperledger Fabric, it will be the Fabric-CA
     node.
 
-You can remotely connect to the virtual machines for each node via SSH with your provided admin username and password/SSH key. Since the node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to access the first transaction node is the third template output, **SSH-TO-FIRST-VM (for the sample deployment: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 3000, the second is on 3001, the third is on 3002, etc.).
+You can remotely connect to the virtual machines for each node via SSH with your provided admin username and password/SSH key. Since the node VMs do not have their own public IP addresses, you will need to go through the load balancer and specify the port number. The SSH command to access the first transaction node is the third template output, *SSH-TO-FIRST-VM* (for the sample deployment: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). To get to additional transaction nodes, increment the port number by one (For example, the first transaction node is on port 3000, the second is on 3001, the third is on 3002, etc.).
 
 ## Next steps
 

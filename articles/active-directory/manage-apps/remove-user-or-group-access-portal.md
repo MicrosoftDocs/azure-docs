@@ -4,7 +4,7 @@ description: How to remove the access assignment of a user or group from an ente
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
