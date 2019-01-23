@@ -298,7 +298,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 1. Save this file as *installsolutionsforvminsights.json* to a local folder.
 
-1. Edit the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the full resource ID of your Log Analytics workspace, which includes the workspace name. The value for *WorkspaceLocation* is the region the workspace is defined in.
+1. Capture the values for *WorkspaceName*, *ResourceGroupName*, and *WorkspaceLocation*. The value for *WorkspaceName* is the name of your Log Analytics workspace. The value for *WorkspaceLocation* is the region the workspace is defined in.
 
 1. You're ready to deploy this template.
  
