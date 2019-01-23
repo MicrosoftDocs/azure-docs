@@ -21,7 +21,7 @@ ms.author: genli
 
 # What is the IP address 168.63.129.16
 
-The IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to internal platform resources for the bring-your-own-IP Virtual Network scenario. Because the Azure platform allows customers to define any private or custom address space, this resource must be a unique public IP address. It cannot be a private IP address as the address cannot be a duplicate of address space the customer defines.  This virtual public IP address facilitates the following things:
+The IP address 168.63.129.16 is a virtual public IP address that is used to facilitate a communication channel to Azure platform resources for the bring-your-own-IP Virtual Network scenario. Because the Azure platform allows customers to define any private or custom address space, this resource must be a unique public IP address. It cannot be a private IP address as the address cannot be a duplicate of address space the customer defines.  This virtual public IP address facilitates the following things:
 
 - Enables the VM Agent to communicate with Azure platform to signal that it is in a “Ready” state
 - Enables communication with the DNS virtual server to provide filtered name resolution to the resources (such as VM) that do not have custom DNS server.  This filtering ensures that customers can only resolve the hostnames of their resources.
@@ -37,4 +37,5 @@ Additionally, traffic from virtual public IP address 168.63.129.16 that is commu
 
 ## Next steps
 
-- [Create](manage-public-ip-address-prefix.md) a public IP address prefix
+- [Security groups](security-overview.md)
+- [Create, change, or delete a network security group](manage-network-security-group.md)
