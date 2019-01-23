@@ -109,7 +109,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Zscaler Three Provisioning](./media/zscaler-three-provisioning-tutorial/SecretToken2.png)
 	
-	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, click Save to save the settings. Copy the **Base URL** to **Tenant URL** and **Bearer Token**  to **Secret Token**.
+	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, then save the settings. Copy the **Base URL** to **Tenant URL** and **Bearer Token**  to **Secret Token** in the Azure portal.
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler Three. If the connection fails, ensure your Zscaler Three account has Admin permissions and try again.
 
