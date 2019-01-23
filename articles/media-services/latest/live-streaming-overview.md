@@ -48,7 +48,7 @@ Here are the steps for a live streaming workflow:
     > [!NOTE]
     > Make sure the Streaming Endpoint is running.
     
-7. Combine the URL from step 6 with the hostname in step 7 to get your full URL.
+7. Combine the URL from step 5 with the hostname in step 6 to get your full URL.
 8. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event and delete the **Streaming Locator**.
 
 For more information, see the [Live streaming tutorial](stream-live-tutorial-with-api.md).
