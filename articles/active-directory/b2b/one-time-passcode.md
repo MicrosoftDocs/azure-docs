@@ -1,13 +1,13 @@
 ---
 
-title: Add B2B collaboration users in the Azure portal - Azure Active Directory | Microsoft Docs
-description: Shows how an admin can add guest users to their directory from a partner organization using Azure Active Directory (Azure AD) B2B collaboration.
+title: One-time passcode authentication for B2B guest users - Azure Active Directory | Microsoft Docs
+description: How to use Email one-time passcode to authenticate B2B guest users without the need for a Microsoft account.
 
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 1/23/2019
 
 ms.author: mimart
 author: msmimart
