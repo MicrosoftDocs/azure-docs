@@ -85,7 +85,7 @@ The Azure PowerShell Resource Manager cmdlets can be installed side by side with
 Before you can use the HDInsight cmdlets, you must connect to your Azure account, and create a new resource group:
 
 * [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
-* [New-AzResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
+* [New-AzResourceGroup](/previous-versions/azure/mt603739(v=azure.100))
 
 ### Renamed cmdlets
 To list the HDInsight ASM cmdlets in Windows PowerShell console:
@@ -214,7 +214,7 @@ New command:
 * [Submit Apache Sqoop jobs](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## Migrating to the new HDInsight .NET SDK
-The Azure Service Management-based [(ASM) HDInsight .NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) is now deprecated. You are encouraged to use the Azure Resource Management-based [Resource Manager-based HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). The following ASM-based HDInsight packages are being deprecated.
+The Azure Service Management-based [(ASM) HDInsight .NET SDK](/previous-versions/azure/reference/mt416619(v=azure.100)) is now deprecated. You are encouraged to use the Azure Resource Management-based [Resource Manager-based HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). The following ASM-based HDInsight packages are being deprecated.
 
 * `Microsoft.WindowsAzure.Management.HDInsight`
 * `Microsoft.Hadoop.Client`

@@ -197,7 +197,7 @@ If using __Azure Storage__, see the following links for ways that you can access
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [Storage REST API](/rest/api/storageservices/Blob-Service-REST-API)
 
 If using __Azure Data Lake Storage__, see the following links for ways that you can access your data:
 

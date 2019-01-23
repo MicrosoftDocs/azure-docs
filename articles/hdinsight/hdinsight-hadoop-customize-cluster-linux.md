@@ -28,7 +28,7 @@ For more information on working with permissions with domain-joined HDInsight, s
 
 If you aren't the administrator or owner of your Azure subscription, your account must have at least Contributor access to the resource group that contains the HDInsight cluster.
 
-If you create an HDInsight cluster, someone with at least Contributor access to the Azure subscription must have previously registered the provider for HDInsight. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be done without creating a resource if you [register a provider by using REST](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+If you create an HDInsight cluster, someone with at least Contributor access to the Azure subscription must have previously registered the provider for HDInsight. Provider registration happens when a user with Contributor access to the subscription creates a resource for the first time on the subscription. It can also be done without creating a resource if you [register a provider by using REST](/rest/api/resources/providers#Providers_Register).
 
 Get more information on working with access management:
 
@@ -322,7 +322,7 @@ Before you start, make sure you install and configure the Azure CLI. For more in
 
 ### Apply a script action to a running cluster by using REST API
 
-See [Cluster REST API in Azure HDInsight](https://msdn.microsoft.com/library/azure/mt668441.aspx).
+See [Cluster REST API in Azure HDInsight](/rest/api/hdinsight/hdinsight-cluster).
 
 ### Apply a script action to a running cluster from the HDInsight .NET SDK
 
