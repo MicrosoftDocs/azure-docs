@@ -27,11 +27,11 @@ The following table provides a comparison of standard hard disk drives (HDD), st
 
 ## Ultra SSD (preview)
 
-Azure ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
+Azure ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra SSDs can only be used as data disks. We recommend using Premium SSDs as OS disks.
 
 ### Performance
 
-When you provision an ultra SSD, you can independently configure the capacity and the performance of the disk. Ultra SSDs come in several fixed sizes, ranging from 4 GiB up to 64 TiB, and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput. Ultra SSDs can only be used as data disks. We recommend using Premium SSDs as OS disks.
+When you provision an ultra SSD, you can independently configure the capacity and the performance of the disk. Ultra SSDs come in several fixed sizes, ranging from 4 GiB up to 64 TiB, and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput.
 
 Some key capabilities of Ultra SSD are:
 
@@ -57,7 +57,7 @@ Some key capabilities of Ultra SSD are:
 
 During preview, ultra SSD Disks:
 
-- Will be initially supported in East US 2 in a single Availability Zone  
+- Are supported in East US 2 in a single Availability Zone  
 - Can only be used with Availability Zones (Availability Sets and Single VM deployments outside of Zones will not have the ability to attach an Ultra SSD Disk)
 - Are only supported on ES/DS v3 VMs
 - Are only available as data disks and only support 4k physical sector size  
