@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ---
 
@@ -173,3 +173,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Review [Face overview](Overview.md) to learn more about detecting and identifying faces  
 * Refer to the [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Face functionality.
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

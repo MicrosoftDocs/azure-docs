@@ -4,7 +4,7 @@ description: Troubleshoot why an application is not appearing in the Access Pane
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

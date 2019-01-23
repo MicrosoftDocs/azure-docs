@@ -4,7 +4,7 @@ description: Troubleshooting common issues faced when you are unable to sign in 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.component: app-mgmt
