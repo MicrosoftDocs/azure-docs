@@ -32,7 +32,7 @@ PowerShell Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 The Azure Resource Graph module requires the following software:
 
-- Azure PowerShell 6.3.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-azurerm-ps).
+- Azure PowerShell 6.3.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/azurerm/install-azurerm-ps).
 
   - For PowerShell Core, use the **Az** version of the Azure PowerShell module.
 

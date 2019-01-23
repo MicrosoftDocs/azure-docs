@@ -3,7 +3,7 @@ title: Manage updates for multiple Azure virtual machines
 description: This article describes how to manage updates for Azure virtual machines.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/10/2019
@@ -192,3 +192,4 @@ To see detailed information about any errors from the deployment, select **Error
 ## Next steps
 
 - To learn more about Update Management, including logs, output, and errors, see [Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
+

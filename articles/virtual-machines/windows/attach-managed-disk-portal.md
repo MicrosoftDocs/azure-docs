@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
+ms.component: disks
 
 ---
 # Attach a managed data disk to a Windows VM by using the Azure portal

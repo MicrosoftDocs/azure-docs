@@ -5,7 +5,7 @@ description: Learn how to troubleshoot sign-in errors using Azure Active Directo
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory

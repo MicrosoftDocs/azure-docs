@@ -14,10 +14,11 @@ ms.reviewer: twounder
 
 # Azure SQL Data Warehouse release notes
 
-Azure SQL Data Warehouse is a cloud-based Enterprise Data Warehouse (EDW) that leverages Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Use SQL Data Warehouse as a key component of a big data solution. Import big data into SQL Data Warehouse with simple PolyBase T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the data warehouse will become the single version of truth your business can count on for insights.
+Azure SQL Data Warehouse (SQL DW) is a cloud-based Enterprise Data Warehouse that leverages Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Use SQL Data Warehouse as a key component of a big data solution. Import big data into SQL Data Warehouse with simple PolyBase T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the data warehouse will become the single version of truth your business can count on for insights.
 
 Click on the links below to find out more about the new features and improvements that you can expect in the latest version of Azure SQL Data Warehouse. You can expect to receive these service updates during your identified maintenance schedule.
 
+- [SQL DW Version 10.0.10106.0](./release-notes-10-0-10106-0.md)
 - [December 2018](./release-notes-december-2018.md)
 - [October 2018](./release-notes-october-2018.md)
 - [September 2018](./release-notes-september-2018.md)
@@ -35,9 +36,9 @@ SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
 Example output: 
-![SQL Data Warehouse version](./media/release-notes/sql_data_warehouse_version.png)
+![SQL Data Warehouse version](./media/release-notes/dw-version.png)
 
-Please use the date identified to confirm which release has been applied to your Azure SQL Data Warehouse. 
+Please use the version identified to confirm which release has been applied to your Azure SQL Data Warehouse. 
 
 
 ## Next steps

@@ -197,7 +197,7 @@ It takes a few minutes for Packer to build the VM, run the provisioners, and cle
 
 
 ## Create VM from Azure Image
-You can now create a VM from your Image with [az vm create](/cli/azure/vm#az_vm_create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
+You can now create a VM from your Image with [az vm create](/cli/azure/vm). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
 
 ```azurecli
 az vm create \

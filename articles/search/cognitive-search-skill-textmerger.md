@@ -19,7 +19,7 @@ ms.custom: seodec2018
 The **Text Merge** skill consolidates text from a collection of fields into a single field. 
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API and there are no fees associated with this skill. However, you must [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) anyway to override the Free resource option that limits you to a small number of daily enrichments.
+> This skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
 
 ## @odata.type  
 Microsoft.Skills.Text.MergeSkill
@@ -105,7 +105,7 @@ The following example skillset uses the OCR skill to extract text from images em
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
-      "insertPostTag": " "
+      "insertPostTag": " ",
       "inputs": [
         {
           "name":"text", "source": "/document/content"

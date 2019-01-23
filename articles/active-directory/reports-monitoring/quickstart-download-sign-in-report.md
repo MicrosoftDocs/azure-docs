@@ -4,7 +4,7 @@ description: Learn how to download a sign-in report using the Azure portal
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 9131f208-1f90-4cc1-9c29-085cacd69317
@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 ---
 # Quickstart: Download a sign-in report using the Azure portal
 
-In this quickstart, you learn how to download the sign-in data for your tenant for the past 24 hours.
+In this quickstart, you learn how to download the sign-in data for your tenant for the past 24 hours. You can download up to 5000 records from the Azure portal. The records are sorted by most recent so by default, you get the most recent 5000 records. 
 
 ## Prerequisites
 
