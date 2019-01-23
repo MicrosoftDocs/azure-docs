@@ -262,7 +262,7 @@
       - name: Azure apps
         items:
         - name: Azure app service
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: Add continuous monitoring
@@ -741,7 +741,7 @@
           href: platform/alerts-metric.md
         - name: Create, view and manage classic metric alerts in Azure Monitor
           href: platform/alerts-classic-portal.md
-        - name: Alerts with dynamic thresholds
+        - name: Metric Alerts with Dynamic Thresholds
           href: platform/alerts-dynamic-thresholds.md
         - name: Configure metric alerts on logs
           href: platform/alerts-metric-logs.md

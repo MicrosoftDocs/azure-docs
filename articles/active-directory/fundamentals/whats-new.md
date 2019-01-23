@@ -3,7 +3,7 @@ title: What's new? Release notes - Azure Active Directory | Microsoft Docs
 description: Learn what is new with Azure Active Directory, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 featureFlags:
  - clicktale
  
