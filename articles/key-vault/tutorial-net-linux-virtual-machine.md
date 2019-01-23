@@ -37,7 +37,7 @@ Before we go any further, read about [key vault basic concepts](key-vault-whatis
 
 * Git. [Download git](https://git-scm.com/downloads).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. This is available for Windows, Mac, and Linux.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. This tutorial requires that you run the Azure CLI locally. It's available for Windows, Mac, and Linux.
 
 ### Understand Managed Service Identity (MSI)
 
@@ -66,35 +66,34 @@ az login
 
 Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Select a resource group name and fill in the placeholder.
-The following example creates a resource group in the West US location:
+Create a resource group in the West US location. Pick a name for your resource group and replace `YourResourceGroupName` in the following example:
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-The resource group that you just created is used throughout this article.
+You use this resource group throughout the tutorial.
 
 ## Create a key vault
 
-Next you create a key vault in the resource group that you created in the previous step. Provide the following information:
+Next, create a key vault in your resource group. Provide the following information:
 
-* Key vault name: The name must be a string of 3-24 characters and must contain only (0-9, a-z, A-Z, and -).
-* Resource group name.
-* Location: **West US**.
+* Key vault name: a string of 3 to 24 characters that can contain only numbers, letters, and hyphens ( 0-9, a-z, A-Z, and \- ).
+* Resource group name
+* Location: **West US**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
 
-At this point, your Azure account is the only one that's authorized to perform any operations on this new vault.
+At this point, only your Azure account is authorized to perform any operations on this new vault.
 
 ## Add a secret to the key vault
 
 Now, you add a secret. In a real-world scenario, you might be storing a SQL connection string or any other information that you need to keep securely, but make available to your application.
 
-For this tutorial, type the following commands to create a secret in the key vault. The secret is called **AppSecret** and has the value, **MySecret**.
+For this tutorial, type the following commands to create a secret in the key vault. The secret is called **AppSecret** and its value is **MySecret**.
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -102,9 +101,9 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## Create a Linux virtual machine
 
-Create a VM with the `az vm create` command. [az vm create](/cli/azure/vm#az_vm_create) command.
+Create a VM with the `az vm create` command.
 
-The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter us used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
+The following example creates a VM named **myVM** and adds a user account named **azureuser**. The `--generate-ssh-keys` parameter us used to automatically generate an SSH key and put it in the default key location (**~/.ssh**). To use a specific set of keys instead, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \
@@ -115,7 +114,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
+It takes a few minutes to create the VM and supporting resources. The following example output shows that the VM create operation was successful.
 
 ```
 {
@@ -130,7 +129,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 }
 ```
 
-Make a note of your `publicIpAddress` in the output from your VM. You'll use this address to access the VM in the following steps.
+Make a note of your `publicIpAddress` in the output from your VM. You'll use this address to access the VM in later steps.
 
 ## Assign an identity to the VM
 
@@ -153,7 +152,7 @@ Make a note of the `systemAssignedIdentity`. You use it in the next step.
 
 ## Give the VM identity permission to Key Vault
 
-Now we can give the above created identity permission to Key Vault by running the following command:
+Now you can give the above created identity permission to Key Vault by running the following command:
 
 ```
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
@@ -168,6 +167,8 @@ ssh azureuser@<PublicIpAddress>
 ```
 
 ## Install .NET core on Linux
+
+On your Linux VM:
 
 1. Register the Microsoft Product key as trusted by running the following commands:
 
@@ -213,7 +214,7 @@ cd helloworldapp
 dotnet run
 ```
 
-## Edit console app to fetch your secret
+## Edit the console app to fetch your secret
 
 1. Open Program.cs file and add these packages:
 
@@ -226,7 +227,7 @@ dotnet run
    using Newtonsoft.Json.Linq;
    ```
 
-2. Change the class file to enable the app to access the secret in the key vault. It's a two-step process.
+2. It's a two-step process to change the class file to enable the app to access the secret in the key vault.
 
    1. Fetch a token from the local MSI endpoint on the VM that in-turn fetches a token from Azure Active Directory.
    2. Pass the token to Key Vault and fetch your secret.
@@ -269,8 +270,8 @@ dotnet run
                    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
                    String responseString = reader.ReadToEnd();
 
-                   JObject joResponse = JObject.Parse(responseString);    
-                   JValue ojObject = (JValue)joResponse[tokenName];   
+                   JObject joResponse = JObject.Parse(responseString);
+                   JValue ojObject = (JValue)joResponse[tokenName];
                    token = ojObject.Value.ToString();
                }
                return token;
@@ -278,7 +279,7 @@ dotnet run
        }
    ```
 
-The preceding code shows you how to do operations with Azure Key Vault in a .NET application running on an Azure Linux virtual machine.
+Now you've learned how to perform operations with Azure Key Vault in a .NET application running on an Azure Linux virtual machine.
 
 ## Clean up resources
 
