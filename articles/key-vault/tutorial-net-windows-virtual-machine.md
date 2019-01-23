@@ -19,7 +19,7 @@ ms.custom: mvc
 
 Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
 
-This tutorial presents the steps to follow to get a console application to read information from Azure Key Vault. To do so, you use managed identities for Azure resources. 
+This tutorial shows you how to get a console application to read information from Azure Key Vault. To do so, you use managed identities for Azure resources. 
 
 The tutorial shows you how to:
 
@@ -41,7 +41,7 @@ On all platforms:
 * [Git](https://git-scm.com/downloads)
 * This tutorial requires that you run the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later locally. It's available for Windows, Mac, and Linux.
 
-This tutorial makes use of Managed Service Identity (MSI)
+This tutorial makes use of Managed Service Identity (MSI).
 
 ## About Managed Service Identity
 
@@ -86,7 +86,7 @@ To create a key vault in the resource group that you created in the preceding st
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
-At this point, your Azure account is the only one that's authorized to perform operations on this new vault.
+At this point, your Azure account is the only one that's authorized to perform operations on this new key vault.
 
 ## Add a secret to the key vault
 
