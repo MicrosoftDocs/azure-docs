@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
 
 ---
@@ -32,7 +32,7 @@ Here are the steps for a live streaming workflow:
 
 1. Create a **Live Event**. 
   
-    When creating the event, you can specify to auto start it. Alternatevely, you can start when you are reading to broadcast.
+    When creating the event, you can specify to autostart it. Alternatevely, you can start the event when you are ready to start streaming.
 
     When autostart is set to true, the Live Event will be started right after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
     
