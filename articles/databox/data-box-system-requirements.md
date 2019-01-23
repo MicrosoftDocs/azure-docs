@@ -43,13 +43,16 @@ Here is a list of the supported operating systems for the data copy operation vi
 
 ### Supported storage accounts
 
-Here is a list of the supported storage types for the Data Box device.
+Here is a list of the supported storage accounts for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
-| **Storage account** | **Notes** |
-| --- | --- |
-| Classic | Standard |
-| General purpose  |Standard; both V1 and V2 are supported. |
-| Blob |Both hot and cool are supported. |
+| **Storage account** | **Block blob** |**Page blob** |**Azure Files** |**Notes**|
+| --- | --- | -- | -- | -- |
+| Classic Standard | Y | Y | Y |
+| General purpose v1 Standard  | Y | Y | Y | Both hot and cool are supported.|
+| General purpose v1 Premium  |  | Y| | Data should be 512 bytes aligned such as vhd/vhdx. |
+| General purpose v2 Standard  | Y | Y | Y | Both hot and cool are supported.|
+| General purpose v2 Premium  |  |Y | |Data should be 512 bytes aligned such as vhd/vhdx. |
+| Blob storage Standard |Y | | |Both hot and cool are supported. |
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2 accounts are not supported.
