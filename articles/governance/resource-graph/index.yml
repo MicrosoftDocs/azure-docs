@@ -12,7 +12,7 @@ metadata:
   ms.date: 01/23/2019
   ms.author: dacoulte
 abstract:
-  description: Azure Resource Graph Documentation helps you configure and learn the query language to discover and explore your resources at scale.
+  description: Azure Resource Graph documentation helps you configure and learn the query language to discover and explore your resources at scale.
 sections:
 - title: 5-Minute Quickstarts
   items:
