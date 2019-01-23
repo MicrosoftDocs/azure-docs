@@ -76,7 +76,7 @@ To restart your Data Box, perform the following steps.
 
 The Bill of Material (BOM) or the manifest files contain the list of the files that are copied to the Data Box. These files are generated when you prepare the Data Box to ship.
 
-Before you begin, make sure that your Data Box has completed prepare to ship. Follow these steps to download BOM or manifest files:
+Before you begin, make sure that your Data Box has completed **Prepare to ship** step. Follow these steps to download BOM or manifest files:
 
 1. Go to the local web UI for your Data Box. You will see that the Data Box has completed the prepare to ship. When the device preparation is complete, your device status is displayed as **Ready to ship**.
 
@@ -156,11 +156,11 @@ You can use the device dashboard to view the available and used capacity of the 
 
 ## Skip checksum validation
 
-Checksum are generated for your data by default when you prepare to ship. In certain rare cases, depending on the data type (small file sizes), the performance may be really slow. In such instances, you can skip checksum. 
+Checksums are generated for your data by default when you prepare to ship. In certain rare cases, depending on the data type (small file sizes), the performance may be slow. In such instances, you can skip checksum. 
 
 We strongly recommend that you do not disable checksum unless the performance is severely impacted.
 
-1. In the top right corner of the local web UI of your device, go to Settings.
+1. In the top-right corner of the local web UI of your device, go to Settings.
 
     ![Disable checksum](media/data-box-local-web-ui-admin/disable-checksum.png)
 
