@@ -65,9 +65,8 @@
   - name: Handling Event Grid events
     href: reacting-to-media-services-events.md      
   - name: Protecting content
+    href: content-protection-overview.md  
     items:
-    - name: Overview
-      href: content-protection-overview.md
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
   - name: Analyzing content
