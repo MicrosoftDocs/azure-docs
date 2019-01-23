@@ -81,7 +81,7 @@ Each snapshot creates a restore point that represents the time the snapshot star
 
 You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) with the MODIFY NAME option. 
 
-To restore a data warehouse, see [Restore a data warehouse using the Azure portal](sql-data-warehouse-restore-database-portal.md), [Restore a data warehouse using PowerShell](sql-data-warehouse-restore-database-powershell.md), or [Restore a data warehouse using T-SQL](sql-data-warehouse-restore-database-rest-api.md).
+To restore a data warehouse, see [Restore a data warehouse using the Azure portal](sql-data-warehouse-restore-database-portal.md), [Restore a data warehouse using PowerShell](sql-data-warehouse-restore-database-powershell.md), or [Restore a data warehouse using REST APIs](sql-data-warehouse-restore-database-rest-api.md).
 
 To restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md). 
 

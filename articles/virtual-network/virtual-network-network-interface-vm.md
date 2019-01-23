@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add network interfaces to or remove from Azure virtual machines | Microsoft Docs
 description: Learn how to add network interfaces to or remove network interfaces from virtual machines.
 services: virtual-network
@@ -44,7 +44,7 @@ Before you create the VM, create a network interface by using the steps in [Crea
 
 |Tool|Command|
 |---|---|
-|CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_create)|
+|CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Add a network interface to an existing VM

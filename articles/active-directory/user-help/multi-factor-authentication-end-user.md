@@ -3,7 +3,7 @@ title: Get started with two-step verification - Azure Active Directory | Microso
 description: This is the Azure Multi-Factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 
 ms.workload: identity

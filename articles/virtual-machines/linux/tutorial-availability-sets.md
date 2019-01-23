@@ -68,7 +68,7 @@ Availability Sets allow you to isolate resources across fault domains and update
 
 VMs must be created within the availability set to make sure they are correctly distributed across the hardware. An existing VM cannot be added to an availability set after it is created.
 
-When a VM is created with [az vm create](/cli/azure/vm#az_vm_create), use the `--availability-set` parameter to specify the name of the availability set.
+When a VM is created with [az vm create](/cli/azure/vm), use the `--availability-set` parameter to specify the name of the availability set.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
