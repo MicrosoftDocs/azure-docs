@@ -39,11 +39,11 @@ If you don’t have an Azure subscription, create a free account before you begi
 ## Prerequisites
 
 > * [Run the data preparation tutorial](tutorial-data-prep.md).
-> * An automated machine learning configured environment. Examples are Azure Notebooks, a local Python environment, or a Data Science Virtual Machine. [Set up automated machine learning](samples-notebooks.md).
+> * An automated machine learning configured environment. Examples are [Azure Notebooks](https://notebooks.azure.com/), a local Python environment, or a Data Science Virtual Machine. [Set up automated machine learning](samples-notebooks.md).
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Run the `regression-part2-automated-ml.ipynb` notebook either in Azure Notebooks or in your own Jupyter Notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Run the `regression-part2-automated-ml.ipynb` notebook either in [Azure Notebooks](https://notebooks.azure.com/) or in your own Jupyter Notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

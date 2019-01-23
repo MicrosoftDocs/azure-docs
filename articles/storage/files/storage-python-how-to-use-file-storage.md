@@ -122,7 +122,7 @@ Finally, to delete a file, call `delete_file`.
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
-## Create share snapshot (preview)
+## Create share snapshot
 You can create a point in time copy of your entire file share.
 
 ```python

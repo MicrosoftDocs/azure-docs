@@ -27,7 +27,7 @@ When using the Azure portal to configure [automatic user provisioning](user-prov
 
 If SAML-based single sign-on is also configured for the same application, the most likely cause of the error is that Azure AD's internal, per-application storage limit for certificates and credentials has been exceeded.
 
-Azure AD currently has a maximum storage capacity of one kilobyte for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD).
+Azure AD currently has a maximum storage capacity of 1024 bytes for all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD).
 
 When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens is stored here, and often consumes over 50% percent of the space.
 

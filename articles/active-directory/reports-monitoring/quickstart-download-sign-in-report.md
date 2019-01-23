@@ -4,7 +4,7 @@ description: Learn how to download a sign-in report using the Azure portal
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 9131f208-1f90-4cc1-9c29-085cacd69317
