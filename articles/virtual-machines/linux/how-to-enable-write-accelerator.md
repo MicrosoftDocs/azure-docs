@@ -17,7 +17,7 @@ ms.workload: infrastructure
 ms.date: 5/9/2018
 ms.author: raiye
 ms.custom: H1Hack27Feb2017
-
+ms.component: disks
 ---
 
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]

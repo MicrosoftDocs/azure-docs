@@ -4,7 +4,7 @@ description: Written for the IT Pro, this article provides guidelines for integr
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
