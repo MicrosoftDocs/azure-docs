@@ -30,15 +30,21 @@ This article gives a detailed overview, guidance, and includes diagrams of the m
 
 Here are the steps for a live streaming workflow:
 
-1. Create a **Live Event**.
+1. Create a **Live Event**. 
+  
+    When creating the event, you can specify to auto start it. Alternatevely, you can start when you are reading to broadcast.
+
+    When autostart is set to true, the Live Event will be started right after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
+    
 2. Create a new **Asset** object.
 3. Create a **Live Output** and use the asset name that you created.
-4. Create a **Streaming Policy** and **Content Key** if you intend to encrypt your content with DRM.
-5. If not using DRM, create a **Streaming Locator** with the built-in **Streaming Policy** types.
-6. List the paths on the **Streaming Policy** to get back the URLs to use (these are deterministic).
-7. Get the hostname for the **Streaming Endpoint** you wish to stream from (make sure the Streaming Endpoint is running). 
-8. Combine the URL from step 6 with the hostname in step 7 to get your full URL.
-9. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event by deleting the **Streaming Locator**.
+4. Create a **Streaming Locator** with the built-in **Streaming Policy** types.
+
+  If you intend to encrypt your content with DRM, review [Content protection overview](content-protection-overview.md).
+5. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
+6. Get the hostname for the **Streaming Endpoint** you wish to stream from (make sure the Streaming Endpoint is running). 
+7. Combine the URL from step 6 with the hostname in step 7 to get your full URL.
+8. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event and delete the **Streaming Locator**.
 
 For more information, see a [Live streaming tutorial](stream-live-tutorial-with-api.md) that is based on the [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) sample.
 
@@ -105,7 +111,7 @@ A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) enables yo
 > [!NOTE]
 > **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the asset. 
 >
-> If you have published **Streaming Locator**s on the asset for the **LiveOutput**, the event (up to the DVR window length) will continue to be viewable until the end time of the **Streaming Locator** or till when you delete the locator, whichever comes first.   
+> If you have published **Streaming Locator**s on the asset for the **LiveOutput**, the event (up to the DVR window length) will continue to be viewable until the end time of the **Streaming Locator** or untill you delete the locator, whichever comes first.   
 
 For more information, see [Using cloud DVR](live-event-cloud-dvr.md).
 
