@@ -92,7 +92,7 @@ Looking for a region we don't support yet? Let us know by filing a feature reque
 
  ## Container support
 
- Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Service Containers](cognitive-services-container-support.md).
+ Cognitive Services provides containers for deployment in the Azure cloud or on-premises. Learn more about [Cognitive Services Containers](cognitive-services-container-support.md).
 
 ## Support
 

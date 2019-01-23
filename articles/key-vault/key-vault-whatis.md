@@ -12,9 +12,9 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/18/2019
 ms.author: barclayn
-
+#Customer intent: As someone new to Key Vault I am trying to learn basic concepts that can help me understand Key vault documentation
 ---
 # What is Azure Key Vault?
 

@@ -140,7 +140,7 @@ You're now ready to deploy your project. When you deploy an Azure Resource Group
 5. Choose the **Deploy** button to deploy the project to Azure. A PowerShell console opens outside of the Visual Studio instance. Enter the SQL Server administrator password in the PowerShell console when prompted. **Your PowerShell console may be hidden behind other items or minimized in the task bar.** Look for this console and select it to provide the password.
    
    > [!NOTE]
-   > Visual Studio may ask you to install the Azure PowerShell cmdlets. You need the Azure PowerShell cmdlets to successfully deploy resource groups. If prompted, install them. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+   > Visual Studio may ask you to install the Azure PowerShell cmdlets. You need the Azure PowerShell cmdlets to successfully deploy resource groups. If prompted, install them. For more information, see [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
    > 
    > 
 6. The deployment may take a few minutes. In the **Output** windows, you see the status of the deployment. When the deployment has finished, the last message indicates a successful deployment with something similar to:

@@ -3,13 +3,14 @@ title: Best practices for improving performance using Azure Service Bus | Micros
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # Best Practices for performance improvements using Service Bus Messaging
@@ -32,7 +33,7 @@ AMQP and SBMP are more efficient, because they maintain the connection to Servic
 
 ## Reusing factories and clients
 
-Service Bus client objects, such as [QueueClient][QueueClient] or [MessageSender][MessageSender], are created through a [MessagingFactory][MessagingFactory] object, which also provides internal management of connections. It is recommended that you do not close messaging factories or queue, topic, and subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. Establishing a connection is an expensive operation that you can avoid by reusing the same factory and client objects for multiple operations. You can safely use the [QueueClient][QueueClient] object for sending messages from concurrent asynchronous operations and multiple threads. 
+Service Bus client objects, such as [QueueClient][QueueClient] or [MessageSender][MessageSender], are created through a [MessagingFactory][MessagingFactory] object, which also provides internal management of connections. It is recommended that you do not close messaging factories or queue, topic, and subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. Establishing a connection is an expensive operation that you can avoid by reusing the same factory and client objects for multiple operations. You can safely use these client objects for concurrent asynchronous operations and from multiple threads. 
 
 ## Concurrent operations
 

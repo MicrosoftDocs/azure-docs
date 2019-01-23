@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
-ms.component: ""
+ms.subservice: ""
 ---
 # Consume monitoring data from Azure
 
@@ -43,3 +43,4 @@ Across the Azure platform, we are bringing together monitoring data in a single 
 - Learn more about [Azure Monitor metrics](data-collection.md)
 - Learn more about [the Azure Activity Log](activity-logs-overview.md)
 - Learn more about [Azure Diagnostic Logs](diagnostic-logs-overview.md)
+
