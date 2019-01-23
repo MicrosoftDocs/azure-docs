@@ -42,7 +42,7 @@ The following Azure resources are added automatically to your workspace when the
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
 >[!NOTE]
-> Code in this article requires  Azure Machine Learning SDK version 1.0.2 or later and was tested with version 1.0.6.
+> Code in this article requires  Azure Machine Learning SDK version 1.0.2 or later and was tested with version 1.0.8.
 
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
@@ -54,15 +54,15 @@ If you don’t have an Azure subscription, create a free account before you begi
 > * Azure Data Science Virtual Machines created after September 27, 2018 come with the Python SDK preinstalled.
 > * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
-Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
+Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).  
 
 ### Install Miniconda
 
-[Download and install Miniconda](https://conda.io/miniconda.html). Select Python 3.7 or later. Don't select the Python 2.x.
+[Download and install Miniconda](https://conda.io/miniconda.html). Select the Python 3.7  or later version to install. Don't select the Python 2.x version.  
 
 ### Create an isolated Python environment
 
-1. Open a command-line window, and then create a new conda environment named *myenv* with Python 3.6.
+1. Open a command-line window, then create a new conda environment named *myenv* and install Python 3.6.
 
     ```shell
     conda create -n myenv -y Python=3.6
