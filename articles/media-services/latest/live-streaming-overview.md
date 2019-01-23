@@ -34,7 +34,7 @@ Here are the steps for a live streaming workflow:
 2. Create a **LiveEvent**. 
   
     When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
-3. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.
+3. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.<br/>See [recommended live encoders](recommended-on-premises-live-encoders.md).
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **Asset** object.
 6. Create a **LiveOutput** and use the asset name that you created.
@@ -113,7 +113,7 @@ A [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) enables yo
 > [!NOTE]
 > **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the asset. 
 >
-> If you have published **Streaming Locator**s of the asset used in the **LiveOutput**, the event (up to the DVR window length) will continue to be viewable until the end time of the locator or until you delete the locator, whichever comes first.   
+> If you have published the **LiveOutput** asset using a **StreamingLocator**, the **LiveEvent** (up to the DVR window length) will continue to be viewable until the **StreamingLocator**’s expiry or deletion, whichever comes first.
 
 For more information, see [Using cloud DVR](live-event-cloud-dvr.md).
 
