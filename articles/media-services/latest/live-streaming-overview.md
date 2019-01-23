@@ -30,26 +30,23 @@ This article gives a detailed overview, guidance, and includes diagrams of the m
 
 Here are the steps for a live streaming workflow:
 
-1. Create a **Live Event**. 
+0. Make sure the **StreamingEndpoint** is running. 
+1. Create a **LiveEvent**. 
   
-    When creating the event, you can specify to autostart it. Alternatevely, you can start the event when you are ready to start streaming.
+    When creating the event, you can specify to autostart it. Alternatevely, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
+2. Get the preview URL and use it to verify that the input from the encoder is actually being received.
+3. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.
+4. Create a new **Asset** object.
+5. Create a **LiveOutput** and use the asset name that you created.
 
-    When autostart is set to true, the Live Event will be started right after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
-    
-2. Create a new **Asset** object.
-3. Create a **Live Output** and use the asset name that you created.
-4. Create a **Streaming Locator** with the built-in **Streaming Policy** types.
+     The **LiveOutput** will archive the stream into the **Asset**.
+6. Create a **StreamingLocator** with the built-in **StreamingPolicy** types.
 
     If you intend to encrypt your content with DRM, review [Content protection overview](content-protection-overview.md).
-  
-5. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
-6. Get the hostname for the **Streaming Endpoint** you wish to stream from.
-
-    > [!NOTE]
-    > Make sure the Streaming Endpoint is running.
-    
-7. Combine the URL from step 5 with the hostname in step 6 to get your full URL.
-8. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event and delete the **Streaming Locator**.
+7. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
+8. Get the hostname for the **Streaming Endpoint** you wish to stream from.
+9. Combine the URL from step 7 with the hostname in step 8 to get your full URL.
+10. If you wish to stop making your **LiveEvent** viewable, you need to stop streaming the event and delete the **StreamingLocator**.
 
 For more information, see the [Live streaming tutorial](stream-live-tutorial-with-api.md).
 
