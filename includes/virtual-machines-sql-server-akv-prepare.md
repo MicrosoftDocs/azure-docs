@@ -43,12 +43,12 @@ Next, register an application with AAD. This will give you a Service Principal a
 
 * The application ID and the secret will also be used to create a credential in SQL Server.
 
-* You must authorize this new client ID to have the following access permissions: **get**, **wrapKey**, **unwrapKey**. This is done with the [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) cmdlet. For more information, see [Authorize the application to use the key or secret](../articles/key-vault/key-vault-get-started.md#authorize).
+* You must authorize this new client ID to have the following access permissions: **get**, **wrapKey**, **unwrapKey**. This is done with the [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzKeyVaultAccessPolicy) cmdlet. For more information, see [Authorize the application to use the key or secret](../articles/key-vault/key-vault-get-started.md#authorize).
 
 ### <a id="createkeyvault"></a> Create a key vault
 In order to use Azure Key Vault to store the keys you will use for encryption in your VM, you need access to a key vault. If you have not already set up your key vault, create one by following the steps in the [Getting Started with Azure Key Vault](../articles/key-vault/key-vault-get-started.md) article. Before completing these steps, there is some information you need to collect during this set up that is needed later when you enable Azure Key Vault Integration on your SQL VM.
 
-    New-AzureRmKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
+    New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
 When you get to the Create a key vault step, note the returned **vaultUri** property, which is the key vault URL. In the example provided in that step, shown below, the key vault name is ContosoKeyVault, therefore the key vault URL would be https://contosokeyvault.vault.azure.net/.
 
