@@ -123,7 +123,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
    ![Create pipeline](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
 1. In the **General** tab for the pipeline, enter **CopyPipeline** for **Name** of the pipeline.
 
-1. In the **Activities** tool box, expand the **Data Flow** category, and drag and drop the **Copy** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
+1. In the **Activities** tool box, expand the **Move andTransform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
 
     ![Copy activity](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
