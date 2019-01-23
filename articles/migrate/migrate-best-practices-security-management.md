@@ -67,7 +67,7 @@ Encryption is an important part of Azure security practices. Ensuring that encry
 ### Encryption for IaaS
 
 - **VMs**: For VMs you can use Azure Disk Encryption to encrypt your Windows and Linux IaaS VM disks.
-    - Disk encryption leverages Bitlocker for Windows, and DM-Crypt for Linux to provide volume encryption for the OS and data disks.
+    - Disk encryption leverages BitLocker for Windows, and DM-Crypt for Linux to provide volume encryption for the OS and data disks.
     - You can use an encryption key created by Azure, or you can supply your own encryption keys, safeguarded in Azure Key Vault. 
     - With Disk Encryption, IaaS VM data is secured at rest (on the disk) and during VM boot. 
     - Azure Security Center alerts you if you have VMs that aren't encrypted.
