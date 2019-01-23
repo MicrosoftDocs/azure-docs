@@ -79,3 +79,7 @@ To add the Bing Entity Search SDK to your Visual Studio project, use to the `Man
 
 > [!div class="nextstepaction"]
 > [Create a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+
+## See also
+
+* [What is the Bing Entity Search API?](../overview.md )

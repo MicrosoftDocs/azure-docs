@@ -69,15 +69,10 @@ While this application is written in JavaScript, the API is a RESTful Web servic
         });
         ```
 
-    3. When an **end** flag is signalled, the JSON and headers can be viewed.
+    3. When an **end** flag is signalled, parse the JSON, and print it.
 
         ```javascript
         response.on('end', function () {
-            console.log('\nRelevant Headers:\n');
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
             body = JSON.stringify(JSON.parse(body), null, '  ');
             console.log('\nJSON Response:\n');
             console.log(body);
@@ -214,11 +209,12 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#HOLTop)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Entity Search tutorial](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing Entity Search overview](../search-the-web.md )
-> [API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+
+## See also
+
+* [What is the Bing Entity Search API?](../overview.md )
+* [Bing Entity Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

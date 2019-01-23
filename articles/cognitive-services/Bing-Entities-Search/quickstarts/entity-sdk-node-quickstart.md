@@ -69,3 +69,7 @@ To install the Bing Entity Search SDK:
 
 > [!div class="nextstepaction"]
 > [Create a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
+
+## See also
+
+* [What is the Bing Entity Search API?](../overview.md )
