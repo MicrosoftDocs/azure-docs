@@ -182,7 +182,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 If you have reset the SSH configuration and user credentials, or encountered an error in doing so, you can try restarting the VM to address underlying compute issues.
 
 ### Azure portal
-To restart a VM using the Azure portal, select your VM and theen select **Restart** as in the following example:
+To restart a VM using the Azure portal, select your VM and then select **Restart** as in the following example:
 
 ![Restart a VM in the Azure portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
