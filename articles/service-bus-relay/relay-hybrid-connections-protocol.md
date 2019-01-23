@@ -344,7 +344,7 @@ properties at this time:
             "Sec-WebSocket-Protocol" : "...",
             "Sec-WebSocket-Extensions" : "..."
         }
-     }
+    }
 }
 ```
 
@@ -529,7 +529,7 @@ The JSON content for `request` is as follows:
             "User-Agent" : "..."
         },
         "body" : true
-     }
+    }
 }
 ```
 
@@ -572,8 +572,8 @@ the `body` property.
             "Content-Type" : "application/json",
             "Content-Encoding" : "gzip"
         }
-         "body" : true
-     }
+        "body" : true
+    }
 }
 ----- Web Socket binary frame -FIN
 { "hey" : "mydata" }
