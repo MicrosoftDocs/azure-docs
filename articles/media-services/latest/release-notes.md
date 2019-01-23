@@ -35,9 +35,9 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 ### Media Encoder Standard and MPI files 
 
-When encoding with Media Encoder Standard, for each .mp4 file produced as a result of the encoding job, an .mpi file is generated and added to the output. The MPI file is needed for dynamic packaging and streaming performance improvements. 
+When encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for dynamic packaging and streaming scenarios.
 
-You should not modify or remove the MPI file.
+You should not modify or remove the MPI file, or take any dependency in your service on the existence (or not) of such a file.
 
 ## December 2018
 
