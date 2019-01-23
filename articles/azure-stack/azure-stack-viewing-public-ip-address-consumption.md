@@ -35,6 +35,7 @@ The **Public IP addresses** menu item under **Tenant Resources** lists only thos
 under **Tenant Resources**.
 
 ## View the public IP address usage information
+
 To view the total number of public IP addresses that have been consumed
 in the region:
 
@@ -46,6 +47,7 @@ in the region:
 The **Used** number represents the number of assigned public IP addresses from public IP address pools. The **Free** number represents the number of public IP addresses from public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in public IP address pools in that location.
 
 ## View the public IP addresses that were created by tenant subscriptions
+
 Select **Public IP addresses** under **Tenant Resources**. Review the list of public IP addresses explicitly created by tenant subscriptions in a specific region.
 
 ![Tenant public IP addresses](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
@@ -59,6 +61,7 @@ address binds to an interface, the Network Controller allocates an IP
 address. The address appears in the **Address** field.
 
 ## View the public IP address information summary table
+
 In different cases, public IP addresses are
 assigned that determine whether the address appears in one
 list or another.
@@ -72,4 +75,5 @@ list or another.
 | Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. |Yes |No |
 
 ## Next steps
+
 [Manage Storage Accounts in Azure Stack](azure-stack-manage-storage-accounts.md)

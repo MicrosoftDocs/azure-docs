@@ -4,7 +4,7 @@ description: This artice gives you a detailed overview of what risk events are.
 services: active-directory
 keywords: azure active directory identity protection, security, risk, risk level, vulnerability, security policy
 author: priyamohanram
-manager: mtillman
+manager: daveba
 
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
