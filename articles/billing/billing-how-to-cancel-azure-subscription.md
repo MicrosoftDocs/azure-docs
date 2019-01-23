@@ -33,10 +33,10 @@ If you cancel a paid Azure Support plan, you are still billed for the rest of th
 ## Cancel subscription using the Azure portal
 
 1. Select your subscription from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Select the subscription that you want to cancel and click **Cancel subscription**.
+2. Select the subscription that you want to cancel and click **Cancel subscription**.
 
     ![Screenshot that shows the Cancel button](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. Follow prompts and finish cancellation.
+3. Follow prompts and finish cancellation.
 
 ## What happens after I cancel my subscription?
 
