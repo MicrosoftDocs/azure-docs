@@ -4,7 +4,7 @@ description: Understand password policies on managed domains
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
