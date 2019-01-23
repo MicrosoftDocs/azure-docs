@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 1/23/2019
+ms.date: 01/23/2019
 ms.author: shlo
 
 ---
@@ -232,6 +232,7 @@ It's possible to iterate over multiple activities (for example: copy and web act
 }
 
 ```
+
 ### Example
 **Scenario:** Iterate over an InnerPipeline within a ForEach activity with Execute Pipeline activity. The inner pipeline copies with schema definitions parameterized.
 
@@ -473,8 +474,6 @@ It's possible to iterate over multiple activities (for example: copy and web act
 To aggregate outputs of __foreach__ activity, please utilize _Variable_s and _Append Variable_ activity.
 
 First, declare an `array` _variable_ in the pipeline. Then, invoke _Append Variable_ activity inside each __foreach__ loop. Subsequently, you can retrieve the aggregation from your array.
-
-```
 
 ## Limitations and workarounds
 
