@@ -12,32 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018 
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
 ---
 # Manage storage accounts in Azure Stack
+
 Learn how to manage storage accounts in Azure Stack to find, recover, and reclaim storage capacity based on business needs.
 
-## <a name="find"></a>Find a storage account
+## Find a storage account
 The list of storage accounts in the region can be viewed in Azure Stack
 by:
 
 1. Sign in to the [Admin portal](https://adminportal.local.azurestack.external).
 
-2. Select **All services** > **Region management** under **Administration**.
+2. Select **All services** > **Storage accounts**.
 
-3. Select **Storage** from the **Resource Providers** list.
-   
-   ![Storage Resource Provider](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. Select **Storage accounts** in **Storage**.
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   The blade displays the list of storage accounts in that region.
-   
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 By default, the first 10 accounts are displayed. You can choose to fetch
@@ -94,7 +85,7 @@ In Azure Stack there is a simple way to do that:
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. The recovery is now in *process…wait* for an indication that it was
    successful.
-   You can also select the “bell” icon at the top of the portal to
+   You can also select the "bell" icon at the top of the portal to
    view progress indications.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
@@ -115,7 +106,7 @@ In Azure Stack there is a simple way to do that:
 The retention period setting allows a cloud operator to specify a time period in
 days (between 0 and 9999 days) during which any deleted account can
 potentially be recovered. The default retention period is set to 0
-days. Setting the value to “0” means that any deleted account is
+days. Setting the value to "0" means that any deleted account is
 immediately out of retention and marked for periodic garbage
 collection.
 
