@@ -157,7 +157,7 @@ az network application-gateway redirect-config create \
 
 ### Add the routing rule
 
-Add the routing rule named *rule2* with the redirection configuration to the application gateway using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network_application_gateway_rule_create).
+Add the routing rule named *rule2* with the redirection configuration to the application gateway using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule).
 
 ```azurecli-interactive
 az network application-gateway rule create \

@@ -3,9 +3,9 @@ title: Azure Service Bus paired namespaces | Microsoft Docs
 description: Paired namespace implementation details and cost
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # Paired namespace implementation details and cost implications
