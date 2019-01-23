@@ -10,7 +10,7 @@ ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable SSPR to complete a pilot roll out.

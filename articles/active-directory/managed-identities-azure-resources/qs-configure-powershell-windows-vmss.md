@@ -3,8 +3,8 @@ title: How to configure managed identities for Azure resources on a virtual mach
 description: Step by step instructions for configuring a system and user-assigned managed identities on a virtual machine scale set using PowerShell.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: 
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # Configure managed identities for Azure resources on virtual machine scale sets using PowerShell

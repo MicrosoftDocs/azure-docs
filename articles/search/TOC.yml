@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Search
+  - name: What is Azure Search
     href: search-what-is-azure-search.md
+  - name: What is cognitive search
+    href: cognitive-search-concept-intro.md
 - name: Quickstarts
   expanded: true
   items:
@@ -51,8 +53,6 @@
     href: https://azure.microsoft.com/resources/samples/?service=search
 - name: Concepts
   items:
-  - name: Cognitive search (Preview)
-    href: cognitive-search-concept-intro.md
   - name: Full text search
     href: search-lucene-query-architecture.md
 - name: How-to guides

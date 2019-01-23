@@ -3,8 +3,8 @@ title: How to use managed identities for Azure resources on an Azure VM for sign
 description: Step by step instructions and examples for using an Azure VM managed identities for Azure resources service principal for script client sign in and resource access.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: 
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # How to use managed identities for Azure resources on an Azure VM for sign in 

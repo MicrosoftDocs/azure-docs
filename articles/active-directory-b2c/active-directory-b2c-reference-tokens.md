@@ -3,7 +3,7 @@ title: Token reference in Azure Active Directory B2C | Microsoft Docs
 description: The types of tokens issued in Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity

@@ -58,7 +58,7 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
  
 9. Upload the resulting signature from step 8 above to your IoT hub in the portal. In the **Certificate Details** blade on the Azure portal, navigate to the **Verification Certificate .pem or .cer file**, and select the signature, for example, *VerifyCert4.cer* created by the sample PowerShell command using the _File Explorer_ icon besides it.
 
-10. Once the certificate is successfuly uploaded, click **Verify**. The **STATUS** of your certificate changes to **_Verified_** in the **Certificates** blade. Click **Refresh** if it does not update automatically.
+10. Once the certificate is successfully uploaded, click **Verify**. The **STATUS** of your certificate changes to **_Verified_** in the **Certificates** blade. Click **Refresh** if it does not update automatically.
 
    ![Upload certificate verification](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 

@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/16/2019
+ms.date: 01/22/2019
 ms.author: juliako
 
 ---
@@ -86,7 +86,7 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ### Create a live event
 
-This section shows how to create a **pass-through** type of LiveEvent (LiveEventEncodingType set to None). If you want to create a LiveEvent that is enabled for live encoding set LiveEventEncodingType to Standard. 
+This section shows how to create a **pass-through** type of LiveEvent (LiveEventEncodingType set to None). If you want to create a LiveEvent that is enabled for live encoding set LiveEventEncodingType to **Standard**. 
 
 Some other things that you might want to specify when creating the live event are:
 
@@ -100,7 +100,9 @@ Some other things that you might want to specify when creating the live event ar
     
     The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
 
-When creating the event, you can specify to auto start it. 
+* When creating the event, you can specify to auto start it. 
+
+    When autostart is set to true, the Live Event will be started after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

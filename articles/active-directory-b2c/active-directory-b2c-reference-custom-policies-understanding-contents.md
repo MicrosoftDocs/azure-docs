@@ -3,7 +3,7 @@ title: Understanding custom policies of the starter pack in Azure Active Directo
 description: A topic on Azure Active Directory B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
