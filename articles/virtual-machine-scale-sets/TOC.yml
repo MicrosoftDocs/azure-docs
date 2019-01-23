@@ -23,9 +23,6 @@
   items:
   - name: 1 - Create / manage scale set
     items:
-    - name: Ansible
-      href: /azure/ansible/ansible-create-configure-vmss
-      maintainContext: true
     - name: Azure CLI
       href: tutorial-create-and-manage-cli.md
     - name: Azure PowerShell
@@ -44,9 +41,6 @@
       href: tutorial-use-custom-image-powershell.md
   - name: 4 - Deploy apps to a scale set
     items:
-    - name: Ansible
-      href: /azure/ansible/ansible-deploy-app-vmss
-      maintainContext: true
     - name: Azure CLI
       href: tutorial-install-apps-cli.md
     - name: Azure PowerShell
@@ -55,9 +49,6 @@
       href: tutorial-install-apps-template.md
   - name: 5 - Autoscale a scale set
     items:
-    - name: Ansible
-      href: /azure/ansible/ansible-auto-scale-vmss
-      maintainContext: true
     - name: Azure CLI
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
@@ -189,14 +180,6 @@
       href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Deploy
     items:
-    - name: Ansible
-      items:
-      - name: Create and manage scale sets
-        href: /azure/ansible/ansible-create-configure-vmss
-        maintainContext: true
-      - name: Deploy apps to scale sets
-        href: /azure/ansible/ansible-deploy-app-vmss
-        maintainContext: true
     - name: Create with Visual Studio
       href: virtual-machine-scale-sets-vs-create.md
     - name: Use Availability Zones
@@ -259,6 +242,17 @@
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: Planned maintenance
       href: virtual-machine-scale-sets-maintenance-notifications.md
+  - name: Use Ansible
+    items:
+    - name: Create and manange scale sets
+      href: /azure/ansible/ansible-create-configure-vmss
+      maintainContext: true
+    - name: Deploy apps to scale sets
+      href: /azure/ansible/ansible-deploy-app-vmss
+      maintainContext: true
+    - name: Autoscale a scale set
+      href: /azure/ansible/ansible-auto-scale-vmss
+      maintainContext: true
   - name: Troubleshoot
     items:
     - name: Autoscale
