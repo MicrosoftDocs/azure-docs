@@ -10,7 +10,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/23/2019
 ms.author: tomfitz
 
 ---
@@ -44,6 +44,10 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
     ![View summary of recent operations](./media/resource-group-audit/audit-summary.png)
 
+1. To quickly run a pre-defined set of filters, select **Quick Insights** and pick one of the options.
+
+    ![select query](./media/resource-group-audit/quick-insights.png)
+
 1. To focus on specific operations, change the filters or apply new ones. For example, the following image shows a new value for the **Timespan** and **Resource type** is set to storage accounts. 
 
     ![Set filter options](./media/resource-group-audit/set-filter.png)
@@ -52,12 +56,13 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
     ![Pin filters](./media/resource-group-audit/pin-filters.png)
 
-1. Give the filters a name.
+1. Give the filter a name.
 
     ![Name filters](./media/resource-group-audit/name-filters.png)
-1. To quickly run a pre-defined set of filters, select **Quick Insights** and pick one of the options.
 
-    ![select query](./media/resource-group-audit/quick-insights.png)
+1. The filter is available in the dashboard.
+
+    ![Show filter on dashboard](./media/resource-group-audit/show-dashboard.png)
 
 ## PowerShell
 
@@ -96,12 +101,6 @@ You can retrieve information from the activity logs through the portal, PowerShe
   ```azurepowershell-interactive
   ((Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
   ```
-
-    Which returns:
-
-        code           message
-        ----           -------
-        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP.
 
 * You can select specific values to limit the data that is returned.
 
