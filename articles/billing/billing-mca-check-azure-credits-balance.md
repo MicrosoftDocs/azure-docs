@@ -1,6 +1,6 @@
 ---
-title: Track Azure credit balances for your Billing profile | Microsoft Docs
-description: Learn to check Azure credit balances for your Billing profile.
+title: Track Azure credit balance for your Billing profile | Microsoft Docs
+description: Learn to check Azure credit balance for your Billing profile.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -17,23 +17,23 @@ ms.date: 01/17/2019
 ms.author: amberb
 
 ---
-# Track Azure credit balances for your Billing profile
+# Track Azure credit balance for your Billing profile
 
-You can check the Azure credits for your billing profile in the Azure portal. Use these credits to pay for products that are eligible for credits.
+You can check the Azure credit balance for your Billing profile in the Azure portal. Use credits to pay for products that are covered by the credits.
 
-You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balances. For more information, see [Products that aren't covered by Azure credits.](#products-that-aren't-covered-by-azure-credits)
+You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits.](#products-that-aren't-covered-by-azure-credits)
 
-This article describes how to use Azure portal to check credit balances for your Billing profile.
+This article describes how to use Azure portal to check credit balance for your Billing profile.
 
-## Check credit balances on the Azure portal
+## Check credit balance on the Azure portal
 
 1. Sign in to the [Azure portal]( http://portal.azure.com).
 
 2. Select **Cost Management + Billing** from the lower-left side of the portal.
 
-3. Go to the billing profile. Depending on your access, you may need to select a billing account and then Billing profiles.
+3. Go to the Billing profile. Depending on your access, you may need to select a Billing account and then   **Billing profiles**.
 
-4. Select Azure credits.
+4. Select **Azure credits**.
 
 5. The Azure credits page shows the following information:
 
@@ -62,11 +62,11 @@ This article describes how to use Azure portal to check credit balances for your
 
 [!INCLUDE [Check if you have access to a Billing account for Microsoft Customer Agreement](../../includes/billing-check-mca.md)]
 
-## How credits are applied in Microsoft customer agreement
+## How credits are used in Microsoft Customer Agreement
 
-In Microsoft customer agreement, you use Billing profiles to customize how you pay your invoices. A Billing profile contains information like billing address and payment methods. A monthly invoice is generated for each billing profile and you use the payment methods to pay for the invoice.
+In Microsoft customer agreement, you use Billing profiles to customize how you pay your invoices. A Billing profile contains information like billing address and payment methods. A monthly invoice is generated for each Billing profile and you use the payment methods to pay for the invoice.
 
-Azure credits is one of the payment methods. You can add credits or Microsoft can provide you credits. You assign these credits to a billing profile. When an invoice is generated for the billing profile, credits are first applied to the total charges to calculate the amount that you need to pay. You use your payment methods other than credits to pay the amount.
+Azure credits is one of the payment methods. You can add credits or Microsoft can provide you credits. You assign these credits to a Billing profile. When an invoice is generated for the Billing profile, credits are first applied to the total charges to calculate the amount that you need to pay. You use your payment methods other than credits to pay the amount.
 
 ## Products that aren't covered by Azure credits
 
