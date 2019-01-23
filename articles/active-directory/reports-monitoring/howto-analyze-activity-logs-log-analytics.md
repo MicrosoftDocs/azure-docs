@@ -4,7 +4,7 @@ description: Learn how to analyze Azure Active Directory activity logs using Log
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426

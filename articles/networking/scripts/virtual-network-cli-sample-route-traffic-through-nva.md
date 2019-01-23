@@ -48,10 +48,10 @@ This script uses the following commands to create a resource group, virtual netw
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Creates an Azure virtual network and front-end subnet. |
+| [az network vnet create](/cli/azure/network/vnet) | Creates an Azure virtual network and front-end subnet. |
 | [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Creates back-end and DMZ subnets. |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address to access the VM from the Internet. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Creates a virtual network interface and enable IP forwarding for it. |
+| [az network nic create](/cli/azure/network/nic) | Creates a virtual network interface and enable IP forwarding for it. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Creates a network security group (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Creates NSG rules that allow HTTP and HTTPS ports inbound to the VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Associates the NSGs and route tables to subnets. |
