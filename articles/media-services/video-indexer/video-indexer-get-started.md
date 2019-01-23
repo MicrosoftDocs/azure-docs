@@ -37,7 +37,7 @@ To start developing with Video Indexer, browse to the [Video Indexer](https://ww
 
 ## Next steps
 
-You can now use the [Video Indexer](video-indexer-view-edit.md) webiste or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
+You can now use the [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
 
 ## See also
 
