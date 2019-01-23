@@ -19,7 +19,7 @@ ms.custom: it-pro
 
 ---
 
-# Compare administrator roles for workloads in Microsoft 365
+# Administrator roles for Microsoft 365 workloads 
 
 This article provides a list of Microsoft 365 workloads accompanied by links to role content and feature area API content. General discussions of delegation issues can be found in [Is your security operations center running flat with limited role-based access control?](https://techcommunity.microsoft.com/t5/Announcements/Is-your-SOC-running-flat-with-limited-RBAC/m-p/320015#M49) and [Role delegation planning in Azure Active Directory](roles-concept-delegation.md).
 
