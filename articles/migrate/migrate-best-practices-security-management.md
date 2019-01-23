@@ -62,12 +62,12 @@ In addition to assessments and recommendations, the Security Center provides a n
 
 ## Best practice: Encrypt data 
 
-Encryption's an important part of Azure security practices. Ensuring that encryption is enabled at all levels helps prevent unauthorized parties from gaining access to sensitive data, including data in transit and at rest. 
+Encryption is an important part of Azure security practices. Ensuring that encryption is enabled at all levels helps prevent unauthorized parties from gaining access to sensitive data, including data in transit and at rest. 
 
 ### Encryption for IaaS
 
 - **VMs**: For VMs you can use Azure Disk Encryption to encrypt your Windows and Linux IaaS VM disks.
-    - Disk encryption leverages Bitlocker for Windows, and DM-Crypt for Linux to provide volume encryption for the OS and data disks.
+    - Disk encryption leverages BitLocker for Windows, and DM-Crypt for Linux to provide volume encryption for the OS and data disks.
     - You can use an encryption key created by Azure, or you can supply your own encryption keys, safeguarded in Azure Key Vault. 
     - With Disk Encryption, IaaS VM data is secured at rest (on the disk) and during VM boot. 
     - Azure Security Center alerts you if you have VMs that aren't encrypted.
@@ -367,7 +367,7 @@ Azure Backup backs up creates data recovery points that are stored in Azure stor
 You can use Azure Backup to back up VMs in a couple of ways.
 
 - **Direct backup from VM settings**: You can back up VMs with Azure Backup directly from the VM options in the Azure portal. You can back up the VM once and day, and restore the VM disk as needed. Azure Backup takes app-aware data snapshots (VSS), no agent is installed on the VM.
-- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to isntall the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up.
+- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to install the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up.
 - **Azure Backup Server: Protect the VM to Azure Backup Server**: Azure Backup Server is provided free with Azure Backup. The VM is backed up to local Azure Backup Server storage. You then back up the Azure Backup Server to Azure in a vault. Backup is app-aware, with full granularity over backup frequently and retention. You can back up at the app level. For example by backing up SQL Server or SharePoint.
 
 For security, Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.

@@ -4,7 +4,7 @@ description: Learn how to configure Azure Active Directory to automatically prov
 services: active-directory
 author: cmmdesai
 documentationcenter: na
-manager: mtillman
+manager: daveba
 
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
