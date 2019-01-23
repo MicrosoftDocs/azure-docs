@@ -26,6 +26,9 @@ ms.date: 10/18/2018
 
 ## Release notes
 
+### <a name="0.10.1-preview"/>0.10.1-preview
+* Add support for SAS Token, TablePermissions, ServiceProperties and ServiceStats for Azure Storage Table endpoints. [!NOTE] Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client side encryption.
+
 ### <a name="0.10.0-preview"/>0.10.0-preview
 * Add support for core CRUD, batch and query operations against Azure Storage Table endpoints. [!NOTE] Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client side encryption.
 
@@ -37,6 +40,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [0.10.1-preview](#0.10.1-preview) |January 22, 2019 |--- |
 | [0.10.0-preview](#0.10.0-preview) |December 18, 2018 |--- |
 | [0.9.1-preview](#0.9.1-preview) |October 18, 2018 |--- |
 
