@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
-ms.author: priyamohanram
+ms.author: priyamo
 
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
 ---

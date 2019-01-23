@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Configure Managed identities for Azure resources on an Azure VM using REST API calls

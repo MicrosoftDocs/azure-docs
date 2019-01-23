@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # How to use managed identities for Azure resources on an Azure VM with Azure SDKs 

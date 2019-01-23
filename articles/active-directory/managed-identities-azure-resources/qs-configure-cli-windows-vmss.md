@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI

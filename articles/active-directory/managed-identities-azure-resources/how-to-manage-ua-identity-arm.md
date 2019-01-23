@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Create, list and delete a user-assigned managed identity using Azure Resource Manager

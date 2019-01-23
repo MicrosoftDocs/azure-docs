@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # FAQs and known issues with managed identities for Azure resources

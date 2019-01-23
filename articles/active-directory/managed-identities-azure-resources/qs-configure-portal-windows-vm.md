@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Configure managed identities for Azure resources on a VM using the Azure portal

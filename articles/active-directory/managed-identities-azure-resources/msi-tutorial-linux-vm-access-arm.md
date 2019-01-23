@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: priyamohanram
+ms.author: priyamo
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

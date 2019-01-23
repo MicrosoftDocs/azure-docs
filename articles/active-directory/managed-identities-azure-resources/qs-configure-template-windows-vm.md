@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Configure managed identities for Azure resources on an Azure VM using a templates

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Assign a managed identity access to a resource using PowerShell

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/29/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # View the service principal of a managed identity in the Azure portal

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Configure managed identities for Azure resources on a Azure virtual machine scale using a template

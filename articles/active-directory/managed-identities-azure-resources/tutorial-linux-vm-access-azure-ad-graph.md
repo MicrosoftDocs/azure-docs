@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure AD Graph API

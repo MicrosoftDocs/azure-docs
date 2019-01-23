@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Storage

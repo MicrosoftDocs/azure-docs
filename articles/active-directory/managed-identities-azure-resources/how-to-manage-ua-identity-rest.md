@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Create, list or delete a user-assigned managed identity using REST API calls

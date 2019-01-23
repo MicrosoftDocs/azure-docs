@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: priyamohanram
+ms.author: priyamo
 ---
 
 # Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal
