@@ -4,7 +4,7 @@ description: Understand the common problems people face when adding Azure AD Gal
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
