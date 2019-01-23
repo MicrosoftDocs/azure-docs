@@ -191,7 +191,7 @@
   - name: Move VMs
     items:
     - name: Move VMs across regions
-      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md
+      href: ../../site-recover/azure-to-azure-tutorial-migrate.md
     - name: Move VMs across Resource Groups & subscriptions
       href: move-vm.md
 
