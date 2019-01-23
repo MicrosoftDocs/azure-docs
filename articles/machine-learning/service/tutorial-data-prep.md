@@ -34,7 +34,7 @@ You can prepare your data in Python by using the [Azure Machine Learning Data Pr
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Run the **regression-part1-data-prep.ipynb** notebook either in Azure Notebooks or in your own Jupyter Notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Run the **regression-part1-data-prep.ipynb** notebook either in [Azure Notebooks](https://notebooks.azure.com/) or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -1072,7 +1072,7 @@ package.save(file_path)
 
 To continue with part two of the tutorial, you need the **dflows.dprep** file in the current directory.
 
-If you don't plan to continue to part two, delete the **dflows.dprep** file in your current directory. Delete this file whether you're running the execution locally or in Azure Notebooks.
+If you don't plan to continue to part two, delete the **dflows.dprep** file in your current directory. Delete this file whether you're running the execution locally or in [Azure Notebooks](https://notebooks.azure.com/).
 
 ## Next steps
 

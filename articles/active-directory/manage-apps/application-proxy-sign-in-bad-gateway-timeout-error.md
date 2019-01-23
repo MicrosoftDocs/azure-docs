@@ -4,7 +4,7 @@ description: How to resolve common access issues with Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
