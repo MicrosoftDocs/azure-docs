@@ -1,5 +1,5 @@
 ---
-title: Hyperledger Fabric Consortium Network
+title: Hyperledger Fabric Consortium Network on Azure
 description: Solution template to deploy and configure a Hyperledger Fabric consortium network
 services: azure-blockchain
 keywords:
@@ -13,7 +13,7 @@ manager: femila
 ---
 # Hyperledger Fabric consortium network
 
-You can use the Hyperledger Fabric consortium solution template to deploy and configure a Hyperledger Fabric consortium network.
+You can use the Hyperledger Fabric consortium solution template to deploy and configure a Hyperledger Fabric consortium network on Azure.
 
 After reading this article, you will:
 
@@ -33,10 +33,10 @@ To enable Hyperledger Fabric in Azure, there are two primary deployment types th
 
 In either deployment, the building blocks that are make the core of Hyperledger Fabric are the same.  The differences in the deployments are how these components are scaled out.
 
-1. **CA nodes**: A node running Certificate Authority that is used to generate certificates that are used for identities in the network.
-2. **Orderer nodes**: A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
-3. **Peer nodes**: A node that commits transactions and maintains the state and a copy of the distributed ledger.
-4. **CouchDB nodes**: A node that can run the CouchDB service that can hold the state database and provide rich querying of chaincode data, expanding from simple key/value to JSON type storage.
+- **CA nodes**: A node running Certificate Authority that is used to generate certificates that are used for identities in the network.
+- **Orderer nodes**: A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
+- **Peer nodes**: A node that commits transactions and maintains the state and a copy of the distributed ledger.
+- **CouchDB nodes**: A node that can run the CouchDB service that can hold the state database and provide rich querying of chaincode data, expanding from simple key/value to JSON type storage.
 
 ### Single virtual machine architecture
 
