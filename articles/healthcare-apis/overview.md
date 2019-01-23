@@ -9,7 +9,7 @@ ms.date: 02/07/2019
 ms.author: mihansen
 ---
 
-# What is Azure API for FHIR&reg;?
+# What is Azure API for FHIR?
 
 ## Open protocol for healthcare management and sharing
 

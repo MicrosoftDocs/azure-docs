@@ -1,5 +1,5 @@
 ---
-title: Postman FHIR server in Azure tutorial - Microsoft Healthcare APIs
+title: Postman FHIR server in Azure tutorial - Azure API for FHIR
 description: This article describes how to access a FHIR API with Postman.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -16,14 +16,14 @@ A client application would access a FHIR API through a [REST API](https://www.hl
 
 ## Prerequisites
 
-- A FHIR endpoint in Azure. You can set that up using the Microsoft Healthcare APIs for FHIR. There are quickstarts available for [Azure portal](fhir-oss-portal-quickstart.md), [PowerShell](fhir-oss-powershell-quickstart.md), or [Azure CLI](fhir-oss-cli-quickstart.md).
+- A FHIR endpoint in Azure. You can set that up using the Azure API for FHIR. There are quickstarts available for [Azure portal](fhir-oss-portal-quickstart.md), [PowerShell](fhir-oss-powershell-quickstart.md), or [Azure CLI](fhir-oss-cli-quickstart.md).
 - Postman installed. You can get it from [https://www.getpostman.com](https://www.getpostman.com)
 
 ## FHIR server and authentication details
 
 In order to use Postman, you will need to know the following details:
 
-- Your FHIR server URL, for example, `https://MYFHIRSERVICE.azurewebsites.net` or `https://MYACCOUNT.microsofthealthcare-apis.com/fhir`
+- Your FHIR server URL, for example, `https://MYFHIRSERVICE.azurewebsites.net` or `https://MYACCOUNT.azurehealthcareapis.com/fhir`
 - The identity provider `Authority` for your FHIR server, for example, `https://login.microsoftonline.com/{TENANT-ID}`
 - The configured `audience`, which would be set in the [Azure AD resource application registration](register-resource-azure-ad-client-app.md).
 - The `client_id` (or application ID) of the [client application](register-confidential-azure-ad-client-app.md) you will be using to access the FHIR service.
