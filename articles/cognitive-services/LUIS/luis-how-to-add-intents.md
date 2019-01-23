@@ -8,7 +8,7 @@ manager: cgronlun
 ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
