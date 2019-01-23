@@ -188,19 +188,14 @@
           href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       - name: Back up multiple VMs
         href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-  - name: Move VMs
-    items:
-    - name: Move VMs across regions
-      href: ../../site-recover/azure-to-azure-tutorial-migrate.md
-    - name: Move VMs across Resource Groups & subscriptions
-      href: move-vm.md
-
   - name: Manage VMs
     items:
     - name: VM usage
       href: vm-usage.md
     - name: Common PowerShell tasks
       href: ps-common-ref.md
+    - name: Move a VM
+      href: move-vm.md
     - name: Change VM size
       href: resize-vm.md
     - name: Swap the OS disk
