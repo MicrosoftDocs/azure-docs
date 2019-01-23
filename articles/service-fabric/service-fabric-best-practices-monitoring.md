@@ -6,35 +6,33 @@ documentationcenter: .net
 author: peterpogorski
 manager: jeanpaul.connock
 editor: ''
-
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 01/23/2019
 ms.author: pepogors
-
 ---
 
-# Monitoring and Diagnostics
+# Monitoring and diagnostics
 
 [Monitoring and diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview) are critical to developing, testing, and deploying workloads in any cloud environment. For example, you can track how your applications are used, the actions taken by the Service Fabric platform, your resource utilization with performance counters, and the overall health of your cluster. You can use this information to diagnose and correct issues, and prevent them from occurring in the future.
 
-## Application Monitoring
+## Application monitoring
 
 Application monitoring tracks how features and components of your application are being used. Monitor your applications to make sure issues that impact your users are caught. Application monitoring is the responsiblity of those developing the application and its services because it is unique to the business logic of your application. It is recommended that you set up application monitoring with [Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet), Azure's application monitoring tool.
 
-## Cluster Monitoring
+## Cluster monitoring
 
 One of Service Fabric's goals is to make applications resilient to hardware failures. This goal is achieved through the platform's system services' ability to detect infrastructure issues and rapidly failover workloads to other nodes in the cluster. But what if the system services themselves have issues? Or if in attempting to deploy or move a workload, rules for the placement of services are violated? Service Fabric provides diagnostics for these, and other issues, to make sure you are informed about how the Service Fabric platform interacts with your applications, services, containers, and nodes.
 
-For Windows clusters, it is recommended that you set up cluster monitoring with [Diagnostics Agent](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) and [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
+For Windows clusters, it is recommended that you set up cluster monitoring with [Diagnostics Agent](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) and [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 
-For Linux clusters, Log Analytics is also the recommended tool for Azure platform and infrastructure monitoring. Linux platform diagnostics require different configuration as noted in [Service Fabric Linux cluster events in Syslog](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
+For Linux clusters, Log Analytics is also the recommended tool for Azure platform and infrastructure monitoring. Linux platform diagnostics require different configuration as noted in [Service Fabric Linux cluster events in Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
 
-## Infrastructure Monitoring
+## Infrastructure monitoring
 
 [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) is recommended for monitoring cluster level events. Once you configure the Log Analytics agent with your workspace as described in previous link, you will be able to collect performance metrics such as CPU Utilization, .NET performance counters such as process level CPU utilization, Service Fabric performance counters such as # of exceptions from a reliable service, and container metrics such as CPU Utilization, and container logs (stdout, stderr). (JTW, that are written to ...)
 

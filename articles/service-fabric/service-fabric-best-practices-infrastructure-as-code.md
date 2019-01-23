@@ -6,19 +6,17 @@ documentationcenter: .net
 author: peterpogorski
 manager: jeanpaul.connock  
 editor: ''
-
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: 
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 01/23/2019
 ms.author: pepogors
-
 ---
 
-# Infrastructure as Code 
+# Infrastructure as code
 
 In a production scenario, create Azure Service Fabric clusters using Resource Manager templates. Resource Manager templates provide greater control of resource properties and ensure that you have a consistent resource model.
 
@@ -47,7 +45,7 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
-## Azure Service Fabric Resources
+## Azure Service Fabric resources
 
 You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager. See [Manage applications and services as Azure Resource Manager resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) for details. The following are the Resource Manager template resources you would use to deploy your application: (JTW - do you mean these are examples or that they simply serve the purpose)
 
