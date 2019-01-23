@@ -18,7 +18,7 @@ ms.reviewer: mal
 
 # Use one-time passcodes to authenticate B2B guest users
 
-The one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Google federation, Azure AD, or Microsoft account (MSA). With the one-time passcode feature, the guest user receives a temporary code via email when they redeem an invitation or access a shared resource. Then they enter this code to continue signing in.
+The one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Google federation, Azure AD, or a Microsoft account (MSA). With one-time passcode authentication, there's no need to create a Microsoft account. When the guest user redeems an invitation or accesses a shared resource, they can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in.
 
 This feature is currently available for preview (see [Opting in to the preview](#opting-in-to-the-preview) below). After preview, this feature will be turned on by default for all tenants.
 
