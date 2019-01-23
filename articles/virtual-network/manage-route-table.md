@@ -91,7 +91,7 @@ If your virtual network is connected to an Azure VPN gateway, do not associate a
 
 **Commands**
 
-- Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
+- Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## Dissociate a route table from a subnet
@@ -106,7 +106,7 @@ When you dissociate a route table from a subnet, Azure routes traffic based on i
 
 **Commands**
 
-- Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
+- Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
 
 ## Delete a route table
@@ -176,7 +176,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 **Commands**
 
-- Azure CLI: [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_update)
+- Azure CLI: [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
 
 ## Delete a route

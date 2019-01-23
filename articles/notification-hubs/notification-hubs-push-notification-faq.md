@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/22/2019
 ms.author: jowargo
 ---
 
@@ -33,14 +33,15 @@ Recommended mapping matches one namespace with one app. Within a namespace, you 
 The latest pricing details can be found on the [Notification Hubs Pricing] page. Notification Hubs is billed at the namespace level. (For the definition of a namespace, see "What is the resource structure of Notification Hubs?") Notification Hubs offers three tiers:
 
 * **Free**: This tier is a good starting point for exploring push capabilities. It's not recommended for production apps. You get 500 devices and 1 million pushes included per namespace per month, with no service level agreement (SLA) guarantee.
-* **Basic**: This tier (or the Standard tier) is recommended for smaller production apps. You get 200,000 devices and 10 million pushes included per namespace per month as a baseline. Quota growth options are included.
-* **Standard**: This tier is recommended for medium to large production apps. You get 10 million devices and 10 million pushes included per namespace per month as a baseline. Quota increase options and rich telemetry capabilities are included.
+* **Basic**: This tier (or the Standard tier) is recommended for smaller production apps. You get 200,000 devices and 10 million pushes included per namespace per month as a baseline.
+* **Standard**: This tier is recommended for medium to large production apps. You get 10 million devices and 10 million pushes included per namespace per month as a baseline. Includes rich telemetry (additional data about push status provided).
 
 Standard tier features:
 
 * **Rich telemetry**: You can use Notification Hubs Per Message Telemetry to track any push requests and Platform Notification System Feedback for debugging.
 * **Multitenancy**: You can work with Platform Notification System credentials on a namespace level. This option allows you to easily split tenants into hubs within the same namespace.
 * **Scheduled push**: You can schedule notifications to be sent out anytime.
+* **Bulk operations**: Enables registrations Export/Import functionality as described in the [Registrations Export/Import] document.
 
 ### What is the Notification Hubs SLA?
 

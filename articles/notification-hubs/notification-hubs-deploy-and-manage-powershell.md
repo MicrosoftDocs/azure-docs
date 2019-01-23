@@ -13,11 +13,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 01/04/2019
 ms.author: jowargo
 ---
 
-# Deploy and Manage Notification Hubs using PowerShell
+# Deploy and manage notification hubs using PowerShell
 
 ## Overview
 

@@ -4,7 +4,7 @@ description: Troubleshoot problems related to self-service application access
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
