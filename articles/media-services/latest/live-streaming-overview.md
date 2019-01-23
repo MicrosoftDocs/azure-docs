@@ -45,7 +45,7 @@ Here are the steps for a live streaming workflow:
     If you intend to encrypt your content with DRM, review [Content protection overview](content-protection-overview.md).
 8. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
 9. Get the hostname for the **Streaming Endpoint** you wish to stream from.
-10. Combine the URL from step 7 with the hostname in step 8 to get your full URL.
+10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
 11. If you wish to stop making your **LiveEvent** viewable, you need to stop streaming the event and delete the **StreamingLocator**.
 
 For more information, see the [Live streaming tutorial](stream-live-tutorial-with-api.md).
