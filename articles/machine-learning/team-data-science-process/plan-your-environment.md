@@ -52,7 +52,7 @@ You may need to move the data several times during the analytics process. A comm
 * SQL Server on Azure VM
 * HDInsight (Hadoop on Azure) or Hive tables
 * Azure Machine Learning
-* Mountable Azure virtual hard disks.
+* Mountable Azure virtual hard disks
 
 ### How are you going to move the data?
 
@@ -122,11 +122,11 @@ This step is important to help you:
 * Formulate hypotheses that suggest the most appropriate features or type of analysis
 * Formulate plans for additional data collection
 
- Useful techniques for data inspection include descriptive statistics calculation and visualization plots. For details of how to explore a dataset in various Azure environments, see [Explore data in the Team Data Science Process](explore-data.md).
+Useful techniques for data inspection include descriptive statistics calculation and visualization plots. For details of how to explore a dataset in various Azure environments, see [Explore data in the Team Data Science Process](explore-data.md).
 
-### Does the data require pre-processing or cleaning?
+### Does the data require preprocessing or cleaning?
 
-You might need to pre-process and clean your data before you can use the dataset effectively for machine learning. Raw data is often noisy and unreliable. It might be missing values. Using such data for modeling can produce misleading results. For a description, see [Tasks to prepare data for enhanced machine learning](prepare-data.md).
+You might need to preprocess and clean your data before you can use the dataset effectively for machine learning. Raw data is often noisy and unreliable. It might be missing values. Using such data for modeling can produce misleading results. For a description, see [Tasks to prepare data for enhanced machine learning](prepare-data.md).
 
 ## Tools and languages questions
 
@@ -140,7 +140,7 @@ There are many options for languages, development environments, and tools. Be aw
 
 ### What tools should you use for data analysis?
 
-* [Microsoft Azure Powershell](/powershell/azure/overview) - a script language used to administer your Azure resources in a script language.
+* [Microsoft Azure Powershell](/powershell/azure/overview) - a script language used to administer your Azure resources in a script language
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](http://www.rstudio.com)

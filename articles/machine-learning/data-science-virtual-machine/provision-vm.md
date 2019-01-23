@@ -25,21 +25,21 @@ The Microsoft Data Science Virtual Machine (DSVM) is a Windows Azure virtual mac
 
 * [Azure Machine Learning service](../service/index.yml) Python SDK.
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition.
-* Anaconda Python distribution.
-* Jupyter Notebook with R, Python, and PySpark kernels.
-* Microsoft Visual Studio Community.
-* Microsoft Power BI desktop.
-* Microsoft SQL Server 2017 Developer edition.
-* A standalone Apache Spark instance for local development and testing.
-* [JuliaPro](https://juliacomputing.com/products/juliapro.html).
+* Anaconda Python distribution
+* Jupyter Notebook with R, Python, and PySpark kernels
+* Microsoft Visual Studio Community
+* Microsoft Power BI desktop
+* Microsoft SQL Server 2017 Developer edition
+* A standalone Apache Spark instance for local development and testing
+* [JuliaPro](https://juliacomputing.com/products/juliapro.html)
 * Machine learning and data analytics tools:
-  * Deep learning frameworks. A rich set of AI frameworks are included on the VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, and Keras.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit). A fast machine learning system that supports techniques like online hashing, allreduce, reductions, learning2search, and active and interactive learning.
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/). A tool that provides fast and accurate boosted tree implementation.
-  * [Rattle](https://togaware.com/rattle/), the R analytical tool to learn easily. A tool that gets you started with data analytics and machine learning in R. It includes GUI-based data exploration and modeling with automatic R code generation.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Visual data mining and machine learning software in Java.
-  * [Apache Drill](https://drill.apache.org/). A schema-free SQL query engine for Apache Hadoop, NoSQL, and cloud storage.  It supports ODBC and JDBC interfaces for querying NoSQL and files from standard BI tools like Power BI, Microsoft Excel, and Tableau.
-* Libraries in R and Python for use in Azure Machine Learning and other Azure services.
+  * Deep learning frameworks - a rich set of AI frameworks are included on the VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, and Keras
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) - a fast machine learning system that supports techniques like online hashing, allreduce, reductions, learning2search, and active and interactive learning
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/) - atool that provides fast and accurate boosted tree implementation
+  * [Rattle](https://togaware.com/rattle/) - the R analytical tool that gets you started with data analytics and machine learning in R. It includes GUI-based data exploration and modeling with automatic R code generation.
+  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) - visual data mining and machine learning software in Java
+  * [Apache Drill](https://drill.apache.org/) - a schema-free SQL query engine for Apache Hadoop, NoSQL, and cloud storage. It supports ODBC and JDBC interfaces for querying NoSQL and files from standard BI tools like Power BI, Microsoft Excel, and Tableau.
+* Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Git, including Git Bash, to work with source code repositories that include GitHub and Azure DevOps. Git provides several popular Linux command-line utilities that are accessible both on Git Bash and a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
 
 Data science involves iterating on a sequence of tasks:
@@ -48,13 +48,13 @@ Data science involves iterating on a sequence of tasks:
 1. Build and test models
 1. Deploy the models for consumption in intelligent applications
 
-Data scientists use several tools for these tasks. It can be time consuming to find the appropriate versions of software and then download and install them. The Microsoft Data Science Virtual Machine saves time by providing a ready-to-use image that can be provisioned on Azure with several popular tools preinstalled and configured.
+Data scientists use several tools for these tasks. It can be time consuming to find the appropriate versions of software and then download and install them. The DSVM saves time by providing a ready-to-use image that can be provisioned on Azure with several popular tools preinstalled and configured.
 
-The Microsoft Data Science Virtual Machine jump-starts your analytics project. You can work on tasks in various languages including R, Python, SQL, and C#. Visual Studio provides an easy-to-use integrated development environment (IDE) to develop and test your code. The Azure SDK is included in the VM. So you can build your applications by using various services on Microsoft’s cloud platform.
+The DSVM jump-starts your analytics project. You can work on tasks in various languages including R, Python, SQL, and C#. Visual Studio provides an easy-to-use integrated development environment (IDE) to develop and test your code. The Azure SDK is included in the VM so you can build your applications by using various services on Microsoft’s cloud platform.
 
 There are no software charges for this data science VM image. You pay only the Azure usage fees. They depend on the size of the virtual machine you provision. More details on compute fees are in the **Pricing details** section on the [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) page.
 
-## Other versions of the Data Science Virtual Machine
+## Other DSVM versions
 
 * An [Ubuntu](dsvm-ubuntu-intro.md) image. It has many tools similar to the DSVM plus a few additional deep learning frameworks.
 * A [Linux CentOS](linux-dsvm-intro.md) image.
@@ -64,23 +64,23 @@ There are no software charges for this data science VM image. You pay only the A
 
 To create a Microsoft Data Science Virtual Machine, you must have an Azure subscription. See [Get Azure free trial](http://azure.com/free).
 
-## Create your Microsoft Data Science Virtual Machine
+## Create your DSVM
 
 To create an instance of the Microsoft Data Science Virtual Machine, follow these steps:
 
-1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). You may be prompted to login to your Azure account if you are not already signed in.
-1. Select the **Create** button at the bottom to be taken into a wizard.
+1. Go to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). You may be prompted to login to your Azure account if you are not already signed in.
+1. Select the **Create** button at the bottom.
 
    ![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
 
-1. The wizard that creates the Microsoft Data Science Virtual Machine requires **input**. Enter the following information to configure each of the steps shown on the right of the figure:
+1. You are required to enter the following information to configure each of the steps shown on the right pane of the screenshot:
 
    1. **Basics**:
-      * **Name**. The name of the data science server you're creating.
-      * **VM Disk Type**. Choose **SSD** or **HDD**. For an NC_v1 GPU instance like NVidia Tesla K80 based, choose **HDD** as the disk type.
-      * **User Name**. The admin account ID to sign in.
-      * **Password**. The admin account password.
-      * **Subscription**. If you have more than one subscription, select the one on which the machine is to be created and billed.
+      * **Name**: the name of the DSVM
+      * **VM Disk Type**: either **SSD** or **HDD**. For an NC_v1 GPU instance like NVidia Tesla K80 based, choose **HDD** as the disk type.
+      * **User Name**: the admin account ID
+      * **Password**: the admin account password
+      * **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed.
       * **Resource Group**. You can create a new one or use an existing group.
       * **Location**. Select the data center that's most appropriate. For fastest network access, it's the data center that has most of your data or is closest to your physical location.
    1. **Size**: Select one of the server types that meets your functional requirements and cost constraints. For more choices of VM sizes, select **View All**.
