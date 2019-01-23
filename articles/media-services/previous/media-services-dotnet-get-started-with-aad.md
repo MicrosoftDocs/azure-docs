@@ -76,7 +76,7 @@ To connect to the Azure Media Service API with the user authentication option, t
 
 The values for these parameters can be found in **AzureEnvironments.AzureCloudEnvironment**. The **AzureEnvironments.AzureCloudEnvironment** constant is a helper in the .NET SDK to get the right environment variable settings for a public Azure Data Center. 
 
-It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, or **AzureGermanCloudEnvironment** respectively.
+It contains pre-defined environment settings for accessing Media Services in the public data centers only. For sovereign or government cloud regions, you can use **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment**, or **AzureGermanCloudEnvironment** respectively.
 
 The following code example creates a token:
 	
