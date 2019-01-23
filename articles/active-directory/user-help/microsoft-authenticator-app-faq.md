@@ -3,7 +3,7 @@ title: Help with Microsoft Authenticator app - Azure Active Directory | Microsof
 description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 
 ms.service: active-directory
