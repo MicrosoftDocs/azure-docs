@@ -23,7 +23,8 @@ As you create and manage Azure Service Fabric clusters, you are providing networ
 Review Azure [Service Fabric Networking Patterns](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) to learn how to create clusters that use the following features: Existing virtual network or subnet, Static public IP address, Internal-only load balancer, or Internal and external load balancer.
 
 ## Infrastructure Networking
-Maximize your Virtual Machine’s performance with Accelerated Networking, by declaring enableAcceleratedNetworking to true in your Resource Manager template, setting your Virtual Machine Scale Set resource enableAcceleratedNetworking  networkInterfaceConfiguration property 
+Maximize your Virtual Machine’s performance with Accelerated Networking, by declaring enableAcceleratedNetworking property in your Resource Manager template, the following is a snippet of a Virtual Machine Scale Set NetworkInterfaceConfigurations that enables Accelerated Networking:
+
 ```json
 "networkInterfaceConfigurations": [
   {
@@ -32,22 +33,7 @@ Maximize your Virtual Machine’s performance with Accelerated Networking, by de
       "enableAcceleratedNetworking": true,
       "ipConfigurations": [
         {
-        "name": "[concat(variables('nicName'),'-',0)]",
-        "properties": {
-          "loadBalancerBackendAddressPools": [
-            {
-              "id": "[variables('lbPoolID0')]"
-            }
-          ],
-          "loadBalancerInboundNatPools": [
-            {
-              "id": "[variables('lbNatPoolID0')]"
-            }
-          ],
-          "subnet": {
-            "id": "[variables('subnet0Ref')]"
-          }
-         }
+        <snip>
         }
       ],
       "primary": true
@@ -55,6 +41,15 @@ Maximize your Virtual Machine’s performance with Accelerated Networking, by de
   }
 ]
 ```
+Service Fabric cluster can be provisioned on [Linux with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), and [Windows with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
+
+Accelerated Networking is supported for Azure Virtual Machine Series SKU's: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms.
+
+To enable Accelerated Networking on an exisiting Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), to perform the following:
+1. Provision a NodeType with Accelerated Networking enabled
+2. Migrate your services and their state to the provisioned NodeType with Accelerated Networking enabled
+
+Scaling out infrastructure is required to enable Accelerated Networking on an exisiting cluster, because enabling Accelerated Networking inplace would cause downtime, as it requires all virtual machines in an availability set be [stop/deallocate before enabling Accelerated networking on any exisiting NIC](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ## Cluster Networking
 
