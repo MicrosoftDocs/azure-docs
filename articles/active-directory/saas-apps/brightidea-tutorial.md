@@ -156,15 +156,15 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 	a. Click on the **Download Metadata** and upload at the **Basic SAML Configuration** section in the Azure portal.
 
 	b. Click on the **Add New** button under the **Identity Provider Setting** and perform the following steps:
-
-		![Brightidea Configuration](./media/brightidea-tutorial/configure4.png)
 	
-		* Enter the **SAML Profile Name** like e.g `Azure Ad SSO`
+	![Brightidea Configuration](./media/brightidea-tutorial/configure4.png)
 	
-		* For **Upload Metadata**, click choose file and upload the downloaded metadata file from the Azure portal.
+	 * Enter the **SAML Profile Name** like e.g `Azure Ad SSO`
+	
+	 * For **Upload Metadata**, click choose file and upload the downloaded metadata file from the Azure portal.
 
-		> [!NOTE]
-		> After uploading the metadata file, the remaining fields **Single Sign-on Service, Identity Provider Issuer, Upload Public Key** will populate automatically.
+	 > [!NOTE]
+	 > After uploading the metadata file, the remaining fields **Single Sign-on Service, Identity Provider Issuer, Upload Public Key** will populate automatically.
 	
 	c. In the **Email** textbox, enter the value as `mail`.
 
