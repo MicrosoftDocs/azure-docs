@@ -189,7 +189,7 @@ module.exports = async function(context, instanceId) {
 Internally, `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) enqueues a message that gets picked up by the waiting orchestrator function.
 
 > [!WARNING]
-> If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> If there is no orchestration instance with the specified *instance ID*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29). If the instance is not waiting on the specified *event name,* the event message added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check that queue for event messages. For more information on this behavior, see the [GitHub PR](https://github.com/Azure/azure-functions-durable-extension/pull/578).
 
 > [!WARNING]
 > When developing locally in JavaScript, you will need to set the environment variable `WEBSITE_HOSTNAME` to `localhost:<port>`, ex. `localhost:7071` to use methods on `DurableOrchestrationClient`. For more information about this requirement, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-js/issues/28).
