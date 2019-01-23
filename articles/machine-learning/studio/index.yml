@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Studio Documentation
+title: Machine Learning Studio Documentation
 metadata:
-  title: Documentation - Azure Machine Learning Studio Tutorials, Reference | Microsoft Docs 
+  title: Azure Machine Learning Studio Documentation - Tutorials, Reference | Microsoft Docs 
   description: Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
   services: machine-learning
   ms.service: machine-learning
@@ -16,7 +16,7 @@ metadata:
   ms.date: 01/24/2019
   
 abstract:
-  description: Machine Learning Studio is a collaborative, drag-and-drop tool for building, testing, and deploying predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
+  description: Azure Machine Learning Studio is a collaborative, drag-and-drop tool for building, testing, and deploying predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
 
 sections:
         
