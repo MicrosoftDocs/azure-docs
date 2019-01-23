@@ -27,7 +27,7 @@ Before you can perform a forced failover on your storage account, make sure that
 - Register for the customer-managed forced failover preview. For information about how to register, see [About the preview](storage-disaster-recovery-guidance.md#about-the-preview).
 - Make sure that your storage account is configured to use either geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). For more information about geo-redundant storage, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md). 
 
-## Force a failover from the Azure portal
+## Azure portal
 
 To initiate a forced failover from the Azure portal, follow these steps:
 
@@ -43,7 +43,7 @@ To initiate a forced failover from the Azure portal, follow these steps:
 
     ![Screenshot showing confirmation dialog for a forced failover](media/storage-forced-failover/portal-failover-confirm.png)
 
-### PowerShell
+## PowerShell
 
 To initiate a forced failover from PowerShell, execute the following command:
 
