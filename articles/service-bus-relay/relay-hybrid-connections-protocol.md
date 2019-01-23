@@ -287,7 +287,7 @@ The query string parameter options are as follows.
 | ---------------- | -------- | -------------------------------------------
 | `sb-hc-action`   | Yes      | For the listener role, the parameter must be **sb-hc-action=listen**
 | `{path}`         | Yes      | The URL-encoded namespace path of the pre-configured Hybrid Connection to register this listener on. This expression is appended to the fixed `$hc/` path portion.
-| `sb-hc-token`    | Yes\*    | The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Listen** right.
+| `sb-hc-token`    | Yes      | The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Listen** right.
 | `sb-hc-id`       | No       | This client-supplied optional ID enables end-to-end diagnostic tracing.
 
 If the WebSocket connection fails due to the Hybrid Connection path not being
@@ -666,7 +666,7 @@ The query string parameter options are as follows:
 | -------------- | --------- | -------------------------- |
 | `sb-hc-action` | Yes       | For the sender role, the parameter must be `sb-hc-action=connect`.
 | `{path}`       | Yes       | (see the following paragraph)
-| `sb-hc-token`  | Yes\*     | The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right.
+| `sb-hc-token`  | Yes       | The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right.
 | `sb-hc-id`     | No        | An optional ID that enables end-to-end diagnostic tracing and is made available to the listener during the accept handshake.
 
 The `{path}` is the URL-encoded namespace path of the preconfigured Hybrid
@@ -730,7 +730,7 @@ The query string parameter options are as follows:
 
 | Param          | Required? | Description
 | -------------- | --------- | ---------------- |
-| `sb-hc-token`  | Yes\*     | The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right.
+| `sb-hc-token`  | Yes       | The listener must provide a valid, URL-encoded Service Bus Shared Access Token for the namespace or Hybrid Connection that confers the **Send** right.
 
 The token can also be carried in either the `ServiceBusAuthorization` or `Authorization`
 HTTP header. The token can be omitted if the Hybrid Connection is configured
