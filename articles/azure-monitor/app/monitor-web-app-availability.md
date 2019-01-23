@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 
@@ -353,6 +353,22 @@ When the test is complete, you are shown response times and success rates.
 * *How can I run a test with client certificates?*
 
     We don't support that, sorry.
+
+## Who receives the (classic) alert notifications?
+
+This section only applies to classic alerts and will help you optimize your alert notifications to insure that only your desired recipients recieve notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md)and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). To control alert notification in the new alerts experience use [action groups](../platform/action-groups.md).
+
+* We recommend the use of specific recipients for classic alert notifications.
+
+* For alerts on failures from X out of Y locations, the **bulk/group** option if enabled, sends to users with admin/co-admin roles.  Essentially _all_ administrators of the _subscription_ will recieve notifications.
+
+* For alerts on availability metrics (or any Application Insights metrics for that matter, the **bulk/group** option if enabled, sends to users with owner, contributor or reader roles in the subscription. So in effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+
+> [!NOTE]
+> If you currently use the **bulk/group** option, and disable it, you will not be able to revert the change.
+
+Use the new alert experience/near-realtime alerts if you need to notify users based on their roles. With [action groups](../platform/action-groups.md), you can configure email notifications to users with any of the contributor/owner/reader roles (not combined together as a single option).
+
 
 
 ## <a name="next"></a>Next steps
