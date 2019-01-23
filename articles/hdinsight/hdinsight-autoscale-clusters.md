@@ -22,9 +22,9 @@ Azure HDInsight’s cluster Autoscale feature automatically scales the number of
 > [!Note]
 > Autoscale is currently only supported for Azure HDInsight Hive, MapReduce and Spark clusters version 3.6.
 
-Follow the steps in [](hdinsight-hadoop-create-linux-clusters-portal.md) and when you reach step 5, **Cluster size**, select **Worker node Autoscale (preview)** as shown below. 
+Follow the steps in [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) and when you reach step 5, **Cluster size**, select **Worker node Autoscale (preview)** as shown below. 
 
-    ![Enable worker node autoscale option](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
+![Enable worker node autoscale option](./media/hdinsight-autoscale-clusters/worker-node-autoscale-option.png)
 
 By checking this option, you can specify:
 
