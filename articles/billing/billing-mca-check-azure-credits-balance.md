@@ -23,7 +23,7 @@ You can check the Azure credit balance for your Billing profile in the Azure por
 
 You are charged when you use products that aren't covered by the credits or your usage exceeds your credit balance. For more information, see [Products that aren't covered by Azure credits.](#products-that-arent-covered-by-azure-credits)
 
-This article applies to Billing accounts for Microsoft customer agreement. [Check if you have a Microsoft Customer Agreement](../../includes/billing-check-mca.md).
+This article applies to Billing account for a Microsoft Customer Agreement. [Check if you have a Microsoft Customer Agreement](#check-for-a-microsoft-customer-agreement).
 
 ## Check credit balance on the Azure portal
 
@@ -38,7 +38,7 @@ This article applies to Billing accounts for Microsoft customer agreement. [Chec
 
 5. The Azure credits page shows the following information:
 
-   ![Screenshot of credits balance and transactions for a Billing profile](./media/billing-mca-check-azure-credits-balance/credits-overview.PNG)
+   ![Screenshot of credit balance and transactions for a Billing profile](./media/billing-mca-check-azure-credits-balance/credits-overview.PNG)
    <!--- TODO - Update the screenshot -->
    | Term               | Definition                           |
    |--------------------|--------------------------------------------------------|
@@ -61,6 +61,8 @@ This article applies to Billing accounts for Microsoft customer agreement. [Chec
    | Remaining amount     | The balance as of your last invoice |
    | Original amount      | The original amount of credit |
    | Status               | The current status of credit. Status can be active, used, expired, or expiring |
+
+[!INCLUDE [Check for a Microsoft Customer Agreement](../../includes/billing-check-mca.md)]
 
 ## How credits are used in Microsoft Customer Agreement
 
