@@ -128,7 +128,7 @@ There are five container images to build for the *MyShop* application. Each imag
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 You need two Docker steps for each image, one to build the image, and one to push the image in the Azure container registry. 

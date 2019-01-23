@@ -3,7 +3,7 @@ title: Add an existing Azure subscription to your tenant - Azure Active Director
 description: Instructions about how to add an existing Azure subscription to your Azure Active Directory tenant.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity

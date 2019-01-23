@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Azure Backup?
-    href: backup-introduction-to-azure-backup.md
+    href: backup-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -33,6 +33,10 @@
     href: backup-rm-template-samples.md
 - name: Concepts
   items:
+  - name: Backup architecture
+    href: backup-architecture.md
+  - name: Backup support matrix
+    href: backup-support-matrix.md
   - name: FAQ
     items:
     - name: FAQ on Recovery Services vault

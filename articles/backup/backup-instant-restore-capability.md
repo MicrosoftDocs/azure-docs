@@ -50,14 +50,19 @@ The incremental snapshots are stored in VM’s storage account, which are used f
 
 
 ## Upgrading to Instant Restore
-If you use the Azure portal, you will see a notification on the vault dashboard. This notification relates to large-disk support and backup and restore speed improvements. Alternatively you can go to Properties page of the vault to get the upgrade option.
 
+If you use the Azure portal, you will see a notification on the vault dashboard. This notification relates to large-disk support and backup and restore speed improvements.
 
 ![Backup job in VM backup stack Resource Manager deployment model--support notification](./media/backup-azure-vms/instant-rp-banner.png)
 
 To open a screen for upgrading to Instant Restore, select the banner.
 
 ![Backup job in VM backup stack Resource Manager deployment model--upgrade](./media/backup-azure-vms/instant-rp.png)
+
+Alternatively you can go to **Properties** page of the vault to get the **Upgrade** option under **VM backup stack**.
+
+![Backup job in VM backup stack -- Properties page](./media/backup-azure-vms/instant-restore-capability-properties.png)
+
 
 ## Upgrade to Instant Restore using PowerShell
 
