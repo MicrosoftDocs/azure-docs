@@ -4,7 +4,7 @@ description: Describe the Azure AD sign in log schema for use in Azure Monitor (
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75

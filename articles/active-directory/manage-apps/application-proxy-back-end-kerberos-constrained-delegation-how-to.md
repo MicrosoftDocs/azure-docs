@@ -4,7 +4,7 @@ description: Troubleshoot Kerberos Constrained Delegation configurations for App
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

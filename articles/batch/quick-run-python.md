@@ -170,7 +170,7 @@ batch_service_client.pool.add(new_pool)
 
 ### Create a Batch job
 
-A Batch job is a logical grouping of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. The app uses the [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) class to create a job on your pool. The [job.add](/python/api/azure.batch.operations.joboperations#azure_batch_operations_JobOperations_add) method submits the pool to the Batch service. Initially the job has no tasks.
+A Batch job is a logical grouping of one or more tasks. A job includes settings common to the tasks, such as priority and the pool to run tasks on. The app uses the [JobAddParameter](/python/api/azure.batch.models.jobaddparameter) class to create a job on your pool. The [job.add](/python/api/azure.batch.operations.joboperations) method submits the pool to the Batch service. Initially the job has no tasks.
 
 ```python
 job = batch.models.JobAddParameter(
