@@ -162,7 +162,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |audioEffects|The [audioEffects](#audioEffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
-|textualConentModeration|The [textualConentModeration](#textualconentmoderation) dimension.|
+|textualContentModeration|The [textualContentModeration](#textualcontentmoderation) dimension.|
 |emotions| The [emotions](#emotions) dimension.|
 |topics|The [topics](#topics) dimension.|
 
@@ -183,7 +183,7 @@ Example:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -658,7 +658,7 @@ Videos that are found to contain adult or racy content might be available for pr
 ] 
 ```
 
-#### textualConentModeration 
+#### textualContentModeration 
 
 |Name|Description|
 |---|---|
