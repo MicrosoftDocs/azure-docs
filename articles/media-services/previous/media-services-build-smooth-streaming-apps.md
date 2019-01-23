@@ -818,7 +818,7 @@ You have completed lesson 3.  In this lesson, you add the functionality to choos
 A Smooth Streaming presentation can contain multiple video files encoded with different quality levels (bit rates) and resolutions. In this lesson, you will enable users to select tracks. This lesson contains the following procedures:
 
 1. Modify the XAML file
-2. Modify the code behand file
+2. Modify the code behind file
 3. Compile and test the application
 
 **To modify the XAML file**
