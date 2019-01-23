@@ -196,7 +196,7 @@ ssh <username>@localhost -p 2222
 At this point, you will be presented with the SSH login prompt to enter your credentials.
 
 
-Console output on the device-local proxy which connects to the SSH daemon at <code>IP_address:22</code>:
+Console output on the device-local proxy which connects to the SSH daemon at IP_address:22:
 ![Alt text](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "Device-local proxy output")
 
 Console output of the SSH client program (SSH client communicates to SSH daemon by connecting to port 22 where service-local proxy is listening on):
