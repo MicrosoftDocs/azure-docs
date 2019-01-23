@@ -50,11 +50,9 @@ If you don’t have an Azure subscription, create a free account before you begi
 ## Install the SDK
 
 > [!IMPORTANT]
-> Skip this section if you use a data science virtual machine created after September 27, 2018.
-> Data science virtual machines created after this date come with the Python SDK preinstalled.
-
-In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
-
+> Skip this section if you use an Azure Data Science Virtual Machine or Azure Databricks.
+> Data science virtual machines created after September 27, 2018 come with the Python SDK preinstalled.
+> In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
 
 Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
