@@ -1372,7 +1372,7 @@ Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
 ### DESCRIPTION
-This function retuns all the AD permissions currently set for a given AD object provided in the parameter -ADobjectDN.
+This function returns all the AD permissions currently set for a given AD object provided in the parameter -ADobjectDN.
 The ADobjectDN must be provided in a DistinguishedName format.
 
 ### EXAMPLES
