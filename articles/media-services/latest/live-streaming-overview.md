@@ -33,7 +33,7 @@ Here are the steps for a live streaming workflow:
 0. Make sure the **StreamingEndpoint** is running. 
 1. Create a **LiveEvent**. 
   
-    When creating the event, you can specify to autostart it. Alternatevely, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
+    When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
 2. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 3. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.
 4. Create a new **Asset** object.
