@@ -12,8 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.author: shlo, chez
+ms.date: 1/23/2019
+ms.author: shlo
 
 ---
 # ForEach activity in Azure Data Factory
@@ -470,9 +470,9 @@ It's possible to iterate over multiple activities (for example: copy and web act
 
 ## Aggregating outputs
 
-To aggregate outputs of __foreach__ activity, please utilize _Variable_s and _Append Variable_ activity. 
+To aggregate outputs of __foreach__ activity, please utilize _Variable_s and _Append Variable_ activity.
 
-In a nutshell, you would declare an `array` _variable_ for your pipeline, and invoke _Append Variable_ activity inside each __foreach__ loop. Afterwards, you can retrieve the aggregation from your array.
+First, declare an `array` _variable_ in the pipeline. Then, invoke _Append Variable_ activity inside each __foreach__ loop. Subsequently, you can retrieve the aggregation from your array.
 
 ```
 
