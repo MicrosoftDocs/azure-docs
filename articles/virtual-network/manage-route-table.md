@@ -176,7 +176,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 **Commands**
 
-- Azure CLI: [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_update)
+- Azure CLI: [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Set-AzureRmRouteConfig](/powershell/module/azurerm.network/set-azurermrouteconfig)
 
 ## Delete a route

@@ -224,7 +224,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Now you can create the VMs with [az vm create](/cli/azure/vm#az_vm_create). The following example creates three VMs and generates SSH keys if they do not already exist:
+Now you can create the VMs with [az vm create](/cli/azure/vm). The following example creates three VMs and generates SSH keys if they do not already exist:
 
 ```bash
 for i in `seq 1 3`; do

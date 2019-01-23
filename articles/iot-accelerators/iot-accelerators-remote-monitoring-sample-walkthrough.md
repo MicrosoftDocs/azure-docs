@@ -101,7 +101,7 @@ The service provides a RESTful endpoint for CRUD operations on key-value pairs. 
 
 ### Azure Cosmos DB
 
-Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alarms, configuration settings, and all other cold storage.
+Solution accelerator deployments use [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) to store rules, alerts, configuration settings, and all other cold storage.
 
 ### Azure Stream Analytics manager microservice
 

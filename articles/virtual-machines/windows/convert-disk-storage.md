@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
+ms.component: disks
 ---
 
 # Update the storage type of a managed disk

@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
+ms.subservice: logs
 ---
 # Collect and consume log data from your Azure resources
 
@@ -230,3 +230,4 @@ Adding a diagnostic setting brings up the Diagnostic Settings view, where you ca
 * [Stream resource diagnostic logs to **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/)
 * [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+

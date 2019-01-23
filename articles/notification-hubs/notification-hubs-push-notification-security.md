@@ -17,7 +17,7 @@ ms.date: 01/04/2019
 ms.author: jowargo
 ---
 
-# Notification Hubs Security
+# Security model of Azure Notification Hubs
 
 ## Overview
 
