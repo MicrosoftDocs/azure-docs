@@ -66,8 +66,8 @@ Code that implements exponential backoff is shown below.
                  {
                     retry = true;
 
-                    int waitTime = Math.Min(getWaitTime(retries), 2000000);
-                    Thread.Sleep(waitTime);
+                    long waitTime = Math.Min(getWaitTime(retries), 2000000);
+                    Thread.Sleep(new TimeSpan(waitTime));
                 }
              }
          } while(retry && (retries++ < 10));         
@@ -75,9 +75,9 @@ Code that implements exponential backoff is shown below.
      }
 
      // This method implements exponential backoff in case of 429 errors from Azure Key Vault
-     private static int getWaitTime(int retryCount)
+     private static long getWaitTime(int retryCount)
      {
-         return ((int)Math.Pow(2, retryCount) * 100);
+        return (long)Math.Pow(2, retryCount) * 100L;
      }
 ```
 
