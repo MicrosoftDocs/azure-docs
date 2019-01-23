@@ -121,7 +121,7 @@ Wed Jan 23 00:45:03 UTC 2019
 
 ## Clean up resources
 
-To clean up your resources, navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded click on **Delete resource group** to remove the resource group, ACR instance, and all container iamages.
+To clean up your resources, navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded click on **Delete resource group** to remove the resource group, ACR instance, and all container images.
 
 ![Delete resource group in the Azure portal][qs-portal-08]
 
