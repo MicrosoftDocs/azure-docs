@@ -39,7 +39,7 @@ A resource group is a logical collection of Azure resources. All resources are d
 
 2. For **Subscription**, select the name of the Azure subscription in which you want to create the resource group.
 3. Type a unique **name for the resource group**. The system immediately checks to see if the name is available in the currently selected Azure subscription.
-4. Select a region for the resource group.
+4. Select a **region** for the resource group.
 5. Select **Review + Create**.
 
    ![Resource group - create](./media/event-hubs-quickstart-portal/resource-groups2.png)
@@ -50,10 +50,11 @@ A resource group is a logical collection of Azure resources. All resources are d
 An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following actions:
 
 1. In the Azure portal, and click **Create a resource** at the top left of the screen.
-2. Select **All services** in the left menu, and select **Event Hubs** in the **Analytics** category. If you select *** (star)** next to **Event Hubs**, it appears under **Favorites** in the left menu. 
+2. Select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu. 
 
+    
    ![Search for Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
-3. Select **Add** from the toolbar.
+1. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
 
    ![Add toolbar button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 1. On the **Create namespace** page, take the following steps:
@@ -64,31 +65,27 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
     5. Select **Create**. You may have to wait a few minutes for the system to fully provision the resources.
 
        ![Create an event hub namespace](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-6. Select **Alerts**, and then select the **deployment** with the same name as the name of event hub namespace. 
+6. Refresh the **Event Hubs** page to see the event hub namespace. You can check the status of the event hub creation in the alerts. 
 
-   ![Resource group - alert from create](./media/event-hubs-quickstart-portal/create-alert.png)
-6. Select your event hub namespace from the list of resources created in the deployment. 
-
-   ![Select namespace from the deployment](./media/event-hubs-quickstart-portal/deployment-namespace.png)
-7. You see the home page for your Event Hubs namespace in the portal. 
+    ![Create an event hub namespace](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
+1. Select the namespace. You see the home page for your **Event Hubs namespace** in the portal. 
 
    ![Home page for the namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)
-1. On the **Event Hubs Namespace** page, select **Shared access policies** on the left menu, and  click **RootManageSharedAccessKey**.
-    
-8. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string in a temporary location, such as Notepad, to use later.
     
 ## Create an event hub
 
 To create an event hub within the namespace, do the following actions:
 
-1. On the Event Hubs Namespace page, select **Event Hubs**.
+1. On the Event Hubs Namespace page, select **Event Hubs** in the left menu.
 1. At the top of the window, click **+ Event Hub**.
    
     ![Add Event Hub - button](./media/event-hubs-quickstart-portal/create-event-hub4.png)
 1. Type a name for your event hub, then click **Create**.
    
     ![Create event hub](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+4. You can check the status of the event hub creation in alerts. After the event hub is created, you see it in the list of event hubs as shown in the following image:
 
+    ![Event hub created](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
 Congratulations! You have used the portal to create an Event Hubs namespace, and an event hub within that namespace. 
 
