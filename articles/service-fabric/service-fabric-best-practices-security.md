@@ -20,22 +20,22 @@ ms.author: pepogors
 
 For more information about [Azure Security Best Practices](https://docs.microsoft.com/azure/security/), review [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
 
-## KeyVault
+## Key Vault
 
-[Azure KeyVault](https://docs.microsoft.com/azure/key-vault/) is the recommended secrets management service for Azure Service Fabric applications and clusters.
+[Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) is the recommended secrets management service for Azure Service Fabric applications and clusters.
 > [!NOTE]
-> JTW If certificates/secrets from a Keyvault are deployed to a Virtual Machine Scale Set as a Virtual Machine Scale Set Secret, then the Keyvault and Virtual Machine Scale Set must be co-located.
+> If certificates/secrets from a Key Vault are deployed to a Virtual Machine Scale Set as a Virtual Machine Scale Set Secret, then the Key Vault and Virtual Machine Scale Set must be co-located.
 
 ## Create certificate authority issued Service Fabric certificate
 
-JTW (caps) An Azure Key Vault certificate can be either created or imported into a Key Vault. When a Key Vault certificate is created, the private key is created inside the Key Vault and never exposed to the certificate owner. Here are the ways to create a certificate in Key Vault:
+An Azure Key Vault certificate can be either created or imported into a Key Vault. When a Key Vault certificate is created, the private key is created inside the Key Vault and never exposed to the certificate owner. Here are the ways to create a certificate in Key Vault:
 
 - Create a self-signed certificate to create a public-private key pair and associate it with a certificate. The certificate will be signed by its own key. 
 - Create a new certificate manually to create a public-private key pair and generate an X.509 certificate signing request. The signing request can be signed by your registration authority or certification authority. The signed x509 certificate can be merged with the pending key pair to complete the KV certificate in Key Vault. Although this method requires more steps, it does provide you with greater security because the private key is created in and restricted to Key Vault. This is explained in the diagram below. 
 
 Review [Azure Keyvault Certificate Creation Methods](https://docs.microsoft.com/azure/key-vault/create-certificate) for additional details.
 
-## Deploy KeyVault certificates to Service Fabric cluster virtual machine scale sets
+## Deploy Key Vault certificates to Service Fabric cluster virtual machine scale sets
 
 To deploy certificates from a co-located keyvault to a Virtual Machine Scale Set, use Virtual Machine Scale Set [osProfile](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosprofile). The following are the Resource Manager template properties:
 
@@ -58,11 +58,10 @@ To deploy certificates from a co-located keyvault to a Virtual Machine Scale Set
 > [!NOTE]
 > The vault must be enabled for Resource Manager template deployment.
 
-## ACL certificate to your Service Fabric cluster (JTW what?)
+## Apply an Access Control List (ACL) to your certificate for your Service Fabric cluster
 
-JTW 
 [Virtual Machine Scale Set extensions](https://docs.microsoft.com/cli/azure/vmss/extension?view=azure-cli-latest) publisher Microsoft.Azure.ServiceFabric is used to configure your Nodes Security.
-To include ACL'ing certificates to your Service Fabric Cluster processes, and the following are the Resource Manager template properties:
+To apply an ACL to your certificates for your Service Fabric Cluster processes, use the following Resource Manager template properties:
 
 ```json
 "certificate": {
@@ -73,10 +72,10 @@ To include ACL'ing certificates to your Service Fabric Cluster processes, and th
 }
 ```
 
-## Declare a Service Fabric cluster certificate by common name
+## Secure a Service Fabric cluster certificate by common name
 
-JTW
-Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames) Resource Manager template property, is how you configure declare your Service Fabric cluster certificate by Common Name, and the following are the Resource Manager template properties:
+To secure your Service Fabric cluster by certificate `Common Name`, use the Resource Manager template property [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames), as follows:
+
 ```json
 "certificateCommonNames": {
     "commonNames": [
@@ -90,16 +89,16 @@ Service Fabric Cluster [certificateCommonNames](https://docs.microsoft.com/rest/
 ```
 
 > [!NOTE]
-> Service Fabric clusters will use the first valid certificate it finds in your host's certificate store. On Windows, this will be the JTW newest latest expiring certificate that matches your Common Name and Issuer thumbprint.
+> Service Fabric clusters will use the first valid certificate it finds in your host's certificate store. On Windows, this will be the certificate with the latest expiring date that matches your Common Name and Issuer thumbprint.
 
 Azure domains, such as *\<YOUR SUBDOMAIN\>.cloudapp.azure.com or \<YOUR SUBDOMAIN\>.trafficmanager.net, are owned by Microsoft. Certificate Authorities will not issue certificates for domains to unauthorized users. Most users will need to purchase a domain from a registrar, or be an authorized domain admin, for a certificate authority to issue you a certificate with that common name.
 
 For additional details on how to configure DNS Service to resolve your domain to a Microsoft IP address, review how to configure [Azure DNS to host your domain](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
 > [!NOTE]
-> After delegating your domains name servers to your Azure DNS zone name servers, add the following two JTW Records Set to your DNS Zone:
-- An 'A' record for domain APEX that is NOT an "Alias record set" to all IP Addresses your custom domain will resolve,
-- A 'C' record for Microsoft Subdomain you provisioned that is NOT an "Alias record set". For example, you could use your Traffic Manager or Load Balancer's DNS name. 
+> After delegating your domains name servers to your Azure DNS zone name servers, add the following two records to your DNS Zone:
+> - An 'A' record for domain APEX that is NOT an `Alias record set` to all IP Addresses your custom domain will resolve.
+> - A 'C' record for Microsoft sub domains you provisioned that are NOT an `Alias record set`. For example, you could use your Traffic Manager or Load Balancer's DNS name.
 
 To update your portal to display a custom DNS name for your Service Fabric Cluster `"managementEndpoint"`, update the follow Service Fabric Cluster Resource Manager template properties:
 
@@ -119,7 +118,7 @@ Generate a self-signed certificate for encrypting your secret:
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
 ```
 
-Use the instructions in this document to deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets. JTW where?
+Use the instructions in [Deploy KeyVault certificates to Service Fabric cluster virtual machine scale sets](JTW - add link) to deploy Key Vault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets.
 
 Encrypt your secret using the following PowerShell command, and then update your Service Fabric application manifest with the encrypted value:
 
@@ -136,7 +135,7 @@ user@linux:~$ openssl req -newkey rsa:2048 -nodes -keyout TestCert.prv -x509 -da
 user@linux:~$ cat TestCert.prv >> TestCert.pem
 ```
 
-Use the instructions in this document to deploy KeyVault Certificates to your Service Fabric Cluster's Virtual Machine Scale Sets. JTW - where
+Use the instructions in [Deploy KeyVault certificates to Service Fabric cluster virtual machine scale sets](JTW - add link) to your Service Fabric Cluster's Virtual Machine Scale Sets.
 
 Encrypt your secret using the following commands, and then update your Service Fabric Application Manifest with the encrypted value:
 
@@ -146,13 +145,13 @@ user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 
-After JTW encrypting you will need to [specify encrypted secrets in Service Fabric Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application), and [decrypt encrypted secrets from service code](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code)
+After encrypting your protected values, [specify encrypted secrets in Service Fabric Application](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application), and [decrypt encrypted secrets from service code](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code).
 
-## Authenticate Service Fabric applications to Azure Resources using Managed Service Identity (MSI)  JTW?
+## Authenticate Service Fabric applications to Azure Resources using Managed Service Identity (MSI)
 
 To learn about managed identities for Azure resources, see [What is managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
 Azure Service Fabric clusters are hosted on Virtual Machine Scale Sets, which support [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources).
-To get a list of services that MSI (JTW) can be used to authenticate to, see [Azure Services that support Azure Active Directory Authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
+To get a list of services that MSI can be used to authenticate to, see [Azure Services that support Azure Active Directory Authentication](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
 
 To enable system assigned managed identity during the creation of a virtual machines scale set or an existing virtual machines scale set, declare the following `"Microsoft.Compute/virtualMachinesScaleSets"` property:
@@ -175,7 +174,7 @@ If you created a  [user-assigned managed identity](https://docs.microsoft.com/az
 }
 ```
 
-Before your Service Fabric application can make use of a managed identity, permissions must be granted to the JTW (caps) Azure Resources it needs to authenticate with.
+Before your Service Fabric application can make use of a managed identity, permissions must be granted to the Azure Resources it needs to authenticate with.
 The following commands grant access to an Azure Resource:
 
 ```bash
@@ -191,7 +190,7 @@ access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-v
 
 ```
 
-Your Service Fabric app can then use the access token to authenticate to JTW Azure Resources that support Active Directory.
+Your Service Fabric app can then use the access token to authenticate to Azure Resources that support Active Directory.
 The following example shows how to do this for Cosmos DB resource:
 
 ```bash
@@ -228,9 +227,10 @@ By default, Windows Defender antivirus is installed on Windows Server 2016. For 
     }
 }
 ```
+
 > [!NOTE]
-> Refer to your Antimalware documentation for configuration rules if yuou are not using Windows Defender. 
-> Windows Defender isn't supported on JTW none Windows operating system distributions.
+> Refer to your Antimalware documentation for configuration rules if you are not using Windows Defender. 
+> Windows Defender isn't supported on Linux.
 
 ## Next steps
 
