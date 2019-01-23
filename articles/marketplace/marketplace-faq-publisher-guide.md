@@ -39,7 +39,7 @@ Azure Marketplace is designed for IT professionals and cloud developers, interes
 
 **Why should I publish my application on Azure Marketplace and how does it benefit me?**
 
-Azure Marketplace provides a market for Microsoft Partners to promote and sell products and services to Azure customers. Publishers, instantly gain access to 140 global markets, our 300,000+ partners, and Azure’s network of enterprise customers.  The marketplace includes more than 90% of Fortune 500 companies and many of the world’s leading developers. New partners in Azure Marketplace are automatically offered a set of [no-cost Go-To-Market benefits](https://assetsprod.microsoft.com/mpn/marketplace-gtm-benefits.pdf) to help boost awareness of their offers in Azure’s marketplace.
+Azure Marketplace provides a market for Microsoft Partners to promote and sell products and services to Azure customers. Publishers, instantly gain access to 140 global markets, our 300,000+ partners, and Azure’s network of enterprise customers.  The marketplace includes more than 90% of Fortune 500 companies and many of the world’s leading developers. New partners in Azure Marketplace are automatically offered a set of [no-cost Go-To-Market benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#go-to-market-gtm-benefits-in-the-marketplace) to help boost awareness of their offers in Azure’s marketplace.
 
 **What is the differentiating factor between Azure Marketplace and AppSource?**
 
@@ -75,7 +75,7 @@ There are no publishing fees when uploading a List, Trial, or BYOL (Bring Your O
 
 **Are there any transaction fees for purchases through Azure Marketplace?**
 
-When the solution license is purchased via Azure Marketplace, revenues for the software license are split between the publisher and Microsoft.  This is done in accordance to the terms and conditions in the [Marketplace Publisher Agreement](http://download.microsoft.com/download/B/1/3/B134B02E-72D4-4C60-80D3-358D5EAF28FB/Microsoft%20Marketplace%20Publisher%20Agreement.pdf). Additionally, solutions with BYOL (Bring Your Own License) publishers do not incur transaction fees.
+When the solution license is purchased via Azure Marketplace, revenues for the software license are split between the publisher and Microsoft.  This is done in accordance to the terms and conditions in the [Marketplace Publisher Agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Additionally, solutions with BYOL (Bring Your Own License) publishers do not incur transaction fees.
 
 **Where do I find guidelines for integrating my application with Azure Active Directory (AAD)?**
 
