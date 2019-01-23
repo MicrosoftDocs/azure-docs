@@ -56,7 +56,7 @@ Azure DNS provides the following capabilities:
 
 ## Limitations
 
-Azure DNS has following limitations:
+Azure DNS has the following limitations:
 
 * Only one registration virtual network is allowed per private zone.
 * Up to 10 resolution virtual networks are allowed per private zone. This limit will be removed when this feature is generally available.
