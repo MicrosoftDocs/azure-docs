@@ -128,7 +128,7 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 <!-- 2724961- IS ASDK --> 
 - Fixed an issue in which you registered the **Microsoft.Insight** resource provider in the subscription settings, and created a Windows VM with Guest OS Diagnostic enabled, but the CPU Percentage chart in the VM overview page did not show metrics data. The data now correctly displays.
 
-- Fixed an issue when running the **Get-AzureStackLog** PowerShell cmdlet after running **Test-AzureStack** in the same privileged endpoint (PEP) session, **Get-AzureStackLog** failed. This issue is now fixed, and you can use the same PEP session in which you executed **Test-AzureStack**.
+- Fixed an issue in which running the **Get-AzureStackLog** cmdlet failed after running **Test-AzureStack** in the same privileged endpoint (PEP) session. This issue is now fixed, and you can use the same PEP session in which you executed **Test-AzureStack**.
 
 ## Changes
 
