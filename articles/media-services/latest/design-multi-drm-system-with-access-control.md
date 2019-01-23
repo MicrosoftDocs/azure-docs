@@ -1,5 +1,5 @@
 ---
-title: Design of a multi-DRM content protection system with acccess control - Azure Media Services | Microsoft Docs
+title: Design of a multi-DRM content protection system with access control - Azure Media Services | Microsoft Docs
 description: Learn about licensing the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
