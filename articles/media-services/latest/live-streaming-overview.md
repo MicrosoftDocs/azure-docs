@@ -42,7 +42,7 @@ Here are the steps for a live streaming workflow:
      The **LiveOutput** will archive the stream into the **Asset**.
 7. Create a **StreamingLocator** with the built-in **StreamingPolicy** types.
 
-    If you intend to encrypt your content with DRM, review [Content protection overview](content-protection-overview.md).
+    If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
 8. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
 9. Get the hostname for the **Streaming Endpoint** you wish to stream from.
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
