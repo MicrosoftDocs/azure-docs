@@ -3,7 +3,7 @@ title: Token, session, and single sign-on configuration in Azure Active Director
 description: Token, session and single sign-on configuration in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
