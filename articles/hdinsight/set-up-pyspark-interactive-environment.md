@@ -13,26 +13,38 @@ ms.date: 1/17/2019
 
 # Set up the PySpark interactive environment for Visual Studio Code
 
-The following steps show you how to set up the pyspark interactive environment on macOS and Linux. For Windows environment, only step 1 and 2 are needed.
+The following steps show you how to set up the PySpark interactive environment in VS Code.
 
-1. Make sure [Python](https://www.python.org/) and [pip](https://pip.pypa.io/en/stable/installing/) are installed.
+We use **python/pip** command to build virtual environment in your Home path. If you want to use another version, you need to change default version of **python/pip** command manually. More details see [update-alternatives](https://linux.die.net/man/8/update-alternatives).
+
+1. Install  [Python](https://www.python.org/) and [pip](https://pip.pypa.io/en/stable/installing/).
+   
+   + Install Python from [https://pip.pypa.io/en/stable/installing](https://www.python.org/).
+   + Install pip from [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/). (If not installed from the Python installation)
+   + Validate Python and pip are installed successfully using the following commands. (Optional)
  
-    ![Python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Python pip version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
     > [!NOTE]
-    > It's not recommended to use the macOS system install of python.
+    > It is recommended to manually install Python instead of using the MacOS default version.
 
 
-2. Install **virtualenv** by running command. We use **python/pip** command to build virtual environment in your Home path. If you want to use another version, you need to change default version of **python/pip** command manually.
+2. Install **virtualenv** by running command below.
    
    ```
    pip install virtualenv
    ```
 
-3. For Linux only, please install **libkrb5-dev** by running command.
+3. For Linux only, install the required packages by running commands bellow if you encounter the error message.
+   
+    ![Python pip version](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
        
    ```
    sudo apt-get install libkrb5-dev 
+   ```
+
+   ```
+   sudo apt-get install python-dev
    ```
 
 4. Restart VS Code, and then go back to the script editor that's running **HDInsight: PySpark Interactive**.
