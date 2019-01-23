@@ -22,7 +22,7 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 ### Release changes in October 2018
 
-* Refined description for `status`, `createdDateTime`, `lastActionDateTime` and `lastSuccessfulTrainingDateTime` in [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247), [LargePersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae32c6ac60f11b48b5aa5) and [LargeFaceList - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a1582f8d2de3616c086f2cf).
+* Refined description for `status`, `createdDateTime`, `lastActionDateTime`, and `lastSuccessfulTrainingDateTime` in [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247), [LargePersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae32c6ac60f11b48b5aa5), and [LargeFaceList - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a1582f8d2de3616c086f2cf).
 
 ### Release changes in March 2018
 
@@ -41,7 +41,7 @@ This article pertains to Microsoft Face API Service version 1.0.
 ### Release changes in March 2017
 * **New Attribute** Emotion attribute could be returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `emotion` is specified in `returnFaceAttributes`.
 
-* **Bug fix** For [FaceList - Add Face](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [PersonGroup Person - Add Face](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) APIs, algorithm is upgraded to make sure that the face could be re-detected with rectangle returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as `targetFace`.
+* **Bug fix** For [FaceList - Add Face](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [PersonGroup Person - Add Face](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) APIs, algorithm is upgraded to make sure that the face could be redetected with rectangle returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as `targetFace`.
 
 * **Bug fix** Make sure the detectable face size is strictly between 36x36 to 4096x4096 pixels.
 
@@ -72,7 +72,7 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 * **Face Sizes**: The previous version of Face API was not clear about the smallest face sizes the API could detect. With V1.0 the API correctly sets the minimal detectable size to 36x36 pixels. Faces smaller 36x36 pixels will not be detected.
 
-* **Persisted Data**: Existing PersonGroup and Person data which has been set up with Face V0 cannot be accessed with the Face V1.0 service. This incompatible issue will occur for only this one time, following API updates will not affect persisted data any more.
+* **Persisted Data**: Existing PersonGroup and Person data, which has been set up with Face V0 cannot be accessed with the Face V1.0 service. This incompatible issue will occur for only this one time, following API updates will not affect persisted data anymore.
 
 >[!NOTE]
 >*The V0 endpoint of Face API was retired on 06/30/2016*.
