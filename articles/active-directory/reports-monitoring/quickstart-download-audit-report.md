@@ -4,7 +4,7 @@ description: Learn how to download an audit report using the Azure portal
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
