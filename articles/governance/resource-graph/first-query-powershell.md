@@ -22,7 +22,7 @@ choice and run your first Resource Graph query.
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## Add the Resource Graph module
 
