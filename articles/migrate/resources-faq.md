@@ -66,7 +66,7 @@ You need to exclude the following folders in the appliance for antivirus scannin
 
 - Folder that has the binaries for Azure Migrate Service. Exclude all sub-folders.
   %ProgramFiles%\ProfilerService  
-- Azure Migrate Web Applciation. Exclude all sub-folders.
+- Azure Migrate Web Application. Exclude all sub-folders.
   %SystemDrive%\inetpub\wwwroot
 - Local Cache for Database and log files. Azure migrate service needs RW access to this folder.
   %SystemDrive%\Profiler
