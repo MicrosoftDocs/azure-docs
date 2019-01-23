@@ -4,7 +4,7 @@ description: Step-by-step instructions for assigning a managed identity on one r
 services: active-directory
 documentationcenter: 
 author: daveba
-manager: mtillman
+manager: daveba
 editor: 
 
 ms.service: active-directory
