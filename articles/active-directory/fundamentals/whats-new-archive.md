@@ -3,7 +3,7 @@ title: Archive for What's new? - Azure Active Directory | Microsoft Docs
 description: The What's new release notes in the Overview section of this content set contains 6 months of activity. After 6 months, the items are removed from the main article and put into this archive article.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
  
 ms.service: active-directory
 ms.component: fundamentals
@@ -853,7 +853,7 @@ The My Apps browser extension is now available via a convenient tool that gives 
 - The ability to directly sign in to password-SSO based apps from the app’s sign-in page
 - Launch any app using the quick search feature
 - Shortcuts to recently used apps from the extension
-- The extension is available for Edge, Chrome, and Firefox.
+- The extension is available for Microsoft Edge, Chrome, and Firefox.
  
 For more information, see [My Apps Secure Sign-in Extension](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction#my-apps-secure-sign-in-extension).
 

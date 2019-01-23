@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-womdpws
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.date: 05/11/2018
+ms.date: 01/15/2019
 ms.author: danlep
 ---
 

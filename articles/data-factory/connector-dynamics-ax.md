@@ -107,7 +107,7 @@ To copy data from Dynamics AX, set the **type** property of the dataset to **Dyn
     "name": "DynamicsAXResourceDataset",
     "properties": {
         "type": "DynamicsAXResource",
-        "typePoperties": {     
+        "typeProperties": {     
             "path": "<entity path e.g. dd04tentitySet>"
         },
         "linkedServiceName": {

@@ -16,6 +16,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
+ms.component: disks
 ---
 
 # Convert a Linux virtual machine from unmanaged disks to managed disks
@@ -33,7 +34,7 @@ This article shows you how to convert VMs by using the Azure CLI. If you need to
 ## Convert single-instance VMs
 This section covers how to convert single-instance Azure VMs from unmanaged disks to managed disks. (If your VMs are in an availability set, see the next section.) You can use this process to convert the VMs from premium (SSD) unmanaged disks to premium managed disks, or from standard (HDD) unmanaged disks to standard managed disks.
 
-1. Deallocate the VM by using [az vm deallocate](/cli/azure/vm#az_vm_deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
+1. Deallocate the VM by using [az vm deallocate](/cli/azure/vm). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
@@ -67,7 +68,7 @@ All VMs in the availability set must be deallocated before you convert the avail
         --output table
     ```
 
-2. Deallocate all the VMs by using [az vm deallocate](/cli/azure/vm#az_vm_deallocate). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
+2. Deallocate all the VMs by using [az vm deallocate](/cli/azure/vm). The following example deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM

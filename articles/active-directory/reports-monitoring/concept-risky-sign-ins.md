@@ -4,7 +4,7 @@ title: Risky sign-ins report in the Azure Active Directory portal | Microsoft Do
 description: Learn about the risky sign-ins report in the Azure Active Directory portal
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
@@ -82,12 +82,11 @@ This report also provides you with an option to:
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/93.png)
 
-
 ## Risky sign-ins report for Azure AD premium editions
 
 The risky sign-ins report in the Azure AD premium editions provides you with:
 
-- Aggregated information about the [risk event types](concept-risk-events.md) that have been detected
+- Aggregated information about the [risk event types](concept-risk-events.md) that have been detected. With the **Azure AD Premium P1 edition**, detections that are not covered by your license appear as the risk event **Sign-in with additional risk detected**. With the **Azure AD Premium P2 edition**, you get the most detailed information about all underlying detections.
 
 - An option to download the report
 

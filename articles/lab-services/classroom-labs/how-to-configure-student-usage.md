@@ -12,23 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
 
 ---
 # Configure usage settings and policies
-This article describes how to configure the number of users for the lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
+This article describes how to add users to the lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 
 
-## Specify the number of users allowed into the lab
+## Add users to the lab
+If you have the **Restrict access** enabled, add users (email addresses) to the list.
 
-1. Select **Usage policy**. 
-2. In the **Usage policy**, settings, enter the **number of users** allowed to use the lab.
-3. Select **Save**. 
+1. Select **Users** on the left menu.
+2. Select **Add users** on the toolbar. 
+3. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
 
-    ![Usage policy](../media/how-to-manage-classroom-labs/usage-policy-settings.png)
+    ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
+
+    ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## Send registration link to students
+The following procedure has steps to send a registration link to users. If the **Restrict access** is enabled for the lab, only users in the list of users can use the registration link to register to the lab. 
 
 1. Switch to the **Users** view by selecting **Users** on the left menu. 
 2. Select **Get registration link** tile.
@@ -48,9 +53,10 @@ This article describes how to configure the number of users for the lab, get the
 
 Select **Users** on the left menu to see the list of users registered with the lab. 
 
-![List of users registered with the lab](../media/how-to-configure-student-usage/users-list.png)
+![List of users registered with the lab](../media/how-to-configure-student-usage/users-list-new.png)
 
 ## Set quotas per user
+You can set quotas per user by using the following steps: 
 
 1. Select **Users** on the left menu.
 2. Select **Quota per user: unlimited** on the toolbar. 
@@ -61,18 +67,6 @@ Select **Users** on the left menu to see the list of users registered with the l
 5. You see the number of hours on the toolbar now: **Quota per user: &lt;number of hours&gt;**. 
 
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)
-
-## Add users to the lab
-If you have the **Restrict access** enabled, add users (email addresses) to the list.
-
-1. Select **Users** on the left menu.
-2. Select **Add users** on the toolbar. 
-3. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
-
-    ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
-4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
-
-    ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
 
 ### Add users by uploading a CSV file
 You can also add users by uploading a CSV file with email addresses of users.
@@ -92,6 +86,16 @@ You can do the following tasks on a student VM:
 - Connect to the VM. 
 - Delete the VM. 
 - View the number of hours that users used the virtual machine. 
+
+## Update number of virtual machines in lab
+To update the number of virtual machines in the lab, take the following steps in the **Virtual Machines** page:
+
+1. Select **Virtual machines** on the left menu. 
+2. Select **Lab capacity: &lt;number&gt; machine(s)** on the toolbar. 
+3. Enter the **number** of virtual machines.
+4. Select **Save**.
+
+    ![Virtual machines in the lab](../media/how-to-configure-student-usage/number-virtual-machines.png)
 
 
 ## Next steps
