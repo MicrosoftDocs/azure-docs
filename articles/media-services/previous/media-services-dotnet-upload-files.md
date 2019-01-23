@@ -52,7 +52,7 @@ When you create assets, you can specify the following encryption options:
 
 If you specify for your asset to be encrypted with a **CommonEncrypted** option, or an **EnvelopeEncrypted** option, you need to associate your asset with a **ContentKey**. For more information, see [How to create a ContentKey](media-services-dotnet-create-contentkey.md). 
 
-If you specify for your asset to be encrypted with a **StorageEncrypted** option, the Media Services SDK for .NET creates a **StorateEncrypted** **ContentKey** for your asset.
+If you specify for your asset to be encrypted with a **StorageEncrypted** option, the Media Services SDK for .NET creates a **StorageEncrypted** **ContentKey** for your asset.
 
 This article shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.
 
