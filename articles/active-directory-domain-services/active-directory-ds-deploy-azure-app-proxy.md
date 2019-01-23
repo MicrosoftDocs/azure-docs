@@ -4,7 +4,7 @@ description: Use Azure AD Application Proxy on Azure Active Directory Domain Ser
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
