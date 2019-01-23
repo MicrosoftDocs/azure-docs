@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with MindTickle, perform the following step
 
 	![choose metadata file](common/browse-upload-metadata.png)
 
-	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in MindTickle section textbox:
+	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in **Basic SAML Configuration** section:
 
 	![MindTickle Domain and URLs single sign-on information](common/sp-identifier.png)
 
@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with MindTickle, perform the following step
     `https://<subdomain>.mindtickle.com`
 
 	> [!Note]
-	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement.
+	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. update the value with the actual Sign-on URL. Contact [MindTickle support team](mailto:support@mindtickle.com) to get this value.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
