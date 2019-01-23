@@ -6,13 +6,13 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: "seodec18, H1Hack27Feb2017, mvc"
 ---
 # Quickstart: Create a private container registry using the Azure CLI
 
-Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI, pushing a container image into the registry and finally deploying the container from your registry into Azure Container Instances (ACI).
+Azure Container Registry is a managed Docker container registry service used for storing private Docker container images. This guide details creating an Azure Container Registry instance using the Azure CLI. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
 This quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
@@ -43,7 +43,7 @@ When the registry is created, the output is similar to the following:
 ```json
 {
   "adminUserEnabled": false,
-  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "creationDate": "2019-01-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
   "loginServer": "myContainerRegistry007.azurecr.io",
@@ -75,33 +75,39 @@ The command returns a `Login Succeeded` message once completed.
 
 ## Push image to ACR
 
-To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following [docker pull][docker-pull]command to pull an existing image from Docker Hub.
+To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following [docker pull][docker-pull] command to pull an existing image from Docker Hub.
 
 ```bash
-docker pull microsoft/aci-helloworld
+docker pull busybox
 ```
 
-Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server. Run the following command to obtain the full login server name of the ACR instance.
+Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server. Run the following command to obtain the full login server name (all lowercase) of the ACR instance. 
 
 ```azurecli
-az acr show --myContainerRegistry007 --query "{acrLoginServer:loginServer}" --output table
+az acr show --name myContainerRegistry007 --query "{acrLoginServer:loginServer}" --output table
 ```
 
 Tag the image using the [docker tag][docker-tag] command. Replace `<acrLoginServer>` with the login server name of your ACR instance.
 
 ```bash
-docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
+docker tag busybox <acrLoginServer>/busybox:v1
 ```
 
-Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace `<acrLoginServer>` with the login server name of your ACR instance. This example creates the **aci-helloworld** repository, containing the `aci-helloworld:v1` image.
+Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace `<acrLoginServer>` with the login server name of your ACR instance. This example creates the **busybox** repository, containing the `busybox:v1` image.
 
 ```bash
-docker push <acrLoginServer>/aci-helloworld:v1
+docker push <acrLoginServer>/busybox:v1
 ```
 
 ## List container images
 
-The following example lists the repositories in a registry:
+After pushing the image to your container registry, remove the `busybox:v1` image from your local environment. (Note that this [docker rmi][docker-rmi] command does not remove the image from the **busybox** repository in your Azure container registry.)
+
+```bash
+docker rmi <acrLoginServer>/busybox:v1
+```
+
+Now, verify that the image remains in your registry. The following example lists the repositories in your registry:
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -112,13 +118,13 @@ Output:
 ```bash
 Result
 ----------------
-aci-helloworld
+busybox
 ```
 
-The following example lists the tags on the **aci-helloworld** repository.
+The following example lists the tags on the **busybox** repository.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
+az acr repository show-tags --name <acrName> --repository busybox --output table
 ```
 
 Output:
@@ -129,45 +135,23 @@ Result
 v1
 ```
 
-## Deploy image to ACI
+## Run image from ACR
 
-In order to deploy a container instance from the registry you created, you must provide the registry credentials when you deploy it. In production scenarios you should use a [service principal][container-registry-auth-aci] for container registry access, but to keep this quickstart brief, enable the admin user on your registry with the following command:
+Now, you can pull and run the `busybox:v1` container image from your container registry. This [docker run][docker-run] example displays the current date and time:
 
-```azurecli
-az acr update --name <acrName> --admin-enabled true
+```bash
+docker run <acrLoginServer>/busybox:v1 date 
 ```
 
-Once admin is enabled the username is the same as your registry name and you can retrieve the password with this command:
+Example output: 
 
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
 ```
-
-To deploy your container image with 1 CPU core and 1 GB of memory, run the following command. Replace `<acrName>`, `<acrLoginServer>`, and `<acrPassword>` with the values you obtained from previous commands. The `--dns-name-label` value must be unique within the Azure region you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
-
-```azurecli
-az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+Unable to find image 'mycontainerregistry007.azurecr.io/busybox:v1' locally
+v1: Pulling from busybox
+Digest: sha256:662dd8e65ef7ccf13f417962c2f77567d3b132f12c95909de6c85ac3c326a345
+Status: Downloaded newer image for mycontainerregistry007.azurecr.io/busybox:v1
+Wed Jan 23 00:45:03 UTC 2019
 ```
-
-You should get an initial response back from the Azure CLI with details on your container. To monitor the status of your container and check and see when it is running, repeat the [az container show][az-container-show] command. It should take less than a minute.
-
-```azurecli
-az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
-```
-
-## View the application
-
-Once the deployment to ACI is successful, retrieve the container's FQDN with the [az container show][az-container-show] command:
-
-```azurecli
-az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.fqdn
-```
-
-Example output: `"aci-demo.eastus.azurecontainer.io"`
-
-To see the running application, navigate to the public IP address in your favorite browser.
-
-![Hello world app in the browser][aci-app-browser]
 
 ## Clean up resources
 
@@ -179,19 +163,18 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-In this quickstart, you created an Azure Container Registry with the Azure CLI, pushed a container image to the registry, and launched an instance of it via Azure Container Instances. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
+In this quickstart, you created an Azure Container Registry with the Azure CLI, pushed a container image to the registry, and pulled and ran the image from the registry. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
 > [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
-
-<!-- IMAGES> -->
-[aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-pull]: https://docs.docker.com/engine/reference/commandline/pull/
+[docker-rmi]: https://docs.docker.com/engine/reference/commandline/rmi/
+[docker-run]: https://docs.docker.com/engine/reference/commandline/run/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
@@ -201,7 +184,5 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli]: /cli/azure/install-azure-cli
-[az-container-show]: /cli/azure/container#az-container-show
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
-[container-registry-auth-aci]: container-registry-auth-aci.md
