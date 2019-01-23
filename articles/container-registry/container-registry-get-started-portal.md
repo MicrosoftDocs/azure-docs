@@ -91,6 +91,7 @@ In this quickstart, you created an Azure Container Registry with the Azure porta
 [docker-rmi]: https://docs.docker.com/engine/reference/commandline/rmi/
 [docker-run]: https://docs.docker.com/engine/reference/commandline/run/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md

@@ -48,7 +48,7 @@ When the registry is created, the output is similar to the following:
   "creationDate": "2019-01-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
-  "loginServer": "myContainerRegistry007.azurecr.io",
+  "loginServer": "mycontainerregistry007.azurecr.io",
   "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroup",
@@ -63,7 +63,7 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
-Throughout the rest of this quickstart `<acrName>` is a placeholder for the container registry name.
+Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<acrName>` is a placeholder for the container registry name.
 
 ## Log in to registry
 
