@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
 ---
 # Azure Data Box system requirements
@@ -43,9 +43,9 @@ Here is a list of the supported operating systems for the data copy operation vi
 
 ### Supported storage accounts
 
-Here is a list of the supported storage accounts for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
+Here is a list of the supported storage accounts and the storage types for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
-| **Storage account** | **Block blob** |**Page blob** |**Azure Files** |**Notes**|
+| **Storage account / Supported storage types** | **Block blob** |**Page blob** |**Azure Files** |**Notes**|
 | --- | --- | -- | -- | -- |
 | Classic Standard | Y | Y | Y |
 | General purpose v1 Standard  | Y | Y | Y | Both hot and cool are supported.|
