@@ -66,7 +66,7 @@ The following code uses the latest Media Services SDK to perform the following t
 3. Create a new asset in the default storage account.
 4. Create an output asset of the encoding job in the specified storage account.
    
-```
+```cs
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
@@ -119,9 +119,9 @@ namespace MultipleStorageAccounts
             Console.WriteLine("IsDefault: {0}", defaultStorageName.IsDefault);
 
             // Retrieve the name of a storage account that is not the default one.
-            var notDefaultStroageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
-            Console.WriteLine("Name: {0}", notDefaultStroageName.Name);
-            Console.WriteLine("IsDefault: {0}", notDefaultStroageName.IsDefault);
+            var notDefaultStorageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
+            Console.WriteLine("Name: {0}", notDefaultStorageName.Name);
+            Console.WriteLine("IsDefault: {0}", notDefaultStorageName.IsDefault);
 
             // Create the original asset in the default storage account.
             IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None,
@@ -129,7 +129,7 @@ namespace MultipleStorageAccounts
             Console.WriteLine("Created the asset in the {0} storage account", asset.StorageAccountName);
 
             // Create an output asset of the encoding job in the other storage account.
-            IAsset outputAsset = CreateEncodingJob(asset, notDefaultStroageName.Name, _singleInputFilePath);
+            IAsset outputAsset = CreateEncodingJob(asset, notDefaultStorageName.Name, _singleInputFilePath);
             if (outputAsset != null)
                 Console.WriteLine("Created the output asset in the {0} storage account", outputAsset.StorageAccountName);
 
