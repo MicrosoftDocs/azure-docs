@@ -3,7 +3,7 @@ title: How to sign in using two-step verification or security info - Azure Activ
 description: Learn about how to sign in using the various identity verification methods in security info.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory

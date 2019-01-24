@@ -48,7 +48,7 @@ This script uses the following commands to create a resource group, virtual mach
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | Creates an Azure virtual network and subnet. |
 | [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address with a static IP address and an associated DNS name. |
 | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#az_network_nsg_create) | Creates a network security group (NSG), which is a security boundary between the internet and the virtual machine. |
-| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az_network_nic_create) | Creates a virtual network card and attaches it to the virtual network, subnet, and NSG. |
+| [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | Creates a virtual network card and attaches it to the virtual network, subnet, and NSG. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used, and administrative credentials.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 

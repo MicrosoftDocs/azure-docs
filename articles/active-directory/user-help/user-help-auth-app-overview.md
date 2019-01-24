@@ -3,7 +3,7 @@ title: Microsoft Authenticator app overview - Azure Active Directory | Microsoft
 description: Learn about the Microsoft Authenticator app, including what it is, how it works, and what information is included in this section of the content.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory

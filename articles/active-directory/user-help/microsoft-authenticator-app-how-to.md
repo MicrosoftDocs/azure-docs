@@ -3,7 +3,8 @@ title: Download and install the Microsoft Authenticator app - Azure Active Direc
 description: How to download, install, and use the Microsoft Authenticator app for two-factor verification.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
+ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 
 ms.service: active-directory
 ms.workload: identity

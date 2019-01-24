@@ -3,7 +3,7 @@ title: Sign in to your accounts using the Microsoft Authenticator app | Microsof
 description: Use the Microsoft Authenticator app to sign in to your work or school account or your personal Microsoft and non-Microsoft accounts, using either two-factor verification or phone sign-in.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity

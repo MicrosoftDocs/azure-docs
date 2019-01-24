@@ -61,7 +61,7 @@ The Contoso cloud team has pinned down goals for this migration. These goals are
 
 ## Solution design
 
-fter pinning down goals and requirements, Contoso designs and review a deployment solution, and identifies the migration process, including the Azure services that Contoso will use for the migration.
+After pinning down goals and requirements, Contoso designs and review a deployment solution, and identifies the migration process, including the Azure services that Contoso will use for the migration.
 
 ### Current app
 
