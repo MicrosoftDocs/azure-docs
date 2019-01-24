@@ -44,12 +44,12 @@ To understand the live streaming workflow in Media Services v3, you have to revi
 Here are the steps for a live streaming workflow:
 
 1. Make sure the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) is running.
-1. Create and start a **Live Event**. 
+1. Create and start a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents). 
 1. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed. See these articles for more details:
 1. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 1. Create a new [Asset](https://docs.microsoft.com/rest/api/media/asset) object.
 1. Create a [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) and use the asset name that you created. <br/>The **Live Output** archives the stream into the **Asset**. 
-1. Create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocator) with the built-in **Streaming Policy** types.<br/>If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
+1. Create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocator) with the built-in [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies) types.<br/>If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
 1. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
 1. Get the hostname for the **Streaming Endpoint** you wish to stream from.
 1. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
