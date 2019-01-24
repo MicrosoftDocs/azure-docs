@@ -18,15 +18,15 @@ ms.author: juliako
 ---
 # Live Events and Live Outputs
 
-Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article :
+Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article:
 
 * [Live Events](#live-events)
 * [Live Event types](#live-vent-types)
-* [Live Event types comparison](live-event-types-comparison)
-* [Live Event creation options](live-event-creation-options)
-* [Live Event ingest URLs](live-event-ingest-urls)
-* [Live Event preview URL](live-event-preview-url)
-* [Live Outputs](https://docs.microsoft.com/rest/api/media/liveoutputs).
+* [Live Event types comparison](#live-event-types-comparison)
+* [Live Event creation options](#live-event-creation-options)
+* [Live Event ingest URLs](#live-event-ingest-urls)
+* [Live Event preview URL](#live-event-preview-url)
+* [Live Outputs](#live-outputs).
 
 ## Live Events
 
@@ -72,48 +72,50 @@ When creating a Live Event, you can specify the following:
 
 ## Live Event ingest URLs
 
-Once the Live Event is created, you can get ingest URLs that you will provide to the live encoder. The live encoder uses these URLs to input a live stream.
+Once the Live Event is created, you can get ingest URLs that you will provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. You can either use non-vanity URLs or vanity URLs. 
 
-You can you can either use non-vanity URLs or vanity URLs. Non-vanity URL is the default mode in AMS v3. You potentially get the live event very quickly, but ingest URL is known only when live event is started. And it will change if you do stop/start the live event.
+* Non-vanity URL
 
-Non vanity is useful, for example, when an end user wants to stream using an app. The app wants to get a live event asap and having a dynamic ingest url is not a problem.
+    Non-vanity URL is the default mode in AMS v3. You potentially get the Live Event quickly, but ingest URL is known only when the live event is started. And it will change if you do stop/start the Live Event. <br/>Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest url is not a problem.
+* Vanity URL
 
-Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don’t want to re configure their encoders when they start the live event. They want a predictive ingest URL which does not change over time.
+    Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to re-configure their encoders when they start the Live Event. They want a predictive ingest URL, which does not change over time.
 
-Please note that for an ingest URL to be predictive, you need to use Vanity mode AND pass your own access token (to avoid a random token in the URL).
+> [!NOTE] 
+> For an ingest URL to be predictive, you need to use "vanity" mode and pass your own access token (to avoid a random token in the URL).
 
 ### Live ingest URL naming rules
 
-The *random* string below is a 128bit hex number (which is composed of 32 characters of 0-9 a-f).
-The *access token* below is what you need to specify for fixed URL. It is also 128bit hex number.
+The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
+The *access token* below is what you need to specify for fixed URL. It is also 128 bit hex number.
 
-#### Non-vanity URL:
+#### Non-vanity URL
 
-##### Smooth:
-
-`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
-
-##### RTMP:
+##### RTMP
 
 `rtmp://<random 128bit hex string>.channel.media.azure.net:1935/<access token>`
 `rtmp://<random 128bit hex string>.channel.media.azure.net:1936/<access token>`
 `rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
 `rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
 
-### Vanity URL:
+##### Smooth Streaming
 
-##### Smooth:
+`http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
+`https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
 
-`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
-`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+#### Vanity URL
 
-##### RTMP:
+##### RTMP
 
 `rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1935/<access token>`
 `rtmp://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:1936/<access token>`
 `rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
 `rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
+
+##### Smooth Streaming
+
+`http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
+`https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
 
 ## Live Event preview URL
 
@@ -124,23 +126,20 @@ Once the **Live Event** starts receiving the contribution feed, you can use its 
 
 ## Live Outputs
 
-Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an Asset, Live Output, and Streaming Locator. This will archive the stream and make it available to viewers through the Streaming Endpoint. 
+Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an [Asset](https://docs.microsoft.com/rest/api/media/assets), [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs), and [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators). Live Output will archive the stream and make it available to viewers through the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).  **Live Outputs** start on creation and stop when deleted. 
 
-The **Live Output** archives the stream into the **Asset**.
+> [!NOTE]
+> When you delete the **Live Output**, you are not deleting the underlying **Asset** and content in the asset. 
 
-**Live Outputs** start on creation and stop when deleted. When you delete the **Live Output**, you are not deleting the underlying **Asset** and content in the asset. 
+The relationship between a **Live Event** and its **Live Outputs** is similar to traditional television broadcast, whereby a channel (**Live Event**) represents a constant stream of video and a recording (**Live Output**) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). You can record television using a Digital Video Recorder (DVR) – the equivalent feature in Live Events is managed via the ArchiveWindowLength property. It is an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
 
-The **Live Output** object is like a tape recorder that will catch and record the live stream into an Asset in your Media Services account. The recorded content will be persisted into the Azure Storage account attached to your account, into the container defined by the Asset resource.  The **Live Ouput** also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR). The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the **archiveWindowLength** property of the **Live Output**. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. You can create multiple **Live Outputs** (up to three maximum) on a **Live Event** with different archive lengths and settings.  
-
-A [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) enables you to control the properties of the outgoing live stream, such as how much of the stream is recorded (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The relationship between a **Live Event** and its **Live Output**s relationship is similar to traditional television broadcast, whereby a channel (**Live Event**) represents a constant stream of video and a recording (**Live Output**) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). You can record television using a Digital Video Recorder (DVR) – the equivalent feature in LiveEvents is managed via the ArchiveWindowLength property. It is an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
-
-Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. This will archive the stream and make it available to viewers through the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
+The **Live Output** object is like a tape recorder that will catch and record the live stream into an Asset in your Media Services account. The recorded content will be persisted into the Azure Storage account attached to your account, into the container defined by the Asset resource.  The **Live Output** also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream.. The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the **archiveWindowLength** property of the **Live Output**. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. You can create multiple **Live Outputs** (up to three maximum) on a **Live Event** with different archive lengths and settings.  
 
 If you have published the **Live Output** asset using a **Streaming Locator**, the **Live Event** (up to the DVR window length) will continue to be viewable until the **Streaming Locator**'s expiry or deletion, whichever comes first.
 
 ## Other important topics
 
-The following topics give very detailed information about Live Events:
+The following topics give detailed information about Live Events:
 
 - [Streaming live events](live-streaming-overview.md)
 - [Recommended live encoders](recommended-on-premises-live-encoders.md)
