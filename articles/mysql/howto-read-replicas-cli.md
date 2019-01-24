@@ -5,8 +5,11 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 01/23/2019
 ---
+
+> [!IMPORTANT]
+> The Read Replica feature is in Public Preview.
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI
 

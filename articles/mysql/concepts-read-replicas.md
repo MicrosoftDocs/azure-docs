@@ -5,8 +5,11 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/22/2019
+ms.date: 1/23/2019
 ---
+
+> [!IMPORTANT]
+> The Read Replica feature is in Public Preview.
 
 # Read replicas in Azure Database for MySQL
 
