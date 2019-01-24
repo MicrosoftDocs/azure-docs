@@ -16,9 +16,14 @@ ms.reviewer: mal
 
 ---
 
-# Use one-time passcodes to authenticate B2B guest users
+# Email one-time passcode authentication (preview)
 
-The one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Google federation, Azure AD, or a Microsoft account (MSA). With one-time passcode authentication, there's no need to create a Microsoft account. When the guest user redeems an invitation or accesses a shared resource, they can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in.
+|     |
+| --- |
+| Email one-time passcode is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
+
+The Email one-time passcode feature authenticates B2B guest users when they can't be authenticated through other means like Azure AD, a Microsoft account (MSA), or Google federation. With one-time passcode authentication, there's no need to create a Microsoft account. When the guest user redeems an invitation or accesses a shared resource, they can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in.
 
 This feature is currently available for preview (see [Opting in to the preview](#opting-in-to-the-preview) below). After preview, this feature will be turned on by default for all tenants.
 
@@ -42,19 +47,17 @@ The guest user is now authenticated, and they can see the shared resource or con
 ## When does a guest user get a one-time passcode?
 
 When a guest user redeems an invitation or uses a link to a resource that has been shared with them, they’ll receive a one-time passcode if:
-- An Alternate ID (private preview feature) has not been set up for their account 
 - They do not have an Azure AD account 
 - They do not have a Microsoft account 
-- The inviting tenant did not set up Google federation for @gmail.com and @googlemail.com users or direct federation (private preview feature) for the user’s domain name 
+- The inviting tenant did not set up Google federation for @gmail.com and @googlemail.com users 
 
 At the time of invitation, there's no indication that the user you're inviting will use one-time passcode authentication. But when the guest user signs in, one-time passcode authentication will be the fallback method if no other authentication methods can be used. 
 
 > [!NOTE]
 > When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update their authentication method, you can delete their guest user account and reinvite them.
 
-### Examples
-- Guest user alexdoe@gmail.com is invited to Fabrikam, which does not have Google federation set up. Alex does not have a Microsoft account. He'll receive a one-time passcode for authentication.
-- Guest user jane@firstupconsultants.com is invited to Contoso, which does not have direct federation set up with firstupconsultants.com. Jane will receive a one-time passcode for authentication.	
+### Example
+Guest user alexdoe@gmail.com is invited to Fabrikam, which does not have Google federation set up. Alex does not have a Microsoft account. He'll receive a one-time passcode for authentication.
 
 ## Opting in to the preview 
 It may take a few minutes for the opt-in action to take effect.
