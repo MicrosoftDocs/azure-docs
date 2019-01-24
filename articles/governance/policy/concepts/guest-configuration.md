@@ -4,7 +4,7 @@ description: Learn how Azure Policy uses Guest Configuration to audit settings i
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -51,8 +51,8 @@ To register the resource provider for Guest Configuration through PowerShell, ru
 command:
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
-Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
+# Login first with Connect-AzAccount if not using Cloud Shell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 ```
 
 ### Validation tools

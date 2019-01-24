@@ -51,7 +51,7 @@ If you followed the previous tutorial to [create a virtual machine scale set](tu
 
 
 ## Create Azure load balancer
-This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *eastus* location:
+This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *eastus* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
