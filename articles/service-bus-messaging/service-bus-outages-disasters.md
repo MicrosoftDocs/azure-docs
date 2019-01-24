@@ -42,6 +42,10 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 ## Protecting against Outages and Disasters - Service Bus Standard
 To achieve resilience against datacenter outages when using the standard messaging pricing tier, Service Bus supports two approaches: *active* and *passive* replication. For each approach, if a given queue or topic must remain accessible in the presence of a datacenter outage, you can create it in both namespaces. Both entities can have the same name. For example, a primary queue can be reached under **contosoPrimary.servicebus.windows.net/myQueue**, while its secondary counterpart can be reached under **contosoSecondary.servicebus.windows.net/myQueue**.
 
+>[!NOTE]
+> The **Active Replication** and **Passive Replication** setup are general purpose solutions and not specific features of Service Bus. 
+> The replication logic (sending to 2 different namespaces) lives on the sender applications and the receiver has to have custom logic for duplicate detection.
+
 If the application does not require permanent sender-to-receiver communication, the application can implement a durable client-side queue to prevent message loss and to shield the sender from any transient Service Bus errors.
 
 ### Active replication
