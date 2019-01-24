@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 1/23/2019
 ---
 
+# Read replicas in Azure Database for MySQL
+
 > [!IMPORTANT]
 > The Read Replica feature is in Public Preview.
-
-# Read replicas in Azure Database for MySQL
 
 The read replica feature (public preview) allows you to replicate data from an Azure Database for MySQL server (master) to up to five read-only servers (replicas) within the same Azure region. Read-only replicas are asynchronously updated using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 

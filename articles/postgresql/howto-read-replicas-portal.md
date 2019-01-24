@@ -8,11 +8,12 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ---
 
+# How to create and manage read replicas in the Azure portal
+
 > [!IMPORTANT]
 > The Read Replica feature is in Public Preview.
 
 
-# How to create and manage read replicas in the Azure portal
 In this article, you will learn how to create and manage read replicas in the Azure Database for PostgreSQL service using the Azure portal. To learn more about read replicas, [read the concepts documentation](concepts-read-replicas.md).
 
 ## Prerequisites
