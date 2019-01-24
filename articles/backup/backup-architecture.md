@@ -170,8 +170,8 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 Read more:
 
-- Learn more about disk storage for [Windows](../virtual-machines/windows/about-disks-and-vhds.md) and [Linux](../virtual-machines/linux/about-disks-and-vhds.md) VMs.
-- Learn about [standard](../virtual-machines/windows/standard-storage.md) and [premium](../virtual-machines/windows/premium-storage.md) storage.
+- Learn more about disk storage for [Windows](../virtual-machines/windows/managed-disks-overview.md) and [Linux](../virtual-machines/linux/managed-disks-overview.md) VMs.
+- Learn about the available [disk-types](../virtual-machines/windows/disks-types.md) such as standard and premium.
 
 
 ### Backing up and restoring Azure VMs with premium storage 

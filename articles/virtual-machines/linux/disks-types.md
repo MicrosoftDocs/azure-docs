@@ -16,3 +16,10 @@ ms.component: disks
 **Snapshots**: Snapshots of Managed Disks are billed for the capacity used by the snapshots, at the target and at the source, if any. For more information on snapshots, see the section on snapshots in the [managed disk overview](managed-disks-overview.md).
 
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-billing-and-fees.md)]
+
+## Next steps
+
+If you're interested in trying ultra SSDs, see the how to guide on the subject.
+
+> [!div class="nextstepaction"]
+> [How to enable and use Ultra SSDs](disks-enable-ultra-ssd.md)
