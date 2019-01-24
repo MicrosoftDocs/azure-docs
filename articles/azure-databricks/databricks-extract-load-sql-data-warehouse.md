@@ -47,7 +47,7 @@ In this section, you create an Azure Databricks workspace by using the Azure por
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
-    ![Databricks on Azure portal](./media/data-lake-storage-handle-data-using-databricks/azure-databricks-on-portal.png "Databricks on Azure portal")
+    ![Databricks on Azure portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks on Azure portal")
 
 1. Under **Azure Databricks Service**, provide the following values to create a Databricks workspace:
 
@@ -59,13 +59,13 @@ In this section, you create an Azure Databricks workspace by using the Azure por
     |**Location**     | Select **West US 2**.        |
     |**Pricing Tier**     |  Select **Standard**.     |
 
-    ![Create an Azure Databricks workspace](./media/data-lake-storage-handle-data-using-databricks/create-databricks-workspace.png "Create an Azure Databricks workspace")
+    ![Create an Azure Databricks workspace](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
 1. Select **Pin to dashboard** and then select **Create**.
 
 1. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right. To monitor the operation status, view the progress bar at the top.
 
-    ![Databricks deployment tile](./media/data-lake-storage-handle-data-using-databricks/databricks-deployment-tile.png "Databricks deployment tile")
+    ![Databricks deployment tile](./media/databricks-extract-load-sql-data-warehouse/databricks-deployment-tile.png "Databricks deployment tile")
 
 ## Create a Spark cluster in Azure Databricks
 
@@ -73,11 +73,11 @@ In this section, you create an Azure Databricks workspace by using the Azure por
 
 2. You're redirected to the Azure Databricks portal. From the portal, select **Cluster**.
 
-    ![Databricks on Azure](./media/data-lake-storage-handle-data-using-databricks/databricks-on-azure.png "Databricks on Azure")
+    ![Databricks on Azure](./media/databricks-extract-load-sql-data-warehouse/databricks-on-azure.png "Databricks on Azure")
 
 3. In the **New cluster** page, provide the values to create a cluster.
 
-    ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-handle-data-using-databricks/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+    ![Create Databricks Spark cluster on Azure](./media/databricks-extract-load-sql-data-warehouse/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
 4. Fill in values for the following fields, and accept the default values for the other fields:
 
@@ -99,11 +99,11 @@ First, you create a file system in your Data Lake Storage Gen2 account. Then, yo
 
 3. From the **Overview** page of the storage account, select **Open in Explorer**.
 
-   ![Open Storage Explorer](./media/data-lake-storage-handle-data-using-databricks/data-lake-storage-open-storage-explorer.png "Open Storage Explorer")
+   ![Open Storage Explorer](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer.png "Open Storage Explorer")
 
 4. Select **Open Azure Storage Explorer** to open Storage Explorer.
 
-   ![Open Storage Explorer second prompt](./media/data-lake-storage-handle-data-using-databricks/data-lake-storage-open-storage-explorer-2.png "Open Storage Explorer second prompt")
+   ![Open Storage Explorer second prompt](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer-2.png "Open Storage Explorer second prompt")
 
    Storage Explorer opens. You can create a file system and upload the sample data by using the guidance in this topic: [Quickstart: Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](data-lake-storage-explorer.md).
 
@@ -130,11 +130,11 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 2. On the left, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
-    ![Create a notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Create notebook in Databricks")
+    ![Create a notebook in Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "Create notebook in Databricks")
 
 3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Scala** as the language, and then select the Spark cluster that you created earlier.
 
-    ![Provide details for a notebook in Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "Provide details for a notebook in Databricks")
+    ![Provide details for a notebook in Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Provide details for a notebook in Databricks")
 
 4. Select **Create**.
 
@@ -320,17 +320,17 @@ As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage a
 
 6. Connect to the SQL database and verify that you see a database named **SampleTable**.
 
-   ![Verify the sample table](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table.png "Verify sample table")
+   ![Verify the sample table](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verify sample table")
 
 7. Run a select query to verify the contents of the table. The table should have the same data as the **renamedColumnsDF** dataframe.
 
-    ![Verify the sample table content](./media/data-lake-storage-handle-data-using-databricks/verify-sample-table-content.png "Verify the sample table content")
+    ![Verify the sample table content](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Verify the sample table content")
 
 ## Clean up resources
 
 After you finish the tutorial, you can terminate the cluster. From the Azure Databricks workspace, select **Clusters** on the left. For the cluster to terminate, under **Actions**, point to the ellipsis (...) and select the **Terminate** icon.
 
-![Stop a Databricks cluster](./media/data-lake-storage-handle-data-using-databricks/terminate-databricks-cluster.png "Stop a Databricks cluster")
+![Stop a Databricks cluster](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Stop a Databricks cluster")
 
 If you don't manually terminate the cluster, it automatically stops, provided you selected the **Terminate after \_\_ minutes of inactivity** check box when you created the cluster. In such a case, the cluster automatically stops if it's been inactive for the specified time.
 
