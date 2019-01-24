@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 08/23/2018
+ms.date: 01/23/2019
 ---
 # Managing rolling upgrades of cloud applications using SQL Database active geo-replication
 
@@ -26,22 +26,22 @@ When evaluating the upgrade options you should consider the following factors:
 
 ## Upgrading applications that rely on database backups for disaster recovery
 
-If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will leverage Azure Traffic Manager (ATM) with the failover profile.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint `contoso-1.azurewebsites.net` represents a production slot of the application that needs to be upgraded. To enable the ability to roll back the upgrade, you need create a stage slot with a fully synchronized copy of the application. The following steps are required to prepare the application for the upgrade:
+If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will use Azure App Service Deployment Slots.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint `contoso.azurewebsites.net` represents a production slot of the web application. To enable the ability to roll back the upgrade, you need create a staging slot with a fully synchronized copy of the database. The following steps are required to prepare the application for the upgrade:
 
-1. Create a stage slot for the upgrade. To do that, create a secondary database (1) and deploy an identical web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
-2. Create a failover profile in ATM with `contoso-1.azurewebsites.net` as online endpoint and `contoso-2.azurewebsites.net` as offline.
+(1) Create a secondary database in the same Azure region. Monitor the secondary to see if the seeding process is completed.
+(2) Create a new deployment slot for your web application called 'Staging'. It willbe  registered in DNS with URL  `contoso-staging.azurewebsites.net`.
 
 > [!NOTE]
-> Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
+> Note the preparation steps will not impact the production slot and it can function in full access mode.
 >  
 
 ![SQL Database Go-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
 Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process.
 
-1. Set the primary database in the production slot to read-only mode (3). This will guarantee that the production instance of the application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
-2. Disconnect the secondary database using the planned termination mode (4). It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
-3. Turn the primary database to read-write mode and run the upgrade script in the stage slot (5).
+(3) Set the primary database to read-only mode. This will guarantee that the production slot of the web application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
+(4) Disconnect the secondary database using the planned termination mode. It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
+(5) Turn the primary database to read-write mode and run the upgrade script.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
