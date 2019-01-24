@@ -108,4 +108,4 @@ My audit enables you to view your personal role activity.
 
 - [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)
 - [Approve or deny requests for Azure resource roles in PIM](pim-resource-roles-approval-workflow.md)
-- [Built-in roles in Azure](../../role-based-access-control/built-in-roles.md)
+- [View audit history for Azure AD directory roles in PIM](pim-how-to-use-audit-log.md)
