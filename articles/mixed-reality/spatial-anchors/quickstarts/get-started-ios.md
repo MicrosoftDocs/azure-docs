@@ -46,18 +46,18 @@ Install the necessary pods using CocoaPods:
 
 # [Swift](#tab/openproject-swift)
 
-Navigate to `native.ios/samples/SampleSwift/`.
+Navigate to `iOS/Swift/`.
 
 ```bash
-cd ./native.ios/samples/SampleSwift/
+cd ./iOS/Swift/
 ```
 
 # [Objective-C](#tab/openproject-objc)
 
-Navigate to `native.ios/samples/SampleObjC/`.
+Navigate to `iOS/Objective-C/`.
 
 ```bash
-cd ./native.ios/samples/SampleObjC/
+cd ./iOS/Objective-C/
 ```
 
 ***
@@ -94,7 +94,7 @@ Locate the `SpatialAnchorsEndpoint` field and replace `Set me` with the endpoint
 
 # [Objective-C](#tab/openproject-objc)
 
-Open `iOS/Objective-C/SampleObj/ViewController.m`.
+Open `iOS/Objective-C/SampleObjC/ViewController.m`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 

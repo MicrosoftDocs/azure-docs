@@ -44,7 +44,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Open Unity and open the project at the `unity\samples` folder.
+Open Unity and open the project at the `Unity` folder.
 
 Open **Build Settings** by selecting **File** -> **Build Settings**.
 
@@ -56,17 +56,11 @@ Select **Switch Platform** to change the platform to **Universal Windows Platfor
 
 Close the **Build Settings** window.
 
-## Configure the Spatial Anchors endpoint and account key
-
-In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `HoloLensMRCloudDemo.unity` scene file.
-
 [!INCLUDE [Configure Unity Scene](../../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the HoloLens Visual Studio project
 
-Open **Build Settings** by selecting **File** -> **Build Settings**.
-
-Under **Scenes In Build**, place a check mark next to the `MRCloudPlugin/Examples/HoloLensMRCloudDemo` scene and clear check marks from all other scenes.
+[!INCLUDE [Export Unity Project](../../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
 Select **Build** to open a dialog. Then, select a folder to export the HoloLens Visual Studio project.
 

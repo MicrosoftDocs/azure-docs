@@ -45,7 +45,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Open Unity and open the project at the `unity\samples` folder.
+Open Unity and open the project at the `Unity` folder.
 
 Open **Build Settings** by selecting **File** -> **Build Settings**.
 
@@ -61,17 +61,11 @@ Close the **Build Settings** window.
 
 Download the `unitypackage` file from the [ARCore SDK for Unity releases](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.5.0). Back in the Unity project, select **Assets** -> **Import Package** -> **Custom Package...** and then select the `unitypackage` file you previously downloaded. In the **Import Unity Package** dialog, make sure all of the files are selected and then select **Import**.
 
-## Configure the Spatial Anchors endpoint and account key
-
-In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `AndroidMRCloudDemo.unity` scene file.
-
 [!INCLUDE [Configure Unity Scene](../../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the Android Studio project
 
-Open **Build Settings** by selecting **File** -> **Build Settings**.
-
-Under **Scenes In Build**, place a check mark next to the `MRCloudPlugin/Examples/AndroidMRCloudDemo` scene and clear check marks from all other scenes.
+[!INCLUDE [Export Unity Project](../../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
 Select **Export** to open a dialog. Then, select a folder to export the Android Studio project.
 

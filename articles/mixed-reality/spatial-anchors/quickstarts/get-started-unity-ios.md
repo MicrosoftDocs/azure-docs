@@ -45,7 +45,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Open Unity and open the project at the `unity\samples` folder.
+Open Unity and open the project at the `Unity` folder.
 
 Open **Build Settings** by selecting **File** -> **Build Settings**.
 
@@ -63,17 +63,11 @@ Download [Unity ARKit Plugin v2.0.0](https://bitbucket.org/Unity-Technologies/un
 
 Copy the contents of the `Assets` folder from the extracted Unity ARKit Plugin folder to the sample's `Assets` folder.
 
-## Configure the Spatial Anchors endpoint and account key
-
-In the **Project** pane, navigate to `Assets/MRCloudPlugin/Examples` and open the `iOSMRCloudDemo.unity` scene file.
-
 [!INCLUDE [Configure Unity Scene](../../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 ## Export the Xcode project
 
-Open **Build Settings** by selecting **File** -> **Build Settings**.
-
-Under **Scenes In Build**, place a check mark next to the `MRCloudPlugin/Examples/iOSMRCloudDemo` scene and clear check marks from all other scenes.
+[!INCLUDE [Export Unity Project](../../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
 Select **Build** to open a dialog. Then, select a folder to export the Xcode project.
 
@@ -83,7 +77,7 @@ When the export is complete, a folder will be displayed containing the exported 
 
 In the exported Xcode project folder, double-click on `Unity-iPhone.xcodeproj` to open the project in Xcode.
 
-Open the `mixedreality.spatialanchors.samples/native.ios/frameworks` folder in Finder. Drag and drop the `SpatialServiceApi.framework` file under the **Classes** node of the **Project navigator**. In the import dialog, make sure that **Copy items if needed** is checked.
+Open the `iOS/frameworks` folder in Finder. Drag and drop the `SpatialServiceApi.framework` file under the **Classes** node of the **Project navigator**. In the import dialog, make sure that **Copy items if needed** is checked.
 
 ![Import framework](./media/get-started-unity-ios/import-framework.png)
 
