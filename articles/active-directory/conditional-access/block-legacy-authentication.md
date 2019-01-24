@@ -116,7 +116,7 @@ It can take up to 24 hours for the policy to go into effect.
 You can select all available grant controls for the other clients condition; however, the end-user experience is always the same - blocked access.
 
 You can configure all other conditions next to the other clients condition.
-For example, if you only want to block legacy authentication for mobile device, set the **device platforms** condition by selecting:
+For example, if you only want to block legacy authentication for mobile devices, set the **device platforms** condition by selecting:
 
 - Android
 
