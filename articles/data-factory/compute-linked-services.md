@@ -165,53 +165,53 @@ You can also specify the following properties for the granular configuration of 
 
 ```json
 {
-    "name": " HDInsightOnDemandLinkedService",
-    "properties": {
-      "type": "HDInsightOnDemand",
-      "typeProperties": {
-          "clusterSize": 16,
-          "timeToLive": "01:30:00",
-          "hostSubscriptionId": "<subscription ID>",
-          "servicePrincipalId": "<service principal ID>",
-          "servicePrincipalKey": {
-            "value": "<service principal key>",
-            "type": "SecureString"
-          },
-          "tenant": "<tenent id>",
-          "clusterResourceGroup": "<resource group name>",
-          "version": "3.6",
-          "osType": "Linux",
-          "linkedServiceName": {
-              "referenceName": "AzureStorageLinkedService",
-              "type": "LinkedServiceReference"
-            },
-            "coreConfiguration": {
-                "templeton.mapper.memory.mb": "5000"
-            },
-            "hiveConfiguration": {
-                "templeton.mapper.memory.mb": "5000"
-            },
-            "mapReduceConfiguration": {
-                "mapreduce.reduce.java.opts": "-Xmx4000m",
-                "mapreduce.map.java.opts": "-Xmx4000m",
-                "mapreduce.map.memory.mb": "5000",
-                "mapreduce.reduce.memory.mb": "5000",
-                "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
-            },
-            "yarnConfiguration": {
-                "yarn.app.mapreduce.am.resource.mb": "5000",
-                "mapreduce.map.memory.mb": "5000"
-            },
-            "additionalLinkedServiceNames": [{
-                "referenceName": "MyStorageLinkedService2",
-                "type": "LinkedServiceReference"
-            }]
-        }
-    },
-      "connectVia": {
-      "referenceName": "<name of Integration Runtime>",
-      "type": "IntegrationRuntimeReference"
+  "name": " HDInsightOnDemandLinkedService",
+  "properties": {
+    "type": "HDInsightOnDemand",
+    "typeProperties": {
+      "clusterSize": 16,
+      "timeToLive": "01:30:00",
+      "hostSubscriptionId": "<subscription ID>",
+      "servicePrincipalId": "<service principal ID>",
+      "servicePrincipalKey": {
+        "value": "<service principal key>",
+        "type": "SecureString"
+      },
+      "tenant": "<tenent id>",
+      "clusterResourceGroup": "<resource group name>",
+      "version": "3.6",
+      "osType": "Linux",
+      "linkedServiceName": {
+        "referenceName": "AzureStorageLinkedService",
+        "type": "LinkedServiceReference"
+      },
+      "coreConfiguration": {
+        "templeton.mapper.memory.mb": "5000"
+      },
+      "hiveConfiguration": {
+        "templeton.mapper.memory.mb": "5000"
+      },
+      "mapReduceConfiguration": {
+        "mapreduce.reduce.java.opts": "-Xmx4000m",
+        "mapreduce.map.java.opts": "-Xmx4000m",
+        "mapreduce.map.memory.mb": "5000",
+        "mapreduce.reduce.memory.mb": "5000",
+        "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
+      },
+      "yarnConfiguration": {
+          "yarn.app.mapreduce.am.resource.mb": "5000",
+          "mapreduce.map.memory.mb": "5000"
+      },
+      "additionalLinkedServiceNames": [{
+          "referenceName": "MyStorageLinkedService2",
+          "type": "LinkedServiceReference"
+      }]
     }
+  },
+  "connectVia": {
+    "referenceName": "<name of Integration Runtime>",
+    "type": "IntegrationRuntimeReference"
+  }
 }
 ```
 
@@ -254,27 +254,27 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 
 ```json
 {
-    "name": "HDInsightLinkedService",
-    "properties": {
-      "type": "HDInsight",
-      "typeProperties": {
-        "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
-        "userName": "username",
-        "password": {
-            "value": "passwordvalue",
-            "type": "SecureString"
-          },
-        "linkedServiceName": {
-              "referenceName": "AzureStorageLinkedService",
-              "type": "LinkedServiceReference"
-        }
+  "name": "HDInsightLinkedService",
+  "properties": {
+    "type": "HDInsight",
+    "typeProperties": {
+      "clusterUri": " https://<hdinsightclustername>.azurehdinsight.net/",
+      "userName": "username",
+      "password": {
+        "value": "passwordvalue",
+        "type": "SecureString"
       },
-      "connectVia": {
-        "referenceName": "<name of Integration Runtime>",
-        "type": "IntegrationRuntimeReference"
+      "linkedServiceName": {
+        "referenceName": "AzureStorageLinkedService",
+        "type": "LinkedServiceReference"
       }
+    },
+    "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
     }
   }
+}
 ```
 
 ### Properties
@@ -310,28 +310,28 @@ See following topics if you are new to Azure Batch service:
 
 ```json
 {
-    "name": "AzureBatchLinkedService",
-    "properties": {
-      "type": "AzureBatch",
-      "typeProperties": {
-        "accountName": "batchaccount",
-        "accessKey": {
-          "type": "SecureString",
-          "value": "access key"
-        },
-        "batchUri": "https://batchaccount.region.batch.azure.com",
-        "poolName": "poolname",
-        "linkedServiceName": {
-          "referenceName": "StorageLinkedService",
-          "type": "LinkedServiceReference"
-        }
+  "name": "AzureBatchLinkedService",
+  "properties": {
+    "type": "AzureBatch",
+    "typeProperties": {
+      "accountName": "batchaccount",
+      "accessKey": {
+        "type": "SecureString",
+        "value": "access key"
       },
-      "connectVia": {
-        "referenceName": "<name of Integration Runtime>",
-        "type": "IntegrationRuntimeReference"
+      "batchUri": "https://batchaccount.region.batch.azure.com",
+      "poolName": "poolname",
+      "linkedServiceName": {
+        "referenceName": "StorageLinkedService",
+        "type": "LinkedServiceReference"
       }
+    },
+    "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
     }
   }
+}
 ```
 
 
@@ -353,21 +353,21 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 
 ```json
 {
-    "name": "AzureMLLinkedService",
-    "properties": {
-      "type": "AzureML",
-      "typeProperties": {
-        "mlEndpoint": "https://[batch scoring endpoint]/jobs",
-        "apiKey": {
-            "type": "SecureString",
-            "value": "access key"
-        }
-     },
-     "connectVia": {
-        "referenceName": "<name of Integration Runtime>",
-        "type": "IntegrationRuntimeReference"
+  "name": "AzureMLLinkedService",
+  "properties": {
+    "type": "AzureML",
+    "typeProperties": {
+      "mlEndpoint": "https://[batch scoring endpoint]/jobs",
+      "apiKey": {
+          "type": "SecureString",
+          "value": "access key"
       }
+    },
+    "connectVia": {
+      "referenceName": "<name of Integration Runtime>",
+      "type": "IntegrationRuntimeReference"
     }
+  }
 }
 ```
 
@@ -458,18 +458,18 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 
 ```json
 {
-    "name": " AzureDataBricksLinedService",
-    "properties": {
-      "type": " AzureDatabricks",
-      "typeProperties": {
-        "domain": "https://westeurope.azuredatabricks.net",
-        "accessToken": {
-            "type": "SecureString",
-            "value": "dapif33c9c72344c3a790b35000b57f7124f"
-          },
-        "existingClusterId": "{clusterId}"
-        }
-}
+  "name": " AzureDataBricksLinedService",
+  "properties": {
+    "type": " AzureDatabricks",
+    "typeProperties": {
+      "domain": "https://westeurope.azuredatabricks.net",
+      "accessToken": {
+        "type": "SecureString",
+        "value": "dapif33c9c72344c3a790b35000b57f7124f"
+      },
+      "existingClusterId": "{clusterId}"
+    }
+  }
 
 ```
 
