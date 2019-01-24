@@ -59,7 +59,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 ### Authorization
 
-Authorization refers to the permissions assigned to a user within an Azure SQL Database, determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) that define database-level permissions or granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](sql-database-manage-logins.md)
+Authorization refers to the permissions assigned to a user within an Azure SQL Database, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) that define database-level permissions or granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](sql-database-manage-logins.md)
 
 As a best practice, add users to the role with the least privileges required to do their job function. The server admin account is a member of the db_owner role, which has extensive permissions, and should be granted to users cautiously. When using applications with Azure SQL Database, use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This ensures that the application connecting to the database has the least privileges needed by the application.
 
@@ -123,7 +123,7 @@ In Azure, all newly created SQL databases are encrypted by default and the datab
 #### Dynamic data masking
 
 SQL Database dynamic data masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking automatically discovers potentially sensitive data in Azure SQL Database and provides actionable recommendations to mask these fields, with minimal impact on the application layer. It works by obfuscating the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. For more information, see [Get started with SQL Database dynamic data masking](sql-database-dynamic-data-masking-get-started.md).
- 
+
 #### Static data masking
 
 [Static Data Masking](/sql/relational-databases/security/static-data-masking) is a client-side tool available in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 preview 5 and higher.  Static Data Masking allows users to create a copy of a database where the data in selected columns has been permanently masked. The masking functions available include NULL masking, single value masking, shuffle and group shuffle masking, and string composite masking. With the masked copy of the database, organizations are able to separate production and test environments by sharing the masked copy. The sensitive data is sufficiently protected and all other database characteristics have been maintained. Masking databases is recommended where third-party access to databases is required.
