@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "value": "my-test-hdicluster"
+        },
+        "clusterLoginUserName": {
+            "value": "admin"
+        },
+        "clusterLoginPassword": {
+            "value": "<PASSWORD>"
+        },
+        "location": {
+            "value": "eastus"
+        },
+        "clusterWorkerNodeCount": {
+            "value": 4
+        },
+        "clusterKind": {
+            "value": "SPARK"
+        },
+        "clusterVersion": {
+            "value": "3.6"
+        },
+        "sshUserName": {
+            "value": "sshuser"
+        },
+        "sshPassword": {
+            "value": "<PASSWORD>"
+        }
+    }
+}
