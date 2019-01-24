@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/12/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -65,6 +65,8 @@ For example, the following JSON shows a policy that limits where resources are d
 ```
 
 All Azure Policy samples are at [Policy samples](../samples/index.md).
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Mode
 
@@ -371,13 +373,13 @@ Policy, use one of the following methods:
 - Azure PowerShell
 
   ```azurepowershell-interactive
-  # Login first with Connect-AzureRmAccount if not using Cloud Shell
+  # Login first with Connect-AzAccount if not using Cloud Shell
 
-  # Use Get-AzureRmPolicyAlias to list available providers
-  Get-AzureRmPolicyAlias -ListAvailable
+  # Use Get-AzPolicyAlias to list available providers
+  Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzureRmPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzureRmPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
+  Get-AzPolicyAlias -NamespaceMatch 'automation'
   ```
 
 - Azure CLI

@@ -3,7 +3,7 @@ title: How to configure system and user-assigned managed identities on an Azure 
 description: Step by step instructions for configuring system and user-assigned managed identities on an Azure VMSS, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI

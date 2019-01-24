@@ -47,9 +47,9 @@ This script uses the following commands to create a resource group, virtual netw
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
 | [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Creates an Azure virtual network and front-end subnet. |
-| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Creates a back-end subnet. |
+| [az network subnet create](/cli/azure/network/vnet/subnet) | Creates a back-end subnet. |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address to access the VM from the internet. |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Creates virtual network interfaces and attaches them to the virtual network's front-end and back-end subnets. |
 | [az network nsg create](/cli/azure/network/nsg) | Creates network security groups (NSG) that are associated to the front-end and back-end subnets. |
