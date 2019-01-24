@@ -320,6 +320,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
         az login
         az account set --subscription "Subscription Name"
         az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
+        ```
 
         The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 

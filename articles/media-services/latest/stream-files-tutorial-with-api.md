@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/23/2019
 ms.author: juliako
 ---
 
@@ -62,12 +62,12 @@ This section examines functions defined in the [Program.cs](https://github.com/A
 
 The sample performs the following actions:
 
-1. Creates a new Transform (first, checks if the specified Transform exists). 
-2. Creates an output Asset that is used as the encoding Job's output.
-3. Create an input Asset and uploads the specified local video file into it. The Asset is used as the Job's input. 
-4. Submits the encoding Job using the input and output that was created.
-5. Checks the Job's status.
-6. Creates a StreamingLocator.
+1. Creates a new **Transform** (first, checks if the specified Transform exists). 
+2. Creates an output **Asset** that is used as the encoding **Job**'s output.
+3. Create an input **Asset** and uploads the specified local video file into it. The asset is used as the job's input. 
+4. Submits the encoding job using the input and output that was created.
+5. Checks the job's status.
+6. Creates a **Streaming Locator**.
 7. Builds streaming URLs.
 
 ### <a id="start_using_dotnet" />Start using Media Services APIs with .NET SDK
@@ -78,14 +78,14 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ### Create an input asset and upload a local file into it 
 
-The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This Asset is used as the input to your encoding Job. In Media Services v3, the input to a Job can either be an Asset, or it can be content that you make available to your Media Services account via HTTPS URLs. If you want to learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.  
+The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This **Asset** is used as the input to your encoding Job. In Media Services v3, the input to a **Job** can either be an **Asset**, or it can be content that you make available to your Media Services account via HTTPS URLs. If you want to learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.  
 
 In Media Services v3, you use Azure Storage APIs to upload files. The following .NET snippet shows how.
 
 The following function performs these actions:
 
-* Creates an Asset 
-* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the Asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Creates an **Asset** 
+* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
 * Uploads the file into the container in storage using the SAS URL
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -97,7 +97,8 @@ The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
 ### Create a Transform and a Job that encodes the uploaded file
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new Jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
 
 #### Transform
 
@@ -127,29 +128,29 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
-### Get a StreamingLocator
+### Get a Streaming Locator
 
-After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
-The process of creating a **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
 When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted content) so the predefined clear streaming policy (**PredefinedStreamingPolicy.ClearStreamingOnly**) is used.
 
 > [!IMPORTANT]
-> When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
+> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of Streaming Policy entries. You should not be creating a new Streaming Policy for each Streaming Locator.
 
 The following code assumes that you are calling the function with a unique locatorName.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
-While the sample in this topic discusses streaming, you can use the same call to create a StreamingLocator for delivering video via progressive download.
+While the sample in this topic discusses streaming, you can use the same call to create a Streaming Locator for delivering video via progressive download.
 
 ### Get streaming URLs
 
-Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) host name and the **StreamingLocator** path. In this sample, the *default* **StreamingEndpoint** is used. When you first create a Media Service account, this *default* **StreamingEndpoint** will be in a stopped state, so you need to call **Start**.
+Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) host name and the **Streaming Locator** path. In this sample, the *default* **Streaming Endpoint** is used. When you first create a Media Service account, this *default* **Streaming Endpoint** will be in a stopped state, so you need to call **Start**.
 
 > [!NOTE]
-> In this method, you  need the locatorName that was used when creating the **StreamingLocator** for the output Asset.
+> In this method, you  need the locatorName that was used when creating the **Streaming Locator** for the output Asset.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
 
