@@ -34,12 +34,12 @@ IP firewall rules grant access to databases based on the originating IP address 
 [Virtual Network rules](sql-database-vnet-service-endpoint-rule-overview.md) enable Azure SQL Database to only accept communications that are sent from selected subnets inside a virtual network.
 
 > [!NOTE]
-> Controlling access with firewall rules does *not* apply to **Azure SQL Database Managed Instance**. Please see the following article on [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
+> Controlling access with firewall rules does *not* apply to **Azure SQL Database Managed Instance**. For more information about the networking configuration needed, see [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md)
 
 ## Access Management
 
 > [!IMPORTANT]
-> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **Azure SQL Database Managed Instance**. Please see the following article on [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
+> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md).
 
 ### Authentication
 
@@ -53,15 +53,15 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
     Azure Active Directory authentication is a mechanism of connecting to [Azure SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure Active Directory (Azure AD). Azure AD authentication allows administrators to centrally manage the identities and permissions of database users along with other Microsoft services in one central location. This includes the minimization of password storage and enables centralized password rotation policies.
 
-    To use Azure AD authentication with SQL Database, another server admin called the "Active Directory admin," must be created, allowing to administer Azure AD users and groups (see [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)). The Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
+     A server admin called the **Active Directory administrator** must be created to use Azure AD authentication with SQL Database. For more information, see [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md). Azure AD authentication supports both managed and federated accounts. The federated accounts support Windows users and groups for a customer domain federated with Azure AD.
 
     Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) connections including [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](sql-database-conditional-access.md).
 
 ### Authorization
 
-Authorization refers to the permissions assigned to a user within an Azure SQL Database, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) that define database-level permissions or granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](sql-database-manage-logins.md)
+Authorization refers to the permissions assigned to a user within an Azure SQL Database, determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) that define database-level permissions or granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](sql-database-manage-logins.md)
 
-As a best practice, add users to the role with the least privileges required to perform their job function. The server admin account is a member of the db_owner role, which has extensive permissions, and should be granted to users cautiously. When using applications with Azure SQL Database, use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This ensures that the application connecting to the database has the least privileges needed by the application.
+As a best practice, add users to the role with the least privileges required to do their job function. The server admin account is a member of the db_owner role, which has extensive permissions, and should be granted to users cautiously. When using applications with Azure SQL Database, use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This ensures that the application connecting to the database has the least privileges needed by the application.
 
 ### Row-level security
 
@@ -83,7 +83,7 @@ SQL Database Auditing tracks database activities and helps to maintain complianc
 
 ### SQL Threat Detection
 
-Threat Detection enhances auditing by analyzing audit logs for unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities or anomalous access patterns such as SQL injection attacks, potential data infiltration and brute force password attacks. Threat Detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Threat Detection costs $15/server/month. It is free for the first 60 days. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).
+Threat Detection enhances auditing by analyzing audit logs for unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities or anomalous access patterns such as SQL injection attacks, potential data infiltration, and brute force password attacks. Threat Detection alerts are viewed from the [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Threat Detection costs $15/server/month. It's free for the first 60 days. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -102,9 +102,9 @@ SQL Database secures customer data by encrypting data in motion with [Transport 
 
 ### Transparent Data Encryption (Encryption-at-rest)
 
-[Transparent Data Encryption (TDE) for Azure SQL Databse](transparent-data-encryption-azure-sql.md) adds a layer of security to help protect data at rest from unauthorized or offline access to raw files or backups. Common scenarios include datacenter theft or unsecured disposal of hardware or media such as disk drives and backup tapes. TDE encrypts the entire database using an AES encryption algorithm which doesn’t require application developers to make any changes to existing applications.
+[Transparent Data Encryption (TDE) for Azure SQL Database](transparent-data-encryption-azure-sql.md) adds a layer of security to help protect data at rest from unauthorized or offline access to raw files or backups. Common scenarios include datacenter theft or unsecured disposal of hardware or media such as disk drives and backup tapes. TDE encrypts the entire database using an AES encryption algorithm, which doesn’t require application developers to make any changes to existing applications.
 
-In Azure, all newly created SQL databases are encrypted by default and the database encryption key is protected by a built-in server certificate.  Certificate maintenance and rotation is managed by the service and requires no input from the user. Customers who prefer to take control of the encryption keys can manage the keys in [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
+In Azure, all newly created SQL databases are encrypted by default and the database encryption key is protected by a built-in server certificate.  Certificate maintenance and rotation are managed by the service and requires no input from the user. Customers who prefer to take control of the encryption keys can manage the keys in [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md).
 
 ### Key management with Azure Key Vault
 
@@ -112,7 +112,7 @@ In Azure, all newly created SQL databases are encrypted by default and the datab
 
 ### Always Encrypted (Encryption-in-use)
 
-[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) is a feature designed to protect sensitive data stored in specific database columns, (for example, credit card numbers, national identification numbers, or data on a _need to know_ basis) from access. This includes database administrators or other privileged users who are authorized to access the database to perform management tasks, but have no business need to access the particular data in the encrypted columns. The data is always encrypted, which means the encrypted data is decrypted only for processing by client applications with access to the encryption key.  The encryption key is never exposed to SQL and can be stored either in the [Windows Certificate Store](sql-database-always-encrypted.md) or in [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) is a feature designed to protect sensitive data stored in specific database columns from access (for example, credit card numbers, national identification numbers, or data on a _need to know_ basis). This includes database administrators or other privileged users who are authorized to access the database to perform management tasks, but have no business need to access the particular data in the encrypted columns. The data is always encrypted, which means the encrypted data is decrypted only for processing by client applications with access to the encryption key.  The encryption key is never exposed to SQL and can be stored either in the [Windows Certificate Store](sql-database-always-encrypted.md) or in [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
 ![azure-database-ae.png](media/sql-database-security-overview/azure-database-ae.png)
 
@@ -126,7 +126,7 @@ SQL Database dynamic data masking limits sensitive data exposure by masking it t
  
 #### Static data masking
 
-[Static Data Masking](/sql/relational-databases/security/static-data-masking) is a client-side tool available in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 preview 5 and higher.  Static Data Masking allows users to create a copy of a database where the data in selected columns has been permanently masked. The masking functions available include NULL masking, single value masking, shuffle and group shuffle masking, as well as string composite masking. With the masked copy of the database, organizations are able to separate production and test environments by sharing the masked copy where sensitive data is sufficiently protected and all other database characteristics have been maintained. Masking databases is recommended where third-party access to databases are required.
+[Static Data Masking](/sql/relational-databases/security/static-data-masking) is a client-side tool available in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 preview 5 and higher.  Static Data Masking allows users to create a copy of a database where the data in selected columns has been permanently masked. The masking functions available include NULL masking, single value masking, shuffle and group shuffle masking, and string composite masking. With the masked copy of the database, organizations are able to separate production and test environments by sharing the masked copy. The sensitive data is sufficiently protected and all other database characteristics have been maintained. Masking databases is recommended where third-party access to databases is required.
 
 ## Security Management
 
@@ -136,7 +136,7 @@ SQL Database dynamic data masking limits sensitive data exposure by masking it t
 
 ### Data Discovery & Classification
 
-Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. Discovering and classifying your utmost sensitive data (business/financial, healthcare, PII, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
+Data Discovery & Classification (currently in preview) provides advanced capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. Discovering and classifying your utmost sensitive data (business/financial, healthcare, personal data, etc.) can play a pivotal role in your organizational Information protection stature. It can serve as infrastructure for:
 
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 - Controlling access to, and hardening the security of, databases containing highly sensitive data.
@@ -146,7 +146,7 @@ For more information, see [Get started with SQL DB Data Discovery & Classificati
 
 ### Compliance
 
-In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits, and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## Next steps
 
