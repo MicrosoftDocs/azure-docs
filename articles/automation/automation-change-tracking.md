@@ -149,7 +149,6 @@ Other limitations:
 The Change Tracking solution is currently experiencing the following issues:
 
 * Hotfix updates aren't collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
-* For Windows files, Change Tracking doesn't currently detect when a new file has been added to a tracked folder path
 
 ## Change Tracking data collection details
 
