@@ -25,7 +25,6 @@ The following items should be logged. This will allow an issue to be quickly dia
 * Log the [SQL Query Metrics](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-metrics) from all the query responses 
 * Follow the setup for [SDK logging](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md) 
 
-
 # Troubleshoot issues when you use the Dot Net SDK with Azure Cosmos DB SQL API accounts
 This article covers common issues, workarounds, diagnostic steps, and tools when you use the [Dot Net SDK](sql-api-sdk-dotnet.md) with Azure Cosmos DB SQL API accounts.
 The Dot Net SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
@@ -34,7 +33,7 @@ The Dot Net SDK provides client-side logical representation to access the Azure 
 * Make sure to follow the [Production check list] shown above.
 * Take a look at the [Common issues and workarounds](#common-issues-workarounds) section in this article.
 * Look at the SDK, which is available [open source on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v2). It has an [issues section](https://github.com/Azure/azure-cosmos-dotnet-v2/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed.
-* Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-cosmos-dotnet-v2/issues).
+* If you didn't find a solution then file a [GitHub issue](https://github.com/Azure/azure-cosmos-dotnet-v2/issues).
  
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
 
@@ -52,7 +51,7 @@ RequestTimeout usually happens when using Direct/TCP, but can happen in Gateway 
 * Socket / Port availability might be low. Previous to 2.0 SDK, clients running in Azure could hit the [Azure SNAT (PAT) port exhaustion]. This an example of why it is recommended to always run the latest SDK version.
 * The application is not following the [performance tips](performance-tips.md), and use one DocumentClient per request. This has an enormous overhead. Customer must share a single DocumentClient instance across an entire process.
 * Users sometimes see elevated latency or request timeouts because their collections are provisioned insufficiently, the back-end throttles requests, and the client retries internally without surfacing this to the caller. Check the [portal metrics](https://docs.microsoft.com/azure/cosmos-db/monitor-accounts).
-* Hot [partition keys](https://docs.microsoft.com/azure/cosmos-db/partition-data) can cause throttling on the overloaded partitions, while aggregate RU utilization looks low.
+* Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. Check portal metrics to see if the workload is encountering a hot [partition key](https://docs.microsoft.com/azure/cosmos-db/partition-data). This will cause the aggregate consumed throughput (RU/s) to be appear to be under the provisioned RUs, but a single partition consumed throughput (RU/s) will exceed the provisioned throughput. 
 * Additionally, the 2.0 SDK adds channel semantics to direct/TCP connections. One TCP connection is used for multiple requests at the same time. This can lead to two issues under specific cases:
     * A high degree of concurrency can lead to contention on the channel (more than ~12 threads acting on a single connection).
     * Large requests or responses can lead to head-of-line blocking on the channel and exacerbate contention, even with a relatively low degree of concurrency.
@@ -80,7 +79,7 @@ If you use an HTTP proxy, make sure it can support the number of connections con
 Otherwise, you face connection issues.
 
 ### Request rate too large<a name="request-rate-too-large"></a>
-This failure is a server-side failure. It indicates that you consumed your provisioned throughput. Retry later. If you get this failure often, consider an increase in the collection throughput. Please use the portal's [metrics](https://docs.microsoft.com/azure/cosmos-db/use-metrics) to check if you are getting 429s errors which represents the requests getting throttled.
+'Request rate too large' or error code 429 indicates that your requests are being throttled, because the consumed throughput (RU/s) has exceeded the provisioned throughput. The SDK will automatically retry requests based on the specified [retry policy](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions?view=azure-dotnet). If you get this failure often, consider increasing the throughput on the collection. Check the [portal’s metrics](https://docs.microsoft.com/azure/cosmos-db/use-metrics) to see if you are getting 429 errors. Review your [partition key](https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#choose-partitionkey) to ensure it results in an even distribution of storage and request volume. 
 
 ### Slow query performance
 The [query metrics](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-metrics) will help determine where the query is spending most of the time. From the query metrics you can see how much of it is being spent on the back end vs the client.
