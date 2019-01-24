@@ -67,7 +67,7 @@ If the tenant admin only wants certain users to use LUIS, there are a couple of 
 * A second solution, is by using [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) to provide consent to each specific user. 
 
 Learn more about Azure active directory users and consent: 
-* [Restrict your app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users) to a set of users
+* [Restrict your app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) to a set of users
 
 ### User accounts with multiple emails for collaborators
 
