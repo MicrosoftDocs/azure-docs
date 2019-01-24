@@ -76,7 +76,7 @@ Your device needs to be registered to Azure AD before it can be marked as compli
 
 - [Azure AD registered devices](../devices/overview.md#azure-ad-registered-devices)
 - [Azure AD joined devices](../devices/overview.md#azure-ad-joined-devices)  
-- [Hybrid Azure AD joined devices](../devices/overview#hybrid-azure-ad-joined-devices)
+- [Hybrid Azure AD joined devices](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 For more information, see [how to require managed devices for cloud app access with conditional access](require-managed-devices.md).
 
