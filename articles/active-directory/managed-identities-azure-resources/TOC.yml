@@ -129,7 +129,7 @@
   - name: CLI
     href: /cli/azure/identity
   - name: PowerShell
-    href: /powershell/module/azurerm.managedserviceidentity#managed_service_identity 
+    href: /powershell/module/az.managedserviceidentity#managed_service_identity 
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
   - name: Java
