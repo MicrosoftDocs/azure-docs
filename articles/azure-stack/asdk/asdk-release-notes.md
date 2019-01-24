@@ -31,6 +31,7 @@ Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./medi
 This build includes the following improvements for Azure Stack:
 
 - BGP and NAT components are now deployed on the physical host. This eliminates the need to have two public or corporate IP addresses for deploying the ASDK, and also simplifies deployment.
+- Azure Stack integrated systems backups can now [be validated](asdk-validate-backup.md) using the **asdk-installer.ps1** PowerShell script.
 
 ### Fixed and known issues
 
