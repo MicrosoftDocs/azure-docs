@@ -21,21 +21,21 @@ Azure Traffic Manager logging metrics can provide insight into the behavior of t
 
 This article requires the Azure PowerShell module version 6.13.1 or later. You can run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). 
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
+Sign in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
 Connect-AzureRmAccount
 ```
-## Enable metrics logging for Traffic Manager profile
+## Enable metrics logging
  Enable metrics logging using 
 [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). The following command stores verbose logs and metrics a Traffic Manager profile to the specified storage account. 
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
 ``` 
-## Verify diagnostic settings for Traffic Manager profile
+## Verify diagnostic settings
 Verify diagnostic settings for the Traffic Manager profile using [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). The following command displays the categories that are logged for a resource.
 
 ```powershell
@@ -43,7 +43,8 @@ Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
 ```  
 Ensure that all log categories associated with the Traffic Manager profile resource display as enabled. Also, verify that the storage account is correctly set.
 
-## Access log files for a Traffic Manager profile using the Azure portal
+## Access log files
+1. Sign in to the [Azure portal]() 
 1. Navigate to your Azure Storage account in the portal.
 2. On the **Overview** page of your Azure storage account, under **Services** select **Blobs**.
 3. For **Containers**, select **insights-logs-probehealthstatusevents**, and navigate down to the PT1H.json file and click **Download** to download and save a copy of this log file.
@@ -59,9 +60,9 @@ The following table includes logs schema specific to the Azure Traffic Manager p
 
 |||||
 |----|----|---|---|
-|Field Name|Field Type|Definition|Example|
-|EndpointName|String|The resource name of the endpoint the health status is being recorded for.|"myPrimaryEndpoint"|
-|Status|String|The health status of the endpoint that was probed. Can either be "Up" or "Down"|"Up"|
+|**Field Name**|**Field Type**|**Definition**|**Example**|
+|EndpointName|String|The name of the Traffic Manager endpoint whose health status is being recorded.|*myPrimaryEndpoint*|
+|Status|String|The health status of the Traffic Manager endpoint that was probed. The status can either be **Up** or **Down**.|**Up**|
 |||||
 
 ## Next steps
