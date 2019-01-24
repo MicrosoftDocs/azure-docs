@@ -37,8 +37,8 @@ To complete this tutorial:
 > [!div class="checklist"]
 > * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md).
 > * Create a database master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-> * Create an Azure Data Lake Storage Gen2 account. See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
-> * Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Create an Azure Blob storage account](storage-quickstart-blobs-portal.md).
+> * Create an Azure Data Lake Storage Gen2 account. See [Create a Azure Data Lake Storage Gen2 account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+> * Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Create an Azure Blob storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
 > * Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure Databricks workspace
@@ -55,7 +55,7 @@ In this section, you create an Azure Databricks workspace by using the Azure por
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace.        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
     |**Location**     | Select **West US 2**.        |
     |**Pricing Tier**     |  Select **Standard**.     |
 
@@ -105,7 +105,7 @@ First, you create a file system in your Data Lake Storage Gen2 account. Then, yo
 
    ![Open Storage Explorer second prompt](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer-2.png "Open Storage Explorer second prompt")
 
-   Storage Explorer opens. You can create a file system and upload the sample data by using the guidance in this topic: [Quickstart: Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](data-lake-storage-explorer.md).
+   Storage Explorer opens. You can create a file system and upload the sample data by using the guidance in this topic: [Quickstart: Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](../storage/blobs/data-lake-storage-explorer.md).
 
 <a id="service-principal"/>
 
