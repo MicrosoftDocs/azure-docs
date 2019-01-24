@@ -21,7 +21,7 @@ Organizations are able to bring together clinical data from multiple systems of 
 
 The Azure API for FHIR is capable of powering Internet of Medical Things (IoMT) scenarios, population health research projects, AI-powered diagnostic solutions and much more.
 
-The Azure API for FHIR® meets all regulatory compliance for healthcare data.
+The Azure API for FHIR meets all regulatory compliance for healthcare data.
 
 Security and privacy embedded into the service, which conforms to global health privacy and security standards. Customers own and control patient data, knowing how it is stored and accessed.
 

@@ -1,4 +1,4 @@
-- name: Azure Healthcare documentation
+- name: Azure API for FHIR
   href: index.yml
 - name: Overview
   items:
