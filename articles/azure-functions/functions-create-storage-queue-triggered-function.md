@@ -113,4 +113,4 @@ You have created a function that runs when a message is added to a storage queue
 Now that you have a created your first function, let's add an output binding to the function that writes a message back to another queue.
 
 > [!div class="nextstepaction"]
-> [Add messages to an Azure Storage queue using Functions](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md)
+> [Add messages to an Azure Storage queue using Functions](functions-integrate-storage-queue-output-binding.md)
