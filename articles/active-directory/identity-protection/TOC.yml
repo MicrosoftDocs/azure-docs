@@ -36,8 +36,6 @@
       href: howto-unblock-user.md
     - name: Simulate risk events
       href: playbook.md
-    - name: Use the Microsoft Graph API
-      href: graph-get-started.md
     - name: FAQs
       href: faqs.md
   - name: 'Identity Protection (Refreshed)'
@@ -56,6 +54,8 @@
       href: known-issues.md
 - name: 'Reference'
   items:
+  - name: Use the Microsoft Graph API
+    href: graph-get-started.md
   - name: Risk events
     href: risk-events-reference.md
   - name: Glossary
