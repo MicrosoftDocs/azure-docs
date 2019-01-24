@@ -415,7 +415,7 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-  - name: Microsoft HealthcareAPIs
+  - name: Azure API for FHIR
     tocHref: /azure/healthcare-apis
     topicHref: /azure/healthcare-apis
   - name: Internet of Things

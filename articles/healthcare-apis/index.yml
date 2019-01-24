@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Microsoft Healthcare APIs Documentation
+title: Azure API for FHIR Documentation
 metadata:
-  title: Microsoft Healthcare APIs Documentation
-  meta.description: Learn how Microsoft Healthcare APIs can power healthcare iteroperability in Azure.
+  title: Azure API for FHIR Documentation
+  meta.description: Learn how Azure API for FHIR can power healthcare iteroperability in Azure.
   services: healthcare-apis
   author: hansenms
   manager: dougseven
@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/07/2019
 abstract:
-  description: The Microsoft Healthcare API for FHIR&reg; is a multi-tenant, globally scalable implementation of a Fast Healthcare Interoperable Resources (FHIR) server as an Azure Platform as a Service (PaaS) offering. The API for FHIR enables organizations to take advantage of a fully managed implementation of the FHIR specification and data management to support secure handling of Protected Health Information (PHI). 
+  description: The Azure API for FHIR&reg; is a multi-tenant, globally scalable implementation of a Fast Healthcare Interoperable Resources (FHIR) server as an Azure Platform as a Service (PaaS) offering. The API for FHIR enables organizations to take advantage of a fully managed implementation of the FHIR specification and data management to support secure handling of Protected Health Information (PHI). 
 sections:
 - title: 5-Minute Quickstarts
   items:
     - type: paragraph
-      text: Learn how Microsoft Healthcare APIs can power healthcare iteroperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
+      text: Learn how Azure API for FHIR can power healthcare iteroperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
     - type: table
       style: dataMatrix
       columns:
@@ -28,7 +28,7 @@ sections:
         - image:
             src: media/index/cli.svg
       rows:
-        - title: Deploy Microsoft Healthcare APIs
+        - title: Deploy Azure API for FHIR
           values:
           - href: fhir-paas-portal-quickstart.md
           - href: fhir-paas-powershell-quickstart.md
