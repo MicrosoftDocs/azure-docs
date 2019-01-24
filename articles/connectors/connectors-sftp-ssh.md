@@ -67,7 +67,8 @@ which is an open-source Secure Shell (SSH) library that supports .NET.
 
 * Reads or writes files up to *1 GB* in size compared 
 to the SFTP connector, but handles data in 50 MB pieces, 
-not 1 GB pieces.
+not 1 GB pieces. For files larger than 1 GB, you can 
+also use [message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 * Provides the **Create folder** action, which creates 
 a folder at the specified path on the SFTP server.
