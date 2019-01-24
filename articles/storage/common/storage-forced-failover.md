@@ -45,6 +45,34 @@ To initiate a forced failover from the Azure portal, follow these steps:
 
 ## PowerShell
 
+To use PowerShell to initiate a forced failover, you must first install the 6.0.1 preview module. Follow these steps to install the module:
+
+1. Uninstall any previous installations of Azure PowerShell:
+
+    - Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
+    - Remove all **Azure*** modules from `%Program Files%\WindowsPowerShell\Modules`.
+    
+1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
+ 
+    ```powershell
+    Install-Module PowerShellGet –Repository PSGallery –Force
+    ```
+1. Close and reopen the PowerShell window after installing PowerShellGet. 
+
+1. Install the latest version of Azure PowerShell:
+
+    ```powershell
+    Install-Module Az –Repository PSGallery –AllowClobber
+    ```
+
+1. Install an Azure Storage preview module that supports Azure AD:
+   
+    ```powershell
+    Install-Module -Name AzureRM.Storage -AllowPrerelease
+    ```
+1. Close and reopen the PowerShell window.
+ 
+
 To initiate a forced failover from PowerShell, execute the following command:
 
 ```powershell

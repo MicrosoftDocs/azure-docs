@@ -132,6 +132,10 @@ Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderName
 
 Review the additional considerations described in this section to understand how your applications and services may be affected when you force a failover during the preview period.
 
+#### Azure virtual machines
+
+Azure virtual machines (VMs) do not fail over as part of a forced failover. If the primary region becomes unavailable, and you fail over to the secondary region, then you will need to recreate any VMs after the failover. 
+
 #### Azure unmanaged disks
 
 As a best practice, Microsoft recommends converting unmanaged disks to managed disks. However, if you need to fail over an account that contains unmanaged disks attached to Azure VMs, you will need to shut down the VM before initiating the failover.
@@ -139,8 +143,10 @@ As a best practice, Microsoft recommends converting unmanaged disks to managed d
 Unmanaged disks are stored as page blobs in Azure Storage. When a VM is running in Azure, any unmanaged disks attached to the VM are leased. A forced failover cannot proceed when there is a lease on a blob. To perform the failover, follow these steps:
 
 1. Shut down the VM.
-1. Perform the forced failover.
-1. Reattach the VM disks and restart your VMs in the new primary region.
+2. Break the lease on the disk's page blob using the Azure portal, Powershell, Azure CLI, or Azure Storage Explorer. For a sample PowerShell script to break the lease, see [How to break the locked lease of blob storage by ARM in Microsoft Azure (PowerShell)]( https://azure.microsoft.com/resources/samples/storage-blobs-powershell-break-locked-lease/)
+3. Perform the forced failover.
+4. Create a VM in the new primary region and reattach the disk.
+5. Start the VM.
 
 Keep in mind that any data stored in a temporary disk is lost when the VM is shut down.
 
