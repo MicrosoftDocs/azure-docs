@@ -1,5 +1,5 @@
 ---
-title: Administrator roles for Microsoft 365 workloads - Azure AD | Microsoft Docs
+title: Administrator role content for Microsoft 365 workloads - Azure AD | Microsoft Docs
 description: Find content and API references for administrator roles for Microsoft 365 workloads in Azure Active Directory
 services: active-directory
 documentationcenter: ''
