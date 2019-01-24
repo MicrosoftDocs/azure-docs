@@ -64,7 +64,7 @@ If the tenant admin will not sign in to LUIS, the admin can access [consent](htt
 
 If the tenant admin only wants certain users to use LUIS, there are a couple of possible solutions:
 * Giving the "admin consent" (consent to all users of the Azure AD), but then set to "Yes" the "User assignment required" under Enterprise Application Properties, and finally assign/add only the wanted users to the Application. With this method, the Administrator is still providing "admin consent" to the App, however, it's possible to control the users that can access it.
-* A second solution, is by using Azure AD Graph API to provide consent to each specific user. 
+* A second solution, is by using [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) to provide consent to each specific user. 
 
 Learn more about Azure active directory users and consent: 
 * [Restrict your app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users) to a set of users
