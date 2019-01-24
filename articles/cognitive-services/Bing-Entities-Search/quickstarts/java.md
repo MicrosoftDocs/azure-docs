@@ -100,17 +100,17 @@ While this application is written in Java, the API is a RESTful Web service comp
     ```
 
 3. Create a `String` object to store the response from the `BufferedReader`. Iterate through it, and append each line to the string. Then close the reader, and return the response. 
-
-```java
-String line;
-
-while ((line = in.readLine()) != null) {
-  response.append(line);
-}
-in.close();
-
-return response.toString();
-```
+    
+    ```java
+    String line;
+    
+    while ((line = in.readLine()) != null) {
+      response.append(line);
+    }
+    in.close();
+    
+    return response.toString();
+    ```
 
 ## Format the JSON response
 

@@ -19,9 +19,9 @@ The Bing Entity Search API sends a search query to Bing and gets results that in
 
 |Feature  |Description  |
 |---------|---------|
-|[Real-time search suggestions](search-for-entities.md#suggest-search-terms-with-the-bing-autosuggest-api)     | Provide search suggestions that can be displayed as a dropdown list as your users type.       | 
-| Find the correct intent from queries with multiple meanings | Get suggestions for queries with multiple possible meanings.  |
-| Search for and return information on local businesses and entities | |
+|[Real-time search suggestions](concepts/search-for-entities.md#suggest-search-terms-with-the-bing-autosuggest-api)     | Provide search suggestions that can be displayed as a dropdown list as your users type.       | 
+| [Entity disambiguation](concepts/search-for-entities.md#the-bing-entity-search-api-response)  | Get multiple entities for queries with multiple possible meanings. |
+| [Find places](concepts/search-for-entities#find-places) | Search for and return information on local businesses and entities  |
 
 ## Workflow
 

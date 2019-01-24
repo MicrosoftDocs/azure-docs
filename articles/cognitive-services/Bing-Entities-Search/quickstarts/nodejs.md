@@ -47,10 +47,11 @@ While this application is written in JavaScript, the API is a RESTful Web servic
     let q = 'italian restaurant near me';
     ```
 
-3. Append your market and query parameters to a string called `params`. Be sure to url-encode your query with `encodeURI()`.
+3. Append your market and query parameters to a string called `query`. Be sure to url-encode your query with `encodeURI()`.
     ```javascript 
-    let params = '?mkt=' + mkt + '&q=' + encodeURI(q);
+    let query = '?mkt=' + mkt + '&q=' + encodeURI(q);
     ```
+
 ## Handle and parse the response
 
 1. define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. within this function, perform the following steps:
@@ -72,79 +73,38 @@ While this application is written in JavaScript, the API is a RESTful Web servic
     3. When an **end** flag is signalled, parse the JSON, and print it.
 
         ```javascript
-        response.on('end', function () {
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            console.log('\nJSON Response:\n');
-            console.log(body);
-         });
+        response.on ('end', function () {
+        let json = JSON.stringify(JSON.parse(body), null, '  ');
+        console.log (json);
+        });
         ```
 
+## Send a request
 
+1. Create a function called `Search` to send a search request. In it, perform the following steps.
 
+    1. Create a JSON object containing your request parameters: use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
+    2. Use `https.request()` to send the request with the response handler created earlier, and your search parameters.
+    
+    ```javascript
+    let Search = function () {
+    	let request_params = {
+    		method : 'GET',
+    		hostname : host,
+    		path : path + query,
+    		headers : {
+    			'Ocp-Apim-Subscription-Key' : subscriptionKey,
+    		}
+    	};
+    
+    	let req = https.request (request_params, response_handler);
+    	req.end ();
+    }
+    ```
 
+2. Call the `Search()` function.
 
-
-
-To run this application, follow these steps.
-
-1. Create a new Node.JS project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
-
-```javascript
-'use strict';
-
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/entities';
-
-let mkt = 'en-US';
-let q = 'italian restaurant near me';
-
-let params = '?mkt=' + mkt + '&q=' + encodeURI(q);
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-		let body_ = JSON.parse (body);
-		let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let Search = function () {
-	let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + params,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
-
-	let req = https.request (request_params, response_handler);
-	req.end ();
-}
-
-Search ();
-```
-
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
