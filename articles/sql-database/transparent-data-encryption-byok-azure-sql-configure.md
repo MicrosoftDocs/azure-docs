@@ -209,7 +209,7 @@ Check the following if an issue occurs:
 ## Step 1. Create a server and assign an Azure AD identity to your server
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -I 
+      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
       az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
       
 
