@@ -136,7 +136,7 @@ Think about this scenario during one minute: one second of high load that is the
 
 For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
-## Analyze your data With Power BI
+## Analyze with Power BI
 
 We recommend using [Power BI](https://powerbi.microsoft.com) to explore and visualize your data. 
 
@@ -144,7 +144,7 @@ Azure Search provides a [Power BI Content Pack](https://app.powerbi.com/getdata/
 
 ![Power BI dashboard for Azure Search](./media/search-monitor-usage/AzureSearch-PowerBI-Dashboard.png "Power BI dashboard for Azure Search")
 
-## Get system information from API calls
+## Get sys-info APIs
 Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
 
 * [Get Services Statistics](/rest/api/searchservice/get-service-statistics)
