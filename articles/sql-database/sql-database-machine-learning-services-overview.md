@@ -47,12 +47,11 @@ To sign up for the public preview, follow these steps:
 
 Once you are enrolled in the program, Microsoft will onboard you to the public preview and either migrate your existing database or create a new database on an R enabled service.
 
-Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for single and pooled databases. In this initial public preview, neither the **Hyperscale** service tier nor **Managed Instance** are supported.
+Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for standalone and elastic pool deployment choices. In this initial public preview, neither the **Hyperscale** service tier nor **Managed Instance** deployment choice are supported.
 
 Currently, R is the only supported language. There is no support for Python at this time. The preview is initially available in a limited number of regions in US, Asia Europe, and Australia with additional regions being added later.
 
 You should not use Machine Learning Services with R for production workloads during the public preview.
-
 
 ## Next steps
 
