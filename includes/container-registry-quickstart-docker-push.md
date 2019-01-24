@@ -14,7 +14,7 @@ ms.custom: include file
 
 To push an image to an Azure Container registry, you must first have an image. If you don't yet have any local container images, run the following [docker pull][docker-pull] command to pull an existing image from Docker Hub. For this example, pull the `busybox` image.
 
-```bash
+```Docker
 docker pull busybox
 ```
 

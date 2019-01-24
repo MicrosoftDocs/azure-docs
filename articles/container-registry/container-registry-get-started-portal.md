@@ -14,7 +14,7 @@ ms.custom: "seodec18, mvc"
 
 An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. In this quickstart, you create a container registry with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
-To log in to the registry to work with container images, this quickstart requires that you are running the Azure CLI version 2.0.27 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+To log in to the registry to work with container images, this quickstart requires that you are running the Azure CLI (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
 You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [Mac][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
 
@@ -42,7 +42,7 @@ Take note of the value of the **Login server**. You use this value in the follow
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the ACR instance. Here, use the [az acr login][az-acr-login] command in the Azure CLI.
+Before pushing and pulling container images, you must log in to the ACR instance. Open a command shell in your operating system, and use the [az acr login][az-acr-login] command in the Azure CLI.
 
 ```azurecli
 az acr login --name <acrName>
