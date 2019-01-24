@@ -77,32 +77,12 @@ It's important to understand the difference between images and snapshots. With m
 
 A snapshot is a copy of a disk at the point in time the snapshot is taken. It applies only to one disk. If you have a VM that has one disk (the OS), you can take a snapshot or an image of it and create a VM from either the snapshot or the image.
 
-A snapshot doesn't have awareness of any disk except the one it contains. This makes it problematic to use in scenarios which requires the coordination of multiple disks, such as striping. Snapshots would need to be able to coordinate with each other and this is currently not supported.
+A snapshot doesn't have awareness of any disk except the one it contains. This makes it problematic to use in scenarios which require the coordination of multiple disks, such as striping. Snapshots would need to be able to coordinate with each other and this is currently not supported.
 
-### What is managed about Managed Disks?
+### What is managed about managed disks?
 
 Disks in Azure are virtual hard disks (VHDs) stored as page blobs, which are a random IO storage object in Azure. We call a managed disk ‘managed’ because it provides an abstraction over page blobs, blob containers, and Azure storage accounts – you simply provision a managed disk, and don’t have to worry about the rest.
 
 ## Next steps
 
-For more information about Managed Disks, refer to the following articles:
-
-### Get started with Managed Disks
-
-* [Create a VM using Resource Manager and PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)
-
-* [Create a Linux VM using the Azure CLI](../articles/virtual-machines/linux/quick-create-cli.md)
-
-* [Attach a managed data disk to a Windows VM using PowerShell](../articles/virtual-machines/windows/attach-disk-ps.md)
-
-* [Add a managed disk to a Linux VM](../articles/virtual-machines/linux/add-disk.md)
-
-* [Managed Disks PowerShell Sample Scripts](https://github.com/Azure-Samples/managed-disks-powershell-getting-started)
-
-* [Use Managed Disks in Azure Resource Manager templates](../articles/virtual-machines/windows/using-managed-disks-template-deployments.md)
-
-### Operational guidance
-
-* [Migrate from AWS and other platforms to Managed Disks in Azure](../articles/virtual-machines/windows/on-prem-to-azure.md)
-
-* [Convert Azure VMs to managed disks in Azure](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
+Learn more about the individual disk types Azure offers and which type is a good fit for your needs in our article on disk types.

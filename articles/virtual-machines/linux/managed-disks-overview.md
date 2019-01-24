@@ -17,3 +17,6 @@ An Azure managed disk is a virtual hard disk (VHD). You can think of it like a p
 When you select to use Azure managed disks with your workloads, Azure creates and manages the disk for you. The available types of disks are Ultra Solid State Drives (SSD) (Preview), Premium SSD, Standard SSD, and Standard Hard Disk Drives (HDD). For more information about each individual disk type, see [Select a disk type](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
+
+> [!div class="nextstepaction"]
+> [Select a disk type](disk-types.md)
