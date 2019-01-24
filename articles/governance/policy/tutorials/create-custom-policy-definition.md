@@ -75,7 +75,7 @@ this tutorial:
 ### Resource Manager templates
 
 There are several ways to look at a [Resource Manager
-template](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts).md
+template](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)
 that includes the property you're looking to manage.
 
 #### Existing resource in the portal
