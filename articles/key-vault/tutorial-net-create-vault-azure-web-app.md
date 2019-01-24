@@ -42,7 +42,7 @@ Before you begin:
 * On Mac: [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
 * On all platforms:
   * [Git](https://git-scm.com/downloads)
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later, available for Windows, Mac, and Linux
+  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later, available for Windows, Mac, and Linux (this tutorial requires that you run the Azure CLI locally)
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## About Managed Service Identity
@@ -117,7 +117,9 @@ After you complete these steps, you should have a URI to a secret in a key vault
 
 ## Create a .NET Core web app
 
-To create a .NET Core web app and publish it to Azure, follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md). You can also watch the following video:
+To create a .NET Core web app and publish it to Azure, follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md). 
+
+You can also watch the following video:
 
 >[!VIDEO https://www.youtube.com/embed/EdiiEH7P-bU]
 
@@ -202,7 +204,7 @@ To create a .NET Core web app and publish it to Azure, follow this [tutorial](..
 
 ## Enable a managed identity
 
-Azure Key Vault provides a way to securely store credentials and other secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md) helps to solve this problem by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
+Azure Key Vault provides a way to securely store credentials and other secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md) helps to solve this problem by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
 
 1. In the Azure CLI, to create the identity for this application, run the assign-identity command:
 
