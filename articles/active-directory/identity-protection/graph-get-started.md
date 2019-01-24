@@ -21,7 +21,7 @@ ms.custom: seohack1
 ---
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
 
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are three APIs that expose information about risky users and sign-ins. The first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](../reports-monitoring/concept-risk-events.md) and associated information. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. This article gets you started with [connecting to the Microsoft Graph](#Connect-to-Microsoft-Graph) and [querying these APIs](#Query-the-APIs). For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are three APIs that expose information about risky users and sign-ins. The first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](../reports-monitoring/concept-risk-events.md) and associated information. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. This article gets you started with [connecting to the Microsoft Graph](#Connect-to-Microsoft-Graph) and [querying these APIs](#Query-the-APIs). For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
 
 * [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
 * [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
@@ -73,7 +73,7 @@ Before you get started, you’ll need:
    
     ![Creating an application](./media/graph-get-started/44.png)
 
-    a. In the **Name** textbox, type a name for your application (e.g.: AADIP Risk Event API Application).
+    a. In the **Name** textbox, type a name for your application (for example: AADIP Risk Event API Application).
    
     b. As **Type**, select **Web Application And / Or Web API**.
    
@@ -210,7 +210,7 @@ Just add your client ID, the secret key, and the tenant domain.
     } 
 
 # Query the APIs
-These three APIs provide a multitude of opportunities to retrive information about risky users and sign-ins in your organization. Below are some common use cases for these APIs and the associated sample requests. You can run these queries using the sample code above or by using [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
+These three APIs provide a multitude of opportunities to retrieve information about risky users and sign-ins in your organization. Below are some common use cases for these APIs and the associated sample requests. You can run these queries using the sample code above or by using [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
 
 ## Get the high-risk and medium-risk events (identityRiskEvents API)
 Medium and high-risk events represent those that may have the capability to trigger Identity Protection sign-in or user-risk policies. Since they have a medium or high likelihood that the user attempting to sign-in is not the legitimate identity owner, remediating these events should be a priority. 
@@ -220,7 +220,8 @@ GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'h
 ```
 
 ## Get all of the users who successfully passed an MFA challenge triggered by risky sign-ins policy (riskyUsers API)
-To understand the impact Identity Protection risk-based policies have on your organization you can query all of the users who successfully passed an MFA challenge triggered by a risky sign-ins policy. This information can help you understand which users Identity Protection may have falsely deteted at as risk and which of your legitiamte users may be performing actions that the AI deems risky.
+To understand the impact Identity Protection risk-based policies have on your organization you can query all of the users who successfully passed an MFA challenge triggered by a risky sign-ins policy. This information can help you understand which users Identity Protection may have falsely detected at as risk and which of your legitimate users may be performing actions that the AI deems risky.
+
 ```
 GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
 ```
