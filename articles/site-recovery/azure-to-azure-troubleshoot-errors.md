@@ -323,6 +323,9 @@ blkid /dev/sda1
 
 
 ## Site recovery mobility service update completed with warnings ( error code 151083)
+**Possible Cause:** </br>
+In some of the updates of site recovery agent there could be fixes/enhancements  in the filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery agent updates that has filter driver changes we update the machine but still gives warning that some fixes requires a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot. 
+**Please note** that this is just a warning and existing replication will keep on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working.
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
