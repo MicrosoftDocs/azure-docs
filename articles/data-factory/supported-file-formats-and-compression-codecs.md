@@ -420,7 +420,7 @@ Note the following points:
 > [!IMPORTANT]
 > For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
 
-For copy running on Self-hosted IR with Parquet file serialization/deserialization, ADF locates the java runtime by firstly checking the registry *"`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`"* for JRE, if not found, secondly checking system variable *"`JAVA_HOME`"* for OpenJDK. 
+For copy running on Self-hosted IR with Parquet file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK. 
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
@@ -470,7 +470,7 @@ Note the following points:
 > [!IMPORTANT]
 > For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
 
-For copy running on Self-hosted IR with ORC file serialization/deserialization, ADF locates the java runtime by firstly checking the registry *"`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`"* for JRE, if not found, secondly checking system variable *"`JAVA_HOME`"* for OpenJDK. 
+For copy running on Self-hosted IR with ORC file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK. 
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
