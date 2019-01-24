@@ -31,7 +31,7 @@ This error can occur when OS disk encryption is tried on a target VM environment
 
 ## <a name="bkmk_Ubuntu14"></a> Update the default kernel for Ubuntu 14.04 LTS
 
-The Ubuntu 14.04 LTS image ships with a default kernel version of 4.4. This kernel version has a known issue in which Out of Memory Killer improperly terminates the dd command during the OS encryption process. This bug has been fixed in the most recent Azure tuned Linux kernel. To avoid this error, prior to enabling encryption on the image, users must update it to the 4.15 Azure tuned kernel or later using the following commands:
+The Ubuntu 14.04 LTS image ships with a default kernel version of 4.4. This kernel version has a known issue in which Out of Memory Killer improperly terminates the dd command during the OS encryption process. This bug has been fixed in the most recent Azure tuned Linux kernel. To avoid this error, prior to enabling encryption on the image, update to the Azure tuned kernel 4.15 or later using the following commands:
 
 ```
 sudo apt-get update
