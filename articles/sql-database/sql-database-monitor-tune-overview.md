@@ -15,7 +15,7 @@ ms.date: 12/10/2018
 ---
 # Monitoring and performance tuning
 
-Azure SQL Database is automatically managed and flexible data service where you can easily monitor usage, add or remove resources (CPU, memory, I/O), find recommendations that can improve performance of your database, or let database adapt to your workload and automatically optimize performance.
+Azure SQL Database is an automatically managed and flexible data service where you can easily monitor usage, add or remove resources (CPU, memory, I/O), find recommendations that can improve performance of your database, or let database adapt to your workload and automatically optimize performance.
 
 ## Monitoring database performance
 

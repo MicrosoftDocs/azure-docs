@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
-ms.date: 12/08/2018
+ms.date: 01/23/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -62,8 +62,8 @@ This section examines functions defined in the [Program.cs](https://github.com/A
 
 The sample performs the following actions:
 
-1. Creates a transform and a job that analyzes your video.
-2. Creates an input asset and uploads the video into it. The asset is used as the job's input.
+1. Creates a **Transform** and a **Job** that analyzes your video.
+2. Creates an input **Asset** and uploads the video into it. The asset is used as the job's input.
 3. Creates an output asset that stores the job's output. 
 4. Submits the job.
 5. Checks the job's status.
