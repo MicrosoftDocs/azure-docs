@@ -49,7 +49,16 @@ To enable diagnostics in the [Azure portal](https://portal.azure.com), go to the
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-When you enable **application diagnostics**, you also choose the **Level**. This setting allows you to filter the information captured to **informational**, **warning**, or **error** information. Setting it to **verbose** logs all information produced by the application.
+When you enable **application diagnostics**, you also choose the **Level**. The following table shows the categories of logs each level includes:
+
+| Level| Included log categories |
+|-|-|
+|**Disabled** | None |
+|**Error** | Error, Critical |
+|**Warning** | Warning, Error, Critical|
+|**Information** | Info, Warning, Error, Critical|
+|**Verbose** | Trace, Debug, Info, Warning, Error, Critical (all categories) |
+|-|-|
 
 > [!NOTE]
 > Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.
