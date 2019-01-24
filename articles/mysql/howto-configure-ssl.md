@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 01/24/2019
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL
 Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
@@ -21,8 +21,15 @@ Configure the MySQL Workbench to connect securely over SSL. From the Setup New C
 For existing connections, you can bind SSL by right-clicking on the connection icon and choose edit. Then navigate to the **SSL** tab and bind the cert file.
 
 ### Connecting to server using the MySQL CLI over SSL
-Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following command:
-```dos
+Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following commands. Newer versions of the MySQL command-line interface have deprecated the `--ssl` parameter.
+
+*MySQL command-line from MySQL 8.0+:*
+```bash
+mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
+```
+
+*Older versions of MySQL command-line:*
+```bash
 mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 

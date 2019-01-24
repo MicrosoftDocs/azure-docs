@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB
 Azure Database for MariaDB supports connecting your Azure Database for MariaDB server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
@@ -21,12 +21,20 @@ Configure the MySQL Workbench to connect securely over SSL. From the Setup New C
 For existing connections, you can bind SSL by right-clicking on the connection icon and choose edit. Then navigate to the **SSL** tab and bind the cert file.
 
 ### Connecting to server using the MySQL CLI over SSL
-Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following command:
+Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following commands. Newer versions of the MySQL command-line interface have deprecated the `--ssl` parameter.
+
+*MySQL command-line from MySQL 8.0+:*
+```bash
+mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
+```
+
+*Older versions of MySQL command-line:*
 ```bash
 mysql.exe -h mydemoserver.mariadb.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
+
 > [!NOTE]
-> When using newer versions of the MySQL command-line interface on Windows, you may receive an error `SSL connection error: Certificate signature check failed`. If this occurs, replace the `--ssl-ca={filepath}` parameter with `--ssl`.
+> When using the MySQL command-line interface on Windows, you may receive an error `SSL connection error: Certificate signature check failed`. If this occurs, replace the `--ssl-ca={filepath}` parameter with `--ssl`.
 
 ## Enforcing SSL connections in Azure 
 ### Using the Azure portal
