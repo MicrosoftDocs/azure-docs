@@ -3,7 +3,7 @@ title: Protecting your machines and applications in Azure Security Center  | Mic
 description: This document addresses recommendations in Security Center that help you protect your virtual machines and computers and your web apps and App Service environments.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: v-mohabe
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: rkarlin
+ms.author: v-mohabe
 
 ---
 # Protecting your machines and applications in Azure Security Center
@@ -122,10 +122,11 @@ To see a more prescriptive explanation about this recommendation, click **Update
 
 ### App services (Preview)
 
-> [!NOTE]
-> Monitoring App Service is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
->
->
+>>
+>You need to enable App Service in your subscription in order to view the App Service information. For instructions on how to enable this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
+[!NOTE]
+> Monitoring App Service is in preview and available only on the Standard tier of Security Center.
+
 
 Under **App services**, you find a list of your App service environments and the health summary based on the assessment Security Center performed.
 
