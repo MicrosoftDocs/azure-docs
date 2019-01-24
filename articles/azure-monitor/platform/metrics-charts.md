@@ -146,5 +146,5 @@ After configuring your chart, click on the **Chart Actions** menu in the right t
 
 ## Next steps
 
-  Read [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-utorial-dashboards) to learn about the best practices for creating actionable dashboards with metrics.
+  Read [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) to learn about the best practices for creating actionable dashboards with metrics.
 
