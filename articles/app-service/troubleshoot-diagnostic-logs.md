@@ -60,11 +60,6 @@ When you enable **application diagnostics**, you also choose the **Level**. The 
 |**Verbose** | Trace, Debug, Info, Warning, Error, Critical (all categories) |
 |-|-|
 
-> [!NOTE]
-> Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.
->
->
-
 For **Application logging**, you can turn on the file system option temporarily for debugging purposes. This option turns off automatically in 12 hours. You can also turn on the blob storage option to select a blob container to write logs to.
 
 > [!NOTE]
