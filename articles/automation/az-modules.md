@@ -25,7 +25,7 @@ Importing an `Az` module in your Automation Account doesn't automatically import
 * When a runbook imports it explicitly with the `Import-Module` cmdlet
 * When another module depending on the module is imported into a PSSession
 
-> [!IMPORTANT] It is important to make sure that runbooks an Automation Account either only import `Az` or `AzureRM` modules into the PSSessions used by runbooks and not both.
+> [!IMPORTANT] It is important to make sure that runbooks an Automation Account either only import `Az` or `AzureRM` modules into the PSSessions used by runbooks and not both. If you use both in a runbook, the runbook will complete, but an [error referencing the get_SerializationSettings method](/troubleshoot/runbooks.md#get-serializationsettings) will show in the job streams and cmdlets may have not been properly executed.
 
 ## Migrating to Az modules
 

@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with Azure Automation runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -163,11 +163,11 @@ while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout
 $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
-### <a name="get-serializationsettings"></a>Scenario: You see an error in your job streams about get_SerializationSettings
+### <a name="get-serializationsettings"></a>Scenario: You see an error in your job streams about the get_SerializationSettings Method
 
 #### Issue
 
-You see in your job streams an error with the following message:
+You see in your error in your job streams for a runbook with the following message:
 
 ```
 Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
@@ -187,8 +187,7 @@ This error is caused by using both AzureRM and Az cmdlets in a runbook.
 
 #### Resolution
 
-Az and AzureRM cmdlets can not be imported and used in the same runbook, to learn more about Az support in Azure Automation, see [../az-modules.md]
-
+Az and AzureRM cmdlets can not be imported and used in the same runbook, to learn more about Az support in Azure Automation, see [Az module support in Azure Automation](../az-modules.md).
 
 ### <a name="task-was-cancelled"></a>Scenario: The runbook fails with the error: A task was canceled
 
