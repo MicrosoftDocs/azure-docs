@@ -53,6 +53,10 @@ When a guest user redeems an invitation or uses a link to a resource that has be
 
 At the time of invitation, there's no indication that the user you're inviting will use one-time passcode authentication. But when the guest user signs in, one-time passcode authentication will be the fallback method if no other authentication methods can be used. 
 
+You can view guest users who authenticate with one-time passcodes in the Azure portal by going to **Azure Active Directory** > **Organizational relationships** > **Users from other organizations**.
+
+![View one-time passcode users in the Azure portal](media/one-time-passcode/otp-users.png)
+
 > [!NOTE]
 > When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update their authentication method, you can delete their guest user account and reinvite them.
 
