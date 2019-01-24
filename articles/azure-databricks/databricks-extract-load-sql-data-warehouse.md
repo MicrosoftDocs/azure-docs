@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To complete this tutorial:
 
 > [!div class="checklist"]
-> * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse](../../sql-data-warehouse/create-data-warehouse-portal.md).
+> * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse](../sql-data-warehouse/create-data-warehouse-portal.md).
 > * Create a database master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 > * Create an Azure Data Lake Storage Gen2 account. See [Create a Azure Data Lake Storage Gen2 account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 > * Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Create an Azure Blob storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
