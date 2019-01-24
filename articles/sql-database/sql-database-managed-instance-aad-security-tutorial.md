@@ -207,7 +207,7 @@ Once the Azure AD login has been created, and provided with `sysadmin` privilege
     ```
 
 > [!NOTE]
-> Azure AD guest users are supported for Managed Instance logins, only when added as part of an Azure AD Group. An Azure AD guest user is an account that is invited to the Azure AD that the Managed Instance belongs to, from another Azure AD. For example, joe@contoso.com (AAD Account) or steve@outlook.com (MSA Account) can be added to a group in the Azure AD aadsqlmi. Once the users are added to a group, a login can be created in the Managed Instance **master** database for the group using the **CREATE LOGIN** syntax. Guest users who are members of this group can connect to the Managed Instance using their current logins (For example, joe@contoso.com or steve@outlook.com).
+> Azure AD guest users are supported for Managed Instance logins, only when added as part of an Azure AD Group. An Azure AD guest user is an account that is invited to the Azure AD that the Managed Instance belongs to, from another Azure AD. For example, joe@contoso.com (Azure AD Account) or steve@outlook.com (MSA Account) can be added to a group in the Azure AD aadsqlmi. Once the users are added to a group, a login can be created in the Managed Instance **master** database for the group using the **CREATE LOGIN** syntax. Guest users who are members of this group can connect to the Managed Instance using their current logins (For example, joe@contoso.com or steve@outlook.com).
 
 ## Create an Azure AD user from the Azure AD login and give permissions
 

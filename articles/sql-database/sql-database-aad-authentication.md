@@ -80,9 +80,8 @@ To create a contained database user in Azure SQL Database, Managed Instance, or 
   - Imported members from other Azure AD's who are native or federated domain members.
   - Active Directory groups created as security groups.
 
-- Azure AD logins and users are supported as a preview feature for [Managed Instances](sql-database-managed-instance.md).
-
-- Setting Azure AD logins mapped to an Azure AD group as database owner is not supported in [Managed Instances](sql-database-managed-instance.md). To workaround this issue, grant the database owner role to individual Azure AD users.
+- Azure AD users that are part of a group that has `db_owner` server role cannot use the **[CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)** syntax against Azure SQL Data Warehouse. This is currently a bug and will be fixed. You will see the following error:
+    - `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
 - These system functions return NULL values when executed under Azure AD principals:
 
