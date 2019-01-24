@@ -1,16 +1,16 @@
 ---
-title: 'Quickstart: Run a Spark job on Azure Databricks using Azure portal | Microsoft Docs'
-description: The quickstart shows how to use the Azure portal to create an Azure Databricks workspace, an Apache Spark cluster, and run a Spark job.
+title: 'Quickstart: Use Azure Data Lake Storage Gen2 in a Spark job on Azure Databricks | Microsoft Docs'
+description: Learn to run a Spark job on Azure Databricks by using the Azure portal and an Azure Data Lake Storage Gen2 storage account.
 services: storage
-author: jamesbak
-ms.author: jamesbak
+author: normesta
+ms.author: normesta
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/14/2019
+ms.date: 01/24/2019
 ---
 
-# Quickstart: Run a Spark job on Azure Databricks using the Azure portal
+# Quickstart: Use Azure Data Lake Storage Gen2 in a Spark job on Azure Databricks
 
 This quickstart shows you how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account that has Azure Data Lake Storage Gen2 preview enabled.
 
