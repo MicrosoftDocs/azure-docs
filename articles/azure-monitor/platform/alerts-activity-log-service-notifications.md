@@ -91,7 +91,7 @@ Learn how to [Configure webhook notifications for existing problem management sy
 
 Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
 
-## Alert creating new action group using the Azure Resource Manager templates
+## Alert and new action group using the Azure Resource Manager templates
 
 The following is an example that creates an action group with an email target and enables all service health notifications for the target subscription.
 
