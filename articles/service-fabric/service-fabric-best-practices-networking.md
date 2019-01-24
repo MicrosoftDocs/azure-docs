@@ -43,13 +43,13 @@ Maximize your Virtual Machine’s performance with Accelerated Networking, by de
 ```
 Service Fabric cluster can be provisioned on [Linux with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), and [Windows with Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-Accelerated Networking is supported for Azure Virtual Machine Series SKU's: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 1/23/2019.
+Accelerated Networking is supported for Azure Virtual Machine Series SKUs: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 1/23/2019.
 
 To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), to perform the following:
 1. Provision a NodeType with Accelerated Networking enabled
 2. Migrate your services and their state to the provisioned NodeType with Accelerated Networking enabled
 
-Scaling out infrastructure is required to enable Accelerated Networking on an existing cluster, because enabling Accelerated Networking in place would cause downtime, as it requires all virtual machines in an availability set be [stop/deallocate before enabling Accelerated networking on any existing NIC](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Scaling out infrastructure is required to enable Accelerated Networking on an existing cluster, because enabling Accelerated Networking in place would cause downtime, as it requires all virtual machines in an availability set be [stop and deallocate before enabling Accelerated networking on any existing NIC](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ## Cluster Networking
 
@@ -58,7 +58,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 * Network security groups (NSGs) are recommended for node types that restrict inbound and outbound traffic to their cluster. Ensure that the necessary ports are opened in the NSG. For example: 
 ![Service Fabric NSG Rules][NSGSetup]
 
-* The primary node type which contains the Service Fabric system services does not need to be exposed via the external load balancer and can be exposed by an [internal load balancer](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
+* The primary node type, which contains the Service Fabric system services does not need to be exposed via the external load balancer and can be exposed by an [internal load balancer](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 
 * Use a [static public IP address](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#static-public-ip-address-1) for your cluster.
 
