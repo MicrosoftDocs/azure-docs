@@ -81,9 +81,11 @@ To log the `stdout` and `stderr` from your container, you need to enable **Docke
 
 ![Enabling Logging][2]
 
-![Using Kudu to view Docker logs][1]
+The setting takes effect immediately. App Service detects the settings change and restarts the container for you automatically.
 
 You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
+
+![Using Kudu to view Docker logs][1]
 
 ## Next steps
 
