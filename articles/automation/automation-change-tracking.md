@@ -148,7 +148,7 @@ Other limitations:
 
 The Change Tracking solution is currently experiencing the following issues:
 
-* Hotfix updates aren't collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
+* Hotfix updates are not collected on Windows Server 2016 Core RS3 machines.
 
 ## Change Tracking data collection details
 
