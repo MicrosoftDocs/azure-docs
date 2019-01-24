@@ -3,7 +3,7 @@ title: Get started with custom policies in Azure Active Directory B2C | Microsof
 description: How to get started with Azure Active Directory B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity

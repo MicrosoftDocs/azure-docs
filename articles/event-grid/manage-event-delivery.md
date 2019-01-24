@@ -2,12 +2,12 @@
 title: Dead letter and retry policies for Azure Event Grid subscriptions
 description: Describes how to customize event delivery options for Event Grid. Set a dead-letter destination, and specify how long to retry delivery.
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: tomfitz
+ms.date: 01/06/2019
+ms.author: spelluru
 ---
 
 # Dead letter and retry policies

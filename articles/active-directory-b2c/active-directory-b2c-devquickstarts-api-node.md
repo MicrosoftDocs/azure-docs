@@ -3,7 +3,7 @@ title: Secure a web API by using Node.js in Azure Active Directory B2C | Microso
 description: How to build a Node.js web API that accepts tokens from a B2C tenant.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
@@ -683,7 +683,7 @@ var findById = function(id, fn) {
 var oidcStrategy = new OIDCBearerStrategy(options,
     function(token, done) {
         log.info('verifying the user');
-        log.info(token, 'was the token retreived');
+        log.info(token, 'was the token retrieved');
         findById(token.sub, function(err, user) {
             if (err) {
                 return done(err);

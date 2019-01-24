@@ -3,7 +3,7 @@ title: Onboarding machines for management by Azure Automation State Configuratio
 description: How to setup machines for management with Azure Automation State Configuration
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.topic: conceptual
