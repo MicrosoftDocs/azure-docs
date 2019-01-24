@@ -1,5 +1,5 @@
 ---
-title: Register a service application in Azure Active Directory - Microsoft Healthcare APIs
+title: Register a service application in Azure Active Directory - Azure API for FHIR
 description: This article explains how to register a service application in Azure Active Directory.
 services: healthcare-apis
 author: hansenms
