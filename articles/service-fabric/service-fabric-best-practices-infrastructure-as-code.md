@@ -22,8 +22,7 @@ In a production scenario, create Azure Service Fabric clusters using Resource Ma
 
 Sample Resource Manager templates are available for Windows and Linux in the [Azure samples on GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). These templates can be used as a starting point for your cluster template. Download `azuredeploy.json` and `azuredeploy.parameters.json` and edit them to meet your custom requirements.
 
-JTW - no intro.
-Creating a resource using Azure CLI
+To deploy the `azuredeploy.json` and `azuredeploy.parameters.json` templates you downloaded above, use the following Azure CLI commands:
 
 ```azurecli
 ResourceGroupName="sfclustergroup"
@@ -47,7 +46,7 @@ New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Templ
 
 ## Azure Service Fabric resources
 
-You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager. See [Manage applications and services as Azure Resource Manager resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) for details. The following are the Resource Manager template resources you would use to deploy your application: (JTW - do you mean these are examples or that they simply serve the purpose)
+You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager. See [Manage applications and services as Azure Resource Manager resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) for details. The following are best practice Service Fabric application specific resources to include in your  Resource Manager template resources.
 
 ```json
 {
@@ -76,8 +75,7 @@ You can deploy applications and services onto your Service Fabric cluster via Az
 }
 ```
 
-(JTW - what requires this)
-Which requires you to [create a sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric Application package. The following python script is an example of how to create a sfpkg:
+To deploy your application using Azure Resource Manager, you first must [create a sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric Application package. The following python script is an example of how to create a sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container

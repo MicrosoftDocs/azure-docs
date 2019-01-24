@@ -34,11 +34,11 @@ For Linux clusters, Log Analytics is also the recommended tool for Azure platfor
 
 ## Infrastructure monitoring
 
-[Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) is recommended for monitoring cluster level events. Once you configure the Log Analytics agent with your workspace as described in previous link, you will be able to collect performance metrics such as CPU Utilization, .NET performance counters such as process level CPU utilization, Service Fabric performance counters such as # of exceptions from a reliable service, and container metrics such as CPU Utilization, and container logs (stdout, stderr). (JTW, that are written to ...)
+[Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) is recommended for monitoring cluster level events. Once you configure the Log Analytics agent with your workspace as described in previous link, you will be able to collect performance metrics such as CPU Utilization, .NET performance counters such as process level CPU utilization, Service Fabric performance counters such as # of exceptions from a reliable service, and container metrics such as CPU Utilization.  You will need to write container logs to stdout or stderr so that they will be available in Log Analytics.
 
 ## Watchdogs
 
-Generally, a watchdog is a separate service that watches health and load across services, pings endpoints, and reports health for anything (JTW anything?) in the cluster. This can help prevent errors that may not be detected based only on the performance of a single service. Watchdogs are also a good place to host code that performs remedial action that don't require user interaction such as cleaning up log files in storage at certain time intervals. See a sample watchdog service implementation in  [Service Fabric Linux cluster events in Syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
+Generally, a watchdog is a separate service that watches health and load across services, pings endpoints, and reports unexpected health events in the cluster. This can help prevent errors that may not be detected based only on the performance of a single service. Watchdogs are also a good place to host code that performs remedial action that don't require user interaction such as cleaning up log files in storage at certain time intervals. See a sample watchdog service implementation in  [Service Fabric Linux cluster events in Syslog](https://github.com/Azure-Samples/service-fabric-watchdog-service).
 
 ## Next steps
 
