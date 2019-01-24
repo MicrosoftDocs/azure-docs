@@ -24,60 +24,60 @@ ms.reviewer: raluthra
 
 ## Dismiss User Risk
 
-When an admin performs “Dismiss user risk” in classic Identity Protection, the user’s risk history in Identity Protection (refreshed) will show that the actor was “Azure AD”
+When an admin performs a **Dismiss user risk** in classic Identity Protection, the user’s risk history in Identity Protection (refreshed) shows that the actor was **Azure AD**.
 
-When an admin performs “Dismiss user risk” in Identity Protection (refreshed), the user’s risk history in Identity Protection (refreshed) will show that the actor was “\<Admin’s name with a hyperlink pointing to user’s blade\>”
+When an admin performs a **Dismiss user risk** in Identity Protection (refreshed), the user’s risk history in Identity Protection (refreshed) shows that the actor was **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
 
 
 ## Risky Users Report
 
-Queries on the **username** field are case-sensitive, while queries on the “Name” field are case-agnostic
+Queries on the **username** field are case-sensitive, while queries on the **Name** field are case-agnostic.
 
-Toggling **Show dates as** makes the RISK LAST UPDATED column disappear. To re-add the column click “Columns” at the top of the Risky Users blade
+Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To re-add the column click **Columns** at the top of the Risky Users blade.
 
-When an admin performs  a **Dismiss all events** from classic Identity Protection, the risk events will show with the status “Closed (resolved)”
+When an admin performs a **Dismiss all events** from classic Identity Protection, the risk events has a status of **Closed (resolved)**.
 
-If you attempt to access the Risky users report by clicking on **Risky users report** within a sign-in record in the Risky Sign-ins report, it may sometimes show **Something went wrong. Please retry**. To remedy this, click **Apply** or **Reset** at the top of the screen and the risky user(s) data will populate
+If you attempt to access the Risky users report by clicking **Risky users report** within a sign-in record in the risky sign-ins report, it may sometimes show **Something went wrong. Please retry**. To remedy this, click **Apply** or **Reset** at the top of the screen and the risky user(s) data will populate.
 
 
 ## Risky Sign-Ins Report
 
-When an admin performs a **Resolve** on a risk event from classic Identity Protection, the risk event will show with the status “Users passed MFA driven by risk based policy”
+When an admin performs a **Resolve** on a risk event from classic Identity Protection, the risk event has a status of **Users passed MFA driven by risk-based policy**.
 
-When an admin clicks “Reset” in the “Risky Sign-ins” report, the “Risk event type” will not be reset to empty.
+Clicking **Reset** in the **Risky Sign-ins** report does not reset the **Risk event type** to empty.
 
 
 
 
 ## Why can’t I set my own risk levels for each risk event?
 
-Risk levels in Identity Protection are based on the precision of the detection and powered by our supervised machine learning. To customize what experience end-users are presented, administrator can include/exclude certain users/groups from the User Risk and Sign-In Risk Policies
+Risk levels in Identity Protection are based on the precision of the detection and powered by our supervised machine learning. To customize what experience end-users are presented, administrator can include/exclude certain users/groups from the User Risk and Sign-In Risk Policies.
 
 
 ## Why does the location of a sign-in not match where the user truly signed in from?
 
-IP geolocation mapping is an industry wide challenge. If you feel that the location listed in the sign-ins report does not match the actual location, please reach out to support. 
+IP geolocation mapping is an industry-wide challenge. If you feel that the location listed in the sign-ins report does not match the actual location, please reach out to support. 
 
 
 ## How do the feedback mechanisms in Identity Protection work?
 
 **Confirm compromised** (on a sign-in) – Informs Azure AD Identity Protection that the sign-in was not performed by the identity owner and indicates a compromise.
 
-- Upon receiving this feedback, we will move the sign-in’s and user’s risk state to “Confirmed compromised” and risk level to “High”.
+- Upon receiving this feedback, we move the sign-in and user risk state to **Confirmed compromised** and risk level to **High**.
 
-- In addition, we provide this intel to our machine learning systems for future improvements in risk assessment.
-
-    > [!NOTE]
-    > In case the user is already remediated, please do not click on “Confirm compromised” because doing so will move the sign-in’s and user’s risk state to “Confirmed compromised” and risk level to “High”.
-
-Confirm safe (on a sign-in) – Informs Azure AD Identity Protection that the sign-in was actually performed by the identity owner and does not indicate a compromise.
-
-- Upon receiving this feedback, we will move the sign-in’s (not user’s) risk state to “Confirmed safe” and risk level to “-“.
-
-- In addition, we provide this intel to our machine learning systems for future improvements in risk assessment.
+- In addition, we provide the information to our machine learning systems for future improvements in risk assessment.
 
     > [!NOTE]
-    > If you believe the user is not compromised, please use the option of “Dismiss user risk” on the user level instead of using “Confirmed safe” on the sign-in level. A “Dismiss user risk” on the user level will close the user risk and all past risky sign-ins and risk events.
+    > If the user is already remediated, don't click **Confirm compromised** because it moves the sign-in and user risk state to **Confirmed compromised** and risk level to **High**.
+
+**Confirm safe** (on a sign-in) – Informs Azure AD Identity Protection that the sign-in was actually performed by the identity owner and does not indicate a compromise.
+
+- Upon receiving this feedback, we move the sign-in (not the user) risk state to **Confirmed safe** and the risk level to **-**.
+
+- In addition, we provide the information to our machine learning systems for future improvements in risk assessment.
+
+    > [!NOTE]
+    > If you believe the user is not compromised, use **Dismiss user risk** on the user level instead of using **Confirmed safe** on the sign-in level. A **Dismiss user risk** on the user level closes the user risk and all past risky sign-ins and risk events.
 
 
 
