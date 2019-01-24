@@ -18,7 +18,7 @@ Threat Protection is part of the Advanced Threat Protection (ATP) offering, whic
 >
 
 > [!NOTE]
-> This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
+> This feature is available in all regions of Azure where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
 
 ## What is Advanced Threat Protection?
 

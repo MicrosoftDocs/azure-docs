@@ -18,7 +18,7 @@ Advanced Threat Protection is part of the Advanced Data Security offering, which
 >
 
 > [!NOTE]
-> This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
+> This feature is available in all regions of Azure where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
 
 ## Set up threat detection
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
