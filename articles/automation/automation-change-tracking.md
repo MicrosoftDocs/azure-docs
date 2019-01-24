@@ -265,6 +265,42 @@ The following table provides sample log searches for change records collected by
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Shows the most recent inventory records for Windows Services that were set to Auto but were reported as being Stopped<br>Results are limited to the most recent record for that SoftwareName and Computer      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Shows the change records for removed software|
 
+## Alert on changes
+
+A key capability of Change Tracking and Inventory is the ability to alert on the configuration state and any changes to the configuration state of your hybrid environment.  
+
+In the following example, the screenshot shows that the file `C:\windows\system32\drivers\etc\hosts` has been modified on a machine. This file is important because the Hosts file is used by Windows to resolve hostnames to IP addresses and takes precedence over even DNS which could result in connectivity issues or the redirection of traffic to malicious or otherwise dangerous websites.
+
+![A chart showing the hosts file change](./media/automation-change-tracking/changes.png)
+
+To analyze this change further, go to Log search from clicking **Log Analytics**. Once in Log search, search for content changes to the Hosts file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for changes that included a change of file content for files whose fully qualified path contains the word “hosts”. You can also ask for a specific file by changing the path portion to its fully qualified form (such as `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+
+After the query returns the desired results, click the **New alert rule** button in the Log search experience to open the alert creation page. You could also navigate to this experience through **Azure Monitor** in the Azure portal. In the alert creation experience, check our query again and modify the alert logic. In this case, you want the alert to be triggered if there is even one change detected across all the machines in the environment.
+
+![An image showing the change query for tracking changes to the hosts file](./media/automation-change-tracking/change-query.png)
+
+After the condition logic is set, assign action groups to perform actions in response to the alert being triggered. In this case, I have set up emails to be sent and an ITSM ticket to be created.  Many other useful actions can also be taken such as triggering an Azure Function, Automation runbook, Webhook, or Logic App.
+
+![An image configuring an action group to alert on the change](./media/automation-change-tracking/action-groups.png)
+
+After all the parameters and logic are set, we can apply the alert to the environment.
+
+### Alert suggestions
+
+While alerting on changes to the Hosts file is one good application of alerts for Change Tracking or Inventory data, there are many more scenarios for alerting, including the cases defined along with their example queries in the section below.
+
+|Query  |Description  |
+|---------|---------|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Useful for tracking changes to system critical files|
+|ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Useful for tracking modifications to key configuration files|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Useful for tracking changes to system critical services|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Useful for tracking changes to system critical services|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Useful for environments that need locked down software configurations|
+|ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|Useful for seeing which machines have an outdated or non-compliant software version installed. It reports the last reported configuration state, not changes.|
+|ConfigurationChange <br>&#124; where RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"
+</br>
+ConfigurationChange <br>&#124; where RegistryKey contains "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"|Useful for tracking changes to crucial registry keys
+
 ## Next steps
 
 Visit the tutorial on Change Tracking to learn more about using the solution:
