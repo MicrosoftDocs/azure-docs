@@ -60,7 +60,7 @@ At the time of invitation, there's no indication that the user you're inviting w
 Guest user alexdoe@gmail.com is invited to Fabrikam, which does not have Google federation set up. Alex does not have a Microsoft account. He'll receive a one-time passcode for authentication.
 
 ## Opting in to the preview 
-It may take a few minutes for the opt-in action to take effect.
+It might take a few minutes for the opt-in action to take effect. After that, only newly invited users who meet the conditions above will use one-time passcode authentication. Guest users who previously redeemed an invitation will continue to use their same authentication method.
 
 ### To opt in using the Azure AD portal
 1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
@@ -70,18 +70,18 @@ It may take a few minutes for the opt-in action to take effect.
 5.	Under **Enable Email One-Time Passcode for guests (Preview)**, select **Yes**.
  
 ### To opt in using PowerShell
-1. Install the latest AzureADPreview module if you don’t have it already by running the following command:
+Install the latest AzureADPreview module if you don’t have it already by running the following command:
 
 ````powershell 
 Install-module AzureADPreview
 ````
-2. Run the following command to connect to the tenant domain: 
+Run the following command to connect to the tenant domain:
 
 ````powershell 
 Connect-AzureAD 
 ````
-3. When prompted for your credentials, sign in with the Global Administrator account. 
-4. Depending on whether you currently have B2B policies set up, choose one of the following sets of commands.
+When prompted for your credentials, sign in with the Global Administrator account.
+Depending on whether you currently have B2B policies set up, choose one of the following sets of commands.
 
 #### If B2B policies don't currently exist
 
@@ -131,18 +131,18 @@ It may take a few minutes for the opt-out action to take effect. If you turn off
 5.	Under **Enable Email One-Time Passcode for guests (Preview)**, select **No**.
 
 ### To turn off preview using PowerShell
-1. Install the latest AzureADPreview module if you don’t have it already by running the following command:
+Install the latest AzureADPreview module if you don’t have it already by running the following command:
 
 ````powershell 
 Install-module AzureADPreview
 ````
-2. Run the following command to connect to the tenant domain: 
+Run the following command to connect to the tenant domain:
 
 ````powershell 
 Connect-AzureAD 
 ````
-3. When prompted for your credentials, sign in with the Global Administrator account. 
-4. Run the following commands:
+When prompted for your credentials, sign in with the Global Administrator account.
+Run the following commands:
 
 ````powershell 
 // Get current policy
