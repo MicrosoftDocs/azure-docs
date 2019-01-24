@@ -61,3 +61,11 @@ These represent the limits for each update action; that is, clicking *Save and t
 * Maximum number of alternate questions added or deleted: 100
 * Maximum number of metadata fields added or deleted: 10
 * Maximum number of URLs that can be refreshed: 5
+
+## Next steps
+
+Learn when and how to change service tiers:
+
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku):When you need to have more questions and answers in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier.
+* [Search](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - When your knowledge base needs to serve more requests from your client app, upgrade your app service pricing tier.
+* [App service](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service):When you plan to have many knowledge bases, upgrade your Azure Search service pricing tier.
