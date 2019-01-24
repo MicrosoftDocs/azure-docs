@@ -19,7 +19,6 @@ docker pull busybox
 ```
 
 Before you can push an image to your registry, you must tag it with the fully qualified name of your ACR login server. The login server name is in the format *\<registry-name\>.azurecr.io* (all lowercase), for example, *mycontainerregistry007.azurecr.io*.
-```
 
 Tag the image using the [docker tag][docker-tag] command. Replace `<acrLoginServer>` with the login server name of your ACR instance.
 
