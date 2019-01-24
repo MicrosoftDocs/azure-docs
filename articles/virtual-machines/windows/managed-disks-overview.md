@@ -20,4 +20,4 @@ When you select to use Azure managed disks with your workloads, Azure creates an
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 
 > [!div class="nextstepaction"]
-> [Select a disk type](disk-types.md)
+> [Select a disk type](disks-types.md)
