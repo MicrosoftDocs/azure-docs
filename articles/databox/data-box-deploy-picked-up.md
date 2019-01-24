@@ -43,7 +43,7 @@ Before you begin, make sure:
 
     If the device is shipping in Europe, the E-ink display does not show the shipping label. Instead the return shipping label is included in the clear pouch under the forward shipping label. Remove the old shipping label and ensure that the shipping label is clearly visible.
     
-3. Schedule a pickup with UPS if returning the device. To schedule a pickup, call the local UPS (country specific toll free number) or drop off the Data Box at the nearest drop-off location.
+3. Schedule a pickup with UPS if returning the device. To schedule a pickup, call the local UPS (country-specific toll free number) or drop off the Data Box at the nearest drop-off location.
 
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 

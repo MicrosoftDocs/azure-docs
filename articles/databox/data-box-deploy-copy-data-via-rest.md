@@ -197,7 +197,7 @@ If you only want to copy source resources that do not exist in the destination, 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
 
-Next step is prepare your device to ship.
+Next step is to prepare your device to ship.
 
 ## Next steps
 
