@@ -32,14 +32,15 @@ The tutorial shows you how to:
 > * Enable a managed identity.
 > * Assign permissions to the VM identity.
 
-Before you begin:
-* Read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
-* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+Before you begin, read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
-On all platforms:
-* [Git](https://git-scm.com/downloads)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later, available for Windows, Mac, and Linux (this tutorial requires that you run the Azure CLI locally)
+
+For Windows, Mac, and Linux:
+  * [Git](https://git-scm.com/downloads)
+  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## About Managed Service Identity
 
@@ -49,7 +50,7 @@ When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure 
 
 ![MSI](media/MSI.png)
 
-Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. To authenticate to an Azure Key Vault service, your code uses the access token that it gets from the local MSI_ENDPOINT. 
+Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. To authenticate to an Azure Key Vault service, your code uses the access token that it gets from the local MSI endpoint. 
 
 ## Log in to Azure
 
@@ -63,8 +64,9 @@ az login
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-1. Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. 
-1. Select a resource group name and fill in the placeholder. The following example creates a resource group in the West US location:
+Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. 
+
+Select a resource group name and fill in the placeholder. The following example creates a resource group in the West US location:
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -106,8 +108,6 @@ To create a virtual machine by using the Azure CLI, do the following:
 
 For more information, see [Quickstart: Create a Windows virtual machine with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli). 
 
-You can also create a virtual machine by using [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell) or [the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
-
 ## Assign an identity to the VM
 In this step, you create a system-assigned identity for the virtual machine by running the following command in the Azure CLI:
 
@@ -133,7 +133,12 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## Sign in to the virtual machine
 
-You can follow this [tutorial](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)
+To sign in to the virtual machine, do the following:
+1. Step 1.
+1. Step 2.
+1. etc.
+
+For more information, see [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
 ## Create and run a sample Python app
 
@@ -141,10 +146,9 @@ In the next section is an example file named *Sample.py*. It uses a [requests](h
 
 ## Edit the Sample.py file
 
-After you create *Sample.py*, open the file and copy the following code:
-
-The below is a 2 step process. 
-1. Fetch a token from the local MSI endpoint on the VM. Doing so also fetches a token from Azure AD.
+After you create *Sample.py*, open the file, and then follow this two-step process: 
+1. Fetch a token from the local MSI endpoint on the VM.  
+  Doing so also fetches a token from Azure AD.
 1. Pass the token to your key vault, and then fetch your secret. 
 
 ```
