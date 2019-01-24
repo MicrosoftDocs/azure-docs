@@ -327,7 +327,7 @@
     - name: Machine learning overview
       href: sql-database-machine-learning-services-overview.md
     - name: Known issues
-      href: sql-database-machine-learning-services-known-issues.md
+      href: sql-database-machine-learning-services-differences.md
 - name: How-to guides
   items:
   - name: Overview
