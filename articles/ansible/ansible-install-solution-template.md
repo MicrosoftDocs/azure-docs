@@ -25,7 +25,7 @@ This article walks you through the steps to install the Ansible solution templat
 
 ## Install the Ansible solution template from the Azure Marketplace
 
-1. Browse to the Ansible solution template in the Azure Marketplace(https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
+1. Browse to the [Ansible solution template in the Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
 1. Select **GET IT NOW**.
 
@@ -36,13 +36,13 @@ This article walks you through the steps to install the Ansible solution templat
 1. In the **Create Ansible** page, you see several tabs. On the **Basics** tab, enter the required information:
 
     - **Name** - Specify the name your Ansible instance. For demo purposes, the name `ansiblehost` is used.
-    - **User name** - Specify the user name that will have access to the Ansible instance. For demo purposes, the name `ansibleuser` is used.
-    - **Authentication type** - Select either **Password** or **SSH public key**. For demo purposes, **SSH public key** is selected.
-    - **Password** and **Confirm password** - If, for **Authentication type**, you select **Password**, you need enter the desired password twice to ensure that you typed it in as you wanted the first time.
-    - **SSH public key** - If, for **Authentication type**, you select **SSH public key**, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
-    - **Subscription** - Select the desired Azure subscription from the dropdown list.
-    - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group.
-    - **Location** - Select the location from the dropdown list that is appropriate for your scenario.
+    - **User name:** - Specify the user name that will have access to the Ansible instance. For demo purposes, the name `ansibleuser` is used.
+    - **Authentication type:** - Select either **Password** or **SSH public key**. For demo purposes, **SSH public key** is selected.
+    - **Password** and **Confirm password** - If you select **Password** for **Authentication type**, enter the desired password in each for each of these values.
+    - **SSH public key** : If you select select **SSH public key** for **Authentication type**, enter your RSA public key in the single-line format - starting with `ssh-rsa`.
+    - **Subscription** : Select the desired Azure subscription from the dropdown list.
+    - **Resource group** : Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group.
+    - **Location** : Select the location from the dropdown list that is appropriate for your scenario.
 
 
 
