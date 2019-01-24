@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -188,6 +188,8 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ## Known issues with the update process
 
+- When you run the **Get-AzureStackLog** PowerShell cmdlet after running **Test-AzureStack** in the same privileged endpoint (PEP) session, **Get-AzureStackLog** fails. To work around this issue, close the PEP session in which you executed **Test-AzureStack**, and then open a new session to run **Get-AzureStackLog**.
+
 - During installation of the 1811 update, ensure that all instances of the administrator portal are closed during this time. The user portal can remain open, but the admin portal must be closed.
 
 - When running [Test-AzureStack](azure-stack-diagnostic-test.md), if either the **AzsInfraRoleSummary** or the **AzsPortalApiSummary** test fails, you are prompted to run **Test-AzureStack** with the `-Repair` flag.  If you run this command, it fails with the following error message:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`  This issue will be fixed in a future release.
@@ -309,7 +311,7 @@ The following are post-installation known issues for this build version.
 
    - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Select **Resource Providers**, then select **Microsoft.Compute**, and then click **Re-register**.
-      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that the **AzureStack-DiskRP-Client** role is listed.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.

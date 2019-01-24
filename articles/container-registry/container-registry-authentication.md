@@ -22,13 +22,15 @@ Azure Container Registry does not support unauthenticated Docker operations or a
 
 ## Individual login with Azure AD
 
-When working with your registry directly, such as pulling images to and pushing images from your development workstation, authenticate by using the [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) command in the [Azure CLI](/cli/azure/install-azure-cli):
+When working with your registry directly, such as pulling images to and pushing images from a development workstation, authenticate by using the [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) command in the [Azure CLI](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
 When you log in with `az acr login`, the CLI uses the token created when you executed [az login](/cli/azure/reference-index#az-login) to seamlessly authenticate your session with your registry. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands do not require a username or password. If your token expires, you can refresh it by using the `az acr login` command again to reauthenticate. Using `az acr login` with Azure identities provides [role-based access](../role-based-access-control/role-assignments-portal.md).
+
+For some scenarios you may want to log in to a registry with your own individual identity in Azure AD. For cross-service scenarios or to handle the needs of a workgroup where you don't want to manage individual access, you can also log in with a [managed identity for Azure resources](container-registry-authentication-managed-identity.md).
 
 ## Service principal
 

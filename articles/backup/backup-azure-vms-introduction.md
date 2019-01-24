@@ -35,7 +35,7 @@ Here's how Azure Backup completes a  backup for Azure VMs.
 
 Azure Backup doesn't encrypt data as a part of the backup process. Azure Backup does support backup of Azure VMs that are encrypted using Azure Disk Encryption.
 
-- Backup of VMs encrypted with Bitlocker Encryption Key(BEK) only, and BEK together with Key Encryption Key(KEK) is supported, for managed and unmanaged Azure VMs.
+- Backup of VMs encrypted with BitLocker Encryption Key(BEK) only, and BEK together with Key Encryption Key(KEK) is supported, for managed and unmanaged Azure VMs.
 - The BEK(secrets) and KEK(keys) backed up are encrypted so they can be read and used only when restored back to key vault by the authorized users.
 - Since the BEK is also backed up, in scenarios where BEK is lost, authorized users can restore the BEK to the KeyVault and recover the encrypted VM. Keys and secrets of encrypted VMs are backed up in encrypted form, so neither unauthorized users nor Azure can read or use backed up keys and secrets. Only users with the right level of permissions can back up and restore encrypted VMs, as well as keys and secrets.
 
