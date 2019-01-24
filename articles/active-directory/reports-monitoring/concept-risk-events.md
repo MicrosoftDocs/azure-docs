@@ -41,6 +41,9 @@ Currently, Azure Active Directory detects six types of risk events:
 
 ![Risk event](./media/concept-risk-events/91.png)
 
+> [!IMPORTANT]
+> Sometimes, you may find a risk event without a corresponding sign-in entry in the [sign-ins report](concept-sign-ins.md). This is because Identity Protection evaluates risk for both **interactive** and **non-interactive** sign-ins, whereas the sign-ins report shows only the interactive sign-ins.
+
 The insight you get for a detected risk event is tied to your Azure AD subscription. 
 
 * With the **Azure AD Premium P2 edition**, you get the most detailed information about all underlying detections. 
