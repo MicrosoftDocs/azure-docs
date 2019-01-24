@@ -1,7 +1,7 @@
 ---
 author: amberbhargava
 ms.service: billing
-ms.topic: conceptual
+ms.topic: include
 ms.date: 01/17/2019
 ms.author: amberb
 ---
