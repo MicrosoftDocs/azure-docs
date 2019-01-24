@@ -3,7 +3,7 @@ title: Update Management solution in Azure
 description: This article is intended to help you understand how to use the Azure Update Management solution to manage updates for your Windows and Linux computers.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/04/2019
@@ -609,3 +609,4 @@ Continue to the tutorial to learn how to manage updates for your Windows virtual
 * [Create alerts](automation-tutorial-update-management.md#configure-alerts) for update deployment status.
 
 * To learn how to interact with Update Management through the REST API, see [Software Update Configurations](/rest/api/automation/softwareupdateconfigurations)
+

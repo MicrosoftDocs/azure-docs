@@ -3,7 +3,7 @@ title: End-user experiences for applications - Azure Active Directory | Microsof
 description: Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity

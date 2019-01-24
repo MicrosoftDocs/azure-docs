@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Overview of alerts in Microsoft Azure 
@@ -178,6 +178,7 @@ For more information, see [Alerts classic](./../../azure-monitor/platform/alerts
 - [Learn about action groups](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
+
 
 
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 01/23/2019
 ms.author: jingwang
 
 ---
@@ -30,9 +30,13 @@ Specifically, this Azure SQL Database Managed Instance connector supports:
 - As a source, retrieving data by using a SQL query or stored procedure.
 - As a sink, appending data to a destination table or invoking a stored procedure with custom logic during copy.
 
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now. 
+
 ## Prerequisites
 
-To use copy data from an Azure SQL Database managed instance that's located in a virtual network, set up a self-hosted integration runtime in the same virtual network that can access the database. For more information, see [Self-hosted integration runtime](create-self-hosted-integration-runtime.md).
+To use copy data from an Azure SQL Database Managed Instance that's located in a virtual network, set up a self-hosted integration runtime that can access the database. For more information, see [Self-hosted integration runtime](create-self-hosted-integration-runtime.md).
+
+If you provision your self-hosted integration runtime in the same virtual network as your managed instance, make sure that your integration runtime machine is in a different subnet than your managed instance. If you provision your self-hosted integration runtime in a different virtual network than your managed instance, you can use either a virtual network peering or virtual network to virtual network connection. For more information, see [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## Get started
 
@@ -150,7 +154,7 @@ To copy data from Azure SQL Database Managed Instance, set the source type in th
 Note the following points:
 
 - If **sqlReaderQuery** is specified for **SqlSource**, the copy activity runs this query against the managed instance source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
-- If you don't specify either the **sqlReaderQuery** or **sqlReaderStoredProcedureName** property, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query  `select column1, column2 from mytable` runs against the managed instance. If the dataset definition doesn't have  "structure," all columns are selected from the table.
+- If you don't specify either the **sqlReaderQuery** or **sqlReaderStoredProcedureName** property, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query `select column1, column2 from mytable` runs against the managed instance. If the dataset definition doesn't have "structure," all columns are selected from the table.
 
 **Example: Use a SQL query**
 
@@ -499,7 +503,7 @@ When copying data to and from Azure SQL Database Managed Instance, the following
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object * |
+| sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
@@ -508,6 +512,9 @@ When copying data to and from Azure SQL Database Managed Instance, the following
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
+
+>[!NOTE]
+> For data types maps to Decimal interim type, currently ADF support precision up to 28. If you have data with precision larger than 28, consider to convert to string in SQL query.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

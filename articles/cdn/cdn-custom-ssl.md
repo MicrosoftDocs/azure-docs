@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -299,15 +299,11 @@ The following table shows the operation progress that occurs when you disable HT
 	
 	A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued SSL certificates use SHA-256 for enhanced server security.
 
-5. *Can I use a custom domain HTTPS with Azure CDN from Akamai?*
-
-	Currently, this feature is not available with **Azure CDN Standard from Akamai** profiles. Microsoft is working on supporting this feature in the coming months.
-
-6. *Do I need a Certificate Authority Authorization record with my DNS provider?*
+5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
 
     No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.
 
-7. *On June 20, 2018, Azure CDN from Verizon started using a dedicated certificate with SNI TLS/SSL by default. What happens to my existing custom domains using Subject Alternative Names (SAN) certificate and IP-based TLS/SSL?*
+6. *On June 20, 2018, Azure CDN from Verizon started using a dedicated certificate with SNI TLS/SSL by default. What happens to my existing custom domains using Subject Alternative Names (SAN) certificate and IP-based TLS/SSL?*
 
     Your existing domains will be gradually migrated to single certificate in the upcoming months if Microsoft analyzes that only SNI client requests are made to your application. If Microsoft detects there some non-SNI client requests made to your application, your domains will stay in the SAN certificate with IP-based TLS/SSL. In any case, there will be no interruption to your service or support to your client requests regardless of whether those requests are SNI or non-SNI.
 

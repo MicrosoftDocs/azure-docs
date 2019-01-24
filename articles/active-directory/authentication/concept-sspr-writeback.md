@@ -10,7 +10,7 @@ ms.date: 01/16/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ---
 # What is password writeback?
