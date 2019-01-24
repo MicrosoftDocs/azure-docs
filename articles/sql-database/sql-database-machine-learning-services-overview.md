@@ -11,11 +11,11 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ---
 # Machine Learning Services (with R) in Azure SQL Database (preview)
 
-Azure SQL Database Machine Learning Services is an add-on to a database engine instance, used for executing R code on a SQL database. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. Code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL.
+Machine Learning Services is an add-on to Azure SQL Database, used for executing in-database R scripts. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. Code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL.
 
 > [!NOTE]
 > Machine Learning Services (with R) in Azure SQL Database is currently in public preview. [Sign up for the preview](#signup) below.
@@ -30,10 +30,12 @@ Machine Learning Services includes a base distribution of R, overlaid with enter
 
 The following R packages from Microsoft are included:
 
-- [**RevoScaleR**](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) is the primary library for scalable R. Functions in this library are among the most widely used. Data transformations and manipulation, statistical summarization, visualization, and many forms of modeling and analyses are found in these libraries. Additionally, functions in these libraries automatically distribute workloads across available cores for parallel processing, with the ability to work on chunks of data that are coordinated and managed by the calculation engine.  
-- [**MicrosoftML (R)**](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) adds machine learning algorithms to create custom models for text analysis, image analysis, and sentiment analysis. 
-- [**sqlRUtils**](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils) provides helper functions for putting R scripts into a T-SQL stored procedure, registering a stored procedure with a database, and running the stored procedure from an R development environment.
-- [**olapR**](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr) is for building or executing an MDX query in R script.|
+| R package | Description|
+|-|-|
+|  [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR is the primary library for scalable R. Functions in this library are among the most widely used. Data transformations and manipulation, statistical summarization, visualization, and many forms of modeling and analyses are found in these libraries. Additionally, functions in these libraries automatically distribute workloads across available cores for parallel processing, with the ability to work on chunks of data that are coordinated and managed by the calculation engine. |
+| [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML adds machine learning algorithms to create custom models for text analysis, image analysis, and sentiment analysis. |
+| [sqlRUtils](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-sqlrutils) | sqlRUtils provides helper functions for putting R scripts into a T-SQL stored procedure, registering a stored procedure with a database, and running the stored procedure from an R development environment.
+| [olapR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-olapr) | olapR is for building or executing an MDX query in R script. |
 
 <a name="signup"></a>
 
@@ -47,11 +49,11 @@ To sign up for the public preview, follow these steps:
 
 Once you are enrolled in the program, Microsoft will onboard you to the public preview and either migrate your existing database or create a new database on an R enabled service.
 
-Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for standalone and elastic pool deployment choices. In this initial public preview, neither the **Hyperscale** service tier nor **Managed Instance** deployment choice are supported.
+Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for standalone and elastic pool deployment choices. In this initial public preview, the **Hyperscale** service tier and **Managed Instance** deployment choice are not supported.
 
 Currently, R is the only supported language. There is no support for Python at this time. The preview is initially available in a limited number of regions in US, Asia Europe, and Australia with additional regions being added later.
 
-You should not use Machine Learning Services with R for production workloads during the public preview.
+Do not use Machine Learning Services with R for production workloads during the public preview.
 
 ## Next steps
 
