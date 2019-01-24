@@ -80,13 +80,15 @@ Cloud Tiering Health
 
 Use the Azure File Sync performance counters on the server to monitor sync activity.
 
-Current performance counters 
-- AFS Bytes Transferred 
-  - Downloaded Bytes/sec
-  - Total Bytes/sec
-  - Uploaded Bytes/sec
-- AFS Sync Operations 
-  - Downloaded Sync Files/sec
-  - Total Sync File Operations/sec
-  - Uploaded Sync Files/sec
+To view Azure File Sync performance counters on the server, launch Peformance Monitor (Perfmon.exe) and the counters can be found under the AFS Bytes Transferred and AFS Sync Operations objects.
 
+The following performance counters for Azure File Sync are available in Performance Monitor:
+
+| Performance Object\Counter Name | Description |
+|-|-|
+| AFS Bytes Transferred\Downloaded Bytes/sec | Number of bytes downloaded per second. |
+| AFS Bytes Transferred\Uploaded Bytes/sec | Number of bytes uploaded per second. |
+| AFS Bytes Transferred\Total Bytes/sec | Total bytes per second (upload and download). |
+| AFS Sync Operations\Downloaded Sync Files/sec | Number of files downloaded per second. |
+| AFS Sync Operations\Uploaded Sync Files/sec | Number of files uploaded per second. |
+| AFS Sync Operations\Total Sync File Operations/sec | Total number of files synced (upload and download). |
