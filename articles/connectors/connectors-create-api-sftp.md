@@ -29,10 +29,12 @@ any reliable data stream. Here are some example tasks you can automate:
 
 Compared to the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md), 
 the SFTP connector can read or write files up to 50 MB in size unless you use 
-[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+[message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md). 
+Currently, you can't use chunking for triggers. 
+
 For files up to 1 GB in size, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
 For files larger than 1 GB, you can use the SFTP-SSH connector plus 
-[chunking for large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
 
 You can use triggers that monitor events on your SFTP server 
 and make output available to other actions. You can use 
