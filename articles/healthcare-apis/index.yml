@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure for Healthcare Documentation
+title: Azure API for FHIR Documentation
 metadata:
-  title: Azure for Healthcare Documentation
-  meta.description: Learn how Azure  can power healthcare iteroperability in Azure.
+  title: Azure API for FHIR Documentation
+  meta.description: Learn how Azure API for FHIR can power healthcare iteroperability in Azure.
   services: healthcare-apis
   author: hansenms
   manager: dougseven
@@ -12,20 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/07/2019
 abstract:
-  description: Learn how Azure can power healthcare iteroperability in Azure.
+  description: The Azure API for FHIR&reg; is a multi-tenant, globally scalable implementation of a Fast Healthcare Interoperable Resources (FHIR) server as an Azure Platform as a Service (PaaS) offering. The API for FHIR enables organizations to take advantage of a fully managed implementation of the FHIR specification and data management to support secure handling of Protected Health Information (PHI). 
 sections:
-- title: Azure API for FHIR
-  items:
-    - type: paragraph
-    - text: The Azure API for FHIR&reg; is a multi-tenant, globally scalable implementation of a Fast Healthcare Interoperable Resources (FHIR) server as an Azure platform as a service (PaaS) offering. The API for FHIR enables organizations to take advantage of a fully managed implementation of the FHIR specification and data management to support secure handling of Protected Health Information (PHI).
-- title: FHIR Server for Azure
-  items:  
-    - type: paragraph
-    - text: FHIR Server for Azure is an open-source implementation of the emerging [HL7 Fast Healthcare Interoperability Resources (FHIR) specification](https://www.hl7.org/fhir/) designed for the Microsoft cloud.
 - title: 5-Minute Quickstarts
   items:
     - type: paragraph
-      text: Learn how Azure Healthcare can power healthcare iteroperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
+      text: Learn how Azure API for FHIR can power healthcare iteroperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
     - type: table
       style: dataMatrix
       columns:
