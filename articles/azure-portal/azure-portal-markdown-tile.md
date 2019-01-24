@@ -31,9 +31,9 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
 
 ## Markdown content capabilities and limitations
 
-You can use any combination of plain text, Markdown syntax, and HTML content on the markdown tile. The Azure portal uses an open-source library called _marked_ to transform your content into HTML that is shown on the tile. To retain the security and layout integrity of the portal, the HTML produced by _marked_ is pre-processed by the portal before it's rendered. During that pre-processing, any part of the HTML that poses a potential threat is removed. The following types of content aren't allowed by the portal:
+You can use any combination of plain text, Markdown syntax, and HTML content on the markdown tile. The Azure portal uses an open-source library called _marked_ to transform your content into HTML that is shown on the tile. To make sure your customization won't affect the security or layout of the portal, the HTML produced by _marked_ is pre-processed by the portal before it's rendered. During that pre-processing, any part of the HTML that poses a potential threat is removed. The following types of content aren't allowed by the portal:
 
 * JavaScript – `<script>` tags and inline JavaScript evaluations will be removed.
 * iframes - `<iframe>` tags will be removed.
-* Style - `<style>` tags will be removed. Inline style attributes on HTML elements aren't officially supported. You may find that some inline style elements work, but they could stop working at any time if they interfere with the layout of the portal. The Markdown tile is intended for basic, static content that uses the default styles of the portal.
+* Style - `<style>` tags will be removed. Inline style attributes on HTML elements aren't officially supported. You may find that some inline style elements work for you, but if they interfere with the layout of the portal, they could stop working at any time. The Markdown tile is intended for basic, static content that uses the default styles of the portal.
 
