@@ -17,19 +17,19 @@ This article walks you through the steps to install the Ansible solution templat
 
 - **Ansible plugin for Azure** - The Ansible plugin for Azure includes a suite of modules that enable you to create and manage your infrastructure on Azure. The latest version is installed by default. However, you can specify a version number that is appropriate for your environment.
 - **Azure Command-Line Interface (CLI) 2.0** - The [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) is a cross-platform command-line experience for managing Azure resources. 
-- **managed identities for Azure resources** - The [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) feature addresses the issue of keeping cloud application credentials secure so that you they never appear on developer workstations and are never checked into source control.
+- **managed identities for Azure resources** - The [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) feature addresses the issue of keeping cloud application credentials secure so that they never appear on developer workstations and are never checked into source control.
 - **apt-transport-https transport** - The apt-transport-https is an APT transport that enables the use of repositories accessed via the HTTP Secure protocol (HTTPS).
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-## Install the Ansiblie solution template from the Azure Marketplace
+## Install the Ansible solution template from the Azure Marketplace
 
-1. Browse to the [Ansilbe solution template in the Azure Marketplace(https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
+1. Browse to the Ansible solution template in the Azure Marketplace(https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
 1. Select **GET IT NOW**.
 
-1. A window appears detailing the Terms of Use, Privacy Policy, and Use of Azure Marketplace Terms. Select **Continue**.
+1. A window appears that details the Terms of Use, Privacy Policy, and Use of Azure Marketplace Terms. Select **Continue**.
 
 1. The Azure portal appears displaying the Ansible page that describes the solution template. Select **Create**.
 
@@ -42,9 +42,9 @@ This article walks you through the steps to install the Ansible solution templat
     - **SSH public key** - If, for **Authentication type**, you select **SSH public key**, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
     - **Subscription** - Select the desired Azure subscription from the dropdown list.
     - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group.
-    - **Location** - Select the location from the dropdown list that is appropriate for you scenario.
+    - **Location** - Select the location from the dropdown list that is appropriate for your scenario.
 
-    
+
 
 
 
