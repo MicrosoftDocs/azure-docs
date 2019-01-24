@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/24/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
