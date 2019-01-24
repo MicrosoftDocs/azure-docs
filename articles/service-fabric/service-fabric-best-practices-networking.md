@@ -18,12 +18,12 @@ ms.author: pepogors
 
 # Networking
 
-As you create and manage Azure Service Fabric clusters, you are providing network connectivity for your nodes and applications. The networking resources include IP address ranges, virtual networks, load balancers and network security groups. In this article, you will learn best practices for these resources.
+As you create and manage Azure Service Fabric clusters, you are providing network connectivity for your nodes and applications. The networking resources include IP address ranges, virtual networks, load balancers, and network security groups. In this article, you will learn best practices for these resources.
 
 Review Azure [Service Fabric Networking Patterns](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) to learn how to create clusters that use the following features: Existing virtual network or subnet, Static public IP address, Internal-only load balancer, or Internal and external load balancer.
 
 ## Infrastructure Networking
-Maximize your Virtual Machine’s performance with Accelerated Networking, by declaring enableAcceleratedNetworking property in your Resource Manager template, the following is a snippet of a Virtual Machine Scale Set NetworkInterfaceConfigurations that enables Accelerated Networking:
+Maximize your Virtual Machine’s performance with Accelerated Networking, by declaring enableAcceleratedNetworking property in your Resource Manager template, the following snippet is of a Virtual Machine Scale Set NetworkInterfaceConfigurations that enables Accelerated Networking:
 
 ```json
 "networkInterfaceConfigurations": [
@@ -45,11 +45,11 @@ Service Fabric cluster can be provisioned on [Linux with Accelerated Networking]
 
 Accelerated Networking is supported for Azure Virtual Machine Series SKU's: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 1/23/2019.
 
-To enable Accelerated Networking on an exisiting Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), to perform the following:
+To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), to perform the following:
 1. Provision a NodeType with Accelerated Networking enabled
 2. Migrate your services and their state to the provisioned NodeType with Accelerated Networking enabled
 
-Scaling out infrastructure is required to enable Accelerated Networking on an exisiting cluster, because enabling Accelerated Networking inplace would cause downtime, as it requires all virtual machines in an availability set be [stop/deallocate before enabling Accelerated networking on any exisiting NIC](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Scaling out infrastructure is required to enable Accelerated Networking on an existing cluster, because enabling Accelerated Networking in place would cause downtime, as it requires all virtual machines in an availability set be [stop/deallocate before enabling Accelerated networking on any existing NIC](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
 ## Cluster Networking
 
@@ -58,7 +58,7 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 * Network security groups (NSGs) are recommended for node types that restrict inbound and outbound traffic to their cluster. Ensure that the necessary ports are opened in the NSG. For example: 
 ![Service Fabric NSG Rules][NSGSetup]
 
-* The primary nodetype which contains the Service Fabric system services does not need to be exposed via the external load balancer and can be exposed by an [internal load balancer](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
+* The primary node type which contains the Service Fabric system services does not need to be exposed via the external load balancer and can be exposed by an [internal load balancer](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 
 * Use a [static public IP address](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#static-public-ip-address-1) for your cluster.
 
