@@ -13,19 +13,20 @@ manager: carmonm
 
 # Az module support in Azure Automation
 
-Azure automation supports the ability to use the [Azure Powershell Az module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your runbooks. There are many things to take into consideration when using the Az module. This article discusses these things.
+Azure automation supports the ability to use the [Azure Powershell Az module](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your runbooks. The Az module is not imported automatically in any new or existing Automation Accounts. This article discusses how to use Az modules with Azure Automation.
 
 ## Considerations
 
-Runbooks and modules can be used by higher-level solutions in your Automation Account. Editing runbooks or upgrading modules can potentially cause issues with your runbooks. You should test all runbooks and solutions carefully in a separate Automation Account before importing the new `Az` modules. Any modifications to modules can negatively affect higher-level solutions. It's recommended to not alter modules and runbooks in Automation Accounts that contain any solutions. This behavior isn't specific to the Az modules. This behavior should be taken into consideration when introducing any changes to your Automation Account.
+There are many things to take into consideration when using the Az module in Azure Automation. Runbooks and modules can be used by higher-level solutions in your Automation Account. Editing runbooks or upgrading modules can potentially cause issues with your runbooks. You should test all runbooks and solutions carefully in a separate Automation Account before importing the new `Az` modules. Any modifications to modules can negatively affect higher-level solutions. It's recommended to not alter modules and runbooks in Automation Accounts that contain any solutions. This behavior isn't specific to the Az modules. This behavior should be taken into consideration when introducing any changes to your Automation Account.
 
-Importing an `Az` module in your Automation Account doesn't automatically import the module in the PSSession that the runbooks use. Modules are imported in a runbook in the following situations:
+Importing an `Az` module in your Automation Account doesn't automatically import the module in the PowerShell session that the runbooks use. Modules are imported in a runbook in the following situations:
 
 * When a cmdlet from a module is invoked from a runbook
 * When a runbook imports it explicitly with the `Import-Module` cmdlet
-* When another module depending on the module is imported into a PSSession
+* When another module depending on the module is imported into a PowerShell session
 
-> [!IMPORTANT] It is important to make sure that runbooks an Automation Account either only import `Az` or `AzureRM` modules into the PSSessions used by runbooks and not both. If you use both in a runbook, the runbook will complete, but an [error referencing the get_SerializationSettings method](/troubleshoot/runbooks.md#get-serializationsettings) will show in the job streams and cmdlets may have not been properly executed.
+> [!IMPORTANT]
+> It is important to make sure that runbooks an Automation Account either only import `Az` or `AzureRM` modules into the PowerShell sessions used by runbooks and not both. If you use both in a runbook, the runbook will complete, but an [error referencing the get_SerializationSettings method](/troubleshoot/runbooks.md#get-serializationsettings) will show in the job streams and cmdlets may have not been properly executed.
 
 ## Migrating to Az modules
 
@@ -43,7 +44,7 @@ It's important to review each schedule separately to ensure you can reschedule i
 
 ### Import the Az modules
 
-Only import the Az modules that are required for your runbooks. Don't import the `Az` module, as it includes all of the `Az.*` modules to be imported.
+Only import the Az modules that are required for your runbooks. Don't import the rollup `Az` module, as it includes all of the `Az.*` modules to be imported. This guidance is the same for all modules.
 
 The [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) module is a dependency for the other `Az.*` modules. For this reason, this module needs to be imported into your Automation Account before you import any other modules.
 
@@ -57,13 +58,13 @@ This import process can also be done through the [PowerShell Gallery](https://ww
 
 ## Test your runbooks
 
-Once the `Az` modules are imported in your Automation Account, you can now start editing your runbooks to use the Az module instead. The majority of the cmdlets have the same name except for `AzureRM` has been changed to `Az`.
+Once the `Az` modules are imported in your Automation Account, you can now start editing your runbooks to use the Az module instead. The majority of the cmdlets have the same name except for `AzureRM` has been changed to `Az`. For a list of modules that do not follow this process, see [list of exceptions](/powershell/azure/migrate-from-azurerm-to-az?view=azps-1.1.0#change-module-imports-and-cmdlet-names).
 
-[list of exceptions](/powershell/azure/migrate-from-azurerm-to-az?view=azps-1.1.0#change-module-imports-and-cmdlet-names)
+One way to test your runbooks before modifying your runbook to use the new cmdlets is by using `Enable-AzureRMAlias -Scope Process` at the beginning of a runbook. By adding this to your runbook, your runbook can run without changes.
 
 ## After migration details
 
-After the migration is complete, don’t start runbooks using `AzureRM` modules on the account any longer. It's also recommended don’t import or update `AzureRM` modules on this account. Starting from this moment, consider this account migrated to `Az`, and operate with `Az` modules only. When a new Automation Account is created the existing `AzureRM` modules will still be installed and the tutorial runbooks will still be authored with `AzureRM` cmdlets.
+After the migration is complete, don’t start runbooks using `AzureRM` modules on the account any longer. It's also recommended don’t import or update `AzureRM` modules on this account. Starting from this moment, consider this account migrated to `Az`, and operate with `Az` modules only. When a new Automation Account is created the existing `AzureRM` modules will still be installed and the tutorial runbooks will still be authored with `AzureRM` cmdlets. These runbooks should not be ran.
 
 ## Next steps
 
