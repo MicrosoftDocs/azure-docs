@@ -43,8 +43,8 @@ cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManag
     var sessionData = memoryManager.SessionInfo();
 
     // sessionData.sessionId is the ID of this logged dialog.
-    // In your bot-specific datastore, store an association
-    // bewteen your user identifier and this session ID.
+    // In your bot-specific data store, store an association
+    // between your user identifier and this session ID.
     console.log(sessionData.logDialogId)
 
     // sessionData.userId and sessionData.userName are the 
