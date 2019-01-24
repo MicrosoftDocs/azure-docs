@@ -3,7 +3,7 @@ title: How to assign a managed identity access to an Azure resource using the Az
 description: Step-by-step instructions for assigning a managed identity on one resource access to another resource, by using the Azure portal.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # Assign a managed identity access to a resource by using the Azure portal

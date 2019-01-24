@@ -3,7 +3,7 @@ title: Tutorial - Enable single-page app authentication with accounts using Azur
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for a single page application (JavaScript).
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.author: davidmu
 ms.date: 11/30/2018
