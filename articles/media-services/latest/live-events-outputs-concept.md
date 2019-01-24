@@ -68,11 +68,15 @@ When creating a Live Event, you can specify the following:
 
 * The streaming protocol for the Live Event (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You cannot change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, you should create separate Live Event for each streaming protocol.  
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
-* When creating the event, you can specify to auto start it. <br/>When autostart is set to true, the Live Event will be started after creation. That means, the billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. Alternatively, you can start the event when you are ready to start streaming. For more information, see [Live Event states and billing](live-event-states-billing.md).
+* When creating the event, you can specify to auto start it. <br/>When autostart is set to true, the Live Event will be started after creation. That means, the billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. Alternatively, you can start the event when you are ready to start streaming. 
+
+    For more information, see [Live Event states and billing](live-event-states-billing.md).
 
 ## Live Event ingest URLs
 
-Once the Live Event is created, you can get ingest URLs that you will provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. You can either use non-vanity URLs or vanity URLs. 
+Once the Live Event is created, you can get ingest URLs that you will provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. For more information, see [Recommended on-premises live encoders](recommended-on-premises-live-encoders.md). 
+
+You can either use non-vanity URLs or vanity URLs. 
 
 * Non-vanity URL
 
@@ -126,28 +130,20 @@ Once the **Live Event** starts receiving the contribution feed, you can use its 
 
 ## Live Outputs
 
-Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an [Asset](https://docs.microsoft.com/rest/api/media/assets), [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs), and [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators). Live Output will archive the stream and make it available to viewers through the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).  **Live Outputs** start on creation and stop when deleted. 
+Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an [Asset](https://docs.microsoft.com/rest/api/media/assets), [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs), and [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators). Live Output will archive the stream and make it available to viewers through the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
 
 > [!NOTE]
-> When you delete the **Live Output**, you are not deleting the underlying **Asset** and content in the asset. 
+> Live Outputs start on creation and stop when deleted. When you delete the Live Output, you are not deleting the underlying Asset and content in the asset. 
 
-The relationship between a **Live Event** and its **Live Outputs** is similar to traditional television broadcast, whereby a channel (**Live Event**) represents a constant stream of video and a recording (**Live Output**) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). You can record television using a Digital Video Recorder (DVR) – the equivalent feature in Live Events is managed via the ArchiveWindowLength property. It is an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
+The relationship between a **Live Event** and its **Live Outputs** is similar to traditional television broadcast, whereby a channel (**Live Event**) represents a constant stream of video and a recording (**Live Output**) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). You can record television using a Digital Video Recorder (DVR) – the equivalent feature in Live Events is managed via the **ArchiveWindowLength** property. It is an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
 
-The **Live Output** object is like a tape recorder that will catch and record the live stream into an Asset in your Media Services account. The recorded content will be persisted into the Azure Storage account attached to your account, into the container defined by the Asset resource.  The **Live Output** also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream.. The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the **archiveWindowLength** property of the **Live Output**. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. You can create multiple **Live Outputs** (up to three maximum) on a **Live Event** with different archive lengths and settings.  
+The **Live Output** object is like a tape recorder that will catch and record the live stream into an Asset in your Media Services account. The recorded content will be persisted into the Azure Storage account attached to your account, into the container defined by the Asset resource.  The **Live Output** also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the **archiveWindowLength** property of the **Live Output**. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. You can create multiple **Live Outputs** (up to three maximum) on a **Live Event** with different archive lengths and settings.  
 
-If you have published the **Live Output** asset using a **Streaming Locator**, the **Live Event** (up to the DVR window length) will continue to be viewable until the **Streaming Locator**'s expiry or deletion, whichever comes first.
+If you have published the **Live Output**'s **Asset** using a **Streaming Locator**, the **Live Event** (up to the DVR window length) will continue to be viewable until the Streaming Locator's expiry or deletion, whichever comes first.
 
-## Other important topics
-
-The following topics give detailed information about Live Events:
-
-- [Streaming live events](live-streaming-overview.md)
-- [Recommended live encoders](recommended-on-premises-live-encoders.md)
-- [Using a cloud DVR](live-event-cloud-dvr.md)
-- [Live Event types feature comparison](live-event-types-comparison.md)
-- [States and billing](live-event-states-billing.md)
-- [Latency](live-event-latency.md)
+For more information, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
 ## Next steps
 
-[Live streaming tutorial](stream-live-tutorial-with-api.md)
+- [Streaming live events](live-streaming-overview.md)
+- [Live streaming tutorial](stream-live-tutorial-with-api.md)
