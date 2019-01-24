@@ -14,6 +14,8 @@ ms.author: sujayt
 
 This article describes the common issues in Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region and explains how to troubleshoot them. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
 
+## List of Errors
+**[Azure resource quota issues (error code 150097)](#azure-to-azure-troubleshoot-errors#trusted-root-certificates-error-code-151066)** 
 ## Azure resource quota issues (error code 150097)
 Your subscription should be enabled to create Azure VMs in the target region that you plan to use as your disaster recovery region. Also, your subscription should have sufficient quota enabled to create VMs of specific size. By default, Site Recovery picks the same size for the target VM as the source VM. If the matching size isn't available, the closest possible size is picked automatically. If there's no matching size that supports source VM configuration, this error message appears:
 
@@ -317,7 +319,10 @@ blkid /dev/sda1
 
 1. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
 *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+1. Restart the protection again
 
+
+## Site recovery mobility service update completed with warnings ( error code 151083)
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
