@@ -32,7 +32,7 @@ Alerts with Dynamic Thresholds can be configured through Metric Alerts in Azure 
 
 ## How are the thresholds calculated?
 
-Dynamic Threshold continuously learns the data of the metric series and tries to model it using a set of algorithms and methods., and tries to model it using a set of algorithms and methods. It detects patterns in the data such as seasonality (Hourly / Daily / Weekly), and is able to handle noisy metrics (such as machine CPU or memory) as well as metrics with low dispersion (such as availability and error rate).
+Dynamic Thresholds continuously learns the data of the metric series and tries to model it using a set of algorithms and methods. It detects patterns in the data such as seasonality (Hourly / Daily / Weekly), and is able to handle noisy metrics (such as machine CPU or memory) as well as metrics with low dispersion (such as availability and error rate).
 
 The thresholds are selected in such a way that a deviation from these thresholds indicates an anomaly in the metric behavior.
 
