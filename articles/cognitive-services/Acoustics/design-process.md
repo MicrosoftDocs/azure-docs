@@ -60,16 +60,22 @@ The audio DSP provided by the **Microsoft Acoustics** Unity spatializer plugin r
 Acoustics performs computation in a "simulation region" box centered around the player location. If a sound source is distant from the player, located outside this simulation region, only geometry within the box will affect the sound propagation (such as causing occlusion) which works reasonably well when occluders are in the vicinity of the player. However, in cases when the player is in open space but the occluders are near the distant sound source, the sound can become unrealistically disoccluded. Our suggested workaround is to ensure in such cases that the sound attenuation falls off to 0 at about 45m, the default horizontal distance of the player to the edge of the box.
 
 ### Tuning scene parameters
-To adjust parameters for all sources, click on the channel strip in Unity's **Audio Mixer**, and adjust the parameters on the **Acoustics Mixer** effect.
+To adjust parameters for all sources, click on the channel strip in Unity's **Audio Mixer**, and adjust the parameters on the **Project Acoustics Mixer** effect.
 
 ![Mixer Customization](media/MixerParameters.png)
+
+* **Wetness Adjust** - Adjusts the reverb power, in dB, across all sources in the scene based on source-listener distance. Positive values make a sound more reverberant, while negative values make a sound more dry.
+* **RT60 Scale** - Multiplicative scalar for reverb time.
+* **Use Panning** - Controls whether audio is output as binaural (0) or multichannel panning (1). Any value besides 1 indicates binaural. Binaural output is spatialized with HRTFs for use with headphones and multichannel output is spatialized with VBAP for use with multichannel surround speaker systems. If using the multichannel panner, be sure to select the speaker mode that matches your device settings, found under **Project Settings** > **Audio**.
+
+![SpeakerMode](media/SpeakerMode.png)
 
 ### Tuning source parameters
 Attaching the **AcousticsAdjust** script to a source enables tuning parameters for that source. To attach the script, click **Add Component** on the bottom of the **Inspector** panel and navigate to **Scripts > Acoustics Adjust**. The script has six controls:
 
 ![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Enable Acoustics** - Controls whether acoustics is applied to this source. When unchecked, the source will be spatialized with HRTFs, but without acoustics, meaning without obstruction, occlusion, and dynamic reverberation parameters such as level and decay time. Reverberation is still applied with a fixed level and decay time.
+* **Enable Acoustics** - Controls whether acoustics is applied to this source. When unchecked, the source will be spatialized with HRTFs or panning, but without acoustics, meaning without obstruction, occlusion, and dynamic reverberation parameters such as level and decay time. Reverberation is still applied with a fixed level and decay time.
 * **Occlusion** - Apply a multiplier to the occlusion dB level computed by the acoustics system. If this multiplier is greater than 1, occlusion will be exaggerated, while values less than 1 make the occlusion effect more subtle, and a value of 0 disables occlusion.
 * **Transmission (dB)** - Set the attenuation (in dB) caused by transmission through geometry. Set this slider to its lowest level to disable transmission. Acoustics spatializes the initial dry audio as arriving around scene geometry (portaling). Transmission provides an additional dry arrival that is spatialized in the line-of-sight direction. Note that the distance attenuation curve for the source is also applied.
 * **Wetness (dB)** - Adjusts the reverb power, in dB, according to distance from source. Positive values make a sound more reverberant, while negative values make a sound more dry. Click on the curve control (green line) to bring up the curve editor. Modify the curve by left-clicking to add points and dragging those points to form the function you want. The x-axis is distance from source and the y-axis is reverb adjustment in dB. See this [Unity Manual](https://docs.unity3d.com/Manual/EditingCurves.html) for more details on editing curves. To reset the curve back to default, right click on **Wetness** and select **Reset**.
