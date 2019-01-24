@@ -7,20 +7,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Copy data to Azure Data Box via NFS 
+# Tutorial: Copy data to Azure Data Box via NFS
 
-This tutorial describes how to connect to and copy data from your host computer using the local web UI, and then prepare to ship Data Box.
+This tutorial describes how to connect to and copy data from your host computer using the local web UI.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Connect to Data Box
 > * Copy data to Data Box
-> * Prepare to ship Data Box.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
-    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *$root* folder in the storage account.
+    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 
 ## Copy data to Data Box
 
@@ -78,7 +78,7 @@ Once you are connected to the Data Box shares, the next step is to copy data. Be
 -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 - We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
-- **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *$root* folder in the storage account.
+- **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 
 If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -122,18 +122,16 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
     
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-## Prepare to ship
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Connect to Data Box
 > * Copy data to Data Box
-> * Prepare to ship Data Box
+
 
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 
