@@ -42,7 +42,7 @@ A [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one 
 
 When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 protocol). The Live Event then carries through the incoming video streams without any further processing. Such a pass-through LiveEvent is optimized for long-running live events or 24x365 linear live streaming. When creating this type of Live Event, specify None (LiveEventEncodingType.None).
 
-You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec.  See the [Live Event types comparison and limitations](live-event-types-comparison.md) article for more details.
+You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec.  See the [Live Event types comparison](live-event-types-comparison.md) article for more details.
 
 > [!NOTE]
 > Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
@@ -56,11 +56,7 @@ See a live example in [MediaV3LiveApp](https://github.com/Azure-Samples/media-se
 
 When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the Live Event (using RTMP or Fragmented-Mp4 protocol). The Live Event encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to play back devices via protocols like MPEG-DASH, HLS, and Smooth Streaming. When creating this type of Live Event, specify the encoding type as **Standard** (LiveEventEncodingType.Standard).
 
-You can send the contribution feed at up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. See the [Live Event types comparison and limitations](live-event-types-comparison.md) article for more details.
-
-## Live Event types comparison
-
-The following article contains a table that compares features of the two Live Event types: [Comparison](live-event-types-comparison.md).
+You can send the contribution feed at up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. See the [Live Event types comparison](live-event-types-comparison.md) article for more details.
 
 ## Live Event creation options
 
