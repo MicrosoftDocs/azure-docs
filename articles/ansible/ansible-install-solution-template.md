@@ -33,7 +33,7 @@ This article walks you through the steps to install the Ansible solution templat
 
 1. The Azure portal appears and displays the Ansible page that describes the solution template. Select **Create**.
 
-    ![Azure portal page for Ansible solution template creation and configuration](../media/ansible-install-solution-template/portal-create-page.png)
+    ![Azure portal page for Ansible solution template creation and configuration](./media/ansible-install-solution-template/portal-create-page.png)
 
 1. In the **Create Ansible** page, you see several tabs. On the **Basics** tab, enter the required information:
 
@@ -46,5 +46,5 @@ This article walks you through the steps to install the Ansible solution templat
     - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group. For demo purposes, a new resource group named `ansiblerg` is used.
     - **Location** - Select the location from the dropdown list that is appropriate for your scenario.
 
-    ![Azure portal page for Ansible solution template creation and configuration](../media/ansible-install-solution-template/portal-tab-1-basics.png)
+    ![Azure portal page for Ansible solution template creation and configuration](./media/ansible-install-solution-template/portal-tab-1-basics.png)
 
