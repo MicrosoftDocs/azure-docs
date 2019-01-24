@@ -418,9 +418,9 @@ Note the following points:
 * Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from Parquet file in any of these compressed formats except LZO - it uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
 
 > [!IMPORTANT]
-> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See below paragraph with more details.
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
 
-For copy running on Self-hosted IR, ADF locates the java runtime by firstly checking the registry *"`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`"* for JRE, if not found, secondly checking system variable *"`JAVA_HOME`"* for OpenJDK. 
+For copy running on Self-hosted IR with Parquet file serialization/deserialization, ADF locates the java runtime by firstly checking the registry *"`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`"* for JRE, if not found, secondly checking system variable *"`JAVA_HOME`"* for OpenJDK. 
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
@@ -468,9 +468,9 @@ Note the following points:
 * ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
 
 > [!IMPORTANT]
-> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See below paragraph with more details.
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
 
-For copy running on Self-hosted IR, ADF locates the java runtime by firstly checking the registry *"`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`"* for JRE, if not found, secondly checking system variable *"`JAVA_HOME`"* for OpenJDK. 
+For copy running on Self-hosted IR with ORC file serialization/deserialization, ADF locates the java runtime by firstly checking the registry *"`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`"* for JRE, if not found, secondly checking system variable *"`JAVA_HOME`"* for OpenJDK. 
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
