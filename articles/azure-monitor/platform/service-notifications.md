@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: logs
+ms.subservice: logs
 ---
 # View service health notifications by using the Azure portal
 
@@ -89,3 +89,4 @@ Properties.communicationId | The communication with which this event is associat
 ## Next steps
 Receive [alert notifications whenever a service health notification](../../azure-monitor/platform/alerts-activity-log-service-notifications.md) is posted.  
 Learn more about [activity log alerts](../../azure-monitor/platform/activity-log-alerts.md).
+

@@ -3,8 +3,9 @@ title: How to use Azure Service Bus queues with Java | Microsoft Docs
 description: Learn how to use Service Bus queues in Azure. Code samples written in Java.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.assetid: f701439c-553e-402c-94a7-64400f997d59
 ms.service: service-bus-messaging
@@ -13,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/13/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # How to use Service Bus queues with Java

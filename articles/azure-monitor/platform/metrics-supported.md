@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -1567,3 +1567,4 @@ Azure Monitor provides several ways to interact with metrics, including charting
 * [Read about metrics in Azure Monitor](../../azure-monitor/platform/data-collection.md)
 * [Create alerts on metrics](../../azure-monitor/platform/alerts-overview.md)
 * [Export metrics to storage, Event Hub, or Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+

@@ -49,7 +49,7 @@ The TTL value must be an int32. Alternatively, an int64 that fits in an int32, o
 
 The TTL value for the document is optional; documents without a TTL value can be inserted into the collection.  In this case, the collection's TTL value will be honored. 
 
-The following documents have valid TTL values. Once the documents are insterted, the document TTL values override the collection's TTL values. So, the documents will be removed after 20 seconds. 	
+The following documents have valid TTL values. Once the documents are inserted, the document TTL values override the collection's TTL values. So, the documents will be removed after 20 seconds. 	
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 

@@ -10,7 +10,7 @@ ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I utilize Azure AD Identity Protection to better protect the sign-in process.

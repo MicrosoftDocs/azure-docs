@@ -29,7 +29,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Azure PowerShell. For more information, see the [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) document.
+* Azure PowerShell. For more information, see the [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) document.
 
 * An SSH client. The steps in this document use SSH to connect to the cluster.
 

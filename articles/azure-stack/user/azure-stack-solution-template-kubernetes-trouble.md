@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot your deployment to Kubernetes to Azure Stack | Microsoft Docs
-description: Learn how to troubleshoot your deployment to Kubernetes to Azure Stack.
+title: Troubleshoot your Kubernetes deployment to Azure Stackk | Microsoft Docs
+description: Learn how to troubleshoot your Kubernetes deployment to Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 
 ---
 
-# Troubleshoot your deployment to Kubernetes to Azure Stack
+# Troubleshoot your Kubernetes deployment to Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -44,7 +44,7 @@ The following diagram shows the general process for deploying the cluster.
     Enter the values you need to set up the Kubernetes cluster, including:
     -  **User name**: The user name for the Linux virtual machines that are part of the Kubernetes cluster and DVM.
     -  **SSH public key**: The key that's used for the authorization of all Linux machines that were created as part of the Kubernetes cluster and DVM.
-    -  **Service principle**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you created your service principal. 
+    -  **Service principal**: The ID that's used by the Kubernetes Azure cloud provider. The client ID identified as the application ID when you created your service principal. 
     -  **Client secret**: They key you created when you created your service principal.
 
 2. Create the deployment VM and custom script extension.

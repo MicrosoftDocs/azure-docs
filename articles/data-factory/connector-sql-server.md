@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
 
 ---
@@ -33,6 +33,8 @@ Specifically, this SQL Server connector supports:
 - Copying data using **SQL** or **Windows** authentication.
 - As source, retrieving data using SQL query or stored procedure.
 - As sink, appending data to destination table or invoking a stored procedure with custom logic during copy.
+
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now.
 
 ## Prerequisites
 
@@ -503,7 +505,7 @@ When copying data from/to SQL Server, the following mappings are used from SQL S
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object * |
+| sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
@@ -512,6 +514,9 @@ When copying data from/to SQL Server, the following mappings are used from SQL S
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
+
+>[!NOTE]
+> For data types maps to Decimal interim type, currently ADF support precision up to 28. If you have data with precision larger than 28, consider to convert to string in SQL query.
 
 ## Troubleshooting connection issues
 

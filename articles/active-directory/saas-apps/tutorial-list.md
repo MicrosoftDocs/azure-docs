@@ -4,7 +4,7 @@ description: Configure Azure Active Directory single sign-on integration with a 
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 08c0c52b-76d9-4250-936a-6bec0edb8816
 ms.service: active-directory

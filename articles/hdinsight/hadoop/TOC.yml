@@ -35,8 +35,8 @@
   - name: Availability and reliability
     href: ../hdinsight-high-availability-linux.md
     maintainContext: true
-  - name: Data Lake Storage Gen2
-    href: ../hdinsight-hadoop-data-lake-storage-gen2.md
+  - name: Compare storage options
+    href: ../hdinsight-hadoop-compare-storage-options.md
     maintainContext: true
 - name: How to
   items:
@@ -49,6 +49,9 @@
       maintainContext: true
     - name: Using Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
+      maintainContext: true
+    - name: Using Azure Data Lake Store Gen2
+      href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
       maintainContext: true
   - name: Use Apache Hadoop for batch queries
     items:
@@ -322,6 +325,8 @@
       - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+    - name: Autoscale HDInsight clusters
+      href: ../hdinsight-autoscale-clusters.md
     - name: Scale an HDInsight cluster
       href: ../hdinsight-scaling-best-practices.md
       maintainContext: true

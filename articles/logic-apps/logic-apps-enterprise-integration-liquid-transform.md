@@ -37,6 +37,8 @@ Or, [sign up for a Pay-As-You-Go subscription](https://azure.microsoft.com/prici
 
 * A basic [Integration Account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
+* Basic knowledge about [Liquid template language.](https://shopify.github.io/liquid/)
+
 ## Create Liquid template or map for your integration account
 
 1. For this example, create the sample Liquid template described in this step.
