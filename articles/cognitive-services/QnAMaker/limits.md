@@ -22,7 +22,9 @@ Comprehensive list of limits across QnA Maker.
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum number of published knowledge bases allowed (Max indexes -- 1 (reserved for test)|2|14|49|199|199|2,999|
+|Maximum number of published knowledge bases allowed (Max indexes -- 1 (reserved for `testkb`)|2|14|49|199|199|2,999|
+
+ For example, if your tier has 15 allowed indexes, you can publish 14 knowledge bases (1 index per published knowledge base). The fifteenth index, `testkb`, is used for all the knowledge bases for authoring and testing. 
 
 ## Extraction Limits
 * Maximum number of files that can be extracted and maximum file size: See [QnAMaker pricing](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
