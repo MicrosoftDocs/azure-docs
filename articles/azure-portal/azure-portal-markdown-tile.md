@@ -5,7 +5,7 @@ services: azure-portal
 keywords: 
 author: kfollis
 ms.author: kfollis
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.topic: conceptual
 
 ms.service: azure-portal
