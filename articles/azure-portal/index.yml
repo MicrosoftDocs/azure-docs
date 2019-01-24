@@ -39,7 +39,7 @@ sections:
           title: Keyboard shortcuts
         - href: /azure/azure-portal/azure-portal-dashboards
           html: <p>Create multiple dashboards and share them with others who have access to your Azure subscriptions.</p>
-          title: Create and share Azure dashboard
+          title: Create and share Azure dashboards
         - href: /azure/azure-portal/azure-portal-dashboard-share-access
           html: <p>Publish and share a dashboard with other users in your organization.</p>
           title: Share dashboards by using RBAC
