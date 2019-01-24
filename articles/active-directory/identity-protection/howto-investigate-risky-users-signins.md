@@ -14,8 +14,6 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
-ms.author: markvi
 ms.reviewer: raluthra
 
 ---
@@ -24,17 +22,6 @@ ms.reviewer: raluthra
 
 
 Using the Risky Sign-Ins and Risky Users reports you can investigate and gain insight into risk in your environment. With the ability to filter and sort the risky sign-ins and users, you can better understand potential intrusion in your organization. 
-
-
-## What is an investigation?
-
-
-Blocked user calls helpdesk
-
-Are there recommendations for performing regular checkpoints?
-
-
-## How does an investigation work?
 
 
 ## Risky users report
