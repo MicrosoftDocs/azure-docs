@@ -17,7 +17,7 @@ ms.author: douglasl
 # Compute environments supported by Azure Data Factory
 This article explains different compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand vs. bring your own) supported by Data Factory when configuring linked services linking these compute environments to an Azure data factory.
 
-The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 
+The following table provides a list of compute environments supported by Data Factory and the activities that can run on them.
 
 | Compute environment                                          | activities                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -28,8 +28,6 @@ The following table provides a list of compute environments supported by Data Fa
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 
->  
-
 ## On-demand HDInsight compute environment
 In this type of configuration, the computing environment is fully managed by the Azure Data Factory service. It is automatically created by the Data Factory service before a job is submitted to process data and removed when the job is completed. You can create a linked service for the on-demand compute environment, configure it, and control granular settings for job execution, cluster management, and bootstrapping actions.
 
@@ -37,20 +35,20 @@ In this type of configuration, the computing environment is fully managed by the
 > The on-demand configuration is currently supported only for Azure HDInsight clusters. Azure Databricks also supports on-demand jobs using job clusters, refer to [Azure databricks linked service](#azure-databricks-linked-service) for more details.
 
 ## Azure HDInsight on-demand linked service
-The Azure Data Factory service can automatically create an on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. The storage account must be a general-purpose standard Azure storage account. 
+The Azure Data Factory service can automatically create an on-demand HDInsight cluster to process data. The cluster is created in the same region as the storage account (linkedServiceName property in the JSON) associated with the cluster. The storage account must be a general-purpose standard Azure storage account.
 
 Note the following **important** points about on-demand HDInsight linked service:
 
-* The on-demand HDInsight cluster is created under your Azure subscription. You are able to see the cluster in your Azure portal when the cluster is up and running. 
-* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. The clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword defined in your linked service definition are used to log in to the cluster for in-depth troubleshooting during the lifecycle of the cluster. 
+* The on-demand HDInsight cluster is created under your Azure subscription. You are able to see the cluster in your Azure portal when the cluster is up and running.
+* The logs for jobs that are run on an on-demand HDInsight cluster are copied to the storage account associated with the HDInsight cluster. The clusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword defined in your linked service definition are used to log in to the cluster for in-depth troubleshooting during the lifecycle of the cluster.
 * You are charged only for the time when the HDInsight cluster is up and running jobs.
-* You can use a **Script Action** with the Azure HDInsight on-demand linked service.  
+* You can use a **Script Action** with the Azure HDInsight on-demand linked service.
 
 > [!IMPORTANT]
 > It typically takes **20 minutes** or more to provision an Azure HDInsight cluster on demand.
 
 ### Example
-The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster to process the required activity. 
+The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster to process the required activity.
 
 ```json
 {
@@ -85,11 +83,11 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 ```
 
 > [!IMPORTANT]
-> The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done. 
+> The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This behavior is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done.
 >
 > As more activity runs, you see many containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The names of these containers follow a pattern: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 >
-> 
+>
 
 ### Properties
 | Property                     | Description                              | Required |
@@ -116,19 +114,19 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 
 
 > [!IMPORTANT]
-> HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
+> HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight.
 >
 > [!IMPORTANT]
-> Currently, HDInsight linked services does not support HBase, Interactive Query (Hive LLAP), Storm. 
+> Currently, HDInsight linked services does not support HBase, Interactive Query (Hive LLAP), Storm.
 >
-> 
+>
 
 #### additionalLinkedServiceNames JSON example
 
 ```json
 "additionalLinkedServiceNames": [{
     "referenceName": "MyStorageLinkedService2",
-    "type": "LinkedServiceReference"          
+    "type": "LinkedServiceReference"
 }]
 ```
 
@@ -137,7 +135,7 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 The On-Demand HDInsight linked service requires a service principal authentication to create HDInsight clusters on your behalf. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** role of the subscription or the resource group in which the HDInsight cluster is created. For detailed steps, see [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Make note of the following values, which you use to define the linked service:
 
 - Application ID
-- Application key 
+- Application key
 - Tenant ID
 
 Use service principal authentication by specifying the following properties:
@@ -206,7 +204,7 @@ You can also specify the following properties for the granular configuration of 
             },
             "additionalLinkedServiceNames": [{
                 "referenceName": "MyStorageLinkedService2",
-                "type": "LinkedServiceReference"          
+                "type": "LinkedServiceReference"
             }]
         }
     },
@@ -218,7 +216,7 @@ You can also specify the following properties for the granular configuration of 
 ```
 
 ### Node sizes
-You can specify the sizes of head, data, and zookeeper nodes using the following properties: 
+You can specify the sizes of head, data, and zookeeper nodes using the following properties:
 
 | Property          | Description                              | Required |
 | :---------------- | :--------------------------------------- | :------- |
@@ -227,12 +225,12 @@ You can specify the sizes of head, data, and zookeeper nodes using the following
 | zookeeperNodeSize | Specifies the size of the Zoo Keeper node. The default value is: Standard_D3. | No       |
 
 #### Specifying node sizes
-See the [Sizes of Virtual Machines](../virtual-machines/linux/sizes.md) article for string values you need to specify for the properties mentioned in the previous section. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7-GB memory, which may not be good enough for your scenario. 
+See the [Sizes of Virtual Machines](../virtual-machines/linux/sizes.md) article for string values you need to specify for the properties mentioned in the previous section. The values need to conform to the **CMDLETs & APIS** referenced in the article. As you can see in the article, the data node of Large (default) size has 7-GB memory, which may not be good enough for your scenario.
 
-If you want to create D4 sized head nodes and worker nodes, specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties. 
+If you want to create D4 sized head nodes and worker nodes, specify **Standard_D4** as the value for headNodeSize and dataNodeSize properties.
 
 ```json
-"headNodeSize": "Standard_D4",    
+"headNodeSize": "Standard_D4",
 "dataNodeSize": "Standard_D4",
 ```
 
@@ -291,12 +289,12 @@ You can create an Azure HDInsight linked service to register your own HDInsight 
 | connectVia        | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. <br />For Enterprise Security Package (ESP) enabled HDInsight cluster use a self-hosted integration runtime which has a line of sight to the cluster or it should be deployed inside the same Virtual Network as the ESP HDInsight cluster. | No       |
 
 > [!IMPORTANT]
-> HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight. 
+> HDInsight supports multiple Hadoop cluster versions that can be deployed. Each version choice creates a specific version of the Hortonworks Data Platform (HDP) distribution and a set of components that are contained within that distribution. The list of supported HDInsight versions keeps being updated to provide latest Hadoop ecosystem components and fixes. Make sure you always refer to latest information of [Supported HDInsight version and OS Type](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) to ensure you are using supported version of HDInsight.
 >
 > [!IMPORTANT]
-> Currently, HDInsight linked services does not support HBase, Interactive Query (Hive LLAP), Storm. 
+> Currently, HDInsight linked services does not support HBase, Interactive Query (Hive LLAP), Storm.
 >
-> 
+>
 
 ## Azure Batch linked service
 
@@ -386,7 +384,7 @@ You create an Azure Machine Learning linked service to register a Machine Learni
 | connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
 
 ## Azure Data Lake Analytics linked service
-You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
+You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure data factory. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service.
 
 ### Example
 
@@ -466,7 +464,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
       "typeProperties": {
         "domain": "https://westeurope.azuredatabricks.net",
         "accessToken": {
-            "type": "SecureString", 
+            "type": "SecureString",
             "value": "dapif33c9c72344c3a790b35000b57f7124f"
           },
         "existingClusterId": "{clusterId}"
@@ -483,7 +481,7 @@ You can create **Azure Databricks linked service** to register Databricks worksp
 | type                 | The type property should be set to: **AzureDatabricks**. | Yes                                      |
 | domain               | Specify the Azure Region accordingly based on the region of the Databricks workspace. Example: https://eastus.azuredatabricks.net | Yes                                 |
 | accessToken          | Access token is required for Data Factory to authenticate to Azure Databricks. Access token needs to be generated from the databricks workspace. More detailed steps to find the access token can be found [here](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Yes                                       |
-| existingClusterId    | Cluster ID of an existing cluster to run all jobs on this. This should be an already created Interactive Cluster. You may need to manually restart the cluster if it stops responding. Databricks suggest running jobs on new clusters for greater reliability. You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [More details](https://docs.databricks.com/user-guide/clusters/tags.html) | No 
+| existingClusterId    | Cluster ID of an existing cluster to run all jobs on this. This should be an already created Interactive Cluster. You may need to manually restart the cluster if it stops responding. Databricks suggest running jobs on new clusters for greater reliability. You can find the Cluster ID of an Interactive Cluster on Databricks workspace -> Clusters -> Interactive Cluster Name -> Configuration -> Tags. [More details](https://docs.databricks.com/user-guide/clusters/tags.html) | No
 | newClusterVersion    | The Spark version of the cluster. It will create a job cluster in databricks. | No  |
 | newClusterNumOfWorker| Number of worker nodes that this cluster should have. A cluster has one Spark Driver and num_workers Executors for a total of num_workers + 1 Spark nodes. A string formatted Int32, like “1” means numOfWorker is 1 or “1:10” means auto-scale from 1 as min and 10 as max.  | No                |
 | newClusterNodeType   | This field encodes, through a single value, the resources available to each of the Spark nodes in this cluster. For example, the Spark nodes can be provisioned and optimized for memory or compute intensive workloads  This field is required for new cluster                | No               |
