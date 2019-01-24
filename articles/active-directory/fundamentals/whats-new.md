@@ -101,6 +101,18 @@ For more information about the enhancements, see https://aka.ms/IdentityProtecti
 
 ---
 
+### New App Lock feature for the Microsoft Authenticator app on iOS and Android devices
+
+**Type:** New feature  
+**Service category:** Microsoft Authenticator App  
+**Product capability:** Identity Security & Protection
+ 
+To keep your one-time passcodes, app information, and app settings more secure, you can turn on the App Lock feature in the Microsoft Authenticator app. Turning on App Lock means you’ll be asked to authenticate using your PIN or biometric key every time you open a two-factor verification-protected app.
+
+For more information, see https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-faq.
+
+---
+
 [608091](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=608091&triage=true&fullScreen=false&_a=edit)
 
 ### Enhanced export for Azure resource role membership
@@ -111,21 +123,7 @@ For more information about the enhancements, see https://aka.ms/IdentityProtecti
 
 Privileged Identity Management (PIM) customers can now export their Active and Eligible members at the Resource scope-level, or choose to export the memberships for all child resources within the resource container. This is an enhancement from previous, where PIM customers had to go to each specific resource to export the Active and Eligible membership list to a CSV file.
 
-Why is this a good thing? Need for more info link.
-
----
-
-[488533](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=488533&triage=true&fullScreen=false&_a=edit)
-
-### New App Lock feature for the Microsoft Authenticator app on iOS and Android devices
-
-**Type:** New feature  
-**Service category:** Microsoft Authenticator App  
-**Product capability:** Identity Security & Protection
- 
-You can now require authentication each time the app is opened! Protect your codes, app information, and settings by enabling App Lock in the settings.
-
-For more information, see https://docs.microsoft.com/en-us/azure/active-directory/user-help/microsoft-authenticator-app-faq. There is nothing on this page that talks about App Lock. We need to send them somewhere with info about how to turn it on, how to use it, etc.
+For more information, see...
 
 ---
 
@@ -140,7 +138,7 @@ For more information, see https://docs.microsoft.com/en-us/azure/active-director
 
 We have released some new default templates that are currently available for V2 user flows.  These new templates are a huge improvement from our default experience and we are looking to make it default once we have gone through the release process.  Go ahead and try these out by going to page layouts and selecting a new one from the command bar.  
 
-Need for more information link
+For more information, see...
 
 ---
 
