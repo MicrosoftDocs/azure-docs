@@ -42,7 +42,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Get started using the Bing Visual Search API by sending an image to Bing and getting back insights about the image:'
+    text: 'Get insights about an image using the Bing Visual Search API:'
   - type: table
     style: dataMatrix
     columns:

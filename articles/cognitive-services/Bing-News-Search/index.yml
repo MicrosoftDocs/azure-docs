@@ -42,7 +42,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Get started using the Bing News Search API by making a query and viewing the JSON response:'
+    text: 'Search the web for news using:'
   - type: list
     style: icon48
     items:
