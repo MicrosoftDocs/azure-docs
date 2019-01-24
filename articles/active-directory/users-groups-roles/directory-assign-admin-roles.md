@@ -50,7 +50,7 @@ The following administrator roles are available:
 
   In | Can do
   ----- | ----------
-  Microsoft 365 compliance Center | Protect and manage your organization’s data across Microsoft 365 services<br>Manage compliance alerts
+  [Microsoft 365 compliance center](https://protection.microsoft.com) | Protect and manage your organization’s data across Microsoft 365 services<br>Manage compliance alerts
   [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
@@ -60,7 +60,7 @@ The following administrator roles are available:
 
   In | Can do
   ----- | ----------
-  Microsoft 365 compliance Center | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
+  [Microsoft 365 compliance center](https://protection.microsoft.com) | Monitor compliance-related policies across Microsoft 365 services<br>Manage compliance alerts
   [Compliance Manager](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Track, assign, and verify your organization's regulatory compliance activities
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage data governance<br>Perform legal and data investigation<br>Manage Data Subject Request
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | View all Intune audit data
@@ -86,7 +86,7 @@ The following administrator roles are available:
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Exchange Service Administrator ". It is "Exchange Administrator" in the Azure portal.
 
-* **[Global Administrator / Company Administrator](#company-administrator)**: Users with this role have access to all administrative features in Microsoft 365 Security Center, Microsoft 365 Compliance Center, Azure Active Directory, as well as services that use Azure Active Directory identities like Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
+* **[Global Administrator / Company Administrator](#company-administrator)**: Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Company Administrator". It is "Global Administrator" in the [Azure portal](https://portal.azure.com).
@@ -142,9 +142,9 @@ Users in this role can add, remove, and update license assignments on users, gro
   
   In | Can do
   --- | ---
-  Microsoft 365 Security Center | Monitor security-related policies across Microsoft 365 services<br>Manage security threats and alerts<br>View reports
+  [Microsoft 365 security center](https://protection.microsoft.com) | Monitor security-related policies across Microsoft 365 services<br>Manage security threats and alerts<br>View reports
   Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
-  Privileged Identity Management |All permissions of the Security Reader role<br>**Cannot** manage Azure AD role memberships or settings
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role<br>**Cannot** manage Azure AD role memberships or settings
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Manage security policies<br>View, investigate, and respond to security threats<br>View reports
   Azure Advanced Threat Protection | Monitor and respond to suspicious security activity
   Windows Defender ATP and EDR | Assign roles<br>Manage machine groups<br>Configure endpoint threat detection and automated remediation<br>View, investigate, and respond to alerts
@@ -157,9 +157,9 @@ Users in this role can add, remove, and update license assignments on users, gro
 
   In | Can do
   --- | ---
-  Microsoft 365 Security Center | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
+  [Microsoft 365 security center](https://protection.microsoft.com) | All permissions of the Security Reader role<br>View, investigate, and respond to security threats alerts
   Identity Protection Center | All permissions of the Security Reader role<br>Additionally, the ability to perform all Identity Protection Center operations except for resetting passwords
-  Privileged Identity Management | All permissions of the Security Reader role
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | All permissions of the Security Reader role
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
   Windows Defender ATP and EDR | All permissions of the Security Reader role<br>View, investigate, and respond to security alerts
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | All permissions of the Security Reader role
@@ -170,9 +170,9 @@ Users in this role can add, remove, and update license assignments on users, gro
 
   In | Can do
   --- | ---
-  Microsoft 365 Security Center | View security-related policies across Microsoft 365 services<br>View security threats and alerts<br>View reports
+  [Microsoft 365 security center](https://protection.microsoft.com) | View security-related policies across Microsoft 365 services<br>View security threats and alerts<br>View reports
   Identity Protection Center | Read all security reports and settings information for security features<br><ul><li>Anti-spam<li>Encryption<li>Data loss prevention<li>Anti-malware<li>Advanced threat protection<li>Anti-phishing<li>Mailflow rules
-  Privileged Identity Management | Has read-only access to all information surfaced in Azure AD PIM: Policies and reports for Azure AD role assignments, security reviews and in the future read access to policy data and reports for scenarios besides Azure AD role assignment.<br>**Cannot** sign up for Azure AD PIM or make any changes to it. In the PIM portal or via PowerShell, someone in this role can activate additional roles (for example, Global Admin or Privileged Role Administrator), if the user is a eligible for them.
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Has read-only access to all information surfaced in Azure AD PIM: Policies and reports for Azure AD role assignments, security reviews and in the future read access to policy data and reports for scenarios besides Azure AD role assignment.<br>**Cannot** sign up for Azure AD PIM or make any changes to it. In the PIM portal or via PowerShell, someone in this role can activate additional roles (for example, Global Admin or Privileged Role Administrator), if the user is a eligible for them.
   [Office 365 Security & Compliance Center](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | View security policies<br>View and investigate security threats<br>View reports
   Windows Defender ATP and EDR | View and investigate alerts
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Views user, device, enrollment, configuration, and application information. Cannot make changes to Intune.
