@@ -51,13 +51,12 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
 
 1. In the Azure portal, and click **Create a resource** at the top left of the screen.
 2. Select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu. 
-
     
    ![Search for Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
-1. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
+3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
 
    ![Add toolbar button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
-1. On the **Create namespace** page, take the following steps:
+4. On the **Create namespace** page, take the following steps:
     1. Enter a name for the namespace. The system immediately checks to see if the name is available.
     2. Shoose the pricing tier (Basic or Standard).
     3. Select the **subscription** in which you want to create the namespace.
@@ -65,10 +64,10 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
     5. Select **Create**. You may have to wait a few minutes for the system to fully provision the resources.
 
        ![Create an event hub namespace](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-6. Refresh the **Event Hubs** page to see the event hub namespace. You can check the status of the event hub creation in the alerts. 
+5. Refresh the **Event Hubs** page to see the event hub namespace. You can check the status of the event hub creation in the alerts. 
 
     ![Create an event hub namespace](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
-1. Select the namespace. You see the home page for your **Event Hubs namespace** in the portal. 
+6. Select the namespace. You see the home page for your **Event Hubs namespace** in the portal. 
 
    ![Home page for the namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)
     
