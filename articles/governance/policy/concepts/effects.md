@@ -296,7 +296,7 @@ related resources to match and the template deployment to execute.
   - This property must include an array of strings that match role-based access control role ID accessible by the subscription. For more information, see [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (optional)
   - Allowed values are _Subscription_ and _ResourceGroup_.
-  - Sets the type of deployment that should be performed. _Subscription_ indicates a [deployment at subscription level]((../../../azure-resource-manager/deploy-to-subscription)), _ResourceGroup_ indicates a deployment to a resource group.
+  - Sets the type of deployment that should be performed. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indicates a deployment to a resource group.
   - A _location_ property must be specified in the _Deployment_ when using subscription level deployments.
   - Default is _ResourceGroup_.
 - **Deployment** [required]
