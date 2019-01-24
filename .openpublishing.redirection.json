@@ -34779,7 +34779,7 @@
     },
     {
         "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",
-        "redirect_url": "azure/backup/backup-azure-recovery-services-vault-overview",
+        "redirect_url": "/azure/backup/backup-azure-recovery-services-vault-overview",
         "redirect_document_id": true
     }	
   ]
