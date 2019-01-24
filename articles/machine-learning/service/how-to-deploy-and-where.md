@@ -240,7 +240,7 @@ To deploy to Azure Container Instances, use the following steps:
     **Time estimate**: Approximately 3 minutes.
 
     > [!TIP]
-    > If there are errors during deployment, use `service.get_logs()` to view the AKS service logs. The logged information may indicate the cause of the error.
+    > If there are errors during deployment, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
@@ -330,7 +330,7 @@ print(service.state)
 **Time estimate**: Approximately 3 minutes.
 
 > [!TIP]
-> If there are errors during deployment, use `service.get_logs()` to view the AKS service logs. The logged information may indicate the cause of the error.
+> If there are errors during deployment, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
 
 For more information, see the reference documentation for the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) classes.
 
