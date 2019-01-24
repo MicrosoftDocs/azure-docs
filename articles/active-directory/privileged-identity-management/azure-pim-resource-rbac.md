@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 03/30/2018
+ms.date: 01/23/2019
 ms.author: rolyon
 
 ---
@@ -54,6 +54,28 @@ Select Review from the action bar to view existing access reviews and select Add
 
 >[!NOTE]
 Reviews are only supported for Subscription resource types at this time.
+
+## Export role assignments with children
+
+You may have a compliance requirement where you must provide a complete list of role assignments to auditors. PIM enables you to query role assignments at a specific resource, as well as all its child resources. Previously, it was difficult to get a list of all role assignments for a subscription. Using PIM, you can query for all eligible and active role assignments in a subscription including role assignments for all resource groups and resources.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Click **Azure resources**.
+
+1. Click the resource you want to export role assignments for, such as a subscription.
+
+1. Click **Members**.
+
+1. Click **Export** to open the Export membership pane.
+
+    ![Export membership pane](media/azure-pim-resource-rbac/export-membership.png)
+
+1. Click **Export all members** to export all role assignments in a CSV file.
+
+    ![Export CSV file](media/azure-pim-resource-rbac/export-csv.png)
 
 ## Next steps
 
