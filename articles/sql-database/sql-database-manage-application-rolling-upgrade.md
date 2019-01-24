@@ -45,17 +45,17 @@ Once the preparation steps are completed the application is ready for the actual
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
-If the upgrade completed successfully you are now ready to switch the end users to the staged copy the application. It will now become the production slot of the application.  This involves a few more steps as illustrated on the following diagram.
+If the upgrade completed successfully you are now ready to switch the end users to the upgraded copy the application. It will now become a  production slot.  This involves a few more steps as illustrated on the following diagram.
 
-1. Switch the online endpoint in the ATM profile to `contoso-2.azurewebsites.net`, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end-user traffic is directed to it.  
-2. If you no longer need the V1 application components so you can safely remove them (7).
+(6) Activate a swap operation between ptoduction and staging slots of the web application. It will switch the URLs of the two slots. Now `contoso.azurewebsites.net` will point to V2 version of the web site.  
+(7) If you no longer need the V1 version, which became a staging copy after the swap,  you can safely remove it.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To roll back the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.
 
-1. Set the database copy to read-write mode (8). This will restore the full V1 functionally in the production slot.
-2. Perform the root cause analysis and remove the compromised components in the stage slot (9).
+(8) Set the database copy to read-write mode. This will restore the full V1 functionally of the production copy.
+(9) Perform the root cause analysis and remove the staging copy of the application.
 
 At this point the application is fully functional and the upgrade steps can be repeated.
 
