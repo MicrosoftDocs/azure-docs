@@ -43,8 +43,8 @@ To ensure Log Analytics agent is lightweight, the agent buffers logs and periodi
 Azure data adds additional time to become available at Log Analytics ingestion point for processing:
 
 - Data from diagnostic logs take 2-15 minutes, depending on the Azure service. See the [query below](#checking-ingestion-time) to examine this latency in your environment
-•	Azure platform metrics take 3 minutes to be sent to Log Analytics ingestion point.
-•	Activity log data will take about 10-15 minutes to be sent to Log Analytics ingestion point.
+- Azure platform metrics take 3 minutes to be sent to Log Analytics ingestion point.
+- Activity log data will take about 10-15 minutes to be sent to Log Analytics ingestion point.
 
 Once available at ingestion point, data takes additional 2-5 minutes to be available for querying.
 
