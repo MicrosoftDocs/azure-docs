@@ -3,14 +3,14 @@ title: Overview about adding accounts to the Microsoft Authenticator app - Azure
 description: Overview about how to add your work and personal accounts to the Microsoft Authenticator app for two-factor verification.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: olhaun
 
 ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: lizross
 ---
 

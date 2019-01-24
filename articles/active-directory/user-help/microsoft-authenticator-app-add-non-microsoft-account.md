@@ -3,13 +3,13 @@ title: Add your personal non-Microsoft accounts to the Microsoft Authenticator a
 description: How to add your personal non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ---
