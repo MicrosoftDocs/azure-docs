@@ -169,13 +169,13 @@ Before proceeding with the PowerShell example, make sure you've installed the la
 Azure PowerShell. Policy parameters were added in version 3.6.0. If you have an earlier version,
 the examples return an error indicating the parameter can't be found.
 
-You can create a policy definition using the `New-AzureRmPolicyDefinition` cmdlet.
+You can create a policy definition using the `New-AzPolicyDefinition` cmdlet.
 
 To create a policy definition from a file, pass the path to the file. For an external file, use the
 following example:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -DisplayName 'Deny cool access tiering for storage' `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
@@ -184,7 +184,7 @@ $definition = New-AzureRmPolicyDefinition `
 For a local file use, use the following example:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -Description 'Deny cool access tiering for storage' `
     -Policy 'c:\policies\coolAccessTier.json'
@@ -193,7 +193,7 @@ $definition = New-AzureRmPolicyDefinition `
 To create a policy definition with an inline rule, use the following example:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
+$definition = New-AzPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
     "if": {
         "allOf": [{
                 "field": "type",
@@ -249,7 +249,7 @@ $parameters = '{
     }
 }'
 
-$definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
+$definition = New-AzPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
 ```
 
 ### View policy definitions with PowerShell
@@ -257,7 +257,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 
 To see all policy definitions in your subscription, use the following command:
 
 ```azurepowershell-interactive
-Get-AzureRmPolicyDefinition
+Get-AzPolicyDefinition
 ```
 
 It returns all available policy definitions, including built-in policies. Each policy is returned
