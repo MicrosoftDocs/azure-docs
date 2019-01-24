@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
+ms.component: disks
 
 ---
 # Create a snapshot

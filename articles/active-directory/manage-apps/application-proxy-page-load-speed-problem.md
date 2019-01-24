@@ -4,7 +4,7 @@ description: Troubleshoot page load performance issues with the Azure AD Applica
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

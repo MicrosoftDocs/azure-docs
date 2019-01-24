@@ -17,7 +17,7 @@ ms.date: 01/04/2019
 ms.author: jowargo
 ---
 
-# Azure Notification Hubs Secure Push
+# Securely push notifications from Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)

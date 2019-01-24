@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/23/2019
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -88,14 +88,11 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 This update includes the following new features and improvements for Azure Stack:
 
-- New features go here.
-
-- ...
-
 ## Fixed issues
 
 - Fixed an issue in which the portal showed an option to create policy-based VPN gateways, which are not supported in Azure Stack. This option has been removed from the portal.
 
+<!-- 16523695 – IS, ASDK -->
 - Fixed an issue in which after updating your DNS Settings for your Virtual Network from **Use Azure Stack DNS** to **Custom DNS**, the instances were not updated with the new setting.
 
 - <!-- 3235634 – IS, ASDK -->
@@ -106,6 +103,32 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 
 <!--  2795678 – IS, ASDK --> 
 - Fixed an issue that produced a warning when you used the portal to create virtual machines (VMs) in a premium VM size (DS,Ds_v2,FS,FSv2). The VM was created in a standard storage account. Although this did not affect functionally, IOPs, or billing, the warning has been fixed.
+
+<!-- 1264761 - IS ASDK -->  
+- Fixed an issue with the **Health controller** component that was generating the following alerts. The alerts could be safely ignored:
+
+    - Alert #1:
+       - NAME:  Infrastructure role unhealthy
+       - SEVERITY: Warning
+       - COMPONENT: Health controller
+       - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
+
+    - Alert #2:
+       - NAME:  Infrastructure role unhealthy
+       - SEVERITY: Warning
+       - COMPONENT: Health controller
+       - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
+
+<!-- 3631537 - IS, ASDK -->
+- Fixed an issue when creating a new Windows Virtual Machine (VM) in which the **Settings** blade required that you select a public inbound port in order to proceed. Although the setting was required, it had no effect.
+
+<!-- 2724873 - IS --> 
+- Fixed an issue when using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, in which the first attempt to start or stop the scale unit might fail.
+
+<!-- 2724961- IS ASDK --> 
+- Fixed an issue in which you registered the **Microsoft.Insight** resource provider in the subscription settings, and created a Windows VM with Guest OS Diagnostic enabled, but the CPU Percentage chart in the VM overview page did not show metrics data. The data now correctly displays.
+
+- Fixed an issue in which running the **Get-AzureStackLog** cmdlet failed after running **Test-AzureStack** in the same privileged endpoint (PEP) session. You can now use the same PEP session in which you executed **Test-AzureStack**.
 
 ## Changes
 
@@ -183,28 +206,9 @@ The following are post-installation known issues for this build version.
 <!-- TBD - IS ASDK --> 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
-### Health and monitoring
-
-<!-- 1264761 - IS ASDK -->  
-- You might see alerts for the **Health controller** component that have the following details:  
-
-    - Alert #1:
-       - NAME:  Infrastructure role unhealthy
-       - SEVERITY: Warning
-       - COMPONENT: Health controller
-       - DESCRIPTION: The health controller Heartbeat Scanner is unavailable. This may affect health reports and metrics.  
-
-    - Alert #2:
-       - NAME:  Infrastructure role unhealthy
-       - SEVERITY: Warning
-       - COMPONENT: Health controller
-       - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
-
-    Both alerts can be safely ignored. They will close automatically over time.  
+<!-- ### Health and monitoring -->
 
 ### Compute
-
-- When creating a new Windows Virtual Machine (VM), the **Settings** blade requires that you select a public inbound port in order to proceed. In 1901, this setting is required, but has no effect. This is because the feature depends on Azure Firewall, which is not implemented in Azure Stack. You can select **No Public Inbound Ports**, or any of the other options to proceed with VM creation. The setting will have no effect.
 
 - When creating a new Windows Virtual Machine (VM), the following error may be displayed:
 
@@ -214,14 +218,6 @@ The following are post-installation known issues for this build version.
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
 - The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
-
-<!-- 2724873 - IS --> 
-- When using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, the first attempt to start or stop the scale unit might fail. If the cmdlet fails on the first run, run the cmdlet a second time. The second run should successfully complete the operation. 
-
-<!-- 2724961- IS ASDK --> 
-- When you register the **Microsoft.Insight** resource provider in the subscription settings, and create a Windows VM with Guest OS Diagnostic enabled, the CPU Percentage chart in the VM overview page does not show metrics data.
-
-   To find metrics data, such as the CPU Percentage chart for the VM, go to the **Metrics** window and show all the supported Windows VM guest metrics.
 
 <!-- 3507629 - IS, ASDK --> 
 - Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
@@ -241,14 +237,17 @@ The following are post-installation known issues for this build version.
 
 ### Networking  
 
+<!-- 3239127 - IS, ASDK -->
 - In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`. 
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`.
 
     You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
 
+<!-- 3631677 - IS, ASDK -->
 - In the portal, on the **Networking Properties** blade there is a link for **Effective Security Rules** for each network adapter. If you select this link, a new blade opens that shows the error message `Not Found.` This error occurs because Azure Stack does not yet support **Effective Security Rules**.
 
+<!-- 3632798 - IS, ASDK -->
 - In the portal, if you add an inbound security rule and select **Service Tag** as the source, several options are displayed in the **Source Tag** list that are not available for Azure Stack. The only options that are valid in Azure Stack are as follows:
 
     - **Internet**
