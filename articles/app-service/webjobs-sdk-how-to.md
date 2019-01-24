@@ -32,9 +32,9 @@ This article provides guidance on how to write code for [the Azure WebJobs SDK](
 
 This article assumes you have read and completed the tasks in [Get started with the WebJobs SDK](webjobs-sdk-get-started.md).
 
-## Host
+## WebHobs host
 
-The host object is the runtime container for functions.  It listens for triggers and calls functions. In version 3.x, the host is an implementation of `IHost`, and in version 2.x you use the `JobHost` object. You create host instance in your code and write code to customize its behavior.
+The host is a runtime container for functions.  It listens for triggers and calls functions. In version 3.x, the host is an implementation of `IHost`, and in version 2.x you use the `JobHost` object. You create a host instance in your code and write code to customize its behavior.
 
 This is a key difference between using the WebJobs SDK directly and using it indirectly by using Azure Functions. In Azure Functions, the service controls the host, and you can't customize it by writing code. Azure Functions lets you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, which limits the kinds of customizations you can do.
 
@@ -170,6 +170,12 @@ public static void CreateQueueMessage(
 }
 ```
 
+#### Version 3.x
+
+
+#### Version 2.x
+
+
 ```cs
 static void Main(string[] args)
 {
@@ -187,7 +193,53 @@ You can use a method return value for an output binding, by applying the attribu
 
 ## Binding types
 
-The following trigger and binding types are included in the `Microsoft.Azure.WebJobs` package:
+The way that biding types are installed and managed differs between version 3.x and 2.x of the SDK. You can find the package to install for a particular binding type in the **Packages** section of that binding type's [reference article](#binding-reference-information) for Azure Functions. An exception is the Files trigger and binding (for the local file system), which is not supported by Azure Functions.
+
+#### Version 3.x
+
+In version 3.x, the storage bindings are included in the `Microsoft.Azure.WebJobs.Extensions.Storage` package. Call the `AddAzureStorage` extension method in `ConfigureWebJobs` method as shown in the following example:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+            {
+                b.AddAzureStorageCoreServices();
+                b.AddAzureStorage();
+            });
+    var host = builder.Build();
+    using (host)
+    {
+        host.Run();
+    }
+}
+```
+
+To use other trigger and binding types, install the NuGet package that contains them and call the `Add<binding>` extension method implemented in the extension. For example, if you want to use an Azure Cosmos DB binding, install `Microsoft.Azure.WebJobs.Extensions.CosmosDB` and call `AddCosmosDB`, as in the following example:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+            {
+                b.AddAzureStorageCoreServices();
+                b.AddCosmosDB();
+            });
+    var host = builder.Build();
+    using (host)
+    {
+        host.Run();
+    }
+}
+```
+
+To use the Timer trigger or the Files binding, which are part of core services, call the `AddTimers` or `AddFiles` extension methods, respectively.
+
+#### Version 2.x
+
+The following trigger and binding types are included in version 2.x of the `Microsoft.Azure.WebJobs` package:
 
 * Blob storage
 * Queue storage
@@ -205,11 +257,51 @@ static void Main()
 }
 ```
 
-You can find the package to install for a particular binding type in the **Packages** section of that binding type's [reference article](#binding-reference-information) for Azure Functions. An exception is the Files trigger and binding (for the local file system), which is not supported by Azure Functions. to use the Files binding, install `Microsoft.Azure.WebJobs.Extensions` and call `UseFiles`.
+To use the Files binding, install `Microsoft.Azure.WebJobs.Extensions` and call `UseFiles`.
 
-### UseCore
 
-The `Microsoft.Azure.WebJobs.Extensions` package mentioned earlier also provides a special binding type that you can register by calling the `UseCore` method. This binding lets you define an [ExecutionContext](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs) parameter in your function signature. The context object gives you access to the invocation ID, which you can use to correlate all logs produced by a given function invocation. Here's an example:
+### ExecutionContext
+
+WebJobs lets you bind to bind to an [`ExecutionContext`]. With this binding, you can access the [`ExecutionContext`] as a parameter in your function signature. For example, the following code uses the context object to access the invocation ID, which you can use to correlate all logs produced by a given function invocation.  
+
+```cs
+public class Functions
+{
+    public static void ProcessQueueMessage([QueueTrigger("queue")] string message,
+        ExecutionContext executionContext,
+        ILogger logger)
+    {
+        logger.LogInformation($"{message}\n{executionContext.InvocationId}");
+    }
+}
+```
+
+The way that you bind to the [`ExecutionContext`] depends on your SDK version.
+
+#### Version 3.x
+
+Call the `AddExecutionContextBinding` extension method in `ConfigureWebJobs` method as shown in the following example:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+            {
+                b.AddAzureStorageCoreServices();
+                b.AddExecutionContextBinding();
+            });
+    var host = builder.Build();
+    using (host)
+    {
+        host.Run();
+    }
+}
+```
+
+#### Version 2.x
+
+The `Microsoft.Azure.WebJobs.Extensions` package mentioned earlier also provides a special binding type that you can register by calling the `UseCore` method. This binding lets you define an [`ExecutionContext`] parameter in your function signature, which is enabled as follows:
 
 ```cs
 class Program
@@ -222,24 +314,45 @@ class Program
         host.RunAndBlock();
     }
 }
-public class Functions
-{
-    public static void ProcessQueueMessage([QueueTrigger("queue")] string message,
-        ExecutionContext executionContext,
-        ILogger logger)
-    {
-        logger.LogInformation($"{message}\n{executionContext.InvocationId}");
-    }
-}
 ```
 
 ## Binding configuration
 
-Many trigger and binding types let you configure their behavior by setting properties in a configuration object that you pass in to the `JobHost`.
+Some trigger and bindings let you configure their behavior. The way that you configure them depends on the SDK version.
+
+* **Version 3.x:** Configuration is set when the `Add<Binding>` method is called in `ConfigureWebJobs`.
+* **Version 2.x:** By setting properties in a configuration object that you pass in to the `JobHost`.
 
 ### Queue trigger configuration
 
-The settings you can configure for the Storage queue trigger are explained in the Azure Functions [host.json reference](../azure-functions/functions-host-json.md#queues). How to set them in a WebJobs SDK project is shown in the following example:
+The settings you can configure for the Storage queue trigger are explained in the Azure Functions [host.json reference](../azure-functions/functions-host-json.md#queues). The following examples show how to set them in your configuration:
+
+#### Version 3.x
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddAzureStorage(a => {
+            a.BatchSize = 8;
+            a.NewBatchThreshold = 4;
+            a.MaxDequeueCount = 4;
+            a.MaxPollingInterval = TimeSpan.FromSeconds(15);
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+#### Version 2.x
 
 ```cs
 static void Main(string[] args)
@@ -256,7 +369,29 @@ static void Main(string[] args)
 
 ### Configuration for other bindings
 
-Some trigger and binding types define their own custom configuration type. For example, the File trigger lets you specify the root path to monitor:
+Some trigger and binding types define their own custom configuration type. For example, the File trigger lets you specify the root path to monitor, as in the following examples:
+
+#### Version 3.x
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddFiles(a => a.RootPath = @"c:\data\import");
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+#### Version 2.x
 
 ```cs
 static void Main()
@@ -295,7 +430,7 @@ For more information about binding expressions, see [Binding expressions and pat
 Sometimes you want to specify a queue name, a blob name or container, or a table name in code rather than hard-code it. For example, you might want to specify the queue name for the `QueueTrigger` attribute in a configuration file or environment variable.
 
 You can do that by passing in a `NameResolver` object to the `JobHostConfiguration` object. You include placeholders in trigger or binding attribute constructor parameters, and your `NameResolver` code provides the actual values to be used in place of those placeholders. The placeholders are identified by surrounding them with percent (%) signs, as shown in the following example:
- 
+
 ```cs
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 {
@@ -318,6 +453,14 @@ public class CustomNameResolver : INameResolver
     }
 }
 ```
+
+#### Version 3.x
+
+
+
+
+#### Version 2.x
+
 
 Pass your `NameResolver` class in to the `JobHost` object as shown in the following example:
 
@@ -510,6 +653,14 @@ Every log created by an `ILogger` instance has an associated `Category` and `Lev
 
 Each category can be independently filtered to a particular [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel). For example, you might want to see all logs for blob trigger processing but only `Error` and higher for everything else.
 
+#### Version 3.x
+
+
+
+
+#### Version 2.x
+
+
 To make it easier to specify filtering rules, the WebJobs SDK provides the `LogCategoryFilter` that can be passed into many of the existing logging providers, including Application Insights and Console.
 
 The `LogCategoryFilter` has a `Default` property with an initial value of `Information`, meaning that any messages with levels of `Information`, `Warning`, `Error`, or `Critical` are logged, but any messages with levels of `Debug` or `Trace` are filtered away.
@@ -560,6 +711,14 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 
 The SamplingPercentageEstimatorSettings object configures [adaptive sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server). This means that in certain high-volume scenarios, App Insights sends a selected subset of telemetry data to the server.
 
+#### Version 3.x
+
+
+
+
+#### Version 2.x
+
+
 Once you've created the telemetry factory, you pass it in to the Application Insights logging provider:
 
 ```csharp
@@ -572,3 +731,5 @@ config.LoggerFactory = new LoggerFactory()
 ## <a id="nextsteps"></a> Next steps
 
 This guide has provided code snippets that demonstrate how to handle common scenarios for working with the WebJobs SDK. For complete samples, see [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk-samples).
+
+[`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
