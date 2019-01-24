@@ -16,7 +16,9 @@ ms.custom: seodec2018
 
 In the Overview page of your Azure Search service, you can view system data about resource usage, plus query metrics like Queries Per Second (QPS), query latency, and percentage of requests that were throttled. Additionally, you can use the portal to leverage a range of monitoring capabilities in the Azure platform for deeper data collection. 
 
-This article identifies and compares available options for logging Azure Search operations. It includes instructions for enabling logging and log storage, and how to collect system information useful in diagnostics or when filing support tickets.
+This article identifies and compares available options for logging Azure Search operations. It includes instructions for enabling logging and log storage, and how to expand on the information that is collected.
+
+If you are filing a support ticket, there are no particular tasks or information you need to provide. Support engineers have the necessary information for investigating specific issues.  
 
 ## Metrics at a glance
 
@@ -146,13 +148,13 @@ Connections require the storage account name and access key, which you can get f
 
 1. Install the [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search). The content pack adds predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. 
 
-   If you are using Blob storage or another storage mechanism, and you did not add instrumentation to your code, you can skip the contet pack and use built-in Power BI visualizations.
+   If you are using Blob storage or another storage mechanism, and you did not add instrumentation to your code, you can skip the content pack and use built-in Power BI visualizations.
 
 2. Open **Power BI**, click **Get Data** > **Services** > **Azure Search**.
 
 3. Enter the name of the storage account, select **Key** for authentication, and then paste in an access key.
 
-4. Import the data and then click **Vew data**.
+4. Import the data and then click **View data**.
 
 The following screenshot shows the built-in reports and charts for analyzing search traffic analytics.
 
