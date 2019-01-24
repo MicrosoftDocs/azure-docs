@@ -201,4 +201,4 @@ We have setup each Kafka broker with a keystore and truststore, and imported the
 
 ## Next steps
 
-* [What is Apache Kafka on HDInsight?](../azure/hdinsight/kafka/apache-kafka-introduction)
+* [What is Apache Kafka on HDInsight?](../azure/hdinsight/kafka/apache-kafka-introduction.md)
