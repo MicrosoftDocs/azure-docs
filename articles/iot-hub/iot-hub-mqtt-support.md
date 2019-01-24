@@ -193,20 +193,18 @@ First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's r
 
 Request ID can be any valid value for a message property value, as per [IoT Hub messaging developer's guide][lnk-messaging], and status is validated as an integer.
 
-The response body contains the properties section of the device twin. The following snippet shows the body of the identity registry entry limited to the "properties" member, for example:
+The response body contains the properties section of the device twin, as shown in the following response example:
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
