@@ -89,6 +89,12 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Private certificates and SSL bindings
 * Scale settings
 * WebJobs schedulers
+* IP security configurations
+* Always On setting
+* HTTP**S** setting
+* Configurations for diagnostic logs
+* CORS setting
+
 
 <!-- VNET, IP restrictions, CORS, hybrid connections? -->
 
