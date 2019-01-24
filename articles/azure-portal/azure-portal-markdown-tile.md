@@ -1,5 +1,5 @@
 ---
-title: Use a custom markdown tile on Azure dashboards>
+title: Use a custom markdown tile on Azure dashboards
 description: Learn how to add a markdown tile to an Azure dashboard to display static content
 services: azure-portal
 keywords: 
@@ -39,3 +39,6 @@ You can use any combination of plain text, Markdown syntax, and HTML content on 
 * iframes - `<iframe>` tags will be removed.
 * Style - `<style>` tags will be removed. Inline style attributes on HTML elements aren't officially supported. You may find that some inline style elements work for you, but if they interfere with the layout of the portal, they could stop working at any time. The Markdown tile is intended for basic, static content that uses the default styles of the portal.
 
+## Next steps
+
+* To create a custom dashboard, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md)
