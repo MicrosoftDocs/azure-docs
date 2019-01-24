@@ -24,25 +24,25 @@ ms.reviewer: raluthra
 
 ## Dismiss User Risk
 
-When an admin performs a **Dismiss user risk** in classic Identity Protection, the user’s risk history in Identity Protection (refreshed) shows that the actor was **Azure AD**.
+When an admin clicks **Dismiss user risk** in classic Identity Protection, the user’s risk history in Identity Protection (refreshed) shows that the actor was **Azure AD**.
 
-When an admin performs a **Dismiss user risk** in Identity Protection (refreshed), the user’s risk history in Identity Protection (refreshed) shows that the actor was **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
+When an admin clicks **Dismiss user risk** in Identity Protection (refreshed), the user’s risk history in Identity Protection (refreshed) shows that the actor was **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
 
 
 ## Risky Users Report
 
 Queries on the **username** field are case-sensitive, while queries on the **Name** field are case-agnostic.
 
-Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To re-add the column click **Columns** at the top of the Risky Users blade.
+Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the column click **Columns** at the top of the Risky Users blade.
 
-When an admin performs a **Dismiss all events** from classic Identity Protection, the risk events has a status of **Closed (resolved)**.
+When an admin clicks **Dismiss all events** from classic Identity Protection, the risk events have a status of **Closed (resolved)**.
 
-If you attempt to access the Risky users report by clicking **Risky users report** within a sign-in record in the risky sign-ins report, it may sometimes show **Something went wrong. Please retry**. To remedy this, click **Apply** or **Reset** at the top of the screen and the risky user(s) data will populate.
+If you attempt to access the risky users report by clicking **Risky users report** within a sign-in record in the risky sign-ins report, it may sometimes show **Something went wrong. Please retry**. To remedy this, click **Apply** or **Reset** at the top of the screen and the risky user(s) data will populate.
 
 
 ## Risky Sign-Ins Report
 
-When an admin performs a **Resolve** on a risk event from classic Identity Protection, the risk event has a status of **Users passed MFA driven by risk-based policy**.
+When an admin clicks **Resolve** on a risk event from classic Identity Protection, the risk event has a status of **Users passed MFA driven by risk-based policy**.
 
 Clicking **Reset** in the **Risky Sign-ins** report does not reset the **Risk event type** to empty.
 
@@ -51,7 +51,7 @@ Clicking **Reset** in the **Risky Sign-ins** report does not reset the **Risk ev
 
 ## Why can’t I set my own risk levels for each risk event?
 
-Risk levels in Identity Protection are based on the precision of the detection and powered by our supervised machine learning. To customize what experience end-users are presented, administrator can include/exclude certain users/groups from the User Risk and Sign-In Risk Policies.
+Risk levels in Identity Protection are based on the precision of the detection and powered by our supervised machine learning. To customize what experience users are presented, administrator can include/exclude certain users/groups from the User Risk and Sign-In Risk Policies.
 
 
 ## Why does the location of a sign-in not match where the user truly signed in from?
@@ -70,7 +70,7 @@ IP geolocation mapping is an industry-wide challenge. If you feel that the locat
     > [!NOTE]
     > If the user is already remediated, don't click **Confirm compromised** because it moves the sign-in and user risk state to **Confirmed compromised** and risk level to **High**.
 
-**Confirm safe** (on a sign-in) – Informs Azure AD Identity Protection that the sign-in was actually performed by the identity owner and does not indicate a compromise.
+**Confirm safe** (on a sign-in) – Informs Azure AD Identity Protection that the sign-in was performed by the identity owner and does not indicate a compromise.
 
 - Upon receiving this feedback, we move the sign-in (not the user) risk state to **Confirmed safe** and the risk level to **-**.
 
