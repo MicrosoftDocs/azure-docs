@@ -68,7 +68,8 @@ which is an open-source Secure Shell (SSH) library that supports .NET.
 * Reads or writes files up to *1 GB* in size compared 
 to the SFTP connector, but handles data in 50 MB pieces, 
 not 1 GB pieces. For files larger than 1 GB, you can 
-also use [message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+also use [message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md). 
+Currently, triggers don't support chunking.
 
 * Provides the **Create folder** action, which creates 
 a folder at the specified path on the SFTP server.
@@ -209,7 +210,7 @@ such as **When a file is added or modified (properties only)**
 
 * Follow the trigger with an action that reads the complete file, 
 such as **Get file content using path** ([go to example](#get-file-with-path)), 
-and use [chunking for large messages](../logic-apps/logic-apps-handle-large-messages.md).
+and have the action use [message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## Examples
 
@@ -238,7 +239,7 @@ This action gets the content from a file on an SFTP server.
 So for example, you can add the trigger from the previous 
 example and a condition that the file's content must meet. 
 If the condition is true, the action that gets the content can run. 
-For files larger than 1 MB, use [chunking for large messages](../logic-apps/logic-apps-handle-large-messages.md).
+For files larger than 1 MB, have the action use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## Connector reference
 
