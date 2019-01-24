@@ -62,6 +62,7 @@ If the tenant admin will not sign in to LUIS, the admin can access [consent](htt
 
 ![Azure active directory permission by app website](./media/luis-how-to-collaborate/tenant-permissions.png)
 
+
 If the tenant admin only wants certain users to use LUIS, refer to this [identity blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
 ### User accounts with multiple emails for collaborators
