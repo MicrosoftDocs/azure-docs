@@ -20,7 +20,7 @@ The following monitoring options are available currently:
 
 ## Azure portal
 
-Use the Azure portal to view registered server health, server endpoint health (sync health) and metrics.
+In the Azure Portal, you can view registered server health, server endpoint health (sync health) and metrics.
 
 ### Storage Sync Service
 
@@ -53,7 +53,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 
 ## Windows Server
 
-Use the Windows Server to view cloud tiering, registered server and sync health.
+On the Windows Server, you can view cloud tiering, registered server and sync health.
 
 ### Event logs
 
