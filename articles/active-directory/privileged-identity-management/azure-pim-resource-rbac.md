@@ -48,8 +48,6 @@ To see what actions a specific user took in various resources, you can view the 
 
 You may have a compliance requirement where you must provide a complete list of role assignments to auditors. PIM enables you to query role assignments at a specific resource, as well as all its child resources. Previously, it was difficult to get a list of all role assignments for a subscription. Using PIM, you can query for all eligible and active role assignments in a subscription including role assignments for all resource groups and resources.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
-
 1. Open **Azure AD Privileged Identity Management**.
 
 1. Click **Azure resources**.
@@ -92,7 +90,7 @@ Resource audit gives you a view of all role activity for a resource.
 
 ## View my audit
 
-My audit enables you to view a user's personal role activity.
+My audit enables you to view your personal role activity.
 
 1. Open **Azure AD Privileged Identity Management**.
 
