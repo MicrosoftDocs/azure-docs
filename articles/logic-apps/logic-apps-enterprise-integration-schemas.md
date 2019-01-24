@@ -56,7 +56,7 @@ integration and business-to-business (B2B) solutions.
   To use Storage Explorer, choose either option here:
   
     * Go to your storage account in the Azure portal. 
-	On your storage account menu, select **Storage Explorer**.
+    On your storage account menu, select **Storage Explorer**.
 
     * For the desktop version, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). 
   Then, follow these [steps for connecting Azure Storage Explorer to your storage account](../vs-azure-tools-storage-manage-with-storage-explorer.md).

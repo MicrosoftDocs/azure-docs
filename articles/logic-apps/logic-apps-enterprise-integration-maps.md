@@ -43,12 +43,46 @@ integration and business-to-business (B2B) solutions.
 Make sure you *upload your assembly first*, and then upload the 
 map that references the assembly.
 
-  Also, if your assembly is [2 MB or smaller](#smaller-assembly), 
-  you can upload your assembly directly in the Azure portal. 
-  However, if your assembly is [larger than 2 MB up to 8 MB](#larger-assembly), 
+  If your assembly is [2 MB or smaller](#smaller-assembly), 
+  you can add your assembly to your integrationacount 
+  directly from the Azure portal. However, if your assembly is 
+  bigger than 2 MB but no bigger than the [assembly size limit](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
+
+  up to 8 MB](#larger-assembly), 
   you need an Azure blob container where you store your assembly 
   and the content URI for that container so you can provide that 
   location later when you add the assembly to your integration account.
+
+  If your schema is [2 MB or smaller](#smaller-schema), 
+  you can add your schema to your integration account 
+  directly from the Azure portal. However, if your 
+  schema is bigger than 2 MB but no bigger than the 
+  [schema size limit](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
+  you can upload your schema to an Azure storage account. 
+  To add that schema to your integration account, you can 
+  then link to your storage account from your integration account. 
+  For this task, here are the items you need: 
+
+  * [Azure storage account](../storage/common/storage-account-overview.md) 
+  where you create a blob container for your schema. Learn how to 
+  [create a storage account](../storage/common/storage-quickstart-create-account.md). 
+
+  * Blob container for storing your schema. Learn how to 
+  [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). 
+  You need your container's content URI later when you 
+  add the schema to your integration account.
+
+  * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), 
+  which you can use for managing storage accounts and blob containers. 
+  To use Storage Explorer, choose either option here:
+  
+    * Go to your storage account in the Azure portal. 
+    On your storage account menu, select **Storage Explorer**.
+
+    * For the desktop version, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). 
+  Then, follow these [steps for connecting Azure Storage Explorer to your storage account](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+
+
 
 You don't need a logic app when creating and adding maps. 
 However, to use a map, your logic app needs linking to 
