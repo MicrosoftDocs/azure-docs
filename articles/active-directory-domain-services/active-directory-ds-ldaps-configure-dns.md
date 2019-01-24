@@ -4,7 +4,7 @@ description: Configure DNS to access an Azure AD Domain Services managed domain 
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: a47f0f3e-2578-422a-a421-034f66de38f5

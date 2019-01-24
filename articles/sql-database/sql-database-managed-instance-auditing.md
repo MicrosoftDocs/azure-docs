@@ -129,7 +129,7 @@ The following section describes the configuration of auditing on your Managed In
 
      1. Select a subscription, storage account, and Blob container from the dropdowns, or create your own container by clicking on **Create**. Once you have finished click **OK**:
 
-        ![Select Azure subscription, storage account, and blobl container](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+        ![Select Azure subscription, storage account, and blobl container](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Click **OK** in the "Create Audit" dialog.
 

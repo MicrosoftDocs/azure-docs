@@ -115,7 +115,7 @@ Task | Least privileged role | Additional roles
 Disable device | Cloud device administrator | 
 Enable device | Cloud device administrator | 
 Read basic configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Read Bitlocker keys | Security Reader | Password administrator, Security administrator
+Read BitLocker keys | Security Reader | Password administrator, Security administrator
 
 ## Enterprise applications
 

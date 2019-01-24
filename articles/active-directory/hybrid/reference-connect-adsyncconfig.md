@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: ADSyncConfig PowerShell Reference | Microsoft Docs'
 description: This document provides reference information for the ADSyncConfig.psm1 PowerShell module.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
@@ -1372,7 +1372,7 @@ Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
 ### DESCRIPTION
-This function retuns all the AD permissions currently set for a given AD object provided in the parameter -ADobjectDN.
+This function returns all the AD permissions currently set for a given AD object provided in the parameter -ADobjectDN.
 The ADobjectDN must be provided in a DistinguishedName format.
 
 ### EXAMPLES

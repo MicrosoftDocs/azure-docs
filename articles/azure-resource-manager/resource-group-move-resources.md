@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/24/2019
 ms.author: tomfitz
 
 ---
@@ -52,6 +52,7 @@ The following list provides a general summary of Azure services that can be move
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Data Explorer
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.
@@ -94,7 +95,7 @@ The following list provides a general summary of Azure services that can be move
 * Portal dashboards
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - Basic SKU Public IP can be moved. Standard SKU Public IP can't be moved.
-* Recovery Services vault - you must be enrolled in a [limited public preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Recovery Services vault - enroll in a [private preview](#recovery-services-limitations).
 * Azure Cache for Redis - if the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Virtual Networks limitations](#virtual-networks-limitations).
 * Scheduler
 * Search - You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
@@ -162,6 +163,7 @@ From September 24, 2018, you can move managed disks. This support means you can 
 The following scenarios aren't yet supported:
 
 * Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
+* Managed Disks in Availability Zones cannot be moved to a different subscription
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. Deprovision the virtual machine in the current subscription, and deploy again in the new subscription.
 
@@ -301,7 +303,7 @@ The operation may run for several minutes.
 
 ### Recovery Services limitations
 
-To move a Recovery Services vault, you must enroll in the [limited public preview](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ To move a Recovery Services vault, you must enroll in a private preview. To try it out, write to AskAzureBackupTeam@microsoft.com.
 
 Currently, you can move one Recovery Services vault, per region, at a time. You can't move vaults that back up Azure Files, Azure File Sync, or SQL in IaaS virtual machines.
 
@@ -329,6 +331,8 @@ When moving an HDInsight cluster to a new subscription, first move other resourc
 ## Checklist before moving resources
 
 There are some important steps to do before moving a resource. By verifying these conditions, you can avoid errors.
+
+1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
 1. The source and destination subscriptions must exist within the same [Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 

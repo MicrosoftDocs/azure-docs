@@ -4,7 +4,7 @@ description: Describes how to put your Office 365 user resources close to the us
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid:
 ms.service: active-directory

@@ -57,11 +57,11 @@ Create a plan, an offer, and a subscription for the Kubernetes Marketplace item.
 
     e. Select **Offer**. Select the name of the offer that you created. Make note of the Subscription ID.
 
-## Create a service principle and credentials in AD FS
+## Create a service principal and credentials in AD FS
 
-If you use Active Directory Federated Services (AD FS) for your identity management service, you will need to create a service principle for users deploying a Kubernetes cluster.
+If you use Active Directory Federated Services (AD FS) for your identity management service, you will need to create a service principal for users deploying a Kubernetes cluster.
 
-1. Create and export a certificate to be used to create the service principle. The following code snippet below shows how to create a self-signed certificate. 
+1. Create and export a certificate to be used to create the service principal. The following code snippet below shows how to create a self-signed certificate. 
 
     - You need the following pieces of information:
 
@@ -101,20 +101,20 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
         Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
         ```
 
-2. Create service principle using the certificate.
+2. Create service principal using the certificate.
 
     - You need the following pieces of information:
 
        | Value | Description                     |
        | ---   | ---                             |
        | ERCS IP | In the ASDK, the privileged endpoint is normally `AzS-ERCS01`. |
-       | Application name | A simple name for the application service principle. |
+       | Application name | A simple name for the application service principal. |
        | Certificate store location | The path on your computer where you have stored the certificate. For example: `Cert:\LocalMachine\My\<someuid>` |
 
     - Open PowerShell with an elevated prompt. Run the following script with the parameters updated to your values:
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -129,7 +129,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -164,7 +164,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
         $ServicePrincipal
         ```
 
-    - The Service principle details look like the snippet below
+    - The Service principal details look like the snippet below
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
