@@ -21,17 +21,14 @@ Configure the MySQL Workbench to connect securely over SSL. From the Setup New C
 For existing connections, you can bind SSL by right-clicking on the connection icon and choose edit. Then navigate to the **SSL** tab and bind the cert file.
 
 ### Connecting to server using the MySQL CLI over SSL
-Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following commands. Newer versions of the MySQL command-line interface have deprecated the `--ssl` parameter.
+Another way to bind the SSL certificate is to use the MySQL command-line interface by executing the following commands. 
 
-*MySQL command-line from MySQL 8.0+:*
 ```bash
 mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
-*Older versions of MySQL command-line:*
-```bash
-mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
-```
+> [!NOTE]
+> When using the MySQL command-line interface on Windows, you may receive an error `SSL connection error: Certificate signature check failed`. If this occurs, replace the `--ssl-mode=REQUIRED --ssl-ca={filepath}` parameters with `--ssl`.
 
 ## Step 3:  Enforcing SSL connections in Azure 
 ### Using the Azure portal
