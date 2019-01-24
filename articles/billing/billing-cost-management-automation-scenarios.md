@@ -37,7 +37,7 @@ You can use the billing and cost management APIs in several scenarios to answer 
 
 - **Azure spending during the month**: How much is my current month’s spending to date? Do I need to make any changes in my spending and/or usage of Azure? When during the month am I consuming Azure the most?
 
-- **Alerts**: I want to set up resource-based consumption or monetary-based alerts.
+- **Alerts**: How can I set up resource-based consumption or monetary-based alerts?
 
 ## Scenario-to-API mapping
 
