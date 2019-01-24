@@ -124,7 +124,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## Navigate the images 
-Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image#az_vm_image_list_offers), and [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) commands in sequence. With these commands, you determine these values:
+Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image), and [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) commands in sequence. With these commands, you determine these values:
 
 1. List the image publishers.
 2. For a given publisher, list their offers.
