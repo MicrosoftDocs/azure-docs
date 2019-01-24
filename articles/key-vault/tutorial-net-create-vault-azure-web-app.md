@@ -32,17 +32,17 @@ The tutorial shows you how to:
 > * Assign permission for the web app.
 > * Run the web app on Azure.
 
-Before you begin:
-* Read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
-* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Before you begin, read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
-* On Windows: [.NET Core 2.1 SDK or later](https://www.microsoft.com/net/download/windows)
-* On Mac: [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
-* On all platforms:
+* For Windows: [.NET Core 2.1 SDK or later](https://www.microsoft.com/net/download/windows)
+* For Mac: [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/)
+* For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later, available for Windows, Mac, and Linux (this tutorial requires that you run the Azure CLI locally)
+  * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## About Managed Service Identity
@@ -67,8 +67,9 @@ az login
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-1. Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command.
-1. Select a resource group name and fill in the placeholder. The following example creates a resource group in the West US location:
+Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command.
+
+Then, select a resource group name and fill in the placeholder. The following example creates a resource group in the West US location:
 
    ```azurecli
    # To list locations: az account list-locations --output table
@@ -117,7 +118,13 @@ After you complete these steps, you should have a URI to a secret in a key vault
 
 ## Create a .NET Core web app
 
-To create a .NET Core web app and publish it to Azure, follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md). 
+To create a .NET Core web app and publish it to Azure, do the following:
+
+1. Step 1
+1. Step 2
+1. etc.
+
+For more information, see [Create an ASP.NET Core web app in Azure](../app-service/app-service-web-get-started-dotnet.md). 
 
 You can also watch the following video:
 
@@ -126,10 +133,12 @@ You can also watch the following video:
 ## Open and edit the solution
 
 1. Go to the **Pages** > **About.cshtml.cs** file.
-2. Install these NuGet packages:
+
+1. Install these NuGet packages:
    - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
-3. Import the following code to the *About.cshtml.cs* file:
+
+1. Import the following code to the *About.cshtml.cs* file:
 
    ```csharp
     using Microsoft.Azure.KeyVault;
@@ -137,7 +146,7 @@ You can also watch the following video:
     using Microsoft.Azure.Services.AppAuthentication;
    ```
 
-4. Your code in the AboutModel class should look like this:
+   Your code in the AboutModel class should look like this:
 
    ```csharp
     public class AboutModel : PageModel
@@ -198,7 +207,7 @@ You can also watch the following video:
 
 ## Run the web app
 
-1. On the main menu of Visual Studio 2017, select **Debug** > **Start** with or without debugging. 
+1. On the main menu of Visual Studio 2017, select **Debug** > **Start**, with or without debugging. 
 1. In the browser, go to the **About** page.  
     The value for **AppSecret** is displayed.
 
@@ -206,24 +215,24 @@ You can also watch the following video:
 
 Azure Key Vault provides a way to securely store credentials and other secrets, but your code needs to authenticate to Key Vault to retrieve them. [Managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md) helps to solve this problem by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having to display credentials in your code.
 
-1. In the Azure CLI, to create the identity for this application, run the assign-identity command:
+In the Azure CLI, to create the identity for this application, run the assign-identity command:
 
-   ```azurecli
-   az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
-   ```
+```azurecli
+az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
+```
 
-1. Replace \<YourAppName> with the name of the published app on Azure.  
+Replace \<YourAppName> with the name of the published app on Azure.  
     For example, if your published app name was **MyAwesomeapp.azurewebsites.net**, replace \<YourAppName> with **MyAwesomeapp**.
 
-1. Make a note of the `PrincipalId` when you publish the application to Azure. The output of the command in step 1 should be in the following format:
+Make a note of the `PrincipalId` when you publish the application to Azure. The output of the command in step 1 should be in the following format:
 
-   ```json
-   {
-     "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-     "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-     "type": "SystemAssigned"
-   }
-   ```
+```json
+{
+  "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "type": "SystemAssigned"
+}
+```
 
 >[!NOTE]
 >The command in this procedure is the equivalent of going to the [Azure portal](https://portal.azure.com) and switching the **Identity / System assigned** setting to **On** in the web application properties.
