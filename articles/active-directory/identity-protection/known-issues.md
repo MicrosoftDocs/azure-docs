@@ -14,12 +14,39 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
 ---
 # FAQs and known issues with identity protection (refreshed) in Azure Active Directory
+
+
+## Dismiss User Risk
+
+When an admin performs “Dismiss user risk” in classic Identity Protection, the user’s risk history in Identity Protection (refreshed) will show that the actor was “Azure AD”
+
+When an admin performs “Dismiss user risk” in Identity Protection (refreshed), the user’s risk history in Identity Protection (refreshed) will show that the actor was “\<Admin’s name with a hyperlink pointing to user’s blade\>”
+
+
+## Risky Users Report
+
+Queries on the “username” field are case-sensitive, while queries on the “Name” field are case-agnostic
+
+Toggling "Show dates as" makes the RISK LAST UPDATED column disappear. To re-add the column click “Columns” at the top of the Risky Users blade
+
+When an admins performs “Dismiss all events” from classic Identity Protection, the risk events will show with the status “Closed (resolved)”
+
+If you attempt to access the Risky users report by clicking on “Risky users report” within a sign-in record in the Risky Sign-ins report, it may sometimes show “Something went wrong. Please retry”. To remedy this, click “Apply” or “Reset” at the top of the screen and the risky user(s) data will populate
+
+
+## Risky Sign-Ins Report
+
+When an admins performs “Resolve” on a risk event from classic Identity Protection, the risk event will show with the status “Users passed MFA driven by risk based policy”
+
+When an admin clicks “Reset” in the “Risky Sign-ins” report, the “Risk event type” will not be reset to empty.
+
+
 
 
 ## Why can’t I set my own risk levels for each risk event?

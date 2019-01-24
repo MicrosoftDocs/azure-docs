@@ -21,7 +21,7 @@ ms.custom: seohack1
 ---
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
 
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. The first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](../reports-monitoring/concept-risk-events.md) and associated information. This article gets you started querying this API. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://developer.microsoft.com/graph/).
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are three APIs that expose information about risky users and sign-ins. The first API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](../reports-monitoring/concept-risk-events.md) and associated information. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. This article gets you started with [connecting to the Microsoft Graph](#Connect-to-Microsoft-Graph) and [querying these APIs](#Query-the-APIs). For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
 
 * [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
 * [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
@@ -38,11 +38,8 @@ There are four steps to accessing Identity Protection data through Microsoft Gra
 
 Before you get started, you’ll need:
 
-- An Azure AD P2 tenant
-
-- Administrator privileges to create the application in Azure AD
-
-- The name of your tenant's domain (for example, contoso.onmicrosoft.com)
+* Administrator privileges to create the application in Azure AD
+* The name of your tenant's domain (for example, contoso.onmicrosoft.com)
 
 
 ## Retrieve your domain name 
@@ -53,14 +50,12 @@ Before you get started, you’ll need:
    
     ![Creating an application](./media/graph-get-started/41.png)
 
-3. Click **Custom domain names**.
 
-    ![Custom domain names](./media/graph-get-started/71.png)
+3. In the **Manage** section, click **Properties**.
 
-4. From the list of domain names, copy the domain name that is flagged as primary.
+    ![Creating an application](./media/graph-get-started/42.png)
 
-    ![Custom domain names](./media/graph-get-started/72.png)
-
+4. Copy your domain name.
 
 
 ## Create a new app registration
@@ -80,7 +75,7 @@ Before you get started, you’ll need:
 
     a. In the **Name** textbox, type a name for your application (e.g.: AADIP Risk Event API Application).
    
-    b. As **Application type**, select **Web Application And / Or Web API**.
+    b. As **Type**, select **Web Application And / Or Web API**.
    
     c. In the **Sign-on URL** textbox, type `http://localhost`.
 
@@ -113,7 +108,7 @@ Before you get started, you’ll need:
    
     ![Creating an application](./media/graph-get-started/19.png)
 
-6. On the **Enable Access** page, click **Read all identity risk information** and **Read all identity risky user information**, and then click **Select**.
+6. On the **Enable Access** page, click **Read all identity risk information**, and then click **Select**.
    
     ![Creating an application](./media/graph-get-started/20.png)
 
@@ -162,9 +157,9 @@ At this point, you should have:
 
 To authenticate, send a post request to `https://login.microsoft.com` with the following parameters in the body:
 
-- grant_type: "**client_credentials**"
+- grant_type: “**client_credentials**”
 
--  resource: "**https://graph.microsoft.com**"
+-  resource: “**https://graph.microsoft.com**”
 
 - client_id: \<your client ID\>
 
@@ -174,7 +169,7 @@ To authenticate, send a post request to `https://login.microsoft.com` with the f
 If successful, this returns an authentication token.  
 To call the API, create a header with the following parameter:
 
-    `Authorization`="<token_type> <access_token>"
+    `Authorization`=”<token_type> <access_token>"
 
 
 When authenticating, you can find the token type and access token in the returned token.
@@ -235,6 +230,7 @@ When you believe a user may have been compromised, you can better understand the
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
 ```
+
 
 
 
