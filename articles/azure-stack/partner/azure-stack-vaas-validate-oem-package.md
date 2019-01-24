@@ -79,7 +79,7 @@ Use the **Blob SAS URL** when providing package blob URLs to the portal.
 1. Grant **public read access for blobs only** to the package container by following the instructions in section [Grant anonymous users permissions to containers and blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
 > [!NOTE]
-> If you are providing a package URL to an *interactive test* (e.g., Disk Identification, Monthly AzureStack Update Verification, OEM Extension Package Verification), you must grant **full public read access** to proceed with testing.
+> If you are providing a package URL to an *interactive test* (for example, Monthly AzureStack Update Verification or OEM Extension Package Verification), you must grant **full public read access** to proceed with testing.
 
 2. In the package container, select the package blob to open the properties pane.
 
