@@ -4,36 +4,40 @@ description: Steps to deploy the Avere vFXT cluster in Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
 ---
 
 # Deploy the vFXT cluster
 
-The easiest way to create a vFXT cluster in Azure is to use a cluster controller. The cluster controller is a VM that includes the required scripts, templates, and software infrastructure for creating and managing the vFXT cluster.
+This procedure uses an Azure Resource Manager template to automate the cluster creation. After you enter the parameters in the form and click **Buy**, Azure automatically completes these steps: 
 
-Deploying a new vFXT cluster includes these steps:
-
-1. [Create the cluster controller](#create-the-cluster-controller-vm).
-1. If using Azure Blob storage, [create a storage endpoint](#create-a-storage-endpoint-if-using-azure-blob) in your virtual network.
-1. [Connect to the cluster controller](#access-the-controller). The rest of these steps are done from the cluster controller VM. 
-1. [Create the access role](#create-the-cluster-node-access-role) for the cluster nodes. A prototype is provided.
-1. [Customize the cluster creation script](#edit-the-deployment-script) for the type of vFXT cluster you want to create.
-1. [Execute the cluster creation script](#run-the-script).
-
-For more information about cluster deployment steps and planning, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md) and [Deployment overview](avere-vfxt-deploy-overview.md). 
+* Create the cluster controller, which is a basic VM that contains the software needed to deploy and manage the cluster.
+* Set up resource group and virtual network infrastructure, including creating new elements if needed.
+* Create the cluster node VMs and configure them as the Avere cluster.
+* If requested, create a new Azure Blob container and configure it as a cluster core filer.
 
 After following the instructions in this document, you will have a virtual network, a subnet, a controller, and a vFXT cluster as shown in the following diagram:
 
 ![diagram showing vnet containing optional blob storage and a subnet containing three grouped VMs labeled vFXT nodes/vFXT cluster and one VM labeled cluster controller](media/avere-vfxt-deployment.png)
 
-Before starting, make sure you have addressed these prerequisites:  
+After creating the cluster you should [create a storage endpoint](#create-a-storage-endpoint-if-using-azure-blob) in your virtual network if using Blob storage. 
+
+Before using the creation template, make sure you have addressed these prerequisites:  
 
 1. [New subscription](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+1. [Custom access roles](avere-vfxt-prereqs.md#create-access-roles) - You must create a role-based access control role to assign to the cluster nodes. You have the option to also create a custom access role for the cluster controller, but most users will take the default Owner role, which gives the controller privileges corresponding to a resource group owner. Read [Built-in roles for Azure resources](../role-based-access-control/built-in-roles#owner) for more detail.
 
-Optionally, you can create the cluster node role [before](avere-vfxt-pre-role.md) creating the cluster controller, but it is simpler to do it afterward.
+For more information about cluster deployment steps and planning, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md) and [Deployment overview](avere-vfxt-deploy-overview.md).
+
+## Create the Avere vFXT for Azure
+
+Access the creation template in the Azure portal by searching for Avere and selecting "Avere vFXT for Azure Deployment". <!-- xxx update if that name changes xxx --> 
+
+
+
 
 ## Create the cluster controller VM
 
@@ -50,7 +54,7 @@ You can create a new resource group as part of creating the controller.
 > Decide whether or not to use a public IP address on the cluster controller. A public IP address provides easier access to the vFXT cluster, but creates a small security risk.
 >
 >  * A public IP address on the cluster controller allows you to use it as a jump host to connect to the Avere vFXT cluster from outside the private subnet.
->  * If you do not set up a public IP address on the controller, you must use another jump host, a VPN connection, or ExpressRoute to access the cluster. For example, create the controller within a virtual network that has a VPN connection configured.
+>  * If you do not set up a public IP address on the controller, you must use another jump host, a VPN connection, or ExpressRoute to access the cluster. For example, create the controller within a virtual network that already has a VPN connection configured.
 >  * If you create a controller with a public IP address, you should protect the controller VM with a network security group. Allow access only through port 22 to provide internet access.
 
 ### Create controller - Resource Manager template
@@ -84,7 +88,7 @@ Under **TERMS AND CONDITIONS**:
 * Read the terms of service and click the checkbox to accept them. 
 
   > [!NOTE] 
-  > If you are not a subscription owner, have an owner accept the terms for you by following the prerequisite steps in [Accept software terms in advance](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
+  > If you are not a subscription owner, have an owner accept the terms for you by following the prerequisite steps in [Accept software terms](avere-vfxt-prereqs.md#accept-software-terms). 
 
 
 Click **Purchase** when finished. After five or six minutes, your controller node will be up and running.
@@ -218,32 +222,7 @@ To do the rest of the deployment steps, you need to connect to the cluster contr
 
 1. Add your subscription by running this command using your subscription ID:  ```az account set --subscription YOUR_SUBSCRIPTION_ID```
 
-## Create the cluster node access role
 
-> [!NOTE] 
-> * If you are not a subscription owner, and the role has not already been created, have a subscription owner follow these steps or use the procedure in [Create the Avere vFXT cluster runtime access role without a controller](avere-vfxt-pre-role.md).
-> 
-> * Microsoft internal users should use the existing role named "Avere Cluster Runtime Operator" instead of attempting to create one. 
-
-[Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC)  gives the vFXT cluster nodes authorization to perform necessary tasks.  
-
-As part of normal vFXT cluster operation, individual vFXT nodes need to do things like read Azure resource properties, manage storage, and control other nodes' network interface settings. 
-
-1. On the controller, open the ``/avere-cluster.json`` file in an editor.
-
-   ![console showing a list command and then "vi /avere-cluster.json"](media/avere-vfxt-open-role.png)
-
-1. Edit the file to include your subscription ID and delete the line above it. Save the file as ``avere-cluster.json``.
-
-   ![Console text editor showing the subscription ID and the "remove this line" selected for deletion](media/avere-vfxt-edit-role.png)
-
-1. Use this command to create the role:  
-
-   ```bash
-   az role definition create --role-definition /avere-cluster.json
-   ```
-
-You will pass the name of the role to the cluster creation script in the next step. 
 
 ## Create nodes and configure the cluster
 

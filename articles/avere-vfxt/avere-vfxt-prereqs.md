@@ -97,6 +97,8 @@ For the cluster controller, you can accept the default role from the template. T
 
 ### Create the cluster node access role
 
+<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
+
 You must create the cluster node role before creating the Avere vFXT for Azure cluster.
 
 > [!TIP] 
