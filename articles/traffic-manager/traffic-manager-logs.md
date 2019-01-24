@@ -15,13 +15,13 @@ ms.author: kumud
 
 # Enable Traffic Manager metrics logging in Azure
 
-This articles describes how to enable metrics logging and access log data for a Traffic Manager profile.
+This article describes how to enable metrics logging and access log data for a Traffic Manager profile.
 
 Azure Traffic Manager logging metrics can provide insight into the behavior of the Traffic Manager profile resource. For example, you can use a Traffic Manager profile's log data to determine why individual probes have timed out against an endpoint.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.13.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.13.1 or later. You can run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
 
 ## Enable metrics logging for Traffic Manager profile
  Enable metrics logging using [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). The following command stores verbose logs and metrics a Traffic Manager profile to the specified storage account. 
@@ -55,7 +55,7 @@ The following table includes logs schema specific to the Azure Traffic Manager p
 |----|----|---|---|
 |Field Name|Field Type|Definition|Example|
 |EndpointName|String|The resource name of the endpoint the health status is being recorded for.|"myPrimaryEndpoint"|
-|Status|String|The health status of the endpoint which was probed. Can either be "Up" or "Down"|"Up"|
+|Status|String|The health status of the endpoint that was probed. Can either be "Up" or "Down"|"Up"|
 |||||
 
 ## Next steps
