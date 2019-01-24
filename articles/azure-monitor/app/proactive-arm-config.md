@@ -152,7 +152,7 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 
 ## Who receives the (classic) alert notifications?
 
-This section only applies to smart detection classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). Currently smart detection alerts only support the classic alerts experience. The one exception to this is [smart detection alerts on Azure cloud services](./proactive-cloud-services.md). To control alert notification for smart detection alerts on Azure cloud services use [action groups](../platform/action-groups.md).
+This section only applies to smart detection classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md) and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). Currently smart detection alerts only support the classic alerts experience. The one exception to this is [smart detection alerts on Azure cloud services](./proactive-cloud-services.md). To control alert notification for smart detection alerts on Azure cloud services use [action groups](../platform/action-groups.md).
 
 * We recommend the use of specific recipients for smart detection/classic alert notifications.
 
