@@ -46,7 +46,7 @@ To see what actions a specific user took in various resources, you can view the 
 
 ## Export role assignments with children
 
-You may have a compliance requirement where you must provide a complete list of role assignments to auditors. PIM enables you to query role assignments at a specific resource, as well as all its child resources. Previously, it was difficult to get a list of all role assignments for a subscription. Using PIM, you can query for all eligible and active role assignments in a subscription including role assignments for all resource groups and resources.
+You may have a compliance requirement where you must provide a complete list of role assignments to auditors. PIM enables you to query role assignments at a specific resource, which includes role assignments for all child resources. Previously, it was difficult for administrators to get a complete list of role assignments for a subscription and they had to export role assignments for each specific resource. Using PIM, you can query for all active and eligible role assignments in a subscription including role assignments for all resource groups and resources.
 
 1. Open **Azure AD Privileged Identity Management**.
 
