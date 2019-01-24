@@ -345,23 +345,23 @@ In recent years advanced algorithms have been developed to accommodate time seri
 
 > [!NOTE]
 > This section is not intended to be used as a machine learning and forecasting overview but rather as a short survey of modeling techniques that are commonly used for demand forecasting. For more information and educational material about time series forecasting, we highly
-> recommend the online book [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
+> recommend the online book [Forecasting: principles and practice](https://www.otexts.org/).
 > 
 > 
 
-#### [**MA (Moving Average)**](https://www.otexts.org/fpp/6/2)
+#### **MA (Moving Average)**
 Moving average is one of the first analytical techniques that has been used for time series forecasting and it is still one of the most commonly used techniques as of today. It is also the foundation for more advanced forecasting techniques. With moving average we are forecasting
 the next data point by averaging over the K most recent points, where K denotes the order of the moving average.
 
 The moving average technique has the effect of smoothing the forecast and therefore may not handle well large volatility in the data.
 
-#### [**ETS (Exponential Smoothing)**](https://www.otexts.org/fpp/7/5)
+#### **ETS (Exponential Smoothing)**
 Exponential Smoothing (ETS) is a family of various methods which use weighted average of recent data points in order to predict the next data point. The idea is to assign higher weights to more recent values and gradually decrease this weight for older measured values. There are a
-number of different methods with this family, some of them include handling of seasonality in the data such as [Holt-Winters Seasonal Method](https://www.otexts.org/fpp/7/5).
+number of different methods with this family, some of them include handling of seasonality in the data such as Holt-Winters Seasonal Method.
 
 Some of these methods also factor in the seasonality of the data.
 
-#### [**ARIMA (Auto Regression Integrated Moving Average)**](https://www.otexts.org/fpp/8)
+#### **ARIMA (Auto Regression Integrated Moving Average)**
 Auto Regression Integrated Moving Average (ARIMA) is another family of methods which is commonly used for time series forecasting. It practically combines auto-regression methods with moving average. Auto-regression methods use regression models by taking previous time series values in order to compute the next date point. ARIMA methods also apply differencing methods that include calculating the difference between data points and using those instead of the original measured value. Finally, ARIMA also makes use of the moving average
 techniques that are discussed above. The combination of all of these methods in various ways is what constructs the family of ARIMA methods.
 

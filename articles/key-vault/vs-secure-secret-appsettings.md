@@ -11,9 +11,8 @@ ms.assetid:
 ms.service:
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: cawa
 
 ---

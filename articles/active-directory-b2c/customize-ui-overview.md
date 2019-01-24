@@ -3,7 +3,7 @@ title: About user interface customization in Azure Active Directory B2C | Micros
 description: Learn about how to customize the user interface for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
@@ -32,7 +32,7 @@ Before you start, review the following guidance:
 - Azure AD B2C merges HTML content into your pages. Don't copy and try to change the default content that Azure AD B2C provides. It's best to build your HTML content from scratch and use the default content as reference.
 - For security reasons, you aren’t allowed to include JavaScript in your content.
 - Supported browser versions are: 
-    - Internet Explorer 11, 10 and Edge
+    - Internet Explorer 11, 10 and Microsoft Edge
     - Limited support for Internet Explorer 9 and 8
     - Google Chrome 42.0 and above
     - Mozilla Firefox 38.0 and above

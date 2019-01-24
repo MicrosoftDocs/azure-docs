@@ -3,10 +3,10 @@ title: Track changes with Azure Automation
 description: The Change Tracking solution helps you identify software and Windows Service changes that occur in your environment.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/12/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -45,15 +45,14 @@ The following Linux distributions are officially supported. However, the Linux a
 * Debian GNU/Linux 8 and 9
 * Ubuntu Linux 14.04 LTS and 16.04 LTS
 
-## Enable Change Tracking and Inventory
+## <a name="onboard"></a>Enable Change Tracking and Inventory
 
-To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
+To begin tracking changes, you need to enable the Change Tracking and Inventory solution. There are many ways to onboard machines to Change Tracking and Inventory. The following are the recommended and supported ways to onboard the solution.
 
-1. In the Azure portal, navigate to your Automation Account
-2. Select **Change Tracking** under **CONFIGURATION**.
-3. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
-
-This enables the solution for your automation account. The solution can take up to 15 minutes to enable. The blue banner notifies you when the solution is enabled. Navigate back to the **Change Tracking** page to manage the solution.
+* [From a virtual machine](automation-onboard-solutions-from-vm.md)
+* [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
+* [From your Automation account](automation-onboard-solutions-from-automation-account.md)
+* [With an Azure Automation runbook](automation-onboard-solutions.md)
 
 ## Configuring Change Tracking and Inventory
 
@@ -274,3 +273,4 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
 * Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+

@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 01/23/2019
 ms.author: mbullwin
 
 ---
@@ -24,7 +24,7 @@ There are three kinds of alerts:
 
 * **Metric alerts** tell you when a metric crosses a threshold value for some period - such as response times, exception counts, CPU usage, or page views. 
 * [**Web tests**][availability] tell you when your site is unavailable on the internet, or responding slowly. [Learn more][availability].
-* [**Proactive diagnostics**](../../application-insights/app-insights-proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
+* [**Proactive diagnostics**](../../azure-monitor/app/proactive-diagnostics.md) are configured automatically to notify you about unusual performance patterns.
 
 We focus on metric alerts in this article.
 
@@ -84,7 +84,20 @@ Popular alerts include:
 * **Server response time** for the server side of web applications. As well as setting up alerts, keep an eye on this metric to see if it varies disproportionately with high request rates: variation might indicate that your app is running out of resources. 
 * **Server exceptions** - to see them, you have to do some [additional setup](../../azure-monitor/app/asp-net-exceptions.md).
 
-Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes. 
+Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md) automatically monitor the rate at which your app responds to requests with failure codes.
+
+## Who receives the (classic) alert notifications?
+
+This section only applies to classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md) and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). To control alert notification in the new alerts experience use [action groups](../platform/action-groups.md).
+
+* We recommend the use of specific recipients for classic alert notifications.
+
+* For alerts on any Application Insights metrics (including availability metrics), the **bulk/group** check-box option, if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+
+> [!NOTE]
+> If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.
+
+Use the new alert experience/near-realtime alerts if you need to notify users based on their roles. With [action groups](../platform/action-groups.md), you can configure email notifications to users with any of the contributor/owner/reader roles (not combined together as a single option).
 
 ## Automation
 * [Use PowerShell to automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
@@ -97,7 +110,7 @@ Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/p
 ## See also
 * [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Automate setting up alerts](../../azure-monitor/app/powershell-alerts.md)
-* [Proactive diagnostics](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [Proactive diagnostics](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 
@@ -105,5 +118,5 @@ Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/p
 [client]: ../../azure-monitor/app/javascript.md
 [platforms]: ../../azure-monitor/app/platforms.md
 [roles]: ../../azure-monitor/app/resources-roles-access-control.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md
 

@@ -39,7 +39,7 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
-    - name: Azure Resource Manager templates
+    - name: Azure Resource Manager template
       href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - Create a Web App
     items:
@@ -195,6 +195,8 @@
     href: /cli/azure/mysql
   - name: REST API
     href: /rest/api/mysql
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.dbformysql/allversions
   - name: Data-in replication stored procedures
     href: reference-data-in-stored-procedures.md
 - name: Resources

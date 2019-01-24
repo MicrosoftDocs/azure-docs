@@ -68,15 +68,17 @@ With JSON body:
 
 ## Create a user-defined function
 
-After the matchers are created, upload the function snippet with the following authenticated multipart HTTP POST request:
+Creating a user-defined function involves making a multipart HTTP request to the Azure Digital Twins Management APIs.
 
 [!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
+
+After the matchers are created, upload the function snippet with the following authenticated multipart HTTP POST request to:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
-Use the following JSON body:
+Use the following body:
 
 ```plaintext
 --USER_DEFINED_BOUNDARY

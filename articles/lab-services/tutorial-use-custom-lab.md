@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
 
 ---
@@ -65,10 +65,12 @@ After you are done with using the VM, unclaim the VM by following these steps:
 1. On the virtual machine page, and select **Unclaim** on the toolbar. 
 
     ![Unclaim VM](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. The VM is shut down before it's unclaimed. 
+1. The VM is shut down before it's unclaimed. You can see the status of this operation in notifications.  
+3. Navigate back to the DevTest Lab page by clicking your lab name in the breadcrumb menu at the top. 
+    
+    ![Navigate back to lab](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. Confirm that you see the VM in the list of **Claimable virtual machines** list at the bottom.
 
-    ![Unclaim status](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. After the unclaim operation is done, you see the VM in the list of **Claimable virtual machines** list at the bottom. 
     
 ## Next steps
 This tutorial showed you how to access and use a lab that was created by using Azure DevTest Labs. For more information about accessing and using VMs in a lab, see 

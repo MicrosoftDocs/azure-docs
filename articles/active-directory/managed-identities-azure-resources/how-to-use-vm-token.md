@@ -3,8 +3,8 @@ title: How to use managed identities for Azure resources on a virtual machine to
 description: Step by step instructions and examples for using managed identities for Azure resources on a virtual machines to acquire an OAuth access token.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: 
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # How to use managed identities for Azure resources on an Azure VM to acquire an access token 
@@ -121,7 +121,7 @@ Content-Type: application/json
 
 ## Get a token using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
-For .NET applications and functions, the simplest way to work with managed identities for Azure resources is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
+For .NET applications and functions, the simplest way to work with managed identities for Azure resources is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference](/azure/key-vault/service-to-service-authentication). This section shows you how to get started with the library in your code.
 
 1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet packages to your application.
 

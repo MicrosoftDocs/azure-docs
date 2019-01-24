@@ -23,7 +23,7 @@ ms.reviewer: guanghu
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> Aure Cognitive Services on Azure Stack is in preview.
+> Azure Cognitive Services on Azure Stack is in preview.
 
 You can use Azure Cognitive Services with container support on Azure Stack. Container support in Azure Cognitive Services allows you to use the same rich APIs that are available in Azure. Your use of containers enables flexibility in where to deploy and host the services delivered in [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), and [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
 
@@ -38,7 +38,7 @@ Containerization is an approach to software distribution in which an application
   Provide app users to version and update of the models deployed in their solution.
 
 - **Portable architecture**  
-  Enable the creation of a portable app architecture so that you can deploy your solution to the public cloud, to a private cloud on-premesis, or the edge. You can deploy your container to Azure Kubernetes Service, Azure Container Instances, or to a Kubernetes cluster in to Azure Stack. For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+  Enable the creation of a portable app architecture so that you can deploy your solution to the public cloud, to a private cloud on-premises, or the edge. You can deploy your container to Azure Kubernetes Service, Azure Container Instances, or to a Kubernetes cluster in to Azure Stack. For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 - **High throughput and low latency**  
    Provide your app users the ability to scale with spikes in traffic for high throughput and low latency. Enable Cognitive Services to run in Azure Kubernetes Service physically close to their application logic and data.

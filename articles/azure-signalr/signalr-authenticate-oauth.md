@@ -541,7 +541,7 @@ To deploy your code, execute the following commands in a Git shell.
 
 The last thing you need to do is update the **Homepage URL** and **Authorization callback URL** of the GitHub OAuth app to point to the new hosted app.
 
-1. Open [http://github.com](http://github.com) in a browser and navigate to your account's **Settings** > **Developer settings** > **Oauth Apps**.
+1. Open [https://github.com](https://github.com) in a browser and navigate to your account's **Settings** > **Developer settings** > **Oauth Apps**.
 
 2. Click on your authentication app and update the **Homepage URL** and **Authorization callback URL** as shown below:
 

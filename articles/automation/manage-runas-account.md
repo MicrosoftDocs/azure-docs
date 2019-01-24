@@ -3,7 +3,7 @@ title: Manage Azure Automation Run As accounts
 description: This article describes how to manage your Run As accounts with PowerShell, or from the portal.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/12/2018
@@ -384,3 +384,4 @@ You can quickly resolve these Run As account issues by deleting and re-creating 
 
 * For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * For more information about certificates and Azure services, see [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+

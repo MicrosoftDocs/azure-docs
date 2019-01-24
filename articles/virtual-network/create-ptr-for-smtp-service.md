@@ -1,14 +1,10 @@
 ---
-title: Configure reverse lookup zones for an SMTP banner check in Azure| Microsoft Docs
+title: Configure reverse lookup zones for an SMTP banner check in Azure
+titlesuffix: Azure Virtual Network
 description: Describes how to configure reverse lookup zones for an SMTP banner check in Azure
 services: virtual-network
 documentationcenter: virtual-network
 author: genlin
-manager: WillChen
-editor: ''
-tags: azure-resource-manager
-
-
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -16,7 +12,7 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: 
+
 ---
 
 #  Configure reverse lookup zones for an SMTP banner check

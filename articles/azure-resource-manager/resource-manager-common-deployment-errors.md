@@ -246,5 +246,7 @@ Or, suppose you are encountering deployment errors that you believe are related 
 
 
 ## Next steps
+
+* To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](./resource-manager-tutorial-troubleshoot.md)
 * To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-deployment-operations.md).

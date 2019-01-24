@@ -4,7 +4,7 @@ description: Learn how to use Terratest to test your Terraform modules.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, storage account, azure, terratest, unit test, integration test
-author: JunyiYi
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

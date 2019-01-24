@@ -3,7 +3,7 @@ title: Assign or remove licenses - Azure Active Directory | Microsoft Docs
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -53,7 +53,7 @@ You can view your available products, including the individual licenses, checkin
 ## Assign licenses to users or groups
 Make sure that anyone needing to use a licensed Azure AD service has the appropriate license. It's up to you whether you want to add the licensing rights to individual users or to an entire group.
 
->![Note]
+>[!Note]
 >Group-based licensing is a public preview feature of Azure AD and is available with any paid Azure AD license plan. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>For detailed information about how to add users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). For detailed information about how to create groups and add members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
 ### To assign a license to a specific user

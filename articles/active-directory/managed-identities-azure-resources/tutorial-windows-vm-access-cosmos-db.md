@@ -3,8 +3,8 @@ title: Use a Windows VM system-assigned managed identity to access Azure Cosmos 
 description: A tutorial that walks you through the process of using a system-assigned managed identity on a Windows VM, to access Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Cosmos DB

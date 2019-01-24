@@ -3,7 +3,7 @@ title: Create a Linux VM in Azure with multiple NICs | Microsoft Docs
 description: Learn how to create a Linux VM with multiple NICs attached to it using the Azure CLI or Resource Manager templates.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
-ms.author: zarhoads
+ms.author: cynthn
 ---
 # How to create a Linux virtual machine in Azure with multiple network interface cards
 
@@ -62,7 +62,7 @@ az network nsg create \
 ```
 
 ## Create and configure multiple NICs
-Create two NICs with [az network nic create](/cli/azure/network/nic#az_network_nic_create). The following example creates two NICs, named *myNic1* and *myNic2*, connected the network security group, with one NIC connecting to each subnet:
+Create two NICs with [az network nic create](/cli/azure/network/nic). The following example creates two NICs, named *myNic1* and *myNic2*, connected the network security group, with one NIC connecting to each subnet:
 
 ```azurecli
 az network nic create \
@@ -100,7 +100,7 @@ Add routing tables to the guest OS by completing the steps in [Configure the gue
 ## Add a NIC to a VM
 The previous steps created a VM with multiple NICs. You can also add NICs to an existing VM with the Azure CLI. Different [VM sizes](sizes.md) support a varying number of NICs, so size your VM accordingly. If needed, you can [resize a VM](change-vm-size.md).
 
-Create another NIC with [az network nic create](/cli/azure/network/nic#az_network_nic_create). The following example creates a NIC named *myNic3* connected to the back-end subnet and network security group created in the previous steps:
+Create another NIC with [az network nic create](/cli/azure/network/nic). The following example creates a NIC named *myNic3* connected to the back-end subnet and network security group created in the previous steps:
 
 ```azurecli
 az network nic create \
@@ -127,7 +127,7 @@ az vm nic add \
     --nics myNic3
 ```
 
-Start the VM with [az vm start](/cli/azure/vm#az_vm_start):
+Start the VM with [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -151,7 +151,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Start the VM with [az vm start](/cli/azure/vm#az_vm_start):
+Start the VM with [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -198,13 +198,13 @@ az network nsg rule create \
 Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) and assign it to the first NIC with [az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
 
 ```azurecli
-az network public-ip-address create --resource-group myResourceGroup --name myPublicIP
+az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
 az network nic ip-config update \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
     --name ipconfig1 \
-    --public-ip-addres myPublicIP
+    --public-ip myPublicIP
 ```
 
 To view the public IP address of the VM, use [az vm show](/cli/azure/vm#az-vm-show) as follows::

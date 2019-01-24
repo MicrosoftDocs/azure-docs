@@ -48,7 +48,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 The code in this article requires the Azure Machine Learning SDK version 1.0.2 or later.
 
-Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
+Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://docs.conda.io/en/latest/miniconda.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 ### Install Miniconda
 
@@ -72,7 +72,7 @@ Before you install the SDK, we recommend that you create an isolated Python envi
 
 In the activated conda environment, install the SDK. This code installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the conda environment. The installation takes a few minutes to finish based on the configuration of your machine.
 
-```sh
+```shell
 # Install Jupyter
 conda install nb_conda
 
@@ -82,7 +82,7 @@ pip install azureml-sdk[notebooks]
 
 You can use additional keywords to install other components of the SDK:
 
-```sh
+```shell
 # Install the base SDK and auto ml components
 pip install azureml-sdk[automl]
 
@@ -93,13 +93,8 @@ pip install azureml-sdk[explain]
 pip install azureml-sdk[contrib]
 ```
 
-In the Azure Databricks environment, use the following install command instead:
-
-```
-# Install the base SDK and automl components in the Azure Databricks environment.
-# For more information, see https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks.
-pip install azureml-sdk[databricks]
-```
+In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks
+) instead.
 
 
 ## Create a workspace
@@ -139,11 +134,7 @@ pip install azureml-sdk[databricks]
 
 Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config\config.json*.  
 
-This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory. 
-
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
-
-The `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following script:
+The `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following:
 
 ```json
 {
@@ -152,6 +143,12 @@ The `write_config()` API call creates the configuration file in the current dire
     "workspace_name": "myworkspace"
 }
 ```
+
+This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory. 
+
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
+
+
 
 ## Use the workspace
 
@@ -186,7 +183,7 @@ To use the code with the Machine Learning tutorials, you need a few more package
 
 1. In your browser, close your notebook.
 1. In the command-line window, select Ctrl+C to stop the Jupyter Notebook server.
-1. Install the additional packages.
+1. Install the additional packages.  If you didn't install `azureml-sdk[automl]` above, make sure you do so now.
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy

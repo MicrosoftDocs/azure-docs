@@ -26,7 +26,7 @@ This guide helps you understand how Log Analytics dashboards can visualize all o
 
 All the custom dashboards that you create in the OMS portal are also available in the OMS Mobile App. See the following pages for more information about the apps.
 
-* [OMS mobile app from the Microsoft Store](http://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+* [OMS mobile app from the Microsoft Store](https://www.windowsphone.com/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 * [OMS mobile app from Apple iTunes](https://itunes.apple.com/app/microsoft-operations-management/id1042424859?mt=8)
 
 ![mobile dashboard](./media/dashboards/oms-search-mobile.png)

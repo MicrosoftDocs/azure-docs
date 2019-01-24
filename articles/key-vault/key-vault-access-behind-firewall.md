@@ -11,9 +11,8 @@ ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: ambapat
 
 ---

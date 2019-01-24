@@ -14,7 +14,7 @@ ms.custom: include file
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB (MongoDB API)](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB's API for MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen2 (Preview)](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  |
@@ -56,7 +56,7 @@ ms.custom: include file
 | **File** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[File System](../articles/data-factory/connector-file-system.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓ |✓  |
-| &nbsp; |[Google Cloud Storage](../articles/data-factory/connector-amazon-simple-storage-service.md#copy-from-google-cloud-storage) |✓ | |✓ |✓  |
+| &nbsp; |[Google Cloud Storage](../articles/data-factory/connector-google-cloud-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |✓ |✓  |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |✓ |✓  |
 | **Generic protocol** |[Generic HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |

@@ -3683,7 +3683,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/generateregistrationcertificate/action | Generates Registration Certificate for the workspace. This Certificate is used to connect Microsoft System Center Operation Manager to the workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/intelligencepacks/disable/action | Disables an intelligence pack for a given workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/intelligencepacks/enable/action | Enables an intelligence pack for a given workspace. |
-> | Action | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Lists all intelligence packs that are visible for a given worksapce and also lists whether the pack is enabled or disabled for that workspace. |
+> | Action | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Lists all intelligence packs that are visible for a given workspace and also lists whether the pack is enabled or disabled for that workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/linkedServices/delete | Delete linked services under given workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/linkedServices/read | Get linked services under given workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/linkedServices/write | Create/Update linked services under given workspace. |

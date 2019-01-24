@@ -33,10 +33,10 @@ of individuals with \"owner\" role need to agree to comply with the
 [Microsoft Privacy Statement](https://www.microsoft.com/privacystatement/default.aspx),
 and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
-## To start creating a Cortana Inteligence offer
+## To start creating a Cortana Intelligence offer
 
 Once all the pre-requisites have been met, you are ready to start
-authoring your Cortana Inteligence offer.
+authoring your Cortana Intelligence offer.
 
 1.  Sign in to the [cloud partner portal](http://cloudpartner.azure.com/).
 2.  On the left navigation bar, select **+ New offer**.
@@ -138,7 +138,7 @@ The following instructions show how to create a video using Skype for Business.
 4. After you stop recording, [use the recording manager to publish your recording](https://support.office.com/article/Recording-Manager-save-and-publish-59a3beb7-c700-40cf-ab21-bc82a2b06351)
 
 Upload your recorded video to a service that allows you to
-generate a shared URL. For example, a [guest link in OneDrive or Sharepoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
+generate a shared URL. For example, a [guest link in OneDrive or SharePoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
 
 ### Supported regions
 

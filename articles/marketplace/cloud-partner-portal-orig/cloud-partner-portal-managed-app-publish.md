@@ -109,7 +109,7 @@ shows up as its own purchasable entity at azure.com.
 4.  The \"forms\" that need to be filled out are visible on the left
     within the \"Editor\" view. Each \"form\" consists of a set of
     fields that are to be filled out. Required fields are marked with a
-    red asterix (\*).
+    red asterisk (\*).
 
     > There are 4 main forms for authoring a Managed Application
 

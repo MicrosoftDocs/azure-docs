@@ -48,6 +48,5 @@ Azure Media Player is easy to set up. It only takes a few moments to get basic p
 
 ## Next steps
 
-- [Sign up to stay up to date with the latest from Azure Media Player](http://azuremediaplayerdemo.azurewebsites.net/amp_signup.html)
 - [Azure Media Player documentation](https://aka.ms/ampdocs)
 - [Azure Media Player samples](https://aka.ms/ampsamples)

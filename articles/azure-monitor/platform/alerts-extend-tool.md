@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Extend alerts from Log Analytics into Azure Alerts
 The alerts feature in Azure Log Analytics is being replaced by Azure Alerts. As part of this transition, alerts that you originally configured in Log Analytics will be extended into Azure. If you don't want to wait for them to be automatically moved into Azure, you can initiate the process:
@@ -83,7 +83,7 @@ If the GET request is successful, an HTTP status code 200 is returned, along wit
                     "webhookActions": [
                         {
                             "name": "Webhook_1",
-                            "serviceUri": "http://test.com"
+                            "serviceUri": "https://test.com"
                         }
                     ],
                     "itsmAction": {}
@@ -180,7 +180,7 @@ This response indicates the alerts have been successfully extended into Azure Al
                     "webhookActions": [
                         {
                             "name": "Webhook_1",
-                            "serviceUri": "http://test.com"
+                            "serviceUri": "https://test.com"
                         }
                     ],
                     "itsmAction": {}
@@ -257,7 +257,7 @@ catch
 {
 
     $ErrorMessage = $_.Exception.Message
-    "Error occured while fetching/parsing Extend summary: $ErrorMessage"
+    "Error occurred while fetching/parsing Extend summary: $ErrorMessage"
     exit 
 }
 
@@ -477,3 +477,4 @@ Here are the remediation steps for each error:
 
 * Learn more about the new [Azure Alerts experience](../../azure-monitor/platform/alerts-overview.md).
 * Learn about [log alerts in Azure Alerts](alerts-unified-log.md).
+

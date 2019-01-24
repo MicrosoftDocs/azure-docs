@@ -10,10 +10,10 @@ ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: powershell
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/28/2018
+ms.date: 01/07/2019
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 5.1.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell module version 5.1.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ```azurepowershell-interactive
 Login-AzureRmAccount
