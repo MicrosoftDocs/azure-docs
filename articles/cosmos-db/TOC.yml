@@ -253,25 +253,17 @@
       - name: How-to guides
         items:
         - name: Tune query performance
-          href: sql-api-query-metrics.md
-        - name : Server-side programming
-          items:
-          - name: Write stored procedures, triggers, & UDFs
-            href: how-to-write-stored-procedures-triggers-udfs.md
-          - name: Write stored procedures & triggers with JavaScript query API
-            href: how-to-write-javascript-query-api.md
-          - name: Use stored procedures, triggers, & UDFs
-            href: how-to-use-stored-procedures-triggers-udfs.md  
+          href: sql-api-query-metrics.md 
         - name: Data types
           items:
           - name: DateTime
             href: working-with-dates.md
           - name: Geospatial
             href: geospatial.md
-          - name: Bulk executor - .NET library
-            href: bulk-executor-dot-net.md
-          - name: Bulk executor - Java library
-            href: bulk-executor-java.md
+        - name: Bulk executor - .NET library
+          href: bulk-executor-dot-net.md
+        - name: Bulk executor - Java library
+          href: bulk-executor-java.md
       - name: Reference
         items:
         - name: .NET
@@ -482,6 +474,14 @@
         items:
         - name: Configure indexing
           href: how-to-manage-indexing-policy.md
+    - name : Server-side programming
+      items:
+      - name: Write stored procedures, triggers, & UDFs
+        href: how-to-write-stored-procedures-triggers-udfs.md
+      - name: Write stored procedures & triggers with JavaScript query API
+        href: how-to-write-javascript-query-api.md
+      - name: Use stored procedures, triggers, & UDFs
+        href: how-to-use-stored-procedures-triggers-udfs.md 
     - name: Security
       items:
       - name: Configure IP firewall
