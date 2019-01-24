@@ -1,33 +1,40 @@
 ---
-title: What is Bing Spell Check API?
+title: What is the Bing Spell Check API?
 titlesuffix: Azure Cognitive Services
-description: The Bing Spell Check API uses machine learning and statistical machine translation for contextual spell checking.
+description: Learn about the Bing Spell Check API, which uses machine learning and statistical machine translation for contextual spell checking.
 services: cognitive-services
-author: noellelacharite
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: overview
-ms.date: 05/03/2018
-ms.author: nolachar
+ms.date: 01/24/2019
+ms.author: aahi
 ---
-# What is Bing Spell Check API?
 
-The Bing Spell Check API lets you perform contextual grammar and spell checking.
+# What is the Bing Spell Check API?
 
-What’s the difference between regular spell-checkers and Bing’s third-generation spell-checker? Current spell-checkers rely on verifying spelling and grammar against dictionary-based rule sets, which get updated and expanded periodically. In other words, the spell-checker is only as strong as the dictionary that supports it, and the editorial staff who supports the dictionary. You know this type of spell-checker from Microsoft Word and other word processors.
+The Bing Spell Check API enables you to perform contextual grammar and spell checking on text. While most spell-checkers rely on dictionary-based rule sets, the Bing spell-checker leverages machine learning and statistical machine translation to provide accurate and contextual corrections. 
 
-In contrast, Bing has developed a web-based spell-checker that leverages machine learning and statistical machine translation to dynamically train a constantly evolving and highly contextual algorithm. The spell-checker is based on a massive corpus of web searches and documents.
+## Features
 
-This spell-checker can handle any word-processing scenario:
 
-- Recognizes slang and informal language
-- Recognizes common name errors in context
-- Corrects word breaking issues with a single flag
-- Is able to correct homophones in context, and other difficult to spot errors
-- Supports new brands, digital entertainment, and popular expressions as they emerge
-- Words that sound the same but differ in meaning and spelling, for example “see” and “sea.”
+|Column1  |Column2  |
+|---------|---------|
+|Multiple spell check modes     | Multiple spell check modes enable you to get corrections focused on grammar and/or spelling. |
+|Slang and informal language recognition     | Recognize common expressions and informal terms used in text.         |
+|Differentiate between similar words     | Find the correct usage between words that sound similar but differ in meaning (for example, "see" and "sea")        |
+|Brand, title, and popular usage support     | Recognize new brands, titles, and other popular expressions as they emerge |
+
+## Workflow
+
+The Bing Spell Check API is easy to call from any programming language that can make HTTP requests and parse JSON responses. The service is accessible using the REST API or the Bing Spell Check SDKs. 
+
+1. Create a [Cognitive Services API account](../cognitive-services-apis-create-account.md) with access to the Bing Search APIs. If you don't have an Azure subscription, you can create a free account. 
+2. Send a request to the Bing Web Search API.
+3. Parse the JSON response
+
 
 ## Spell check modes
 
