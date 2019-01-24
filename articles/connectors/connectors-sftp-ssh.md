@@ -29,7 +29,9 @@ any reliable data stream. Here are some example tasks you can automate:
 * Extract archives to folders.
 
 Compared to the [SFTP connector](../connectors/connectors-create-api-sftp.md), 
-the SFTP-SSH connector can read or write files up to *1 GB* in size. 
+the SFTP-SSH connector can read or write files up to *1 GB* in size by managing 
+data in 50 MB pieces. For files larger than 1 GB, actions can use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
 For more differences, review [Compare SFTP-SSH versus SFTP](#comparison) 
 later in this article.
 
@@ -67,8 +69,8 @@ which is an open-source Secure Shell (SSH) library that supports .NET.
 
 * Reads or writes files up to *1 GB* in size compared 
 to the SFTP connector, but handles data in 50 MB pieces, 
-not 1 GB pieces. For files larger than 1 GB, you can 
-also use [message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md). 
+not 1 GB pieces. For files larger than 1 GB, actions can 
+also use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
 Currently, triggers don't support chunking.
 
 * Provides the **Create folder** action, which creates 
