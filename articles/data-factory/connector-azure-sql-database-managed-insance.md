@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 01/23/2019
 ms.author: jingwang
 
 ---
@@ -30,9 +30,13 @@ Specifically, this Azure SQL Database Managed Instance connector supports:
 - As source, retrieving data using SQL query or stored procedure.
 - As sink, appending data to destination table or invoking a stored procedure with custom logic during copy.
 
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now. 
+
 ## Prerequisites
 
-To use copy data from an Azure SQL Database Managed Instance which is located in VNET, you need to set up a Self-hosted Integration Runtime in the same VNET that can access the database. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+To use copy data from an Azure SQL Database Managed Instance which is located in VNET, you need to set up a Self-hosted Integration Runtime that can access the database. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+
+If you provision your Self-hosted IR in the same virtual network as your Managed Instance, make sure that your IR machine is in a different subnet than your Managed Instance. If you provision your Self-hosted IR in a different virtual network than your Managed Instance, you can use either a virtual network peering or virtual network to virtual network connection. See [Connect your application to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## Getting started
 
@@ -499,7 +503,7 @@ When copying data from/to Azure SQL Database Managed Instance, the following map
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object * |
+| sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
@@ -508,6 +512,9 @@ When copying data from/to Azure SQL Database Managed Instance, the following map
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
+
+>[!NOTE]
+> For data types maps to Decimal interim type, currently ADF support precision up to 28. If you have data with precision larger than 28, consider to convert to string in SQL query.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

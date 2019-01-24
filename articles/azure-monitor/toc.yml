@@ -968,7 +968,7 @@
   - name: Schemas
     items:
     - name: Diagnostic logs services, categories, and schemas
-      href: platform/tutorial-dashboards.md
+      href: platform/diagnostic-logs-schema.md
     - name: Activity log event schema
       href: platform/activity-log-schema.md
     - name: Azure Diagnostics extension schema

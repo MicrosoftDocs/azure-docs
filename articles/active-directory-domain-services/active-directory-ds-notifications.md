@@ -4,7 +4,7 @@ description: Notification settings for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: b9af1792-0b7f-4f3e-827a-9426cdb33ba6
