@@ -21,13 +21,13 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
 
 ![Screenshot showing dashboard edit view](./media/azure-portal-markdown-tile/azure-portal-dashboard-edit.png)
 
-1. In the **Tile Gallery**, locate the tile called **Markdown** and click **Add**. The tile is added to the dashboard and the **Edit Markdown** pane opens.
+2. In the **Tile Gallery**, locate the tile called **Markdown** and click **Add**. The tile is added to the dashboard and the **Edit Markdown** pane opens.
 
-1. Edit the **Title**, **Subtitle**, and **Content** fields to customize the tile. In the example shown here, the markdown tile has been edited to display custom help desk information.
+3. Edit the **Title**, **Subtitle**, and **Content** fields to customize the tile. In the example shown here, the markdown tile has been edited to display custom help desk information.
 
 ![Screenshot showing markdown tile edit view](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 
-1. Select **Done** to dismiss the **Edit Markdown** pane. Your content will appear on the Markdown tile, which can then be resized by dragging the handle in the lower right-hand corner.
+4. Select **Done** to dismiss the **Edit Markdown** pane. Your content will appear on the Markdown tile, which can then be resized by dragging the handle in the lower right-hand corner.
 
 ![Screenshot showing custom markdown tile](./media/azure-portal-markdown-tile/azure-portal-custom-markdown-tile.png)
 
