@@ -58,13 +58,13 @@ To use Azure AD authentication, your C# client program has to register as an AD 
 
 To register an app:
 
-1. Azure portal > **Azure Active Directory** > **App registration**
+1. Azure portal > **Azure Active Directory** > **App registration** > **New application registration**
 
-    ![App registration](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
+    ![App registration](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
 2. The **Application ID** value is generated and displayed.
 
-    ![App ID displayed](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
+    ![App ID displayed](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
 3. **Registered app** > **Settings** > **Required permissions** > **Add**
 
