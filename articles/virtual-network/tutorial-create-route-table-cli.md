@@ -85,7 +85,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Create two additional subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create).
+Create two additional subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 # Create a private subnet.
