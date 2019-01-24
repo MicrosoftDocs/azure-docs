@@ -33,25 +33,18 @@ This article walks you through the steps to install the Ansible solution templat
 
 1. The Azure portal appears and displays the Ansible page that describes the solution template. Select **Create**.
 
+    ![Azure portal page for Ansible solution template creation and configuration](../media/ansible-install-solution-template/portal-create-page.png)
+
 1. In the **Create Ansible** page, you see several tabs. On the **Basics** tab, enter the required information:
 
     - **Name** - Specify the name your Ansible instance. For demo purposes, the name `ansiblehost` is used.
     - **User name:** - Specify the user name that will have access to the Ansible instance. For demo purposes, the name `ansibleuser` is used.
     - **Authentication type:** - Select either **Password** or **SSH public key**. For demo purposes, **SSH public key** is selected.
-    - **Password** and **Confirm password** - If you select **Password** for **Authentication type**, enter the desired password in each for each of these values.
-    - **SSH public key** - If you select select **SSH public key** for **Authentication type**, enter your RSA public key in the single-line format - starting with `ssh-rsa`.
+    - **Password** and **Confirm password** - If you select **Password** for **Authentication type**, enter the desired password for these values.
+    - **SSH public key** - If you select **SSH public key** for **Authentication type**, enter your RSA public key in the single-line format - starting with `ssh-rsa`.
     - **Subscription** - Select the desired Azure subscription from the dropdown list.
-    - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group.
+    - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group. For demo purposes, a new resource group named `ansiblerg` is used.
     - **Location** - Select the location from the dropdown list that is appropriate for your scenario.
 
-
-
-
-
-
-
-
-
-
-
+    ![Azure portal page for Ansible solution template creation and configuration](../media/ansible-install-solution-template/portal-tab-1-basics.png)
 
