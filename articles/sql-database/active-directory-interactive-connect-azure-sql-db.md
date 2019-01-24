@@ -21,7 +21,7 @@ For more information about MFA support for SQL tools, see [Azure Active Director
 
 ## New authentication enum value
 
-Starting in .NET Framework version 4.7.2, the enum [**SqlAuthenticationMethod**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value - **ActiveDirectoryInteractive**. In a client C# program, the enum value directs the system to use the Azure AD Interactive mode supporting MFA to authenticate to Azure SQL Database. The user who runs the program sees the following dialogs:
+Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value - `ActiveDirectoryInteractive'. In a client C# program, the enum value directs the system to use the Azure AD Interactive mode supporting MFA to authenticate to Azure SQL Database. The user who runs the program sees the following dialogs:
 
 1. A dialog box that displays an Azure AD user name and asks for the user's password.
 
@@ -49,8 +49,7 @@ For screenshots of these dialogs, see [Configure multi-factor authentication for
 
 ## Configure your C# application in the Azure portal
 
-Before you begin, you should have an [Azure SQL Database server created](sql-database-get-started-portal.md) and available.
-
+Before you begin, you should have an [Azure SQL Database server](sql-database-get-started-portal.md) created and available.
 
 ### Register your app
 
@@ -58,7 +57,7 @@ To use Azure AD authentication, your C# client program has to register as an AD 
 
  Completing an app registration generates and displays an **Application ID**. Your program has to include this ID to connect.  
 
-The app registration steps are as follows:
+To register an app:
 
 1. Azure portal > **Azure Active Directory** > **App registration**
 
@@ -83,7 +82,7 @@ The app registration steps are as follows:
 
 ### Set an Azure AD admin for your SQL Database server
 
-For our C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your Azure SQL server. 
+For your C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your Azure SQL server. 
 
  * **SQL Server** > **Active Directory admin** > **Set admin**
 
@@ -91,7 +90,7 @@ For our C# program to run, an Azure SQL server admin needs to assign an Azure AD
 
 ### Add a non-admin user to a specific database (optional)
 
-An Azure AD admin for a SQL Database server can run the C# example program. An AD user can run the program if an AD admin adds the user to the database. The admin can do this using the SQL `Create User` command. For example: 'CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+An Azure AD admin for a SQL Database server can run the C# example program. An AD user can run the program if an AD admin adds the user to the database. The admin can do this using the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) command. For example: `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](sql-database-aad-authentication.md).
 
@@ -105,10 +104,7 @@ The C# example relies on the  **System.Data.SqlClient** namespace. Of special in
 
 - **SqlAuthenticationMethod.ActiveDirectory *Interactive***
 
-   Use this value with an Azure AD user name, to achieve multi-factor authentication MFA.
-
-    - This value is the focus of the present article. It produces an interactive experience by displaying dialogs for the user password, and then for MFA validation if MFA is imposed on this user.
-    - This value is available starting with .NET Framework version 4.7.2.
+   Use this value with an Azure AD user name, to achieve multi-factor authentication MFA. This value is the focus of the present article. It produces an interactive experience by displaying dialogs for the user password, and then for MFA validation if MFA is imposed on this user. This value is available starting with .NET Framework version 4.7.2.
 
 - **SqlAuthenticationMethod.ActiveDirectory *Integrated***
 
@@ -118,20 +114,18 @@ The C# example relies on the  **System.Data.SqlClient** namespace. Of special in
 
   Use this value for authentication that requires an Azure AD user and the user's password. Azure SQL Database does the authentication. This method doesn't support MFA.
 
-## Prepare C# parameter values from the Azure portal
+## Note C# parameter values from the Azure portal
 
-For a successful run of the C# program, you must assign the proper values to the following static fields. These static fields act like parameters into the program. The fields are shown here with pretend values. Also shown are the locations in the Azure portal from where you can obtain the proper values:
+For the C# program to successfully run, you need to assign proper values to static fields. Shown here are fields with example values. Also shown are the Azure portal locations where you can obtain the needed values:
 
-
-| Static field name | Pretend value | Where in Azure portal |
+| Static field name | Example value | Where in Azure portal |
 | :---------------- | :------------ | :-------------------- |
-| Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL servers** &gt; **Filter by name** |
-| AzureAD_UserID | "user9@abc.onmicrosoft.com" | **Azure Active Directory** &gt; **User** &gt; **New guest user** |
-| Initial_DatabaseName | "myDatabase" | **SQL servers** &gt; **SQL databases** |
-| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** &gt; **App registrations**<br /> &nbsp; &nbsp; &gt; **Search by name** &gt; **Application ID** |
-| RedirectUri | new Uri("https://yourwebserver.com/") | **Azure Active Directory** &gt; **App registrations**<br /> &nbsp; &nbsp; &gt; **Search by name** &gt; *[Your-App-regis]* &gt;<br /> &nbsp; &nbsp; **Settings** &gt; **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, as it isn't used here. |
+| Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL servers** > **Filter by name** |
+| AzureAD_UserID | "user9@abc.onmicrosoft.com" | **Azure Active Directory** > **User** > **New guest user** |
+| Initial_DatabaseName | "myDatabase" | **SQL servers** > **SQL databases** |
+| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** &gt; **App registrations** > **Search by name** > **Application ID** |
+| RedirectUri | new Uri("https://yourwebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-regis]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, as it isn't used here. |
 | &nbsp; | &nbsp; | &nbsp; |
-
 
 Depending on your particular scenario, you might not need values all the parameters in the preceding table.
 
@@ -166,7 +160,7 @@ To install this package, in Visual Studio, select **Project** > **Manage NuGet P
 
 ```csharp
 
-using System;    
+using System;
 
 // Reference to AD authentication assembly
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -255,8 +249,6 @@ namespace ADInteractive5
             }
         }
     } // EOClass Program .
-
-
 
     /// <summary>
     /// SqlAuthenticationProvider - Is a public class that defines 3 different Azure AD
@@ -348,10 +340,7 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 >>
 ```
 
-&nbsp;
-
-
 ## Next steps
 
-- [Get-AzureRmSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator)
+- [Get information about an Azure AD administrator for SQL Server](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator)
 
