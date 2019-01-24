@@ -19,10 +19,15 @@ This article describes how to enable metrics logging and access log data for a T
 
 Azure Traffic Manager logging metrics can provide insight into the behavior of the Traffic Manager profile resource. For example, you can use a Traffic Manager profile's log data to determine why individual probes have timed out against an endpoint.
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+This article requires the Azure PowerShell module version 6.13.1 or later. You can run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). 
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 6.13.1 or later. You can run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
+## Log in to Azure
 
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
+
+```powershell
+Connect-AzureRmAccount
+```
 ## Enable metrics logging for Traffic Manager profile
  Enable metrics logging using [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). The following command stores verbose logs and metrics a Traffic Manager profile to the specified storage account. 
 
