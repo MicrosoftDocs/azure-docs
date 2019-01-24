@@ -44,6 +44,8 @@
     items:
     - name: Overview
       href: overview-v2.md
+    - name: Security overview
+      href: security-overview.md
     - name: Investigate risky users and sign-ins
       href: howto-investigate-risky-users-signins.md
     - name: Configure risk policies
