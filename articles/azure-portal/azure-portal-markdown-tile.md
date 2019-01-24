@@ -33,7 +33,7 @@ You can add a markdown tile to your Azure dashboards to display custom, static c
 
 ## Markdown content capabilities and limitations
 
-You can use any combination of plain text, Markdown syntax, and HTML content on the markdown tile. The Azure portal uses an open-source library called _marked_ to transform your content into HTML that is shown on the tile. The HTML produced by _marked_ is pre-processed by the portal before it's rendered. This step helps make sure that your customization won't affect the security or layout of the portal. During that pre-processing,any part of the HTML that poses a potential threat is removed. The following types of content aren't allowed by the portal:
+You can use any combination of plain text, Markdown syntax, and HTML content on the markdown tile. The Azure portal uses an open-source library called _marked_ to transform your content into HTML that is shown on the tile. The HTML produced by _marked_ is pre-processed by the portal before it's rendered. This step helps make sure that your customization won't affect the security or layout of the portal. During that pre-processing, any part of the HTML that poses a potential threat is removed. The following types of content aren't allowed by the portal:
 
 * JavaScript – `<script>` tags and inline JavaScript evaluations will be removed.
 * iframes - `<iframe>` tags will be removed.
