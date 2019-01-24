@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Application and Cluster Best Practices | Microsoft Docs
+title: Azure Service Fabric application and cluster best practices | Microsoft Docs
 description: Best practices for managing Service Fabric clusters and applications.
 services: service-fabric
 documentationcenter: .net
@@ -9,7 +9,7 @@ editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: 
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
