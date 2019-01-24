@@ -14,15 +14,15 @@ ms.custom: seodec2018
 ---
 # Monitor an Azure Search service in Azure portal
 
-In the Overview page of your Azure Search service, you can view system data about resource usage, as well as query metrics like Queries Per Second (QPS), query latency, and percentage of requests that were throttled. Additionally, you can leverage a range of monitoring capabilities in the Azure platform for deeper data collection. 
+In the Overview page of your Azure Search service, you can view system data about resource usage, plus query metrics like Queries Per Second (QPS), query latency, and percentage of requests that were throttled. Additionally, you can use the portal to leverage a range of monitoring capabilities in the Azure platform for deeper data collection. 
 
-This article identifies and compares available options for monitoring Azure Search. It also describes the more commonly used solutions, and how to collect system information useful in diagnostics or when filing support tickets.
+This article identifies and compares available options for logging Azure Search operations. It includes instructions for enabling logging and log storage, and how to collect system information useful in diagnostics or when filing support tickets.
 
 ## Metrics at a glance
 
-**Usage** and **Monitoring** sections built into Overview provide metrics on storage consumption and query execution. This information becomes available as soon as you start using the service, with no configuration required. It's refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions.
+**Usage** and **Monitoring** sections built into Overview visualize storage consumption and query execution metrics. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
 
-The **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md). The following illustration is for the free service, which is capped at 3 objects of each type, 50 MB of storage, and so forth. A Basic or Standard service has higher limits, and if you increase the partition counts, maximum storage goes up accordingly.
+The **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md). The following illustration is for the free service, which is capped at 3 objects of each type and 50 MB of storage. A Basic or Standard service has higher limits, and if you increase the partition counts, maximum storage goes up proportionally.
 
 ![Usage status relative to effective limits](./media/search-monitor-usage/usage-tab.png
  "Usage status relative to effective limits")
@@ -44,13 +44,15 @@ For in-service tasks like creating an index or deleting a data source, you'll se
 
 ## Add-on monitoring solutions
 
-The following table compares options for in-depth monitoring of service operations and query workloads.
+Azure Search does not store any data beyond the objects it manages, which means log data has to be stored externally. You can configure any of the resources below if you want to persist log data. 
+
+The following table compares options for storing logs and adding in-depth monitoring of service operations and query workloads through Application Insights.
 
 | Resource | Used for |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | [Search traffic analytics](search-traffic-analytics.md). Copy-paste instrumentation code into your source files to route request information to Application Insights for analysis on query term inputs, queries with zero matches, and so forth. We recommend PowerBI as the analytics front end to stored data in Application Insights.  |
-| [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Requests and metrics. Choose this as an alternative data collection service for very large logs. |
-| [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Requests and metrics. Events are logged to a Blob container. We recommend Excel or PowerBI as the analytics front end to stored data in Azure Blob storage.|
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | [Search traffic analytics](search-traffic-analytics.md). This is the only solution that captures additional information about requests, going beyond the values identified in the logging and metrics schemas below. With this approach, you copy-paste instrumentation code into your source files to route request information to Application Insights for analysis on query term inputs, queries with zero matches, and so forth. We recommend Power BI as the analytics front end to data stored in Application Insights.  |
+| [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Requests and metrics, based one the schemas below. Events are logged to a Blob container. We recommend Excel or Power BI as the analytics front end to stored data in Azure Blob storage.|
+| [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Requests and metrics, based on the schemas documented in this article. Choose this as an alternative data collection service for very large logs. |
 
 Azure search provides a monitoring [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) so that you can analyze log data. The content pack consists of reports configured to automatically connect to your data and provide visual insights about your search service. For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
 
@@ -78,7 +80,7 @@ In this section, you'll learn how to use Blob storage to contain logged events a
 
 5. Test logging by creating or deleting objects (generates an operational log) and by submitting queries (generates metrics). 
 
-Logging is enabled once you save the profile, containers are only created when there is an event to log or measure. It can take several minutes for the containers to appear.
+Logging is enabled once you save the profile, containers are only created when there is an event to log or measure. It can take several minutes for the containers to appear. You can [visualize the data in Power BI](#analyze-with-power-bi) once it becomes available.
 
 When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
 
@@ -138,9 +140,21 @@ For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all h
 
 ## Analyze with Power BI
 
-We recommend using [Power BI](https://powerbi.microsoft.com) to explore and visualize your data. 
+We recommend using [Power BI](https://powerbi.microsoft.com) to explore and visualize your data, particularly if you enabled [search traffic analytics](search-traffic-analytics.md). For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
 
-Azure Search provides a [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) that allows you to monitor and understand your search traffic with predefined charts and tables. It contains a set of Power BI reports that automatically connect to your data and provide visual insights about your search service. For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
+Connections require the storage account name and access key, which you can get from Azure portal pages on the **Access keys** page of your storage account dashboard.
+
+1. Install the [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search). The content pack adds predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. 
+
+   If you are using Blob storage or another storage mechanism, and you did not add instrumentation to your code, you can skip the contet pack and use built-in Power BI visualizations.
+
+2. Open **Power BI**, click **Get Data** > **Services** > **Azure Search**.
+
+3. Enter the name of the storage account, select **Key** for authentication, and then paste in an access key.
+
+4. Import the data and then click **Vew data**.
+
+The following screenshot shows the built-in reports and charts for analyzing search traffic analytics.
 
 ![Power BI dashboard for Azure Search](./media/search-monitor-usage/AzureSearch-PowerBI-Dashboard.png "Power BI dashboard for Azure Search")
 
