@@ -25519,11 +25519,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md",
-      "redirect_url": "/azure/marketplace/cloud-partner-portal",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md",
       "redirect_url": "/azure/marketplace/cloud-partner-portal/azure-applications/cpp-update-existing-offer",
       "redirect_document_id": false
