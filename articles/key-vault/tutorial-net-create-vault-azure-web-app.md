@@ -53,7 +53,7 @@ When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure 
 
 ![MSI diagram](media/MSI.png)
 
-Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. Your code uses the access token that it gets from the local MSI_ENDPOINT to authenticate to an Azure Key Vault service.
+Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. Your code uses the access token that it gets from the local MSI endpoint to authenticate to an Azure Key Vault service.
 
 ## Log in to Azure
 
