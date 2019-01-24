@@ -46,6 +46,10 @@ Service Fabric Explorer is also hosted in a Service Fabric cluster's HTTP manage
 
 For developer workstation setup, you can launch Service Fabric Explorer on your local cluster by navigating to https://localhost:19080/Explorer. Look at this article to [prepare your development environment](service-fabric-get-started.md).
 
+> [!NOTE]
+> If you are using a cluster that is secured by a self-signed certificate you will recieve an error message from the web browser "This site is not secure". You can simply proceed through most modern web browsers by overriding the warning. In a production environment your cluster should be secured using common name and a certificate authority issued certificate. 
+>
+
 ## Connect to a Service Fabric cluster
 To connect to a Service Fabric cluster, you need the clusters management endpoint (FQDN/IP) and the HTTP management endpoint port (19080 by default). For example https://mysfcluster.westus.cloudapp.azure.com:19080. Use the "Connect to localhost" checkbox to connect to a local cluster on your workstation.
 
