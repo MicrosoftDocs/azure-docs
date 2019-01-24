@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: kumud
 ---
 
@@ -32,14 +32,14 @@ Connect-AzureRmAccount
  Enable metrics logging using 
 [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). The following command stores verbose logs and metrics a Traffic Manager profile to the specified storage account. 
 
-```azurepowershell-interactive
-    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+```powershell
+Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
 ``` 
 ## Verify diagnostic settings for Traffic Manager profile
 Verify diagnostic settings for the Traffic Manager profile using [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). The following command displays the categories that are logged for a resource.
 
-```azurepowershell-interactive
-    Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+```powershell
+Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
 ```  
 Ensure that all log categories associated with the Traffic Manager profile resource display as enabled. Also, verify that the storage account is correctly set.
 
