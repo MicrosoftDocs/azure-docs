@@ -30,31 +30,35 @@ see [Limits and configuration information for Azure Logic Apps](../logic-apps/lo
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
 where you store your schemas and other artifacts for enterprise 
-integration and business-to-business (B2B) solutions.
-If your schema is [2 MB or smaller](#smaller-schema), 
-you can upload your schema directly in the Azure portal. 
+integration and business-to-business (B2B) solutions. 
 
-  However, if your schema is larger than 2 MB but not larger than the 
+  If your schema is [2 MB or smaller](#smaller-schema), 
+  you can add your schema to your integration account 
+  directly from the Azure portal. However, if your 
+  schema is bigger than 2 MB but no bigger than the 
   [schema size limit](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
-  you can upload your schema to an Azure storage account 
-  and then reference that storage account from your integration account. 
-  To complete this task, you need an Azure blob container 
-  where you store your schema and the content URI for that 
-  container so you can provide that location later when you 
-  add the schema to your integration account. Here are the 
-  items you need: 
+  you can upload your schema to an Azure storage account. 
+  To add that schema to your integration account, you can 
+  then link to your storage account from your integration account. 
+  For this task, here are the items you need: 
 
   * [Azure storage account](../storage/common/storage-account-overview.md) 
-  for creating a blob container. Learn how to 
-  [create a storage account](../storage/common/storage-quickstart-create-account.md).
+  where you create a blob container for your schema. Learn how to 
+  [create a storage account](../storage/common/storage-quickstart-create-account.md). 
 
   * Blob container for storing your schema. Learn how to 
-  [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md).
+  [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). 
+  You need your container's content URI later when you 
+  add the schema to your integration account.
 
   * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), 
-  which you can use for managing storage accounts and 
-  blob containers. If you don't have this tool already, 
-  [download and install Azure Storage Explorer](https://www.storageexplorer.com/). 
+  which you can use for managing storage accounts and blob containers. 
+  To use Storage Explorer, choose either option here:
+  
+    * Go to your storage account in the Azure portal. 
+	On your storage account menu, select **Storage Explorer**.
+
+    * For the desktop version, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). 
   Then, follow these [steps for connecting Azure Storage Explorer to your storage account](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 You don't need a logic app when creating and adding schemas. 
