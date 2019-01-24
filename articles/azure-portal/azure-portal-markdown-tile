@@ -1,15 +1,15 @@
 ---
-  title: Use a custom markdown tile on Azure dashboards>
-  description: Learn how to add a markdown tile to an Azure dashboard to display static content
-  services: azure-portal
-  keywords: 
-  author: kfollis
-  ms.author: kfollis
-  ms.date: 01/24/2019
-  ms.topic: conceptual
+title: Use a custom markdown tile on Azure dashboards>
+description: Learn how to add a markdown tile to an Azure dashboard to display static content
+services: azure-portal
+keywords: 
+author: kfollis
+ms.author: kfollis
+ms.date: 01/24/2019
+ms.topic: conceptual
 
-  ms.service: azure-portal
-  manager: mtillman
+ms.service: azure-portal
+manager: mtillman
 ---
 # Use a markdown tile on Azure dashboards to show custom content
 You can add a markdown tile to your Azure dashboards to display custom, static content. For example, if you want to show basic instructions, an image, or a set of hyperlinks, you can do that with a markdown tile.
