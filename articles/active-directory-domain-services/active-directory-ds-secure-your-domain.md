@@ -4,7 +4,7 @@ description: Secure your managed domain
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
