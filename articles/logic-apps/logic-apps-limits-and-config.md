@@ -132,7 +132,7 @@ for help with your requirements.
 |------|-------|-------|
 | FTP | 50 MB | To exceed this limit for actions only, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). <p>**Note**: Chunking doesn't apply to triggers. Also, some connectors and APIs might not support chunking or even the default limit. | 
 | SFTP | 50 MB | To exceed this limit for actions only, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). <p>**Note**: Chunking doesn't apply to triggers. Also, some connectors and APIs might not support chunking or even the default limit. | 
-| SFTP-SSH | 1 GB | This connector handles up to 1 GB, but transfers that data in 50 MB pieces, not 1 GB pieces. | 
+| SFTP-SSH | 1 GB | This connector handles up to 1 GB, but transfers that data in 50 MB pieces, not 1 GB pieces. To exceed this limit for actions only, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). <p>**Note**: Chunking doesn't apply to triggers. | 
 |||| 
 
 <a name="request-limits"></a>
