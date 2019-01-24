@@ -20,7 +20,7 @@ ms.author: juliako
 
 # Tutorial: Stream live with Media Services v3 using APIs
 
-In Azure Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to a live encoder. The LiveEvent receives live input streams from the live encoder and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
+In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
 > [!NOTE]
 > Make sure to review [Live streaming with Media Services v3](live-streaming-overview.md) before proceeding. 
@@ -86,29 +86,27 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ### Create a live event
 
-This section shows how to create a **pass-through** type of LiveEvent (LiveEventEncodingType set to None). If you want to create a LiveEvent that is enabled for live encoding set LiveEventEncodingType to **Standard**. 
+This section shows how to create a **pass-through** type of Live Event (LiveEventEncodingType set to None). If you want to create a Live Event that is enabled for live encoding set LiveEventEncodingType to **Standard**. 
 
 Some other things that you might want to specify when creating the live event are:
 
 * Media Services location 
 * The streaming protocol for the Live Event (currently, the RTMP and Smooth Streaming protocols are supported)
        
-    You cannot change the protocol option while the LiveEvent or its associated LiveOutputs are running. If you require different protocols, you should create separate LiveEvent for each streaming protocol.  
-* IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this LiveEvent. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').
+    You cannot change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, you should create separate LiveEvent for each streaming protocol.  
+* IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').
     
     If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
     
     The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
 
-* When creating the event, you can specify to auto start it. 
-
-    When autostart is set to true, the Live Event will be started after creation. That means, the billing starts as soon as the Live Event is running. You must explicitly call Stop on the LiveEvent resource to halt further billing. For more information, see [LiveEvent states and billing](live-event-states-billing.md).
+* When creating the event, you can specify to auto start it. <br/>When autostart is set to true, the Live Event will be started after creation. That means, the billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. For more information, see [Live Event states and billing](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 
 ### Get ingest URLs
 
-Once the LiveEvent is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
+Once the Live Event is created, you can get ingest URLs that you will provide to the live encoder. The encoder uses these URLs to input a live stream.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetIngestURL)]
 
@@ -121,21 +119,21 @@ Use the previewEndpoint to preview and verify that the input from the encoder is
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#GetPreviewURLs)]
 
-### Create and manage LiveEvents and LiveOutputs
+### Create and manage Live Events and Live Outputs
 
-Once you have the stream flowing into the LiveEvent, you can begin the streaming event by creating an Asset, LiveOutput, and StreamingLocator. This will archive the stream and make it available to viewers through the StreamingEndpoint. 
+Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an Asset, Live Output, and Streaming Locator. This will archive the stream and make it available to viewers through the Streaming Endpoint. 
 
 #### Create an Asset
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateAsset)]
 
-Create an Asset for the LiveOutput to use.
+Create an Asset for the Live Output to use.
 
-#### Create a LiveOutput
+#### Create a Live Output
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveOutput)]
 
-#### Create a StreamingLocator
+#### Create a Streaming Locator
 
 > [!NOTE]
 > When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. 
@@ -163,8 +161,8 @@ foreach (StreamingPath path in paths.StreamingPaths)
 If you are done streaming events and want to clean up the resources provisioned earlier, follow the following procedure.
 
 * Stop pushing the stream from the encoder.
-* Stop the LiveEvent. Once the LiveEvent is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
-* You can stop your StreamingEndpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the LiveEvent is in stopped state, it will not incur any charges.
+* Stop the Live Event. Once the Live Event is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
+* You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the Live Event is in stopped state, it will not incur any charges.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CleanupLiveEventAndOutput)]
 
