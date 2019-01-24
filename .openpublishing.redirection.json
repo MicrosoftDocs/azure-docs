@@ -33512,7 +33512,7 @@
     {
       "source_path": "articles/monitoring-and-diagnostics/platform/tutorial-dashboards.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-schema",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-metric-charts.md",
