@@ -31,18 +31,18 @@ When an admin performs “Dismiss user risk” in Identity Protection (refreshed
 
 ## Risky Users Report
 
-Queries on the “username” field are case-sensitive, while queries on the “Name” field are case-agnostic
+Queries on the **username** field are case-sensitive, while queries on the “Name” field are case-agnostic
 
-Toggling "Show dates as" makes the RISK LAST UPDATED column disappear. To re-add the column click “Columns” at the top of the Risky Users blade
+Toggling **Show dates as** makes the RISK LAST UPDATED column disappear. To re-add the column click “Columns” at the top of the Risky Users blade
 
-When an admins performs “Dismiss all events” from classic Identity Protection, the risk events will show with the status “Closed (resolved)”
+When an admin performs  a **Dismiss all events** from classic Identity Protection, the risk events will show with the status “Closed (resolved)”
 
-If you attempt to access the Risky users report by clicking on “Risky users report” within a sign-in record in the Risky Sign-ins report, it may sometimes show “Something went wrong. Please retry”. To remedy this, click “Apply” or “Reset” at the top of the screen and the risky user(s) data will populate
+If you attempt to access the Risky users report by clicking on **Risky users report** within a sign-in record in the Risky Sign-ins report, it may sometimes show **Something went wrong. Please retry**. To remedy this, click **Apply** or **Reset** at the top of the screen and the risky user(s) data will populate
 
 
 ## Risky Sign-Ins Report
 
-When an admins performs “Resolve” on a risk event from classic Identity Protection, the risk event will show with the status “Users passed MFA driven by risk based policy”
+When an admin performs a **Resolve** on a risk event from classic Identity Protection, the risk event will show with the status “Users passed MFA driven by risk based policy”
 
 When an admin clicks “Reset” in the “Risky Sign-ins” report, the “Risk event type” will not be reset to empty.
 
@@ -81,13 +81,10 @@ Confirm safe (on a sign-in) – Informs Azure AD Identity Protection that the si
 
 
 
-## Old
-
-
-### Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk events are shown in Identity Protection?
+## Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk events are shown in Identity Protection?
 
 Given the user risk is cumulative in nature and does not expire, a user may have a user risk of low or above even if there are no recent risky sign-ins or risk events shown in Identity Protection. This could happen if the only malicious activity on a user took place beyond the timeframe for which we store the details of risky sign-ins and risk events. We do not expire user risk because bad actors have been known to stay in customers' environment over 140 days behind a compromised identity before ramping up their attack. Customers can review the user's risk timeline to understand why a user is at risk by going to: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
 
-### Why does a sign-in have a “sign-in risk (aggregate)” score of High when the detections associated with it are of low or medium risk?
+## Why does a sign-in have a “sign-in risk (aggregate)” score of High when the detections associated with it are of low or medium risk?
 
 The high aggregate risk score could be based on other features of the sign-in, or the fact that more than one detection fired for that sign-in. And conversely, a sign-in may have a sign-in risk (aggregate) of Medium even if the detections associated with the sign-in are of High risk. 
