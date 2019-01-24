@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/30/2018
+ms.date: 1/24/2019
 ms.author: jawalte
 
 ---
