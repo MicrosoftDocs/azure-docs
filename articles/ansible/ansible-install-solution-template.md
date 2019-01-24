@@ -11,11 +11,12 @@ ms.date: 01/23/2019
 ---
 
 # Install the Ansible solution template for Azure
-The Ansible solution template for Azure is designed to configure an Ansible instance following best practices with minimal Azure knowledge. With a handful of user inputs and a simple single-click deployment through the Azure portal, you can provision a fully configured Ansible instance in minutes, which can use Azure services anywhere across the globe. 
+The Ansible solution template for Azure is designed to configure an Ansible instance with minimal Azure knowledge. With a handful of user inputs and a simple single-click deployment through the Azure portal, you can provision a fully configured Ansible instance in minutes,. 
 
 This article walks you through the steps to install the Ansible solution template on a Linux VM along with tools configured to work with Azure. The tools include:
+
 - **Ansible plugin for Azure** - The Ansible plugin for Azure includes a suite of modules that enable you to create and manage your infrastructure on Azure. The latest version is installed by default, but you can also specify a version number that is appropriate for your environment.
-- **Azure Command-Line Interface (CLI) 2.0** - Available for use within the [Azure Cloud Shell](/azure/cloud-shell/overview), or from macOS, Linux, or Windows, the [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) is a cross-platform command-line experience for managing Azure resources. 
+- **Azure Command-Line Interface (CLI) 2.0** - The [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) is a cross-platform command-line experience for managing Azure resources. 
 - **managed identities for Azure resources** - A feature of [Active Directory](/azure/active-directory/), the [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) feature addresses the issue of keeping cloud application credentials secure so that they never appear on developer workstations and are never checked into source control.
 - **apt-transport-https transport** - The apt-transport-https is an APT transport that enables the use of repositories accessed via the HTTP Secure protocol (HTTPS).
 
