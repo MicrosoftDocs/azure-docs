@@ -77,7 +77,7 @@
     href: traffic-manager-load-balancing-azure.md
   - name: Measure Traffic Manager performance
     href: traffic-manager-performance-considerations.md
-  - name: Access Traffic Manager logs
+  - name: Enable Traffic Manager metrics logging
     href: traffic-manager-logs.md
   - name: Use Azure PowerShell to manage Traffic Manager
     href: traffic-manager-powershell-arm.md
