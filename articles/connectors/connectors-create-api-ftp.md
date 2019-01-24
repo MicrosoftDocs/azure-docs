@@ -36,7 +36,8 @@ If you're new to logic apps, review
 
 > [!NOTE]
 > The FTP connector supports only files that are 50 MB or smaller 
-> unless you use [chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+> unless you use [message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md). 
+> Currently, you can't use chunking for triggers.
 >
 > Also, the FTP connector supports only explicit 
 > FTP over SSL (FTPS) and isn't compatible with implicit FTPS. 
