@@ -79,7 +79,7 @@ Before you install the SDK, we recommend that you create an isolated Python envi
 1. In the activated conda environment, install the  core components of the Machine Learning SDK.  The installation takes a few minutes to finish based on the configuration of your machine.
 
   ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl]
+    pip install --upgrade azureml-sdk[notebooks]
     ```
 
 1. Install a Jupyter Notebook server in the conda environment.
@@ -88,12 +88,18 @@ Before you install the SDK, we recommend that you create an isolated Python envi
     conda install nb_conda
     ```
 
-1. To use this environment with the Machine Learning tutorials, install these packages as well.
+
+1. To use this environment for the Machine Learning tutorials, install these packages.
 
     ```shell
     conda install -y cython matplotlib scikit-learn pandas
     ```
 
+1. To use this environment for the automated machine learning tutorial install these components.
+
+    ```shell
+    pip install --upgrade azureml-sdk[automl]
+    ```
 
 ## Create a workspace
 
