@@ -8999,7 +8999,12 @@
     },
     {
       "source_path": "articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-single-member-blockchain",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/templates/hyperledger-fabric-single-member-blockchain.md",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
       "redirect_document_id": false
     },
     {
@@ -33506,8 +33511,13 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md",
-      "redirect_url": "/azure/azure-monitor/platform/tutorial-dashboards",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-schema",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/tutorial-dashboards.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-schema",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-metric-charts.md",
@@ -34330,6 +34340,10 @@
       "redirect_document_id":  true
     },
     {
+      "source_path":  "articles/platform/dashboards.md",
+      "redirect_url":  "/azure/azure-monitorr/learn/tutorial-logs-dashboards",
+      "redirect_document_id":  true
+    },    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -34776,6 +34790,11 @@
         "source_path": "articles/hdinsight/hdinsight-hadoop-data-lake-storage-gen2.md",
         "redirect_url": "/azure/hdinsight/hdinsight-hadoop-compare-storage-options",
         "redirect_document_id": true
-    }
+    },
+    {
+        "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",
+        "redirect_url": "/azure/backup/backup-azure-recovery-services-vault-overview",
+        "redirect_document_id": true
+    }	
   ]
 }
