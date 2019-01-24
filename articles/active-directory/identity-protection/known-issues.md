@@ -22,20 +22,21 @@ ms.reviewer: raluthra
 # FAQs and known issues with identity protection (refreshed) in Azure Active Directory
 
 
-## Dismiss User Risk
+## Dismiss user risk
 
-When an admin clicks **Dismiss user risk** in classic Identity Protection, the user’s risk history in Identity Protection (refreshed) shows that the actor was **Azure AD**.
-
-When an admin clicks **Dismiss user risk** in Identity Protection (refreshed), the user’s risk history in Identity Protection (refreshed) shows that the actor was **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
+Clicking **Dismiss user risk** in classic Identity Protection sets the actor in the user’s risk history in Identity Protection (refreshed) to **Azure AD**.
 
 
-## Risky Users Report
+Clicking **Dismiss user risk** in Identity Protection (refreshed) sets the actor in the user’s risk history in Identity Protection (refreshed) to **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
+
+
+## Risky users report
 
 Queries on the **username** field are case-sensitive, while queries on the **Name** field are case-agnostic.
 
 Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the column click **Columns** at the top of the Risky Users blade.
 
-When an admin clicks **Dismiss all events** from classic Identity Protection, the risk events have a status of **Closed (resolved)**.
+Clicking **Dismiss all events** in classic Identity Protection sets the status of the risk events to **Closed (resolved)**.
 
 If you attempt to access the risky users report by clicking **Risky users report** within a sign-in record in the risky sign-ins report, it may sometimes show **Something went wrong. Please retry**. To remedy this, click **Apply** or **Reset** at the top of the screen and the risky user(s) data will populate.
 
