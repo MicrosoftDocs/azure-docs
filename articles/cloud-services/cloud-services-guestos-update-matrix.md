@@ -71,7 +71,7 @@ The June Guest OS has released.
 .NET Framework installed: 3.5, 4.7.2
 
 > [!NOTE]
-> The Windows Azure SDK for .NET 3.0 can be downloaded [here][Windows Azure SDK].
+> The Windows Azure SDK for .NET - 3.0 can be downloaded [here][Windows Azure SDK].
 >
 
 | Configuration string | Release date | Disable date |
