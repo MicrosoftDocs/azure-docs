@@ -3,7 +3,7 @@ author: yashesvi
 ms.author: cwatson
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 01/18/2019
 ---
 
 # Prepay for Virtual Machines with Azure Reserved VM Instances
@@ -13,7 +13,7 @@ Prepay for virtual machines and save money with Azure Reserved Virtual Machine (
 You can buy a Reserved VM Instance in the [Azure portal](https://portal.azure.com). To buy an instance:
 
 - You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
-- For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
+- For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the [EA portal](https://ea.azure.com). Or, if that setting is disabled, you must be an EA Admin on the subscription.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can buy reservations.
 
 ## Determine the right VM size before you buy
@@ -26,7 +26,6 @@ The Meter Sub-category and Product fields in the usage data don't distinguish be
 Reserved VM Instances are available for most VM sizes with some exceptions:
 
 - Reservation discount doesn't apply for the following VMs:
-  - Cloud services
   - VM Series: A-series, Av2-series, or G-series
   - VMs in Preview: Any VM-series or size that is in preview
 - Clouds: Reservations aren't available for purchase in Germany or China regions.
@@ -63,7 +62,7 @@ Reserved VM Instances are available for most VM sizes with some exceptions:
 
 If you need to cancel your reservation, there may be a 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000 per year. The refund you receive is the remaining pro-rated balance minus the 12% early termination fee. To request a cancellation, go to the reservation in the Azure portal and select **Refund** to create a support request.
 
-If you need to change your Reserved VM Instances reservation to another region, VM size group, or term, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The 1 or 3 year term starts from when you create the new reservation. To request an exchange, go to the reservation in the Azure portal, and select **Exchange** to create a support request.
+If you need to change your Reserved VM Instances reservation to another region, VM size group, or term, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The 1 or 3-year term starts from when you create the new reservation. To request an exchange, go to the reservation in the Azure portal, and select **Exchange** to create a support request.
 
 ## Next steps
 
