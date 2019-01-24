@@ -8999,7 +8999,12 @@
     },
     {
       "source_path": "articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-single-member-blockchain",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/templates/hyperledger-fabric-single-member-blockchain.md",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
       "redirect_document_id": false
     },
     {
