@@ -48,7 +48,7 @@ You can send the contribution feed at resolutions up to 4K and at a frame rate o
 > Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
 > 
 
-See a live example in [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+See a .NET code example in [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
 
 ### Live encoding  
 
@@ -60,7 +60,7 @@ You can send the contribution feed at up to 1080p resolution at a frame rate of 
 
 ## Live Event creation options
 
-When creating a Live Event, you can specify the following:
+When creating a Live Event, you can specify the following options:
 
 * The streaming protocol for the Live Event (currently, the RTMP and Smooth Streaming protocols are supported).<br/>You cannot change the protocol option while the Live Event or its associated Live Outputs are running. If you require different protocols, you should create separate Live Event for each streaming protocol.  
 * IP restrictions on the ingest and preview. You can define the IP addresses that are allowed to ingest a video to this Live Event. Allowed IP addresses can be specified as either a single IP address (for example '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, '10.0.0.1/22'), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').<br/>If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.<br/>The IP addresses have to be in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
@@ -76,7 +76,7 @@ You can either use non-vanity URLs or vanity URLs.
 
 * Non-vanity URL
 
-    Non-vanity URL is the default mode in AMS v3. You potentially get the Live Event quickly, but ingest URL is known only when the live event is started. And it will change if you do stop/start the Live Event. <br/>Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest url is not a problem.
+    Non-vanity URL is the default mode in AMS v3. You potentially get the Live Event quickly but ingest URL is known only when the live event is started. The URL will change if you do stop/start the Live Event. <br/>Non-Vanity is useful in scenarios when an end user wants to stream using an app where the app wants to get a live event ASAP and having a dynamic ingest URL is not a problem.
 * Vanity URL
 
     Vanity mode is preferred by large media broadcasters who use hardware broadcast encoders and don't want to re-configure their encoders when they start the Live Event. They want a predictive ingest URL, which does not change over time.
@@ -86,7 +86,7 @@ You can either use non-vanity URLs or vanity URLs.
 
 ### Live ingest URL naming rules
 
-The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).
+The *random* string below is a 128-bit hex number (which is composed of 32 characters of 0-9 a-f).<br/>
 The *access token* below is what you need to specify for fixed URL. It is also 128 bit hex number.
 
 #### Non-vanity URL
@@ -133,7 +133,7 @@ Once you have the stream flowing into the Live Event, you can begin the streamin
 
 The relationship between a **Live Event** and its **Live Outputs** is similar to traditional television broadcast, whereby a channel (**Live Event**) represents a constant stream of video and a recording (**Live Output**) is scoped to a specific time segment (for example, evening news from 6:30PM to 7:00PM). You can record television using a Digital Video Recorder (DVR) – the equivalent feature in Live Events is managed via the **ArchiveWindowLength** property. It is an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
 
-The **Live Output** object is like a tape recorder that will catch and record the live stream into an Asset in your Media Services account. The recorded content will be persisted into the Azure Storage account attached to your account, into the container defined by the Asset resource.  The **Live Output** also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the **archiveWindowLength** property of the **Live Output**. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. You can create multiple **Live Outputs** (up to three maximum) on a **Live Event** with different archive lengths and settings.  
+The **Live Output** object is like a tape recorder that will catch and record the live stream into an Asset in your Media Services account. The recorded content will be persisted into the Azure Storage account attached to your account, into the container defined by the Asset resource. The **Live Output** also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the **archiveWindowLength** property of the **Live Output**. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. You can create multiple **Live Outputs** (up to three maximum) on a **Live Event** with different archive lengths and settings.  
 
 If you have published the **Live Output**'s **Asset** using a **Streaming Locator**, the **Live Event** (up to the DVR window length) will continue to be viewable until the Streaming Locator's expiry or deletion, whichever comes first.
 
