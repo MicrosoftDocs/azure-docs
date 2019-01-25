@@ -22,7 +22,7 @@ You can use the Azure Stack Readiness Checker tool to create Certificate Signing
 
 You can use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to request the following certificates:
 
- - **Standard Certificate Requests according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md).
+ - **Standard Certificate Requests** according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md).
  - **Platform-as-a-Service**  
     You can request platform-as-a-service (PaaS) names for certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
 
