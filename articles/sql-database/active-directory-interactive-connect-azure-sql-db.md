@@ -52,32 +52,31 @@ Before you begin, you should have an [Azure SQL Database server](sql-database-ge
 
 ### Register your app
 
-To use Azure AD authentication, your C# program has to register as an AD app. To register an app, you need to be either an AD admin or a user assigned the AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+To use Azure AD authentication, your C# program has to register as an AD application. To register an app, you need to be either an AD admin or a user assigned the AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
  Completing an app registration generates and displays an **Application ID**. Your program has to include this ID to connect.
 
-To register and set necessary permissions for an app:
+To register and set necessary permissions for your application:
 
 1. Azure portal > **Azure Active Directory** > **App registrations** > **New application registration**
 
     ![App registration](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
-2. Once the app registration is created, the **Application ID** value is generated and displayed.
+    Once the app registration is created, the **Application ID** value is generated and displayed.
 
     ![App ID displayed](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-3. **Registered app** > **Settings** > **Required permissions** > **Add**
+2. **Registered app** > **Settings** > **Required permissions** > **Add**
 
     ![Permissions settings for registered app](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-4. **Required permissions** > **Add** > **Select an API** > **Azure SQL Database**
+3. **Required permissions** > **Add** > **Select an API** > **Azure SQL Database**
 
     ![Add access to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-5. **API access** > **Select permissions** > **Delegated permissions**
+4. **API access** > **Select permissions** > **Delegated permissions**
 
     ![Delegate permissions to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
-
 
 ### Set an Azure AD admin for your SQL Database server
 
@@ -99,7 +98,7 @@ The Azure AD administrator for a SQL Database server has permission to access th
 
 ## New authentication enum value
 
-The C# example relies on the `System.Data.SqlClient` namespace. Of special interest for MFA authentication is the enum `SqlAuthenticationMethod`, which has the following values:
+The C# example relies on the `System.Data.SqlClient` namespace. Of special interest for multi-factor authentication is the enum `SqlAuthenticationMethod`, which has the following values:
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
