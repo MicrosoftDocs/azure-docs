@@ -92,6 +92,9 @@ In addition to your active policies, it is advisable to also implement disabled 
 
 - An ordering sequence number to help the administrator know in which order policies should he enabled. 
 
+
+For example, the following name indicates that this policy is the first policy you should enable in the case of MFA disruption:
+
 `EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join`
 
 
