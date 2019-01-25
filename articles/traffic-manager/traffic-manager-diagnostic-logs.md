@@ -49,7 +49,7 @@ If you run PowerShell from your computer, you need the *AzureRM* PowerShell modu
       Ensure that all log categories associated with the Traffic Manager profile resource display as enabled. Also, verify that the storage account is correctly set.
 
 ## Access log files
-1. Sign in to the [Azure portal]() 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Navigate to your Azure Storage account in the portal.
 2. On the **Overview** page of your Azure storage account, under **Services** select **Blobs**.
 3. For **Containers**, select **insights-logs-probehealthstatusevents**, and navigate down to the PT1H.json file and click **Download** to download and save a copy of this log file.
