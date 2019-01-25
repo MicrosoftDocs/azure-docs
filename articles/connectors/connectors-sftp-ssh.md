@@ -244,7 +244,7 @@ such as **When a file is added or modified (properties only)**.
 such as **Get file content using path**, and have the action use 
 [message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
-<a name="get-file-with-path"></a>
+<a name="get-content"></a>
 
 ### SFTP - SSH action: Get content using path
 
