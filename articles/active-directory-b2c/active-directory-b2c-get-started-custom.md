@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 01/25/2019
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -102,7 +102,7 @@ Each starter pack contains:
 Add the application ID to the extensions file *TrustFrameworkExtensions.xml*.
 
 1. Open the *TrustFrameworkExtensions.xml* file and find the element `<TechnicalProfile Id="login-NonInteractive">`.
-2. Replace both instances of `ProxyIdentityExperienceFrameworkAppId` with the application ID of the ProxyIdentityExperienceFramework application that you created earlier.
+2. Replace both the value of `client_id` and `resource_id` with the application ID of the ProxyIdentityExperienceFramework application that you created earlier.
 3. Save your extensions file.
 
 ## Upload the policies
