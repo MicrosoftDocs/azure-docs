@@ -61,7 +61,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 For a full description of available tags, such as `latest` used in the preceding command, see [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) on Docker Hub.
 
-[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list.md)]
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
 ## How to use the container

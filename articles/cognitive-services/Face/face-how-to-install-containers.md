@@ -57,7 +57,7 @@ Container images for Face API are available.
 |-----------|------------|
 | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
-[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list.md)]
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ### Docker pull for the Face container
 

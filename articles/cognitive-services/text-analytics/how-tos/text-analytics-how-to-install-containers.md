@@ -35,7 +35,7 @@ You must meet the following prerequisites before using Text Analytics containers
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Request access to private preview](../../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
@@ -88,7 +88,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 ```
 
-[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list.md)]
+[!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 
 ## How to use the container
@@ -145,7 +145,7 @@ If you run the container with an output [mount](../text-analytics-resource-conta
 
 ## Container's API documentation
 
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 
