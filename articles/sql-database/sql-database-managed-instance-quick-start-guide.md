@@ -15,7 +15,7 @@ ms.date: 01/25/2019
 ---
 # Getting started with Azure SQL Database Managed Instance
 
-[Azure SQL Database Managed Instance](sql-database-managed-instance-index) is fully managed PaaS version of SQL Server hosted in Azure cloud and placed in you own VNet with the private IP address. In this section, you will learn how to quickly configure and create Managed Instance and migrate your databases.
+[Azure SQL Database Managed Instance](sql-database-managed-instance-index) is fully managed PaaS version of SQL Server hosted in Azure cloud and placed in your own VNet with the private IP address. In this section, you will learn how to quickly configure and create Managed Instance and migrate your databases.
 
 ## Quickstart overview
 
@@ -47,10 +47,10 @@ If you already have a VNet and subnet where you would like to deploy your Manage
 
 ## Migrating to Managed Instance with minimal downtime
 
-Quickstart scripts described in this quickstarts enable you to quickly set up Managed Instance and move your databases. However, with native restore your would need to wait for the databases to be restored, which would cause some downtime of your application especially if the database is bigger. If you are moving your production database, you would probably need a better way to migrate that will guarantee minimal downtime of migration. [Data Migration service](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) is a migration service that can migrate your database with the minimal downtime by incrementally pushing the changes made in your source database to a database that your are restoring to the Managed Instance. This way, you can quickly swith your application from source to target database with the minimal downtime.
+Articles in these quickstarts enable you to quickly set up Managed Instance and move your databases. However, with the native restore your would need to wait for the databases to be restored, which would cause some downtime of your application especially if the database is bigger. If you are moving your production database, you would probably need a better way to migrate that will guarantee minimal downtime of migration. [Data Migration service](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) is a migration service that can migrate your database with the minimal downtime by incrementally pushing the changes made in your source database to a database that your are restoring to the Managed Instance. This way, you can quickly switch your application from source to target database with the minimal downtime.
 
 ## Next steps
 
-* Find a [high-level list of supported features in Managed Instance here](sql-database-features.md) and [details and known issues here](sql-database-managed-instance-transact-sql-information.md).
-* Learn about [technical characteristics of Managed Instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
-* Find more advanced tutorials in [how to section](sql-database-howto-managed-instance.md)
+* Find a [high-level list of supported features in Managed Instance here](sql-database-features.md) and [details and known issues here](sql-database-managed-instance-transact-sql-information.md). 
+* Learn about [technical characteristics of Managed Instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
+* Find more advanced tutorials in [how to section](sql-database-howto-managed-instance.md). 
