@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -56,7 +56,7 @@ To make your policy work, you must configure:
 
 ### How are conditional access policies applied?
 
-More than one conditional access policy may apply when a user accesses an application. In this case all policies that apply must be satisfied. For example, if one polices requires for a user MFA and the second requires a compliant device the user must MFA and have a compliant device. 
+More than one conditional access policy may apply when you access a cloud app. In this case all policies that apply must be satisfied. For example, if one polices requires MFA and the second requires a compliant device, you must go through MFA, and have a compliant device. 
 
 All policies are enforced in two phases:
 
