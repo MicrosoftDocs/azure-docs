@@ -36,7 +36,7 @@ This quickstart also requires that you configure a server-level firewall rule. F
 
 You can confirm that Machine Learning Services (with R) is enabled for your SQL database. Follow the steps below.
 
-1. Open SQL Server Management Studio and connect to your SQL database.
+1. Open SQL Server Management Studio and connect to your SQL database. For more information on how to connect, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
 
 1. Run the code below. 
 
