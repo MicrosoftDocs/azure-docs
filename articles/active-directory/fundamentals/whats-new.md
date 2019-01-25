@@ -35,7 +35,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 ## January 2019
 
-### Azure AD Application Proxy cookie settings
+### New Azure AD Application Proxy cookie settings
 
 **Type:** New feature  
 **Service category:** App Proxy  
