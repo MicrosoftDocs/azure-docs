@@ -29,7 +29,7 @@ The vast majority of security breaches take place when attackers gain access to 
 **Old name:** Sign-ins from anonymous IP address
 
 
-This risk event type indicates sign-ins from an anonymous IP address (e.g. Tor browser, anonymizer VPNs).
+This risk event type indicates sign-ins from an anonymous IP address (for example, Tor browser, anonymizer VPNs).
 These IP addresses are typically used by actors who want to hide their login telemetry (IP address, location, device, etc.) for potentially malicious intent.
 
 
@@ -51,7 +51,7 @@ The algorithm ignores obvious "false positives" contributing to the impossible t
 
 
 This risk event type indicates that the user’s valid credentials have been leaked.
-When cybercriminals compromise valid passwords of legitimate users, the criminals often share those credentials. This is usually done by posting them publicly on the dark web or paste sites or by trading or selling the credentials on the black market. The Microsoft leaked credentials service acquires username / password pairs by monitoring public and dark web sites and by working with:
+When cybercriminals compromise valid passwords of legitimate users, the criminals often share those credentials. This is typically done by posting them publicly on the dark web or paste sites or by trading or selling the credentials on the black market. The Microsoft leaked credentials service acquires username / password pairs by monitoring public and dark web sites and by working with:
 
 - Researchers
 
@@ -70,7 +70,7 @@ When the service acquires user credentials from the dark web, paste sites or the
 **Old name:** Sign-ins from infected devices
 
 
-This risk event type indicates sign-ins from IP addresses infected with malware that are known to actively communicate with a bot server. This is determined by correlating IP addresses of the user’s device against IP addresses that were in contact with a bot server while the bot server was active.
+This risk event type indicates sign-ins from IP addresses infected with malware that is known to actively communicate with a bot server. This is determined by correlating IP addresses of the user’s device against IP addresses that were in contact with a bot server while the bot server was active.
 
 
 ## Unfamiliar sign-in properties
@@ -78,6 +78,6 @@ This risk event type indicates sign-ins from IP addresses infected with malware 
 **Detection Type:** Real-time  
 **Old name:** Sign-ins from unfamiliar locations
 
-This risk event type considers past sign-in properties (e.g. device, location, network) to determine sign-ins with unfamiliar properties. The system stores properties of previous locations used by a user, and considers these “familiar”. The risk event is triggered when the sign-in occurs with properties not already in the list of familiar properties. The system has an initial learning period of 30 days, during which it does not flag any new detections.
-We also run this detection for basic authentication (or legacy protocols). Because these protocols do not have modern properties such as client id, there is limited telemetry to reduce false positives. We recommend our customers to move to modern authentication.
+This risk event type considers past sign-in properties (for example, device, location, network) to determine sign-ins with unfamiliar properties. The system stores properties of previous locations used by a user, and considers these “familiar”. The risk event is triggered when the sign-in occurs with properties not already in the list of familiar properties. The system has an initial learning period of 30 days, during which it does not flag any new detections.
+We also run this detection for basic authentication (or legacy protocols). Because these protocols do not have modern properties such as client ID, there is limited telemetry to reduce false positives. We recommend our customers to move to modern authentication.
 
