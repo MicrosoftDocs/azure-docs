@@ -107,8 +107,8 @@ In order to follow this chapter, it is necessary to understand what was presente
 
 In terms of Azure Storage for Azure VMs, you should be familiar with the articles:
 
-- [About disks storage for Azure Windows VMs](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds)
-- [About disks storage for Azure Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds)
+- [Introduction to managed disks for Azure Windows VMs](../../windows/managed-disks-overview.md)
+- [Introduction to managed disks for Azure Linux VMs](../../linux/managed-disks-overview.md)
 
 In a basic configuration, we usually recommend a structure of deployment where the operating system, DBMS, and eventual SAP binaries are separate from the database files. Therefore, we recommend SAP systems running in Azure Virtual Machines to have the base VHD (or disk) installed with the operating system, database management system executables, and SAP executables. The DBMS data and log files are stored in Azure Storage (Standard or Premium Storage) in separate disks and attached as logical disks to the original Azure operating system image VM. Especially in Linux deployments, there can be different recommendations documented. Especially around SAP HANA.
 
