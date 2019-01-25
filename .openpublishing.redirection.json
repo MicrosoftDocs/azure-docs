@@ -26695,6 +26695,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-use-the-audit-log.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-azure-ad-controls-access-reviews-overview.md",
       "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
       "redirect_document_id": true
@@ -34790,6 +34795,11 @@
         "source_path": "articles/hdinsight/hdinsight-hadoop-data-lake-storage-gen2.md",
         "redirect_url": "/azure/hdinsight/hdinsight-hadoop-compare-storage-options",
         "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-moving-data.md",
+      "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
+      "redirect_document_id": true
     },
     {
         "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",

@@ -72,6 +72,7 @@ For an app, the available metrics are:
 | --- | --- |
 | **Average Response Time** | The average time taken for the app to serve requests, in milliseconds. |
 | **Average memory working set** | The average amount of memory used by the app, in megabytes (MiB). |
+| **Connections** | The number of bound sockets existing in the sandbox (w3wp.exe and its child processes).  A bound socket is created by calling bind()/connect() APIs and remains until said socket is closed with CloseHandle()/closesocket(). |
 | **CPU Time** | The amount of CPU consumed by the app, in seconds. For more information about this metric, see [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage). |
 | **Current Assemblies** | The current number of Assemblies loaded across all AppDomains in this application. |
 | **Data In** | The amount of incoming bandwidth consumed by the app, in MiB. |
