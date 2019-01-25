@@ -67,6 +67,7 @@ You can't directly view diagnostic logs in the Azure portal, but you can [send t
 ### Monitoring Solutions
  [Monitoring solutions](../../azure-monitor/insights/solutions.md) collect data to provide additional insight into the operation of a particular service or application. They collect data into Azure Monitor logs where it may be analyzed using the [query language](../../azure-monitor/log-query/log-query-overview.md) or [views](view-designer.md) that are typically included in the solution.
 
+
 ## Guest operating system
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into the same monitoring tools as the Azure services themselves.
 
@@ -77,6 +78,7 @@ With the Azure Diagnostics extension, it provides a basic level of monitoring by
 
 ### Log Analytics agent
 Comprehensive monitoring and management of your Windows or Linux virtual machines or physical computer is delivered with the Log Analytics agent. The virtual machine can be running in Azure, another cloud, or on-premises and the agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from [data sources](agent-data-sources.md) that you configure or from [monitoring solutions](../../azure-monitor/insights/solutions.md) that provide additional insights into applications running on the virtual machine.
+
 
 ### Dependency agent
 [Service Map](../insights/service-map.md) and [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines. This integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Azure Monitor and visualizes the discovered interconnected components.  
@@ -94,6 +96,7 @@ When you enable Application Insights for an application by installing an instrum
 
 You can also use Application Insights to [create a custom metric](../../application-insights/app-insights-api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from metric analytics and used for [Autoscale](autoscale-custom-metric.md) and metric alerts.
 
+
 ### Dependencies
 In order to monitor different logical operations of an application, you must [collect telemetry across multiple components](../../application-insights/app-insights-transaction-diagnostics.md). Application Insights supports [distributed telemetry correlation](../../application-insights/application-insights-correlation.md) which identifies the dependencies between components allowing you to analyze them together.
 
@@ -106,7 +109,7 @@ In addition to the standard tiers of an application, you may need to monitor oth
 ![Custom data collection](media/data-sources/custom-collection.png)
 
 ### Data Collector API
-Azure Monitor can collect log data from any REST client using the [Data Collector API](data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
+Azure Monitor can collect log data from any REST client using the [Data Collector API](../../azure-monitor/platform/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 ## Next steps
 

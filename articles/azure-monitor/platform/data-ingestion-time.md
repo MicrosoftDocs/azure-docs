@@ -48,7 +48,6 @@ Azure data adds additional time to become available at Log Analytics ingestion p
 
 Once available at ingestion point, data takes additional 2-5 minutes to be available for querying.
 
-
 ### Management solutions collection
 Some solutions do not collect their data from an agent and may use a collection method that introduces additional latency. Some solutions collect data at regular intervals without attempting near-real time collection. Specific examples include the following:
 
