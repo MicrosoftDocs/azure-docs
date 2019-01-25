@@ -46,7 +46,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-your-server.md)]
 
-<a name="auto"></a>
+<a name="automated-ml-setup"></a>
 
 ## Automated machine learning setup 
 
