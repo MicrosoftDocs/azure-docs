@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: jeedes
 
 ---
@@ -96,15 +96,9 @@ To configure Azure AD single sign-on with AirStack, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    ![AirStack Domain and URLs single sign-on information](common/idp-intiated.png)
-
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.lenovosoftware.com/0/as/common/saml/sp`
-
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.lenovosoftware.com/0/as/common/saml/acs`
+    ![AirStack Domain and URLs single sign-on information](common/preintegrated.png)
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -112,9 +106,6 @@ To configure Azure AD single sign-on with AirStack, perform the following steps:
 
     In the **Sign-on URL** text box, type a URL:
     `https://airstack.lenovosoftware.com`
-
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [AirStack Client support team](mailto:jsinger@lenovo.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
