@@ -213,7 +213,7 @@ Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
      Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
-
+    ```
 
 -  **Encrypt a running virtual machine scale set using KEK to wrap the key**:
     ```powershell
