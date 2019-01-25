@@ -96,7 +96,7 @@ For more information, see [Use Azure Active Directory Authentication for authent
 
 ## New authentication enum value
 
-The C# example relies on the `System.Data.SqlClient` namespace. Of special interest for multi-factor authentication is the enum `SqlAuthenticationMethod`, which has the following values:
+The C# example relies on the [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) namespace. Of special interest for multi-factor authentication is the enum `SqlAuthenticationMethod`, which has the following values:
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
@@ -142,18 +142,11 @@ For more information, see [Configure multi-factor authentication for SSMS and Az
 
 ## C# code example
 
-The example C# program relies on the **Microsoft.IdentityModel.Clients.ActiveDirectory** DLL assembly.
+The example C# program relies on the [*Microsoft.IdentityModel.Clients.ActiveDirectory*](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory) DLL assembly.
 
 To install this package, in Visual Studio, select **Project** > **Manage NuGet Packages**. Search for and install **Microsoft.IdentityModel.Clients.ActiveDirectory**.
 
-#### Reference documentation
-
-- [**System.Data.SqlClient** namespace](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
-
-- [**Microsoft.IdentityModel.Clients.ActiveDirectory** namespace](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
-
-
-#### C# source code
+### C# source code
 
 ```csharp
 
