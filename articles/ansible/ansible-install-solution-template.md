@@ -1,13 +1,13 @@
 ---
 title: Install the Ansible solution template for Azure
-description: Learn how to install the Ansible solution template on a Linux VM hosted on Azure, along with tools configured to work with Azure.
+description: Learn how to install the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
 ms.service: ansible
-keywords: ansible, azure, devops, plugin, linux vm, managed service identity, apt-transport-https
+keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 01/23/2019
+ms.date: 01/25/2019
 ---
 
 # Install the Ansible solution template for Azure
@@ -77,14 +77,10 @@ This article walks you through the steps to install the Ansible solution templat
 
 1. Select **OK**
 
+1. When the **Create** tab appears, select **OK** to install Ansible.
 
+1. Select the **Notifications** icon at the top of the portal page to track the Ansible deployment. Once complete, a message displays similar to the following:
 
+    ![Azure portal tab for Ansible Summary tab](./media/ansible-install-solution-template/portal-ansible-setup-complete.png)
 
-
-
-
-
-
-
-
-
+## Next steps
