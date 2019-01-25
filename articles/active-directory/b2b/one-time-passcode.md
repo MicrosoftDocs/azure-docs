@@ -111,16 +111,14 @@ You might receive a prompt that you're installing the module from an untrusted r
 Next, check to see if a B2BManagementPolicy currently exists by running the following:
 
 ````powershell 
-$currentpolicy =  Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and
-$_.IsOrganizationDefault -eq $true} | select -First 1
+$currentpolicy =  Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 $currentpolicy -eq $null
 ````
 - If the output is False, the policy doesn't currently exist. Create a new B2BManagementPolicy and opt in to the preview by running the following:
 
 ````powershell 
 $policyValue=@("{`"B2BManagementPolicy`":{`"PreviewPolicy`":{`"Features`":[`"OneTimePasscode`"]}}}")
-New-AzureADPolicy -Definition 
-$policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
+New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
 ````
 
   - If the output is True, the B2BManagementPolicy policy currently exists. To update the policy and opt in to the preview, run the following:
