@@ -16,8 +16,8 @@ ms.author: fmegen
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you learn how to create a Node.js project by using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the [Microsoft Cognitive Services Speech SDK for JavaScript](https://aka.ms/csspeech/npmpackage).
+In this article, you learn how to create a Node.js project by using the JavaScript binding of the Speech SDK for Azure Cognitive Services to transcribe speech to text.
+The application is based on the [Speech SDK for JavaScript](https://aka.ms/csspeech/npmpackage).
 
 ## Prerequisites
 
