@@ -95,8 +95,8 @@ A.  You can only cancel the order after the Data Box is ordered and before the o
 ### Q. Can I connect a Data Box at the same to multiple host computers to transfer data?
 A. Yes. Multiple host computers can connect to Data Box to transfer data and multiple copy jobs can be run in parallel. For more information, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
-### Q. Can I connect to both the 10 GbE interfaces on the Data Box to transfer data?
-A. Yes. Both the 10 GbE interfaces can be connected on the Data Box to copy data at the same time. For more information on how to copy data, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
+### Q. Can I connect to both the 10-GbE interfaces on the Data Box to transfer data?
+A. Yes. Both the 10-GbE interfaces can be connected on the Data Box to copy data at the same time. For more information on how to copy data, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
