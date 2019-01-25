@@ -3,7 +3,7 @@ title: 'Azure AD Connect: What is the ADConnectivityTool PowerShell Module | Mic
 description: This document introduces the new ADConnectivity PowerShell module
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article

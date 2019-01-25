@@ -4,7 +4,7 @@ description: Guidance for the specific problems you may face when signing in to 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

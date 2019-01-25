@@ -6,7 +6,7 @@ author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: dineshm
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
@@ -32,12 +32,31 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 2. Select **Download** and save the results to your machine.
 3. Make a note of the file name and the path of the download; you need this information in a later step.
 
-To complete this tutorial, you need a storage account with analytic capabilities. We recommend completing our [quickstart](data-lake-storage-quickstart-create-account.md) on the subject in order to create one. After you have created it, navigate to the storage account to retrieve configuration settings.
+To complete this tutorial, you need a storage account with analytic capabilities. We recommend completing our [quickstart](data-lake-storage-quickstart-create-account.md) on the subject in order to create one. 
 
-1. Under **Settings**, select  **Access keys**.
-2. Select the **Copy** button next to **key1** to copy the key value.
+## Set aside storage account configuration
 
-Both the account name and key are required for later steps in this tutorial. Open a text editor and set aside the account name and key for future reference.
+You'll need the name of your storage account, and a file system endpoint URI.
+
+To get the name of your storage account in the Azure portal, choose **All Services** and filter on the term *storage*. Then, select **Storage accounts** and locate your storage account.
+
+To get the file system endpoint URI, choose **Properties**, and in the properties pane find the value of the **Primary ADLS FILE SYSTEM ENDPOINT** field.
+
+Paste both of these values into a text file. You'll need them soon.
+
+<a id="service-principal"/>
+
+## Create a service principal
+
+Create a service principal by following the guidance in this topic: [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+There's a few specific things that you'll have to do as you perform the steps in that article.
+
+:heavy_check_mark: When performing the steps in the [Create an Azure Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) section of the article,  make sure to set the **Sign-on URL** field of the **Create** dialog box to the endpoint URI that you just collected.
+
+:heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign your application to the **Blob Storage Contributor Role**.
+
+:heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
 
 ## Create a Databricks cluster
 
@@ -59,22 +78,24 @@ The next step is to create a Databricks cluster to create a data workspace.
 14. Enter a name of your choice in the **Name** field, and select **Python** as the language.
 15. All other fields can be left as default values.
 16. Select **Create**.
-17. Paste the following code into the **Cmd 1** cell. Replace the placeholders shown in brackets in the sample with your own values:
+17. Copy and paste the following code block into the first cell, but don't run this code yet.
 
-    ```scala
-    %python%
+    ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-        
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<application-id>",
+           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
     dbutils.fs.mount(
-        source = "abfss://dbricks@<account-name>.dfs.core.windows.net/folder1",
-        mount_point = "/mnt/flightdata",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
     ```
-18. Press **SHIFT + ENTER** to run the code cell.
+18. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Set aside storage account configuration](#config) and [Create a service principal](#service-principal) sections of this article. Replace the `file-system-name` placeholder with any name that you want to give your file system.
+
+19. Press the **SHIFT + ENTER** keys to run the code in this block.
 
 ## Ingest data
 

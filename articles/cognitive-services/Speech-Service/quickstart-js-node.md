@@ -1,19 +1,18 @@
 ---
-title: 'Quickstart: Recognize speech in JavaScript in Node.js using the Speech Service SDK'
+title: 'Quickstart: Recognize speech, Node.js - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in JavaScript in Node.js using the Speech Service SDK
+description: Use this guide to create a speech-to-text console application using the Speech SDK for Node.js. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in JavaScript in Node.js using the Speech Service SDK
+# Quickstart: Recognize speech with the Speech SDK for Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -25,9 +24,9 @@ The application is based on the Microsoft [Cognitive Services Speech SDK](https:
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 * A current version of [Node.js](https://nodejs.org).
 
-## Create a new project folder
+## Create a new project
 
-Create a new, empty folder and initialize it as a new JavaScript and Node.js project.
+Create a new folder and initialize the project.
 
 ```sh
 npm init -f
@@ -35,13 +34,17 @@ npm init -f
 
 This will init the package.json files with default values. You will probably want to edit this file later.
 
-## Install the Speech SDK for JavaScript into that folder
+## Install the Speech SDK
 
-Add the Speech SDK via `npm install microsoft-cognitiveservices-speech-sdk` to your Node.js project.
+Add the Speech SDK to your Node.js project.
 
-This will download and install the latest version of the Speech SDK and any required prerequisites from npmjs. The SDK will be installed in the `node_modules` directory inside your project folder.
+```
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
-## Using the Speech SDK
+This downloads and installs the latest version of the Speech SDK and any required prerequisites from npmjs. The SDK will be installed in the `node_modules` directory inside your project folder.
+
+## Use the Speech SDK
 
 Create a new file in the folder, named `index.js` and open this file with a text editor.
 
@@ -54,7 +57,7 @@ Add the following JavaScript code:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
-## Running the sample from command line
+## Run the sample
 
 To launch the app, adapt `YourSubscriptionKey`, `YourServiceRegion`, and `YourAudioFile.wav` to your configuration. Then you can execute it by calling the following command:
 
@@ -84,7 +87,7 @@ SpeechRecognitionResult {
 }
 ```
 
-## Running the sample from Visual Studio Code
+## Install and use the Speech SDK with Visual Studio Code
 
 You can run the sample from Visual Studio Code as well. Follow these steps to install, open, and execute the quickstart:
 

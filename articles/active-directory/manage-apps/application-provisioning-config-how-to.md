@@ -4,7 +4,7 @@ description: How you can quickly configure rich user account provisioning and de
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

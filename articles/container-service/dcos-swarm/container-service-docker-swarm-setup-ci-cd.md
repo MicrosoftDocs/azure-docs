@@ -134,7 +134,7 @@ The next steps define the build workflow. There are five container images to bui
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 You need to add two Docker steps for each image, one to build the image, and one to push the image in the Azure container registry. 

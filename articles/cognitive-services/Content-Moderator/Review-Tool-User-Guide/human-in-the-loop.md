@@ -1,17 +1,19 @@
 ---
-title: Machine-assisted content moderation and human reviews in Content Moderator | Microsoft Docs
+title: Incorporate human reviews into content moderation - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: How machines and humans together provide the best results for content moderation
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-ms.date: 03/16/2018
+ms.date: 01/10/2019
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
+
 ---
 
-# Review tool overview
+# Learn about the Review tool
 
 You get the best results when humans and machines work together on content moderation. Machines effectively augment human reviews where the prediction confidence has to be assisted or tempered within a real world context. The result is a hybrid content moderation process that performs better than if the humans or machines were working alone.
 

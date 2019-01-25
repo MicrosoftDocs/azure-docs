@@ -58,7 +58,7 @@ A: To view VM Logs, you need to be granted with read permission to the workspace
 
 ### Q. Why can I can access my workspace in OMS portal, but I get the error “You have no access” in the Azure portal?  
 
-A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](/../../azure-monitor/platform/oms-portal-transition.md) for more information.
+A: To access a workspace in Azure, you must have Azure permissions assigned. There are some cases where you may not have appropriate access permissions. In these cases, your administrator must grant you with permissions in Azure.See [OMS portal moving to Azure](oms-portal-transition.md) for more information.
 
 ### Q. Why can't I can’t see View Designer entry in Logs? 
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
@@ -216,7 +216,7 @@ A. The free plan sets a daily cap of 500 MB per workspace. The standard and prem
 
 The Log Analytics agent was designed to ensure it has a small footprint. The data volume varies based on the solutions you enable. You can find detailed information on the data volume and see the breakdown by solution in the [Usage](../../azure-monitor/platform/data-usage.md) page.
 
-For more information, you can read a [customer blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
+For more information, you can read a [customer blog](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) showing their results after evaluating the resource utilization (footprint) of the OMS agent.
 
 ### Q. How much network bandwidth is used by the Microsoft Management Agent (MMA) when sending data to Log Analytics?
 

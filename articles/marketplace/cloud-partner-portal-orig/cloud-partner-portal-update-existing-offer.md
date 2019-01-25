@@ -106,7 +106,7 @@ To make a new SKU available for your existing offer, follow the below steps.
 
 1.  Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2.  Under **All offers** find the offer you would like to update.
-3.  Under the **SKUs** form, clik on **Add new SKU** and provide a **SKU ID** in
+3.  Under the **SKUs** form, click on **Add new SKU** and provide a **SKU ID** in
     the pop-up.
 4.  Follow the rest of the steps detailed in [Publish a virtual machine to Azure Marketplace](./cloud-partner-portal-publish-virtual-machine.md).
 5.  Click on **Publish** to kick off the publish workflow to have your new SKU

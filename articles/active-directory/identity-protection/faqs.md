@@ -4,7 +4,7 @@ description: 'Frequently asked questions about Azure AD Identity Protection'
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: markvi
-ms.reviewer: nigu
+ms.reviewer: raluthra
 
 ---
 # Azure Active Directory Identity Protection FAQ

@@ -29,18 +29,18 @@ robots: noindex
 This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines. It provides details about each section (for example, structure, availability, and policy) in the dataset JSON definition. The article also provides examples for using the **offset**, **anchorDateTime**, and **style** properties in a dataset JSON definition.
 
 > [!NOTE]
-> If you are new to Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview. If you do not have hands-on experience with creating data factories, you can gain a better understanding by reading the [data transformation tutorial](data-factory-build-your-first-pipeline.md) and the [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+> If you are new to Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview. If you do not have hands-on experience with creating data factories, you can gain a better understanding by reading the [data transformation tutorial](data-factory-build-your-first-pipeline.md) and the [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Overview
 A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from an on-premises SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md).
 
-An activity can take zero or more input **datasets**, and produce one or more output datasets. An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the pipeline should read the data. 
+An activity can take zero or more input **datasets**, and produce one or more output datasets. An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the pipeline should read the data.
 
-Before you create a dataset, create a **linked service** to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Datasets identify data within the linked data stores, such as SQL tables, files, folders, and documents. For example, an Azure Storage linked service links a storage account to the data factory. An Azure Blob dataset represents the blob container and the folder that contains the input blobs to be processed. 
+Before you create a dataset, create a **linked service** to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Datasets identify data within the linked data stores, such as SQL tables, files, folders, and documents. For example, an Azure Storage linked service links a storage account to the data factory. An Azure Blob dataset represents the blob container and the folder that contains the input blobs to be processed.
 
 Here is a sample scenario. To copy data from Blob storage to a SQL database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL database to which the data is to be copied.
 
-The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory: 
+The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory:
 
 ![Relationship between pipeline, activity, dataset, linked services](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
 
@@ -68,14 +68,14 @@ A dataset in Data Factory is defined in JSON format as follows:
             "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
             "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
         },
-       "policy":
-        {      
+        "policy":
+        {
         }
     }
 }
 ```
 
-The following table describes properties in the above JSON:   
+The following table describes properties in the above JSON:
 
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
@@ -113,8 +113,8 @@ Note the following points:
 
 * **type** is set to AzureSqlTable.
 * **tableName** type property (specific to AzureSqlTable type) is set to MyTable.
-* **linkedServiceName** refers to a linked service of type AzureSqlDatabase, which is defined in the next JSON snippet. 
-* **availability frequency** is set to Day, and **interval** is set to 1. This means that the dataset slice is produced daily.  
+* **linkedServiceName** refers to a linked service of type AzureSqlDatabase, which is defined in the next JSON snippet.
+* **availability frequency** is set to Day, and **interval** is set to 1. This means that the dataset slice is produced daily.
 
 **AzureSqlLinkedService** is defined as follows:
 
@@ -134,13 +134,12 @@ Note the following points:
 In the preceding JSON snippet:
 
 * **type** is set to AzureSqlDatabase.
-* **connectionString** type property specifies information to connect to a SQL database.  
+* **connectionString** type property specifies information to connect to a SQL database.
 
-As you can see, the linked service defines how to connect to a SQL database. The dataset defines what table is used as an input and output for the activity in a pipeline.   
+As you can see, the linked service defines how to connect to a SQL database. The dataset defines what table is used as an input and output for the activity in a pipeline.
 
 > [!IMPORTANT]
-> Unless a dataset is being produced by the pipeline, it should be marked as **external**. This setting generally applies to inputs of first activity in a pipeline.   
-
+> Unless a dataset is being produced by the pipeline, it should be marked as **external**. This setting generally applies to inputs of first activity in a pipeline.
 
 ## <a name="Type"></a> Dataset type
 The type of the dataset depends on the data store you use. See the following table for a list of data stores supported by Data Factory. Click a data store to learn how to create a linked service and a dataset for that data store.
@@ -180,7 +179,7 @@ In the example in the previous section, the type of the dataset is set to **Azur
 The **structure** section is optional. It defines the schema of the dataset by containing a collection of names and data types of columns. You use the structure section to provide type information that is used to convert types and map columns from the source to the destination. In the following example, the dataset has three columns: `slicetimestamp`, `projectname`, and `pageviews`. They are of type String, String, and Decimal, respectively.
 
 ```json
-structure:  
+structure:
 [
     { "name": "slicetimestamp", "type": "String"},
     { "name": "projectname", "type": "String"},
@@ -199,15 +198,14 @@ Each column in the structure contains the following properties:
 
 The following guidelines help you determine when to include structure information, and what to include in the **structure** section.
 
-* **For structured data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure table. 
+* **For structured data sources**, specify the structure section only if you want map source columns to sink columns, and their names are not the same. This kind of structured data source stores data schema and type information along with the data itself. Examples of structured data sources include SQL Server, Oracle, and Azure table.
   
     As type information is already available for structured data sources, you should not include type information when you do include the structure section.
-* **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink. 
+* **For schema on read data sources (specifically Blob storage)**, you can choose to store data without storing any schema or type information with the data. For these types of data sources, include structure when you want to map source columns to sink columns. Also include structure when the dataset is an input for a copy activity, and data types of source dataset should be converted to native types for the sink.
 	
 	Data Factory supports the following values for providing type information in structure: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset, and Timespan**. These values are Common Language Specification (CLS)-compliant, .NET-based type values.
 
-Data Factory automatically performs type conversions when moving data from a source data store to a sink data store. 
-  
+Data Factory automatically performs type conversions when moving data from a source data store to a sink data store.
 
 ## Dataset availability
 The **availability** section in a dataset defines the processing window (for example, hourly, daily, or weekly) for the dataset. For more information about activity windows, see [Scheduling and execution](data-factory-scheduling-and-execution.md).
@@ -215,21 +213,21 @@ The **availability** section in a dataset defines the processing window (for exa
 The following availability section specifies that the output dataset is either produced hourly, or the input dataset is available hourly:
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 1    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 1
 }
 ```
 
-If the pipeline has the following start and end times:  
+If the pipeline has the following start and end times:
 
 ```json
 	"start": "2016-08-25T00:00:00Z",
     "end": "2016-08-25T05:00:00Z",
 ```
 
-The output dataset is produced hourly within the pipeline start and end times. Therefore, there are five dataset slices produced by this pipeline, one for each activity window (12 AM - 1 AM, 1 AM - 2 AM, 2 AM - 3 AM, 3 AM - 4 AM, 4 AM - 5 AM). 
+The output dataset is produced hourly within the pipeline start and end times. Therefore, there are five dataset slices produced by this pipeline, one for each activity window (12 AM - 1 AM, 1 AM - 2 AM, 2 AM - 3 AM, 3 AM - 4 AM, 4 AM - 5 AM).
 
 The following table describes properties you can use in the availability section:
 
@@ -242,7 +240,7 @@ The following table describes properties you can use in the availability section
 | offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/>Note that if both **anchorDateTime** and **offset** are specified, the result is the combined shift. |No |NA |
 
 ### offset example
-By default, daily (`"frequency": "Day", "interval": 1`) slices start at 12 AM (midnight) Coordinated Universal Time (UTC). If you want the start time to be 6 AM UTC time instead, set the offset as shown in the following snippet: 
+By default, daily (`"frequency": "Day", "interval": 1`) slices start at 12 AM (midnight) Coordinated Universal Time (UTC). If you want the start time to be 6 AM UTC time instead, set the offset as shown in the following snippet:
 
 ```json
 "availability":
@@ -256,11 +254,11 @@ By default, daily (`"frequency": "Day", "interval": 1`) slices start at 12 AM (m
 In the following example, the dataset is produced once every 23 hours. The first slice starts at the time specified by **anchorDateTime**, which is set to `2017-04-19T08:00:00` (UTC).
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 23,    
-    "anchorDateTime":"2017-04-19T08:00:00"    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 23,
+    "anchorDateTime":"2017-04-19T08:00:00"
 }
 ```
 
@@ -318,16 +316,16 @@ Unless a dataset is being produced by Data Factory, it should be marked as **ext
 
 | Name | Description | Required | Default value |
 | --- | --- | --- | --- |
-| dataDelay |The time to delay the check on the availability of the external data for the given slice. For example, you can delay an hourly check by using this setting.<br/><br/>The setting only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>Note that this setting does not affect slices in the past. Slices with **Slice End Time** + **dataDelay** < **Now** are processed without any delay.<br/><br/>Times greater than 23:59 hours should be specified by using the `day.hours:minutes:seconds` format. For example, to specify 24 hours, don't use 24:00:00. Instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
+| dataDelay |The time to delay the check on the availability of the external data for the given slice. For example, you can delay an hourly check by using this setting.<br/><br/>The setting only applies to the present time. For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>Note that this setting does not affect slices in the past. Slices with **Slice End Time** + **dataDelay** < **Now** are processed without any delay.<br/><br/>Times greater than 23:59 hours should be specified by using the `day.hours:minutes:seconds` format. For example, to specify 24 hours, don't use 24:00:00. Instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. |No |0 |
 | retryInterval |The wait time between a failure and the next attempt. This setting applies to present time. If the previous try failed, the next try is after the **retryInterval** period. <br/><br/>If it is 1:00 PM right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1min (duration) + 1min (retry interval) = 1:02 PM. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. |No |00:01:00 (1 minute) |
 | retryTimeout |The timeout for each retry attempt.<br/><br/>If this property is set to 10 minutes, the validation should be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry times out.<br/><br/>If all attempts for the validation time out, the slice is marked as **TimedOut**. |No |00:10:00 (10 minutes) |
 | maximumRetry |The number of times to check for the availability of the external data. The maximum allowed value is 10. |No |3 |
 
 
 ## Create datasets
-You can create datasets by using one of these tools or SDKs: 
+You can create datasets by using one of these tools or SDKs:
 
-- Copy Wizard 
+- Copy Wizard
 - Azure portal
 - Visual Studio
 - PowerShell
@@ -336,18 +334,17 @@ You can create datasets by using one of these tools or SDKs:
 - .NET API
 
 See the following tutorials for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs:
- 
+
 - [Build a pipeline with a data transformation activity](data-factory-build-your-first-pipeline.md)
 - [Build a pipeline with a data movement activity](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-After a pipeline is created and deployed, you can manage and monitor your pipelines by using the Azure portal blades, or the Monitoring and Management app. See the following topics for step-by-step instructions: 
+After a pipeline is created and deployed, you can manage and monitor your pipelines by using the Azure portal blades, or the Monitoring and Management app. See the following topics for step-by-step instructions:
 
 - [Monitor and manage pipelines by using Azure portal blades](data-factory-monitor-manage-pipelines.md)
 - [Monitor and manage pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md)
 
-
 ## Scoped datasets
-You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only be used by activities within this pipeline, not by activities in other pipelines. The following example defines a pipeline with two datasets (InputDataset-rdc and OutputDataset-rdc) to be used within the pipeline.  
+You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only be used by activities within this pipeline, not by activities in other pipelines. The following example defines a pipeline with two datasets (InputDataset-rdc and OutputDataset-rdc) to be used within the pipeline.
 
 > [!IMPORTANT]
 > Scoped datasets are supported only with one-time pipelines (where **pipelineMode** is set to **OneTime**). See [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) for details.
@@ -446,5 +443,5 @@ You can create datasets that are scoped to a pipeline by using the **datasets** 
 ```
 
 ## Next steps
-- For more information about pipelines, see [Create pipelines](data-factory-create-pipelines.md). 
-- For more information about how pipelines are scheduled and executed, see [Scheduling and execution in Azure Data Factory](data-factory-scheduling-and-execution.md). 
+- For more information about pipelines, see [Create pipelines](data-factory-create-pipelines.md).
+- For more information about how pipelines are scheduled and executed, see [Scheduling and execution in Azure Data Factory](data-factory-scheduling-and-execution.md).

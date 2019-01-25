@@ -139,7 +139,7 @@ Connect to the [Serial Console, and then open a PowerShell instance](serial-con
 
 #### Mitigation 1
 
-See [How to Enable-Disable a Firewall rule on a Guest OS DOC]().
+See [How to Enable-Disable a Firewall rule on a Guest OS](enable-disable-firewall-rule-guest-os.md).
 
 #### Mitigation 2
 
