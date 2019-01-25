@@ -155,7 +155,7 @@ cmdlet | Usage
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
   
   ````
-    Confirm-MsolDomain -DomainName "your_domain_name" -forcetakeover force 
+    Confirm-MsolDomain -DomainName "your_domain_name" -forcetakeover force
   ````
   
   For example:
