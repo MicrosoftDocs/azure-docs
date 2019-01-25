@@ -116,19 +116,19 @@ $currentpolicy -eq $null
 ````
 - If the output is False, the policy doesn't currently exist. Create a new B2BManagementPolicy and opt in to the preview by running the following:
 
-````powershell 
-$policyValue=@("{`"B2BManagementPolicy`":{`"PreviewPolicy`":{`"Features`":[`"OneTimePasscode`"]}}}")
-New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
-````
+   ````powershell 
+   $policyValue=@("{`"B2BManagementPolicy`":{`"PreviewPolicy`":{`"Features`":[`"OneTimePasscode`"]}}}")
+   New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
+   ````
 
-  - If the output is True, the B2BManagementPolicy policy currently exists. To update the policy and opt in to the preview, run the following:
+- If the output is True, the B2BManagementPolicy policy currently exists. To update the policy and opt in to the preview, run the following:
   
-````powershell 
-$policy = $currentpolicy.Definition | ConvertFrom-Json
-$features=[PSCustomObject]@{'Features'=@('OneTimePasscode')}; $policy.B2BManagementPolicy | Add-Member 'PreviewPolicy' $features -Force; $policy.B2BManagementPolicy
-$updatedPolicy = $policy | ConvertTo-Json -Depth 3
-Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
-````
+   ````powershell 
+   $policy = $currentpolicy.Definition | ConvertFrom-Json
+   $features=[PSCustomObject]@{'Features'=@('OneTimePasscode')}; $policy.B2BManagementPolicy | Add-Member 'PreviewPolicy' $features -Force; $policy.B2BManagementPolicy
+   $updatedPolicy = $policy | ConvertTo-Json -Depth 3
+   Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
+   ````
 
 ## Opting out of the preview after opting in
 It may take a few minutes for the opt-out action to take effect. If you turn off the preview, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite the user to enable them to sign in again using another authentication method.
