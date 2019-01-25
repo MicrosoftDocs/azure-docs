@@ -60,7 +60,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
     }
     ```
 
-The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this helps teams with [collaborative development](3-team-development-netcore.md).
+The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this helps teams with [collaborative development](team-development-netcore.md).
 
 ### Debug across multiple services
 1. At this point, `mywebapi` should still be running with the debugger attached. If it is not, hit F5 in the `mywebapi` project.
@@ -105,4 +105,4 @@ You now have a multi-container application where each container can be developed
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about team development in Dev Spaces](3-team-development-netcore.md)
+> [Learn about team development in Dev Spaces](team-development-netcore.md)

@@ -220,4 +220,4 @@ Refresh the web app in the browser. You should see your custom message appear in
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about multi-service development](2-multi-service-java.md)
+> [Learn about multi-service development](multi-service-java.md)

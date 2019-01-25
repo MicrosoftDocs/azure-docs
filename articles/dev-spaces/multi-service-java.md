@@ -97,4 +97,4 @@ You now have a multi-container application where each container can be developed
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about team development in Dev Spaces](3-team-development-java.md)
+> [Learn about team development in Dev Spaces](team-development-java.md)
