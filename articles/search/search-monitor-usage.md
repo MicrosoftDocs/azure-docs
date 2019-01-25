@@ -65,9 +65,9 @@ Both Log Analytics and Blob storage are available as Free shared service so that
 
 ## Enable logging
 
-Logging for indexing and query workloads is off by default and depends on add-on solutions for both logging infrastructure and external storage. By itself, the only persisted data in Azure Search is indexes, so logs must be stored elsewhere.
+Logging for indexing and query workloads is off by default and depends on add-on solutions for both logging infrastructure and long-term external storage. By itself, the only persisted data in Azure Search is indexes, so logs must be stored elsewhere.
 
-In this section, you'll learn how to use Blob storage to contain logged events and metrics data.
+In this section, you'll learn how to use Blob storage to store logged events and metrics data.
 
 1. [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you don't already have one. You can place it in the same resource group as Azure Search to simplify clean up later if you want to delete all resources used in this exercise.
 
