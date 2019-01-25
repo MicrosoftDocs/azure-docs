@@ -71,7 +71,7 @@ At this point, it's is a good time to decide on a naming standard for your polic
 - The cloud app it applies to
 - The response
 - Who it applies to
-- When it applies 
+- When it applies (if applicable)
  
 ![Naming standard](./media/plan-conditional-access/11.png)
 
