@@ -4,7 +4,7 @@ description: How to add a back-end storage system to your Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
 ---
 
