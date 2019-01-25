@@ -541,10 +541,6 @@
           href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Access Control
           href: data-lake-storage-access-control.md
-        - name: Configure firewalls and virtual networks 
-          href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Manage access rights with RBAC
-          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: How to
     items:
     - name: Ingest data
@@ -555,7 +551,11 @@
           href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Secure data
       items:
-        - name: Set permissions
+        - name: Configure firewalls and virtual networks 
+          href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Manage access rights with RBAC
+          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Set file and directory-level permissions
           href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
     - name: Integrate with Azure services
       items:
