@@ -13,13 +13,21 @@ ms.date: 10/03/2018
 # Azure Key Vault managed storage account - CLI
 
 > [!NOTE]
-> [Azure storage now supports AAD authorization](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure Active Directory for authentication and authorization to Storage as users wouldn't have to worry about rotating their Storage Account keys.
+> [Azure storage integration with Azure Active Directory (Azure AD) is now in preview](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure AD for authentication and authorization, which provides OAuth2 token-based access to Azure storage, just like Azure Key Vault. This allows you to:
+> - Authenticate your client application using an application or user identity, instead of storage account credentials. 
+> - Use an [Azure AD managed identity](/azure/active-directory/managed-identities-azure-resources/) when running on Azure. Managed identities remove the need for client authentication all together, and storing credentials in or with your application.
+> - Use Role Based Access Control (RBAC) for managing authorization, which is also supported by Key Vault.
 
 - Azure Key Vault manages keys of an Azure Storage Account (ASA).
     - Internally, Azure Key Vault can list (sync) keys with an Azure Storage Account.    
     - Azure Key Vault regenerates (rotates) the keys periodically.
     - Key values are never returned in response to caller.
     - Azure Key Vault manages keys of both Storage Accounts and Classic Storage Accounts.
+    
+> [!IMPORTANT]
+> An Azure AD tenant provides each registered application with a **[service principal](/azure/active-directory/develop/developer-glossary#service-principal-object)**, which serves as the application's identity. The service principal's Application ID is used when giving it authorization to access other Azure resources, through role-based access control (RBAC). Because Key Vault is a Microsoft application, it's pre-registered in all Azure AD tenants under the same Application ID, within each Azure cloud:
+> - Azure AD tenants in Azure government cloud use Application ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - Azure AD tenants in Azure public cloud and all others use Application ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
 Prerequisites
 --------------
