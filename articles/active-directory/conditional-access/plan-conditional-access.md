@@ -27,7 +27,7 @@ If additional features are required, you might also need to get related licenses
 
 There are two types of conditional access policies: baseline and standard. A [baseline policy](baseline-protection.md) is a predefined conditional access policy. The goal of these policies is to make sure that you have at least the baseline level of security enabled. Baseline policies. Baseline policies are available in all editions of Azure AD, and they provide only limited customization options. If a scenario requires more flexibility, disable the baseline policy, and implement your requirements in a custom standard policy.
 
-In a standard conditional access policy, you can to customize all settings to adjust the policy to your business requirements. Standard policies require an Azure AD Premium P1 license.
+In a standard conditional access policy, you can customize all settings to adjust the policy to your business requirements. Standard policies require an Azure AD Premium P1 license.
 
 
 
@@ -90,7 +90,7 @@ In addition to your active policies, it is advisable to also implement disabled 
 
 - The name of disruption it should apply to.
 
-- An ordering sequence number to help the administrator know in which order policies should he enabled. 
+- An ordering sequence number to help the administrator to know in which order policies should he enabled. 
 
 
 For example, the following name indicates that this policy is the first policy out of four you should enable in the case of MFA disruption:
@@ -132,7 +132,7 @@ Common use cases to require MFA are access:
 
 ### Respond to potentially compromised accounts
 
-With conditional access polices, you can implement automated responses to sign-ins from potentially compromised identities. The probability that an account has been compromised is expressed in form of risk levels. There are two risk levels calculated by identity protection: sign-in risk and user risk. To implement a response to a sign-in risk, you have two options:
+With conditional access policies, you can implement automated responses to sign-ins from potentially compromised identities. The probability that an account has been compromised is expressed in form of risk levels. There are two risk levels calculated by identity protection: sign-in risk and user risk. To implement a response to a sign-in risk, you have two options:
 
 - [The sign-in risk condition](conditions.md#sign-in-risk) in conditional access policy
 - [The sign-in risk policy](../identity-protection/howto-sign-in-risk-policy.md) in identity protection 
@@ -223,7 +223,7 @@ Now that you have configured your conditional access policy, you probably want t
 
 Run test cases according to your test plan. In this step, you run through an end-to-end test of each policy for your test users to make sure each policy behaves correctly. Use the scenarios created above to execute each test.
 
-It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that require MFA. You should therefore test if the excluded users are prompted for MFA, because the combination of other policies might require MFA for those users.
+It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that requires MFA. You should therefore test if the excluded users are prompted for MFA, because the combination of other policies might require MFA for those users.
 
 
 ### Cleanup
