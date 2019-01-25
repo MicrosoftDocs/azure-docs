@@ -71,6 +71,19 @@ This article walks you through the steps to install the Ansible solution templat
 
 1. Select **OK**.
 
+1. The **Summary** page displays showing the validation process and listing the specified criteria for the Ansible installation. A link at the bottom of the tab allows you to **Download the template and parameters** for use with the Azure CLI 2.0, PowerShell, .NET, or Ruby. 
+
+    ![Azure portal tab for Ansible Summary tab](./media/ansible-install-solution-template/portal-ansible-setup-tab-4.png)
+
+1. Select **OK**
+
+
+
+
+
+
+
+
 
 
 
