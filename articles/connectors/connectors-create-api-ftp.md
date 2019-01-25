@@ -124,6 +124,17 @@ You can then use an FTP action such as **Get file content**,
 so you can get the order's contents for further processing 
 and store that order in an orders database.
 
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
 A valid and functional logic app requires a trigger 
 and at least one action. So make sure you add an action 
 after you add a trigger.
@@ -163,15 +174,28 @@ Now that your logic app has a trigger, add the actions you want
 to run when your logic app finds a new or edited file. For this example, 
 you can add an FTP action that gets the new or updated content.
 
-<a name="get-file-with-path"></a>
+<a name="get-content"></a>
 
 ### FTP action: Get content
 
 This action gets the content from a file on an FTP server 
 when that file is added or updated. So for example, 
-you can add the trigger from the previous 
-example and an action that gets the file's content after 
+you can add the trigger from the previous example 
+and an action that gets the file's content after 
 that file is added or edited. 
+
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
+Here is an example that shows this action: **Get content**
 
 1. Under the trigger or any other actions, choose **New step**. 
 
