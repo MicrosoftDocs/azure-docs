@@ -990,6 +990,8 @@
       href: platform/alerts-extend.md
     - name: Copy alerts from OMS portal to Azure portal 
       href: platform/alerts-extend-tool.md
+    - name: Switch log alert API preference
+      href: platform/alerts-log-api-switch.md
 - name: Resources
   items:
   - name: Azure Roadmap

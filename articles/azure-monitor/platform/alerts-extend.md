@@ -14,7 +14,9 @@ ms.subservice: alerts
 > [!NOTE]
 > Microsoft already completed the process described in this article for the public versions of Azure. However, it still applies to US government versions.  
 
-Until recently, Azure Log Analytics included its own alert functionality, which could proactively notify you of conditions based on Log Analytics data. You managed alert rules in the Microsoft Operations Management Suite portal. The new alerts experience has now integrated alerting across various services in Microsoft Azure. This is available as **Alerts** under Azure Monitor in the Azure portal, and supports alerting from activity logs, metrics, and logs from both Log Analytics and Azure Application Insights. 
+Until recently, Azure Log Analytics included its own alert functionality, which could proactively notify you of conditions based on Log Analytics data. You managed alert rules in the Microsoft Operations Management Suite portal. The new alerts experience has now integrated alerting across various services in Microsoft Azure. This is available as **Alerts** under Azure Monitor in the Azure portal, and supports alerting from activity logs, metrics, and logs from both Log Analytics and Azure Application Insights.
+
+Azure Government cloud customers using OMS portal, can [voluntarily extend their alert rules to Azure](alerts-extend-tool.md) from **Feb 1, 2019**. Starting **Mar 1, 2019** - Microsoft will auto-extend in a systematic manner all existing alert rules in Azure Government - OMS portal to Azure; without any downtime or break to your monitoring. Any new workspace created on or after **Mar 1, 2019** in Azure Government cloud OMS portal will be auto-extended to Azure.
 
 ## Benefits of extending your alerts
 There are several advantages of creating and managing alerts in the Azure portal, such as:

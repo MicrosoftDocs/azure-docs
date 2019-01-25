@@ -66,6 +66,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
     ![aggregate on option](media/alerts-log/aggregate-on.png)
 
 1.  *Log Alerts*: With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. Finally specify in the logic, the time to assess for the specified condition, using **Period** option. Along with how often Alert should run by selecting **Frequency**.
+
 For **Log Alerts** alerts can be based on:
    - *Number of Records*: An alert is created if the count of records returned by the query is either greater than or less than the value provided.
    - *Metric Measurement*: An alert is created if each *aggregate value* in the results exceeds the threshold value provided and it is *grouped by* chosen value. The number of breaches for an alert is the number of times the threshold is exceeded in the chosen time period. You can specify Total breaches for any combination of breaches across the results set or Consecutive breaches to require that the breaches must occur in consecutive samples. Learn more about [Log Alerts and their types](../../azure-monitor/platform/alerts-unified-log.md).
@@ -102,7 +103,7 @@ For **Log Alerts** alerts can be based on:
     Within a few minutes, the alert is active and triggers as previously described.
 
 Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../../azure-monitor/log-query/portals.md#log-analytics-page
-) and then push it to create an alert via 'Set Alert' button - then following instructions from Step 6 onwards in the above tutorial.
+) and then push it to create an alert via '+ New alert rule' button - then following instructions from Step 6 onwards in the above tutorial.
 
  ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -119,35 +120,31 @@ Users can also finalized their analytics query in [Logs Analytics page in Azure 
     ![ manage alert rules](media/alerts-log/manage-alert-rules.png)
 
 ## Managing log alerts using Azure Resource Template
-Currently log alerts can be created using two different Resource Templates, based on which analytics platform the alert is to be based upon (that is) Log Analytics or Application Insights.
 
-Hence the section below provide details on using Resource Template for Log Alerts for each analytics platform.
+Log alerts in Azure Monitor are associated with resource type `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Log alerts for Application Insights or Log Analytics, can be created using [Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-### Azure Resource Template for Log Analytics
-Log alerts for Log Analytics are created by alert rules that run a saved search on a regular interval. If the results of the query match specified criteria, an alert record is created and one or more actions are run. 
-
-Resource template for Log analytics saved search and Log analytics alerts are available in Log Analytics section of documentation. To learn more, see, [Adding Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
-
-### Azure Resource Template for Application Insights
-Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+> [!NOTE]
+> Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
 
 The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
     "parameters": {      
     },   
     "variables": {
-    "alertLocation": "southcentralus",
-    "alertName": "samplelogalert",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDescription": "Sample log search alert",
+    "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
+    "alertName": "sample log alert",
+    "alertDescr": "Sample log search alert",
     "alertStatus": "true",
+    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
     "alertSource":{
-        "Query":"requests",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Query":"union workspace("servicews").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
+        "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews", 
+        "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
         "Type":"ResultCount"
          },
      "alertSchedule":{
@@ -155,17 +152,24 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
          "Time": 60
          },
      "alertActions":{
-         "SeverityLevel": "4"
+         "SeverityLevel": "4",
+         "SuppressTimeinMin": 20
          },
       "alertTrigger":{
         "Operator":"GreaterThan",
         "Threshold":"1"
          },
+      "metricMeasurement": {
+          "thresholdOperator": "Equal",
+          "threshold": "1",
+          "metricTriggerType": "Consecutive",
+          "metricColumn": "Updates"
+      },
        "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
         "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
-         }
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
   },
   "resources":[ {
     "name":"[variables('alertName')]",
@@ -174,28 +178,36 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
     "location": "[variables('alertLocation')]",
     "tags":{"[variables('alertTag')]": "Resource"},
     "properties":{
-       "description": "[variables('alertDescription')]",
+       "description": "[variables('alertDescr')]",
        "enabled": "[variables('alertStatus')]",
        "source": {
            "query": "[variables('alertSource').Query]",
+           "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
            "dataSourceId": "[variables('alertSource').SourceId]",
            "queryType":"[variables('alertSource').Type]"
        },
       "schedule":{
            "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"
        },
       "action":{
            "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
            "severity":"[variables('alertActions').SeverityLevel]",
+           "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
            "aznsAction":{
-               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
                "emailSubject":"[variables('actionGrp').Subject]",
                "customWebhookPayload":"[variables('actionGrp').Webhook]"
            },
        "trigger":{
                "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]"
+               "threshold":"[variables('alertTrigger').Threshold]",
+               "metricTrigger":{
+                   "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
+                   "threshold": "[variables('metricMeasurement').threshold]",
+                   "metricColumn": "[variables('metricMeasurement').metricColumn]",
+                   "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
+               }
            }
        }
      }
@@ -203,37 +215,29 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
  ]
 }
 ```
-> [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
 
-The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walkthrough and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
-
+The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
 ## Managing log alerts using PowerShell, CLI, or API
-Currently log alerts can be created using two different Resource Manager compliant APIs, based on which analytics platform the alert is to be based upon (that is) Log Analytics or Application Insights.
 
-Hence the section below provide details on using API via Powershell or CLI for Log Alerts for each analytics platform.
+Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
 
-### PowerShell, CLI, or API for Log Analytics
-The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Resource Manager REST API. The API can thus be accessed from a PowerShell command line and will output search results to you in JSON format, allowing you to use the results in many different ways programmatically.
+> [!NOTE]
+> Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
 
-Learn more  about [create and manage alert rules in Log Analytics with REST API](../../azure-monitor/platform/api-alerts.md); including examples of accessing the API from Powershell.
 
-### PowerShell, CLI, or API for Application Insights
-[Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
-
-Illustrated below usage via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
+Log alerts do not have dedicated PowerShell or CLI commands currently; but as illustrated below can be used via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
+
 Illustrated below usage via Azure Resource Manager command in Azure CLI for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file sampleScheduledQueryRule.json
+az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
 ```
+
 On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
-
-
   
 ## Next steps
 
