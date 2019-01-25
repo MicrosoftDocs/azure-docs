@@ -110,7 +110,8 @@
     href: image-search-endpoint.md
   - name: Language and region support
     href: language-support.md
-  - name: Use and display requirements
-    href: UseAndDisplayRequirements.md
+  - name: Bing use and display requirements
+    href: ../Bing-Web-Search/use-and-display-requirements.md
+    maintainContext: true
   - name: Analytics for Bing Image Search API
     href: bing-image-stats.md

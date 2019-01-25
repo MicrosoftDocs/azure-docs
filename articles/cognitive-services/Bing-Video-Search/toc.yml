@@ -49,7 +49,7 @@
 - name: How-to guides
   items:
   - name: Use and display requirements
-    href: UseAndDisplayRequirements.md
+    href: ../Bing-Web-Search/use-and-display-requirements.md
   - name: Get video insights
     href: video-insights.md
   - name: Get trending videos

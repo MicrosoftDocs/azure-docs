@@ -46,12 +46,13 @@
       href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search
 - name: How-to guides
   items:
-  - name: Use and display requirements
-    href: use-display-requirements.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
 - name: Reference
   items:
+  - name: Bing Search API use and display requirements
+    href: ../Bing-Web-Search/use-and-display-requirements.md
+    maintainContext: true
   - name: Bing Entity Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
   - name: SDKs

@@ -102,7 +102,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Use and display requirements
-    href: UseAndDisplayRequirements.md
+    href: Use-and-display-requirements.md
   - name: Language and region support
     href: language-support.md
   - name: Analytics for Bing Web Search API
