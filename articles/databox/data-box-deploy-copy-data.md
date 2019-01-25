@@ -7,20 +7,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Copy data to Azure Data Box via SMB
 
-This tutorial describes how to connect to and copy data from your host computer using the local web UI, and then prepare to ship Data Box.
+This tutorial describes how to connect to and copy data from your host computer using the local web UI.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Connect to Data Box
 > * Copy data to Data Box
-> * Prepare to ship Data Box.
+
 
 ## Prerequisites
 
@@ -30,7 +31,7 @@ Before you begin, make sure that:
 2. You've received your Data Box and the order status in the portal is **Delivered**.
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted. 
+    - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
 
 ## Connect to Data Box
 
@@ -83,7 +84,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)    
 
-    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *$root* folder in the storage account.
+    **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
     
      
 
@@ -99,7 +100,7 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
     - Copy the same data to same end destination on Azure. 
      
   In these cases, the final outcome can't be determined.
-- Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to *$root* folder in the storage account.
+- Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 
 After you've connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
     
@@ -199,19 +200,16 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 
-## Prepare to ship
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
 
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Connect to Data Box
 > * Copy data to Data Box
-> * Prepare to ship Data Box
+
 
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 

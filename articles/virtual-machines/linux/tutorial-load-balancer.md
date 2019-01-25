@@ -3,7 +3,7 @@ title: Tutorial - Load balance Linux virtual machines in Azure | Microsoft Docs
 description: In this tutorial, you learn how to use the Azure CLI to create a load balancer for a highly available and secure application across three Linux virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn how to load balance virtual machines in Azure so that I can deploy a redundant application with traffic automatically distributed to available VMs.
@@ -51,7 +51,7 @@ If you followed the previous tutorial to [create a virtual machine scale set](tu
 
 
 ## Create Azure load balancer
-This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *eastus* location:
+This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *eastus* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
