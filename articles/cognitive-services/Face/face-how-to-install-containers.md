@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-In order to run any of the Text Analytics containers, you must have the following:
+In order to run any of the Face API containers, you must have the following:
 
 
 [!INCLUDE [Request access to private preview](../../../cognitive-services-containers-request-access.md)]
@@ -31,13 +31,13 @@ In order to run any of the Text Analytics containers, you must have the followin
 
 ## Preparation
 
-You must meet the following prerequisites before using Text Analytics containers:
+You must meet the following prerequisites before using Face API containers:
 
 |Required|Purpose|
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Text Analytics resource |In order to use the container, you must have:<br><br>A _Face API_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Text Analytics Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|Face API resource |In order to use the container, you must have:<br><br>A _Face API_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Face API Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 ### The host computer
 
@@ -50,7 +50,7 @@ The **host** is the computer that runs the docker container. It can be a compute
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Text Analytics container.
+The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Face API container.
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
@@ -62,7 +62,7 @@ Core and memory correspond to the `--cpus` and `--memory` settings which are use
 
 ## Get the container image with `docker pull`
 
-Container images for Text Analytics are available from Microsoft Container Registry. 
+Container images for Face API are available from Microsoft Container Registry. 
 
 | Container | Repository |
 |-----------|------------|
@@ -72,7 +72,7 @@ Container images for Text Analytics are available from Microsoft Container Regis
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry..
 
-For a full description of available tags for the Text Analytics containers, see the following containers on the Docker Hub:
+For a full description of available tags for the Face API containers, see the following containers on the Docker Hub:
 
 * [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757)
 * [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759)
@@ -119,8 +119,8 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Text Analytics Keys page.  |
-|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Text Analytics Overview page.|
+|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Face API Keys page.  |
+|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Face API Overview page.|
 
 Replace these parameters with your own values in the following example `docker run` command.
 
@@ -171,7 +171,7 @@ The container provides a full set of documentation for the endpoints as well as 
 
 ## Billing
 
-The Text Analytics containers send billing information to Azure, using a _Text Analytics_ resource on your Azure account. 
+The Face API containers send billing information to Azure, using a _Face API_ resource on your Azure account. 
 
 Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
 
@@ -179,8 +179,8 @@ The `docker run` command uses the following arguments for billing purposes:
 
 | Option | Description |
 |--------|-------------|
-| `ApiKey` | The API key of the _Text Analytics_ resource used to track billing information. |
-| `Billing` | The endpoint of the _Text Analytics_ resource used to track billing information.|
+| `ApiKey` | The API key of the _Face API_ resource used to track billing information. |
+| `Billing` | The endpoint of the _Face API_ resource used to track billing information.|
 | `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
 
 > [!IMPORTANT]
@@ -190,12 +190,12 @@ For more information about these options, see [Configure containers](./face-reso
 
 ## Summary
 
-In this article, you learned concepts and workflow for downloading, installing, and running Text Analytics containers. In summary:
+In this article, you learned concepts and workflow for downloading, installing, and running Face API containers. In summary:
 
-* Text Analytics provides three Linux containers for Docker, encapsulating key phrase extraction, language detection, and sentiment analysis.
+* Face API provides three Linux containers for Docker, encapsulating key phrase extraction, language detection, and sentiment analysis.
 * Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
 * Container images run in Docker.
-* You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
+* You can use either the REST API or SDK to call operations in Face API containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
