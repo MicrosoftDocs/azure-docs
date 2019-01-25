@@ -45,7 +45,7 @@ You may choose to migrate an existing app written to use the version 1.x runtime
 
 ### Changes in triggers and bindings
 
-Version 2.x requires you to install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-triggers-bindings.md#register-binding-extensions).
+Version 2.x requires you to install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](./functions-bindings-expressions-patterns.md).
 
 There have also been a few changes in the `function.json` or attributes of the function between versions. For example, the Event Hub `path` property is now `eventHubName`. See the [existing binding table](#bindings) for links to documentation for each binding.
 
@@ -117,7 +117,7 @@ The version 2.x runtime uses a new [binding extensibility model](https://github.
 
 * A lighter execution environment, where only the bindings in use are known and loaded by the runtime.
 
-With the exception of HTTP and timer triggers, all bindings must be explicitly added to the function app project, or registered in the portal. For more information, see [Register binding extensions](functions-triggers-bindings.md#register-binding-extensions).
+With the exception of HTTP and timer triggers, all bindings must be explicitly added to the function app project, or registered in the portal. For more information, see [Register binding extensions](./functions-bindings-expressions-patterns.md).
 
 The following table shows which bindings are supported in each runtime version.
 

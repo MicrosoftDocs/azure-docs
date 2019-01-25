@@ -31,6 +31,6 @@ The following table shows the bindings that are supported in the two major versi
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 | [Webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔||✔| |✔|
   
-<sup>1</sup> In 2.x, all bindings except HTTP and Timer must be registered. See [Register binding extensions](../articles/azure-functions/functions-triggers-bindings.md#register-binding-extensions).
+<sup>1</sup> In 2.x, all bindings except HTTP and Timer must be registered. See [Register binding extensions](../articles/azure-functions/functions-bindings-register.md).
 
 <sup>2</sup> Experimental &mdash; not supported and might be abandoned in the future.
