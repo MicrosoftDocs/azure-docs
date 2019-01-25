@@ -39,11 +39,11 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
     ![Create a Batch account][account_portal]
 
-    a. **Subscription**: The subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
+    a. **Account name**: The name you choose must be unique within the Azure region where the account is created (see **Location** below). The account name can contain only lowercase characters or numbers, and must be 3-24 characters in length.
 
-    b. **Resource group**: Select an existing resource group for your new Batch account, or optionally create a new one.
+    b. **Subscription**: The subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
 
-    c. **Account name**: The name you choose must be unique within the Azure region where the account is created (see **Location** below). The account name can contain only lowercase characters or numbers, and must be 3-24 characters in length.
+    c. **Resource group**: Select an existing resource group for your new Batch account, or optionally create a new one.
 
     d. **Location**: The Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
 
