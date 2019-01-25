@@ -165,12 +165,12 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 
 	 > [!NOTE]
 	 > After uploading the metadata file, the remaining fields **Single Sign-on Service, Identity Provider Issuer, Upload Public Key** will populate automatically.
-	
-	c. In the **Email** textbox, enter the value as `mail`.
 
-	d. In the **Screen Name** textbox, enter the value as `givenName`.
-
-	e. Click **Save Changes**.  
+	 * In the **Email** textbox, enter the value as `mail`.
+	 
+	 * In the **Screen Name** textbox, enter the value as `givenName`.
+	 
+	 * Click **Save Changes**.  
 
 ### Create an Azure AD test user 
 
