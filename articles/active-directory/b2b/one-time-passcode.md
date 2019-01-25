@@ -112,7 +112,7 @@ Next, check to see if a B2BManagementPolicy currently exists by running the foll
 
 ````powershell 
 $currentpolicy =  Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
-$currentpolicy -eq $null
+$currentpolicy -ne $null
 ````
 - If the output is False, the policy doesn't currently exist. Create a new B2BManagementPolicy and opt in to the preview by running the following:
 
