@@ -15,7 +15,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Sign up for an Office 365 subscription with your Azure account
