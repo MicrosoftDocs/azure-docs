@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -21,7 +21,7 @@ ms.custom: it-pro
 
 # Administrator roles for Microsoft 365 workloads
 
-This article provides a list of Microsoft 365 workloads accompanied by links to role content and feature area API content. General discussions of delegation issues can be found in [Role delegation planning in Azure Active Directory](roles-concept-delegation.md).
+All products in Microsoft 365 can be managed with administrative roles in Azure AD. Some products also provide additional roles that are specific to that product. For information on the roles supported by each product, see the table below. General discussions of delegation issues can be found in [Role delegation planning in Azure Active Directory](roles-concept-delegation.md).
 
 ## Where to find content
 
