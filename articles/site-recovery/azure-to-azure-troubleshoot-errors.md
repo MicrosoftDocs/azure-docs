@@ -15,8 +15,10 @@ ms.author: sujayt
 This article describes the common issues in Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region and explains how to troubleshoot them. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
 
 ## List of Errors
-**[Azure resource quota issues (error code 150097)](#azure-resource-quota-issues-error-code-150097)** 
-## <a name="azure-resource-quota-issues-error-code-150097">Azure resource quota issues (error code 150097)
+- **[Azure resource quota issues (error code 150097)](#azure-resource-quota-issues-error-code-150097)** 
+- **[Trusted root certificates (error code 151066)](#trusted-root-certificates-error-code-151066)** 
+- **[Azure resource quota issues (error code 150097)](#azure-resource-quota-issues-error-code-150097)** 
+## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure resource quota issues (error code 150097)
 Your subscription should be enabled to create Azure VMs in the target region that you plan to use as your disaster recovery region. Also, your subscription should have sufficient quota enabled to create VMs of specific size. By default, Site Recovery picks the same size for the target VM as the source VM. If the matching size isn't available, the closest possible size is picked automatically. If there's no matching size that supports source VM configuration, this error message appears:
 
 **Error code** | **Possible causes** | **Recommendation**
@@ -28,7 +30,7 @@ You can contact [Azure billing support](https://docs.microsoft.com/azure/azure-s
 
 If the target location has a capacity constraint, disable replication and enable it to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 
-## Trusted root certificates (error code 151066)
+## <a name="trusted-root-certificates-error-code-151066"></a>Trusted root certificates (error code 151066)
 
 If all the latest trusted root certificates aren't present on the VM, your "enable replication" job might fail. Without the certificates, the authentication and authorization of Site Recovery service calls from the VM fail. The error message for the failed "enable replication" Site Recovery job appears:
 
