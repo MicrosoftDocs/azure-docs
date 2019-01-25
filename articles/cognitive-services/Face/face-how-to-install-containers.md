@@ -39,9 +39,9 @@ You must meet the following prerequisites before using Text Analytics containers
 
 The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
 
-* [Azure Kubernetes Service](../../../aks/index.yml)
-* [Azure Container Instances](../../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../../azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](../../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+* [Azure Kubernetes Service](../../aks/index.yml)
+* [Azure Container Instances](../../container-instances/index.yml)
+* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 
 ### Container requirements and recommendations
@@ -106,7 +106,7 @@ docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](./face-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 
 ## Run the container with `docker run`
@@ -135,7 +135,7 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
 
-More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
+More [examples](./face-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
@@ -148,11 +148,11 @@ Use the host, https://localhost:5000, for container APIs.
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
-If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](./face-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
 ## Container's API documentation
 
@@ -182,7 +182,7 @@ The `docker run` command uses the following arguments for billing purposes:
 > [!IMPORTANT]
 > All three options must be specified with valid values, or the container won't start.
 
-For more information about these options, see [Configure containers](../text-analytics-resource-container-config.md).
+For more information about these options, see [Configure containers](./face-resource-container-config.md).
 
 ## Summary
 

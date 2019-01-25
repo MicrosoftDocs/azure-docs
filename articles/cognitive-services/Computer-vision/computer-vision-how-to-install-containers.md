@@ -168,7 +168,7 @@ You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronous
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
