@@ -363,7 +363,7 @@ Network drives or remote shares like Azure file services are **NOT** supported f
 - <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
 
-If you're using disks based on Azure page blob storage or Managed Disks, note that the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Oracle Database as well.
+If you're using disks based on Azure page blob storage or Managed Disks, note that the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Oracle database as well.
 
 As explained in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md), quotas on IOPS throughput for Azure disks exist. The exact quotas depend on the VM type that you use. A list of VM types with their quotas can be found at [Sizes for Windows virtual machines in Azure][virtual-machines-sizes-windows].
 
@@ -402,7 +402,7 @@ If more IOPS are required, we recommend using Window Storage Pools (only availab
 
 
 #### Write Accelerator
-For Azure M-Series VMs, the latency writing into the online redo logs can be reduced by factors when using Azure Write Accelerator. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+For Azure M-Series VMs, the latency writing into the online redo logs can be reduced by factors when compared to Azure Premium Storage. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
 ### Backup / Restore
@@ -493,13 +493,13 @@ If more IOPS are required, we recommend using LVM (Logical Volume Manager) or MD
 
 
 #### Write Accelerator
-For Azure M-Series VMs, when you use Azure Write Accelerator, the latency writing into the online redo logs can be reduced by factors compared to Azure Premium Storage performance. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
+For Azure M-Series VMs, when you use Azure Write Accelerator, the latency writing into the online redo logs can be reduced by factors when compared to Azure Premium Storage performance. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
 ### Backup / Restore
 For backup/restore functionality, the SAP BR*Tools for Oracle are supported in the same way as they are on bare metal and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
 
-For more information about how you can use Azure Backup and Recovery services for backing up and recovering Oracle databases, see [Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery)
+For more information about how you can use Azure Backup and Recovery services for backing up and recovering Oracle databases, see [Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery).
 
 ### High availability
 Oracle Data Guard is supported for high availability and disaster recovery purposes. To achieve automatic failover in Data Guard, you need to use Fast-Start Failover (FSFA). The Observer functionality (FSFA) triggers the failover. If you don't use FSFA, you can only use a manual failover configuration. For more information, see [Implement Oracle Data Guard on an Azure Linux virtual machine](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
