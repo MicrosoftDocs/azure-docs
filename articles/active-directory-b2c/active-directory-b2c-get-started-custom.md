@@ -133,6 +133,6 @@ Add the application ID to the extensions file *TrustFrameworkExtensions.xml*.
 3. Upload the *TrustFrameworkExtensions.xml* file to your tenant.
 4. Test by using **Run now** or by invoking the policy directly from your registered application.
 
-## Next Steps
+## Next steps
 
 - Add Azure Active Directory as an identity provider. The base file used in this getting started guide already contains some of the content that you need for adding other identity providers. For information about setting up sign-ins, see the [Set up sign-up and sign-in with an Azure Active Directory account using Active Directory B2C custom policies](active-directory-b2c-setup-aad-custom.md) article.
