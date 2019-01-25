@@ -87,10 +87,17 @@ union Update, workspace("contoso-workspace").Update
 | summarize dcount(Computer) by Classification 
 ```
 
+<<<<<<< HEAD
 ## How Azure Monitor log data is organized
 When you build a query, you start by determining which tables have the data that you're looking for. Different kinds of data are separated into dedicated tables in each [Log Analytics workspace](../learn/quick-create-workspace.md).  Documentation for different data sources includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single table, but others may use a variety of options to include data from multiple tables.
 
 While [Application Insights](../app/app-insights-overview.md) stores application data such as requests, exceptions, traces, and usage in Azure Monitor logs, this data is stored in a different partition than the other log data. You use the same query language to access this data but must use the [Application Insights console](../app/analytics.md) or [Application Insights REST API](https://dev.applicationinsights.io/) to access it. You can use [cross-resources queries](../log-query/cross-workspace-query.md) to combine Application Insights data with other log data in Azure Monitor.
+=======
+## How Log Analytics data is organized
+When you build a query, you start by determining which tables have the data that you're looking for. Different kinds of data are separated into dedicated tables in each [Log Analytics workspace](../learn/quick-create-workspace.md).  Documentation for different data sources includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single table, but others may use a variety of options to include data from multiple tables.
+
+While [Application Insights](../app/app-insights-overview.md) stores application data such as requests, exceptions, traces, and usage in Log Analytics, this data is stored in a different partition than the other log data. You use the same query language to access this data but must use the [Application Insights console](../app/analytics.md) or [Application Insights REST API](https://dev.applicationinsights.io/) to access it. You can use [cross-resources queries](../log-query/cross-workspace-query.md) to combine Application Insights data with other data in Log Analytics.
+>>>>>>> 22820f0bcd27db9f692a4a16799aebdbcbef717b
 
 
 ![Tables](media/log-query-overview/queries-tables.png)
@@ -100,5 +107,9 @@ While [Application Insights](../app/app-insights-overview.md) stores application
 
 ## Next steps
 
+<<<<<<< HEAD
 - Learn about using [log analytics to create and edit log searches](../log-query/portals.md).
+=======
+- Learn about the [portals that you use to create and edit log searches](../log-query/portals.md).
+>>>>>>> 22820f0bcd27db9f692a4a16799aebdbcbef717b
 - Check out a [tutorial on writing queries](../log-query/get-started-queries.md) using the new query language.

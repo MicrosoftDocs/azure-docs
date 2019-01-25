@@ -4,7 +4,7 @@ title: User help for authentication, apps, and device management - Azure Active 
 description: User help is for people that need help setting up and using security info, two-step verification, self-service password resets, device management, the Microsoft Authenticator app, and the My Apps portal.  
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 layout: LandingPage
 
 ms.service: active-directory
@@ -83,7 +83,10 @@ We've created this content to help you set up and use security info, two-step ve
                     <div class="cardText">
                         <h3>Microsoft Authenticator app help</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Get started</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">Overview</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Download and install the app</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">Add your accounts</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">Sign in using the app</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Backup and recover account credentials</a>
                         </p>
                     </div>

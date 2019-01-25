@@ -25,7 +25,7 @@ These logs differ from the [Activity Log](activity-logs-overview.md). The Activi
 
 These logs also differ from guest OS-level diagnostic logs. Guest OS diagnostic logs are those collected by an agent running inside of a virtual machine or other supported resource type. Resource-level diagnostic logs require no agent and capture resource-specific data from the Azure platform itself, while guest OS-level diagnostic logs capture data from the operating system and applications running on a virtual machine.
 
-Not all services support the diagnostic logs described here. [This article contains a section listing which services support diagnostic logs](./../../azure-monitor/platform/tutorial-dashboards.md).
+Not all services support the diagnostic logs described here. [This article contains a section listing which services support diagnostic logs](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## What you can do with diagnostic logs
 Here are some of the things you can do with diagnostic logs:
@@ -225,7 +225,7 @@ Adding a diagnostic setting brings up the Diagnostic Settings view, where you ca
 
 ## Supported services, categories, and schemas for diagnostic logs
 
-[See this article](../../azure-monitor/platform/tutorial-dashboards.md) for a complete list of supported services and the log categories and schemas used by those services.
+[See this article](../../azure-monitor/platform/diagnostic-logs-schema.md) for a complete list of supported services and the log categories and schemas used by those services.
 
 ## Next steps
 

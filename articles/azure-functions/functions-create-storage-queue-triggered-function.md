@@ -108,8 +108,9 @@ Now that you have a storage queue, you can test the function by adding a message
 
 ## Next steps
 
-You have created a function that runs when a message is added to a storage queue.
+You have created a function that runs when a message is added to a storage queue. For more information about Queue storage triggers, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+Now that you have a created your first function, let's add an output binding to the function that writes a message back to another queue.
 
-For more information about Queue storage triggers, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md).
+> [!div class="nextstepaction"]
+> [Add messages to an Azure Storage queue using Functions](functions-integrate-storage-queue-output-binding.md)
