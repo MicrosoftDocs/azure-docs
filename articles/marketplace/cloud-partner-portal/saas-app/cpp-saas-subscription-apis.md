@@ -12,22 +12,17 @@ ms.service: marketplace
 ms.workload: 
 ms.tgt_pltfrm: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ---
 
 
-SaaS Sell through Azure - APIs
-==============================
+# SaaS Sell through Azure - APIs
 
 This article explains how to create a SaaS offer with APIs. The APIs are
 necessary for allowing subscriptions to your SaaS offer if you have Sell
-through Azure selected. If you want to build a regular SaaS listing that
-does not have commerce enabled, see 
-[SaaS Application Technical Publishing Guide](./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
-
-This article is divided into two sections:
+through Azure selected.  This article is divided into two sections:
 
 -   Service-to-service Authentication between a SaaS Service and Azure Marketplace
 -   API Methods and Endpoints
@@ -42,10 +37,10 @@ The following APIs are provided to help you integrate your SaaS service with Azu
 The following diagram shows the subscription flow of a new customer and
 when these APIs are used:
 
-![SaaS offer API flow](media/saas-offer-publish-with-subscription-apis/saas-offer-publish-api-flow.png)
+![SaaS offer API flow](./media/saas-offer-publish-api-flow.png)
 
-Service to service authentication between SaaS service and Azure marketplace
-----------------------------------------------------------------------------
+
+## Service to service authentication between SaaS service and Azure marketplace
 
 Azure does not impose any constraints on the authentication that the
 SaaS service exposes to its end users. However, when it comes to the
@@ -54,6 +49,7 @@ authentication is done in the context of an Azure Active Directory
 (Azure AD) application.
 
 The following section describes how to create an Azure AD application.
+
 
 ### Register an Azure AD Application
 
@@ -72,7 +68,7 @@ To register a new application using the Azure portal, perform the following step
 3.  In the left-hand navigation pane, click the **Azure Active
     Directory** service, click **App registrations**, and click **New application registration**.
 
-    ![SaaS AD App Registrations](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration.png)
+    ![SaaS AD App Registrations](./media/saas-offer-app-registration.png)
 
 4.  On the Create page, enter your application\'s registration
     information:
@@ -94,7 +90,7 @@ To register a new application using the Azure portal, perform the following step
         by Azure AD to return token responses. Enter a value specific to
         your application, for example **http://MyFirstAADApp**.
 
-        ![SaaS AD App Registrations](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png)
+        ![SaaS AD App Registrations](./media/saas-offer-app-registration-2.png)
         For specific examples for web applications or native
         applications, check out the quick start guided setups that are
         available in the Get Started section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
@@ -321,8 +317,7 @@ For a 202 response, follow up on the request operation’s status at the ‘Oper
 
 ### Change plan endpoint
 
-The change endpoint allows the user to convert their currently
-subscribed plan to a new plan.
+The change endpoint allows the user to convert their currently subscribed plan to a new plan.
 
 **PATCH**
 
