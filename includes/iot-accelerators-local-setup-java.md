@@ -5,7 +5,7 @@
  author: v-krghan
  ms.service: iot-accelerators
  ms.topic: include
- ms.date: 01/17/2019
+ ms.date: 01/25/2019
  ms.author: v-krghan
  ms.custom: include file
 ---
