@@ -27,17 +27,20 @@ Before you can install the ASDK on the host computer, the ASDK host computer env
 2. Ensure that the CloudBuilder.vhdx file has been moved to the root of the C:\ drive (C:\CloudBuilder.vhdx).
 3. Run the following script to download the development kit installer file (asdk-installer.ps1) from the [Azure Stack GitHub tools repository](https://github.com/Azure/AzureStack-Tools) to the **C:\AzureStack_Installer** folder on your development kit host computer:
 
-  ```powershell
-  # Variables
-  $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
-  $LocalPath = 'C:\AzureStack_Installer'
-  # Create folder
-  New-Item $LocalPath -Type directory
-  # Enforce usage of TLSv1.2 to download from GitHub
-  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  # Download file
-  Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
-  ```
+   > [!IMPORTANT]
+   > Be sure to download the asdk-installer.ps1 file each time you install the ASDK. Frequent changes are made to this script and the most current version should be used for each ASDK deployment. Older versions of the script might not work with the most current release.
+
+   ```powershell
+   # Variables
+   $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/Deployment/asdk-installer.ps1'
+   $LocalPath = 'C:\AzureStack_Installer'
+   # Create folder
+   New-Item $LocalPath -Type directory
+   # Enforce usage of TLSv1.2 to download from GitHub
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+   # Download file
+   Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
+   ```
 
 4. From an elevated PowerShell console, start the **C:\AzureStack_Installer\asdk-installer.ps1** script, and then click **Prepare Environment**.
 
