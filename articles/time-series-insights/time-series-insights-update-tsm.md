@@ -131,7 +131,7 @@ Consider the following example where hierarchy H1 has *building*, *floor*, and *
  H1 = [“building”, “floor”, “room”]
 ```
 
-Depending on the *instance fields*, the hierarchy attributes and values appear as shown in the following table: 
+Depending on the *instance fields*, the hierarchy attributes and values appear as shown in the following table:
 
 | Time Series ID | Instance fields |
 | --- | --- |
@@ -139,9 +139,9 @@ Depending on the *instance fields*, the hierarchy attributes and values appear a
 | ID2 | “building” = “1000”, “room” = “55” |
 | ID3 | “floor” = “10” |
 | ID4 | “building” = “1000”, “floor” = “10”  |
-| ID5 | |
+| ID5 | None of “building”, “floor” or “room” is set |
 
-In the preceding example, ID1 shows as part of hierarchy H1 in the UI/UX, and the rest are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
+In the preceding example, ID1 and ID4 shows as part of hierarchy H1 in the Azure Time Series Insights explorer, and the rest are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
 
 ## Time Series Model instances
 

@@ -7,7 +7,7 @@
   - name: About App Service on Linux
     href: app-service-linux-intro.md
   - name: Compare hosting options
-    href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: ../overview-compare.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -68,7 +68,7 @@
   - name: How App Service works
     href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service plans
-    href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service Environment
     href: ../environment/intro.md
   - name: Java developer guide
@@ -76,13 +76,13 @@
   - name: Java Enterprise  guide
     href: app-service-java-enterprise.md
   - name: Inbound and outbound IPs
-    href: ../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: ../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authentication and authorization
-    href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: ../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Choose deployment type
     href: choose-deployment-type.md
   - name: Diagnostics
-    href: ../app-service-diagnostics.md
+    href: ../overview-diagnostics.md
 - name: How-To guides
   items:
   - name: Configure app
@@ -112,15 +112,15 @@
     - name: Set deployment credentials
       href: ../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Create staging environments
-      href: ../web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Map custom domain
     items:
     - name: Buy domain
-      href: ../custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-custom-dns-buy-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Map domains with Traffic Manager
       href: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Migrate an active domain
-      href: ../app-service-custom-domain-name-migrate.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Secure app
     items:
     - name: Buy SSL cert
@@ -148,7 +148,7 @@
     - name: Scale out to multiple instances
       href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: High density hosting
-      href: ../app-service-high-density-hosting.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-scale-per-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Monitor app
     items:
     - name: Connect to app via SSH
@@ -156,13 +156,13 @@
     - name: Quotas & alerts
       href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Enable logs
-      href: ../web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Java APM integrations
       href: how-to-java-apm-monitoring.md
   - name: Manage app
     items:
     - name: Back up an app
-      href: ../web-sites-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Restore a backup
       href: ../web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Clone an app
@@ -204,7 +204,7 @@
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio
-      href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Troubleshoot Node.js app
       href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Troubleshoot HTTP 502 & 503

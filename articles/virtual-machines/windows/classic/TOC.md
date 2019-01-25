@@ -1,5 +1,6 @@
 # Overview
-## [About virtual machines](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [VM extensions](agents-and-extensions-classic.md)
+## [Availability](configure-availability-classic.md)
 ## [FAQ](faq-classic.md)
 
 # Get started
@@ -29,20 +30,17 @@
 ### [Maintenance](planned-maintenance-schedule-classic.md)
 
 ## Manage
-### [Migrate from Classic to Resource Manager](../../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
+### [Migrate from Classic to Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-deep-dive)
 ### [Manage your VMs using Azure PowerShell](manage-psh-classic.md)
 ### [About the VM agent and extensions](agents-and-extensions-classic.md)
 ### [Manage VM extensions](manage-extensions-classic.md)
 
 ## Manage workloads
-### [High-performance Computing (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
+### High-performance Computing (HPC)
 #### [Automatically scale resources](hpcpack-cluster-node-autogrowshrink.md)
 #### [Manage compute nodes](hpcpack-cluster-node-manage.md)
 #### [Create a cluster](hpcpack-cluster-powershell-script.md)
 #### [Set up a cluster to run MPI applications](hpcpack-rdma-cluster.md)
-#### [Run Excel and SOA workloads](../../virtual-machines-windows-excel-cluster-hpcpack.md)
-#### [Create the head node with a Marketplace image](../../virtual-machines-windows-hpcpack-cluster-headnode.md)
-#### [Submit jobs from on-premises to Azure](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
 ### [MySQL](mysql-2008r2.md)
 ### [Tomcat](java-run-tomcat-app-server.md)
 
@@ -57,7 +55,6 @@
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
-## [Author Resource Manager templates](../../../resource-group-authoring-templates.md)
 ## [Community templates](https://azure.microsoft.com/documentation/templates)
 ## [Compute REST](https://msdn.microsoft.com/library/jj157206.aspx)
 ## [Network REST](https://msdn.microsoft.com/library/jj157182.aspx)

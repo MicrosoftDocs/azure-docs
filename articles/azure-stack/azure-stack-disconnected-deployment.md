@@ -45,7 +45,7 @@ Azure Stack was designed to work best when connected to Azure, so it’s importa
 |Marketplace – The ability to select and add Gallery packages directly from the Azure Marketplace|Impaired – When you deploy Azure Stack in a disconnected mode (without any Internet connectivity), you can’t download marketplace items by using the Azure Stack portal. However, you can use the [marketplace syndication tool](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) to download the marketplace items to a machine that has internet connectivity and then transfer them to your Azure Stack environment.|
 |Using Azure Active Directory federation accounts to manage an Azure Stack deployment|Unavailable – This feature requires connectivity to Azure. AD FS with a local Active Directory instance must be used instead.|
 |App Services|Impaired - WebApps may require Internet access for updated content.|
-|Command Line Interface (CLI)|Impaired – CLI has reduced functionality in terms of authentication and provisioning of Service Principles.|
+|Command Line Interface (CLI)|Impaired – CLI has reduced functionality in terms of authentication and provisioning of Service principals.|
 |Visual Studio – Cloud discovery|Impaired – Cloud Discovery will either discover different clouds or will not work at all.|
 |Visual Studio – AD FS|Impaired – Only Visual Studio Enterprise supports AD FS.
 Telemetry|Unavailable – Telemetry data for Azure Stack as well as any third-party gallery packages that depend on telemetry data.|

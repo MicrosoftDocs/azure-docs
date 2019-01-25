@@ -330,6 +330,9 @@ The Service Bus trigger provides several [metadata properties](functions-trigger
 |`CorrelationId`|`string`|The correlation ID.|
 |`UserProperties`|`IDictionary<String,Object>`|The application specific message properties.|
 
+> [!NOTE]
+> Currently, trigger only works with queues and subscriptions that don't use sessions. Please track [this feature item](https://github.com/Azure/azure-functions-host/issues/563) for any further updates regarding this feature. 
+
 See [code examples](#trigger---example) that use these properties earlier in this article.
 
 ## Trigger - host.json properties

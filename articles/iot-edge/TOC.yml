@@ -45,11 +45,15 @@
     items: 
     - name: Understand Azure IoT Edge modules
       href: iot-edge-modules.md
-    - name: Development
-      href: module-development.md
     - name: Edge agent and hub properties
       href: module-edgeagent-edgehub.md
-  - name: Module deployment 
+  - name: Development
+    items:
+    - name: Develop modules
+      href: module-development.md
+    - name: Development environment
+      href: development-environment.md
+  - name: Deployment 
     items:
     - name: Deployment manifest
       href: module-composition.md
@@ -133,10 +137,12 @@
       href: how-to-store-data-blob.md
   - name: Manage with DevOps tools
     items:
-    - name: Azure DevOps Projects for IoT Edge
+    - name: Azure DevOps Projects
       href: how-to-devops-project.md
-    - name: CI/CD in Azure DevOps
+    - name: Azure DevOps
       href: how-to-ci-cd.md
+    - name: IoT Edge plugin for Jenkins
+      href: how-to-devops-plugins.md
   - name: Troubleshoot
     href: troubleshoot.md
 - name: Related

@@ -72,7 +72,7 @@ To learn more about how HDInsight stores data or how to get data into HDInsight,
 
 To learn more about creating or managing an HDInsight cluster, see the following articles:
 
-* To learn about managing your Linux-based HDInsight cluster, see [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md).
+* To learn about managing your Linux-based HDInsight cluster, see [Manage HDInsight clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 * To learn more about the options you can select when creating an HDInsight cluster, see [Creating HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 * If you are familiar with Linux, and Apache Hadoop, but want to know specifics about Hadoop on the HDInsight, see [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md). This article provides information such as:
 

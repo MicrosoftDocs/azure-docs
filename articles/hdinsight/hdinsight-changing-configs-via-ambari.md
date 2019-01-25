@@ -11,7 +11,7 @@ ms.author: ashish
 ---
 # Use Apache Ambari to optimize HDInsight cluster configurations
 
-HDInsight provides [Apache Hadoop](https://hadoop.apache.org/) clusters for large-scale data processing applications. Managing,  monitoring, and optimizing these complex multi-node clusters can be challenging. [Apache Ambari](http://ambari.apache.org/) is a web interface to  manage and monitor HDInsight Linux clusters.  For Windows clusters, use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight provides [Apache Hadoop](https://hadoop.apache.org/) clusters for large-scale data processing applications. Managing,  monitoring, and optimizing these complex multi-node clusters can be challenging. [Apache Ambari](https://ambari.apache.org/) is a web interface to  manage and monitor HDInsight Linux clusters.  For Windows clusters, use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 For an introduction to using the Ambari Web UI, see [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
 
@@ -183,7 +183,7 @@ As a general rule, having the compression method splittable is important, otherw
 
     ![Hive exec compress intermediate](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > To compress intermediate files, choose a compression codec with lower CPU cost, even if the codec doesn't have a high compression output.
 
 1. To set the intermediate compression codec, add the custom property `mapred.map.output.compression.codec` to the `hive-site.xml` or `mapred-site.xml` file.
@@ -204,7 +204,7 @@ As a general rule, having the compression method splittable is important, otherw
 
     This will compress the intermediate file using Snappy compression. Once the property is added, it appears in the Custom hive-site pane.
 
-    > [!NOTE]
+    > [!NOTE]  
     > This procedure modifies the `$HADOOP_HOME/conf/hive-site.xml` file.
 
 ### Compress final output
@@ -293,7 +293,7 @@ Additional recommendations for optimizing the Hive execution engine:
 
     ![Advanced pig-properties](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > Any session-level settings override property values in the `pig.properties` file.
 
 ### Tune execution engine
@@ -402,7 +402,7 @@ The `hbase.client.scanner.caching` setting defines the number of rows read from 
 
 ![HBase number of rows fetched](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Do not set the value such that the time between invocation of the next method on a scanner is greater than the scanner timeout. The scanner timeout duration is defined by the `hbase.regionserver.lease.period` property.
 
 

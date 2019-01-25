@@ -56,13 +56,13 @@ Make sure that the Hortonworks Sandbox is running. Then follow the steps in the 
 
     ![Screenshot of dialog box, with Update button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > The update process uses Ambari to modify the Hortonworks Sandbox configuration to what is expected by the Data Lake tools for Visual Studio.
 
 6. After validation has finished, select **Finish** to complete configuration.
     ![Screenshot of dialog box, with Finish button highlighted](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-     >[!NOTE]
+     >[!NOTE]  
      > Depending on the speed of your development environment, and the amount of memory allocated to the virtual machine, it can take several minutes to configure and validate the services.
 
 After following these steps, you now have an **HDInsight local cluster** entry in Server Explorer, under the **HDInsight** section.
@@ -95,7 +95,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
     After the **Job State** changes to **Finished**, a Directed Acyclic Graph (DAG) is displayed. This diagram describes the execution path that was determined by Tez when processing the Hive query. Tez is the default execution engine for Hive on the local cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Apache Tez is also the default when you are using Linux-based HDInsight clusters. It is not the default on Windows-based HDInsight. To use it there, you must add the line `set hive.execution.engine = tez;` to the beginning of your Hive query.
 
     Use the **Job Output** link to view the output. In this case, it is 823, the number of rows in the sample_08 table. You can view diagnostics information about the job by using the **Job Log** and **Download YARN Log** links.
@@ -106,7 +106,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
 
     An interactive query streams the output log generated during processing to the **HiveServer2 Output** window.
 
-    > [!NOTE]
+    > [!NOTE]  
     > The information is the same that is available from the **Job Log** link after a job has finished.
 
     ![Screenshot of output log](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)

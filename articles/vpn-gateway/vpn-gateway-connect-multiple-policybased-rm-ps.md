@@ -79,7 +79,7 @@ Make sure you have completed [Part 3 of the Configure IPsec/IKE policy article](
 
 #### 1. Connect to your subscription and declare your variables
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 Declare your variables. For this exercise, we use the following variables:
 

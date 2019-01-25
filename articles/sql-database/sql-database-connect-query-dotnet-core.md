@@ -15,7 +15,7 @@ ms.date: 12/10/2018
 ---
 # Quickstart: Use .NET Core (C#) to query an Azure SQL database
 
-This quickstart demonstrates how to use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to an Azure SQL database and run a Transact-SQL statement to query data.
+In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C# code to connect to an Azure SQL database. You'll then run a Transact-SQL statement to query data.
 
 ## Prerequisites
 
@@ -48,14 +48,14 @@ For this tutorial, you need:
   
 ## Create a new .NET Core project
 
-1. Open a command prompt and create a folder named **sqltest**. Navigate to this folder and run the following command.
+1. Open a command prompt and create a folder named **sqltest**. Navigate to this folder and run this command.
 
     ```cmd
     dotnet new console
     ```
-    This creates new app project files, including an initial C# code file (**Program.cs**), an XML configuration file (**sqltest.csproj**), and needed binaries.
+    This command creates new app project files, including an initial C# code file (**Program.cs**), an XML configuration file (**sqltest.csproj**), and needed binaries.
 
-2. In a text editor, open **sqltest.csproj** and paste the following XML between the `<Project>` tags. This adds `System.Data.SqlClient` as a dependency.
+2. In a text editor, open **sqltest.csproj** and paste the following XML between the `<Project>` tags. This XML adds `System.Data.SqlClient` as a dependency.
 
     ```xml
     <ItemGroup>
@@ -170,7 +170,7 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. Press **Enter** to close the application window.
+3. Choose **Enter** to close the application window.
 
 ## Next steps
 

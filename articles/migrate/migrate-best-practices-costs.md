@@ -115,7 +115,7 @@ Azure provides different types of storage accounts and performance tiers.
 
 **Account type** | **Details** | **Usage**
 --- | --- | ---
-**General Purpose v2 Standard** | Supports blobs (block, page, append), files, disks, queues, and tables.<br/><br/> Supports Hot, Cool, and Archive access tiers. ZRS is supported. | Use for most scenarios and most types of data. Standard storage accounts can be HHD or SSD based.
+**General Purpose v2 Standard** | Supports blobs (block, page, append), files, disks, queues, and tables.<br/><br/> Supports Hot, Cool, and Archive access tiers. ZRS is supported. | Use for most scenarios and most types of data. Standard storage accounts can be HDD or SSD based.
 **General Purpose v2 Premium** | Supports Blob storage data (page blobs). Supports Hot, Cool, and Archive access tiers. ZRS is supported.<br/><br/> Stored on SSD. | Microsoft recommends using for all VMs.
 **General Purpose v1** | Access tiering isn't supported. Doesn't support ZRS | Use if apps need the Azure classic deployment model.
 **Blob** | Specialized storage account for storing unstructured objects. Provides block blobs and append blobs only (no File, Queue, Table or Disk storage services). Provides the same durability, availability, scalability and performance as General Purpose v2. | you can't store page blobs in these accounts, and therefore can't store VHD files. You can set an access tier to Hot or Cool.

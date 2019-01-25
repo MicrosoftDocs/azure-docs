@@ -170,7 +170,7 @@ Sample response token:
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "b3cca048-ed2e-406c-aff2-40cf19fe7bf5",
+      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
@@ -206,7 +206,7 @@ POST action on resolve endpoint allows users to resolve a token to a persistent 
 | x-ms-correlationid | No           | A unique string value for operation on the client. This correlates all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers. |
 | Content-type       | Yes          | `application/json`                                        |
 | authorization      | Yes          | The JSON web token (JWT) bearer token.                    |
-| x-ms-marketplace-token| Yes| The token query parameter in the URL when the user is redirected to SaaS ISV’s website from Azure. **Note:** URL decode the token value from the browser before using it.|
+| x-ms-marketplace-token| Yes| The token query parameter in the URL when the user is redirected to SaaS ISV’s website from Azure. **Note:** This token is only valid for 1 hour. Additionally, URL decode the token value from the browser before using it.|
 |  |  |  |
   
 
@@ -235,7 +235,7 @@ POST action on resolve endpoint allows users to resolve a token to a persistent 
 | **HTTP Status Code** | **Error Code**     | **Description**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token resolved successfully.                                                            |
-| 400                  | `BadRequest`         | Either required headers are missing or an invalid api-version specified. Failed to resolve the token because either the token is malformed or expired. |
+| 400                  | `BadRequest`         | Either required headers are missing or an invalid api-version specified. Failed to resolve the token because either the token is malformed or expired (the token is only valid for 1 hour once generated). |
 | 403                  | `Forbidden`          | The caller is not authorized to perform this operation.                                 |
 | 429                  | `RequestThrottleId`  | Service is busy processing requests, retry later.                                |
 | 503                  | `ServiceUnavailable` | Service is down temporarily, retry later.                                        |
@@ -648,4 +648,36 @@ The Get action on subscriptions endpoint allows a user to retrieve all subscript
 | x-ms-correlationid | Yes          | Correlation ID if passed by the client, otherwise this is the server correlation ID.                   |
 | x-ms-activityid    | Yes          | A unique string value for tracking the request from the service. This is used for any reconciliations. |
 | Retry-After        | No           | Interval with which client can check the status.                                                       |
+|  |  |  |
+
+### SaaS Webhook
+
+A SaaS webhook is used for notifying changes proactively to the SaaS service. This POST API is expected to be unauthenticated and will be called by the Microsoft  service. The SaaS service is expected to call the operations API to validate and authorize before taking action on the webhook notification. 
+
+
+*Body*
+
+``` json
+  { 
+    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
+    "offerId": "sampleSaaSOffer", // Provided with "Update" action
+    "publisherId": "contoso", 
+    "planId": "silver",     // Provided with "Update" action
+    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
+    "timeStamp": "2018-12-01T00:00:00"
+  }
+```
+
+| **Parameter name**     | **Data type** | **Description**                               |
+|------------------------|---------------|-----------------------------------------------|
+| id  | String       | Unique ID for the operation triggered.                |
+| activityId   | String        | A unique string value for tracking the request from the service. This is used for any reconciliations.               |
+| subscriptionId                     | String        | ID of SaaS subscription resource in Azure.    |
+| offerId                | String        | Offer ID that the user subscribed to. Provided only with the "Update" action.        |
+| publisherId                | String        | Publisher ID of the SaaS offer         |
+| planId                 | String        | Plan ID that the user subscribed to. Provided only with the "Update" action.          |
+| action                 | String        | The action that is triggering this notification. Possible values - Activate, Delete, Suspend, Reinstate, Update          |
+| timeStamp                 | String        | TImestamp value in UTC when this notification was triggered.          |
 |  |  |  |

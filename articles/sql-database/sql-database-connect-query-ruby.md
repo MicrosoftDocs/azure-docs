@@ -11,70 +11,73 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 11/01/2018
+ms.date: 12/20/2018
 ---
 # Quickstart: Use Ruby to query an Azure SQL database
 
-This quickstart demonstrates how to use [Ruby](https://www.ruby-lang.org) to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.
+This quickstart demonstrates how to use [Ruby](https://www.ruby-lang.org) to connect to an Azure SQL database and query data with Transact-SQL statements.
 
 ## Prerequisites
 
-To complete this quickstart, make sure you have the following prerequisites:
+To complete this quickstart, you need the following prerequisites:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
+  
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
+  
+- Ruby and related software for your operating system:
+  
+  - **MacOS**: Install Homebrew, rbenv and ruby-build, Ruby, FreeTDS, and TinyTDS. See Steps 1.2, 1.3, 1.4, 1.5, and 2.1 in [Create Ruby apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
+  
+  - **Ubuntu**: Install prerequisites for Ruby, rbenv and ruby-build, Ruby, FreeTDS, and TinyTDS. See Steps 1.2, 1.3, 1.4, 1.5, and 2.1 in [Create Ruby apps using SQL Server on Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
+  
+  - **Windows**: Install Ruby, Ruby Devkit, and TinyTDS. See [Configure development environment for Ruby development](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development).
 
-- You have installed Ruby and related software for your operating system:
-    - **MacOS**: Install Homebrew, install rbenv and ruby-build, install Ruby, and then install FreeTDS. See [Step 1.2, 1.3, 1.4, and 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
-    - **Ubuntu**: Install prerequisites for Ruby, install rbenv and ruby-build, install Ruby, and then install FreeTDS. See [Step 1.2, 1.3, 1.4, and 1.5](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
-
-## SQL server connection information
+## Get SQL server connection information
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-> [!IMPORTANT]
-> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you are on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal-firewall.md). 
+## Create code to query your SQL database
 
-## Insert code to query SQL database
-
-1. In your favorite text editor, create a new file, **sqltest.rb**
-
-2. Replace the contents with the following code and add the appropriate values for your server, database, user, and password.
-
-```ruby
-require 'tiny_tds'
-server = 'your_server.database.windows.net'
-database = 'your_database'
-username = 'your_username'
-password = 'your_password'
-client = TinyTds::Client.new username: username, password: password, 
-    host: server, port: 1433, database: database, azure: true
-
-puts "Reading data from table"
-tsql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-        FROM [SalesLT].[ProductCategory] pc
-        JOIN [SalesLT].[Product] p
-        ON pc.productcategoryid = p.productcategoryid"
-result = client.execute(tsql)
-result.each do |row|
-    puts row
-end
-```
+1. In a text or code editor, create a new file named *sqltest.rb*.
+   
+1. Add the following code. Substitute the values from your Azure SQL database for `<server>`, `<database>`, `<username>`, and `<password>`.
+   
+   >[!IMPORTANT]
+   >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
+   
+   ```ruby
+   require 'tiny_tds'
+   server = '<server>.database.windows.net'
+   database = '<database>'
+   username = '<username>'
+   password = '<password>'
+   client = TinyTds::Client.new username: username, password: password, 
+       host: server, port: 1433, database: database, azure: true
+   
+   puts "Reading data from table"
+   tsql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+           FROM [SalesLT].[ProductCategory] pc
+           JOIN [SalesLT].[Product] p
+           ON pc.productcategoryid = p.productcategoryid"
+   result = client.execute(tsql)
+   result.each do |row|
+       puts row
+   end
+   ```
 
 ## Run the code
 
-1. At the command prompt, run the following commands:
+1. At a command prompt, run the following command:
 
    ```bash
    ruby sqltest.rb
    ```
+   
+1. Verify that the top 20 Category/Product rows from your database are returned. 
 
-2. Verify that the top 20 rows are returned and then close the application window.
-
-
-## Next Steps
-- [Design your first Azure SQL database](sql-database-design-first-database.md)
-- [GitHub repository for TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
-- [Report issues or ask questions about TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues)
-- [Ruby Drivers for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
+## Next steps
+- [Design your first Azure SQL database](sql-database-design-first-database.md).
+- [GitHub repository for TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
+- [Report issues or ask questions about TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues).
+- [Ruby driver for SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).

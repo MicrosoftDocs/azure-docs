@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/11/2019
 ms.author: snehaa
 ---
 
@@ -43,12 +43,14 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 ### Which Azure geographies are supported by Azure Migrate?
 
-Azure Migrate currently supports United States and Azure Government as the project geographies. Even though you can only create migration projects in these geographies, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project geography is only used to store the discovered metadata.
+Azure Migrate currently supports Europe, United States and Azure Government as the project geographies. Even though you can only create migration projects in these geographies, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project geography is only used to store the discovered metadata.
 
 **Geography** | **Metadata storage location**
 --- | ---
-Unites States | West Central US or East US
 Azure Government | US Gov Virginia
+Asia | Southeast Asia
+Europe | North Europe or West Europe
+Unites States | East US of West Central US
 
 ### How does the on-premises site connect to Azure Migrate?
 
@@ -57,6 +59,17 @@ The connection can be over the internet or use ExpressRoute with public peering.
 ### Can I harden the VM set up with the OVA template?
 
 Additional components (for example anti-virus) can be added into the OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
+
+### To harden the Azure Migrate appliance, what are the recommended Antivirus (AV) exclusions?
+
+You need to exclude the following folders in the appliance for antivirus scanning:
+
+- Folder that has the binaries for Azure Migrate Service. Exclude all sub-folders.
+  %ProgramFiles%\ProfilerService  
+- Azure Migrate Web Application. Exclude all sub-folders.
+  %SystemDrive%\inetpub\wwwroot
+- Local Cache for Database and log files. Azure migrate service needs RW access to this folder.
+  %SystemDrive%\Profiler
 
 ## Discovery
 
@@ -130,6 +143,7 @@ If you have an environment that is shared across tenants and you do not want to 
 
 You can discover 1500 virtual machines in a single migration project. If you have more machines in your on-premises environment, [learn more](how-to-scale-assessment.md) about how you can discover a large environment in Azure Migrate.
 
+
 ## Assessment
 
 ### Does Azure Migrate support Enterprise Agreement (EA) based cost estimation?
@@ -138,6 +152,13 @@ Azure Migrate currently does not support cost estimation for [Enterprise Agreeme
 
   ![Discount](./media/resources-faq/discount.png)
 
+### What is the difference between as-on-premises sizing and performance-based sizing?
+
+When you specify the sizing criterion to be as-on-premises sizing, Azure Migrate does not consider the performance data of the VMs and sizes the VMs based on the on-premises configuration. If the sizing criterion is performance-based, the sizing is done based on utilization data. For example, if there is an on-premises VM with 4 cores and 8 GB memory with 50% CPU utilization and 50% memory utilization. If the sizing criterion is as on-premises sizing an Azure VM SKU with 4 cores and 8GB memory is recommended, however, if the sizing criterion is performance-based as VM SKU of 2 cores and 4 GB would be recommended as the utilization percentage is considered while recommending the size. Similarly, for disks, the disk sizing depends on two assessment properties - sizing criterion and storage type. If the sizing criterion is performance-based and storage type is automatic, the IOPS and throughput values of the disk are considered to identify the target disk type (Standard or Premium). If the sizing criterion is performance-based and storage type is premium, a premium disk is recommended, the premium disk SKU in Azure is selected based on the size of the on-premises disk. The same logic is used to do disk sizing when the sizing criterion is as on-premises sizing and storage type is standard or premium.
+
+### What impact does performance history and percentile utilization have on the size recommendations?
+
+These properties are only applicable for performance-based sizing. Azure Migrate collects performance history of on-premises machines and uses it to recommend the VM size and disk type in Azure. The collector appliance continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds. The appliance rolls up the 20-second samples, and creates a single data point for every 15 minutes. To create the single data point, the appliance selects the peak value from all the 20-second samples, and sends it to Azure. When you create an assessment in Azure, based on the performance duration and performance history percentile value, Azure Migrate calculates the effective utilization value and uses it for sizing. For example, if you have set the performance duration to be 1 day and percentile value to 95 percentile, Azure Migrate uses the 15 min sample points sent by collector for the last one day, sorts them in ascending order and picks the 95th percentile value as the effective utilization. The 95th percentile value ensures that you are ignoring any outliers which may come if you pick the 99th percentile. If you want to pick the peak usage for the period and do not want to miss any outliers, you should select the 99th percentile.
 
 ## Dependency visualization
 

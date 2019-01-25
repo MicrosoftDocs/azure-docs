@@ -1,5 +1,5 @@
 ---
-title: Dynamic group membership add remove users automatically tutorial in Azure Active Directory 
+title: Dynamic group membership add remove users - tutorial - Azure Active Directory 
 description: In this tutorial, you use groups with user membership rules to add or remove users automatically
 services: active-directory
 documentationcenter: ''

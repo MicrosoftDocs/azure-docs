@@ -47,14 +47,14 @@ This command clones the repository to your local git folder. To open the Go samp
 ## Configure your storage connection string
 This solution requires your storage account name and key to be securely stored in environment variables local to the machine running the sample. Follow one of the examples below depending on your operating System to create the environment variables.
 
-# [Linux](#tab/Linux)
+# [Linux](#tab/linux)
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-# [Windows](#tab/Windows)
+# [Windows](#tab/windows)
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"

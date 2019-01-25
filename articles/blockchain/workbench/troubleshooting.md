@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
@@ -21,7 +21,7 @@ A PowerShell script is available to assist with developer debugging or support. 
 * Application Insights
 * Azure Monitoring (Log Analytics)
 
-You can use the information to determine next steps and determine root cause of issues. 
+You can use the information to determine next steps and determine root cause of issues.
 
 ## Troubleshooting script
 
@@ -71,4 +71,4 @@ The **Details** folder contains detailed logs for troubleshooting specific issue
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench architecture](architecture.md)
+> [Azure Blockchain Workbench Application Insights troubleshooting guide](https://aka.ms/workbenchtroubleshooting)

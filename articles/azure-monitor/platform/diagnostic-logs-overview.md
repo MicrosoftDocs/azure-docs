@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
+ms.subservice: logs
 ---
 # Collect and consume log data from your Azure resources
 
@@ -25,7 +25,7 @@ These logs differ from the [Activity Log](activity-logs-overview.md). The Activi
 
 These logs also differ from guest OS-level diagnostic logs. Guest OS diagnostic logs are those collected by an agent running inside of a virtual machine or other supported resource type. Resource-level diagnostic logs require no agent and capture resource-specific data from the Azure platform itself, while guest OS-level diagnostic logs capture data from the operating system and applications running on a virtual machine.
 
-Not all services support the diagnostic logs described here. [This article contains a section listing which services support diagnostic logs](./../../azure-monitor/platform/tutorial-dashboards.md).
+Not all services support the diagnostic logs described here. [This article contains a section listing which services support diagnostic logs](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## What you can do with diagnostic logs
 Here are some of the things you can do with diagnostic logs:
@@ -77,7 +77,7 @@ Collection of diagnostic logs can be enabled [as part of creating a resource in 
 
 You can enable collection of resource diagnostic logs in the Azure portal after a resource has been created either by going to a specific resource or by navigating to Azure Monitor. To enable this via Azure Monitor:
 
-1. In the [Azure portal](http://portal.azure.com), navigate to Azure Monitor and click on **Diagnostic Settings**
+1. In the [Azure portal](https://portal.azure.com), navigate to Azure Monitor and click on **Diagnostic Settings**
 
     ![Monitoring section of Azure Monitor](media/diagnostic-logs-overview/diagnostic-settings-blade.png)
 
@@ -223,10 +223,11 @@ Adding a diagnostic setting brings up the Diagnostic Settings view, where you ca
 
 ## Supported services, categories, and schemas for diagnostic logs
 
-[See this article](../../azure-monitor/platform/tutorial-dashboards.md) for a complete list of supported services and the log categories and schemas used by those services.
+[See this article](../../azure-monitor/platform/diagnostic-logs-schema.md) for a complete list of supported services and the log categories and schemas used by those services.
 
 ## Next steps
 
 * [Stream resource diagnostic logs to **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
-* [Change resource diagnostic settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Change resource diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/)
 * [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+

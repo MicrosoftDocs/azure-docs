@@ -4,9 +4,9 @@ description: Learn to use the Azure Database Migration Service to monitor migrat
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article

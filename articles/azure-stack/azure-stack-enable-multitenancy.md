@@ -129,7 +129,7 @@ If you no longer want multiple tenants in Azure Stack, you can disable multi-ten
 2. As the service administrator of Azure Stack (you in this scenario), run *Unregister-AzSGuestDirectoryTenant*. 
 
     ``` PowerShell  
-    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
     $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
     
     ## Replace the value below with the Azure Stack directory
@@ -154,3 +154,5 @@ If you no longer want multiple tenants in Azure Stack, you can disable multi-ten
 
 - [Manage delegated providers](azure-stack-delegated-provider.md)
 - [Azure Stack key concepts](azure-stack-key-features.md)
+- [Manage usage and billing for Azure Stack as a Cloud Service Provider](azure-stack-add-manage-billing-as-a-csp.md)
+- [Add tenant for usage and billing to Azure Stack](azure-stack-csp-howto-register-tenants.md)

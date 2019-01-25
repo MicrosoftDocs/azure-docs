@@ -2,9 +2,7 @@
 title: "Tutorial: Run Azure Functions with Azure Stream Analytics jobs | Microsoft Docs"
 description: "In this tutorial, you learn how to configure Azure Functions as an output sink to Stream Analytics jobs."
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
-
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -150,7 +148,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 1. Open your Stream Analytics job on the Azure portal.  
 
-2. Browse to your function, and select **Overview** > **Outputs** > **Add**. To add a new output, select **Azure Function** for the sink option. The new Functions output adapter is available, with the following properties:  
+2. Browse to your function, and select **Overview** > **Outputs** > **Add**. To add a new output, select **Azure Function** for the sink option. The Functions output adapter has the following properties:  
 
    |**Property name**|**Description**|
    |---|---|

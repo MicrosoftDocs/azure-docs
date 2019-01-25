@@ -3,7 +3,7 @@ title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: Specify the RelyingParty element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
@@ -100,7 +100,7 @@ The **DefaultUserJourney** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | An identifier of the user journey in the policy. For more informaiton, see [user journeys](userjourneys.md) |
+| ReferenceId | Yes | An identifier of the user journey in the policy. For more information, see [user journeys](userjourneys.md) |
 
 ## UserJourneyBehaviors
 

@@ -48,10 +48,9 @@ Following are the highlights. For the detailed release notes, bugs fixed, known 
   
 
 
-
 ## 04/06/2017 - General availability of HDInsight 3.6
 
-* With this release, Azure HDInsight adds version 3.6, which is based on HDP 2.6. HDP 2.6 release notes are available [here](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md). HDInsight 3.6 is available for the following workloads:
+* With this release, Azure HDInsight adds version 3.6, which is based on HDP 2.6. HDP 2.6 release notes are available [here](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) and more information on HDInsight versions can be found [here](hdinsight-component-versioning.md). HDInsight 3.6 is available for the following workloads:
 
 	* Hadoop v2.7.3
 	* HBase v1.1.2
@@ -59,7 +58,7 @@ Following are the highlights. For the detailed release notes, bugs fixed, known 
 	* Spark v2.1.0
 	* Interactive Hive v2.1.0
 
-* **Support for Hive View 2.0**. This should improve the user experience for Interactive Hive. For more information, see [Hortonworks documentation](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
+* **Support for Hive View 2.0**. This should improve the user experience for Interactive Hive. For more information, see [Hortonworks documentation](https://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
 
 * **Performance enhancements with Hive LLAP**. For more information, see [Hortonworks documentation](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/).
 
@@ -83,11 +82,11 @@ Following are the highlights. For the detailed release notes, bugs fixed, known 
 
 
 ## 02/28/2017 - Release of Spark 2.1 on HDInsight 3.6 (Preview)
-* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) improves many stability and usability issues with previous versions. It also brings new features across all Spark workloads, such as Spark Core, SQL, ML, and Streaming.
+* [Spark 2.1](https://spark.apache.org/releases/spark-release-2-1-0.html) improves many stability and usability issues with previous versions. It also brings new features across all Spark workloads, such as Spark Core, SQL, ML, and Streaming.
 * Structured Streaming gets improved scalability with support for event time watermarks and Kafka 0.10 connector.
-* Spark SQL partitioning is now handled using new Scalable Partition Handling mechanism. See more details [here](http://spark.apache.org/releases/spark-release-2-1-0.html) on how to upgrade.
+* Spark SQL partitioning is now handled using new Scalable Partition Handling mechanism. See more details [here](https://spark.apache.org/releases/spark-release-2-1-0.html) on how to upgrade.
 * Spark 2.1 on Azure HDInsight 3.6 Preview currently does not support BI Tool connectivity using ODBC driver.
-* Azure Data Lake Store access from Spark 2.1 clusters is not supported in this Preview.
+* Azure Data Lake Storage access from Spark 2.1 clusters is not supported in this Preview.
 
 
 ## 11/18/2016 - Release of Spark 2.0.1 on HDInsight 3.5
@@ -106,9 +105,4 @@ Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).
 * R Server on HDInsight cluster provisioning has been streamlined.
 * R Server on HDInsight is now available as regular HDInsight "R Server" cluster type and no longer installed as a separate HDInsight application. The edge node and R Server binaries are now provisioned as part of the R Server cluster deployment. This improves speed and reliability of provisioning. Pricing model for R Server is updated accordingly.
 * R Server cluster type price is now based on Standard tier price plus R Server surcharge price. This change doesn't affect effective pricing of R Server; it changes only how the charges are presented in the bill. All existing R Server clusters continue to work and Resource Manager templates continue to function until deprecation notice. **It is recommended though to update your scripted deployments to use new Resource Manager template.**
-
-
-
-
-
 

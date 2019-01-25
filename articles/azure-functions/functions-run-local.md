@@ -36,13 +36,13 @@ Unless otherwise noted, the examples in this article are for version 2.x.
 
 ### <a name="v2"></a>Version 2.x
 
-Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux).
+Version 2.x of the tools uses the Azure Functions runtime 2.x that is built on .NET Core. This version is supported on all platforms .NET Core 2.x supports, including [Windows](#windows-npm), [macOS](#brew), and [Linux](#linux). You must first install the .NET Core 2.x SDK.
 
 #### <a name="windows-npm"></a>Windows
 
 The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Install [.NET Core 2.1 for Windows](https://www.microsoft.com/net/download/windows).
+1. Install [.NET Core 2.x SDK for Windows](https://www.microsoft.com/net/download/windows).
 
 2. Install [Node.js], which includes npm. For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
 
@@ -56,7 +56,7 @@ The following steps use npm to install Core Tools on Windows. You can also use [
 
 The following steps use Homebrew to install the Core Tools on macOS.
 
-1. Install [.NET Core 2.1 for macOS](https://www.microsoft.com/net/download/macos).
+1. Install [.NET Core 2.x SDK for macOS](https://www.microsoft.com/net/download/macos).
 
 2. Install [Homebrew](https://brew.sh/), if it's not already installed.
 
@@ -71,7 +71,7 @@ The following steps use Homebrew to install the Core Tools on macOS.
 
 The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Install [.NET Core 2.1 for Linux](https://www.microsoft.com/net/download/linux).
+1. Install [.NET Core 2.x SDK for Linux](https://www.microsoft.com/net/download/linux).
 
 2. Register the Microsoft product key as trusted:
 
@@ -294,10 +294,10 @@ The `host` command is only required in version 1.x.
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--build`** | Build current project before running. Version 2.x and C# projects only. |
+| **`--no-build`** | Do no build current project before running. For dotnet projects only. Default is set to false. Version 2.x only. |
 | **`--cert`** | The path to a .pfx file that contains a private key. Only used with `--useHttps`. Version 2.x only. |
+| **`--cors-credentials`** | Allow cross-origin authenticated requests (i.e. cookies and the Authentication header) Version 2.x only. |
 | **`--cors`** | A comma-separated list of CORS origins, with no spaces. |
-| **`--debug`** | Starts the host with the debug port open so that you can attach to the **func.exe** process from [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) or [Visual Studio 2017](functions-dotnet-class-library.md). Valid values are `VSCode` and `VS`.  |
 | **`--language-worker`** | Arguments to configure the language worker. Version 2.x only. |
 | **`--nodeDebugPort -n`** | The port for the node debugger to use. Default: A value from launch.json or 5858. Version 1.x only. |
 | **`--password`** | Either the password or a file that contains the password for a .pfx file. Only used with `--cert`. Version 2.x only. |

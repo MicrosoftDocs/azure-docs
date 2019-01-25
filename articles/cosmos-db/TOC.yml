@@ -2,7 +2,7 @@
     href: index.yml
   - name: Overview
     items:
-    - name: About Azure Cosmos DB
+    - name: Welcome to Azure Cosmos DB
       href: introduction.md
   - name: Quickstarts
     expanded: true
@@ -192,7 +192,7 @@
   - name: Multi-model APIs
     expanded: true
     items:
-    - name: SQL API Docs
+    - name: SQL API
       items:
       - name: Model document data
         href: modeling-data.md
@@ -296,11 +296,13 @@
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
           href: /rest/api/cosmos-db-resource-provider/
-    - name: MongoDB API Docs
+        - name: Resource Manager template
+          href: /azure/templates/microsoft.documentdb/databaseaccounts
+    - name: Azure Cosmos DB's API for MongoDB
       items: 
       - name: Introduction
         href: mongodb-introduction.md
-      - name: MongoDB support
+      - name: Wire protocol support
         href: mongodb-feature-support.md
       - name: Tutorials
         items:
@@ -346,11 +348,11 @@
           href: mongodb-time-to-live.md
         - name: Manage data indexing
           href: mongodb-indexing.md
-    - name: Gremlin API Docs
+    - name: Gremlin API
       items: 
       - name: Introduction
         href: graph-introduction.md
-      - name: Gremlin support
+      - name: Wire protocol support
         href: gremlin-support.md
       - name: Tutorials
         items:
@@ -362,11 +364,11 @@
           href: bulk-executor-graph-dotnet.md
         - name: Graph data partitioning
           href: graph-partitioning.md
-    - name: Cassandra API Docs
+    - name: Cassandra API
       items: 
       - name: Introduction
         href: cassandra-introduction.md
-      - name: Cassandra support
+      - name: Wire protocol support
         href: cassandra-support.md
       - name: Tutorials
         items:
@@ -400,7 +402,7 @@
           href: cassandra-spark-aggregation-ops.md
         - name: Copy table data
           href: cassandra-spark-table-copy-ops.md
-    - name: Table API Docs
+    - name: Table API
       items:
       - name: Introduction
         href: table-introduction.md
@@ -456,8 +458,6 @@
     items:
     - name: Manage database account
       href: how-to-manage-database-account.md
-    - name: Configure time to live
-      href: how-to-time-to-live.md
     - name: Global distribution
       items:
       - name: Manage consistency
@@ -476,10 +476,12 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
-    - name: Indexing
-      items:
-      - name: Configure indexing
-        href: how-to-manage-indexing-policy.md
+      - name: Configure time to live
+        href: how-to-time-to-live.md
+      - name: Indexing
+        items:
+        - name: Configure indexing
+          href: how-to-manage-indexing-policy.md
     - name: Security
       items:
       - name: Configure IP firewall

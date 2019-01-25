@@ -4,18 +4,16 @@ description: Learn to design your first Azure SQL database and connect to it wit
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
-ms.devlang: 
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 11/01/2018
+ms.date: 12/10/2018
 ---
 # Tutorial: Design an Azure SQL database and connect with C&#x23; and ADO.NET
 
-Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to:
+Azure SQL Database is a relational database-as-a-service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and ADO.NET with Visual Studio to:
 
 > [!div class="checklist"]
 > * Create a database in the Azure portal
@@ -29,7 +27,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-An installation of [Visual Studio Community 2017, Visual Studio Professional 2017, or Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/).
+An installation of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -45,16 +43,16 @@ And it starts with a ## H2.
 
 ## Next steps
 
-In this tutorial, you learned basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learned how to:
+In this tutorial, you learned basic database tasks such as create a database and tables, connect to the database, load data, and run queries. You learned how to:
+
 > [!div class="checklist"]
 > * Create a database
 > * Set up a firewall rule
 > * Connect to the database with [Visual Studio and C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Create tables
-> * Insert, update, and delete data
-> * Query data
+> * Insert, update, delete, and query data
 
-Advance to the next tutorial to learn about migrating your data.
+Advance to the next tutorial to learn about data migration.
 
 > [!div class="nextstepaction"]
-> [Migrate your SQL Server database to Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
+> [Migrate SQL Server to Azure SQL Database offline using DMS](../dms/tutorial-sql-server-to-azure-sql.md)

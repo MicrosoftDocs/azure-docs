@@ -67,7 +67,7 @@ sections:
     - title: Languages
       html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network/ApplicationGateways">Node​.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.application_gateways_operations.applicationgatewaysoperations?view=azure-python">Python</a></p>
     - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/mt684941">Compute REST API Reference</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/mt684941">Complete REST API Reference</a></p>
 
 
 

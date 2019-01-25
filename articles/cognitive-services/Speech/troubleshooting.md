@@ -46,7 +46,7 @@ You can run the following command for verification. Note to replace *YOUR_SUBSCR
 > [!NOTE]
 > Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
-# [Powershell](#tab/Powershell)
+# [Powershell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -82,7 +82,7 @@ This step is only needed, if you use authorization token for authentication. Run
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, and `YOUR_ACCESS_TOKEN` with the authorization token returned in the previous step.
 
-# [Powershell](#tab/Powershell)
+# [Powershell](#tab/azure-powershell)
 
 ```Powershell
 

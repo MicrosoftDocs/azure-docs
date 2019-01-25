@@ -6,13 +6,11 @@ documentationcenter: ''
 author: douglaslMS
 manager: craigg
 editor: 
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 01/09/2019
 ms.author: douglasl
 ---
 
@@ -20,7 +18,13 @@ ms.author: douglasl
 
 The Azure Function activity allows you to run [Azure Functions](../azure-functions/functions-overview.md) in a Data Factory pipeline. To run an Azure Function, you need to create a linked service connection and an activity that specifies the Azure Function that you plan to execute.
 
+For an eight-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
+
 ## Azure Function linked service
+
+The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the generic user error *Error calling endpoint*.
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
@@ -39,10 +43,16 @@ The Azure Function activity allows you to run [Azure Functions](../azure-functio
 | function name  | Name of the function in the Azure Function App that this activity calls | String | yes |
 | method  | REST API method for the function call | String Supported Types: "GET", "POST", "PUT"   | yes |
 | header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
-| body  | body that is sent along with the request to the function api method  | String (or expression with resultType of string).   | Required for PUT/POST methods |
+| body  | body that is sent along with the request to the function api method  | String (or expression with resultType of string) or object.   | Required for PUT/POST methods |
 |   |   |   | |
 
 See the schema of the request payload in [Request payload schema](control-flow-web-activity.md#request-payload-schema) section.
+
+## More info
+
+The Azure Function Activity supports **routing**. For example, if your app uses the following routing - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - then the `functionName` is `functionName/{value}`, which you can parameterize to provide the desired `functionName` at runtime.
+
+The Azure Function Activity also supports **queries**. A query has to be part of the `functionName` - for example, `HttpTriggerCSharp2?name=hello` - where the `function name` is `HttpTriggerCSharp2`.
 
 ## Next steps
 

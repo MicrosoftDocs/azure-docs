@@ -3,8 +3,8 @@ title: FAQs and known issues with managed identities for Azure resources
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.date: 12/12/2017
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # FAQs and known issues with managed identities for Azure resources
@@ -85,7 +85,7 @@ The extension works on CentOS 6.9. However, due to lack of system support in 6.9
 On Windows and certain versions of Linux, if the extension stops, the following cmdlet may be used to manually restart it:
 
 ```powershell
-Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
+Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
 Where: 

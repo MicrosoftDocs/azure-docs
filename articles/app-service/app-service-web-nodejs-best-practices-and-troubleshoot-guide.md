@@ -142,7 +142,7 @@ var keepaliveAgent = new Agent({
 
 #### My node application is consuming too much CPU
 
-You may receive a recommendation from Azure App Service on your portal about high cpu consumption. You can also set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the CPU usage on the [Azure Portal Dashboard](../application-insights/app-insights-web-monitor-performance.md), check the MAX values for CPU so you don’t miss the peak values.
+You may receive a recommendation from Azure App Service on your portal about high cpu consumption. You can also set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the CPU usage on the [Azure Portal Dashboard](../azure-monitor/app/web-monitor-performance.md), check the MAX values for CPU so you don’t miss the peak values.
 If you believe your application is consuming too much CPU and you cannot explain why, you can profile your node application to find out.
 
 #### Profiling your node application on Azure App Service with V8-Profiler
@@ -215,7 +215,7 @@ You can see that 95% of the time was consumed by the WriteConsoleLog function. T
 
 ### My node application is consuming too much memory
 
-If your application is consuming too much memory, you see a notice from Azure App Service on your portal about high memory consumption. You can set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the [Azure Portal Dashboard](../application-insights/app-insights-web-monitor-performance.md), be sure to check the MAX values for memory so you don’t miss the peak values.
+If your application is consuming too much memory, you see a notice from Azure App Service on your portal about high memory consumption. You can set up monitors to watch for certain [metrics](web-sites-monitor.md). When checking the memory usage on the [Azure Portal Dashboard](../azure-monitor/app/web-monitor-performance.md), be sure to check the MAX values for memory so you don’t miss the peak values.
 
 #### Leak detection and Heap Diff for node.js
 

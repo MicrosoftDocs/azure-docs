@@ -1864,12 +1864,12 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Devices/provisioningServices/certificates/verify/Action | Verify Certificate resource |
 > | Action | Microsoft.Devices/provisioningServices/certificates/Write | Create or Update Certificate |
 > | Action | Microsoft.Devices/provisioningServices/Delete | Delete IotDps resource |
-> | Action | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | Action | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Gets the diagnostic setting for the resource. Note: you may need `Microsoft.Insights/diagnosticSettings/read` as well  |
 > | Action | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Action | Microsoft.Devices/provisioningServices/keys/listkeys/Action | Get IotDps Keys for key name |
 > | Action | Microsoft.Devices/provisioningServices/listkeys/Action | Get all IotDps keys |
-> | Action | Microsoft.Devices/provisioningServices/logDefinitions/read | Gets the available log definitions for the provisioning Service |
-> | Action | Microsoft.Devices/provisioningServices/metricDefinitions/read | Gets the available metrics for the provisioning service |
+> | Action | Microsoft.Devices/provisioningServices/logDefinitions/read | Gets the available log definitions for the provisioning Service. Note: you may need `Microsoft.Insights/logDefinitions/read` as well |
+> | Action | Microsoft.Devices/provisioningServices/metricDefinitions/read | Gets the available metrics for the provisioning service. Note: you may need `Microsoft.Insights/metricDefinitions/read` as well |
 > | Action | Microsoft.Devices/provisioningServices/operationresults/Read | Get DPS Operation Result |
 > | Action | Microsoft.Devices/provisioningServices/Read | Get IotDps resource |
 > | Action | Microsoft.Devices/provisioningServices/skus/Read | Get valid IotDps Skus |
@@ -3683,7 +3683,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/generateregistrationcertificate/action | Generates Registration Certificate for the workspace. This Certificate is used to connect Microsoft System Center Operation Manager to the workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/intelligencepacks/disable/action | Disables an intelligence pack for a given workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/intelligencepacks/enable/action | Enables an intelligence pack for a given workspace. |
-> | Action | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Lists all intelligence packs that are visible for a given worksapce and also lists whether the pack is enabled or disabled for that workspace. |
+> | Action | Microsoft.OperationalInsights/workspaces/intelligencepacks/read | Lists all intelligence packs that are visible for a given workspace and also lists whether the pack is enabled or disabled for that workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/linkedServices/delete | Delete linked services under given workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/linkedServices/read | Get linked services under given workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/linkedServices/write | Create/Update linked services under given workspace. |

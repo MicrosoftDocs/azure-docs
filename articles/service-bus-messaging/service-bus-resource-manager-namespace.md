@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/06/2018
+ms.date: 01/23/2019
 ms.author: spelluru
 
 ---
@@ -41,7 +41,7 @@ To create and deploy template manually, go through the following  sections in th
 ## Prerequisites
 To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-If you want to use **Azure PowerShell** to deploy the Resource Manager template, [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+If you want to use **Azure PowerShell** to deploy the Resource Manager template, [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
 
 If you want to use **Azure CLI** to deploy the Resource Manager template, [Install  Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -93,7 +93,7 @@ Create a JSON file named **MyServiceBusNamespace.json** with the following conte
 }
 ```
 
-This template creates a standard Service Bus namespace.
+This template creates a standard Service Bus namespace. For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces) template reference.
 
 ## Create the parameters JSON
 The template you created in the previous step has a section called `Parameters`. You define parameters for those values that vary based on the project you are deploying or based on the target environment. This template defines the following parameters: **serviceBusNamespaceName**, **serviceBusSku**, and **location**. To learn more about SKUs of Service Bus, see [Service Bus SKUs](https://azure.microsoft.com/pricing/details/service-bus/) to create.

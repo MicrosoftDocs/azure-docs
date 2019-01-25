@@ -10,6 +10,7 @@
   - name: Stream video files with .NET
     href: stream-files-dotnet-quickstart.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Encode remote file and stream video – REST
     href: stream-files-tutorial-with-rest.md
@@ -29,8 +30,31 @@
   items:
   - name: Migrate from v2 to v3
     href: migrate-from-v2-to-v3.md
-  - name: Analyzing content
-    href: analyzing-video-audio-files-concept.md
+  - name: Accounts
+    items:
+    - name: Quotas and limitations
+      href: limits-quotas-constraints.md   
+    - name: Storage accounts
+      href: storage-account-concept.md      
+  - name: Entities
+    href: entities-overview.md
+    items:
+    - name: Account Filters and Asset Filters 
+      href: filters-dynamic-manifest-overview.md      
+    - name: Assets
+      href: assets-concept.md        
+    - name: Content Key Policies
+      href: content-key-policy-concept.md 
+    - name: Live Events and Live Outputs
+      href: live-events-outputs-concept.md    
+    - name: Streaming Endpoints
+      href: streaming-endpoint-concept.md
+    - name: Streaming Locators
+      href: streaming-locators-concept.md
+    - name: Streaming Policies
+      href: streaming-policy-concept.md
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md   
   - name: Encoding content
     href: encoding-concept.md
     items:
@@ -38,32 +62,15 @@
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
-  - name: Examining entities
-    items:
-    - name: Account and Asset filters 
-      href: filters-dynamic-manifest-overview.md      
-    - name: Assets
-      href: assets-concept.md        
-    - name: Content key policies
-      href: content-key-policy-concept.md 
-    - name: Streaming endpoints
-      href: streaming-endpoint-concept.md
-    - name: Streaming locators
-      href: streaming-locators-concept.md
-    - name: Streaming policies
-      href: streaming-policy-concept.md
-    - name: Transforms and Jobs
-      href: transforms-jobs-concept.md
-  - name: Examining storage accounts
-    href: storage-account-concept.md
   - name: Handling Event Grid events
     href: reacting-to-media-services-events.md      
   - name: Protecting content
+    href: content-protection-overview.md  
     items:
-    - name: Overview
-      href: content-protection-overview.md
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
+  - name: Analyzing content
+    href: analyzing-video-audio-files-concept.md
   - name: Streaming live events
     href: live-streaming-overview.md
     items:
@@ -77,13 +84,21 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
+  - name: Azure Media Player
+    href: use-azure-media-player.md
 - name: How-to guides
   items:
-  - name: Create an account - CLI
-    href: create-account-cli-how-to.md  
-  - name: Access APIs - CLI
-    href: access-api-cli-how-to.md
-  - name: Upload  
+  - name: Get started
+    items:
+    - name: Create an account - CLI
+      href: create-account-cli-how-to.md  
+    - name: Access APIs - CLI
+      href: access-api-cli-how-to.md
+    - name: Scale Media Reserved Units - CLI
+      href: media-reserved-units-cli-how-to.md      
+  - name: Configure Postman
+    href: media-rest-apis-with-postman.md      
+  - name: Upload content
     items:
     - name: From HTTP(s) - .NET
       href: job-input-from-http-how-to.md
@@ -91,17 +106,9 @@
       href: job-input-from-local-file-how-to.md  
     - name: From a local file - REST
       href: upload-files-rest-how-to.md
-  - name: Create filters
+  - name: Encode content
     items:
-    - name: With .NET
-      href: filters-dynamic-manifest-dotnet-howto.md
-    - name: With REST
-      href: filters-dynamic-manifest-rest-howto.md
-    - name: With CLI
-      href: filters-dynamic-manifest-cli-howto.md
-  - name: Encode 
-    items:
-    - name: Customize Transform presets - .NET Core
+    - name: Customize Transform presets - .NET
       href: customize-encoder-presets-how-to.md
   - name: Use Event Grid
     items:
@@ -109,26 +116,38 @@
       href: monitor-events-portal-how-to.md
     - name: Monitor events - CLI
       href: job-state-events-cli-how-to.md 
-  - name: Protect 
+  - name: Protect content
     items:
-    - name: With AES-128 - .NET
+    - name: AES-128 dynamic encryption - .NET
       href: protect-with-aes128.md    
-    - name: With DRM - .NET
+    - name: DRM dynamic encryption - .NET
       href: protect-with-drm.md
-  - name: Configure Postman
-    href: media-rest-apis-with-postman.md
-  - name: Scale Media Reserved Units - CLI
-    href: media-reserved-units-cli-how-to.md
+    - name: Get content key policy - .NET
+      href: get-content-key-policy-dotnet-howto.md
+    - name: Offline FairPlay for iOS 
+      href: offline-fairplay-for-ios.md
+    - name: Offline Widevine for Android
+      href: offline-widevine-for-android.md
+    - name: Offline PlayReady for Windows 10
+      href: offline-plaready-streaming-for-windows-10.md     
+  - name: Create filters
+    items:
+    - name: With .NET
+      href: filters-dynamic-manifest-dotnet-howto.md
+    - name: With REST
+      href: filters-dynamic-manifest-rest-howto.md
+    - name: With CLI
+      href: filters-dynamic-manifest-cli-howto.md  
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
-  - name: SDKs/Tools
+  - name: REST
+    href: https://aka.ms/ams-v3-rest-ref
+  - name: Azure CLI
+    href: https://aka.ms/ams-v3-cli-ref    
+  - name: SDKs
     items:
-    - name: REST
-      href: https://aka.ms/ams-v3-rest-ref
-    - name: Azure CLI
-      href: https://aka.ms/ams-v3-cli-ref
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-ref
     - name: Java
@@ -139,6 +158,8 @@
       href: https://aka.ms/ams-v3-nodejs-ref
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.media/allversions
   - name: Event Grid schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
@@ -177,7 +198,8 @@
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Release notes
     href: release-notes.md
-  - name: Quotas and limitations
-    href: limits-quotas-constraints.md
   - name: FAQ
     href: frequently-asked-questions.md
+  - name: Azure clouds and regions
+    href: azure-clouds-regions.md
+

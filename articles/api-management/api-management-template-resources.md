@@ -103,7 +103,7 @@ Azure API Management provides the following types of resources for use in the de
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Are you sure that you want to remove application?|  
 |WebDevelopersAppNotPublished|Not published|  
-|WebDevelopersAppNotSubminted|Not submitted|  
+|WebDevelopersAppNotSubmitted|Not submitted|  
 |WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|State|  
@@ -270,7 +270,7 @@ Azure API Management provides the following types of resources for use in the de
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|REQUIRED. The type of the token issued.|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|REQUIRED. The type of the token issued.|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|REQUIRED. The resource owner username.|  
-|OAuth2UnsupportedTokenType|Token type '{0}' is not supporetd.|  
+|OAuth2UnsupportedTokenType|Token type '{0}' is not supported.|  
 |OAuth2InvalidState|Invalid response from authorization server|  
 |OAuth2GrantType_AuthorizationCode|Authorization code|  
 |OAuth2GrantType_Implicit|Implicit|  
@@ -282,7 +282,7 @@ Azure API Management provides the following types of resources for use in the de
 |OAuth2SendingMethod_QueryParam|Query parameter|  
 |OAuth2AuthorizationServerGeneralException|An error has occurred while authorizing access via {0}|  
 |OAuth2AuthorizationServerCommunicationException|An HTTP connection to authorization server could not be established or it has been unexpectedly closed.|  
-|WebDocumentationOAuth2GeneralErrorMessage|Unexpected error occured.|  
+|WebDocumentationOAuth2GeneralErrorMessage|Unexpected error occurred.|  
 |AuthorizationServerCommunicationException|Authorization server communication exception has happened. Please contact administrator.|  
 |TextblockSubscriptionKeyHeaderDescription|Subscription key which provides access to this API. Found in your <a href='/developer'\>Profile</a\>.|  
 |TextblockOAuthHeaderDescription|OAuth 2.0 access token obtained from <i\>{0}</i\>. Supported grant types: <i\>{1}</i\>.|  
@@ -356,7 +356,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebProductsUsageLimitsHeader|Usage limits|  
 |WebProductsYouAreNotSubscribed|You are subscribed to this product.|  
 |WebProductsYouRequestedSubscription|You requested subscription to this product.|  
-|ErrorYouNeedtoAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed.|  
+|ErrorYouNeedToAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed.|  
 |ButtonLabelAddSubscription|Add subscription|  
 |LinkLabelChangeSubscriptionName|change|  
 |ButtonLabelConfirm|Confirm|  
@@ -512,7 +512,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebDevelopersSecondaryKey|Secondary key|  
 |ButtonLabelShowKey|Show|  
 |ButtonLabelRenewSubscription|Renew|  
-|WebDevelopersSubscriptionReqested|Requested on {0}|  
+|WebDevelopersSubscriptionRequested|Requested on {0}|  
 |WebDevelopersSubscriptionRequestedState|Requested|  
 |WebDevelopersSubscriptionTableNameHeader|Name|  
 |WebDevelopersSubscriptionTableStateHeader|State|  
