@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.component: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
 ---
@@ -75,18 +75,29 @@ At this point, it's is a good time to decide on a naming standard for your polic
  
 ![Naming standard](./media/plan-conditional-access/11.png)
 
-
+While a descriptive name helps you to keep an overview of your conditional access implementation, the sequence number is helpful if you need to reference a policy in a conversation. For example, if you talk a fellow administrator on the phone, you can ask him to open policy EM063 to solve an issue.
 
 
 
 For example, the following name states that the policy requires MFA for marketing users on external networks using the Dynamics CRP app:
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-In addition to your active policies, you should also implement disabled policies that act as secondary [resilient access controls in outage/emergency scenarios](../authentication/concept-resilient-controls.md). Your naming standard should also include this purpose to make it easier to enable them during an outage. For example:
+In addition to your active policies, it is advisable to also implement disabled policies that act as secondary [resilient access controls in outage/emergency scenarios](../authentication/concept-resilient-controls.md). Your naming standard for the contingency policies should include a few more items: 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- `ENABLE IN EMERGENCY` at the beginning to make the name stand out among the other policies.
+
+- The name of disruption it should apply to.
+
+- An ordering sequence number to help the administrator know in which order policies should he enabled. 
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join`
+
+
+
+
+
 
 
 ## Plan policies
