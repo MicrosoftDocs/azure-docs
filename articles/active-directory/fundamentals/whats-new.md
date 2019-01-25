@@ -81,7 +81,7 @@ For more information about the apps, see [SaaS application integration with Azur
 
 ---
 
-### New enhancements added for Azure AD Identity Protection (Public preview)
+### New Azure AD Identity Protection enhancements (Public preview)
 
 **Type:** Changed feature  
 **Service category:** Identity Protection  
@@ -113,17 +113,15 @@ For more information, see https://docs.microsoft.com/azure/active-directory/user
 
 ---
 
-[608091](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=608091&triage=true&fullScreen=false&_a=edit)
-
-### Enhanced export for Azure resource role membership
+### Enhanced Azure AD Privileged Identity Management (PIM) export capabilities
 
 **Type:** New feature  
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management
 
-Privileged Identity Management (PIM) customers can now export their Active and Eligible members at the Resource scope-level, or choose to export the memberships for all child resources within the resource container. This is an enhancement from previous, where PIM customers had to go to each specific resource to export the Active and Eligible membership list to a CSV file.
+Privileged Identity Management (PIM) administrators can now export all active and eligible role assignments at a specific resource, which includes role assignments for all child resources. Previously, it was difficult for administrators to get a complete list of role assignments for a subscription and they had to export role assignments for each specific resource.
 
-For more information, see...
+For more information, see [View who has Azure resource roles in PIM](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
 ---
 
