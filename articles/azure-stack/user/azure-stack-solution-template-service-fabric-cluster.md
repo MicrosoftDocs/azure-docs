@@ -224,6 +224,6 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
    > [!NOTE]  
    > There is no *https://* before the name of the cluster in the script. Port 19000 is required.
 
-## Next Steps
+## Next steps
 
 [Deploy Kubernetes to Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
