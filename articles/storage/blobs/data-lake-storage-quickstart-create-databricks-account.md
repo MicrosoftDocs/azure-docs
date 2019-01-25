@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use Azure Data Lake Storage Gen2 in a Spark job on Azure Databricks | Microsoft Docs'
+title: 'Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks | Microsoft Docs'
 description: Learn to run a Spark job on Azure Databricks by using the Azure portal and an Azure Data Lake Storage Gen2 storage account.
 services: storage
 author: normesta
@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 01/24/2019
 ---
 
-# Quickstart: Use Azure Data Lake Storage Gen2 in a Spark job on Azure Databricks
+# Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks
 
 This quickstart shows you how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account that has Azure Data Lake Storage Gen2 preview enabled.
 
@@ -118,10 +118,10 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
    ```scala
    spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
-   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+   spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
    spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
-   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
