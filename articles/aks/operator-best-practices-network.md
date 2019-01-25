@@ -151,4 +151,4 @@ This article focused on network connectivity and security. For more information 
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-own-tls]: ingress-own-tls.md
 [app-gateway]: ../application-gateway/overview.md
-[advanced-networking]: configure-advanced-networking.md
+[advanced-networking]: configure-azure-cni.md

@@ -133,7 +133,7 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
 [aks-ingress-tls]: ingress.md
-[aks-configure-advanced-networking]: configure-advanced-networking.md
+[aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

@@ -31266,8 +31266,8 @@
     },
     {
       "source_path": "articles/aks/networking-overview.md",
-      "redirect_url": "/azure/aks/configure-advanced-networking",
-      "redirect_document_id": true
+      "redirect_url": "/azure/aks/configure-azure-cni",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security-center/security-center-disk-encryption.md",
@@ -34795,6 +34795,11 @@
         "source_path": "articles/hdinsight/hdinsight-hadoop-data-lake-storage-gen2.md",
         "redirect_url": "/azure/hdinsight/hdinsight-hadoop-compare-storage-options",
         "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/aks/configure-advanced-networking.md",
+      "redirect_url": "/azure/aks/configure-azure-cni",
+      "redirect_document_id": true
     },
     {
         "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",

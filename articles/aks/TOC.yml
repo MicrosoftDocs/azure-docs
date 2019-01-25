@@ -136,7 +136,11 @@
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
-      href: configure-advanced-networking.md
+      items:
+      - name: Use kubenet
+        href: configure-kubenet.md
+      - name: Use Azure-CNI
+        href: configure-azure-cni.md
     - name: Create an internal load balancer
       href: internal-lb.md
     - name: Use a static IP addresses
