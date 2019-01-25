@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 04/06/2018
+ms.date: 01/25/2019
 manager: craigg
 ---
 # Connect to Azure SQL Database with Active Directory MFA
@@ -25,7 +25,7 @@ Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](h
 
 1. A dialog box that displays an Azure AD user name and asks for the user's password.
 
-   If the user's domain is federated with Azure AD, then this dialog doesn't appear as no password is needed.
+   If the user's domain is federated with Azure AD, then this dialog box doesn't appear as no password is needed.
 
    If the Azure AD policy imposes MFA on the user, then the dialog boxes described in Steps 2 and 3 are displayed.
 
@@ -52,17 +52,17 @@ Before you begin, you should have an [Azure SQL Database server](sql-database-ge
 
 ### Register your app
 
-To use Azure AD authentication, your C# client program has to register as an AD app. To register an app, you need to be either an AD admin or a user assigned the AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+To use Azure AD authentication, your C# program has to register as an AD app. To register an app, you need to be either an AD admin or a user assigned the AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
- Completing an app registration generates and displays an **Application ID**. Your program has to include this ID to connect.  
+ Completing an app registration generates and displays an **Application ID**. Your program has to include this ID to connect.
 
-To register an app:
+To register and set necessary permissions for an app:
 
-1. Azure portal > **Azure Active Directory** > **App registration** > **New application registration**
+1. Azure portal > **Azure Active Directory** > **App registrations** > **New application registration**
 
     ![App registration](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
-2. The **Application ID** value is generated and displayed.
+2. Once the app registration is created, the **Application ID** value is generated and displayed.
 
     ![App ID displayed](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
@@ -70,7 +70,7 @@ To register an app:
 
     ![Permissions settings for registered app](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-4. **Required permissions** > **Add API access** > **Select an API** > **Azure SQL Database**
+4. **Required permissions** > **Add** > **Select an API** > **Azure SQL Database**
 
     ![Add access to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
@@ -99,31 +99,31 @@ The Azure AD administrator for a SQL Database server has permission to access th
 
 ## New authentication enum
 
-The C# example relies on the  **System.Data.SqlClient** namespace. Of special interest is the enum **SqlAuthenticationMethod**. This enum has the following values:
+The C# example relies on the `System.Data.SqlClient` namespace. Of special interest is the enum `SqlAuthenticationMethod`. This enum has the following values:
 
-- **SqlAuthenticationMethod.ActiveDirectory *Interactive***
+- `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
    Use this value with an Azure AD user name, to achieve multi-factor authentication MFA. This value is the focus of the present article. It produces an interactive experience by displaying dialogs for the user password, and then for MFA validation if MFA is imposed on this user. This value is available starting with .NET Framework version 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Integrated***
+- `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
   Use this value for a *federated* account. For a federated account, the user name is known to the Windows domain. This method doesn't support MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory *Password***
+- `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
   Use this value for authentication that requires an Azure AD user and the user's password. Azure SQL Database does the authentication. This method doesn't support MFA.
 
-## Note C# parameter values from the Azure portal
+## Set C# parameter values from the Azure portal
 
 For the C# program to successfully run, you need to assign proper values to static fields. Shown here are fields with example values. Also shown are the Azure portal locations where you can obtain the needed values:
 
 | Static field name | Example value | Where in Azure portal |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL servers** > **Filter by name** |
-| AzureAD_UserID | "user9@abc.onmicrosoft.com" | **Azure Active Directory** > **User** > **New guest user** |
+| AzureAD_UserID | "auser@abc.onmicrosoft.com" | **Azure Active Directory** > **User** > **New guest user** |
 | Initial_DatabaseName | "myDatabase" | **SQL servers** > **SQL databases** |
-| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** &gt; **App registrations** > **Search by name** > **Application ID** |
-| RedirectUri | new Uri("https://yourwebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-regis]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, as it isn't used here. |
+| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App registrations** > **Search by name** > **Application ID** |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-regis]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, as it isn't used here. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## Verify with SQL Server Management Studio (SSMS)
@@ -132,7 +132,7 @@ Before you run the C# program, it's a good idea to check that your setup and con
 
 #### Verify SQL Database firewall IP addresses
 
-Run SSMS from the same computer, in the same building, where you plan to run the C# program. You can use whichever **Authentication** mode you want. If there's any indication that the database server firewall isn't accepting your IP address, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
+Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is okay. If there's any indication that the database server firewall isn't accepting your IP address, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
 
 #### Verify multi-factor authentication (MFA) for Azure AD
 
@@ -142,7 +142,7 @@ For more information, see [Configure multi-factor authentication for SSMS and Az
 
 ## C# code example
 
-The example C# program relies on the  **Microsoft.IdentityModel.Clients.ActiveDirectory** DLL assembly.
+The example C# program relies on the **Microsoft.IdentityModel.Clients.ActiveDirectory** DLL assembly.
 
 To install this package, in Visual Studio, select **Project** > **Manage NuGet Packages**. Search for and install **Microsoft.IdentityModel.Clients.ActiveDirectory**.
 
