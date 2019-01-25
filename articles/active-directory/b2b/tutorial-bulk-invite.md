@@ -5,7 +5,7 @@ description: In this tutorial, you learn how to use PowerShell and a CSV file to
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 08/14/2018
 
