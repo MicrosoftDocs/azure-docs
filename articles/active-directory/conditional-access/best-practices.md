@@ -52,6 +52,24 @@ To make your policy work, you must configure:
 
 ## What you should know
 
+
+
+### How are conditional access policies applied?
+
+More than one conditional access policy may apply when a user accesses an application. In this case all policies that apply must be satisfied. For example, if one polices requires for a user MFA and the second requires a compliant device the user must MFA and have a compliant device. 
+
+All policies are enforced in two phases:
+
+- In the **first** phase, all policies are evaluated and all access controls that are not satisfied are collected. 
+
+- In the **second** phase, you are prompted to satisfy the requirements you haven't met. If one of the policies blocks access, you are blocked and not prompted to satisfy other policy controls. If none of the policies blocks you, you are prompted to satisfy other policy controls in the following order:
+
+    ![Order](./media/best-practices/06.png)
+    
+    External MFA providers and Terms of Use come next.
+
+
+
 ### How are assignments evaluated?
 
 All assignments are logically **ANDed**. If you have more than one assignment configured, all assignments must be satisfied to trigger a policy.  
