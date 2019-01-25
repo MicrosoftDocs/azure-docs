@@ -89,7 +89,7 @@ To accept the software terms in advance:
 
 Before you can create your Avere vFXT cluster, you must define a custom role to use with the cluster nodes. 
 
-For the cluster controller, you can accept the default role from the template. The default gives the cluster controller resource group owner privileges. If you prefer to create a custom role for the controller, see [Customized controller access role](controller-role.md).
+For the cluster controller, you can accept the default role from the template. The default gives the cluster controller resource group owner privileges. If you prefer to create a custom role for the controller, see [Customized controller access role](avere-vfxt-controller-role.md).
 
 > [!NOTE] 
 > Only a subscription owner can create roles. A subscription owner can use this procedure to create roles ahead of time.  

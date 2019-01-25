@@ -36,7 +36,7 @@ For more information about cluster deployment steps and planning, read [Plan you
 
 Access the creation template in the Azure portal by searching for Avere and selecting "Avere vFXT for Azure Deployment". <!-- xxx update if that name changes xxx --> 
 
-**[XXX need production image of template deploy in search and/or entry page of template deploy XXX]**
+<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
 
 Click **Create** to begin. 
 
