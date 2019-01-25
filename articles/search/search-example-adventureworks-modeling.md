@@ -1,5 +1,5 @@
 ---
-title: Example: Model the AdventureWorks Inventory database --Azure Search
+title: 'Example: Model the AdventureWorks Inventory database - Azure Search'
 description: Learn how to model relational data, transforming it into a flattened data set, for indexing and full text search in Azure Search.
 author: cstone
 manager: cgronlun
@@ -42,15 +42,15 @@ Unfortunately, this type of modeling cannot be easily achieved through SQL state
 
 The final database-search mapping looks like this:
 
-+ model (Edm.String: searchable, filterable, retrievable) from ProductModel.Name
-+ description_en (Edm.String: searchable) from ProductDescription for the model where culture=’en’
-+ color (Collection(Edm.String): searchable, filterable, facetable, retrievable): unique values from Product.Color for the model
-+ size (Collection(Edm.String): searchable, filterable, facetable, retrievable): unique values from Product.Size for the model
-+ image (Collection(Edm.String): retrievable): unique values from Product.ThumbnailPhoto for the model
-+ minStandardCost (Edm.Double: filterable, facetable, sortable, retrievable): aggregate minimum of all Product.StandardCost for the model
-+ minListPrice (Edm.Double: filterable, facetable, sortable, retrievable): aggregate minimum of all Product.ListPrice for the model
-+ minWeight (Edm.Double: filterable, facetable, sortable, retrievable): aggregate minimum of all Product.Weight for the model
-+ products (Collection(Edm.String): searchable, filterable, retrievable): unique values from Product.Name for the model
++ model (Edm.String: searchable, filterable, retrievable) from "ProductModel.Name"
++ description_en (Edm.String: searchable) from "ProductDescription" for the model where culture=’en’
++ color (Collection(Edm.String): searchable, filterable, facetable, retrievable): unique values from "Product.Color" for the model
++ size (Collection(Edm.String): searchable, filterable, facetable, retrievable): unique values from "Product.Size" for the model
++ image (Collection(Edm.String): retrievable): unique values from "Product.ThumbnailPhoto" for the model
++ minStandardCost (Edm.Double: filterable, facetable, sortable, retrievable): aggregate minimum of all "Product.StandardCost" for the model
++ minListPrice (Edm.Double: filterable, facetable, sortable, retrievable): aggregate minimum of all "Product.ListPrice" for the model
++ minWeight (Edm.Double: filterable, facetable, sortable, retrievable): aggregate minimum of all "Product.Weight" for the model
++ products (Collection(Edm.String): searchable, filterable, retrievable): unique values from "Product.Name" for the model
 
 After joining the ProductModel table with Product, and ProductDescription, use [lodash](https://lodash.com/) (or Linq in C#) to quickly transform the resultset:
 
