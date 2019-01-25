@@ -62,7 +62,7 @@ Before you install the SDK, we recommend that you create an isolated Python envi
 
 ### Create an isolated Python environment
 
-1. Open a command-line window, then create a new conda environment named *myenv* and install Python 3.6.  
+1. Open a command-line window, then create a new conda environment named *myenv* and install Python 3.6. Azure Machine Learning SDK will work with Python 3.5.2 or later, but the automated machine learning components are not fully functional on Python 3.7.
 
     ```shell
     conda create -n myenv -y Python=3.6
