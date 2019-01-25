@@ -65,10 +65,10 @@ Deploy the VMs in Azure by using:
 You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) or with the automation released [here](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### Choose Azure Storage type
-Azure provides two types of storage that are suitable for Azure VMs that are running SAP HANA:
+Azure provides two types of storage that are suitable for Azure VMs that are running SAP HANA: Standard hard disk drives (HDD) and premium solid state drives (SSD). To learn about these disk types, see our article [Select a disk type](../../windows/disks-types.md)
 
-- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Standard hard disk drives (HDD)
+- Premium solid state drives (SSD)
 
 Azure offers two deployment methods for VHDs on Azure Standard and Premium Storage. If the overall scenario permits, take advantage of [Azure managed disk](https://azure.microsoft.com/services/managed-disks/) deployments.
 
