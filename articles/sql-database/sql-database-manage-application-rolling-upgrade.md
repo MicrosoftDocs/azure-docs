@@ -90,7 +90,7 @@ To enable the ability to roll back the upgrade, you need create a staging enviro
 
 
 > [!NOTE]
-> Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
+> Note the preparation steps will not impact the application in the production slot and it will remain fully functional in read-write mode.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
@@ -133,6 +133,6 @@ The two upgrade methods described in the article differ in complexity and the do
 * To learn about Azure SQL Database Active geo-replication, see [Create readable secondary databases using active geo-replication](sql-database-active-geo-replication.md).
 * To learn about Azure SQL Database Failover groups, see [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md).
 * To learn about deployment slots and staging environment in Azure App Serrvice, see [Set up staging environments in Azure App Service](../app-service/deploy-staging-slots.md).  
-* To learn Azure traffic manager profiles, see [Manage an Azure Traffic Manager profile](../traffic-manager-manage-profiles.md).  
+* To learn Azure traffic manager profiles, see [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md).  
 
 
