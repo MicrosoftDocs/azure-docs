@@ -53,7 +53,7 @@ This article walks you through the steps to install the Ansible solution templat
 1. In the **Additional Settings** tab, enter the required information:
 
     - **Size** - The Azure portal defaults to a standard size. To specify a different size that accommodates your specific scenario, select the arrow and select the desired size.
-    - **VM disk size** - Select either **SSD** (Premium Solid-State Drive) or **HDD** (Hard Disk Drive). For demo purposes, **SSD** is chosen due to its performance benefits. For more information on each these types of disk storage, see the following articles:
+    - **VM disk size** - Select either **SSD** (Premium Solid-State Drive) or **HDD** (Hard Disk Drive). For demo purposes, **SSD** is selected due to its performance benefits. For more information on each these types of disk storage, see the following articles:
         - [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage)
         - [Standard SSD Managed Disks for Azure Virtual machine workloads](/azure/virtual-machines/windows/disks-standard-ssd)
     - **OS** - Select **CentOS**.
@@ -63,7 +63,13 @@ This article walks you through the steps to install the Ansible solution templat
 
     ![Azure portal tab for Ansible additional settings](./media/ansible-install-solution-template/portal-ansible-setup-tab-2.png)
 
+1. Select **OK**.
 
+1. In the **Ansible Integration Settings** tab, specify the desired authentication type. For more information about using managed identities for Azure resources, see [What is managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
+
+    ![Azure portal tab for Ansible integration settings](./media/ansible-install-solution-template/portal-ansible-setup-tab-3.png)
+
+1. Select **OK**.
 
 
 
