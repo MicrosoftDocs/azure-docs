@@ -29,7 +29,7 @@ This article provides various code and script examples for token acquisition, as
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM).
+If you plan to use the Azure PowerShell examples in this article, be sure to install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 > [!IMPORTANT]
