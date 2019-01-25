@@ -97,21 +97,21 @@ For more information, see [Use Azure Active Directory Authentication for authent
 
 The Azure AD administrator for a SQL Database server has permission to access that server. However, a more general case is to add a non-admin user to the Azure AD. When the non-admin user tries to connect, the MFA sequence is invoked if MFA is imposed on this user by Azure AD.
 
-## New authentication enum
+## New authentication enum value
 
-The C# example relies on the `System.Data.SqlClient` namespace. Of special interest is the enum `SqlAuthenticationMethod`. This enum has the following values:
+The C# example relies on the `System.Data.SqlClient` namespace. Of special interest for MFA authentication is the enum `SqlAuthenticationMethod`, which has the following values:
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
-   Use this value with an Azure AD user name, to achieve multi-factor authentication MFA. This value is the focus of the present article. It produces an interactive experience by displaying dialogs for the user password, and then for MFA validation if MFA is imposed on this user. This value is available starting with .NET Framework version 4.7.2.
+   Use this value with an Azure AD user name to implement MFA. This value is the focus of the present article. It produces an interactive experience by displaying dialogs for the user password, and then for MFA validation if MFA is imposed on this user. This value is available starting with .NET Framework version 4.7.2.
 
 - `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
-  Use this value for a *federated* account. For a federated account, the user name is known to the Windows domain. This method doesn't support MFA.
+  Use this value for a *federated* account. For a federated account, the user name is known to the Windows domain. This authentication method doesn't support MFA.
 
 - `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
-  Use this value for authentication that requires an Azure AD user and the user's password. Azure SQL Database does the authentication. This method doesn't support MFA.
+  Use this value for authentication that requires an Azure AD user name and password. Azure SQL Database does the authentication. This method doesn't support MFA.
 
 ## Set C# parameter values from the Azure portal
 
@@ -134,7 +134,7 @@ Before you run the C# program, it's a good idea to check that your setup and con
 
 Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is okay. If there's any indication that the database server firewall isn't accepting your IP address, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
 
-#### Verify multi-factor authentication (MFA) for Azure AD
+#### Verify Azure Active Directory MFA
 
 Run SSMS again, this time with **Authentication** set to **Active Directory - Universal with MFA support**. This option requires SSMS version 17.5 or later.
 
