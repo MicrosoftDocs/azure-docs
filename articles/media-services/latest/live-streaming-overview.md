@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/25/2019
 ms.author: juliako
 
 ---
@@ -43,17 +43,17 @@ To understand the live streaming workflow in Media Services v3, you have to revi
 
 Here are the steps for a live streaming workflow:
 
-1. Make sure the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) is running.
-1. Create and start a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents). 
-1. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed. See these articles for more details:
-1. Get the preview URL and use it to verify that the input from the encoder is actually being received.
-1. Create a new [Asset](https://docs.microsoft.com/rest/api/media/asset) object.
-1. Create a [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) and use the asset name that you created. <br/>The **Live Output** archives the stream into the **Asset**. 
-1. Create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocator) with the built-in [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies) types.<br/>If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
-1. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
-1. Get the hostname for the **Streaming Endpoint** you wish to stream from.
-1. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
-1. After you have published the **Live Output** asset using a **Streaming Locator**, the **Live Event** (up to the DVR window length) will continue to be viewable until the **Streaming Locator**'s expiry or deletion, whichever comes first.
+1. Make sure the **Streaming Endpoint** is running. 
+2. Create a **Live Event**. <br/>When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. That means, the billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. For more information, see [Live Event states and billing](live-event-states-billing.md).
+3. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the contribution feed.<br/>See [recommended live encoders](recommended-on-premises-live-encoders.md).
+4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
+5. Create a new **Asset** object.
+6. Create a **Live Output** and use the asset name that you created.<br/>The **Live Output** will archive the stream into the **Asset**.
+7. Create a **Streaming Locator** with the built-in **Streaming Policy** types.<br/>If you intend to encrypt your content, review [Content protection overview](content-protection-overview.md).
+8. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
+9. Get the hostname for the **Streaming Endpoint** you wish to stream from.
+10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
+11. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event and delete the **Streaming Locator**.<br/>For more information, see the [Live streaming tutorial](stream-live-tutorial-with-api.md).
 
 ## Other important articles
 
