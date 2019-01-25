@@ -21,7 +21,7 @@ The application is based on the [Microsoft Cognitive Services Speech SDK for Jav
 
 ## Prerequisites
 
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+* An Azure subscription key for the Speech service. [Get one for free](get-started.md).
 * A current version of [Node.js](https://nodejs.org).
 
 ## Create a new project
