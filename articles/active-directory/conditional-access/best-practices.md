@@ -43,9 +43,9 @@ To make your policy work, you must configure:
 
 |What           | How                                  | Why|
 |:--            | :--                                  | :-- |
-|**Cloud apps** |You must select one or more apps.  | The goal of a conditional access policy is to enable you to control how authorized users can access cloud apps.|
-| **Users and groups** | You must select at least one user or group that is authorized to access your selected cloud apps. | A conditional access policy that has no users and groups assigned, is never triggered. |
-| **Access controls** | You must select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
+|**Cloud apps** |Select one or more apps.  | The goal of a conditional access policy is to enable you to control how authorized users can access cloud apps.|
+| **Users and groups** | Select at least one user or group that is authorized to access your selected cloud apps. | A conditional access policy that has no users and groups assigned, is never triggered. |
+| **Access controls** | Select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
 
 
 
@@ -60,7 +60,7 @@ More than one conditional access policy may apply when you access a cloud app. I
 
 All policies are enforced in two phases:
 
-- In the **first** phase, all policies are evaluated and all access controls that are not satisfied are collected. 
+- In the **first** phase, all policies are evaluated and all access controls that aren't satisfied are collected. 
 
 - In the **second** phase, you are prompted to satisfy the requirements you haven't met. If one of the policies blocks access, you are blocked and not prompted to satisfy other policy controls. If none of the policies blocks you, you are prompted to satisfy other policy controls in the following order:
 
@@ -84,7 +84,7 @@ If you need to configure a location condition that applies to all connections ma
 
 If you are locked out of the Azure AD portal due to an incorrect setting in a conditional access policy:
 
-- Verify whether there are other administrators in your organization that are not blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign in. 
+- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign in. 
 
 - If none of the administrators in your organization can update the policy, you need to submit a support request. Microsoft support can review and update conditional access policies that are preventing access.
 
@@ -142,7 +142,7 @@ When new policies are ready for your environment, deploy them in phases:
 
 2.  When you expand a policy to include more users. Continue to exclude all administrators from the policy to ensure that they still have access and can update a policy if a change is required.
 
-3. Apply a policy to all users only if this is required. 
+3. Apply a policy to all users only if necessary. 
 
 As a best practice, create a user account that is:
 
