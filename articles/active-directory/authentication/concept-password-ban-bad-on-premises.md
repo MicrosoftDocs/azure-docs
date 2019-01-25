@@ -4,7 +4,7 @@ description: Ban weak passwords in on-premises Active Directory using the Azure 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/25/2018
 
