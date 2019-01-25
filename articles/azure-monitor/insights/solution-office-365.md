@@ -345,7 +345,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
 
 ### Troubleshooting
 
-You may see the following error if you attempt to create a subscription after the subscription already exists.
+You may see the following error if your application is already subscribed to this workspace or if this tenant is subscribed to another workspace.
 
 ```
 Invoke-WebRequest : {"Message":"An error has occurred."}
