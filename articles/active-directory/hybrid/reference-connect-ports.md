@@ -51,7 +51,6 @@ This table describes the ports and protocols that are required for communication
 | Protocol | Ports | Description |
 | --- | --- | --- |
 | HTTP |80 (TCP/UDP) |Used to download CRLs (Certificate Revocation Lists) to verify SSL certificates. |
-| HTTPS |443(TCP/UDP) |Used to synchronize with Azure AD. |
 | WinRM |5985 |WinRM Listener |
 
 ## Table 4 - WAP and Federation Servers
