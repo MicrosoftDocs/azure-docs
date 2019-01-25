@@ -277,6 +277,7 @@ If you use network security groups or user-defined routes, you must allow traffi
     | &nbsp; | China North 2 | 40.73.37.141</br>40.73.38.172 | 443 | Inbound |
     | Europe | North Europe | 52.164.210.96</br>13.74.153.132 | 443 | Inbound |
     | &nbsp; | West Europe| 52.166.243.90</br>52.174.36.244 | 443 | Inbound |
+    | France | France Central| 20.188.39.64</br>40.89.157.135 | 443 | Inbound |
     | Germany | Germany Central | 51.4.146.68</br>51.4.146.80 | 443 | Inbound |
     | &nbsp; | Germany Northeast | 51.5.150.132</br>51.5.144.101 | 443 | Inbound |
     | India | Central India | 52.172.153.209</br>52.172.152.49 | 443 | Inbound |
