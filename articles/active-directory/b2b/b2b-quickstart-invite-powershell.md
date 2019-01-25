@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use PowerShell to send an invi
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 08/28/2018
 
