@@ -127,7 +127,7 @@ Common use cases to require MFA are access:
 
 - [By admins](baseline-protection.md#require-mfa-for-admins)
 - [To specific apps](app-based-mfa.md) 
-- [From network locations you don't trust](untrusted-networks.md).
+- [From network locations, you don't trust](untrusted-networks.md).
 
 
 ### Respond to potentially compromised accounts
@@ -241,7 +241,7 @@ The cleanup procedure consists of the following steps:
 
 ## Move to production
 
-When you are ready to deploy a new policy into your environment, you should do this in phases:
+When new policies are ready for your environment, deploy them in phases::
 
 - Provide internal change communication to end users.
 
