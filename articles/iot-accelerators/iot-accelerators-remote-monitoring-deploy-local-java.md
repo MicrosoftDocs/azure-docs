@@ -41,11 +41,11 @@ To complete the local deployment, you need the following tools installed on your
 > [!NOTE]
 > IntelliJ IDE is available for Windows and Mac.
 
-[!INCLUDE [iot-accelerators-local-setup](../../includes/iot-accelerators-local-setup.md)]
+[!INCLUDE [iot-accelerators-local-setup-java](../../includes/iot-accelerators-local-setup-java.md)]
 
 ## Run the microservices
 
-In this section, you run the Remote Monitoring microservices. You run the web UI natively, the Device Simulation service in Docker, and the microservices in IntelliJ.
+In this section, you run the Remote Monitoring microservices. You run the web UI natively, the Device Simulation, Auth and ASA Manager service in Docker, and the microservices in IntelliJ.
 
 ### Run the device simulation service
 
@@ -57,31 +57,51 @@ Run the following command to launch the Docker container for the device simulati
 <path_to_cloned_repository>\services\device-simulation\scripts\docker\run.cmd
 ```
 
+### Run the Auth service
+
+Open a new command prompt window and run the following command to launch the Docker container for the Auth service. The service simulates devices for the remote monitoring solution.
+
+```cmd
+<path_to_cloned_repository>\services\auth\scripts\docker\run.cmd
+```
+
+### Run the ASA Manager service
+
+Open a new command prompt window and run the following command to launch the Docker container for the ASA Manager service. The service simulates devices for the remote monitoring solution.
+
+```cmd
+<path_to_cloned_repository>\services\asa-manager\scripts\docker\run.cmd
+```
+
 ### Deploy all other microservices on local machine
 
 The following steps show you how to run the Remote Monitoring microservices in IntelliJ:
 
+<h4>Import Project</h4>
+
 1. Launch IntelliJ IDE
 1. Select **Import Project** and choose **azure-iot-pcs-remote-monitoring-java\services\build.sbt**
-1. Wait for **sbt dump project**" to complete.
+
+<h4>Create Run Configurations</h4>
+
 1. Select **Run > Edit Configurations**
 1. Select **Add New Configuration > sbt task** 
 1. Enter **Name** and enter **Tasks** as run 
 1. Select the **Working Directory** based on the service you want to run
 1. Click **Apply > Ok** to save your choices.
-
-
-As an example the following image, shows  adding configuration for a service:
-
-
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
-
-
-1. Configurations can be added for the following services:
+1. Create run configurations for the following services:
     * WebService (services\config)
     * WebService (services\device-telemetry)
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
+
+As an example the following image, shows adding configuration for a service:
+
+[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+
+
+<h4>Create Compound Configuration</h4>
+
 1. To run all the Services, together select **Add new Configuration > Compound**
 1. Enter the **Name** and **add sbt tasks**
 1. Click **Apply > Ok** to save your choices.
