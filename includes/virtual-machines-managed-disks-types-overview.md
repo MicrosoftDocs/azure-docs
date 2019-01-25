@@ -63,7 +63,7 @@ During preview, ultra SSD Disks:
 - Are only available as data disks and only support 4k physical sector size  
 - Can only be created as empty disks  
 - Currently can only be deployed using Azure Resource Manager templates, CLI, and the python SDK.
-- Does not yet support disk snapshots, VM images, availability sets, virtual machine scale sets and Azure disk encryption.
+- Does not yet support disk snapshots, VM images, availability sets, virtual machine scale sets, and Azure disk encryption.
 - Does not yet support integration with Azure Backup or Azure Site Recovery.
 - As with [most previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until general availability (GA).
 
