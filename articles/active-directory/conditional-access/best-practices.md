@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -51,6 +51,24 @@ To make your policy work, you must configure:
 
 
 ## What you should know
+
+
+
+### How are conditional access policies applied?
+
+More than one conditional access policy may apply when a user accesses an application. In this case all policies that apply must be satisfied. For example, if one polices requires for a user MFA and the second requires a compliant device the user must MFA and have a compliant device. 
+
+All policies are enforced in two phases:
+
+- In the **first** phase, all policies are evaluated and all access controls that are not satisfied are collected. 
+
+- In the **second** phase, you are prompted to satisfy the requirements you haven't met. If one of the policies blocks access, you are blocked and not prompted to satisfy other policy controls. If none of the policies blocks you, you are prompted to satisfy other policy controls in the following order:
+
+    ![Order](./media/best-practices/06.png)
+    
+    External MFA providers and Terms of Use come next.
+
+
 
 ### How are assignments evaluated?
 
@@ -150,4 +168,7 @@ For more information, see [Migrate classic policies in the Azure portal](policy-
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+If you want to know:
+
+- How to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+- How to plan your conditional access policies, see [How to plan your conditional access deployment in Azure Active Directory](plan-conditional-access.md).

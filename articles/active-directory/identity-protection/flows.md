@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
 
@@ -53,18 +53,13 @@ Administrators can set a policy that requires users to set up their accounts for
 
 1. In the first step, the user gets a notification about the requirement to set the account up for multi-factor authentication. 
    
-    ![Remediation](./media/flows/301.png "Remediation")
-
+    ![Remediation](./media/flows/140.png "Remediation")
 2. To set up multi-factor authentication, you need to let the system know how you want to be contacted.
    
-    ![Remediation](./media/flows/302.png "Remediation")
-
-3. Provide the system with your number phone number and how you want to be contacted.
-
-    ![Remediation](./media/flows/303.png "Remediation")
-
-To complete the registration, you either need to respond to a phone call or enter a code. 
-
+    ![Remediation](./media/flows/141.png "Remediation")
+3. The system submits a challenge to you and you need to respond.
+   
+    ![Remediation](./media/flows/142.png "Remediation")
 
 ## Risky sign-in recovery
 When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign in. 

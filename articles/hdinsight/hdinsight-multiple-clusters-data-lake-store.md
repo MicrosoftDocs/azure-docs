@@ -90,4 +90,4 @@ Set read-execute permissions for **others** through the hierarchy, for example, 
 ## See also
 
 * [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)
