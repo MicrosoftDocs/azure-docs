@@ -62,7 +62,7 @@ Enable replication. This procedure assumes that the primary Azure region is East
     - **Replication Policy**: It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’60 minutes’ for app consistent snapshot frequency.
 
 	![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
-
+  
 ## Customize target resources
 
 You can modify the default target settings used by Site Recovery.
@@ -76,7 +76,13 @@ You can modify the default target settings used by Site Recovery.
 	- In **Target Storage accounts**, select the account you want to use.
 
 		![Enable replication](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
-
+1. Click **Customize:** to modify replication settings.
+   - In **Multi-VM consistency**, select the VMs which you want to replicate together 
+   - All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over. Enabling multi-VM consistency can impact workload performance (as it is CPU intensive) and should be used only if machines are running the same workload and you need consistency across multiple machines. For example, if an application has 2 sql virtual machines and 2 web servers  then you should add only sql virtual machines as a part of replication group.
+   - You can choose to have at max 16 virtual machines in a replication group.
+   - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004. If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened as per the guidance of the specific Linux version.
+![Enable replication](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+    
 2. Click **Create target resource** > **Enable Replication**.
 3. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 

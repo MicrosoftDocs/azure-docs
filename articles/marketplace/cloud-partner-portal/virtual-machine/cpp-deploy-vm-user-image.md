@@ -37,7 +37,7 @@ Copy the Azure Resource Manager template for [VHD deployment](cpp-deploy-json-te
 | vmName                     | Name of the virtual machine                                                    |
 | vaultName                  | Name of the key vault                                                          |
 | vaultResourceGroup         | Resource group of the key vault
-| certificateUrl             | Url of the certificate, including version stored in the key vault, for example:  https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7 |
+| certificateUrl             | Url of the certificate, including version stored in the key vault, for example:  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | URL of the virtual hard disk                                                   |
 | vmSize                     | Size of the virtual machine instance                                           |
 | publicIPAddressName        | Name of the public IP address                                                  |

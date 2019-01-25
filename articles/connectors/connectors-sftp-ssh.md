@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ---
 
 # Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps
@@ -30,8 +30,6 @@ any reliable data stream. Here are some example tasks you can automate:
 
 Compared to the [SFTP connector](../connectors/connectors-create-api-sftp.md), 
 the SFTP-SSH connector can read or write files up to *1 GB* in size. 
-For files larger than 1 GB, you can use the SFTP-SSH connector plus 
-[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
 For more differences, review [Compare SFTP-SSH versus SFTP](#comparison) 
 later in this article.
 
@@ -68,8 +66,8 @@ which is an open-source Secure Shell (SSH) library that supports .NET.
   > * **Fingerprint**: MD5
 
 * Reads or writes files up to *1 GB* in size compared 
-to the SFTP connector. For files larger than 1 GB, use 
-[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+to the SFTP connector, but handles data in 50 MB pieces, 
+not 1 GB pieces.
 
 * Provides the **Create folder** action, which creates 
 a folder at the specified path on the SFTP server.

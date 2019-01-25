@@ -6,7 +6,7 @@ metadata:
   description: Deploy and integrate Jenkins with Azure 
   ms.service: jenkins
   keywords: jenkins, azure, devops, tutorials, samples, reference
-  author: tomarcher
+  author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing-page

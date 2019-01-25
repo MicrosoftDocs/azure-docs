@@ -46,7 +46,7 @@ When you provision Azure-SSIS IR, Azure Feature Pack for SSIS and Access Redistr
     - You are hosting SSISDB in Azure SQL Database server with virtual network service endpoints or in Managed Instance that is inside a virtual network. 
     - You want to connect to on-premises data stores from SSIS packages running on your Azure-SSIS IR. 
 
-- **Azure PowerShell**. Follow the instructions on [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps), if you want to run a PowerShell script to provision Azure-SSIS IR. 
+- **Azure PowerShell**. Follow the instructions on [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps), if you want to run a PowerShell script to provision Azure-SSIS IR. 
 
 ### Region support
 For a list of Azure regions, in which ADF and Azure-SSIS IR are currently available, see [ADF + SSIS IR availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 

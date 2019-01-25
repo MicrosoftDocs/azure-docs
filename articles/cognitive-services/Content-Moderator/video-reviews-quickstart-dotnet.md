@@ -1,7 +1,7 @@
 ---
 title: Create video reviews using .NET - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: How to create video reviews using the Content Moderator SDK for .NET
+description: This article provides information and code samples to help you quickly get started using the Content Moderator SDK with C# to create video reviews.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Create video reviews using .NET
@@ -31,8 +32,7 @@ This article also assumes that you are already familiar with Visual Studio and C
 
 ## Sign up for Content Moderator
 
-Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key.
-Refer to the [Quickstart](quick-start.md) to learn how you can obtain the key.
+Before you can use Content Moderator services through the REST API or the SDK, you need a subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
 
 ## Sign up for a review tool account if not completed in the previous step
 

@@ -83,7 +83,7 @@ You can remove non-deterministic training by updating the [version settings](htt
 
 ## Testing utterances 
 
-Developers should start testing their LUIS application with real traffic by sending utterances to the [prediction endpoint](luis-how-to-manage-keys.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endoint-utt.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
+Developers should start testing their LUIS application with real traffic by sending utterances to the [prediction endpoint](luis-how-to-azure-subscription.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endoint-utt.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
 
 ## Review utterances
 

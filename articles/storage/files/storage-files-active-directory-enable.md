@@ -149,14 +149,15 @@ The following custom role template provides share-level Change permissions, gran
   "IsCustom": true,
   "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
-   	"Microsoft.Storage/storageAccounts/fileServices/fileshare/*"
+   	"*"
+  ],
+  "NotActions": [
+	"Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action"
   ],
   "DataActions": [
-   	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/*"
-  ],
-  "NotDataActions": [
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermission",
-    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actasadmin"
+   	"*"
   ],
   "AssignableScopes": [
     	"/subscriptions/<Subscription-ID>"
@@ -174,10 +175,10 @@ The following custom role template provides share-level Read permissions, granti
   "IsCustom": true,
   "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
-   	"Microsoft.Storage/storageAccounts/fileServices/fileshare/read"
+   	"*/read"
   ],
   "DataActions": [
-  	"Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read"
+  	"*/read"
   ],
   "AssignableScopes": [
     	"/subscriptions/<Subscription-ID>"
@@ -236,7 +237,7 @@ When running the following sample script, remember to replace placeholder values
 #List the custom roles
 az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
 #Assign the custom role to the target identity
-az role assignment create --role "<custome-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
+az role assignment create --role "<custom-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 ```
 
 ## Configure NTFS permissions over SMB 

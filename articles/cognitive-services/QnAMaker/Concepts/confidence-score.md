@@ -8,7 +8,7 @@ manager: pchoudh
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---

@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: hector.linares
+ms.reviewer: hectorl
 ---
 
 # Protect virtual machines deployed on Azure Stack

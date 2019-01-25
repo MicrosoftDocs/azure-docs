@@ -3,7 +3,7 @@ title: Manage my devices overview - Azure Active Directory | Microsoft Docs
 description: Learn about how to join and register your devices on your organization's network.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory

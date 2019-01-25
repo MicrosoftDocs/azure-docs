@@ -2,12 +2,12 @@
 title: Azure Event Grid event sources
 description: Describes supported event sources for Azure Event Grid 
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: tomfitz
+ms.date: 01/19/2019
+ms.author: spelluru
 ---
 
 # Event sources in Azure Event Grid

@@ -32,6 +32,7 @@ The following table provides details about how the two tiers of IoT Hub compare 
 | Device Provisioning Service | ![Check][checkmark] | ![Check][checkmark] |  |
 | Cloud-to-device messaging | ![Check][checkmark] |  |  |
 | Device twin and device management | ![Check][checkmark] |  |  |
+| Device streams (preview) | ![Check][checkmark] |  |  |
 | IoT Edge | ![Check][checkmark] |  |  |
 
 Even if the only use case is device-to-cloud data ingestion, we highly recommend using IoT Hub as it provides a service that is designed for IoT device connectivity. 

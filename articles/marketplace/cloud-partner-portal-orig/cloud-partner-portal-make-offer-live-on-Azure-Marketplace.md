@@ -61,7 +61,7 @@ When you click "Publish", an automated check will take place to ensure you've po
 are not populated, a warning will appear next to the field and you will
 need to populate it accurately then click 'Publish' again.
 
-Once you've completed this step correctly, a pop-up will appear asking
+Once you've completed this step correctly, a pop-up will prompt
 for an email address. This is the email to which you will receive
 publishing status notifications for the remainder of the publishing
 process. Once you submit your email address, this step is complete.
@@ -71,10 +71,8 @@ process. Once you submit your email address, this step is complete.
 
 **Certification (\<5 days)**
 
-This step is where we run several tests to ensure your VM image meets
-the requirements for Azure Certified. All the guidance you will need to
-ensure you pass the certification requirements are
-[here](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites).
+This step is where we run several tests to ensure your VM image meets the requirements for Azure Certified. All the guidance you will need to
+ensure you pass the certification requirements are [here](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md).
 
 Since this step can take several days, you can sign out of the Cloud
 Partner Portal. We will send you an email notification if there are any
@@ -105,12 +103,12 @@ completed the steps required to access the offer in preview. During this
 step, you should preview your offer and make sure everything looks as it
 should be and that your VM properly deploys in the staging environment.
 
-**Only whitelisted subscriptions can do this verification.**\*
+*Only whitelisted subscriptions can do this verification.*
 
 **Publisher signoff**
 
 Once you verify everything looks correct and works properly in preview,
-you are ready to go live. To do this, click Go Live under the status tab
+you are ready to go live. Click **Go Live** under the **Status** tab
 and we will begin steps to make your offer live in production and on the
 website. Typically, it will take several hours from the time you click
 Go Live and when the offer is live on the website. We will send you an
@@ -121,7 +119,7 @@ email notification once your offer is officially live on the website.
 
 **Live**
 
-Your offer is now Live on Azure Marketplace and Azure Portal, and
+Your offer is now Live on Azure Marketplace and Azure portal, and
 customers will be able to view and deploy your virtual machine in their
 Azure subscriptions. At any point, you can click on the All offers tab,
 and see the status for all your offers listed on the right column. You
@@ -142,9 +140,9 @@ error message outlining what needs to be resolved.
 6 - error message](./media/cloud-partner-portal-offer-go-live-azure-marketplace/errormessage.png)
 
 If you encounter errors during the publishing process, you are required
-to fix these then click 'Publish' to restart the process. You must start
+to fix these issues, then click 'Publish' to restart the process. You must start
 at the beginning of the publishing steps at Validate Pre-Requisites when
-re-publishing after any error fix.
+republishing after any error fix.
 
 If you are having issues resolving an error, you should open a support
 request to get help from our support engineers.

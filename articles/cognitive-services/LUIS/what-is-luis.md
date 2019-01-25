@@ -7,7 +7,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 12/10/2018
+ms.date: 01/09/2018
 ms.author: diberry
 #Customer intent: As a developer incorporating LUIS into my client application, I want to understand what natural language processing (LUIS) is, so that I can determine if it will meet my Cognitive Language needs.
 ---
@@ -111,6 +111,10 @@ Other Cognitive Services used with LUIS:
 * [Speech service](../Speech-Service/overview.md) converts spoken language requests into text. 
 * [Conversation learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) allows you to build bot conversations quicker with LUIS.
 * [Project personality chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) to handle bot small talk.
+
+Samples using LUIS:
+* [Conversational AI](https://github.com/Microsoft/AI) GitHub repository.
+* [Language Understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding) Azure samples
 
 ## Next steps
 

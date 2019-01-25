@@ -8,7 +8,7 @@ ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
-manager: mtillman
+manager: daveba
 ---
 
 # Azure AD UserPrincipalName population

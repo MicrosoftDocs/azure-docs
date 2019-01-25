@@ -23,8 +23,6 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 > * Create a replication policy
 > * Enable replication for a server
 
-[review the architecture](concepts-hyper-v-to-azure-architecture.md) for this disaster recovery scenario.
-
 ## Prerequisites
 
 To complete this tutorial:

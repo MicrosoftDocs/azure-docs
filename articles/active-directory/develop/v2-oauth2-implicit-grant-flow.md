@@ -50,7 +50,7 @@ The following diagram shows what the entire implicit sign-in flow looks like and
 To initially sign the user into your app, you can send an [OpenID Connect](v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint.
 
 > [!IMPORTANT]
-> To succesfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **Allow Implicit Flow** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'**
+> To successfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **Allow Implicit Flow** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'**
 
 ```
 // Line breaks for legibility only

@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring
 
@@ -45,7 +45,7 @@ Older classic monitoring and alerting will be retired on 30 June 2019; including
 
 - Older (classic) metrics and alerts for Azure resources as currently available via [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal; accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Older (classic) platform and custom metrics for Application Insights as well as alerting on them as currently available via [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal and accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
-- Older (classic) Failure Anomalies alert currently available as [Smart Detection inside Application Insights](../../application-insights/app-insights-proactive-diagnostics.md) in the Azure portal; with alerts configured shown in [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal
+- Older (classic) Failure Anomalies alert currently available as [Smart Detection inside Application Insights](../../azure-monitor/app/proactive-diagnostics.md) in the Azure portal; with alerts configured shown in [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal
 
 All classic monitoring and alerting systems including corresponding [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), [Azure portal page](../../azure-monitor/platform/alerts-classic-portal.md), and [Resource Template](../../azure-monitor/platform/alerts-enable-template.md) will remain usable until end of June 2019. 
 
@@ -71,3 +71,4 @@ This article will be continually updated will links & details regarding the new 
 
 * Learn about the [new unified Azure Monitor](../../azure-monitor/overview.md).
 * Learn more about the new [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
+

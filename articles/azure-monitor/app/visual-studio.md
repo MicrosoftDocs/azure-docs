@@ -17,7 +17,7 @@ ms.reviewer: mbullwin
 ms.author: daviste
 ---
 # Debug your applications with Azure Application Insights in Visual Studio
-In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](../../application-insights/app-insights-overview.md).
+In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 If you created your ASP.NET web app using Visual Studio 2017 or later, it already has the Application Insights SDK. Otherwise, if you haven't done so already, [add Application Insights to your app](../../azure-monitor/app/asp-net.md).
 
@@ -69,7 +69,7 @@ In the Code Lens line above each handler method, you see a count of the requests
 > Code Lens shows Application Insights data only if you have [configured your app to send telemetry to the Application Insights portal](../../azure-monitor/app/asp-net.md).
 >
 
-[More about Application Insights in Code Lens](../../application-insights/app-insights-visual-studio-codelens.md)
+[More about Application Insights in Code Lens](../../azure-monitor/app/visual-studio-codelens.md)
 
 ## Trends
 Trends is a tool for visualizing how your app behaves over time. 
@@ -80,7 +80,7 @@ To find anomalies in your data, choose one of the anomaly options under the "Vie
 
 ![Trends](./media/visual-studio/51.png)
 
-[More about Trends](../../application-insights/app-insights-visual-studio-trends.md).
+[More about Trends](../../azure-monitor/app/visual-studio-trends.md).
 
 ## Local monitoring
 (From Visual Studio 2015 Update 2) If you haven't configured the SDK to send telemetry to the Application Insights portal (so that there is no instrumentation key in ApplicationInsights.config) then the diagnostics window displays telemetry from your latest debugging session. 

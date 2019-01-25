@@ -311,7 +311,7 @@ zypper info python-azure-agent
 
 #### Check available updates
 
-In the output from the above, this will show you if the package is upto date.
+In the output from the above, this will show you if the package is up-to-date.
 
 #### Install the latest package version
 

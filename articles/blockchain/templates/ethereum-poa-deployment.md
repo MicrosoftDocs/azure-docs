@@ -1,6 +1,6 @@
 ---
 title: Ethereum Proof-of-Authority Consortium - Azure
-description: Use the Etherereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network
+description: Use the Ethereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network
 services: azure-blockchain
 keywords:
 author: CodyBorn

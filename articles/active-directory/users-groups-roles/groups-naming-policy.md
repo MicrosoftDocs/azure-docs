@@ -1,6 +1,6 @@
 ---
-title: Group name policy settings for Office 365 groups in Azure Active Directory (preview) | Microsoft Docs
-description: How to set up expiration for Office 365 groups in Azure Active Directory (preview)
+title: Group name policy (preview) - Office 365 groups - Azure Active Directory | Microsoft Docs
+description: How to set up naming policy for Office 365 groups in Azure Active Directory (preview)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 01/14/2019
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
