@@ -74,12 +74,12 @@ Use [IP flow verify](../../network-watcher/network-watcher-check-ip-flow-verify-
 Use Network Watcher's [Next hop](../../network-watcher/network-watcher-check-next-hop-portal.md) capability to confirm that a route isn't preventing traffic from being routed to or from a virtual machine. You can also review effective routes to see all effective routes for a network interface. For more information, see [Using effective routes to troubleshoot VM traffic flow](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## Use the Azure CLI
-If you haven't already, install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+If you haven't already, install the latest [Azure CLI](/cli/azure/install-az-cli2) and sign in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](../extensions/agent-windows.md) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
 
 ### Reset SSH configuration
-You can initially try resetting the SSH configuration to default values and rebooting the SSH server on the VM. Note that this does not change the user account name, password, or SSH keys.
+You can initially try resetting the SSH configuration to default values and rebooting the SSH server on the VM. This does not change the user account name, password, or SSH keys.
 The following example uses [az vm user reset-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) to reset the SSH configuration on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
