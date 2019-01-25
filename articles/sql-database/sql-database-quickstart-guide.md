@@ -39,7 +39,6 @@ Articles in these quickstarts enable you to quickly create or import your databa
 
 * Find a [high-level list of supported features in Azure SQL Database](sql-database-features.md). 
 * Learn how to make your [database more secure](sql-database-security-tutorial.md). 
-* Learn about [technical characteristics of Managed Instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
-* Find more advanced tutorials in [how to section](sql-database-howto-managed-instance.md). 
+* Find more advanced tutorials in [how to section](sql-database-howto-single-database.md). 
 * Find more sample scripts written in [PowerShell](sql-database-powershell-samples.md) and [Azure CLI](sql-database-cli-samples.md). 
 * Learn more about the [Management API](sql-database-single-databases-manage.md) that you can use to configure your databases. 
