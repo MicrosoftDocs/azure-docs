@@ -17,7 +17,7 @@ Neural voices are available in these regions:
 | West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 
 > [!IMPORTANT]
-> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) is only available via the Southeast Asia endpoint: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1. For a complete list of neural voices, see [Language support](language-support.md).
+> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) is only available via the Southeast Asia endpoint: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1. For a complete list of neural voices, see [Language support](../articles/cognitive-services/speech-service/language-support.md).
 
 ### Standard voices
 
