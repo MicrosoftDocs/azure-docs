@@ -127,14 +127,14 @@ Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
 ## Opting out of the preview after opting in
 It may take a few minutes for the opt-out action to take effect. If you turn off the preview, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite the user to enable them to sign in again.
 
-### To turn off preview using the Azure AD portal
+### To turn off the preview using the Azure AD portal
 1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
 2.	In the navigation pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Organizational Relationships**.
 4.	Select **Settings**.
 5.	Under **Enable Email One-Time Passcode for guests (Preview)**, select **No**.
 
-### To turn off preview using PowerShell
+### To turn off the preview using PowerShell
 Install the latest AzureADPreview module if you don’t have it already by running the following command:
 
 ````powershell 
