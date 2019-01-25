@@ -15,7 +15,7 @@ ms.date: 01/25/2019
 ---
 # Getting started with Azure SQL Database Managed Instance
 
-[Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance) is fully managed PaaS version of SQL Server hosted in Azure cloud and placed in your own VNet with the private IP address. In this section, you will learn how to quickly configure and create Managed Instance and migrate your databases.
+[Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) is fully managed PaaS version of SQL Server hosted in Azure cloud and placed in your own VNet with the private IP address. In this section, you will learn how to quickly configure and create Managed Instance and migrate your databases.
 
 ## Quickstart overview
 
