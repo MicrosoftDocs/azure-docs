@@ -167,12 +167,25 @@ Every time that a user clicks on a document, that's a signal that must be logged
 
 ### 3. Analyze with Power BI Desktop
 
-After you have instrumented your app and verified your application is correctly connected to Application Insights, you can use a predefined template created by Azure Search for Power BI desktop.
-This template contains charts and tables that help you make more informed decisions to improve your search performance and relevance.
+After you have instrumented your app and verified your application is correctly connected to Application Insights, you can use a predefined template created by Azure Search for Power BI desktop. 
 
-To instantiate the Power BI desktop template, you need three pieces of information about Application Insights. This data can be found in the Search Traffic Analytics page, when you select the resource to use
+Azure search provides a monitoring [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) so that you can analyze log data. The content pack consists of reports configured to automatically connect to your data and provide visual insights about your search service. 
+
+1. Install the [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search). The content pack adds predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
+
+2. Open **Power BI**, click **Get Data** > **Services** > **Azure Search**.
+
+3. To connect to Application Insights. This data can be found in the Search Traffic Analytics page, when you select the resource to use
 
 ![Application Insights Data in the Search Traffic Analytics blade][2]
+
+4. Import the data and then click **View data**.
+
+The following screenshot shows the built-in reports and charts for analyzing search traffic analytics.
+
+![Power BI dashboard for Azure Search](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Power BI dashboard for Azure Search")
+
+This template contains charts and tables that help you make more informed decisions to improve your search performance and relevance.
 
 Metrics included in the Power BI desktop template:
 
@@ -188,7 +201,7 @@ Metrics included in the Power BI desktop template:
 ## Next Steps
 Instrument your search application to get powerful and insightful data about your search service.
 
-You can find more information on Application Insights [here](https://go.microsoft.com/fwlink/?linkid=842905). Visit Application Insights [pricing page](https://azure.microsoft.com/pricing/details/application-insights/) to learn more about their different service tiers.
+You can find more information on [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) and visit the [pricing page](https://azure.microsoft.com/pricing/details/application-insights/) to learn more about their different service tiers.
 
 Learn more about creating amazing reports. See [Getting started with Power BI Desktop](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-getting-started/) for details
 
