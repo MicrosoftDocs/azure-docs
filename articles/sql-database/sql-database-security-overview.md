@@ -19,15 +19,15 @@ This article outlines the basics of securing the data tier of an application usi
 
 ![sql-security-layer.png](media/sql-database-security-overview/sql-security-layer.png)
 
-## Network Security
+## Network security
 
 Microsoft Azure SQL Database provides a relational database service for cloud and enterprise applications. To help protect customer data, firewalls prevent network access to the database server until access is explicitly granted based on IP address or Azure Virtual network traffic origin.
 
-### IP Firewall Rules
+### IP firewall rules
 
 IP firewall rules grant access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database and SQL Data Warehouse firewall rules](sql-database-firewall-configure.md).
 
-### Virtual Network Firewall Rules
+### Virtual network firewall rules
 
 [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network connectivity over the Azure backbone and enable Azure SQL Database to identify the virtual network subnet that traffic originates from. To allow traffic to reach Azure SQL Database, use the SQL [service tags](../virtual-network/security-overview.md) to allow outbound traffic through Network Security Groups.
 
@@ -36,7 +36,7 @@ IP firewall rules grant access to databases based on the originating IP address 
 > [!NOTE]
 > Controlling access with firewall rules does *not* apply to **Azure SQL Database Managed Instance**. For more information about the networking configuration needed, see [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md)
 
-## Access Management
+## Access management
 
 > [!IMPORTANT]
 > Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md).
@@ -73,21 +73,21 @@ Row-Level Security enables customers to control access to rows in a database tab
 
 For an overview of permissions in Azure SQL Database, see [Logins and users](sql-database-manage-logins.md#permissions)
 
-## Threat Protection
+## Threat protection
 
 SQL Database secures customer data by providing auditing and threat detection capabilities.
 
-### SQL Auditing in Log Analytics and Event Hubs
+### SQL auditing in Log Analytics and Event Hubs
 
 SQL Database Auditing tracks database activities and helps to maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure Storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](sql-database-auditing.md).  
 
 ### SQL Threat Detection
 
-Threat Detection enhances auditing by analyzing audit logs for unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities or anomalous access patterns such as SQL injection attacks, potential data infiltration, and brute force password attacks. Threat Detection alerts are viewed from the [Azure Security Center](https://azure.microsoft.com/en-us/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Threat Detection costs $15/server/month. It's free for the first 60 days. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).
+Threat Detection enhances auditing by analyzing audit logs for unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities or anomalous access patterns such as SQL injection attacks, potential data infiltration, and brute force password attacks. Threat Detection alerts are viewed from the [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Threat Detection costs $15/server/month. It's free for the first 60 days. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
-## Information Protection and Encryption
+## Information protection and encryption
 
 ### Transport Layer Security TLS (Encryption-in-transit)
 
@@ -128,7 +128,7 @@ SQL Database dynamic data masking limits sensitive data exposure by masking it t
 
 [Static Data Masking](/sql/relational-databases/security/static-data-masking) is a client-side tool available in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 preview 5 and higher.  Static Data Masking allows users to create a copy of a database where the data in selected columns has been permanently masked. The masking functions available include NULL masking, single value masking, shuffle and group shuffle masking, and string composite masking. With the masked copy of the database, organizations are able to separate production and test environments by sharing the masked copy. The sensitive data is sufficiently protected and all other database characteristics have been maintained. Masking databases is recommended where third-party access to databases is required.
 
-## Security Management
+## Security management
 
 ### SQL Vulnerability Assessment
 
