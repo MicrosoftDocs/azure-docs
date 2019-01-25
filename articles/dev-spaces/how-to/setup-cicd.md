@@ -15,9 +15,11 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 
 # Using CI/CD with Azure Dev Spaces
 
-This article guides you through setting up a continuous integration/continuous deployment (CI/CD) pipeline on an AKS cluster with Dev Spaces enabled. We provide a sample application and use Azure DevOps Pipelines to configure the CI/CD pipeline. Configuring CI/CD will automatically deploy application updates whenever committed code is pushed to your source repository, and you can also continue using your cluster for testing and debugging pre-commit code on-demand with Azure Dev Spaces.
+This article guides you through setting up continuous integration/continuous deployment (CI/CD) to Azure Kubernetes Service (AKS) with Dev Spaces enabled so that app updates are automatically deployed whenever committed code is pushed to your source repository. Using this in conjunction with a Dev Spaces enabled cluster is useful because it can keep a baseline of the application up to date for the team to work with.
 
-After using Azure Dev Spaces and discovering how easy it is to convert code into a running Kubernetes service, it may be tempting to try and use the Dev Spaces tooling in your CI/CD system to `azds up` your projects to avoid having to build and push a Docker image to a repository, set per-release Helm chart variables, etc. However, we don't recommend going with that approach because Dev Spaces inserts configuration that streamlines development experiences, and you probably don’t want to run this in production (for example, opening debugger ports, streaming all logs, and routing requests to app code under development).
+![Example CI/CD diagram](../media/common/ci-cd-simple.png)
+
+Although this article guides you with Azure DevOps, the same concepts would apply to CI/CD systems like Jenkins, TeamCity, etc.
 
 ## Prerequisites
 * [Azure Kubernetes Service (AKS) cluster with Azure Dev Spaces enabled](../1-get-started-netcore.md)
@@ -130,6 +132,8 @@ To manually promote a particular release to _prod_ using the CI/CD system we've 
 Our CI/CD pipeline example makes use of variables to change the DNS prefix for *webfrontend* depending on which environment is being deployed. So to access your 'prod' services, you can use a URL like: `http://prod.webfrontend.<hash>.<region>.aksapp.io`.
 
 After deployment, you can find this URL using the *kubectl* CLI:
+<!-- TODO update below to use list-uris when the product has been updated to list non-azds ingresses #769297 -->
+
 ```cmd
 kubectl get ingress -n prod webfrontend -o=jsonpath="{.spec.rules[0].host}"
 ```

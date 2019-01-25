@@ -69,7 +69,11 @@ First we'll need to deploy a baseline of our services. This deployment will repr
 > following a Ctrl+F5.
 
 > [!TIP]
-> We've written a how-to guide so you can deploy a fully automated CI/CD system on Azure DevOps which will automatically keep your baseline up-to-date based on what's been checked-in. You can follow that guide by going [here](how-to/setup-cicd.md).
+> The above steps manually set up a baseline, but we recommend teams use CI/CD to automatically keep your baseline up to date with committed code.
+>
+> Check out our [guide to setting up CI/CD with Azure DevOps](how-to/setup-cicd.md) to create a workflow similar to the following diagram.
+>
+> ![Example CI/CD diagram](media/common/ci-cd-complex.png)
 
 Anyone who opens the public URL and navigates to the web app will invoke the code path you have written which runs through both services using the default _dev_ space. Now suppose you want to continue developing *mywebapi* - how can you do this and not interrupt other developers who are using the dev space? To do that, you'll set up your own space.
 

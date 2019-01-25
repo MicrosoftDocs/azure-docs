@@ -52,14 +52,17 @@ First we'll need to deploy a baseline of our services. This deployment will repr
 
 1. Clone the [Dev Spaces sample application](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Checkout the remote branch *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
-1. Close all VS Code windows for both services. (This is a Preview limitation.)
 1. Select the _dev_ space: `azds space select --name dev`. When prompted to select a parent dev space, select _\<none\>_.
 1. Navigate to the _mywebapi_ directory and execute: `azds up -d`
 1. Navigate to the _webfrontend_ directory and execute: `azds up -d`
 1. Execute `azds list-uris` to see the public endpoint for _webfrontend_
 
 > [!TIP]
-> We've written a how-to guide so you can deploy a fully automated CI/CD system on Azure DevOps which will automatically keep your baseline up-to-date based on what's been checked-in. You can follow that guide by going [here](../articles/dev-spaces/how-to/setup-cicd.md).
+> The above steps manually set up a baseline, but we recommend teams use CI/CD to automatically keep your baseline up to date with committed code.
+>
+> Check out our [guide to setting up CI/CD with Azure DevOps](../articles/dev-spaces/how-to/setup-cicd.md) to create a workflow similar to the following diagram.
+>
+> ![Example CI/CD diagram](../articles/dev-spaces/media/common/ci-cd-complex.png)
 
 At this point your baseline should be running. Run the `azds list-up` command, and you'll see output similar to the following:
 
@@ -84,6 +87,7 @@ azds space select --name scott
 When prompted, select _dev_ as the **parent dev space**. This means our new space, _dev/scott_, will derive from the space _dev_. We'll shortly see how this will help us with testing.
 
 Keeping with our introductory hypothetical, we've used the name _scott_ for the new space so peers can identify who is working in it. But it can be called anything you like, and be flexible about what it means, like _sprint4_ or _demo_. Whatever the case, _dev_ serves as the baseline for all developers working on a piece of this application:
+
 ![](../articles/dev-spaces/media/common/ci-cd-space-setup.png)
 
 Run the `azds space list` command to see a list of all the spaces in the dev environment. The _Selected_ column indicates which space you currently have selected (true/false). In your case, the space named _dev/scott_ was automatically selected when it was created. You can select another space at any time with the `azds space select` command.
