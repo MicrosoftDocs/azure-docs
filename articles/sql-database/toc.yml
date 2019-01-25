@@ -9,8 +9,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Managed Instance quick start guide
-    href: sql-database-managed-instance-quick-start-guide.md
+  - name: Managed Instance quickstart guide
+    href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
     - name: Single database
