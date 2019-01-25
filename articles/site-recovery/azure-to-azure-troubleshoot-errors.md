@@ -15,8 +15,8 @@ ms.author: sujayt
 This article describes the common issues in Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region and explains how to troubleshoot them. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
 
 ## List of Errors
-**[Azure resource quota issues (error code 150097)](#azure-to-azure-troubleshoot-errors#trusted-root-certificates-error-code-151066)** 
-## Azure resource quota issues (error code 150097)
+**[Azure resource quota issues (error code 150097)](#azure-resource-quota-issues-error-code-150097)** 
+## <a name="azure-resource-quota-issues-error-code-150097">Azure resource quota issues (error code 150097)
 Your subscription should be enabled to create Azure VMs in the target region that you plan to use as your disaster recovery region. Also, your subscription should have sufficient quota enabled to create VMs of specific size. By default, Site Recovery picks the same size for the target VM as the source VM. If the matching size isn't available, the closest possible size is picked automatically. If there's no matching size that supports source VM configuration, this error message appears:
 
 **Error code** | **Possible causes** | **Recommendation**
@@ -323,9 +323,8 @@ blkid /dev/sda1
 
 
 ## Site recovery mobility service update completed with warnings ( error code 151083)
-**Possible Cause:** </br>
-In some of the updates of site recovery agent there could be fixes/enhancements  in the filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery agent updates that has filter driver changes we update the machine but still gives warning that some fixes requires a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot. 
-**Please note** that this is just a warning and existing replication will keep on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working.
+Site Recovery mobility service has many component and one of which is filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes requires a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+**Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.  
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
