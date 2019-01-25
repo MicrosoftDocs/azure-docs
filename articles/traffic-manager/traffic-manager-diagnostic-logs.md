@@ -1,6 +1,6 @@
 ---
-title: Enable Traffic Manager diagnostic logging in Azure
-description: This article will help you access your Traffic Manager log files.
+title: Enable diagnostic logging in Azure Traffic Manager
+description: Learn how to enable diagnostic logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
 author: KumudD
 manager: twooley
@@ -13,7 +13,7 @@ ms.date: 01/24/2019
 ms.author: kumud
 ---
 
-# Enable Traffic Manager diagnostic logging in Azure
+# Enable diagnostic logging in Azure Traffic Manager
 
 This article describes how to enable diagnostic logging and access log data for a Traffic Manager profile.
 
@@ -24,27 +24,29 @@ If you run PowerShell from your computer, you need the *AzureRM* PowerShell modu
 
 ## Enable diagnostic logging
 
-1. Retrieve the Traffic Manager profile.
-To enable diagnostic logging, you need the ID of a Traffic Manager profile. Retrieve the Traffic Manager profile that you want to enable diagnostic logging for with [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile). The output includes the Traffic Manager profile's ID information.
+1. **Retrieve the Traffic Manager profile:**
 
-```azurepowershell-interactive
-Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
-```
+    To enable diagnostic logging, you need the ID of a Traffic Manager profile. Retrieve the Traffic Manager profile that you want to enable diagnostic logging for with [Get-AzureRmTrafficManagerProfile](/powershell/module/AzureRM.TrafficManager/Get-AzureRmTrafficManagerProfile). The output includes the Traffic Manager profile's ID information.
 
-2. Enable diagnostic logging for the Traffic Manager profile.
-Enable diagnostic logging for the Traffic Manager profile using the ID obtained in the previous step with [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
+    ```azurepowershell-interactive
+    Get-AzureRmTrafficManagerProfile -Name <TrafficManagerprofilename> -ResourceGroupName <resourcegroupname>
+    ```
 
-  ```azurepowershell-interactive
-Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
-  ``` 
+2. **Enable diagnostic logging for the Traffic Manager profile:**
 
-3. Verify diagnostic settings.
-Verify diagnostic settings for the Traffic Manager profile using [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). The following command displays the categories that are logged for a resource.
+    Enable diagnostic logging for the Traffic Manager profile using the ID obtained in the previous step with [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/set-azurermdiagnosticsetting?view=latest). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
 
- ```azurepowershell-interactive
- Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
- ```  
-   Ensure that all log categories associated with the Traffic Manager profile resource display as enabled. Also, verify that the storage account is correctly set.
+      ```azurepowershell-interactive
+    Set-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
+      ``` 
+3. **Verify diagnostic settings:**
+
+      Verify diagnostic settings for the Traffic Manager profile using [Get-AzureRmDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/azurerm.insights/get-azurermdiagnosticsetting?view=latest). The following command displays the categories that are logged for a resource.
+
+     ```azurepowershell-interactive
+     Get-AzureRmDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>
+     ```  
+      Ensure that all log categories associated with the Traffic Manager profile resource display as enabled. Also, verify that the storage account is correctly set.
 
 ## Access log files
 1. Sign in to the [Azure portal]() 
