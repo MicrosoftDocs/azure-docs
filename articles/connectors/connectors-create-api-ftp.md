@@ -93,7 +93,20 @@ and then choose **Create**.
 1. Provide the necessary details for your selected trigger 
 or action and continue building your logic app's workflow.
 
+When requesting file content, the trigger doesn't get 
+files larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern:
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## Examples
+
+<a name="file-added-modified"></a>
 
 ### FTP trigger: When a file is added or modified
 
@@ -149,6 +162,8 @@ select the right angle arrow (**>**), browse to that folder, and then select the
 Now that your logic app has a trigger, add the actions you want 
 to run when your logic app finds a new or edited file. For this example, 
 you can add an FTP action that gets the new or updated content.
+
+<a name="get-file-with-path"></a>
 
 ### FTP action: Get content
 
