@@ -13,20 +13,24 @@ ms.custom: include file
 
 ## Run image from registry
 
-Now, you can pull and run the `busybox:v1` container image from your container registry. This [docker run][docker-run] example displays the current date and time:
+Now, you can pull and run the `hello-world:v1` container image from your container registry by using [docker run][docker-run]:
 
 ```Docker
-docker run <acrLoginServer>/busybox:v1 date 
+docker run <acrLoginServer>/hello-world:v1  
 ```
 
 Example output: 
 
 ```
-Unable to find image 'mycontainerregistry007.azurecr.io/busybox:v1' locally
-v1: Pulling from busybox
+Unable to find image 'mycontainerregistry007.azurecr.io/hello-world:v1' locally
+v1: Pulling from hello-world
 Digest: sha256:662dd8e65ef7ccf13f417962c2f77567d3b132f12c95909de6c85ac3c326a345
-Status: Downloaded newer image for mycontainerregistry007.azurecr.io/busybox:v1
-Wed Jan 23 00:45:03 UTC 2019
+Status: Downloaded newer image for mycontainerregistry007.azurecr.io/hello-world:v1
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+[...]
 ```
 
 <!-- LINKS - External -->
