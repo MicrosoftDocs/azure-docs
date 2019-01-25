@@ -29,7 +29,6 @@ A user with owner permissions for the subscription should create the vFXT cluste
 
 * Accept terms for the Avere vFXT software
 * Create the cluster node access role 
-* Assign the required access role to the cluster controller (either by using the default role or by creating a custom role)  **[ XXX I think this isn't required now? XXX ]**
 
 There are two workarounds if you do not want to give owner access to the users who create the vFXT:
 
