@@ -45,6 +45,25 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ## Release notes
 
+### <a name="2.3.1"/>2.3.1
+* Fix handling very large query responses.
+* Fix resource token handling when instantiating client ([github #78](https://github.com/Azure/azure-cosmosdb-java/issues/78)).
+* Upgraded vulnerable dependency jackson-databind ([github #77](https://github.com/Azure/azure-cosmosdb-java/pull/77)). 
+
+### <a name="2.3.0"/>2.3.0
+* Fixed a resource leak bug.
+* Added support for MultiPolygon
+* Added support for custom headers in RequestOptions.
+
+### <a name="2.2.2"/>2.2.2
+* Fixed a packaging bug.
+
+### <a name="2.2.1"/>2.2.1
+* Fixed a NPE bug in write retry path.
+* Fixed a NPE bug in endpoint management.
+* Upgraded vulnerable dependencies ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Added support for Netty network logging for troubleshooting.
+
 ### <a name="2.1.0"/>2.1.0
 * Multi-region write support added for direct mode.
 * Added support for handling IOExceptions thrown as ServiceUnavailable exceptions, from a proxy.
