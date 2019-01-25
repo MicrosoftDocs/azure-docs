@@ -1,6 +1,6 @@
 ---
-title: Search Traffic Analytics - Azure Search
-description: Enable Search traffic analytics for Azure Search, a cloud hosted search service on Microsoft Azure, to unlock insights about your users and your data.
+title: implement search traffic analytics - Azure Search
+description: Enable search traffic analytics for Azure Search to add telemetry and user-initiated events to log files.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -11,7 +11,7 @@ ms.author: heidist
 ms.custom: seodec2018
 ---
 
-# Implementing search traffic analytics in Azure Search
+# Implement search traffic analytics in Azure Search
 Search traffic analytics is a pattern for implementing a feedback loop for your search service. This pattern describes the necessary data and how to collect it using Application Insights, an industry leader for monitoring services in multiple platforms.
 
 Search traffic analytics lets you gain visibility into your search service and unlock insights about your users and their behavior. By having data about what your users choose, it's possible to make decisions that further improve your search experience, and to back off when the results are not what expected.
@@ -30,7 +30,7 @@ There are two signals Search Traffic Analytics needs:
 
 By linking search and click events with a correlation id, it's possible to analyze the behaviors of users on your application. These search insights are impossible to obtain with only search traffic logs.
 
-## How to add search traffic analytics
+## Add search traffic analytics
 
 The signals mentioned in the preceding section must be gathered from the search application as the user interacts with it. Application Insights is an extensible monitoring solution, available for multiple platforms, with flexible instrumentation options. Usage of Application Insights lets you take advantage of the Power BI search reports created by Azure Search to make the analysis of data easier.
 
@@ -38,7 +38,7 @@ In the [portal](https://portal.azure.com) page for your Azure Search service, th
 
 ![Search Traffic Analytics instructions][1]
 
-## 1 - Select an Application Insights resource
+## 1 - Select a resource
 
 You need to select an Application Insights resource to use or create one if you don't have one already. You can use a resource that's already in use to log the required custom events.
 
@@ -46,7 +46,7 @@ When creating a new Application Insights resource, all application types are val
 
 You need the instrumentation key for creating the telemetry client for your application. You can get it from the Application Insights portal dashboard, or you can get it from the Search Traffic Analytics page, selecting the instance you want to use.
 
-## 2 - Instrument your application
+## 2 - Add instrumentation
 
 This phase is where you instrument your own search application, using the Application Insights resource your created in the step above. There are four steps to this process:
 
@@ -165,7 +165,7 @@ Every time that a user clicks on a document, that's a signal that must be logged
     	Rank: <clicked document position>
     });
 
-## 3 - Analyze with Power BI Desktop
+## 3 - Analyze in Power BI
 
 After you have instrumented your app and verified your application is correctly connected to Application Insights, you can use a predefined template created by Azure Search for Power BI desktop. 
 
