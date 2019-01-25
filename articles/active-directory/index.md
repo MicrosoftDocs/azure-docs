@@ -307,5 +307,26 @@ ms.author: barbkess
                 </ul>
             </li>
         </ul>
+        <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
+            <li>
+                <a href=" https://docs.microsoft.com/microsoft-365/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/caret_left.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Azure AD is included in Microsoft 365</h3>
+                                <p>Learn about Microsoft 365, including the types of available licenses and the associated features.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
