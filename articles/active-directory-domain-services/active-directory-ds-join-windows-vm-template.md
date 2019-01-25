@@ -96,7 +96,7 @@ After the deployment completes successfully, the specified Windows virtual machi
 
 
 ## Related Content
-* [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Overview of Azure PowerShell](/powershell/azure/overview)
 * [Azure quick-start template - Domain join a new VM](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Azure quick-start template - Domain join existing VMs](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
