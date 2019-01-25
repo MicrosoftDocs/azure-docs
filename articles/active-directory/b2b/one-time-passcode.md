@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 1/23/2019
+ms.date: 1/25/2019
 
 ms.author: mimart
 author: msmimart
@@ -30,7 +30,7 @@ This feature is currently available for preview (see [Opting in to the preview](
 > [!NOTE]
 > One-time passcode users must sign in using a link that includes the tenant context, for example `https://myapps.microsoft.com/<tenant id>`. Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or the Teams common endpoint will result in an error. 
 
-## User experience for the invited B2B user using a one-time passcode 
+## User experience with one-time passcode 
 With one-time passcode authentication, the guest user can redeem your invitation by clicking a direct link or by using the invitation email. In either case, a message in the browser indicates that a code will be sent to the guest user's email address. The guest user selects **Send code**:
  
    ![Access Panels manage app](media/one-time-passcode/otp-send-code.png)
@@ -42,7 +42,7 @@ A passcode is sent to the user’s email address. The user retrieves the passcod
 The guest user is now authenticated, and they can see the shared resource or continue signing in. 
 
 > [!NOTE]
-> One-time passcodes are valid for 30 minutes. After 30 minutes, that specific one-time passcode is no longer valid, and the user must request a new one. User sessions expire after 24 hours. After that time, the guest user receives a new passcode when they access the resource. Session expiration provides added security, especially after a guest user no longer needs access.
+> One-time passcodes are valid for 30 minutes. After 30 minutes, that specific one-time passcode is no longer valid, and the user must request a new one. User sessions expire after 24 hours. After that time, the guest user receives a new passcode when they access the resource. Session expiration provides added security, especially when a guest user leaves their company or no longer needs access.
 
 ## When does a guest user get a one-time passcode?
 
@@ -55,7 +55,7 @@ At the time of invitation, there's no indication that the user you're inviting w
 
 You can view guest users who authenticate with one-time passcodes in the Azure portal by going to **Azure Active Directory** > **Organizational relationships** > **Users from other organizations**.
 
-![View one-time passcode users in the Azure portal](media/one-time-passcode/otp-users.png)
+![View one-time passcode users in the Azure portal where Source equals OTP](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > When a user redeems a one-time passcode and later obtains an MSA, Azure AD account, or other federated account, they'll continue to be authenticated using a one-time passcode. If you want to update their authentication method, you can delete their guest user account and reinvite them.
@@ -125,7 +125,7 @@ Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
 ````
 
 ## Opting out of the preview after opting in
-It may take a few minutes for the opt-out action to take effect. If you turn off the preview, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite the user to enable them to sign in again.
+It may take a few minutes for the opt-out action to take effect. If you turn off the preview, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite the user to enable them to sign in again using another authentication method.
 
 ### To turn off the preview using the Azure AD portal
 1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD global administrator.
