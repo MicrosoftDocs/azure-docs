@@ -1,17 +1,18 @@
 ---
-title: How a Machine Learning Studio model becomes a web service
-titleSuffix: Azure Machine Learning Studio
+title: How a machine learning model becomes a web service
+titleSuffix: Azure Machine Learning Studio
 description: An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized Web service.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
-ms.topic: article
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ---
+
 # How a Machine Learning Studio model progresses from an experiment to an operationalized Web service
 Azure Machine Learning Studio provides an interactive canvas that allows you to develop, run, test, and iterate an ***experiment*** representing a predictive analysis model. There are a wide variety of modules available that can:
 
