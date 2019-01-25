@@ -15,7 +15,7 @@ ms.date: 01/25/2019
 ---
 # Getting started with Azure SQL Database Singleton
 
-[Azure SQL Database - Singleton](sql-database-single-index) or Single Database is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create SQL Database.
+[Azure SQL Database - Singleton](https://docs.microsoft.com/azure/sql-database/sql-database-single-index) or Single Database is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create SQL Database.
 
 ## Quickstart overview
 
