@@ -3,8 +3,8 @@ title: 'Azure Active Directory Domain Services: Enable kerberos constrained dele
 description: Enable kerberos constrained delegation on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 

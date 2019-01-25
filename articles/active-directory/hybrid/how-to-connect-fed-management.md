@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS management, AAD Connect, Connect, sign-in, AD FS cu
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -76,7 +76,7 @@ Configuring alternate login ID for AD FS consists of two main steps:
 
     ![Warning for missing KB on 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
 
-    To rectify the configuration in case of missing KB, install the required [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
+    To rectify the configuration in case of missing KB, install the required [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) and then repair the trust using [Repair AAD and AD FS Trust](#repairthetrust).
 
 > [!NOTE]
 > For more information on alternateID and steps to manually configure, read [Configuring Alternate Login ID](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)

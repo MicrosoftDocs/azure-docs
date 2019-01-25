@@ -35,7 +35,7 @@ which is an action in your logic app.
 > 
 > * If you already use API Management, you can use 
 > this service for this scenario. For more info, see 
-> [Simple enterprise integration architecture](http://aka.ms/aisarch).
+> [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
@@ -171,7 +171,7 @@ see the [connector's reference page](/connectors/azureblobconnector/).
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

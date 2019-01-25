@@ -13,4 +13,4 @@ ms.author: diberry
 --- 
 
 > [!NOTE] 
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-nodejs** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs).
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-nodejs** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs).

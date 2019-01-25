@@ -4,13 +4,13 @@ description: Microsoft Azure Multi-Factor Authentication get started with condit
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/01/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
 ---
@@ -102,6 +102,8 @@ To confirm that your conditional access policy works, test logging in to a resou
 ## Next steps
 
 Congratulations, you have set up Azure Multi-Factor Authentication in the cloud.
+
+Why was a user prompted or not prompted to perform MFA? See the section [Azure AD sign-ins report in the Reports in Azure Multi-Factor Authentication document](howto-mfa-reporting.md#azure-ad-sign-ins-report).
 
 To configure additional settings like trusted IPs, custom voice messages, and fraud alerts, see the article [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
 

@@ -139,7 +139,7 @@ LicenseType              :
 
 ### CLI
 ```azurecli
-az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
+az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 > [!NOTE]
@@ -160,7 +160,7 @@ $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name
 
 ### CLI
 ```azurecli
-az vm list --query '[?licenseType==Windows_Server]' -o table
+az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## Deploy a Virtual Machine Scale Set with Azure Hybrid Benefit for Windows Server

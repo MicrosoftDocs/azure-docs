@@ -5,12 +5,14 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/06/2018
+ ms.date: 10/08/2018
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
 
 General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing and development, small to medium databases, and low to medium traffic web servers. This article provides information about the number of vCPUs, data disks and NICs as well as storage throughput for sizes in this grouping. 
+
+- The [DC-series](#dc-series) is a new family of virtual machines in Azure that can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of 3.7GHz Intel XEON E-2176G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 4.7GHz. DC series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
 
 - The Av2-series VMs can be deployed on a variety of hardware types and processors. A-series VMs have CPU performance and memory configurations best suited for entry level workloads like development and test. The size is throttled, based upon the hardware, to offer consistent processor performance for the running instance, regardless of the hardware it is deployed on. To determine the physical hardware on which this size is deployed, query the virtual hardware from within the Virtual Machine.
 
@@ -22,7 +24,6 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
   Example D-series use cases include  enterprise-grade applications, relational databases, in-memory caching, and analytics. 
   
-- The [DC-series](#dc-series) is a new family of virtual machines in Azure that can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of 3.7GHz Intel XEON E-2176G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 4.7GHz. DC series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use
 
 ## B-series
 

@@ -3,8 +3,8 @@ title: 'Disable Azure Active Directory Domain Services | Microsoft Docs'
 description: Disable Azure Active Directory Domain Services using the Azure portal
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 89e407e1-e1e0-49d1-8b89-de11484eee46
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Disable Azure Active Directory Domain Services using the Azure portal

@@ -1,16 +1,19 @@
 ---
-title: About Speech to Text
-description: An overview of the capabilities of Speech to Text API.
-titleSuffix: "Microsoft Cognitive Services"
+title: About Speech to Text - Speech Services
+titleSuffix: Azure Cognitive Services
+description: The Speech-to-Text API transcribes audio streams into text that your app can display or act on as an input. The service is available via the SDK and a RESTful endpoint. 
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: v-jerkin
+ms.author: erhopf
+ms.custom: seodec18
 ---
+
 # About the Speech to Text API
 
 The **Speech to Text** API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST API.
@@ -33,7 +36,7 @@ The **Speech to Text** API offers the following features:
 
 ## API capabilities
 
-Some of the capabilities of the **Speech to Text** API -especially around customization- are available via REST. The following table summarizes the capabilities of each method of accessing the API. 
+Some of the capabilities of the **Speech to Text** API, especially around customization, are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details, see [Swagger reference](https://westus.cris.ai/swagger/ui/index).
 
 | Use case | REST | SDKs |
 |-----|-----|-----|----|
@@ -50,7 +53,7 @@ Some of the capabilities of the **Speech to Text** API -especially around custom
 | Create & manage model deployments | Yes | No |
 
 > [!NOTE]
-> The REST API implements throttling that limits the API requests to 25 per 5 second. Message hearders will inform of the limits
+> The REST API implements throttling that limits the API requests to 25 per 5 second. Message headers will inform of the limits
 
 \* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
 

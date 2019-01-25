@@ -10,9 +10,10 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/08/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
 ---
 # Support
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 If you have questions, feedback, or suggestions about Bing Speech, you can reach out to us via GitHub. 
  - [REST API-related questions](https://github.com/Azure-Samples/SpeechToText-REST/issues)

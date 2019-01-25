@@ -1,5 +1,5 @@
 ---
-title: Private SKUs | Microsoft Docs
+title: Private SKUs and plans | Microsoft Docs
 description: How to use private SKUs to manage the offer availability.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
@@ -17,13 +17,13 @@ ms.date: 09/13/2018
 ms.author: pbutlerm
 ---
 
-Private SKUs
+Private SKUs and Plans
 ============
 
 Private SKUs enable you to restrict the availability of SKUs to specific
 customers. When a SKU is marked private, it's not available in any
 public catalog including on [Azure
-Marketplace](http://azuremarketplace.microsoft.com) and the [Azure
+Marketplace](https://azuremarketplace.microsoft.com) and the [Azure
 portal](http://portal.azure.com). On the Azure portal, only customers
 with access to the SKU can see it. Additionally, they would also be
 prompted that they have access to private offers.
@@ -44,7 +44,7 @@ You can use private SKUs to handle the following scenarios:
 If you only want to change the price, you can reuse the disks from
 another SKU in the same offer. With private SKUs, you don't have to resubmit disks across SKUs.
 
-Mark a SKU Private
+Mark a SKU private
 ---------------------
 
 To mark a SKU as private, toggle the option asking if the SKU is
@@ -85,7 +85,7 @@ SKU's image. Behind the scenes, the image for the private SKU will also
 be updated automatically. Similarly, if you delete the image from the
 underlying SKU, the image would also be removed from the private SKU.
 
-Restricting the Audience
+Restricting the audience
 ------------------------
 
 Private offers can be found and deployed only by targeted users.
@@ -113,7 +113,12 @@ manual entry, the old list of subscription Ids with access to the SKU is
 not retained. A warning is displayed and the list is only overwritten
 upon saving the offer.
 
-Previewing Private Offers
+Sync Private subscriptions
+-------------------------
+
+When adding subscriptions to a published offer with a Private SKU or Plan, you do not need to re-publish the offer to add audience information. Simply use an Azure subscription ID (Plans and SKUs) or Tenant ID (Plans only) to add audience.
+
+Previewing Private offers
 -------------------------
 
 During the preview/staging step, only the offer level preview

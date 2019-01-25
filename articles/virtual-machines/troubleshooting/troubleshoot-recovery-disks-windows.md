@@ -234,10 +234,10 @@ Stop-AzureRmVM -ResourceGroupName myResourceGroup -Name $vm.Name -Force
 $disk = Get-AzureRmDisk -ResourceGroupName myResourceGroup -Name newDisk
 
 # Set the VM configuration to point to the new disk  
-Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name 
+Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $disk.Id -Name $disk.Name  -sto
 
-# Update the VM with the new OS disk
-Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm 
+# Update the VM with the new OS disk. Possible values of StorageAccountType include: 'Standard_LRS' and 'Premium_LRS'
+Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -StorageAccountType <Type of the storage account >
 
 # Start the VM
 Start-AzureRmVM -Name $vm.Name -ResourceGroupName myResourceGroup

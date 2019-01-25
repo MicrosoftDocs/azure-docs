@@ -20,9 +20,9 @@ With **Microsoft Power BI Workspace Collections**, you can integrate Power BI re
 
 Before we go any further, you want to save the following resources: They help you when integrating Power BI reports into the sample app and your own apps too.
 
-* [Sample workspace web app](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Sample workspace web app](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI Workspace Collections API reference](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
+* [Power BI .NET SDK ](https://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
 * [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -32,7 +32,7 @@ Before we go any further, you want to save the following resources: They help yo
 
 Let's walk through setting up your Visual Studio development environment to access the  components needed to run the sample app.
 
-1. Download and unzip the [Power BI Workspace Collections - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) sample on GitHub.
+1. Download and unzip the [Power BI Workspace Collections - Integrate a report into a web app](https://go.microsoft.com/fwlink/?LinkId=761493) sample on GitHub.
 2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGet Package Manager Console in order to update the packages used in this solution.
 3. Build the solution.
 4. Run the **ProvisionSample** console app. In the sample console app, you provision a workspace and import a PBIX file.
@@ -45,7 +45,7 @@ Let's walk through setting up your Visual Studio development environment to acce
 8. Copy and save the newly created **Workspace ID** to use later in this article. After the **Workspace ID** is created, you can find it the **Azure portal**.
 
     ![Workspace ID within Azure portal](media/get-started-sample/workspace-id.png)
-9. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. To import a PBIX file into your **Workspace**, select option **6. Import PBIX Desktop file into an existing workspace**. If you don't have a PBIX file handy, you can download the [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547).
 10. If prompted, enter a friendly name for your **Dataset**.
 
 You should see a response like:
@@ -77,7 +77,7 @@ The web app sample is a sample application that renders reports imported into yo
     ```
 3. Run the **EmbedSample** web application.
 
-Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), the sample web app would look like this:
+Once you run the **EmbedSample** web application, the left navigation panel should contain a **Reports** menu. To view the report you imported, expand **Reports**, and click a report. If you imported the [Retail Analysis Sample PBIX](https://go.microsoft.com/fwlink/?LinkID=780547), the sample web app would look like this:
 
 ![Sample left nav within sample application](media/get-started-sample/sample-left-nav.png)
 

@@ -30,7 +30,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ Make sure there is an API App in your subscription. For more information, see [App Service Documentation][https://docs.microsoft.com/azure/app-service/]
++ Make sure there is an API App in your subscription. For more information, see [App Service Documentation](https://docs.microsoft.com/azure/app-service/)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -39,7 +39,7 @@ In this article, you learn how to:
 1. Select **APIs** from under **API MANAGEMENT**.
 2. Select **API App** from the **Add a new API** list.
 
-    !(API app)[./media/import-api-app-as-api/api-app.png]
+    ![API app](./media/import-api-app-as-api/api-app.png)
 3. Press **Browse** to see the list of API Apps in your subscription.
 4. Select the app. APIM finds the swagger associated with the selected app, fetches it, and imports it. 
 

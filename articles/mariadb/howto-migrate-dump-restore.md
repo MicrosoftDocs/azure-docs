@@ -3,8 +3,6 @@ title: Migrate your MariaDB database using dump and restore in Azure Database fo
 description: This article explains two common ways to back up and restore databases in your Azure Database for MariaDB, using tools such as mysqldump, MySQL Workbench, and PHPMyAdmin.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
@@ -25,7 +23,9 @@ To step through this how-to guide, you need to have:
 Use common utilities and tools such as MySQL Workbench, mysqldump, Toad, or Navicat to remotely connect and restore data into Azure Database for MariaDB. Use such tools on your client machine with an internet connection to connect to the Azure Database for MariaDB. Use an SSL encrypted connection for best security practices, see also [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md). You do not need to move the dump files to any special cloud location when migrating to Azure Database for MariaDB. 
 
 ## Common uses for dump and restore
-You may use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure Database for MariaDB server in several common scenarios. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+You may use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure Database for MariaDB server in several common scenarios. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Use database dumps when you are migrating the entire database. This recommendation holds when moving a large amount of data, or when you want to minimize service interruption for live sites or applications. 
 -  Make sure all tables in the database use the InnoDB storage engine when loading data into Azure Database for MariaDB. Azure Database for MariaDB supports only InnoDB Storage engine, and therefore does not support alternative storage engines. If your tables are configured with other storage engines, convert them into the InnoDB engine format before migration to Azure Database for MariaDB.
@@ -122,5 +122,5 @@ Importing your database is similar to exporting. Do the following actions:
 - [Connect applications to Azure Database for MariaDB](./howto-connection-string.md).
  
 <!--
-- For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](http://aka.ms/datamigration).
+- For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](https://aka.ms/datamigration).
 -->

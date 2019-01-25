@@ -11,31 +11,31 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ---
-# Use Go to query an Azure SQL database
+# Quickstart: Use Golang to query an Azure SQL database
 
-This quickstart demonstrates how to use [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) to connect to an Azure SQL database. Transact-SQL statements to query and modify data are also demonstrated.
+In this quickstart, you'll use the [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) programming language to connect to an Azure SQL database. You'll then run Transact-SQL statements to query and modify data. [Golang](https://golang.org/) is an open-source programming language that makes it easy to build simple, reliable, and efficient software.  
 
 ## Prerequisites
 
-To complete this quickstart, make sure you have the following prerequisites:
+To complete this tutorial, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
+- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) configured for your computer's public IP address.
 
-- You have installed Go and related software for your operating system:
+- Golang and related software for your operating system installed:
 
-    - **MacOS**: Install Homebrew and GoLang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu**:  Install GoLang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-    - **Windows**: Install GoLang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
+    - **MacOS**: Install Homebrew and Golang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+    - **Ubuntu**:  Install Golang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+    - **Windows**: Install Golang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
 
 ## SQL server connection information
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## Create Go project and dependencies
+## Create Golang project and dependencies
 
 1. From the terminal, create a new project folder called **SqlServerSample**. 
 
@@ -43,7 +43,7 @@ To complete this quickstart, make sure you have the following prerequisites:
    mkdir SqlServerSample
    ```
 
-2. Change directory to **SqlServerSample** and get and install the SQL Server driver for Go:
+2. Navigate to **SqlServerSample** and install the SQL Server driver for Go.
 
    ```bash
    cd SqlServerSample
@@ -53,7 +53,7 @@ To complete this quickstart, make sure you have the following prerequisites:
 
 ## Create sample data
 
-1. Using your favorite text editor, create a file called **CreateTestData.sql** in the **SqlServerSample** folder. Copy and paste the following the T-SQL code inside it. This code creates a schema, table, and inserts a few rows.
+1. In a text editor, create a file called **CreateTestData.sql** in the **SqlServerSample** folder. In the file, paste this T-SQL code, which creates a schema, table, and inserts a few rows.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -76,17 +76,17 @@ To complete this quickstart, make sure you have the following prerequisites:
    GO
    ```
 
-2. Connect to the database using sqlcmd and run the SQL script to create the schema, table, and insert some rows. Replace the appropriate values for your server, database, username, and password.
+2. Use `sqlcmd` to connect to the database and run your newly created SQL script. Replace the appropriate values for your server, database, username, and password.
 
    ```bash
-   sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
+   sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
    ```
 
 ## Insert code to query SQL database
 
 1. Create a file named **sample.go** in the **SqlServerSample** folder.
 
-2. Open the file and replace its contents with the following code. Add the appropriate values for your server, database, username, and password. This example uses the GoLang Context methods to ensure that there is an active connection to the database server.
+2. In the file, paste this code. Add the values for your server, database, username, and password. This example uses the Golang [context methods](https://golang.org/pkg/context/) to make sure there's an active database server connection.
 
    ```go
    package main
@@ -102,11 +102,11 @@ To complete this quickstart, make sure you have the following prerequisites:
 
    var db *sql.DB
 
-   var server = "your_server.database.windows.net"
+   var server = "<your_server.database.windows.net>"
    var port = 1433
-   var user = "your_username"
-   var password = "your_password"
-   var database = "your_database"
+   var user = "<your_username>"
+   var password = "<your_password>"
+   var database = "<your_database>"
 
    func main() {
        // Build connection string
@@ -282,13 +282,13 @@ To complete this quickstart, make sure you have the following prerequisites:
 
 ## Run the code
 
-1. At the command prompt, run the following commands:
+1. At the command prompt, run the following command.
 
    ```bash
    go run sample.go
    ```
 
-2. Verify the output:
+2. Verify the output.
 
    ```text
    Connected!
@@ -305,6 +305,6 @@ To complete this quickstart, make sure you have the following prerequisites:
 ## Next steps
 
 - [Design your first Azure SQL database](sql-database-design-first-database.md)
-- [Go Driver for Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
+- [Golang driver for Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Report issues or ask questions](https://github.com/denisenkom/go-mssqldb/issues)
 

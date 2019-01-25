@@ -5,7 +5,7 @@
  author: rothja
  ms.service: billing
  ms.topic: include
- ms.date: 08/22/2018
+ ms.date: 10/19/2018
  ms.author: jroth
  ms.custom: include file
 ---
@@ -19,8 +19,6 @@
 | [Storage accounts](../articles/storage/common/storage-quickstart-create-account.md) per region per subscription |200 |200<sup>2</sup> |
 | [Resource Groups](../articles/azure-resource-manager/resource-group-overview.md) per subscription |980 |980 |
 | [Availability Sets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,000 per Region |2,000 per Region |
-| Resource Manager API Reads |15,000 per hour |15,000 per hour |
-| Resource Manager API Writes |1,200 per hour |1,200 per hour |
 | Resource Manager API request size |4,194,304 bytes |4,194,304 bytes |
 | Tags per subscription<sup>3</sup> |unlimited |unlimited |
 | Unique tag calculations per subscription<sup>3</sup> | 10,000 | 10,000 |

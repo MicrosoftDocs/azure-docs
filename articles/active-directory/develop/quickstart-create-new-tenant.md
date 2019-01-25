@@ -23,11 +23,11 @@ ms.custom: aaddev
 
 # Quickstart: Set up a dev environment
 
-The Microsoft identity platform allows developers to build apps targeting a wide variety of custom Microsoft 365 environments and identities. To get started using Microsoft identity platform, you will access to an environment, also called an Azure AD tenant, that can register and manage apps, have access to Microsoft 365 data, and deploy custom Conditional Access and tenant restrictions. 
+The Microsoft identity platform allows developers to build apps targeting a wide variety of custom Microsoft 365 environments and identities. To get started using Microsoft identity platform, you will need access to an environment, also called an Azure AD tenant, that can register and manage apps, have access to Microsoft 365 data, and deploy custom Conditional Access and tenant restrictions.
 
-A tenant is representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft-- like signing up for Azure, Microsoft Intune, or Microsoft 365. 
+A tenant is a representation of an organization. It's a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft-- like signing up for Azure, Microsoft Intune, or Microsoft 365.
 
-Each Azure AD tenant is distinct and separate from other Azure AD tenants and has its own representation of work and school identities, consumer identities (if it's an Azure AD B2C tenant), and app registrations. An app registration inside of your tenant can allow authentications from accounts only within your tenant or all tenants. 
+Each Azure AD tenant is distinct and separate from other Azure AD tenants and has its own representation of work and school identities, consumer identities (if it's an Azure AD B2C tenant), and app registrations. An app registration inside of your tenant can allow authentications from accounts only within your tenant or all tenants.
 
 ## Determining environment type
 
@@ -66,7 +66,7 @@ If you don't already have an Azure AD tenant or want to create a new one for dev
 
 ## Social and local accounts
 
-To begin building apps that sign in social and local accounts, you'll need to create an Azure AD B2C tenant. To begin, follow [creating an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md). 
+To begin building apps that sign in social and local accounts, you'll need to create an Azure AD B2C tenant. To begin, follow [creating an Azure AD B2C tenant](../../active-directory-b2c/tutorial-create-tenant.md).
 
 ## Next steps
 

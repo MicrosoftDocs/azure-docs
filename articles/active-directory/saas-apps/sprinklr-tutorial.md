@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: b33938a1-25a5-484c-8e75-7dc6de2d534d
 ms.service: active-directory
@@ -158,7 +158,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     h. Paste the **Sign-Out URL** value which you have copied from Azure Portal into the **Identity Provider Logout URL** textbox.
      
-    i. As **SAML User ID Type**, select **Assertion contains User”s sprinklr.com username**.
+    i. As **SAML User ID Type**, select **Assertion contains User’s sprinklr.com username**.
 
     j. As **SAML User ID Location**, select **User ID is in the Name Identifier element of the Subject statement**.
 

@@ -1,20 +1,14 @@
 ---
-title: 'Getting ARP tables: Resource Manager: Azure ExpressRoute Troubleshooting | Microsoft Docs'
+title: 'Get ARP tables - Troubleshooting - ExpressRoute: Azure| Microsoft Docs'
 description: This page provides instructions on getting the ARP tables for an ExpressRoute circuit
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carolz
-editor: tysonn
 
-ms.assetid: 0a6bf1d5-6baf-44dd-87d3-1ebd2fd08bdc
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
+ms.custom: seodec18
 
 ---
 # Getting ARP tables in the Resource Manager deployment model
@@ -24,7 +18,7 @@ ms.author: ganesr
 > 
 > 
 
-This article walks you through the steps to learn the ARP tables for your ExpressRoute circuit. 
+This article walks you through the steps to learn the ARP tables for your ExpressRoute circuit.
 
 > [!IMPORTANT]
 > This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. You must open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you are unable to solve the problem using the guidance described below.

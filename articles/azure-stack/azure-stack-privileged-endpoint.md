@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
 
@@ -51,7 +51,7 @@ Before you begin this procedure for an integrated system, make sure you can acce
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - If you’re running the ADSK, sign in to the development kit host.
+    - If you’re running the ASDK, sign in to the development kit host.
 
 2. On the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation, open a Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
  
@@ -63,7 +63,7 @@ Before you begin this procedure for an integrated system, make sure you can acce
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts the PEP. 
-    - If you’re running the ADSK:
+    - If you’re running the ASDK:
      
       ````PowerShell
         $cred = Get-Credential
@@ -123,7 +123,7 @@ To import the PEP session on your local machine, do the following steps:
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - If you’re running the ADSK, sign in to the development kit host.
+    - If you’re running the ASDK, sign in to the development kit host.
 
 2. On the hardened virtual machine running on the hardware lifecycle host or the Privileged Access Workstation, open a Windows PowerShell session. Run the following commands to establish a remote session on the virtual machine that hosts the PEP:
  
@@ -135,7 +135,7 @@ To import the PEP session on your local machine, do the following steps:
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       The `ComputerName` parameter can be either the IP address or the DNS name of one of the virtual machines that hosts the PEP. 
-    - If you’re running the ADSK:
+    - If you’re running the ASDK:
      
       ````PowerShell
        $cred = Get-Credential

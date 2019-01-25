@@ -15,7 +15,7 @@ ms.author: carolz
 ---
 # Azure China 21Vianet
 
-Microsoft Azure operated by 21Vianet (Azure China 21Vianet), also known as Mooncake, is a cloud platform operated by a data trustee in China containing a growing collection of integrated cloud services that developers and IT professionals use to build, deploy, and manage applications. Azure China 21Vianet is a sovereign cloud—that is, a physically separated instance of cloud services located in mainland China, independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet"). 
+Microsoft Azure operated by 21Vianet is a cloud platform, designed to comply with regulatory requirement in China, that contains a growing collection of integrated cloud services. The services that developers and IT professionals use to build, deploy, and manage applications. Azure China 21Vianet is a physically separated instance of cloud services that is located in mainland China, independently operated and transacted by Shanghai Blue Cloud Technology Co., Ltd. ("21Vianet").
 
 Azure China 21Vianet provides world-class security and the <a href="https://www.trustcenter.cn/en-us/">compliance services</a> required by regulations in China for all systems and applications built on its architecture. Microsoft commercial cloud services adhere to policies and data-handling regulations stipulated by the government in China.
 
@@ -58,6 +58,6 @@ Azure China 21Vianet provides world-class security and the <a href="https://www.
     </li>
 </ul>
 
-<h3>Azure China 21Vianet (in Chinese)</h3>
-    <a href="https://school.azure.cn/">Azure School</a><br>
-    <a href="https://docs.azure.cn/zh-cn/">Azure Docs</a>
+<h3>Azure China 21Vianet</h3>
+    <a href="https://azure.microsoft.com/en-us/global-infrastructure/services/?products=all&regions=china-non-regional,china-east,china-east-2,china-north,china-north-2">Azure Products available by Region</a><br>
+    <a href="https://docs.azure.cn/zh-cn/">Azure Docs (in Chinese)</a>

@@ -85,9 +85,11 @@ In this step, you use the Data Factory UI to create a pipeline. You add an Execu
 
 ### Optionally, parameterize the activity
 
-Optionally, assign values, expressions, or functions, which can refer to Data Factory system variables, to your project or package parameters in JSON format by using the **View Source Code** button on the bottom of the Execute SSIS Package activity box, or the **Code** button on the top right-hand corner of the pipeline area. For example, you can assign Data Factory pipeline parameters to your SSIS project or package parameters as shown in the following screenshots:
+Optionally, assign values, expressions, or functions, which can refer to Data Factory system variables, to your project or package parameters in JSON format by using the "View Source Code" button on the bottom of your Execute SSIS Package activity box or the "Code" button on the top right-hand corner of your pipeline area. For example, you can assign Data Factory pipeline parameters to your SSIS project or package parameters as shown in the following screenshots:
 
 ![Edit JSON script for Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Add parameters to the Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ![Add parameters to the Execute SSIS Package activity](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
@@ -129,7 +131,7 @@ You can also create a scheduled trigger for your pipeline so that the pipeline r
 ## Run a package with PowerShell
 In this section, you use Azure PowerShell to create a Data Factory pipeline with an Execute SSIS Package activity that runs an SSIS package. 
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ### Create a data factory
 You can either use the same data factory that has the Azure-SSIS IR or create a separate data factory. The following procedure provides steps to create a data factory. You create a pipeline with an Execute SSIS Package activity in this data factory. The Execute SSIS Package activity runs your SSIS package. 

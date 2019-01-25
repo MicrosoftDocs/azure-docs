@@ -35,7 +35,7 @@ When working with Microsoft Azure BizTalk Services, there are several on-premise
 | 5. |Developer |Install the SDK and create the BizTalk Service project in Visual Studio. |[Install Azure BizTalk Services SDK](https://msdn.microsoft.com/library/azure/hh689760.aspx) and [Create Rich Messaging Endpoints on Azure](https://msdn.microsoft.com/library/azure/hh689766.aspx) |
 | 6. |Developer |Deploy your BizTalk Service project to your BizTalk Service hosted on Azure. |[Deploying and Refreshing the BizTalk Services Project](https://msdn.microsoft.com/library/azure/hh689881.aspx) |
 | 7. |Administrator |Applies if you are using EDI.  You can add Partners and create Agreements on the Microsoft Azure BizTalk Services Portal. When you create an Agreement, you can add the bridge and/or Transforms created by the developer to the Agreement settings. |[Configuring EDI, AS2, and EDIFACT on BizTalk Services Portal](https://msdn.microsoft.com/library/azure/hh689853.aspx) |
-| 8. |Administrator |Using [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), monitor the health of your BizTalk Service, including performance metrics. |[BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281) |
+| 8. |Administrator |Using [REST](https://msdn.microsoft.com/library/azure/dn232347.aspx), monitor the health of your BizTalk Service, including performance metrics. |[BizTalk Services: Dashboard, Monitor and Scale tabs](https://go.microsoft.com/fwlink/p/?LinkID=302281) |
 | 9. |Administrator |Using the Microsoft Azure BizTalk Services Portal, manage the artifacts used by BizTalk Services, and track messages as they are processed by the bridge files. |[Using the BizTalk Services Portal](https://msdn.microsoft.com/library/azure/dn874043.aspx) |
 | 10. |Administrator |Create a backup plan to back up the BizTalk Service. |[Business Continuity and Disaster Recovery in BizTalk Services](https://msdn.microsoft.com/library/azure/dn509557.aspx) |
 
@@ -54,5 +54,5 @@ When working with Microsoft Azure BizTalk Services, there are several on-premise
 [Add Source, Destination, and Bridge Messaging Endpoints](https://msdn.microsoft.com/library/azure/hh689877.aspx)  
 [Learn and create Message Maps and Transforms](https://msdn.microsoft.com/library/azure/hh689905.aspx)  
 [Using the BizTalk Adapter Service (BAS)](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
-[Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)
+[Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)
 

@@ -1,20 +1,17 @@
 ---
-title: Load Balancer TCP Reset on Idle | Microsoft Docs
+title: Load Balancer TCP Reset on Idle in Azure
+titlesuffix: Azure Load Balancer
 description: Load Balancer with bidirectional TCP RST packets on idle timeout
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 12/03/2018
 ms.author: kumud
 ---
 
@@ -39,7 +36,7 @@ Carefully examine the entire end to end scenario to decide whether you benefit f
 
 ## Enabling TCP Reset on idle timeout
 
-Using API version 2018-08-01, you can enable sending of bidirectional TCP Resets on idle timeout on a per rule basis:
+Using API version 2018-07-01, you can enable sending of bidirectional TCP Resets on idle timeout on a per rule basis:
 
 ```json
       "loadBalancingRules": [
@@ -72,7 +69,17 @@ This parameter is currently effective in the following regions.  In regions not 
 | Region |
 |---|
 | Asia Southeast |
+| Brazil South |
+| Canada Central |
 | Europe West |
+| India Central |
+| India West |
+| Japan West |
+| Korea Central |
+| Korea South |
+| UK North |
+| UK South 2 |
+| US East |
 | US East 2 |
 | US North |
 | US West |

@@ -17,14 +17,8 @@ These tutorials introduce you to Azure IoT Hub and the device SDKs. The tutorial
 
 | IoT device                       | Programming language |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Node.js][Pi_Nd], [C][Pi_C]  |
-| IoT DevKit                      | [Arduino in VSCode][DevKit]     |
-| Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
+| Raspberry Pi                    | [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md), [C](iot-hub-raspberry-pi-kit-c-get-started.md)  |
+| IoT DevKit                      | [Arduino in VSCode](iot-hub-arduino-iot-devkit-az3166-get-started.md)     |
+| Adafruit Feather HUZZAH ESP8266 | [Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)              |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
-
-
-[Pi_Nd]: iot-hub-raspberry-pi-kit-node-get-started.md
-[Pi_C]: iot-hub-raspberry-pi-kit-c-get-started.md
-[DevKit]: iot-hub-arduino-iot-devkit-az3166-get-started.md
-[Hu_Ard]: iot-hub-arduino-huzzah-esp8266-get-started.md

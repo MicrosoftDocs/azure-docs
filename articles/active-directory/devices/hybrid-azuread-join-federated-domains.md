@@ -1,10 +1,10 @@
 ---
-title: How to configure hybrid Azure Active Directory joined devices | Microsoft Docs
-description: Learn how to configure hybrid Azure Active Directory joined devices.
+title: Configure hybrid Azure Active Directory join for federated domains | Microsoft Docs
+description: Learn how to configure hybrid Azure Active Directory join for federated domains.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
-#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices so that I can automatically bring AD domain-joined devices under control
+#Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices for federated domains so that I can automatically bring AD domain-joined devices under control
 
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for federated domains
@@ -51,6 +51,7 @@ This tutorial assumes that you are familiar with:
 -  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
 
 
+
 To configure the scenario in this tutorial, you need:
 
 - Windows Server 2012 R2 with AD FS
@@ -70,11 +71,11 @@ The configuration steps in this article are based on this wizard. If you have an
 
 Hybrid Azure AD join requires the devices to have access to the following Microsoft resources from inside your organization's network:  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - Your organization's STS (federated domains)
-- https://autologon.microsoftazuread-sso.com (If you are using or planning to use Seamless SSO)
+- https\://autologon.microsoftazuread-sso.com (If you are using or planning to use Seamless SSO)
 
 Beginning with Windows 10 1803, if the instantaneous Hybrid Azure AD join for federated domain like AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that is subsequently used to complete the device registration for Hybrid Azure AD join.
 
@@ -122,7 +123,7 @@ To configure a hybrid Azure AD join using Azure AD Connect, you need:
 
     a. Select the forest.
 
-    b. Select the authentication service. You must select AD FS server unless your organization has exclusively Windows 10 clients.
+    b. Select the authentication service. You must select AD FS server unless your organization has exclusively Windows 10 clients and you have configured computer/device sync or your organization is using SeamlessSSO.
 
     c. Click **Add** to enter the enterprise administrator credentials.
 
@@ -154,6 +155,8 @@ If some of your domain-joined devices are Windows down-level devices, you need t
  
 - Configure the local intranet settings for device registration
 
+- Control Windows down-level devices 
+
 
 ### Update device settings 
 
@@ -174,8 +177,6 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - Your organization's Security Token Service (STS - federated domains)
 
 - `https://autologon.microsoftazuread-sso.com` (for Seamless SSO).
@@ -183,6 +184,10 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
 
 
+
+### Control Windows down-level devices 
+
+To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, click [here](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 ## Verify the registration
 
@@ -192,7 +197,7 @@ When using the **Get-MSolDevice** cmdlet to check the service details:
 
 - An object with the **device id** that matches the ID on the Windows client must exist.
 - The value for **DeviceTrustType** must be **Domain Joined**. This is equivalent to the **Hybrid Azure AD joined** state on the Devices page in the Azure AD portal.
-- The value for **Enabled** must be **True** for devices that are used in conditional access. 
+- The value for **Enabled** must be **True** and **DeviceTrustLevel** must be **Managed** for devices that are used in conditional access. 
 
 
 **To check the service details:**

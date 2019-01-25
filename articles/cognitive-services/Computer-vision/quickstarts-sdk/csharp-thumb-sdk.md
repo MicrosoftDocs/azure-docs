@@ -1,22 +1,21 @@
 ---
-title: "Quickstart: Generate a thumbnail - SDK, C# - Computer Vision"
+title: "Quickstart: Generate a thumbnail - SDK, C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows C# client library.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
+ms.author: pafarley
+ms.custom: seodec18
 ---
 # Quickstart: Generate a thumbnail using the Computer Vision SDK and C#
 
 In this quickstart, you generate a thumbnail from an image using the Computer Vision Windows client library.
-
-The source code for this sample is available on [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## Prerequisites
 
@@ -26,7 +25,10 @@ The source code for this sample is available on [Github](https://github.com/Azur
 
 ## GenerateThumbnailAsync method
 
-The `GenerateThumbnailAsync` and `GenerateThumbnailInStreamAsync` methods wrap the [Get Thumbnail API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) for remote and local images, respectively.  You can use these methods to generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the region of interest and generate cropping coordinates based on that region.
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
+
+The `GenerateThumbnailAsync` and `GenerateThumbnailInStreamAsync` methods wrap the [Get Thumbnail API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) for remote and local images, respectively.  You can use these methods to generate a thumbnail of an image. You specify the height and width, which can differ from the aspect ratio of the input image. Computer Vision uses smart cropping to intelligently identify the area of interest and generate cropping coordinates based on that region.
 
 To run the sample, do the following steps:
 
@@ -78,7 +80,7 @@ namespace ImageThumbnail
             // keys. For example, if you got your subscription keys from westus,
             // replace "westcentralus" with "westus".
             //
-            // Free trial subscription keys are generated in the westcentralus
+            // Free trial subscription keys are generated in the "westus"
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 

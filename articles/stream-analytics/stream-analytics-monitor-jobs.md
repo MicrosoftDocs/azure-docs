@@ -27,14 +27,14 @@ Before you begin this process, you must have the following:
 1. Create a Visual Studio C# .NET console application.
 2. In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Monitor SDK that will be used to enable monitoring. The last one is the Azure Active Directory client that will be used for authentication.
    
-   ```
+   ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
 3. Add the following appSettings section to the App.config file.
    
-   ```
+   ```csharp
    <appSettings>
      <!--CSM Prod related values-->
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
@@ -51,12 +51,12 @@ Before you begin this process, you must have the following:
    ```
    Replace values for *SubscriptionId* and *ActiveDirectoryTenantId* with your Azure subscription and tenant IDs. You can get these values by running the following PowerShell cmdlet:
    
-   ```
+   ```powershell
    Get-AzureAccount
    ```
 4. Add the following using statements to the source file (Program.cs) in the project.
    
-   ```
+   ```csharp
      using System;
      using System.Configuration;
      using System.Threading;
@@ -68,7 +68,8 @@ Before you begin this process, you must have the following:
      using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
 5. Add an authentication helper method.
-   
+
+```csharp   
      public static string GetAuthorizationHeader()
    
          {
@@ -105,11 +106,13 @@ Before you begin this process, you must have the following:
    
              throw new InvalidOperationException("Failed to acquire token");
      }
+```
 
 ## Create management clients
 
 The following code will set up the necessary variables and management clients.
 
+```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
@@ -127,6 +130,7 @@ The following code will set up the necessary variables and management clients.
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
+```
 
 ## Enable monitoring for an existing Stream Analytics job
 
@@ -142,7 +146,7 @@ The following code enables monitoring for an **existing** Stream Analytics job. 
 > The storage account name that you use to replace `<YOUR STORAGE ACCOUNT NAME>` in the following code should be a storage account that is in the same subscription as the Stream Analytics job that you are enabling monitoring for.
 > 
 > 
-
+```csharp
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
     {
@@ -159,7 +163,7 @@ The following code enables monitoring for an **existing** Stream Analytics job. 
             }
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
-
+```
 
 
 ## Get support

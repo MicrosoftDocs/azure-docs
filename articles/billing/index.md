@@ -19,9 +19,6 @@ ms.author: cwatson
 
 Learn how to understand your Azure billing, monitor usage and costs, and manage your account and subscriptions.
 
-> [!div class="nextstepaction"]
-> [Help improve Azure billing docs](https://go.microsoft.com/fwlink/p/?linkid=2010091)
-
 <ul class="panelContent cardsF">
     <li>
         <div class="cardSize">
@@ -167,7 +164,6 @@ Learn how to understand your Azure billing, monitor usage and costs, and manage 
                 <div class="card">
                     <div class="cardText">
                         <h3>Enterprise subscription: requires EA portal access</h3>
-                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
                         <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Manage departments<span class="docon docon-navigate-external"></span></a>
                         <br>

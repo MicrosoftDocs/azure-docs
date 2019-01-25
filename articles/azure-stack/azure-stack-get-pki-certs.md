@@ -5,15 +5,13 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 
-ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
@@ -27,7 +25,7 @@ The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the follow
  - **Standard Certificate Requests**  
     Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md).
  - **Platform-as-a-Service**  
-    Optionally request platform-as-a-service (PaaS) names to certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
+    You can request platform-as-a-service (PaaS) names for certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
 
 
 
@@ -42,7 +40,7 @@ Your system should meet the following prerequisites before generating the CSR(s)
     - Subject
  - Windows 10 or Windows Server 2016
  
-  > [!NOTE]
+  > [!NOTE]  
   > When you receive your certificates back from your certificate authority the steps in [Prepare Azure Stack PKI certificates](azure-stack-prepare-pki-certs.md) will need to be completed on the same system!
 
 ## Generate certificate signing request(s)
@@ -68,7 +66,7 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     ````PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
-4.  Declare identify system
+4.  Declare identity system
 
     Azure Active Directory
 
@@ -95,38 +93,35 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
 6. To generate certificate signing requests for each DNS name:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-    To include PaaS Services specify the switch ```-IncludePaaS```
+    To include PaaS Services, specify the switch ```-IncludePaaS```
 
-7. Alternatively, for Dev/Test environments. To generate a single certificate request with multiple Subject Alternative Names add **-RequestType SingleCSR** parameter and value (**not** recommended for production environments):
+7. Alternatively, for Dev/Test environments, to generate a single certificate request with multiple Subject Alternative Names add **-RequestType SingleCSR** parameter and value (**not** recommended for production environments):
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-    To include PaaS Services specify the switch ```-IncludePaaS```
+    To include PaaS Services, specify the switch ```-IncludePaaS```
     
 8. Review the output:
 
     ````PowerShell  
-    AzsReadinessChecker v1.1803.405.3 started
-    Starting Certificate Request Generation
-
+    New-AzsCertificateSigningRequest v1.1809.1005.1 started.
+    
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
     oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
     nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com*dn2=*.adminhosting.east.azurestack.contoso.com@dns=*.hosting.east.azurestack.contoso.com
     Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
     Certreq.exe output: CertReq: Request Created
 
-    Finished Certificate Request Generation
-
-    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
-    AzsReadinessChecker Completed
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    New-AzsCertificateSigningRequest Completed
     ````
 
-9.  Submit the **.REQ** file generated to your CA (either internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
+9.  Submit the **.REQ** file generated to your CA (either internal or public).  The output directory of **New-AzsCertificateSigningRequest** contains the CSR(s) necessary to submit to a Certificate Authority.  The directory also contains, for your reference, a child directory containing the INF file(s) used during certificate request generation. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
 
 ## Next steps
 

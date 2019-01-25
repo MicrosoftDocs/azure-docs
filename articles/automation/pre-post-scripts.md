@@ -3,7 +3,7 @@ title: Configure pre and post scripts on your Update Management deployment in Az
 description: This article describes how to configure and manage pre and post scripts for update deployments
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # Manage pre and post scripts (Preview)
 
-Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre scripts run at the beginnin of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
+Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
 
 ## Runbook requirements
 
@@ -95,9 +95,6 @@ The following is an example of a JSON string passed in to the **SoftwareUpdateCo
 ```
 
 A full example with all properties can be found at: [Software Update Configurations - Get By Name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
-
-> [!NOTE]
-> Computers added to a deployment using [Dynamic groups (preview)](automation-update-management.md#using-dynamic-groups) are not currently part of the **SoftwareUpdateConfigurationRunContext** parameter.
 
 ## Samples
 
@@ -214,8 +211,6 @@ if ($summary.Type -eq "Error")
 ## Known issues
 
 * You cannot pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
-* Runbooks that are not published are displayed as selectable when choosing a pre or post script. Only runbooks that are published should be chosen as un-published runbooks can not be invoked and will fail.
-* Computers added to a deployment using [Dynamic groups (preview)](automation-update-management.md#using-dynamic-groups) are not currently part of the **SoftwareUpdateConfigurationRunContext** parameter that is passed into pre and post scripts.
 
 ## Next steps
 
@@ -223,3 +218,4 @@ Continue to the tutorial to learn how to manage updates for your Windows virtual
 
 > [!div class="nextstepaction"]
 > [Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
+

@@ -18,11 +18,10 @@ ms.custom: include file
 
 ---
 
+## Use MSAL to get a token
 
-## Use MSAL to get a token 
-
-1.	Under **app** > **java** > **{domain}.{appname}**, open `MainActivity`. 
-2.	Add the following imports:
+1. Under **app** > **java** > **{domain}.{appname}**, open `MainActivity`. 
+2. Add the following imports:
 
     ```java
     import android.app.Activity;
@@ -239,10 +238,13 @@ ms.custom: include file
 
 <!--start-collapse-->
 ### More information
+
 #### Get a user token interactively
+
 Calling the `AcquireTokenAsync` method launches a window that prompts users to sign in or select their account. Applications generally will need to ask the user for an initial interaction, but can operate silently from that point on. 
 
 #### Get a user token silently
+
 The `AcquireTokenSilentAsync` method gets a token without any user interaction.  `AcquireTokenSilentAsync` can be treated as a best-effort request, with a fallback to `AcquireTokenAsync` when the user needs to sign in again or do some extra authorization, like multi-factor auth. 
 
 When `AcquireTokenSilentAsync` fails, it will generate a `MsalUiRequiredException`. Your application can handle this exception in two ways:
@@ -252,7 +254,8 @@ When `AcquireTokenSilentAsync` fails, it will generate a `MsalUiRequiredExceptio
 * Retry `AcquireTokenSilentAsync` later. This pattern is often used when users can use other application functionality without disruption--for example, when offline content is available in the application. The application can decide to retry `AcquireTokenSilentAsync` when the network is restored after having been temporarily unavailable. 
 <!--end-collapse-->
 
-## Call the Microsoft Graph API 
+## Call the Microsoft Graph API
+
 Add the following methods into the `MainActivity` class:
 
 ```java
@@ -309,6 +312,7 @@ private void updateGraphUI(JSONObject graphResponse) {
     graphText.setText(graphResponse.toString());
 }
 ```
+
 <!--start-collapse-->
 ### More information about making a REST call against a protected API
 
@@ -374,5 +378,6 @@ private void updateSignedOutUI() {
 The `onSignOutClicked()` method removes users from the MSAL cache. MSAL will no longer have any state for the signed in user, and they'll be logged out of the application. 
 
 ### More information on multi-account scenarios
+
 MSAL also supports scenarios when multiple accounts are signed in at the same time. For example, many email apps allow multiple accounts to be signed in at the same time. 
 <!--end-collapse-->

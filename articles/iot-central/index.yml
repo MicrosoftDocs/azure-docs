@@ -17,7 +17,7 @@ sections:
 - title: Feature Alert
   items:
   - type: paragraph
-    text: Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections. You will be required to use DPS SDK to register and connect devices to your Azure IoT Central application. <a href="https://docs.microsoft.com/en-us/azure/iot-central/concepts-connectivity">Learn more about Device connectivity in Azure IoT Central.</a> All applications using the continuous data export feature and/or the Power BI solutions template will be required to change the destination storage container and create a new solution template.
+    text: Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections. You will be required to use DPS SDK to register and connect devices to your Azure IoT Central application. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Learn more about Device connectivity in Azure IoT Central.</a> All applications using the continuous data export feature and/or the Power BI solutions template will be required to change the destination storage container and create a new solution template.
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

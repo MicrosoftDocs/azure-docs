@@ -1,56 +1,61 @@
 ---
-title: "Quickstart: Detect faces in an image - Face API cURL"
+title: "Quickstart: Detect faces in an image with the Azure REST API and cURL"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you detect faces from an image using the Face API with cURL.
+description: In this quickstart, you will use the Azure Face REST API with cURL to detect faces in an image.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
-ms.author: nolachar
+ms.date: 11/09/2018
+ms.author: pafarley
+#Customer intent: As a cURL developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
-# Quickstart: Detect faces in an image using cURL
+# Quickstart: Detect faces in an image using the Face REST API and cURL
 
-In this quickstart, you detect faces in an image using Face API.
+In this quickstart, you will use the Azure Face REST API with cURL to detect human faces in an image.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
 
-You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
 
-## Detect faces in an image
-
-Use the [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-method to detect faces in an image and return face attributes including:
-
-* Face ID: Unique ID used in several Face API scenarios.
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair.
-
-To run the sample, do the following steps:
-
-1. Open a Command Prompt.
-2. Replace `<Subscription Key>` with your valid subscription key.
-3. Change the URL (`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`) to use the location where you obtained your subscription keys, if necessary.
-4. Optionally, change the image (`"{\"url\":...`) to analyze.
-5. Paste the code in the command window.
-6. Run the command.
-
-### Face - Detect request
-
-> [!NOTE]
-> You must use the same location in your REST call as you used to obtain your subscription keys. For example, if you obtained your subscription keys from westus, replace "westcentralus" in the following URL with "westus".
+## Write the command
+ 
+You will use a command like the following to call the Face API and get face attribute data from an image. First, copy the code into a text editor&mdash;you'll need to make changes to certain parts of the command before you can run it.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### Face - Detect response
+### Subscription key
+Replace `<Subscription Key>` with your valid Face subscription key.
 
-A successful response is returned in JSON.
+### Face endpoint URL
+
+The URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indicates the Azure Face endpoint to query. You may need to change the first part of this URL to match the region that corresponds to your subscription key (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
+
+### URL query string
+
+The query string of the Face endpoint URL specifies which face attributes to retrieve. You may wish to change this string depending on your intended use.
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### Image source URL
+The source URL indicates the image to use as input. You can change this to point to any image you wish to analyze.
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## Run the command
+
+Once you've made your changes, open a command prompt and enter the new command. You should see the face information displayed as JSON data in the console window. For example:
 
 ```json
 [
@@ -146,7 +151,7 @@ A successful response is returned in JSON.
 
 ## Next steps
 
-Explore the Face APIs used to detect human faces in an image, demarcate the faces with rectangles, and return attributes such as age and gender.
+In this quickstart, you wrote a cURL command that calls the Azure Face API to detect faces in an image and return their attributes. Next, explore the Face API reference documentation to learn more.
 
 > [!div class="nextstepaction"]
-> [Face APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

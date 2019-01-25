@@ -23,6 +23,9 @@ Network Security Group flow logs allow you to view information about ingress and
 
 It can be difficult to gain insights into flow logging data by manually searching the log files. In this article, we provide a solution to visualize your most recent flow logs and learn about traffic on your network.
 
+> [!Warning]  
+> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md). The following instructions will not work with version 2 of the log files, without modification.
+
 ## Scenario
 
 In the following scenario, we connect Power BI desktop to the storage account we have configured as the sink for our NSG Flow Logging data. After we connect to our storage account, Power BI downloads and parses the logs to provide a visual representation of the traffic that is logged by Network Security groups.
@@ -116,7 +119,7 @@ Feel free to customize this template for your needs. There are many numerous way
 
 ## Next Steps
 
-Learn how to visualize your NSG flow logs with the Elastick Stack by visiting [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Learn how to visualize your NSG flow logs with the Elastic Stack by visiting [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

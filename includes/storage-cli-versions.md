@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 ## Versions of the Azure CLI
 
 There are two versions of the Azure Command-Line Interface (CLI) currently available:

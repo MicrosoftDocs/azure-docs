@@ -30,13 +30,13 @@ offer. For more information, see [Cloud Portal Manage Users](./cloud-partner-por
 Before an offer can be published on behalf of a publisher account, one
 of individuals with \"owner\" role need to agree to comply with the
 [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/),
-[Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx),
+[Microsoft Privacy Statement](https://www.microsoft.com/privacystatement/default.aspx),
 and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
-## To start creating a Cortana Inteligence offer
+## To start creating a Cortana Intelligence offer
 
 Once all the pre-requisites have been met, you are ready to start
-authoring your Cortana Inteligence offer.
+authoring your Cortana Intelligence offer.
 
 1.  Sign in to the [cloud partner portal](http://cloudpartner.azure.com/).
 2.  On the left navigation bar, select **+ New offer**.
@@ -138,7 +138,7 @@ The following instructions show how to create a video using Skype for Business.
 4. After you stop recording, [use the recording manager to publish your recording](https://support.office.com/article/Recording-Manager-save-and-publish-59a3beb7-c700-40cf-ab21-bc82a2b06351)
 
 Upload your recorded video to a service that allows you to
-generate a shared URL. For example, a [guest link in OneDrive or Sharepoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
+generate a shared URL. For example, a [guest link in OneDrive or SharePoint](https://support.office.com/article/Share-sites-or-documents-with-people-outside-your-organization-80e49744-e30f-44db-8d51-16661b1d4232).
 
 ### Supported regions
 
@@ -246,7 +246,7 @@ Partners can give two types of trial experiences on AppSource.
 
         - [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome)
 
-- The **Request for trial** (**Partner Led Trials / PLT**) option requires customers to fill a contact info form for partner followup. The partner follows up and gives a demonstration or trial of the app. For more information, see [AppSource trial experience walkthrough](http://aka.ms/trialexperienceforwebapps) video for a high-level overview.
+- The **Request for trial** (**Partner Led Trials / PLT**) option requires customers to fill a contact info form for partner followup. The partner follows up and gives a demonstration or trial of the app. For more information, see [AppSource trial experience walkthrough](https://aka.ms/trialexperienceforwebapps) video for a high-level overview.
 
 >[!Note]
 >Data shows that **Customer Led Trials** have a higher lead generation potential than **Partner Led Trials**.

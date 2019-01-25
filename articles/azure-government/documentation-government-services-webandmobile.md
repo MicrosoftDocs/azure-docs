@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 03/29/2018
+ms.date: 10/28/2018
 ms.author: gsacavdm
 ---
 # Azure Government Web + Mobile
@@ -21,7 +21,7 @@ ms.author: gsacavdm
 ### Variations
 Azure App Services is generally available in Azure Government.
 
-The Address for Azure App Service apps created in Azure Government is different from 
+The address for Azure App Service apps created in Azure Government is different from 
 those apps created in the public cloud:
 
 | Service Type | Azure Public | Azure Government |
@@ -29,33 +29,22 @@ those apps created in the public cloud:
 | App Service |\*.azurewebsites.net |\*.azurewebsites.us|
 | Service Principal ID| abfa0a7c-a6b6-4736-8310-5855508787cd | 6a02c803-dafd-4136-b4c3-5a6f318b4714 |
 
-Some App Service features available in Azure Government have variations:
-
-- Deployment Options are limited to local git and external git.
-
 Some App Service features available in the public cloud are not yet available 
 in Azure Government:
 
-- App Service Certificates
+- Diagnose and solve problems
+- Deployment
+    - Deployment Options: Only Local Git Repository and External Repository are available.
+    - Deployment Center
 - Settings
-    - Managed service identity > [Vote for this](https://feedback.azure.com/forums/558487-azure-government/suggestions/33804523-enable-managed-service-identity-for-app-services)
-    - Push notifications
-    - Security scanning
+    - Application Insights
 - Development Tools
     - Performance test
     - Resource explorer
     - PHP Debugging
-- Monitoring
-    - Application Insights
-    - Metrics per instance
-    - Live HTTP traffic
-    - Application events
-    - FREB logs
 - Support & Troubleshooting
     - App Service Advisor
-    - Failure History
-    - Diagnostics as a Service
-    - Mitigate
+- App Service Certificates
 
 
 ### Considerations

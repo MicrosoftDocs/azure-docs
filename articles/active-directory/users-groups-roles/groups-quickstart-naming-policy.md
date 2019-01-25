@@ -77,7 +77,7 @@ If you are prompted about accessing an untrusted repository, type **Y**. It migh
   
 ### Step 3: Set the naming policy and any custom blocked words
 
-1. Set the group name prefixes and suffixes in Azure AD PowerShell.
+1. Set the group name prefixes and suffixes in Azure AD PowerShell. For the feature to work properly, [GroupName] must be included in the setting.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -99,19 +99,19 @@ That's it. You've set your naming policy and added your custom blocked words.
 
 ## Clean up resources
 
-1. Set the group name prefixes and suffixes in Azure AD PowerShell.
+1. Empty the group name prefixes and suffixes in Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =""
   ````
   
-2. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
+2. Empty the custom blocked words.
   
   ````
   $Setting["CustomBlockedWordsList"]=""
   ````
   
-3. Save the settings for the new policy to be effective, such as in the following example.
+3. Save the settings.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting

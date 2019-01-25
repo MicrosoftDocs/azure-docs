@@ -35,7 +35,7 @@ This article talks about how to create an **Azure AD web application for service
 
 ## Step 1: Create an Active Directory web application
 
-Create and configure an Azure AD web application for service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory. For instructions, see [Create an Azure AD application](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Create and configure an Azure AD web application for service-to-service authentication with Azure Data Lake Storage Gen1 using Azure Active Directory. For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md).
 
 While following the instructions at the preceding link, make sure you select **Web App / API** for application type, as shown in the following screenshot:
 
@@ -44,9 +44,9 @@ While following the instructions at the preceding link, make sure you select **W
 ## Step 2: Get application ID, authentication key, and tenant ID
 When programmatically logging in, you need the ID for your application. If the application runs under its own credentials, you also need an authentication key.
 
-* For instructions on how to retrieve the application ID and authentication key (also called the client secret) for your application, see [Get application ID and authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* For instructions on how to retrieve the application ID and authentication key (also called the client secret) for your application, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
-* For instructions on how to retrieve the tenant ID, see [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* For instructions on how to retrieve the tenant ID, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## Step 3: Assign the Azure AD application to the Azure Data Lake Storage Gen1 account file or folder
 

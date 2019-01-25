@@ -10,9 +10,10 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
 ---
 # Authenticate to the Speech API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing Speech supports authentication by using:
 
@@ -65,7 +66,7 @@ https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 
 The following code sample shows how to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key:
 
-# [PowerShell](#tab/Powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -89,7 +90,7 @@ The example uses curl on Linux with bash. If it's not available on your platform
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-# [C#](#tab/CSharp)
+# [C#](#tab/csharp)
 
 ```cs
     /*
@@ -152,7 +153,7 @@ The following example shows how to use an authorization token when you call the 
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token).
 
-# [PowerShell](#tab/Powershell)
+# [PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -182,7 +183,7 @@ $RecoResponse
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# [C#](#tab/CSharp)
+# [C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;

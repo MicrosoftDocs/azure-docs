@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 ## Java sample code repositories
 
 Here is a list of all our sample repositories for the Azure Storage Java client library.

@@ -1,21 +1,14 @@
 ---
 title: Tutorial on provision Azure Data Box Gateway in Hyper-V | Microsoft Docs
 description: Second tutorial to deploy Azure Data Box Gateway involves provisioning a virtual device in Hyper-V.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/26/2018
 ms.author: alkohli
-ms.custom:
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in Hyper-V so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Provision Azure Data Box Gateway in Hyper-V (Preview)

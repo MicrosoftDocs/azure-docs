@@ -3,8 +3,8 @@ title: Start with Apache Kafka - Azure HDInsight Quickstart
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure PowerShell. You also learn about Kafka topics, subscribers, and consumers.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
@@ -12,24 +12,24 @@ ms.date: 04/16/2018
 
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
-# Quickstart: Create a Kafka on HDInsight cluster
+# Quickstart: Create an Apache Kafka on HDInsight cluster
 
-Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
+[Apache Kafka](https://kafka.apache.org/) is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
 
 In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using Azure PowerShell. You also learn how to use included utilities to send and receive messages using Kafka.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the resources within the network.
 >
-> For more information, see the [Connect to Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
+> For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
 ## Prerequisites
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Azure PowerShell. For more information, see the [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) document.
+* Azure PowerShell. For more information, see the [Install and Configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) document.
 
 * An SSH client. The steps in this document use SSH to connect to the cluster.
 
@@ -39,7 +39,7 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
     * [Install the Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10). The Linux distributions available through the Microsoft Store provide the `ssh` command.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > The steps in this document assume that you are using one of the SSH clients mentioned above. If you are using a different SSH client and encounter problems, please consult the documentation for your SSH client.
     >
     > For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
@@ -91,9 +91,9 @@ $storageContext = New-AzureStorageContext `
 New-AzureStorageContainer -Name $containerName -Context $storageContext 
 ```
 
-## Create a Kafka cluster
+## Create an Apache Kafka cluster
 
-Create a Kafka on HDInsight cluster with [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
+Create an Apache Kafka on HDInsight cluster with [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster).
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -128,16 +128,16 @@ New-AzureRmHDInsightCluster `
         -DisksPerWorkerNode $disksPerNode
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > It can take up to 20 minutes to create the HDInsight cluster.
 
-> [!TIP]
+> [!TIP]  
 > The `-DisksPerWorkerNode` parameter configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. 
 >
 > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard. You can set the VM type by using the `-WorkerNodeSize` parameter. For more information on parameters, see the [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) documentation.
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > If you plan to use more than 32 worker nodes (either at cluster creation or by scaling the cluster after creation), you must use the `-HeadNodeSize` parameter to specify a VM size with at least 8 cores and 14 GB of RAM.
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -165,7 +165,7 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
  * Support:        https://ubuntu.com/advantage
 
   Get cloud support with Ubuntu Advantage Cloud Guest:
-    http://www.ubuntu.com/business/services/cloud
+    https://www.ubuntu.com/business/services/cloud
 
 83 packages can be updated.
 37 updates are security updates.
@@ -178,11 +178,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>Get the Zookeeper and Broker host information
+## <a id="getkafkainfo"></a>Get the Apache Zookeeper and Broker host information
 
-When working with Kafka, you must know the *Zookeeper* and *Broker* hosts. These hosts are used with the Kafka API and many of the utilities that ship with Kafka.
+When working with Kafka, you must know the *Apache Zookeeper* and *Broker* hosts. These hosts are used with the Kafka API and many of the utilities that ship with Kafka.
 
-In this section, you get the host information from the Ambari REST API on the cluster.
+In this section, you get the host information from the Apache Ambari REST API on the cluster.
 
 1. From the SSH connection to the cluster, use the following command to install the `jq` utility. This utility is used to parse JSON documents, and is useful in retrieving the host information:
    
@@ -206,7 +206,7 @@ In this section, you get the host information from the Ambari REST API on the cl
 
     When prompted, enter the password for the cluster login account (not the SSH account).
 
-    > [!NOTE]
+    > [!NOTE]  
     > This command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
 
 4. To verify that the environment variable is set correctly, use the following command:
@@ -237,7 +237,7 @@ In this section, you get the host information from the Ambari REST API on the cl
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## Manage Kafka topics
+## Manage Apache Kafka topics
 
 Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` utility to manage topics.
 
@@ -253,17 +253,17 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 
     * Each partition is replicated across three worker nodes in the cluster.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > If you created the cluster in an Azure region that provides three fault domains, use a replication factor of 3. Otherwise, use a replication factor of 4.
         
         In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
         
         For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
-        > [!IMPORTANT] 
+        > [!IMPORTANT]   
         > Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 
-        To ensure high availability, use the [Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Kafka cluster.
+        To ensure high availability, use the [Apache Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Kafka cluster.
 
         For the highest availability of your Kafka data, you should rebalance the partition replicas for your topic when:
 
@@ -287,7 +287,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 
     This command deletes the topic named `topicname`.
 
-    > [!WARNING]
+    > [!WARNING]  
     > If you delete the `test` topic created earlier, then you must recreate it. It is used by steps later in this document.
 
 For more information on the commands available with the `kafka-topics.sh` utility, use the following command:
@@ -320,12 +320,12 @@ To store records into the test topic you created earlier, and then read them usi
    
     This command retrieves the records from the topic and displays them. Using `--from-beginning` tells the consumer to start from the beginning of the stream, so all records are retrieved.
 
-    > [!NOTE]
+    > [!NOTE]  
     > If you are using an older version of Kafka, replace `--bootstrap-server $KAFKABROKERS` with `--zookeeper $KAFKAZKHOSTS`.
 
 4. Use __Ctrl + C__ to stop the consumer.
 
-You can also programmatically create producers and consumers. For an example of using this API, see the [Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
+You can also programmatically create producers and consumers. For an example of using this API, see the [Apache Kafka Producer and Consumer API with HDInsight](apache-kafka-producer-consumer-api.md) document.
 
 ## Clean up resources
 
@@ -335,7 +335,7 @@ When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
 > 
 > Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.
@@ -343,4 +343,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use Apache Spark with Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [Use Apache Spark with Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 59c8a112-41e1-4337-9ef3-3d7029780d61
 ms.service: active-directory
@@ -213,7 +213,7 @@ To enable Azure AD users to log in to Small Improvements, they must be provision
 
     b. Enter the **Last name** of user like **Simon**.
 
-    c. Enter the **Email** of user like **brittasimon@contoso.com**. 
+    c. Enter the **Email** of user like <strong>brittasimon@contoso.com</strong>. 
 
     d. You can also choose to enter the personal message in the **Send notification email** box. If you do not wish to send the notification, then uncheck this checkbox.
 

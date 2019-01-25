@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
@@ -27,8 +27,10 @@ ms.custom: aaddev
 
 To build an app that accepts both personal Microsoft account (MSA), and work or school account (Azure AD) sign-in, you'll need to register an app with the Azure Active Directory (Azure AD) v2.0 endpoint. At this time, you won't be able to use any existing apps you may have with Azure AD or MSA - you'll need to create a brand new one.
 
+Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about the [v2.0 limitations](active-directory-v2-limitations.md).
+
 > [!NOTE]
-> Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about the [v2.0 limitations](active-directory-v2-limitations.md).
+> Registering a new app? Try out the new **App registrations (Preview)** experience in the Azure portal. See [Register an app (Preview)](quickstart-register-app.md) to get started.
 
 ## Step 1: Sign in to the Microsoft application registration portal
 

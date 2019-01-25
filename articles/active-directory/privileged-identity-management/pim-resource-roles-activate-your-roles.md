@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/31/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
 ---
@@ -62,9 +62,25 @@ When you need to take on an Azure resource role, you can request activation by u
 
 1. Click **Activate**.
 
-    If the role does not require approval, it is now activated, and the role appears in the list of active roles. If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
+    If the role does not require approval, it is activated and added to the list of active roles. If you want to use the role right away, follow the steps in next section.
+
+    If the [role requires approval](pim-resource-roles-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
     ![Request pending notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+
+## Use a role immediately after activation
+
+When you activate a role in PIM, it takes at least 10 minutes before you can access the desired administrative portal or perform functions within a specific administrative workload. To force an update of your permissions, use the **Application access** page as described in the following steps.
+
+1. Open Azure AD Privileged Identity Management.
+
+1. Click the **Application access** page.
+
+    ![PIM Application access - screenshot](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. Click the **Azure resources** link to reopen the portal on the **All resources** page.
+
+    When you click this link, you invalidate your current token and force the Azure portal to obtain a new token that should contain your updated permissions.
 
 ## View the status of your requests
 
@@ -77,20 +93,6 @@ You can view the status of your pending requests to activate.
     ![Azure AD directory roles and Azure resource roles - My requests](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Scroll to the right to view the **Request Status** column.
-
-## Use a role immediately after activation
-
-Because of caching, activations do not occur immediately in the Azure portal without a refresh. If you need to reduce the possibility of delays after activating a role, you can use the **Application access** page in the portal. Applications accessed from this page check for new role assignments immediately.
-
-1. Open Azure AD Privileged Identity Management.
-
-1. Click the **Application access** page.
-
-    ![PIM Application access - screenshot](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
-
-1. Click **Azure resources** to reopen the portal on the **All resources** page.
-
-    When you click this link, you force a refresh and there is a check for new Azure resource role assignments.
 
 ## Cancel a pending request
 
@@ -105,6 +107,21 @@ If you do not require activation of a role that requires approval, you can cance
     When you click Cancel, the request will be cancelled. To activate the role again, you will have to submit a new request for activation.
 
    ![Cancel pending request](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+
+## Troubleshoot
+
+### Permissions not granted after activating a role
+
+When you activate a role in PIM, it takes at least 10 minutes before you can access the desired administrative portal or perform functions within a specific administrative workload. To force an update of your permissions, use the **Application access** page as described earlier in [Use a role immediately after activation](#use-a-role-immediately-after-activation).
+
+For additional troubleshooting steps, see [Troubleshooting Elevated Permissions](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
+
+### Cannot activate a role due to a resource lock
+
+If you receive a message that an Azure resource is locked when you try to activate a role, it might be because a resource within the scope of a role assignment has a resource lock. Locks protect resources from accidental deletion or unexpected changes. A lock also prevents PIM from removing a role assignment on the resource at the end of the activation period. Since PIM is unable to function properly when a lock is applied, PIM prohibits users from activating roles on the resource. There are two ways that you can address this issue:
+
+- Delete the lock as described in [Lock resources to prevent unexpected changes](../../azure-resource-manager/resource-group-lock-resources.md).
+- If you want to keep the lock, make the role assignment permanent or use a break-glass account.
 
 ## Next steps
 

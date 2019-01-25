@@ -10,7 +10,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 01/22/2018
 ms.author: tomfitz
 
 ---
@@ -31,7 +31,7 @@ Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | F
 For Azure CLI, use:
 
 ```azurecli-interactive
-az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
+az resource list -g demogroup --query '[].{name:name, resourceType:type}' --output table
 ```
 
 The resource type is returned in the format `<resource-provider>/<resource-type-name>`. So, the value `Microsoft.OperationalInsights/workspaces` has a resource provider of **Microsoft.OperationalInsights** and resource type name of **workspaces**.
@@ -85,14 +85,6 @@ After finding the resource provider and resource type, use the tables in this ar
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |
 | batchaccounts	| Yes | Yes |
-
-## Microsoft.BatchAI
-| Resource type | Resource group | Subscription |
-| ------------- | -------------- | ------------ |
-| clusters | No | No |
-| fileservers | No | No |
-| jobs | No | No |
-| workspaces | No | No |
 
 ## Microsoft.BingMaps
 | Resource type | Resource group | Subscription |
@@ -376,6 +368,11 @@ After finding the resource provider and resource type, use the tables in this ar
 | ------------- | -------------- | ------------ |
 | vaults | Yes | Yes |
 
+## Microsoft.Kusto
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
+| clusters | Yes | Yes |
+
 ## Microsoft.LabServices
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |
@@ -461,7 +458,7 @@ After finding the resource provider and resource type, use the tables in this ar
 | ------------- | -------------- | ------------ |
 | applicationgateways | No | No |
 | applicationsecuritygroups	| Yes | Yes |
-| azurefirewalls | Yes | Yes |
+| azurefirewalls | No | No |
 | connections | Yes | Yes |
 | ddosprotectionplans | No | No |
 | dnszones | Yes | Yes |

@@ -130,9 +130,9 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
     Wait until the VM has successfully detached the data disk before continuing.
 
 ## Create VM from original hard disk
-To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. Click the **Deploy to Azure** button as follows:
+To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet). The template deploys a VM into an existing or new virtual network, using the VHD URL from the earlier command. Click the **Deploy to Azure** button as follows:
 
-![Deploy VM from template from Github](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
+![Deploy VM from template from GitHub](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 
 The template is loaded into the Azure portal for deployment. Enter the names for your new VM and existing Azure resources, and paste the URL to your existing virtual hard disk. To begin the deployment, click **Purchase**:
 

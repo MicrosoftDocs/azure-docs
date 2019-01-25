@@ -121,7 +121,7 @@ For samples and tutorials that demonstrate different usage patterns for the Micr
 
 ## See also
 
-[Azure Active Directory Developer's Guide](azure-ad-developers-guide.md)
+[Azure Active Directory Developer's Guide](v1-overview.md)
 
 [Azure Active Directory Authentication libraries](active-directory-authentication-libraries.md)
 

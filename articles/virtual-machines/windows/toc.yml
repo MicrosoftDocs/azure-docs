@@ -40,11 +40,9 @@
     href: tutorial-monitoring.md
   - name: 12 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Azure Pipelines CI/CD
-    href: tutorial-vsts-iis-cicd.md
-  - name: 14 - Install a SQL\IIS\.NET stack
+  - name: 13 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
-  - name: 15 - Secure web server with SSL
+  - name: 14 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -180,16 +178,29 @@
     - name: Create a Key Vault
       href: key-vault-setup.md
   - name: Protect VMs
-    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     items:
+    - name: Back up VMs
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
       - name: Back up a single VM
-        items:
-        - name: Azure portal
-          href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Azure PowerShell
-          href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Back up multiple VMs
-        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Restore a disk
+        href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Restore individual files
+        href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Set up disaster recovery for VMs
+      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: Enable disaster recovery for a VM
+        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Run a disaster recovery drill for a VM
+        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Fail over a VM to another region
+        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Move VMs to another region
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
     - name: VM usage
@@ -245,6 +256,8 @@
       items: 
       - name: Overview
         href: shared-image-galleries.md
+      - name: Create shared images using PowerShell
+        href: shared-images.md
       - name: Create shared images using CLI
         href: ../linux/shared-images.md
       - name: Troubleshoot shared images
@@ -430,6 +443,8 @@
     href: /rest/api/compute
   - name: Managed Disks REST
     href: /rest/api/compute/disks
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.compute/allversions
 - name: Resources
   items:
   - name: Author templates

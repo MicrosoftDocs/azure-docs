@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 > * Monitor changes and inventory
 > * Set up advanced monitoring
 
-This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## Create virtual machine
 
@@ -274,9 +274,9 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -Location "East US"
 ```
 
-After a few minutes, you should see the new VM in the Log Anaytics workspace.
+After a few minutes, you should see the new VM in the Log Analytics workspace.
 
-![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## Next steps
 

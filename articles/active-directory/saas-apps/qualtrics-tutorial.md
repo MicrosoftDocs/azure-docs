@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 4df889ab-2685-4d15-a163-1ba26567eeda
@@ -110,6 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<companyname>.qualtrics.com`
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://<companyname>.qualtrics.com/WRSAML/simplesaml/www/module.php/saml/sp/metadata.php/default-sp`|

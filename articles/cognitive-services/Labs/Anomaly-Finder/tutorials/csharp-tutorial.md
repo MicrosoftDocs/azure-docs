@@ -32,7 +32,7 @@ The example has been developed for the .NET Framework using [Visual Studio 2017,
 
 ## Get and use the example
 
-You can clone the Anomaly Detection example application to your computer from [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
+You can clone the Anomaly Detection example application to your computer from [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
 <a name="Step1"></a>
 ### Install the example
 

@@ -146,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. Click **Ok**.
 	
 	> [!NOTE]
-	> Please refer to this [link](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
+	> Please refer to this [link](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
 
 7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 

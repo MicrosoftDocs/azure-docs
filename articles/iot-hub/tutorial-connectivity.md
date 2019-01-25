@@ -74,7 +74,7 @@ To simulate **MyTestDevice** sending telemetry to your IoT hub, run the Node.js 
 
 In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **iot-hub\Tutorials\ConnectivityTests\simulated-device** folder.
 
-In the terminal window, run the following commands to install the required libraries and run the simulated device application. Use the device connectin string you made a note of when you added the device in the portal.
+In the terminal window, run the following commands to install the required libraries and run the simulated device application. Use the device connection string you made a note of when you added the device in the portal.
 
 ```cmd/sh
 npm install

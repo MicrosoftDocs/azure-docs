@@ -24,7 +24,9 @@ Use the identity registry when you need to:
 * Control per-device/per-module access to your hub's device or module-facing endpoints.
 
 > [!NOTE]
-> The identity registry does not contain any application-specific metadata.
+> * The identity registry does not contain any application-specific metadata.
+> * Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
+>
 
 ## Identity registry operations
 
@@ -35,7 +37,6 @@ The IoT Hub identity registry exposes the following operations:
 * Retrieve device or module identity by ID
 * Delete device or module identity
 * List up to 1000 identities
-> Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
 * Export device identities to Azure blob storage
 * Import device identities from Azure blob storage
 
@@ -192,6 +193,9 @@ Device identities are represented as JSON documents with the following propertie
 > [!NOTE]
 > Connection state can only represent the IoT Hub view of the status of the connection. Updates to this state may be delayed, depending on network conditions and configurations.
 
+> [!NOTE]
+> Currently the device SDKs do not support using  the `+` and `#` characters in the **deviceId**.
+
 ## Module identity properties
 
 Module identities are represented as JSON documents with the following properties:
@@ -210,6 +214,9 @@ Module identities are represented as JSON documents with the following propertie
 | connectionState |read-only |A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are disconnected. |
 | connectionStateUpdatedTime |read-only |A temporal indicator, showing the date and last time the connection state was updated. |
 | lastActivityTime |read-only |A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
+
+> [!NOTE]
+> Currently the device SDKs do not support using  the `+` and `#` characters in the **deviceId** and **moduleId**.
 
 ## Additional reference material
 

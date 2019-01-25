@@ -2,12 +2,12 @@
 title: 'Quickstart: Query data using the Azure Data Explorer Python library'
 description: 'In this quickstart, you learn how to query data from Azure Data Explorer using Python.'
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/16/2018
 
 #Customer intent: As a Python developer, I want to query data so I can include it in my apps.
 ---
@@ -28,7 +28,7 @@ This quickstart is also available as an [Azure Notebook](https://notebooks.azure
 
 Install *azure-kusto-data*.
 
-```python
+```
 pip install azure-kusto-data
 ```
 
@@ -39,6 +39,7 @@ Import classes from the library, as well as *pandas*, a data analysis library.
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
+from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
 ```
 
@@ -48,10 +49,10 @@ To authenticate an application, Azure Data Explorer uses your AAD tenant ID. To 
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
-For example, if your domain is *contoso.com*, the URL is: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Click this URL to see the results; the first line is as follows. 
+For example, if your domain is *contoso.com*, the URL is: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Click this URL to see the results; the first line is as follows.
 
 ```
-`"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"`
+"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
 The tenant ID in this case is `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Set the value for AAD_TENANT_ID before running this code.
@@ -62,7 +63,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE  = "Samples"
 ```
 
-Now construct the connection string. This example uses device authentication to access the cluster. You can also use AAD application certificate, AAD application key, and AAD user and password.
+Now construct the connection string. This example uses device authentication to access the cluster. You can also use [AAD application certificate](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [AAD application key](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20), and [AAD user and password](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(KUSTO_CLUSTER)
@@ -77,7 +78,7 @@ Execute a query against the cluster and store the output in a data frame. When t
 KUSTO_CLIENT  = KustoClient(KCSB)
 KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
 
-df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```
 
 ## Explore data in DataFrame
@@ -85,6 +86,7 @@ df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].
 After you enter a sign in, the query returns results, and they are stored in a data frame. You can work with the results like you do any other data frame.
 
 ```python
+df = dataframe_from_result_table(RESPONSE.primary_results[0])
 df
 ```
 

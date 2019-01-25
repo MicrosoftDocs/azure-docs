@@ -11,10 +11,12 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
 ---
 
 # What is Translator Speech API?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 The Translator Speech API can be used to add end-to-end, real-time, speech translations to applications, tools, or any solution requiring multi-language speech translation regardless of the target OS or development languages. The API can be used for both speech to speech and speech to text translation.
 
 Translator Text API is an Azure service, part of the [Azure Cognitive Services API collection](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
@@ -28,7 +30,7 @@ For speech to speech translation, the service provides the ability to synthesize
 The Translator Speech API uses the WebSocket protocol to provide a full-duplex communication channel between the client and the server. 
 
 ## About Microsoft Translator
-Microsoft Translator is a cloud-based machine translation service. At the core of this service are the [Translator Text API] (https://www.microsoft.com/en-us/translator/translatorapi.aspx) and Translator Speech API which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
+Microsoft Translator is a cloud-based machine translation service. At the core of this service are the [Translator Text API](https://www.microsoft.com/en-us/translator/translatorapi.aspx) and Translator Speech API which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
 
 Learn more about the [Microsoft Translator service](https://www.microsoft.com/en-us/translator/home.aspx)
 

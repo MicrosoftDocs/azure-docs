@@ -4,7 +4,7 @@ description: Media Services REST API overview
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: a5f1c5e7-ec52-4e26-9a44-d9ea699f68d9
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 10/29/2018
 ms.author: juliako;johndeu
 
 ---
@@ -24,7 +24,7 @@ The **Media Services Operations REST** API is used for creating Jobs, Assets, Li
 
 Media Services provides a REST API that accepts both JSON or atom+pub XML format. Media Services REST API requires specific HTTP headers that each client must send when connecting to Media Services, as well as a set of optional headers. The following sections describe the headers and HTTP verbs you can use when creating requests and receiving responses from Media Services.
 
-Authentication to the Media Serivces REST API is done through Azure Active Directory authentication which is outlined in the article [Use Azure AD authentication to access the Azure Media Services API with REST](media-services-rest-connect-with-aad.md)
+Authentication to the Media Services REST API is done through Azure Active Directory authentication which is outlined in the article [Use Azure AD authentication to access the Azure Media Services API with REST](media-services-rest-connect-with-aad.md)
 
 ## Considerations
 

@@ -3,7 +3,7 @@ title: Runbook input parameters
 description: Runbook input parameters increase the flexibility of runbooks by allowing you to pass data to a runbook when it is started. This article describes different scenarios where input parameters are used in runbooks.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
@@ -67,6 +67,10 @@ Then you can pass the following value to the parameter:
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+> [!NOTE]
+> When you pass no value to an optional `[String]` type parameter that has a _default value_ of `$null`, then the parameter's value will be an _empty string_, **not** `$null`.
+> 
+> 
 
 ## Configure input parameters in graphical runbooks
 
@@ -222,9 +226,9 @@ In the label beneath the input box, you can see the attributes that have been se
   ```
 
 #### Start a runbook by using the REST API and assign parameters
-A runbook job can be created and started with the Azure Automation REST API by using the **PUT** method with the following request URI:
+A runbook job can be created and started with the Azure Automation REST API by using the **PUT** method with the following request URI: 
+https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
-    https://management.core.windows.net/<subscription-id>/cloudServices/<cloud-service-name>/resources/automation/~/automationAccounts/<automation-account-name>/jobs/<job-id>?api-version=2014-12-08`
 
 In the request URI, replace the following parameters:
 
@@ -278,4 +282,5 @@ When you execute a runbook by using a webhook, the predefined input parameter **
 * For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
 * To edit a textual runbook, refer to [Editing textual runbooks](automation-edit-textual-runbook.md).
 * To edit a graphical runbook, refer to [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
+
 

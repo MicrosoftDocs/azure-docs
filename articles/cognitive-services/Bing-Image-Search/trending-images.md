@@ -1,7 +1,7 @@
 ---
-title: Search the web for trending images - Bing Image Search API
+title: Get trending images with the Bing Image Search API
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Bing Image Search API to search the web for trending images.
+description: Search for today's trending images from the web with the Bing Image Search API.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,9 +11,10 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
+ms.custom: seodec2018
 ---
 
-# Get trending images from the Bing Image Search API
+# Get trending images from the web
 
 To get today's trending images, send the following GET request:  
 

@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
@@ -183,7 +183,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	}
 	```
 
-8. After successfull completion of PowerShell script, the result of the script will be like this as shown below and the URL values get updated but they won't get reflected in Azure portal. 
+8. After successful completion of PowerShell script, the result of the script will be like this as shown below and the URL values get updated but they won't get reflected in Azure portal. 
 
 	![Configure Single Sign-On script](./media/sansan-tutorial/tutorial_sansan_powershell.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Send image queries - Bing Image Search API
 titleSuffix: Azure Cognitive Services
-description: Learn about customizing search queries sent to the Bing Image Search API.
+description: Learn about customizing the search queries you send to the Bing Image Search API.
 services: cognitive-services
 author: aahill
 manager: cgronlun

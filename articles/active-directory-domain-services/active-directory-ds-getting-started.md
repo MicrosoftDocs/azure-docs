@@ -3,8 +3,8 @@ title: 'Azure Active Directory Domain Services: Getting Started | Microsoft Docs
 description: Enable Azure Active Directory Domain Services using the Azure portal
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Enable Azure Active Directory Domain Services using the Azure portal

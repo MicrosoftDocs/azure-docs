@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 18/30/2018
+ms.date: 11/26/2018
 ms.author: rkarlin
 
 ---
@@ -29,7 +29,7 @@ Azure Security Center monitors security configurations by applying a set of [ove
 By customizing the rules, organizations can control which configuration options are more appropriate for their environment. You can set a customized assessment policy and then apply it on all applicable machines in the subscription.
 
 > [!NOTE]
-> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008 R2, 2012, and 2012 R2 operating systems only.
+> - Currently, customization of the OS security configuration is available for Windows Server versions 2008, 2008 R2, 2012, 2012 R2, and 2016 operating systems only.
 > - The configuration applies to all VMs and computers that are connected to all workspaces under the selected subscription.
 > - OS security configuration customization is available only on the Security Center standard tier.
 >
@@ -57,7 +57,7 @@ To customize the default OS security configuration in Security Center, do the fo
 3.  In the row of the subscription you want to customize, click **Edit settings**.
 
 4. Select **Edit security configurations**.  
-    
+
     ![The "Edit security configurations" window](media/security-center-customize-os-security-config/blade.png)
 
 5. Follow the steps to download, edit, and upload the modified file.

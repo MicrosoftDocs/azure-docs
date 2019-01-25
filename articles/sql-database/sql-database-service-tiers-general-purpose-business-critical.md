@@ -11,11 +11,16 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/04/2018
+ms.date: 11/30/2018
 ---
-# General Purpose and Business Critical service tiers
+# Azure SQL Database service tiers
 
-This article discusses storage and backup considerations for the General Purpose and Business Critical service tiers in the vCore-based purchasing model. 
+Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
+- [General Purpose](sql-database-service-tier-general-purpose.md) designed for most of the generic workloads.
+- [Business Critical](sql-database-service-tier-business-critical.md) designed for low latency workloads with one readable replica.
+- [Hyperscale](sql-database-service-tier-hyperscale.md) designed for very large databases (up to 100TB) with multiple readable replicas.
+
+This article discusses storage and backup considerations for the General Purpose and Business Critical service tiers in the vCore-based purchasing model.
 
 > [!NOTE]
 > For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md). For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
@@ -51,5 +56,5 @@ Storage for database backups is allocated to support the Point in Time Restore (
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for single database in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
-- For details on specific compute sizes and storage size choices available for elastic pools in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- For details on specific compute sizes and storage size choices available for single database in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- For details on specific compute sizes and storage size choices available for elastic pools in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

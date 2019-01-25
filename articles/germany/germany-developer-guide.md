@@ -69,6 +69,6 @@ For more information about Azure Germany, see the following resources:
 * [Acquiring Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 * [Sign-in page](https://portal.microsoftazure.de/) if you already have an Azure Germany account
 * [Azure Germany overview](./germany-welcome.md)
-* [Azure Germany blog](http://blogs.msdn.microsoft.com/azuregermany/)
+* [Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/)
 * [Azure compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)
 

@@ -51,7 +51,7 @@ If you followed the previous tutorial to [create a virtual machine scale set](tu
 
 
 ## Create Azure load balancer
-This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *eastus* location:
+This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *eastus* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
@@ -224,7 +224,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Now you can create the VMs with [az vm create](/cli/azure/vm#az_vm_create). The following example creates three VMs and generates SSH keys if they do not already exist:
+Now you can create the VMs with [az vm create](/cli/azure/vm). The following example creates three VMs and generates SSH keys if they do not already exist:
 
 ```bash
 for i in `seq 1 3`; do

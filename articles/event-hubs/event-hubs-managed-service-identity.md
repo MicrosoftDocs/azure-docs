@@ -1,6 +1,6 @@
 ---
-title: Managed identities for Azure resources with Azure Event Hubs preview | Microsoft Docs
-description: Use Managed identities for Azure resources with Azure Event Hubs
+title: Managed identities for Azure resources - Azure Event Hubs | Microsoft Docs
+description: This article provides information on how to use managed identities for Azure resources with Azure Event Hubs
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -9,7 +9,8 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -44,7 +45,7 @@ The first step is to create an App Service ASP.NET application. If you're not fa
 
 Once you create the application, navigate to the newly created web app in the Azure portal (also shown in the how-to), then navigate to the **Managed Service Identity** page, and enable the feature: 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![Managed Service Identity page](./media/event-hubs-managed-service-identity/msi1.png)
  
 Once you've enabled the feature, a new service identity is created in your Azure Active Directory, and configured into the App Service host.
 
@@ -52,11 +53,7 @@ Once you've enabled the feature, a new service identity is created in your Azure
 
 Next, [create an Event Hubs namespace](event-hubs-create.md) in one of the Azure regions that has preview support for managed identities for Azure resources: **US East**, **US East 2**, or **West Europe**. 
 
-Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add** to add the managed identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-The managed identity for the web application now has access to the Event Hubs namespace, and to the event hub you previously created. 
+Navigate to the namespace **Access Control (IAM)** page on the portal, and then click **Add role assignment** to add the managed identity to the **Owner** role. To do so, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**. The managed identity for the web application now has access to the Event Hubs namespace, and to the event hub you previously created. 
 
 ### Run the app
 
@@ -68,7 +65,7 @@ Note how the [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messa
 
 After you make these changes, publish and run the application. You can get the correct publishing data by downloading and then importing a publishing profile in Visual Studio:
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![Import publishing profile](./media/event-hubs-managed-service-identity/msi3.png)
  
 To send or receive messages, enter the name of the namespace and the name of the entity you created, then click either **send** or **receive**. 
  

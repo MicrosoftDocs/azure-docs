@@ -3,7 +3,7 @@ title: Azure Resource Health overview | Microsoft Docs
 description: Overview of Azure Resource Health
 services: Resource health
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shawn.tabrizi
+ms.date: 11/16/2018
+ms.author: stbaron
 
 ---
 # Azure Resource Health overview
@@ -24,7 +24,7 @@ Azure Resource Health helps you diagnose and get support when an Azure service p
 Whereas [Azure Status](https://status.azure.com) informs you about service problems that affect a broad set of Azure customers, Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows you all the times your resources were unavailable in the past because of Azure service problems. It's then simple for you to understand if an SLA was violated. 
 
 ## Resource definition and health assessment
-A resource is a specific instance an Azure service: for example, a virtual machine, a web app, or a SQL database.
+A resource is a specific instance of an Azure service: for example, a virtual machine, a web app, or a SQL database.
 
 Resource Health relies on signals emitted by the different Azure services to assess whether a resource is healthy or not. If a resource is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also identifies actions that Microsoft is taking to fix the problem or the actions that you can take to address the cause of the problem. 
 
@@ -49,7 +49,7 @@ Resource Health provides additional details on the event and the recovery proces
 ![Status of "Unavailable" for a virtual machine due to a platform event](./media/resource-health-overview/Unavailable.png)
 
 #### Non-platform events
-Non-platform events are triggered by users' actions. Examples are stopping a virtual machine or reaching the maximum number of connections to a Redis cache.
+Non-platform events are triggered by users' actions. Examples are stopping a virtual machine or reaching the maximum number of connections to an Azure Cache for Redis.
 
 ![Status of "Unavailable" for a virtual machine due to a non-platform event](./media/resource-health-overview/Unavailable_NonPlatform.png)
 

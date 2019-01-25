@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Send and receive messages to and from Azure Service Bus | Microsoft Docs
-description: In this quickstart, you learn to send and receive Service Bus messages using PowerShell and the .NET Standard client
+title: Quickstart - Use Azure PowerShell to create a Service Bus queue | Microsoft Docs
+description: In this quickstart, you learn how to use Azure PowerShell to creat a Service Bus queue. Then, you use a sample application to send messages to and receive messages from the queue. 
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -9,13 +9,12 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
-# Quickstart: Send and receive messages using Azure PowerShell and .NET
-
+# Quickstart: Use Azure PowerShell to create a Service Bus queue
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the client app sends to and receives messages from a Service Bus queue.
 
 ![queue](./media/service-bus-quickstart-powershell/quick-start-queue.png)
@@ -28,7 +27,7 @@ If you do not have an Azure subscription, create a [free account][] before you b
 
 To complete this tutorial, make sure you have installed:
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 This quickstart requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
@@ -261,4 +260,4 @@ In this article, you created a Service Bus namespace and other resources require
 > [Update inventory using Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Install and Configure Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

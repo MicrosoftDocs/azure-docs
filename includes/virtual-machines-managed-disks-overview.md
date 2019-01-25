@@ -31,7 +31,7 @@ Managed Disks provides better reliability for Availability Sets by ensuring that
 
 ### Highly durable and available
 
-Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate. 
+Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate.
 
 ### Granular access control
 
@@ -39,7 +39,7 @@ You can use [Azure Role-Based Access Control (RBAC)](../articles/role-based-acce
 
 ### Azure Backup service support
 
-Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration, and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option. Three copies of the data are kept within a single region. For regional disaster recovery, you must back up your VM disks in a different region using [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Currently Azure Backup supports the disk sizes up to 4TB disks. You need to [upgrade VM backup stack to V2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) for support of 4TB disks. For more information, see [Using Azure Backup service for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration, and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option. Three copies of the data are kept within a single region. For regional disaster recovery, you must back up your VM disks in a different region using [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Currently Azure Backup supports the disk sizes up to 4TB disks, see [Instant Restore](../articles/backup/backup-instant-restore-capability.md) for support of 4TB disks. For more information, see [Using Azure Backup service for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## Pricing and Billing
 
@@ -62,21 +62,21 @@ Let's take a closer look at these options.
 **Disk Size**: Billing for managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you
 create a standard managed disk and specify a provisioned size of 200 GB, you are billed as per the pricing of the S15 Disk type.
 
-Here are the disk sizes available for a premium managed disk:
+Here are the disk sizes available for a premium managed disk, sizes denoted with an asterisk are currently in preview:
 
-| **Premium HDD Managed <br>Disk Type** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **Premium SSD Managed <br>Disk Type** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60*** | **P70*** | **P80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
 
-Here are the disk sizes available for a standard SSD managed disk:
+Here are the disk sizes available for a standard SSD managed disk, sizes denoted with an asterisk are currently in preview:
 
-| **Standard SSD Managed <br>Disk Type** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60** | **E70** | **E80** |
+| **Standard SSD Managed <br>Disk Type** | **E10** | **E15** | **E20** | **E30** | **E40** | **E50** | **E60*** | **E70*** | **E80*** |
 |------------------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Size        | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
 
-Here are the disk sizes available for a standard HDD managed disk:
+Here are the disk sizes available for a standard HDD managed disk, sizes denoted with an asterisk are currently in preview:
 
-| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
 

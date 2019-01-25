@@ -10,10 +10,11 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
 ---
 # Bing Speech client samples
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+ 
 Bing Speech provides end-to-end samples to demonstrate different use cases, for example command recognition, continuous recognition, and intent detection. All samples are available on GitHub, and can be downloaded by the following links: The README.md in each repository as well as the [client libraries](GetStarted/GetStartedClientLibraries.md) page provide details about how to build and run the samples.
 
 - [REST API samples](https://github.com/Azure-Samples/SpeechToText-REST)

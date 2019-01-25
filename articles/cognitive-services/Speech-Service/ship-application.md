@@ -1,15 +1,16 @@
 ---
-title: Azure Cognitive Services, Cognitive Services Speech SDK API documentation - Tutorials, API reference
-description: Learn how to create and develop apps with the Cognitive Services Speech SDK
-titleSuffix: "Microsoft Cognitive Services"
+title: Develop apps with the Speech SDK - Speech Services
+titleSuffix: Azure Cognitive Services
+description: Learn how to create apps using the Speech SDK.
 services: cognitive-services
 author: wolfma61
-
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 06/07/2018
+ms.topic: conceptual
+ms.date: 12/18/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Ship an application
@@ -49,7 +50,7 @@ Make sure you select the version (x86, x64) that matches your application. Depen
 * The cURL library (`libcurl.so.4`)
 * The shared library for ALSA applications (`libasound.so.2`)
 
-On Ubuntu 16.04, for example, the GNU C libraries should already be installed by default. The last three can be installed by using these commands:
+On Ubuntu 16.04 or 18.04, for example, the GNU C libraries should already be installed by default. The last three can be installed by using these commands:
 
 ```sh
 sudo apt-get update

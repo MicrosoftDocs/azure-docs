@@ -1,5 +1,5 @@
 ---
-title: Analyzers in Azure Search | Microsoft Docs
+title: Analyzers for linguistic and text processing - Azure Search
 description: Assign analyzers to searchable text fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
 services: search
 ms.service: search
@@ -8,9 +8,10 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
+ms.custom: seodec2018
 ---
 
-# Analyzers in Azure Search
+# Analyzers for text processing in Azure Search
 
 An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. The following transformations are typical during analysis:
 
@@ -70,7 +71,7 @@ If a search fails to return expected results, the most likely scenario is token 
 
 ### Compare English analyzers
 
-The [Search Analyzer Demo](http://alice.unearth.ai/) is a third-party demo app showing a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. The index is fixed; it contains text from a popular story. For each search input you provide, results from each analyzer are displayed in adjacent panes, giving you a sense of how each analyzer processes the same string. 
+The [Search Analyzer Demo](https://alice.unearth.ai/) is a third-party demo app showing a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. The index is fixed; it contains text from a popular story. For each search input you provide, results from each analyzer are displayed in adjacent panes, giving you a sense of how each analyzer processes the same string. 
 
 ## Examples
 
@@ -129,7 +130,7 @@ Walking through this example:
      "tokenizers":[
         {
            "name":"my_standard_tokenizer",
-           "@odata.type":"#Microsoft.Azure.Search.StandardTokenizer",
+           "@odata.type":"#Microsoft.Azure.Search.StandardTokenizerV2",
            "maxTokenLength":20
         }
      ],
@@ -238,13 +239,13 @@ Fields containing strings in different languages can use a language analyzer, wh
 
 + Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that might seem counter-intuitive on the surface.
 
-+ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
++ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 
 + Learn how to apply [language-specific lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configure custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) for either minimal processing or specialized processing on individual fields.
 
-+ [Compare standard and English analyzers](http://alice.unearth.ai/) in adjacent panes on this demo web site. 
++ [Compare standard and English analyzers](https://alice.unearth.ai/) in adjacent panes on this demo web site. 
 
 ## See also
 

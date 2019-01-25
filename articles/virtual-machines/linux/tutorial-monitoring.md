@@ -205,7 +205,7 @@ To schedule a new Update Deployment for the VM, select **Schedule update deploym
 * **Update classification** - Select the types of software the update deployment included in the deployment. The classification types are:
   * Critical and security updates
   * Other updates
-* **Updates to Exclude** - You can provide a list of package names that should be skipped during the update deployment. Package names support wildcards (such as, \*kernal\*).
+* **Updates to Exclude** - You can provide a list of package names that should be skipped during the update deployment. Package names support wildcards (such as, \*kernel\*).
 
   ![Update Schedule Settings screen](./media/tutorial-monitoring/manage-updates-exclude-linux.png)
 
@@ -290,7 +290,7 @@ The chart shows changes that have occurred over time. After you have added an Ac
 
 You can do more advanced monitoring of your VM by using the solutions like Update Management and Change and Inventory provided by [Azure Automation](../../automation/automation-intro.md).
 
-When you have access to the Log Analytics workspace, you can find the workspace key and workspace identifier on by selecting **Advanced settings** under **SETTINGS**. Replace \<workspace-key\> and \<workspace-id\> with the values for from your Log Analytics workspace and then you can use **az vm extension set** to add the extension to the VM:
+When you have access to the Log Analytics workspace, you can find the workspace key and workspace identifier by selecting **Advanced settings** under **SETTINGS**. Replace \<workspace-key\> and \<workspace-id\> with the values for from your Log Analytics workspace and then you can use **az vm extension set** to add the extension to the VM:
 
 ```azurecli-interactive
 az vm extension set \
@@ -305,7 +305,7 @@ az vm extension set \
 
 After a few minutes, you should see the new VM in the Log Analytics workspace.
 
-![OMS blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## Next steps
 

@@ -1,12 +1,14 @@
 ---
-title: JSON search syntax in the Academic Knowledge API | Microsoft Docs
-description: Learn about the JSON search syntax you can use in the Academic Knowledge API in Microsoft Cognitive Services.
+title: JSON search syntax - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Learn about the JSON search syntax you can use in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ---
