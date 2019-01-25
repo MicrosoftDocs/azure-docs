@@ -74,7 +74,7 @@
     href: functions-scale.md
   - name: Triggers and bindings
     items:
-    - name: Concepts
+    - name: About triggers and bindings
       href: functions-triggers-bindings.md
     - name: Binding example
       href: functions-bindings-example.md
