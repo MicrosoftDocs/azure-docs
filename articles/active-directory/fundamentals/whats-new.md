@@ -107,9 +107,9 @@ For more information about the enhancements, see https://aka.ms/IdentityProtecti
 **Service category:** Microsoft Authenticator App  
 **Product capability:** Identity Security & Protection
 
-To keep your one-time passcodes, app information, and app settings more secure, you can turn on the App Lock feature in the Microsoft Authenticator app. Turning on App Lock means you’ll be asked to authenticate using your PIN or biometric key every time you open a two-factor verification-protected app.
+To keep your one-time passcodes, app information, and app settings more secure, you can turn on the App Lock feature in the Microsoft Authenticator app. Turning on App Lock means you’ll be asked to authenticate using your PIN or biometric every time you open the Microsoft Authenticator app.
 
-For more information, see https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-faq.
+For more information, see [Microsoft Authenticator app FAQ](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-faq).
 
 ---
 
