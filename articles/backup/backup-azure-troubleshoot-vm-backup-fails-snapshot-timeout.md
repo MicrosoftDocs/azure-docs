@@ -54,7 +54,7 @@ To resolve this issue, remove the lock on the resource group of the VM, and retr
 **Step 1: [Remove lock from the restore point resource group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
 
-## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs.
+## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs
 
 **Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
@@ -100,7 +100,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: Currently Azure Backup does not support disk sizes greater than 1023GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability#upgrading-to-instant-restore.md).  
+Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability.md#upgrading-to-instant-restore.md).  
 
 ## UserErrorStandardSSDNotSupported - Currently Azure Backup does not support Standard SSD disks
 
@@ -109,7 +109,7 @@ Your backup operation could fail when backing up VM with disk size greater than 
 
 Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to [Instant Restore](backup-instant-restore-capability.md).
 
-## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress.
+## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 
 **Error code**: UserErrorBackupOperationInProgress <br>
 **Error message**: Unable to initiate backup as another backup operation is currently in progress<br>
@@ -127,7 +127,6 @@ Your recent backup job failed because there is an existing backup job in progres
 4. Retry backup operation.
 
 If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#restore-considerations).
-
 
 
 ## Causes and solutions
