@@ -22,7 +22,7 @@ ms.date: 01/25/2019
 In this section, you will see an overview of available articles that can help you to quickly get started with Single Database. The easiest way to create your first SQL Database is to use [the Azure portal](sql-database-get-started-portal.md) where you can configure necessary parameters.
 After creation, you would need to [secure your database by configuring firewall rules](sql-database-get-started-portal-firewall.md). 
 
-If you have an existing database on SQL Server that you want to migrate to Azure, you should install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) that will analyze your databases on SQL Server and find any issue that could block migration to Singe Database. If you don't find any issue, you can export your database as `.bacpac` file and [import it using the Azure Portal or SqlPackage](sql-database-import.md).
+If you have an existing database on SQL Server that you want to migrate to Azure, you should install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) that will analyze your databases on SQL Server and find any issue that could block migration to Singe Database. If you don't find any issue, you can export your database as `.bacpac` file and [import it using the Azure portal or SqlPackage](sql-database-import.md).
 
 These quickstarts enable you to quickly configure, create, and import your databases in Azure cloud.
 
