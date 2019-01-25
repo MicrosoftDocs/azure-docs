@@ -71,10 +71,10 @@ Azure responds with a list of all enrollment accounts you have access to:
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the [Get-AzureRmEnrollmentAccount command](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) to list all enrollment accounts you have access to.
+Use the [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet to list all enrollment accounts you have access to.
 
 ```azurepowershell-interactive
-Get-AzureRmEnrollmentAccount
+Get-AzEnrollmentAccount
 ```
 
 Azure responds with a list of the Object IDs and email addresses of accounts.
