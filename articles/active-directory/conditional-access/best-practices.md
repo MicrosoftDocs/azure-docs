@@ -43,9 +43,9 @@ To make your policy work, you must configure:
 
 |What           | How                                  | Why|
 |:--            | :--                                  | :-- |
-|**Cloud apps** |You need to select one or more apps.  | The goal of a conditional access policy is to enable you to control how authorized users can access cloud apps.|
-| **Users and groups** | You need to select at least one user or group that is authorized to access your selected cloud apps. | A conditional access policy that has no users and groups assigned, is never triggered. |
-| **Access controls** | You need to select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
+|**Cloud apps** |You must select one or more apps.  | The goal of a conditional access policy is to enable you to control how authorized users can access cloud apps.|
+| **Users and groups** | You must select at least one user or group that is authorized to access your selected cloud apps. | A conditional access policy that has no users and groups assigned, is never triggered. |
+| **Access controls** | You must select at least one access control. | If your conditions are satisfied, your policy processor needs to know what to do.|
 
 
 
@@ -56,7 +56,7 @@ To make your policy work, you must configure:
 
 ### How are conditional access policies applied?
 
-More than one conditional access policy may apply when you access a cloud app. In this case all policies that apply must be satisfied. For example, if one policy requires MFA and the second requires a compliant device, you must go through MFA, and have a compliant device. 
+More than one conditional access policy may apply when you access a cloud app. In this case, all policies that apply must be satisfied. For example, if one policy requires MFA and the second requires a compliant device, you must go through MFA, and have a compliant device. 
 
 All policies are enforced in two phases:
 
@@ -136,13 +136,13 @@ In your environment, you should avoid the following configurations:
 
 As a first step, you should evaluate your policy using the [what if tool](what-if-tool.md).
 
-When you are ready to deploy a new policy into your environment, you should do this in phases:
+When new policies are ready for your environment, deploy them in phases:
 
 1. Apply a policy to a small set of users and verify it behaves as expected. 
 
-2.  When you expand a policy to include more users, continue to exclude all administrators from the policy. This ensures that administrators still have access and can update a policy if a change is required.
+2.  When you expand a policy to include more users. Continue to exclude all administrators from the policy to ensure that they still have access and can update a policy if a change is required.
 
-3. Apply a policy to all users only if this is really required. 
+3. Apply a policy to all users only if this is required. 
 
 As a best practice, create a user account that is:
 
