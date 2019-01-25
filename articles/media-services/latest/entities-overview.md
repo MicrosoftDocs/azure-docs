@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 # Azure Media Services entities overview
 
-This article gives a brief overview of Azure Media Services entities and points to articles for more information about how each each entity is used in Media Services workflows. 
+This article gives a brief overview of Azure Media Services entities and points to articles for more information about how each entity is used in Media Services workflows. 
 
 | Topic | Description |
 |---|---|
