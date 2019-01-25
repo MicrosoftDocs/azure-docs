@@ -19,7 +19,7 @@ This article provides a C# program that connects to your Microsoft Azure SQL Dat
 
 For more information about MFA support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
-## MFA authentication for Azure SQL Database
+## Multi-factor authentication for Azure SQL Database
 
 Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value - `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure AD Interactive mode supporting MFA to authenticate to Azure SQL Database. The user who runs the program sees the following dialog boxes:
 
