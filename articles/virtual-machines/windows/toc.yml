@@ -99,7 +99,7 @@
     items:
     - name: Introduction to managed disks
       href: managed-disks-overview.md
-    - name: Choosing a disk type
+    - name: Select a disk type
       href: disks-types.md
     - name: Designing for high performance
       href: premium-storage-performance.md
