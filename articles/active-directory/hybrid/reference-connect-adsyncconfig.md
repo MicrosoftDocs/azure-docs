@@ -5,7 +5,7 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
 
@@ -1220,7 +1220,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ### DESCRIPTION
 The Set-ADSyncUnifiedGroupWritebackPermissions Function will give required permissions to the AD synchronization account, which include the following:
 1.
-Generic Read/Write, Delete, Delete Tree and Create\Delete Child for all Object types and SubObjects
+Generic Read/Write, Delete, Delete Tree and Create\Delete Child for all  group Object types and SubObjects
 
 These permissions are applied to all domains in the forest.
 Optionally you can provide a DistinguishedName in ADobjectDN parameter to set these permissions on that AD Object only (including inheritance to sub objects).

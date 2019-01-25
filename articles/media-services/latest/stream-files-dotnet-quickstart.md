@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/23/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
@@ -49,12 +49,12 @@ The sample is located in the [EncodeAndStreamFiles](https://github.com/Azure-Sam
 
 The sample performs the following actions:
 
-1. Creates a Transform (first, checks if the specified Transform exists). 
-2. Creates an output Asset that is used as the encoding Job's output.
-3. Creates the Job's input that is based on an HTTPS URL.
-4. Submits the encoding Job using the input and output that was created earlier.
+1. Creates a **Transform** (first, checks if the specified Transform exists). 
+2. Creates an output **Asset** that is used as the encoding **Job**'s output.
+3. Creates the **Job**'s input that is based on an HTTPS URL.
+4. Submits the encoding **Job** using the input and output that was created earlier.
 5. Checks the Job's status.
-6. Creates a StreamingLocator.
+6. Creates a **Streaming Locator**.
 7. Builds streaming URLs.
 
 For explanations about what each function in the sample does, examine the code and look at the comments in [this source file](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).

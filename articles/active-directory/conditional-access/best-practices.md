@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -150,4 +150,7 @@ For more information, see [Migrate classic policies in the Azure portal](policy-
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+If you want to know:
+
+- How to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+- How to plan your conditional access policies, see [How to plan your conditional access deployment in Azure Active Directory](plan-conditional-access.md).
