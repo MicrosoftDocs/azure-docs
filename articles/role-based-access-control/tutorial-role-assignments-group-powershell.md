@@ -32,14 +32,14 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 To complete this tutorial, you will need:
 
 - Permissions to create groups in Azure Active Directory (or have an existing group)
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
-
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## Role assignments
 

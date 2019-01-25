@@ -20,14 +20,14 @@ ms.reviewer: bagovind
 
 [Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and Azure PowerShell.
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 To manage access, you need one of the following:
 
 * [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview)
 * [Azure PowerShell](/powershell/azure/install-az-ps)
-
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## List roles
 

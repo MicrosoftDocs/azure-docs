@@ -20,14 +20,14 @@ ms.reviewer: bagovind
 
 If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using Azure PowerShell.
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 To create custom roles, you need:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
 - [Azure PowerShell](/powershell/azure/install-az-ps) installed locally
-
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## List custom roles
 

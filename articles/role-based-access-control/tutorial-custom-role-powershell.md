@@ -32,14 +32,14 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 To complete this tutorial, you will need:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
 - [Azure PowerShell](/powershell/azure/install-az-ps) installed locally
-
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 ## Sign in to Azure PowerShell
 
