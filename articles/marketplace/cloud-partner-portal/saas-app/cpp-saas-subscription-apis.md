@@ -22,11 +22,7 @@ ms.author: pbutlerm
 
 This article explains how to create a SaaS offer with APIs. The APIs are
 necessary for allowing subscriptions to your SaaS offer if you have Sell
-through Azure selected. If you want to build a regular SaaS listing that
-does not have commerce enabled, see 
-[SaaS Application Technical Publishing Guide](./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
-
-This article is divided into two sections:
+through Azure selected.  This article is divided into two sections:
 
 -   Service-to-service Authentication between a SaaS Service and Azure Marketplace
 -   API Methods and Endpoints
@@ -94,7 +90,7 @@ To register a new application using the Azure portal, perform the following step
         by Azure AD to return token responses. Enter a value specific to
         your application, for example **http://MyFirstAADApp**.
 
-        ![SaaS AD App Registrations](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png)
+        ![SaaS AD App Registrations](./media/saas-offer-app-registration-2.png)
         For specific examples for web applications or native
         applications, check out the quick start guided setups that are
         available in the Get Started section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
