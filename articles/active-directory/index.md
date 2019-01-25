@@ -24,7 +24,7 @@ ms.author: barbkess
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_overview.svg" alt="" />
+                                    <img src="media/index/i_overview.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -43,7 +43,7 @@ ms.author: barbkess
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_get-started.svg" alt="" />
+                                    <img src="media/index/i_get-started.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -62,12 +62,12 @@ ms.author: barbkess
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                    <img src="media/index/i_guidelines.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
                                 <h3>Add company branding</h3>
-                                <p>Learn how to add your organization's  logo and color scheme to your Azure AD sign-in pages.</p>
+                                <p>Learn how to add your organization's logo and color scheme to your Azure AD sign-in pages.</p>
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ ms.author: barbkess
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                    <img src="media/index/i_guidelines.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -100,7 +100,7 @@ ms.author: barbkess
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                    <img src="media/index/i_guidelines.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -119,12 +119,12 @@ ms.author: barbkess
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                    <img src="media/index/i_guidelines.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
                                 <h3>Learn</h3>
-                                <p>Learn how to secure your Azure resources with conditional access</p>
+                                <p>Learn how to secure your Azure resources with conditional access.</p>
                             </div>
                         </div>
                     </div>
