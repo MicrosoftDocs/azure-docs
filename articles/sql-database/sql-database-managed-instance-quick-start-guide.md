@@ -33,7 +33,7 @@ When you create a Managed Instance and configure access, you can start migrating
 
 Once you are sure that you can migrate your database to Managed Instance, you can use [Native RESTORE](sql-database-managed-instance-get-started-restore.md) functionality that enables you to create a backup of your database using Transact-SQL command, upload it to an Azure blob storage and RESTORE database from the blob storage using Transact-SQL command.
 
-These quickstarts enable you to quickly configure, create, and put databases on your Managed Instanced. In some scenarios, you would need to customize or automate deployment of Managed Instance and the required networking environment. These scenarios will be described below.
+These quickstarts enable you to quickly configure, create, and put databases on your Managed Instances. In some scenarios, you would need to customize or automate deployment of Managed Instance and the required networking environment. These scenarios will be described below.
 
 ## Customizing network environment
 
