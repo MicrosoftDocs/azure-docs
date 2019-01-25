@@ -26,10 +26,10 @@ When evaluating the upgrade options you should consider the following factors:
 
 ## Upgrading applications that rely on database backups for disaster recovery
 
-If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. In this case the upgrade process involves creating a backup deployment of all application components involved in the upgrade. To minimize the end-user disruption you will use Azure App Service Deployment Slots.  The following diagram illustrates the operational environment prior to the upgrade process. The endpoint `contoso.azurewebsites.net` represents a production slot of the web application. To enable the ability to roll back the upgrade, you need create a staging slot with a fully synchronized copy of the database. The following steps are required to prepare the application for the upgrade:
+If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. To minimize the end-user disruption, you will create a staging environment with all the application components involved in the upgrade. The following diagram illustrates the operational environment prior to the upgrade process. The endpoint `contoso.azurewebsites.net` represents a production slot of the web application. To enable the ability to roll back the upgrade, you need create a staging slot with a fully synchronized copy of the database. The following steps wil create a staging environment for the upgrade:
 
 (1) Create a secondary database in the same Azure region. Monitor the secondary to see if the seeding process is completed.
-(2) Create a new deployment slot for your web application called 'Staging'. It willbe  registered in DNS with URL  `contoso-staging.azurewebsites.net`.
+(2) Create a new deployment slot for your web application called 'Staging'. It will be registered in DNS with URL  `contoso-staging.azurewebsites.net`.
 
 > [!NOTE]
 > Note the preparation steps will not impact the production slot and it can function in full access mode.
@@ -47,8 +47,8 @@ Once the preparation steps are completed the application is ready for the actual
 
 If the upgrade completed successfully you are now ready to switch the end users to the upgraded copy the application. It will now become a  production slot.  This involves a few more steps as illustrated on the following diagram.
 
-(6) Activate a swap operation between ptoduction and staging slots of the web application. It will switch the URLs of the two slots. Now `contoso.azurewebsites.net` will point to V2 version of the web site.  
-(7) If you no longer need the V1 version, which became a staging copy after the swap,  you can safely remove it.
+(6) Activate a swap operation between production and staging slots of the web application. It will switch the URLs of the two slots. Now `contoso.azurewebsites.net` will point to V2 version of the web site and the database (production environment).  
+(7) If you no longer need the V1 version, which became a staging copy after the swap,  you can safely remove the stanging envoronment.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
@@ -68,17 +68,26 @@ The key **advantage** of this option is that you can upgrade an application in a
 
 ## Upgrading applications that rely on database geo-replication for disaster recovery
 
-If your application leverages geo-replication for business continuity, it is deployed  to at least two different regions with an active deployment in Primary region and a standby deployment in Backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
+If your application leverages Active geo-replication or Failover groups for business continuity, it is deployed  to at least two different regions with an active primary database in Primary region and a read-only secondary database in Backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
 
 * The application remains protected from catastrophic failures at all times during the upgrade process
 * The geo-redundant components of the application are upgraded in parallel with the active components
 
-To achieve these goals you will leverage Azure Traffic Manager (ATM) using the failover profile with one active and three backup endpoints.  The following diagram illustrates the operational environment prior to the upgrade process. The web sites `contoso-1.azurewebsites.net` and `contoso-dr.azurewebsites.net` represent a production slot of the application with full geographic redundancy. To enable the ability to roll back the upgrade, you need create a stage slot with a fully synchronized copy of the application. Because you need to ensure that the application can quickly recover in case a catastrophic failure occurs during the upgrade process, the stage slot needs to be geo-redundant as well. The following steps are required to prepare the application for the upgrade:
+To achieve these goals, in addition to using the Web App deployment slots, you will leverage Azure Traffic Manager (ATM) using a failover profile with one active and one backup endpoints.  The following diagram illustrates the operational environment prior to the upgrade process. The web sites `contoso-1.azurewebsites.net` and `contoso-dr.azurewebsites.net` represent a production environment of the application with full geographic redundancy. The production environment includes the following components:
 
-1. Create a stage slot for the upgrade. To do that create a secondary database (1) and deploy an identical copy of the web site in the same Azure region. Monitor the secondary to see if the seeding process is completed.
-2. Create a geo-redundant secondary database in the stage slot by geo-replicating the secondary database to the backup region (this is called "chained geo-replication"). Monitor the backup secondary to see if the seeding process is completed (3).
-3. Create a standby copy of the web site in the backup region and link it to the geo-redundant secondary (4).  
-4. Add the additional endpoints `contoso-2.azurewebsites.net` and `contoso-3.azurewebsites.net` to the failover profile in ATM as offline endpoints (5).
+1. Production slot of the web application `contoso-1.azurewebsites.net` in the primary region (1)
+2. Primary database in the primary region (2) 
+3. A stand-by instance of the web application in the backup region (3)
+4. Geo-replicated secondary database in the backup region (4)
+5. Azure traffic manager performancre profile with online endpoint `contoso-1.azurewebsites.net` and offline endpoint `contoso-dr.azurewebsites.net`
+
+To enable the ability to roll back the upgrade, you need create a staging environment with a fully synchronized copy of the application. Because you need to ensure that the application can quickly recover in case a catastrophic failure occurs during the upgrade process, the staging environment needs to be geo-redundant as well. The following steps are required to create a staging environment for the upgrade:
+
+1. Deploy a staging slot of the web application in the primary region (6)
+2. Create a secondary database in the primary Azure region (7). Configure the staging slot of the web application to connect to it. 
+3. Create another geo-redundant secondary database in the backup region by replicating the secondary database in the primary region (this is called "chained geo-replication") (8).
+3. Deploy a staging slot of the web application instance in the backup region (9) and configure it to connect the geo-secondary created in step (8).
+
 
 > [!NOTE]
 > Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
@@ -121,5 +130,9 @@ The two upgrade methods described in the article differ in complexity and the do
 ## Next steps
 
 * For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md).
-* To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
-* To learn about using automated backups for recovery, see [restore a database from automated backups](sql-database-recovery-using-backups.md).
+* To learn about Azure SQL Database Active geo-replication, see [Create readable secondary databases using active geo-replication](sql-database-active-geo-replication.md).
+* To learn about Azure SQL Database Failover groups, see [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md).
+* To learn about deployment slots and staging environment in Azure App Serrvice, see [Set up staging environments in Azure App Service](../app-service/deploy-staging-slots.md).  
+* To learn Azure traffic manager profiles, see [Manage an Azure Traffic Manager profile](../traffic-manager-manage-profiles.md).  
+
+
