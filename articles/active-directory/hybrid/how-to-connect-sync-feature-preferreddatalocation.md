@@ -48,7 +48,7 @@ The geos in Office 365 available for Multi-Geo are:
 | United States | NAM |
 
 * If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
-* The India geo will soon be available to all Multi-Geo customers without restrictions https://aka.ms/IndiaGeo
+
 * Not all Office 365 workloads support the use of setting a user's geo.
 
 ### Azure AD Connect support for synchronization
