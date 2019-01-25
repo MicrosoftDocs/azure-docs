@@ -1,6 +1,6 @@
 ---
-title: Known Issues for Machine Learning Services (with R) in Azure SQL Database (Preview) Overview
-description: This topic describes known issues for Azure SQL Database Machine Learning Services (with R).
+title: Key differences for Machine Learning Services (with R) in Azure SQL Database (Preview) Overview
+description: This topic describes key differences between Azure SQL Database Machine Learning Services (with R) and SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning-services
