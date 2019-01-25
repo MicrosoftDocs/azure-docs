@@ -5,17 +5,17 @@ title: Azure Active Directory Documentation - Tutorials, API Reference | Microso
 description: Azure Active Directory (Azure AD) is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 01/16/2019
-ms.author: mtillman
+ms.date: 01/24/2019
+ms.author: barbkess
 ---
 
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Active Directory Documentation</h1>
-        <p>Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory, and identity management service.</p><p></p>
+        <p>Azure Active Directory (Azure AD) is a multi-tenant, cloud-based identity and access management service.</p><p></p>
         <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
             <li>
                 <a href="fundamentals/active-directory-whatis.md">
