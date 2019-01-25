@@ -17,6 +17,17 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2019-01-28
+
+### Azure Machine Learning SDK for Python v1.0.10
+
++ **SDK reference docs**: https://aka.ms/aml-sdk
+
++ **Changes**: 
+  + Azure ML SDK no longer has azure-cli packages as dependency.
+
++ **Bug fixes**: This release mostly contains minor bug fixes
+
 ## 2019-01-14
 
 ### Azure Machine Learning SDK for Python v1.0.8
