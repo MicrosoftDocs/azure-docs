@@ -35,7 +35,7 @@ This article shows how to use [Media Services v3 CLI](https://aka.ms/ams-v3-cli-
 
 ## Scale Media Reserved Units with CLI
 
-1. Run the `login` command.
+1. Run the `login` command. Run this command whether you are using the Azure cloud shell or the local CLI shell.
 
     ```azurecli
     az login
