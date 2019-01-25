@@ -159,7 +159,20 @@ immediately return that file. The trigger returns the file only when polling the
 server again. Sometimes, this behavior might cause a delay that is up to twice 
 the trigger's polling interval. 
 
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## Examples
+
+<a name="file-add-modified"></a>
 
 ### SFTP trigger: When a file is added or modified
 
@@ -176,12 +189,36 @@ You can then use an SFTP action such as **Get file content**
 so you get the order's contents for further processing 
 and store that order in an orders database.
 
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
 ### SFTP action: Get content
 
 This action gets the content from a file on an SFTP server. 
 So for example, you can add the trigger from the previous 
 example and a condition that the file's content must meet. 
 If the condition is true, the action that gets the content can run. 
+
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## Connector reference
 
