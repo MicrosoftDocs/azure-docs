@@ -165,6 +165,7 @@ Failed to authorize user to perform action in Azure AD.
 ### Authentication Cancelled
 The multi-factor authentication (MFA) challenge was cancelled.
 
+### Connect To MS Online Failed
 <div id="connect-msolservice-failed">
 <!--
   Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
@@ -172,9 +173,9 @@ The multi-factor authentication (MFA) challenge was cancelled.
 -->
 </div>
 
-### Connect To MS Online Failed
 Authentication was successful, but Azure AD PowerShell has an authentication problem.
 
+### Azure AD Global Admin Role Needed
 <div id="get-msoluserrole-failed">
 <!--
   Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
@@ -182,9 +183,9 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 -->
 </div>
 
-### Azure AD Global Admin Role Needed
 User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user. 
 
+### Privileged Identity Management Enabled
 <div id="privileged-identity-management">
 <!--
   Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
@@ -192,9 +193,9 @@ User was authenticated successfully. However user is not assigned global admin r
 -->
 </div>
 
-### Privileged Identity Management Enabled
 Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. For more information, see [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
+### Company Information Unavailable
 <div id="get-msolcompanyinformation-failed">
 <!--
   Empty div just to act as an alias for the "Company Information Unavailable" header
@@ -202,9 +203,9 @@ Authentication was successful. Privileged identity management has been enabled a
 -->
 </div>
 
-### Company Information Unavailable
 Authentication was successful. Could not retrieve company information from Azure AD.
 
+### Domain Information Unavailable
 <div id="get-msoldomain-failed">
 <!--
   Empty div just to act as an alias for the "Domain Information Unavailable" header
@@ -212,7 +213,6 @@ Authentication was successful. Could not retrieve company information from Azure
 -->
 </div>
 
-### Domain Information Unavailable
 Authentication was successful. Could not retrieve domain information from Azure AD.
 
 ### Unspecified Authentication Failure
