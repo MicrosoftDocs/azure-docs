@@ -38,7 +38,7 @@ In the [portal](https://portal.azure.com) page for your Azure Search service, th
 
 ![Search Traffic Analytics instructions][1]
 
-### 1. Select an Application Insights resource
+## 1 - Select an Application Insights resource
 
 You need to select an Application Insights resource to use or create one if you don't have one already. You can use a resource that's already in use to log the required custom events.
 
@@ -46,11 +46,11 @@ When creating a new Application Insights resource, all application types are val
 
 You need the instrumentation key for creating the telemetry client for your application. You can get it from the Application Insights portal dashboard, or you can get it from the Search Traffic Analytics page, selecting the instance you want to use.
 
-### 2. Instrument your application
+## 2 - Instrument your application
 
 This phase is where you instrument your own search application, using the Application Insights resource your created in the step above. There are four steps to this process:
 
-**I. Create a telemetry client**
+**Step 1: Create a telemetry client**
 This is the object that sends events to the Application Insights Resource.
 
 *C#*
@@ -69,7 +69,7 @@ This is the object that sends events to the Application Insights Resource.
 
 For other languages and platforms, see the complete [list](https://docs.microsoft.com/azure/application-insights/app-insights-platforms).
 
-**II. Request a Search ID for correlation**
+**Step 2: Request a Search ID for correlation**
 To correlate search requests with clicks, it's necessary to have a correlation id that relates these two distinct events. Azure Search provides you with a Search Id when you request it with a header:
 
 *C#*
@@ -91,7 +91,7 @@ To correlate search requests with clicks, it's necessary to have a correlation i
     request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
     var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
-**III. Log Search events**
+**Step 3: Log Search events**
 
 Every time that a search request is issued by a user, you should log that as a search event with the following schema on an Application Insights custom event:
 
@@ -133,7 +133,7 @@ Every time that a search request is issued by a user, you should log that as a s
     ScoringProfile: <scoring profile used>
     });
 
-**IV. Log Click events**
+**Step 4: Log Click events**
 
 Every time that a user clicks on a document, that's a signal that must be logged for search analysis purposes. Use Application Insights custom events to log these events with the following schema:
 
@@ -165,38 +165,39 @@ Every time that a user clicks on a document, that's a signal that must be logged
     	Rank: <clicked document position>
     });
 
-### 3. Analyze with Power BI Desktop
+## 3 - Analyze with Power BI Desktop
 
 After you have instrumented your app and verified your application is correctly connected to Application Insights, you can use a predefined template created by Azure Search for Power BI desktop. 
 
-Azure search provides a monitoring [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) so that you can analyze log data. The content pack consists of reports configured to automatically connect to your data and provide visual insights about your search service. 
+Azure search provides a monitoring [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search) so that you can analyze log data. T The content pack adds predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
 
-1. Install the [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search). The content pack adds predefined charts and tables useful for analyzing the additional data captured for search traffic analytics. For more information, see the [content pack help page](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/).
+1. In the Azure Search dashboard left-navigation pane, under **Settings**, click **Search traffic analytics**.
 
-2. Open **Power BI**, click **Get Data** > **Services** > **Azure Search**.
+2. On the **Search traffic analytics** page, in step 3, click **Get Power BI Desktop** to install Power BI.
 
-3. To connect to Application Insights. This data can be found in the Search Traffic Analytics page, when you select the resource to use
+   ![Get Power BI reports](./media/search-traffic-analytics/get-use-power-bi.png "Get Power BI reports")
 
-![Application Insights Data in the Search Traffic Analytics blade][2]
+2. On the same page, click **Download PowerBI report**.
 
-4. Import the data and then click **View data**.
+3. The report opens in Power BI Desktop, and you are prompted to connect to Application Insights. You can find this information in the Azure portal pages for you Application Insights resource.
+
+   ![Connect to Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Connect to Application Insights")
+
+4. Click **Load**.
+
+The report contains charts and tables that help you make more informed decisions to improve your search performance and relevance.
+
+Metrics included the following items:
+
+* Click through Rate (CTR): ratio of users who click on a specific document to the number of total searches.
+* Searches without clicks: terms for top queries that register no clicks
+* Most clicked documents: most clicked documents by ID in the last 24 hours, 7 days, and 30 days.
+* Popular term-document pairs: terms that result in the same document clicked, ordered by clicks.
+* Time to click: clicks bucketed by time since the search query
 
 The following screenshot shows the built-in reports and charts for analyzing search traffic analytics.
 
 ![Power BI dashboard for Azure Search](./media/search-traffic-analytics/AzureSearch-PowerBI-Dashboard.png "Power BI dashboard for Azure Search")
-
-This template contains charts and tables that help you make more informed decisions to improve your search performance and relevance.
-
-Metrics included in the Power BI desktop template:
-
-*	Click through Rate (CTR): ratio of users who click on a specific document to the number of total searches.
-*	Searches without clicks: terms for top queries that register no clicks
-*	Most clicked documents: most clicked documents by ID in the last 24 hours, 7 days, and 30 days.
-*	Popular term-document pairs: terms that result in the same document clicked, ordered by clicks.
-*	Time to click: clicks bucketed by time since the search query
-
-![Power BI template for reading from Application Insights][3]
-
 
 ## Next Steps
 Instrument your search application to get powerful and insightful data about your search service.
