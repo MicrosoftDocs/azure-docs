@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/26/2019
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -23,7 +23,7 @@ ms.reviewer: adepue
 
 *Applies to: Azure Stack integrated systems*
 
-This article describes the contents of the 1901 update package. The update package includes improvements, fixes, and new features for this version of Azure Stack. This article also describes known issues in this release, and includes a link so you can download the update. Known issues are divided into issues directly related to the update process, and issues with the build (post-installation).
+This article describes the contents of the 1901 update package. The update includes improvements, fixes, and new features for this version of Azure Stack. This article also describes known issues in this release, and includes a link to download the update. Known issues are divided into issues directly related to the update process, and issues with the build (post-installation).
 
 > [!IMPORTANT]  
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
@@ -56,13 +56,13 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1811 (if any) before updating to 1901.
 
-- Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action.  
+- Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
-    If you do not have the extension host requirements met, the `Test-AzureStack` output displays the following message: 
+    If you do not have the extension host requirements met, the `Test-AzureStack` output displays the following message:
   
     `To proceed with installation of the 1901 update, you will need to import 
     the SSL certificates required for Extension Host, which simplifies network 
@@ -78,7 +78,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     The Azure Stack update will halt. Refer to this link to prepare for 
     Extension Host: https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare,
     then resume the update.
-    Exception: The Certificate path does not exist: [certificate path here]` 
+    Exception: The Certificate path does not exist: [certificate path here]`
 
     Once you have properly imported the mandatory extension host certificates, you can resume the update from the Administrator portal. While Microsoft advises Azure Stack operators to schedule a maintenance window during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
@@ -296,7 +296,7 @@ In connected scenarios only, Azure Stack deployments periodically check a secure
 
 ## Next steps
 
+- For an overview of the update management in Azure Stack, see [Manage updates in Azure Stack overview](azure-stack-updates.md).  
+- For more information about how to apply updates with Azure Stack, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
 - To review the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state, see [Azure Stack servicing policy](azure-stack-servicing-policy.md).  
 - To use the Privileged End Point (PEP) to monitor and resume updates, see [Monitor updates in Azure Stack using the privileged endpoint](azure-stack-monitor-update.md).  
-- For an overview of the update management in Azure Stack, see [Manage updates in Azure Stack overview](azure-stack-updates.md).  
-- For more information about how to apply updates with Azure Stack, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).  
