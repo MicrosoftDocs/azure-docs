@@ -21,7 +21,7 @@
         href: create-sql-api-python.md
       - name: Xamarin
         href: create-sql-api-xamarin-dotnet.md
-    - name: MongoDB
+    - name: Azure Cosmos DB's API for MongoDB
       items:
       - name: .NET
         href: create-mongodb-dotnet.md
