@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/25/2019
 ms.author: raynew
 ---
 
@@ -151,8 +151,16 @@ Azure Migrate collector downloads PowerCLI and installs it on the appliance. Fai
 This issue could occur due to an issue with VMware PowerCLI installation. Follow the below steps to resolve the issue:
 
 1. If you are not on the latest version of the collector appliance, [upgrade your Collector to the latest version](https://aka.ms/migrate/col/checkforupdates) and check if the issue is resolved.
-2. If you already have the latest collector version, manually install [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) and check if the issue is resolved.
-3. If the above does not resolve the issue, navigate to the C:\Program Files\ProfilerService folder and remove the VMware.dll and VimService65.dll files present in the folder and then restart the 'Azure Migrate Collector' service in Windows Services Manage (Open 'Run' and type 'services.msc' to open Windows Service Manager).
+2. If you already have the latest collector version, follow the below steps to do a clean installation of PowerCLI :
+   a. Close the web browser in the appliance.
+   b. Stop the 'Azure Migrate Collector' service by going to Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Stop,
+   c. Delete all folders starting with 'VMware' from the following locations:
+        C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program Files (x86)\WindowsPowerShell\Modules
+   d. Restart the 'Azure Migrate Collector' service in Windows Service Manager (Open 'Run' and type services.msc to open Windows Service Manager). Right click on Azure Migrate Collector Service and click Start.
+   e. Double-click the desktop shortcut 'Run collector' to start the collector application. The collector application should automatically download and install the required version fo PowerCLI.
+
+3. If the above does not resolve the issue, manually install [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) and check if the issue is resolved.
 
 ### Error UnableToConnectToServer
 
