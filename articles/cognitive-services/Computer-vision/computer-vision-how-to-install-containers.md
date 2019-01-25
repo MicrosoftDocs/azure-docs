@@ -25,13 +25,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-In order to run any of the Recognize Text containers, you must have the following:
-
-
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
-
-## Preparation
-
 You must meet the following prerequisites before using Recognize Text containers:
 
 |Required|Purpose|
@@ -39,6 +32,14 @@ You must meet the following prerequisites before using Recognize Text containers
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Recognize Text resource |In order to use the container, you must have:<br><br>A [_Recognize Text_](vision-api-how-to-topics/howtosubscribe.md) Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Recognize Text Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
+
+
+## Request access to the private container registry
+
+You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Face container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
+
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+
 
 ### The host computer
 
@@ -58,31 +59,6 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 |Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|
 
 Core and memory correspond to the `--cpus` and `--memory` settings which are used as part of the `docker run` command.
-
-## Request access to the private container registry
-
-You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Recognize Text container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
-
-> [!IMPORTANT]
-> You must use an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
-
-If your request is approved, you then receive an email with instructions describing how to obtain your credentials and access the private container registry.
-
-## Log in to the private container registry
-
-There are several ways to authenticate with the private container registry for Cognitive Services Containers, but the recommended method from the command line is by using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
-
-Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command, as shown in the following example, to log into `containerpreview.azurecr.io`, the private container registry for Cognitive Services Containers. Replace *\<username\>* with the user name and *\<password\>* with the password provided in the credentials you received from the Azure Cognitive Services team.
-
-```docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
-
-If you have secured your credentials in a text file, you can concatenate the contents of that text file, using the `cat` command, to the `docker login` command as shown in the following example. Replace *\<passwordFile\>* with the path and name of the text file containing the password and *\<username\>* with the user name provided in your credentials.
-
-```docker
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
 
 
 ## Get the container image with `docker pull`
