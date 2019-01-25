@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -52,6 +52,9 @@ A. Data Box is supported for all regions within US, West Europe, North Europe, F
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
+
+### Q. I have lost my Data Box. Is there a lost device charge?
+A. Yes. There is a lost or damaged device charge. This charge is covered in the [Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/) as well as in the [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).
 
 
 ## Order device
