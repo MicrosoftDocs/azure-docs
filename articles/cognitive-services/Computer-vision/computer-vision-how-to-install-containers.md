@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 In order to run any of the Recognize Text containers, you must have the following:
 
 
-[!INCLUDE [Request access to private preview](../../../cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ## Preparation
 
