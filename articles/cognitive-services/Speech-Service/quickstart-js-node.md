@@ -16,7 +16,7 @@ ms.author: fmegen
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you learn how to create a Node.js project by using the JavaScript binding of the Speech SDK for Azure Cognitive Services to transcribe speech to text.
+This article shows you how to create a Node.js project by using the JavaScript binding of the Speech SDK for Azure Cognitive Services to transcribe speech to text.
 The application is based on the [Speech SDK for JavaScript](https://aka.ms/csspeech/npmpackage).
 
 ## Prerequisites
@@ -53,13 +53,13 @@ Create a new file in the folder, named `index.js`, and open this file with a tex
 
 In this example, we use the `PushAudioInputStream` interface.
 
-Add the following JavaScript code:
+Add this JavaScript code:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
 ## Run the sample
 
-To open the app, adapt `YourSubscriptionKey`, `YourServiceRegion`, and `YourAudioFile.wav` to your configuration. Then run it by calling the following command:
+To open the app, adapt `YourSubscriptionKey`, `YourServiceRegion`, and `YourAudioFile.wav` to your configuration. Then run it by calling this command:
 
 ```sh
 node index.js
@@ -111,7 +111,7 @@ You can also run the sample from Visual Studio Code. Follow these steps to insta
 
    ![The debug menu](media/sdk/qs-js-node-05-start_debugging.png)
 
-1. When a breakpoint is hit, you can inspect the callstack and variables.
+1. When a breakpoint is hit, you can inspect the call stack and variables.
 
    ![Debugger](media/sdk/qs-js-node-06-hit_breakpoint.png)
 
