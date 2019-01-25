@@ -56,7 +56,7 @@ To make your policy work, you must configure:
 
 ### How are conditional access policies applied?
 
-More than one conditional access policy may apply when you access a cloud app. In this case all policies that apply must be satisfied. For example, if one polices requires MFA and the second requires a compliant device, you must go through MFA, and have a compliant device. 
+More than one conditional access policy may apply when you access a cloud app. In this case all policies that apply must be satisfied. For example, if one policy requires MFA and the second requires a compliant device, you must go through MFA, and have a compliant device. 
 
 All policies are enforced in two phases:
 
