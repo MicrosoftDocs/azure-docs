@@ -79,10 +79,6 @@ A snapshot is a copy of a disk at the point in time the snapshot is taken. It ap
 
 A snapshot doesn't have awareness of any disk except the one it contains. This makes it problematic to use in scenarios which require the coordination of multiple disks, such as striping. Snapshots would need to be able to coordinate with each other and this is currently not supported.
 
-### What is managed about managed disks?
-
-Disks in Azure are virtual hard disks (VHDs) stored as page blobs, which are a random IO storage object in Azure. We call a managed disk ‘managed’ because it provides an abstraction over page blobs, blob containers, and Azure storage accounts – you simply provision a managed disk, and don’t have to worry about the rest.
-
 ## Next steps
 
 Learn more about the individual disk types Azure offers and which type is a good fit for your needs in our article on disk types.
