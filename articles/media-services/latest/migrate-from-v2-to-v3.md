@@ -63,7 +63,7 @@ If you have a video service developed today on top of the [legacy Media Services
 * ContentKeys is no longer an entity, it is now a property of the StreamingLocator.
 * Event Grid support replaces NotificationEndpoints.
 * The following entities were renamed
-    * JobOutput replaces Task, and is now part of a Job.
+    * Job Output replaces Task, and is now part of a Job.
     * Streaming Locator replaces Locator.
     * Live Event replaces Channel.<br/>Live Events billing is based on Live Channel meters. For more information, see [Live streaming overview](live-streaming-overview.md#billing) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output replaces Program.
