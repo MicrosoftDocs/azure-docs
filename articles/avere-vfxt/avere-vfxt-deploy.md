@@ -28,7 +28,7 @@ Before using the creation template, make sure you have addressed these prerequis
 1. [New subscription](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Custom access roles](avere-vfxt-prereqs.md#create-access-roles) - You must create a role-based access control role to assign to the cluster nodes. You have the option to also create a custom access role for the cluster controller, but most users will take the default Owner role, which gives the controller privileges corresponding to a resource group owner. Read [Built-in roles for Azure resources](../role-based-access-control/built-in-roles#owner) for more detail.
+1. [Custom access roles](avere-vfxt-prereqs.md#create-access-roles) - You must create a role-based access control role to assign to the cluster nodes. You have the option to also create a custom access role for the cluster controller, but most users will take the default Owner role, which gives the controller privileges corresponding to a resource group owner. Read [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md#owner) for more detail.
 
 For more information about cluster deployment steps and planning, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md) and [Deployment overview](avere-vfxt-deploy-overview.md).
 
@@ -58,7 +58,7 @@ Fill in the following information:
 
 * Authentication - Depending on the authentication type you selected, you must provide an RSA public key or a password in the next fields. This credential is used with the username provided earlier.
 
-* **Avere cluster create role ID** - Use this field to specify the access control role for the cluster controller. The default value is the built-in role [Owner](../role-based-access-control/built-in-roles#owner). Owner privileges for the cluster controller are restricted to the cluster's resource group. 
+* **Avere cluster create role ID** - Use this field to specify the access control role for the cluster controller. The default value is the built-in role [Owner](../role-based-access-control/built-in-roles.md#owner). Owner privileges for the cluster controller are restricted to the cluster's resource group. 
 
   You must use the globally unique identifier that corresponds to the role. For the default value (Owner), the GUID is 8e3af657-a8ff-443c-a75c-2fe8c4bcb635. To find the GUID for a custom role, use this command: 
   ```azcli
@@ -137,7 +137,7 @@ To find this information, follow this procedure:
 
 1. On left side, click **Deployments**, and then **microsoft-avere.vfxt-template**.
 
-   ![Resource group portal page with Deployments selected on the left and Microsoft.Template showing in a table under Deployment name](media/avere-vfxt-outputs-deployments.png)
+   ![Resource group portal page with Deployments selected on the left and microsoft-avere.vfxt-template showing in a table under Deployment name](media/avere-vfxt-outputs-deployments.png)
 
 1. On left side, click **Outputs**. Copy the values in each of the fields. 
 

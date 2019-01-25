@@ -4,7 +4,7 @@ description: Overview of deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
 ---
 
@@ -18,7 +18,7 @@ Several tasks are needed before and after you create the vFXT cluster from the A
 
 After [planning your system](avere-vfxt-deploy-plan.md), you can begin to create your Avere vFXT cluster. 
 
-Begin by creating a cluster controller VM, which is used to create the vFXT cluster.
+An Azure Resource Manager template in the Azure Marketplace collects the necessary information and automatically deploys the entire cluster. 
 
 After the vFXT cluster is up and running, you will want to know how to connect clients to it and, if necessary, how to move your data to the new Blob storage container.  
 
@@ -30,9 +30,9 @@ Here is an overview of all of the steps.
 
 1. Create an access role for the cluster nodes
 
-   Azure uses [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) to authorize the cluster node VMs to perform certain tasks. For example, the cluster nodes need to be able to assigning or reassign IP addresses to other cluster nodes. Before you create the cluster, you must define a role that gives them adequate permissions.
+   Azure uses [role-based access control](../role-based-access-control/index.yml) (RBAC) to authorize the cluster node VMs to perform certain tasks. For example, the cluster nodes need to be able to assigning or reassign IP addresses to other cluster nodes. Before you create the cluster, you must define a role that gives them adequate permissions.
 
-   Read [Create the cluster node access role](avere-vfxt-deploy.md#create-the-cluster-node-access-role) for instructions.
+   Read [Create the cluster node access role](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) for instructions.
 
 1. Create the Avere vFXT cluster 
 
@@ -40,7 +40,7 @@ Here is an overview of all of the steps.
 
    Cluster creation involves these steps, which are all done by the marketplace template: 
 
-   * Creating new network infrastructure and resource groups, if required
+   * Creating new network infrastructure and resource groups, if needed
    * Creating a *cluster controller*  
 
      The cluster controller is a simple VM that resides in the same virtual network as the Avere vFXT cluster and has the custom software needed to create and manage the cluster. The controller creates the vFXT nodes and forms the cluster, and it also provides a command-line interface to manage the cluster during its lifetime.

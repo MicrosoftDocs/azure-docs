@@ -57,7 +57,7 @@ You must have sufficient quota for the following Azure components. If needed, [r
 |Storage account (optional) |v2|
 |Data backend storage (optional) |One new LRS Blob container |
 
-## Accept software terms 
+## Accept software terms
 
 > [!NOTE] 
 > This step is not required if a subscription owner creates the Avere vFXT cluster.
@@ -139,13 +139,13 @@ You must create the cluster node role before creating the Avere vFXT for Azure c
 1. Save the file as ``avere-operator.json`` or a similar memorable file name. 
 
 
-1. Open an Azure Cloud shell and log in with your subscription ID (described [earlier in this document](accept-software-terms)). Use this command to create the role:
+1. Open an Azure Cloud shell and log in with your subscription ID (described [earlier in this document](#accept-software-terms)). Use this command to create the role:
 
    ```bash
    az role definition create --role-definition /avere-operator.json
    ```
 
-You will use the role name when creating the cluster. In this example, the name is ``avere-operator``.
+The role name is used when creating the cluster. In this example, the name is ``avere-operator``.
 
 ## Next step: Create the vFXT cluster
 
