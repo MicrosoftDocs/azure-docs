@@ -95,7 +95,7 @@ In addition to your active policies, it is advisable to also implement disabled 
 
 For example, the following name indicates that this policy is the first policy out of four you should enable in the case of MFA disruption:
 
-`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join`
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
 
 
 
