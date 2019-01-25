@@ -27,7 +27,7 @@ The following table provides a comparison of standard hard disk drives (HDD), st
 
 ## Ultra SSD (preview)
 
-Azure ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra SSDs can only be used as data disks. We recommend using Premium SSDs as OS disks.
+Azure ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra SSDs can only be used as data disks. We recommend using Premium SSDs as OS disks.
 
 ### Performance
 
@@ -57,13 +57,13 @@ Some key capabilities of Ultra SSD are:
 
 During preview, ultra SSD Disks:
 
-- Are supported in East US 2 in a single Availability Zone  
-- Can only be used with Availability Zones (Availability Sets and Single VM deployments outside of Zones will not have the ability to attach an Ultra SSD Disk)
+- Are supported in East US 2 in a single availability zone  
+- Can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra SSD)
 - Are only supported on ES/DS v3 VMs
 - Are only available as data disks and only support 4k physical sector size  
 - Can only be created as empty disks  
 - Currently can only be deployed using Azure Resource Manager templates, CLI, and the python SDK.
-- Does not yet support disk snapshots, VM Images, Availability Sets, Virtual Machine Scale Sets and Azure Disk Encryption.
+- Does not yet support disk snapshots, VM images, availability sets, virtual machine scale sets and Azure disk encryption.
 - Does not yet support integration with Azure Backup or Azure Site Recovery.
 - As with [most previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until general availability (GA).
 
