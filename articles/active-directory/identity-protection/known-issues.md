@@ -24,10 +24,10 @@ ms.reviewer: raluthra
 
 ## Dismiss user risk
 
-Clicking **Dismiss user risk** in classic Identity Protection sets the actor in the user’s risk history in Identity Protection (refreshed) to **Azure AD**.
+**Dismiss user risk** in classic Identity Protection sets the actor in the user’s risk history in Identity Protection (refreshed) to **Azure AD**.
 
 
-Clicking **Dismiss user risk** in Identity Protection (refreshed) sets the actor in the user’s risk history in Identity Protection (refreshed) to **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
+**Dismiss user risk** in Identity Protection (refreshed) sets the actor in the user’s risk history in Identity Protection (refreshed) to **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
 
 
 ## Risky users report
@@ -36,16 +36,16 @@ Queries on the **username** field are case-sensitive, while queries on the **Nam
 
 Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the column click **Columns** at the top of the Risky Users blade.
 
-Clicking **Dismiss all events** in classic Identity Protection sets the status of the risk events to **Closed (resolved)**.
+**Dismiss all events** in classic Identity Protection sets the status of the risk events to **Closed (resolved)**.
 
 If you attempt to access the risky users report by clicking **Risky users report** within a sign-in record in the risky sign-ins report, it may sometimes show **Something went wrong. Please retry**. To remedy this, click **Apply** or **Reset** at the top of the screen and the risky user(s) data will populate.
 
 
 ## Risky Sign-Ins Report
 
-When an admin clicks **Resolve** on a risk event from classic Identity Protection, the risk event has a status of **Users passed MFA driven by risk-based policy**.
+**Resolve** on a risk event sets the status to **Users passed MFA driven by risk-based policy**.
 
-Clicking **Reset** in the **Risky Sign-ins** report does not reset the **Risk event type** to empty.
+**Reset** in the **Risky Sign-ins** report does not clear the value of the **Risk event type**.
 
 
 
