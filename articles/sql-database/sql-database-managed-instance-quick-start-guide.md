@@ -33,7 +33,7 @@ When you create a Managed Instance and configure access, you can start migrating
 
 Once you are sure that you can migrate your database to Managed Instance, you can use [Native RESTORE](sql-database-managed-instance-get-started-restore.md) functionality that enables you to create a backup of your database using Transact-SQL command, upload it to an Azure blob storage and RESTORE database from the blob storage using Transact-SQL command.
 
-These quickstarts enable you to quickly configure, create and put databases on your Managed Instanced. In some scenarios you would need to customize or automate deployment of Managed Instance and the required networking environment. These scenarios will be described below.
+These quickstarts enable you to quickly configure, create, and put databases on your Managed Instanced. In some scenarios, you would need to customize or automate deployment of Managed Instance and the required networking environment. These scenarios will be described below.
 
 ## Customizing network environment
 
@@ -47,7 +47,7 @@ If you already have a VNet and subnet where you would like to deploy your Manage
 
 ## Migrating to Managed Instance with minimal downtime
 
-Articles in these quickstarts enable you to quickly set up Managed Instance and move your databases. However, with the native restore your would need to wait for the databases to be restored, which would cause some downtime of your application especially if the database is bigger. If you are moving your production database, you would probably need a better way to migrate that will guarantee minimal downtime of migration. [Data Migration service](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) is a migration service that can migrate your database with the minimal downtime by incrementally pushing the changes made in your source database to a database that your are restoring to the Managed Instance. This way, you can quickly switch your application from source to target database with the minimal downtime.
+Articles in these quickstarts enable you to quickly set up Managed Instance and move your databases. However, with the native restore you would need to wait for the databases to be restored, which would cause some downtime of your application especially if the database is bigger. If you are moving your production database, you would probably need a better way to migrate that will guarantee minimal downtime of migration. [Data Migration service](https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) is a migration service that can migrate your database with the minimal downtime by incrementally pushing the changes made in your source database to a database that your are restoring to the Managed Instance. This way, you can quickly switch your application from source to target database with the minimal downtime.
 
 ## Next steps
 
