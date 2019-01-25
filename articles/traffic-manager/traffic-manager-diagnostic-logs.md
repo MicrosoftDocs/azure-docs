@@ -19,10 +19,10 @@ This article describes how to enable diagnostic logging and access log data for 
 
 Azure Traffic Manager diagnostic logs can provide insight into the behavior of the Traffic Manager profile resource. For example, you can use the profile's log data to determine why individual probes have timed out against an endpoint.
 
+## Enable diagnostic logging
+
 You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. 
 If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, 6.13.1 or later. You can run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to sign in to Azure.
-
-## Enable diagnostic logging
 
 1. **Retrieve the Traffic Manager profile:**
 
