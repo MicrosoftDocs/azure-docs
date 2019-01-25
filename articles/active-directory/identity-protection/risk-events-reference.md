@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory Identity Protection risk events reference | Microsoft Docs
-description: 'Frequently asked questions about Azure AD Identity Protection'
+description: Azure Active Directory Identity Protection risk events reference.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,9 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 01/25/2018
 ms.author: markvi
-ms.reviewer: nigu
+ms.reviewer: raluthra
 
 ---
 # Azure Active Directory Identity Protection risk events reference

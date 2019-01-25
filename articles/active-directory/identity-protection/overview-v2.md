@@ -1,6 +1,6 @@
 ---
-title: What is Azure Active Directory identity protection (refreshed)? | Microsoft Docs
-description: What is Azure Active Directory identity protection (refreshed)?
+title: What is Azure Active Directory Identity Protection (refreshed)? | Microsoft Docs
+description: What is Azure Active Directory Identity Protection (refreshed)?
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
@@ -19,21 +19,21 @@ ms.author: markvi
 ms.reviewer: raluthra
 
 ---
-# What is Azure Active Directory identity protection (refreshed)?
+# What is Azure Active Directory Identity Protection (refreshed)?
 
 The Identity Protection experience has been refreshed to better protect your organization’s identities. This refreshed experience provides:
 
-1.	Redesigned admin experience that revolves around the risk most relevant to you¬- user risk and sign-in risk
+- Redesigned admin experience that revolves around the risk most relevant to you¬- user risk and sign-in risk
 
-2.	Powerful investigations experience with support for filtering, sorting, and smart downloads
+- Powerful investigations experience with support for filtering, sorting, and smart downloads
 
-3.	Improved user risk calculation to help you prioritize your efforts towards the users that are most likely to be compromised
+- Improved user risk calculation to help you prioritize your efforts towards the users that are most likely to be compromised
 
-4.	New API support to enable programmatic access to risk data
+- New API support to enable programmatic access to risk data
 
-5.	Simplified admin feedback process that enables you to immediately protect your users
+- Simplified admin feedback process that enables you to immediately protect your users
 
-6.	New supervised machine learning to improve the accuracy of risk assessments
+- New supervised machine learning to improve the accuracy of risk assessments
 
 
 
@@ -61,7 +61,7 @@ Azure AD Identity Protection detects the following risk events:
 
  
 
-| Risk Event Type | Description | Detection Type |
+| Risk event type | Description | Detection type |
 | ---             | ---         | ---            |
 | Atypical travel | Sign in from an atypical location based on the user’s recent sign-ins. | Offline |
 | Anonymous IP address | Sign in from an anonymous IP address (for example: Tor browser, anonymizer VPNs). | Real-time |
@@ -139,7 +139,7 @@ The baseline flow for Identity Protection risk detection and response for any gi
 
  
 
-## What are common scenarios for Identity Protection to detect and respond to risk? 
+## Common scenarios 
 
 Let’s look at the example of Sarah, an employee of Contoso. 
 
@@ -208,9 +208,9 @@ For more details, see [Assigning administrator roles in Azure Active Directory](
 | --- | --- | --- | --- |
 | User risk policy | Yes | No | No |
 | Sign-in risk policy | Yes | No | No |
-| Risky Users report | Full access | Limited Information | Limited Information |
-| Risky Sign-ins report | Full Access | Limited Information | Limited Information |
-| MFA Registration policy | Yes | No | No |
+| Risky users report | Full access | Limited Information | Limited Information |
+| Risky sign-ins report | Full Access | Limited Information | Limited Information |
+| MFA registration policy | Yes | No | No |
 
 
 
@@ -218,7 +218,7 @@ For more details, see [Assigning administrator roles in Azure Active Directory](
 
 
 
-## Next Steps 
+## Next steps 
 
 To get started with Identity Protection, see [Configure sign-in risk policy](quickstart-sign-in-risk-policy.md). 
 

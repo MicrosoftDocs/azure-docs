@@ -1,6 +1,6 @@
 ---
-title: How To improve the detection accuracy in Azure Active Directory identity protection (refreshed) | Microsoft Docs
-description: How To improve the detection accuracy in Azure Active Directory identity protection (refreshed).
+title: How to improve the detection accuracy in Azure Active Directory Identity Protection (refreshed) | Microsoft Docs
+description: How to improve the detection accuracy in Azure Active Directory Identity Protection (refreshed).
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''

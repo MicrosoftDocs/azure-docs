@@ -9,12 +9,12 @@ manager: mtillman
 
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
-ms.component: conditional-access
+ms.component: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
@@ -28,7 +28,8 @@ Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Act
 * [signIn API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
 
 
-# Connect to Microsoft Graph
+## Connect to Microsoft graph
+
 There are four steps to accessing Identity Protection data through Microsoft Graph:
 
 1. Retrieve your domain name.
@@ -209,24 +210,28 @@ Just add your client ID, the secret key, and the tenant domain.
         Write-Host "ERROR: No Access Token"
     } 
 
-# Query the APIs
+## Query the APIs
+
 These three APIs provide a multitude of opportunities to retrieve information about risky users and sign-ins in your organization. Below are some common use cases for these APIs and the associated sample requests. You can run these queries using the sample code above or by using [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
 
-## Get the high-risk and medium-risk events (identityRiskEvents API)
+### Get the high-risk and medium-risk events (identityRiskEvents API)
+
 Medium and high-risk events represent those that may have the capability to trigger Identity Protection sign-in or user-risk policies. Since they have a medium or high likelihood that the user attempting to sign-in is not the legitimate identity owner, remediating these events should be a priority. 
 
 ```
 GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
 ```
 
-## Get all of the users who successfully passed an MFA challenge triggered by risky sign-ins policy (riskyUsers API)
+### Get all of the users who successfully passed an MFA challenge triggered by risky sign-ins policy (riskyUsers API)
+
 To understand the impact Identity Protection risk-based policies have on your organization you can query all of the users who successfully passed an MFA challenge triggered by a risky sign-ins policy. This information can help you understand which users Identity Protection may have falsely detected at as risk and which of your legitimate users may be performing actions that the AI deems risky.
 
 ```
 GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
 ```
 
-## Get all the risky sign-ins for a specific user (signIn API)
+### Get all the risky sign-ins for a specific user (signIn API)
+
 When you believe a user may have been compromised, you can better understand the state of their risk by retrieving all of their risky sign-ins. 
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'

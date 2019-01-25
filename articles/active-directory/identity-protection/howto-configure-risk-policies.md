@@ -1,6 +1,5 @@
 ---
-title: How to configure risk policies in Azure Active Directory identity protection (refreshed)
- | Microsoft Docs
+title: How to configure risk policies in Azure Active Directory identity protection (refreshed) | Microsoft Docs
 description: How to configure risk policies in Azure Active Directory identity protection (refreshed).
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
@@ -14,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
