@@ -15,8 +15,6 @@ ms.custom: seodec18
 
 # Install and run Recognize Text containers
 
-Containerization is an approach to software distribution in which an application or service is packaged as a container image. The configuration and dependencies for the application or service are included in the container image. The container image can then be deployed on a container host with little or no modification. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
-
 The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.  
 > [!IMPORTANT]
 > The Recognize Text container currently works only with English.
@@ -36,18 +34,7 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ## Request access to the private container registry
 
-You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the Face container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
-
 [!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
-
-
-### The host computer
-
-The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
-
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 
 ### Container requirements and recommendations
@@ -67,15 +54,9 @@ Container images for Recognize Text are available.
 
 | Container | Repository |
 |-----------|------------|
-|Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text` |
-
+|Recognize Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
-
-For a full description of available tags for the Recognize Text containers, see the following containers on the Docker Hub:
-
-* [Recognize Text](https://go.microsoft.com/fwlink/?linkid=tbd)
-
 
 
 ### Docker pull for the Recognize Text container
@@ -84,14 +65,7 @@ For a full description of available tags for the Recognize Text containers, see 
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
-### Listing the containers
-
-You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
-
-```Docker
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
-
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list.md)]
 
 ## How to use the container
 
@@ -121,7 +95,7 @@ ApiKey={BILLING_KEY}
 
 This command:
 
-* Runs a key phrase container from the container image
+* Runs a recognize container from the container image
 * Allocates one CPU cores and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
@@ -155,14 +129,7 @@ If you run the container with an output [mount](./computer-vision-resource-conta
 
 ## Container's API documentation
 
-The container provides a full set of documentation for the endpoints as well as a `Try it now` feature. This feature allows you to enter your settings into a web-based HTML form and make the query without having to write any code. Once the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format required. 
-
-> [!TIP]
-> Read the [OpenAPI specification](https://swagger.io/docs/specification/about/), describing the API operations supported by the container, from the `/swagger` relative URI. For example:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 

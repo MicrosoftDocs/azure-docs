@@ -15,21 +15,11 @@ ms.author: diberry
 
 # Install and run containers
 
-Containerization is an approach to software distribution in which an application or service is packaged as a container image. The configuration and dependencies for the application or service are included in the container image. The container image can then be deployed on a container host with little or no modification. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
-
 Face provides a standardized Linux container for Docker, named Face, which detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-
-In order to run any of the Face API containers, you must have the following:
-
-
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
-
-
-## Preparation
 
 You must meet the following prerequisites before using Face API containers:
 
@@ -39,13 +29,14 @@ You must meet the following prerequisites before using Face API containers:
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Face API resource |In order to use the container, you must have:<br><br>A _Face API_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Face API Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
+
+## Request access to the private container registry
+
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+
 ### The host computer
 
-The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
-
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### Container requirements and recommendations
@@ -54,57 +45,25 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|Key Phrase Extraction | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Language Detection | 1 core, 2 GB memory | 1 core, 4 GB memory |
-|Sentiment Analysis | 1 core, 2 GB memory | 1 core, 4 GB memory |
+|Face | 1 core, 2 GB memory | 1 core, 4 GB memory |
 
 Core and memory correspond to the `--cpus` and `--memory` settings which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
-Container images for Face API are available from Microsoft Container Registry. 
+Container images for Face API are available. 
 
 | Container | Repository |
 |-----------|------------|
-|Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+| Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
-Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry..
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list.md)]
 
-For a full description of available tags for the Face API containers, see the following containers on the Docker Hub:
-
-* [Key Phrase Extraction](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [Language Detection](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [Sentiment Analysis](https://go.microsoft.com/fwlink/?linkid=2018654)
-
-
-### Docker pull for the Key phrase extraction container
+### Docker pull for the Face container
 
 ```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
 ```
-
-### Docker pull for the language detection container
-
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
-
-### Docker pull for the sentiment container
-
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
-
-### Listing the containers
-
-You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
-
-```Docker
-docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
-```
-
 
 ## How to use the container
 
@@ -126,7 +85,7 @@ Replace these parameters with your own values in the following example `docker r
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
+containerpreview.azurecr.io/microsoft/azure-cognitive-services/face \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
@@ -134,7 +93,7 @@ ApiKey={BILLING_KEY}
 
 This command:
 
-* Runs a key phrase container from the container image
+* Runs a face container from the container image
 * Allocates one CPU cores and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
@@ -160,14 +119,7 @@ If you run the container with an output [mount](./face-resource-container-config
 
 ## Container's API documentation
 
-The container provides a full set of documentation for the endpoints as well as a `Try it now` feature. This feature allows you to enter your settings into a web-based HTML form and make the query without having to write any code. Once the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format required. 
-
-> [!TIP]
-> Read the [OpenAPI specification](https://swagger.io/docs/specification/about/), describing the API operations supported by the container, from the `/swagger` relative URI. For example:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 

@@ -6,6 +6,7 @@ ms.topic: include
 ms.date: 01/24/2019
 --- 
 
+You must first complete and submit the [Cognitive Services Vision Containers Request form](https://aka.ms/VisionContainersPreview) to request access to the container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
 
 > [!IMPORTANT]
 > You must use an email address associated with either a Microsoft Account (MSA) or Azure Active Directory (Azure AD) account in the form.
@@ -27,3 +28,4 @@ If you have secured your credentials in a text file, you can concatenate the con
 ```docker
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
 ```
+
