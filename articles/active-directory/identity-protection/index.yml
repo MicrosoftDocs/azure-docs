@@ -8,7 +8,7 @@ metadata:
   services: active-directory
   ms.component: identity-protection
   author: MarkusVi
-  manager: mtillman
+  manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na

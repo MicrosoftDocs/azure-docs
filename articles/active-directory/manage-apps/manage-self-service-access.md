@@ -4,7 +4,7 @@ description: Enable self-service application access to allow users to find their
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

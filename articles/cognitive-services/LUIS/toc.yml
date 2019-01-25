@@ -219,12 +219,9 @@
     - name: Using the dashboard
       displayName: analytics, usage
       href: luis-how-to-use-dashboard.md
-    - name: Create endpoint keys
-      displayName: azure portal
+    - name: Using subscription keys with your LUIS app
+      displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription
       href: luis-how-to-azure-subscription.md
-    - name: Add endpoint keys to app
-      displayName: assign key, assign
-      href: luis-how-to-manage-keys.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Manage authors and collaborators

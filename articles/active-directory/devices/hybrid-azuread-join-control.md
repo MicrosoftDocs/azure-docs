@@ -4,7 +4,7 @@ description: Learn how to control the hybrid Azure AD join of your devices in Az
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d

@@ -229,7 +229,7 @@ Neither MSDTC nor [Elastic Transactions](https://docs.microsoft.com/azure/sql-da
 Some Windows-specific targets for XEvents are not supported:
 
 - `etw_classic_sync target` is not supported. Store `.xel` files on Azure blob storage. See [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- `event_file target`is not supported. Store `.xel` files on Azure blob storage. See [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- `event_file target`is not supported. Store `.xel` files on Azure blob storage. See [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### External libraries
 
@@ -497,6 +497,12 @@ Although this code works with data within the same instance it required MSDTC.
 CLR modules placed in Managed Instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This error is a transient issue.
 
 **Workaround**: Use context connections in CLR module if possible.
+
+### TDE encrypted databases don't support user initiated backups
+
+You cannot execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that is encrypted with Transparent Data Encryption (TDE). TDE forces backups to be encrypted with internal TDE keys, and the key cannot be exported, so you will not be able to restore the backup.
+
+**Workaround**: Use automatic backups and point-in-time restore, or disable encryption on database.
 
 ## Next steps
 

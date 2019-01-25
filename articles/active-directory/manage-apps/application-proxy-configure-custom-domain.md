@@ -4,7 +4,7 @@ description: Manage custom domains in Azure AD Application Proxy so that the URL
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.component: app-mgmt
