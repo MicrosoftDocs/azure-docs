@@ -116,7 +116,7 @@ On any plan, a function app requires a general Azure Storage account, which supp
 
 To learn more about storage account types, see [Introducing the Azure Storage services](../storage/common/storage-introduction.md#azure-storage-services).
 
-## How the Consumption and Premium plans works
+## How the Consumption and Premium plans work
 
 In the Consumption and Premium plans, the scale controller automatically scales CPU and memory resources by adding additional instances of the Functions host, based on the number of events that its functions are triggered on. Each instance of the Functions host in the Consumption Plan is limited to 1.5 GB of memory.  An instance of the host is the function app, meaning all functions within a function app share resource within an instance and scale at the same time. Function apps that share the same Consumption plan are scaled independently.  In the Premium Plan, your plan scale will determine the available memory and CPU for all apps in that plan on that instance.  
 
