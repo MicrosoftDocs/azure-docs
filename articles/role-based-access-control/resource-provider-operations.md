@@ -1252,7 +1252,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the container group. |
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the container group. |
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for container group. |
-> | Action | Microsoft.ContainerInstance/containerGroups/read | Get all container goups. |
+> | Action | Microsoft.ContainerInstance/containerGroups/read | Get all container groups. |
 > | Action | Microsoft.ContainerInstance/containerGroups/restart/action | Restarts a specific container group. |
 > | Action | Microsoft.ContainerInstance/containerGroups/start/action | Starts a specific container group. |
 > | Action | Microsoft.ContainerInstance/containerGroups/stop/action | Stops a specific container group. Compute resources will be deallocated and billing will stop. |
