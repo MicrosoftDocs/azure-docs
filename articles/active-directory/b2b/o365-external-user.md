@@ -4,7 +4,7 @@ description: Discusses sharing resources with external partners using O365 and A
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/24/2017
 
