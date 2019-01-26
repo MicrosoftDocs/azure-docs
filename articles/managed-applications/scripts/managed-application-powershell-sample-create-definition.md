@@ -32,7 +32,7 @@ This script uses the following command to create the managed application definit
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermmanagedapplicationdefinition) | Create a managed application definition. Provide the package that contains the required files. |
+| [New-AzManagedApplicationDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplicationdefinition) | Create a managed application definition. Provide the package that contains the required files. |
 
 
 ## Next steps
