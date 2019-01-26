@@ -39,19 +39,19 @@
   - name: Entities
     href: entities-overview.md
     items:
-    - name: Account and Asset filters 
+    - name: Account Filters and Asset Filters 
       href: filters-dynamic-manifest-overview.md      
     - name: Assets
       href: assets-concept.md        
-    - name: Content key policies
+    - name: Content Key Policies
       href: content-key-policy-concept.md 
-    - name: LiveEvents and LiveOutputs
+    - name: Live Events and Live Outputs
       href: live-events-outputs-concept.md    
-    - name: Streaming endpoints
+    - name: Streaming Endpoints
       href: streaming-endpoint-concept.md
-    - name: Streaming locators
+    - name: Streaming Locators
       href: streaming-locators-concept.md
-    - name: Streaming policies
+    - name: Streaming Policies
       href: streaming-policy-concept.md
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md   
