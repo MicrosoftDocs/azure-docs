@@ -3564,14 +3564,14 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/routeFilters/routeFilterRules/delete | Deletes a route filter rule definition |
 > | Action | Microsoft.Network/routeFilters/routeFilterRules/read | Gets a route filter rule definition |
 > | Action | Microsoft.Network/routeFilters/routeFilterRules/write | Creates a route filter rule or Updates an existing route filter rule |
-> | Action | Microsoft.Network/routeFilters/write | Creates a route filter or Updates an existing rotue filter |
+> | Action | Microsoft.Network/routeFilters/write | Creates a route filter or Updates an existing route filter |
 > | Action | Microsoft.Network/routeTables/delete | Deletes a route table definition |
 > | Action | Microsoft.Network/routeTables/join/action | Joins a route table |
 > | Action | Microsoft.Network/routeTables/read | Gets a route table definition |
 > | Action | Microsoft.Network/routeTables/routes/delete | Deletes a route definition |
 > | Action | Microsoft.Network/routeTables/routes/read | Gets a route definition |
 > | Action | Microsoft.Network/routeTables/routes/write | Creates a route or Updates an existing route |
-> | Action | Microsoft.Network/routeTables/write | Creates a route table or Updates an existing rotue table |
+> | Action | Microsoft.Network/routeTables/write | Creates a route table or Updates an existing route table |
 > | Action | Microsoft.Network/securegateways/delete | Delete Secure Gateway |
 > | Action | Microsoft.Network/securegateways/read | Get Secure Gateway |
 > | Action | Microsoft.Network/securegateways/write | Creates or updates a Secure Gateway |
