@@ -72,10 +72,10 @@ Which returns:
 
 ### PowerShell
 
-For PowerShell, use the **Get-AzureRmVMUsage** command to find virtual machine quotas.
+For PowerShell, use the **Get-AzVMUsage** command to find virtual machine quotas.
 
 ```powershell
-Get-AzureRmVMUsage -Location "South Central US"
+Get-AzVMUsage -Location "South Central US"
 ```
 
 Which returns:

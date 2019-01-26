@@ -174,10 +174,10 @@ $fileName = "linkedStorageAccount.json" # A file name used for downloading and u
 Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
 
 # Create a resource group
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 # Create a storage account
-$storageAccount = New-AzureRmStorageAccount `
+$storageAccount = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
     -Location $location `
@@ -186,17 +186,17 @@ $storageAccount = New-AzureRmStorageAccount `
 $context = $storageAccount.Context
 
 # Create a container
-New-AzureStorageContainer -Name $containerName -Context $context
+New-AzStorageContainer -Name $containerName -Context $context
 
 # Upload the linked template
-Set-AzureStorageBlobContent `
+Set-AzStorageBlobContent `
     -Container $containerName `
     -File "$home/$fileName" `
     -Blob $fileName `
     -Context $context
 
 # Generate a SAS token
-$templateURI = New-AzureStorageBlobSASToken `
+$templateURI = New-AzStorageBlobSASToken `
     -Context $context `
     -Container $containerName `
     -Blob $fileName `

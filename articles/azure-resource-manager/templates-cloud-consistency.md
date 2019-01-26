@@ -490,7 +490,7 @@ az vm image list -all
 You can retrieve the same list with the Azure PowerShell cmdlet [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) and specify the location you want with the `-Location` parameter. For example:
 
 ```azurepowershell-interactive
-Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzureRMVMImage
+Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzVMImage
 ```
 
 This command takes a couple of minutes to return all the available images in the West Europe region of the global Azure cloud.

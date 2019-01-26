@@ -59,7 +59,7 @@ When deployed in **complete** mode, Resource C is deleted. The resource group ha
 To set the deployment mode when deploying with PowerShell, use the `Mode` parameter.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `

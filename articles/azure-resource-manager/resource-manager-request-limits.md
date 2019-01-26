@@ -61,7 +61,7 @@ For a complete PowerShell example, see [Check Resource Manager Limits for a Subs
 If you want to see the remaining requests for debugging, you can provide the **-Debug** parameter on your **PowerShell** cmdlet.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Which returns many values, including the following response value:
@@ -80,7 +80,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 To get write limits, use a write operation: 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Which returns many values, including the following values:

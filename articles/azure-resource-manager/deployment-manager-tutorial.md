@@ -296,10 +296,10 @@ Azure PowerShell can be used to deploy the templates.
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
     
     # Create the service topology
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
@@ -316,7 +316,7 @@ Azure PowerShell can be used to deploy the templates.
 
     ```azurepowershell-interactive
     # Create the rollout
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
@@ -328,7 +328,7 @@ Azure PowerShell can be used to deploy the templates.
     ```azurepowershell-interactive
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
-    Get-AzureRmDeploymentManagerRollout `
+    Get-AzDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
     ```

@@ -142,8 +142,8 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
@@ -154,7 +154,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
     The virtual machine name is hard-coded as **SimpleWinVM** inside the template.

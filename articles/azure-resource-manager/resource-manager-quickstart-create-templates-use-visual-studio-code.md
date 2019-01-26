@@ -140,8 +140,8 @@ There are many methods for deploying templates.  In this quickstart, you use the
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
@@ -178,7 +178,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
-    Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
     
     ---
