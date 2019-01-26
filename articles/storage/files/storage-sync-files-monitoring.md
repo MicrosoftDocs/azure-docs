@@ -71,10 +71,18 @@ Registered Server Health
 - Event ID 9301 is logged every 30 seconds when a server queries the service for any jobs. If GetNextJob completes with status = 0, the server is able to communicate with the service. If GetNextJob completes with an error, check the [Troubleshooting documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
 
 Cloud Tiering Health
-- Tiering 
-  - Use Event ID 9002, 9003, 9016 and 9029 to monitor tiering activity and errors. See [How to monitor cloud tiering activity?](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#monitor-tiering-activity) for more information.
-- Recall 
-  - Use Event ID 9005, 9006, 9007 to monitor recall activity and errors. See [How do I monitor recall activity on a server?](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#monitor-recall-activity) for more information.
+- To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
+
+  - Event ID 9003 provides error distribution for a server endpoint. For example, Total Error Count, ErrorCode, etc. Note, one event is logged per error code.
+  - Event ID 9016 provides ghosting results for a volume. For example, Free space percent is, Number of files ghosted in session, Number of files failed to ghost, etc.
+  - Event ID 9029 provides ghosting session information for a server endpoint. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
+  
+- To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
+
+  - Event ID 9005 provides recall reliability for a server endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
+  - Event ID 9006 provides recall error distribution for a server endpoint. For example, Total Failed Requests, ErrorCode, etc. Note, one event is logged per error code.
+  - Event ID 9009 provides recall session information for a server endpoint. For example, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
+  - Event ID 9059 provides application recall distribution for a server endpoint. For example, ShareId, Application Name, and TotalEgressNetworkBytes.
 
 ### Performance counters
 
