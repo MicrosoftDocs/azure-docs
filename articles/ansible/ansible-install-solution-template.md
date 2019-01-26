@@ -81,3 +81,5 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
     ![Azure portal tab for Ansible Summary tab](./media/ansible-install-solution-template/portal-ansible-setup-complete.png)
 
 ## Next steps
+> [!div class="nextstepaction"] 
+> [Use Ansible to create a Linux virtual machine in Azure](/azure/virtual-machines/linux/ansible-create-vm)
