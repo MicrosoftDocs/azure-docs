@@ -7,7 +7,7 @@ author: eross-msft
 manager: daveba
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/29/2018
