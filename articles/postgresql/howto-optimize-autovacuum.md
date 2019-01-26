@@ -94,6 +94,6 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Autovacuum is a per table synchronous process. The larger percent of dead tuples a table has, the higher the "cost" to autovacuum.  Splitting tables that have a high rate of updates/deletes into multiple tables will help to parallelize autovacuum and reduce the "cost" to complete autovacuum on one table. You can also increase the number of parallel autovacuum workers to ensure workers are liberally scheduled.
 
 ## Next steps
-Review the following PostgreSQL documenatation to learn more about using and tuning autovacuum:
+Review the following PostgreSQL documentation to learn more about using and tuning autovacuum:
  - PostgreSQL documentation - [Chapter 18, Server Configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
  - PostgreSQL documentation – [Chapter 24, Routine Database Maintenance Tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)
