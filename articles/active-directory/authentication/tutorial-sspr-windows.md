@@ -4,7 +4,7 @@ description: In this tutorial, you will enable password reset at the Windows 10 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 

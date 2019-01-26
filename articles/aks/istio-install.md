@@ -137,7 +137,7 @@ cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:/Program Files/Istio"
 mv ./bin/istioctl.exe "C:/Program Files/Istio/"
 $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
-[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:/Program Files/Istio/", "User")
+[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:\Program Files\Istio\", "User")
 ```
 
 ## Install the Istio Kubernetes components
