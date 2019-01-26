@@ -22,7 +22,7 @@ In this article, learn about your monitoring options, how to enable logging and 
 
 ## Metrics at a glance
 
-**Usage** and **Monitoring** sections built into Overview visualize report out on resource consumption and query execution metrics. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
+**Usage** and **Monitoring** sections built into the Overview page report out on resource consumption and query execution metrics. This information becomes available as soon as you start using the service, with no configuration required. This page is refreshed every few minutes. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
 
 The **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md). The following illustration is for the free service, which is capped at 3 objects of each type and 50 MB of storage. A Basic or Standard service has higher limits, and if you increase the partition counts, maximum storage goes up proportionally.
 
@@ -59,13 +59,13 @@ The following table compares options for storing logs and adding in-depth monito
 | [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Logged events and query metrics, based one the schemas below. Events are logged to a Blob container and stored in JSON files. Use a JSON editor to view file contents.|
 | [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Logged events and query metrics, based on the schemas documented in this article. Choose this as an alternative data collection service for very large logs. |
 
+Both Log Analytics and Blob storage are available as a Free shared service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/ricing/details/monitor/) for details).
 
-
-Both Log Analytics and Blob storage are available as Free shared service so that you can try it out at no charge for the lifetime of your Azure subscription. The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Search operations.
+The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Search operations.
 
 ## Enable logging
 
-Logging for indexing and query workloads is off by default and depends on add-on solutions for both logging infrastructure and long-term external storage. By itself, the only persisted data in Azure Search is indexes, so logs must be stored elsewhere.
+Logging for indexing and query workloads is off by default and depends on add-on solutions for both logging infrastructure and long-term external storage. By itself, the only persisted data in Azure Search are the objects it creates and manages, so logs must be stored elsewhere.
 
 In this section, you'll learn how to use Blob storage to store logged events and metrics data.
 
@@ -85,12 +85,14 @@ In this section, you'll learn how to use Blob storage to store logged events and
 
 5. Test logging by creating or deleting objects (creates log events) and by submitting queries (generates metrics). 
 
-Logging is enabled once you save the profile, containers are only created when there is an event to log or measure. It can take several minutes for the containers to appear. When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
+Logging is enabled once you save the profile. Containers are only created when there is an activity to log or measure. When the data is copied to a storage account, the data is formatted as JSON and placed in two containers:
 
 * insights-logs-operationlogs: for search traffic logs
 * insights-metrics-pt1m: for metrics
 
-You can use [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) or another JSON editor to view the files. There is one blob, per hour, per container.
+It takes one hour before the containers will appear in Blob storage. There is one blob, per hour, per container. 
+
+You can use [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) or another JSON editor to view the files. 
 
 ### Example path
 
@@ -157,7 +159,7 @@ You can use any JSON editor to view the log file. If you don't have one, we reco
 
 Once the file is downloaded, open it in a JSON editor to view the contents.
 
-## Get sys-info APIs
+## Use system APIs
 Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
 
 * [Get Services Statistics](/rest/api/searchservice/get-service-statistics)
