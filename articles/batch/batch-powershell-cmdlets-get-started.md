@@ -30,32 +30,32 @@ This article is based on cmdlets in Azure Batch module 4.1.5. We recommend that 
 
 * [Install and configure the Azure PowerShell module](/powershell/azure/overview). To install a specific Azure Batch module, such as a pre-release module, see the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM.Batch/5.0.0-preview). 
 
-* Run the **Connect-AzureRmAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
+* Run the **Connect-AzAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
 
   ```PowerShell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
 * **Register with the Batch provider namespace**. You only need to perform this operation **once per subscription**.
   
   ```PowerShell
-  Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch`
   ```
 
 ## Manage Batch accounts and keys
 
 ### Create a Batch account
 
-**New-AzureRmBatchAccount** creates a Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet. Specify one of the Azure regions in the **Location** parameter, such as "Central US". For example:
+**New-AzBatchAccount** creates a Batch account in a specified resource group. If you don't already have a resource group, create one by running the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet. Specify one of the Azure regions in the **Location** parameter, such as "Central US". For example:
 
 ```PowerShell
-New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
+New-AzResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
 Then, create a Batch account in the resource group, specifying a name for the account in <*account_name*> and the location and name of your resource group. Creating the Batch account can take some time to complete. For example:
 
 ```PowerShell
-New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
+New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 ```
 
 > [!NOTE]
@@ -64,10 +64,10 @@ New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" �
 
 ### Get account access keys
 
-**Get-AzureRmBatchAccountKeys** shows the access keys associated with an Azure Batch account. For example, run the following to get the primary and secondary keys of the account you created.
+**Get-AzBatchAccountKeys** shows the access keys associated with an Azure Batch account. For example, run the following to get the primary and secondary keys of the account you created.
 
  ```PowerShell
-$Account = Get-AzureRmBatchAccountKeys –AccountName <account_name>
+$Account = Get-AzBatchAccountKeys –AccountName <account_name>
 
 $Account.PrimaryAccountKey
 
@@ -76,10 +76,10 @@ $Account.SecondaryAccountKey
 
 ### Generate a new access key
 
-**New-AzureRmBatchAccountKey** generates a new primary or secondary account key for an Azure Batch account. For example, to generate a new primary key for your Batch account, type:
+**New-AzBatchAccountKey** generates a new primary or secondary account key for an Azure Batch account. For example, to generate a new primary key for your Batch account, type:
 
 ```PowerShell
-New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
+New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 ```
 
 > [!NOTE]
@@ -88,10 +88,10 @@ New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### Delete a Batch account
 
-**Remove-AzureRmBatchAccount** deletes a Batch account. For example:
+**Remove-AzBatchAccount** deletes a Batch account. For example:
 
 ```PowerShell
-Remove-AzureRmBatchAccount -AccountName <account_name>
+Remove-AzBatchAccount -AccountName <account_name>
 ```
 
 When prompted, confirm you want to remove the account. Account removal can take some time to complete.
@@ -103,7 +103,7 @@ You can authenticate to manage Batch resources using either shared key authentic
 ### Shared key authentication
 
 ```PowerShell
-$context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
+$context = Get-AzBatchAccountKeys -AccountName <account_name>
 ```
 
 > [!NOTE]
@@ -113,7 +113,7 @@ $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
 ### Azure Active Directory authentication
 
 ```PowerShell
-$context = Get-AzureRmBatchAccount -AccountName <account_name>
+$context = Get-AzBatchAccount -AccountName <account_name>
 ```
 
 ## Create and modify Batch resources
@@ -204,25 +204,25 @@ Application packages provide a simplified way to deploy applications to the comp
 **Create** an application:
 
 ```PowerShell
-New-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
+New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
 **Add** an application package:
 
 ```PowerShell
-New-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
+New-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 ```
 
 Set the **default version** for the application:
 
 ```PowerShell
-Set-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
+Set-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 ```
 
 **List** an application's packages
 
 ```PowerShell
-$application = Get-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
+$application = Get-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 
 $application.ApplicationPackages
 ```
@@ -230,13 +230,13 @@ $application.ApplicationPackages
 **Delete** an application package
 
 ```PowerShell
-Remove-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
+Remove-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
 ```
 
 **Delete** an application
 
 ```PowerShell
-Remove-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
+Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
 > [!NOTE]
