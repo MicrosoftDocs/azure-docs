@@ -174,7 +174,7 @@ Storage
 
 **Firewall Logs**: Application Gateway provides full diagnostics and access logs. Firewall logs are available for application gateway resources that have WAF enabled.
 
-**Log Archiving**: Log data storage can be configured to write to a centralised Azure storage account for archival and a defined retention period. Logs can be processed using Azure Log Analytics or by third party SIEM systems.
+**Log Archiving**: Log data storage can be configured to write to a centralized Azure storage account for archival and a defined retention period. Logs can be processed using Azure Log Analytics or by third party SIEM systems.
 
 ### Identity
 
