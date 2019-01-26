@@ -34,9 +34,9 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) | Gets the operations for an Azure resource provider that are securable using Azure RBAC. |
-| [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) | Lists all Azure RBAC roles that are available for assignment. |
-| [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) | Creates a custom role. |
+| [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Gets the operations for an Azure resource provider that are securable using Azure RBAC. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lists all Azure RBAC roles that are available for assignment. |
+| [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Creates a custom role. |
 
 ## Next steps
 

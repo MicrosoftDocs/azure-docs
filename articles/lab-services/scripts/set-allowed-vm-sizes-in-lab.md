@@ -34,10 +34,10 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Searches for resources based on specified parameters. |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Gets resources. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource. |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Create a resource. |
+| [Find-AzResource](/powershell/module/az.resources/find-azresource) | Searches for resources based on specified parameters. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets resources. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifies a resource. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Create a resource. |
 
 ## Next steps
 
