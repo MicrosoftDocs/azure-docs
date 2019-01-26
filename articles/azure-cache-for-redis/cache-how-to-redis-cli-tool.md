@@ -30,7 +30,7 @@ If you want to run the command-line tool on another platform, download Azure Cac
 You can gather the information needed to access the cache using three methods:
 
 1. Azure CLI using [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Azure PowerShell using [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
+2. Azure PowerShell using [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-azRedisCacheKey?view=azurermps-4.4.1)
 3. Using the Azure portal.
 
 In this section, you will retrieve the keys from the Azure portal.
