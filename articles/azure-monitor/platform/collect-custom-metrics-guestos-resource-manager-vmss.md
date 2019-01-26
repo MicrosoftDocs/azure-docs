@@ -230,17 +230,17 @@ Save and close both files.
 To deploy the Resource Manager template, use Azure PowerShell:  
 
 1. Launch PowerShell. 
-1. Sign in to Azure using `Login-AzureRmAccount`.
-1. Get your list of subscriptions by using `Get-AzureRmSubscription`.
+1. Sign in to Azure using `Login-AzAccount`.
+1. Get your list of subscriptions by using `Get-AzSubscription`.
 1. Set the subscription you'll create, or update the virtual machine: 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Create a new resource group for the VM being deployed. Run the following command: 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -252,7 +252,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
    > If you want to update an existing scale set, add **-Mode Incremental** to the end of the command. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. After your deployment succeeds, you should find the virtual machine scale set in the Azure portal. It should emit metrics to Azure Monitor. 

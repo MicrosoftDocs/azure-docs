@@ -148,12 +148,12 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 ## Create Application Insights resources
 1. In PowerShell, sign in to Azure:
    
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 2. Run a command like this:
    
     ```PS
    
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
 
@@ -169,8 +169,8 @@ You can add other parameters - you'll find their descriptions in the parameters 
 After creating an application resource, you'll want the instrumentation key: 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
 
@@ -183,7 +183,7 @@ You can set the [price plan](pricing.md).
 To create an app resource with the Enterprise price plan, using the template above:
 
 ```PS
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -priceCode 2 `
                -appName myNewApp

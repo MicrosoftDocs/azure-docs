@@ -50,9 +50,9 @@ The `New-AzureDeployment` cmdlet has a parameter `ExtensionConfiguration`, which
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
 
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
      -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
        -StorageAccountName $diagnostics_storagename `
        -StorageAccountKey $primary_storagekey
 
@@ -84,9 +84,9 @@ On an existing service, use `Set-AzureServiceDiagnosticsExtension`.
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
     $workerrole_diagconfigpath = "MyService.WorkerRole.PubConfig.xml"
-    $primary_storagekey = (Get-AzureStorageKey `
+    $primary_storagekey = (Get-AzStorageKey `
          -StorageAccountName "$diagnostics_storagename").Primary
-    $storage_context = New-AzureStorageContext `
+    $storage_context = New-AzStorageContext `
         -StorageAccountName $diagnostics_storagename `
         -StorageAccountKey $primary_storagekey
 

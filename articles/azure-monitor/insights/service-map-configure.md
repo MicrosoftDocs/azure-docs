@@ -180,7 +180,7 @@ $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
 
-Get-AzureRmVM -ResourceGroupName $rmgroup |
+Get-AzVM -ResourceGroupName $rmgroup |
 ForEach-Object {
 	""
 	$name = $_.Name
@@ -190,7 +190,7 @@ ForEach-Object {
 	"${name}: ${os} (${location})"
 	Date -Format o
 	$ext = $OsExtensionMap.($os.ToString())
-	$result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+	$result = Set-AzVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
 	-Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
 	$result.IsSuccessStatusCode
 }

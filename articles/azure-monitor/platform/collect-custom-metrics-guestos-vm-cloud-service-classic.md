@@ -135,7 +135,7 @@ Save this diagnostics file locally.
 Launch PowerShell and log in to Azure. 
 
 ```PowerShell
-Login-AzureRmAccount 
+Login-AzAccount 
 ```
 
 Use the following commands to store the details of the storage account that you created earlier. 

@@ -104,9 +104,9 @@ The following PowerShell script provides an example of how to enable diagnostic 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$gateway = Get-AzureRmApplicationGateway -Name 'ContosoGateway'
+$gateway = Get-AzApplicationGateway -Name 'ContosoGateway'
 
-Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 ### Use Azure Application Gateway analytics
@@ -174,9 +174,9 @@ The following PowerShell script provides an example of how to enable diagnostic 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
+$nsg = Get-AzNetworkSecurityGroup -Name 'ContosoNSG'
 
-Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 ### Use Azure Network Security Group analytics

@@ -200,7 +200,7 @@ The sample json above can be saved as (say) sampleActivityLogAlert.json for the 
 ## PowerShell
 Illustrated below usage via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleActivityLogAlert.json) in the [Resource Template section](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 Wherein the sampleActivityLogAlert.parameters.json has the values provided for the parameters needed for alert rule creation.
 
