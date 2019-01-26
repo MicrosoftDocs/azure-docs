@@ -159,7 +159,7 @@ You can use any JSON editor to view the log file. If you don't have one, we reco
 
 Once the file is downloaded, open it in a JSON editor to view the contents.
 
-## Get sys-info APIs
+## Use system APIs
 Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
 
 * [Get Services Statistics](/rest/api/searchservice/get-service-statistics)
