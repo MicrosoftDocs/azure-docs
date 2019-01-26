@@ -32,7 +32,7 @@ If you are using the **Azure Cloud Shell**, upload your file to the Cloud Shell 
 
 Then, reference the file like this: `@{FileName}`. 
 
-If you are using the Azure CLI locally, specify the whole file path.
+If you are using the Azure CLI locally, specify the whole file path. For example, `@c:\tracks.json`.
 
 
 [Upload files]: ./media/media-services-cli/upload-download-files.png
