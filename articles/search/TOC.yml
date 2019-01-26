@@ -215,7 +215,7 @@
       href: search-manage.md
     - name: PowerShell (Azure Search)
       href: search-manage-powershell.md
-    - name: Monitor usage & statistics
+    - name: Monitor activity and logging
       href: search-monitor-usage.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md

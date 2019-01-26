@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: seodec18
 ---
 # Manage access to billing information for Azure
