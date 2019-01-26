@@ -315,12 +315,12 @@ ms.author: barbkess
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/caret_left.svg" alt="" />
+                                    <img src="/office/media/icons/caret-right-blue.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Azure AD is included in Microsoft 365</h3>
-                                <p>Learn about Microsoft 365, including the types of available licenses and the associated features.</p>
+                                <h3>Microsoft 365</h3>
+                                <p>Explore Microsoft 365, a complete solution that includes Azure AD.</p>
                             </div>
                         </div>
                     </div>
