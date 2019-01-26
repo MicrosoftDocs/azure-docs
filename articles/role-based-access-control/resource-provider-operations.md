@@ -2931,7 +2931,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Logic/integrationAccounts/maps/write | Creates or updates the map in integration account. |
 > | Action | Microsoft.Logic/integrationAccounts/partners/delete | Deletes the partner in integration account. |
 > | Action | Microsoft.Logic/integrationAccounts/partners/listContentCallbackUrl/action | Gets the callback URL for partner content in integration account. |
-> | Action | Microsoft.Logic/integrationAccounts/partners/read | Reads the parter in integration account. |
+> | Action | Microsoft.Logic/integrationAccounts/partners/read | Reads the partner in integration account. |
 > | Action | Microsoft.Logic/integrationAccounts/partners/write | Creates or updates the partner in integration account. |
 > | Action | Microsoft.Logic/integrationAccounts/providers/Microsoft.Insights/logDefinitions/read | Reads the Integration Account log definitions. |
 > | Action | Microsoft.Logic/integrationAccounts/read | Reads the integration account. |
