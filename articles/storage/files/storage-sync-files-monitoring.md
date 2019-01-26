@@ -68,7 +68,7 @@ Sync Health
 - Event ID 9302 is logged every 5 to 10 minutes if there’s an active sync session. This event should be used to determine if the current sync session is making progress (AppliedItemCount > 0). If sync is not making progress, the sync session should eventually fail and an Event ID 9102 will be logged with the error. See the following documentation for more information: [Sync Progress](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
 Registered Server Health
-- Event ID 9301 is logged every 30 seconds when a server queries the service for any jobs. If GetNextJob completes with status = 0, the server is able to communicate with the service. If GetNextJob completes with an error, check the [Troubleshooting documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
+- Event ID 9301 is logged every 30 seconds when a server queries the service for jobs. If GetNextJob completes with status = 0, the server is able to communicate with the service. If GetNextJob completes with an error, check the [Troubleshooting documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
 
 Cloud Tiering Health
 - To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
