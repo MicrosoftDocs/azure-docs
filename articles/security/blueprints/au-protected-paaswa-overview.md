@@ -127,7 +127,7 @@ Azure encrypts all communications to and from Azure datacentres by default.
 
 For Protected data in transit from customer owned networks, the Architecture uses Azure the Internet or ExpressRoute with a VPN Gateway configured with IPSEC.
 
-Additionally, all transactions to Azure through the Azure management portal occur via HTTPS utilising TLS v1.2.
+Additionally, all transactions to Azure through the Azure management portal occur via HTTPS utilizing TLS v1.2.
 
 ### Data at rest
 The architecture protects data at rest through encryption, database auditing, and other measures.
