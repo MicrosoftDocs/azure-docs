@@ -20,14 +20,15 @@ ZRS is available for block blobs, non-disk page blobs, files, tables, and queues
 
 ZRS is generally available in the following regions:
 
+- Asia Southeast
+- Europe West
+- Europe North
+- France Central
+- Japan East
 - US East
 - US East 2
 - US West 2
 - US Central
-- North Europe
-- West Europe
-- France Central
-- Southeast Asia
 
 Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about new regions.
 
