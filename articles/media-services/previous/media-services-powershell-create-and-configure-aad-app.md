@@ -31,12 +31,12 @@ Learn how to use a PowerShell script to create an Azure Active Directory (Azure 
 ## Create an Azure AD app by using PowerShell  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 Import-Module AzureRM.Resources
-Set-AzureRmContext -SubscriptionId $SubscriptionId
-$ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
+Set-AzContext -SubscriptionId $SubscriptionId
+$ServicePrincipal = New-AzADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
 
-Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id 
+Get-AzADServicePrincipal -ObjectId $ServicePrincipal.Id 
 $NewRole = $null
 $Scope = "/subscriptions/your subscription id/resourceGroups/userresourcegroup/providers/microsoft.media/mediaservices/your media account"
 
@@ -44,8 +44,8 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 {
 	# Sleep here for a few seconds to allow the service principal application to become active (usually, it will take only a couple of seconds)
     Sleep 15
-    New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
-    $NewRole = Get-AzureRMRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
+    New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Scope | Write-Verbose -ErrorAction SilentlyContinue
+    $NewRole = Get-AzRoleAssignment -ServicePrincipalName $ServicePrincipal.ApplicationId -ErrorAction SilentlyContinue
     $Retries++;
 }
 ```
