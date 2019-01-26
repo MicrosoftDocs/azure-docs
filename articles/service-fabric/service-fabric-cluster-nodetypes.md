@@ -18,7 +18,7 @@ ms.author: chackdan
 
 ---
 # Azure Service Fabric node types and virtual machine scale sets
-[Virtual machine scale sets](/azure/virtual-machine-scale-sets) are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up a separate scale.  The Service Fabric runtime installed on each virtual machine in the scale set. You can independently scale each node type up or down, change the OS SKU running on each cluster node, have different sets of ports open, and use different capacity metrics.
+[Virtual machine scale sets](/azure/virtual-machine-scale-sets) are an Azure compute resource. You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up a separate scale.  The Service Fabric runtime installed on each virtual machine in the scale set by the Microsoft.Azure.ServiceFabric Virtual Machine extension. You can independently scale each node type up or down, change the OS SKU running on each cluster node, have different sets of ports open, and use different capacity metrics.
 
 The following figure shows a cluster that has two node types, named FrontEnd and BackEnd. Each node type has five nodes.
 
@@ -34,6 +34,56 @@ If you deployed your cluster in the Azure portal or used the sample Azure Resour
 
 ![Resources][Resources]
 
+## Service Fabric Virtual Machine Extension
+Service Fabric Virtual Machine Extension is used to bootstrap Service Fabric to Azure Virtual Machines, and configure the Node Security.
+
+The following is a snippet of Service Fabric Virtual Machine extension:
+
+```json
+"extensions": [
+  {
+    "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+    "properties": {
+      "type": "ServiceFabricLinuxNode",
+      "autoUpgradeMinorVersion": true,
+      "protectedSettings": {
+        "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+       },
+       "publisher": "Microsoft.Azure.ServiceFabric",
+       "settings": {
+         "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+         "nodeTypeRef": "[variables('vmNodeType0Name')]",
+         "durabilityLevel": "Silver",
+         "enableParallelJobs": true,
+         "nicPrefixOverride": "[variables('subnet0Prefix')]",
+         "certificate": {
+           "commonNames": [
+             "[parameters('certificateCommonName')]"
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+         }
+       },
+       "typeHandlerVersion": "1.0"
+     }
+   },
+```
+
+The following are the property descriptions:
+|**Name**|**Allowed Values**|**Guidance or Short Description**|
+|---|---|---|
+|name|string|unique name for extension|
+|type|"ServiceFabricLinuxNode" or "ServiceFabricWindowsNode"|Identifies OS Service Fabric is bootstrapping to|
+|autoUpgradeMinorVersion|true or false|???|
+|protectedSettings|string: string| A key value pair of protected values|
+|publisher|Microsoft.Azure.ServiceFabric|name of the extention publisher|
+|clusterEndpont|string|URI:PORT to Management endpoint|
+|nodeTypeRef|string|name of nodeType|
+|durabilityLevel|bronze, silver, gold, platinum|time allowed to pause immutable Azure Infrastructure|
+|enableParallelJobs|true or false|???|
+|nicPrefixOverride|string|???|
+|commonNames|string|CN for cluster certificate|
+|x509StoreName|string|store cert is installed in|
+|typeHandlerVersion|1.0|version of extesnion|
 
 ## Next steps
 * See the [overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md).
