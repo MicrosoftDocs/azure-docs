@@ -27,7 +27,7 @@ This document describes how you can create and configure a self-hosted IR.
 1. Create a self-hosted integration runtime. You can use the Azure Data Factory UI for this task. Here is a PowerShell example:
 
 	```powershell
-	Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
 	```
   
 2. [Download](https://www.microsoft.com/download/details.aspx?id=39717) and install the self-hosted integration runtime on a local machine.
@@ -35,7 +35,7 @@ This document describes how you can create and configure a self-hosted IR.
 3. Retrieve the authentication key and register the self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
 	```
 
 ## Setting up a self-hosted IR on an Azure VM by using an Azure Resource Manager template (automation)
@@ -94,7 +94,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 9. Get the authentication key by using Azure PowerShell. Here's a PowerShell example for retrieving the authentication key:
 
 	```powershell
-	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
 	```
 11. On the **Register Integration Runtime (Self-hosted)** page of Microsoft Integration Runtime Configuration Manager running on your machine, take the following steps:
 
@@ -110,7 +110,7 @@ A self-hosted integration runtime can be associated with multiple on-premises ma
 * Higher availability of the self-hosted integration runtime so that it's no longer the single point of failure in your big data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to four nodes.
 * Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
-You can associate multiple nodes by installing the self-hosted integration runtime software from the [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by using either of the authentication keys obtained from the **New-AzureRmDataFactoryV2IntegrationRuntimeKey** cmdlet, as described in the [tutorial](tutorial-hybrid-copy-powershell.md).
+You can associate multiple nodes by installing the self-hosted integration runtime software from the [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Then, register it by using either of the authentication keys obtained from the **New-AzDataFactoryV2IntegrationRuntimeKey** cmdlet, as described in the [tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > You don't need to create new self-hosted integration runtime for associating each node. You can install the self-hosted integration runtime on another machine and register it by using the same authentication key. 
@@ -339,7 +339,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > The Credential Manager application is not yet available for encrypting credentials in Azure Data Factory V2.  
 
-If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
+If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
 
 
 ## Next steps

@@ -131,7 +131,7 @@ You can also create a scheduled trigger for your pipeline so that the pipeline r
 ## Run a package with PowerShell
 In this section, you use Azure PowerShell to create a Data Factory pipeline with an Execute SSIS Package activity that runs an SSIS package. 
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-Az-ps). 
 
 ### Create a data factory
 You can either use the same data factory that has the Azure-SSIS IR or create a separate data factory. The following procedure provides steps to create a data factory. You create a pipeline with an Execute SSIS Package activity in this data factory. The Execute SSIS Package activity runs your SSIS package. 
@@ -146,7 +146,7 @@ You can either use the same data factory that has the Azure-SSIS IR or create a 
 2. To create the Azure resource group, run the following command: 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
     If the resource group already exists, you may not want to overwrite it. Assign a different value to the `$ResourceGroupName` variable and run the command again. 
 3. Define a variable for the data factory name. 
@@ -158,10 +158,10 @@ You can either use the same data factory that has the Azure-SSIS IR or create a 
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. To create the data factory, run the following **Set-AzureRmDataFactoryV2** cmdlet, using the Location and ResourceGroupName property from the $ResGrp variable: 
+5. To create the data factory, run the following **Set-AzDataFactoryV2** cmdlet, using the Location and ResourceGroupName property from the $ResGrp variable: 
     
     ```powershell       
-    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
+    $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
                                             -Location $ResGrp.Location `
                                             -Name $dataFactoryName 
     ```
@@ -258,10 +258,10 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
 
 2.  In Azure PowerShell, switch to the `C:\ADF\RunSSISPackage` folder.
 
-3. To create the pipeline **RunSSISPackagePipeline**, run the **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
+3. To create the pipeline **RunSSISPackagePipeline**, run the **Set-AzDataFactoryV2Pipeline** cmdlet.
 
     ```powershell
-    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+    $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                                    -ResourceGroupName $ResGrp.ResourceGroupName `
                                                    -Name "RunSSISPackagePipeline"
                                                    -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -278,10 +278,10 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
     ```
 
 ### Run the pipeline
-Use the **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet to run the pipeline. The cmdlet returns the pipeline run ID for future monitoring.
+Use the **Invoke-AzDataFactoryV2Pipeline** cmdlet to run the pipeline. The cmdlet returns the pipeline run ID for future monitoring.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+$RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                              -ResourceGroupName $ResGrp.ResourceGroupName `
                                              -PipelineName $DFPipeLine.Name
 ```
@@ -292,7 +292,7 @@ Run the following PowerShell script to continuously check the pipeline run statu
 
 ```powershell
 while ($True) {
-    $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
+    $Run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
                                                -DataFactoryName $DataFactory.DataFactoryName `
                                                -PipelineRunId $RunId
 
@@ -341,31 +341,31 @@ In the previous step, you ran the pipeline on-demand. You can also create a sche
     }    
     ```
 2. In **Azure PowerShell**, switch to the **C:\ADF\RunSSISPackage** folder.
-3. Run the **Set-AzureRmDataFactoryV2Trigger** cmdlet, which creates the trigger. 
+3. Run the **Set-AzDataFactoryV2Trigger** cmdlet, which creates the trigger. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                     -DataFactoryName $DataFactory.DataFactoryName `
                                     -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
     ```
-4. By default, the trigger is in stopped state. Start the trigger by running the **Start-AzureRmDataFactoryV2Trigger** cmdlet. 
+4. By default, the trigger is in stopped state. Start the trigger by running the **Start-AzDataFactoryV2Trigger** cmdlet. 
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                       -DataFactoryName $DataFactory.DataFactoryName `
                                       -Name "MyTrigger" 
     ```
-5. Confirm that the trigger is started by running the **Get-AzureRmDataFactoryV2Trigger** cmdlet. 
+5. Confirm that the trigger is started by running the **Get-AzDataFactoryV2Trigger** cmdlet. 
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
                                     -DataFactoryName $DataFactoryName `
                                     -Name "MyTrigger"     
     ```    
 6. Run the following command after the next hour. For example, if the current time is 3:25 PM UTC, run the command at 4 PM UTC. 
     
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
                                        -DataFactoryName $DataFactoryName `
                                        -TriggerName "MyTrigger" `
                                        -TriggerRunStartedAfter "2017-12-06" `

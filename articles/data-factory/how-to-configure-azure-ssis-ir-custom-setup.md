@@ -98,15 +98,15 @@ To customize your Azure-SSIS IR, you need the following things:
 
        ![Enter the Shared Access Signature](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-       When you provision or reconfigure your Azure-SSIS IR with PowerShell, before you start your Azure-SSIS IR, run the `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for new `SetupScriptContainerSasUri` parameter. For example:
+       When you provision or reconfigure your Azure-SSIS IR with PowerShell, before you start your Azure-SSIS IR, run the `Set-AzDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for new `SetupScriptContainerSasUri` parameter. For example:
 
        ```powershell
-       Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                   -Name $MyAzureSsisIrName `
                                                   -ResourceGroupName $MyResourceGroupName `
                                                   -SetupScriptContainerSasUri $MySetupScriptContainerSasUri
 
-       Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                     -Name $MyAzureSsisIrName `
                                                     -ResourceGroupName $MyResourceGroupName
        ```
@@ -155,7 +155,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
     ![Folders in the user scenarios folder](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-    e. To try these custom setup samples, copy and paste the content from the selected folder into your container. When you provision or reconfigure your Azure-SSIS IR with PowerShell, run the `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for new `SetupScriptContainerSasUri` parameter.
+    e. To try these custom setup samples, copy and paste the content from the selected folder into your container. When you provision or reconfigure your Azure-SSIS IR with PowerShell, run the `Set-AzDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for new `SetupScriptContainerSasUri` parameter.
 
 ## Next steps
 

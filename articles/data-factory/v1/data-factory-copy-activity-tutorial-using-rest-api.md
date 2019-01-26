@@ -59,22 +59,22 @@ A pipeline can have more than one activity. And, you can chain two activities (r
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:
     
 	```PowerShell 
-	Connect-AzureRmAccount
+	Connect-AzAccount
 	```   
   2. Run the following command to view all the subscriptions for this account:
 
 	```PowerShell     
-	Get-AzureRmSubscription
+	Get-AzSubscription
 	``` 
   3. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription. 
      
 	```PowerShell
-	Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+	Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
 	```
   4. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:  
 
 	```PowerShell     
-      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+      New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 	```
      
       If the resource group already exists, you specify whether to update it (Y) or keep it as (N). 
@@ -361,12 +361,12 @@ Note the following points:
   * In Azure PowerShell, run the following command to register the Data Factory provider: 
 
 	```PowerShell    
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 	You can run the following command to confirm that the Data Factory provider is registered. 
     
 	```PowerShell
-	Get-AzureRmResourceProvider
+	Get-AzResourceProvider
 	```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 
