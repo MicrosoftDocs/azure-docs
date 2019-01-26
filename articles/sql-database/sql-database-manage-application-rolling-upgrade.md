@@ -28,8 +28,8 @@ When evaluating the upgrade options you should consider the following factors:
 
 If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is usually deployed to a single Azure region. To minimize the end-user disruption, you will create a staging environment with all the application components involved in the upgrade. The following diagram illustrates the operational environment prior to the upgrade process. The endpoint `contoso.azurewebsites.net` represents a production slot of the web application. To enable the ability to roll back the upgrade, you need create a staging slot with a fully synchronized copy of the database. The following steps wil create a staging environment for the upgrade:
 
-(1) Create a secondary database in the same Azure region. Monitor the secondary to see if the seeding process is completed.
-(2) Create a new deployment slot for your web application called 'Staging'. It will be registered in DNS with URL  `contoso-staging.azurewebsites.net`.
+1. Create a secondary database in the same Azure region. Monitor the secondary to see if the seeding process is completed (1).
+2. Create a new deployment slot for your web application called 'Staging'. It will be registered in DNS with URL  `contoso-staging.azurewebsites.net` (2).
 
 > [!NOTE]
 > Note the preparation steps will not impact the production slot and it can function in full access mode.
@@ -39,28 +39,28 @@ If your application relies on automatic database backups and uses geo-restore fo
 
 Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process.
 
-(3) Set the primary database to read-only mode. This will guarantee that the production slot of the web application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
-(4) Disconnect the secondary database using the planned termination mode. It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
-(5) Turn the primary database to read-write mode and run the upgrade script.
+1. Set the primary database to read-only mode (3). This will guarantee that the production slot of the web application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
+2. Disconnect the secondary database using the planned termination mode (4). It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
+3. Turn the primary database to read-write mode and run the upgrade script (5).
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
 If the upgrade completed successfully you are now ready to switch the end users to the upgraded copy the application. It will now become a  production slot.  This involves a few more steps as illustrated on the following diagram.
 
-(6) Activate a swap operation between production and staging slots of the web application. It will switch the URLs of the two slots. Now `contoso.azurewebsites.net` will point to V2 version of the web site and the database (production environment).  
-(7) If you no longer need the V1 version, which became a staging copy after the swap,  you can safely remove the stanging envoronment.
+1. Activate a swap operation between production and staging slots of the web application (6). It will switch the URLs of the two slots. Now `contoso.azurewebsites.net` will point to V2 version of the web site and the database (production environment).  
+2. If you no longer need the V1 version, which became a staging copy after the swap,  you can decomission the stanging envoronment (7).
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To roll back the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.
 
-(8) Set the database copy to read-write mode. This will restore the full V1 functionally of the production copy.
-(9) Perform the root cause analysis and remove the staging copy of the application.
+1. Set the database copy to read-write mode (8). This will restore the full V1 functionally of the production copy.
+2. Perform the root cause analysis and decomission the staging environment (9).
 
 At this point the application is fully functional and the upgrade steps can be repeated.
 
 > [!NOTE]
-> The rollback does not require changes in ATM profile as it already points to `contoso-1.azurewebsites.net` as the active endpoint.
+> The rollback does not require DNS changes as you did not yet perform a swap operation.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
@@ -86,7 +86,7 @@ To enable the ability to roll back the upgrade, you need create a staging enviro
 1. Deploy a staging slot of the web application in the primary region (6)
 2. Create a secondary database in the primary Azure region (7). Configure the staging slot of the web application to connect to it. 
 3. Create another geo-redundant secondary database in the backup region by replicating the secondary database in the primary region (this is called "chained geo-replication") (8).
-3. Deploy a staging slot of the web application instance in the backup region (9) and configure it to connect the geo-secondary created in step (8).
+3. Deploy a staging slot of the web application instance in the backup region (9) and configure it to connect the geo-secondary created in step (9).
 
 
 > [!NOTE]
@@ -94,30 +94,30 @@ To enable the ability to roll back the upgrade, you need create a staging enviro
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
-Once the preparation steps are completed, the stage slot is ready for the upgrade. The following diagram illustrates the upgrade steps.
+Once the preparation steps are completed, the staging environment is ready for the upgrade. The following diagram illustrates the upgrade steps.
 
-1. Set the primary database in the production slot to read-only mode (6). This will guarantee that the production instance of the application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
-2. Disconnect the secondary database in the same region using the planned termination mode (7). It will create a fully synchronized independent copy of the primary database, which will automatically become a primary after the termination. This database will be upgraded.
-3. Turn the primary database in the stage slot to read-write mode and run the upgrade script (8).
+1. Set the primary database in the production slot to read-only mode (10). This will guarantee that the production database (V1) will not change during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
+2. Disconnect the secondary database in the same region using the planned termination mode (11). It will create a independent but fully synchronized copy of the production database. This database will be upgraded.
+3. Run the  upgrade script against `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` and the staging primary database (12). The database changes will be automatically replicated to the staging secondary 
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
 If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
 
-1. Switch the active endpoint in the ATM profile to `contoso-2.azurewebsites.net`, which now points to the V2 version of the web site (9). It now becomes a production slot with the V2 application and end-user traffic is directed to it.
-2. If you no longer need the V1 application so you can safely remove it (10 and 11).  
+1. Activate a swap operation between production and staging slots of the web application in the primary region (13) and in the backup region (14). V2 of teh application now becomes a production slot with a redundant copy in the backup region.
+2. You can decommision the the staging environment if you no longer need the V1 application (15 and 16).  
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
-If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To roll back the application to the pre-upgrade state you simply revert to using the application in the production slot with full access. The steps involved are shown on the next diagram.
+If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the staging envoronment be considered in inconsistent state. To roll back the application to the pre-upgrade state you simply revert to using V1 of the applicatuion in production environment. The required stepsare shown on the next diagram.
 
 1. Set the primary database copy in the production slot to read-write mode (12). This will restore the full V1 functionally in the production slot.
-2. Perform the root cause analysis and remove the compromised components in the stage slot (13 and 14).
+2. Perform the root cause analysis and repair or remove the staging environment (18 and 19).
 
 At this point the application is fully functional and the upgrade steps can be repeated.
 
 > [!NOTE]
-> The rollback does not require changes in ATM profile as it already points to  `contoso-1.azurewebsites.net` as the active endpoint.
+> The rollback does not require DNS changes because you did not perform a swap operation.
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
