@@ -28,7 +28,7 @@ To view registered server and server endpoint health, go to the Storage Sync Ser
 
 Registered Server Health
 - If the Registered server state is Online, the server is successfully communicating with the service.
-- If Registered server state is Appears Offline, verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process on the server is running. If the server is behind a Firewall or Proxy, configure the firewall and proxy per [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy).
+- If Registered server state is Appears Offline, verify the Storage Sync Monitor (AzureStorageSyncMonitor.exe) process on the server is running. If the server is behind a firewall or proxy, configure the firewall and proxy per [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy).
 
 Server Endpoint Health
 - The server endpoint health in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails due to a transient error (for example, error canceled), sync may still show healthy in the portal as long as the current sync session is making progress (Event ID 9302 is used to determine if files are being applied). See the following documentation for more information: [Sync Health](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [Sync Progress](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
@@ -48,8 +48,8 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 | Cloud tiering recall | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Server Name |
 | Files not syncing | Count of files that are failing to sync.<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Files synced | Count of files uploaded and downloaded.<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
-| Server Heartbeat | Count of heartbeats received from the server. (Note: Data for this metric will be available in a future update.)<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
-| Sync Session Result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Maximum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Server heartbeat | Count of heartbeats received from the server. (Note: Data for this metric will be available in a future update.)<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
+| Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Maximum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 
 ## Windows Server
 
