@@ -45,7 +45,7 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 
 1. Open Azure PowerShell, and login to your account:
 
-        PS C:\> Connect-AzureRmAccount
+        PS C:\> Connect-AzAccount
 2. Set the PHP version for the app.
 
         PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
