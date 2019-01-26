@@ -39,7 +39,7 @@ The following code gets defines and sends the request. It is implemented in the 
 
 The complete code for this demo follows:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -86,7 +86,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## Next steps
 
