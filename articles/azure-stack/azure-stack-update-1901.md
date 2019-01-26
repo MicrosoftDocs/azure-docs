@@ -122,6 +122,9 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 <!-- 3631537 - IS, ASDK -->
 - Fixed an issue when creating a new Windows Virtual Machine (VM) in which the **Settings** blade required that you select a public inbound port in order to proceed. Although the setting was required, it had no effect.
 
+<!-- 3507629 - IS, ASDK --> 
+- Fixed an issue when setting the value of Managed Disks quotas under [compute quota types](azure-stack-quota-types.md#compute-quota-types) to 0, it is equivalent to the default value of 2048 GiB. The zero quota value now is respected.
+
 <!-- 2724873 - IS --> 
 - Fixed an issue when using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, in which the first attempt to start or stop the scale unit might fail.
 
@@ -225,11 +228,6 @@ The following are post-installation known issues for this build version.
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
 - The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
 
-<!-- 3507629 - IS, ASDK --> 
-- Managed Disks creates two new [compute quota types](azure-stack-quota-types.md#compute-quota-types) to limit the maximum capacity of managed disks that can be provisioned. By default, 2048 GiB is allocated for each managed disks quota type. However, you may encounter the following issues:
-
-   - For quotas created before the 1808 update, the Managed Disks quota will show 0 values in the Administrator portal, although 2048 GiB is allocated. You can increase or decrease the value based on your actual needs, and the newly set quota value overrides the 2048 GiB default.
-   - If you update the quota value to 0, it is equivalent to the default value of 2048 GiB. As a workaround, set the quota value to 1.
 
 <!-- TBD - IS ASDK --> 
 - After applying the 1901 update, you might encounter the following issues when deploying VMs with Managed Disks:
