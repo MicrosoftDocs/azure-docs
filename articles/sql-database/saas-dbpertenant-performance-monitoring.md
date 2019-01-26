@@ -17,7 +17,7 @@ ms.date: 09/14/2018
 
 In this tutorial, several key performance management scenarios used in SaaS applications are explored. Using a load generator to simulate activity across all tenant databases, the built-in monitoring and alerting features of SQL Database and elastic pools are demonstrated.
 
-The Wingtip Tickets SaaS Database Per Tenant app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic database pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
+The Wingtip Tickets SaaS Database Per Tenant app uses a single-tenant data model, where each venue (tenant) has their own database. Like many SaaS applications, the anticipated tenant workload pattern is unpredictable and sporadic. In other words, ticket sales may occur at any time. To take advantage of this typical database usage pattern, tenant databases are deployed into elastic pools. Elastic pools optimize the cost of a solution by sharing resources across many databases. With this type of pattern, it's important to monitor database and pool resource usage to ensure that loads are reasonably balanced across pools. You also need to ensure that individual databases have adequate resources, and that pools are not hitting their [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model) limits. This tutorial explores ways to monitor and manage databases and pools, and how to take corrective action in response to variations in workload.
 
 In this tutorial you learn how to:
 
@@ -36,7 +36,7 @@ To complete this tutorial, make sure the following prerequisites are completed:
 
 ## Introduction to SaaS performance management patterns
 
-Managing database performance consists of compiling and analyzing performance data, and then reacting to this data by adjusting parameters to maintain an acceptable response time for your application. When hosting multiple tenants, Elastic database pools are a cost-effective way to provide and manage resources for a group of databases with unpredictable workloads. With certain workload patterns, as few as two S3 databases can benefit from being managed in a pool.
+Managing database performance consists of compiling and analyzing performance data, and then reacting to this data by adjusting parameters to maintain an acceptable response time for your application. When hosting multiple tenants, Elastic pools are a cost-effective way to provide and manage resources for a group of databases with unpredictable workloads. With certain workload patterns, as few as two S3 databases can benefit from being managed in a pool.
 
 ![application diagram](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -163,7 +163,7 @@ As an alternative to scaling up the pool, create a second pool and move database
 
 1. In the [Azure portal](https://portal.azure.com), open the **tenants1-dpt-&lt;USER&gt;** server.
 1. Click **+ New pool** to create a pool on the current server.
-1. On the **Elastic database pool** template:
+1. On the **Elastic pool** template:
 
     1. Set **Name** to *Pool2*.
     1. Leave the pricing tier as **Standard Pool**.
@@ -197,7 +197,7 @@ This exercise simulates the effect of Contoso Concert Hall experiencing a high l
 
 1. In the [Azure portal](https://portal.azure.com), browse to the list of databases on the *tenants1-dpt-\<user\>* server. 
 1. Click on the **contosoconcerthall** database.
-1. Click on the pool that **contosoconcerthall** is in. Locate the pool in the **Elastic database pool** section.
+1. Click on the pool that **contosoconcerthall** is in. Locate the pool in the **Elastic pool** section.
 
 1. Inspect the **Elastic pool monitoring** chart and look for the increased pool eDTU usage. After a minute or two, the higher load should start to kick in, and you should quickly see that the pool hits 100% utilization.
 2. Inspect the **Elastic database monitoring** display, which shows the hottest databases in the past hour. The *contosoconcerthall* database should soon appear as one of the five hottest databases.

@@ -3,7 +3,7 @@ title: How to configure Azure SQL Database | Microsoft Docs
 description: Learn how to configure and manage Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: howto
@@ -11,11 +11,11 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
+ms.date: 01/25/2019
 ---
 # How to use Azure SQL Database
 
-In this section you can find various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database. You can also find specific how-to guides for [Single Database](sql-database-howto-single-database.md) and [Managed Instance](sql-database-howto-managed-instance.md).
+In this section you can find various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database. You can also find specific how-to guides for [Single Database](sql-database-howto-standalone-database.md) and [Managed Instance](sql-database-howto-managed-instance.md).
 
 ## Load data
 
@@ -89,5 +89,5 @@ In this section you can find various guides, scripts, and explanations that can 
 - [SaaS app security](https://docs.microsoft.com/azure/sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
 
 ## Next steps
-- Learn more about [How-to guides in Managed Instance](sql-database-howto-managed-instance.md).
-- Learn more about [How-to guides in Single Database](sql-database-howto-single-database.md).
+- Learn more about [How-to guides for managed instances](sql-database-howto-managed-instance.md).
+- Learn more about [How-to guides for standalone databases](sql-database-howto-standalone-database.md).

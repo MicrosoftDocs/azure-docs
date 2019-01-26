@@ -11,7 +11,7 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ---
 # Export an Azure SQL database to a BACPAC file
@@ -42,7 +42,7 @@ To export a database using the [Azure portal](https://portal.azure.com), open th
 
 ![Database export](./media/sql-database-export/database-export.png)
 
-To monitor the progress of the export operation, open the page for the logical server containing the database being exported. Scroll down to **Operations** and then click **Import/Export** history.
+To monitor the progress of the export operation, open the page for the SQL Database server containing the database being exported. Scroll down to **Operations** and then click **Import/Export** history.
 
 ![export history](./media/sql-database-export/export-history.png)
 ![export history status](./media/sql-database-export/export-history2.png)

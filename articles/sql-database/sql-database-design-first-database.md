@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Design your first Azure SQL database using SSMS | Microsoft Docs"
+title: "Tutorial: Design your first standalone database in Azure SQL Database using SSMS | Microsoft Docs"
 description: Learn to design your first Azure SQL database with SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,7 +9,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 01/25/2019
 ---
 # Tutorial: Design your first Azure SQL database using SSMS
 
@@ -41,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a blank database
 
-An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers-dtu.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL database logical server](sql-database-features.md).
+An Azure SQL database is created with a defined set of [compute and storage resources](sql-database-service-tiers-dtu.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL database server](sql-database-features.md).
 
 Follow these steps to create a blank SQL database.
 
@@ -76,7 +76,7 @@ Follow these steps to create a blank SQL database.
    1. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. You may explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. By default, the **Standard** [DTU-based purchasing model](sql-database-service-tiers-dtu.md) is selected, but you do have the option of choosing the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
       > [!IMPORTANT]
-      > More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
+      > More than 1 TB of storage in the Premium tier is currently available in all regions except the following: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, US Gov East. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations]( sql-database-dtu-resource-limits-standalone-databases.md#standalone-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).
 
       After selecting the service tier, the number of DTUs, and the amount of storage, click **Apply**.
 
@@ -107,7 +107,7 @@ The SQL database service creates a firewall at the server-level. The firewall pr
 
    1. Click **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
-   1. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+   1. Click **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the SQL Database server.
 
    1. Click **OK** and then close the **Firewall settings** page.
 

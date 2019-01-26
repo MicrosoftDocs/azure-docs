@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/09/2019
+ms.date: 01/25/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for elastic pools
 
@@ -25,7 +25,7 @@ For DTU-based purchasing model limits, see [SQL Database DTU-based resource limi
 You can set the service tier, compute size, and storage amount using the [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), the [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), or the [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
-> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same compute size. For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
+> The resource limits of individual databases in elastic pools are generally the same as for standalone databases outside of pools that has the same compute size. For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
 
 ## General Purpose service tier: Storage sizes and compute sizes
 
@@ -53,7 +53,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
+\* For the max current workers (requests) for any individual database, see [Standalone database resource limits](sql-database-vcore-resource-limits-standalone-databases.md)
 
 ### General Purpose service tier: Generation 4 compute platform (part 2)
 
@@ -79,7 +79,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
+\* For the max current workers (requests) for any individual database, see [Standalone database resource limits](sql-database-vcore-resource-limits-standalone-databases.md)
 
 ### General Purpose service tier: Generation 5 compute platform (part 1)
 
@@ -105,7 +105,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
+\* For the max current workers (requests) for any individual database, see [Standalone database resource limits](sql-database-vcore-resource-limits-standalone-databases.md)
 
 ### General Purpose service tier: Generation 5 compute platform (part 2)
 
@@ -130,7 +130,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
+\* For the max current workers (requests) for any individual database, see [Standalone database resource limits](sql-database-vcore-resource-limits-standalone-databases.md)
 
 ## Business Critical service tier: Storage sizes and compute sizes
 
@@ -151,14 +151,14 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|
+|Max number DBs per pool|Only standalone DBs are supported for this compute size|50|100|100|100|100|
 |Min/max elastic pool vCore choices per database|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
 |Number of replicas|4|4|4|4|4|4|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
+\* For the max current workers (requests) for any individual database, see [Standalone database resource limits](sql-database-vcore-resource-limits-standalone-databases.md)
 
 ### Business Critical service tier: Generation 4 compute platform (part 2)
 
@@ -184,7 +184,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
+\* For the max current workers (requests) for any individual database, see [Standalone database resource limits](sql-database-vcore-resource-limits-standalone-databases.md)
 
 #### Business Critical service tier: Generation 5 compute platform (part 1)
 
@@ -203,14 +203,14 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Target IOPS (64 KB)|5000|10000|15000|20000|25000|30000|35000|
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|
-|Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|100|
+|Max number DBs per pool|Only standalone DBs are supported for this compute size|50|100|100|100|100|100|
 |Min/max elastic pool vCore choices per database|N/A|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
 |Number of replicas|4|4|4|4|4|4|4|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
+\* For the max current workers (requests) for any individual database, see [Standalone database resource limits](sql-database-vcore-resource-limits-standalone-databases.md)
 
 #### Business Critical service tier: Generation 5 compute platform (part 2)
 
@@ -236,7 +236,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-\* For the max current workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md)
+\* For the max current workers (requests) for any individual database, see [Standalone database resource limits](sql-database-vcore-resource-limits-standalone-databases.md)
 
 If all vCores of an elastic pool are busy, then each database in the pool receives an equal amount of compute resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the vCore min per database is set to a non-zero value.
 
@@ -254,5 +254,5 @@ The following table describes the properties for pooled databases.
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
-- See [Overview of resource limits on a logical server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
+- See [Overview of resource limits on a SQL Database server](sql-database-resource-limits-server.md) for information about limits at the server and subscription levels.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).

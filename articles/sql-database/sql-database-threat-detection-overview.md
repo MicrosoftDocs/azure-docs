@@ -11,7 +11,7 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 01/25/2019
 ---
 # Azure SQL Database Threat Detection
 
@@ -22,7 +22,7 @@ Threat Detection is part of the [SQL Advanced Threat Protection](sql-advanced-th
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
 
-Threat detection service is charged 15$/month for all databases per Logical Server or Managed Instance, with first 30 days free of charge.
+Threat detection service is charged 15$/month for all databases per SQL Database server or Managed Instance, with first 30 days free of charge.
 
 ## What is Threat Detection
 
@@ -73,7 +73,7 @@ Click **Threat detection alert** to launch the Azure Security Center alerts page
 
 ## Next steps
 
-- Learn more about [Threat Detection in Single Database](sql-database-threat-detection.md).
+- Learn more about [Threat Detection in standalone and pooled databases](sql-database-threat-detection.md).
 - Learn more about [Threat Detection in Managed Instance](sql-database-managed-instance-threat-detection.md).
 - Learn more about [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
 - Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)

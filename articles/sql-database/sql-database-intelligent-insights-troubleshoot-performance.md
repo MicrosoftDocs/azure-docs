@@ -11,7 +11,7 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 01/25/2019
 ---
 # Troubleshoot Azure SQL Database performance issues with Intelligent Insights
 
@@ -67,7 +67,7 @@ The diagnostics log outputs query hashes of queries that affected the performanc
 
 If you have reached the available session limits, you can optimize your applications by reducing the number of logins made to the database. If you're unable to reduce the number of logins from your applications to the database, consider increasing the pricing tier of your database. Or you can split and move your database into multiple databases for a more balanced workload distribution.
 
-For more suggestions on resolving session limits, see [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a logical server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
+For more suggestions on resolving session limits, see [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a SQL Database server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 
 ## Workload Increase
 

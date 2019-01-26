@@ -11,7 +11,7 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 01/25/2019
 ---
 # Copy an transactionally consistent copy of an Azure SQL database
 
@@ -26,11 +26,11 @@ A database copy is a snapshot of the source database as of the time of the copy 
 
 ## Logins in the database copy
 
-When you copy a database to the same logical server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.  
+When you copy a database to the same SQL Database server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.  
 
-When you copy a database to a different logical server, the security principal on the new server becomes the database owner on the new database. If you use [contained database users](sql-database-manage-logins.md) for data access, ensure that both the primary and secondary databases always have the same user credentials, so that after the copy is complete you can immediately access it with the same credentials. 
+When you copy a database to a different SQL Database server, the security principal on the new server becomes the database owner on the new database. If you use [contained database users](sql-database-manage-logins.md) for data access, ensure that both the primary and secondary databases always have the same user credentials, so that after the copy is complete you can immediately access it with the same credentials. 
 
-If you use [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), you can completely eliminate the need for managing credentials in the copy. However, when you copy the database to a new server, the login-based access might not work, because the logins do not exist on the new server. To learn about managing logins when you copy a database to a different logical server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md). 
+If you use [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), you can completely eliminate the need for managing credentials in the copy. However, when you copy the database to a new server, the login-based access might not work, because the logins do not exist on the new server. To learn about managing logins when you copy a database to a different SQL Database server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md). 
 
 After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log in to the new database. To resolve logins after the copying operation is complete, see [Resolve logins](#resolve-logins).
 
@@ -98,7 +98,7 @@ After the new database is online on the destination server, use the [ALTER USER]
 
 All users in the new database retain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log in to the new database.
 
-To learn about managing users and logins when you copy a database to a different logical server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
+To learn about managing users and logins when you copy a database to a different SQL Database server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
 ## Next steps
 

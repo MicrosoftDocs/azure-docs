@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ---
 
 # Feature comparison: Azure SQL Database versus SQL Server
 
-Azure SQL Database shares a common code base with SQL Server. The features of SQL Server supported by Azure SQL Database depend on the type of Azure SQL database that you create. With Azure SQL Database, you can either create a database as part of a [managed instance](sql-database-managed-instance.md) or you can create a database that is part of Logical server and optionally placed in an Elastic pool.
+Azure SQL Database shares a common code base with SQL Server. The features of SQL Server supported by Azure SQL Database depend on the type of Azure SQL database that you create. With Azure SQL Database, you can create a database as part of a [managed instance](sql-database-managed-instance.md), as a standalone database, or as part of an elastic pool.
 
 Microsoft continues to add features to Azure SQL Database. Visit the Service Updates webpage for Azure for the newest updates using these filters:
 
@@ -27,7 +27,7 @@ Microsoft continues to add features to Azure SQL Database. Visit the Service Upd
 
 The following table lists the major features of SQL Server and provides information about whether the feature is partially or fully supported and a link to more information about the feature.
 
-| **SQL Feature** | **Supported in Azure SQL Database/Logical Server** | **Supported in Azure SQL Database/Managed Instance** |
+| **SQL Feature** | **Supported in standalone databases and elastic pools** | **Supported in Azure SQL Database/Managed Instance** |
 | --- | --- | --- |
 | [Active geo-replication](sql-database-active-geo-replication.md) | Yes - General Purpose and Business Critical service tiers only| No, see [Auto-failover groups](sql-database-auto-failover-group.md) |
 | [Auto-failover groups](sql-database-auto-failover-group.md) | Yes - General Purpose and Business Critical service tiers only| [Yes- preview](sql-database-auto-failover-group.md)|
@@ -122,7 +122,7 @@ The following table lists the major features of SQL Server and provides informat
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No -see [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | No - see [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | No - see [SQL Database auditing](sql-database-auditing.md) | Yes - see [Auditing differences](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Yes | Yes |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Yes, with a managed SSIS in Azure Data Factory (ADF) environment, where packages are stored in SSISDB hosted by Azure SQL Database and executed on Azure SSIS Integration Runtime (IR), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>To compare the SSIS features in SQL Database logical server and Managed Instance, see [Compare SQL Database logical server and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). | Yes, with a managed SSIS in Azure Data Factory (ADF) environment, where packages are stored in SSISDB hosted by Managed Instance and executed on Azure SSIS Integration Runtime (IR), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>To compare the SSIS features in SQL Database and Managed Instance, see [Compare SQL Database logical server and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Yes, with a managed SSIS in Azure Data Factory (ADF) environment, where packages are stored in SSISDB hosted by Azure SQL Database and executed on Azure SSIS Integration Runtime (IR), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>To compare the SSIS features in SQL Database server and Managed Instance, see [Compare SQL Database server and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). | Yes, with a managed SSIS in Azure Data Factory (ADF) environment, where packages are stored in SSISDB hosted by Managed Instance and executed on Azure SSIS Integration Runtime (IR), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>To compare the SSIS features in SQL Database and Managed Instance, see [Compare SQL Database server and Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](sql-database-xevent-db-diff-from-svr.md) | Yes |

@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ---
 # An overview of Azure SQL Database security capabilities
 
@@ -52,7 +52,7 @@ For more information, see [Get started with SQL DB Data Discovery & Classificati
 SQL Database secures your data by limiting access to your database using firewall rules, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking. For a discussion of the use of access control features in SQL Database, see [Control access](sql-database-control-access.md).
 
 > [!IMPORTANT]
-> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **Azure SQL Database Managed Instance**. Please see the following article on [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
+> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **Azure SQL Database Managed Instance**. Please see the following article on [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
 
 ### Firewall and firewall rules
 
@@ -64,7 +64,7 @@ SQL database authentication refers to how you prove your identity when connectin
 
 - **SQL Authentication**
 
-  This authentication method uses a username and password. When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo."
+  This authentication method uses a username and password. 
 
 - **Azure Active Directory Authentication**
 

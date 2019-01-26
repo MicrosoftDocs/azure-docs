@@ -1,6 +1,6 @@
 ---
 title: 'Azure portal: SQL Database geo-replication | Microsoft Docs'
-description: Configure geo-replication for a single or pooled database in Azure SQL Database using the Azure portal and initiate failover
+description: Configure geo-replication for a standalone or pooled database in Azure SQL Database using the Azure portal and initiate failover
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 01/25/2019
 ---
 # Configure active geo-replication for Azure SQL Database in the Azure portal and initiate failover
 
-This article shows you how to configure [active geo-replication for single and pooled databases] on a logical server(sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in SQL Database using the [Azure portal](http://portal.azure.com) and to initiate failover.
+This article shows you how to configure [active geo-replication for standalone and pooled databases](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) in Azure SQL Database using the [Azure portal](http://portal.azure.com) and to initiate failover.
 
-For information about auto-failover groups with single and pooled databases, see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). For information about auto-failover groups with Managed Instances (preview), see [Best practices of using failover groups with single and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+For information about auto-failover groups with standalone and pooled databases, see [Best practices of using failover groups with standalone and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-standalone-databases-and-elastic-pools). For information about auto-failover groups with Managed Instances (preview), see [Best practices of using failover groups with standalone and pooled databases](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ The following steps create a new secondary database in a geo-replication partner
 
 To add a secondary database, you must be the subscription owner or co-owner.
 
-The secondary database has the same name as the primary database and has, by default, the same service tier and compute size. The secondary database can be a single database or a database in an elastic pool. For more information, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+The secondary database has the same name as the primary database and has, by default, the same service tier and compute size. The secondary database can be a standalone database or a pooled database. For more information, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 After the secondary is created and seeded, data begins replicating from the primary database to the new secondary database.
 
 > [!NOTE]

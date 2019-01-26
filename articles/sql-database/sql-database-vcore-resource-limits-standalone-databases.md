@@ -1,9 +1,9 @@
 ---
-title: Azure SQL Database vCore-based resource limits - single database | Microsoft Docs
-description: This page describes some common vCore-based resource limits for a single database in Azure SQL Database.
+title: Azure SQL Database vCore-based resource limits - standalone database | Microsoft Docs
+description: This page describes some common vCore-based resource limits for a standalone database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,18 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 01/09/2019
+ms.date: 01/25/2019
 ---
-# Azure SQL Database vCore-based purchasing model limits for a single database
+# Azure SQL Database vCore-based purchasing model limits for a standalone database
 
-This article provides the detailed resource limits for Azure SQL Database single databases using the vCore-based purchasing model.
+This article provides the detailed resource limits for Azure SQL Database standalone databases using the vCore-based purchasing model.
 
-For DTU-based purchasing model limits for single databases on a logical server, see [Overview of resource limits on a logical server](sql-database-resource-limits-logical-server.md).
+For DTU-based purchasing model limits for standalone databases on a SQL Database server, see [Overview of resource limits on a SQL Database server](sql-database-resource-limits-logical-server.md).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), the [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), or the [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+You can set the service tier, compute size, and storage amount for a standalone database using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-standalone-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-standalone-databases-manage.md#powershell-manage-logical-servers-and-databases), the [Azure CLI](sql-database-standalone-databases-manage.md#azure-cli-manage-logical-servers-and-databases), or the [REST API](sql-database-standalone-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
 ## General Purpose service tier: Storage sizes and compute sizes
 

@@ -1,5 +1,5 @@
 ﻿---
-title: PowerShell example-move Azure SQL database-SQL elastic pool | Microsoft Docs
+title: PowerShell example-move Azure SQL database-elastic pool | Microsoft Docs
 description: Azure PowerShell example script to move a SQL database between elastic pools using PowerShell
 services: sql-database
 ms.service: sql-database
@@ -11,11 +11,11 @@ author: CarlRabeler
 ms.reviewer: 
 ms.author: carlrab
 manager: craigg
-ms.date: 01/17/2019
+ms.date: 01/25/2019
 ---
 # Use PowerShell to create elastic pools and move databases between elastic pools
 
-This PowerShell script example creates two elastic pools and moves a database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a single database compute size.
+This PowerShell script example creates two elastic pools and moves a database from one elastic pool into another elastic pool, and then moves a database out of an elastic pool to a standalone database compute size.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
@@ -41,9 +41,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a logical server that hosts a database or elastic pool. |
-| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Creates an elastic pool within a logical server. |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Creates a database in a logical server as a single or a pooled database. |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a SQL Databse server that hosts a a standalone database or an elastic pool. |
+| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Creates an elastic pool. |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Creates a database in a SQL Database server as a standalone or a pooled database. |
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Updates database properties or moves a database into, out of, or between elastic pools. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||

@@ -1,6 +1,6 @@
 ---
-title: Secure a single database in Azure SQL Database | Microsoft Docs
-description: Learn about techniques and features to secure a single database in Azure SQL Database.
+title: Secure a standalone or pooled database in Azure SQL Database | Microsoft Docs
+description: Learn about techniques and features to secure a standalone or pooled database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,11 +9,11 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/18/2018
+ms.date: 01/25/2019
 ---
-# Tutorial: Secure a single database
+# Tutorial: Secure a standalone or pooled database
 
-Azure SQL Database secures data in a single SQL database by allowing you to:
+Azure SQL Database secures data in a standalone or pooled database by allowing you to:
 
 - Limit access using firewall rules
 - Use authentication mechanisms that require identity
@@ -39,7 +39,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - An Azure SQL server and database
-    - Create them with [Azure portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), or [PowerShell](sql-database-powershell-samples.md)
+  - Create them with [Azure portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), or [PowerShell](sql-database-powershell-samples.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -56,9 +56,9 @@ Set **Allow access to Azure services** to **OFF** for the most secure configurat
 > [!NOTE]
 > SQL Database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the Azure SQL Database server unless your administrator opens port 1433.
 
-### Set up server-level firewall rules
+### Set up SQL Database server firewall rules
 
-Server-level firewall rules apply to all databases within the same logical server.
+Server-level firewall rules apply to all databases within the same SQL Database server.
 
 To set up a server-level firewall rule:
 
@@ -82,7 +82,7 @@ You can now connect to any database in the server with the specified IP address 
 > [!IMPORTANT]
 > By default, access through the SQL Database firewall is enabled for all Azure services, under **Allow access to Azure services**. Choose **OFF** to disable access for all Azure services.
 
-### Setup database-level firewall rules
+### Setup database firewall rules
 
 Database-level firewall rules only apply to individual databases. These rules are portable and will follow the database during a server failover. Database-level firewall rules can only be configured using Transact-SQL (T-SQL) statements, and only after you've configured a server-level firewall rule.
 

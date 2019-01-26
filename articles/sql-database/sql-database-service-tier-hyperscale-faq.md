@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/17/2018
+ms.date: 01/25/2019
 ---
 # FAQ about Azure SQL Hyperscale databases
 
@@ -28,7 +28,7 @@ A Hyperscale database is an Azure SQL database in the Hyperscale service tier th
 
 ### What resource types and purchasing models support Hyperscale
 
-The Hyperscale service tier is only available for single databases using the vCore-based purchasing model in Azure SQL Database.  
+The Hyperscale service tier is only available for standalone databases using the vCore-based purchasing model in Azure SQL Database.  
 
 ### How does the Hyperscale service tier differ from the General Purpose and Business Critical service tiers
 
@@ -41,13 +41,13 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 | | Resource type | General Purpose |  Hyperscale | Business Critical |
 |:---|:---:|:---:|:---:|:---:|:---:|
 | **Best for** |All|  Most business workloads. Offers budget oriented balanced compute and storage options. | Data applications with large data capacity requirements and the ability to auto-scale storage and scale compute fluidly. | OLTP applications with high transaction rate and lowest latency IO. Offers highest resilience to failures using several, isolated replicas.|
-|  **Resource type** ||Single database / elastic pool / managed instance | Single database | Single database / elastic pool / managed instance |
-| **Compute size**|Single database / elastic pool * | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
+|  **Resource type** ||Standalone database / elastic pool / managed instance | Standalone database | Standalone database / elastic pool / managed instance |
+| **Compute size**|Standalone database / elastic pool * | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
 | |Managed instance | 8, 16, 24, 32, 40, 64, 80  vCores | N/A | 8, 16, 24, 32, 40, 64, 80  vCores |
 | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
-| **Storage size** | Single database / elastic pool | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
+| **Storage size** | Standalone database / elastic pool | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
 | | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Unknown yet | 5000 IOPS with 200,000 maximum IOPS|
+| **IO throughput** | Standalone database** | 500 IOPS per vCore with 7000 maximum IOPS | Unknown yet | 5000 IOPS with 200,000 maximum IOPS|
 | | Managed instance | Depends on size of file | N/A | Managed Instance: Depends on size of file|
 |**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 15 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
 |**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7-35 days (7 days by default), constant time point-in0time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
@@ -67,11 +67,11 @@ The Hyperscale service tier is primarily intended for customers who have large o
 
 ### What regions currently support Hyperscale
 
-Hyperscale is currently available for single databases in the following regions:  West US1, West US2, East US1, Central US, West Europe, North Europe, UK West, SouthEast Asia, Japan East, Korea Central, Australia SouthEast, and Australia East.
+Hyperscale is currently available for standalone databases in the following regions:  West US1, West US2, East US1, Central US, West Europe, North Europe, UK West, SouthEast Asia, Japan East, Korea Central, Australia SouthEast, and Australia East.
 
-### Can I create multiple Hyperscale databases per logical server
+### Can I create multiple Hyperscale databases per SQL Database server
 
-Yes. For more information and limits on the number of Hyperscale databases per logical server, see [SQL Database resource limits for single and pooled databases on a logical server](sql-database-resource-limits-logical-server.md).
+Yes. For more information and limits on the number of Hyperscale databases per SQL Database server, see [SQL Database resource limits for standalone and pooled databases on a SQL Database server](sql-database-resource-limits-logical-server.md).
 
 ### What are the performance characteristic of a Hyperscale database
 
@@ -92,7 +92,7 @@ SQL Database Hyperscale provides rapid scalability based on your workload demand
 
 ## Deep dive questions
 
-### Can I mix Hyperscale and single databases a my logical server
+### Can I mix Hyperscale and standalone databases a my SQL Database server
 
 Yes, you can.
 
@@ -126,7 +126,7 @@ No.
 
 ### Can I provision a compute with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. Gen4 hardware provides more RAM compared to Gen5 hardware. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+No. To get more RAM, you need to upgrade to a higher compute size. Gen4 hardware provides more RAM compared to Gen5 hardware. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-standalone-databases.md#hyperscale-service-tier-preview).
 
 ### Can I provision multiple compute nodes of different sizes
 
@@ -218,7 +218,7 @@ Yes. You can use all existing migration technologies to migrate to Hyperscale, i
 
 ### What is my downtown during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
 
-Downtime is the same as the downtime when you migrate your databases to a single database in Azure SQL Database. You can use [transactional replication](replication-to-sql-database.md#data-migration-scenario
+Downtime is the same as the downtime when you migrate your databases to a standalone database in Azure SQL Database. You can use [transactional replication](replication-to-sql-database.md#data-migration-scenario
 ) to minimize downtime migration for databases up to few TB in size. For very large database (10+ TB), you can consider to migrate data using ADF, Spark, or other data movement technologies.
 
 ### How much time would it take to bring in X amount of data to SQL Database Hyperscale
@@ -227,9 +227,9 @@ Not yet known (still in preview)
 
 ### Can I read data from blob storage and do fast load (like Polybase and SQL Data Warehouse)
 
-You can read data from Azure Storage and load data load into a Hyperscale database (just like you can do with a regular single database). Polybase is currently not supported on Azure SQL Database. You can do Polybase using [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) or running a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](sql-database-spark-connector.md). The Spark connector to SQL supports bulk insert.
+You can read data from Azure Storage and load data load into a Hyperscale database (just like you can do with a regular standalone database). Polybase is currently not supported on Azure SQL Database. You can do Polybase using [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) or running a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](sql-database-spark-connector.md). The Spark connector to SQL supports bulk insert.
 
-Simple recovery or bulk logging model is not supported in Hyperscale. Full recovery model is required to provide high availability. However, Hyperscale provides a better data ingest rate compared to a single Azure SQL database because of the new log architecture.
+Simple recovery or bulk logging model is not supported in Hyperscale. Full recovery model is required to provide high availability. However, Hyperscale provides a better data ingest rate compared to a standalone database because of the new log architecture.
 
 ### Does SQL Database Hyperscale allow provisioning multiple nodes for ingesting large amounts of data
 
@@ -237,7 +237,7 @@ No. SQL Database Hyperscale is a SMP architecture and is not an asymmetric multi
 
 ### What is the oldest SQL Server version will SQL Database Hyperscale support migration from
 
-SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. For more information, see [Migrate to a standalone database or a pooled database](sql-database-cloud-migrate.md#migrate-to-a-standalone-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### Does SQL Database Hyperscale support migration from other data sources such as Aurora, MySQL, Oracle, DB2, and other database platforms
 
