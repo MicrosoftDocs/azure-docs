@@ -33,7 +33,7 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 >  Storage Analytics metrics become classic and Storage Metrics have been released. Please start using [Storage Metrics in Azure Monitor](storage-metrics-in-azure-monitor.md)
 
 ## Transaction metrics  
- A robust set of data is recorded at hourly or minute intervals for each storage service and requested API operation, including ingress/egress, availability, errors, and categorized request percentages. You can see a complete list of the transaction details in the [Storage Analytics Metrics Table Schema](/api/storageservices/storage-analytics-metrics-table-schema.md) topic.  
+ A robust set of data is recorded at hourly or minute intervals for each storage service and requested API operation, including ingress/egress, availability, errors, and categorized request percentages. You can see a complete list of the transaction details in the [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md) topic.  
 
  Transaction data is recorded at two levels – the service level and the API operation level. At the service level, statistics summarizing all requested API operations are written to a table entity every hour even if no requests were made to the service. At the API operation level, statistics are only written to an entity if the operation was requested within that hour.  
 
@@ -54,7 +54,7 @@ Storage Analytics can store metrics that include aggregated transaction statisti
 
 -   **ObjectCount**: The number of committed and uncommitted block or page blobs in the storage account’s Blob service.  
 
- For more information about the capacity metrics, see [Storage Analytics Metrics Table Schema](/api/storageservices/storage-analytics-metrics-table-schema.md).  
+ For more information about the capacity metrics, see [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
 
 ## How metrics are stored  
  All metrics data for each of the storage services is stored in three tables reserved for that service: one table for transaction information, one table for minute transaction information, and another table for capacity information. Transaction and minute transaction information consists of request and response data, and capacity information consists of storage usage data. Hour metrics, minute metrics, and capacity for a storage account’s Blob service is can be accessed in tables that are named as described in the following table.  
@@ -131,7 +131,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 For more information about using a .NET language to configure Storage Metrics, see [Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
 
-For general information about configuring Storage Metrics using the REST API, see [Enabling and Configuring Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
+For general information about configuring Storage Metrics using the REST API, see [Enabling and Configuring Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics.md).  
 
 ##  Viewing Storage metrics  
 After you configure Storage Analytics metrics to monitor your storage account, Storage Analytics records the metrics in a set of well-known tables in your storage account. You can configure charts to view hourly metrics in the [Azure portal](https://portal.azure.com):
@@ -153,7 +153,7 @@ If you want to download the metrics for long-term storage or to analyze them loc
 |Minute metrics|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Can only be enabled using PowerShell or programmatically.<br /><br /> Metrics for the File service are available beginning with version 2015-04-05.|  
 |Capacity|$MetricsCapacityBlob|Blob service only.|  
 
-You can find full details of the schemas for these tables at [Storage Analytics Metrics Table Schema](/api/storageservices/storage-analytics-metrics-table-schema.md). The sample rows below show only a subset of the columns available, but illustrate some important features of the way Storage Metrics saves these metrics:  
+You can find full details of the schemas for these tables at [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md). The sample rows below show only a subset of the columns available, but illustrate some important features of the way Storage Metrics saves these metrics:  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
@@ -238,6 +238,6 @@ The capacity used by the metrics tables is also billable. You can use the follow
 
 ## See also  
  [How To Monitor a Storage Account](http://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
- [Storage Analytics Metrics Table Schema](/api/storageservices/storage-analytics-metrics-table-schema.md)   
+ [Storage Analytics Metrics Table Schema](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)   
  [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)   
  [Storage Analytics Logging](storage-analytics-logging.md)

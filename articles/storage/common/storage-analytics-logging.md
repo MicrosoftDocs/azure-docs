@@ -44,7 +44,7 @@ Storage Analytics logs detailed information about successful and failed requests
 
 -   Requests to analytics data
 
- Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](Storage-Analytics-Logged-Operations-Status-Messages.md) and [Storage Analytics Log Format](Storage-Analytics-Log-Format.md) topics.
+ Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md) topics.
 
 ## Logging anonymous requests
  The following types of anonymous requests are logged:
@@ -57,7 +57,7 @@ Storage Analytics logs detailed information about successful and failed requests
 
 -   Failed GET requests with error code 304 (Not Modified)
 
- All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](Storage-Analytics-Logged-Operations-Status-Messages.md) and [Storage Analytics Log Format](Storage-Analytics-Log-Format.md) topics.
+ All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md) topics.
 
 ## How logs are stored
  All logs are stored in block blobs in a container named `$logs`, which is automatically created when Storage Analytics is enabled for a storage account. The `$logs` container is located in the blob namespace of the storage account, for example: `http://<accountname>.blob.core.windows.net/$logs`. This container cannot be deleted once Storage Analytics has been enabled, though its contents can be deleted.
@@ -223,9 +223,9 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
  For an example of how to download your log data programmatically, see the blog post [Windows Azure Storage Logging: Using Logs to Track Storage Requests](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) and search for the word "DumpLogs" on the page.  
 
- When you have downloaded your log data, you can view the log entries in the files. These log files use a delimited text format that many log reading tools are able to parse, including Microsoft Message Analyzer (for more information, see the guide [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Different tools have different facilities for formatting, filtering, sorting, ad searching the contents of your log files. For more information about the Storage Logging log file format and content, see [Storage Analytics Log Format](storage-analytics-logging.md) and [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-status-messages.md).
+ When you have downloaded your log data, you can view the log entries in the files. These log files use a delimited text format that many log reading tools are able to parse, including Microsoft Message Analyzer (for more information, see the guide [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Different tools have different facilities for formatting, filtering, sorting, ad searching the contents of your log files. For more information about the Storage Logging log file format and content, see [Storage Analytics Log Format](storage-analytics-logging.md) and [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md).
 
 ## See also
- [Storage Analytics Log Format](storage-analytics-log-format.md)
- [Storage Analytics Logged Operations and Status Messages](storage-analytics-logged-operations-status-messages.md)
+ [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format.md)
+ [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)
  [Storage Analytics Metrics](storage-analytics-metrics.md)
