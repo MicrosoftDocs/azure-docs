@@ -18,13 +18,17 @@ Modeling structured database content into an efficient search index is rarely a 
 
 If you have a SQL Server instance, you might be familiar with the AdventureWorks sample database. Among the tables included in this database are five tables that expose product information.
 
-1. ProductModel: name
-2. Product: name, color, cost, size, weight, image, category (each row joins to a specific ProductModel)
-3. ProductDescription: description
-4. ProductModelProductDescription: locale (each row joins a ProductModel to a specific ProductDescription for a specific language)
-5. ProductCategory: name, parent category
++ ProductModel: name
++ Product: name, color, cost, size, weight, image, category (each row joins to a specific ProductModel)
++ ProductDescription: description
++ ProductModelProductDescription: locale (each row joins a ProductModel to a specific ProductDescription for a specific language)
++ ProductCategory: name, parent category
 
-The naïve approach would be to index all rows from the Product table (joined where appropriate) since the Product table has the most specific information. However, that approach would expose the search index to perceived duplicates in a resultset. For example, the Road-650 model is available in 2 colors and 6 sizes. A query for "road bikes" would then be dominated by 12 instances of the same model, differentiated only by size and color. The other 6 road-specific models would all be relegated to the netherworld of search: page two.
+Combining all of this data into a flattened rowset that can be ingested into a search index is the task at hand. 
+
+## Considering our options
+
+The naïve approach would be to index all rows from the Product table (joined where appropriate) since the Product table has the most specific information. However, that approach would expose the search index to perceived duplicates in a resultset. For example, the Road-650 model is available in 2 colors and 6 sizes. A query for "road bikes" would then be dominated by 12 instances of the same model, differentiated only by size and color. The other 6 road-specific models would all be relegated to the nether world of search: page two.
 
   ![Products list](./media/search-example-adventureworks/products-list.png "Products list")
  
@@ -32,11 +36,17 @@ Notice that the Road-650 model has 12 options. One-to-many entity rows are best 
 
 Resolving this issue is not as simple as moving the target index to the ProductModel table. Doing so would ignore the important data in the Product table that should still be represented in search results.
 
-Instead, utilize a search-schema feature that does not have a direct parallel in the database model: Collection(Edm.String). By defining multi-value index fields for "color", "size", and "image" the ancillary information is retained for faceting and filtering without polluting the index with duplicate entries. Similarly, apply aggregate functions to the numeric Product fields, indexing minListPrice instead of every single product listPrice.
+## Use a Collection data type
 
-  ![Mountain bikes search](./media/search-example-adventureworks/mountain-bikes-visual.png "Mountain bikes search")
+The "correct approach" is to utilize a search-schema feature that does not have a direct parallel in the database model: **Collection(Edm.String)**. A Collection data type is used when you have a list of individual strings, rather than a very long (single) string. If you have a tags or keywords, you would use a Collection data type for this field.
 
-A search for "mountain bikes" now shows discrete bicycle models, while preserving important metadata like color, size, and lowest price.
+By defining multi-value index fields of **Collection(Edm.String)** for "color", "size", and "image", the ancillary information is retained for faceting and filtering without polluting the index with duplicate entries. Similarly, apply aggregate functions to the numeric Product fields, indexing **minListPrice** instead of every single product **listPrice**.
+
+Given an index with these structures, a search for "mountain bikes" would show discrete bicycle models, while preserving important metadata like color, size, and lowest price. The following screenshot provides an illustration.
+
+  ![Mountain bike search example](./media/search-example-adventureworks/mountain-bikes-visual.png "Mountain bike search example")
+
+## Use script to manipulate query results
 
 Unfortunately, this type of modeling cannot be easily achieved through SQL statements alone. Instead, use a simple NodeJS script to load the data and then map it into search-friendly JSON entities.
 
