@@ -104,7 +104,7 @@ Register Azure CDN as an app in your Azure Active Directory via PowerShell.
 
 2. In PowerShell, run the following command:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
+     `New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8"`
 
     ![Register Azure CDN in PowerShell](./media/cdn-custom-ssl/cdn-register-powershell.png)
               
