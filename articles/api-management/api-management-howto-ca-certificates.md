@@ -47,7 +47,7 @@ Follow the steps below to upload a new CA certificate. If you have not created a
     ![Add CA certificates](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> You can upload a CA certificate using the `New-AzureRmApiManagementSystemCertificate` Powershell command.
+> You can upload a CA certificate using the `New-AzApiManagementSystemCertificate` Powershell command.
 
 ## <a name="step1a"> </a>Delete a client certificate
 

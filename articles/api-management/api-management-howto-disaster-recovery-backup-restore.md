@@ -202,7 +202,7 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Backup and restore operations can also be performed with PowerShell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
+> Backup and restore operations can also be performed with PowerShell *Backup-AzApiManagement* and *Restore-AzApiManagement* commands respectively.
 
 ## Next steps
 
