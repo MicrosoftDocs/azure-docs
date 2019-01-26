@@ -333,6 +333,7 @@ For more information, see:
 * [Use Apache Hive with HDInsight][hdinsight-use-hive]
 * [Use Apache Pig with HDInsight][hdinsight-use-pig]
 * [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight][hdinsight-use-sas]
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: /powershell/azureps-cmdlets-docs

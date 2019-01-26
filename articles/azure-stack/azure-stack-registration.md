@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -49,7 +49,7 @@ Before registering Azure Stack with Azure, you must have:
 
 - The username and password for an account that is an owner for the subscription.
 
-- The user account needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription.
+- The user account needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription. We recommend that you register Azure Stack with Azure using least-privilege administration by [creating a service account to use for registration](azure-stack-registration-role.md) rather than using global administrator credentials.
 
 - Registered the Azure Stack resource provider (see the following Register Azure Stack Resource Provider section for details).
 

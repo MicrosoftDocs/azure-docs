@@ -19,22 +19,26 @@
 - name: Release Notes
   href: release-notes.md
   items:
-    - name: December 2018 
-      href: release-notes-december-2018.md  
-    - name: October 2018 
-      href: release-notes-october-2018.md
-    - name: September 2018 
-      href: release-notes-september-2018.md
-    - name: August 2018 
-      href: release-notes-august-2018.md
-    - name: July 2018 
-      href: release-notes-july-2018.md
-    - name: June 2018 
-      href: release-notes-june-2018.md
-    - name: May 2018
-      href: release-notes-may-2018.md
-    - name: April 2018
-      href: release-notes-april-2018.md
+    - name: Version 10.0.10106.0
+      href: release-notes-10-0-10106-0.md  
+    - name: Archived Release Notes
+      items:
+      - name: December 2018 
+        href: release-notes-december-2018.md  
+      - name: October 2018 
+        href: release-notes-october-2018.md
+      - name: September 2018 
+        href: release-notes-september-2018.md
+      - name: August 2018 
+        href: release-notes-august-2018.md
+      - name: July 2018 
+        href: release-notes-july-2018.md
+      - name: June 2018 
+        href: release-notes-june-2018.md
+      - name: May 2018
+        href: release-notes-may-2018.md
+      - name: April 2018
+        href: release-notes-april-2018.md
 - name: Quickstarts
   expanded: true
   items:

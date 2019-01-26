@@ -3,8 +3,8 @@ title: Managed identities for Azure resources
 description: An overview of the managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
-ms.author: daveba
+ms.author: priyamo
 
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
 ---

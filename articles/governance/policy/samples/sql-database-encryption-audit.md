@@ -6,7 +6,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 10/29/2018
+ms.date: 01/23/2019
 ms.author: dacoulte
 ---
 # Audit SQL database encryption
@@ -30,9 +30,9 @@ When assigning a policy, select **Audit transparent data encryption status** fro
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```azurepowershell-interactive
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/17k78e20-9358-41c9-923c-fb736d382a12
+$definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/17k78e20-9358-41c9-923c-fb736d382a12
 
-New-AzureRmPolicyAssignment -name "SQL TDE Audit" -PolicyDefinition $definition -Scope <scope>
+New-AzPolicyAssignment -name "SQL TDE Audit" -PolicyDefinition $definition -Scope <scope>
 ```
 
 ### Clean up PowerShell deployment
@@ -40,7 +40,7 @@ New-AzureRmPolicyAssignment -name "SQL TDE Audit" -PolicyDefinition $definition 
 Run the following command to remove the policy assignment.
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name "SQL TDE Audit" -Scope <scope>
+Remove-AzPolicyAssignment -Name "SQL TDE Audit" -Scope <scope>
 ```
 
 ## Deploy with Azure CLI

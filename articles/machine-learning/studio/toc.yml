@@ -17,7 +17,7 @@
     href: faq.md
   - name: What's new?
     href: whats-new.md
-- name: Get Started
+- name: Tutorials
   items:
   - name: Create your first experiment
     displayName: quickstart
@@ -40,6 +40,16 @@
     - name: 6 - Access web service
       displayName: consume
       href: walkthrough-6-access-web-service.md
+  - name: Get started in R
+    href: r-quickstart.md
+- name: Samples
+  items:
+  - name: Available datasets
+    href: use-sample-datasets.md
+  - name: Azure AI Gallery
+    href: gallery-how-to-use-contribute-publish.md
+- name: Concepts
+  items:
   - name: Data Science for Beginners
     items:
     - name: 1 - Five questions
@@ -52,40 +62,6 @@
       href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
     - name: 5 - Copy other people's work
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
-  - name: R quick start
-    href: r-quickstart.md
-- name: Samples
-  items:
-  - name: Sample datasets
-    href: use-sample-datasets.md
-  - name: Customer churn example
-    href: azure-ml-customer-churn-scenario.md
-  - name: Azure AI Gallery
-    items:
-    - name: Overview
-      href: gallery-how-to-use-contribute-publish.md
-    - name: Sample experiments
-      href: sample-experiments.md
-    - name: Industries
-      href: gallery-industries.md
-    - name: Solutions
-      href: gallery-solutions.md
-    - name: Experiments
-      href: gallery-experiments.md
-    - name: Jupyter Notebooks
-      href: gallery-jupyter-notebooks.md
-    - name: Competitions
-      href: gallery-competitions.md
-    - name: Competitions FAQ
-      href: competition-faq.md
-    - name: Tutorials
-      href: gallery-tutorials.md
-    - name: Collections
-      href: gallery-collections.md
-    - name: Custom Modules
-      href: gallery-custom-modules.md
-- name: Concepts
-  items:
   - name: Model management
     displayName: deploy, consume, web service
     href: deploy-consume-web-service-guide.md
@@ -101,9 +77,6 @@
       href: troubleshooting-creating-ml-workspace.md
     - name: Deploy using ARM
       href: deploy-with-resource-manager-template.md
-    - name: View and delete Studio account data
-      displayName: export
-      href: export-delete-personal-data-dsr.md
   - name: Import training data
     items:
     - name: Overview
@@ -126,16 +99,13 @@
     - name: Use PowerShell to create models
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
-    - name: Select algorithms
-      items:
-      - name: Choose algorithms
-        href: algorithm-choice.md
-      - name: Algorithm cheat sheet
-        href: algorithm-cheat-sheet.md
-      - name: Use linear regression
-        href: linear-regression-in-azure.md
-      - name: Use text analytics
-        href: text-analytics-module-tutorial.md
+    - name: Try experiments in AI Gallery
+      displayName: gallery
+      href: sample-experiments.md
+    - name: Choose algorithms
+      href: algorithm-choice.md
+    - name: Algorithm cheat sheet
+      href: algorithm-cheat-sheet.md
     - name: Evaluate and interpret results
       items:
       - name: Evaluate performance
@@ -211,7 +181,19 @@
       href: consume-web-service-with-web-app-template.md
     - name: Use Batch Pool
       href: dedicated-capacity-for-bes-jobs.md
-  - name: View and delete account data
+  - name: Examples
+    items: 
+    - name: Customer churn
+      href: azure-ml-customer-churn-scenario.md
+    - name: Sentiment analysis
+      href: text-analytics-module-tutorial.md
+    - name: Migrate analytics from Excel to Studio
+      href: linear-regression-in-azure.md
+  - name: View and delete Studio data
+    displayName: export
+    href: export-delete-personal-data-dsr.md
+  - name: View and delete Gallery data
+    displayName: export
     href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
@@ -225,20 +207,17 @@
     href: web-service-error-codes.md
   - name: REST management APIs
     href: /rest/api/machinelearning
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.machinelearning/allversions
 - name: Resources
   items:
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Net# Neural Networks Language
-    href: azure-ml-netsharp-reference-guide.md
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: R developer's guide 
     href: ../r-developers-guide.md
-    
+  - name: Custom Neural Networks with Net#
+    href: azure-ml-netsharp-reference-guide.md
+  - name: Get support
+    href: support-aml-studio.md
+  - name: Compare our ML products
+    href: ../service/overview-more-machine-learning.md       

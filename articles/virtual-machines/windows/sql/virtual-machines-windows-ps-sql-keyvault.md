@@ -32,6 +32,10 @@ When this feature is enabled, it automatically installs the SQL Server Connector
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
 
+  >[!NOTE]
+  > EKM Provider version  1.0.4.0 is installed on the SQL Server VM through the [SQL IaaS extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). Upgrading the SQL IaaS Extension will not update the provider version. Please considering manually upgrading the EKM provider version if needed (for example, when migrating to a SQL Managed Instance).
+
+
 ## Enabling and configuring AKV integration
 You can enable AKV integration during provisioning or configure it for existing VMs.
 
