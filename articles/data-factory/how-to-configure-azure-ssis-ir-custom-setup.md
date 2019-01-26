@@ -22,6 +22,8 @@ You configure your custom setup by preparing a script and its associated files, 
 
 You can install both free or unlicensed components, and paid or licensed components. If you're an ISV, see [How to develop paid or licensed components for the Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
+> [!IMPORTANT]
+> The v2-series nodes of Azure-SSIS IR are not suitable for custom setup, so please use the v3-series nodes instead.  If you already use the v2-series nodes, please switch to use the v3-series nodes as soon as possible.
 
 ## Current limitations
 
@@ -73,7 +75,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        ![Create a blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  Select the new container and upload your custom setup script and its associated files. Make sure that you upload `main.cmd` at the top level of the container, not in any folder. 
+    1.  Select the new container and upload your custom setup script and its associated files. Make sure that you upload `main.cmd` at the top level of your container, not in any folder. Please also ensure that your container contains only the necessary custom setup files, so downloading them onto your Azure-SSIS IR later will not take a long time.
 
        ![Upload files to the blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
