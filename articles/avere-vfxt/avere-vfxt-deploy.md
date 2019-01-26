@@ -56,7 +56,7 @@ Fill in the following information:
 * **Controller username** - Fill in the root username for the cluster controller VM. The default is ```azureuser```
 * **Authentication type** - Choose either password or SSH public key authentication for connecting to the controller. The SSH public key method is recommended; read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help.
 
-* Authentication - Depending on the authentication type you selected, you must provide an RSA public key or a password in the next fields. This credential is used with the username provided earlier.
+* **Password** or **SSH public key** - Depending on the authentication type you selected, you must provide an RSA public key or a password in the next fields. This credential is used with the username provided earlier.
 
 * **Avere cluster create role ID** - Use this field to specify the access control role for the cluster controller. The default value is the built-in role [Owner](../role-based-access-control/built-in-roles.md#owner). Owner privileges for the cluster controller are restricted to the cluster's resource group. 
 
@@ -71,7 +71,7 @@ Fill in the following information:
 
 Click **OK** when finished. 
 
-> ![NOTE]
+> [!NOTE]
 > If you want the cluster controller to have a public-facing IP address, create a new virtual network for the cluster instead of selecting an existing network. This setting is on page two.
 
 ## Page two parameters - vFXT cluster information
@@ -81,6 +81,7 @@ The second page of the deployment template allows you to set the cluster size, n
 ![Second page of the deployment template](media/avere-vfxt-deploy-2.png)
 
 * **Avere vFXT cluster node count** - Choose the number of nodes to use in the cluster. The minimum is three nodes and the maximum is twelve. 
+
 * **Cluster administration password** - Create the password for cluster administration. This password will be used with the username ```admin``` to log in to the cluster control panel to monitor the cluster and to configure settings.
 * **Avere cluster operations role** - Specify the name of the access control role for the cluster nodes. This is a custom role that was created as a prerequisite step. 
 

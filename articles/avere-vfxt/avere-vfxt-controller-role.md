@@ -94,6 +94,6 @@ az role definition list --query '[*].{roleName:roleName, name:name}' -o table --
 ```
 Enter this string in the **Avere cluster create role ID** field when deploying the Avere vFXT for Azure.
 
-# Next steps
+## Next steps
 
 Read how to deploy the Avere vFXT for Azure in [Deploy the vFXT cluster](avere-vfxt-deploy.md)
