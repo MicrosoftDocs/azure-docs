@@ -3,7 +3,7 @@ title: Protecting App Services in Azure Security Center | Microsoft Docs
 description: This article helps you to get started protecting your App Services in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: v-mohabe
+author: monhaber
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/9/2018
-ms.author: v-mohabe
+ms.date: 1/27/2019
+ms.author: monhaber
 
 ---
 # Protect App Service with Azure Security Center
