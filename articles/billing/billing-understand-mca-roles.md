@@ -47,11 +47,11 @@ The following tables show what role you need to complete tasks in the context of
 
 ### Manage billing account permissions and properties
 
-|Task|Billing account owner|Billing account contributor|Billing account reader|
-|---|---|---|---|
-|View existing permissions for billing account|✔|✔|✔|
-|View billing account properties like company name, address, signed agreements, and more|✔|✔|✔|
-|Give others permissions to view and manage the billing account|✔|✘|✘|
+|Task|Billing account owner|Billing account contributor|Billing account reader|Basic purchaser|
+|---|---|---|---|---|
+|View existing permissions for billing account|✔|✔|✔|✘|
+|View billing account properties like company name, address, signed agreements, and more|✔|✔|✔|✘|
+|Give others permissions to view and manage the billing account|✔|✘|✘|✘|
 
 ### Manage billing profiles for billing account
 
@@ -65,7 +65,7 @@ The following tables show what role you need to complete tasks in the context of
 |Task|Billing account owner|Billing account contributor|Billing account reader|Basic purchaser|
 |---|---|---|---|---|
 |View all invoices in the account|✔|✔|✔|✘|
-|Download invoices, Azure usage and charges files, price sheets and tax documents in the account|✔|✔|✔|✘|
+|Download invoices, Azure usage and charges files, price sheets and tax documents in the account|✔|✔|✔|✘||
 
 ### Manage invoice sections for billing account
 
@@ -95,9 +95,9 @@ The following tables show what role you need to complete tasks in the context of
 
 |Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|
 |---|---|---|---|---|
-|View existing permissions for the billing profile|✔|✔|✔|✘|
-|View billing profile properties like PO number, email address, invoice, and more|✔|✔|✔|✘|
-|Update billing profile properties like PO number, email address, invoice, and more.|✔|✔|✘|✘|
+|View existing permissions for the billing profile|✔|✔|✔|✔|
+|View billing profile properties like PO number, billing address, and more|✔|✔|✔|✔|
+|Update billing profile properties like PO number, email address, invoice, and more|✔|✔|✘|✘|
 |Apply policies on billing profiles like enable Azure reservation purchases, enable Azure marketplace purchases, and more|✔|✔|✘|✘|
 |Give others permissions to view and manage billing profile|✔|✘|✘|✘|
 
@@ -105,7 +105,7 @@ The following tables show what role you need to complete tasks in the context of
 
 |Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|
 |---|---|---|---|---|
-|View all the invoices for the billing profile|✔|✔|✔|✔|✘|
+|View all the invoices for the billing profile|✔|✔|✔|✔|
 |Download invoices, Azure usage and charges files, price sheets and tax documents for the billing profile|✔|✔|✔|✔|
 
 ### Manage transactions for billing profile
@@ -118,14 +118,14 @@ The following tables show what role you need to complete tasks in the context of
 
 |Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|
 |---|---|---|---|---|
-|View payment methods for the billing profile|✔|✔|✔|✘|
-Track Azure credits balance for the billing profile|✔|✔|✔|✘|
+|View payment methods for the billing profile|✔|✔|✔|✔|
+|Track Azure credits balance for the billing profile|✔|✔|✔|✔|
 
 ### Manage subscriptions for billing profile
 
 |Task|Billing profile owner|Billing profile contributor|Billing profile reader|Invoice Manager|
 |---|---|---|---|---|
-|View all Azure subscriptions for the billing profile|✔|✔|✔|✘|
+|View all Azure subscriptions for the billing profile|✔|✔|✔|✔|
 
 ## Invoice sections roles and tasks
 
@@ -133,32 +133,33 @@ The following tables show what role you need to complete tasks in the context of
 
 ### Manage invoice section permissions and properties
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Purchaser|
-|---|---|---|---|---|
-|View all permissions on invoice section|✔|✔|✔|✘|
-|View invoice section properties|✔|✔|✔|✘|
-|Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✘|
-|Update invoice section properties|✔|✘|✘|✘|✘|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Purchaser|Azure subscription creator|
+|---|---|---|---|---|---|
+|View all permissions on invoice section|✔|✔|✔|✔|✘|
+|View invoice section properties|✔|✔|✔|✔|✔|
+|Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✘|✘|
+|Update invoice section properties|✔|✔|✘|✘|✘|✘|
 
 ### Manage products for invoice section
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Purchaser|
-|---|---|---|---|---|
-|View all products bought in the invoice section|✔|✔|✔|✘|
-|Manage billing for products for invoice section like cancel, turn off auto renewal, and more|✔|✔|✘|✔|
-|Change  invoice section for the products|✔|✔|✘|✘|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Purchaser|Azure subscription creator|
+|---|---|---|---|---|---|
+|View all products bought in the invoice section|✔|✔|✔|✔|✘|
+|Manage billing for products for invoice section like cancel, turn off auto renewal, and more|✔|✔|✘|✔|✘|
+|Change invoice section for the products|✔|✔|✘|✘|✘|
+|Request billing ownership of products from users in other billing accounts|✔|✔|✘|✔|✔|
 
 ### Manage subscriptions for invoice section
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Purchaser|
-|---|---|---|---|---|
-|View all Azure subscriptions for invoice section|✔|✔|✔|✘|
-|Move subscriptions to a different Invoice section|✔|✔|✘|✘|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Purchaser|Azure subscription creator|
+|---|---|---|---|---|---|
+|View all Azure subscriptions for invoice section|✔|✔|✔|✔|✘|
+|Move subscriptions to a different Invoice section|✔|✔|✘|✘|✘|
 
 ## Subscription roles and tasks
 
 The following table shows what role you need to complete tasks in the context of a subscription.
 
-|Task|Billing account owner|Billing profile owner|Invoice section owner|Azure subscription creator|
-|---|---|---|---|---|
-|Create Azure subscriptions|✘|✘|✘|✔|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Purchaser|Azure subscription creator|
+|---|---|---|---|---|---|
+|Create Azure subscriptions|✔|✔|✘|✔|✔|
