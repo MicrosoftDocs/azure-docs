@@ -289,7 +289,7 @@ The chart shows changes that have occurred over time. After you have added an Ac
 
 You can do more advanced monitoring of your VM by using a solution like [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), which monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. Configuration management of your Azure VMs is delivered with the [Azure Automation](../../automation/automation-intro.md) Change Tracking and Inventory solution to easily identify changes in your environment. Managing update compliance is provided with the Azure Automation Update Management solution.   
 
-With the VM connected to a Log Analytics workspace, you can also retrieve, consolidate, and analyze collected data with the [rich query language](../../azure-monitor/log-query/log-query-overview.md). 
+From the Log Analytics workspace the VM is connected to, you can also retrieve, consolidate, and analyze collected data with the [rich query language](../../azure-monitor/log-query/log-query-overview.md). 
 
 ![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
