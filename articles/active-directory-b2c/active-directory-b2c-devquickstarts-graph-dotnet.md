@@ -267,7 +267,7 @@ Content-Type: application/json
 Content-Length: 37
 
 {
-    "displayName": "Joe Consumer",                // this request updates only the user's displayName
+    "displayName": "Joe Consumer"                // this request updates only the user's displayName
 }
 ```
 

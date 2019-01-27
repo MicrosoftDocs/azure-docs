@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -53,6 +53,9 @@ A. Data Box is supported for all regions within US, West Europe, North Europe, F
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
+### Q. I have lost my Data Box. Is there a lost device charge?
+A. Yes. There is a lost or damaged device charge. This charge is covered in the [Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/) as well as in the [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).
+
 
 ## Order device
 
@@ -92,8 +95,8 @@ A.  You can only cancel the order after the Data Box is ordered and before the o
 ### Q. Can I connect a Data Box at the same to multiple host computers to transfer data?
 A. Yes. Multiple host computers can connect to Data Box to transfer data and multiple copy jobs can be run in parallel. For more information, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
-### Q. Can I connect to both the 10 GbE interfaces on the Data Box to transfer data?
-A. Yes. Both the 10 GbE interfaces can be connected on the Data Box to copy data at the same time. For more information on how to copy data, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
+### Q. Can I connect to both the 10-GbE interfaces on the Data Box to transfer data?
+A. Yes. Both the 10-GbE interfaces can be connected on the Data Box to copy data at the same time. For more information on how to copy data, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
