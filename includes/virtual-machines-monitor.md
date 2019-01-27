@@ -2,7 +2,7 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/26/2019
+ms.date: 01/27/2019
 ms.author: cynthn
 ---
 You can take advantage of many opportunities to monitor your VMs by collecting, viewing, and analyzing diagnostic and log data. To do simple [monitoring](../articles/azure-monitor/overview.md) of your VM, you can use the Overview screen for the VM in the Azure portal. You can use [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs to collect additional metric data. You can also use more advanced monitoring options, such as [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) and [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
@@ -35,7 +35,7 @@ You can create [alerts](../articles/azure-monitor/platform/alerts-overview.md) b
 
 [Azure Resource health](../articles/service-health/resource-health-overview.md) helps you diagnose and get support when an Azure issue impacts your resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
 
-## Logs
+## Azure Activity Log
 
 The [Azure Activity Log](../articles/azure-monitor/platform/activity-logs-overview.md) is a subscription log that provides insight into subscription-level events that have occurred in Azure. The log includes a range of data, from Azure Resource Manager operational data to updates on Service Health events. You can click Activity Log in the Azure portal to view the log for your VM.
 
