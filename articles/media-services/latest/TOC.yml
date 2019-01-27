@@ -25,9 +25,7 @@
   - name: Azure code samples
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3 
   - name: Azure CLI
-    href: cli-samples.md
-    
-    
+    href: cli-samples.md        
 - name: Concepts
   items:
   - name: Migrate from v2 to v3
@@ -82,7 +80,7 @@
     items:
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
-  - name: Playback
+  - name: Playing back
     href: use-azure-media-player.md
   - name: Accounts
     items:
