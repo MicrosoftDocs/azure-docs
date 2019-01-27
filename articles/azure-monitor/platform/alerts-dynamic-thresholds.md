@@ -76,12 +76,12 @@ Probably not. Dynamic Thresholds are good for detecting significant deviations r
 
 The thresholds appearing in the chart, before an alert rule is created on the metric, are calculated based on the last 10 days of historical data, once an alert rule is created, the Dynamic Thresholds will acquire additional historical data that is available and will continuously learn based on new data to make the thresholds more accurate.
 
-# Dynamic Thresholds best practices
+## Dynamic Thresholds best practices
 
 Dynamic Thresholds can be applied to any platform or custom metric in Azure Monitor and it was also tuned for the common application and infrastructure metrics.
 The following items are best practices on how to configure alerts on some of these metrics using Dynamic Thresholds.
 
-## Dynamic Thresholds on virtual machine CPU percentage metrics
+### Dynamic Thresholds on virtual machine CPU percentage metrics
 
 1. In [Azure portal](https://portal.azure.com), click on **Monitor**. The Monitor view consolidates all your monitoring settings and data in one view.
 
@@ -92,7 +92,7 @@ The following items are best practices on how to configure alerts on some of the
 
 3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **'Virtual Machines' Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
 
-4. Once you have selected a target resource, click on **Add condition**
+4. Once you have selected a target resource, click on **Add condition**.
 
 5. Select the **'CPU Percentage'**.
 
@@ -107,9 +107,9 @@ The following items are best practices on how to configure alerts on some of the
 
 8. The metric chart will display the calculated thresholds based on recent data.
 
-9. Click **Done**
+9. Click **Done**.
 
-10. Fill in **Alert details** like **Alert Rule Name**, **Description**, and **Severity**
+10. Fill in **Alert details** like **Alert Rule Name**, **Description**, and **Severity**.
 
 11. Add an action group to the alert either by selecting an existing action group or creating a new action group.
 
@@ -118,7 +118,7 @@ The following items are best practices on how to configure alerts on some of the
 > [!NOTE]
 > Metric alert rules created through portal are created in the same resource group as the target resource.
 
-## Dynamic Thresholds on Application Insights HTTP request execution time
+### Dynamic Thresholds on Application Insights HTTP request execution time
 
 1. In [Azure portal](https://portal.azure.com), click on **Monitor**. The Monitor view consolidates all your monitoring settings and data in one view.
 
@@ -129,7 +129,7 @@ The following items are best practices on how to configure alerts on some of the
 
 3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **'Application Insights' Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
 
-4. Once you have selected a target resource, click on **Add condition**
+4. Once you have selected a target resource, click on **Add condition**.
 
 5. Select the **'HTTP request execution time'**.
 
@@ -142,9 +142,9 @@ The following items are best practices on how to configure alerts on some of the
 
 8. The metric chart will display the calculated thresholds based on recent data.
 
-9. Click **Done**
+9. Click **Done**.
 
-10. Fill in **Alert details** like **Alert Rule Name**, **Description**, and **Severity**
+10. Fill in **Alert details** like **Alert Rule Name**, **Description**, and **Severity**.
 
 11. Add an action group to the alert either by selecting an existing action group or creating a new action group.
 
