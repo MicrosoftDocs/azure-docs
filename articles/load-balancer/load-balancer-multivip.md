@@ -175,4 +175,4 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 
 [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
 
-[Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+[Reserved IP REST APIs](/previous-versions/azure/reference/dn722420(v=azure.100))

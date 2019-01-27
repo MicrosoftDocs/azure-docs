@@ -52,7 +52,7 @@ $IP="<The IPv4 address to use on the subnet-optional>"
 Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 ```
 
-Note that this use of the [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet uses the DefaultProbe parameter set. For more information on additional parameter sets, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
+Note that this use of the [Add-AzureEndpoint](/previous-versions/azure/dn495300(v=azure.100)) Windows PowerShell cmdlet uses the DefaultProbe parameter set. For more information on additional parameter sets, see [Add-AzureEndpoint](/previous-versions/azure/dn495300(v=azure.100)).
 
 ### Step 2: Add endpoints to the Internal Load Balancing instance
 

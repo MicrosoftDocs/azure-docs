@@ -257,7 +257,7 @@ $availabilitySet = New-AzAvailabilitySet `
   -PlatformUpdateDomainCount 2
 ```
 
-Set an administrator username and password for the VMs with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/Microsoft.PowerShell.Security/Get-Credential.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

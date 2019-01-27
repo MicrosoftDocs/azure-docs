@@ -32,7 +32,7 @@ Cloud services are automatically configured with a load balancer and can be cust
 
 ## Create a load balancer using the service definition file
 
-You can leverage the Azure SDK for .NET 2.5 to update your cloud service. Endpoint settings for cloud services are made in the [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx) .csdef file.
+You can leverage the Azure SDK for .NET 2.5 to update your cloud service. Endpoint settings for cloud services are made in the [service definition](/previous-versions/azure/reference/gg557553(v=azure.100)) .csdef file.
 
 The following example shows how a servicedefinition.csdef file for a cloud deployment is configured:
 
@@ -75,7 +75,7 @@ The service detects periodic probes from the same IP address. This is the health
 
 The probe definition also controls the frequency of the probe. In our case above, the load balancer is probing the endpoint every 5 secs. If no positive answer is received for 10 secs (two probe intervals), the probe is assumed down, and the virtual machine is taken out of rotation. Similarly, if the service is out of rotation and a positive answer is received, the service is put back to rotation right away. If the service is fluctuating between healthy and unhealthy, the load balancer can decide to delay the re-introduction of the service back to rotation until it has been healthy for a number of probes.
 
-Check the service definition schema for the [health probe](https://msdn.microsoft.com/library/azure/jj151530.aspx) for more information.
+Check the service definition schema for the [health probe](/previous-versions/azure/reference/jj151530(v=azure.100)) for more information.
 
 ## Next steps
 

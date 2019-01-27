@@ -23,7 +23,7 @@ In its default configuration, Azure Load Balancer has an idle timeout setting of
 
 When the connection is closed, your client application may receive the following error message: "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server."
 
-A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see these [.NET examples](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). With keep-alive enabled, packets are sent during periods of inactivity on the connection. These keep-alive packets ensure that the idle timeout value is never reached and the connection is maintained for a long period.
+A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see these [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive.7.2#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_). With keep-alive enabled, packets are sent during periods of inactivity on the connection. These keep-alive packets ensure that the idle timeout value is never reached and the connection is maintained for a long period.
 
 This setting works for inbound connections only. To avoid losing the connection, you must configure the TCP keep-alive with an interval less than the idle timeout setting or increase the idle timeout value. To support such scenarios, we've added support for a configurable idle timeout. You can now set it for a duration of 4 to 30 minutes.
 

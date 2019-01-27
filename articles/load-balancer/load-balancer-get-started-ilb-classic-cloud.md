@@ -60,7 +60,7 @@ Let's add the values for the network configuration file to show how it will look
 </NetworkConfiguration>
 ```
 
-For more information about the load balancer schema, see [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx).
+For more information about the load balancer schema, see [Add load balancer](/previous-versions/azure/reference/dn722411(v=azure.100)).
 
 ### Step 2
 
