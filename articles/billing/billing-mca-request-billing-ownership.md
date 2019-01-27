@@ -21,7 +21,7 @@ ms.author: banders
 
 Request other users to transfer billing ownership of their Azure subscriptions and Reservations to your invoice section.
 
-To request billing ownership for an invoice section, you need to be an Owner, Contributor, Purchaser, or Azure subscription creator on the section. To lean more, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-task)
+To request billing ownership for an invoice section, you need to be an Owner, Contributor, Purchaser, or Azure subscription creator on the section. To lean more, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-tasks)
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
 
