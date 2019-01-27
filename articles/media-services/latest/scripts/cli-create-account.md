@@ -25,7 +25,7 @@ The Azure CLI script in this topic shows how to create an Azure Media Services a
 
 ## Example script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/media-services-create-account/Create-Account.sh "Create Account")]
+[!code-azurecli-interactive[main](../../../cli_scripts/media-services/media-services-create-account/Create-Account.sh "Create Account")]
 
 ## Clean up deployment
 
