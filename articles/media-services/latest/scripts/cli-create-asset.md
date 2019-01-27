@@ -29,7 +29,7 @@ The Azure CLI script in this article shows how to create a Media Services Asset 
 
 ## Example script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
 
 ## Next steps
 
