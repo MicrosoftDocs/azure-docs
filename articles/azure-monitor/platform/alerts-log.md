@@ -124,7 +124,7 @@ Users can also finalized their analytics query in [Logs Analytics page in Azure 
 Log alerts in Azure Monitor are associated with resource type `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Log alerts for Application Insights or Log Analytics, can be created using [Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 > [!NOTE]
-> Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
+> Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
 
 The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
 
@@ -163,7 +163,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
           "thresholdOperator": "Equal",
           "threshold": "1",
           "metricTriggerType": "Consecutive",
-          "metricColumn": "Updates"
+          "metricColumn": "Classification"
       },
        "actionGrp":{
         "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
@@ -223,7 +223,7 @@ The sample json above can be saved as (say) sampleScheduledQueryRule.json for th
 Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
 
 > [!NOTE]
-> Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
+> Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
 
 
 Log alerts do not have dedicated PowerShell or CLI commands currently; but as illustrated below can be used via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
