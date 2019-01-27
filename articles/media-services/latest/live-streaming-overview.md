@@ -20,8 +20,8 @@ ms.author: juliako
 
 Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To stream your live events with Media Services, you need the following:  
 
-- A camera that is used to capture the live event.
-- A live video encoder that converts signals from the camera (or another device, like a laptop) into a contribution feed that is sent to Media Services. The contribution feed can include signals related to advertising, such as SCTE-35 markers.
+- A camera that is used to capture the live event.<br/>For setup ideas, check out [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT).
+- A live video encoder that converts signals from a camera (or another device, like a laptop) into a contribution feed that is sent to Media Services. The contribution feed can include signals related to advertising, such as SCTE-35 markers.<br/>For a list of recommended live streaming encoders, see [live streaming encoders](recommended-on-premises-live-encoders.md). Also, check out this useful blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 - Components in Media Services, which enable you to ingest, preview, package, record, encrypt, and broadcast the live event to your customers, or to a CDN for further distribution.
 
 With Media Services, you can take advantage of **Dynamic Packaging**, which allows you to preview and broadcast your live streams in [MPEG DASH, HLS, and Smooth Streaming formats](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) from the contribution feed that you send to the service. Your viewers can play back the live stream with any HLS, DASH, or Smooth Streaming compatible players. You can use [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) in your web or mobile applications to deliver your stream in any of these protocols.
