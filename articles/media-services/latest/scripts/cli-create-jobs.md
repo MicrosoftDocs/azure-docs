@@ -25,7 +25,7 @@ The Azure CLI script in this article shows how to create and submit a Job to a s
 
 [Create a Media Services account](../create-account-cli-how-to.md).
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
+[!INCLUDE [media-services-cli-instructions.md](../../../../includes/media-services-cli-instructions.md)]
 
 ## Example script
 
