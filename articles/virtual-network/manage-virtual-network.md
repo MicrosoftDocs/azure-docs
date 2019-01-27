@@ -24,7 +24,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If using the portal, open https://portal.azure.com, and log in with your Azure account.
-- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 - The account you log into, or connect to Azure with, must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
 
@@ -61,7 +61,7 @@ Complete the following tasks before completing steps in any section of this arti
 **Commands**
 
 - Azure CLI: [az network vnet create](/cli/azure/network/vnet)
-- PowerShell: [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)
+- PowerShell: [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
 
 ## View virtual networks and settings
 
@@ -90,7 +90,7 @@ Complete the following tasks before completing steps in any section of this arti
 **Commands**
 
 - Azure CLI: [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show)
-- PowerShell: [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)
+- PowerShell: [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)
 
 ## Add or remove an address range
 
@@ -121,7 +121,7 @@ To add or remove an address range:
 **Commands**
 
 - Azure CLI: [az network vnet update](/cli/azure/network/vnet)
-- PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
+- PowerShell: [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
 
 ## Change DNS servers
 
@@ -143,7 +143,7 @@ All VMs that are connected to the virtual network register with the DNS servers 
 **Commands**
 
 - Azure CLI: [az network vnet update](/cli/azure/network/vnet)
-- PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
+- PowerShell: [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
 
 ## Delete a virtual network
 
@@ -158,7 +158,7 @@ You can delete a virtual network only if there are no resources connected to it.
 **Commands**
 
 - Azure CLI: [azure network vnet delete](/cli/azure/network/vnet#az_network_vnet_delete)
-- PowerShell: [Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork)
+- PowerShell: [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork)
 
 ## Permissions
 

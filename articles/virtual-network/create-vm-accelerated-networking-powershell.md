@@ -63,28 +63,28 @@ Though this article provides steps to create a virtual machine with accelerated 
 
 ## Create a virtual network
 
-Install [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) version 5.1.1 or later. To find your currently installed version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In a PowerShell session, log in to an Azure account using [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount).
+Install [Azure PowerShell](/powershell/azure/azurerm/install-Az-ps) version 5.1.1 or later. To find your currently installed version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In a PowerShell session, log in to an Azure account using [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVM*.
 
-Create a resource group with [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "centralus"
+New-AzResourceGroup -Name "myResourceGroup" -Location "centralus"
 ```
 
-First, create a subnet configuration with [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetworkSubnetConfig). The following example creates a subnet named *mySubnet*:
+First, create a subnet configuration with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/New-azVirtualNetworkSubnetConfig). The following example creates a subnet named *mySubnet*:
 
 ```powershell
-$subnet = New-AzureRmVirtualNetworkSubnetConfig `
+$subnet = New-AzVirtualNetworkSubnetConfig `
     -Name "mySubnet" `
     -AddressPrefix "192.168.1.0/24"
 ```
 
-Create a virtual network with [New-AzureRmVirtualNetwork](/powershell/module/AzureRM.Network/New-AzureRmVirtualNetwork), with the *mySubnet* subnet.
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.Network/New-azVirtualNetwork), with the *mySubnet* subnet.
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+$vnet = New-AzVirtualNetwork -ResourceGroupName "myResourceGroup" `
     -Location "centralus" `
     -Name "myVnet" `
     -AddressPrefix "192.168.0.0/16" `
@@ -93,10 +93,10 @@ $vnet = New-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
 
 ## Create a network security group
 
-First, create a network security group rule with [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityRuleConfig).
+First, create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
 
 ```powershell
-$rdp = New-AzureRmNetworkSecurityRuleConfig `
+$rdp = New-AzNetworkSecurityRuleConfig `
     -Name 'Allow-RDP-All' `
     -Description 'Allow RDP' `
     -Access Allow `
@@ -109,20 +109,20 @@ $rdp = New-AzureRmNetworkSecurityRuleConfig `
     -DestinationPortRange 3389
 ```
 
-Create a network security group with [New-AzureRmNetworkSecurityGroup](/powershell/module/AzureRM.Network/New-AzureRmNetworkSecurityGroup) and assign the *Allow-RDP-All* security rule to it. In addition to the *Allow-RDP-All* rule, the network security group contains several default rules. One default rule disables all inbound access from the Internet, which is why the *Allow-RDP-All* rule is assigned to the network security group so that you can remotely connect to the virtual machine, once it's created.
+Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.Network/New-azNetworkSecurityGroup) and assign the *Allow-RDP-All* security rule to it. In addition to the *Allow-RDP-All* rule, the network security group contains several default rules. One default rule disables all inbound access from the Internet, which is why the *Allow-RDP-All* rule is assigned to the network security group so that you can remotely connect to the virtual machine, once it's created.
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
     -ResourceGroupName myResourceGroup `
     -Location centralus `
     -Name "myNsg" `
     -SecurityRules $rdp
 ```
 
-Associate the network security group to the *mySubnet* subnet with [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/AzureRM.Network/Set-AzureRmVirtualNetworkSubnetConfig). The rule in the network security group is effective for all resources deployed in the subnet.
+Associate the network security group to the *mySubnet* subnet with [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.Network/Set-azVirtualNetworkSubnetConfig). The rule in the network security group is effective for all resources deployed in the subnet.
 
 ```powershell
-Set-AzureRmVirtualNetworkSubnetConfig `
+Set-AzVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
     -Name 'mySubnet' `
     -AddressPrefix "192.168.1.0/24" `
@@ -130,20 +130,20 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 ```
 
 ## Create a network interface with accelerated networking
-Create a public IP address with [New-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/New-AzureRmPublicIpAddress). A public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
+Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.Network/New-azPublicIpAddress). A public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
 
 ```powershell
-$publicIp = New-AzureRmPublicIpAddress `
+$publicIp = New-AzPublicIpAddress `
     -ResourceGroupName myResourceGroup `
     -Name 'myPublicIp' `
     -location centralus `
     -AllocationMethod Dynamic
 ```
 
-Create a network interface with [New-AzureRmNetworkInterface](/powershell/module/AzureRM.Network/New-AzureRmNetworkInterface) with accelerated networking enabled and assign the public IP address to the network interface. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and assigns the *myPublicIp* public IP address to it:
+Create a network interface with [New-AzNetworkInterface](/powershell/module/az.Network/New-azNetworkInterface) with accelerated networking enabled and assign the public IP address to the network interface. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and assigns the *myPublicIp* public IP address to it:
 
 ```powershell
-$nic = New-AzureRmNetworkInterface `
+$nic = New-AzNetworkInterface `
     -ResourceGroupName "myResourceGroup" `
     -Name "myNic" `
     -Location "centralus" `
@@ -160,40 +160,40 @@ Set your VM credentials to the `$cred` variable using [Get-Credential](/powershe
 $cred = Get-Credential
 ```
 
-First, define your VM with [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig). The following example defines a VM named *myVM* with a VM size that supports Accelerated Networking (*Standard_DS4_v2*):
+First, define your VM with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). The following example defines a VM named *myVM* with a VM size that supports Accelerated Networking (*Standard_DS4_v2*):
 
 ```powershell
-$vmConfig = New-AzureRmVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
+$vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
 ```
 
 For a list of all VM sizes and characteristics, see [Windows VM sizes](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Create the rest of your VM configuration with [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) and [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). The following example creates a Windows Server 2016 VM:
+Create the rest of your VM configuration with [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) and [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). The following example creates a Windows Server 2016 VM:
 
 ```powershell
-$vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig `
+$vmConfig = Set-AzVMOperatingSystem -VM $vmConfig `
     -Windows `
     -ComputerName "myVM" `
     -Credential $cred `
     -ProvisionVMAgent `
     -EnableAutoUpdate
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig `
+$vmConfig = Set-AzVMSourceImage -VM $vmConfig `
     -PublisherName "MicrosoftWindowsServer" `
     -Offer "WindowsServer" `
     -Skus "2016-Datacenter" `
     -Version "latest"
 ```
 
-Attach the network interface that you previously created with [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface):
+Attach the network interface that you previously created with [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface):
 
 ```powershell
-$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
+$vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 ```
 
-Finally, create your VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+Finally, create your VM with [New-AzVM](/powershell/module/az.compute/new-azvm):
 
 ```powershell
-New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
+New-AzVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "centralus"
 ```
 
 ## Confirm the driver is installed in the operating system
@@ -220,7 +220,7 @@ If you have created a VM without Accelerated Networking, it is possible to enabl
 First stop/deallocate the VM or, if an Availability Set, all the VMs in the Set:
 
 ```azurepowershell
-Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+Stop-AzVM -ResourceGroup "myResourceGroup" `
 	-Name "myVM"
 ```
 
@@ -229,18 +229,18 @@ Important, please note, if your VM was created individually, without an availabi
 Once stopped, enable Accelerated Networking on the NIC of your VM:
 
 ```azurepowershell
-$nic = Get-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzureRmNetworkInterface
+$nic | Set-AzNetworkInterface
 ```
 
 Restart your VM or, if in an Availability Set, all the VMs in the Set and confirm that Accelerated Networking is enabled: 
 
 ```azurepowershell
-Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+Start-AzVM -ResourceGroup "myResourceGroup" `
 	-Name "myVM"
 ```
 
@@ -248,19 +248,19 @@ Start-AzureRmVM -ResourceGroup "myResourceGroup" `
 VMSS is slightly different but follows the same workflow.  First, stop the VMs:
 
 ```azurepowershell
-Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+Stop-AzVmss -ResourceGroupName "myResourceGroup" ` 
     -VMScaleSetName "myScaleSet"
 ```
 
 Once the VMs are stopped, update the Accelerated Networking property under the network interface:
 
 ```azurepowershell
-$vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+$vmss = Get-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet"
 
 $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].EnableAcceleratedNetworking = $true
 
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+Update-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet" `
     -VirtualMachineScaleSet $vmss
 ```
@@ -270,7 +270,7 @@ Please note, a VMSS has VM upgrades that apply updates using three different set
 ```azurepowershell
 $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
 
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
+Update-AzVmss -ResourceGroupName "myResourceGroup" `
     -VMScaleSetName "myScaleSet" `
     -VirtualMachineScaleSet $vmss
 ```
@@ -278,7 +278,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 Finally, restart the VMSS:
 
 ```azurepowershell
-Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
+Start-AzVmss -ResourceGroupName "myResourceGroup" ` 
     -VMScaleSetName "myScaleSet"
 ```
 

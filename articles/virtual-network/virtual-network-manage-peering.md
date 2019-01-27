@@ -28,7 +28,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If using the portal, open https://portal.azure.com, and log in with an account that has the [necessary permissions](#permissions) to work with peerings.
-- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
 
 The account you log into, or connect to Azure with, must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
@@ -67,7 +67,7 @@ For step-by-step instructions for implementing peering between virtual networks 
 ### Commands
 
 - **Azure CLI**: [az network vnet peering create](/cli/azure/network/vnet/peering#create)
-- **PowerShell**: [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering)
+- **PowerShell**: [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)
 
 ## View or change peering settings
 
@@ -84,7 +84,7 @@ Before changing a peering, familiarize yourself with the [requirements and const
 **Commands**
 
 - **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) to list peerings for a virtual network, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) to show settings for a specific peering, and [az network vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) to change peering settings.|
-- **PowerShell**: [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) to retrieve view peering settings and [Set-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/set-azurermvirtualnetworkpeering) to change settings.
+- **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) to retrieve view peering settings and [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) to change settings.
 
 ## Delete a peering
 
@@ -104,7 +104,7 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 **Commands**
 
 - **Azure CLI**: [az network vnet peering delete](/cli/azure/network/vnet/peering)
-- **PowerShell**: [Remove-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
+- **PowerShell**: [Remove-AzVirtualNetworkPeering](/powershell/module/az.network/remove-azvirtualnetworkpeering)
 
 ## Requirements and constraints 
 
