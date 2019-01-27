@@ -58,7 +58,7 @@ The following table shows the endpoints for the management and data planes.
 
 ## Management plane and RBAC
 
-In the management plane, you use RBAC(Role Based Access Control) to authorize the operations a caller can execute. In the RBAC model, each Azure subscription has an instance of Azure AD. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+In the management plane, you use RBAC(Role Based Access Control) to authorize the operations a caller can execute. In the RBAC model, each Azure subscription has an instance of Azure AD. You grant access to users, groups, and applications from this directory. Access is granted to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. To grant access, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Resource Manager REST APIs](/rest/api/authorization/roleassignments).
 
 You create a key vault in a resource group and manage access by using Azure AD. You grant users or groups the ability to manage the key vaults in a resource group. You grant the access at a specific scope level by assigning appropriate RBAC roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an RBAC role:
 
@@ -80,7 +80,7 @@ You grant data plane access by setting Key Vault access policies for a key vault
 You grant a user, group, or application access to execute specific operations for keys or secrets in a key vault. Key Vault supports up to 1,024 access policy entries for a key vault. To grant data plane access to several users, create an Azure AD security group and add users to that group.
 
 <a id="key-vault-access-policies"></a>
-Key Vault access policies grant permissions separately to keys, secrets, and certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are at the vault level. Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+Key Vault access policies grant permissions separately to keys, secrets, and certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are at the vault level. Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](../cli-install-nodejs.md), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Key Vault Management REST APIs](/rest/api/keyvault/vaults).
 
 > [!IMPORTANT]
 > Key Vault access policies apply at the vault level. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key vault.
@@ -211,15 +211,15 @@ We recommend that you set up additional secure access to your key vault by [conf
 
 * [Authorize access to web applications by using OAuth 2.0 and Azure AD](../active-directory/develop/v1-protocols-oauth-code.md)
 
-* [Key Vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
+* [Key Vault Management REST APIs](/rest/api/keyvault/vaults)
 
     The reference for the REST APIs to manage your key vault programmatically, including setting Key Vault access policy.
 
-* [Key Vault REST APIs](https://msdn.microsoft.com/library/azure/dn903609.aspx)
+* [Key Vault REST APIs](/rest/api/keyvault/)
 
-* [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
+* [Key access control](/azure/key-vault/about-keys-secrets-and-certificates#BKMK_KeyAccessControl)
   
-* [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+* [Secret access control](/azure/key-vault/about-keys-secrets-and-certificates#BKMK_SecretAccessControl)
   
 * [Set](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) and [remove](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) Key Vault access policy by using PowerShell.
   
@@ -231,6 +231,6 @@ For a getting-started tutorial for an administrator, see [What is Azure Key Vaul
 
 For more information about usage logging for Key Vault, see [Azure Key Vault logging](key-vault-logging.md).
 
-For more information about using keys and secrets with Azure Key Vault, see [About keys and secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+For more information about using keys and secrets with Azure Key Vault, see [About keys and secrets](/azure/key-vault/about-keys-secrets-and-certificates).
 
 If you have questions about Key Vault, visit the [forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
