@@ -42,7 +42,7 @@ Azure Stream Analytics jobs can be easily deleted through the Azure portal, Azur
 
 ## Stop or delete a job using PowerShell
 
-To stop a job using PowerShell, use the [Stop-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob?view=azurermps-5.7.0) cmdlet. To delete a job using PowerShell, use the [Remove-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/Remove-AzureRmStreamAnalyticsJob?view=azurermps-5.7.0) cmdlet.
+To stop a job using PowerShell, use the [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob?view=azurermps-5.7.0) cmdlet. To delete a job using PowerShell, use the [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob?view=azurermps-5.7.0) cmdlet.
 
 ## Stop or delete a job using Azure SDK for .NET
 
