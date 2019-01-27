@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/06/2018
+ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
 
@@ -288,7 +288,7 @@ The chart shows changes that have occurred over time. After you have added an Ac
 
 ## Advanced monitoring
 
-You can do more advanced monitoring of your VM by using the solutions like Update Management and Change and Inventory provided by [Azure Automation](../../automation/automation-intro.md).
+You can do more advanced monitoring of your VM by using a solution like [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), which monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. Configuration management of your Azure VMs is delivered with the [Azure Automation](../../automation/automation-intro.md) Change Tracking and Inventory solution to easily identify changes in your environment. Managing update compliance is provided with the Azure Automation Update Management solution.   
 
 When you have access to the Log Analytics workspace, you can find the workspace key and workspace identifier by selecting **Advanced settings** under **SETTINGS**. Replace \<workspace-key\> and \<workspace-id\> with the values for from your Log Analytics workspace and then you can use **az vm extension set** to add the extension to the VM:
 
