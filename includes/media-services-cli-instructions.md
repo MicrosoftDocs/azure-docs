@@ -26,7 +26,7 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 Many Media Services CLI commands allow you to pass a parameter with a file name. 
 
-If you are using **Azure Cloud Shell**, upload your file to **Azure Cloud Shell**. You can find the upload/download files button at the top of the shell window. <br/>Then, reference the file like this: `@{FileName}.` 
+If you are using **Azure Cloud Shell**, upload your file to **Azure Cloud Shell**. You can find the upload/download files button at the top of the shell window. Then, reference the file like this: `@{FileName}.` 
 
 ![Upload files]
 
