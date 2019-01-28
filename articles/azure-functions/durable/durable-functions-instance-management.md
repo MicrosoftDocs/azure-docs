@@ -185,7 +185,7 @@ public static async Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
     ILogger log)
 {
-    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(); // You can pass CancellationToken as a parameter.
+    IList<DurableOrchestrationStatus> instances = await client.GetStatusAsync(); // You can pass CancellationToken as a parameter.
     foreach (var instance in instances)
     {
         log.LogInformation(JsonConvert.SerializeObject(instance));
