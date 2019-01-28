@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
@@ -29,7 +29,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 The following code creates a `WebRequest`, sets the access key header, and adds a query string for "restaurant in Bellevue".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-````
+```
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -45,7 +45,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-````
+```
 
 ## Run the complete application
 
@@ -55,7 +55,7 @@ The Bing Local Business Search API returns localized search results from the Bin
 3. Replace the accessKey value with an access key valid for your subscription.
 4. Run the program.
 
-````
+```
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -201,7 +201,7 @@ namespace localSearch
     }
 }
 
-````
+```
 
 ## Next steps
 - [Local Business Search Java quickstart](local-search-java-quickstart.md)

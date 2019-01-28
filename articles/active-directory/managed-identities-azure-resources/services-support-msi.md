@@ -7,7 +7,7 @@ ms.author: priyamo
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 manager: daveba
 ---
 

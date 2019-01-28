@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to use managed identities for Azure resources on a virtual machine to acquire an access token
 description: Step by step instructions and examples for using managed identities for Azure resources on a virtual machines to acquire an OAuth access token.
 services: active-directory
@@ -8,7 +8,7 @@ manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
