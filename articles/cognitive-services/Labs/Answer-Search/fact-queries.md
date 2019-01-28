@@ -22,15 +22,15 @@ Queries such as valentines+2016, when+is+ramadan are considered date-related que
 The following example is a date-related `facts` answer. 
 
 **Query:**
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
-````
+```
 
 **Response:**
 The `subjectName` field contains a display version of the user's query that you can use as a label when displaying the fact. If the query string is valentines+2016, Bing may change it Valentine's Day 2016. The description field contains the fact.
 
-````
+```
 {   
     "_type" : "SearchResponse",   
     "queryContext" : {   
@@ -54,21 +54,21 @@ The `subjectName` field contains a display version of the user's query that you 
     }   
 }   
 
-````
+```
 
 The query "Why is the sky blue?" returns an example of a knowledge-related answer.
 
 **Query:**
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+sky+blue
 
-````
+```
 
 **Response:**
 The `value/description` field contains the knowledge or information requested by the query.
 
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -110,17 +110,17 @@ The `value/description` field contains the knowledge or information requested by
     ]
   },
 
-````
+```
 
 ## Tabular data
 In some cases, facts can be returned as `_type: StructuredValue/TabularData`. The following query gets tabular data with contrasting information about coffee and tea.
 
-````
+```
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
-````
+```
 The `facts` results include the following rows and cells:
-````
+```
     "value": [
       {
         "subjectName": "Coffee vs. Tea",
@@ -194,7 +194,7 @@ The `facts` results include the following rows and cells:
     ]
   },
 
-````
+```
 
 ## Next steps
 - [C# quickstart](c-sharp-quickstart.md)

@@ -8,16 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: diberry
-ms.custom: seodec18
+ms.custom: seodec18 
 ---
 # Boundaries for your LUIS model and keys
 LUIS has several boundary areas. The first is the [model boundary](#model-boundaries), which controls intents, entities, and features in LUIS. The second area is [quota limits](#key-limits) based on key type. A third area of boundaries is the [keyboard combination](#keyboard-controls) for controlling the LUIS website. A fourth area is the [world region mapping](luis-reference-regions.md) between the LUIS authoring website and the LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
 
 
 ## Model boundaries
-
 
 |Area|Limit|
 |--|:--|--|
@@ -26,7 +25,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | Explicit list | 50 per application|
 | [Intents][intents]|500 per application<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
-| [Machine-learned entities](./luis-concept-entity-types.md):<br> Composite,<br>  Hierarchical<br> Simple|100 <br>The total count of machine-learned entities (simple, hierarchical, and composite entities) can't exceed 100. Composite and hierarchical entities can't have more than 10 children.  |
+| [Machine-learned entities](./luis-concept-entity-types.md):<br> Composite,<br>  Hierarchical<br> Simple|A limit of either 100 parent entities (not including hierarchical children) or 330 entities (including hierarchical children), whichever limit the user hits first.<br><br>An example of with hierarchy would be 30 hierarchies each with 10 children.  The children will consume 300 total, and the hierarchy elements will consume the remaining 30. |
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
 | [Phrase list][phrase-list]|10 phrase lists, 5,000 items per list|
