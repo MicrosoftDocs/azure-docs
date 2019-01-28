@@ -5,7 +5,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: "lisaguthrie"
-ms.author: "lisaguthrie"
+ms.author: "lcozzens"
 ms.date: "01/28/2019"
 ms.topic: "article"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
