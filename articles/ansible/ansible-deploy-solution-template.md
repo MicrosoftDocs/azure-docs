@@ -1,6 +1,6 @@
 ---
-title: Install the Ansible solution template for Azure
-description: Learn how to install the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
+title: Deploy the Ansible solution template for Azure
+description: Learn how to deploy the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
 ms.service: ansible
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 author: tomarchermsft
@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ---
 
-# Install the Ansible solution template for Azure
+# Deploy the Ansible solution template for Azure
 The Ansible solution template for Azure is designed to configure an Ansible instance on a CentOS virtual machine along with Ansible and a suite of tools configured to work with Azure. The tools include:
 
-- **Ansible modules for Azure** - The [Ansible modules for Azure](./ansible-matrix.md) are a suite of modules that enable you to create and manage your infrastructure on Azure. The latest version of these modules is installed by default. However, during the installation process, you can specify a version number that is appropriate for your environment.
+- **Ansible modules for Azure** - The [Ansible modules for Azure](./ansible-matrix.md) are a suite of modules that enable you to create and manage your infrastructure on Azure. The latest version of these modules is deployed by default. However, during the solution-template deployment process, you can specify a version number that is appropriate for your environment.
 - **Azure Command-Line Interface (CLI) 2.0** - The [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) is a cross-platform command-line experience for managing Azure resources. 
 - **managed identities for Azure resources** - The [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) feature addresses the issue of keeping cloud application credentials secure so that they never appear on developer workstations and are never checked into source control.
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-## Install the Ansible solution template from the Azure Marketplace
+## Deploy the Ansible solution template from the Azure Marketplace
 
 1. Browse to the [Ansible solution template in the Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
@@ -30,7 +30,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. The Azure portal appears and displays the Ansible page that describes the solution template. Select **Create**.
 
-    ![Azure portal page for Ansible solution template creation and configuration](./media/ansible-install-solution-template/portal-ansible-setup.png)
+    ![Azure portal page for Ansible solution template creation and configuration](./media/ansible-deploy-solution-template/portal-ansible-setup.png)
 
 1. In the **Create Ansible** page, you see several tabs. On the **Basics** tab, enter the required information:
 
@@ -43,7 +43,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
     - **Resource group** - Select an existing resource group from the dropdown list, or select **Create new** and specify a name for a new resource group. For demo purposes, a new resource group named `ansiblerg` is used.
     - **Location** - Select the location from the dropdown list that is appropriate for your scenario.
 
-    ![Azure portal tab for Ansible basic settings](./media/ansible-install-solution-template/portal-ansible-setup-tab-1.png)
+    ![Azure portal tab for Ansible basic settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. Select **OK**.
 
@@ -53,32 +53,33 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
     - **VM disk size** - Select either **SSD** (Premium Solid-State Drive) or **HDD** (Hard Disk Drive). For demo purposes, **SSD** is selected due to its performance benefits. For more information on each these types of disk storage, see the following articles:
         - [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage)
         - [Standard SSD Managed Disks for Azure Virtual machine workloads](/azure/virtual-machines/windows/disks-standard-ssd)
-    - **OS** - Select **CentOS**.
     - **Public IP Address** - Specify this setting if you want to communicate with the virtual machine from outside the virtual machine. The default is a new public IP address that has the name `ansible-pip`. To specify a different IP address, select the arrow specify the attributes - such as name, SKU, and Assignment, of that IP address. 
     - **Domain name label** - Enter the public-facing domain name of the virtual machine. The name must be unique and meet naming requirements. For more information about specifying a name for the virtual machine, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
-    - **Ansible version** - Specify either a version number or the value `latest` to install the latest version. Moving your mouse over or selecting the information icon next to **Ansible version** gives more information on available versions and appropriate syntax for specifying which version(s) you want to install.
+    - **Ansible version** - Specify either a version number or the value `latest` to deploy the latest version. Moving your mouse over or selecting the information icon next to **Ansible version** gives more information on available versions and appropriate syntax for specifying which version(s) you want to deploy.
 
-    ![Azure portal tab for Ansible additional settings](./media/ansible-install-solution-template/portal-ansible-setup-tab-2.png)
+    ![Azure portal tab for Ansible additional settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. Select **OK**.
 
 1. In the **Ansible Integration Settings** tab, specify the desired authentication type. For more information about using managed identities for Azure resources, see [What is managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-    ![Azure portal tab for Ansible integration settings](./media/ansible-install-solution-template/portal-ansible-setup-tab-3.png)
+    ![Azure portal tab for Ansible integration settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-3.png)
 
 1. Select **OK**.
 
-1. The **Summary** page displays showing the validation process and listing the specified criteria for the Ansible installation. A link at the bottom of the tab allows you to **Download the template and parameters** for use with supported Azure languages and platforms. 
+1. The **Summary** page displays showing the validation process and listing the specified criteria for the Ansible deployment. A link at the bottom of the tab allows you to **Download the template and parameters** for use with supported Azure languages and platforms. 
 
-    ![Azure portal tab for Ansible Summary tab](./media/ansible-install-solution-template/portal-ansible-setup-tab-4.png)
+    ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
 1. Select **OK**
 
-1. When the **Create** tab appears, select **OK** to install Ansible.
+1. When the **Create** tab appears, select **OK** to deploy Ansible.
 
-1. Select the **Notifications** icon at the top of the portal page to track the Ansible deployment. Once complete, a message displays similar to the following:
+1. Select the **Notifications** icon at the top of the portal page to track the Ansible deployment. Once complete, select  **Go to resource group** 
 
-    ![Azure portal tab for Ansible Summary tab](./media/ansible-install-solution-template/portal-ansible-setup-complete.png)
+    ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+
+1. 
 
 ## Next steps
 > [!div class="nextstepaction"] 
