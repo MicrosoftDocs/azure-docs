@@ -20,7 +20,7 @@ The following monitoring options are available currently:
 
 ## Azure portal
 
-In the Azure Portal, you can view registered server health, server endpoint health (sync health) and metrics.
+In the Azure Portal, you can view registered server health, server endpoint health (sync health), and metrics.
 
 ### Storage Sync Service
 
@@ -53,7 +53,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 
 ## Windows Server
 
-On the Windows Server, you can view cloud tiering, registered server and sync health.
+On the Windows Server, you can view cloud tiering, registered server, and sync health.
 
 ### Event logs
 
@@ -88,7 +88,7 @@ Cloud Tiering Health
 
 Use the Azure File Sync performance counters on the server to monitor sync activity.
 
-To view Azure File Sync performance counters on the server, launch Peformance Monitor (Perfmon.exe) and the counters can be found under the AFS Bytes Transferred and AFS Sync Operations objects.
+To view Azure File Sync performance counters on the server, launch Performance Monitor (Perfmon.exe) and the counters can be found under the AFS Bytes Transferred and AFS Sync Operations objects.
 
 The following performance counters for Azure File Sync are available in Performance Monitor:
 
