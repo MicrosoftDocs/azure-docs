@@ -136,7 +136,6 @@ Rough sizing estimates for the DBMS side for SQL Server are:
 
 The sizing listed above should give an idea where to start with. It may be that you need less  or more resources, in which case an adaption on azure is easy. A change between VM types is possible with just a restart of the VM.
 
-
 #### SAP HANA as DBMS
 Using SAP HANA as DBMS the following sections you should follow the considerations of the document [SAP HANA on Azure operations guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
 
