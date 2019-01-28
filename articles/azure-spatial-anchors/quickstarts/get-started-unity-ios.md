@@ -3,13 +3,13 @@ title: Quickstart - Create iOS Unity app with Azure Spatial Anchors | Microsoft 
 description: In this quickstart, you learn how to build an iOS app with Unity using Spatial Anchors.
 author: craigktreasure
 manager: aliemami
-services: spatial-anchors
+services: azure-spatial-anchors
 
 ms.assetid: 52062008-5641-467d-ac79-4283a87842d1
 ms.author: crtreasu
 ms.date: 12/13/2018
 ms.topic: quickstart
-ms.service: spatial-anchors
+ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Spatial Anchors in my iOS Unity app that can place and locate a 3D object that persists across devices and platforms.
 ---
@@ -30,7 +30,7 @@ You'll learn how to:
 > * Export the Xcode project
 > * Deploy and run on an iOS device
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -39,11 +39,11 @@ To complete this quickstart, make sure you have:
 - A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 9.4+</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
-[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../includes/azure-spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project in Unity
 
-[!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../includes/azure-spatial-anchors-clone-sample-repository.md)]
 
 Open Unity and open the project at the `Unity` folder.
 
@@ -63,11 +63,11 @@ Download [Unity ARKit Plugin v2.0.0](https://bitbucket.org/Unity-Technologies/un
 
 Copy the contents of the `Assets` folder from the extracted Unity ARKit Plugin folder to the sample's `Assets` folder.
 
-[!INCLUDE [Configure Unity Scene](../../../../includes/spatial-anchors-unity-configure-scene.md)]
+[!INCLUDE [Configure Unity Scene](../../../includes/azure-spatial-anchors-unity-configure-scene.md)]
 
 ## Export the Xcode project
 
-[!INCLUDE [Export Unity Project](../../../../includes/spatial-anchors-unity-export-project-snip.md)]
+[!INCLUDE [Export Unity Project](../../../includes/azure-spatial-anchors-unity-export-project-snip.md)]
 
 Select **Build** to open a dialog. Then, select a folder to export the Xcode project.
 
@@ -105,4 +105,4 @@ Follow the instructions in the app to place and recall an anchor.
 
 In Xcode, stop the app by pressing **Stop**.
 
-[!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]

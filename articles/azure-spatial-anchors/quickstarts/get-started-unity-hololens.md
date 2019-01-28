@@ -3,13 +3,13 @@ title: Quickstart - Create HoloLens Unity app with Azure Spatial Anchors | Micro
 description: In this quickstart, you learn how to build a HoloLens app with Unity using Spatial Anchors.
 author: craigktreasure
 manager: aliemami
-services: spatial-anchors
+services: azure-spatial-anchors
 
 ms.assetid: 7a4d4fb5-cb18-42ec-99ac-554ddd4efa14
 ms.author: crtreasu
 ms.date: 12/14/2018
 ms.topic: quickstart
-ms.service: spatial-anchors
+ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Spatial Anchors in my HoloLens Unity app that can place and locate a 3D object that persists across devices and platforms.
 ---
@@ -29,7 +29,7 @@ You'll learn how to:
 > * Export the HoloLens Visual Studio project
 > * Deploy and run on a HoloLens device
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -38,11 +38,11 @@ To complete this quickstart, make sure you have:
 - A Windows machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> installed with the **Universal Windows Platform development** workload.
 - A HoloLens device with [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled.
 
-[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../includes/azure-spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project in Unity
 
-[!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../includes/azure-spatial-anchors-clone-sample-repository.md)]
 
 Open Unity and open the project at the `Unity` folder.
 
@@ -56,11 +56,11 @@ Select **Switch Platform** to change the platform to **Universal Windows Platfor
 
 Close the **Build Settings** window.
 
-[!INCLUDE [Configure Unity Scene](../../../../includes/spatial-anchors-unity-configure-scene.md)]
+[!INCLUDE [Configure Unity Scene](../../../includes/azure-spatial-anchors-unity-configure-scene.md)]
 
 ## Export the HoloLens Visual Studio project
 
-[!INCLUDE [Export Unity Project](../../../../includes/spatial-anchors-unity-export-project-snip.md)]
+[!INCLUDE [Export Unity Project](../../../includes/azure-spatial-anchors-unity-export-project-snip.md)]
 
 Select **Build** to open a dialog. Then, select a folder to export the HoloLens Visual Studio project.
 
@@ -82,4 +82,4 @@ Follow the instructions in the app to place and recall an anchor.
 
 In Visual Studio, stop the app by either selecting **Stop Debugging** or pressing **Shift + F5**.
 
-[!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
