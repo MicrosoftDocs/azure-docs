@@ -3540,7 +3540,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/operations/read | Get Available Operations |
 > | Action | Microsoft.Network/p2sVpnGateways/delete | Deletes a P2SVpnGateway. |
 > | Action | Microsoft.Network/p2sVpnGateways/generatevpnprofile/action | Generate Vpn Profile for P2SVpnGateway |
-> | Action | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Gets a P2S Vpn Connection helath for P2SVpnGateway |
+> | Action | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Gets a P2S Vpn Connection health for P2SVpnGateway |
 > | Action | Microsoft.Network/p2sVpnGateways/read | Gets a P2SVpnGateway. |
 > | Action | Microsoft.Network/p2sVpnGateways/write | Puts a P2SVpnGateway. |
 > | Action | Microsoft.Network/privateLinkServices/delete | Deletes an private link service resource. |
