@@ -92,7 +92,7 @@ If the above built-in roles don’t meet the exact needs of your team, you can [
 For example, using the above table you could create a custom RBAC role for an “Activity Log Reader” like this:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Activity Log Reader"
 $role.Description = "Can view activity logs."
@@ -100,7 +100,7 @@ $role.Actions.Clear()
 $role.Actions.Add("Microsoft.Insights/eventtypes/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 ## Security considerations for monitoring data
@@ -121,8 +121,8 @@ All three of these data types can be stored in a storage account or streamed to 
 When a user or application needs access to monitoring data in a storage account, you should [generate an Account SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx) on the storage account that contains monitoring data with service-level read-only access to blob storage. In PowerShell, this might look like:
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
-$token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
+$context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
 You can then give the token to the entity that needs to read from that storage account, and it can list and read from all blobs in that storage account.
@@ -130,7 +130,7 @@ You can then give the token to the entity that needs to read from that storage a
 Alternatively, if you need to control this permission with RBAC, you can grant that entity the Microsoft.Storage/storageAccounts/listkeys/action permission on that particular storage account. This is necessary for users who need to be able to set a diagnostic setting or log profile to archive to a storage account. For example, you could create the following custom RBAC role for a user or application that only needs to read from one storage account:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Monitoring Storage Account Reader"
 $role.Description = "Can get the storage account keys for a monitoring storage account."
@@ -139,7 +139,7 @@ $role.Actions.Add("Microsoft.Storage/storageAccounts/listkeys/action")
 $role.Actions.Add("Microsoft.Storage/storageAccounts/Read")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myMonitoringStorageAccount")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 > [!WARNING]
@@ -154,7 +154,7 @@ A similar pattern can be followed with event hubs, but first you need to create 
 2. If the consumer needs to be able to get the key ad-hoc, grant the user the ListKeys action for that event hub. This is also necessary for users who need to be able to set a diagnostic setting or log profile to stream to event hubs. For example, you might create an RBAC rule:
    
    ```powershell
-   $role = Get-AzureRmRoleDefinition "Reader"
+   $role = Get-AzRoleDefinition "Reader"
    $role.Id = $null
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
@@ -163,7 +163,7 @@ A similar pattern can be followed with event hubs, but first you need to create 
    $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
-   New-AzureRmRoleDefinition -Role $role 
+   New-AzRoleDefinition -Role $role 
    ```
 
 ## Monitoring within a secured Virtual Network

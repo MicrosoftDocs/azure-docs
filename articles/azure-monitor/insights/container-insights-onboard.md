@@ -72,7 +72,7 @@ After you've enabled monitoring and all configuration tasks are completed succes
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster. 
 
 ## Enable monitoring for existing managed clusters
-You can enable monitoring of an AKS cluster that's already deployed either using Azure CLI, from the portal, or with the provided Azure Resource Manager template by using the PowerShell cmdlet `New-AzureRmResourceGroupDeployment`. 
+You can enable monitoring of an AKS cluster that's already deployed either using Azure CLI, from the portal, or with the provided Azure Resource Manager template by using the PowerShell cmdlet `New-AzResourceGroupDeployment`. 
 
 ### Enable monitoring using Azure CLI
 The following step enables monitoring of your AKS cluster using Azure CLI. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription if one does not already exist in the region.  The default workspace created resembles the format of *DefaultWorkspace-<GUID>-<Region>*.  
@@ -293,7 +293,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     * Use the following PowerShell commands in the folder that contains the template:
 
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+        New-AzResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
         ```
         The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 

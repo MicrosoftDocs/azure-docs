@@ -232,17 +232,17 @@ Save and close both files.
 To deploy the Resource Manager template, we leverage Azure PowerShell.
 
 1. Launch PowerShell.
-1. Log in to Azure using `Login-AzureRmAccount`.
-1. Get your list of subscriptions by using `Get-AzureRmSubscription`.
+1. Log in to Azure using `Login-AzAccount`.
+1. Get your list of subscriptions by using `Get-AzSubscription`.
 1. Set the subscription that you're using to create/update the virtual machine in:
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. To create a new resource group for the VM that's being deployed, run the following command:
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > Remember to [use an Azure region that is enabled for custom metrics](metrics-custom-overview.md).
@@ -252,7 +252,7 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
    > If you wish to update an existing VM, simply add *-Mode Incremental* to the end of the following command.
 
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. After your deployment succeeds, the VM should be in the Azure portal, emitting metrics to Azure Monitor.

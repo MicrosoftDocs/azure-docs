@@ -140,7 +140,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 1. Launch PowerShell and sign in.
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Start by setting the context for your classic VM.
@@ -152,7 +152,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 1. Set the context of the classic storage account that was created with the VM.
 
     ```powershell
-    $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
+    $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
 1.	Set the Diagnostics file path to a variable by using the following command:

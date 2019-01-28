@@ -172,7 +172,7 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 
     #Construct Azure diagnostics private config
 
-    $wad_storage_account_key = (Get-AzureStorageKey $wad_storage_account_name).Primary
+    $wad_storage_account_key = (Get-AzStorageKey $wad_storage_account_name).Primary
     $wad_private_config = [string]::Format("{{""storageAccountName"":""{0}"",""storageAccountKey"":""{1}""}}",$wad_storage_account_name,$wad_storage_account_key)
 
     #Enable Diagnostics Extension for Virtual Machine

@@ -32,7 +32,7 @@ Verify you have the following Azure Resource Manager modules installed on your c
 >[!NOTE]
 >We recommend that all your Azure Resource Manager modules are the same version to ensure compatibility when you run Azure Resource Manager commands from PowerShell.
 >
-To install the latest version of the Azure Resource Manager modules on your computer, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+To install the latest version of the Azure Resource Manager modules on your computer, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.4.1#update-azps).  
 
 ## Enable Azure Diagnostics  
 Configuring Azure Diagnostics for PaaS resources is accomplished by executing the script, **Enable-AzureRMDiagnostics.ps1**, which is available from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52).  The script supports the following scenarios:
@@ -52,7 +52,7 @@ Perform the following steps to download and execute the script.
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. Run `Connect-AzureRmAccount` to create a connection with Azure.   
+3. Run `Connect-AzAccount` to create a connection with Azure.   
 4. Run the following script `.\Enable-AzureRmDiagnostics.ps1` without any parameters to enable data collection from a specific resource in your subscription or with the parameter `-ResourceGroup <myResourceGroup>` to specify a resource in a specific resource group.   
 5. Select the appropriate subscription from the list if you have more than one, by entering the correct value.<br><br> ![Select subscription returned by script](./media/collect-azurepass-posh/script-select-subscription.png)<br> Otherwise, it automatically selects the single subscription available.
 6. Next, the script returns a list of Log Analytics workspaces registered in the subscription.  Select the appropriate one from the list.<br><br> ![Select workspace returned by script](./media/collect-azurepass-posh/script-select-workspace.png)<br> 

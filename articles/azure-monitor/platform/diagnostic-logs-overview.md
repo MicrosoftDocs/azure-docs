@@ -110,7 +110,7 @@ To enable collection of resource diagnostic logs via Azure PowerShell, use the f
 To enable storage of diagnostic logs in a storage account, use this command:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 The storage account ID is the resource ID for the storage account to which you want to send the logs.
@@ -118,7 +118,7 @@ The storage account ID is the resource ID for the storage account to which you w
 To enable streaming of diagnostic logs to an event hub, use this command:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 The service bus rule ID is a string with this format: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -126,13 +126,13 @@ The service bus rule ID is a string with this format: `{Service Bus resource ID}
 To enable sending of diagnostic logs to a Log Analytics workspace, use this command:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 You can obtain the resource ID of your Log Analytics workspace using the following command:
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 You can combine these parameters to enable multiple output options.
