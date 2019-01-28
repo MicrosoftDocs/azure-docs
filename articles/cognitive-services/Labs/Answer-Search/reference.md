@@ -25,10 +25,10 @@ The JSON response can be parsed for facts and entities that contain details abou
 To request Answer Search results, send a request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
 Endpoint GET: 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>&subscription-key=0123456789ABCDEF&mkt=en-us
 
-````
+```
 
 The request must use the HTTPS protocol and include following query parameter:
 -  q=<URL> - The query that identifies the object of search

@@ -145,6 +145,10 @@
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
     - name: Synonyms
       href: search-synonyms.md
+    - name: Model relational data
+      href: search-example-adventureworks-modeling.md
+    - name: Model multi-level facets
+      href: search-example-adventureworks-multilevel-faceting.md
   - name: Load and refresh data
     items:
     - name: Data import overview
@@ -215,7 +219,7 @@
       href: search-manage.md
     - name: PowerShell (Azure Search)
       href: search-manage-powershell.md
-    - name: Monitor usage & statistics
+    - name: Monitor activity and logging
       href: search-monitor-usage.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
