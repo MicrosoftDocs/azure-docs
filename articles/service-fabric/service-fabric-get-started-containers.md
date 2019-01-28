@@ -411,7 +411,7 @@ Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](http
 
 ![HealthCheckHealthy][3]
 
-![HealthCheckUnealthyApp][4]
+![HealthCheckUnhealthyApp][4]
 
 ![HealthCheckUnhealthyDsp][5]
 
