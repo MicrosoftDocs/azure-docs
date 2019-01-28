@@ -161,4 +161,4 @@ def main(input: azure.functions.InputStream) -> str:
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Handling Azure Functions binding errors](./functions-bindings-errors.md)
+> [Handle Azure Functions binding errors](./functions-bindings-errors.md)

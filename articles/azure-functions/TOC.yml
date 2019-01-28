@@ -80,11 +80,11 @@
       href: functions-bindings-example.md
     - name: Register binding extensions
       href: functions-bindings-register.md
-    - name: Binding expressions and patterns
+    - name: Binding expression patterns
       href: functions-bindings-expressions-patterns.md
     - name: Use return values
       href: functions-bindings-return-value.md
-    - name: Handling binding errors
+    - name: Handle binding errors
       href: functions-bindings-errors.md
   - name: Languages
     items:
