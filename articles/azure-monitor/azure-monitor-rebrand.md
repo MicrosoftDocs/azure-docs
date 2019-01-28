@@ -10,7 +10,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: bwren
 ---
 
@@ -37,7 +37,7 @@ Workspaces that hold log data in Azure Monitor are still referred to as Log Anal
 Azure Monitor uses Data Explorer query language for log queries. Before Azure Data Explorer was released, this language was referred to as Kusto or the Azure Monitor query language. We're now referring to it with the same name as Data Explorer to reinforce that they use the same language. There are minor differences with the Azure Monitor flavor of the language as detailed in [Azure Monitor log query language differences](log-query/data-explorer-difference.md).
 
 ## Management solutions renaming
-[Management solutions](insights/solutions.md) 
+[Management solutions](insights/solutions.md) have been renamed to _monitoring solutions_ which better describes their functionality.
 
 ## Application Insights
 Application Insights was a standalone service before being integrated with Azure Monitor. A different naming scheme is used for newer tools providing insights such as [Azure Monitor for containers](insights/container-insights-overview.md) and [Azure Monitor for VMs](insights/vminsights-overview.md), but the name for Application Insights is not being changed at this time.
