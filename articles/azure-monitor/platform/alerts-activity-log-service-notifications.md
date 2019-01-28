@@ -32,7 +32,7 @@ To learn more about action groups, see [Create and manage action groups](../../a
 
 For information on how to configure service health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](alerts-activity-log.md).
 
-## Create an alert on a service health notification for a new action group by using the Azure portal
+## Alert and new action group using Azure portal
 1. In the [portal](https://portal.azure.com), select **Service Health**.
 
     ![The "Service Health" service](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -81,7 +81,7 @@ Learn how to [Configure webhook notifications for existing problem management sy
 >
 >
 
-## Create an alert on a service health notification for an existing action group by using the Azure portal
+## Alert with existing action group using Azure portal
 
 1. Follow steps 1 through 7 in the previous section to create your service health notification. 
 
@@ -91,7 +91,7 @@ Learn how to [Configure webhook notifications for existing problem management sy
 
 Within a few minutes, the alert is active and begins to trigger based on the conditions you specified during creation.
 
-## Create an alert on a service health notification for a new action group by using the Azure Resource Manager Templates
+## Alert and new action group using the Azure Resource Manager templates
 
 The following is an example that creates an action group with an email target and enables all service health notifications for the target subscription.
 
