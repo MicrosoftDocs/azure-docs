@@ -104,14 +104,14 @@ Once the preparation steps are completed, the staging environment is ready for t
 
 If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
 
-1. Activate a swap operation between production and staging slots of the web application in the primary region (13) and in the backup region (14). V2 of teh application now becomes a production slot with a redundant copy in the backup region.
+1. Activate a swap operation between production and staging slots of the web application in the primary region (13) and in the backup region (14). V2 of the application now becomes a production slot with a redundant copy in the backup region.
 2. You can decommision the the staging environment if you no longer need the V1 application (15 and 16).  
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the staging envoronment be considered in inconsistent state. To roll back the application to the pre-upgrade state you simply revert to using V1 of the applicatuion in production environment. The required stepsare shown on the next diagram.
 
-1. Set the primary database copy in the production slot to read-write mode (12). This will restore the full V1 functionally in the production slot.
+1. Set the primary database copy in the production slot to read-write mode (17). This will restore the full V1 functionally in the production slot.
 2. Perform the root cause analysis and repair or remove the staging environment (18 and 19).
 
 At this point the application is fully functional and the upgrade steps can be repeated.
