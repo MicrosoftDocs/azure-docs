@@ -84,6 +84,8 @@ To create a contained database user in Azure SQL Database, Managed Instance, or 
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
+    Grant the `db_owner` role directly to the individual Azure AD user to mitigate the **CREATE DATABASE SCOPED CREDENTIAL** issue.
+
 - These system functions return NULL values when executed under Azure AD principals:
 
   - `SUSER_ID()`
