@@ -435,6 +435,9 @@ The text-to-speech REST API supports neural and standard text-to-speech voices, 
 * For a complete list of voices, see [language support](language-support.md#text-to-speech).
 * For information about regional availability, see [regions](regions.md#text-to-speech).
 
+> [!IMPORTANT]
+> Costs vary for standard, custom, and neural voices. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
 ### Request headers
 
 This table lists required and optional headers for speech-to-text requests.
