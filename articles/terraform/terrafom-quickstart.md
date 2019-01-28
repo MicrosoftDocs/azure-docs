@@ -9,11 +9,11 @@ ms.date: 01/28/2019
 ms.author: nepeters
 ---
 
-# Create a simple Terraform configuration for Azure
+# Create a Terraform configuration for Azure
 
-HashiCorp Terraform is an open-source tool for composing and deploying compute infrastructure. Terraform deployments are written using the Hashicorp Configuration Language and can be generalized for reuse, stored in source control, and integrated with DevOps pipelines. When deploying infrastructure with Terraform, configuration state is tracked and can be used to actualize deployments, which helps with upgrading or changing the configuration of infrastructure.
+HashiCorp Terraform is an open-source tool for composing and deploying compute infrastructure. Terraform deployments are written using the Hashicorp Configuration Language. These configurations can be generalized for reuse, stored in source control, and integrated with DevOps pipelines. When deploying infrastructure with Terraform, configuration state is tracked and can be used to actualize deployments. This state helps with upgrading or changing the configuration of infrastructure.
 
-In this quickstart you will gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB, and Azure Container Instances, and an application that works across these to resources. The quickstart will assume that all work is completed in Azure Cloud Shell however can also be completed on your development system. In order to do so, see [Install and configure Terraform](./terraform-install-configure.md) for Terraform installation instructions.
+In this quickstart, you will gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB, and Azure Container Instances, and an application that works across these two resources. The quickstart will assume that all work is completed in Azure Cloud Shell however can also be completed on your development system. In order to do so, see [Install and configure Terraform](../virtual-machines/linux/terraform-install-configure.md) for Terraform installation instructions.
 
 ## Create first configuration
 
@@ -152,5 +152,5 @@ terraform destroy -auto-approve
 
 In this quickstart, you created, deployed, and destroyed a Terraform configuration. For more information on using Terraform in Azure, see the following documents.
 
-- [Install and configure Terraform](./terraform-install-configure.md)
+- [Install and configure Terraform](../virtual-machines/linux/terraform-install-configure.md)
 - [Manage Terraform state in Azure](./terraform-backend.md)
