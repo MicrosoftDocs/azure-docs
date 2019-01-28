@@ -11,10 +11,10 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.custom: it-pro
+ms.custom: it-pro;seo-update-jan
 
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
@@ -127,42 +127,42 @@ cmdlet | Usage
 ### PowerShell example
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
-  ````
+  ```
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ````
+  ```
 2. Get a list of domains:
   
-  ````
+  ```
     Get-MsolDomain
-  ````
+  ```
 3. Run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
-  ````
+  ```
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ````
+  ```
 
 4. Copy the value (the challenge) that is returned from this command. For example:
-  ````
+  ```
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ````
+  ```
 5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step. The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box.
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
   
-  ````
-    Confirm-MsolDomain -DomainName "your_domain_name" -forcetakeover force
-  ````
+  ```
+    Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+  ```
   
   For example:
   
-  ````
+  ```
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ````
+  ```
 
 A successful challenge returns you to the prompt without an error.
 
