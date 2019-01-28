@@ -140,9 +140,6 @@ Application along with installation scripts can be downloaded from [Archive link
 
 Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
-> [!IMPORTANT]
-> The v1.3.0 (latest) of Patch Orchestration Application has a known issue running on Windows Server 2012. If you are running Windows Server 2012, please download v1.2.2 of the application [here](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). SFPkg link [here](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
-
 ## Configure the app
 
 The behavior of the patch orchestration app can be configured to meet your needs. Override the default values by passing in the application parameter during application creation or update. Application parameters can be provided by specifying `ApplicationParameter` to the `Start-ServiceFabricApplicationUpgrade` or `New-ServiceFabricApplication` cmdlets.
@@ -153,7 +150,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indicates the policy that is to be used by the Coordinator Service to install Windows updates across the Service Fabric cluster nodes.<br>                         Allowed values are: <br>                                                           <b>NodeWise</b>. Windows Update is installed one node at a time. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update is installed one upgrade domain at a time. (At the maximum, all the nodes belonging to an upgrade domain can go for Windows Update.)<br> Refer to [FAQ](#frequently-asked-questions) section on how to decide which is best suited policy for your cluster.
 |LogsDiskQuotaInMB   |Long  <br> (Default: 1024)               |Maximum size of patch orchestration app logs in MB, which can be persisted locally on nodes.
 | WUQuery               | string<br>(Default: "IsInstalled=0")                | Query to get Windows updates. For more information, see [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boolean <br> (default: true)                 | Use this flag to control which updates should be downloaded and installed. Following values are allowed <br>true - Installs only Windows operating system updates.<br>false - Installs all the available updates on the machine.          |
+| InstallWindowsOSOnlyUpdates | Boolean <br> (default: false)                 | Use this flag to control which updates should be downloaded and installed. Following values are allowed <br>true - Installs only Windows operating system updates.<br>false - Installs all the available updates on the machine.          |
 | WUOperationTimeOutInMinutes | Int <br>(Default: 90)                   | Specifies the timeout for any Windows Update operation (search or download or install). If the operation is not completed within the specified timeout, it is aborted.       |
 | WURescheduleCount     | Int <br> (Default: 5)                  | The maximum number of times the service reschedules the Windows update in case an operation fails persistently.          |
 | WURescheduleTimeInMinutes | Int <br>(Default: 30) | The interval at which the service reschedules the Windows update in case failure persists. |
@@ -411,3 +408,8 @@ An administrator must intervene and determine why the application or cluster bec
 - Setting InstallWindowsOSOnlyUpdates to false now installs all the available updates.
 - Changed the logic of disabling automatic updates. This fixes a bug where Automatic updates were not getting disabled on Server 2016 and above.
 - Parameterized placement constraint for both the microservices of POA for advanced usecases.
+
+### Version 1.3.1
+- Fixing regression where POA 1.3.0 won't work on Windows Server 2012 due to failure in disabling automatic updates. 
+- Fixing bug where InstallWindowsOSOnlyUpdates configuration is always picked as True even after setting it to False.
+- Changing default value of InstallWindowsOSOnlyUpdates to False.
