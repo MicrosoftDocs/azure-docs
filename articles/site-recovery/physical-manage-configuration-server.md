@@ -107,7 +107,7 @@ Run the installation file as follows:
 |/InstallLocation|Required|The folder in which the components are installed| Any folder on the computer|
 |/MySQLCredsFilePath|Required|The file path in which the MySQL server credentials are stored|The file should be the format specified below|
 |/VaultCredsFilePath|Required|The path of the vault credentials file|Valid file path|
-|/EnvType|Required|Type of envrionment that you want to protect |VMware<br>NonVMware|
+|/EnvType|Required|Type of environment that you want to protect |VMware<br>NonVMware|
 |/PSIP|Required|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
 |/CSIP|Required|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
 |/PassphraseFilePath|Required|The full path to location of the passphrase file|Valid file path|
@@ -259,7 +259,7 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
+1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
 2. Login into to your Azure account using the command
     
     `Connect-AzureRmAccount`

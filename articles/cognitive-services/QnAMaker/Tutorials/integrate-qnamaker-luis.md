@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 01/24/2019
 ms.author: diberry
 ms.custom: seodec18
 ---

@@ -82,7 +82,7 @@ In the **Cluster** tab, enter the **Cluster name** (for example, "mytestcluster"
 
 ![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-In the **Certificate** tab, enter the password and output path for the cluster certificate. A self-signed certificate is created as a PFX file and saved to the specified output path.  The certificate is used for for both node-to-node and client-to-node security.  A self-signed certificate should not be used for production clusters.  This certificate is used by Visual Studio to authenticate with the cluster and deploy applications. Select **Import certificate** to install the PFX in the CurrentUser\My certificate store of your computer.  Click **Next**.
+In the **Certificate** tab, enter the password and output path for the cluster certificate. A self-signed certificate is created as a PFX file and saved to the specified output path.  The certificate is used for both node-to-node and client-to-node security.  A self-signed certificate should not be used for production clusters.  This certificate is used by Visual Studio to authenticate with the cluster and deploy applications. Select **Import certificate** to install the PFX in the CurrentUser\My certificate store of your computer.  Click **Next**.
 
 ![Create a cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

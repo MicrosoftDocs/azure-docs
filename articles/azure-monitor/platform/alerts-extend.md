@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Extend Log Analytics alerts to Azure Alerts
 
@@ -56,3 +56,4 @@ You can continue to create alerts from the [Log Analytics API](../../azure-monit
 * Learn about the tools to [initiate extending alerts from Log Analytics into Azure](alerts-extend-tool.md).
 * Learn more about the [Azure Alerts experience](../../azure-monitor/platform/alerts-overview.md).
 * Learn how to create [log alerts in Azure Alerts](alerts-unified-log.md).
+
