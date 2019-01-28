@@ -1,5 +1,5 @@
 ---
-title: Set redirect URLs to b2clogin.com for Azure Active Directory B2C | Microsoft Docs
+title: Set redirect URLs to b2clogin.com - Azure Active Directory B2C | Microsoft Docs
 description: Learn about using b2clogin.com in your redirect URLs for Azure Active Directory B2C. 
 services: active-directory-b2c
 author: davidmu1
