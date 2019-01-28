@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/16/2019
+ms.date: 1/29/2019
 ms.author: victorh
 ---
 
