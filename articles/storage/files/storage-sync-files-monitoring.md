@@ -14,7 +14,7 @@ ms.component: files
 
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
-This article describes how to monitor your Azure File Sync deployment. Additional monitoring options will be available in future Azure File Sync updates.
+This article describes how to monitor your Azure File Sync deployment using the Azure portal and Windows Server.
 
 The following monitoring options are available currently:
 
@@ -48,7 +48,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 | Cloud tiering recall | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Server Name |
 | Files not syncing | Count of files that are failing to sync.<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Files synced | Count of files uploaded and downloaded.<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
-| Server heartbeat | Count of heartbeats received from the server. (Note: Data for this metric will be available in a future update.)<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
+| Server heartbeat | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
 | Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Maximum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 
 ## Windows Server
