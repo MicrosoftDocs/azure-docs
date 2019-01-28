@@ -1,5 +1,5 @@
 ---
-title: Stream live with Azure Media Services v3 | Microsoft Docs
+title: Stream live with Azure Media Services v3 using .NET | Microsoft Docs
 description: This tutorial walks you through the steps of streaming live with Media Services v3 using .NET Core.
 services: media-services
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 
-# Tutorial: Stream live with Media Services v3 using APIs
+# Tutorial: Stream live with Media Services v3 using .NET
 
 In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
@@ -45,7 +45,7 @@ The following are required to complete the tutorial.
 - A camera or a device (like laptop) that is used to broadcast an event.
 - An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
 
-## Download the sample
+## Download and configure the sample
 
 Clone a GitHub repository that contains the streaming .NET sample to your machine using the following command:  
 
@@ -58,7 +58,7 @@ The live streaming sample is located in the [Live](https://github.com/Azure-Samp
 Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) and replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md)
 
 > [!IMPORTANT]
-> This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple LiveEvents in your account. <br/>Make sure to stop the running Live Events. Otherwise, you will be **billed**!
+> This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple Live Events in your account. <br/>Make sure to stop the running Live Events. Otherwise, you will be **billed**!
 
 ## Examine the code that performs live streaming
 
