@@ -38,6 +38,17 @@ In this article, learn about the Azure Machine Learning service releases.
 + **Bug fixes**
   + Significantly improved the performance of getting data profiles.
   + Fixed minor bugs related to error reporting.
+  
+### Azure portal: new features
++ New drag and drop charting experience for reports. Users can drag a column or attribute from the well to the chart area where the system will automatically select an appropriate chart type for the user based on the type of data. Users can change the chart type to other applicable types or add additional attributes.
+
+	Supported Chart Types:
+	- Line Chart
+	- Histogram
+	- Stacked Bar Chart
+	- Box Plot
+	- Scatter Plot
+	- Bubble Plot
 
 ## 2019-01-14
 
