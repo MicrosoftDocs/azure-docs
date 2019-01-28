@@ -9,7 +9,7 @@ featureFlags:
  
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/10/2018

@@ -3,18 +3,18 @@ title: Configure managed identities for Azure resources on a virtual machine sca
 description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # Configure managed identities for Azure resources on a Azure virtual machine scale using a template

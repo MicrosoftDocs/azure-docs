@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 01/15/2019
+ms.date: 01/25/2019
 ms.author: magoedte
 
 ---
@@ -49,8 +49,8 @@ ms.author: magoedte
 																	<p> 
 																	    <a href="/azure/azure-monitor/overview">What is Azure Monitor?</a><br/>
                                                                         <a href="/azure/azure-monitor/azure-monitor-rebrand">Branding changes</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/monitoring-data-sources">Monitoring data sources</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/data-sources">Monitoring data sources</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/service-providers">Design considerations for Service Providers</a><br/>
 																	</p>
 																</div>
                                                             </div>
@@ -99,7 +99,7 @@ ms.author: magoedte
 													<h3>Monitoring</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-collection">Metrics and logs</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/log-analytics-data-ingestion-time">Log data ingestion time</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">Log data ingestion time</a><br/>
 														</p>
 														<br>
                                                         <h3>Data sources</h3>
@@ -143,7 +143,7 @@ ms.author: magoedte
 														<br>
                                                         <h3>Incident response</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/alerts-unified">Alerts overview</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-overview">Alerts overview</a><br/>
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Autoscale</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-unified-log">Log alerts</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-activity-log">Activity log alerts</a><br/>

@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
+author: chris-lauren
+ms.author:  clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
