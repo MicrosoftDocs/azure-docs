@@ -11,9 +11,9 @@ ms.author: nepeters
 
 # Create a simple Terraform configuration for Azure
 
-HashiCorp Terraform is an open source tool for composing and deploying compute infrastructure. Terraform infrastructure deployments are written using the Hashicorp Configuration Language and can be generalized for reuse, stored in source control, and integrated with DevOps pipelines. When deploying infrastructure with Terraform, configuration state is tracked and can be used to actualize deployments which helps with upgrading or changing the configuration of infrastructure.
+HashiCorp Terraform is an open source tool for composing and deploying compute infrastructure. Terraform deployments are written using the Hashicorp Configuration Language and can be generalized for reuse, stored in source control, and integrated with DevOps pipelines. When deploying infrastructure with Terraform, configuration state is tracked and can be used to actualize deployments which helps with upgrading or changing the configuration of infrastructure.
 
-In this quick start you will gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB, and Azure Container Instances, and an application that works across these to resources. The quick start will assume that all work is completed in Azure Cloud Shell.
+In this quickstart you will gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB, and Azure Container Instances, and an application that works across these to resources. The quickstart will assume that all work is completed in Azure Cloud Shell however can also be completed on your development system. In order to do so, see [Install and configure Terraform](./terraform-install-configure.md) for Terraform installation instructions.
 
 ## Create first configuration
 
@@ -25,11 +25,9 @@ Click the try it now button to open up Azure cloud shell. Once open, type in `co
 code .
 ```
 
-Copy and paste in the following Terraform configuration. This configuration models an Azure resource group named **vote-resource-group**, a random integer, and an Azure Cosmos DB instances. The random integer is used in the Cosmos DB name. Several Cosmos DB settings are also configured.
+Copy and paste in the following Terraform configuration. This configuration models an Azure resource group named **vote-resource-group**, a random integer, and an Azure Cosmos DB instances. The random integer is used in the Cosmos DB name. Several Cosmos DB settings are also configured. For a complete list of Cosmos DB Terraform configurations, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
 
-For a complete list of Cosmos DB Terraform configurations, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
-
-Save the file when done. This can be completed using the ellipses in the upper right hand portion of the code editor.
+Save the file as `main.tf` when done. This can be done using the ellipses in the upper right hand portion of the code editor.
 
 ```azurecli-interactive
 resource "azurerm_resource_group" "vote-resource-group" {
@@ -68,13 +66,13 @@ The `terraform init` command initializes the working directory. Run `terraform i
 teraform init
 ```
 
-The `terraform plan` command can be used to validate lsthat the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. Run `terraform plan` to test the new Terraform configuration. For more information on `terraform plan`, see the [command reference](https://www.terraform.io/docs/commands/plan.html).
+The `terraform plan` command can be used to validate that the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. Run `terraform plan` to test the new Terraform configuration. For more information on `terraform plan`, see the [command reference](https://www.terraform.io/docs/commands/plan.html).
 
 ```azurecli-interactive
 teraform plan
 ```
 
-Now, apply the configuration using `terraform apply`. This command apply the resource configurations in your Azure subscription. Add the `--auto-approve` command to skip interactive approval. For more information on `terraform apply`, see the [command reference](https://www.terraform.io/docs/commands/apply.html).
+Now, apply the configuration using `terraform apply`. This command deploys the resources in your Azure subscription. Add the `--auto-approve` command to skip interactive approval. For more information on `terraform apply`, see the [command reference](https://www.terraform.io/docs/commands/apply.html).
 
 ```azurecli-interactive
 terraform apply --auto-approve
@@ -86,7 +84,7 @@ Once done, you can see that the resource group has been created and an Azure Cos
 
 Now, update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB instance. Take note that two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are assumed from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
 
-Open the code editor if it is not already open and copy in the following configuration at the bottom of the `main.tf` file.
+Open the code editor and copy in the following configuration to the bottom of the `main.tf` file. Save the file when done.
 
 ```azurecli-interactive
 resource "azurerm_container_group" "vote-aci" {
@@ -118,7 +116,7 @@ resource "azurerm_container_group" "vote-aci" {
 }
 ```
 
-Run `terraform plan` to visualize the changes to be made.
+Run `terraform plan` to visualize the changes to be made. You should see that an Azure Container Instance resource has been added to the configuration.
 
 ```azurecli-interactive
 teraform plan
@@ -142,10 +140,17 @@ Navigate to the IP address using an internet browser. If everything was correctl
 
 ![Azure vote application](media/terraform-quickstart/azure-vote.png)
 
-## Destroy the application
+## Clean up resources
 
-When done with this quick start, the Azure resources and resource group can be removed using the `terraform destroy` command. For more information on `terraform destroy`, see the [command reference](https://www.terraform.io/docs/commands/destroy.html).
+When done, the Azure resources and resource group can be removed using the `terraform destroy` command. For more information on `terraform destroy`, see the [command reference](https://www.terraform.io/docs/commands/destroy.html).
 
-``azurecli-interactive
+```azurecli-interactive
 terraform destroy -auto-approve
 ```
+
+## Next steps
+
+In this quickstart you created, deployed, and destroyed a simple Terraform configuration. See the following documents for more information on using Terraform in Azure.
+
+- [Install and configure Terraform](./terraform-install-configure.md)
+- [Manage Terraform state in Azure](./terraform-backend.md)
