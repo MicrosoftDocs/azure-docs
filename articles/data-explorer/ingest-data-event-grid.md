@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Ingest Storage Account data to Azure Data Explorer'
+title: 'Quickstart: Ingest Azure Blobs into Azure Data Explorer'
 description: 'In this quickstart, you will learn how to send storage account data to Azure Data Explorer using an Event Grid subscription.'
 services: data-explorer
 author: radennis
@@ -12,15 +12,15 @@ ms.date: 1/23/2019
 #Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
 ---
 
-# Quickstart: Ingest data from Azure Storage into Azure Data Explorer by subscribing to Event Grid notifications
+# Quickstart: Ingest Azure Blobs into Azure Data Explorer by subscribing to Event Grid notifications
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers continuous ingestion (data loading) from blobs written to blob containers. This is achieved by setting an [Azure Event Grid](/azure/event-grid/overview) subscription for blob creation events and tunneling these events to Kusto via an Event Hub. For this quickstart, you should already have a Storage Account with an Event Grid subscription which sends its notifications to Event Hub. With that, you will create an Event Grid Data Connection and see the data from throught the system.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers continuous ingestion (data loading) from blobs written to blob containers. This is achieved by setting an [Azure Event Grid](/azure/event-grid/overview) subscription for blob creation events and tunneling these events to Kusto via an Event Hub. For this quickstart, you should already have a Storage Account with an Event Grid subscription which sends its notifications to Event Hub. With that, you will create an Event Grid Data Connection and see the data flow throught the system.
 
 ## Prerequisites
 
 1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/).
 
-1. [A test cluster and database](create-cluster-database-portal.md)
+1. [A cluster and database](create-cluster-database-portal.md)
 1. [A storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 1. [An Event hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
 1. [An Event grid subscription in the above storage account](https://docs.microsoft.com/en-us/azure/event-grid/blob-event-quickstart-portal) 
@@ -46,7 +46,7 @@ Now you create a table in Azure Data Explorer, to which Event Hubs will send dat
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
     ```
 
-    ![Run create query](media/ingest-data-event-hub/run-create-query.png)
+    ![Run create query](media/ingest-data-event-grid/run-create-table.png)
 
 1. Copy the following command into the window and select **Run** to map the incoming JSON data to the column names and data types of the table (TestTable).
 
@@ -72,7 +72,7 @@ Now you connect to the event grid from Azure Data Explorer, so that data flowing
 
 1. Fill out the form with the following information, then select **Create**.
 
-    ![Event hub connection](media/ingest-data-event-hub/event-grid-connection.png)
+    ![Event hub connection](media/ingest-data-event-grid/create-event-grid-data-connection.png)
 
      Data Source:
 
@@ -142,7 +142,7 @@ You’ll be able to alter the policy at later time as needed. In this quickstart
 
 1. In the Azure portal, under your event grid, you see the spike in activity while the app is running.
 
-    ![Event grid graph](media/ingest-data-event-hub/event-grid-graph.png)
+    ![Event grid graph](media/ingest-data-event-grid/event-grid-graph.png)
 
 1. To check how many messages have made it to the database so far, run the following query in your test database.
 
@@ -159,7 +159,7 @@ You’ll be able to alter the policy at later time as needed. In this quickstart
 
     The result set should look like the following.
 
-    ![Message result set](media/ingest-data-event-hub/message-result-set.png)
+    ![Message result set](media/ingest-data-event-grid/table-result.png)
 
 ## Clean up resources
 
