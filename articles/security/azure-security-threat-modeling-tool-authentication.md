@@ -268,12 +268,12 @@ ms.author: jegeib
 
 ### Example
 The `<netMsmqBinding/>` element of the WCF configuration file below instructs WCF to disable authentication when connecting to an MSMQ queue for message delivery.
-```
+```xml
 <bindings>
     <netMsmqBinding>
         <binding>
             <security>
-                <transport msmqAuthenticationMode=""None"" />
+                <transport msmqAuthenticationMode="None" />
             </security>
         </binding>
     </netMsmqBinding>
@@ -283,12 +283,12 @@ Configure MSMQ to require Windows Domain or Certificate authentication at all ti
 
 ### Example
 The `<netMsmqBinding/>` element of the WCF configuration file below instructs WCF to enable certificate authentication when connecting to an MSMQ queue. The client is authenticated using X.509 certificates. The client certificate must be present in the certificate store of the server.
-```
+```xml
 <bindings>
     <netMsmqBinding>
         <binding>
             <security>
-                <transport msmqAuthenticationMode=""Certificate"" />
+                <transport msmqAuthenticationMode="Certificate" />
             </security>
         </binding>
     </netMsmqBinding>
@@ -307,8 +307,8 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **Steps** | The absence of authentication means everyone is able to access this service. A service that does not authenticate its clients allows access to all users. Configure the application to authenticate against client credentials. This can be done by setting the message clientCredentialType to Windows or Certificate. |
 
 ### Example
-```
-<message clientCredentialType=""Certificate""/>
+```xml
+<message clientCredentialType="Certificate"/>
 ```
 
 ## <a id="transport-none"></a>WCF-Do not set Transport clientCredentialType to none
@@ -323,8 +323,8 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 | **Steps** | The absence of authentication means everyone is able to access this service. A service that does not authenticate its clients allows all users to access its functionality. Configure the application to authenticate against client credentials. This can be done by setting the transport clientCredentialType to Windows or Certificate. |
 
 ### Example
-```
-<transport clientCredentialType=""Certificate""/>
+```xml
+<transport clientCredentialType="Certificate"/>
 ```
 
 ## <a id="authn-secure-api"></a>Ensure that standard authentication techniques are used to secure Web APIs
@@ -476,7 +476,7 @@ await deviceClient.SendEventAsync(message);
 * Create an entry in the device identity registry
     ```javascript
     var device = new iothub.Device(null);
-    device.deviceId = <DeviceId >
+    device.deviceId = "<DeviceId>"
     registry.create(device, function(err, deviceInfo, res) {})
     ```
 * Create a simulated device
