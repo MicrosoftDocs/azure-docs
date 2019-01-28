@@ -60,7 +60,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
     }
     ```
 
-## Construct the search request, and recieve a JSON response
+## Construct the search request, and receive a JSON response
 
 1. Use the variables from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
 
