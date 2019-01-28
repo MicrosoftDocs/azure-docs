@@ -75,7 +75,7 @@ For many organizations, [data encryption at rest](https://cloudblogs.microsoft.c
 
 Learn more about Storage Service Encryption:
 
-* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) is available for [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). For details on other Azure storage types, see [Azure Files](https://azure.microsoft.com/services/storage/files/), [Disk (Premium Storage)](https://azure.microsoft.com/services/storage/premium-storage/), [Table storage](https://azure.microsoft.com/services/storage/tables/), and [Queue storage](https://azure.microsoft.com/services/storage/queues/).
+* [Azure Storage Service Encryption](https://azure.microsoft.com/services/storage/) is available for [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/). For details on other Azure storage types, see [Azure Files](https://azure.microsoft.com/services/storage/files/), [Table storage](https://azure.microsoft.com/services/storage/tables/), and [Queue storage](https://azure.microsoft.com/services/storage/queues/).
 * [Azure Storage Service Encryption for Data at Rest](../storage/common/storage-service-encryption.md)
 
 ## Azure Disk Encryption

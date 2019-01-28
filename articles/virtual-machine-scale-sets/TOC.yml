@@ -124,7 +124,7 @@
       href: ../virtual-machines/windows/managed-disks-overview.md
       maintainContext: true
     - name: Select a disk type
-      href: ../virtual-machines/windows/disks-type.md
+      href: ../virtual-machines/windows/disks-types.md
       maintainContext: true
     - name: Premium storage performance
       href: ../virtual-machines/windows/premium-storage-performance.md
