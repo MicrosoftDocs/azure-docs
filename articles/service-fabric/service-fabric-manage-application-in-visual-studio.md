@@ -1,5 +1,5 @@
 ---
-title: Manage your Azure Servic Fabric applications in Visual Studio | Microsoft Docs
+title: Manage your Azure Service Fabric applications in Visual Studio | Microsoft Docs
 description: Use Visual Studio to create, develop, package, deploy, and debug your Azure Service Fabric applications and services.
 services: service-fabric
 documentationcenter: .net
