@@ -19,7 +19,7 @@ ms.author: markvi
 ms.reviewer: raluthra
 
 ---
-# Azure Active Directory Identity Protection security overview
+# Azure Active Directory Identity Protection - Security overview
 
 The ‘Security overview’ gives you an insight into your organization’s security posture. It helps identify potential attacks and understand the effectiveness of your policies.
 
