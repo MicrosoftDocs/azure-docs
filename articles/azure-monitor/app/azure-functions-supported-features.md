@@ -49,7 +49,7 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 
 ## Live Metrics & Secure Control Channel
 
-The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key. See [Secure the control channel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) for instructions.
+The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key. See [Secure the control channel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) for instructions.
 
 ## Sampling
 
