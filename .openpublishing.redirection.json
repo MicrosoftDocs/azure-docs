@@ -21174,6 +21174,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-fabric/service-fabric-create-your-first-application-in-visual-studio.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-dotnet-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-get-started-with-a-local-cluster.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-deploy-remove-applications",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
       "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
       "redirect_document_id": false
