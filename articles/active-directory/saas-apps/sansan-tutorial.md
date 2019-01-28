@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. Use the following script to update multiple URLs to an application:
 
-	```poweshell
+	```powershell
 	 Param(
 	[Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
 	[Parameter(Mandatory=$false)][string[]]$ReplyUrls,

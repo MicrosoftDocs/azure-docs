@@ -7,7 +7,7 @@ author: alch-msft
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
