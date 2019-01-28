@@ -60,7 +60,7 @@ Autovacuum is triggered when the number of dead tuples exceeds autovacuum_vacuum
 
 Cleanup from autovacuum needs to keep up with the database load, otherwise you could run out of storage and experience a general slowdown in queries. Amortized over time, the rate at which vacuum cleans up dead tuples should equal the rate at which dead tuples are created.
 
-Databases with many updates/deletes have more dead tuples and need more space. Generally, databases with many updates/deletes benefit from low values of autovacuum_vacuum_scale_factor and low values of autovacuum_vacuum_threshold to prevent prolonged accumulation of dead tuples. You could use higher values for both parameters with smaller databases because the need for vacuum is less urgent. REminder, that frequent vacuuming comes at the cost of compute and memory.
+Databases with many updates/deletes have more dead tuples and need more space. Generally, databases with many updates/deletes benefit from low values of autovacuum_vacuum_scale_factor and low values of autovacuum_vacuum_threshold to prevent prolonged accumulation of dead tuples. You could use higher values for both parameters with smaller databases because the need for vacuum is less urgent. Reminder, that frequent vacuuming comes at the cost of compute and memory.
 
 The default scale factor of 20 percent works well on tables with a low percent of dead tuples, but not on tables with a high percent of dead tuples. For example, on a 20-GB table this translates to 4 GB of dead tuples and on a 1 TB table it’s 200 GB of dead tuples.
 
