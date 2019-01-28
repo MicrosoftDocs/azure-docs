@@ -230,7 +230,6 @@ The following are post-installation known issues for this build version.
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
 - The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
 
-
 <!-- TBD - IS ASDK --> 
 - After applying the 1901 update, you might encounter the following issues when deploying VMs with Managed Disks:
 
@@ -240,6 +239,16 @@ The following are post-installation known issues for this build version.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
+
+- After installing updates or hotfixes to Azure Stack, new features may be introduced which require new permissions to be granted to one or more identity applications. Granting these permissions requires administrative access to the home directory, and so it cannot be done automatically. For example:
+
+   ```powershell
+   $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+   $homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com" # This is the primary tenant Azure Stack is registered to
+
+   Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
+     -DirectoryTenantName $homeDirectoryTenantName -Verbose
+   ```
 
 ### Networking  
 
@@ -288,7 +297,6 @@ The following are post-installation known issues for this build version.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
-
 
 ## Download the update
 
