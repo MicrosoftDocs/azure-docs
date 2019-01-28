@@ -145,6 +145,10 @@
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
     - name: Synonyms
       href: search-synonyms.md
+    - name: Model relational data
+      href: search-example-adventureworks-modeling.md
+    - name: Model multi-level facets
+      href: search-example-adventureworks-multilevel-faceting.md
   - name: Load and refresh data
     items:
     - name: Data import overview
