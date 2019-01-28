@@ -16,34 +16,38 @@ manager: carmonm
 
 #### Issue
 
-You have configured the Start/Stop VM solution but it does not start/stop all the VMs configured
+You have configured the Start/Stop VM solution but it does not start/stop all the VMs configured.
 
 #### Cause
 
-This error can be caused by the following reasons:
+This error can be caused by one of the following reasons:
 
 1. A schedule is not configured correctly
 2. The RunAs account may not be configured correctly
-3. 
-Explain how to check job streams
-For scheduled start/stop: Explain how to review schedules
-Provide link to Run As certificate TSG
+3. There may additional problems
+
 #### Resolution
 
-In the portal go to your AUtomation Account and select **Jobs** under **Process Automation**. 
+In the portal go to your Automation Account and select **Jobs** under **Process Automation**. From the **Jobs** page look for jobs from one of the following runbooks:
 
 * AutoStop_CreateAlert_Child
 * AutoStop_CreateAlert_Parent
 * AutoStop_Disable
 * AutoStop_VM_Child
 * ScheduledStartStop_Base_Classic
-* ScheduledStartStop_Child
 * ScheduledStartStop_Child_Classic
+* ScheduledStartStop_Child
 * ScheduledStartStop_Parent
 * SequencedStartStop_Parent
 
+Verify your [RunAs Account](../manage-runas-account.md)
 
 Check the [job streams]()
+
+Explain how to check job streams
+For scheduled start/stop: Explain how to review schedules
+Provide link to Run As certificate TSG
+
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
