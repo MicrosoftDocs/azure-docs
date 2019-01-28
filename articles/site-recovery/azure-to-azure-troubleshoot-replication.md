@@ -35,7 +35,7 @@ If you select the event, you should see the exact disk information:
 ### Azure Site Recovery limits
 The following table provides the Azure Site Recovery limits. These limits are based on our tests, but they can't cover all possible application I/O combinations. Actual results can vary based on your application I/O mix. 
 
-There are two limits to consider, data churn per disk and data churn per virtual machine. For example, if we look at the Premium P20 disk in the following table, Site Recovery can handle 5 MB/s churn per disk with a maximum of five such disks per VM, due to the limit of 25 MB/s total churn per VM.
+There are two limits to consider, data churn per disk and data churn per virtual machine. For example, let's look at the Premium P20 disk in the following table. Site Recovery can handle 5 MB/s of churn per disk with a maximum of five such disks per VM, due to the limit of 25 MB/s of total churn per VM.
 
 **Replication storage target** | **Average I/O size for source disk** |**Average data churn for source disk** | **Total data churn per day for source data disk**
 ---|---|---|---
@@ -65,7 +65,7 @@ If a spike is from an occasional data burst and the data change rate is greater 
 ### Network latency to a cache storage account
 Site Recovery sends replicated data to the cache storage account. You might see network latency if uploading the data from a virtual machine to the cache storage account is slower than 4 MB in 3 seconds. 
 
-To check for an problem related to latency, use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) to upload data from the virtual machine to the cache storage account. If the latency is high, check if you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA. 
+To check for a problem related to latency, use [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) to upload data from the virtual machine to the cache storage account. If the latency is high, check if you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA. 
 
 We recommend creating a network service endpoint in your virtual network for "Storage" so that the replication traffic doesn't go to the NVA. For more information, see [Network virtual appliance configuration](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration).
 
