@@ -73,6 +73,7 @@
         href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
   - name: Use and display requirements
     href: ../Bing-Web-Search/use-and-display-requirements.md
+    maintainContext: true
 - name: Resources
   items:
   - name: Language and region support

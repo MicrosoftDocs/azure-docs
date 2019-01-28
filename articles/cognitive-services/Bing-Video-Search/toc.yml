@@ -48,8 +48,6 @@
       href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Video+Search
 - name: How-to guides
   items:
-  - name: Use and display requirements
-    href: ../Bing-Web-Search/use-and-display-requirements.md
   - name: Get video insights
     href: video-insights.md
   - name: Get trending videos
@@ -78,6 +76,9 @@
       href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/videosearch?view=azure-node-latest
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch
+  - name: Use and display requirements
+    href: ../Bing-Web-Search/use-and-display-requirements.md
+    maintainContext: true
 - name: Resources
   items:
   - name: Pricing

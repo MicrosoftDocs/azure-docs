@@ -29785,6 +29785,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/bing-local-business-search/use-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-and-display-requirements",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/bing-Spell-Check/use-and-display-requirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-and-display-requirements",
       "redirect_document_id": false
