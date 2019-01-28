@@ -24,7 +24,7 @@ Here are the differences between using **Import** and **DirectQuery**.
 | --- | --- |
 | Tables, columns, *and data* are imported or copied into the report's dataset. To see changes that occurred to the underlying data, you must refresh, or import, a complete, current dataset again. |Only *tables and columns* are imported or copied into the report's dataset. You always view the most current data. |
 
-With Power BI Workspace COllections, you can use DirectQuery with cloud data sources but not on-premises data sources at this time.
+With Power BI Workspace Collections, you can use DirectQuery with cloud data sources but not on-premises data sources at this time.
 
 > [!NOTE]
 > The On-Premises Data Gateway is not supported with Power BI Workspace Collections at this time. This means you cannot use DirectQuery with on-premises data sources.

@@ -193,7 +193,7 @@ The following is an example configuration with auditing enabled
 
 ### Example
 The `<behavior/>` element of the WCF configuration file below instructs WCF to not notify the application when WCF fails to write to an audit log.
-````
+```
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
@@ -204,7 +204,7 @@ The `<behavior/>` element of the WCF configuration file below instructs WCF to n
         </behavior>
     </serviceBehaviors>
 </behaviors>
-````
+```
 Configure WCF to notify the program whenever it is unable to write to an audit log. The program should have an alternative notification scheme in place to alert the organization that audit trails are not being maintained. 
 
 ## <a id="logging-web-api"></a>Ensure that auditing and logging is enforced on Web API

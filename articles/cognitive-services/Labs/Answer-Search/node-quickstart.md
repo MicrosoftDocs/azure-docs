@@ -33,7 +33,7 @@ It is implemented in the following steps:
 
 The complete code for this demo follows:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -80,7 +80,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## Next steps
 - [C# example code](c-sharp-quickstart.md)
