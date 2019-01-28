@@ -1,14 +1,10 @@
 ---
-title: PowerShell Example - Load balance traffic to VMs for high availability - Azure | Microsoft Docs
+title: PowerShell Example - Load balance traffic to VMs for high availability - Azure
+titlesuffix: Azure Load Balancer
 description: This Azure PowerShell Script Example shows how to load balance traffic to VMs for high availability
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags: 
-
-ms.assetid:
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: sample

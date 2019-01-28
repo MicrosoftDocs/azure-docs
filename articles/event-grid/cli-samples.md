@@ -2,7 +2,7 @@
 title: Azure CLI samples - Event Grid | Microsoft Docs
 description: Azure CLI samples for Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 
 ms.service: event-grid
@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.date: 08/06/2018
-ms.author: tomfitz
+ms.author: spelluru
 ---
 # Azure CLI samples for Event Grid
 

@@ -30,7 +30,7 @@ Spark History Server is the web UI for completed and running Spark applications.
 
 **To open the Spark History Server Web UI**
 
-1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**
 
     ![Spark History Server](./media/apache-spark-resource-manager/launch-history-server.png "Spark History Server")
@@ -50,7 +50,7 @@ The Spark History Server web UI looks like:
 ## Open the Yarn UI
 You can use the YARN UI to monitor applications that are currently running on the Spark cluster.
 
-1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. From **Quick Links**, click **Cluster Dashboard**, and then click **YARN**.
 
     ![Launch YARN UI](./media/apache-spark-resource-manager/launch-yarn-ui.png)

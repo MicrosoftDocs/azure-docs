@@ -30,7 +30,7 @@ Images for the most recent major versions, Visual Studio 2017 and Visual Studio 
 
 | Release version                                              | Editions                     |     Product version      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019: Preview (Preview 1)                   |           Enterprise         | Version 16.0.0 Preview 1 |
+|    Visual Studio 2019: Preview (Preview 2)                   |           Enterprise         | Version 16.0.0 Preview 2 |
 | Visual Studio 2017: Latest (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.4      |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.20     |
 |   Visual Studio 2015: Latest (Update 3)                      |    Enterprise, Community     |  Version 14.0.25431.01   |

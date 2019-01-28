@@ -85,6 +85,22 @@
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- Clean up your cluster and delete the infrastructure
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: Best practices
+  items:
+  - name: Service Fabric best practices overview
+    href: service-fabric-best-practices-overview.md
+  - name: Security
+    href: service-fabric-best-practices-security.md
+  - name: Networking 
+    href: service-fabric-best-practices-networking.md
+  - name: Compute planning and scaling  
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: Infrastructure as code
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: Monitoring and diagnostics
+    href: service-fabric-best-practices-monitoring.md
+  - name: Production readiness checklist
+    href: service-fabric-production-readiness-checklist.md  
 - name: Samples
   items:
   - name: Code samples
@@ -442,6 +458,11 @@
         href: service-fabric-tutorial-deploy-api-management.md
       - name: Manage application secrets
         href: service-fabric-application-secret-management.md
+        items:
+        - name: Set up an encryption certificate and encrypt secrets on Windows
+          href: service-fabric-application-secret-management-windows.md
+        - name: Set up an encryption certificate and encrypt secrets on Linux
+          href: service-fabric-application-secret-management-linux.md
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
       - name: Run a service startup script as a local user or system account
@@ -524,6 +545,8 @@
       items:
       - name: Deploy applications on a local cluster
         href: service-fabric-get-started-with-a-local-cluster.md
+      - name: Remove a node type
+        href: service-fabric-how-to-remove-node-type.md 
       - name: Azure Resource Manager
         href: service-fabric-application-arm-resource.md
       - name: Azure PowerShell
@@ -694,10 +717,6 @@
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: Best practices
-    items:
-    - name: Production readiness checklist
-      href: service-fabric-production-readiness-checklist.md
 
 - name: Reference
   items:
@@ -775,6 +794,8 @@
     href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
   - name: REST
     href: /rest/api/servicefabric
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.servicefabric/clusters
   - name: Service Fabric events
     href: service-fabric-diagnostics-event-generation-operational.md
   - name: Configure cluster settings and fabric upgrade policy
@@ -800,8 +821,6 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Common questions
     href: service-fabric-common-questions.md
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/service-fabric/
   - name: MSDN Forum
     href: https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric
   - name: Pricing

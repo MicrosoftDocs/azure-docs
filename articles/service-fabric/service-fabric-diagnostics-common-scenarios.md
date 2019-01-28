@@ -54,7 +54,7 @@ The solutions in this article will use the following tools. We recommend you hav
     ![AI App Map Blade](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png)
     ![AI App Map](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    For more information on the application map, visit the [Application Map documentation](../application-insights/app-insights-app-map.md)
+    For more information on the application map, visit the [Application Map documentation](../azure-monitor/app/app-map.md)
 
 ## How do I create an alert when a node goes down
 
@@ -137,8 +137,8 @@ Check these links for the full list of performance counters on Reliable [Service
 
 ## Next steps
 
-* [Set up Alerts in AI](../application-insights/app-insights-alerts.md) to be notified about changes in performance or usage
-* [Smart Detection in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems
+* [Set up Alerts in AI](../azure-monitor/app/alerts.md) to be notified about changes in performance or usage
+* [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to AI to warn you of potential performance problems
 * Learn more about Log Analytics [alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics.
 * For on-premises clusters, Log Analytics offers a gateway (HTTP Forward Proxy) that can be used to send data to Log Analytics. Read more about that in [Connecting computers without Internet access to Log Analytics using the Log Analytics gateway](../azure-monitor/platform/gateway.md)
 * Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Log Analytics

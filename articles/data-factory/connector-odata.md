@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
@@ -31,7 +31,7 @@ You can copy data from an OData source to any supported sink data store. For a l
 Specifically, this OData connector supports:
 
 - OData version 3.0 and 4.0.
-- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, **AAD Service Principal**, and **Managed Service Identity**.
+- Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, **AAD service principal**, and **managed identities for Azure resources**.
 
 ## Get started
 
@@ -110,7 +110,7 @@ The following properties are supported for an OData linked service:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "Windows",
             "userName": "<domain>\\<user>",
             "password": {
@@ -134,7 +134,7 @@ The following properties are supported for an OData linked service:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalKey",
@@ -143,7 +143,7 @@ The following properties are supported for an OData linked service:
                 "value": "<service principal key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource>"
+            "aadResourceId": "<AAD resource URL>"
         }
     },
     "connectVia": {
@@ -161,7 +161,7 @@ The following properties are supported for an OData linked service:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalCert",

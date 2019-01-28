@@ -1,14 +1,14 @@
 ---
 title: SQL language syntax in Azure Cosmos DB 
 description: This article explains the SQL query language syntax used in Azure Cosmos DB, different operators, and keywords available in this language. 
-author: LalithaMV
-
+author: markjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: reference
 ms.date: 12/07/2018
-ms.author: laviswa
+ms.author: mjbrown
 ms.custom: seodec18
+
 ---
 
 # Azure Cosmos DB SQL language reference 
@@ -2165,7 +2165,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 -   `num_expr`  
   
-     Is any valid numeric expression.  
+     Is any valid numeric expression. If num_expr is negative or non-finite, the result is undefined.
+
+  > [!NOTE]
+  > The maximum length of the result is 10,000 characters i.e. (length(str_expr)  *  num_expr) <= 10,000.
   
  **Return Types**  
   
@@ -2327,7 +2330,7 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
  **Syntax**  
   
 ```  
-SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
+SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
 ```  
   
  **Arguments**  
@@ -2338,7 +2341,7 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     Is any valid numeric expression.  
+     Is any valid numeric expression to denote the start and end character.    
   
  **Return Types**  
   
@@ -2539,7 +2542,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"])
 ```  
   
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
-Returns a Boolean indicating whether the array contains the specified value. Can specify if the match is full or partial. 
+Returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the command. 
 
  **Syntax**  
   
@@ -2559,7 +2562,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 
 -   `bool_expr`  
   
-     Is any boolean expression.       
+     Is any boolean expression. If it's set to 'true'and if the specified search value is an object, the command checks for a partial match (the search object is a subset of one of the objects). If it's set to 'false', the command checks for a full match of all objects within the array. The default value if not specified is false. 
   
  **Return Types**  
   

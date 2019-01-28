@@ -49,7 +49,7 @@ Two steps are involved in publishing applications in the Marketplace. First, def
 ## Application installation script
 When an application is installed on a cluster (either on an existing cluster, or on a new one), an edge node is created. The application installation script runs on the edge node.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > The name of the application installation script must be unique for a specific cluster. The script name must have the following format:
   > 
   > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
@@ -77,9 +77,8 @@ Create a .zip file that contains all the files that are required to install your
 * mainTemplate.json (For a sample, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).)
 * All required scripts
 
-> [!NOTE]
+> [!NOTE]  
 > You can host the application files (including any web app files) on any publicly accessible endpoint.
-> 
 
 ## Publish the application
 To publish an HDInsight application:

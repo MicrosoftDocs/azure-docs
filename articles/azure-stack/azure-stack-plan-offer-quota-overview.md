@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
-ms.reviewer:
+ms.reviewer: unknown
 
 ---
 # Plan, offer, quota, and subscription overview

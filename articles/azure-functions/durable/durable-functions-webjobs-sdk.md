@@ -14,7 +14,7 @@ ms.author: azfuncdf
 
 # How to run durable functions as WebJobs
 
-[Azure Functions](../functions-overview.md) and the [Durable Functions](durable-functions-overview.md) extension are built on the [WebJobs SDK](../../app-service/web-sites-create-web-jobs.md). The `JobHost` in the WebJobs SDK is the runtime in Azure Functions. If you need to control `JobHost` behavior in ways not possible in Azure Functions, you can develop and run durable functions by using the WebJobs SDK yourself. You can then run your durable functions in an Azure WebJob or anywhere a console application runs.
+[Azure Functions](../functions-overview.md) and the [Durable Functions](durable-functions-overview.md) extension are built on the [WebJobs SDK](../../app-service/webjobs-create.md). The `JobHost` in the WebJobs SDK is the runtime in Azure Functions. If you need to control `JobHost` behavior in ways not possible in Azure Functions, you can develop and run durable functions by using the WebJobs SDK yourself. You can then run your durable functions in an Azure WebJob or anywhere a console application runs.
 
 The chaining Durable Functions sample is available in a WebJobs SDK version: download or clone the [Durable Functions repository](https://github.com/azure/azure-functions-durable-extension/) and navigate to the *samples\\webjobssdk\\chaining* folder.
 

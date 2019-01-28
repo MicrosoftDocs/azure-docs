@@ -34,7 +34,7 @@ The sample script used in this topic creates a Windows-based Solr cluster with a
 * [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## What is Solr?
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.
+<a href="https://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.
 
 ## Install Solr using portal
 1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Apache Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
@@ -162,7 +162,7 @@ You must start with indexing Solr with some data files. You can then use Solr to
 
    This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
 
-## Install Solr using Aure PowerShell
+## Install Solr using Azure PowerShell
 See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  The sample demonstrates how to install Apache Spark using Azure PowerShell. You need to customize the script to use [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## Install Solr using .NET SDK

@@ -20,7 +20,7 @@ ms.custom: seodec18
 ---
 # Restore an app in Azure
 This article shows you how to restore an app in [Azure App Service](../app-service/overview.md)
-that you have previously backed up (see [Back up your app in Azure](web-sites-backup.md)). You can restore your app
+that you have previously backed up (see [Back up your app in Azure](manage-backup.md)). You can restore your app
 with its linked databases on-demand to a previous state, or create a new app based on one of
 your original app's backups. Azure App Service supports the following databases for backup and restore:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)

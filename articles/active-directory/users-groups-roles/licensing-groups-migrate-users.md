@@ -12,7 +12,7 @@
   ms.service: active-directory
   ms.topic: article
   ms.workload: identity
-  ms.component: users-groups-roles
+  ms.subservice: users-groups-roles
   ms.date: 10/29/2018
   ms.author: curtand
 

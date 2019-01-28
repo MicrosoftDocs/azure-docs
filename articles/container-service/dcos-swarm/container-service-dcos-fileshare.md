@@ -31,7 +31,7 @@ This tutorial requires the Azure CLI version 2.0.4 or later. Run `az --version` 
 
 ## Create a file share on Microsoft Azure
 
-Before using an Azure file share with an ACS DC/OS cluster, the storage account and file share must be created. Run the following script to create the storage and file share. Update the parameters with thoes from your environment.
+Before using an Azure file share with an ACS DC/OS cluster, the storage account and file share must be created. Run the following script to create the storage and file share. Update the parameters with those from your environment.
 
 ```azurecli-interactive
 # Change these four parameters

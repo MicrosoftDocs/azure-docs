@@ -33,5 +33,6 @@
 ### [Use kubectl with Azure Dev Spaces](how-to/use-kubectl-with-azure-dev-spaces.md)
 ### [Upgrade Azure Dev Spaces tools](how-to/upgrade-tools.md)
 ### [Using CI/CD with Azure Dev Spaces](how-to/setup-cicd.md)
+### [Business continuity and disaster recovery for Azure Dev Spaces](how-to/dev-spaces-business-continuity.md)
 
 ## [Troubleshooting](troubleshooting.md)

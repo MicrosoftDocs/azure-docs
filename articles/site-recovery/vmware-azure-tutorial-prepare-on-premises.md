@@ -5,8 +5,9 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -80,6 +81,7 @@ Make sure VMware servers and VMs comply with requirements.
 3. Check on-premises [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support. 
 4. Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute), after failover.
 5. Your on-premises VMs you replicate to Azure must comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+6. In Linux virtual machines, device name or mount point name should be unique. Ensure that no two devices/mount points have case sensitive names. For example, naming two devices of same virtual machine as *device1* and *Device1* is not allowed.
 
 
 ## Prepare to connect to Azure VMs after failover

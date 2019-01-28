@@ -172,6 +172,9 @@ POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf6
 
 Here is the orchestration as a single C# file in a Visual Studio project:
 
+> [!NOTE]
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code below.
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 
 ## Next steps

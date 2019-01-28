@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
-ms.component: logs
+ms.subservice: logs
 ---
 # Archive Azure Diagnostic Logs
 
@@ -159,3 +159,4 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 * [Stream diagnostic logs to an Event Hubs namespace](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Archive Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Read more about diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md)
+

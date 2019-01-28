@@ -27,8 +27,8 @@ To follow the instructions in this article, you need:
 
 ### Resource Manager templates
 A Resource Manager template makes it easy to create the following resoruces for your application in a single, coordinated operation:
-* HDInsight clusters and their dependent resources (such as the default storage account)
-* Other resources (such as Azure SQL Database to use [Apache Sqoop](http://sqoop.apache.org/))
+* HDInsight clusters and their dependent resources (such as the default storage account).
+* Other resources (such as Azure SQL Database to use [Apache Sqoop](https://sqoop.apache.org/)).
 
 In the template, you define the resources that are needed for the application. You also specify deployment parameters to input values for different environments. The template consists of JSON and expressions that you use to construct values for your deployment.
 
@@ -38,6 +38,7 @@ For more information about Resource Manager templates, see the following article
 
 * [Author Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md)
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) template reference
 
 ## Generate templates
 
@@ -70,7 +71,7 @@ For an introduction to using Visual Studio with resource groups, see [Creating a
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:

@@ -12,13 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
 
 ---
 
 # Red Hat Enterprise Linux images in Azure
-This article describes available Red Hat Enterprise Linux (RHEL) images in the Azure Marketplace along with policies around their naming and retention
+This article describes available Red Hat Enterprise Linux (RHEL) images in the Azure Marketplace along with policies around their naming and retention.
+
+Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
+
+>[!Important]
+> RHEL images currently available in the Azure marketplace support either Bring-Your-Own-Subscription (BYOS) or Pay-As-You-Go (PAYG) licensing models. The [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md) and dynamic switching between BYOS and PAYG is not supported. Switching licensing mode requires redeploying the VM from the corresponding image.
+
+>[!Note]
+> For any issue related to RHEL images in the Azure marketplace gallery please file a support ticket with Microsoft.
 
 ## Images available in the UI
 When you search for “Red Hat” in the Marketplace or when you create a resource in Azure portal UI, you'll see a subset of available RHEL images and related Red Hat products. You can always obtain the full set of available VM images using the Azure CLI/PowerShell/API.
@@ -98,10 +106,11 @@ Microsoft and Red Hat update images as new minor versions are released, as requi
 We only update the current minor release in a given image family. With the release of a newer minor version, we stop updating the older minor version. For example, with the release of RHEL 7.6, RHEL 7.5 images are no longer going to be updated.
 
 >[!NOTE]
-> Active Azure VMs provisioned from RHEL Pay-As-You-Go images are connected to Azure RHUI and can receive updates and fixes as soon as they are released by Red Hat and replicated to Azure RHUI (usually in less than 24 hours following the official release by Red Hat). Such VMs do not require a new published image for getting the updates and in full customer control to initiate the update.
+> Active Azure VMs provisioned from RHEL Pay-As-You-Go images are connected to the Azure RHUI and can receive updates and fixes as soon as they are released by Red Hat and replicated to the Azure RHUI (usually in less than 24 hours following the official release by Red Hat). These VMs do not require a new published image for getting the updates and customers have full control over when to initiate the update.
 
 ## Image retention policy
 Our current policy is to keep all previously published images. We reserve the right to remove images that are known to cause problems of any kind. For example, images with incorrect configurations due to subsequent platform or component updates may be removed. Images that may be removed will follow the current Marketplace policy to provide notifications up to 30 days before image removal.
 
 ## Next steps
 * Learn more about the Azure Red Hat Update Infrastructure [here](https://aka.ms/rhui-update).
+* Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.

@@ -163,7 +163,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
    
     Multiple replicas of this service may be hosted on the same computer, so this address needs to be unique to the replica. This is why   partition ID + replica ID are in the URL. HttpListener can listen on multiple addresses on the same port as long as the URL prefix    is unique.
    
-    The extra GUID is there for an advanced case where secondary replicas also listen for read-only requests. When that's the case, you want to make sure that a new unique address is used when transitioning from primary to secondary to force clients to re-resolve the address. '+' is used as the address here so that the replica listens on all available hosts (IP, FQDM, localhost, etc.) The code below shows an example.
+    The extra GUID is there for an advanced case where secondary replicas also listen for read-only requests. When that's the case, you want to make sure that a new unique address is used when transitioning from primary to secondary to force clients to re-resolve the address. '+' is used as the address here so that the replica listens on all available hosts (IP, FQDN, localhost, etc.) The code below shows an example.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -230,7 +230,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
             return String.Format(
                 "User {0} {1}",
                 user,
-                addResult ? "sucessfully added" : "already exists");
+                addResult ? "successfully added" : "already exists");
         }
     }
     ```
@@ -361,7 +361,7 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 The entire source code of the sample is available on [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## Reliable Services and Actor forking subprocesses
-Service Fabric doesn't support reliable services and subsequently reliable actors forking subprocesses. An example of why its not supported is [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) can not be used to register an unsupported subprocess, and cancelation tokens are only sent to registred processes; resulting in all sorts of issues, such as upgrade failures, when subprocesses don't close after the parent process has received a cancelation token. 
+Service Fabric doesn't support reliable services and subsequently reliable actors forking subprocesses. An example of why its not supported is [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) can not be used to register an unsupported subprocess, and cancellation tokens are only sent to registered processes; resulting in all sorts of issues, such as upgrade failures, when subprocesses don't close after the parent process has received a cancellation token. 
 
 ## Next steps
 For information on Service Fabric concepts, see the following:

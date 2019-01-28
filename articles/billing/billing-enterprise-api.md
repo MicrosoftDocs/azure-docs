@@ -54,7 +54,7 @@ Etags will be returned in the response of all the above API. A change in Etag in
 |401| Unauthorized| API Key not found, Invalid, Expired etc.|
 |404| Unavailable| Report endpoint not found|
 |400| Bad Request| Invalid params – Date ranges, EA numbers etc.|
-|500| Server Error| Unexoected error processing request| 
+|500| Server Error| Unexpected error processing request| 
 
 
 

@@ -140,7 +140,7 @@ This example defines the following routes:
 ### Current limitations for IoT Edge jobs compared to cloud jobs
 The goal is to have parity between IoT Edge jobs and cloud jobs. Most SQL query language features are already supported.
 However the following features are not yet supported for edge jobs:
-* User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
+* User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (preview).
 * User-defined aggregates (UDA).
 * Azure ML functions
 * Using more than 14 aggregates in a single step.
@@ -163,7 +163,7 @@ To run ASA on IoT Edge, you need devices that can run [Azure IoT Edge](https://a
 
 ASA and Azure IoT Edge use **Docker** containers to provide a portable solution that runs on multiple host operating systems (Windows, Linux).
 
-ASA on IoT Edge is made available as Windows and Linux images, running on both x86-64 or Azure Resource Manager architectures. 
+ASA on IoT Edge is made available as Windows and Linux images, running on both x86-64 or ARM (Advanced RISC Machines) architectures. 
 
 
 ### Input and output
