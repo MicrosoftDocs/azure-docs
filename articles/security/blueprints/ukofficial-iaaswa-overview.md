@@ -184,7 +184,7 @@ Storage
 
 [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory Integration**: As an alternative to a dedicated AD DS architecture, customers may wish to use [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-azure-active-directory) integration or [Active Directory in Azure joined to an on-premises forest](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Active Directory Integration**: As an alternative to a dedicated AD DS architecture, customers may wish to use [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) integration or [Active Directory in Azure joined to an on-premises forest](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
 
 ### Security
 

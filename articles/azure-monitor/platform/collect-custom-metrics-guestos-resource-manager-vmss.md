@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
 
@@ -285,4 +285,5 @@ You can then also choose to use the dimensions on this metric to chart it for a 
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
+
 

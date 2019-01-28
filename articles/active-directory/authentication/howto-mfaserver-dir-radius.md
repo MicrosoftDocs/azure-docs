@@ -4,13 +4,13 @@ description: Deploying RADIUS Authentication and Azure Multi-Factor Authenticati
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 ---
 # Integrate RADIUS authentication with Azure Multi-Factor Authentication Server

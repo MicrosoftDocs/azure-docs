@@ -4,7 +4,7 @@ description: Common rrors that could be causing you to not be able to sign into 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory

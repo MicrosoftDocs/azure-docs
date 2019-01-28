@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Manage alert instances
@@ -38,3 +38,4 @@ With the [unified alerts experience](https://aka.ms/azure-alerts-overview) in Az
  
 1.	Clicking on any alert instance opens up the **Alert Details** page, allowing you to deep-dive into information about that specific alert instance.   
 ![Alert Details](media/alerts-managing-alert-instances/alert-details.jpg)  
+

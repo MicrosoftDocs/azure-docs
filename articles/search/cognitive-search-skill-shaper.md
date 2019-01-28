@@ -25,7 +25,7 @@ By default, this technique supports objects that are one level deep. For more co
 In the response, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" in the examples below to "output", but the **Shaper** skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API and there are no fees associated with this skill. However, you must [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) anyway to override the Free resource option that limits you to a small number of daily enrichments.
+> This skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
 
 ## @odata.type  
 Microsoft.Skills.Util.ShaperSkill

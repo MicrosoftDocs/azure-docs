@@ -8793,6 +8793,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-stack/azure-stack-connect-vpn.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-connect-vpn",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-vpn-gateway-settings.md",
+      "redirect_url": "/azure/azure-stack/user/azure-stack-vpn-gateway-settings",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/azure-stack-create-vpn-connection-one-node-tp2.md",
       "redirect_url": "/azure/azure-stack/azure-stack-create-vpn-connection-one-node",
       "redirect_document_id": false
@@ -8984,7 +8999,12 @@
     },
     {
       "source_path": "articles/blockchain-workbench/hyperledger-fabric-single-member-blockchain.md",
-      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-single-member-blockchain",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/blockchain/templates/hyperledger-fabric-single-member-blockchain.md",
+      "redirect_url": "/azure/blockchain/templates/hyperledger-fabric-consortium-blockchain",
       "redirect_document_id": false
     },
     {
@@ -11683,11 +11703,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/machine-learning-competition-faq.md",
-      "redirect_url": "/azure/machine-learning/studio/competition-faq",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/machine-learning-consume-web-services.md",
       "redirect_url": "/azure/machine-learning/studio/consume-web-services",
       "redirect_document_id": false
@@ -11808,14 +11823,39 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-collections.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-gallery-competitions.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-competitions",
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-competitions.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/machine-learning/machine-learning-competition-faq.md",
+        "redirect_url": "/azure/machine-learning/studio/competition-faq",
+        "redirect_document_id": false
+      },
+      {
+          "source_path": "articles/machine-learning/studio/competition-faq.md",
+          "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+          "redirect_document_id": false
+      },
+      {
       "source_path": "articles/machine-learning/machine-learning-gallery-custom-modules.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-custom-modules",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/machine-learning/studio/gallery-custom-modules.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-gallery-experiments.md",
@@ -11823,6 +11863,11 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-experiments.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+        {
       "source_path": "articles/machine-learning/machine-learning-gallery-how-to-use-contribute-publish.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
       "redirect_document_id": false
@@ -11833,19 +11878,39 @@
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-industries.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+{
       "source_path": "articles/machine-learning/machine-learning-gallery-jupyter-notebooks.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-jupyter-notebooks",
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-jupyter-notebooks.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+        {
       "source_path": "articles/machine-learning/machine-learning-gallery-solutions.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-solutions",
       "redirect_document_id": false
     },
     {
+        "source_path": "articles/machine-learning/studio/gallery-solutions.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-gallery-tutorials.md",
       "redirect_url": "/azure/machine-learning/studio/gallery-tutorials",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/machine-learning/studio/gallery-tutorials.md",
+        "redirect_url": "/azure/machine-learning/studio/gallery-how-to-use-contribute-publish",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-how-to-deploy-to-multiple-regions.md",
@@ -26620,6 +26685,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-eligible-visibility.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/pim-configure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-enable-subscription-management.md",
+      "redirect_url": "/azure/role-based-access-control/elevate-access-global-admin?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-use-the-audit-log.md",
+      "redirect_url": "/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-azure-ad-controls-access-reviews-overview.md",
       "redirect_url": "/azure/active-directory/governance/access-reviews-overview",
       "redirect_document_id": true
@@ -29842,7 +29922,7 @@
     {
       "source_path": "articles/cognitive-services/LUIS/AzureIbizaSubscription.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-supported-languages.md",
@@ -33436,8 +33516,13 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md",
-      "redirect_url": "/azure/azure-monitor/platform/tutorial-dashboards",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-schema",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/tutorial-dashboards.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-schema",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-metric-charts.md",
@@ -34260,6 +34345,10 @@
       "redirect_document_id":  true
     },
     {
+      "source_path":  "articles/platform/dashboards.md",
+      "redirect_url":  "/azure/azure-monitorr/learn/tutorial-logs-dashboards",
+      "redirect_document_id":  true
+    },    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -34688,10 +34777,34 @@
       "redirect_url": "/azure/azure-stack/asdk/asdk-download",
       "redirect_document_id": false
     },
-	{
-      "source_path": "articles/active-directory/devices/hybrid-azuread-join-manual-steps.md",
-      "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-plan",
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-keys.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
       "redirect_document_id": true
-    }
+    }, 
+	{ "source_path": "articles/virtual-machines/workloads/sap/suse-quickstart.md", 
+	"redirect_url": "/azure/virtual-machines/workloads/sap/sap-deployment-checklist", 
+	"redirect_document_id": true 
+    },        
+    {
+        "source_path": "articles/active-directory/devices/hybrid-azuread-join-manual-steps.md",
+        "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-plan",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-data-lake-storage-gen2.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-hadoop-compare-storage-options",
+        "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-moving-data.md",
+      "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
+      "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",
+        "redirect_url": "/azure/backup/backup-azure-recovery-services-vault-overview",
+        "redirect_document_id": true
+    }	
   ]
 }

@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -168,3 +168,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Review [Computer Vision overview](Home.md) to learn more about recognizing printed and handwritten text  
 * Refer to the [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Computer Vision functionality.
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
