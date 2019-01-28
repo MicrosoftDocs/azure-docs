@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 
@@ -174,4 +174,5 @@ After the transcript log files are successfully transferred to the file share, t
 
 
 ## Next steps
+
 [Azure Stack diagnostic tools](azure-stack-diagnostics.md)

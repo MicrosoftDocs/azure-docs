@@ -11,23 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ---
 
 # Azure Stack certificates signing request generation
 
-The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment.
+You can use the Azure Stack Readiness Checker tool to create Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment. You can get the tool [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker).
 
-The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the following certificate requests:
+You can use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to request the following certificates:
 
- - **Standard Certificate Requests**  
-    Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md).
+ - **Standard Certificate Requests** according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md).
  - **Platform-as-a-Service**  
     You can request platform-as-a-service (PaaS) names for certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
-
-
 
 ## Prerequisites
 
