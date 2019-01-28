@@ -333,9 +333,9 @@ The following SAP Notes are related to SAP on Azure.
 
 The exact configurations and functionality that are supported by Oracle and SAP on Azure are documented in SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619).
 
-Windows and Oracle Linux are the only operating systems that are supported by Oracle and SAP on Azure. The widely used SLES and RHEL Linux distributions aren't supported for deploying Oracle components in Azure. Oracle components include the Oracle database client, which is used by SAP applications to connect against the Oracle DBMS. 
+Windows and Oracle Linux are the only operating systems that are supported by Oracle and SAP on Azure. The widely used SLES and RHEL Linux distributions aren't supported for deploying Oracle components in Azure. Oracle components include the Oracle Database client, which is used by SAP applications to connect against the Oracle DBMS. 
 
-Exceptions, according to SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619), are SAP components that don't use the Oracle database client. Such SAP components are SAP's stand-alone enqueue, message server, Enqueue replication services, WebDispatcher, and SAP Gateway.  
+Exceptions, according to SAP Note [#2039619](https://launchpad.support.sap.com/#/notes/2039619), are SAP components that don't use the Oracle Database client. Such SAP components are SAP's stand-alone enqueue, message server, Enqueue replication services, WebDispatcher, and SAP Gateway.  
 
 Even if you're running your Oracle DBMS and SAP application instances on Oracle Linux, you can run your SAP Central Services on SLES or RHEL and protect it with a Pacemaker-based cluster. Pacemaker as a high-availability framework isn't supported on Oracle Linux.
 
@@ -345,9 +345,9 @@ Even if you're running your Oracle DBMS and SAP application instances on Oracle 
 
 In accordance with the SAP installation manual, Oracle-related files shouldn't be installed or located in the system driver for a VM's OS disk (drive c:). Virtual machines of varying sizes can support a varying number of attached disks. Smaller virtual machine types can support a smaller number of attached disks. 
 
-If you have smaller VMs, we recommend installing/locating Oracle home, stage, "saptrace", "saparch", "sapbackup", "sapcheck", or "sapreorg" into the OS disk. These parts of Oracle DBMS components are not intense on I/O and I/O throughput. Therefore the OS disk can handle the I/O requirements. The default size of the OS disk is 127 GB. 
+If you have smaller VMs, we recommend installing/locating Oracle home, stage, "saptrace", "saparch", "sapbackup", "sapcheck", or "sapreorg" into the OS disk. These parts of Oracle DBMS components aren't intense on I/O and I/O throughput. This means that the OS disk can handle the I/O requirements. The default size of the OS disk is 127 GB. 
 
-If there isn't enough free space available, the disk can be [resized](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) to 2048 GB. Oracle database and redo log files need to be stored on separate data disks. There's an exception for the Oracle temporary tablespace. Tempfiles can be created on D:/ (non-persistent drive). The non-persistent D:\ drive also offers better I/O latency and throughput (with the exception of A-Series VMs). 
+If there isn't enough free space available, the disk can be [resized](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk) to 2048 GB. Oracle Database and redo log files need to be stored on separate data disks. There's an exception for the Oracle temporary tablespace. Tempfiles can be created on D:/ (non-persistent drive). The non-persistent D:\ drive also offers better I/O latency and throughput (with the exception of A-Series VMs). 
 
 To determine the right amount of space for the tempfiles, you can check the tempfiles sizes on existing systems.
 
@@ -356,14 +356,14 @@ Only single-instance Oracle using NTFS formatted disks is supported. All databas
 
 We strongly recommend using [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). We also strongly recommend using [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) for your Oracle Database deployments.
 
-Network drives or remote shares like Azure file services are **NOT** supported for Oracle database files! For more information, see:
+Network drives or remote shares like Azure file services are **NOT** supported for Oracle Database files! For more information, see:
 
 - <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
 
 - <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
 
-If you're using disks that are based on Azure page blob storage or Managed Disks, the statements in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Oracle database as well.
+If you're using disks that are based on Azure page blob storage or Managed Disks, the statements in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with Oracle Database as well.
 
 Quotas on IOPS throughput for Azure disks exist.This concept is explained in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). The exact quotas depend on the VM type that you use. A list of VM types with their quotas can be found at [Sizes for Windows virtual machines in Azure][virtual-machines-sizes-windows].
 
@@ -405,8 +405,8 @@ If more IOPS are required, we recommend using Window Storage Pools (only availab
 For Azure M-Series VMs, the latency writing into the online redo logs can be reduced by factors when compared to Azure Premium Storage. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
-### Backup / Restore
-For backup/restore functionality, the SAP BR*Tools for Oracle are supported in the same way as they are on standard Windows Server Operating Systems. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
+### Backup/Restore
+For backup/restore functionality, the SAP BR*Tools for Oracle are supported in the same way as they are on standard Windows Server operating systems. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
 
 You can also use Azure Backup to run an application-consistent VM backup. The article [Plan your VM backup infrastructure in Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) explains how Azure Backup uses the Windows VSS functionality for executing  application-consistent backups. The Oracle DBMS releases that are supported on Azure by SAP can leverage the VSS functionality for backups. For more information, see the Oracle documentation [Basic concepts of database backup and recovery with VSS](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701).
 
@@ -420,42 +420,42 @@ For more information about disaster recovery for Oracle databases in Azure, see 
 For Oracle deployments on Windows, we strongly recommend accelerated networking as described in [Azure accelerated networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Also consider the recommendations that are made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md). 
 
 ### Other
-[Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) describes other important concepts related to deployments of VMs with the Oracle database, including Azure availability sets and SAP monitoring.
+[Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) describes other important concepts related to deployments of VMs with Oracle Database, including Azure availability sets and SAP monitoring.
 
 ## Specifics for Oracle Database on Oracle Linux
-Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as guest OS. For more information about general support for Windows Hyper-V and Azure, see the [Azure and Oracle FAQ](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
+Oracle software is supported by Oracle to run on Microsoft Azure with Oracle Linux as the guest OS. For more information about general support for Windows Hyper-V and Azure, see the [Azure and Oracle FAQ](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html). 
 
 The specific scenario of SAP applications leveraging Oracle Databases is supported as well. Details are discussed in the next part of the document.
 
 ### Oracle version support
-Oracle versions and corresponding OS versions, which are supported for running SAP on Oracle on Azure Virtual Machines, can be found in SAP Note [2039619].
+For information about which Oracle versions and corresponding OS versions are supported for running SAP on Oracle on Azure Virtual Machines, see SAP Note [2039619].
 
 General information about running SAP Business Suite on Oracle can be found in the [SAP on Oracle community page](https://www.sap.com/community/topic/oracle.html).
 
-### Oracle configuration guidelines for SAP Installations in Azure VMs on Linux
+### Oracle configuration guidelines for SAP installations in Azure VMs on Linux
 
 In accordance with SAP installation manuals, Oracle-related files shouldn't be installed or located into system drivers for a VM's boot disk. Varying sizes of virtual machines support a varying number of attached disks. Smaller virtual machine types can support a smaller number of attached disks. 
 
-In this case, we recommend installing/locating Oracle home, stage,saptrace, saparch, sapbackup, sapcheck, or sapreorg to boot disk. These parts of Oracle DBMS components aren't intense on I/O and I/O throughput. This means that the OS disk can handle the I/O requirements. The default size of the OS disk is 30 GB. You can expand the boot disk by using the Azure portal, PowerShell, or CLI. After the boot disk has been expanded, you can add an additional partition for Oracle binaries.
+In this case, we recommend installing/locating Oracle home, stage, saptrace, saparch, sapbackup, sapcheck, or sapreorg to boot disk. These parts of Oracle DBMS components aren't intense on I/O and I/O throughput. This means that the OS disk can handle the I/O requirements. The default size of the OS disk is 30 GB. You can expand the boot disk by using the Azure portal, PowerShell, or CLI. After the boot disk has been expanded, you can add an additional partition for Oracle binaries.
 
 
 ### Storage configuration
 
-The filesystems of ext4, xfs, or Oracle ASM are supported for Oracle database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on [Azure page blob storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+The filesystems of ext4, xfs, or Oracle ASM are supported for Oracle Database files on Azure. All database files must be stored on these file systems based on VHDs or Managed Disks. These disks are mounted to the Azure VM and are based on [Azure page blob storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
 For Oracle Linux UEK kernels, a minimum of UEK version 4 is required to support [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
 We strongly recommend using [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). We also strongly recommend using [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) for your Oracle Database deployments.
 
-Network drives or remote shares like Azure file services are **NOT** supported for Oracle database files. For more information, see the following: 
+Network drives or remote shares like Azure file services are **NOT** supported for Oracle Database files. For more information, see the following: 
 
 - <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
 
 - <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-If you're using disks based on Azure page blob storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Oracle database as well.
+If you're using disks based on Azure page blob storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with Oracle Database as well.
 
-As explained in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md), quotas on IOPS throughput for Azure disks exist. The exact quotas depend on the VM type that's used. For a list of VM types with their quotas, see [Sizes for Linux virtual machines in Azure][virtual-machines-sizes-linux].
+ Quotas on IOPS throughput for Azure disks exist. This concept is  explained in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md).The exact quotas depend on the VM type that's used. For a list of VM types with their quotas, see [Sizes for Linux virtual machines in Azure][virtual-machines-sizes-linux].
 
 To identify the supported Azure VM types, see SAP Note [1928533].
 
@@ -496,7 +496,7 @@ If more IOPS are required, we recommend using LVM (Logical Volume Manager) or MD
 For Azure M-Series VMs, when you use Azure Write Accelerator, the latency writing into the online redo logs can be reduced by factors when compared to Azure Premium Storage performance. Enable Azure Write Accelerator for the disks (VHDs) based on Azure Premium Storage that are used for online redo log files. For more information, see [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator).
 
 
-### Backup / Restore
+### Backup/Restore
 For backup/restore functionality, the SAP BR*Tools for Oracle are supported in the same way as they are on bare metal and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
 
 For more information about how you can use Azure Backup and Recovery services for backing up and recovering Oracle databases, see [Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery).
@@ -519,4 +519,4 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 
 
 ### Other
-All other general areas like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with the Oracle Database as well.
+All other general areas like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with Oracle Database as well.
