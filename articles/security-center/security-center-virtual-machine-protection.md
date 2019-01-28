@@ -42,7 +42,7 @@ Under **Compute & apps**, there are the following tabs:
 - **Containers (Preview)**: list of your containers hosted on IaaS Linux machines and security assessment of their Docker configurations.
 - **Compute resources (Preview)**: list of recommendations for your compute resources, such as Service Fabric clusters and Event hubs.
 
-To continue, select **Compute & apps** under **Resource security hygeine**.
+To continue, select **Compute & apps** under **Resource security hygiene**.
 
 ![Compute](./media/security-center-virtual-machine-recommendations/compute.png)
 
