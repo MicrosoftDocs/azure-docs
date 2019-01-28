@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/08/2018
+ms.date: 01/25/2019
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -93,6 +93,11 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | {OAUTH-KV:loyalty_number} | A query string parameter. | 1234 |
 | {OAUTH-KV:any custom query string} | A query string parameter. | N/A |
 
+### OAuth2
+
+| Claim | Description | Example |
+| ----- | ----------------------- | --------|
+| {oauth2:access_token} | The access token. | N/A |
 
 ## How to use claim resolvers
 
