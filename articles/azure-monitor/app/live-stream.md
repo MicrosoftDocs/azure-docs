@@ -64,7 +64,7 @@ Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-ad
 
 ## Select and filter your metrics
 
-(Available with ASP.NET, ASP.NET, and Azure Functions (v2).)
+(Available with ASP.NET, ASP.NET Core, and Azure Functions (v2).)
 
 You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time. 
 
