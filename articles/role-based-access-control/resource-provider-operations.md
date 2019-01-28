@@ -3323,7 +3323,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/checkTrafficManagerNameAvailability/action | Checks the availability of a Traffic Manager Relative DNS name. |
 > | Action | Microsoft.Network/connections/delete | Deletes VirtualNetworkGatewayConnection |
 > | Action | Microsoft.Network/connections/read | Gets VirtualNetworkGatewayConnection |
-> | Action | Microsoft.Network/connections/revoke/action | Marks an Exprress Route Connection status as Revoked |
+> | Action | Microsoft.Network/connections/revoke/action | Marks an Express Route Connection status as Revoked |
 > | Action | Microsoft.Network/connections/sharedkey/action | Get VirtualNetworkGatewayConnection SharedKey |
 > | Action | Microsoft.Network/connections/sharedKey/read | Gets VirtualNetworkGatewayConnection SharedKey |
 > | Action | Microsoft.Network/connections/sharedKey/write | Creates or updates an existing VirtualNetworkGatewayConnection SharedKey |
