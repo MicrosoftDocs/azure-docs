@@ -2178,7 +2178,7 @@ Specifies information on debugger to attach when activating codepackage.
     <xs:sequence>
       <xs:element name="ContainerEntryPoint" type="xs:string" minOccurs="0" maxOccurs="unbounded">
         <xs:annotation>
-          <xs:documentation>Overidden entrypoint for containers so debugger can be launched.</xs:documentation>
+          <xs:documentation>Overridden entrypoint for containers so debugger can be launched.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ContainerMountedVolume" type="xs:string" minOccurs="0" maxOccurs="unbounded">
@@ -2330,7 +2330,7 @@ Specifies information on debugger to attach when activating codepackage.
 ### Content element details
 
 #### ContainerEntryPoint
-Overidden entrypoint for containers so debugger can be launched.
+Overridden entrypoint for containers so debugger can be launched.
 |Attribute|Value|
 |---|---|
 |name|ContainerEntryPoint|
