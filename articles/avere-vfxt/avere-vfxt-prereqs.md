@@ -92,13 +92,13 @@ Before you can create your Avere vFXT cluster, you must define a custom role to 
 For the cluster controller, you can accept the default role from the template. The default gives the cluster controller resource group owner privileges. If you prefer to create a custom role for the controller, see [Customized controller access role](avere-vfxt-controller-role.md).
 
 > [!NOTE] 
-> Only a subscription owner can create roles. A subscription owner can use this procedure to create roles ahead of time.  
+> Only a subscription owner, or a user with the role Owner or User Access Administrator, can create roles. The roles can be created ahead of time.  
 
 ### Create the cluster node access role
 
 <!-- caution - this header is linked to in the template so don't change it unless you can change that -->
 
-You must create the cluster node role before creating the Avere vFXT for Azure cluster.
+You must create the cluster node role before you can create the Avere vFXT for Azure cluster.
 
 > [!TIP] 
 > Microsoft internal users should use the existing role named "Avere Cluster Runtime Operator" instead of attempting to create one. 
@@ -139,7 +139,7 @@ You must create the cluster node role before creating the Avere vFXT for Azure c
 1. Save the file as ``avere-operator.json`` or a similar memorable file name. 
 
 
-1. Open an Azure Cloud shell and log in with your subscription ID (described [earlier in this document](#accept-software-terms)). Use this command to create the role:
+1. Open an Azure Cloud shell and sign in with your subscription ID (described [earlier in this document](#accept-software-terms)). Use this command to create the role:
 
    ```bash
    az role definition create --role-definition /avere-operator.json

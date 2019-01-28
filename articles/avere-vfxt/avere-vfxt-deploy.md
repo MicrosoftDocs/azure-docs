@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # Deploy the vFXT cluster
 
-This procedure uses an Azure Resource Manager template to automate the cluster creation. After you enter the parameters in the form and click **Buy**, Azure automatically completes these steps: 
+This procedure walks you through using the deployment wizard available from the Azure Marketplace. The wizard automatically deploys the cluster by using an Azure Resource Manager template. After you enter the parameters in the form and click **Create**, Azure automatically completes these steps: 
 
 * Create the cluster controller, which is a basic VM that contains the software needed to deploy and manage the cluster.
 * Set up resource group and virtual network infrastructure, including creating new elements if needed.
@@ -21,7 +21,7 @@ After following the instructions in this document, you will have a virtual netwo
 
 ![diagram showing vnet containing optional blob storage and a subnet containing three grouped VMs labeled vFXT nodes/vFXT cluster and one VM labeled cluster controller](media/avere-vfxt-deployment.png)
 
-After creating the cluster you should [create a storage endpoint](#create-a-storage-endpoint-if-using-azure-blob) in your virtual network if using Blob storage. 
+After creating the cluster, you should [create a storage endpoint](#create-a-storage-endpoint-if-using-azure-blob) in your virtual network if using Blob storage. 
 
 Before using the creation template, make sure you have addressed these prerequisites:  
 
@@ -42,7 +42,12 @@ Click **Create** to begin.
 
 ![Azure marketplace with the first page of the deployment template showing](media/avere-vfxt-deploy-first.png)
 
-The template is divided into two main sections. Page one focuses on configuring the cluster controller VM. Page two collects parameters for creating the cluster and associated resources. Page three summarizes the settings and validates the configuration. 
+The template is divided into four steps - two information gathering pages, plus validation and confirmation steps. 
+
+* Page one focuses on settings for the cluster controller VM. 
+* Page two collects parameters for creating the cluster and associated resources like subnets and storage. 
+* Page three summarizes the settings and validates the configuration. 
+* Page four explains software terms and conditions and allows you to start the cluster creation process. 
 
 ## Page one parameters - cluster controller information
 
@@ -53,7 +58,9 @@ The first page of the deployment template gathers information about the cluster 
 Fill in the following information:
 
 * **Cluster controller name** - Set the name for the cluster controller VM.
+
 * **Controller username** - Fill in the root username for the cluster controller VM. The default is ```azureuser```
+
 * **Authentication type** - Choose either password or SSH public key authentication for connecting to the controller. The SSH public key method is recommended; read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help.
 
 * **Password** or **SSH public key** - Depending on the authentication type you selected, you must provide an RSA public key or a password in the next fields. This credential is used with the username provided earlier.
@@ -61,12 +68,15 @@ Fill in the following information:
 * **Avere cluster create role ID** - Use this field to specify the access control role for the cluster controller. The default value is the built-in role [Owner](../role-based-access-control/built-in-roles.md#owner). Owner privileges for the cluster controller are restricted to the cluster's resource group. 
 
   You must use the globally unique identifier that corresponds to the role. For the default value (Owner), the GUID is 8e3af657-a8ff-443c-a75c-2fe8c4bcb635. To find the GUID for a custom role, use this command: 
-  ```azcli
+
+  ```azurecli
   az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
   ```
 
 * **Subscription** - Select the subscription for the Avere vFXT. 
+
 * **Resource group** - Select the resource group for the Avere vFXT cluster, or click "Create new" and enter a new resource group name. 
+
 * **Location** - Select the Azure location for your cluster and resources.
 
 Click **OK** when finished. 
@@ -82,7 +92,8 @@ The second page of the deployment template allows you to set the cluster size, n
 
 * **Avere vFXT cluster node count** - Choose the number of nodes to use in the cluster. The minimum is three nodes and the maximum is twelve. 
 
-* **Cluster administration password** - Create the password for cluster administration. This password will be used with the username ```admin``` to log in to the cluster control panel to monitor the cluster and to configure settings.
+* **Cluster administration password** - Create the password for cluster administration. This password will be used with the username ```admin``` to sign in to the cluster control panel to monitor the cluster and to configure settings.
+
 * **Avere cluster operations role** - Specify the name of the access control role for the cluster nodes. This is a custom role that was created as a prerequisite step. 
 
   The example described in [Create the cluster node access role](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) saves the file as ```avere-operator.json``` and the corresponding role name is ```avere-operator```.
@@ -103,19 +114,17 @@ The second page of the deployment template allows you to set the cluster size, n
   > A publicly visible IP address on the cluster controller provides easier access to the vFXT cluster, but creates a small security risk. 
   >  * A public IP address on the cluster controller allows you to use it as a jump host to connect to the Avere vFXT cluster from outside the private subnet.
   >  * If you do not set up a public IP address on the controller, you must use another jump host, a VPN connection, or ExpressRoute to access the cluster. For example, create the controller within a virtual network that already has a VPN connection configured.
-  >  * If you create a controller with a public IP address, you should protect the controller VM with a network security group. Allow access only through port 22 to provide internet access.
+  >  * If you create a controller with a public IP address, you should protect the controller VM with a network security group. By default, the Avere vFXT for Azure deployment creates a network security group and restricts inbound access to only port 22 for controllers with public IP addresses. You can further protect the system by locking down access to your range of IP source addresses - that is, only allow connections from machines you intend to use for cluster access.
 
 * **Subnet** - Choose a subnet from your existing virtual network, or create a new one. 
 
-* **Use blob storage** - Choose whether or not to create a new Azure Blob container and configure it as back-end storage for the new Avere vFXT cluster. If you choose to create a new container, you must supply the storage account for that container. If you choose not to create a new blob container, you must attach storage after creating the cluster (read [Configure storage](avere-vfxt-add-storage.md) for instructions). Set this to **false** if you do not want to create a new container.
+* **Use blob storage** - Choose whether or not to create a new Azure Blob container and configure it as back-end storage for the new Avere vFXT cluster. If you choose to create a new container, you must supply the storage account for that container. If you choose not to create a new blob container, you must attach storage after creating the cluster (read [Configure storage](avere-vfxt-add-storage.md) for instructions). Set this field to **false** if you do not want to create a new container.
 
-* **Storage account** - If creating a new Azure Blob container, enter the storage account name. 
-
-Click **OK** to continue. 
+* **Storage account** - If creating a new Azure Blob container, enter the storage account name. The storage account must be a standard general-purpose V2 account configured with locally redundant storage and the hot access tier. The [Configure storage](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) article has more details about the storage account requirements.
 
 ## Validation and purchase
 
-Page three gives a summary of the configuration and validates the parameters. After validation succeeds, click the **OK** button to proceed. On page four, you must accept the software terms and conditions to start the cluster deployment. 
+Page three gives a summary of the configuration and validates the parameters. After validation succeeds, click the **OK** button to proceed. 
 
 ![Third page of the deployment template - validation](media/avere-vfxt-deploy-3.png)
 
@@ -160,4 +169,4 @@ If you are using Azure Blob storage for your back-end data storage, you should c
 
 ## Next step
 
-Now that the cluster is running and you know its management IP address, you can [connect to the cluster configuration tool](avere-vfxt-cluster-gui.md) to enable support, add storage if needed, or address the default encryption key on your new Blob storage.
+Now that the cluster is running and you know its management IP address, you can [connect to the cluster configuration tool](avere-vfxt-cluster-gui.md) to enable support, add storage if needed, and customize other cluster settings.
