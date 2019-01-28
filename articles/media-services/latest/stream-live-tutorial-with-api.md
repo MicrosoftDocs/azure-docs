@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/27/2019
+ms.date: 01/28/2019
 ms.author: juliako
 
 ---
@@ -55,7 +55,7 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The live streaming sample is located in the [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp) folder.
 
-Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) and replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md)
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) in you downloaded project. Replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md)
 
 > [!IMPORTANT]
 > This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple Live Events in your account. <br/>Make sure to stop the running Live Events. Otherwise, you will be **billed**!
