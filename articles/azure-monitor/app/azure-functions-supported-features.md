@@ -35,6 +35,7 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 | | | | 
 | **Supported features**             	|               	|                  	|           	
 | &bull; QuickPulse/LiveMetrics       | Yes           	| Yes              	| 
+| &nbsp;&nbsp;&nbsp;&mdash; Secure Control Channel<br/> See [here](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#azure-function-apps) for instructions.|               	| Yes              	| 
 | &bull; Sampling                     | Yes           	| Yes              	| 
 | &bull; Heartbeats                   |   	            | Yes              	| 
 | | | | 
