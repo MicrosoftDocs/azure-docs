@@ -344,7 +344,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
   - name: About IP address 168.63.129.16
-  - href: what-is-ip-address-168-63-129-16.md
+    href: what-is-ip-address-168-63-129-16.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
