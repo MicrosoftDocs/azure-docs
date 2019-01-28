@@ -18,8 +18,8 @@ The alerts feature in OMS portal is being replaced by Azure Alerts in Azure Gove
 > [!NOTE]
 > Microsoft will automatically extend alerts created in Azure Government OMS portal instances of Log Analytics to Azure Alerts, starting on Mar 1, 2019, in a systematic manner. If you have any problems creating [action groups](../../azure-monitor/platform/action-groups.md), use [these remediation steps](alerts-extend-tool.md#troubleshooting) to get action groups created automatically. You can use these steps until March 15, 2019 in Azure Government OMS portal.
 
-## Option 1: Initiate from the Operations Management Suite portal for Azure Gov
-The following steps describe how to extend alerts for the workspace from the Operations Management Suite portal.  
+## Option 1: Initiate from the Operations Management Suite portal
+The following steps describe how to extend alerts for the workspace from the Operations Management Suite portal for Azure Government cloud.  
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 2. In the Log Analytics subscriptions pane, select a workspace, and then select the **OMS Portal** tile.
