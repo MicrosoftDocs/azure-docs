@@ -42,7 +42,7 @@ If you are running the Azure Stack Monthly Update Verification workflow and the 
 1.	Run the OEM update as normal.
 2.	Execute Test-AzureStack after successful application of the package and save the output.
 3.	Cancel the test.
-4.  Send the saved output to VaaSHelp@microsoft.com to recieve passing results for the run.
+4.  Send the saved output to VaaSHelp@microsoft.com to receive passing results for the run.
 
 ## Version 4.0.2
 
