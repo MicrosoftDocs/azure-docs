@@ -223,7 +223,7 @@ For agentless monitoring of Azure resources, the resources need to have Azure di
 
 For the details of the available metrics, refer to [supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
-For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/tutorial-dashboards.md).
+For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

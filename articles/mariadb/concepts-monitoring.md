@@ -14,7 +14,7 @@ Monitoring data about your servers helps you troubleshoot and optimize for your 
 All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview]
 (../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-<!--For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). -->
+For step by step guidance, see [How to set up alerts](howto-alert-metric.md).
 
 ### List of metrics
 These metrics are available for Azure Database for MariaDB:
@@ -40,5 +40,4 @@ You can enable slow query logging on your server. To learn more about logging, v
 
 ## Next steps
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-
-<!-- - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.-->
+ - See [How to set up alerts](howto-alert-metric.md) for guidance on creating an alert on a metric.

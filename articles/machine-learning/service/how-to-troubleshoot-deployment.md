@@ -88,10 +88,10 @@ If system is unable to build the Docker image, the `image.wait_for_creation()` c
 print(image.image_build_log_uri)
 
 # if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images()['myimg'].image_build_log_uri)
+print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items():
+for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 The image log uri is a SAS URL pointing to a log file stored in your Azure blob storage. Simply copy and paste the uri into a browser window and you can download and view the log file.
@@ -110,7 +110,7 @@ You can print out detailed Docker engine log messages from the service object.
 print(service.get_logs())
 
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices()['mysvc'].get_logs())
+print(ws.webservices['mysvc'].get_logs())
 ```
 
 ### Debug the Docker image locally

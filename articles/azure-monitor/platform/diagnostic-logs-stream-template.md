@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
-ms.component: ""
+ms.subservice: ""
 ---
 # Automatically enable Diagnostic Settings at resource creation using a Resource Manager template
 In this article we show how you can use an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs, archiving them in a Storage Account, or sending them to Log Analytics when a resource is created.
@@ -262,4 +262,5 @@ The entire process, including samples, is described [in this document](../../vir
 ## Next steps
 * [Read more about Azure Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md)
 * [Stream Azure Diagnostic Logs to Event Hubs](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
+
 

@@ -17,6 +17,13 @@ ms.date: 01/08/2019
 
 Transactional Replication is a feature of Azure SQL Database, Managed Instance and SQL Server that enables you to replicate data from a table in Azure SQL Database or SQL Server to the tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases.
 
+## When to use Transactional replication
+
+Transactional replication is useful in the following scenarios:
+- Publish changes made in one or more tables in a database and distribute them to one or many SQL Server or Azure SQL databases that subscribed for the changes.
+- Keep several distributed databases in synchronized state.
+- Migrate databases from one SQL Server or Managed Instance to another database by continuously publishing the changes.
+
 ## Overview 
 The key components in transactional replication are shown in the following picture:  
 
@@ -75,16 +82,19 @@ In general, the publisher and the distributor must be either in the cloud or on-
 
 ![Single instance as Publisher and Distributor ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-Publisher and distributor are configured within a single Managed Instance. 
+Publisher and distributor are configured within a single Managed Instance and distributing changes to other Managed Instance, Single database or SQL Server on-premises. In this configuration, publisher/distributor Managed Instance cannot be configured with [Geo-replication and auto failover-groups](sql-database-auto-failover-group.md).
 
 ### Publisher with remote distributor on a Managed Instance
+
+In this configuration, one Managed Instance publishes changes to distributor placed on another Managed Instance that can serve many source Managed Instances and distribute changes to one or many targets on Managed Instance, Single Database, or SQL Server.
 
 ![Separate instances for Publisher and Distributor](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
 Publisher and distributor are configured on two Managed Instances. In this configuration
 
 - Both Managed Instances are on the same vNet.
-- Both Managed Instances are in the same location. 
+- Both Managed Instances are in the same location.
+- Managed Instances that are hosting published and distributor databases cannot be [geo-replicated using auto failover-groups](sql-database-auto-failover-group.md).
 
 ### Publisher and distributor on-premises with a subscriber on a Managed Instance or Logical Server 
 

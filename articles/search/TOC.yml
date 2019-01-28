@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Search
+  - name: What is Azure Search
     href: search-what-is-azure-search.md
+  - name: What is cognitive search
+    href: cognitive-search-concept-intro.md
 - name: Quickstarts
   expanded: true
   items:
@@ -51,8 +53,6 @@
     href: https://azure.microsoft.com/resources/samples/?service=search
 - name: Concepts
   items:
-  - name: Cognitive search (Preview)
-    href: cognitive-search-concept-intro.md
   - name: Full text search
     href: search-lucene-query-architecture.md
 - name: How-to guides
@@ -145,6 +145,10 @@
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
     - name: Synonyms
       href: search-synonyms.md
+    - name: Model relational data
+      href: search-example-adventureworks-modeling.md
+    - name: Model multi-level facets
+      href: search-example-adventureworks-multilevel-faceting.md
   - name: Load and refresh data
     items:
     - name: Data import overview
@@ -215,7 +219,7 @@
       href: search-manage.md
     - name: PowerShell (Azure Search)
       href: search-manage-powershell.md
-    - name: Monitor usage & statistics
+    - name: Monitor activity and logging
       href: search-monitor-usage.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
@@ -248,7 +252,7 @@
       href: cognitive-search-skill-language-detection.md
     - name: Named Entity Recognition
       href: cognitive-search-skill-named-entity-recognition.md
-    - name: Enity Recognition
+    - name: Entity Recognition
       href: cognitive-search-skill-entity-recognition.md
     - name: Text Merger
       href: cognitive-search-skill-textmerger.md

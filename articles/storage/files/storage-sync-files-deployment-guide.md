@@ -31,7 +31,13 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 
     > [!Note]  
     > Azure File Sync does not yet support PowerShell 6+ on either Windows Server 2012 R2 or Windows Server 2016.
-* The Azure PowerShell module on the servers you would like to use with Azure File Sync. For more information on how to install the Azure PowerShell modules, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). We always recommend using the latest version of the Azure PowerShell modules. 
+* The Az and the AzureRM PowerShell modules.
+    - The Az module can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+    - The AzureRM PowerShell module can be installed by executing the following PowerShell cmdlet:
+    
+        ```PowerShell
+        Install-Module AzureRM
+        ```
 
 ## Prepare Windows Server to use with Azure File Sync
 For each server that you intend to use with Azure File Sync, including each server node in a Failover Cluster, disable **Internet Explorer Enhanced Security Configuration**. This is required only for initial server registration. You can re-enable it after the server has been registered.
@@ -65,61 +71,6 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 
 ---
 
-## Install the Azure File Sync agent
-The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share. 
-
-# [Portal](#tab/azure-portal)
-You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
-
-> [!Important]  
-> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must registered to work with Azure File Sync.
-
-We recommend that you do the following:
-- Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.
-- Enable Microsoft Update to keep Azure File Sync up to date. All updates, to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
-
-When the Azure File Sync agent installation is finished, the Server Registration UI automatically opens. You must have a Storage Sync Service before registering; see the next section on how to create a Storage Sync Service.
-
-# [PowerShell](#tab/azure-powershell)
-Execute the following PowerShell code to download the appropriate version of the Azure File Sync agent for your OS and install it on your system.
-
-> [!Important]  
-> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must registered to work with Azure File Sync.
-
-```PowerShell
-# Gather the OS version
-$osver = [System.Environment]::OSVersion.Version
-
-# Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
-    Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
-    Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-else {
-    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
-}
-
-# Extract the MSI from the install package
-$tempFolder = New-Item -Path "afstemp" -ItemType Directory
-Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
-
-# Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
-# Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
-Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
-
-# Note that this cmdlet will need to be run in a new session based on the above comment.
-# You may remove the temp folder containing the MSI and the EXE installer
-Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
-```
-
----
-
 ## Deploy the Storage Sync Service 
 The deployment of Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group of your selected subscription. We recommend provisioning as few of these as needed. You will create a trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
 
@@ -142,7 +93,7 @@ When you are finished, select **Create** to deploy the Storage Sync Service.
 Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the Azure PowerShell modules.
 
 > [!Note]  
-> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureStorageSync` was chosen to match the `Login-AzAccount` cmdlet alias in the Azure PowerShell module. This error message (and cmdlet) will be removed the Azure File Sync agent is added to the Azure PowerShell module.
+> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureStorageSync` was chosen to match the `Login-AzAccount` cmdlet alias in the Azure PowerShell module. This error message (and cmdlet) will be removed when the Azure File Sync agent is added to the Azure PowerShell module.
 
 ```PowerShell
 $acctInfo = Login-AzAccount
@@ -207,6 +158,61 @@ Once you have created the Azure File Sync context with the `Login-AzureR,Storage
 ```PowerShell
 $storageSyncName = "<my-storage-sync-service>"
 New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
+```
+
+---
+
+## Install the Azure File Sync agent
+The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share. 
+
+# [Portal](#tab/azure-portal)
+You can download the agent from the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). When the download is finished, double-click the MSI package to start the Azure File Sync agent installation.
+
+> [!Important]  
+> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must registered to work with Azure File Sync.
+
+We recommend that you do the following:
+- Leave the default installation path (C:\Program Files\Azure\StorageSyncAgent), to simplify troubleshooting and server maintenance.
+- Enable Microsoft Update to keep Azure File Sync up to date. All updates, to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
+
+When the Azure File Sync agent installation is finished, the Server Registration UI automatically opens. You must have a Storage Sync Service before registering; see the next section on how to create a Storage Sync Service.
+
+# [PowerShell](#tab/azure-powershell)
+Execute the following PowerShell code to download the appropriate version of the Azure File Sync agent for your OS and install it on your system.
+
+> [!Important]  
+> If you intend to use Azure File Sync with a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster. Each node in the cluster must registered to work with Azure File Sync.
+
+```PowerShell
+# Gather the OS version
+$osver = [System.Environment]::OSVersion.Version
+
+# Download the appropriate version of the Azure File Sync agent for your OS.
+if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
+    Invoke-WebRequest `
+        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
+        -OutFile "StorageSyncAgent.exe" 
+}
+elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
+    Invoke-WebRequest `
+        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
+        -OutFile "StorageSyncAgent.exe" 
+}
+else {
+    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
+}
+
+# Extract the MSI from the install package
+$tempFolder = New-Item -Path "afstemp" -ItemType Directory
+Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
+
+# Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
+# Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
+Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
+
+# Note that this cmdlet will need to be run in a new session based on the above comment.
+# You may remove the temp folder containing the MSI and the EXE installer
+Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
 ```
 
 ---

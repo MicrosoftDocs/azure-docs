@@ -84,8 +84,8 @@ First, [set-up a new Azure Linux VM][azure_vm_setup] to act as a host for your n
   3. Add and **Outgoing Rule** for **port 80**. Be sure to allow incoming from any address.
 
 ### Set the DNS Name Label
-  1. Go to the [The Public IP Adresses][azure_ips] page.
-  2. Select the Public IP that correspends with your Virtual Machine.
+  1. Go to the [The Public IP Addresses][azure_ips] page.
+  2. Select the Public IP that corresponds with your Virtual Machine.
   3. Set the **DNS Name Label** in the **Configuration** section. In the case of this example it will look something like this *your-domain-label*.centralus.cloudapp.azure.com
 
 Once you are able to connect through SSH to the Virtual Machine you can install the Web Framework of your choice (the two most well known in Python being [Flask](http://flask.pocoo.org/) and [Django](https://www.djangoproject.com)). You can install either of them just by running the `pip install` command.
