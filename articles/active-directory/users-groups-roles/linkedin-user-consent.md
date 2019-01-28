@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: beengen
-ms.custom: it-pro
+ms.custom: it-pro;seo-update-jan
 ---
 
 # LinkedIn integration data sharing and consent
