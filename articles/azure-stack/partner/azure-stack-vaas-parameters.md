@@ -15,6 +15,8 @@ ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
+ROBOTS: NOINDEX
+
 ---
 
 # Workflow common parameters for Azure Stack Validation as a Service

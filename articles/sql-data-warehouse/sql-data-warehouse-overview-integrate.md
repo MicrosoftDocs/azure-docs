@@ -36,7 +36,7 @@ Azure Data Factory gives users a managed platform to create complex extract and 
 * **Stored Procedures**: Orchestrate the execution of stored procedures on SQL Data Warehouse.
 * **Copy**: Use ADF to move data into SQL Data Warehouse. This operation can use ADF's standard data movement mechanism or PolyBase under the covers. 
 
-For more information, see [Integrate with Azure Data Factory](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+For more information, see [Integrate with Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
 
 ## Azure Machine Learning
 Azure Machine Learning is a fully managed analytics service, which allows you to create intricate models using a large set of predictive tools. SQL Data Warehouse is supported as both a source and destination for these models with the following functionality:

@@ -15,6 +15,8 @@ ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
+ROBOTS: NOINDEX
+
 ---
 
 # What is Validation as a Service for Azure Stack?

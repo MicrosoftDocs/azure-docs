@@ -10,11 +10,10 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
-ms.component: 
+ms.subservice: 
 ---
  
 # Manage usage and costs for Log Analytics
@@ -63,7 +62,7 @@ The following steps describe how to configure a limit to manage the volume of da
 
 1. From your workspace, select **Usage and estimated costs** from the left pane.
 2. On the **Usage and estimated costs** page for the selected workspace, click **Data volume management** from the top of the page. 
-5. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.<br><br> ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.<br><br> ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### Alert when daily cap reached
 While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view and manage alerts](alerts-metric.md).      
@@ -157,7 +156,7 @@ To understand the number of computers (nodes) reporting data each day in the las
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-To get a list of computers sending **billed data types** (some data types are free), leverage the `_IsBilled` property:
+To get a list of computers sending **billed data types** (some data types are free), leverage the [_IsBillable](log-standard-properties.md#isbillable) property:
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -165,7 +164,7 @@ To get a list of computers sending **billed data types** (some data types are fr
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Use these `union withsource = tt *` queries sparingly as scans across data data typres are expensive to execute. 
+Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute. 
 
 This can be extended to return the count of computers per hour that are sending billed data types:
 
@@ -229,7 +228,7 @@ Some suggestions for reducing the volume of logs collected include:
 
 | Source of high data volume | How to reduce data volume |
 | -------------------------- | ------------------------- |
-| Security events            | Select [common or minimal security events](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registry](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [audit file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [audit kernel object](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [audit handle manipulation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - audit removable storage |
+| Security events            | Select [common or minimal security events](https://docs.microsoft.com/en-us/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registry](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [audit file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [audit kernel object](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [audit handle manipulation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - audit removable storage |
 | Performance counters       | Change [performance counter configuration](data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
 | Event logs                 | Change [event log configuration](data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
 | Syslog                     | Change [syslog configuration](data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
@@ -329,8 +328,9 @@ When you receive an alert, use the steps in the following section to troubleshoo
 * See [Log searches in Log Analytics](../log-query/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
 * Use the steps described in [create a new log alert](alerts-metric.md) to be notified when a search criteria is met.
 * Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
-* To configure an effective security event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
+* To configure an effective   event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
 * Change [performance counter configuration](data-sources-performance-counters.md).
 * To modify your event collection settings, review [event log configuration](data-sources-windows-events.md).
 * To modify your syslog collection settings, review [syslog configuration](data-sources-syslog.md).
+
 

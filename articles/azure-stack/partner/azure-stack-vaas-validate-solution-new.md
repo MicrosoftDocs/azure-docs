@@ -15,6 +15,8 @@ ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
+ROBOTS: NOINDEX
+
 ---
 
 # Validate a new Azure Stack solution

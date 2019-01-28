@@ -81,7 +81,7 @@ This section describes how to create the Azure Resource Manager template that yo
 
 1. Check the script in to your source control system. Name it something like **GetLabVMParams.ps1**.
 
-   When you run this script on the agent as part of the release pipeline, and if you use task steps such as *Azure File Copy* or *PowerShell on Target Machines*, the script collects the values that you need to deploy your app to the VM. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM Resource Group name, IP address, and fully qualified domain name (FDQN).
+   When you run this script on the agent as part of the release pipeline, and if you use task steps such as *Azure File Copy* or *PowerShell on Target Machines*, the script collects the values that you need to deploy your app to the VM. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM Resource Group name, IP address, and fully qualified domain name (FQDN).
 
 ## Create a release pipeline in Release Management
 To create the release pipeline, do the following:

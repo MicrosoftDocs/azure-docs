@@ -140,7 +140,7 @@ Finally, check the box next to **GetWebContent** in the *Values* selector to pop
 
 ![Azure Storage static websites metrics GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 
-One enabled, traffic statistics on files in the *$web* container reported in the metrics dashboard.
+Once enabled, traffic statistics on files in the *$web* container are reported in the metrics dashboard.
 
 ## FAQ
 

@@ -30,7 +30,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Combine data from multiple sources including output from [Metrics explorer](../azure-monitor/platform/metrics-charts.md), [Log Analytics queries](../azure-monitor/log-query/log-query-overview.md), and [maps](../azure-monitor/app/app-map.md) and availability in Application Insights.
 - Option for personal or shared dashboards. Integrated with Azure [role based authentication (RBAC)](../role-based-access-control/overview.md).
 - Automatic refresh. Metrics refresh depends on time range with minimum of five minutes. Logs refresh at one minute.
-- Parametrized metrics dashboards with timestamp and custom parameters.
+- Parameterized metrics dashboards with timestamp and custom parameters.
 - Flexible layout options.
 - Full screen mode.
 

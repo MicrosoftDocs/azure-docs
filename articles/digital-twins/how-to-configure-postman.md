@@ -97,7 +97,7 @@ After completing the previous steps, configure Postman to make an authenticated 
 
 1. Serialize non-text data into files. JSON data would be saved as a JSON file.
 1. Under the **Body** tab, add each file by assigning a **key** name, selecting `file` or `text`.
-1. Then, select the file through the **Choose File** button.
+1. Then, select each file through the **Choose File** button.
 
    ![Postman client example][5]
 

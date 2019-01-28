@@ -85,6 +85,22 @@
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- Clean up your cluster and delete the infrastructure
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: Best practices
+  items:
+  - name: Service Fabric best practices overview
+    href: service-fabric-best-practices-overview.md
+  - name: Security
+    href: service-fabric-best-practices-security.md
+  - name: Networking 
+    href: service-fabric-best-practices-networking.md
+  - name: Compute planning and scaling  
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: Infrastructure as code
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: Monitoring and diagnostics
+    href: service-fabric-best-practices-monitoring.md
+  - name: Production readiness checklist
+    href: service-fabric-production-readiness-checklist.md  
 - name: Samples
   items:
   - name: Code samples
@@ -701,10 +717,6 @@
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: Best practices
-    items:
-    - name: Production readiness checklist
-      href: service-fabric-production-readiness-checklist.md
 
 - name: Reference
   items:
@@ -782,6 +794,8 @@
     href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
   - name: REST
     href: /rest/api/servicefabric
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.servicefabric/clusters
   - name: Service Fabric events
     href: service-fabric-diagnostics-event-generation-operational.md
   - name: Configure cluster settings and fabric upgrade policy

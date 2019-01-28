@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -30,7 +30,7 @@ The information in this article describes registering Azure Stack integrated sys
 
 ## Prerequisites
 
-You will need the following in place before you register:
+You need the following in place before you register:
 
  - Verify your credentials
  - Set the PowerShell language mode
@@ -49,9 +49,9 @@ Before registering Azure Stack with Azure, you must have:
 
 - The username and password for an account that is an owner for the subscription.
 
-- The user account needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription.
+- The user account needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription. We recommend that you register Azure Stack with Azure using least-privilege administration by [creating a service account to use for registration](azure-stack-registration-role.md) rather than using global administrator credentials.
 
-- Registered the Azure Stack resource provider (see the Register Azure Stack Resource Provider section below for details).
+- Registered the Azure Stack resource provider (see the following Register Azure Stack Resource Provider section for details).
 
 After registration, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily reinstate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
 
@@ -65,11 +65,11 @@ To successfully register Azure Stack, the PowerShell language mode must be set t
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-Ensure the output returns **FullLanguageMode**. If any other language mode is returned, registration will need to be run on another machine or the language mode will need to be set to **FullLanguageMode** before continuing.
+Ensure the output returns **FullLanguageMode**. If any other language mode is returned, registration needs to be run on another machine or the language mode needs to be set to **FullLanguageMode** before continuing.
 
 ### Install PowerShell for Azure Stack
 
-You need to use the latest PowerShell for Azure Stack to register with Azure.
+Use the latest PowerShell for Azure Stack to register with Azure.
 
 If not the latest version is not already installed, see [install PowerShell for Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
@@ -99,7 +99,7 @@ When you register Azure Stack with Azure, you must provide a unique registration
 > [!NOTE]
 > Azure Stack registrations using the capacity-based billing model will need to change the unique name when re-registering after those yearly subscriptions expire unless you [delete the expired registration](azure-stack-registration.md#change-the-subscription-you-use) and re-register with Azure.
 
-To determine the Cloud ID for your Azure Stack deployment, open PowerShell as an administrator on a computer than can access the Privileged Endpoint, run the following commands, and record the **CloudID** value: 
+To determine the Cloud ID for your Azure Stack deployment, open PowerShell as an administrator on a computer that can access the Privileged Endpoint, run the following commands, and record the **CloudID** value: 
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
@@ -145,7 +145,7 @@ Connected environments can access the internet and Azure. For these environments
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Next, in the same PowerShell session, ensure you are logged in to the correct Azure PowerShell Context. This is the Azure account that was used to register the Azure Stack resource provider above. Powershell to run:
+6. Next, in the same PowerShell session, ensure you are logged in to the correct Azure PowerShell Context. This is the Azure account that was used to register the Azure Stack resource provider previously. Powershell to run:
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -168,7 +168,7 @@ Connected environments can access the internet and Azure. For these environments
    ```
    For more information on the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
 
-  The process will take between 10 and 15 minutes. When the command completes, you will see the message **"Your environment is now registered and activated using the provided parameters."**
+  The process takes between 10 and 15 minutes. When the command completes, you see the message **"Your environment is now registered and activated using the provided parameters."**
 
 ## Register connected with capacity billing
 
@@ -282,7 +282,7 @@ To get the activation key, run the following PowerShell cmdlets:
 
 ### Create an Activation Resource in Azure Stack
 
-Return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next you will create an activation resource in Azure Stack using that activation key. To create an activation resource, run the following PowerShell cmdlets:  
+Return to the Azure Stack environment with the file or text from the activation key created from Get-AzsActivationKey. Next you create an activation resource in Azure Stack using that activation key. To create an activation resource, run the following PowerShell cmdlets:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -304,9 +304,21 @@ You can use the **Region management** tile to verify that the Azure Stack regist
 
 2. From the Dashboard, select **Region management**.
 
+3. Select **Properties**. This blade shows the status and details of your environment. The status can be **Registered** or **Not registered**.
+
     [ ![Region management tile](media/azure-stack-registration/admin1sm.png "Region management tile") ](media/azure-stack-registration/admin1.png#lightbox)
 
-3. Select **Properties**. This blade shows the status and details of your environment. The status can be **Registered** or **Not registered**. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack, along with the registration resource group and name.
+    If registered, the properties include:
+    
+    - **Registration subscription ID**: The Azure subscription ID registered and associated to Azure Stack
+    - **Registration resource group**: The Azure resource group in the associated subscription containing the Azure Stack resources.
+
+4. Use the Azure portal to view the Azure Stack app registrations. Sign in to the Azure portal using an account associated to the subscription you used to register Azure Stack. Switch to the tenant associated with Azure Stack.
+5. Navigate to **Azure Active Directory > App registrations > View all applications**.
+
+    ![App registrations](media/azure-stack-registration/app-registrations.png)
+
+    Azure Stack app registrations are prefixed with **Azure Stack**.
 
 Alternatively, you can verify if your registration was successful by using the Marketplace management feature. If you see a list of marketplace items in the Marketplace Management blade, your registration was successful. However, in disconnected environments, you will not be able to see marketplace items in Marketplace management. However, you can use the offline tool to verify registration.
 
@@ -351,7 +363,7 @@ You’ll need to update or renew your registration in the following circumstance
 
 #### Remove the activation resource from Azure Stack
 
-You will first need to remove the activation resource from Azure Stack, and then the registration resource in Azure.  
+You first need to remove the activation resource from Azure Stack, and then the registration resource in Azure.  
 
 To remove the activation resource in Azure Stack, run the following PowerShell cmdlets in your Azure Stack environment:  
 
@@ -381,7 +393,7 @@ You have now completely unregistered in a disconnected scenario and must repeat 
 
 ### Disable or enable usage reporting
 
-For Azure Stack environments that use a capacity billing model, turn off usage reporting with the **UsageReportingEnabled** parameter using either the **Set-AzsRegistration** or the **Get-AzsRegistrationToken** cmdlets. Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment will need to turn off usage reporting.
+For Azure Stack environments that use a capacity billing model, turn off usage reporting with the **UsageReportingEnabled** parameter using either the **Set-AzsRegistration** or the **Get-AzsRegistrationToken** cmdlets. Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment needs to turn off usage reporting.
 
 #### With a connected Azure Stack
 
@@ -439,13 +451,13 @@ To run the cmdlet, you need:
 | ResourceGroupLocation | String |  |
 | BillingModel | String | The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development. |
 | MarketplaceSyndicationEnabled | True/False | Determines whether or not the marketplace management feature is available in the portal. Set to true if registering with internet connectivity. Set to false if registering in disconnected environments. For disconnected registrations, the [offline syndication tool](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) can be used for downloading marketplace items. |
-| UsageReportingEnabled | True/False | Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment will need to turn off usage reporting. Allowed values for this parameter are: True, False. |
+| UsageReportingEnabled | True/False | Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment needs to turn off usage reporting. Allowed values for this parameter are: True, False. |
 | AgreementNumber | String |  |
-| RegistrationName | String | Set a unique name for the registration if you are running the registration script on more than one instance of Azure Stack using the same Azure Subscription ID. The parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script will fail. |
+| RegistrationName | String | Set a unique name for the registration if you are running the registration script on more than one instance of Azure Stack using the same Azure Subscription ID. The parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script fails. |
 
 ### Get-AzsRegistrationToken
 
-Get-AzsRegistrationToken will generate a registration token from the input parameters.
+Get-AzsRegistrationToken generates a registration token from the input parameters.
 
 ```PowerShell  
     Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
@@ -461,7 +473,7 @@ Get-AzsRegistrationToken will generate a registration token from the input param
 | ResourceGroupLocation | String |  |
 | BillingModel | String | The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development. |
 | MarketplaceSyndicationEnabled | True/False |  |
-| UsageReportingEnabled | True/False | Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment will need to turn off usage reporting. Allowed values for this parameter are: True, False. |
+| UsageReportingEnabled | True/False | Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment needs to turn off usage reporting. Allowed values for this parameter are: True, False. |
 | AgreementNumber | String |  |
 
 

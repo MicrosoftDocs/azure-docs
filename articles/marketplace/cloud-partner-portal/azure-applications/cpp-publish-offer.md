@@ -32,12 +32,12 @@ The following table lists and describes each publishing step, and provides a tim
 |  **Publishing Step**           | **Time**    | **Description**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Validate prerequisites         | < 15 min    | Offer information and offer settings are validated.                        |
-| Validate influenced revenue settings | < 15 min  |      |
+| Validate influenced revenue settings | < 15 min  | Azure resource usage attribution for the offer is checked.             |
 | Certification                  | < 1 day     | Offer is analyzed by the Azure Certification Team. The offer is scanned for viruses, malware, safety compliance, and security issues. The offer is checked to see that it meets all the eligibility criteria. For more information, see [prerequisites](./cpp-prerequisites.md). Feedback is provided if an issue is found. |
 | Test Drive validation          | < 2 hours   | (Optional) If a Test Drive is present, Microsoft validates that it can be deployed and replicated.  |
 | Packaging and lead generation registration | < 1 hour  | Offer’s technical assets are packaged for customer use and the lead systems are configured and deployed. |
 |  Publisher sign-off             |  manual    | Final publisher review and confirmation before the offer goes live. The offer is now available for preview.  You can deploy your offer in the selected subscriptions (in the offer information steps) to verify that it meets all your requirements.  After you verify the offer, select **Go Live** so your offer can move to the next step. |
-| Microsoft review                | 7 - 14 days* | Microsoft holistically reviews your Azure application and emails you if issues are discovered.  *Rarely, this step may take longer than 14 days, depending upon the complexity of the application and the issues uncovered.  |
+| Microsoft review                | 7 - 14 days | Microsoft holistically reviews your Azure application and emails you if issues are discovered.  The length of this step depends upon the complexity of the application, the issues uncovered, and how promptly you respond to them.  |
 | Live                           | < 1 day | Offer is released, replicated to the specified regions, and made available to the public. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
  
@@ -66,7 +66,7 @@ To view the VSTS items referenced in review feedback, publishers must be granted
 1. Collect the following information:
     - Your publisher name and ID
     - Offer type (Azure app), offer name, and SKU ID
-    - The pull request link, for example `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/jfrog/pullrequest/<number>`.  This URL can be retrieved from the notification message or the address of the 401 response page.
+    - The pull request link, for example: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`  This URL can be retrieved from the notification message or the address of the 401 response page.
     - The email address(es) of the individuals from your publishing organization that you want access granted to.  These should include the owner address(es) you provided when registering as a publisher on the Cloud Partner Portal.
 2. Create a support incident.  In the title bar of the Cloud Partner Portal, select the **Help** button, then choose **Support** from the menu.  You default web browser should launch and navigate to the Microsoft new support incident page.  (You may have to sign in first.)
 3. Specify the **Problem type** as **marketplace onboarding** and **Category** as **Access problem**, then select **Start request**.
@@ -74,7 +74,7 @@ To view the VSTS items referenced in review feedback, publishers must be granted
     ![Support ticket category](./media/support-incident1.png)
 
 4. In **Step 1 of 2** page, supply your contact information and select **Continue**.
-5. In **Step 2 of 2** page, specify an incident title and supply the information you collected in the first step (above).  Read and accept the agreement, then select **Submit**.
+5. In **Step 2 of 2** page, specify an incident title (for example `Request VSTS access`) and supply the information you collected in the first step (above).  Read and accept the agreement, then select **Submit**.
 
 If the incident creation was successful, a confirmation page is displayed.  Save the confirmation information for your reference.  Microsoft support should reply to your access request within a few business days.
 

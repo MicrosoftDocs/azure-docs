@@ -53,7 +53,7 @@ Here is the JSON format for defining a Stored Procedure Activity:
         "type": "LinkedServiceReference"
     },
     "typeProperties": {
-        "storedProcedureName": "sp_sample",
+        "storedProcedureName": "usp_sample",
         "storedProcedureParameters": {
             "identifier": { "value": "1", "type": "Int" },
             "stringData": { "value": "str1" }

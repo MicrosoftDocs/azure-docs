@@ -1,5 +1,6 @@
 ---
-title: Use connectors in Azure Content Moderator to access other APIs | Microsoft Docs
+title: Connect to other services while moderating content - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Learn how to access other APIs for your Content Moderator workflows by using connectors.
 services: cognitive-services
 author: sanjeev3
@@ -7,11 +8,12 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Connectors
+# Connect to other cognitive services
 
 Azure Content Moderator workflows can use other APIs, in addition to Content Moderator APIs. You access other APIs by using a connector in Content Moderator. The connector provides a link to the other APIs.
 

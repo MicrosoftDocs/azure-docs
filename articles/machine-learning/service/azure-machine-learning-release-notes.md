@@ -17,6 +17,24 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2019-01-14
+
+### Azure Machine Learning SDK for Python v1.0.8
+
++ **SDK reference docs**: https://aka.ms/aml-sdk
+
++ **Bug fixes**: This release mostly contains minor bug fixes
+
+### Azure Machine Learning Data Prep SDK v1.0.7
+
++ **SDK reference docs**: https://aka.ms/data-prep-sdk
+
++ **New features**
+  + Datastore improvements (documented in [Datastore how-to-guide](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+    + Added ability to read from and write to Azure File Share and ADLS Datastores in scale-up.
+    + When using Datastores, Data Prep now supports using service principal authentication instead of interactive authentication.
+    + Added support for wasb and wasbs urls.
+
 ## 2019-01-09
 
 ### Azure Machine Learning Data Prep SDK v1.0.6
@@ -111,7 +129,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
   + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
   + Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
 + Azure Machine Learning compute target
-  + [Sample notebooks] (https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
+  + [Sample notebooks](https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
   + [Learn about this compute](how-to-set-up-training-targets.md#amlcompute)
 
 ### Azure portal: new features
@@ -132,7 +150,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 
 + **Breaking changes** 
   * *azureml.train.widgets* namespace has moved to *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* deprecates the following classes - *azureml.core.compute.BatchAICompute* and *azureml.core.compute.DSVMCompute*. The latter class will be removed in subsequent releases. The AmlCompute class has an easier definition now, and simply needs a vm_size and the max_nodes, and will automatically scale your cluster from 0 to the max_nodes when a job is submitted. Our [sample notebooks] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) have been updated with this information and should give you usage examples. We hope you like this simplification and lots of more exciting features to come in a later release!
+  * *azureml.core.compute.AmlCompute* deprecates the following classes - *azureml.core.compute.BatchAICompute* and *azureml.core.compute.DSVMCompute*. The latter class will be removed in subsequent releases. The AmlCompute class has an easier definition now, and simply needs a vm_size and the max_nodes, and will automatically scale your cluster from 0 to the max_nodes when a job is submitted. Our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) have been updated with this information and should give you usage examples. We hope you like this simplification and lots of more exciting features to come in a later release!
 
 ### Azure Machine Learning Data Prep SDK v0.5.1 
 
