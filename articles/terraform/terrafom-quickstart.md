@@ -17,13 +17,19 @@ In this quick start you will gain experience in creating a Terraform configurati
 
 ## Create first configuration
 
-In this step, you will create the configuration for an Azure Cosmos DB instance. Click the try it now button to open up the Azure Cloud Shell code editor. Once open, type in `code .` to open the cloud shell code editor.
+In this step, you will create the configuration for an Azure Cosmos DB instance.
+
+Click the try it now button to open up Azure cloud shell. Once open, type in `code .` to open the cloud shell code editor.
 
 ```azurecli-interactive
 code .
 ```
 
-Copy and paste in the following Terraform configuration. Save the file when done. This can be completed using the ellipses in the upper right hand portion of the code editor.
+Copy and paste in the following Terraform configuration. This configuration models an Azure resource group named **vote-resource-group**, a random integer, and an Azure Cosmos DB instances. The random integer is used in the Cosmos DB name. Several Cosmos DB settings are also configured.
+
+For a complete list of Cosmos DB Terraform configurations, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
+
+Save the file when done. This can be completed using the ellipses in the upper right hand portion of the code editor.
 
 ```azurecli-interactive
 resource "azurerm_resource_group" "vote-resource-group" {
@@ -43,8 +49,6 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
   offer_type          = "Standard"
   kind                = "GlobalDocumentDB"
 
-  enable_automatic_failover = true
-
   consistency_policy {
     consistency_level       = "BoundedStaleness"
     max_interval_in_seconds = 10
@@ -58,18 +62,90 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
 }
 ```
 
-The `terraform plan` command can be used to validate that the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. Run `terraform plan` to test the new Terraform configuration.
+The `terraform init` command initializes the working directory. Run `terraform init` to prepare for the deployment of the new configuration. For more information on `terraform init`, see the [command reference](https://www.terraform.io/docs/commands/init.html).
+
+```azurecli-interactive
+teraform init
+```
+
+The `terraform plan` command can be used to validate lsthat the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. Run `terraform plan` to test the new Terraform configuration. For more information on `terraform plan`, see the [command reference](https://www.terraform.io/docs/commands/plan.html).
 
 ```azurecli-interactive
 teraform plan
 ```
 
-Now, run the configuration using `terraform apply`, this creates the resources in your Azure subscription.
+Now, apply the configuration using `terraform apply`. This command apply the resource configurations in your Azure subscription. Add the `--auto-approve` command to skip interactive approval. For more information on `terraform apply`, see the [command reference](https://www.terraform.io/docs/commands/apply.html).
 
 ```azurecli-interactive
-teraform apply
+terraform apply --auto-approve
 ```
+
+Once done, you can see that the resource group has been created and an Azure Cosmos DB instance placed in the resource group.
 
 ## Update Configuration
 
+Now, update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB instance. Take note that two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are assumed from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
+
+Open the code editor if it is not already open and copy in the following configuration at the bottom of the `main.tf` file.
+
+```azurecli-interactive
+resource "azurerm_container_group" "vote-aci" {
+  name                = "vote-aci"
+  location            = "${azurerm_resource_group.vote-resource-group.location}"
+  resource_group_name = "${azurerm_resource_group.vote-resource-group.name}"
+  ip_address_type     = "public"
+  dns_name_label      = "vote-aci"
+  os_type             = "linux"
+
+  container {
+    name   = "vote-aci"
+    image  = "microsoft/azure-vote-front:cosmosdb"
+    cpu    = "0.5"
+    memory = "1.5"
+    ports  = {
+      port     = 80
+      protocol = "TCP"
+    }
+
+    secure_environment_variables {
+      "COSMOS_DB_ENDPOINT"  = "${azurerm_cosmosdb_account.vote-cosmos-db.endpoint}"
+      "COSMOS_DB_MASTERKEY" = "${azurerm_cosmosdb_account.vote-cosmos-db.primary_master_key}"
+      "TITLE"               = "Azure Voting App"
+      "VOTE1VALUE"          = "Cats"
+      "VOTE2VALUE"          = "Dogs"
+    }
+  }
+}
+```
+
+Run `terraform plan` to visualize the changes to be made.
+
+```azurecli-interactive
+teraform plan
+```
+
+Finally, run `terraform apply` to apply the configuration.
+
+```azurecli-interactive
+terraform apply --auto-approve
+```
+
 ## Test application
+
+To test the application, first get the IP address of the Azure Container Instance. This can be done with the `az container show` command.
+
+```azurecli-interactive
+az container show --resource-group vote-resource-group --name vote-aci --query ipAddress.ip -o tsv
+```
+
+Navigate to the IP address using an internet browser. If everything was correctly configured you should see the following application.
+
+![Azure vote application](media/terraform-quickstart/azure-vote.png)
+
+## Destroy the application
+
+When done with this quick start, the Azure resources and resource group can be removed using the `terraform destroy` command. For more information on `terraform destroy`, see the [command reference](https://www.terraform.io/docs/commands/destroy.html).
+
+``azurecli-interactive
+terraform destroy -auto-approve
+```
