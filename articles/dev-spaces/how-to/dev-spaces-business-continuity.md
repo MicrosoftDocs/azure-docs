@@ -10,7 +10,7 @@ ms.date: "01/28/2019"
 ms.topic: "article"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "zarhoads"
+manager: "jeconnoc"
 ---
 # Business continuity and disaster recovery in Azure Dev Spaces
 
