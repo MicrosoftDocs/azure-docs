@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to configure managed Identities for Azure resources on an Azure VM using the Azure portal
 description: Step by step instructions for configuring managed identities for Azure resources on an Azure VM using the Azure portal.
 services: active-directory
@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

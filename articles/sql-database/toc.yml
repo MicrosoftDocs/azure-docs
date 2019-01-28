@@ -9,6 +9,10 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Single Database quickstart guide
+    href: sql-database-quickstart-guide.md
+  - name: Managed Instance quickstart guide
+    href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
     - name: Single database
@@ -118,7 +122,7 @@
     items:
     - name: Single database overview
       href: sql-database-single-index.yml
-    - name: Create and manage
+    - name: Management API reference
       href: sql-database-single-databases-manage.md
     - name: Logical servers
       items: 
@@ -128,8 +132,6 @@
           href: sql-database-resource-limits-logical-server.md
         - name: Connectivity architecture
           href: sql-database-connectivity-architecture.md 
-        - name: T-SQL differences
-          href: sql-database-transact-sql-information.md 
     - name: Elastic pools
       items:
       - name: Elastic pools
@@ -148,6 +150,8 @@
       href: sql-database-dtu-resource-limits-single-databases.md
     - name: Scale resources
       href: sql-database-single-database-scale.md
+    - name: T-SQL differences
+      href: sql-database-transact-sql-information.md 
   - name: Managed instances
     items:
     - name: Managed instances overview
