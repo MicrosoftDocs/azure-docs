@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 01/25/2019
 ---
 
 # Azure SQL Database metrics and diagnostics logging
 
 Azure SQL Database, elastic pools, Managed Instance, and databases in Managed Instance can stream metrics and diagnostics logs for easier performance monitoring. You can configure a database to transmit resource usage, workers and sessions, and connectivity to one of the following Azure resources:
 
-- **Azure SQL Analytics**: to get intelligent monitoring of your Azure databases that includes performance reports, alerts, and mitigation recommendations.
+- **Azure SQL Analytics**: to get intelligent monitoring of your Azure SQL databases that includes performance reports, alerts, and mitigation recommendations.
 - **Azure Event Hubs**: to integrate SQL Database telemetry with your custom monitoring solutions or hot pipelines.
 - **Azure Storage**: to archive vast amounts of telemetry for a fraction of the price.
 

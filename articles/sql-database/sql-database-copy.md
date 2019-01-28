@@ -72,7 +72,7 @@ This command copies Database1 to a new database named Database2 on the same serv
 
 ### Copy a SQL database to a different server
 
-Log in to the master database of the destination server, the SQL database server where the new database is to be created. Use a login that has the same name and password as the database owner of the source database on the source SQL database server. The login on the destination server must also be a member of the dbmanager role or be the server-level principal login.
+Log in to the master database of the destination server, the SQL Database server where the new database is to be created. Use a login that has the same name and password as the database owner of the source database on the source SQL Database server. The login on the destination server must also be a member of the dbmanager role or be the server-level principal login.
 
 This command copies Database1 on server1 to a new database named Database2 on server2. Depending on the size of your database, the copying operation might take some time to complete.
 

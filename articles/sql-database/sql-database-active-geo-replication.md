@@ -84,7 +84,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Geo-replication of databases in an elastic pool**
 
-  Each secondary database can separately participate in an elastic pool or not be in any elastic pool at all. The pool choice for each secondary database is separate and does not depend upon the configuration of any other secondary database (whether primary or secondary). Each Elastic Pool is contained within a single region, therefore multiple secondary databases in the same topology can never share an Elastic Pool.
+  Each secondary database can separately participate in an elastic pool or not be in any elastic pool at all. The pool choice for each secondary database is separate and does not depend upon the configuration of any other secondary database (whether primary or secondary). Each elastic pool is contained within a single region, therefore multiple secondary databases in the same topology can never share an elastic pool.
 
 - **Configurable compute size of the secondary database**
 

@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
 ---
 # Monitor and manage performance of Azure SQL databases and pools in a multi-tenant SaaS app
 
@@ -183,9 +183,9 @@ Browse to **Pool2** (on the *tenants1-dpt-\<user\>* server) to open the pool and
 
 You now see that resource usage on *Pool1* has dropped and that *Pool2* is now similarly loaded.
 
-## Manage performance of a single database
+## Manage performance of an individual database
 
-If a single database in a pool experiences a sustained high load, depending on the pool configuration, it may tend to dominate the resources in the pool and impact other databases. If the activity is likely to continue for some time, the database can be temporarily moved out of the pool. This allows the database to have the extra resources it needs, and isolates it from the other databases.
+If an individual database in a pool experiences a sustained high load, depending on the pool configuration, it may tend to dominate the resources in the pool and impact other databases. If the activity is likely to continue for some time, the database can be temporarily moved out of the pool. This allows the database to have the extra resources it needs, and isolates it from the other databases.
 
 This exercise simulates the effect of Contoso Concert Hall experiencing a high load when tickets go on sale for a popular concert.
 

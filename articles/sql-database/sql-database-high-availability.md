@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 01/25/2019
 ---
 # High-availability and Azure SQL Database
 
@@ -68,7 +68,7 @@ The zone redundant version of the high availability architecture is illustrated 
 
 ## Accelerated Database Recovery (ADR)
 
-[Accelerated Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) is a new SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL database engine recovery process. ADR is currently available for single databases, elastic pools, and Azure SQL Data Warehouse.
+[Accelerated Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) is a new SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL database engine recovery process. ADR is currently available for standalone databases, elastic pools, and Azure SQL Data Warehouse.
 
 ## Conclusion
 

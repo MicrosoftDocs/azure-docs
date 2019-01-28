@@ -13572,12 +13572,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-database/sql-database-resource-limits.md",
-      "redirect_url": "/azure/sql-database/sql-database-resource-limits-database-server",
+      "source_path": "articles/sql-database/sql-database-vcore-resource-limits.md",
+      "redirect_url": "/azure/sql-database/sql-database-vcore-resource-limits-standalone-databases",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/sql-database/sql-database-vcore-resource-limits.md",
+      "source_path": "articles/sql-database/sql-database-vcore-resource-limits-single-databases.md",
       "redirect_url": "/azure/sql-database/sql-database-vcore-resource-limits-standalone-databases",
       "redirect_document_id": false
     },
@@ -13589,11 +13589,6 @@
     {
       "source_path": "articles/sql-database/sql-database-single-databases-manage.md",
       "redirect_url": "/azure/sql-database/sql-database-standalone-databases-manage",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-single-index.yml",
-      "redirect_url": "/azure/sql-database/sql-database-standalone-index.yml",
       "redirect_document_id": false
     },
     {

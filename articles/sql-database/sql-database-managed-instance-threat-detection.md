@@ -11,7 +11,7 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/06/2018
+ms.date: 01/25/2019
 ---
 # Configure Threat Detection (Preview) in Azure SQL Database Managed Instance
 
@@ -35,8 +35,8 @@ You can receive notifications about the detected threats via [email notification
 
 ## Next steps
 
-- Learn more about [Threat Detection](sql-database-threat-detection-overview.md).
+- Learn more about [Threat detection](sql-database-threat-detection-overview.md).
 - Learn about Managed Instance, see [What is a Managed Instance](sql-database-managed-instance.md).
-- Learn more about [Threat Detection for Single Database](sql-database-threat-detection.md).
-- Learn more about [Managed Instance Auditing](https://go.microsoft.com/fwlink/?linkid=869430).
+- Learn more about [Threat detection for standalone database](sql-database-threat-detection.md).
+- Learn more about [Managed Instance auditing](https://go.microsoft.com/fwlink/?linkid=869430).
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).

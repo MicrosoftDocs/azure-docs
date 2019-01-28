@@ -11,7 +11,7 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ---
 # Monitoring and performance tuning
 
@@ -35,7 +35,7 @@ You have the following options for monitoring and troubleshooting database perfo
 
 ## Monitor databases using the Azure portal
 
-In the [Azure portal](https://portal.azure.com/), you can monitor a single databases utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
+In the [Azure portal](https://portal.azure.com/), you can monitor an individual databases utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
 
 - CPU percentage
 - DTU percentage
@@ -137,7 +137,7 @@ The following query shows the count of queries by query hash to determine if a q
 
 ### Resolve problem queries or provide more resources
 
-Once you identify the issue, you can either tune the problem queries or upgrade the compute size or service tier to increase the capacity of your Azure SQL database to absorb the CPU requirements. For information on scaling resources for single databases, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and for scaling resources for elastic pools, see [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information on scaling a managed instance, see [Instance-level resource limits](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+Once you identify the issue, you can either tune the problem queries or upgrade the compute size or service tier to increase the capacity of your Azure SQL database to absorb the CPU requirements. For information on scaling resources for standalone databases, see [Scale standalone database resources in Azure SQL Database](sql-database-standalone-database-scale.md) and for scaling resources for elastic pools, see [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information on scaling a managed instance, see [Instance-level resource limits](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 
 ### Determine if running issues due to increase workload volume
 
@@ -196,9 +196,9 @@ As shown in the previous chart, the most common waits are:
 
 ## Improving database performance with more resources
 
-Finally, if there are no actionable items that can improve performance of your database, you can change the amount of resources available in Azure SQL Database. You can assign more resources by changing the [DTU service tier](sql-database-service-tiers-dtu.md) of a single database or increase the eDTUs of an elastic pool at any time. Alternatively, if you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), you can change either the service tier or increase the resources allocated to your database.
+Finally, if there are no actionable items that can improve performance of your database, you can change the amount of resources available in Azure SQL Database. You can assign more resources by changing the [DTU service tier](sql-database-service-tiers-dtu.md) of a standalone database or increase the eDTUs of an elastic pool at any time. Alternatively, if you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), you can change either the service tier or increase the resources allocated to your database.
 
-1. For single databases, you can [change service tiers](sql-database-service-tiers-dtu.md) or [compute resources](sql-database-service-tiers-vcore.md) on-demand to improve database performance.
+1. For standalone databases, you can [change service tiers](sql-database-standalone-database-scale.md) or [compute resources](sql-database-standalone-database-scale.md) on-demand to improve database performance.
 2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 
 ## Tune and refactor application or database code

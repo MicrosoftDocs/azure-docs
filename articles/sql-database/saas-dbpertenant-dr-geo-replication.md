@@ -11,7 +11,7 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
+ms.date: 01/25/2019
 ---
 # Disaster recovery for a multi-tenant SaaS application using database geo-replication
 
@@ -47,9 +47,9 @@ A DR plan based on geo-replication comprises three distinct parts:
 All parts have to be considered carefully, especially if operating at scale. Overall, the plan must accomplish several goals:
 
 * Setup
-	* Establish and maintain a mirror-image environment in the recovery region. Creating the elastic pools and replicating any single databases in this recovery environment reserves capacity in the recovery region. Maintaining this environment includes replicating new tenant databases as they are provisioned.  
+	* Establish and maintain a mirror-image environment in the recovery region. Creating the elastic pools and replicating any databases in this recovery environment reserves capacity in the recovery region. Maintaining this environment includes replicating new tenant databases as they are provisioned.  
 * Recovery
-	* Where a scaled-down recovery environment is used to minimize day-to-day costs, pools and single databases must be scaled up to acquire full operational capacity in the recovery region
+	* Where a scaled-down recovery environment is used to minimize day-to-day costs, pools and databases must be scaled up to acquire full operational capacity in the recovery region
  	* Enable new tenant provisioning in the recovery region as soon as possible  
  	* Be optimized for restoring tenants in priority order
  	* Be optimized for getting tenants online as fast as possible by doing steps in parallel where practical
@@ -129,6 +129,7 @@ In this task, you start a process that deploys a duplicate app instance and repl
 ![Sync process](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## Review the normal application state
+
 At this point, the application is running normally in the original region and now is protected by geo-replication.  Read-only secondary replicas, exist in the recovery region for all databases. 
 1. In the Azure portal, look at your resource groups and note that a resource group has been created with -recovery suffix in the recovery region. 
 
@@ -154,7 +155,7 @@ The recovery script performs the following tasks:
 
 1. Marks all existing tenants in the recovery catalog as offline to prevent access to tenant databases before they are failed over.
 
-1. Updates the configuration of all elastic pools and replicated single databases in the recovery region to mirror their configuration in the original region. (This task is only needed if pools or replicated databases in the recovery environment are scaled down during normal operations to reduce costs).
+1. Updates the configuration of all elastic pools and replicated standalone databases in the recovery region to mirror their configuration in the original region. (This task is only needed if pools or replicated databases in the recovery environment are scaled down during normal operations to reduce costs).
 
 1. Enables the Traffic Manager endpoint for the web app in the recovery region. Enabling this endpoint allows the application to provision new tenants. At this stage, existing tenants are still offline.
 
@@ -187,6 +188,7 @@ Now imagine there is an outage in the region in which the application is deploye
 > To explore the code for the recovery jobs, review the PowerShell scripts in the ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\RecoveryJobs folder.
 
 ### Review the application state during recovery
+
 While the application endpoint is disabled in Traffic Manager, the application is unavailable. After the catalog is failed over to the recovery region and all the tenants marked offline, the application is brought back online. Although the application is available, each tenant appears offline in the events hub until its database is failed over. It's important to design your application to handle offline tenant databases.
 
 1. Promptly after the catalog database has been recovered, refresh the Wingtip Tickets Events Hub in your web browser.

@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Single Database quickstart guide
+  - name: Standalone database quickstart guide
     href: sql-database-quickstart-guide.md
   - name: Managed Instance quickstart guide
     href: sql-database-managed-instance-quickstart-guide.md

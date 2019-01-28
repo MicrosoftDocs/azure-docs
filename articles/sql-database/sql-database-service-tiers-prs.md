@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ---
 # Azure SQL Database Premium RS service tier (preview) is being retired - options for migration
 
@@ -60,7 +60,7 @@ For your compute-intensive Premium RS workloads, we recommend migrating to our g
 
 ## Optimize savings and performance for your IO-intensive workloads
 
-We recommend migrating your IO-intensive single databases to our vCore-based Hyperscale tier, currently in preview, and your IO-intensive database pools to our generally available Business Critical tier, for the optimal combination of performance and cost.  The following vCore-based options will maintain or improve your current performance and may save you money when combined with the Azure Hybrid Benefit and reserved capacity pricing.
+We recommend migrating your IO-intensive standalone databases to our vCore-based Hyperscale tier, currently in preview, and your IO-intensive database pools to our generally available Business Critical tier, for the optimal combination of performance and cost.  The following vCore-based options will maintain or improve your current performance and may save you money when combined with the Azure Hybrid Benefit and reserved capacity pricing.
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
@@ -94,5 +94,5 @@ You can copy any database with a Premium RS compute size to a database with a DT
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- For details on specific compute sizes and storage size choices available for standalone database, see [SQL Database vCore-based resource limits for standalone databases](sql-database-vcore-resource-limits-standalone-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
 - For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

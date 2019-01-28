@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 01/25/2019
 ---
 # Scale elastic pool resources in Azure SQL Database
 
@@ -33,7 +33,7 @@ This article describes how to scale the compute and storage resources available 
 
 You can increase or decrease the compute size to an elastic pool based on resource needs using the [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
-- When rescaling vCores in an elastic pool, database connections are briefly dropped. This behavior is the same behavior that occurs when rescaling DTUs for a single database. For details on the duration and impact of dropped connections for a database during rescaling operations, see [Change compute resources (DTUs)](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
+- When rescaling vCores in an elastic pool, database connections are briefly dropped. This behavior is the same behavior that occurs when rescaling DTUs for a standalone database. For details on the duration and impact of dropped connections for a database during rescaling operations, see [Change compute resources (DTUs)](sql-database-standalone-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - The duration to rescale pool vCores can depend on the total amount of storage space used by all databases in the pool. In general, the rescaling latency averages 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for rescaling the pool is 3 hours or less. In some cases within the Standard or Basic tier, the rescaling latency can be under five minutes regardless of the amount of space used.
 - In general, the duration to change the min vCores per database or max vCores per database is five minutes or less.
 - When downsizing pool vCores, the pool used space must be smaller than the maximum allowed size of the target service tier and pool vCores.
@@ -51,7 +51,7 @@ You can increase or decrease the compute size to an elastic pool based on resour
 
 You can increase or decrease the resources available to an elastic pool based on resource needs using the [Azure portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), the [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
-- When rescaling pool eDTUs, database connections are briefly dropped. This behavior is the same behavior that occurs when rescaling DTUs for a single database. For details on the duration and impact of dropped connections for a database during rescaling operations, see [Change compute resources (DTUs)](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
+- When rescaling pool eDTUs, database connections are briefly dropped. This behavior is the same behavior that occurs when rescaling DTUs for a standalone database. For details on the duration and impact of dropped connections for a database during rescaling operations, see [Change compute resources (DTUs)](sql-database-standalone-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - The duration to rescale pool eDTUs can depend on the total amount of storage space used by all databases in the pool. In general, the rescaling latency averages 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for rescaling the pool is 3 hours or less. In some cases within the Standard or Basic tier, the rescaling latency can be under five minutes regardless of the amount of space used.
 - In general, the duration to change the min eDTUs per database or max eDTUs per database is five minutes or less.
 - When downsizing eDTUs for an elastic pool, the pool used space must be smaller than the maximum allowed size of the target service tier and pool eDTUs.

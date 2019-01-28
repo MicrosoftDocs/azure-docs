@@ -56,7 +56,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Adding databases to failover group on a SQL Database server**
 
-  You can put several single databases or databases within an elastic pool on the same SQL Database server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
+  You can put several standalone databases or databases within an elastic pool on the same SQL Database server into the same failover group. If you add a standalone database to the failover group, it automatically creates a secondary database using the same edition and compute size. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
   
 > [!IMPORTANT]
   > In a Managed Instance, all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
