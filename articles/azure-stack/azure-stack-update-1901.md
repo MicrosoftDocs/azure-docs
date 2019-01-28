@@ -142,6 +142,16 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 
 - Starting in January 2019, you can deploy Kubernetes clusters on Active Directory Federated Services (AD FS) registered Azure Stack stamps. Follow the instructions [here](azure-stack-solution-template-kubernetes-cluster-add.md) to download the new Kubernetes Marketplace item. Follow the instructions [here](user/azure-stack-solution-template-kubernetes-adfs.md) to deploy a Kubernetes cluster. Note the new parameters for indicating whether the target system is ADD or AD FS registered. If it is AD FS, new fields are available to enter the Key Vault parameters in which the deployment certificate is stored.
 
+- After installing updates or hotfixes to Azure Stack, new features may be introduced which require new permissions to be granted to one or more identity applications. Granting these permissions requires administrative access to the home directory, and so it cannot be done automatically. For example:
+
+   ```powershell
+   $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+   $homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com" # This is the primary tenant Azure Stack is registered to
+
+   Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
+     -DirectoryTenantName $homeDirectoryTenantName -Verbose
+   ```
+
 ## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
@@ -239,16 +249,6 @@ The following are post-installation known issues for this build version.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
-
-- After installing updates or hotfixes to Azure Stack, new features may be introduced which require new permissions to be granted to one or more identity applications. Granting these permissions requires administrative access to the home directory, and so it cannot be done automatically. For example:
-
-   ```powershell
-   $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
-   $homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com" # This is the primary tenant Azure Stack is registered to
-
-   Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
-     -DirectoryTenantName $homeDirectoryTenantName -Verbose
-   ```
 
 ### Networking  
 
