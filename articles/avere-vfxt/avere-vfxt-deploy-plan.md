@@ -31,7 +31,7 @@ Follow these guidelines when planning your Avere vFXT system's network infrastru
 
 * Locate your client compute systems close to the vFXT cluster. Back-end storage can be more remote.  
 
-* For simplicity, locate the vFXT cluster and the cluster controller VM in the same virtual network (vnet) and in the same resource group. They should also use the same storage account. 
+* For simplicity, locate the vFXT cluster and the cluster controller VM in the same virtual network (vnet) and in the same resource group. They should also use the same storage account. (The cluster controller creates the cluster, and also can be used for command-line cluster management.)  
 
 * The cluster must be located in its own subnet to avoid IP address conflicts with clients or compute resources. 
 

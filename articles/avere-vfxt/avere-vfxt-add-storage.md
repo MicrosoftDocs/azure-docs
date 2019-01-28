@@ -32,7 +32,7 @@ These steps use the Avere Control Panel. Read [Access the vFXT cluster](avere-vf
 To add a core filer, choose one of the two main types of core filers:
 
   * [NAS core filer](#nas-core-filer) - describes how to add a NAS core filer 
-  * [Azure Storage account cloud core filer](#azure-storage-account-cloud-core-filer) - describes how to add an Azure Storage account as a cloud core filer
+  * [Azure Storage cloud core filer](#azure-storage-cloud-core-filer) - describes how to add an Azure Storage account as a cloud core filer
 
 ### NAS core filer
 

@@ -34,6 +34,8 @@ Here is an overview of all of the steps.
 
    Read [Create the cluster node access role](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) for instructions.
 
+   The cluster controller also uses an access role, but you can accept the default role, Owner, instead of creating your own. If you want to create a custom role for the cluster controller, read [Customized controller access role](avere-vfxt-controller-role.md). 
+
 1. Create the Avere vFXT cluster 
 
    Use the Azure Marketplace to create the Avere vFXT for Azure cluster. A template collects the required information and executes scripts to create the final product.

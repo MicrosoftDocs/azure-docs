@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # Customized controller access role
 
-The Avere vFXT for Azure cluster controller uses a service principal and a role-based access control (RBAC) role to allow it to create and manage the cluster. 
+The Avere vFXT for Azure cluster controller uses a managed identity and role-based access control (RBAC) to allow it to create and manage the cluster. 
 
 By default, the cluster controller is assigned the [built-in Owner role](../role-based-access-control/built-in-roles.md#owner). Also, the controller's access is scoped to its resource group - it can't modify elements outside the cluster's resource group.
 
@@ -67,13 +67,13 @@ Follow these steps to add the custom role definition to your subscription.
 
 1. Use the Azure CLI command to switch to your vFXT subscription:
 
-   ```azcli
+   ```azurecli
    az account set --subscription YOUR_SUBSCRIPTION_ID
    ```
 
 1. Create the role:
 
-   ```azcli
+   ```azurecli
    az role definition create --role-definition /avere-contributor-custom.json
    ```
 
@@ -89,7 +89,7 @@ The role GUID is a 32-character string in this form: 8e3af657-a8ff-443c-a75c-2fe
 
 To look up your role's GUID, use this command with your role name in the ```--name``` parameter.
 
-```azcli
+```azurecli
 az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
 ```
 Enter this string in the **Avere cluster create role ID** field when deploying the Avere vFXT for Azure.
