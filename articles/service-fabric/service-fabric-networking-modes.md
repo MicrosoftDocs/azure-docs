@@ -260,7 +260,7 @@ When a container service restarts or moves to another node in the cluster, the I
    </Resources>
    ```
    
-6. For Windows, a VM reboot will cause the open network to be recreated. This is to mitigate an underlying issue in the networking stack. The default behaviour is to recreate the network. If this behaviour needs to be turned off, the following configuration can be used followed by a config upgrade.
+6. For Windows, a VM reboot will cause the open network to be recreated. This is to mitigate an underlying issue in the networking stack. The default behavior is to recreate the network. If this behavior needs to be turned off, the following configuration can be used followed by a config upgrade.
 
 ```json
 "fabricSettings": [
