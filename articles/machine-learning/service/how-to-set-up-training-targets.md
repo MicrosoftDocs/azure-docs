@@ -14,24 +14,25 @@ ms.custom: seodec18
 ---
 # Set up compute targets for model training
 
-With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-target). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  
+With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-target). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
 You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, or Azure CLI. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
  
-In this article, you learn how to use various compute targets.  The steps for all compute targets follow the same workflow:
+In this article, you learn how to use various compute targets for model training.  The steps for all compute targets follow the same workflow:
 1. __Create__ a compute target if you don’t already have one.
 2. __Attach__ the compute target to your workspace.
 3. __Configure__ the compute target so that it contains the Python environment and package dependencies needed by your script.
 
+
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 1.0.6.
 
-## Supported compute targets
+## Compute targets for training
 
 Azure Machine Learning service has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
 
-|Compute target| GPU acceleration | Automated<br/> hyperparameter tuning | Automated</br> machine learning | Pipeline friendly|
+|Compute target for training| GPU acceleration | Automated<br/> hyperparameter tuning | Automated</br> machine learning | Pipeline friendly|
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |

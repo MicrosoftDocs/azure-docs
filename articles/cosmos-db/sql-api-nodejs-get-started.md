@@ -199,6 +199,15 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
 
    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
    ```
+   
+> [!Note]
+> If connecting to the **Cosmos DB Emulator**, disable SSL verification by creating a custom connection Policy.
+>   ```
+>   const connectionPolicy = new cosmos.ConnectionPolicy ()
+>   connectionPolicy.DisableSSLVerification = true
+>
+>   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey }, connectionPolicy });
+>   ```
 
 Now that you have the code to initialize the Azure Cosmos DB client, let's take a look at how to work with Azure Cosmos DB resources.
 

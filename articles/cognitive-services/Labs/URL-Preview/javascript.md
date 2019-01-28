@@ -30,7 +30,7 @@ If the response returns successfully, the handler assigns the JSON text of the r
 
 **Raw JSON response**
 
-````
+```
 {
   "_type": "WebPage",
   "name": "SwiftKey - Smart prediction technology for easier mobile typing",
@@ -42,7 +42,7 @@ If the response returns successfully, the handler assigns the JSON text of the r
   }
 }
 
-````
+```
 
 **The running demo**
 
