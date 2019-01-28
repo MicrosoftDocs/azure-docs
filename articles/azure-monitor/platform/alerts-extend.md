@@ -1,5 +1,5 @@
 ---
-title: Extend (copy) Log Analytics alerts into Azure Alerts - Overview
+title: Extend (copy) Log Analytics alerts into Azure Government Cloud 
 description: Overview of process to copy alerts from Log Analytics in OMS portal into Azure Alerts, with details addressing common customer concerns.
 author: msvijayn
 services: azure-monitor
