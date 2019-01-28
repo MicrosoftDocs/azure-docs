@@ -68,7 +68,7 @@ Geo-backups are on by default. If your data warehouse is Gen1, you can [opt out]
 
 
 ## Backup and restore costs
-You will notice the Azure bill has a line item for Storage and a line item for Disaster Recovery Storage. The Storage charge is the total cost for storing your data in the primary region along with the incremental changes captured by snapshots. For a more detailed explanation on how snapshots are currently taken, refer to this [documentation](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). The geo-redundant charge covers the cost for storing the geo-backups.  
+You will notice the Azure bill has a line item for Storage and a line item for Disaster Recovery Storage. The Storage charge is the total cost for storing your data in the primary region along with the incremental changes captured by snapshots. For a more detailed explanation of how snapshots are charged, refer to  [Understanding how Snapshots Accrue Charges](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). The geo-redundant charge covers the cost for storing the geo-backups.  
 
 The total cost for your primary data warehouse and seven days of snapshot changes is rounded to the nearest TB. For example, if your data warehouse is 1.5 TB and the snapshots captures 100 GB, you are billed for 2 TB of data at Azure Premium Storage rates. 
 
