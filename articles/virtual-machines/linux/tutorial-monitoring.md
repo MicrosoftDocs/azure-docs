@@ -179,7 +179,7 @@ Choose the Log analytics workspace and automation account and select **Enable** 
 If any of the following prerequisites were found to be missing during onboarding, they're automatically added:
 
 * [Log Analytics](../../log-analytics/log-analytics-overview.md) workspace
-* [Automation](../../automation/automation-offering-get-started.md)
+* [Automation account](../../automation/automation-offering-get-started.md)
 * A [Hybrid runbook worker](../../automation/automation-hybrid-runbook-worker.md) is enabled on the VM
 
 The **Update Management** screen opens. Configure the location, Log analytics workspace and Automation account to use and select **Enable**. If the fields are grayed out, that means another automation solution is enabled for the VM and the same workspace and Automation account must be used.
@@ -245,7 +245,7 @@ Select **Errors** to see detailed information about any errors from the deployme
 
 ## Monitor changes and inventory
 
-You can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
+You can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows registry keys on your computers. Tracking the configurations of your machines can help you pinpoint operational issues across your environment and better understand the state of your machines.
 
 ### Enable Change and Inventory management
 
