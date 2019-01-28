@@ -34,7 +34,7 @@ From here you can make any combination of the following changes and save them al
 
 ## PowerShell: Manage elastic pools and pooled databases
 
-To create and manage SQL Database elastic pools and pooled databases with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To create and manage the SQL Database servers for an elastic pool, see [Create and manage SQL Database servers](sql-database-database-servers.md). To create and manage firewall rules, see [Create and manage firewall rules using PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+To create and manage SQL Database elastic pools and pooled databases with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To create and manage the SQL Database servers for an elastic pool, see [Create and manage SQL Database servers](sql-database-servers.md). To create and manage firewall rules, see [Create and manage firewall rules using PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > For PowerShell example scripts, see [Create elastic pools and move databases between pools and out of a pool using PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) and [Use PowerShell to monitor and scale a SQL elastic pool in Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).

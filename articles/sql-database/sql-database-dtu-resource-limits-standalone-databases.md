@@ -24,7 +24,7 @@ For DTU-based purchasing model resource limits for elastic pools, see [DTU-based
 
 ## Standalone database: Storage sizes and compute sizes
 
-For standalone databases, the following tables show the resources available for a standalone database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a standalone database using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-database-servers-and-databases), [PowerShell](sql-database-standalone-databases-manage.md#powershell-manage-standalone-servers-and-databases), the [Azure CLI](sql-database-standalone-databases-manage.md#azure-cli-manage-standalone-servers-and-databases), or the [REST API](sql-database-standalone-databases-manage.md#rest-api-manage-database-servers-and-databases).
+For standalone databases, the following tables show the resources available for a standalone database at each service tier and compute size. You can set the service tier, compute size, and storage amount for a standalone database using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-sql-database-servers-and-databases), [PowerShell](sql-database-standalone-databases-manage.md#powershell-manage-standalone-servers-and-databases), the [Azure CLI](sql-database-standalone-databases-manage.md#azure-cli-manage-standalone-servers-and-databases), or the [REST API](sql-database-standalone-databases-manage.md#rest-api-manage-sql-database-servers-and-databases).
 
 ### Basic service tier
 
@@ -80,12 +80,12 @@ For standalone databases, the following tables show the resources available for 
 ## Standalone database: Change storage size
 
 - The DTU price for a standalone database includes a certain amount of storage at no additional cost. Extra storage beyond the included amount can be provisioned for an additional cost up to the max size limit in increments of 250 GB up to 1 TB, and then in increments of 256 GB beyond 1 TB. For included storage amounts and max size limits, see [Standalone database: Storage sizes and compute sizes](#standalone-database-storage-sizes-and-compute-sizes).
-- Extra storage for a standalone database can be provisioned by increasing its max size using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-database-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Extra storage for a standalone database can be provisioned by increasing its max size using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-sql-database-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - The price of extra storage for a standalone database is the extra storage amount multiplied by the extra storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## Standalone database: Change DTUs
 
-After initially picking a service tier, compute size, and storage amount, you can scale a standalone database up or down dynamically based on actual experience using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-database-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
+After initially picking a service tier, compute size, and storage amount, you can scale a standalone database up or down dynamically based on actual experience using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-sql-database-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), the [Azure CLI](/cli/azure/sql/db#az-sql-db-update), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 The following video shows dynamically changing the service tier and compute size to increase available DTUs for a standalone database.
 

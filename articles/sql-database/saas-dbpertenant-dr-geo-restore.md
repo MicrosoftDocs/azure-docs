@@ -373,4 +373,4 @@ Try the [Disaster recovery for a multitenant SaaS application using database geo
 
 ## Additional resources
 
-[Additional tutorials that build upon the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+[Additional tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

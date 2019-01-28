@@ -311,4 +311,4 @@ You can learn more about the technologies Azure SQL database provides to enable 
 
 ## Additional resources
 
-* [Additional tutorials that build upon the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* [Additional tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
