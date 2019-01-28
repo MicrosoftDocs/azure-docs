@@ -28,27 +28,19 @@ This article shows how to use [Media Services v3 CLI](https://aka.ms/ams-v3-cli-
 
 ## Prerequisites 
 
-+ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. 
+[Create a Media Services account](create-account-cli-how-to.md).
 
-    You can also use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).
-+ [Create a Media Services account](create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## Scale Media Reserved Units with CLI
 
-1. Run the `login` command. Run this command whether you are using the Azure cloud shell or the local CLI shell.
+Run the `mru` command.
 
-    ```azurecli
-    az login
-    ```
-    
-    If the CLI can open your default browser, it will do so and load a sign-in page. Otherwise, you need to open a browser page and follow the instructions on the command line to enter an authorization code after navigating to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in your browser.
-2. Run the `mru` command.
+The following [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
 
-    The following [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
-
-    ```azurecli
-    az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
-    ```
+```azurecli
+az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+```
 
 ## Billing
 

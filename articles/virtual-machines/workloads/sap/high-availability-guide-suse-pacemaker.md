@@ -522,7 +522,7 @@ Use the following content for the input file. You need to adapt the content to y
 
 Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore!
 
-1. Go to https\://portal.azure.com
+1. Go to [https://portal.azure.com](https://portal.azure.com)
 1. Open the All resources blade
 1. Select the virtual machine of the first cluster node
 1. Click Access control (IAM)
