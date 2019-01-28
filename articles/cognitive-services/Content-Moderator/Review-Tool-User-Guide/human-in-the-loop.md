@@ -7,7 +7,7 @@ author: sanjeev3
 manager: mikemcca
 ms.date: 01/10/2019
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: article
 ms.author: sajagtap
 
