@@ -31,6 +31,14 @@ In this article, learn about the Azure Machine Learning service releases.
 
 + **Bug fixes**: This release mostly contains minor bug fixes
 
+### Azure Machine Learning Data Prep SDK v1.0.8
+
++ **SDK reference docs**: https://aka.ms/data-prep-sdk
+
++ **Bug fixes**
+  + Significantly improved the performance of getting data profiles.
+  + Fixed minor bugs related to error reporting.
+
 ## 2019-01-14
 
 ### Azure Machine Learning SDK for Python v1.0.8
