@@ -20,6 +20,9 @@ ms.custom: seodec18
 ---
 # Geo Distributed Scale with App Service Environments
 ## Overview
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Application scenarios which require very high scale can exceed the compute resource capacity available to a single deployment of an app.  Voting applications, sporting events, and televised entertainment events are all examples of scenarios that require extremely high scale. High scale requirements can be met by horizontally scaling out apps, with multiple app deployments being made within a single region, as well as across regions, to handle extreme load requirements.
 
 App Service Environments are an ideal platform for horizontal scale out.  Once an App Service Environment configuration has been selected that can support a known request rate, developers can deploy additional App Service Environments in "cookie cutter" fashion to attain a desired peak load capacity.

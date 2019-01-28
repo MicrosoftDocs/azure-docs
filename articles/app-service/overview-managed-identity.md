@@ -78,6 +78,8 @@ The following steps will walk you through creating a web app and assigning it an
 
 ### Using Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following steps will walk you through creating a web app and assigning it an identity using Azure PowerShell:
 
 1. If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzAccount` to create a connection with Azure.

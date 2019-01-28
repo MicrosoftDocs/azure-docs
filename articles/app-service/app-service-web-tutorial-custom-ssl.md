@@ -246,6 +246,8 @@ az webapp config set \
 
 ### Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following command uploads an exported PFX file and adds an SNI-based SSL binding.
 
 ```PowerShell

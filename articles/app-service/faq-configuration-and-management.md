@@ -258,6 +258,8 @@ To learn how to use a custom domain name with an App Service app that uses Azure
 
 ## My App Service certificate is flagged for fraud. How do I resolve this?
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 During the domain verification of an App Service certificate purchase, you might see the following message:
 
 “Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours, please contact Azure Support.”

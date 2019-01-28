@@ -19,6 +19,9 @@ ms.custom: seodec18
 
 ---
 # High density hosting on Azure App Service using per-app scaling
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 By default, you scale App Service apps by scaling the [App Service plan](overview-hosting-plans.md) they run on. When multiple apps are run in the same App Service plan, each scaled-out instance runs all the apps in the plan.
 
 You can enable *per-app scaling* at the
