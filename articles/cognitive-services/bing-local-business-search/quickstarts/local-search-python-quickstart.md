@@ -35,7 +35,7 @@ The following code gets localized results. It is implemented in the following st
 
 The complete code for this demo follows:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -59,7 +59,7 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 
 ## Next steps
 - [Local Business Search Java Quickstart](local-search-java-quickstart.md)

@@ -20,7 +20,7 @@ ms.author: kumud
 
 # Peer two virtual networks
 
-This script creates and connects two virtual networks in the same region trhough the Azure network. After running the script, you will create a peering between two virtual networks.
+This script creates and connects two virtual networks in the same region through the Azure network. After running the script, you will create a peering between two virtual networks.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

@@ -108,8 +108,6 @@ Now that you have a blob container, you can test the function by uploading a fil
 
 ## Next steps
 
-You have created a function that runs when a blob is added to or updated in Blob storage. 
+You have created a function that runs when a blob is added to or updated in Blob storage. For more information about Blob storage triggers, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-For more information about Blob storage triggers, see [Azure Functions Blob storage bindings](functions-bindings-storage-blob.md).
