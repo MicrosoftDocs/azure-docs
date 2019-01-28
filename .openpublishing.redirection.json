@@ -34345,7 +34345,7 @@
       "redirect_document_id":  true
     },
     {
-      "source_path":  "articles/platform/dashboards.md",
+      "source_path":  "articles/azure-monitor/platform/dashboards.md",
       "redirect_url":  "/azure/azure-monitorr/learn/tutorial-logs-dashboards",
       "redirect_document_id":  true
     },    {
