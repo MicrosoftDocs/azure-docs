@@ -84,6 +84,6 @@ Azure VMs running on Windows Server 2016 can be replicated across Azure regions 
 
 ## Next steps
 
-Keep up to date with our updates on the [Azure Updates](https://azure.microsoft.com/updates/?product=site-recovery) page.
+Keep up-to-date with our updates on the [Azure Updates](https://azure.microsoft.com/updates/?product=site-recovery) page.
 
 
