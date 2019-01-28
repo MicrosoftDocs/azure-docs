@@ -65,7 +65,7 @@ To help verify that you are not logged into a personal browser account, open a n
 
 9.  In the `Registration - Review` section, review your account information and confirm that everything is correct.  
 
-    Read the terms and conditions of the Microsoft Azure Marketplace publisher agreement.  
+    Read the terms and conditions of the Microsoft Azure Marketplace [publisher agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf).  
 
     Click on the check-box to indicate that you have read and accepted the terms.  
     

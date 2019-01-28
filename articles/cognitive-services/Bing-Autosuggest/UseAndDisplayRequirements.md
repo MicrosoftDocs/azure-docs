@@ -7,7 +7,7 @@ author: dwlin
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: dwlin
