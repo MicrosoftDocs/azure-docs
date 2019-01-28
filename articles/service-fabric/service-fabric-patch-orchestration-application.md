@@ -410,6 +410,6 @@ An administrator must intervene and determine why the application or cluster bec
 - Parameterized placement constraint for both the microservices of POA for advanced usecases.
 
 ### Version 1.3.1
-- Fixing regression where POA 1.3.0 won't work on Windows Server 2012 due to failure in disabling automatic updates. 
+- Fixing regression where POA 1.3.0 won't work on Windows Server 2012 R2 or lower due to failure in disabling automatic updates. 
 - Fixing bug where InstallWindowsOSOnlyUpdates configuration is always picked as True.
 - Changing default value of InstallWindowsOSOnlyUpdates to False.
