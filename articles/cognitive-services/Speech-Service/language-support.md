@@ -74,6 +74,10 @@ For a full list of neural voices and regional availability, see [regions](region
 |--------|----------|---------|--------------------|
 | en-US | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
 | en-US | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+| zh-CN | Chinese | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" |
+
+> [!IMPORTANT]
+> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) is only available via the Southeast Asia endpoint: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1.
 
 ### Standard voices
 
