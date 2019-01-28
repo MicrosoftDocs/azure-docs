@@ -4889,7 +4889,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/servers/securityAlertPolicies/write | Change the server threat detection policy for a given server |
 > | Action | Microsoft.Sql/servers/serviceObjectives/read | Retrieve list of service level objectives (also known as performance tiers) available on a given server |
 > | Action | Microsoft.Sql/servers/syncAgents/delete | Deletes an existing sync agent. |
-> | Action | Microsoft.Sql/servers/syncAgents/generateKey/action | Generate sync agent registeration key |
+> | Action | Microsoft.Sql/servers/syncAgents/generateKey/action | Generate sync agent registration key |
 > | Action | Microsoft.Sql/servers/syncAgents/linkedDatabases/read | Return the list of sync agent linked databases |
 > | Action | Microsoft.Sql/servers/syncAgents/read | Return the list of sync agents or gets the properties for the specified sync agent. |
 > | Action | Microsoft.Sql/servers/syncAgents/write | Creates a sync agent with the specified parameters or update the properties for the specified sync agent. |
