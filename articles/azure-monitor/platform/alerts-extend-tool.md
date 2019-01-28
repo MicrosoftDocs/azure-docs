@@ -1,5 +1,5 @@
 ---
-title: Extend alerts from Log Analytics to Azure
+title: Extend alerts from Log Analytics to Azure Government Cloud
 description: This article describes the tools and API by which you can extend alerts from Log Analytics to Azure Alerts.
 author: msvijayn
 services: azure-monitor
