@@ -28,8 +28,7 @@ In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media
 The tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Access the Media Services API
-> * Configure the sample app
+> * Download and configure the sample app
 > * Examine the code that performs live streaming
 > * Watch the event with [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) at http://ampdemo.azureedge.net
 > * Clean up resources
@@ -42,6 +41,7 @@ The following are required to complete the tutorial.
 
 - Install Visual Studio Code or Visual Studio.
 - [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
 - A camera or a device (like laptop) that is used to broadcast an event.
 - An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
 
@@ -55,11 +55,10 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The live streaming sample is located in the [Live](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live/MediaV3LiveApp) folder.
 
-> [!IMPORTANT]
-> This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple LiveEvents in your account. <br/>
-> Make sure to stop the running Live Events. Otherwise, you will be **billed**!
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) and replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md)
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+> [!IMPORTANT]
+> This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple LiveEvents in your account. <br/>> Make sure to stop the running Live Events. Otherwise, you will be **billed**!
 
 ## Examine the code that performs live streaming
 
