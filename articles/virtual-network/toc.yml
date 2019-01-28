@@ -14,7 +14,7 @@
   - name: Create virtual network - Azure CLI
     href: quick-create-cli.md
 - name: Tutorials
-  items:Software Defined Networking
+  items:
   - name: Filter network traffic
     href: tutorial-filter-network-traffic.md
   - name: Route network traffic
