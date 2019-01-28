@@ -148,7 +148,7 @@ Under **Edit for Change Tracking** you can:
 - Delete the entity, discard the change, or save the change
 
 ## Add a new entity to monitor
-1. Return to the **File integirty monitoring dashboard** and select **Settings** at the top. **Workspace Configuration** opens.
+1. Return to the **File integrity monitoring dashboard** and select **Settings** at the top. **Workspace Configuration** opens.
 2. Under **Workspace Configuration**, select the tab for the type of entity that you want to add: Windows Registry, Windows Files, or Linux Files. In this example, we selected **Linux Files**.
 
   ![Add a new item to monitor][14]
