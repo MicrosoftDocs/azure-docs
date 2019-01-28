@@ -75,11 +75,11 @@ To enable the required header globally for all pages in the application, you can
 
 * Add the header in the web.config file if the application is hosted by Internet Information Services (IIS) 7 
 
-```
+```xml
 <system.webServer> 
   <httpProtocol> 
     <customHeaders> 
-      <add name=""X-Content-Type-Options"" value=""nosniff""/>
+      <add name="X-Content-Type-Options" value="nosniff"/>
     </customHeaders>
   </httpProtocol>
 </system.webServer> 
@@ -87,16 +87,16 @@ To enable the required header globally for all pages in the application, you can
 
 * Add the header through the global Application\_BeginRequest 
 
-``` 
+```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
-  this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
+  this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 } 
 ```
 
 * Implement custom HTTP module 
 
-``` 
+```csharp
 public class XContentTypeOptionsModule : IHttpModule 
   {
     #region IHttpModule Members 
@@ -114,9 +114,9 @@ public class XContentTypeOptionsModule : IHttpModule
         HttpApplication application = sender as HttpApplication; 
         if (application == null) 
           return; 
-        if (application.Response.Headers[""X-Content-Type-Options ""] != null) 
+        if (application.Response.Headers["X-Content-Type-Options"] != null) 
           return; 
-        application.Response.Headers.Add(""X-Content-Type-Options "", ""nosniff""); 
+        application.Response.Headers.Add("X-Content-Type-Options", "nosniff"); 
       } 
   } 
 
@@ -124,8 +124,8 @@ public class XContentTypeOptionsModule : IHttpModule
 
 * You can enable the required header only for specific pages by adding it to individual responses: 
 
-```
-this.Response.Headers[""X-Content-Type-Options""] = ""nosniff""; 
+```csharp
+this.Response.Headers["X-Content-Type-Options"] = "nosniff"; 
 ``` 
 
 ## <a id="xml-resolution"></a>Harden or Disable XML Entity Resolution
@@ -371,7 +371,6 @@ In the preceding code example, the input value cannot be longer than 11 characte
 
 ### Example
 
-```csharp
 * Encoder.HtmlEncode 
 * Encoder.HtmlAttributeEncode 
 * Encoder.JavaScriptEncode 
@@ -381,7 +380,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 * Encoder.XmlAttributeEncode 
 * Encoder.CssEncode 
 * Encoder.LdapEncode 
-```
+
 
 ## <a id="typemodel"></a>Perform input validation and filtering on all string type Model properties
 
@@ -419,7 +418,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 ### Example
 Following are insecure examples: 
 
-```
+```javascript
 document.getElementByID("div1").innerHtml = value;
 $("#userName").html(res.Name);
 return $('<div/>').html(value)
@@ -463,7 +462,7 @@ Don't use `innerHtml`; instead use `innerText`. Similarly, instead of `$("#elm")
 ### Example
 For example, the following configuration will throw a RegexMatchTimeoutException, if the processing takes more than 5 seconds: 
 
-```csharp
+```xml
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
 ```
 
@@ -481,7 +480,7 @@ For example, the following configuration will throw a RegexMatchTimeoutException
 ### Example
 Following is an insecure example: 
 
-```csharp
+```aspx-csharp
 <div class="form-group">
             @Html.Raw(Model.AccountConfirmText)
         </div>
@@ -506,7 +505,7 @@ Do not use `Html.Raw()` unless you need to display markup. This method does not 
 ### Example
 Following is an example of insecure dynamic Stored Procedure: 
 
-```csharp
+```sql
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteria]
 (
   @productName nvarchar(200) = NULL,
@@ -533,7 +532,7 @@ AS
 
 ### Example
 Following is the same stored procedure implemented securely: 
-```csharp
+```sql
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
 (
              @productName nvarchar(200) = NULL,
@@ -640,12 +639,12 @@ using System.Data.SqlClient;
 
 using (SqlConnection connection = new SqlConnection(connectionString))
 { 
-DataSet userDataset = new DataSet(); 
-SqlDataAdapter myCommand = new SqlDataAdapter("LoginStoredProcedure", connection); 
-myCommand.SelectCommand.CommandType = CommandType.StoredProcedure; 
-myCommand.SelectCommand.Parameters.Add("@au_id", SqlDbType.VarChar, 11); 
-myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text; 
-myCommand.Fill(userDataset);
+    DataSet userDataset = new DataSet(); 
+    SqlDataAdapter myCommand = new SqlDataAdapter("LoginStoredProcedure", connection); 
+    myCommand.SelectCommand.CommandType = CommandType.StoredProcedure; 
+    myCommand.SelectCommand.Parameters.Add("@au_id", SqlDbType.VarChar, 11); 
+    myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text; 
+    myCommand.Fill(userDataset);
 }  
 ```
 In the preceding code example, the input value cannot be longer than 11 characters. If the data does not conform to the type or length defined by the parameter, the SqlParameter class throws an exception. 
