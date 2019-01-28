@@ -39,8 +39,6 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 
 *Default character max is 50 characters. 
 
-*Default character max is 50 characters. 
-
 ## Intent and entity naming
 Do not use the following characters in intent and entity names:
 
