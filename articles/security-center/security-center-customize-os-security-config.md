@@ -272,7 +272,7 @@ All potential errors are listed in the following table:
 
 | **Error**                                | **Description**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | The property *schemaVersion* was found invalid or empty. The value must be set to *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | The property *schemaVersion* was found invalid or empty. The value must be set to *{0}*.                                                         |
 | BaselineInvalidStringError               | The property *{0}* cannot contain *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | The baseline configuration rules list contains a rule with value *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | The CCE-ID *{0}* is not unique.                                                                                                                  |
