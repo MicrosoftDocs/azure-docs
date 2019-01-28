@@ -106,7 +106,7 @@ Custom Live Metrics Stream is available with version 2.4.0-beta2 or newer of [Ap
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 ### Create an API Key
 
-![Create api key](./media/live-stream/live-metrics-apikeycreate.png)
+![Create API key](./media/live-stream/live-metrics-apikeycreate.png)
 
 ### Add API key to Configuration
 
@@ -160,7 +160,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 For Azure Function Apps (v2) securing the channel with an API key can be accomplished with an environment variable. 
 
-Create an API key from within your Appliction Insights resource and go to **Application Settings** for your Function App. Select **add new setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
+Create an API key from within your Application Insights resource and go to **Application Settings** for your Function App. Select **add new setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
 
 ### ASP.NET Core (Requires Application Insights ASP.NET Core SDK 2.3.0-beta or greater)
 
