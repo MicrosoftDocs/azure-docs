@@ -132,6 +132,9 @@ The user with conflicting attribute in Azure AD should be cleaned before you can
 **Updating source anchor to cloud-based user in your tenant is not supported.**  
 Cloud-based user in Azure AD should not have source anchor. Updating source anchor is not supported in this case. Manual fix is required from on premises. 
 
+**The fix process failed to update the values.**
+The specific settings in Azure AD Connect is not supported when UserWriteback feature is enabled. 
+
 ## FAQ
 **Q.** What happens if execution of the **Apply Fix** fails?  
 **A.** If execution fails, it's possible that Azure AD Connect is running an export error. Refresh the portal page and retry after the next sync. The default sync cycle is 30 minutes. 
