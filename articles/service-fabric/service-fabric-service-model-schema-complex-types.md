@@ -7617,7 +7617,7 @@ Unsupported, do not use. The name of unmanaged assembly (for example, Queue.dll)
     </xs:attribute>
     <xs:attribute name="NodeName" type="xs:string" use="optional">
       <xs:annotation>
-        <xs:documentation>This is the name of the Node to which the Fabric Upgrade is to happe</xs:documentation>
+        <xs:documentation>This is the name of the Node to which the Fabric Upgrade is to happen</xs:documentation>
       </xs:annotation>
     </xs:attribute>
     <xs:attribute name="RemoveNodeState" type="xs:boolean" use="optional" default="false">
@@ -7692,7 +7692,7 @@ This is the Target Version of the deployment.
 |use|optional|
 
 #### NodeName
-This is the name of the Node to which the Fabric Upgrade is to happe
+This is the name of the Node to which the Fabric Upgrade is to happen
 |Attribute|Value|
 |---|---|
 |name|NodeName|
