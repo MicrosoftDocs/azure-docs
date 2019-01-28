@@ -118,7 +118,7 @@ For a list of other potential errors, see [Error codes](#error-codes).
 The following three sections contain examples of the preceding rules. The *expectedValue* and *state* attributes can be changed.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -141,7 +141,7 @@ The following three sections contain examples of the preceding rules. The *expec
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -158,7 +158,7 @@ The following three sections contain examples of the preceding rules. The *expec
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -213,7 +213,7 @@ New custom rules are marked with a new custom source (!= "Microsoft"). The *rule
 Example of a new custom rule:
 
 **Registry**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -222,7 +222,7 @@ Example of a new custom rule:
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -230,7 +230,7 @@ Example of a new custom rule:
     }
 ```
 **Security policy**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -245,7 +245,7 @@ Example of a new custom rule:
    }
 ```
 **Audit policy**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
