@@ -5,7 +5,7 @@ services: active-directory
 author: barbkess
 manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: concept
 ms.date: 01/16/2019
