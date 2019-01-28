@@ -42,7 +42,7 @@ For example, to view the report from a PowerShell prompt that is open to the loc
 
 The output resembles the following:
 
-````PowerShell
+```PowerShell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
 
 ############### Certificate Validation Summary ###############
@@ -82,7 +82,7 @@ StartTime         : 2018/10/22 14:24:16
 EndTime           : 2018/10/22 14:24:19
 Duration          : 3
 PSBoundParameters : 
-````
+```
 
 ## View the report summary
 To view a summary of the report, you can add the **-Summary** switch to the end of the PowerShell command line. For example: 
@@ -90,7 +90,7 @@ To view a summary of the report, you can add the **-Summary** switch to the end 
 
 The summary shows validations that don't have results and indicates pass or fail for validations that are complete. The output resembles the following:
 
-````PowerShell
+```PowerShell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
 
 ############### Certificate Validation Summary ###############
@@ -112,7 +112,7 @@ Azure Stack Graph Validation results not available.
 ############### Azure Stack ADFS Validation Summary ###############
 
 Azure Stack ADFS Validation results not available.
-````
+```
 
 
 ## View a filtered report

@@ -47,7 +47,7 @@ Service Fabric Explorer is also hosted in a Service Fabric cluster's HTTP manage
 For developer workstation setup, you can launch Service Fabric Explorer on your local cluster by navigating to https://localhost:19080/Explorer. Look at this article to [prepare your development environment](service-fabric-get-started.md).
 
 > [!NOTE]
-> If your cluster is secured by a self-signed certificate you will recieve an error message from the web browser "This site is not secure". You can simply proceed through most modern web browsers by overriding the warning. In a production environment your cluster should be secured using common name and a certificate authority issued certificate. 
+> If your cluster is secured by a self-signed certificate you will receive an error message from the web browser "This site is not secure". You can simply proceed through most modern web browsers by overriding the warning. In a production environment your cluster should be secured using common name and a certificate authority issued certificate. 
 >
 >
 

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: pim
+ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/09/2018
