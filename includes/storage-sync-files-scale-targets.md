@@ -11,7 +11,7 @@
 ---
 | Resource | Target | Hard limit |
 |----------|--------------|------------|
-| Storage Sync Services per subscription | 15 Storage Sync Services per region | No |
+| Storage Sync Services per region | 15 Storage Sync Services | Yes |
 | Sync groups per Storage Sync Service | 100 sync groups | Yes |
 | Registered servers per Storage Sync Service | 99 servers | Yes |
 | Cloud endpoints per Sync Group | 1 cloud endpoint | Yes |

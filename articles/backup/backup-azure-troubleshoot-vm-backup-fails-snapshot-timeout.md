@@ -54,7 +54,7 @@ To resolve this issue, remove the lock on the resource group of the VM, and retr
 **Step 1: [Remove lock from the restore point resource group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
 
-## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs.
+## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs
 
 **Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
@@ -100,7 +100,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: Currently Azure Backup does not support disk sizes greater than 1023GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability.md).  
+Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability.md#upgrading-to-instant-restore).  
 
 ## UserErrorStandardSSDNotSupported - Currently Azure Backup does not support Standard SSD disks
 
@@ -108,6 +108,25 @@ Your backup operation could fail when backing up VM with disk size greater than 
 **Error message**: Currently Azure Backup does not support Standard SSD disks <br>
 
 Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to [Instant Restore](backup-instant-restore-capability.md).
+
+## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
+
+**Error code**: UserErrorBackupOperationInProgress <br>
+**Error message**: Unable to initiate backup as another backup operation is currently in progress<br>
+
+Your recent backup job failed because there is an existing backup job in progress. You can't start a new backup job until the current job finishes. Ensure the backup operation currently in progress is completed before triggering or scheduling another backup operations. To check the backup jobs status, perform the below steps:
+
+1. Sign in to Azure portal, click **All services**. Type Recovery Services and click **Recovery Services vaults**. The list of recovery services vaults appears.
+2. From the list of recovery services vaults, select a vault in which the backup is configured.
+3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
+
+	* If a backup job is in progress, wait for it to complete or cancel the backup job.
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+	* If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists then cancel the backup job.
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. Retry backup operation.
+
+If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#restore-considerations).
 
 
 ## Causes and solutions

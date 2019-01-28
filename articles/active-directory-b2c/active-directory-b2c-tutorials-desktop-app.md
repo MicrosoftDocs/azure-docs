@@ -3,7 +3,7 @@ title: Tutorial - Enable desktop app authentication with accounts using Azure Ac
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for a .NET desktop app.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.author: davidmu
 ms.date: 11/30/2018

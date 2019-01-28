@@ -158,7 +158,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 - Azure VMs use disks to store their operating system, apps, and data.
 - Azure VMs have at least two disks. One for the operating system, and a temporary disk. They can also have data disks for app data. Disks are stored as VHDs.
 - VHDs are stored as page blobs in standard or premium storage accounts in Azure.
-    - Standard storage: Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use standard SSD disks or standard SSD disks).
+    - Standard storage: Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use standard SSD disks or standard HDD disks.
     - Premium storage: High-performance disk support. Uses premium SSD disks.
 - There are different performance tiers for disks:
     - Standard HDD disk: Backed by HDDs, and used for cost-effective storage.
