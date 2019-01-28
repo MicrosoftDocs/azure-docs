@@ -68,15 +68,35 @@ The cause for the failure could be one of many things. Go to your Automation Acc
 
 It's recommended to use the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md) to start and stop VMs in Azure Automation. This solution is authored by Microsoft. Custom runbooks are not supported by Microsoft. You might find a solution for your custom runbook by visiting the [runbook troubleshooting](runbooks.md) article. This article provides general guidance and troubleshooting for runbooks of all types.
 
+### <a name="dont-start-stop-in-sequence"></a>Scenario: VMs don't start/stop on correct sequence
+
+#### Issue
+
+The VMs that you have configured in the solution do not start or stop in the correct sequence.
+
+#### Cause
+
+This is caused by incorrect tagging on the VMs.
+
+#### Resolution
+
+Take the following steps to ensure that the solution is configured correctly.
+
+1. Ensure all VMs to be to started or stopped have a `sequencestart` or `sequencestop` tag, depending on your situation with a positive integer value. VM's are processed in ascending order.
+2. Make sure the resource groups for the VMs to be started or stopped are in the `External_Start_ResourceGroupNames` or `External_Stop_ResourceGroupNames` variables, depending on your situation.
+3. Test your changes by executing the `SequencedStartStop_Parent` runbook with the WHATIF parameter set to True to preview your changes.
+
+For more detailed and additional instructions on how to use the solution to start and stop VMs in sequence, see[Start/Stop VMs in sequence](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags).
+
 ### <a name="other"></a>Scenario: My problem isn't listed above
 
 #### Issue
 
-You experience an issue or unexpected result when using the Start/Stop VMs during off hours solution that isn't listed on this page.
+You experience an issue or unexpected result when using the Start/Stop VMs during off-hours solution that isn't listed on this page.
 
 #### Cause
 
-Many times this can be caused by using an old and outdated version of the solution.
+Many times errors can be caused by using an old and outdated version of the solution.
 
 #### Resolution
 
