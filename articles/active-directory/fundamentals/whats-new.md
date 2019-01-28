@@ -111,35 +111,6 @@ For more information, see [View activity and audit history for Azure resource ro
 
 ---
 
-[9872](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=9872&triage=true&fullScreen=false&_a=edit)
-
-### Templates for Azure AD B2C consumer experience
-
-**Type:** New feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
- 
-
-We have released some new default templates that are currently available for V2 user flows.  These new templates are a huge improvement from our default experience and we are looking to make it default once we have gone through the release process.  Go ahead and try these out by going to page layouts and selecting a new one from the command bar.  
-
-For more information, see...
-
----
-
-### Cloud Solution Providers can resell Azure AD B2C using Azure CSP subscriptions
-
-**Type:** New feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
- 
-We've added Azure AD B2C to the Azure Cloud Solution Providers (CSP) program, where CSPs (such as, system integrators) enjoy discounted CSP-targeted programs and incentives. This addition means CSPs can now invoice Azure Active Directory B2C and the other Azure Resources using Azure CSP subscriptions, allowing CSPs to invoice the full solution to their customers, under their own terms.
-
-CSP Subscription administrators can link, move, and delete Azure AD B2C relationships using the Azure AD B2C and Azure resources interfaces, such as API, CLI, or the Azure portal. Because management and role-based access control (RBAC) happens through tenant-based roles, not subscription-based roles, Azure AD B2C isn't affected by the association between the Azure AD B2C tenant and the Azure CSP subscription.
-
-For more information about the CSP program, see [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/).
-
----
-
 ## November/December 2018
 
 ### Users removed from synchronization scope no longer switch to cloud-only accounts
