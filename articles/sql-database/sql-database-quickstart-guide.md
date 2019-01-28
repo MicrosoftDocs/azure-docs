@@ -15,7 +15,7 @@ ms.date: 01/25/2019
 ---
 # Getting started with standalone databases in Azure SQL Database
 
-[A standalone database](https://docs.microsoft.com/azure/sql-database/sql-database-single-index) in Azure SQL Database is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create SQL Database.
+[A standalone database](sql-database-standalone-index.yml) in Azure SQL Database is fully managed PaaS database as a service (DbaaS) that is ideal storage engine for the modern cloud-born applications. In this section, you will learn how to quickly configure and create SQL Database.
 
 ## Quickstart overview
 
@@ -39,6 +39,6 @@ Articles in these quickstarts enable you to quickly create or import your databa
 
 * Find a [high-level list of supported features in Azure SQL Database](sql-database-features.md). 
 * Learn how to make your [database more secure](sql-database-security-tutorial.md). 
-* Find more advanced tutorials in [how to section](sql-database-howto-standalone-database-.md). 
+* Find more advanced tutorials in [how to section](sql-database-howto-standalone-database.md). 
 * Find more sample scripts written in [PowerShell](sql-database-powershell-samples.md) and [Azure CLI](sql-database-cli-samples.md). 
 * Learn more about the [Management API](sql-database-standalone-databases-manage.md) that you can use to configure your databases. 

@@ -51,11 +51,11 @@ When you provision Azure-SSIS IR, Azure Feature Pack for SSIS and Access Redistr
 ### Region support
 For a list of Azure regions, in which ADF and Azure-SSIS IR are currently available, see [ADF + SSIS IR availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
-### Compare SQL Database logical server and SQL Database Managed Instance
+### Compare SQL Database standalone database/elastic pool and SQL Database Managed Instance
 
 The following table compares certain features of Azure SQL Database server and Managed Instance as they relate to Azure-SSIR IR:
 
-| Feature | Azure SQL Database server| Managed Instance |
+| Feature | standalone database/elastic pool| Managed Instance |
 |---------|--------------|------------------|
 | **Scheduling** | SQL Server Agent is not available.<br/><br/>See [Schedule a package execution in ADF pipeline](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Managed Instance Agent is available. |
 | **Authentication** | You can create SSISDB with a contained database user representing any AAD group with the managed identity of your ADF as a member in the **db_owner** role.<br/><br/>See [Enable Azure AD authentication to create SSISDB in Azure SQL Database server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | You can create SSISDB with a contained database user representing the managed identity of your ADF. <br/><br/>See [Enable Azure AD authentication to create SSISDB in Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |

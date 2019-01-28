@@ -71,7 +71,7 @@ Hyperscale is currently available for standalone databases in the following regi
 
 ### Can I create multiple Hyperscale databases per SQL Database server
 
-Yes. For more information and limits on the number of Hyperscale databases per SQL Database server, see [SQL Database resource limits for standalone and pooled databases on a SQL Database server](sql-database-resource-limits-logical-server.md).
+Yes. For more information and limits on the number of Hyperscale databases per SQL Database server, see [SQL Database resource limits for standalone and pooled databases on a SQL Database server](sql-database-resource-limits-database-server.md).
 
 ### What are the performance characteristic of a Hyperscale database
 

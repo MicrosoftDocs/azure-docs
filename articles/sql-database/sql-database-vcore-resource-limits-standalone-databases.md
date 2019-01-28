@@ -17,12 +17,12 @@ ms.date: 01/25/2019
 
 This article provides the detailed resource limits for Azure SQL Database standalone databases using the vCore-based purchasing model.
 
-For DTU-based purchasing model limits for standalone databases on a SQL Database server, see [Overview of resource limits on a SQL Database server](sql-database-resource-limits-logical-server.md).
+For DTU-based purchasing model limits for standalone databases on a SQL Database server, see [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-You can set the service tier, compute size, and storage amount for a standalone database using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-standalone-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-standalone-databases-manage.md#powershell-manage-logical-servers-and-databases), the [Azure CLI](sql-database-standalone-databases-manage.md#azure-cli-manage-logical-servers-and-databases), or the [REST API](sql-database-standalone-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+You can set the service tier, compute size, and storage amount for a standalone database using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-database-servers-and-databases), [Transact-SQL](sql-database-standalone-databases-manage.md#transact-sql-manage-database-servers-and-databases), [PowerShell](sql-database-standalone-databases-manage.md#powershell-manage-database-servers-and-databases), the [Azure CLI](sql-database-standalone-databases-manage.md#azure-cli-manage-database-servers-and-databases), or the [REST API](sql-database-standalone-databases-manage.md#rest-api-manage-database-servers-and-databases).
 
 ## General Purpose service tier: Storage sizes and compute sizes
 

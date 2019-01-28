@@ -132,7 +132,7 @@ The following configuration steps differ whether starting with a new SQL deploym
   - Select the key to use as TDE Protector – each server will use the local copy of the TDE Protector.
   - Doing this in the Portal will create an [AppID](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for the SQL Database server, which is used to assign the SQL Database server permissions to access the key vault – do not delete this identity. Access can be revoked by removing the permissions in Azure Key Vault instead for the SQL Database server, which is used to assign the SQL Database server permissions to access the key vault.
 - Create the primary database.
-- Follow the [active geo-replication guidance](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) to complete the scenario, this step will create the secondary database.
+- Follow the [active geo-replication guidance](sql-database-geo-replication-overview.md) to complete the scenario, this step will create the secondary database.
 
 ![Failover groups and geo-dr](./media/transparent-data-encryption-byok-azure-sql/Geo_DR_Config.PNG)
 
@@ -156,7 +156,7 @@ Because the SQL Database servers already exist, and primary and secondary databa
 
 Before enabling TDE with customer managed keys in Azure Key Vault for a SQL Database Geo-DR scenario, it is important to create and maintain two Azure Key Vaults with identical contents in the same regions that will be used for SQL Database geo-replication.  “Identical contents” specifically means that both key vaults must contain copies of the same TDE Protector(s) so that both servers have access to the TDE Protectors use by all databases.  Going forward, it is required to keep both key vaults in sync, which means they must contain the same copies of TDE Protectors after key rotation, maintain old versions of keys used for log files or backups, TDE Protectors must maintain the same key properties and the key vaults must maintain the same access permissions for SQL.  
 
-Follow the steps in [Active geo-replication overview](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) to test and trigger a failover, which should be done on a regular basis to confirm the access permissions for SQL to both key vaults have been maintained.
+Follow the steps in [Active geo-replication overview](sql-database-geo-replication-overview.md) to test and trigger a failover, which should be done on a regular basis to confirm the access permissions for SQL to both key vaults have been maintained.
 
 ### Backup and Restore
 
@@ -175,6 +175,6 @@ Get-AzureRmSqlServerKeyVaultKey `
   -ResourceGroup <SQLDatabaseResourceGroupName>
 ```
 
-To learn more about backup recovery for SQL Database, see [Recover an Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups). To learn more about backup recovery for SQL Data Warehouse, see [Recover an Azure SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-overview).
+To learn more about backup recovery for SQL Database, see [Recover an Azure SQL database](sql-database-recovery-using-backups.md). To learn more about backup recovery for SQL Data Warehouse, see [Recover an Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md).
 
 Additional consideration for backed up log files: Backed up log files remain encrypted with the original TDE Encryptor, even if the TDE Protector was rotated and the database is now using a new TDE Protector.  At restore time, both keys will be needed to restore the database.  If the log file is using a TDE Protector stored in Azure Key Vault, this key will be needed at restore time, even if the database has been changed to use service-managed TDE in the meantime.

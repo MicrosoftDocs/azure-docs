@@ -160,6 +160,6 @@ Hyperscale service tier is currently in public preview and available in followin
 
 - For an FAQ on Hyperscale, see [Frequently asked questions about Hyperscale](sql-database-service-tier-hyperscale-faq.md).
 - For information about service tiers, see [Service tiers](sql-database-service-tiers.md)
-- See [Overview of resource limits on a SQL Database server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
+- See [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a standalone database, see [Azure SQL Database vCore-based purchasing model limits for a standalone database](sql-database-vcore-resource-limits-standalone-databases.md).
 - For a features and comparison list, see [SQL common features](sql-database-features.md).

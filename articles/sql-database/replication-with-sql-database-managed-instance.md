@@ -65,7 +65,7 @@ The following features are not supported:
 
    In the example scripts below, use `<SQL_USER>` and `<PASSWORD>` with this SQL Server Account database user and password.
 
-5. [Connect to the SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connect to the SQL Database Managed Instanc](sql-database-connect-query-ssms.md).
 
 6. Run the following query to add the distributor and the distribution database.
 
@@ -166,4 +166,4 @@ The following features are not supported:
 ## See Also
 
 - [Transactional replication](sql-database-managed-instance-transactional-replication.md)
-- [What is a Managed Instance?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [What is a Managed Instance?](sql-database-managed-instance.md)
