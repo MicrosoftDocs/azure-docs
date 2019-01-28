@@ -127,7 +127,7 @@ Now capture the container into a new image. The image name needs to include the 
 
 ```azurecli-interactive
 docker -H tcp://localhost:2375 commit base-image mycontainerregistry30678.azurecr.io/dcos-demo
-````
+```
 
 Login into the Azure Container Registry. Replace the name with the loginServer name, the --username with the name of the container registry, and the --password with one of the provided passwords.
 
