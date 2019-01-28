@@ -53,20 +53,6 @@ For more information about the new cookies, see [Cookie settings for accessing o
 
 ---
 
-### Cloud Solution Providers can resell Azure AD B2C using Azure CSP subscriptions
-
-**Type:** New feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
- 
-We've added Azure AD B2C to the Azure Cloud Solution Providers (CSP) program, where CSPs (such as, system integrators) enjoy discounted CSP-targeted programs and incentives. This addition means CSPs can now invoice Azure Active Directory B2C and the other Azure Resources using Azure CSP subscriptions, allowing CSPs to invoice the full solution to their customers, under their own terms.
-
-CSP Subscription administrators can link, move, and delete Azure AD B2C relationships using the Azure AD B2C and Azure resources interfaces, such as API, CLI, or the Azure portal. Because management and role-based access control (RBAC) happens through tenant-based roles, not subscription-based roles, Azure AD B2C isn't affected by the association between the Azure AD B2C tenant and the Azure CSP subscription.
-
-For more information about the CSP program, see [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/).
-
----
-
 ### New Federated Apps available in Azure AD app gallery - January 2019
 
 **Type:** New feature  
@@ -109,7 +95,7 @@ For more information about the enhancements, see https://aka.ms/IdentityProtecti
 
 To keep your one-time passcodes, app information, and app settings more secure, you can turn on the App Lock feature in the Microsoft Authenticator app. Turning on App Lock means you’ll be asked to authenticate using your PIN or biometric every time you open the Microsoft Authenticator app.
 
-For more information, see [Microsoft Authenticator app FAQ](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-faq).
+For more information, see the [Microsoft Authenticator app FAQ](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-faq).
 
 ---
 
@@ -119,9 +105,9 @@ For more information, see [Microsoft Authenticator app FAQ](https://docs.microso
 **Service category:** Privileged Identity Management  
 **Product capability:** Privileged Identity Management
 
-Privileged Identity Management (PIM) administrators can now export all active and eligible role assignments at a specific resource, which includes role assignments for all child resources. Previously, it was difficult for administrators to get a complete list of role assignments for a subscription and they had to export role assignments for each specific resource.
+Privileged Identity Management (PIM) administrators can now export all active and eligible role assignments for a specific resource, which includes role assignments for all child resources. Previously, it was difficult for administrators to get a complete list of role assignments for a subscription and they had to export role assignments for each specific resource.
 
-For more information, see [View who has Azure resource roles in PIM](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
+For more information, see [View activity and audit history for Azure resource roles in PIM](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 
 ---
 
@@ -137,6 +123,20 @@ For more information, see [View who has Azure resource roles in PIM](https://doc
 We have released some new default templates that are currently available for V2 user flows.  These new templates are a huge improvement from our default experience and we are looking to make it default once we have gone through the release process.  Go ahead and try these out by going to page layouts and selecting a new one from the command bar.  
 
 For more information, see...
+
+---
+
+### Cloud Solution Providers can resell Azure AD B2C using Azure CSP subscriptions
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+We've added Azure AD B2C to the Azure Cloud Solution Providers (CSP) program, where CSPs (such as, system integrators) enjoy discounted CSP-targeted programs and incentives. This addition means CSPs can now invoice Azure Active Directory B2C and the other Azure Resources using Azure CSP subscriptions, allowing CSPs to invoice the full solution to their customers, under their own terms.
+
+CSP Subscription administrators can link, move, and delete Azure AD B2C relationships using the Azure AD B2C and Azure resources interfaces, such as API, CLI, or the Azure portal. Because management and role-based access control (RBAC) happens through tenant-based roles, not subscription-based roles, Azure AD B2C isn't affected by the association between the Azure AD B2C tenant and the Azure CSP subscription.
+
+For more information about the CSP program, see [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/).
 
 ---
 
