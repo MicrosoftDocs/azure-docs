@@ -69,21 +69,21 @@ The following is a snippet of Service Fabric Virtual Machine extension:
 ```
 
 The following are the property descriptions:
-|**Name**|**Allowed Values**|**Guidance or Short Description**|
-|---|---|---|
-|name|string|unique name for extension|
-|type|"ServiceFabricLinuxNode" or "ServiceFabricWindowsNode"|Identifies OS Service Fabric is bootstrapping to|
-|autoUpgradeMinorVersion|true or false|???|
-|protectedSettings|string: string| A key value pair of protected values|
-|publisher|Microsoft.Azure.ServiceFabric|name of the extention publisher|
-|clusterEndpont|string|URI:PORT to Management endpoint|
-|nodeTypeRef|string|name of nodeType|
-|durabilityLevel|bronze, silver, gold, platinum|time allowed to pause immutable Azure Infrastructure|
-|enableParallelJobs|true or false|???|
-|nicPrefixOverride|string|???|
-|commonNames|string|CN for cluster certificate|
-|x509StoreName|string|store cert is installed in|
-|typeHandlerVersion|1.0|version of extesnion|
+
+| **Name** | **Allowed Values** | ** --- ** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+| name | string | --- | unique name for extension |
+| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Identifies OS Service Fabric is bootstrapping to |
+| autoUpgradeMinorVersion | true or false | --- | Enable Auto Upgrade of SF Runtime Minor Versions |
+| publisher | Microsoft.Azure.ServiceFabric | --- | name of the Service Fabric extention publisher |
+| clusterEndpont | string | --- | URI:PORT to Management endpoint |
+| nodeTypeRef | string | --- | name of nodeType |
+| durabilityLevel | bronze, silver, gold, platinum | --- | time allowed to pause immutable Azure Infrastructure |
+| enableParallelJobs | true or false | --- | Enable Compute ParallelJobs like remove VM and Reboto VM in the same scale set in parallel |
+| nicPrefixOverride | string | --- | Subnet Prefix like "10.0.0.0/24" |
+| commonNames | string[] | --- | Common Names of installed cluster certificates |
+| x509StoreName | string | --- | Name of Store where installed cluster certificate is located |
+| typeHandlerVersion | 1.0 | --- | Version of Extension |
 
 ## Next steps
 * See the [overview of the "Deploy anywhere" feature and a comparison with Azure-managed clusters](service-fabric-deploy-anywhere.md).
