@@ -19,7 +19,7 @@ This article shows you how to use syslog to integrate Azure Stack infrastructure
 Starting with the 1809 update, Azure Stack has an integrated syslog client that, once configured, emits syslog messages with the payload in Common Event Format (CEF).
 
 The following diagram describes the integration of Azure Stack with an external SIEM. There are two integration patterns that need to be considered: the first one (the one in blue) is the Azure Stack infrastructure that encompasses the infrastructure virtual machines and the Hyper-V nodes. All the audits, security logs, and alerts from those components are centrally collected and exposed via syslog with CEF payload. This integration pattern is described in this document page.
-The second integration pattern is the one depicted in orange and covers the baseboard management controllers (BMCs), the hardware lifecycle host (HLH), the virtual machines and/or virtual appliances that run the hardware partner monitoring and management software, and the top of rack (TOR) switches. Since these components are hardware-partner specific, contact to your hardware partner for documentation on how to integrate them with an external SIEM.
+The second integration pattern is the one depicted in orange and covers the baseboard management controllers (BMCs), the hardware lifecycle host (HLH), the virtual machines and/or virtual appliances that run the hardware partner monitoring and management software, and the top of rack (TOR) switches. Since these components are hardware-partner specific, contact your hardware partner for documentation on how to integrate them with an external SIEM.
 
 ![Syslog forwarding diagram](media/azure-stack-integrate-security/syslog-forwarding.png)
 
