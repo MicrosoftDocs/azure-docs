@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: media-services
@@ -67,22 +67,43 @@ Media Services recommends using one of the following live encoders that have mul
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
 
+## Configuring on-premises live encoder settings
+
+For information about what settings are valid for your live event type, see [Live Event types comparison](live-event-types-comparison.md).
+
+### Playback requirements
+
+Both an audio and video stream must be present in order to playback content. Playback of the video-only stream is not supported.
+
+### Configuration tips
+
+- Whenever possible, use a hardwired internet connection.
+- A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
+- When using software based encoders, close out any unnecessary programs.
+- Do not change your encoder configuration once it has started pushing. It has negative effects on the event and can cause the event to be unstable. 
+- Ensure to give yourself ample time to setup your event. For high scale events, its recommended to start the setup an hour before your event.
+
 ## How to become an on-premises encoder partner
 
 As an Azure Media Services on-premises encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-premises encoder partner, you must verify compatibility of your on-premises encoder with Media Services. To do so, complete the following verifications:
 
 ### Pass-through LiveEvent verification
 
-1. Create or visit your Azure Media Services account.
-2. Create and start a **pass-through** LiveEvent.
-3. Configure your encoder to push a multi-bitrate live stream.
-4. Create a published live event.
-5. Run your live encoder for approximately 10 minutes.
-6. Stop the live event.
-7. Create, start a Streaming endpoint, use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (Or alternatively watch and validate via the Preview URL during the live session before step 6).
-8. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
-9. Reset the LiveEvent state after creating each sample.
-10. Repeat steps 3 through 9 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds).
+1. Navigate to your Media Services account and make sure the **Streaming Endpoint** is running. 
+2. Create and start the **pass-through** Live Event. <br/> For more information, see [Live Event states and billing](live-event-states-billing.md).
+3. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the a multi-bitrate live stream to Media Services.
+4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
+5. Create a new **Asset** object.
+6. Create a **Live Output** and use the asset name that you created.
+8. List the paths on the **Streaming Locator** to get back the URLs to use.
+9. Get the hostname for the **Streaming Endpoint** you wish to stream from.
+10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
+11. Run your live encoder for approximately 10 minutes.
+12. Stop the Live Event.
+use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (or, alternatively watch and validate via the Preview URL during the live session).
+13. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
+14. Reset the Live Event state after creating each sample.
+15. Repeat steps 5 through 14 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds).
 
 ### Live encoding LiveEvent verification
 
