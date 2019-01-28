@@ -51,7 +51,7 @@ Stay on this page to read through the notebook steps, or use the instructions be
 Get all the prerequisites from either of the sections below.
  
 * Run on [Azure Notebooks](#azure) 
-* Run on[your own notebook server](#server)
+* Run on [your own notebook server](#server)
 
 ### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
 
