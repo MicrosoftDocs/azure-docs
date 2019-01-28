@@ -13,7 +13,7 @@ ms.author: nepeters
 
 HashiCorp Terraform is an open-source tool for composing and deploying compute infrastructure. Terraform deployments are written using the Hashicorp Configuration Language. These configurations can be generalized for reuse, stored in source control, and integrated with DevOps pipelines. When deploying infrastructure with Terraform, configuration state is tracked and can be used to actualize deployments. This state helps with upgrading or changing the configuration of infrastructure.
 
-In this quickstart, you will gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB, and Azure Container Instances, and an application that works across these two resources. The quickstart will assume that all work is completed in Azure Cloud Shell however can also be completed on your development system. In order to do so, see [Install and configure Terraform](../virtual-machines/linux/terraform-install-configure.md) for Terraform installation instructions.
+In this quickstart, you will gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB, and Azure Container Instances, and an application that works across these two resources. The quickstart will assume that all work is completed in Azure Cloud Shell.
 
 ## Create first configuration
 
@@ -82,7 +82,9 @@ Once done, you can see that the resource group has been created and an Azure Cos
 
 ## Update Configuration
 
-Now, update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB instance. Take note that two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are assumed from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
+Now, update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB instance.
+
+Take note that two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are assumed from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
 
 Open the code editor and copy in the following configuration to the bottom of the `main.tf` file. Save the file when done.
 
@@ -130,7 +132,7 @@ terraform apply --auto-approve
 
 ## Test application
 
-To test the application, first get the IP address of the Azure Container Instance. This operation can be done with the `az container show` command.
+To test the application, first get the IP address of the Azure Container Instance. This operation can be done with the Azure CLI `az container show` command.
 
 ```azurecli-interactive
 az container show --resource-group vote-resource-group --name vote-aci --query ipAddress.ip -o tsv
