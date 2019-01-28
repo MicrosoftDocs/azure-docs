@@ -4686,7 +4686,7 @@ Unsupported, do not use. The name of managed assembly (for example, Queue.dll), 
 
 ```
 ## NetworkPoliciesType complexType
-Describes network policies including container network policie for the service package.
+Describes network policies including container network policies for the service package.
 
 |Attribute|Value|
 |---|---|
@@ -4698,7 +4698,7 @@ Describes network policies including container network policie for the service p
 ```xml
 <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2011/01/fabric" name="NetworkPoliciesType">
     <xs:annotation>
-      <xs:documentation>Describes network policies including container network policie for the service package.</xs:documentation>
+      <xs:documentation>Describes network policies including container network policies for the service package.</xs:documentation>
     </xs:annotation>
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="ContainerNetworkPolicy" type="ContainerNetworkPolicyType" minOccurs="0" maxOccurs="unbounded">
