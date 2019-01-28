@@ -301,18 +301,18 @@ namespace CertificatePinningExample
 
 ### Example
 Configuring the service and the operation to only sign the message is shown in the following examples. Service Contract Example of `ProtectionLevel.Sign`: The following is an example of using ProtectionLevel.Sign at the Service Contract level: 
-```
+```csharp
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
 public interface IService 
-  { 
+{
   string GetData(int value); 
-  } 
+}
 ```
 
 ### Example
 Operation Contract Example of `ProtectionLevel.Sign` (for Granular Control): The following is an example of using `ProtectionLevel.Sign` at the OperationContract level:
 
-```
+```csharp
 [OperationContract(ProtectionLevel=ProtectionLevel.Sign] 
 string GetData(int value);
 ``` 
