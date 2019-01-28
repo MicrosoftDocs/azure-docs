@@ -22,7 +22,7 @@ This article shows how to use the Speech service through the Speech SDK for Pyth
 
 * An Azure subscription key for the Speech service. [Get one for free](get-started.md).
 * [Python 3.5 or later](https://www.python.org/downloads/), 64-bit.
-* The Python Speech SDK package is available for these operating systems:
+* The Python Speech SDK package is available for these operating systems: 
     * Windows: x64.
     * Mac: macOS X version 10.12 or later.
     * Linux: Ubuntu 16.04 or 18.04 on x64.
@@ -47,11 +47,11 @@ pip install azure-cognitiveservices-speech
 
 The current version of the Speech SDK for Azure Cognitive Services is `1.2.0`.
 
-## Support and updates
+## Support and updates 
 
 Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](./releasenotes.md).
 If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
-Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
+Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable. 
 
 If you have a problem, or you're missing a feature, see [Support and help options](./support.md).
 
@@ -65,7 +65,7 @@ You can copy the [sample code](#sample-code) from this quickstart to a source fi
 python quickstart.py
 ```
 
-Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Speech SDK sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
+Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Speech SDK sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook. 
 
 ### Sample code
 
