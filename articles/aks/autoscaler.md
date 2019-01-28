@@ -94,7 +94,7 @@ metadata:
   namespace: kube-system
 data:
   ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>$
+  ClientSecret: <base64-encoded-client-secret>
   ResourceGroup: <base64-encoded-resource-group>  
   SubscriptionID: <base64-encode-subscription-id>
   TenantID: <base64-encoded-tenant-id>
