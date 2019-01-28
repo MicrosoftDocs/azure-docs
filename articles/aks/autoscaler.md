@@ -95,7 +95,8 @@ metadata:
 data:
   ClientID: <base64-encoded-client-id>
   ClientSecret: <base64-encoded-client-secret>$
-  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
+  ResourceGroup: <base64-encoded-resource-group>  
+  SubscriptionID: <base64-encode-subscription-id>
   TenantID: <base64-encoded-tenant-id>
   VMType: QUtTCg==
   ClusterName: <base64-encoded-clustername>
