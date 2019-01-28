@@ -2606,7 +2606,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.IoTSpaces/Graph/delete | Deletes Microsoft.IoTSpaces Graph resource |
 > | Action | Microsoft.IoTSpaces/Graph/read | Gets the Microsoft.IoTSpaces Graph resource(s) |
 > | Action | Microsoft.IoTSpaces/Graph/write | Create Microsoft.IoTSpaces Graph resource |
-> | Action | Microsoft.IoTSpaces/register/action | Register subscription for Microsoft.IoTSpaces Graph resource provider to enable creationg of resources |
+> | Action | Microsoft.IoTSpaces/register/action | Register subscription for Microsoft.IoTSpaces Graph resource provider to enable creating of resources |
 
 ## Microsoft.KeyVault
 
