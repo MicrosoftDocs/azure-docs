@@ -31,7 +31,7 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
    or
    * [Hybrid Azure AD-joined](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
 * You must enable Azure AD self-service password reset.
-* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnet.cdn.com` to your whitelist.
+* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnet.cdn.com` to your HTTPS traffic (port 443) whitelist.
 
 ## Configure Reset password link using Intune
 
