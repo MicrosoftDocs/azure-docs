@@ -258,7 +258,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 | sqlWriterTableType |This property specifies a table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No. |
 
 > [!TIP]
-> When copying data to Azure SQL Database Managed Instance, the copy activity appends data to the sink table by default. To perform an upsert or additional business logic, use the stored procedure in SqlSink. For more information, see [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-a-sql-sink).
+> When data is copied to Azure SQL Database Managed Instance, the copy activity appends data to the sink table by default. To perform an upsert or additional business logic, use the stored procedure in SqlSink. For more information, see [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-a-sql-sink).
 
 **Example 1: Append data**
 
@@ -402,7 +402,7 @@ Notice that your source and target table have different schema. The target table
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
-When copying data into Azure SQL Database Managed Instance, a stored procedure can be configured and invoked with additional parameters that you specify.
+When data is copied into Azure SQL Database Managed Instance, a stored procedure can be configured and invoked with additional parameters that you specify.
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. It's typically used when an upsert (update + insert) or extra processing must be done before the final insertion of source data in the destination table. Extra processing can include tasks such as merging columns, looking up additional values, and insertion into multiple tables.
 
@@ -476,7 +476,7 @@ The stored procedure feature takes advantage of [table-valued parameters](https:
 
 ## Data type mapping for Azure SQL Database Managed Instance
 
-When copying data to and from Azure SQL Database Managed Instance, the following mappings are used from Azure SQL Database Managed Instance data types to Azure Data Factory interim data types. To learn how the copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When data is copied to and from Azure SQL Database Managed Instance, the following mappings are used from Azure SQL Database Managed Instance data types to Azure Data Factory interim data types. To learn how the copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 | Azure SQL Database Managed Instance data type | Azure Data Factory interim data type |
 |:--- |:--- |
@@ -514,7 +514,7 @@ When copying data to and from Azure SQL Database Managed Instance, the following
 | xml |Xml |
 
 >[!NOTE]
-> For data types maps to Decimal interim type, currently ADF support precision up to 28. If you have data with precision larger than 28, consider to convert to string in SQL query.
+> For data types that map to the Decimal interim type, currently Azure Data Factory supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
