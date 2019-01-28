@@ -25,6 +25,9 @@ In this article, learn about the Azure Machine Learning service releases.
 
 + **Changes**: 
   + Azure ML SDK no longer has azure-cli packages as dependency.
+  + If a user is performing "az login" and then using azureml-sdk, then azureml-sdk will do the browser or device code login one more time. It won't use any credentials state created by "az login". 
+  + Users specifying auth=AzureCliAuthentication() will need to _pip install azure-cli_ in the python environment where they have installed azureml-sdk.
+  + When using Azure CLI and service principals for automation, we recommend using _azureml.core.authentication.ServicePrincipalAuthentication_ class in the azureml-sdk. The azureml-sdk won't use credentials created by Azure CLI.  
 
 + **Bug fixes**: This release mostly contains minor bug fixes
 
