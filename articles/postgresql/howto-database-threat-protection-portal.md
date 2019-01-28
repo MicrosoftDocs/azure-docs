@@ -52,7 +52,7 @@ Advanced Threat Protection integrates its alerts with [Azure Security Center](ht
 
 Click **Security alerts** under **THREAT PROTECTION** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database.
 
-  ![Threat protectoin asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  ![Threat protection asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 
 ## Next steps
 
