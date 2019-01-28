@@ -104,6 +104,7 @@ CLI, and HTTP requests.
    Replace `{rgName}`, `{subId}`, and `{mgName}` with your resource group name, subscription ID,
    and management group name, respectively.
 
+   - Resource - `/subscriptions/{subId}/resourceGroups/{rgName}/providers/{resourceProvider}/{resourceType}/{resourceName}`
    - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Subscription - `/subscriptions/{subId}/`
    - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
