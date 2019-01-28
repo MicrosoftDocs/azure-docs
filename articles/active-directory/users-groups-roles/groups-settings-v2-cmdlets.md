@@ -215,15 +215,15 @@ To disable group creation for non-admin users:
 
 1. Verify that non-admin users are allowed to create groups:
    
-  ````
+  ```
   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ````
+  ```
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
-  ```` 
+  ``` 
   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ````
+  ```
   
 ## Manage owners of groups
 To add owners to a group, use the Add-AzureADGroupOwner cmdlet:

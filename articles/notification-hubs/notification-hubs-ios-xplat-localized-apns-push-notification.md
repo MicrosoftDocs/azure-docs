@@ -108,7 +108,7 @@ Then make sure to add an IBOutlet in your ViewController.h as shown in the follo
 
         [self subscribeWithLocale: locale categories:categories completion:completion];
     }
-    ````
+    ```
 
     Then modify the *subscribe* method to include the locale:
 
