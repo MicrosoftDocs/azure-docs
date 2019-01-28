@@ -34346,7 +34346,7 @@
     },
     {
       "source_path":  "articles/azure-monitor/platform/dashboards.md",
-      "redirect_url":  "/azure/azure-monitorr/learn/tutorial-logs-dashboards",
+      "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
       "redirect_document_id":  true
     },    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",

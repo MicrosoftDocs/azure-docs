@@ -112,7 +112,7 @@ Data sources and solutions each create separate record types with their own set 
 
 Most of your interaction with Log Analytics is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
 * [Log searches](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) where you construct queries to analyze collected data.
-* [Dashboards](https://docs.microsoft.com/azure/azure-monitorr/learn/tutorial-logs-dashboards), which you can customize with graphical views of your most valuable searches.
+* [Dashboards](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), which you can customize with graphical views of your most valuable searches.
 * [Solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), which provide additional functionality and analysis tools.
 
 ![Analysis tools](./media/azure-threat-detection/azure-threat-detection-fig6.png)
