@@ -119,7 +119,7 @@ ms.author: jegeib
 ```SQL
 SELECT data 
 FROM personaldata 
-WHERE userID=:id < - session var 
+WHERE userID=:id -- <- session var 
 ```
 Now an possible attacker can not tamper and change the application operation since the identifier for retrieving the data is handled server-side.
 
@@ -314,11 +314,11 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 
 ### Example
 The `<behaviorExtensions/>` element of the WCF configuration file below instructs WCF to add a custom behavior class to a particular WCF extension.
-```
+```xml
 <system.serviceModel>
     <extensions>
         <behaviorExtensions>
-            <add name=""myBehavior"" type=""MyBehavior"" />
+            <add name="myBehavior" type="MyBehavior" />
         </behaviorExtensions>
     </extensions>
 </system.serviceModel>
@@ -327,12 +327,12 @@ Using fully qualified (strong) names uniquely identifies a type and further incr
 
 ### Example
 The `<behaviorExtensions/>` element of the WCF configuration file below instructs WCF to add strongly-referenced custom behavior class to a particular WCF extension.
-```
+```xml
 <system.serviceModel>
     <extensions>
         <behaviorExtensions>
-            <add name=""myBehavior"" type=""Microsoft.ServiceModel.Samples.MyBehaviorSection, MyBehavior,
-            Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"" />
+            <add name="myBehavior" type="Microsoft.ServiceModel.Samples.MyBehaviorSection, MyBehavior,
+            Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
         </behaviorExtensions>
     </extensions>
 </system.serviceModel>
@@ -351,12 +351,12 @@ The `<behaviorExtensions/>` element of the WCF configuration file below instruct
 
 ### Example
 The following configuration instructs WCF to not check the authorization level of the client when executing the service:
-```
+```xml
 <behaviors>
     <serviceBehaviors>
         <behavior>
             ...
-            <serviceAuthorization principalPermissionMode=""None"" />
+            <serviceAuthorization principalPermissionMode="None" />
         </behavior>
     </serviceBehaviors>
 </behaviors>
@@ -365,24 +365,24 @@ Use a service authorization scheme to verify that the caller of the service meth
 
 ### Example
 The following configuration instructs WCF to make sure that the client is part of the Administrators group before executing the Add service:
-```
+```xml
 <behaviors>
     <serviceBehaviors>
         <behavior>
             ...
-            <serviceAuthorization principalPermissionMode=""UseWindowsGroups"" />
+            <serviceAuthorization principalPermissionMode="UseWindowsGroups" />
         </behavior>
     </serviceBehaviors>
 </behaviors>
 ```
 The service is then declared as the following:
-```
+```csharp
 [PrincipalPermission(SecurityAction.Demand,
-Role = ""Builtin\\Administrators"")]
+Role = "Builtin\\Administrators")]
 public double Add(double n1, double n2)
 {
-double result = n1 + n2;
-return result;
+    double result = n1 + n2;
+    return result;
 }
 ```
 
@@ -402,29 +402,29 @@ return result;
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true, AllowMultiple = true)]
 public class ApiAuthorizeAttribute : System.Web.Http.AuthorizeAttribute
 {
-        public async override Task OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+    public async override Task OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken)
+    {
+        if (actionContext == null)
         {
-            if (actionContext == null)
-            {
-                throw new Exception();
-            }
-
-            if (!string.IsNullOrEmpty(base.Roles))
-            {
-                bool isAuthorized = ValidateRoles(actionContext);
-                if (!isAuthorized)
-                {
-                    HandleUnauthorizedRequest(actionContext);
-                }
-            }
-
-            base.OnAuthorization(actionContext);
+            throw new Exception();
         }
 
-public bool ValidateRoles(actionContext)
-{
-   //Authorization logic here; returns true or false
-}
+        if (!string.IsNullOrEmpty(base.Roles))
+        {
+            bool isAuthorized = ValidateRoles(actionContext);
+            if (!isAuthorized)
+            {
+                HandleUnauthorizedRequest(actionContext);
+            }
+        }
+
+        base.OnAuthorization(actionContext);
+    }
+
+    public bool ValidateRoles(actionContext)
+    {
+       //Authorization logic here; returns true or false
+    }
 
 }
 ```
