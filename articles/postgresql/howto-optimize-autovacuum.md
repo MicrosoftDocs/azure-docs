@@ -12,7 +12,7 @@ ms.date: 10/22/2018
 This article describes how to effectively optimize autovacuum on Azure Database for PostgreSQL.
 
 ## Overview of autovacuum
-PostgreSQL uses MVCC to allow greater database concurrency. Every update results in an insert and delete, and every delete results in the rows being soft-marked for deletion. Soft-marking identifies dead tuples that will be purged later. PostgreSQL achieves all of this by running a vacuum job.
+PostgreSQL uses multiversion concurrency control (MVCC) to allow greater database concurrency. Every update results in an insert and delete, and every delete results in the rows being soft-marked for deletion. Soft-marking identifies dead tuples that will be purged later. PostgreSQL achieves all of this by running a vacuum job.
 
 A vacuum job can be triggered manually or automatically. More dead tuples exist when the database experiences heavy update or delete operations. Fewer dead tuples exist when the database is idle. The need for running vacuum more frequently is greater when the database is under heavy load, which makes running vacuum jobs *manually* inconvenient.
 
