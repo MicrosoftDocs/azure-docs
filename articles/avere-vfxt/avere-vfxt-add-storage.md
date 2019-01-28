@@ -36,8 +36,7 @@ To add a core filer, choose one of the two main types of core filers:
 
 ### NAS core filer
 
-A NAS core filer can be an on-premises NetApp or Isilon, or a NAS endpoint in the cloud.  
-The storage system must have a reliable high-speed connection to the Avere vFXT cluster - for example, a 1GBps ExpressRoute connection (not a VPN) - and it must give the cluster root access to the NAS exports being used.
+A NAS core filer can be an on-premises NetApp or Isilon, or a NAS endpoint in the cloud. The storage system must have a reliable high-speed connection to the Avere vFXT cluster - for example, a 1GBps ExpressRoute connection (not a VPN) - and it must give the cluster root access to the NAS exports being used.
 
 The following steps add a NAS core filer:
 
