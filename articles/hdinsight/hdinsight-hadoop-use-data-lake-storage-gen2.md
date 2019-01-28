@@ -23,6 +23,8 @@ Azure Data Lake Storage Gen2 is available as a storage option for almost all Azu
 
 ## Creating an HDInsight cluster with Data Lake Storage Gen2
 
+## Using the Azure portal
+
 To create a HDInsight cluster, which uses Data Lake Storage Gen2 for storage, use the following steps to create a Data Lake Storage Gen2 account that is configured correctly.
 
 1. Create a user-assigned managed identity, if you don’t already have one. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
@@ -60,6 +62,8 @@ To create a HDInsight cluster, which uses Data Lake Storage Gen2 for storage, us
 
 ### Using a Resource Manager template deployed with Azure CLI
 
+You can download a sample [template file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and a [sample parameters file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, substitute your actual Azure subscription ID for the string `<SUBSCRIPTION_ID>`. Also, substitute your chosen password for the string `<PASSWORD>` to set both the login password that you will use to login to your cluster as well as the SSH password.
+
 The code snippet below performs the following initial steps:
 
 1. Login to your Azure account.
@@ -91,8 +95,6 @@ After completing the MSI role assignment in the portal, proceed to deploy the te
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment --resource-group hdinsight-deployment-rg --template-file hdinsight-adls-gen2-template.json --parameters parameters.json
 ```
-
-You can download a sample [template file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and a [sample parameters file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, you need to substitute the string `<SUBSCRIPTION_ID>` for your actual Azure subscription ID and the string `<PASSWORD>` for the login password that you will use to login to your cluster.
 
 ## Access Control for Data Lake Storage Gen2 in HDInsight
 
