@@ -164,18 +164,18 @@ ms.author: jegeib
 
 ### Example
 The following is an example configuration with auditing enabled
-```
+```xml
 <system.serviceModel>
     <behaviors>
         <serviceBehaviors>
-            <behavior name=""NewBehavior"">
-                <serviceSecurityAudit auditLogLocation=""Default""
-                suppressAuditFailure=""false"" 
-                serviceAuthorizationAuditLevel=""SuccessAndFailure""
-                messageAuthenticationAuditLevel=""SuccessAndFailure"" />
+            <behavior name="NewBehavior">
+                <serviceSecurityAudit auditLogLocation="Default"
+                suppressAuditFailure="false" 
+                serviceAuthorizationAuditLevel="SuccessAndFailure"
+                messageAuthenticationAuditLevel="SuccessAndFailure" />
                 ...
             </behavior>
-        </servicebehaviors>
+        </serviceBehaviors>
     </behaviors>
 </system.serviceModel>
 ```
@@ -193,7 +193,7 @@ The following is an example configuration with auditing enabled
 
 ### Example
 The `<behavior/>` element of the WCF configuration file below instructs WCF to not notify the application when WCF fails to write to an audit log.
-````
+````xml
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
