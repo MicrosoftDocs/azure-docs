@@ -16,23 +16,23 @@ manager: carmonm
 
 #### Issue
 
-You have configured the Start/Stop VM solution but it does not start/stop all the VMs configured.
+You've configured the Start/Stop VM solution but it doesn't start/stop all the VMs configured.
 
 #### Cause
 
 This error can be caused by one of the following reasons:
 
-1. A schedule is not configured correctly
+1. A schedule isn't configured correctly
 2. The RunAs account may not be configured correctly
-3. There may additional problems
+3. The runbook may have run into errors
 
 #### Resolution
 
 Review the following list for potential solutions to your problem or places to look:
 
-* Check that you have properly configured a schedule for the Start/Stop VM solution. To learn how to configure a schedule, see the [Schedules](../automation-schedules.md) article.
+* Check that you've properly configured a schedule for the Start/Stop VM solution. To learn how to configure a schedule, see the [Schedules](../automation-schedules.md) article.
 
-* Check the job streams for the runbooks to look for any errors. In the portal go to your Automation Account and select **Jobs** under **Process Automation**. From the **Jobs** page look for jobs from one of the following runbooks:
+* Check the job streams for the runbooks to look for any errors. In the portal, go to your Automation Account and select **Jobs** under **Process Automation**. From the **Jobs** page look for jobs from one of the following runbooks:
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -44,21 +44,21 @@ Review the following list for potential solutions to your problem or places to l
   * ScheduledStartStop_Parent
   * SequencedStartStop_Parent
 
-* Verify your [RunAs Account](../manage-runas-account.md) has proper permissions to the VMs you are attempting to start or stop. To learn more about the permissions needed see, [Role Based Access Control with Azure Automation](automation-role-based-access-control.md).
+* Verify your [RunAs Account](../manage-runas-account.md) has proper permissions to the VMs you're trying to start or stop. To learn more about the permissions needed see, [Role Based Access Control with Azure Automation](automation-role-based-access-control.md).
 
 ### <a name="custom-runbook"></a>Scenario: My custom runbook fails to start or stop my VMs
 
 #### Issue
 
-You have authored a custom runbook or downloaded one from the gallery and it is not properly working.
+You've authored a custom runbook or downloaded one from the gallery and it isn't properly working.
 
 #### Cause
 
-The cause for the failure could be one of many things. To determine what the problem is you can go to your Automation Account in the Azure portal and select **Jobs** under **Process Automation**. From the **Jobs** page look for jobs from your runbook to view any job failures.
+The cause for the failure could be one of many things. Go to your Automation Account in the Azure portal and select **Jobs** under **Process Automation**. From the **Jobs** page, look for jobs from your runbook to view any job failures.
 
 #### Resolution
 
-It is recommended to use the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md) to start and stop VMs in Azure Automation. This solution is supported by Microsoft and we are able to give you support if you encounter issues with it. Custom runbook authoring is not supported. You may be able to resolve your custom runbook by visiting the [runbook troubleshooting](runbooks.md) article as it provided general guidance and troubleshooting types for runbooks of all types.
+It's recommended to use the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md) to start and stop VMs in Azure Automation. This solution is authored by Microsoft. Custom runbooks are not supported by Microsoft. You might find a solution for your custom runbook by visiting the [runbook troubleshooting](runbooks.md) article. This article provides general guidance and troubleshooting for runbooks of all types.
 
 ## Next steps
 
