@@ -96,27 +96,27 @@ ms.author: jegeib
 This may be implemented through a filter. Following example may be used: 
 ```csharp
 public override void OnActionExecuting(ActionExecutingContext filterContext)
+{
+    if (filterContext == null || (filterContext.HttpContext != null && filterContext.HttpContext.Response != null && filterContext.HttpContext.Response.IsRequestBeingRedirected))
+    {
+        //// Since this is MVC pipeline, this should never be null.
+        return;
+    }
+
+    var attributes = filterContext.ActionDescriptor.GetCustomAttributes(typeof(System.Web.Mvc.OutputCacheAttribute), false);
+    if (attributes == null || **Attributes**.Count() == 0)
+    {
+        filterContext.HttpContext.Response.Cache.SetNoStore();
+        filterContext.HttpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        filterContext.HttpContext.Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+        if (!filterContext.IsChildAction)
         {
-            if (filterContext == null || (filterContext.HttpContext != null && filterContext.HttpContext.Response != null && filterContext.HttpContext.Response.IsRequestBeingRedirected))
-            {
-                //// Since this is MVC pipeline, this should never be null.
-                return;
-            }
-
-            var attributes = filterContext.ActionDescriptor.GetCustomAttributes(typeof(System.Web.Mvc.OutputCacheAttribute), false);
-            if (attributes == null || **Attributes**.Count() == 0)
-            {
-                filterContext.HttpContext.Response.Cache.SetNoStore();
-                filterContext.HttpContext.Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                filterContext.HttpContext.Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
-                if (!filterContext.IsChildAction)
-                {
-                    filterContext.HttpContext.Response.AppendHeader("Pragma", "no-cache");
-                }
-            }
-
-            base.OnActionExecuting(filterContext);
+            filterContext.HttpContext.Response.AppendHeader("Pragma", "no-cache");
         }
+    }
+
+    base.OnActionExecuting(filterContext);
+}
 ``` 
 
 ## <a id="encrypt-data"></a>Encrypt sections of Web App's configuration files that contain sensitive data
@@ -142,7 +142,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Steps** | The autocomplete attribute specifies whether a form should have autocomplete on or off. When autocomplete is on, the browser automatically complete values based on values that the user has entered before. For example, when a new name and password is entered in a form and the form is submitted, the browser asks if the password should be saved.Thereafter when the form is displayed, the name and password are filled in automatically or are completed as the name is entered. An attacker with local access could obtain the clear text password from the browser cache. By default autocomplete is enabled, and it must explicitly be disabled. |
 
 ### Example
-```csharp
+```html
 <form action="Login.aspx" method="post " autocomplete="off" >
       Social Security Number: <input type="text" name="ssn" />
       <input type="submit" value="Submit" />    
@@ -230,12 +230,13 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 The below JavaScript snippet is from a custom authentication library which stores authentication artifacts in local storage. Such implementations should be avoided. 
 ```javascript
 ns.AuthHelper.Authenticate = function () {
-window.config = {
-instance: 'https://login.microsoftonline.com/',
-tenant: ns.Configurations.Tenant,
-clientId: ns.Configurations.AADApplicationClientID,
-postLogoutRedirectUri: window.location.origin,
-cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+    window.config = {
+        instance: 'https://login.microsoftonline.com/',
+        tenant: ns.Configurations.Tenant,
+        clientId: ns.Configurations.AADApplicationClientID,
+        postLogoutRedirectUri: window.location.origin,
+        cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+    }
 };
 ```
 
@@ -351,41 +352,41 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ### Example
 Intune can be configured with following security policies to safeguard sensitive data: 
-```csharp
-Require encryption on mobile device    
-Require encryption on storage cards
-Allow screen capture
-```
+
+* Require encryption on mobile device    
+* Require encryption on storage cards
+* Allow screen capture
+
 
 ### Example
 If the application is not an enterprise application, then use platform provided keystore, keychains to store encryption keys, using which cryptographic operation may be performed on the file system. Following code snippet shows how to access key from keychain using xamarin: 
 ```csharp
-        protected static string EncryptionKey
+protected static string EncryptionKey
+{
+    get
+    {
+        if (String.IsNullOrEmpty(_Key))
         {
-            get
+            var query = new SecRecord(SecKind.GenericPassword);
+            query.Service = NSBundle.MainBundle.BundleIdentifier;
+            query.Account = "UniqueID";
+
+            NSData uniqueId = SecKeyChain.QueryAsData(query);
+            if (uniqueId == null)
             {
-                if (String.IsNullOrEmpty(_Key))
-                {
-                    var query = new SecRecord(SecKind.GenericPassword);
-                    query.Service = NSBundle.MainBundle.BundleIdentifier;
-                    query.Account = "UniqueID";
-
-                    NSData uniqueId = SecKeyChain.QueryAsData(query);
-                    if (uniqueId == null)
-                    {
-                        query.ValueData = NSData.FromString(System.Guid.NewGuid().ToString());
-                        var err = SecKeyChain.Add(query);
-                        _Key = query.ValueData.ToString();
-                    }
-                    else
-                    {
-                        _Key = uniqueId.ToString();
-                    }
-                }
-
-                return _Key;
+                query.ValueData = NSData.FromString(System.Guid.NewGuid().ToString());
+                var err = SecKeyChain.Add(query);
+                _Key = query.ValueData.ToString();
+            }
+            else
+            {
+                _Key = uniqueId.ToString();
             }
         }
+
+        return _Key;
+    }
+}
 ```
 
 ## <a id="binaries-end"></a>Obfuscate generated binaries before distributing to end users
@@ -412,7 +413,7 @@ If the application is not an enterprise application, then use platform provided 
 
 ### Example
 The following WCF service provider configuration uses the UsernameToken: 
-```
+```xml
 <security mode="Message"> 
 <message clientCredentialType="UserName" />
 ``` 
@@ -431,12 +432,12 @@ Set clientCredentialType to Certificate or Windows.
 
 ### Example
 The following configuration sets the security mode to None. 
-```
+```xml
 <system.serviceModel> 
   <bindings> 
     <wsHttpBinding> 
-      <binding name=""MyBinding""> 
-        <security mode=""None""/> 
+      <binding name="MyBinding"> 
+        <security mode="None"/> 
       </binding> 
   </bindings> 
 </system.serviceModel> 
@@ -450,13 +451,13 @@ Security Mode Across all service bindings there are five possible security modes
 * Both. Allows you to supply settings for transport and message-level security (only MSMQ supports this). 
 * TransportWithMessageCredential. Credentials are passed with the message and message protection and server authentication are provided by the transport layer. 
 * TransportCredentialOnly. Client credentials are passed with the transport layer and no message protection is applied. Use transport and message security to protect the integrity and confidentiality of messages. The configuration below tells the service to use transport security with message credentials.
-```
+```xml
 <system.serviceModel>
   <bindings>
     <wsHttpBinding>
-    <binding name=""MyBinding""> 
-    <security mode=""TransportWithMessageCredential""/> 
-    <message clientCredentialType=""Windows""/> 
+    <binding name="MyBinding"> 
+    <security mode="TransportWithMessageCredential"/> 
+    <message clientCredentialType="Windows"/> 
     </binding> 
   </bindings> 
 </system.serviceModel> 
