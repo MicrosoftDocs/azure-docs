@@ -84,7 +84,8 @@ In this section we will discuss how you can do operations on your storage accoun
 
 In the below section, we demonstrate how to fetch your storage account key that's stored in Key Vault and using that to create a SAS (Shared Access Signature) definition for your storage account.
 
-> [!NOTE] There are 3 ways to authenticate to Key Vault as you can read in the [basic concepts](key-vault-whatis#basic-concepts)
+> [!NOTE] 
+  There are 3 ways to authenticate to Key Vault as you can read in the [basic concepts](key-vault-whatis.md#basic-concepts)
 - Using Managed Service Identity (Highly recommended)
 - Using Service Principal and certificate 
 - Using Service Principal and password (NOT recommended)
