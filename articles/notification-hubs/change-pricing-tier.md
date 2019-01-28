@@ -26,9 +26,11 @@ A **namespace** is a collection of notification hubs. Each namespace usually con
 You can associate a pricing tier at the namespace level. Notification Hubs supports three tiers: **free**, **basic**, and **standard**. You can use the tier for a namespace that suits your requirements. The following sections show you how to change the pricing tier of a Notification Hubs namespace. 
 
 ## Use Azure portal 
-When using Azure portal, you can change the pricing tier for a namespace on the namespace page or a hub page. When you change the pricing tier on the namespace page, it applies to all hubs in the namespace. Similarly, when you change the pricing tier on the hub page, it changes the pricing tier for the namespace and all other hubs in the namespace. 
+When using Azure portal, you can change the pricing tier for a namespace on the namespace page or a hub page.  When you change it on a hub page, you actually change it at the namespace level. It changes the pricing tier for the namespace and all hubs in the namespace. 
 
 ### Change tier on the namespace page
+The following procedure gives you steps to change the pricing tier for a namespace on the namespace page. When you change the tier for a namespace, it applies to all hubs in the namespace.
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** on the left menu. 
 3. Select **Notification Hub Namespaces** in the **Internet of Things** section. If you select star (`*`) next to the text, it gets added to the left navigation bar under **FAVORITES**. It helps you with accessing the namespaces page faster the next time onwards. After you add it to the FAVORITES, select **Notification Hub Namespaces**. 
@@ -42,28 +44,32 @@ When using Azure portal, you can change the pricing tier for a namespace on the 
 
     ![Select pricing tier on the namespace page](./media/change-pricing-tier/namespace-select-pricing-menu.png)
 6. Change your pricing tier, and click the **Select** button.    
-7. You see the status of the tier change action in the alerts. 
-8. Confirm that the the new tier is shown for the **Pricing Tier** field on the **Overview** page in the **Essentials** section.     
-1. This is an optional step. Select any hub in the namespace. Confirm that you see the same pricing tier in the **Essentials** section. You should see the same pricing tier for all the hubs in the namespace. 
+7. You see the status of the tier change action in the **alerts**. 
+8. Switch to the **Overview** page. Confirm that the new tier is shown for the **Pricing Tier** field in the **Essentials** section.     
+1. This step is optional. Select any hub in the namespace. Confirm that you see the same pricing tier in the **Essentials** section. You should see the same pricing tier for all the hubs in the namespace. 
 
 ### Change tier on the hub page
+The following procedure gives you steps to change the pricing tier for a namespace on the hub page. Even though you do these steps starting from the hub page, you actually change the pricing tier for the namespace and all hubs in the namespace. 
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** on the left menu.
 3. Select **Notification Hubs** in the **Internet of Things** section. 
 4. Select your notification **hub**. 
 5. Select **Pricing Tier** on the left menu. 
-6. Change the pricing tier, and click the **Select** button. This action changes the pricing tier setting for the namespace that contains the hub. Therefore, you see the new pricing tier on the namespace page and all hub pages. 
+6. Change the pricing tier, and click the **Select** button. This action changes the pricing tier setting for the namespace that contains the hub. So, you see the new pricing tier on the namespace page and all hub pages. 
 
 ## Use REST API
 You can use the following Resource Provider REST APIs to get the current pricing tier and update it. 
 
-To see the **current namespace tier**, send a GET command as shown in the following example: 
+### Get current pricing tier for a namespace
+To get the **current namespace tier**, send a GET command as shown in the following example: 
 
 ```REST
 GET: https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/notificationhubplan
 ```
 
-To **update the namespace tier**, use PUT with the desired tier:
+### Update pricing tier for a namespace
+To **update the namespace tier**, send a PUT command as shown in the following example: 
 
 ```REST
 PUT: https://management.core.windows.net/{subscription ID}/services/ServiceBus/Namespaces/{namespace name}/notificationhubplan
