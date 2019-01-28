@@ -12,6 +12,14 @@ manager: carmonm
 ---
 # Troubleshoot Start / Stop VMs
 
+### <a name="cant-deploy-solution"></a>Scenario: I can't deploy the Start/Stop VMs during off-hours solution
+
+#### Issue
+
+#### Cause
+
+#### Resolution
+
 ### <a name="all-vms-fail-to-startstop"></a>Scenario: All VMs fail to start/stop
 
 #### Issue
@@ -44,7 +52,7 @@ Review the following list for potential solutions to your problem or places to l
   * ScheduledStartStop_Parent
   * SequencedStartStop_Parent
 
-* Verify your [RunAs Account](../manage-runas-account.md) has proper permissions to the VMs you're trying to start or stop. To learn more about the permissions needed see, [Role Based Access Control with Azure Automation](automation-role-based-access-control.md).
+* Verify your [RunAs Account](../manage-runas-account.md) has proper permissions to the VMs you're trying to start or stop. To learn more about the permissions needed see, [Role Based Access Control with Azure Automation](../automation-role-based-access-control.md).
 
 ### <a name="custom-runbook"></a>Scenario: My custom runbook fails to start or stop my VMs
 
@@ -59,6 +67,20 @@ The cause for the failure could be one of many things. Go to your Automation Acc
 #### Resolution
 
 It's recommended to use the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md) to start and stop VMs in Azure Automation. This solution is authored by Microsoft. Custom runbooks are not supported by Microsoft. You might find a solution for your custom runbook by visiting the [runbook troubleshooting](runbooks.md) article. This article provides general guidance and troubleshooting for runbooks of all types.
+
+### <a name="other"></a>Scenario: My problem isn't listed above
+
+#### Issue
+
+You experience an issue or unexpected result when using the Start/Stop VMs during off hours solution that isn't listed on this page.
+
+#### Cause
+
+Many times this can be caused by using an old and outdated version of the solution.
+
+#### Resolution
+
+To resolve many errors, it's recommended to remove and update the solution. To learn how to do this, see [Update the Start/Stop VMs during off hours solution](../automation-solution-vm-management.md#update-the-solution).
 
 ## Next steps
 
