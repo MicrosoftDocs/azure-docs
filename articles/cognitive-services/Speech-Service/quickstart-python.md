@@ -87,9 +87,9 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
    ![Create a file](media/sdk/qs-python-vscode-python-newfile.png)
 1. Copy, paste, and save the [Python code](#quickstart-code) to the newly created file.
 1. Insert your Speech service subscription information.
-1. If a Python interpreter is already selected, it displays on the left side of the status bar at the bottom of the window.
+1. If it's selected, a Python interpreter displays on the left side of the status bar at the bottom of the window.
    Otherwise, bring up a list of available Python interpreters. Open the command palette (Ctrl+Shift+P) and enter **Python: Select Interpreter**. Choose an appropriate one.
-1. If the Speech SDK Python package isn't installed yet for the Python interpreter you selected, you can easily install it from within Visual Studio Code.
+1. You can install the Speech SDK Python package from within Visual Studio Code. Do that if it's not installed yet for the Python interpreter you selected.
    To install the Speech SDK package, open a terminal. Bring up the command palette again (Ctrl+Shift+P) and enter **Terminal: Create New Integrated Terminal**.
    In the terminal that opens, enter the command `python -m pip install azure-cognitiveservices-speech` or the appropriate command for your system.
 1. To run the sample code, right-click somewhere inside the editor. Select **Run Python File in Terminal**.
