@@ -24,7 +24,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [App name][luis-get-started-create-app] | *Default character max |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | Explicit list | 50 per application|
-| [Intents][intents]|500 per application<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources|
+| [Intents][intents]|500 per application: 499 custom intents, and the required _None_ intent.<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources.|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
 | [Machine-learned entities](./luis-concept-entity-types.md):<br> Composite,<br>  Hierarchical<br> Simple|100 <br>The total count of machine-learned entities (simple, hierarchical, and composite entities) can't exceed 100. Composite and hierarchical entities can't have more than 10 children.  |
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
