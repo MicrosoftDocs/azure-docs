@@ -65,7 +65,7 @@ The POST operation contains the following JSON payload and schema for all near n
 
 ```json
 {
-  "schemaId":"AzureMonitorMetricAlert",
+  "schemaId": "AzureMonitorMetricAlert",
   "data": {
     "version": "2.0",
     "status": "Activated",
@@ -93,8 +93,8 @@ The POST operation contains the following JSON payload and schema for all near n
             "operator": "GreaterThan",
             "threshold": "0",
             "timeAggregation": "PT5M",
-            "metricValue": 1.0
-          },
+            "metricValue": 1
+          }
         ]
       },
       "subscriptionId": "00000000-0000-0000-0000-000000000000",
