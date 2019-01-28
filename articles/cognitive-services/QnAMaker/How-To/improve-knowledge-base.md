@@ -8,7 +8,7 @@ displayName: active learning, suggestion, dialog prompt, train api, feedback loo
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: diberry
 ---
 
@@ -147,7 +147,7 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-## Next Steps
+## Next steps
  
 > [!div class="nextstepaction"]
 > [Use QnAMaker API](./upgrade-qnamaker-service.md)
