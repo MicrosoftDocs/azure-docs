@@ -48,20 +48,20 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 ### Example
 It should also destroy user's session by calling Session.Abandon() method. Following method shows secure implementation of user logout:
 ```csharp
-    [HttpPost]
-        [ValidateAntiForgeryToken]
-        public void LogOff()
-        {
-            string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
-            AuthenticationContext authContext = new AuthenticationContext(Authority + TenantId, new NaiveSessionCache(userObjectID));
-            authContext.TokenCache.Clear();
-            Session.Clear();
-            Session.Abandon();
-            Response.SetCookie(new HttpCookie("ASP.NET_SessionId", string.Empty));
-            HttpContext.GetOwinContext().Authentication.SignOut(
-                OpenIdConnectAuthenticationDefaults.AuthenticationType,
-                CookieAuthenticationDefaults.AuthenticationType);
-        } 
+[HttpPost]
+[ValidateAntiForgeryToken]
+public void LogOff()
+{
+    string userObjectID = ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/objectidentifier").Value;
+    AuthenticationContext authContext = new AuthenticationContext(Authority + TenantId, new NaiveSessionCache(userObjectID));
+    authContext.TokenCache.Clear();
+    Session.Clear();
+    Session.Abandon();
+    Response.SetCookie(new HttpCookie("ASP.NET_SessionId", string.Empty));
+    HttpContext.GetOwinContext().Authentication.SignOut(
+        OpenIdConnectAuthenticationDefaults.AuthenticationType,
+        CookieAuthenticationDefaults.AuthenticationType);
+} 
 ```
 
 ## <a id="finite-tokens"></a>Use finite lifetimes for generated SaS tokens
@@ -99,40 +99,40 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
 
 ### Example
 ```csharp
-        [HttpPost, ValidateAntiForgeryToken]
-        [Authorization]
-        public ActionResult SignOut(string redirectUrl)
+[HttpPost, ValidateAntiForgeryToken]
+[Authorization]
+public ActionResult SignOut(string redirectUrl)
+{
+    if (!this.User.Identity.IsAuthenticated)
+    {
+        return this.View("LogOff", null);
+    }
+
+    // Removes the user profile.
+    this.Session.Clear();
+    this.Session.Abandon();
+    HttpContext.Current.Response.Cookies.Add(new System.Web.HttpCookie("ASP.NET_SessionId", string.Empty)
         {
-            if (!this.User.Identity.IsAuthenticated)
-            {
-                return this.View("LogOff", null);
-            }
+            Expires = DateTime.Now.AddDays(-1D),
+            Secure = true,
+            HttpOnly = true
+        });
 
-            // Removes the user profile.
-            this.Session.Clear();
-            this.Session.Abandon();
-            HttpContext.Current.Response.Cookies.Add(new System.Web.HttpCookie("ASP.NET_SessionId", string.Empty)
-                {
-                    Expires = DateTime.Now.AddDays(-1D),
-                    Secure = true,
-                    HttpOnly = true
-                });
-
-            // Signs out at the specified security token service (STS) by using the WS-Federation protocol.
-            Uri signOutUrl = new Uri(FederatedAuthentication.WSFederationAuthenticationModule.Issuer);
-            Uri replyUrl = new Uri(FederatedAuthentication.WSFederationAuthenticationModule.Realm);
-            if (!string.IsNullOrEmpty(redirectUrl))
-            {
-                replyUrl = new Uri(FederatedAuthentication.WSFederationAuthenticationModule.Realm + redirectUrl);
-            }
-           //     Signs out of the current session and raises the appropriate events.
-            var authModule = FederatedAuthentication.WSFederationAuthenticationModule;
-            authModule.SignOut(false);
-        //     Signs out at the specified security token service (STS) by using the WS-Federation
-        //     protocol.            
-            WSFederationAuthenticationModule.FederatedSignOut(signOutUrl, replyUrl);
-            return new RedirectResult(redirectUrl);
-        }
+    // Signs out at the specified security token service (STS) by using the WS-Federation protocol.
+    Uri signOutUrl = new Uri(FederatedAuthentication.WSFederationAuthenticationModule.Issuer);
+    Uri replyUrl = new Uri(FederatedAuthentication.WSFederationAuthenticationModule.Realm);
+    if (!string.IsNullOrEmpty(redirectUrl))
+    {
+        replyUrl = new Uri(FederatedAuthentication.WSFederationAuthenticationModule.Realm + redirectUrl);
+    }
+    //     Signs out of the current session and raises the appropriate events.
+    var authModule = FederatedAuthentication.WSFederationAuthenticationModule;
+    authModule.SignOut(false);
+    // Signs out at the specified security token service (STS) by using the WS-Federation
+    // protocol.
+    WSFederationAuthenticationModule.FederatedSignOut(signOutUrl, replyUrl);
+    return new RedirectResult(redirectUrl);
+}
 ```
 
 ## <a id="proper-logout"></a>Implement proper logout when using Identity Server
@@ -158,7 +158,7 @@ It should also destroy user's session by calling Session.Abandon() method. Follo
 | **Steps** | Cookies are normally only accessible to the domain for which they were scoped. Unfortunately, the definition of "domain" does not include the protocol so cookies that are created over HTTPS are accessible over HTTP. The "secure" attribute indicates to the browser that the cookie should only be made available over HTTPS. Ensure that all cookies set over HTTPS use the **secure** attribute. The requirement can be enforced in the web.config file by setting the requireSSL attribute to true. It is the preferred approach because it will enforce the **secure** attribute for all current and future cookies without the need to make any additional code changes.|
 
 ### Example
-```csharp
+```xml
 <configuration>
   <system.web>
     <httpCookies requireSSL="true"/>
@@ -177,7 +177,7 @@ The setting is enforced even if HTTP is used to access the application. If HTTP 
 | **Steps** | When the web application is the Relying Party, and the IdP is ADFS server, the FedAuth token's secure attribute can be configured by setting requireSSL to True in `system.identityModel.services` section of web.config:|
 
 ### Example
-```csharp
+```xml
   <system.identityModel.services>
     <federationConfiguration>
       <!-- Set requireSsl=true; domain=application domain name used by FedAuth cookies (Ex: .gdinfra.com); -->
@@ -234,7 +234,7 @@ The following code example sets the requireSSL attribute in the Web.config file.
 | **Applicable Technologies** | MVC5 |
 | **Attributes**              | EnvironmentType - OnPrem |
 | **References**              | [Windows Identity Foundation (WIF) Configuration – Part II](https://blogs.msdn.microsoft.com/alikl/2011/02/01/windows-identity-foundation-wif-configuration-part-ii-cookiehandler-chunkedcookiehandler-customcookiehandler/) |
-| **Steps** | To set httpOnly attribute for FedAuth cookies, hideFromCsript attribute value should be set to True. |
+| **Steps** | To set httpOnly attribute for FedAuth cookies, hideFromScript attribute value should be set to True. |
 
 ### Example
 Following configuration shows the correct configuration:
@@ -271,7 +271,7 @@ Following configuration shows the correct configuration:
 | **Steps** | Anti-CSRF and ASP.NET MVC forms - Use the `AntiForgeryToken` helper method on Views; put an `Html.AntiForgeryToken()` into the form, for example,|
 
 ### Example
-```csharp
+```cshtml
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -279,7 +279,7 @@ Following configuration shows the correct configuration:
 ```
 
 ### Example
-```csharp
+```html
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -288,7 +288,7 @@ Following configuration shows the correct configuration:
 
 ### Example
 At the same time, Html.AntiForgeryToken() gives the visitor a cookie called __RequestVerificationToken, with the same value as the random hidden value shown above. Next, to validate an incoming form post, add the [ValidateAntiForgeryToken] filter to the target action method. For example:
-```
+```csharp
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
 {
@@ -303,7 +303,7 @@ Assuming all is well, the request goes through as normal. But if not, then an au
 
 ### Example
 Anti-CSRF and AJAX: The form token can be a problem for AJAX requests, because an AJAX request might send JSON data, not HTML form data. One solution is to send the tokens in a custom HTTP header. The following code uses Razor syntax to generate the tokens, and then adds the tokens to an AJAX request. 
-```csharp
+```aspx-charp
 <script>
     @functions{
         public string TokenHeaderValue()
@@ -387,7 +387,6 @@ void Page_Init (object sender, EventArgs e) {
 ```
 
 ## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -433,8 +432,8 @@ void Page_Init (object sender, EventArgs e) {
 
 ### Example
 Also the ADFS issued SAML claim token's lifetime should be set to 15 minutes, by executing the following powershell command on the ADFS server:
-```csharp
-Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
+```powershell
+Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName @("Active Directory") -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
 ## <a id="proper-app-logout"></a>Implement proper logout from the application
@@ -469,7 +468,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Steps** | Anti-CSRF and AJAX: The form token can be a problem for AJAX requests, because an AJAX request might send JSON data, not HTML form data. One solution is to send the tokens in a custom HTTP header. The following code uses Razor syntax to generate the tokens, and then adds the tokens to an AJAX request. |
 
 ### Example
-```Javascript
+```aspx-csharp
 <script>
     @functions{
         public string TokenHeaderValue()
@@ -515,7 +514,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 
 ### Example
 Anti-CSRF and ASP.NET MVC forms - Use the AntiForgeryToken helper method on Views; put an Html.AntiForgeryToken() into the form, for example,
-```csharp
+```cshtml
 @using (Html.BeginForm("UserProfile", "SubmitUpdate")) { 
     @Html.ValidationSummary(true) 
     @Html.AntiForgeryToken()
@@ -525,7 +524,7 @@ Anti-CSRF and ASP.NET MVC forms - Use the AntiForgeryToken helper method on View
 
 ### Example
 The example above will output something like the following:
-```csharp
+```html
 <form action="/UserProfile/SubmitUpdate" method="post">
     <input name="__RequestVerificationToken" type="hidden" value="saTFWpkKN0BYazFtN6c4YbZAmsEwG0srqlUqqloi/fVgeV2ciIFVmelvzwRZpArs" />
     <!-- rest of form goes here -->
@@ -534,7 +533,7 @@ The example above will output something like the following:
 
 ### Example
 At the same time, Html.AntiForgeryToken() gives the visitor a cookie called __RequestVerificationToken, with the same value as the random hidden value shown above. Next, to validate an incoming form post, add the [ValidateAntiForgeryToken] filter to the target action method. For example:
-```
+```csharp
 [ValidateAntiForgeryToken]
 public ViewResult SubmitUpdate()
 {
