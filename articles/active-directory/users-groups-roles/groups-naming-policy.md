@@ -11,10 +11,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand                   
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro;seo-update-jan
 
 ---
 

@@ -11,10 +11,10 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.custom: it-pro
+ms.custom: it-pro;seo-update-jan
 
 ---
 # Take over an unmanaged directory as administrator in Azure Active Directory
