@@ -19932,7 +19932,12 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-migrate-single-classic-to-resource-manager.md",
-      "redirect_url": "/azure/virtual-machines/windows/migrate-single-classic-to-resource-manager",
+      "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized-portal",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/virtual-machines/windows/migrate-single-classic-to-resource-manager.md",
+      "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized-portal",
       "redirect_document_id": false
     },
     {
