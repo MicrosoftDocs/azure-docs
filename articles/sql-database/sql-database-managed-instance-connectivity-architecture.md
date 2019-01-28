@@ -103,7 +103,7 @@ You can deploy Managed Instance in a dedicated subnet (the Managed Instance subn
 
 | Name       |Port          |Protocol|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |Any              |Any        |Allow |
+|management  |80, 443, 12000|TCP     |Any              |Internet   |Allow |
 |mi_subnet   |Any           |Any     |Any              |MI SUBNET  |Allow |
 
   > [!Note]
