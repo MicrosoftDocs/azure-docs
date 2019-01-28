@@ -22,7 +22,7 @@ For DTU-based purchasing model limits for standalone databases on a SQL Database
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
-You can set the service tier, compute size, and storage amount for a standalone database using the [Azure portal](sql-database-standalone-databases-manage.md#azure-portal-manage-sql-database-servers-and-databases), [Transact-SQL](sql-database-standalone-databases-manage.md#transact-sql-manage-sql-database-servers-and-databases), [PowerShell](sql-database-standalone-databases-manage.md#powershell-manage-sql-database-servers-and-databases), the [Azure CLI](sql-database-standalone-databases-manage.md#azure-cli-manage-sql-database-servers-and-databases), or the [REST API](sql-database-standalone-databases-manage.md#rest-api-manage-sql-database-servers-and-databases).
+You can set the service tier, compute size, and storage amount for a standalone database using the [Azure portal](sql-database-standalone-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-standalone-databases-manage.md#transact-sql-manage-sql-database-servers-and-standalone-databases), [PowerShell](sql-database-standalone-databases-manage.md#powershell-manage-sql-database-servers-and-standalone-databases), the [Azure CLI](sql-database-standalone-databases-manage.md#azure-cli-manage-sql-database-servers-and-standalone-databases), or the [REST API](sql-database-standalone-databases-manage.md#rest-api-manage-sql-database-servers-and-standalone-databases).
 
 ## General Purpose service tier: Storage sizes and compute sizes
 
