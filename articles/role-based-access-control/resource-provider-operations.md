@@ -995,8 +995,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/operationStatuses/read | Reads the operation status for the virtual networks gateways. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/packages/read | Gets the virtual network gateway package. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/read | Gets the virtual network gateways. |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/startDiagnostics/action | Starts diagnositic for the virtual network gateway. |
-> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action | Stops the diagnositic for the virtual network gateway. |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/startDiagnostics/action | Starts diagnostic for the virtual network gateway. |
+> | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action | Stops the diagnostic for the virtual network gateway. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/gateways/write | Adds a virtual network gateway. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/join/action | Joins the virtual network. |
 > | Action | Microsoft.ClassicNetwork/virtualNetworks/operationStatuses/read | Reads the operation status for the virtual networks. |
