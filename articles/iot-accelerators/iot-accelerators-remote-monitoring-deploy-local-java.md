@@ -59,7 +59,7 @@ Run the following command to launch the Docker container for the device simulati
 
 ### Run the Auth service
 
-Open a new command prompt window and run the following command to launch the Docker container for the Auth service. The service simulates devices for the remote monitoring solution.
+Open a new command prompt window and run the following command to launch the Docker container for the Auth service. The service allows to manage the users authorized to access Azure IoT Solutions.
 
 ```cmd
 <path_to_cloned_repository>\services\auth\scripts\docker\run.cmd
@@ -67,7 +67,7 @@ Open a new command prompt window and run the following command to launch the Doc
 
 ### Run the ASA Manager service
 
-Open a new command prompt window and run the following command to launch the Docker container for the ASA Manager service. The service simulates devices for the remote monitoring solution.
+Open a new command prompt window and run the following command to launch the Docker container for the ASA Manager service. The service allows the management of Azure Stream Analytics (ASA) jobs, including setting the configuration and starting, stopping, and monitoring their statuses.
 
 ```cmd
 <path_to_cloned_repository>\services\asa-manager\scripts\docker\run.cmd
@@ -77,12 +77,12 @@ Open a new command prompt window and run the following command to launch the Doc
 
 The following steps show you how to run the Remote Monitoring microservices in IntelliJ:
 
-<h4>Import Project</h4>
+#### Import Project
 
 1. Launch IntelliJ IDE
 1. Select **Import Project** and choose **azure-iot-pcs-remote-monitoring-java\services\build.sbt**
 
-<h4>Create Run Configurations</h4>
+#### Create Run Configurations
 
 1. Select **Run > Edit Configurations**
 1. Select **Add New Configuration > sbt task** 
@@ -100,7 +100,7 @@ As an example the following image, shows adding configuration for a service:
 [![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
 
 
-<h4>Create Compound Configuration</h4>
+#### Create Compound Configuration
 
 1. To run all the Services, together select **Add new Configuration > Compound**
 1. Enter the **Name** and **add sbt tasks**
