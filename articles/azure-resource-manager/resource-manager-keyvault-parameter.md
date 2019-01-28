@@ -17,6 +17,8 @@ ms.author: tomfitz
 ---
 # Use Azure Key Vault to pass secure parameter value during deployment
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md). You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you are deploying to.
 
 ## Deploy a key vault and secret

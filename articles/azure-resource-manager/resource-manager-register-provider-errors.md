@@ -49,6 +49,8 @@ You receive these errors for one of three reasons:
 
 ## Solution 1 - PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 For PowerShell, use **Get-AzResourceProvider** to see your registration status.
 
 ```powershell

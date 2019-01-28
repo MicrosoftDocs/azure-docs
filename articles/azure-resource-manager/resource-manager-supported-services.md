@@ -19,6 +19,8 @@ ms.author: tomfitz
 
 # Resource providers and types
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 When deploying resources, you frequently need to retrieve information about the resource providers and types. In this article, you learn to:
 
 * View all resource providers in Azure

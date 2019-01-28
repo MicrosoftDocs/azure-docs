@@ -19,6 +19,8 @@ ms.author: jgao
 
 # Tutorial: Use Azure Deployment Manager with Resource Manager templates (Private preview)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Learn how to use [Azure Deployment Manager](./deployment-manager-overview.md) to deploy your applications across multiple regions. To use Deployment Manager, you need to create two templates:
 
 * **A topology template**: describes the Azure resources the make up your applications and where to deploy them.
@@ -328,7 +330,7 @@ Azure PowerShell can be used to deploy the templates.
     ```azurepowershell-interactive
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
-    Get-AzDeploymentManagerRollout `
+    Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
     ```

@@ -72,6 +72,8 @@ Which returns:
 
 ### PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 For PowerShell, use the **Get-AzVMUsage** command to find virtual machine quotas.
 
 ```powershell

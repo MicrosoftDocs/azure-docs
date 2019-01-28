@@ -19,6 +19,8 @@ ms.author: tomfitz
 
 # Deploy Azure resources to more than one subscription or resource group
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Typically, you deploy all the resources in your template to a single [resource group](resource-group-overview.md). However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For example, you may want to deploy the backup virtual machine for Azure Site Recovery to a separate resource group and location. Resource Manager enables you to use nested templates to target different subscriptions and resource groups than the subscription and resource group used for the parent template.
 
 > [!NOTE]
