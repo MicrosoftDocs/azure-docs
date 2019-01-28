@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure File Sync | Microsoft Docs
+title: Monitor Azure File Sync | Microsoft Docs
 description: How to monitor Azure File Sync.
 services: storage
 author: jeffpatt24
@@ -10,7 +10,7 @@ ms.author: jeffpatt
 ms.component: files
 ---
 
-# Monitoring Azure File Sync
+# Monitor Azure File Sync
 
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
@@ -20,11 +20,11 @@ The following monitoring options are available currently:
 
 ## Azure portal
 
-In the Azure Portal, you can view registered server health, server endpoint health (sync health), and metrics.
+In the Azure portal, you can view registered server health, server endpoint health (sync health), and metrics.
 
 ### Storage Sync Service
 
-To view registered server and server endpoint health, go to the Storage Sync Service in the Azure Portal. Registered server health is viewable in the Registered servers blade. Server endpoint health is viewable in the Sync groups blade.
+To view registered server and server endpoint health, go to the Storage Sync Service in the Azure portal. Registered server health is viewable in the Registered servers blade. Server endpoint health is viewable in the Sync groups blade.
 
 Registered Server Health
 - If the Registered server state is Online, the server is successfully communicating with the service.
@@ -42,7 +42,7 @@ To view Azure File Sync metrics in Azure Monitor, select the Storage Sync Servic
 
 The following metrics for Azure File Sync are available in Azure Monitor:
 
-| Metric Name | Description |
+| Metric name | Description |
 |-|-|
 | Bytes synced | Size of data transferred (upload and download).<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Cloud tiering recall | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Server Name |
@@ -63,7 +63,7 @@ Sync Health
 - Event ID 9102 is logged once a sync session completes. This event should be used to determine if sync sessions are completing successfully (HResult = 0) and if there are per-item sync errors. See the following documentation for more information: [Sync Health](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [Per-Item Errors](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
   > [!Note]  
-  > Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount but still make forward progress, with some files syncing successfully. This can be seen in the Applied* fields (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount, and AppliedSizeBytes), which tell you how much of the session is succeeding. If you see multiple sync sessions in a row that are failing but have an increasing Applied* count, then you should give sync time to try again before opening a support ticket.
+  > Sometimes sync sessions fail overall or have a non-zero PerItemErrorCount but still make forward progress, with some files syncing successfully. This can be seen in the Applied fields (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount, and AppliedSizeBytes), which tell you how much of the session is succeeding. If you see multiple sync sessions in a row that are failing but have an increasing Applied count, then you should give sync time to try again before opening a support ticket.
 
 - Event ID 9302 is logged every 5 to 10 minutes if there’s an active sync session. This event should be used to determine if the current sync session is making progress (AppliedItemCount > 0). If sync is not making progress, the sync session should eventually fail and an Event ID 9102 will be logged with the error. See the following documentation for more information: [Sync Progress](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
@@ -100,3 +100,10 @@ The following performance counters for Azure File Sync are available in Performa
 | AFS Sync Operations\Downloaded Sync Files/sec | Number of files downloaded per second. |
 | AFS Sync Operations\Uploaded Sync Files/sec | Number of files uploaded per second. |
 | AFS Sync Operations\Total Sync File Operations/sec | Total number of files synced (upload and download). |
+
+## Next steps
+- [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Consider firewall and proxy settings](storage-sync-files-firewall-and-proxy.md)
+- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)
+- [Azure Files frequently asked questions](storage-files-faq.md)
