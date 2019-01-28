@@ -13,9 +13,9 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Import, index, and query using tools
+    - name: Portal-based import, index, and query walkthrough
       href: search-get-started-portal.md
-    - name: Try cognitive search
+    - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
   - name: .NET
     items:
@@ -51,6 +51,10 @@
   items:
   - name: Azure code samples
     href: https://azure.microsoft.com/resources/samples/?service=search
+- name: Training
+  items:
+  - name: Knowledge mining bootcamp
+    href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
 - name: Concepts
   items:
   - name: Full text search

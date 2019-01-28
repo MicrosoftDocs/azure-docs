@@ -19932,7 +19932,12 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-migrate-single-classic-to-resource-manager.md",
-      "redirect_url": "/azure/virtual-machines/windows/migrate-single-classic-to-resource-manager",
+      "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized-portal",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/virtual-machines/windows/migrate-single-classic-to-resource-manager.md",
+      "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized-portal",
       "redirect_document_id": false
     },
     {
@@ -21171,6 +21176,16 @@
     {
       "source_path": "articles/storage/storage-use-store-apps.md",
       "redirect_url": "/azure/storage/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-create-your-first-application-in-visual-studio.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-dotnet-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-get-started-with-a-local-cluster.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-deploy-remove-applications",
       "redirect_document_id": false
     },
     {
@@ -25446,6 +25461,106 @@
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
       "redirect_url": "https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offers-tech-publishing-guide.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/saas-app/cpp-technical-info-tab",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-subscription-apis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-create-iot-edge-module-offer.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-faq.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-offer-process-parts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/manage-offers/cpp-delete-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-iot-edge-module-certification-process.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-delete.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/manage-offers/cpp-delete-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-go-live.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-offer-update.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/azure-applications/cpp-update-existing-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-managed-app-publish.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/cpp-marketplace-offers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer.md",
+      "redirect_url": "/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer",
       "redirect_document_id": false
     },
     {
@@ -34348,7 +34463,8 @@
       "source_path":  "articles/platform/dashboards.md",
       "redirect_url":  "/azure/azure-monitorr/learn/tutorial-logs-dashboards",
       "redirect_document_id":  true
-    },    {
+    },  
+    {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
       "redirect_document_id": true
@@ -34795,7 +34911,7 @@
         "source_path": "articles/hdinsight/hdinsight-hadoop-data-lake-storage-gen2.md",
         "redirect_url": "/azure/hdinsight/hdinsight-hadoop-compare-storage-options",
         "redirect_document_id": true
-    },
+      },
     {
       "source_path": "articles/storage/common/storage-moving-data.md",
       "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
