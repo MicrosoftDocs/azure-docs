@@ -185,7 +185,7 @@ Provide these connection details, and choose **Create**.
    |||| 
 
    For more information about these parameters, see 
-   [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx).
+   [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route).
 
 6. Save your logic app.
 
