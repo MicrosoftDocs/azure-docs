@@ -39,7 +39,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-Stay on this page to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server.  To run the notebook you will need:
+Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server.  To run the notebook you will need:
 
 * A Python 3.6 notebook server with the following installed:
     * The Azure Machine Learning SDK for Python
@@ -48,7 +48,7 @@ Stay on this page to read through the notebook steps, or use the instructions be
 * A machine learning workspace 
 * The configuration file for the workspace in the same directory as the notebook 
 
-Get all the prerequisites from either of the sections below.
+Get all these prerequisites from either of the sections below.
  
 * Run on [Azure Notebooks](#azure) 
 * Run on [your own notebook server](#server)
@@ -68,7 +68,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.  Aft
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-## Set up your development environment
+## <a name="start'></a>Set up your development environment
 
 All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
 
