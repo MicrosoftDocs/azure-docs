@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 01/28/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
@@ -35,11 +35,11 @@ You learn how to select a model and deploy it in [part two of this tutorial](tut
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.2.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.8.
 
 ## Prerequisites
 
-Stay on this page to read through the notebook steps, or use the instructions below to get and run the notebook.  To run the notebook you will need:
+Stay on this page to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server.  To run the notebook you will need:
 
 * A Python 3.6 notebook server with the following installed:
     * The Azure Machine Learning SDK for Python
@@ -48,23 +48,25 @@ Stay on this page to read through the notebook steps, or use the instructions be
 * A machine learning workspace 
 * The configuration file for the workspace in the same directory as the notebook 
 
-Get all the prerequisites for this tutorial and run on [Azure Notebooks](#azure) or [your own notebook server](#server).
+Get all the prerequisites from either of the sections below.
+ 
+* Run on [Azure Notebooks](#azure) 
+* Run on[your own notebook server](#server)
 
-### Use Azure Notebooks: Free Jupyter notebooks in the cloud
+### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
 
 It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
-  
+
+After you complete the steps below, run the **tutorials/img-classification-part1-training.ipynb** notebook in your **Getting Started** project.
+
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
-Run the **tutorials/img-classification-part1-training.ipynb** notebook in your **Getting Started** project. 
 
-### Use your own Jupyter notebook server
+### <a name="server"></a>Use your own Jupyter notebook server
 
-Use these steps to create a local Jupyter Notebook server on your computer.
+Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-Run the **tutorials/img-classification-part1-training.ipynb** notebook.
 
 ## Set up your development environment
 
