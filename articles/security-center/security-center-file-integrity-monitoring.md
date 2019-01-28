@@ -27,7 +27,7 @@ Security Center’s File Integrity Monitoring validates the integrity of Windows
 
 - File and Registry creation and removal
 - File modifications (changes in file size, access control lists, and hash of the content)
-- Registry modifications (changes in size, access conrol lists, type, and the content)
+- Registry modifications (changes in size, access control lists, type, and the content)
 
 Security Center recommends entities to monitor, which you can easily enable FIM on. You can also define your own FIM policies or entities to monitor. This walkthrough shows you how.
 
