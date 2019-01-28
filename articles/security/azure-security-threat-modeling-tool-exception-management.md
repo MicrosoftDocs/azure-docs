@@ -38,13 +38,13 @@ ms.author: jegeib
 
 ### Example
 The following configuration file includes the `<serviceDebug>` tag: 
-```
+```xml
 <configuration> 
 <system.serviceModel> 
 <behaviors> 
 <serviceBehaviors> 
-<behavior name=""MyServiceBehavior""> 
-<serviceDebug includeExceptionDetailInFaults=""True"" httpHelpPageEnabled=""True""/> 
+<behavior name="MyServiceBehavior"> 
+<serviceDebug includeExceptionDetailInFaults="True" httpHelpPageEnabled="True"/> 
 ... 
 ```
 Disable debugging information in the service. This can be accomplished by removing the `<serviceDebug>` tag from your application's configuration file. 
