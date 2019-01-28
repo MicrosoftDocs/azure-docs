@@ -1,16 +1,30 @@
+---
+title: "Business continuity and disaster recovery in Azure Dev Spaces | Microsoft Docs"
+titleSuffix: Azure Dev Spaces
+services: azure-dev-spaces
+ms.service: azure-dev-spaces
+ms.component: azds-kubernetes
+author: "lcozzens"
+ms.author: "lcozzens"
+ms.date: "01/28/2019"
+ms.topic: "article"
+description: "Rapid Kubernetes development with containers and microservices on Azure"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+manager: "zarhoads"
+---
 # Business continuity and disaster recovery in Azure Dev Spaces
 
 ## Review disaster recovery guidance for Azure Kubernetes Service (AKS)
 
-Azure Dev Spaces is a feature of Azure Kubernetes Service (AKS). You should be aware of guidelines for disaster recovery in AKS and consider whether they apply to the AKS clusters that you use for Dev Spaces. For more information, please reference [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-multi-region)
+Azure Dev Spaces is a feature of Azure Kubernetes Service (AKS). You should be aware of guidelines for disaster recovery in AKS and consider whether they apply to the AKS clusters that you use for Dev Spaces. For more information, please reference [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region)
 
 ## Enable Dev Spaces on AKS clusters in different regions
 
 Enabling Dev Spaces on AKS clusters in different regions allows you to resume using Dev Spaces immediately after an Azure region failure.
 
-For general information about multi-region deployments of AKS, see [Plan for multi-region deployment](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment)
+For general information about multi-region deployments of AKS, see [Plan for multi-region deployment](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment)
 
-For information about deploying an AKS cluster that is compatible with Azure Dev Spaces, see [Create a Kubernetes cluster using Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/dev-spaces/how-to/create-cluster-cloud-shell)
+For information about deploying an AKS cluster that is compatible with Azure Dev Spaces, see [Create a Kubernetes cluster using Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
 
 ### Enable Dev Spaces via the Azure portal
 
@@ -38,9 +52,7 @@ You should deploy the most recent versions of your baseline set of services to c
 
 Once you've properly configured a backup cluster running your team's baseline, you can quickly switch over to the backup cluster at any time. Then you can rerun the individual services that you are working on in Dev Spaces.
 
-### Select a different cluster from the Azure Dev Spaces CLI
-
-You can quickly switch to a different cluster with the following command:
+Select a different cluster with the following CLI command:
 
 ```cmd
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
@@ -60,7 +72,6 @@ azds space select -n <space name>
 
 After running these commands, the selected cluster and dev space will be used for subsequent CLI operations, and for debugging projects using the Visual Studio Code extension for Azure Dev Spaces.
 
-### Select a different cluster from Visual Studio
 If you are using Visual Studio, you can switch the cluster used by an existing project through the following steps:
 
 1. Open your project in Visual Studio.
