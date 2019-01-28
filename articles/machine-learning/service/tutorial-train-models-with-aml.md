@@ -37,12 +37,34 @@ If you don’t have an Azure subscription, create a free account before you begi
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 1.0.2.
 
-## Get the notebook
+## Prerequisites
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Run the `tutorials/img-classification-part1-training.ipynb` notebook either in [Azure Notebooks](https://notebooks.azure.com/) or in your own Jupyter notebook server.
+Stay on this page to read through the notebook steps, or use the instructions below to get and run the notebook.  To run the notebook you will need:
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
+* A Python 3.6 notebook server with the following installed:
+    * The Azure Machine Learning SDK for Python
+    * `matplotlib` and `scikit-learn`
+* The tutorial notebook and the file utils.py
+* A machine learning workspace 
+* The configuration file for the workspace in the same directory as the notebook 
 
+Get all the prerequisites for this tutorial and run on [Azure Notebooks](#azure) or [your own notebook server](#server).
+
+### Use Azure Notebooks: Free Jupyter notebooks in the cloud
+
+It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
+  
+[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+Run the **tutorials/img-classification-part1-training.ipynb** notebook in your **Getting Started** project. 
+
+### Use your own Jupyter notebook server
+
+Use these steps to create a local Jupyter Notebook server on your computer.
+
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+Run the **tutorials/img-classification-part1-training.ipynb** notebook.
 
 ## Set up your development environment
 
