@@ -51,16 +51,16 @@ This policy allows scripts to load only from the web application’s server and 
 
 ### Example
 Inline scripts will not execute. Following are examples of inline scripts 
-```javascript
+```html
 <script> some Javascript code </script>
-Event handling attributes of HTML tags (e.g., <button onclick=”function(){}”>
+Event handling attributes of HTML tags (e.g., <button onclick="function(){}">
 javascript:alert(1);
 ```
 
 ### Example
 Strings will not be evaluated as code. 
 ```javascript
-Example: var str="alert(1)"; eval(str);
+var str="alert(1)"; eval(str);
 ```
 
 ## <a id="xss-filter"></a>Enable browser's XSS filter
@@ -109,7 +109,7 @@ Example: var str="alert(1)"; eval(str);
 
 ### Example
 The X-FRAME-OPTIONS header can be set via IIS web.config. Web.config code snippet for sites that should never be framed: 
-```csharp
+```xml
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -121,7 +121,7 @@ The X-FRAME-OPTIONS header can be set via IIS web.config. Web.config code snippe
 
 ### Example
 Web.config code for sites that should only be framed by pages in the same domain: 
-```csharp
+```xml
     <system.webServer>
         <httpProtocol>
             <customHeader>
@@ -175,7 +175,7 @@ Please note that it is critical to ensure that the list of origins in "Access-Co
 
 ### Example
 However, this feature can be disabled at page level: 
-```XML
+```aspx
 <%@ Page validateRequest="false" %> 
 ```
 or, at application level 
@@ -214,11 +214,11 @@ Please note that Request Validation feature is not supported, and is not part of
 Add the header in the web.config file if the application is hosted by Internet Information Services (IIS) 7 onwards. 
 ```XML
 <system.webServer>
-<httpProtocol>
-<customHeaders>
-<add name="X-Content-Type-Options" value="nosniff"/>
-</customHeaders>
-</httpProtocol>
+    <httpProtocol>
+        <customHeaders>
+            <add name="X-Content-Type-Options" value="nosniff"/>
+        </customHeaders>
+    </httpProtocol>
 </system.webServer>
 ```
 
@@ -227,7 +227,7 @@ Add the header through the global Application\_BeginRequest
 ```csharp
 void Application_BeginRequest(object sender, EventArgs e)
 {
-this.Response.Headers["X-Content-Type-Options"] = "nosniff";
+    this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 }
 ```
 
@@ -236,24 +236,24 @@ Implement custom HTTP module
 ```csharp
 public class XContentTypeOptionsModule : IHttpModule
 {
-#region IHttpModule Members
-public void Dispose()
-{
-}
-public void Init(HttpApplication context)
-{
-context.PreSendRequestHeaders += newEventHandler(context_PreSendRequestHeaders);
-}
-#endregion
-void context_PreSendRequestHeaders(object sender, EventArgs e)
-{
-HttpApplication application = sender as HttpApplication;
-if (application == null)
-  return;
-if (application.Response.Headers["X-Content-Type-Options "] != null)
-  return;
-application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
-}
+    #region IHttpModule Members
+    public void Dispose()
+    {
+    }
+    public void Init(HttpApplication context)
+    {
+        context.PreSendRequestHeaders += newEventHandler(context_PreSendRequestHeaders);
+    }
+    #endregion
+    void context_PreSendRequestHeaders(object sender, EventArgs e)
+    {
+        HttpApplication application = sender as HttpApplication;
+        if (application == null)
+          return;
+        if (application.Response.Headers["X-Content-Type-Options "] != null)
+          return;
+        application.Response.Headers.Add("X-Content-Type-Options ", "nosniff");
+    }
 }
 ```
 
@@ -470,10 +470,10 @@ Please note that it is critical to ensure that the list of origins in EnableCors
 To disable CORS for a controller or action, use the [DisableCors] attribute. 
 ```csharp
 [DisableCors]
-    public IActionResult About()
-    {
-        return View();
-    }
+public IActionResult About()
+{
+    return View();
+}
 ```
 
 ## <a id="config-sensitive"></a>Encrypt sections of Web API's configuration files that contain sensitive data
@@ -610,7 +610,7 @@ To disable CORS for a controller or action, use the [DisableCors] attribute.
 
 ### Example
 The following is an example configuration with throttling enabled:
-```
+```xml
 <system.serviceModel> 
   <behaviors>
     <serviceBehaviors>
@@ -633,7 +633,7 @@ The following is an example configuration with throttling enabled:
 
 ### Example
 The code below instructs WCF to broadcast a service's metadata
-```
+```csharp
 ServiceMetadataBehavior smb = new ServiceMetadataBehavior();
 smb.HttpGetEnabled = true; 
 smb.HttpGetUrl = new Uri(EndPointAddress); 
@@ -643,7 +643,7 @@ Do not broadcast service metadata in a production environment. Set the HttpGetEn
 
 ### Example
 The code below instructs WCF to not broadcast a service's metadata. 
-```
+```csharp
 ServiceMetadataBehavior smb = new ServiceMetadataBehavior(); 
 smb.HttpGetEnabled = false; 
 smb.HttpGetUrl = new Uri(EndPointAddress); 
