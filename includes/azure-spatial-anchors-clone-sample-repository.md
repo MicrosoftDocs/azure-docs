@@ -1,6 +1,6 @@
 ---
 author: craigktreasure
-ms.service: spatial-anchors
+ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu

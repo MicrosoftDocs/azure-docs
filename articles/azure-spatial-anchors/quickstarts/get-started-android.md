@@ -3,13 +3,13 @@ title: Quickstart - Create Android app with Azure Spatial Anchors | Microsoft Do
 description: In this quickstart, you learn how to build an Android app using Spatial Anchors.
 author: craigktreasure
 manager: aliemami
-services: spatial-anchors
+services: azure-spatial-anchors
 
 ms.assetid: 3be3aa43-7748-40e6-a20b-f6030147baaa
 ms.author: crtreasu
 ms.date: 12/13/2018
 ms.topic: quickstart
-ms.service: spatial-anchors
+ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Spatial Anchors in my Android app that can place and locate a 3D object that persists across devices and platforms.
 ---
@@ -26,7 +26,7 @@ You'll learn how to:
 > * Configure the Spatial Anchors endpoint and account key
 > * Deploy and run on an Android device
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -35,11 +35,11 @@ To complete this quickstart, make sure you have:
 - A Windows or macOS machine with <a href="https://developer.android.com/studio/" target="_blank">Android Studio</a>.
 - An <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
 
-[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../includes/azure-spatial-anchors-get-started-create-resource.md)]
 
 ## Open the sample project
 
-[!INCLUDE [Clone Sample Repo](../../../../includes/spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../includes/azure-spatial-anchors-clone-sample-repository.md)]
 
 Open Android Studio.
 
@@ -91,4 +91,4 @@ Stop the app by selecting **Stop** from the Android Studio toolbar.
 
 ![Android Studio Stop](./media/get-started-android/android-studio-stop.png)
 
-[!INCLUDE [Clean-up section](../../../../includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
