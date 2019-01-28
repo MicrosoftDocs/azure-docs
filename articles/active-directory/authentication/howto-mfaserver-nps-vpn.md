@@ -4,7 +4,7 @@ description: Step-by-step configuration guides for Azure MFA to integrate with C
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
