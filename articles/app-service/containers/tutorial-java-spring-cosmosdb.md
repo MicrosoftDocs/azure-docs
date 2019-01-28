@@ -326,7 +326,7 @@ az appservice plan update --number-of-workers 2 \
 
 ## Clean up resources
 
-If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell: 
+If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell: 
   
 ```bash
 az group delete --name your-azure-group-name

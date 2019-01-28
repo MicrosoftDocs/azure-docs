@@ -122,7 +122,7 @@ Sizes denoted with an asterisk are currently in preview.
 
 **Snapshots**: Snapshots of standard disks are billed for the additional capacity used by the snapshots. For information on snapshots, see [Creating a Snapshot of a Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
+**Outbound data transfers**: [Outbound data transfers](https://azure.microsoft.com/pricing/details/data-transfers/) (data going out of Azure data centers) incur billing for bandwidth usage.
 
 **Transaction**: Azure charges $0.0036 per 100,000 transactions for standard storage. Transactions include both read and write operations to storage.
 

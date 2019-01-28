@@ -113,7 +113,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Compliance ELF Domain and URLs single sign-on](./media/complianceelf-tutorial/tutorial_complianceelf_url1.png)
 
-	In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.complianceelf.com`
+	In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.complianceelf.com`
 	
 	> [!NOTE] 
 	> This value is not real. Update this values with the actual Sign-on URL. Contact [Compliance ELF support team](mailto:support@complianceelf.com) to get this value.

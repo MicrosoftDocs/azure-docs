@@ -908,7 +908,7 @@ StormEvents
 
 [**funnel_sequence_completion plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): Calculates the funnel of completed sequence steps within different time periods.
 
-The following query checks the completion funnel of the sequence: `Hail -> Tornado -> Thunderstorm -> Wind` in "overall" times of one hour, four hours, and one day (`[1h, 4h, 1d]`).
+The following query checks the completion funnel of the sequence: `Hail -> Tornado -> Thunderstorm -> Wind` in "overall" times of one hour, four hours, and one day (`[1h, 4h, 1d]`).
 
 **\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 

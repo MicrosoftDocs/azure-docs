@@ -96,7 +96,7 @@ This example uses the Azure portal.
 2. In the search box, enter "event hubs" as your filter. 
 From the triggers list, select the trigger you want. 
 
-   This example uses this trigger: 
+   This example uses this trigger: 
    **Event Hubs - When events are available in Event Hub**
 
    ![Select trigger](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)

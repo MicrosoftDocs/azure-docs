@@ -66,7 +66,7 @@ Allow ntttcp through the Windows Firewall like this:
 
 netsh advfirewall firewall add rule program=\<PATH\>\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
-For example, if you copied ntttcp.exe to the "c:\\tools" folder, this would be the command: 
+For example, if you copied ntttcp.exe to the "c:\\tools" folder, this would be the command: 
 
 netsh advfirewall firewall add rule program=c:\\tools\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 

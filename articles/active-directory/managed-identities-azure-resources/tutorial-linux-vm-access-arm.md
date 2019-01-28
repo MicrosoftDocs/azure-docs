@@ -65,7 +65,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     
     The response includes the access token you need to access Azure Resource Manager. 
     
-    Response:  
+    Response:  
 
     ```bash
     {"access_token":"eyJ0eXAiOi...",
@@ -86,7 +86,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    The response back with the specific Resource Group information: 
+    The response back with the specific Resource Group information: 
      
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 

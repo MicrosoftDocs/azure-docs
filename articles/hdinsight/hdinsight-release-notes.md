@@ -1381,7 +1381,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
     
     - **​Option \#1: Create/Update policy via Ranger Rest API**
         
-        REST URL: http://&lt;host&gt;:6080/service/plugins/policies
+        REST URL: http://&lt;host&gt;:6080/service/plugins/policies
         
         **Creating policy with policy condition:**
         
@@ -1395,7 +1395,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
         
         The following example will update policy with tags as \`tags-test\` and assign it to \`public\` group with policy condition astags.attr\['type'\]=='abc' by selecting all hive component permissions like select, update, create, drop, alter, index, lock, all.
         
-        REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
+        REST URL: http://&lt;host-name&gt;:6080/service/plugins/policies/&lt;policy-id&gt;
         
         **Example:**
         

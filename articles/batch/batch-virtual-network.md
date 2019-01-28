@@ -35,7 +35,7 @@ An Azure Batch pool has settings to allow compute nodes to communicate with each
 
 ## Create a pool with a VNet in the portal
 
-Once you have created your VNet and assigned a subnet to it, you can create a Batch pool with that VNet. Follow these steps to create a pool from the Azure portal: 
+Once you have created your VNet and assigned a subnet to it, you can create a Batch pool with that VNet. Follow these steps to create a pool from the Azure portal: 
 
 1. Navigate to your Batch account in the Azure portal. This account must be in the same subscription and region as the resource group containing the VNet you intend to use. 
 2. In the **Settings** window on the left, select the **Pools** menu item.

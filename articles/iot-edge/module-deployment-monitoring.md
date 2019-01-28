@@ -21,7 +21,7 @@ Azure IoT Edge devices follow a [device lifecycle](../iot-hub/iot-hub-device-man
 
 Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations on a single device (you used this method in the Azure IoT Edge [tutorials](tutorial-deploy-function.md)), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure portal and programmatically. For targeting groups or a large number of devices, you can specify which devices you'd like to deploy your modules to using [tags](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) in the device twin. The following steps talk about a deployment to a Washington State device group identified through the tags property. 
 
-This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge automatic deployments. The overall deployment steps are as follows: 
+This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge automatic deployments. The overall deployment steps are as follows: 
 
 1. An operator defines a deployment that describes a set of modules as well as the target devices. Each deployment has a deployment manifest that reflects this information. 
 2. The IoT Hub service communicates with all targeted devices to configure them with the desired modules. 
@@ -44,7 +44,7 @@ Only IoT Edge devices can be configured with a deployment. The following prerequ
 
 A deployment manifest is a JSON document that describes the modules to be configured on the targeted IoT Edge devices. It contains the configuration metadata for all the modules, including the required system modules (specifically the IoT Edge agent and IoT Edge hub).  
 
-The configuration metadata for each module includes: 
+The configuration metadata for each module includes: 
 
 * Version 
 * Type 
@@ -88,7 +88,7 @@ Labels are string key/value pairs that you can use to filter and group of deploy
 
 ### Deployment status
 
-A deployment can be monitored to determine whether it applied successfully for any targeted IoT Edge device.  A targeted Edge device will appear in one or more of the following status categories: 
+A deployment can be monitored to determine whether it applied successfully for any targeted IoT Edge device.  A targeted Edge device will appear in one or more of the following status categories: 
 
 * **Target** shows the IoT Edge devices that match the Deployment targeting condition.
 * **Actual** shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority.
@@ -100,7 +100,7 @@ A deployment can be monitored to determine whether it applied successfully for a
 
 A phased rollout is an overall process whereby an operator deploys changes to a broadening set of IoT Edge devices. The goal is to make changes gradually to reduce the risk of making wide scale breaking changes.  
 
-A phased rollout is executed in the following phases and steps: 
+A phased rollout is executed in the following phases and steps: 
 
 1. Establish a test environment of IoT Edge devices by provisioning them and setting a device twin tag like `tag.environment='test'`. The test environment should mirror the production environment that the deployment will eventually target. 
 2. Create a deployment including the desired modules and configurations. The targeting condition should target the test IoT Edge device environment.   
@@ -113,7 +113,7 @@ A phased rollout is executed in the following phases and steps: 
 
 Deployments can be rolled back if you receive errors or misconfigurations.  Because a deployment defines the absolute module configuration for an IoT Edge device, an additional deployment must also be targeted to the same device at a lower priority even if the goal is to remove all modules.  
 
-Perform rollbacks in the following sequence: 
+Perform rollbacks in the following sequence: 
 
 1. Confirm that a second deployment is also targeted at the same device set. If the goal of the rollback is to remove all modules, the second deployment should not include any modules. 
 2. Modify or remove the target condition expression of the deployment you wish to roll back so that the devices no longer meet the targeting condition.

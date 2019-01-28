@@ -65,7 +65,7 @@ To help customers make informed decisions when procuring Azure IoT Edge devices 
 
 ## Extensibility
 
-Extensibility is a first-class citizen in the Azure IoT Edge security framework.  With IoT technology driving different types of business transformations, it stands to reason that security should evolve in parallel to address emerging scenarios.  The Azure IoT Edge security framework starts with a solid foundation on which it builds in extensibility into different dimensions to include: 
+Extensibility is a first-class citizen in the Azure IoT Edge security framework.  With IoT technology driving different types of business transformations, it stands to reason that security should evolve in parallel to address emerging scenarios.  The Azure IoT Edge security framework starts with a solid foundation on which it builds in extensibility into different dimensions to include: 
 
 * First party security services like the Device Provisioning Service for Azure IoT Hub.
 * Third-party services like managed security services for different application verticals (like industrial or healthcare) or technology focus (like security monitoring in mesh networks or silicon hardware attestation services) through a rich network of partners.

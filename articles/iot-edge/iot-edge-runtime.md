@@ -83,7 +83,7 @@ The IoT Edge agent is the other module that makes up the Azure IoT Edge runtime.
 
 The [IoT Edge security daemon](iot-edge-security-manager.md) starts the IoT Edge agent on device startup. The agent retrieves its module twin from IoT Hub and inspects the deployment manifest. The deployment manifest is a JSON file that declares the modules that need to be started. 
 
-Each item in the deployment manifest contains specific information about a module and is used by the IoT Edge agent for controlling the module’s lifecycle. Some of the more interesting properties are: 
+Each item in the deployment manifest contains specific information about a module and is used by the IoT Edge agent for controlling the module’s lifecycle. Some of the more interesting properties are: 
 
 * **settings.image** – The container image that the IoT Edge agent uses to start the module. The IoT Edge agent must be configured with credentials for the container registry if the image is protected by a password. Credentials for the container registry can be configured remotely using the deployment manifest, or on the IoT Edge device itself by updating the `config.yaml` file in the IoT Edge program folder.
 * **settings.createOptions** – A string that is passed directly to the Docker daemon when starting a module’s container. Adding Docker options in this property allows for advanced options like port forwarding or mounting volumes into a module’s container.  

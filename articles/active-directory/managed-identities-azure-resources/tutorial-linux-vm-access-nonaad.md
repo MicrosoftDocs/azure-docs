@@ -50,7 +50,7 @@ First, we need to create a Key Vault and grant our VM’s system-assigned manage
 
     ![Alt image text](./media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
-Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
+Next, add a secret to the Key Vault, so that later you can retrieve the secret using code running in your VM: 
 
 1. Select **All Resources**, and find and select the Key Vault you created. 
 2. Select **Secrets**, and click **Add**. 
@@ -74,7 +74,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     ```
     The response includes the access token you need to access Resource Manager. 
     
-    Response:  
+    Response:  
     
     ```bash
     {"access_token":"eyJ0eXAi...",
@@ -92,7 +92,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    The response will look like this: 
+    The response will look like this: 
     
     ```bash
     {"value":"p@ssw0rd!","id":"https://mytestkeyvault.vault.azure.net/secrets/MyTestSecret/7c2204c6093c4d859bc5b9eff8f29050","attributes":{"enabled":true,"created":1505088747,"updated":1505088747,"recoveryLevel":"Purgeable"}} 

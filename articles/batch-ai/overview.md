@@ -51,7 +51,7 @@ When you've trained a model, use Batch AI to test the model if this wasn’t par
 
 ## How it works
 
-Use Batch AI SDKs, command-line scripts, or the Azure portal to manage compute resources and schedule jobs for AI training and testing: 
+Use Batch AI SDKs, command-line scripts, or the Azure portal to manage compute resources and schedule jobs for AI training and testing: 
 
 * **Provision and scale clusters of VMs** - Choose the number of nodes (VMs), and select a GPU-enabled or other VM size that meets your training needs. Scale the number of nodes up or down automatically or manually so that you only use resources when needed. 
 

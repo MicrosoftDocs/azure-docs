@@ -147,7 +147,7 @@ To modify a deployment, use the following steps:
    ![View IoT Edge deployments](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Select the deployment that you want to modify. 
-1. Make updates to the following fields: 
+1. Make updates to the following fields: 
    * Target condition 
    * Labels 
    * Priority 

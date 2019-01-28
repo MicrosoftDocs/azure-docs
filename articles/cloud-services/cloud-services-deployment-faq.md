@@ -62,7 +62,7 @@ For more information, see [How to update a cloud service](cloud-services-update-
 
 ## Why am I not able to deploy Cloud Services through Service Management APIs or PowerShell when using Azure Resource Manager Storage account? 
 
-Since the Cloud Service is a Classic resource which is not directly compatible with the Azure Resource Manager model, you can't associate it with the Azure Resource Manager Storage accounts. Here are few options: 
+Since the Cloud Service is a Classic resource which is not directly compatible with the Azure Resource Manager model, you can't associate it with the Azure Resource Manager Storage accounts. Here are few options: 
  
 - Deploying through REST API.
 

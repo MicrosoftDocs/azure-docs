@@ -45,7 +45,7 @@ If the VM is healthy, but is not responding to the probe, then one possible reas
 **Validation and resolution**
 
 1. Log in to the backend VM. 
-2. Open a command prompt and run the following command to validate there is an application listening on the probe port:   
+2. Open a command prompt and run the following command to validate there is an application listening on the probe port:   
             netstat -an
 3. If the port state is not listed as **LISTENING**, configure the proper port. 
 4. Alternatively, select another port, that is listed as **LISTENING**, and update load balancer configuration accordingly.              
@@ -90,7 +90,7 @@ If a VM does not respond to the data traffic, it may be because either the targe
 **Validation and resolution**
 
 1. Log in to the backend VM. 
-2. Open a command prompt and run the following command to validate there is an application listening on the data port:  
+2. Open a command prompt and run the following command to validate there is an application listening on the data port:  
             netstat -an 
 3. If the port is not listed with State “LISTENING”, configure the proper listener port 
 4. If the port is marked as Listening, then check the target application on that port for any possible issues. 

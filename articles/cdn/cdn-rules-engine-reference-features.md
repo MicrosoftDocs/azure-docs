@@ -522,7 +522,7 @@ Debug cache response headers will be included in the response when both of the f
 
 Debug cache response headers may be requested by including the following header and the specified directives in the request:
 
-`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
+`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
 **Example:**
 
@@ -1043,7 +1043,7 @@ Define a space-delimited set of the desired status codes.
 Key information:
 
 - Enable the Ignore Origin No-Cache feature. If this feature is not enabled, then non-200 OK responses may not be cached.
-- The set of valid status codes for this feature are: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, and 505.
+- The set of valid status codes for this feature are: 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, and 505.
 - This feature cannot be used to disable caching for responses that generate a 200 OK status code.
 
 **Default Behavior:** Caching is enabled only for responses that generate a 200 OK status code.

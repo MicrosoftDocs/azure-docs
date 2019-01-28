@@ -123,7 +123,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 3. Connect to the VM with the SSH client of your choice. If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](https://msdn.microsoft.com/commandline/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 4. In the terminal window, using CURL, make a request to the Azure Instance Metadata Service (IMDS) identity endpoint to get an access token for Azure Resource Manager.  
 
-   The CURL request to acquire an access token is shown in the following example. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a user-assigned managed identity](#create-a-user-assigned-managed-identity): 
+   The CURL request to acquire an access token is shown in the following example. Be sure to replace `<CLIENT ID>` with the `clientId` property returned by the `az identity create` command in [Create a user-assigned managed identity](#create-a-user-assigned-managed-identity): 
     
    ```bash
    curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
@@ -134,7 +134,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     
     The response includes the access token you need to access Azure Resource Manager. 
     
-    Response example:  
+    Response example:  
 
     ```bash
     {
@@ -157,7 +157,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    The response contains the specific Resource Group information, similar to the following example: 
+    The response contains the specific Resource Group information, similar to the following example: 
 
     ```bash
     {

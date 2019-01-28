@@ -20,14 +20,14 @@ The Network Policy Server (NPS) extension for Azure MFA adds cloud-based MFA cap
 
 This extension was created for organizations that want to protect VPN connections without deploying the Azure MFA Server. The NPS extension acts as an adapter between RADIUS and cloud-based Azure MFA to provide a second factor of authentication for federated or synced users.
 
-When using the NPS extension for Azure MFA, the authentication flow includes the following components: 
+When using the NPS extension for Azure MFA, the authentication flow includes the following components: 
 
 1. **NAS/VPN Server** receives requests from VPN clients and converts them into RADIUS requests to NPS servers. 
 2. **NPS Server** connects to Active Directory to perform the primary authentication for the RADIUS requests and, upon success, passes the request to any installed extensions.  
 3. **NPS Extension** triggers a request to Azure MFA for the secondary authentication. Once the extension receives the response, and if the MFA challenge succeeds, it completes the authentication request by providing the NPS server with security tokens that include an MFA claim, issued by Azure STS.  
 4. **Azure MFA** communicates with Azure Active Directory to retrieve the user’s details and performs the secondary authentication using a verification method configured to the user.
 
-The following diagram illustrates this high-level authentication request flow: 
+The following diagram illustrates this high-level authentication request flow: 
 
 ![Authentication flow diagram](./media/howto-mfa-nps-extension/auth-flow.png)
 

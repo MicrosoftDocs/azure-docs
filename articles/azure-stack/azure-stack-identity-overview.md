@@ -61,7 +61,7 @@ In Azure Stack, user accounts:
 - Are restricted to the directory where they first register, which is their organization's directory.
 - Can be imported from your on-premises directories. For more information, see  [Integrate your on-premises directories with Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-When you sign in to your organization's tenant portal, you use the *https://portal.local.azurestack.external* URL. When signing into the Azure Stack portal from domains other than the one used to register Azure Stack, the domain name used to register Azure Stack must be appended to the portal url. For example, if Azure Stack has been registered with fabrikam.onmicrosoft.com and the user account logging in is admin@contoso.com, the url to use to log into the user portal would be: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+When you sign in to your organization's tenant portal, you use the *https://portal.local.azurestack.external* URL. When signing into the Azure Stack portal from domains other than the one used to register Azure Stack, the domain name used to register Azure Stack must be appended to the portal url. For example, if Azure Stack has been registered with fabrikam.onmicrosoft.com and the user account logging in is admin@contoso.com, the url to use to log into the user portal would be: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### Guest users
 

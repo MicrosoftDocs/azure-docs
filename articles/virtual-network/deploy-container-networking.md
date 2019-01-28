@@ -92,10 +92,10 @@ Complete the following steps to install the plug-in on every Azure virtual machi
 1. [Download and install the plug-in](#download-and-install-the-plug-in).
 2. Pre-allocate a virtual network IP address pool on every virtual machine from which IP addresses will be assigned to Pods. Every Azure virtual machine comes with a primary virtual network private IP address on each network interface. The pool of IP addresses for Pods is added as secondary addresses (*ipconfigs*) on the virtual machine network interface, using one of the following options:
 
-   - **CLI**: [Assign multiple IP addresses using the Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [Assign multiple IP addresses using PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **Portal**: [Assign multiple IP addresses using the Azure portal](virtual-network-multiple-ip-addresses-portal.md)
-   - **Azure Resource Manager template**: [Assign multiple IP addresses using templates](virtual-network-multiple-ip-addresses-template.md)
+   - **CLI**: [Assign multiple IP addresses using the Azure CLI](virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [Assign multiple IP addresses using PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portal**: [Assign multiple IP addresses using the Azure portal](virtual-network-multiple-ip-addresses-portal.md)
+   - **Azure Resource Manager template**: [Assign multiple IP addresses using templates](virtual-network-multiple-ip-addresses-template.md)
 
    Ensure that you add enough IP addresses for all of the Pods that you expect to bring up on the virtual machine.
 

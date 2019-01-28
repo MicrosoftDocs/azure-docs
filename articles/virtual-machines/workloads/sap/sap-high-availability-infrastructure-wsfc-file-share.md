@@ -270,7 +270,7 @@ To prepare the Azure infrastructure, complete the following:
 
 ## Deploy the Scale-Out File Server cluster manually 
 
-You can deploy the Microsoft Scale-Out File Server cluster manually, as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure], by executing the following code:  
+You can deploy the Microsoft Scale-Out File Server cluster manually, as described in the blog [Storage Spaces Direct in Azure][ms-blog-s2d-in-azure], by executing the following code:  
 
 
 ```PowerShell

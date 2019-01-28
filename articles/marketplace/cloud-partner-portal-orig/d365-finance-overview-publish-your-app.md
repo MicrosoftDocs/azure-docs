@@ -43,7 +43,7 @@ To bring your Business Central app into Microsoft AppSource:
     - Develop the marketing aspects of your app
 4.  **Publish your app.**
 
-The typical application process and timeline will be as follows: 
+The typical application process and timeline will be as follows: 
 
 ![Publishing Sequence for a Dynamics 365 Business Central app](./media/d365-financials/image001.png)
 
