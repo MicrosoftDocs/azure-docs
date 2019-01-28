@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-accelerators
- author: avneet723
+ author: v-krghan
  ms.service: iot-accelerators
  ms.topic: include
- ms.date: 01/17/2019
- ms.author: avneet723
+ ms.date: 01/25/2019
+ ms.author: v-krghan
  ms.custom: include file
 ---
 
@@ -14,16 +14,17 @@
 
 The Remote Monitoring source code repositories include the source code and the Docker configuration files you need to run the microservices Docker images.
 
-To clone and create a local version of the repository, use your command-line environment to navigate to a suitable folder on your local machine. Then run one of the following sets of commands to clone either the .NET repository:
+To clone and create a local version of the repository, use your command-line environment to navigate to a suitable folder on your local machine. Then run one of the following sets of commands to clone the java repository:
 
-To download the latest version of the .NET microservice implementations, run:
+To download the latest version of the java microservice implementations, run:
+
 
 ```cmd/sh
-git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-java.git
 
 # To retrieve the latest submodules, run the following command:
 
-cd azure-iot-pcs-remote-monitoring-dotnet
+cd azure-iot-pcs-remote-monitoring-java
 git submodule foreach git pull origin master
 ```
 
@@ -32,7 +33,7 @@ git submodule foreach git pull origin master
 
 ## Deploy the Azure services
 
-Although this article shows you how to run the microservices locally, they depend on Azure services running in the cloud. Use the following script to deploy the Azure services. The following script examples assume you're using the .NET repository on a Windows machine. If you're working in another environment, adjust the paths, file extensions, and path separators appropriately.
+Although this article shows you how to run the microservices locally, they depend on Azure services running in the cloud. Use the following script to deploy the Azure services. The following script examples assume you're using the java repository on a Windows machine. If you're working in another environment, adjust the paths, file extensions, and path separators appropriately.
 
 ### Create new Azure resources
 
