@@ -19,7 +19,7 @@ When you set up an identity provider for sign-up and sign-in in your Azure Activ
 
 Using b2clogin.com gives you additional benefits, such as:
 
-- Reduces space consumed in the cookie header by Microsoft services.
+- Space consumed in the cookie header by Microsoft services is reduced.
 - Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
 Consider these settings that might need to change when using b2clogin.com:
@@ -56,7 +56,7 @@ Your Azure AD B2C application probably refers to `login.microsoftonline.com` in 
 
 ## Set the ValidateAuthority property
 
-If you're using MSAL, set the **ValidateAuthority** property to `false`. When **ValidateAuthority** is set to `false`, redirects are allow to b2clogin.com. 
+If you're using MSAL, set the **ValidateAuthority** property to `false`. When **ValidateAuthority** is set to `false`, redirects are allowed to b2clogin.com. 
 
 The following example shows how you might set the property:
 
