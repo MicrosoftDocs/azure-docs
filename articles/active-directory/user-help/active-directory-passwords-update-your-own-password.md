@@ -28,7 +28,7 @@ If you forgot your password, never received one from your company support, have 
 
 You might be unable to access your Azure Active Directory (Azure AD) account because of one of the following reasons:
 
-* Your password is not working and you want to reset it.
+* Your password is not working, and you want to reset it.
 * You know your password, but your account is locked out and you want to unlock it.
 
 Use the following steps to access Azure AD self-service password reset (SSPR) and get back in to your account.

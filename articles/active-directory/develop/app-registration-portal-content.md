@@ -7,7 +7,7 @@ ms.author: celested
 manager: mtillman
 ms.date: 10/25/2018
 ms.topic: article
-ms.component: develop
+ms.subservice: develop
 ms.service: active-directory
 
 # optional metadata

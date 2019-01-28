@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/24/2019
+ms.date: 1/25/2019
 ms.author: raiye
 
 ---
@@ -151,6 +151,7 @@ Even though the [retirement policy for the Azure SDK][retire policy sdk] indicat
 
 | Guest OS family | Compatible SDK versions |
 | --- | --- |
+| 6 |Version 2.9.6+ |
 | 5 |Version 2.9.5.1+ |
 | 4 |Version 2.1+ |
 | 3 |Version 1.8+ |
