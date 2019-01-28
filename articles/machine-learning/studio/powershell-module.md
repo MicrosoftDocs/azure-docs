@@ -32,21 +32,21 @@ Check the [support table](#support-table) below to see which resources are suppo
 
 However, it is not recommended to have Az and AzureRM installed at the same time. To decide between Az and AzureRM, Microsoft recommends Az for all future deployments. Use AzureRm only if there are special circumstances in your environment that require it.
 
-To learn more about the differences between Az and AzureRM, as well as our provided migration path, see our [introduction to the Azure PowerShell Az.](https://docs.microsoft.com/en-us/powershell/azure/new-azureps-module-az)
+To learn more about the differences between Az and AzureRM, as well as our provided migration path, see our [introduction to the Azure PowerShell Az.](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)
 
 ## <a name="az-rm"></a> Azure PowerShell Az and AzureRM
 
-Az and AzureRM both manage solutions deployed using the **Azure Resource Manager** deployment model. These resources include Studio workspaces and Studio New web services. To manage resources deployed using the classic deployment model, you should use the PowerShell Classic module. If you would like to learn more about the deployment models, see the [Azure Resource Manager vs. classic deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model) article.
+Az and AzureRM both manage solutions deployed using the **Azure Resource Manager** deployment model. These resources include Studio workspaces and Studio New web services. To manage resources deployed using the classic deployment model, you should use the PowerShell Classic module. If you would like to learn more about the deployment models, see the [Azure Resource Manager vs. classic deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) article.
 
 Az is now the intended PowerShell module for interacting with Azure and includes all the previous functionality of AzureRM. AzureRM will continue to receive bug fixes, but it will receive no new cmdlets or features. While there is an upgrade path from AzureRM, if you encounter problems with Az when working with Studio, report the problem and fall back to using AzureRM.
 
-To get started with Az, follow the [installation instructions for Azure Az](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps).
+To get started with Az, follow the [installation instructions for Azure Az](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## <a name="classic"></a> PowerShell Classic
 
 The Studio [PowerShell Classic module](https://aka.ms/amlps) allows you to manage resources deployed using the **classic deployment model**. These resources include Studio user assets, Classic web services, and Classic web service endpoints.
 
-However, Microsoft recommends that you use the Resource Manager deployment model for all new resources to simplify the deployment and management of resources. If you would like to learn more about the deployment models, see the [Azure Resource Manager vs. classic deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-deployment-model) article.
+However, Microsoft recommends that you use the Resource Manager deployment model for all new resources to simplify the deployment and management of resources. If you would like to learn more about the deployment models, see the [Azure Resource Manager vs. classic deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) article.
 
 To get started with PowerShell Classic, download the [release package](https://github.com/hning86/azuremlps/releases) from GitHub and follow the [instructions for installation](https://github.com/hning86/azuremlps/blob/master/README.md). The instructions explain how to unblock the downloaded/unzipped DLL and then import it into your PowerShell environment.
 
@@ -54,13 +54,13 @@ To get started with PowerShell Classic, download the [release package](https://g
 
  **Studio workspaces** | **Az** |  **AzureRM** | **PowerShell Classic** |
 | --- | --- | --- | --- | --- |
-| Create/Delete workspaces | [Resource Manager templates](https://docs.microsoft.com/en-us/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager templates](https://docs.microsoft.com/en-us/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
+| Create/Delete workspaces | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Manage workspace users |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
-| Manage commitment plans | [New-AzMlCommitmentPlan](https://docs.microsoft.com/en-us/powershell/module/az.machinelearning/new-azmlcommitmentplan) | [New-AzureRmMlCommitmentPlan](https://docs.microsoft.com/en-us/powershell/module/azurerm.machinelearning/new-azurermmlcommitmentplan) |
+| Manage commitment plans | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | [New-AzureRmMlCommitmentPlan](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlcommitmentplan) |
 |||
 | **Web services** | **Az** | **AzureRM** | **PowerShell Classic** |
-| Manage web services | [New-AzMlWebService](https://docs.microsoft.com/en-us/powershell/module/az.machinelearning/new-azmlwebservice) <br> (New web services) | [New-AzureRmMlWebService](https://docs.microsoft.com/en-us/powershell/module/azurerm.machinelearning/new-azurermmlwebservice) <br> (New web services) |[New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> (Classic web services) |
-| Manage endpoints/keys |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/en-us/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> (New web services) | [Get-AzureRmMlWebServiceKeys](https://docs.microsoft.com/en-us/powershell/module/azurerm.machinelearning/get-azurermmlwebservicekeys) <br> (New web services) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> (Classic web services) |
+| Manage web services | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br> (New web services) | [New-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlwebservice) <br> (New web services) |[New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> (Classic web services) |
+| Manage endpoints/keys |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> (New web services) | [Get-AzureRmMlWebServiceKeys](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservicekeys) <br> (New web services) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> (Classic web services) |
 |||
 | **User assets** | **Az** | **AzureRM** | **PowerShell Classic** |
 | Manage datasets/trained models |  |  | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
@@ -70,6 +70,6 @@ To get started with PowerShell Classic, download the [release package](https://g
 
 ## Next steps
 Follow these links for full documentation for the PowerShell modules:
-* [AzureRM](https://docs.microsoft.com/en-us/powershell/module/azurerm.machinelearning/#machine_learning)
+* [AzureRM](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/#machine_learning)
 * [PowerShell Classic](https://aka.ms/amlps)
-* [Azure PowerShell Az](https://docs.microsoft.com/en-us/powershell/module/az.machinelearning/#machine_learning)
+* [Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)
