@@ -169,7 +169,7 @@ The primary, _canonical_, name for each item is the department name. Examples of
 
 ## Related information
 
-* [List entity](luis-concept-entity-types.md#exact-match) conceptual information
+* [List entity](luis-concept-entity-types.md#list-entity) conceptual information
 * [How to train](luis-how-to-train.md)
 * [How to publish](luis-how-to-publish-app.md)
 * [How to test in LUIS portal](luis-interactive-test.md)

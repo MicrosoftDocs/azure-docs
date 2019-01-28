@@ -1,9 +1,7 @@
 ---
 title: Use Azure Cosmos DB change feed to visualize real-time data analytics
 description: This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization.
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
@@ -380,7 +378,7 @@ You will now observe how you can use your new data analysis tool to connect with
 
 8. Navigate to and open the **Checkout folder** within **EcommerceWebApp.sln.** Then open the **Web.config** file within that folder.  
 
-9. Within the `<appSettings>` block, add the **URI** and **PRIMARY KEY** that you saved earlier where indicated. Then add in your **databse name** and **collection name** as indicated. (These names should be **changefeedlabdatabase** and **changefeedlabcollection** unless you chose to name yours differently.)  
+9. Within the `<appSettings>` block, add the **URI** and **PRIMARY KEY** that you saved earlier where indicated. Then add in your **database name** and **collection name** as indicated. (These names should be **changefeedlabdatabase** and **changefeedlabcollection** unless you chose to name yours differently.)  
 
 10.	Press **Start** at the top of the page to run the program.  
 

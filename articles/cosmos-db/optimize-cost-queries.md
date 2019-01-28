@@ -2,7 +2,6 @@
 title: Optimize request units and cost to run queries in Azure Cosmos DB
 description: Learn how to evaluate request unit charges for a query and optimize the query in terms of performance and cost. 
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018

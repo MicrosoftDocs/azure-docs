@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Using Search in Application Insights
-Search is a feature of [Application Insights](../../application-insights/app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
+Search is a feature of [Application Insights](../../azure-monitor/app/app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
 (For more complex queries over your data, use [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
 
@@ -67,11 +67,11 @@ The event types are:
 
 * **Trace** - [Diagnostic logs](../../azure-monitor/app/asp-net-trace-logs.md) including TrackTrace, log4Net, NLog, and System.Diagnostic.Trace calls.
 * **Request** - HTTP requests received by your server application, including pages, scripts, images, style files, and data. These events are used to create the request and response overview charts.
-* **Page View** - [Telemetry sent by the web client](../../application-insights/app-insights-javascript.md), used to create page view reports. 
+* **Page View** - [Telemetry sent by the web client](../../azure-monitor/app/javascript.md), used to create page view reports. 
 * **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage](../../azure-monitor/app/api-custom-events-metrics.md), you can search them here.
 * **Exception** - Uncaught [exceptions in the server](../../azure-monitor/app/asp-net-exceptions.md), and those that you log by using TrackException().
-* **Dependency** - [Calls from your server application](../../azure-monitor/app/asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](../../application-insights/app-insights-javascript.md).
-* **Availability** - Results of [availability tests](../../application-insights/app-insights-monitor-web-app-availability.md).
+* **Dependency** - [Calls from your server application](../../azure-monitor/app/asp-net-dependencies.md) to other services such as REST APIs or databases, and AJAX calls from your [client code](../../azure-monitor/app/javascript.md).
+* **Availability** - Results of [availability tests](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## Filter on property values
 You can filter events on the values of their properties. The available properties depend on the event types you selected. 
@@ -125,7 +125,7 @@ Here are the search expressions you can use:
 ## Sampling
 If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module automatically reduces the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request are selected or deselected as a group, so that you can navigate between related events. 
 
-[Learn about sampling](../../application-insights/app-insights-sampling.md).
+[Learn about sampling](../../azure-monitor/app/sampling.md).
 
 ## Create work item
 You can create a bug in GitHub or Azure DevOps with the details from any telemetry item. 
@@ -141,7 +141,7 @@ The first time you do this, you are asked to configure a link to your Azure DevO
 ## Send more telemetry to Application Insights
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework in [.NET](../../azure-monitor/app/asp-net-trace-logs.md) or [Java](../../application-insights/app-insights-java-trace-logs.md). This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
+* Capture log traces from your favorite logging framework in [.NET](../../azure-monitor/app/asp-net-trace-logs.md) or [Java](../../azure-monitor/app/java-trace-logs.md). This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
 * [Write code](../../azure-monitor/app/api-custom-events-metrics.md) to send custom events, page views, and exceptions. 
 
 [Learn how to send logs and custom telemetry to Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
@@ -149,7 +149,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 ## <a name="questions"></a>Q & A
 ### <a name="limits"></a>How much data is retained?
 
-See the [Limits summary](../../application-insights/app-insights-pricing.md#limits-summary).
+See the [Limits summary](../../azure-monitor/app/pricing.md#limits-summary).
 
 ### How can I see POST data in my server requests?
 We don't log the POST data automatically, but you can use [TrackTrace or log calls](../../azure-monitor/app/asp-net-trace-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
@@ -161,5 +161,5 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 ## <a name="add"></a>Next steps
 * [Write complex queries in Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Send logs and custom telemetry to Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
-* [Set up availability and responsiveness tests](../../application-insights/app-insights-monitor-web-app-availability.md)
-* [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Set up availability and responsiveness tests](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)

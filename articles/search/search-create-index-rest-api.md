@@ -1,6 +1,6 @@
 ---
 title: 'Create an index in code using the REST API - Azure Search'
-description: Create a full text searchable index in code using HTTP reqeusts and the Azure Search REST API.
+description: Create a full text searchable index in code using HTTP requests and the Azure Search REST API.
 
 ms.date: 10/17/2018
 author: mgottein 

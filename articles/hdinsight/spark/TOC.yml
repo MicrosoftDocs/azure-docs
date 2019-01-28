@@ -98,6 +98,8 @@
           href: apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../../cosmos-db/lambda-architecture.md
+        - name: Run Azure ML workloads with AutoML
+          href: apache-spark-run-machine-learning-automl.md
           maintainContext: true
     - name: Apache Spark streaming
       items:
@@ -433,6 +435,8 @@
     href: /rest/api/hdinsight/
   - name: REST API (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
     - name: Release notes

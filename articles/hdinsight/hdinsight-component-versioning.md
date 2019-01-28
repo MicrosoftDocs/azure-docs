@@ -226,11 +226,11 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 
   | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark  | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | Head: default VM size |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
   | Head: recommended VM sizes |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |A4 v2,<br/> A8 v2,<br/> A2m v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | Worker: default VM size |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | Worker: default VM size |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
   | Worker: recommended VM sizes |D3 v2,<br/> D4 v2,<br/> D12 v2 |D3 v2,<br/> D4 v2,<br/> D12 v2  | D13,<br/> D14 |D3 v2,<br/> D4 v2,<br/> D12 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
-  | ZooKeeper: default VM size | |A4 v2 | |A2 v2 | | |
+  | ZooKeeper: default VM size | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
   | ZooKeeper: recommended VM sizes | |A4 v2,<br/> A8 v2,<br/> A2m v2 | | A2 v2,<br/> A4 v2,<br/> A8 v2 | | |
   | Edge: default VM size | | | | | |D4 v2 |
   | Edge: recommended VM size | | | | | |D4 v2,<br/> D12 v2,<br/> D13 v2,<br/> D14 v2 |
@@ -238,11 +238,11 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
 
   | Cluster type | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
-  | Head: default VM size |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | Head: default VM size |D12 |D12  | D13 |A3 |D12 |D12 |
   | Head: recommended VM sizes |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
-  | Worker: default VM size |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | Worker: default VM size |D4 |D4  |  D14 |D3 |D13 |D4 |
   | Worker: recommended VM sizes |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
-  | ZooKeeper: default VM size | |A2 | | A2 | | |
+  | ZooKeeper: default VM size | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
   | ZooKeeper: recommended VM sizes | |A2,<br/> A3,<br/> A4 | |A2,<br/> A3,<br/> A4 | | |
   | Edge: default VM sizes | | | | | |D4 |
   | Edge: recommended VM sizes | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |

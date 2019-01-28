@@ -9,6 +9,10 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Single Database quickstart guide
+    href: sql-database-quickstart-guide.md
+  - name: Managed Instance quickstart guide
+    href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
     - name: Single database
@@ -25,9 +29,9 @@
       href: sql-database-managed-instance-configure-p2s.md
   - name: Load data
     items:
-    - name: Import BACPAC into a single database
+    - name: Import BACPAC into a new database
       href: sql-database-import.md
-    - name: Restore a database backup to a Managed Instance
+    - name: Restore database backup to a Managed Instance
       href: sql-database-managed-instance-get-started-restore.md
   - name: Query
     href: sql-database-connect-query.md
@@ -152,7 +156,7 @@
     items:
     - name: Managed instances overview
       href: sql-database-managed-instance-index.yml
-    - name: Managed instance overview
+    - name: Managed instance capabilities
       href: sql-database-managed-instance.md
     - name: Management API reference
       href: sql-database-managed-instance-create-manage.md
@@ -278,8 +282,6 @@
       href: sql-database-elastic-query-overview.md
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
-    - name: Elastic Database jobs
-      href: elastic-jobs-overview.md
   - name: SQL features comparison
     href: sql-database-features.md
   - name: Monitoring and tuning
@@ -306,6 +308,12 @@
         href: sql-database-performance.md
       - name: Database advisor performance recommendations
         href: sql-database-advisor.md
+  - name: Load and move data
+    items: 
+      - name: SQL Data Sync
+        href: sql-database-sync-data.md
+      - name: Transactional replication
+        href: sql-database-managed-instance-transactional-replication.md
   - name: Databases features
     items:
     - name: Databases features
@@ -316,6 +324,8 @@
       href: sql-database-in-memory.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
+    - name: Job automation 
+      href: sql-database-job-automation-overview.md
 - name: How-to guides
   items:
   - name: Overview
@@ -328,12 +338,14 @@
       href: sql-database-cloud-migrate.md
     - name: Manage SQL database after migration
       href: sql-database-manage-after-migration.md
-    - name: Configure transactional replication
+    - name: Configure replication
       href: replication-to-sql-database.md
     - name: Configure threat detection
       href: sql-database-threat-detection.md
     - name: Configure backup retention using Azure blob storage
       href: sql-database-long-term-backup-retention-configure.md
+    - name: Configure Elastic Database jobs
+      href: elastic-jobs-overview.md
     - name: Configure dynamic data masking
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: Configure geo-replication - Portal
@@ -438,8 +450,6 @@
       href: sql-database-export.md
     - name: Data sync
       items:
-      - name: SQL Data Sync
-        href: sql-database-sync-data.md
       - name: Data Sync Agent
         href: sql-database-data-sync-agent.md
       - name: Replicate schema changes
@@ -616,6 +626,8 @@
     href: /sql/t-sql/language-reference
   - name: REST
     href: /rest/api/sql/
+  - name: Resource Manager templates for SQL
+    href: /azure/templates/microsoft.sql/allversions
   - name: SQL Server tools
     href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)

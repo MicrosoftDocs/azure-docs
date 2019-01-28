@@ -30,7 +30,7 @@ The new Premium-tier is an Enterprise ready tier, which includes all the Standar
 For more information about size, throughput, and bandwidth with premium caches, see [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
 ## Redis data persistence
-The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache all the data is stored only in memory. In case of underlying infrastructure issues there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Cache for Redis offers RDB and AOF (coming soon) options in [Redis persistence](http://redis.io/topics/persistence). 
+The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache all the data is stored only in memory. In case of underlying infrastructure issues there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Cache for Redis offers RDB and AOF (coming soon) options in [Redis persistence](https://redis.io/topics/persistence). 
 
 For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
 

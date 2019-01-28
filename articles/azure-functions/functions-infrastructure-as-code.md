@@ -34,6 +34,12 @@ A function app requires these resources:
 * A hosting plan (Consumption plan or App Service plan)
 * A function app 
 
+For JSON syntax and properties for these resources, see:
+
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
+
 ### Storage account
 
 An Azure storage account is required for a function app. You need a general purpose account that supports blobs, tables, queues, and files. For more information, see [Azure Functions storage account requirements](functions-create-function-app-portal.md#storage-account-requirements).

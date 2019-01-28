@@ -452,4 +452,4 @@ namespace TimeSeriesInsightsQuerySample
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+> [Query API reference](/rest/api/time-series-insights/ga-query-api).

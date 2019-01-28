@@ -1,11 +1,9 @@
 ---
 title: 'Azure Cosmos DB tutorial: Create, query, and traverse in Apache TinkerPops Gremlin Console'
 description: An Azure Cosmos DB quickstart to creates vertices, edges, and queries using the Azure Cosmos DB Gremlin API.
-services: cosmos-db
 author: luisbosquez
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
@@ -76,6 +74,8 @@ connectionPool: {
 }
 serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0, config: { serializeResultToString: true }}
 ```
+
+make sure to wrap the value of hosts parameter within brackets []. 
 
 3. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
 4. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.

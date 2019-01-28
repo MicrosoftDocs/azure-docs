@@ -1,10 +1,9 @@
 ---
-title: Traffic View in Azure Traffic Manager | Microsoft Docs
+title: Traffic View in Azure Traffic Manager
 description: Introduction to Traffic Manager Traffic View
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: jeconnoc
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

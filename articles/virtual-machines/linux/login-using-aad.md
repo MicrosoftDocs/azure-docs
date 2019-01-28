@@ -41,10 +41,13 @@ The following Linux distributions are currently supported during the preview of 
 
 | Distribution | Version |
 | --- | --- |
-| CentOS | CentOS 6.9, and CentOS 7.4 |
+| CentOS | CentOS 6, CentOS 7 |
 | Debian | Debian 9 |
+| openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| SUSE Linux Enteprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10, and Ubuntu Server 18.04 |
+
 
 The following Azure regions are currently supported during the preview of this feature:
 
@@ -146,7 +149,7 @@ Close the browser window, return to the SSH prompt, and press the **Enter** key.
 
 ## Sudo and AAD login
 
-The first time that you run sudo, you will be asked to authenticate a second time. If you don't want to have to authenticate again to run sudo, you can edit your sudoers file `/aad/etc/sudoers.d/aad_admins` and replace this line:
+The first time that you run sudo, you will be asked to authenticate a second time. If you don't want to have to authenticate again to run sudo, you can edit your sudoers file `/etc/sudoers.d/aad_admins` and replace this line:
 
 ```bash
 %aad_admins ALL=(ALL) ALL

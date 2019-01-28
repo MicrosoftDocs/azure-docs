@@ -6,12 +6,12 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 
 ms.custom: seodec18
 ---
 
-# Azure Disk Encryption for Iaas VMs FAQ
+# Azure Disk Encryption for IaaS VMs FAQ
 
 This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Windows and Linux IaaS VMs. For more information about this service, see [Azure Disk Encryption for Windows and Linux IaaS VMs](azure-security-disk-encryption-overview.md).
 
@@ -133,7 +133,7 @@ If this workflow isn't possible, relying on [Storage Service Encryption](../stor
 
 ## What encryption method does Azure Disk Encryption use?
 
-On Windows, ADE uses the Bitlocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
+On Windows, ADE uses the BitLocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
 On Linux, ADE uses the dmcrypt default of aes-xts-plain64 with a 256-bit volume master key.
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?

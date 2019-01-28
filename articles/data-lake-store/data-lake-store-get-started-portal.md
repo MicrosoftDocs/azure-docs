@@ -91,7 +91,7 @@ You can create folders under your Data Lake Storage Gen1 account to manage and s
    
     ![Create folders in a Data Lake Storage Gen1 account](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Create folders in a Data Lake Storage Gen1 account")
    
-    The newly created folder is listed in the **Data Explorer** blade. You can create nested folders upto any level.
+    The newly created folder is listed in the **Data Explorer** blade. You can create nested folders up to any level.
    
     ![Create folders in a Data Lake account](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Create folders in a Data Lake account")
 

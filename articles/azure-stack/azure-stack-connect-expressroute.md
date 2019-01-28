@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
-ms.reviewer:  
+ms.reviewer: unknown
 
 ---
 

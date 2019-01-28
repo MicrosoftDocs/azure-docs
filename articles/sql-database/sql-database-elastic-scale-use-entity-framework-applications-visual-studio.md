@@ -230,13 +230,13 @@ This sample shows the method **RegisterNewShard** that registers the shard in th
         } 
 
         // Only static methods are allowed in calls into base class c'tors 
-        private static string SetInitializerForConnection(string connnectionString) 
+        private static string SetInitializerForConnection(string connectionString) 
         { 
             // You want existence checks so that the schema can get deployed 
             Database.SetInitializer<ElasticScaleContext<T>>( 
         new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
-            return connnectionString; 
+            return connectionString; 
         } 
 
 One might have used the version of the constructor inherited from the base class. But the code needs to ensure that the default initializer for EF is used when connecting. Hence the short detour into the static method before calling into the base class constructor with the connection string. Note that the registration of shards should run in a different app domain or process to ensure that the initializer settings for EF do not conflict. 

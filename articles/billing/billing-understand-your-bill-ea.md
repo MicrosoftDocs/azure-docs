@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Understand your bill for Azure customers with an Enterprise Agreement

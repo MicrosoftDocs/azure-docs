@@ -1,9 +1,7 @@
 ---
 title: Monitor performance and storage metrics in Azure Cosmos DB
 description: Learn how to monitor your Azure Cosmos DB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption.
-services: cosmos-db
 author: SnehaGunda
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/06/2018

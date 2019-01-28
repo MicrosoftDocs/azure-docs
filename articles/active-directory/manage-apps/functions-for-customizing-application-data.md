@@ -4,15 +4,15 @@ description: Learn how to use expression mappings to transform attribute values 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: barbkess
+ms.date: 01/21/2019
+ms.author: chmutali
 
 ---
 # Writing Expressions for Attribute Mappings in Azure Active Directory
@@ -23,17 +23,17 @@ When you configure provisioning to a SaaS application, one of the types of attri
 The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic for Applications (VBA) functions.
 
 * The entire expression must be defined in terms of functions, which consist of a name followed by arguments in parentheses: <br>
-  *FunctionName(<<argument 1>>,<<argument N>>)*
-* You may nest functions within each other. For example: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+  *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
+* You may nest functions within each other. For example: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * You can pass three different types of arguments into functions:
   
   1. Attributes, which must be enclosed in square brackets. For example: [attributeName]
   2. String constants, which must be enclosed in double quotes. For example: "United States"
-  3. Other Functions. For example: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+  3. Other Functions. For example: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \"Contoso\""
 
 ## List of Functions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### Append
@@ -226,6 +226,36 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 | **key** |Required |String |**Key** to compare **source** value with. |
 | **value** |Required |String |Replacement value for the **source** matching the key. |
 
+- - -
+### ToLower
+**Function:**<br> 
+ToLower(source, culture)
+
+**Description:**<br> 
+Takes a *source* string value and converts it to lower case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String |Usually name of the attribute from the source object |
+| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+
+- - -
+### ToUpper
+**Function:**<br> 
+ToUpper(source, culture)
+
+**Description:**<br> 
+Takes a *source* string value and converts it to upper case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String |Usually name of the attribute from the source object |
+| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+
 ## Examples
 ### Strip known domain name
 You need to strip a known domain name from a user’s email to obtain a user name. <br>
@@ -300,6 +330,18 @@ If the state code doesn't match any of the predefined options, use default value
 
 * **INPUT** (state): "QLD"
 * **OUTPUT**: "Australia/Brisbane"
+
+### Convert generated userPrincipalName (UPN) value to lower case
+
+In the example below, the UPN value is generated by concatenating the PreferredFirstName and PreferredLastName source fields and the ToLower function operates on the generated string to convert all characters to lower case. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Sample input/output:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **OUTPUT**: "john.smith@contoso.com"
 
 ### Generate unique value for userPrincipalName (UPN) attribute
 

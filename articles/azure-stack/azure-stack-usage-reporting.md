@@ -12,20 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
 
 ---
 
-# Report Azure Stack usage data to Azure 
+# Report Azure Stack usage data to Azure
 
-Usage data, also called consumption data, represents the amount of resources used. 
+Usage data, also called consumption data, represents the amount of resources used.
 
 Azure Stack multi-node systems that use the consumption-based billing model should report usage data to Azure for billing purposes. Azure Stack operators should configure their Azure Stack instance to report usage data to Azure.
 
-> [!NOTE]
-> Usage data reporting is required for the Azure Stack multi-node users who license under the Pay-as-you-use model. It is optional for customers who license under the Capacity model (see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). For Azure Stack Development Kit users, Azure Stack operators can report usage data and test the feature. However, users will not be charged for any usage they incur. 
+> [!IMPORTANT]
+> All workloads [must be deployed under tenant subscriptions](#are-users-charged-for-the-infrastructure-vms) to comply with the licensing terms of Azure Stack.
+
+Usage data reporting is required for the Azure Stack multi-node users who license under the Pay-as-you-use model. It is optional for customers who license under the Capacity model (see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). For Azure Stack Development Kit users, Azure Stack operators can report usage data and test the feature. However, users will not be charged for any usage they incur.
 
 ![billing flow](media/azure-stack-usage-reporting/billing-flow.png)
 

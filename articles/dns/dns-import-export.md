@@ -68,7 +68,7 @@ The following notes provide additional technical details about the zone import p
 * The `$TTL` directive is optional, and it is supported. When no `$TTL` directive is given, records without an explicit TTL are imported set to a default TTL of 3600 seconds. When two records in the same record set specify different TTLs, the lower value is used.
 * The `$ORIGIN` directive is optional, and it is supported. When no `$ORIGIN` is set, the default value used is the zone name as specified on the command line (plus the terminating ".").
 * The `$INCLUDE` and `$GENERATE` directives are not supported.
-* These record types are supported: A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT.
+* These record types are supported: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV, and TXT.
 * The SOA record is created automatically by Azure DNS when a zone is created. When you import a zone file, all SOA parameters are taken from the zone file *except* the `host` parameter. This parameter uses the value provided by Azure DNS. This is because this parameter must refer to the primary name server provided by Azure DNS.
 * The name server record set at the zone apex is also created automatically by Azure DNS when the zone is created. Only the TTL of this record set is imported. These records contain the name server names provided by Azure DNS. The record data is not overwritten by the values contained in the imported zone file.
 * During Public Preview, Azure DNS supports only single-string TXT records. Multistring TXT records are be concatenated and truncated to 255 characters.

@@ -1,8 +1,6 @@
 ---
 title: Frequently asked questions about different APIs in Azure Cosmos DB
 description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
-keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -147,7 +145,7 @@ Yes, the SQL API supports cross-document transactions expressed as JavaScript-st
 
 A container is a group of documents and their associated JavaScript application logic. A container is a billable entity, where the [cost](performance-levels.md) is determined by the throughput and used storage. Containers can span one or more partitions or servers and can scale to handle practically unlimited volumes of storage or throughput.
 
-* For SQL API and Cosmos DB for MongoDB API accounts, a container maps to a Collection.
+* For SQL API and Cosmos DB's API for MongoDB accounts, a container maps to a Collection.
 * For Cassandra and Table API accounts, a container maps to a Table.
 * For Gremlin API accounts, a container maps to a Graph.
 
@@ -207,32 +205,32 @@ This is limitation of JavaScript. JavaScript uses double-precision floating-poin
 
 Creating permissions by using ResourceTokens is allowed at the container level and its descendants (such as documents, attachments). This implies that trying to create a permission at the database or an account level isn't currently allowed.
 
-## Azure Cosmos DB for MongoDB API
+## Azure Cosmos DB's API for MongoDB
 
-### What is the Azure Cosmos DB for MongoDB API?
+### What is the Azure Cosmos DB's API for MongoDB?
 
-The Azure Cosmos DB for MongoDB API is a wire-protocol compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported SDKs and drivers for MongoDB.Developers can now use existing MongoDB toolchains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include global distribution with multi-master replication,auto-indexing, backup maintenance, financially backed service level agreements (SLAs) etc.
+The Azure Cosmos DB's API for MongoDB is a wire-protocol compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported SDKs and drivers for MongoDB.Developers can now use existing MongoDB toolchains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include global distribution with multi-master replication,auto-indexing, backup maintenance, financially backed service level agreements (SLAs) etc.
 
 ### How do I connect to my database?
 
-The quickest way to connect to the Azure Cosmos DB for MongoDB API is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quick Start is the best way to get code snippets to connect to your database.
+The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quick Start is the best way to get code snippets to connect to your database.
 
 Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via SSL, so be sure to use TLSv1.2.
 
-For more information, see [Connect to your Cosmos DB for MongoDB API database](connect-mongodb-account.md).
+For more information, see [Connect to your Cosmos database with Azure Cosmos DB's API for MongoDB](connect-mongodb-account.md).
 
-Are there additional error codes that I need to deal with while using clients for MongoDB API?
+Are there additional error codes that I need to deal with while using Azure Cosmos DB's API for MongoDB?
 
-Along with the common MongoDB error codes, the Azure Cosmos DB for MongoDB API has its own specific error codes:
+Along with the common MongoDB error codes, the Azure Cosmos DB's API for MongoDB has its own specific error codes:
 
 | Error               | Code  | Description  | Solution  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | The total number of request units consumed is more than the provisioned request-unit rate for the collection and has been throttled. | Consider scaling the throughput  assigned to a container or a set of containers from the Azure portal or retrying again. |
 | ExceededMemoryLimit | 16501 | As a multi-tenant service, the operation has gone over the client's memory allotment. | Reduce the scope of the operation through more restrictive query criteria or contact support from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Example: *&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-### Is the Simba driver for MongoDB supported for use with Azure Cosmos DB for MongoDB API?
+### Is the Simba driver for MongoDB supported for use with Azure Cosmos DB's API for MongoDB?
 
-Yes, you can use Simba’s Mongo ODBC driver with Azure Cosmos DB for MongoDB API
+Yes, you can use Simba’s Mongo ODBC driver with Azure Cosmos DB's API for MongoDB
 
 ## <a id="table"></a>Table API
 

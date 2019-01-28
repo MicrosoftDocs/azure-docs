@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
@@ -153,7 +153,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 Run the following command to create a stored procedure in your SQL database. This stored procedure updates the watermark value after every pipeline run. 
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -179,7 +179,7 @@ CREATE TYPE DataTypeforCustomerTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
+CREATE PROCEDURE usp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
 AS
 
 BEGIN
@@ -202,7 +202,7 @@ CREATE TYPE DataTypeforProjectTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_project_table @project_table DataTypeforProjectTable READONLY
+CREATE PROCEDURE usp_upsert_project_table @project_table DataTypeforProjectTable READONLY
 AS
 
 BEGIN
@@ -219,7 +219,7 @@ END
 ```
 
 ### Azure PowerShell
-Install the latest Azure PowerShell modules by following the instructions in [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Install the latest Azure PowerShell modules by following the instructions in [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## Create a data factory
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotation marks, and then run the command. An example is `"adfrg"`. 
@@ -610,7 +610,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     						"type": "SqlServerStoredProcedure",
     						"typeProperties": {
     
-    							"storedProcedureName": "sp_write_watermark",
+    							"storedProcedureName": "usp_write_watermark",
     							"storedProcedureParameters": {
     								"LastModifiedtime": {
     									"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}",
@@ -677,13 +677,13 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
     			"TABLE_NAME": "customer_table",
     			"WaterMark_Column": "LastModifytime",
     			"TableType": "DataTypeforCustomerTable",
-    			"StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+    			"StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
     		},
     		{
     			"TABLE_NAME": "project_table",
     			"WaterMark_Column": "Creationtime",
     			"TableType": "DataTypeforProjectTable",
-    			"StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+    			"StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
     		}
     	]
     }

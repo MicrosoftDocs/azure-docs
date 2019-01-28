@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze image content for objectionable material in C#"
+title: "Quickstart: Analyze images for objectionable content in C# - Content Moderator"
 titlesuffix: Azure Cognitive Services
 description: How to analyze image content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
@@ -9,8 +9,9 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: quickstart
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 #As a C# developer of content management software, I want to analyze images for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 

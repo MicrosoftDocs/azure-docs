@@ -4,7 +4,7 @@ description: Covers security considerations for using Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.component: app-mgmt
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ---
 
@@ -44,7 +44,7 @@ Apply richer policy controls before connections to your network are established.
 
 With [conditional access](../conditional-access/overview.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
-You can also use conditional access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. 
+You can also use conditional access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Cloud App Security via Azure AD conditional access to provide real-time monitoring and controls, via [access](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) and [session](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) policies
 
 ### Traffic termination
 

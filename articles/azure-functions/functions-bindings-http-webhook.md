@@ -49,7 +49,7 @@ See the language-specific example:
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
@@ -328,10 +328,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-### Trigger - Java example
+### Trigger - Java examples
 
-The following example shows a trigger binding in a *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function returns an HTTP status code 200 response with a request body that prefixes the triggering request body with a "Hello, " greeting.
+* [Read parameter from the query string](#read-parameter-from-the-query-string-java)
+* [Read body from a POST request](#read-body-from-a-post-request-java)
+* [Read parameter from a route](#read-parameter-from-a-route-java)
+* [Read POJO body from a POST request](#read-pojo-body-from-a-post-request-java)
 
+The following examples show the HTTP trigger binding in a *function.json* file and the respective [Java functions](functions-reference-java.md) that use the binding. 
 
 Here's the *function.json* file:
 
@@ -354,17 +358,181 @@ Here's the *function.json* file:
 }
 ```
 
-Here's the Java code:
+#### Read parameter from the query string (Java)  
+
+This example reads a parameter, named ```id```, from the query string, and uses it to build a JSON document returned to the client, with content type ```application/json```. 
 
 ```java
-@FunctionName("hello")
-public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context)
-    {
-        // default HTTP 200 response code
-        return String.format("Hello, %s!", request);
+    @FunctionName("TriggerStringGet")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("GET parameters are: " + request.getQueryParameters());
+
+        // Get named parameter
+        String id = request.getQueryParameters().getOrDefault("id", "");
+
+        // Convert and display
+        if (id.isEmpty()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String name = "fake_name";
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
     }
+```
+
+#### Read body from a POST request (Java)  
+
+This example reads the body of a POST request, as a ```String```, and uses it to build a JSON document returned to the client, with content type ```application/json```.
+
+```java
+    @FunctionName("TriggerStringPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(""));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String body = request.getBody().get();
+            final String jsonDocument = "{\"id\":\"123456\", " + 
+                                         "\"description\": \"" + body + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### Read parameter from a route (Java)  
+
+This example reads a mandatory parameter, named ```id```, and an optional parameter ```name``` from the route path, and uses them to build a JSON document returned to the client, with content type ```application/json```. T
+
+```java
+    @FunctionName("TriggerStringRoute")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
+            HttpRequestMessage<Optional<String>> request,
+            @BindingName("id") String id,
+            @BindingName("name") String name,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Route parameters are: " + id);
+
+        // Convert and display
+        if (id == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### Read POJO body from a POST request (Java)  
+
+Here is the code for the ```ToDoItem``` class, referenced in this example:
+
+```java
+
+public class ToDoItem {
+
+  private String id;
+  private String description;  
+
+  public ToDoItem(String id, String description) {
+    this.id = id;
+    this.description = description;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+  
+  @Override
+  public String toString() {
+    return "ToDoItem={id=" + id + ",description=" + description + "}";
+  }
 }
+
+```
+
+This example reads the body of a POST request. The request body gets automatically de-serialized into a ```ToDoItem``` object, and is returned to the client, with content type ```application/json```. The ```ToDoItem``` parameter is serialized by the Functions runtime as it is assigned to the ```body``` property of the ```HttpMessageResponse.Builder``` class.
+
+```java
+    @FunctionName("TriggerPojoPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<ToDoItem>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(null));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final ToDoItem body = request.getBody().get();
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(body)
+                          .build();
+        }
+    }
 ```
 
 ## Trigger - attributes

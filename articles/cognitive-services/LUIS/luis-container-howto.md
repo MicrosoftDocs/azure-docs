@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ---
 
@@ -29,7 +29,7 @@ In order to run the LUIS container, you must have the following:
 
 |Required|Purpose|
 |--|--|
-|Docker Engine| To complete this preview, you need Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
+|Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Language Understanding (LUIS) resource and associated app |In order to use the container, you must have:<br><br>* A [_Language Understanding_ Azure resource](luis-how-to-azure-subscription.md), along with the associated endpoint key and endpoint URI (used as the billing endpoint).<br>* A trained or published app packaged as a mounted input to the container with its associated App ID.<br>* The Authoring Key to download the app package, if you are doing this from the API.<br><br>These requirements are used to pass command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Language Understanding_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>The [authoring key and endpoint key](luis-boundaries.md#key-limits) have different purposes. Do not use them interchangeably. |
 
@@ -61,7 +61,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
-For a full description of available tags, such as `latest` used in the preceding command, see [LUIS](https://hub.docker.com/r/microsoft/azure-cognitive-services-luis/) on Docker Hub.
+For a full description of available tags, such as `latest` used in the preceding command, see [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) on Docker Hub.
 
 > [!TIP]
 > You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
@@ -108,7 +108,8 @@ The input mount directory can contain the **Production**, **Staging**, and **Tra
 |Staging|Get, Post|Azure and container|`{APPLICATION_ID}_STAGING.gz`|
 |Production|Get, Post|Azure and container|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Important:** Do not rename, alter, or decompress the LUIS package files.
+> [!IMPORTANT]
+> Do not rename, alter, or decompress the LUIS package files.
 
 ### Packaging prerequisites
 
@@ -373,9 +374,10 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 
 * Review [Configure containers](luis-container-configuration.md) for configuration settings
 * Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

@@ -162,7 +162,7 @@ You must start with indexing Solr with some data files. You can then use Solr to
 
    This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
 
-## Install Solr using Aure PowerShell
+## Install Solr using Azure PowerShell
 See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  The sample demonstrates how to install Apache Spark using Azure PowerShell. You need to customize the script to use [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## Install Solr using .NET SDK
