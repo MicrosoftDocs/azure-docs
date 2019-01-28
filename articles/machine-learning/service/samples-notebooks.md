@@ -37,14 +37,14 @@ The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) and notebook
 
 After you [create a DSVM](how-to-configure-environment.md#dsvm), use these steps on the DSVM to run the notebooks.
 
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-your-server.md)]
+[!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
 
 ## Use your own Jupyter notebook server
 
 Use these steps to create a local Jupyter Notebook server on your computer.
 
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-your-server.md)]
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
 <a name="automated-ml-setup"></a>
 
