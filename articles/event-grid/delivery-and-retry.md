@@ -2,12 +2,12 @@
 title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: tomfitz
+ms.date: 01/01/2019
+ms.author: spelluru
 ---
 
 # Event Grid message delivery and retry
@@ -18,7 +18,7 @@ Event Grid provides durable delivery. It delivers each message at least once for
 
 Currently, Event Grid sends each event individually to subscribers. The subscriber receives an array with a single event.
 
-## Retry intervals and duration
+## Retry schedule and duration
 
 Event Grid uses an exponential backoff retry policy for event delivery. If an endpoint doesn't respond or returns a failure code, Event Grid retries delivery on the following schedule:
 
@@ -30,7 +30,7 @@ Event Grid uses an exponential backoff retry policy for event delivery. If an en
 6. 30 minutes
 7. 1 hour
 
-Event Grid adds a small randomization to all retry intervals. After one hour, event delivery is retried once an hour.
+Event Grid adds a small randomization to all retry steps. After one hour, event delivery is retried once an hour.
 
 By default, Event Grid expires all events that aren't delivered within 24 hours. You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
 

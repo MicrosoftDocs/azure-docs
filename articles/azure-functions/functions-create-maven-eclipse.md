@@ -20,7 +20,7 @@ ms.custom: mvc, devcenter
 > [!NOTE] 
 > Java for Azure Functions is currently in preview.
 
-This article shows you how to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with the Eclipse IDE and Apache Maven, test and debug it, then deploy it to Azure Functions. 
+This article shows you how to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function project with the Eclipse IDE and Apache Maven, test and debug it, then deploy it to Azure Functions. 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 
@@ -73,7 +73,7 @@ Select the **Run** menu and open **Debug Configurations**. Choose **Remote Java 
 
 ![Debug functions in Eclipse](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
-Set breakpoints and inspect objects in your function using the IDE. When finished, stop the debugger and the running function host. Only one function host can be active and running locally at at time.
+Set breakpoints and inspect objects in your function using the IDE. When finished, stop the debugger and the running function host. Only one function host can be active and running locally at a time.
 
 ## Deploy the function to Azure
 

@@ -4,11 +4,10 @@ description: Learn how to set up disaster recovery of on-premises Hyper-V VMs in
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
----
 
 # Set up disaster recovery of on-premises Hyper-V VMs in VMM clouds to Azure
 

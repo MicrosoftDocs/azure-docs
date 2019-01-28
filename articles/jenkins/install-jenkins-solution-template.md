@@ -3,7 +3,7 @@ title: Create a Jenkins server on Azure
 description: Install Jenkins on an Azure Linux virtual machine from the Jenkins solution template and build a sample Java application.
 ms.service: jenkins
 keywords: jenkins, azure, devops, portal, virtual machine, solution template
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart

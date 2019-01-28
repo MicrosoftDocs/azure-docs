@@ -1,14 +1,14 @@
-﻿---
+---
 title: Set up security info to use email - Azure Active Directory | Microsoft Docs
 description: Set up your security info to verify your identity using your work or school email address.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
@@ -42,7 +42,7 @@ Depending on your organization’s settings, you may be prompted to add an email
 
 3. In the **Keep your account secure** page, select **Done**.
 
-    Your security info is updated to use your email address to verify your identity when using two-step verification.
+    Your security info is updated to use your email address to verify your identity when using password reset.
 
 ## Additional security info options
 

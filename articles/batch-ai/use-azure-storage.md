@@ -13,8 +13,12 @@ ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
 
+ROBOTS: NOINDEX
+
 ---
 # Store Batch AI job input and output with Azure Storage
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 This guide describes how to use Azure Storage for storing input and output files when running a job. Azure Storage is one of several storage options supported by Batch AI. Batch AI integrates with Azure Storage by mounting Azure Storage systems to a Batch AI job or cluster filesystem, allowing seamless access to files stored in the cloud. 
 
@@ -26,7 +30,7 @@ Azure Storage is Microsoft's cloud storage solution. Batch AI supports mounting 
 
 When you choose Azure Storage for your Batch AI environment, we recommend that you store your input files (such as datasets) in a Blob container, which has higher throughput, and you store your training output in a file share, which supports streaming (allowing reading of output logs while the job is concurrently running). 
 
-Before you can use Azure Storage, you must [create an Azure Storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account). Batch AI supports mounting volumes from both General-purpose v1 (GPv1) and General-purpose v2 (GPv2) Azure Storage accounts. The Azure Storage account can hold multiple Blob containers or file share instances. Consider your cost and performance requirements when choosing a storage account [option](../storage/common/storage-account-options.md). 
+Before you can use Azure Storage, you must [create an Azure Storage account](../storage/common/storage-quickstart-create-account.md). Batch AI supports mounting volumes from both General-purpose v1 (GPv1) and General-purpose v2 (GPv2) Azure Storage accounts. The Azure Storage account can hold multiple Blob containers or file share instances. Consider your cost and performance requirements when choosing the type of storage account to create. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md). 
 
 To create a Blob container and to upload your dataset to an Azure Blob container, choose one of the following methods:
 - [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) for uploading with a web-based GUI. To upload a small number of files, Azure portal provides the simplest operation.
@@ -72,7 +76,7 @@ To mount an Azure Storage volume to a job created with the Azure CLI, use the `m
 - <FILE_SHARE_NAME> - the name of the file share
 - <BLOB_CONTAINER_NAME> - the name of the Blob container
 
-To mount Azure Storage volumes with the Azure Batch AI SDKs, set the `mount_volumes` (Python) or `MountVolumes` (C#, Java) property on `JobCreateParameters`. You must provide the storage account's credentials when mounting volumes with Azure Batch AI SDKs. View the schemas for mounting volumes in [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), and [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai._mount_volumes?view=azure-java-stable).
+To mount Azure Storage volumes with the Azure Batch AI SDKs, set the `mount_volumes` (Python) or `MountVolumes` (C#, Java) property on `JobCreateParameters`. You must provide the storage account's credentials when mounting volumes with Azure Batch AI SDKs. View the schemas for mounting volumes in [Python](https://docs.microsoft.com/python/api/azure-mgmt-batchai/azure.mgmt.batchai.models.MountVolumes?view=azure-python), [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.batchai.models.mountvolumes?view=azure-dotnet), and [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.management.batchai.mountvolumes?view=azure-java-stable).
 
 ### Mount volumes to a cluster
 
@@ -94,7 +98,7 @@ If your training script requires knowledge of a path, you should pass it as a co
 
 ### Abbreviate input paths
 
-To abbreviate input paths as an environment variable, use the `inputDirectories` property of your `job.json` file (or `models.JobCreateParamters.input_directories` if using the Batch AI SDK). The schema of `inputDirectories` is:
+To abbreviate input paths as an environment variable, use the `inputDirectories` property of your `job.json` file (or `models.JobCreateParameters.input_directories` if using the Batch AI SDK). The schema of `inputDirectories` is:
 
 ```json
 {
@@ -111,7 +115,7 @@ For more information, see [here](https://github.com/Azure/BatchAI/blob/master/do
 
 ### Abbreviate output paths
 
-To abbreviate output paths as an environment variable, use the `outputDirectories` property of your `job.json` file (or `models.JobCreateParamters.output_directories` if using the Batch AI SDK). Using this method can simplify the paths for output files. The schema of `outputDirectories` is:
+To abbreviate output paths as an environment variable, use the `outputDirectories` property of your `job.json` file (or `models.JobCreateParameters.output_directories` if using the Batch AI SDK). Using this method can simplify the paths for output files. The schema of `outputDirectories` is:
 
 ```json
 {

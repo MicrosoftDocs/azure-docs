@@ -77,12 +77,14 @@
       href: batch-virtual-network.md
     - name: Mount an Azure file share
       href: pool-file-shares.md
-    - name: Use compute-intensive VMs
+    - name: Use RDMA or GPU instances
       href: batch-pool-compute-intensive-sizes.md
     - name: Use Linux compute nodes
       href: batch-linux-nodes.md
     - name: Use low-priority VMs
       href: batch-low-pri-vms.md
+    - name: Checking for pool and node errors
+      href: batch-pool-node-error-checking.md
   - name: Manage jobs and tasks
     items:
     - name: Job preparation and completion tasks
@@ -170,6 +172,8 @@
       href: /rest/api/batchservice
     - name: Batch Management
       href: /rest/api/batchmanagement/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.batch/allversions
   - name: Batch Analytics
     href: batch-analytics.md
     items:

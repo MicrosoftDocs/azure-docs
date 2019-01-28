@@ -89,6 +89,11 @@ Azure VM types that are certified by SAP for SAP NetWeaver or the S/4HANA applic
 >SAP-Linux-Azure integration is supported only on Azure Resource Manager and not the classic deployment model. 
 
 ## Manual installation of SAP HANA
+
+> [!IMPORTANT]
+> Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type. Realize that in the example in this document we used a SLES OS release that is not supported by SAP for SAP HANA on M-Series VMs.
+>
+
 This guide describes how to manually install SAP HANA on Azure VMs in two different ways:
 
 * By using SAP Software Provisioning Manager (SWPM) as part of a distributed NetWeaver installation in the "install database instance" step
@@ -397,7 +402,7 @@ In addition to installing SAP HANA as part of a distributed installation by usin
 For more information about the HANA HDBLCM tool, see:
 
 * [Choosing the Correct SAP HANA HDBLCM for Your Task](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+* [SAP HANA Lifecycle Management Tools](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
 * [SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 To avoid problems with a default group ID setting for the `\<HANA SID\>adm user` (created by the HDBLCM tool), define a new group called `sapsys` by using group ID `1001` before you install SAP HANA via HDBLCM:

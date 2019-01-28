@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Azure Docker CE cluster for Linux
+title: (DEPRECATED) Quickstart - Azure Docker CE cluster for Linux
 description: Quickly learn to create a Docker CE cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
 author: iainfoulds
@@ -12,7 +12,9 @@ ms.author: iainfou
 ms.custom:
 ---
 
-# Deploy Docker CE cluster
+# (DEPRECATED) Deploy Docker CE cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In this quick start, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
@@ -20,7 +22,7 @@ Docker CE on Azure Container Service is in preview and **should not be used for 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 

@@ -39,7 +39,7 @@ In this tutorial series, you learn how to:
 ## Prerequisites
 
 * Linux development environment set up for Service Fabric. Follow the instructions [here](service-fabric-get-started-linux.md) to set up your Linux environment.
-* This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+* This tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * Additionally, it requires that you have an Azure subscription available. For more information on a free trial version, go [here](https://azure.microsoft.com/free/).
 
 ## Get application code
@@ -203,7 +203,7 @@ At tutorial completion, the container image has been stored in a private Azure C
 
 ## Next steps
 
-In this tutorial, an application was pulled from Github and container images were created and pushed to a registry. The following steps were completed:
+In this tutorial, an application was pulled from GitHub and container images were created and pushed to a registry. The following steps were completed:
 
 > [!div class="checklist"]
 > * Clone application source from GitHub

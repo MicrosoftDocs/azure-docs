@@ -22,7 +22,7 @@ Starting with Microsoft Azure Media Services 2.2, you can attach multiple storag
 * Load balancing your assets across multiple storage accounts.
 * Scaling Media Services for large amounts of content processing (as currently a single storage account has a max limit of 500 TB). 
 
-This article demonstrates how to attach multiple storage accounts to a Media Services account using [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](/powershell/module/azurerm.media). It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
+This article demonstrates how to attach multiple storage accounts to a Media Services account using [Azure Resource Manager APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) and [Powershell](/powershell/module/azurerm.media). It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
 
 ## Considerations
 When attaching multiple storage accounts to your Media Services account, the following considerations apply:
@@ -38,7 +38,7 @@ Media Services uses the value of the **IAssetFile.Name** property when building 
 
 ## To attach storage accounts  
 
-To attach storage accounts to your AMS account, use [Azure Resource Manager APIs](https://docs.microsoft.com/rest/api/media/mediaservice) and [Powershell](/powershell/module/azurerm.media), as shown in the following example:
+To attach storage accounts to your AMS account, use [Azure Resource Manager APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) and [Powershell](/powershell/module/azurerm.media), as shown in the following example:
 
 	$regionName = "West US"
 	$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -66,7 +66,7 @@ The following code uses the latest Media Services SDK to perform the following t
 3. Create a new asset in the default storage account.
 4. Create an output asset of the encoding job in the specified storage account.
    
-```
+```cs
 using Microsoft.WindowsAzure.MediaServices.Client;
 using System;
 using System.Collections.Generic;
@@ -119,9 +119,9 @@ namespace MultipleStorageAccounts
             Console.WriteLine("IsDefault: {0}", defaultStorageName.IsDefault);
 
             // Retrieve the name of a storage account that is not the default one.
-            var notDefaultStroageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
-            Console.WriteLine("Name: {0}", notDefaultStroageName.Name);
-            Console.WriteLine("IsDefault: {0}", notDefaultStroageName.IsDefault);
+            var notDefaultStorageName = _context.StorageAccounts.Where(s => s.IsDefault == false).FirstOrDefault();
+            Console.WriteLine("Name: {0}", notDefaultStorageName.Name);
+            Console.WriteLine("IsDefault: {0}", notDefaultStorageName.IsDefault);
 
             // Create the original asset in the default storage account.
             IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None,
@@ -129,7 +129,7 @@ namespace MultipleStorageAccounts
             Console.WriteLine("Created the asset in the {0} storage account", asset.StorageAccountName);
 
             // Create an output asset of the encoding job in the other storage account.
-            IAsset outputAsset = CreateEncodingJob(asset, notDefaultStroageName.Name, _singleInputFilePath);
+            IAsset outputAsset = CreateEncodingJob(asset, notDefaultStorageName.Name, _singleInputFilePath);
             if (outputAsset != null)
                 Console.WriteLine("Created the output asset in the {0} storage account", outputAsset.StorageAccountName);
 

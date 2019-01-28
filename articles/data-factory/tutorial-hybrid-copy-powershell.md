@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -99,7 +99,7 @@ In this section, you create a blob container named **adftutorial** in your Azure
 
 1. In the list of containers, select **adftutorial**.  
 
-    ![Select the container](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Select the container](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
@@ -116,7 +116,7 @@ Install the latest version of Azure PowerShell if you don't already have it on y
 
 1. To install Azure PowerShell, run the MSI file. 
 
-For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 #### Log in to PowerShell
 

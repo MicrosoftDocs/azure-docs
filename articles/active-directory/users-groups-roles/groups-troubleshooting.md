@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: curtand
@@ -40,4 +40,4 @@ These articles provide additional information on Azure Active Directory.
 * [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

@@ -1,23 +1,25 @@
 ---
-title: Emotion API C# quick start | Microsoft Docs
-description: Get information and a code sample to help you quickly get started by using the Emotion API with C# in Cognitive Services.
+title: "Quickstart: Recognize emotions on faces in an image - Emotion API, C#"
+titlesuffix: Azure Cognitive Services
+description: Get information and a code sample to help you quickly get started by using the Emotion API with C#.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
+ROBOTS: NOINDEX
 ---
 
-# Emotion API C# quick start
+# Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!IMPORTANT]
-> The Video API Preview ended on October 30, 2017. To easily extract insights from 
-videos, try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/). You also can use it to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. To learn more, see the [Video Indexer Preview](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) overview.
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-This article provides information and a code sample to help you quickly get started by using the [Emotion API Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with C#. You can use it to recognize the emotions expressed by one or more people in an image. 
+This article provides information and a code sample to help you quickly get started by using the [Emotion API Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with C#. You can use it to recognize the emotions expressed by one or more people in an image.
 
 ## Prerequisites
 * Get the Cognitive Services [Emotion API Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/).
@@ -67,10 +69,10 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); // 
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); //
 
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URI below with "westcentralus".
             string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
             HttpResponseMessage response;
@@ -120,10 +122,10 @@ namespace CSHttpClientSample
 A successful call returns an array of face entries and their associated emotion scores. They are ranked by face rectangle size in descending order. An empty response indicates that no faces were detected. An emotion entry contains the following fields:
 
 * faceRectangle: Rectangle location of face in the image
-* scores: Emotion scores for each face in the image 
+* scores: Emotion scores for each face in the image
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

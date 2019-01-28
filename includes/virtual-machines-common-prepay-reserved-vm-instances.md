@@ -1,10 +1,11 @@
-﻿---
+---
 author: yashesvi
-ms.author: yashar
+ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 09-05-2018
+ms.date: 11/30/2018
 ---
+
 # Prepay for Virtual Machines with Azure Reserved VM Instances
 
 Prepay for virtual machines and save money with Azure Reserved Virtual Machine (VM) Instances. For more information, see [Azure Reserved VM Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
@@ -13,22 +14,22 @@ You can buy a Reserved VM Instance in the [Azure portal](https://portal.azure.co
 
 - You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
 - For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
-- For Cloud Solution Provider (CSP) program only the admin agents or sales agents can purchase the reservations.
+- For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can buy reservations.
 
-## Determine the right VM size before purchase
+## Determine the right VM size before you buy
 
-The Meter Sub-category and Product fields in the usage data doesn't distinguish between VM sizes that use premium storage from VM sizes that don't use premium storage, using these field to determine the VM size for reservation purchase can lead to incorrect reservation purchase and not provide you reservation discounts. Use one of the methods below to determine the right VM size for reservation purchase.
+The Meter Sub-category and Product fields in the usage data don't distinguish between VM sizes that use premium storage from VMs that don't. If you use these fields to determine the VM size to use for the reservation, you may buy the wrong size and won't get the reservation discount you expect. Use one of the following methods to determine the right VM size when you buy the reservation:
 
-- Refer to the AdditionalInfo field in your usage file or usage API to determine the correct VM size for a reservation purchase. Do not use the values from Meter Sub-category or Product fields since these fields do not differentiate between S and Non-S versions of a VM.
-- You can also get accurate VM size information using Powershell, Azure Resource Manager, or from VM details in the Azure portal.
+- Refer to the AdditionalInfo field in your usage file or usage API to determine the correct VM size. Don't use the values from Meter Sub-category or Product fields. These fields don't differentiate between S and Non-S versions of a VM.
+- Get accurate VM size information using Powershell, Azure Resource Manager, or from the VM details in the Azure portal.
 
 Reserved VM Instances are available for most VM sizes with some exceptions:
 
-- Classic VMs and Cloud services dont get the reservation discount.
-- Suppressed core VMs dont get reservation discounts.
-- Following VM Series dont get reservation discounts: A-series, Av2-series, or G-series.
-- VMs in Preview: Any VM-series or size that is in preview are not available for reservation purchase.
-- Clouds: Reservations are not available for purchase in the Azure US Government, Germany, or China regions.
+- Reservation discount doesn't apply for the following VMs:
+  - Classic VMs and Cloud services
+  - VM Series: A-series, Av2-series, or G-series
+  - VMs in Preview: Any VM-series or size that is in preview
+- Clouds: Reservations aren't available for purchase in Germany or China regions.
 - Insufficient quota: A reservation that is scoped to a single subscription must have vCPU quota available in the subscription for the new RI. For example, if the target subscription has a quota limit of 10 vCPUs for D-Series, then you can't buy a reservation for 11 Standard_D1 instances. The quota check for reservations includes the VMs already deployed in the subscription. For example, if the subscription has a quota of 10 vCPUs for D-Series and has two standard_D1 instances deployed, then you can buy a reservation for 10 standard_D1 instances in this subscription. 
 - Capacity restrictions: In rare circumstances, Azure limits the purchase of new reservations for subset of VM sizes, due to low capacity in a region.
 
@@ -80,6 +81,6 @@ To learn more about Azure Reservations, see the following articles:
 - [Windows software costs not included with reservations](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

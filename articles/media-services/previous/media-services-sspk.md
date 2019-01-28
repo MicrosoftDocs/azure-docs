@@ -39,7 +39,7 @@ SSPK is licensed on terms that offer excellent business value. SSPK license prov
   * programming interfaces for interaction with hardware A/V decoders (decoding, rendering)
 * Digital Rights Management (DRM) Interface 
   * programming interfaces for handling DRM through the DRM Abstraction Layer (DAL)
-  * Microsoft PlayReady Porting Kit ships separately but integrates through this interface. For more details on Microsoft PlayReady Device licensing, click [here](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  * Microsoft PlayReady Porting Kit ships separately but integrates through this interface. For more details on Microsoft PlayReady Device licensing, click [here](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 * Implementation samples 
   * sample PAL implementation for Linux
   * sample HAL implementation for GStreamer

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create and manage Azure virtual networks for Linux VMs | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to create and manage Azure virtual networks for Linux virtual machines
+description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure virtual networks for Linux virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -21,7 +21,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn about Azure virtual networks so that I can securely deploy Linux virtual machines and restrict traffic between them.
 ---
 
-# Tutorial: Create and manage Azure virtual networks for Linux virtual machines with the Azure CLI 2.0
+# Tutorial: Create and manage Azure virtual networks for Linux virtual machines with the Azure CLI
 
 Azure virtual machines use Azure networking for internal and external network communication. This tutorial walks through deploying two virtual machines and configuring Azure networking for these VMs. The examples in this tutorial assume that the VMs are hosting a web application with a database back-end, however an application is not deployed in the tutorial. In this tutorial, you learn how to:
 
@@ -34,7 +34,7 @@ Azure virtual machines use Azure networking for internal and external network co
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## VM networking overview
 
@@ -167,7 +167,7 @@ A network security group can be created at the same time as a VM using the [az v
 
 In some cases, it may be helpful to pre-create an NSG, such as when default SSH rules should not be created, or when the NSG should be attached to a subnet. 
 
-Use the [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) command to create a network security group.
+Use the [az network nsg create](/cli/azure/network/nsg) command to create a network security group.
 
 ```azurecli-interactive 
 az network nsg create --resource-group myRGNetwork --name myBackendNSG
@@ -206,7 +206,7 @@ az network nsg rule create \
   --destination-port-range 80
 ```
 
-The front-end VM is only accessible on port *22* and port *80*. All other incoming traffic is blocked at the network security group. It may be helpful to visualize the NSG rule configurations. Return the NSG rule configuration with the [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) command. 
+The front-end VM is only accessible on port *22* and port *80*. All other incoming traffic is blocked at the network security group. It may be helpful to visualize the NSG rule configurations. Return the NSG rule configuration with the [az network rule list](/cli/azure/network/nsg/rule) command. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myFrontendNSG --output table
@@ -283,7 +283,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The back-end VM is only accessible on port *22* and port *3306* from the front-end subnet. All other incoming traffic is blocked at the network security group. It may be helpful to visualize the NSG rule configurations. Return the NSG rule configuration with the [az network rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) command. 
+The back-end VM is only accessible on port *22* and port *3306* from the front-end subnet. All other incoming traffic is blocked at the network security group. It may be helpful to visualize the NSG rule configurations. Return the NSG rule configuration with the [az network rule list](/cli/azure/network/nsg/rule) command. 
 
 ```azurecli-interactive 
 az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --output table

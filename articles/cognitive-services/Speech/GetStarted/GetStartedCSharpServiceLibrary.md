@@ -1,16 +1,19 @@
 ---
 title: Get started with the Microsoft Speech Recognition API by using the C# service library | Microsoft Docs
-description: Use the Microsoft speech recognition service library to convert spoken language to text.
+titlesuffix: Azure Cognitive Services
+description: Use the Bing Speech recognition service library to convert spoken language to text.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
-# Get started with the speech recognition service library in C&#35; for .NET Windows
+# Quickstart: Use the Bing Speech recognition service library in C&#35; for .NET Windows
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 The service library is for developers who have their own cloud service and want to call Speech Service from their service. If you want to call the speech recognition service from device-bound apps, do not use this SDK. (Use other client libraries or REST APIs for that.)
 

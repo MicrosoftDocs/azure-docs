@@ -55,7 +55,7 @@ Most Search queries default to `maxFuzzyLevel=1` to gain performance and reduce 
 
 4. Click **Send** and review the response body.
 
-    The ambiguous query string of "pizza" returned 10 [point of interest result](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) results with categories falling in "pizza" and "restaurant". Each result returns a street address, latitude / longitude values, view port, and entry points for the location.
+    The ambiguous query string of "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) results with categories falling in "pizza" and "restaurant". Each result returns a street address, latitude / longitude values, view port, and entry points for the location.
   
     The results are varied for this query, not tied to any particular reference location. You can use the **countrySet** parameter to specify only the countries for which your application needs coverage, as the default behavior is to search the entire world, potentially returning unnecessary results.
 
@@ -154,7 +154,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | number | true |
 
-    If the [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
+    If the [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
   
 6. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -162,7 +162,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | returnSpeedLimit | true |
   
-    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
+    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is set, the response return of the posted speed limit.
 
 7. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -170,7 +170,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | returnRoadUse | true |
 
-    When the [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reverse geocodes at street level.
+    When the [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter is set, the response returns the road use array for reverse geocodes at street level.
 
 8. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -178,7 +178,7 @@ You can pass a complete or partial street address to the search address API and 
     |-----|------------|
     | roadUse | true |
 
-    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
+    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) query parameter.
   
 ## Search for the cross street using Reverse Address Cross Street Search
 

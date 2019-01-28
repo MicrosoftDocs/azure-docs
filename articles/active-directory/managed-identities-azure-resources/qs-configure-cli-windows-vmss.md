@@ -3,18 +3,18 @@ title: How to configure system and user-assigned managed identities on an Azure 
 description: Step by step instructions for configuring system and user-assigned managed identities on an Azure VMSS, using Azure CLI.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI
@@ -43,7 +43,7 @@ In this article, you learn how to perform the following managed identities for A
 - To run the CLI script examples, you have three options:
     - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
     - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
-    - [Install the latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) if you prefer to use a local CLI console. 
+    - [Install the latest version of the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. 
       
       > [!NOTE]
       > The commands have been updated to reflect the latest release of the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).

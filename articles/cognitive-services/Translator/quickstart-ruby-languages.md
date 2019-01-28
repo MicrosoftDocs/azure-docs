@@ -1,18 +1,17 @@
 ---
-title: Translator Text get supported languages with Ruby | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with Ruby in Cognitive Services.
+title: "Quickstart: Get supported languages, Ruby - Translator Text API"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with Ruby.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Get supported languages with Ruby
+# Quickstart: Get supported languages with the Translator Text REST API (Ruby)
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API.
 

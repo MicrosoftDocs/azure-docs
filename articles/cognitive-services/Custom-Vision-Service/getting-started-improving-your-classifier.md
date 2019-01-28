@@ -1,15 +1,16 @@
 ---
-title: Improve your classifier using Custom Vision Service - Azure Cognitive Services | Microsoft Docs
-description: Learn how to improve the quality of your Custom Vision Service classifier.
+title: Improving your classifier - Custom Vision Service
+titlesuffix: Azure Cognitive Services
+description: Learn how to improve the quality of your classifier.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: nolachar
+ms.author: pafarley
 ---
 
 # How to improve your classifier

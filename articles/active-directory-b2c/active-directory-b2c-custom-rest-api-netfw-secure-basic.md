@@ -3,14 +3,14 @@ title: Secure your RESTful services by using HTTP basic authentication in Azure 
 description: Secure your custom REST API claims exchanges in your Azure AD B2C by using HTTP basic authentication.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Secure your RESTful services by using HTTP basic authentication
@@ -233,7 +233,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 6. In the **Secret** box, enter the app ID that you defined earlier.
 
-7. For **Key usage**, select **Secret**.
+7. For **Key usage**, select **Signature**.
 
 8. Select **Create**.
 
@@ -253,7 +253,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 6. In the **Secret** box, enter the app secret that you defined earlier.
 
-7. For **Key usage**, select **Secret**.
+7. For **Key usage**, select **Signature**.
 
 8. Select **Create**.
 

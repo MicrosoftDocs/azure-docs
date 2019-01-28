@@ -153,7 +153,7 @@ Services that support deployment of dedicated instances into a virtual network o
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |App Service Environment               | GA               |
-|Azure Redis Cache                     | GA               |
+|Azure Cache for Redis                     | GA               |
 |Azure HDInsight                       | GA               |
 |Virtual machine scale set             | GA               |
 |Azure Cloud Services                  | GA               |
@@ -220,7 +220,7 @@ The following sample policies can be used for TIC compliance scenarios:
 
 ### Network Watcher traffic analytics
 
-Network Watcher [traffic analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) consume flow log data and other logs to provide a high-level overview of network traffic. The data is useful for auditing TIC compliance and to identify trouble spots. You can use the high-level dashboard to rapidly screen the virtual machines that are communicating with the internet and get a focused list for TIC routing.
+Network Watcher [traffic analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) consume flow log data and other logs to provide a high-level overview of network traffic. The data is useful for auditing TIC compliance and to identify trouble spots. You can use the high-level dashboard to rapidly screen the virtual machines that are communicating with the internet and get a focused list for TIC routing.
 
 ![Traffic analytics](media/tic-traffic-analytics-1.png)
 
@@ -260,7 +260,7 @@ You can easily configure access for Microsoft Azure, Office 365, and Dynamics 36
 | Database | Azure Database for PostgreSQL | | | Yes |
 | Database | Azure SQL Data Warehouse | | | Yes |
 | Database | Azure Cosmos DB | | | Yes |
-| Database | Azure Redis Cache | | Yes | |
+| Database | Azure Cache for Redis | | Yes | |
 | Storage | Azure Blob storage | Yes | | |
 | Storage | Azure Files | Yes | | |
 | Storage | Azure Queue storage | Yes | | |

@@ -1,12 +1,13 @@
 ---
-title: Microsoft Translator Collaborative Translation Framework (CTF) Reporting
+title: Collaborative Translation Framework (CTF) Reporting - Translator Text API
+titlesuffix: Azure Cognitive Services
 description: How to use Collaborative Translation Framework (CTF) reporting.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ---
@@ -16,7 +17,7 @@ ms.author: v-jansko
 > [!NOTE]
 > This method is deprecated. It is not available in V3.0 of the Translator Text API.
 
-> The Collaborative Translations Framework (CTF), previously available for V2.0 of the Translator Text API, was deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2018, these two functions did not accept new sentence submissions, and users receive an error message. These functions were being retired and will not be replaced. 
+> The Collaborative Translations Framework (CTF), previously available for V2.0 of the Translator Text API, was deprecated as of February 1, 2018. The AddTranslation and AddTranslationArray functions let users enable corrections through the Collaborative Translation Framework. After January 31, 2018, these two functions did not accept new sentence submissions, and users receive an error message. These functions were being retired and will not be replaced.
 
 >Similar functionality is available in the Translator Hub API, allowing you to build a custom translation system with your terminology and style, and you can invoke it using the Category ID in the Translator Text API. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). Translator Hub API: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
@@ -28,7 +29,7 @@ The Collaborative Translation Framework (CTF) Reporting API returns statistics a
 ## Endpoint
 The endpoint of the CTF Reporting API is
 http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-                        
+
 
 ## Methods
 | Name |	Description|
@@ -59,7 +60,7 @@ UserTranslationCount[]GetUserTranslationCounts(
            string to,
            int? minRating,
            int? maxRating,
-           string user, 
+           string user,
            string category
            DateTime? minDateUtc,
            DateTime? maxDateUtc,
@@ -130,12 +131,12 @@ UserTranslation[] GetUserTranslations (
             string to,
             int? minRating,
             int? maxRating,
-            string user, 
+            string user,
             string category
             DateTime? minDateUtc,
             DateTime? maxDateUtc,
             int? skip,
-            int? take); 
+            int? take);
 ```
 
 **Parameters**
@@ -149,8 +150,8 @@ UserTranslation[] GetUserTranslations (
 | minRating| **Optional** An integer value representing the minimum quality rating for the translated text. The valid value is between -10 and 10. The default value is 1.|
 | maxRating| **Optional** An integer value representing the maximum quality rating for the translated text. The valid value is between -10 and 10. The default value is 1.|
 | user| **Optional. A string that is used to filter the result based on the originator of the submission**|
-| category| **Optional** A string containing the category or domain of the translation. This parameter supports only the default option general.| 
-| minDateUtc| **Optional** The date from when you want to retrieve the translations. The date must be in the UTC format.| 
+| category| **Optional** A string containing the category or domain of the translation. This parameter supports only the default option general.|
+| minDateUtc| **Optional** The date from when you want to retrieve the translations. The date must be in the UTC format.|
 | maxDateUtc| **Optional** The date till when you want to retrieve the translations. The date must be in the UTC format.|
 | skip| **Optional** The number of results that you want to skip on a page. For example, if you want the skip the first 20 rows of the results and view from the 21st result record, specify 20 for this parameter. The default value for this parameter is 0.|
 | take| **Optional** The number of results that you want to retrieve. The maximum number of each request is 100. The default is 50.|
@@ -187,21 +188,3 @@ The result set contains array of the **UserTranslation**. Each UserTranslation h
 **View code examples on GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

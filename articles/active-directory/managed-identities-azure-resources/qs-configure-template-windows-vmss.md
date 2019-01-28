@@ -3,18 +3,18 @@ title: Configure managed identities for Azure resources on a virtual machine sca
 description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: daveba
+ms.author: priyamo
 ---
 
 # Configure managed identities for Azure resources on a Azure virtual machine scale using a template
@@ -142,7 +142,7 @@ If you have a virtual machine scale set that no longer needs a system-assigned m
 
    If your apiVersion is `2018-06-01` and your VM has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the userAssignedIdentities dictionary values.
 
-   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01 and earlier**
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
    If your apiVersion is `2017-12-01` and your virtual machine scale set has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user-assigned managed identities. 
    
@@ -169,7 +169,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
 > [!Note]
 > To create a user-assigned managed identity using an Azure Resource Manager Template, see [Create a user-assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
-### Assign a user-assigned managed identity to a virutal machine scale set
+### Assign a user-assigned managed identity to a virtual machine scale set
 
 1. Under the `resources` element, add the following entry to assign a user-assigned managed identity to your virtual machine scale set.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user-assigned managed identity you created.
    
@@ -275,7 +275,7 @@ In this section, you assign a user-assigned managed identity to a virtual machin
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines API version 2017-12-01 eand earlier**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
    ```json
    "resources": [
@@ -322,7 +322,7 @@ If you have a virtual machine scale set that no longer needs a user-assigned man
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 
-2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user-assigned managed identity, you can disable it by changing the the identity type to `None`.
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within the `resources` section. If you have a virtual machine scale set that only has user-assigned managed identity, you can disable it by changing the identity type to `None`.
 
    The following example shows you how remove all user-assigned managed identities from a VM with no system-assigned managed identities:
 
@@ -339,7 +339,7 @@ If you have a virtual machine scale set that no longer needs a user-assigned man
    
    **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
     
-   To remove a a single user-assigned managed identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
+   To remove a single user-assigned managed identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
 
    If you have a system-assigned identity, keep it in the in the `type` value under the `identity` value.
 

@@ -1,6 +1,6 @@
 ﻿---
 title: Azure Operational Security | Microsoft Docs
-description: Learn about Microsoft Operations Management Suite (OMS), its services, and how it works.
+description: Learn about Microsoft Azure Log Analytics, its services, and how it works.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -27,7 +27,7 @@ We know that security is job one in the cloud and how important it is that you f
 To help customers better understand the array of security controls implemented within Microsoft Azure from both the customer's and Microsoft operational perspectives, this white paper, “Azure Operational Security", is written that provides a comprehensive look at the operational security available with Windows Azure.
 
 ### Azure Platform
-Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases,and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java,and Node.js; build back-ends for iOS, Android,and Windows devices. Azure Cloud service supports the same technologies millions of developers and IT professionals already rely on and trust.
+Azure is a public cloud service platform that supports a broad selection of operating systems, programming languages, frameworks, tools, databases,and devices. It can run Linux containers with Docker integration; build apps with JavaScript, Python, .NET, PHP, Java,and Node.js; build back-ends for iOS, Android, and Windows devices. Azure Cloud service supports the same technologies millions of developers and IT professionals already rely on and trust.
 
 When you build on, or migrate IT assets to, a public cloud service provider you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
 
@@ -37,7 +37,7 @@ Azure’s infrastructure is designed from the facility to applications for hosti
 Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications,and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape.
 
 This white paper outlines Microsoft’s approach to Azure Operational Security within the Microsoft Azure cloud platform and covers following services:
-1.	[Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+1.	[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 2.	[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
@@ -50,17 +50,17 @@ This white paper outlines Microsoft’s approach to Azure Operational Security w
 6.	[Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## Microsoft Operations Management Suite
+## Microsoft Azure Log Analytics
 
-Microsoft Operations Management Suite (OMS) is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, OMS gives you the maximum flexibility and control for cloud-based management of your infrastructure.
+Microsoft Azure Log Analytics is the IT management solution for the hybrid cloud. Used alone or to extend your existing System Center deployment, Log Analytics gives you the maximum flexibility and control for cloud-based management of your infrastructure.
 
-![Microsoft Operations Management Suite](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-With OMS, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, OMS offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
+With Log Analytics, you can manage any instance in any cloud, including on-premises, Azure, AWS, Windows Server, Linux, VMware, and OpenStack, at a lower cost than competitive solutions. Built for the cloud-first world, Log Analytics offers a new approach to managing your enterprise that is the fastest, most cost-effective way to meet new business challenges and accommodate new workloads, applications and cloud environments.
 
-### OMS services
+### Log Analytics services
 
-The core functionality of OMS is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
+The core functionality of Log Analytics is provided by a set of services that run in Azure. Each service provides a specific management function, and you can combine services to achieve different management scenarios.
 
 | Service  | Description|
 | :------------- | :-------------|
@@ -71,7 +71,7 @@ The core functionality of OMS is provided by a set of services that run in Azure
 
 ### Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services for OMS by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
 
 This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
@@ -89,17 +89,17 @@ The Log Analytics service manages your cloud-based data securely by using the fo
 
 ### Azure Backup
 
-[Azure Backup](http://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the OMS suite of products and services.
+[Azure Backup](https://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the Log Analytics suite of products and services.
  It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can back up data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long-term storage.
 
 
 Protected data in Azure Backup is stored in a backup vault located in a particular geographic region. The data is replicated within the same region and, depending on the type of vault, may also be replicated to another region for further resiliency.
 
 ### Management Solutions
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logics that implement a particular management scenario using one or more OMS services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in OMS. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
+[Management Solutions](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) are prepackaged sets of logics that implement a particular management scenario using one or more Log Analytics services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Log Analytics. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or Quick Start Templates.
 
 
 ![Management Solutions](./media/azure-operational-security/azure-operational-security-fig4.png)
@@ -161,7 +161,7 @@ Azure Security Center collects ephemeral copies of your crash dump files and ana
 
 ## Azure Monitor
 
-The [OMS Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. OMS Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
+The [Log Analytics Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) and Audit solution enables IT to actively monitor all resources, which can help minimize the impact of security incidents. Log Analytics Security and Audit have security domains that can be used for monitoring resources. The security domain provides quick access to options, for security monitoring the following domains are covered in more details:
 
 -	Malware assessment
 -	Update assessment
@@ -309,7 +309,7 @@ This article summaries protecting your privacy and securing your data, while del
 
 This article explains
 
--	How data is collected, processed, and secured in the Operations Management Suite (OMS).
+-	How data is collected, processed, and secured in the Log Analytics suite.
 
 -	Quickly analyze events across multiple data sources. Identify security risks and understand the scope and impact of threats and attacks to mitigate the damage of a security breach.
 
@@ -332,7 +332,7 @@ This article explains
 
 Microsoft designs its services and software with security in mind to help ensure that its cloud infrastructure is resilient and defended from attacks.
 
-- [Operations Management Suite | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Log Analytics | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Use Microsoft security data and analysis to perform more intelligent and effective threat detection.
 

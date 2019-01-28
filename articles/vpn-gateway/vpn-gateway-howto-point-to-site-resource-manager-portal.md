@@ -7,7 +7,7 @@ tags: azure-resource-manager
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 10/24/2018
 ms.author: cherylmc
 
 ---
@@ -69,7 +69,7 @@ After you create your virtual network, you can add the IP address of a DNS serve
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->The Basic SKU does not support IKEv2 or RADIUS authentication.
+>The Basic SKU does not support IKEv2 or RADIUS authentication. If you are planning on having Mac clients connect to your virtual network, do not use the Basic SKU.
 >
 
 ## <a name="generatecert"></a>5. Generate certificates
@@ -168,7 +168,7 @@ The VPN client configuration files contain settings to configure devices to conn
 
 From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), and then click **Connect**.
 
-Please check [Install - Mac (OS X)](https://docs.microsoft.com/en-us/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) for detailed instrcutions.
+Check [Install - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) for detailed instructions. If you are having trouble connecting, verify that the virtual network gateway is not using a Basic SKU. Basic SKU is not supported for Mac clients.
 
   ![Mac connection](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

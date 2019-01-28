@@ -7,41 +7,39 @@ ms.author: wolfma
 ---
 
 1. Start Visual Studio 2017.
- 
-1. Make sure the **.NET desktop environment** workload is available. Choose **Tools** \> **Get Tools and Features** from the Visual Studio menu bar to open the Visual Studio installer. If this workload is already enabled, close the dialog. 
 
-    Otherwise, mark the checkbox next to **.NET desktop development,** then click the **Modify** button at the lower right corner of the dialog. Installation of the new feature will take a moment.
+1. From the menu bar in Visual Studio, select **Tools > Get Tools** and make sure that the **.Net desktop development** workload is available. If the workload hasn't been installed, mark the checkbox, then click **Modify** to start the installation. It may take a few minutes to download and install.
 
-    ![Enable .NET desktop development](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+   If the checkbox next to **.NET desktop development** is selected, you can close the dialog box now.
 
-1. Create a new Visual C# Console App. In the **New Project** dialog box, from the left pane, expand **Installed** \> **Visual C#** \> **Windows Desktop** and then choose **Console App (.NET Framework)**. For the project name, enter *helloworld*.
+   ![Enable .NET desktop development](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+
+1. Next, let's create a project. From the menu bar select **File > New > Project**. When the dialog box appears, from the left panel expand these sections **Installed > Visual C# > Windows Desktop** and select **Console App (.NET Framework)**. Name this project *helloworld*.
 
     ![Create Visual C# Console App (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Create Visual C# Console App (.NET Framework)")
 
-1. Install and reference the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget). In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
+1. Now that the project is set up, we need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and reference it in our code. Locate the Solution Explorer and right-click on helloworld. From the menu, select **Manage NuGet Packages...**.
 
-    ![Right-click Manage NuGet Packages for Solution](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "Manage NuGet Packages for Solution")
+   ![Right-click Manage NuGet Packages for Solution](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "Manage NuGet Packages for Solution")
 
-1. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for the `Microsoft.CognitiveServices.Speech` package and install it into the **helloworld** project.
+1. In the upper-right corner of the NuGet Package Manager, locate the **Package Source** dropdown and make sure that **nuget.org** is selected. Then, select **Browse** and search for the `Microsoft.CognitiveServices.Speech` package and install the latest stable version.
 
-    ![Install Microsoft.CognitiveServices.Speech NuGet Package](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "Install Nuget package")
+   ![Install Microsoft.CognitiveServices.Speech NuGet Package](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png "Install NuGet package")
 
-1. Accept the displayed license to begin installation of the NuGet package.
+1. Accept all agreements and licenses to start the installation.
 
-    ![Accept the license](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accept the license")
+   ![Accept the license](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Accept the license")
 
     After the package is installed, a confirmation appears in the Package Manager console.
 
-1. Create a platform configuration matching your PC architecture via the Configuration Manager. Select **Build** > **Configuration Manager**.
+1. The next step is to create a platform configuration that matches the architecture of the computer you're using to build and run the console application. From the menu bar, select **Build** > **Configuration Manager...**.
 
     ![Launch the configuration manager](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-05-cfg-manager-click.png "Launch the configuration manager")
 
-1. In the **Configuration Manager** dialog box, add a new platform. From the **Active solution platform** drop-down list, select **New**.
+1. In the **Configuration Manager** dialog box, locate the **Active solution platform** drop-down list, and select **New**.
 
     ![Add a new platform under the configuration manager window](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-06-cfg-manager-new.png "Add a new platform under the configuration manager window")
 
-1. If you are running 64-bit Windows, create a new platform configuration named `x64`. If you are running 32-bit Windows, create a new platform configuration named `x86`.
+1. If you are running 64-bit Windows, when prompted with **Type or select the new platform**, `x64`. If you are running 32-bit Windows, select `x86`. When you're finished, click **OK**.
 
     ![On 64-bit Windows, add a new platform named "x64"](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-07-cfg-manager-add-x64.png "Add x64 platform")
-
-

@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## Define an autoscale profile
@@ -160,7 +160,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 ## Generate CPU load on scale set
 To test the autoscale rules, generate some CPU load on the VM instances in the scale set. This simulated CPU load causes the autoscale rules to scale out and increase the number of VM instances. As the simulated CPU load is then decreased, the autoscale rules scale in and reduce the number of VM instances.
 
-First, list the address and ports to connect to VM instances in a scale set with [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+First, list the address and ports to connect to VM instances in a scale set with [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -205,7 +205,7 @@ Ctrl-c
 exit
 ```
 
-Connect to second VM instance with the port number listed from the previous [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+Connect to second VM instance with the port number listed from the previous [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 ssh azureuser@13.92.224.66 -p 50003
@@ -268,7 +268,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 ## Next steps
-In this tutorial, you learned how to automatically scale in or out a scale set with the Azure CLI 2.0:
+In this tutorial, you learned how to automatically scale in or out a scale set with the Azure CLI:
 
 > [!div class="checklist"]
 > * Use autoscale with a scale set
@@ -276,7 +276,7 @@ In this tutorial, you learned how to automatically scale in or out a scale set w
 > * Stress-test VM instances and trigger autoscale rules
 > * Autoscale back in as demand is reduced
 
-For more examples of virtual machine scale sets in action, see the following sample Azure CLI 2.0 sample scripts:
+For more examples of virtual machine scale sets in action, see the following sample Azure CLI sample scripts:
 
 > [!div class="nextstepaction"]
-> [Scale set script samples for Azure CLI 2.0](cli-samples.md)
+> [Scale set script samples for Azure CLI](cli-samples.md)

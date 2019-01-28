@@ -16,10 +16,15 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 #Customer intent: As a data scientist or AI researcher, I want to quickly create a GPU cluster in Azure for training my AI or machine learning models.
 ---
 
 # Quickstart: Create a cluster for Batch AI training jobs using the Azure CLI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 This quickstart shows how to use the Azure CLI to create a Batch AI cluster you can use for training AI and machine learning models. Batch AI is a managed service for data scientists and AI researchers to train AI and machine learning models at scale on clusters of Azure virtual machines.
 

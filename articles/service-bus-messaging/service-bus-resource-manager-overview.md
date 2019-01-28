@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 09/11/2018
 ms.author: spelluru
 
 ---
@@ -254,6 +254,7 @@ You've now seen the basic workflow and commands for deploying an Azure Resource 
 * [Azure Resource Manager overview][Azure Resource Manager overview]
 * [Deploy resources with Resource Manager templates and Azure PowerShell][Deploy resources with Azure Resource Manager templates]
 * [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Microsoft.ServiceBus resource types](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md

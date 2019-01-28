@@ -12,7 +12,7 @@ ms.custom: mvc
 ms.date: 01/12/2018
 ---
 
-# Manage mailing list requests with a logic app
+# Manage mailing list requests with Azure Logic Apps
 
 Azure Logic Apps helps you automate workflows and integrate data
 across Azure services, Microsoft services, 
@@ -385,7 +385,7 @@ Choose **Delete resource group**. Enter the resource group name as confirmation,
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

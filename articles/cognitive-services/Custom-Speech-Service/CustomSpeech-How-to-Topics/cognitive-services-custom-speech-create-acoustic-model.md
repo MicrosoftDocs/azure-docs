@@ -12,6 +12,8 @@ ms.author: panosper
 ---
 # Tutorial: Create a custom acoustic model
 
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 In this tutorial, you create a custom acoustic model for speech data that you expect your application to recognize. Creating a custom acoustic model is helpful if your application is designed for use in a particular environment, such as a noisy factory, or by a particular user population.
 
 In this tutorial, you learn how to:
@@ -132,4 +134,4 @@ You will now see a new entry in the acoustic models table corresponding to this 
 In this tutorial, you've developed a custom acoustic model for use with audio files and transcripts. To create a custom language file for use with text files, continue to the tutorial on creating a custom language model.
 
 > [!div class="nextstepaction"]
-> [Create a custom acoustic model](cognitive-services-custom-speech-create-language-model.md)
+> [Create a custom language model](cognitive-services-custom-speech-create-language-model.md)

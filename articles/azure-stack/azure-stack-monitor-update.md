@@ -5,23 +5,22 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 11/05/2018
 ms.author: mabrigg
+ms.reviewer: fiseraci
 
 ---
 # Monitor updates in Azure Stack using the privileged endpoint
 
 *Applies to: Azure Stack integrated systems*
 
-You can use the privileged endpoint to monitor the progress of an Azure Stack update run, and to resume a failed update run from the last successful step should the Azure Stack portal become unavailable.  Using the Azure Stack portal is the recommended method to manage updates in Azure Stack.
+You can use the [privileged endpoint](azure-stack-privileged-endpoint.md) to monitor the progress of an Azure Stack update run, and to resume a failed update run from the last successful step should the Azure Stack portal become unavailable.  Using the Azure Stack portal is the recommended method to manage updates in Azure Stack.
 
 The following new PowerShell cmdlets for update management are included in the 1710 update for Azure Stack integrated systems.
 

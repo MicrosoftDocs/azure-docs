@@ -2,15 +2,15 @@
 title: Article about known issues/migration limitations with online migrations to Azure SQL Database | Microsoft Docs
 description: Learn about known issues/migration limitations with online migrations to Azure SQL Database.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+author: pochiraju
+ms.author: rajpo
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 01/11/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure SQL DB
@@ -25,7 +25,7 @@ If your source database consists of one or more temporal tables, your database m
 
 { "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
  
- ![Temporal table errors example](media\known-issues-azure-sql-online\dms-temporal-tables-errors.png)
+ ![Temporal table errors example](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Workaround**
 
@@ -47,7 +47,7 @@ For more information, see the article [Temporal Tables](https://docs.microsoft.c
 
 You may see a SQL Exception suggesting “ntext is incompatible with hierarchyid” during the “Full data load” operation:
      
-![hierarchyid errors example](media\known-issues-azure-sql-online\dms-hierarchyid-errors.png)
+![hierarchyid errors example](media/known-issues-azure-sql-online/dms-hierarchyid-errors.png)
 
 **Workaround**
 
@@ -79,7 +79,7 @@ You may see a SQL Exception suggesting “ntext is incompatible with hierarchyid
 If the length of Large Object (LOB) column is bigger than 32 KB, data might get truncated at the target. You can check the length of LOB column using the query below: 
 
 ``` 
-SELECT max(len(ColumnName)) as LEN from TableName
+SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 ```
 
 **Workaround**
@@ -102,7 +102,7 @@ If you need DMS to migrate the exact timestamp value stored in the source table,
 
 When you encounter the migration failures in the Databases details status view, selecting the **Data migration errors** link on the top ribbon may not provide  additional details specific to the migration failures.
 
-![data migration errors no details example](media\known-issues-azure-sql-online\dms-data-migration-errors-no-details.png)
+![data migration errors no details example](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 
 **Workaround**
 
@@ -110,6 +110,6 @@ To get to specific failure details, follow the steps below.
 
 1. Close the Database detailed status blade to display the Migration activity screen.
 
-     ![migration activity screen](media\known-issues-azure-sql-online\dms-migration-activity-screen.png)
+     ![migration activity screen](media/known-issues-azure-sql-online/dms-migration-activity-screen.png)
 
 2. Select **See error details** to view specific error messages that help you to troubleshoot migration errors.

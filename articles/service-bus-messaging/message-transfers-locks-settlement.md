@@ -3,17 +3,17 @@ title: Azure Service Bus message transfers, locks, and settlement | Microsoft Do
 description: Overview of Service Bus message transfers and settlement operations
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
-ms.author: spelluru
+ms.date: 09/25/2018
+ms.author: aschhab
 
 ---
 
@@ -123,7 +123,6 @@ The typical mechanism for identifying duplicate message deliveries is by checkin
 
 To learn more about Service Bus messaging, see the following topics:
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

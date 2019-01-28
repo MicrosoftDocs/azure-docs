@@ -222,7 +222,6 @@ you must replace the placeholders with your relay namespace and SAS key.
 Now that you've learned the basics of Azure Relay, follow these links to learn more.
 
 * [What is Azure Relay?](relay-what-is-it.md)
-* [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * Download Service Bus samples from [Azure samples][Azure samples] or see the [overview of Service Bus samples][overview of Service Bus samples].
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md

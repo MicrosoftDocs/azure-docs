@@ -1,17 +1,19 @@
 ---
-title: "Quickstart: Send search queries using the REST API for the Bing Image Search API and Ruby"
-description: In this quickstart, you send search queries to the Bing Search API to get a list of relevant images using Ruby.
+title: "Quickstart: Search for images - Bing Image Search REST API and Ruby"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using Ruby, and receive JSON responses.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.subservice: bing-image-search
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
+ms.custom: seodec2018
 ---
-# Quickstart: Send search queries using the REST API and Ruby
+# Quickstart: Search for images using the Bing Image Search REST API and Ruby
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Ruby application sends a search query to the API and displays the raw results.
 
@@ -23,6 +25,8 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 * [The latest version of Ruby](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize the application
 
@@ -58,7 +62,7 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 ```
 
-## Process and print the JSON 
+## Process and print the JSON
 
 After the response is received, you can parse the JSON, and get values from it. For example, the thumbnail URL to the first result, and the total number of returned images.
 
@@ -132,7 +136,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
 
-## See also 
+## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  

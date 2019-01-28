@@ -7,7 +7,7 @@ manager: darosa
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 01/01/2019
 ms.author: babanisa
 ---
 
@@ -20,7 +20,7 @@ This article describes how to [validate an HTTP endpoint](security-authenticatio
 
 ## Prerequisites
 
-* You'll need a function app with an [HTTP triggered function](../azure-functions/functions-create-generic-webhook-triggered-function.md)
+You need a function app with an HTTP triggered function.
 
 ## Add dependencies
 
@@ -313,16 +313,11 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ```javascript
-var t = require('tcomb');
-
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function begun');
     var validationEventType = "Microsoft.EventGrid.SubscriptionValidationEvent";
     var storageBlobCreatedEvent = "Microsoft.Storage.BlobCreated";
     var customEventType = "Contoso.Items.ItemReceived";
-    var ContosoItemReceivedEventData = t.struct({
-        itemSku: t.Str
-    })
 
     for (var events in req.body) {
         var body = req.body[events];
@@ -341,14 +336,12 @@ module.exports = function (context, req) {
         }
 
         else if (body.data && body.eventType == customEventType) {
-            var payload = new ContosoItemReceivedEventData(body.data);
+            var payload = body.data;
             context.log("Relaying received custom payload:" + JSON.stringify(payload));
-            context.log(payload instanceof ContosoItemReceivedEventData);
         }
     }
     context.done();
 };
-
 ```
 
 ### Test custom event handling
@@ -373,6 +366,6 @@ You can also test this functionality live by [sending a custom event with CURL f
 
 ## Next steps
 
-* Explore the [Azure Event Grid Mangement and Publish SDKs](./sdk-overview.md)
+* Explore the [Azure Event Grid Management and Publish SDKs](./sdk-overview.md)
 * Learn how to [post to a custom topic](./post-to-custom-topic.md)
 * Try one of the in-depth Event Grid and Functions tutorials such as [resizing images uploaded to Blob storage](resize-images-on-storage-blob-upload-event.md)

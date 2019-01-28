@@ -1,57 +1,60 @@
 ---
-title: Microsoft Translator Text API - Migrate to V3 | Microsoft Docs
+title: Migrate to V3 - Translator Text API
+titlesuffix: Azure Cognitive Services
 description: Learn how to migrate from V2 to V3 of the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
-
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
 ---
 
-# Microsoft Translator Text API V2 to V3 Migration
+# Translator Text API V2 to V3 Migration
 
-The Microsoft Translator team has released Version 3 (V3) of the Text Translation API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. V2 will be deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+> [!NOTE]
+> V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+
+The Microsoft Translator team has released Version 3 (V3) of the Translator Text API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. 
 
 The end of this document contains helpful links for you to learn more.
 
 ## Summary of features
 
-* No Trace - In V3 No-Trace applies to all pricing tiers in the Azure portal. This means that no text submitted to the V3 API, will be saved by Microsoft.
+* No Trace - In V3 No-Trace applies to all pricing tiers in the Azure portal. This feature means that no text submitted to the V3 API, will be saved by Microsoft.
 * JSON - XML is replaced by JSON. All data sent to the service and received from the service is in JSON format.
 * Multiple target languages in a single request - The Translate method accepts multiple ‘to’ languages for translation in a single request. For example, a single request can be ‘from’ English and ‘to’ German, Spanish and Japanese, or any other group of languages.
 * Bilingual dictionary - A bilingual dictionary method has been added to the API. This method includes ‘lookup’ and ‘examples’.
 * Transliterate - A transliterate method has been added to the API. This method will convert words and sentences in one script (E.g. Arabic) into another script (E.g. Latin).
 * Languages - A new ‘languages’ method delivers language information, in JSON format, for use with the ‘translate’, ‘dictionary’, and ‘transliterate’ methods.
 * New to Translate - New capabilities have been added to the ‘translate’ method to support some of the features that were in the V2 API as separate methods. An example is TranslateArray.
-* Speak method - Text to speech functionality is no longer supported in the Microsoft Translator API. Text to speech functionality is available in the Microsoft Azure Cognitive services Bing Speech API.
+* Speak method - Text to speech functionality is no longer supported in the Microsoft Translator API. Text to speech functionality is available in [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 The following list of V2 and V3 methods identifies the V3 methods and APIs that will provide the functionality that came with V2.
 
 | V2 API Method   | V3 API Compatibility |
 |:----------- |:-------------|
-| Translate     | Translate          |
-| TranslateArray      | Translate          |
-| GetLanguageNames      | Languages          |
-| GetLanguagesForTranslate     | Languages        |
-| GetLanguagesForSpeak      | Cognitive Services Speech API         |
-| Speak     | Cognitive Services Speech API          |
-| Detect     | Detect         |
-| DetectArray     | Detect         |
-| AddTranslation     | Microsoft Translator HUB API         |
-| AddTranslationArray    | Microsoft Translator HUB API          |
-| BreakSentences      | BreakSentence         |
+| Translate     | [Translate](reference/v3-0-translate.md)          |
+| TranslateArray      | [Translate](reference/v3-0-translate.md)        |
+| GetLanguageNames      | [Languages](reference/v3-0-languages.md)         |
+| GetLanguagesForTranslate     | [Languages](reference/v3-0-languages.md)       |
+| GetLanguagesForSpeak      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| Speak     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detect     | [Detect](reference/v3-0-detect.md)         |
+| DetectArray     | [Detect](reference/v3-0-detect.md)         |
+| AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | Feature is no longer supported         |
 | GetTranslationsArray      | Feature is no longer supported         |
 
 ## Move to JSON format
 
-Microsoft Translator Text Translation V2 accepted and returned data in XML format. In V3 all data sent and received using the API is in JSON format. XML will no longer be accepted or returned in V3. 
+Microsoft Translator Text Translation V2 accepted and returned data in XML format. In V3 all data sent and received using the API is in JSON format. XML will no longer be accepted or returned in V3.
 
-This change will affect several aspects of an application written for the V2 Text Translation API. As an example: The Languages API returns language information for text translation, transliteration and the two dictionary methods. You can request all language information for all methods in one call or request them individually.
+This change will affect several aspects of an application written for the V2 Text Translation API. As an example: The Languages API returns language information for text translation, transliteration, and the two dictionary methods. You can request all language information for all methods in one call or request them individually.
 
 The languages method does not require authentication; by clicking on the following link you can see all the language information for V3 in JSON:
 
@@ -97,11 +100,33 @@ Global
 
 [Dictionary/example](reference/v3-0-dictionary-examples.md)
 
-## Customization
+## Compatibility and customization
 
-Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub which only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](customization.md)
+Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub. The Translator Hub only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](custom-translator/overview.md)
 
-Neural translation with the V3 text API does not support the use of standard categories (smt, speech, text, generalnn).
+Neural translation with the V3 text API does not support the use of standard categories (SMT, speech, text, generalnn).
+
+| |Endpoint|	GDPR Processor Compliance|	Use Translator Hub|	Use Custom Translator (Preview)|
+|:-----|:-----|:-----|:-----|:-----|
+|Translator Text API Version 2|	api.microsofttranslator.com|	No	|Yes	|No|
+|Translator Text API Version 3|	api.cognitive.microsofttranslator.com|	Yes|	No|	Yes|
+
+**Translator Text API Version 3**
+* Is generally available and fully supported.
+* Is GDPR compliant as a processor and satisfies all ISO 20001 and 20018 as well as SOC 3 certification requirements. 
+* Allows you to invoke the neural network translation systems you have customized with Custom Translator (Preview), the new Translator NMT customization feature. 
+* Does not provide access to custom translation systems created using the Microsoft Translator Hub.
+
+You are using Version 3 of the Translator Text API If you are using the api.cognitive.microsofttranslator.com endpoint.
+
+**Translator Text API Version 2**
+* Is deprecated. It will be discontinued on April 30, 2019. 
+* Does not satisfy all ISO 20001,20018 and SOC 3 certification requirements. 
+* Does not allow you to invoke the neural network translation systems you have customized with the Translator customization feature.
+* Provides access to custom translation systems created using the Microsoft Translator Hub.
+* You are using Version 2 of the Translator Text API If you are using the api.microsofttranslator.com endpoint.
+
+No version of the Translator API creates a record of your translations. Your translations are never shared with anyone. More information on the [Translator No-Trace](http://www.aka.ms/NoTrace) webpage.
 
 
 ## Links

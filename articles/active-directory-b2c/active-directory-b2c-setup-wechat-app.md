@@ -1,16 +1,16 @@
-﻿---
+---
 title: Set up sign-up and sign-in with a WeChat account using Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with WeChat accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Set up sign-up and sign-in with a WeChat account using Azure Active Directory B2C
@@ -21,7 +21,7 @@ ms.component: B2C
 
 ## Create a WeChat application
 
-To use a WeChat account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a WeChat account, you can get information at [http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](http://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
+To use a WeChat account as an identity provider in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a WeChat account, you can get information at [https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html](https://kf.qq.com/faq/161220Brem2Q161220uUjERB.html).
 
 ### Register a WeChat application
 
@@ -34,10 +34,7 @@ To use a WeChat account as an identity provider in Azure Active Directory (Azure
 ## Configure WeChat as an identity provider in your tenant
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.  
-
-    ![Switch to your Azure AD B2C tenant](./media/active-directory-b2c-setup-wechat-app/switch-directories.png)
-
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 4. Select **Identity providers**, and then select **Add**.
 5. Provide a **Name**. For example, enter *WeChat*.

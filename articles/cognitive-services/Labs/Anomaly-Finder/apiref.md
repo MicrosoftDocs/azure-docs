@@ -3,15 +3,16 @@ title: Anomaly Finder API Reference for Microsoft Cognitive Services | Microsoft
 description: Anomaly Finder API Reference for Microsoft Cognitive Services. 
 services: cognitive-services 
 author: tonyxing
- 
-ms.service: cognitive-services 
-ms.technology: anomaly-detection 
+ms.service: cognitive-services
+ms.component: anomaly-detection 
 ms.topic: article
 ms.date: 04/19/2018 
 ms.author: tonyxing
 --- 
 
 # Anomaly Finder API reference
+
+[!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 [!INCLUDE [overview](./includes/overview.md)]
 [!INCLUDE [overview](./includes/definitions.md)]

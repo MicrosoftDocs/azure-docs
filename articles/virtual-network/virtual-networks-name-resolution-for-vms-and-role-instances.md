@@ -1,13 +1,10 @@
 ---
-title: Name resolution for resources in Azure virtual networks | Microsoft Docs
+title: Name resolution for resources in Azure virtual networks
+titlesuffix: Azure Virtual Network
 description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Active Directory, and using your own DNS server.
 services: virtual-network
 documentationcenter: na
 author: subsarma
-manager: vitinnan 
-editor: ''
-
-ms.assetid: 5d73edde-979a-470a-b28c-e103fcf07e3e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -121,7 +118,7 @@ options timeout:1 attempts:5
 The resolv.conf file is usually auto-generated, and should not be edited. The specific steps for adding the *options* line vary by distribution:
 
 * **Ubuntu** (uses resolvconf):
-  1. Add the *options* line to **/etc/resolveconf/resolv.conf.d/head**.
+  1. Add the *options* line to **/etc/resolvconf/resolv.conf.d/tail**.
   2. Run `resolvconf -u` to update.
 * **SUSE** (uses netconf):
   1. Add *timeout:1 attempts:5* to the **NETCONFIG_DNS_RESOLVER_OPTIONS=""** parameter in **/etc/sysconfig/network/config**. 
@@ -193,6 +190,11 @@ When you are using your own DNS servers, Azure provides the ability to specify m
 > 
 
 When you are using the Azure Resource Manager deployment model, you can specify DNS servers for a virtual network and a network interface. For details, see [Manage a virtual network](manage-virtual-network.md) and [Manage a network interface](virtual-network-network-interface.md).
+
+> [!NOTE]
+> If you opt for custom DNS server for your virtual network, you must specify at least one DNS server IP address; otherwise, virtual network will ignore the configuration and use Azure-provided DNS instead.
+> 
+> 
 
 When you are using the classic deployment model, you can specify DNS servers for the virtual network in the Azure portal or the [Network Configuration file](https://msdn.microsoft.com/library/azure/jj157100). For cloud services, you can specify DNS servers via the [Service Configuration file](https://msdn.microsoft.com/library/azure/ee758710) or by using PowerShell, with [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 

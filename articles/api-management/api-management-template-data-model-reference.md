@@ -20,7 +20,13 @@ ms.author: apimpm
 This topic describes the entity and type representations for common items used in the data models for the developer portal templates in Azure API Management.  
   
  For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
-  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+The developer portal is not available in the Consumption tier.
+
+## Reference
+
 -   [API](#API)  
 -   [API summary](#APISummary)  
 -   [Application](#Application)  

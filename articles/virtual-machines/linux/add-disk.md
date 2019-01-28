@@ -1,6 +1,6 @@
 ---
 title: Add a data disk to Linux VM using the Azure CLI | Microsoft Docs
-description: Learn to add a persistent data disk to your Linux VM with the Azure 
+description: Learn to add a persistent data disk to your Linux VM with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,6 +16,7 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
+ms.component: disks
 ---
 # Add a disk to a Linux VM
 This article shows you how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing. 
@@ -164,7 +165,7 @@ sudo mount /dev/sdc1 /datadrive
 To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It is also highly recommended that the UUID (Universally Unique IDentifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
 
 ```bash
-sudo -i blkid
+sudo blkid
 ```
 
 The output looks similar to the following example:

@@ -1,0 +1,31 @@
+<svg id="ICONS-64x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: #e5e5e5;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-4 {
+        fill: #2bc7f4;
+      }
+    </style>
+  </defs>
+  <title>i_api-reference</title>
+  <path class="cls-1" d="M63,32A31,31,0,1,1,32,1,31,31,0,0,1,63,32Z"/>
+  <path class="cls-2" d="M63,32A31,31,0,0,1,32,63V1A31,31,0,0,1,63,32Z"/>
+  <path class="cls-3" d="M63,32A31,31,0,1,1,32,1,31,31,0,0,1,63,32Z"/>
+  <path class="cls-3" d="M22,49.12a12.5,12.5,0,1,0,0-16.23"/>
+  <polyline class="cls-3" points="29 41 13 41 13 15 51 15 51 41 43 41"/>
+  <circle class="cls-4" cx="32.44" cy="41" r="6.5"/>
+</svg>

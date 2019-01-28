@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Use a custom VM image in a scale set with Azure CLI 2.0 | Microsoft Docs
-description: Learn how to use the Azure CLI 2.0 to create a custom VM image that you can use to deploy a virtual machine scale set
+title: Tutorial - Use a custom VM image in a scale set with Azure CLI | Microsoft Docs
+description: Learn how to use the Azure CLI to create a custom VM image that you can use to deploy a virtual machine scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -19,7 +19,7 @@ ms.author: cynthn
 ms.custom: mvc
 
 ---
-# Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI 2.0
+# Tutorial: Create and use a custom image for virtual machine scale sets with the Azure CLI
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## Create and configure a source VM
@@ -40,7 +40,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 >[!NOTE]
 > This tutorial walks through the process of creating and using a generalized VM image. It is not supported to create a scale set from a specialized VM image.
 
-First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm#az_vm_create). This VM is then used as the source for a custom VM image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
+First, create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm). This VM is then used as the source for a custom VM image. The following example creates a VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -53,7 +53,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-The public IP address of your VM is shown in the output of the [az vm create](/cli/azure/vm#az_vm_create) command. SSH to the public IP address of your VM as follows:
+The public IP address of your VM is shown in the output of the [az vm create](/cli/azure/vm) command. SSH to the public IP address of your VM as follows:
 
 ```azurecli-interactive
 ssh azureuser@<publicIpAddress>
@@ -92,7 +92,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 It may take a few minutes to deallocate and generalize the VM.
 
-Now, create an image of the VM with [az image create](/cli//azure/image#az_image_create). The following example creates an image named *myImage* from your VM:
+Now, create an image of the VM with [az image create](/cli//azure/image). The following example creates an image named *myImage* from your VM:
 
 ```azurecli-interactive
 az image create \
@@ -156,7 +156,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## Next steps
-In this tutorial, you learned how to create and use a custom VM image for your scale sets with the Azure CLI 2.0:
+In this tutorial, you learned how to create and use a custom VM image for your scale sets with the Azure CLI:
 
 > [!div class="checklist"]
 > * Create and customize a VM

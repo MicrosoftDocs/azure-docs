@@ -1,10 +1,10 @@
 ---
-title: Protect your content with Azure Media Services | Microsoft Docs
+title: Protect your content with Media Services - Azure | Microsoft Docs
 description: This articles give an overview of content protection with Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,8 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 01/22/2019
 ms.author: juliako
+ms.custom: seodec18
 
 ---
 # Content protection overview
@@ -34,9 +35,9 @@ To successfully complete your "content protection" system/application design, yo
 
 1. Azure Media Services code
   
-  * License templates for PlayReady, Widevine and/or FairPlay. The templates let you configure rights and permissions for each of the used DRMs
-  * License delivery authorization, specifying the logic of authorization check based on claims in JWT
-  * Content keys, streaming protocols and corresponding DRMs applied, defining DRM encryption
+  * Configure license templates for PlayReady, Widevine and/or FairPlay. The templates let you configure rights and permissions for each of the used DRMs.
+  * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
+  * Configure DRM encryption by specifying content keys and streaming protocols that should be used.
 
   > [!NOTE]
   > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
@@ -55,7 +56,9 @@ To successfully complete your "content protection" system/application design, yo
 
     For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check your encryption options.
 
-    If you want to test FairPlay encrypted content, use [this test player](http://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
+    If you want to test FairPlay encrypted content, use [this test player](https://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. 
+    
+    You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, Microsoft Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
 
 3. Secure Token Service (STS), which issues JSON Web Token (JWT) as access token for backend resource access. You can use the AMS license delivery services as the backend resource. An STS has to define the following:
 
@@ -64,7 +67,7 @@ To successfully complete your "content protection" system/application design, yo
   * Symmetric or asymmetric verification for signature verification
   * Key rollover support (if necessary)
 
-    You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test STS, which supports all 3 types of verification key: symmetric, asymmetric, or AAD with key rollover. 
+    You can use [this STS tool](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) to test STS, which supports all 3 types of verification key: symmetric, asymmetric, or Azure AD with key rollover. 
 
 > [!NOTE]
 > It is highly recommended to focus and fully test each part (described above) before moving onto the next part. To test your "content protection" system, use the tools specified in the list above.  
@@ -145,9 +148,7 @@ The example shows how to:
 
 2. Create a StreamingLocator that is configured to stream an encrypted asset. 
 
-  In the case of this example, we set **StreamingPolicyName** to **PredefinedStreamingPolicy.SecureStreaming** which supports envelope and cenc encryption and sets two content keys on the StreamingLocator. 
-
-  If you also want to encrypt with FairPlay, set the **StreamingPolicyName** to **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+  For example, you can set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
 
 3. Create a test token.
 
@@ -166,8 +167,8 @@ How and where to get JWT token before using it to request license or key?
 1. For production, you need to have a Secure Token Services (STS) (web service) which issues JWT token upon a HTTPS request. For test, you could use the code shown in **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Player will need to make a request, after a user is authenticated, to the STS for such a token and assign it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
 
-* For an example of running STS, with either symmetric and asymmetric key, please see [http://aka.ms/jwt](http://aka.ms/jwt). 
-* For an example of a player based on Azure Media Player using such JWT token, see [http://aka.ms/amtest](http://aka.ms/amtest) (expand "player_settings" link to see the token input).
+* For an example of running STS, with either symmetric and asymmetric key, please see [http://aka.ms/jwt](https://aka.ms/jwt). 
+* For an example of a player based on Azure Media Player using such JWT token, see [http://aka.ms/amtest](https://aka.ms/amtest) (expand "player_settings" link to see the token input).
 
 ### Question
 
@@ -177,7 +178,7 @@ How do you authorize requests to stream videos with AES encryption?
 
 The correct approach is to leverage STS (Secure Token Service):
 
-In STS, depending on user profile, add different claims (such as “Premium User”, “Basic User”, “Free Trial User”). With different claims in a JWT, the user can see different contents. Of course, for different content/asset, the ContentKeyPolicyRestriction will have the corresponding RequiredClaims.
+In STS, depending on user profile, add different claims (such as "Premium User", "Basic User", "Free Trial User"). With different claims in a JWT, the user can see different contents. Of course, for different content/asset, the ContentKeyPolicyRestriction will have the corresponding RequiredClaims.
 
 Use Azure Media Services APIs for configuring license/key delivery and encrypting your assets (as shown in [this sample](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
 

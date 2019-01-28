@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/24/2018
 ms.author: panarasi
 
 ---
@@ -121,6 +121,12 @@ The app is updated to require users to tap the **Sign in** button and authentica
         </activity>
 
 6. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider. When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
+
+## Troubleshooting
+
+**The application crashed with `Java.Lang.NoSuchMethodError: No static method startActivity`**
+
+In some cases, conflicts in the support packages displayed as just a warning in the Visual studio, but the application crashes with this exception at runtime. In this case you need to make sure that all the support packages referenced in your project have the same version. The [Azure Mobile Apps NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
 
 <!-- URLs. -->
 [Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md

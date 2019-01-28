@@ -1,14 +1,11 @@
 ---
-title: 'How to backup and restore a server in Azure Database for PostgreSQL | Microsoft Docs'
+title: 'How to backup and restore a server in Azure Database for PostgreSQL'
 description: Learn how to backup and restore a server in Azure Database for PostgreSQL by using the Azure CLI.
-services: postgresql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 04/01/2018
 ---
 
@@ -26,7 +23,7 @@ To complete this how-to guide, you need:
  
 
 > [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Set backup configuration
 
@@ -104,7 +101,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 ```
 
-The `az postgres server georestore` command requies the following parameters:
+The `az postgres server georestore` command requires the following parameters:
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | The name of the resource group the new server will belong to.|

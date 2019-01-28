@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/20/2018
 ms.author: jeedes
 
 ---
@@ -45,6 +45,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
+
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
@@ -52,6 +53,7 @@ The scenario outlined in this tutorial consists of two main building blocks:
 2. Configuring and testing Azure AD single sign-on
 
 ## Adding Rackspace SSO from the gallery
+
 To configure the integration of Rackspace SSO into Azure AD, you need to add Rackspace SSO from the gallery to your list of managed SaaS apps.
 
 **To add Rackspace SSO from the gallery, perform the following steps:**
@@ -63,7 +65,7 @@ To configure the integration of Rackspace SSO into Azure AD, you need to add Rac
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![The Enterprise applications blade][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button][3]
@@ -97,7 +99,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/rackspacesso-tutorial/tutorial_rackspacesso_samlbase.png)
 
 3. On the **Rackspace SSO Domain and URLs** section, perform the following steps:
@@ -108,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png) 
+	![The Certificate download link](./media/rackspacesso-tutorial/tutorial_rackspacesso_certificate.png)
 
 5. Click **Save** button.
 
@@ -147,16 +149,16 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a Rackspace SSO test user
 
-In this section, you create a user called Britta Simon in Rackspace SSO. Work with [Rackspace SSO support team](https://support.rackspace.com/) to add the users in the Rackspace SSO platform. Users must be created and activated before you use single sign-on.
+In this section, you will work with [Rackspace SSO support team](https://support.rackspace.com/) to onboard your account in the Rackspace SSO platform.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Rackspace SSO.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to Rackspace SSO, perform the following steps:**
 
@@ -181,7 +183,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
@@ -193,8 +195,6 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -209,4 +209,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/rackspacesso-tutorial/tutorial_general_201.png
 [202]: ./media/rackspacesso-tutorial/tutorial_general_202.png
 [203]: ./media/rackspacesso-tutorial/tutorial_general_203.png
-

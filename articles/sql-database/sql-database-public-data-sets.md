@@ -2,14 +2,16 @@
 title: Public data sets for Azure analytics | Microsoft Docs
 description: Learn about public data sets that you can use to prototype and test Azure analytics services and solutions.
 services: sql-database
-author: douglaslMS
-manager: craigg
-ms.custom: reference
 ms.service: sql-database
-ms.topic: conceptual
-ms.date: 04/01/2018
+ms.subservice: development
+ms.custom:
+ms.devlang: 
+ms.topic: reference
+author: douglaslMS
 ms.author: douglasl
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Public data sets for testing and prototyping
 
@@ -32,7 +34,7 @@ Browse this list of public data sets for data that you can use to prototype and 
 
 | Data source | About the data | About the files |
 |---|---|---|
-| [New York City taxi data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Taxi trip records include fields capturing pick-up and drop-off dates/times, pick-up and drop-off locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts." | Data sets are in CSV files by month. |
+| [New York City taxi data](http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml) | "Taxi trip records include fields capturing pick-up and dropoff dates/times, pick-up and dropoff locations, trip distances, itemized fares, rate types, payment types, and driver-reported passenger counts." | Data sets are in CSV files by month. |
 | [Microsoft Research data sets - "Data Science for Research"](https://www.microsoft.com/research/academic-program/data-science-microsoft-research/) | Multiple data sets covering human-computer interaction, audio/video, data mining/information retrieval, geospatial/location, natural language processing, and robotics/computer vision. | Data sets are in various formats, zipped for download. |
 | [Public genome data](http://www.completegenomics.com/public-data/) | "A diverse data set of whole human genomes are freely available for public use to enhance any genomic study..." The provider, Complete Genomics, is a private for-profit corporation. | Data sets, after extraction, are in UNIX text format. Analysis tools are also available. |
 | [Open Science Data Cloud data](https://www.opensciencedatacloud.org/) | "The Open Science Data Cloud provides the scientific community with resources for storing, sharing, and analyzing terabyte and petabyte-scale scientific datasets."| Data sets are in various formats. |

@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 
 ## Create a network security group
@@ -124,7 +124,7 @@ az network vnet create \
   --address-prefixes 10.0.0.0/16
 ```
 
-Add a subnet to a virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). The following example adds a subnet named *mySubnet* to the virtual network and associates the *myNsg* network security group to it:
+Add a subnet to a virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). The following example adds a subnet named *mySubnet* to the virtual network and associates the *myNsg* network security group to it:
 
 ```azurecli-interactive
 az network vnet subnet create \

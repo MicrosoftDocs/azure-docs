@@ -1,23 +1,25 @@
 ---
-title: "Quickstart: Send search queries with the Bing Image Search API and Python"
-description: In this quickstart, you send search queries to the Bing Search API to get a list of images using Python.
+title: "Quickstart: Search for images - Bing Image Search REST API and Python"
+titleSuffix: Azure Cognitive Services
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using Python, and receive JSON responses.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.subservice: bing-image-search
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
+ms.custom: seodec2018
 ---
 
-# Quickstart: Send search queries using the REST API and Python
+# Quickstart: Search for images using the Bing Image Search REST API and Python
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Python application sends a search query to the API and displays the raw results.
 
 While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
-You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge: 
+You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.org) by clicking on the launch Binder badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
@@ -27,6 +29,8 @@ Additionally, the source code for this sample is available [on GitHub](https://g
 ## Prerequisites
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Running the quickstart
 
@@ -144,7 +148,7 @@ Responses from the Bing Image Search API are returned as JSON. This sample respo
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
 
-## See also 
+## See also
 
 * [What is Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Try an online interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  

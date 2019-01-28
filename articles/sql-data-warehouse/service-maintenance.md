@@ -27,9 +27,9 @@ You will receive a notification before each planned maintenance event. The maint
 
 ## Setting up alerts
 
-We recommend using [Azure Monitor](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) to set up planned maintenance log alerts. The alerts can help you plan for the required maintenance to minimize the impact to your business. 
+We recommend using [Azure Monitor](../azure-monitor/platform/alerts-activity-log-service-notifications.md) to set up planned maintenance log alerts. The alerts can help you plan for the required maintenance to minimize the impact to your business. 
 
-To set up notifications, use these [log alert instructions](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+To set up notifications, use these [log alert instructions](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
 
 ## Next steps
 For more information about monitoring, see [Monitor your workload](sql-data-warehouse-manage-monitor.md).

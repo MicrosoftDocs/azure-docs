@@ -22,11 +22,15 @@
     href: how-to-manage-lab-accounts.md
   - name: Manage classroom labs
     href: how-to-manage-classroom-labs.md
+  - name: Set up and publish templates
+    href: how-to-create-manage-template.md
+  - name: Configure and control usage
+    href: how-to-configure-student-usage.md
   - name: Access classroom labs
     href: how-to-use-classroom-lab.md
 - name: Reference
   items:
-  - name: CLI 2.0
+  - name: CLI
     href: /cli/azure/lab
   - name: PowerShell
     href: /powershell/module/azurerm.devtestlabs/#devtest_labs

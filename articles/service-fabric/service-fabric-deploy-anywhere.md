@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/28/2018
+ms.date: 11/28/2018
 ms.author: dekapur
 
 ---
@@ -31,7 +31,9 @@ You are able to create clusters on virtual machines running these operating syst
 * Windows Server 2012 R2
 * Windows Server 2016 
 * Windows Server 1709
+* Windows Server 1803
 * Linux Ubuntu 16.04
+* Red Hat Enterprise Linux 7.4 (preview support)
 
 > [!NOTE]
 > If you decide to deploy Service Fabric on Windows Server 1709, please note that (1) it is not a long term servicing branch, so you may have to move versions in the future, and (2) if you deploy containers, containers built on Windows Server 2016 do not work on Windows Server 1709, and vice versa (you will have to rebuild them to deploy them).

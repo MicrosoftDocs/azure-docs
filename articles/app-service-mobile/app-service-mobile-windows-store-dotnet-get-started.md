@@ -77,6 +77,6 @@ Once you have configured your Mobile App backend, you can either create a new cl
 <!-- Anchors. -->
 <!-- Images. -->
 <!-- URLs. -->
-[Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203

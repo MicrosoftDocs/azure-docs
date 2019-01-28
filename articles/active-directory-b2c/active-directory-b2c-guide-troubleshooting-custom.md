@@ -3,14 +3,14 @@ title: Troubleshoot custom policies in Azure Active Directory B2C | Microsoft Do
 description: Learn about approaches to solving errors when working with custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Troubleshoot Azure AD B2C custom policies and Identity Experience Framework
@@ -56,7 +56,7 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
     * Web App/Web API: No
     * Native client: No
 
-* To trace the exchange of messages between your client browser and Azure AD B2C, use [Fiddler](http://www.telerik.com/fiddler). It can help you get an indication of where your user journey is failing in your orchestration steps.
+* To trace the exchange of messages between your client browser and Azure AD B2C, use [Fiddler](https://www.telerik.com/fiddler). It can help you get an indication of where your user journey is failing in your orchestration steps.
 
 * In **Development mode**, use **Application Insights** to trace the activity of your Identity Experience Framework user journey. In **Development mode**, you can observe the exchange of claims between the Identity Experience Framework and the various claims providers that are defined by technical profiles, such as identity providers, API-based services, the Azure AD B2C user directory, and other services, like Azure Multi-Factor-Authentication.  
 
@@ -70,4 +70,4 @@ Error snippet: `Reason: User is currently logged as a user of 'yourtenant.onmicr
 
 ## Next steps
 
-* In GitHub, download the [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip file.
+* In GitHub, download the [active-directory-b2c-custom-policy-starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip file.

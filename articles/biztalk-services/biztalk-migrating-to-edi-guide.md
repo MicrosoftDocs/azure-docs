@@ -23,7 +23,7 @@ Reviewers: Karthik Bharthy
 Written using:  Microsoft Azure BizTalk Services – February 2014 release.
 
 ## Introduction
-Electronic Data Interchange (EDI) is one of the most prevalent means by which businesses exchange data electronically, also termed as Business-to-Business or B2B transactions. BizTalk Server has had EDI support for over a decade since the initial BizTalk Sever release. With BizTalk Services, Microsoft continues the support for EDI solutions on the Microsoft Azure platform. B2B transactions are mostly external to an organization, and hence it’s easier to implement if it was implemented on a cloud platform. Microsoft Azure provides this capability through BizTalk Services.
+Electronic Data Interchange (EDI) is one of the most prevalent means by which businesses exchange data electronically, also termed as Business-to-Business or B2B transactions. BizTalk Server has had EDI support for over a decade since the initial BizTalk Server release. With BizTalk Services, Microsoft continues the support for EDI solutions on the Microsoft Azure platform. B2B transactions are mostly external to an organization, and hence it’s easier to implement if it was implemented on a cloud platform. Microsoft Azure provides this capability through BizTalk Services.
 
 While some customers look at BizTalk Services as a "green field" platform for new EDI solutions, many customers have current BizTalk Server EDI solutions that they may want to migrate to Azure. Because BizTalk Services EDI is architected based on the same key entities as BizTalk Server EDI architecture (trading partners, entities, agreements), it is possible to migrate BizTalk Server EDI artifacts to BizTalk Services.
 
@@ -72,10 +72,10 @@ See **Scenarios/Message Flow** in this article for the message flow pattern.
 ## Agreements
 If you are familiar with the BizTalk Server 2010 Trading Partner Agreements used for EDI processing, then BizTalk Services trading partner agreements look very familiar. Most of the agreement settings are the same and use the same terminology. In some cases, the agreement settings are much simpler compared to the same settings in BizTalk Server. Microsoft Azure BizTalk Services supports X12, EDIFACT, and AS2 transport.
 
-Microsoft Azure BizTalk Services also provides a **TPM Data Migration** tool to migrate trading partners and agreements from BizTalk Server Trading Partner module to BizTalk Services Portal. The TPM Data Migration tool is available as part of a Tools package, which can be downloaded from the [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057). The package also includes a readme that provides instructions on how to use the tool, and basic troubleshooting information for the tool.
+Microsoft Azure BizTalk Services also provides a **TPM Data Migration** tool to migrate trading partners and agreements from BizTalk Server Trading Partner module to BizTalk Services Portal. The TPM Data Migration tool is available as part of a Tools package, which can be downloaded from the [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057). The package also includes a readme that provides instructions on how to use the tool, and basic troubleshooting information for the tool.
 
 ## Schemas
-BizTalk Services provides EDI schemas which can be used in BizTalk Services solutions.  In addition, BizTalk Server EDI schemas can also be used with BizTalk Services because the root node of the EDI schema is same across BizTalk Server as well as BizTalk Services. Thus, you will be able to directly take your BizTalk Server EDI schemas and use them in the EDI solutions that you develop using BizTalk Services. You can also download the schemas from the [MABS SDK](http://go.microsoft.com/fwlink/p/?LinkId=235057).
+BizTalk Services provides EDI schemas which can be used in BizTalk Services solutions.  In addition, BizTalk Server EDI schemas can also be used with BizTalk Services because the root node of the EDI schema is same across BizTalk Server as well as BizTalk Services. Thus, you will be able to directly take your BizTalk Server EDI schemas and use them in the EDI solutions that you develop using BizTalk Services. You can also download the schemas from the [MABS SDK](https://go.microsoft.com/fwlink/p/?LinkId=235057).
 
 ## Maps (Transforms)
 Maps in BizTalk Server are called Transforms in BizTalk Services. Migrating maps from BizTalk Server to BizTalk Services could be one of the more complex tasks to achieve (depending on map complexity). The mapping tool used for BizTalk Services is different from the BizTalk mapper. Even though the mapper looks mostly the same, the underlying map format is different. The functoids (called **Map Operations** in BizTalk Services) available to the users are different as well.  In effect, you cannot directly use a BizTalk map in BizTalk Services. Also, not all the functoids available in BizTalk Server are available as map operations in BizTalk Services.
@@ -88,23 +88,23 @@ Another example of new functionality in BizTalk Services Transforms are the **Lo
 Yet another example is the **If-Then-Else** Expression map operation.  Doing an if-then-else operation was possible in the BizTalk mapper, but it required multiple functoids to accomplish a seemingly simple task.
 
 ### Migrating BizTalk Server Maps
-Microsoft Azure BizTalk Services provides a tool to migrate BizTalk Server maps to BizTalk Services transforms. The **BTMMigrationTool** is available as part of the **Tools** package provided with the [BizTalk Services SDK download](http://go.microsoft.com/fwlink/p/?LinkId=235057). For more information about the tool, see [Convert a BizTalk map to a BizTalk Services Transform](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+Microsoft Azure BizTalk Services provides a tool to migrate BizTalk Server maps to BizTalk Services transforms. The **BTMMigrationTool** is available as part of the **Tools** package provided with the [BizTalk Services SDK download](https://go.microsoft.com/fwlink/p/?LinkId=235057). For more information about the tool, see [Convert a BizTalk map to a BizTalk Services Transform](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-You can also look at a sample by Sandro Pereira, BizTalk MVP, on how to [migrate BizTalk Server maps to BizTalk Services transforms](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+You can also look at a sample by Sandro Pereira, BizTalk MVP, on how to [migrate BizTalk Server maps to BizTalk Services transforms](https://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
 ## Orchestrations
 If you need to migrate BizTalk Server orchestration processing to Microsoft Azure, the orchestrations would need to be rewritten because Microsoft Azure does not support running BizTalk Server orchestrations.  You could rewrite the orchestration functionality in a Windows Workflow Foundation 4.0 (WF4) service.  This would be a complete rewrite as there is currently no migration from BizTalk Server orchestrations to WF4. Here are some resources for Windows Workflow:
 
 * [*How to integrate a WCF Workflow Service with Service Bus Queues and Topics*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) by Paolo Salvatori. 
-* [*Building apps with Windows Workflow Foundation and Azure* session](http://go.microsoft.com/fwlink/p/?LinkId=237314) from the Build 2011 conference.
-* [*Windows Workflow Foundation Developer Center*](http://go.microsoft.com/fwlink/p/?LinkId=237315) on MSDN.
+* [*Building apps with Windows Workflow Foundation and Azure* session](https://go.microsoft.com/fwlink/p/?LinkId=237314) from the Build 2011 conference.
+* [*Windows Workflow Foundation Developer Center*](https://go.microsoft.com/fwlink/p/?LinkId=237315) on MSDN.
 * [*Windows Workflow Foundation 4 (WF4) documentation*](https://msdn.microsoft.com/library/dd489441.aspx) on MSDN.
 
 ## Other Considerations
 Following are a few considerations that you must make while using BizTalk Services.
 
 ### Fallback Agreements
-BizTalk Server EDI processing has the concept of "Fallback Agreements".  BizTalk Services does **not** have a Fallback Agreement concept so far.  See BizTalk documentation topics [The Role of Agreements in EDI Processing](http://go.microsoft.com/fwlink/p/?LinkId=237317) and [Configuring Global or Fallback Agreement Properties](https://msdn.microsoft.com/library/bb245981.aspx) for information on how Fallback Agreements are used in BizTalk Server.
+BizTalk Server EDI processing has the concept of "Fallback Agreements".  BizTalk Services does **not** have a Fallback Agreement concept so far.  See BizTalk documentation topics [The Role of Agreements in EDI Processing](https://go.microsoft.com/fwlink/p/?LinkId=237317) and [Configuring Global or Fallback Agreement Properties](https://msdn.microsoft.com/library/bb245981.aspx) for information on how Fallback Agreements are used in BizTalk Server.
 
 ### Routing to multiple destinations
 BizTalk Services bridges, in its current state does not support routing messages to multiple destinations using a publish-subscribe model. Instead you could route messages from a BizTalk Services bridge to a Service Bus topic, which can then have multiple subscriptions to receive the message at more than one endpoint.

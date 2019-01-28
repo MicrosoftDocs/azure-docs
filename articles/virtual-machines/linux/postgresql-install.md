@@ -73,7 +73,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 ## Configure PostgreSQL
 1. (Optional) Create a symbolic link to shorten the PostgreSQL reference to not include the version number:
    
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
 2. Create a directory for the database:
    
         # mkdir -p /opt/pgsql_data
@@ -116,6 +116,7 @@ Connect to the Linux VM you created via PuTTY. If this is the first time you're 
 7. You can also check the PostgreSQL version:
    
         $ psql -V
+
 8. Initialize the database:
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W

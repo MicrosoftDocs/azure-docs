@@ -1,13 +1,12 @@
 ---
-title: Troubleshoot Azure Load Balancer | Microsoft Docs
+title: Troubleshoot Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Troubleshoot known issues with Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: ''
-
-ms.assetid: 
+ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

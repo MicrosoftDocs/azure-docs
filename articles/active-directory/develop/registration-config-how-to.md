@@ -8,7 +8,7 @@ manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,7 +18,7 @@ ms.author: celested
 
 ---
 
-# How to select permissions for a given API
+# How to configure endpoints
 
 You can find the authentication endpoints for your application in the [Azure portal](https://portal.azure.com).
 

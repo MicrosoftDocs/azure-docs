@@ -1,18 +1,20 @@
 ---
-title: Detecting image types
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Concepts related to detecting image types using Computer Vision in Azure Cognitive Services.
+title: Detecting image types - Computer Vision
+titleSuffix: Azure Cognitive Services
+description: Concepts related to the image type detection feature of the Computer Vision API.
 services: cognitive-services
-author: deken
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
+ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Detecting image types
+# Detecting image types with Computer Vision
 
 Computer Vision can analyze the content type of images by indicating whether an image is clip art, rating the likelihood on a scale, or a line drawing.
 
@@ -31,7 +33,7 @@ Computer Vision analyzes an image and rates the likelihood of the image being cl
 
 The following JSON responses illustrates what Computer Vision returns when rating the likelihood of the example images being clip art.
 
-![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.png)
+![A clip art image of a slice of cheese](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -48,7 +50,7 @@ The following JSON responses illustrates what Computer Vision returns when ratin
 }
 ```
 
-![Vision Analyze House Yard](./Images/house_yard.png)
+![A blue house and the front yard](./Images/house_yard.png)
 
 ```json
 {
@@ -73,7 +75,7 @@ Computer Vision analyzes an image and returns a boolean value indicating whether
 
 The following JSON responses illustrates what Computer Vision returns when indicating whether the example images are line drawings.
 
-![Vision Analyze Lion Drawing](./Images/lion_drawing.png)
+![A line drawing image of a lion](./Images/lion_drawing.png)
 
 ```json
 {
@@ -90,7 +92,7 @@ The following JSON responses illustrates what Computer Vision returns when indic
 }
 ```
 
-![Vision Analyze Flower](./Images/flower.png)
+![A white flower with a green background](./Images/flower.png)
 
 ```json
 {

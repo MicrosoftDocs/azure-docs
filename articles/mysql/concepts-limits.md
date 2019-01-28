@@ -1,14 +1,11 @@
 ---
 title: Limitations in Azure Database for MySQL
 description: This article describes limitations in Azure Database for MySQL, such as number of connection and storage engine options.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-ms.date: 06/30/2018
+ms.topic: conceptual
+ms.date: 12/6/2018
 ---
 # Limitations in Azure Database for MySQL
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
@@ -25,10 +22,12 @@ The maximum number of connections per pricing tier and vCores are as follows:
 |General Purpose| 8| 1250|
 |General Purpose| 16| 2500|
 |General Purpose| 32| 5000|
+|General Purpose| 64| 10000|
 |Memory Optimized| 2| 600|
 |Memory Optimized| 4| 1250|
 |Memory Optimized| 8| 2500|
 |Memory Optimized| 16| 5000|
+|Memory Optimized| 32| 10000|
 
 When connections exceed the limit, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
@@ -76,9 +75,6 @@ Similarly [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-p
 
 ### VNet service endpoints
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
-
-### Subscription management
-- Dynamically moving pre-created servers across subscription and resource group is currently not supported.
 
 ## Current known issues
 - MySQL server instance displays the wrong server version after connection is established. To get the correct server instance engine version, use the `select version();` command.

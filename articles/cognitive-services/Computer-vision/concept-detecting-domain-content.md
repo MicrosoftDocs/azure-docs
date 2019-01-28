@@ -1,15 +1,17 @@
 ---
-title: Detecting domain-specific content
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Concepts related to describing images using Computer Vision in Azure Cognitive Services.
+title: Detect domain-specific content - Computer Vision
+titleSuffix: Azure Cognitive Services
+description: Learn how to specify an image categorization domain to return more detailed information about an image.
 services: cognitive-services
-author: deken
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
+ms.author: pafarley
+ms.custom: seodec18
 ---
 
 # Detecting domain-specific content

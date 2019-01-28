@@ -3,8 +3,8 @@ title: Azure diagnostic logs | Microsoft Docs
 description: Customer can enable log analysis for Azure CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: v-deasim
+ms.author: magattus
 ---
 
 
@@ -92,17 +92,23 @@ To use Log Analytics to store the logs, follow these steps:
 
 2. Select **Configure** to configure Log Analytics logging. 
 
-   The **OMS Workspaces** page appears.
+   The **Log Analytics workspaces** page appears.
+
+    >[!NOTE] 
+    >OMS workspaces are now referred to as Log Analytics workspaces.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Select **Create New Workspace**.
 
-    The **OMS Workspace** page appears.
+    The **Log Analytics workspace** page appears.
+
+    >[!NOTE] 
+    >OMS workspaces are now referred to as Log Analytics workspaces.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. For **OMS Workspace**, enter an OMS Workspace name. The OMS Workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
+4. For **Log Analytics workspace**, enter a Log Analytics workspace name. The Log Analytics workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
 
 5. For **Subscription**, select an existing subscription from the drop-down list. 
 
@@ -193,7 +199,7 @@ To make it easy to access core analytics, sample code for a tool is provided. Th
 
 Here's how you can use the tool:
 
-1.	Visit the github link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.	Visit the GitHub link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.	Download the code.
 3.	Follow the instructions to compile and configure.
 4.	Run the tool.

@@ -1,18 +1,20 @@
 ---
-title: Extracting text with OCR
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Concepts related to extracting text with optical character recognition using Computer Vision in Azure Cognitive Services.
+title: Extracting text with OCR - Computer Vision
+titleSuffix: Azure Cognitive Services
+description: Concepts related to extracting text with optical character recognition (OCR) using the Computer Vision API.
 services: cognitive-services
-author: deken
-manager: nolachar
+author: PatrickFarley
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
+ms.author: pafarley
+ms.custom: seodec18
 ---
 
-# Extracting text with OCR
+# Extracting text with Optical Character Recognition
 
 Optical character recognition (OCR) technology in Computer Vision detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the result for search and numerous other purposes like medical records, security, and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to take photos of text instead of transcribing the text.
 
@@ -20,15 +22,15 @@ OCR supports 25 languages. These languages are: Arabic, Chinese Simplified, Chin
 
 If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis. OCR provides the frame coordinates of each word as seen in the following illustration.
 
-![OCR Overview](./Images/vision-overview-ocr.png)
+![A diagram depicting an image being rotated and its text being read and delineated](./Images/vision-overview-ocr.png)
 
 ## OCR requirements
 
 Computer Vision can extract text using OCR from images that meet the following requirements:
 
 * The image must be presented in JPEG, PNG, GIF, or BMP format
-* The size of the input image must be between 40 x 40 and 3200 x 3200 pixels
-* The image can't be bigger than 10 megapixels
+* The size of the input image must be between 50 x 50 and 4200 x 4200 pixels
+
 
 The input image can be rotated by any multiple of 90 degrees plus a small angle of up to 40 degrees.
 

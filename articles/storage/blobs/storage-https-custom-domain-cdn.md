@@ -1,6 +1,6 @@
 ---
-title: Using the Azure CDN to access blobs with custom domains over HTTPS
-description: Learn how to integrate the Azure CDN with blob storage to access blobs with custom domains over HTTPS
+title: Use Azure CDN to access blobs with custom domains over HTTPS
+description: Learn how to integrate Azure CDN with Blob storage to access blobs with custom domains over HTTPS
 services: storage
 author: michaelhauss
 
@@ -11,49 +11,56 @@ ms.author: mihauss
 ms.component: blobs
 ---
 
-# Using the Azure CDN to access blobs with custom domains over HTTPS
-Azure Content Delivery Network (CDN) now supports HTTPS for custom domain names. You can leverage this feature to access storage blobs using your custom domain over HTTPS. To do so, you'll first need to enable Azure CDN on your blob or web endpoint and map the CDN to a custom domain name. Once you take these steps, enabling HTTPS for your custom domain is simplified via one-click enablement, complete certificate management, and all with no additional cost to normal CDN pricing.
+# Use Azure CDN to access blobs with custom domains over HTTPS
 
-This ability is important because it enables you to protect the privacy and data integrity of your sensitive web application data while in transit. Using the SSL protocol to serve traffic via HTTPS ensures that data is encrypted when it is sent across the internet. HTTPS provides trust and authentication, and protects your web applications from attacks.
+Azure Content Delivery Network (Azure CDN) now supports HTTPS for custom domain names. With Azure CDN, you can access blobs by using your custom domain name over HTTPS. To do so, enable Azure CDN on your blob or web endpoint and then map Azure CDN to a custom domain name. After you're done, Azure simplifies enabling HTTPS for your custom domain via one-click access and complete certificate management. There's no increase in the normal Azure CDN pricing.
+
+Azure CDN helps protect the privacy and data integrity of your web application data while it's in transit. By using the SSL protocol to serve traffic via HTTPS, Azure CDN keeps your data encrypted when it's sent across the internet. Using HTTPS with Azure CDN helps to protect your web applications from attack.
 
 > [!NOTE]  
-> In addition to providing SSL support for custom domain names, the Azure CDN can help you scale your application to deliver high-bandwidth content around the world. To learn more, check out [Overview of the Azure CDN](../../cdn/cdn-overview.md).
+> In addition to providing SSL support for custom domain names, Azure CDN can help you scale your application to deliver high-bandwidth content around the world. To learn more, see [Overview of Azure CDN](../../cdn/cdn-overview.md).
 
-## Quick start
-These are the steps required to enable HTTPS for your custom blob storage endpoint:
+## Quickstart
 
-1.  [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
-    This article walks you through creating a storage account in the Azure Portal if you have not done so already.
+To enable HTTPS for your custom Blob storage endpoint, do the following:
+
+1.  [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).  
+    This article walks you through creating a storage account in the Azure portal, if you haven't already done so.
 
     > [!NOTE]  
-    > During preview of static websites support in Azure Storage, select "custom origin" from the "origin type" drop down menu to add your storage web endpoint. In Azure Portal, you will need to do this from your CDN Profile instead of directly in your storage account.
+    > To add your storage web endpoint during the preview of static websites support in Azure Storage, select **Custom origin** in the **Origin type** drop-down list. In the Azure portal, you need to do this from your Azure CDN profile instead of directly in your storage account.
 
 2.  [Map Azure CDN content to a custom domain](../../cdn/cdn-map-content-to-custom-domain.md).
+
 3.  [Enable HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
 
-## Shared Access Signatures
-If your blob storage endpoint is configured to disallow anonymous read access, you will need to provide a [Shared Access Signature (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) token in each request you make to your custom domain. By default, blob storage endpoints disallow anonymous read access. See [Managing anonymous read access to containers and blobs](storage-manage-access-to-resources.md) for more information on shared access signatures.
+## Shared access signatures
 
-Azure CDN does not respect any restrictions added to the SAS token. For example, all SAS tokens have an expiration time. This means that content can still be accessed with an expired SAS until that content is purged from the CDN edge nodes. You can control how long data is cached on the CDN by setting the cache response header. See [Managing expiration of Azure Storage blobs in Azure CDN](../../cdn/cdn-manage-expiration-of-blob-content.md) for instructions.
+By default, Blob storage endpoints disallow anonymous read access. If your Blob storage endpoint is configured to disallow anonymous read access, provide a [shared access signature](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) token in each request to your custom domain. For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
 
-If you create multiple SAS URLs for the same blob endpoint, we recommend turning on query string caching for your Azure CDN. This is to ensure that each URL is treated as a unique entity. See [Controlling Azure CDN caching behavior with query strings](../../cdn/cdn-query-string.md) for more information.
+Azure CDN doesn't respect any restrictions that are added to the shared access signature token. For example, all shared access signature tokens expire. You can still access content with an expired shared access signature until that content is purged from the Azure CDN edge nodes. You can control how long data is cached on Azure CDN by setting the cache response header. To learn how, see [Manage expiration of Azure Storage blobs in Azure CDN](../../cdn/cdn-manage-expiration-of-blob-content.md).
+
+If you create two or more shared access signature URLs for the same blob endpoint, we recommend turning on query string caching for your Azure CDN. This action ensures that Azure treats each URL as a unique entity. For more information, see [Control Azure CDN caching behavior with query strings](../../cdn/cdn-query-string.md).
 
 ## HTTP to HTTPS redirection
-You can elect to redirect HTTP traffic to HTTPS. This requires use of the Azure CDN premium offering from Verizon. You need to [Override HTTP behavior using the Azure CDN rules engine](../../cdn/cdn-rules-engine.md) with the following rule:
 
-![](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
+You can redirect HTTP traffic to HTTPS. Doing so requires the use of the Azure CDN premium offering from Verizon. [Override HTTP behavior with the Azure CDN rules engine](../../cdn/cdn-rules-engine.md) by applying the following rule:
 
-"Cdn-endpoint-name" refers to the name that you configured for your CDN endpoint. You can select this value from the dropdown. "Origin-path" refers to the path within your origin storage account where your static content resides. If you are hosting all static content in a single container, replace "origin-path" with the name of that container.
+![HTTP to HTTPS redirection rule](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
 
-For a deeper dive into rules, please see the [Azure CDN rules engine features](../../cdn/cdn-rules-engine-reference-features.md).
+*Cdn-endpoint-name*, which you select in the drop-down list, refers to the name that you configured for your Azure CDN endpoint. *Origin-path* refers to the path within your origin storage account, where your static content is stored. If you're hosting all static content in a single container, replace *origin-path* with the name of that container.
+
+For a deeper dive into rules, see the [Azure CDN rules engine features](../../cdn/cdn-rules-engine-reference-features.md).
 
 ## Pricing and billing
-When you access blobs through an Azure CDN, you pay [Blob storage prices](https://azure.microsoft.com/pricing/details/storage/blobs/) for traffic between the edge nodes and the origin (Blob storage), and [CDN prices](https://azure.microsoft.com/pricing/details/cdn/) for data accessed from the edge nodes.
 
-For example, say you have a storage account in West US that is being accessed using an Azure CDN. If someone in the UK tries to access one of the blobs in that storage account via the CDN, Azure first checks the edge node closest to the UK for that blob. If found, it accesses that copy of the blob and will use CDN pricing, because it is being accessed on the CDN. If not found, Azure will copy the blob to the edge node, which will result in egress and transaction charges as specified in the Blob storage pricing, and then access the file on the edge node, which will result in CDN billing.
+When you access blobs through Azure CDN, you pay [Blob storage prices](https://azure.microsoft.com/pricing/details/storage/blobs/) for traffic between the edge nodes and the origin (Blob storage). You pay [Azure CDN prices](https://azure.microsoft.com/pricing/details/cdn/) for data that's accessed from the edge nodes.
 
-When looking at the [CDN pricing page](https://azure.microsoft.com/pricing/details/cdn/), note that HTTPS support for custom domain names is only available for Azure CDN from Verizon products (Standard and Premium).
+For example, let's say you have a storage account in West US that you're accessing via Azure CDN. When someone in the UK tries to access a blob in that storage account via Azure CDN, Azure first checks for the blob in the edge node that's closest to the UK. If Azure finds the blob, it accesses a copy and uses Azure CDN pricing, because Azure CDN is accessing it. If Azure doesn't find the blob, it copies the blob to the edge node. This action results in egress and transaction charges, as specified in the Blob storage pricing. Azure then accesses the file on the edge node, which results in Azure CDN billing.
+
+On the [Azure CDN pricing page](https://azure.microsoft.com/pricing/details/cdn/), HTTPS support for custom domain names is available for Azure CDN only from Verizon Standard and Premium products.
 
 ## Next steps
+
 * [Configure a custom domain name for your Blob storage endpoint](storage-custom-domain-name.md)
-* [Static website hosting in Azure Storage (Preview)](storage-blob-static-website.md)
+* [Static website hosting in Azure Storage (preview)](storage-blob-static-website.md)

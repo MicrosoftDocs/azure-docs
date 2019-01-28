@@ -5,8 +5,8 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
+ms.component: performance
 ms.topic: how-to
-ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
@@ -38,7 +38,7 @@ The matrix below describes scenarios based on the values of the cache metrics:
 
 **Scenario 2:** Your current working data set cannot fit into the cache which causes a low cache hit percentage due to physical reads. Consider scaling up your performance level and rerun your workload to populate the cache.
 
-**Scenario 3:** It is likely that your query is running slow due to reasons unrelated to the cache. [Troubleshoot](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) other areas which may be slowing down your queries. You can also consider [scaling down your instance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) to reduce your cache size to save costs. 
+**Scenario 3:** It is likely that your query is running slow due to reasons unrelated to the cache. [Troubleshoot](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) other areas which may be slowing down your queries. You can also consider [scaling down your instance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) to reduce your cache size to save costs. 
 
 **Scenario 4:** You had a cold cache which could be the reason why your query was slow. Consider rerunning your query as your working dataset should now be in cached. 
 

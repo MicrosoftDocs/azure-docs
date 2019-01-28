@@ -3,7 +3,7 @@ title: Azure Stack add scale nodes | Microsoft Docs
 description: Add nodes to scale units in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: jeffgilb
 ms.reviewer: thoroet 
 ---
 
@@ -102,6 +102,7 @@ The status for scale unit and scale unit nodes can be retrieved using PowerShell
 
 ### Status for the add node operation 
 **For a scale unit:**
+
 |Status               |Description  |
 |---------------------|---------|
 |Running              |All nodes are actively participating in the scale unit.|
@@ -112,6 +113,7 @@ The status for scale unit and scale unit nodes can be retrieved using PowerShell
 
 
 **For a scale unit node:**
+
 |Status                |Description  |
 |----------------------|---------|
 |Running               |The node is actively participating in the scale unit.|
@@ -139,4 +141,4 @@ The following are common issues seen when adding a node.
 
 
 ## Next steps 
-Review [Node actions](azure-stack-node-actions.md) 
+[Add public IP addresses](azure-stack-add-ips.md) 
