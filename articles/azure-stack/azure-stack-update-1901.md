@@ -142,6 +142,16 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 
 - Starting in January 2019, you can deploy Kubernetes clusters on Active Directory Federated Services (AD FS) registered Azure Stack stamps. Follow the instructions [here](azure-stack-solution-template-kubernetes-cluster-add.md) to download the new Kubernetes Marketplace item. Follow the instructions [here](user/azure-stack-solution-template-kubernetes-adfs.md) to deploy a Kubernetes cluster. Note the new parameters for indicating whether the target system is ADD or AD FS registered. If it is AD FS, new fields are available to enter the Key Vault parameters in which the deployment certificate is stored.
 
+- After installing updates or hotfixes to Azure Stack, new features may be introduced which require new permissions to be granted to one or more identity applications. Granting these permissions requires administrative access to the home directory, and so it cannot be done automatically. For example:
+
+   ```powershell
+   $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
+   $homeDirectoryTenantName = "<homeDirectoryTenant>.onmicrosoft.com" # This is the primary tenant Azure Stack is registered to
+
+   Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
+     -DirectoryTenantName $homeDirectoryTenantName -Verbose
+   ```
+
 ## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
@@ -230,7 +240,6 @@ The following are post-installation known issues for this build version.
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
 - The virtual machine scale set (VMSS) creation experience provides CentOS-based 7.2 as an option for deployment. Because that image is not available on Azure Stack, either select another operating system for your deployment, or use an Azure Resource Manager template specifying another CentOS image that has been downloaded prior to deployment from the marketplace by the operator.  
 
-
 <!-- TBD - IS ASDK --> 
 - After applying the 1901 update, you might encounter the following issues when deploying VMs with Managed Disks:
 
@@ -288,7 +297,6 @@ The following are post-installation known issues for this build version.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
-
 
 ## Download the update
 
