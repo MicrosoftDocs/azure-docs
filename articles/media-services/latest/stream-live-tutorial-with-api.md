@@ -20,7 +20,7 @@ ms.author: juliako
 
 # Tutorial: Stream live with Media Services v3 using APIs
 
-In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
+In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A Live Event provides an input endpoint (ingest URL) that you then provide to a live encoder. The Live Event receives live input streams from the live encoder and makes it available for streaming through one or more [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). Live Events also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
 > [!NOTE]
 > Make sure to review [Live streaming with Media Services v3](live-streaming-overview.md) before proceeding. 
@@ -28,7 +28,7 @@ In Azure Media Services, [Live Events](https://docs.microsoft.com/rest/api/media
 The tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Download and configure the sample app
+> * Download the sample app described in the topic
 > * Examine the code that performs live streaming
 > * Watch the event with [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) at http://ampdemo.azureedge.net
 > * Clean up resources
@@ -58,7 +58,7 @@ The live streaming sample is located in the [Live](https://github.com/Azure-Samp
 Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/appsettings.json) and replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md)
 
 > [!IMPORTANT]
-> This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple LiveEvents in your account. <br/>> Make sure to stop the running Live Events. Otherwise, you will be **billed**!
+> This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple LiveEvents in your account. <br/>Make sure to stop the running Live Events. Otherwise, you will be **billed**!
 
 ## Examine the code that performs live streaming
 
