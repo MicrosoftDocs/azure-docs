@@ -1,6 +1,6 @@
 ---
 title: 'Query an index in code using REST API - Azure Search'
-description: HTTP commands and REST API code for builidng a search query in Azure Search. Add search parameters to filter and sort search results.
+description: HTTP commands and REST API code for building a search query in Azure Search. Add search parameters to filter and sort search results.
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst

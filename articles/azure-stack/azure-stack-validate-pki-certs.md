@@ -95,7 +95,7 @@ Use these steps to prepare and to validate the Azure Stack PKI certificates for 
 
 4. Check the output and all certificates pass all tests. For example:
 
-````PowerShell
+```PowerShell
 Invoke-AzsCertificateValidation v1.1809.1005.1 started.
 Testing: ARM Public\ssl.pfx
 Thumbprint: 7F6B27****************************E9C35A
@@ -137,7 +137,7 @@ Thumbprint: 4DBEB2****************************C5E7E6
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsCertificateValidation Completed
-````
+```
 
 ### Known issues
 
