@@ -1,5 +1,5 @@
 ---
-title: How to integrate Azure Active Directory logs with SumoLogic using Azure Monitor (preview)  | Microsoft Docs
+title: How to integrate Azure AD logs with SumoLogic using Azure Monitor (preview)  | Microsoft Docs
 description: Learn how to integrate Azure Active Directory logs with SumoLogic using Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
