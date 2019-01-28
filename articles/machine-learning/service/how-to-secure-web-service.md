@@ -78,6 +78,7 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
+<a name="fpga"></a>
 + **Deploy on Field Programmable Gate Arrays (FPGAs)**
 
   The response of the `create_service` operation contains the IP address of the service. The IP address is used when mapping the DNS name to the IP address of the service. The response also contains a __primary key__ and __secondary key__ that are used to consume the service. Provide values for SSL-related parameters as shown in the code snippet:
