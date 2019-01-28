@@ -28,9 +28,9 @@ To specify a circular geographic search area, pick a latitude and longitude to s
 
 Complete query:
 
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restaurant&localCircularView=47.6421,-122.13715,5000&appid=0123456789ABCDEF&mkt=en-us&form=monitr
-````
+```
 
 ## localMapView
 
@@ -40,9 +40,9 @@ To specify a rectangular search area, pick two sets of latitude/longitude coordi
 
 Complete query:
 
-````
+```
 https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search?q=restaurant&localMapView=47.619987,-122.181671,47.6421,-122.13715&appid=0123456789ABCDEF&mkt=en-us&form=monitr
-````
+```
 
 ## Next steps
 - [Local Business Search Java Quickstart](quickstarts/local-search-java-quickstart.md)

@@ -80,29 +80,29 @@ First, you'll need to install the latest version of the Azure AD PowerShell for 
 #### Prerequisite: Install the latest AzureADPreview module
 First, check which modules you have installed. Open Windows PowerShell as an elevated user (Run as administrator), and run the following command:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 If the AzureADPreview module displays with no message indicating there’s a later version, you’re set. Otherwise, based on the output, do one of the following:
 
 - If no results are returned, run the following command to install the AzureADPreview module:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - If only the AzureAD module shows up in the results, run the following commands to install the AzureADPreview module: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - If only the AzureADPreview module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 You might receive a prompt that you're installing the module from an untrusted repository. This occurs if you haven't previously set the PSGallery repository as a trusted repository. Press **Y** to install the module.
 
@@ -110,25 +110,25 @@ You might receive a prompt that you're installing the module from an untrusted r
 
 Next, check to see if a B2BManagementPolicy currently exists by running the following:
 
-````powershell 
+```powershell 
 $currentpolicy =  Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 $currentpolicy -ne $null
-````
+```
 - If the output is False, the policy doesn't currently exist. Create a new B2BManagementPolicy and opt in to the preview by running the following:
 
-   ````powershell 
+   ```powershell 
    $policyValue=@("{`"B2BManagementPolicy`":{`"PreviewPolicy`":{`"Features`":[`"OneTimePasscode`"]}}}")
    New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
-   ````
+   ```
 
 - If the output is True, the B2BManagementPolicy policy currently exists. To update the policy and opt in to the preview, run the following:
   
-   ````powershell 
+   ```powershell 
    $policy = $currentpolicy.Definition | ConvertFrom-Json
    $features=[PSCustomObject]@{'Features'=@('OneTimePasscode')}; $policy.B2BManagementPolicy | Add-Member 'PreviewPolicy' $features -Force; $policy.B2BManagementPolicy
    $updatedPolicy = $policy | ConvertTo-Json -Depth 3
    Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
-   ````
+   ```
 
 ## Opting out of the preview after opting in
 It may take a few minutes for the opt-out action to take effect. If you turn off the preview, any guest users who have redeemed a one-time passcode will not be able to sign in. You can delete the guest user and reinvite the user to enable them to sign in again using another authentication method.
@@ -143,17 +143,17 @@ It may take a few minutes for the opt-out action to take effect. If you turn off
 ### To turn off the preview using PowerShell
 Install the latest AzureADPreview module if you don’t have it already (see [Prerequisite: Install the latest AzureADPreview module](#prerequisite-install-the-latest-azureadpreview-module) above). Then, verify that the one-time passcode preview policy currently exists by running the following:
 
-````powershell 
+```powershell 
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 ($currentPolicy -ne $null) -and ($currentPolicy.Definition -like "*OneTimePasscode*")
-````
+```
 
 If the output is True, opt out of the preview by running the following:
 
-````powershell 
+```powershell 
 $policy = $currentpolicy.Definition | ConvertFrom-Json
 $policy.B2BManagementPolicy.PreviewPolicy.Features = $policy.B2BManagementPolicy.PreviewPolicy.Features.Where({$_ -ne "OneTimePasscode"})
 $updatedPolicy = $policy | ConvertTo-Json -Depth 3
 Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
-````
+```
 
