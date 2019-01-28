@@ -23,7 +23,7 @@ Is your application and cluster ready to take production traffic? Running and te
 
 
 ## Pre-requisites for production
-1. [Azure Service Fabric best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) are: 
+1. [Azure Service Fabric Security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) are: 
 I. Use X.509 certificates
 II. Configure security policies
 III. Configure SSL for Azure Service Fabric
