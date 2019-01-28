@@ -85,7 +85,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Copy the virtual device image on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
 
-2. Log in to the ESXi server using the vSphere web client. You need to have administrator privileges to create a virtual machine.
+2. Sign in to the ESXi server using the vSphere web client. You need to have administrator privileges to create a virtual machine.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
