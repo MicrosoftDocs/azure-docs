@@ -206,7 +206,7 @@ Customers may also consider using an [enhanced security administrative model](ht
 
 **Access Control Restrictions**: Use [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) to manage the resources in your application using [custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC can be used to restrict the operations that DevOps can perform on each tier. When granting permissions, use the [principle of least privilege](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Log all administrative operations and perform regular audits to ensure any configuration changes were planned.
 
-**Internet Access**: This reference architecture utilises [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) as the internet facing gateway and load balancer. Some customers may also consider using third party network virtual appliances for additional layers of networking security as an alternative to the [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Internet Access**: This reference architecture utilizes [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) as the internet facing gateway and load balancer. Some customers may also consider using third party network virtual appliances for additional layers of networking security as an alternative to the [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 
 **Azure Security Center**: The [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) provides a central view of the security status of resources in the subscription, and provides recommendations that help prevent compromised resources. It can also be used to enable more granular policies. For example, policies can be applied to specific resource groups, which allows the enterprise to tailor its posture to risk. It is recommended that customers enable Azure Security Center in their Azure Subscription.
 
@@ -224,7 +224,7 @@ Furthermore, the Cloud Security Alliance (CSA) published the Cloud Control Matri
 
 ## Deploy the Solution
 
-There are two methods that deployment users may use to deploy this blueprint automation. The first method uses a PowerShell script, whereas the second method utilises Azure portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-iaaswa-repo).
+There are two methods that deployment users may use to deploy this blueprint automation. The first method uses a PowerShell script, whereas the second method utilizes Azure portal to deploy the reference architecture. Detailed deployment instructions are available [here](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## Disclaimer
 
