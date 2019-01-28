@@ -71,7 +71,7 @@ The code snippet below performs the following initial steps:
 1. Add an extension to Azure CLI to use features for Data Lake Storage Gen2.
 1. Create a new Data Lake Storage Gen2 account `hdinsightadlsgen2`, by using the `--hierarchical-namespace true` flag.
 
-```cli
+```azurecli
 az login
 az account set --subscription <your_subscription_id>
 
@@ -90,11 +90,11 @@ Next, login to the portal and add the new MSI to the **Storage Blob Data Contrib
 
 After completing the MSI role assignment in the portal, proceed to deploy the template using the code snippet below.
 
-```cli
+```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment --resource-group hdinsight-deployment-rg --template-file hdinsight-adls-gen2-template.json --parameters parameters.json
 ```
 
-You can download a sample [template file here](media/hdinsight-hadoop-data-lake-storage-gen2/hdinsight-adls-gen2-template.json) and a [sample parameters file here](media/hdinsight-hadoop-data-lake-storage-gen2/parameters.json). Before using the template, you need to substitute the string `<SUBSCRIPTION_ID>` for your actual Azure subscription ID and the string `<PASSWORD>` for the login password that you will use to login to your cluster.
+You can download a sample [template file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and a [sample parameters file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, you need to substitute the string `<SUBSCRIPTION_ID>` for your actual Azure subscription ID and the string `<PASSWORD>` for the login password that you will use to login to your cluster.
 
 ## Access Control for Data Lake Storage Gen2 in HDInsight
 
