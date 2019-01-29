@@ -73,9 +73,11 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. When the **Create** tab appears, select **OK** to deploy Ansible.
 
-1. Select the **Notifications** icon at the top of the portal page to track the Ansible deployment. Once complete, select  **Go to resource group** 
+1. Select the **Notifications** icon at the top of the portal page to track the Ansible deployment. Once the deployment is complete, select  **Go to resource group**. 
 
     ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-complete.png)
+
+1. On the resource group page, get the IP address of your Ansible host and sign in to manage your Azure resources using Ansible.
 
 ## Next steps
 > [!div class="nextstepaction"] 
