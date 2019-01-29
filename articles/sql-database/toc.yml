@@ -78,8 +78,12 @@
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrate to a Managed Instance using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Secure your database
-    href: sql-database-security-tutorial.md
+  - name: Security in Azure SQL Database
+    items:
+    - name: Single database security
+      href: sql-database-security-tutorial.md
+    - name: Managed Instance security with Azure AD logins
+      href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
   - name: Set up Azure SQL Data Sync
@@ -122,7 +126,7 @@
     items:
     - name: Single database overview
       href: sql-database-single-index.yml
-    - name: Create and manage
+    - name: Management API reference
       href: sql-database-single-databases-manage.md
     - name: Logical servers
       items: 
@@ -132,8 +136,6 @@
           href: sql-database-resource-limits-logical-server.md
         - name: Connectivity architecture
           href: sql-database-connectivity-architecture.md 
-        - name: T-SQL differences
-          href: sql-database-transact-sql-information.md 
     - name: Elastic pools
       items:
       - name: Elastic pools
@@ -152,6 +154,8 @@
       href: sql-database-dtu-resource-limits-single-databases.md
     - name: Scale resources
       href: sql-database-single-database-scale.md
+    - name: T-SQL differences
+      href: sql-database-transact-sql-information.md 
   - name: Managed instances
     items:
     - name: Managed instances overview

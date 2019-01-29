@@ -5,7 +5,7 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh

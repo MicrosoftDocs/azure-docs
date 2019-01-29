@@ -1,6 +1,6 @@
 ---
 title: Delete Azure Service Fabric actors | Microsoft Docs
-description: Learn how to manually delete Service Fabric Reliable Actors and thier state.
+description: Learn how to manually delete Service Fabric Reliable Actors and their state.
 services: service-fabric
 documentationcenter: .net
 author: amanbha
