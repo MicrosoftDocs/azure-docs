@@ -10,13 +10,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 01/28/2019
 ms.author: lagayhar
 ---
 # Get started with Application Insights in a Java web project
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](../../azure-monitor/app/detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [automatically detect dependencies](../../azure-monitor/app/auto-collect-dependencies), [diagnose performance issues and exceptions](../../azure-monitor/app/detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
 
 ![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
 
