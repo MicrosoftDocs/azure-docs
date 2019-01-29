@@ -8,7 +8,7 @@
   expanded: true
   items:
     - name: Deploy Ansible to CentOS
-      href: ./ansible-install-solution-template.md
+      href: ./ansible-deploy-solution-template.md
     - name: Deploy Ansible to Linux
       href: /azure/virtual-machines/linux/ansible-install-configure
       maintainContext: true
