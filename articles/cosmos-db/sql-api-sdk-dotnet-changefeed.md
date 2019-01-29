@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/28/2019
+ms.date: 01/29/2019
 ms.author: maquaran
 
 ---
@@ -158,7 +158,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [2.2.6](#2.2.6) |January 28, 2019 |--- |
+| [2.2.6](#2.2.6) |January 29, 2019 |--- |
 | [2.2.5](#2.2.5) |December 13, 2018 |--- |
 | [2.2.4](#2.2.4) |November 29, 2018 |--- |
 | [2.2.3](#2.2.3) |November 19, 2018 |--- |
