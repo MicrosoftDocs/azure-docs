@@ -40,7 +40,7 @@ To show all supported Python versions, run the following command in the [Cloud S
 az webapp list-runtimes --linux | grep PYTHON
 ```
 
-You can run an unsupported version of Python by build your own container image instead. For more information, see [use a custom Docker image](container/tutorial-custom-docker-image.md).
+You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](container/tutorial-custom-docker-image.md).
 
 ## Set Python version
 
@@ -126,7 +126,7 @@ To provide a custom command, do the following steps:
 
 1. Navigate to the [Application settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) page on the Azure portal.
 1. In the **Runtime** settings, set the **Stack** option to **Python 3.7**, and enter the command directly in the **Startup File** field.
-Alternately, your can save the command in a text file in the root of your project, using a name like *startup.txt* (or any name you want). Then deploy that file to App Service, and specify the filename in the **Startup File** field instead. This option allows you to manage the command within your source code repository rather than through the Azure portal.
+Alternately, you can save the command in a text file in the root of your project, using a name like *startup.txt* (or any name you want). Then deploy that file to App Service, and specify the filename in the **Startup File** field instead. This option allows you to manage the command within your source code repository rather than through the Azure portal.
 1. Select **Save**. The App Service restarts automatically, and after a few seconds you should see the custom startup command applied.
 
 > [!Note]
@@ -153,7 +153,7 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 ## Troubleshooting
 
-- **You see the default app after deploying your own app code.** The default app appears because you either haven't actually deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
+- **You see the default app after deploying your own app code.** The default app appears because you either haven't deployed your app code to App Service, or App Service failed to find your app code and ran the default app instead.
 - Restart the App Service, wait 15-20 seconds, and check the app again.
 - Be sure you're using App Service for Linux rather than a Windows-based instance. From the Azure CLI, run the command `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, replacing `<resource_group_name>` and `<app_service_name>` accordingly. You should see `app,linux` as output; otherwise, recreate the App Service and choose Linux.
 - Use SSH or the Kudu console to connect directly to the App Service and verify that your files exist under *site/wwwroot*. If your files don't exist, review your deployment process and redeploy the app.
