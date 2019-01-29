@@ -23,44 +23,39 @@ Enabling distributed tracing for IoT Hub, gives you the ability to:
 - Measure and understand message flow and latency from devices to IoT Hub and routing endpoints.
 - Start considering how you will implement distributed tracing for the non-Azure services in your IoT solution
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
-
-## **Welcome to the bug bash**
-
-We're using the this staged public doc for bug bash as well. Bug bash specific instructions in this document are prefixed with a bolded **bug bash**. 
-
-If finding any issue during bug bush, please file a bug through [this link](https://dev.azure.com/mseng/VSIoT/_workitems/create/Bug?templateId=d0dfad4a-b90c-4aac-84c4-320acac2381c&ownerId=84f94468-cd47-4af7-887b-bf55a28e67ab). Please send email to xinyiz@microsoft.com to apply permission if you don't have permission to create a bug. Any feedback is welcome, including feedback relating to this document.
-
-For any questions related the bug bash, please use the team channel [Distributed Tracing Public Preview Bug Bash](https://teams.microsoft.com/l/channel/19%3a74fccb4d41904bdf84a9fe2ef81280b9%40thread.skype/Distributed%2520Tracing%2520Public%2520Preview%2520Bug%2520Bash?groupId=dcc1ac84-f476-4c96-8034-b2d77e54c8bf&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) to communicate with us.
-
 ## Prerequisites
 
-- [An IoT Hub](iot-hub-create-through-portal.md)
-	- **Bug bash**: create IoT Hub under subscription [DEVICEHUB_DEV1](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/resource/subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/overview) in the **Central US EUAP region**, then create one IoT device (not edge). If you don't have access already, post in the [teams channel](https://teams.microsoft.com/l/channel/19%3a74fccb4d41904bdf84a9fe2ef81280b9%40thread.skype/Distributed%2520Tracing%2520Public%2520Preview%2520Bug%2520Bash?groupId=dcc1ac84-f476-4c96-8034-b2d77e54c8bf&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) or directly message me (jlian) and I can add you as a Contributor.
-	- Please remember to delete the IoT Hub later
-- You have a basic idea on [how to send device-to-cloud telemetry messages to IoT Hub](quickstart-send-telemetry-c.md)
+- This How-To article assumes that you have already created an IoT hub, and that you are familiar with sending telemetry messages to your IoT hub. Make sure you have completed one of the [5-minute Quickstarts](https://docs.microsoft.com/azure/iot-hub/) for your preferred development environment.
 
 ## Configure IoT Hub
 
-To config IoT Hub to start logging message correlation IDs and timestamps, turn on the **DistributedTracing** category in IoT Hub's diagnostic settings.
+In this section, you configure an IoT Hub to include distributed tracing attributes (correlation IDs and timestamps).
 
-1. Navigate to your IoT hub in Azure portal.
+1. Navigate to your IoT hub in the Azure portal.
 
-1. Look for **Diagnostics settings** under **Monitoring**, then select it.
+1. In the left pane for your IoT hub, scroll down to the **Monitoring** section and click **Diagnostics settings**.
 
-1. Either **Turn on diagnostics** or, if a diagnostic setting already exists, **Add diagnostic setting**.
+1. If diagnostic settings are not already turned on, click **Turn on diagnostics**. If you have already enabled diagnostic settings, click **Add diagnostic setting**.
 
-1. Look for **DistributedTracing**, and check the box next to it.
+1. In the **Name** field, enter a name for a new diagnostic setting. For example, **DistributedTracingSettings**.
 
-	![Screenshot showing where the DistributedTracing category is for IoT diagnostic settings](./media/iot-hub-distributed-tracing/diag-settings.png)
+1. Choose one or more of the following options that determine where the logging will be sent:
 
-1. Choose where you want to send the logs (Storage, Event Hub, and Log Analytics). **Bug bash**: choose Storage or Log Analytics for querying later, and Event Hub for App Map option.
+    - **Archive to a storage account**: Configure a storage account to contain the logging information.
+    - **Stream to an event hub**: Configure an event hub to contain the logging information.
+    - **Send to Log Analytics**: Configure a log analytics workspace to contain the logging information.
 
-1. **Save** the new settings.
+1. In the **Log** section, select the operations that you want logging information for.
+
+    Make sure to include **DistributedTracing**, and configure a **Retention** for how many days you want the logging retained.
+
+    ![Screenshot showing where the DistributedTracing category is for IoT diagnostic settings](./media/iot-hub-distributed-tracing/diag-settings.png)
+
+1. Click **Save** for the new setting.
 
 1. (Optional) To see the messages flow to different places, set up [routing rules to at least two different end points](iot-hub-devguide-messages-d2c.md).
 
-Once turned on, IoT Hub records logs when messages containing valid trace properties arrive at the gateway, is ingressed by IoT Hub, and (if enabled) routed to endpoints. To learn more about logs and their schemas, see [Azure IoT Hub diagnostic logs](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+Once the logging is turned on, IoT Hub records logs when messages containing valid trace properties arrive at the gateway, enter the IoT Hub, and (if enabled) are routed to endpoints. To learn more about logs and their schemas, see [Azure IoT Hub diagnostic logs](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
 ## Set up device
 
