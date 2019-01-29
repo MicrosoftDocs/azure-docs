@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 # Configure your Python app for Azure App Service
 This article describes how [Azure App Service](app-service-linux-intro.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps needs to be deployed with all the required [pip](https://pypi.org/project/pip/) modules. 
-The App Service deployment engine (Kudu) automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or a [Zip package](deploy-zip.md) with build processes switched on.
+The App Service deployment engine (Kudu) automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](../deploy-local-git.md), or a [Zip package](../deploy-zip.md) with build processes switched on.
 
 > [!NOTE]
 > [Python on the Windows flavor of App Service](https://docs.microsoft.com/visualstudio/python/managing-python-on-azure-app-service) is deprecated and is not recommended for use.
@@ -40,7 +40,7 @@ To show all supported Python versions, run the following command in the [Cloud S
 az webapp list-runtimes --linux | grep PYTHON
 ```
 
-You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](container/tutorial-custom-docker-image.md).
+You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-docker-image.md).
 
 ## Set Python version
 
@@ -134,7 +134,7 @@ Alternately, you can save the command in a text file in the root of your project
 
 ## Access environment variables
 
-In App Service, you can set app settings outside of your app code (see [Set environment variables](web-sites-configure.md)). Then you can access them using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
+In App Service, you can set app settings outside of your app code (see [Set environment variables](../web-sites-configure.md)). Then you can access them using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern. For example, to access an app setting called `WEBSITE_SITE_NAME`, use the following code:
 
 ```python
 os.environ['WEBSITE_SITE_NAME']
