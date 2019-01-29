@@ -61,7 +61,7 @@ PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscripti
 CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
 CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
 
-SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+SUBSCRIPTION_ID=`echo $SUBSCRIPTION_ID | base64`
 
 NODE_RESOURCE_GROUP=`az aks show --name $cluster_name  --resource-group $resource_group -o tsv --query 'nodeResourceGroup' | base64`
 
