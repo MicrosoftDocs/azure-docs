@@ -82,7 +82,7 @@ parameter manually. If the policy definition doesn't include a **mode** value, i
 in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support
 backwards compatibility.
 
-`indexed` should be used when creating policies that enforce tags or locations. While note
+`indexed` should be used when creating policies that enforce tags or locations. While not
 required, it prevents resources that don't support tags and locations from showing up as
 non-compliant in the compliance results. The exception is **resource groups**. Policies that
 enforce location or tags on a resource group should set **mode** to `all` and specifically target
