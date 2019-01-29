@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Site Recovery access with role-based access control (RBAC) | Microsoft Docs
-description: This article describes how to apply role-based access bontrol (RBAC) to manage Azure Site Recovery access.
+description: This article describes how to apply role-based access control (RBAC) to manage Azure Site Recovery access.
 ms.service: site-recovery
 ms.date: 11/27/2018
 author: mayurigupta13

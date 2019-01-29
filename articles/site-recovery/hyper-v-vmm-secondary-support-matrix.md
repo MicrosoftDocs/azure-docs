@@ -57,7 +57,7 @@ Host - IPv6 | No
 Guest VM - NIC teaming | No
 Guest VM - IPv4 | Yes
 Guest VM - IPv6 | No
-Gues VM - Windows/Linux - Static IP address | Yes
+Guest VM - Windows/Linux - Static IP address | Yes
 Guest VM - Multi-NIC | Yes
 
 

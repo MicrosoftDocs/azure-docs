@@ -37,7 +37,7 @@ First, you need a list of the VMs to be profiled. You can get all the names of V
 
 			Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. You may optionly need to run the following command if Connect-VIServer is not recognized as the name of cmdlet.
+4. You may optionally need to run the following command if Connect-VIServer is not recognized as the name of cmdlet.
 
 			Add-PSSnapin VMware.VimAutomation.Core
 
