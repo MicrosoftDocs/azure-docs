@@ -1,5 +1,5 @@
 ---
-title: Secure your Azure Key Vault - Azure Key Vault | Microsoft Docs
+title: Secure your Azure key vault - Azure Key Vault | Microsoft Docs
 description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
 services: key-vault
 documentationcenter: ''
@@ -23,15 +23,13 @@ Azure Key Vault is a cloud service that safeguards encryption keys and secrets (
 
 ## Overview
 
-Access to a key vault is controlled through two separate interfaces: the *management plane* and the *data plane*. 
-- The **management plane** deals with managing a vault, such as creating a vault, updating a vault, and deleting a vault. 
-- The **data plane** deals with secrets inside a vault. This plane deals with creating, updating, and deleting a secret, and reading a secret inside a vault. 
+Access to a key vault is controlled through two separate interfaces: 
+- The *management plane* deals with managing a vault: creating, updating, and deleting a vault. 
+- The *data plane* deals with secrets inside a vault: creating, updating, deleting, and reading secrets. 
 
 For both planes, a caller (a user or an application) must have proper authentication and authorization to access a key vault. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute.
 
-Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses role-based access control (RBAC), while the data plane uses Key Vault access policy.
-
-The next section explains how a caller authenticates with Azure AD to access a key vault via the management plane and data plane.
+Both planes use Azure Active Directory (Azure AD) for authentication. For authorization, the management plane uses role-based access control (RBAC), while the data plane uses a Key Vault access policy.
 
 ## Authenticate by using Azure Active Directory
 
@@ -46,7 +44,7 @@ When you create a key vault in an Azure subscription, it's automatically associa
 
 In both types of applications, the application authenticates with Azure AD by using any [supported authentication method](../active-directory/develop/authentication-scenarios.md) and acquires a token. The authentication method used depends on the application type. Then the application uses this token and sends a REST API request to Key Vault. Management plane requests are routed through an Azure Resource Manager endpoint. When accessing the data plane, the application talks directly to a Key Vault endpoint. For more information, see the [whole authentication flow](../active-directory/develop/v1-protocols-oauth-code.md). 
 
-The resource name for which the application requests a token depends on which plane the application is accessing. The resource name is either a management plane endpoint, or a data plane endpoint, depending on the Azure environment. For more information, see the table later in this article.
+The resource name for which the application requests a token depends on which plane the application is accessing. The resource name is either a management plane endpoint or a data plane endpoint, depending on the Azure environment. For more information, see the table later in this article.
 
 Having one single mechanism for authentication to both planes has some benefits:
 
@@ -58,7 +56,7 @@ Having one single mechanism for authentication to both planes has some benefits:
 
 Use the management plane to manage Key Vault itself. These operations include managing attributes and setting data plane access policies. Use the data plane to add, delete, modify, and use the keys, secrets, and certificates stored in Key Vault.
 
-Access the management plane and data plane interfaces through the different endpoints listed in the following table. The second column of the table describes the DNS names for these endpoints in different Azure environments. The third column describes the operations you can do from each access plane. Each access plane also has its own access control mechanism. Management plane access control is set by using Azure Resource Manager role-based access control (RBAC). Data plane access control is set by using Key Vault access policy.
+Access the management plane and data plane interfaces through the different endpoints listed in the following table. The second column of the table describes the DNS names for these endpoints in different Azure environments. The third column describes the operations you can do from each access plane. Each access plane also has its own access control mechanism. Management plane access control is set by using Azure Resource Manager role-based access control (RBAC). Data plane access control is set by using a Key Vault access policy.
 
 | Access plane | Access endpoints | Operations | Access control mechanism |
 | --- | --- | --- | --- |
@@ -91,7 +89,7 @@ You can grant access to users, groups, and applications at a specific scope by a
 There are several predefined roles (see [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md)). If a predefined role doesn't fit your needs, you can define your own role.
 
 > [!IMPORTANT]
-> Note that if a user has Contributor permissions to a Key Vault management plane, she can grant herself access to the data plane by setting Key Vault access policy. Therefore, you should tightly control who has Contributor access to your key vaults. Ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
+> If a user has Contributor permissions to a Key Vault management plane, she can grant herself access to the data plane by setting a Key Vault access policy. You should tightly control who has Contributor access to your key vaults. Ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
 >
 
 ## Data plane access control
@@ -115,8 +113,8 @@ Let's say you're developing an application that uses a certificate for SSL, Azur
 
 Here's a summary of the types of keys and secrets stored:
 
-* **SSL Cert**: Used for SSL.
-* **Storage Key**: Used to get access to the Storage account.
+* **SSL cert**: Used for SSL.
+* **Storage key**: Used to get access to the Storage account.
 * **RSA 2048-bit key**: Used for sign operations.
 * **Bootstrap certificate**: Used to authenticate with Azure AD. After access is granted, you can fetch the storage key and use the RSA key for signing.
 
@@ -126,9 +124,9 @@ Now let's meet the people who are managing, deploying, and auditing this applica
 * **Developers/operators**: The staff who develop the application and then deploy it in Azure. Typically, these staff members aren't part of the security team, so they shouldn't have access to sensitive data, such as SSL certificates and RSA keys. Only the application they deploy should have access to those objects.
 * **Auditors**: Usually a different set of people who are isolated from developers and general IT staff. Their responsibility is to review use and maintenance of certificates, keys, and secrets to ensure compliance with security standards. 
 
-There's one more role that's outside the scope of this application, but relevant here to be mentioned. That role is the subscription (or resource group) administrator. The subscription administrator sets up initial access permissions for the security team. The subscription administrator grants access to the security team, using a resource group that contains the resources required by this application.
+There's one more role that's outside the scope of this application, but relevant here to be mentioned. That role is the subscription (or resource group) administrator. The subscription administrator sets up initial access permissions for the security team. The subscription administrator grants access to the security team, by using a resource group that contains the resources required by this application.
 
-Now let's look at the actions of each role in the context of this application.
+Now let's look at the actions of each role in the context of this application:
 
 * **Security team**
   * Creates key vaults.
@@ -170,7 +168,7 @@ The following PowerShell snippets assume:
 
 * The Azure AD administrator has created security groups that represent the three roles (the Contoso Security Team, Contoso App DevOps, and Contoso App Auditors). The administrator has also added users to the groups to which they belong.
 * **ContosoAppRG** is the resource group where all the resources are located. **contosologstorage** is where the logs are stored. 
-* The key vault **ContosoKeyVault**, and the storage account used for Key Vault logs **contosologstorage**, must be in the same Azure location.
+* The key vault **ContosoKeyVault**, and the storage account used for Key Vault logs in **contosologstorage**, must be in the same Azure location.
 
 First the subscription administrator assigns `key vault Contributor` and `User Access Administrator` roles to the security team. These roles allow the security team to manage access to other resources, and manage key vaults, in the resource group ContosoAppRG.
 
@@ -224,7 +222,7 @@ We highly recommend that you further secure access to your key vault by [configu
 
 * [Azure Active Directory role-based access control](../role-based-access-control/role-assignments-portal.md)
   
-* [RBAC: Built in Roles](../role-based-access-control/built-in-roles.md)
+* [RBAC: Built-in roles](../role-based-access-control/built-in-roles.md)
   
 * [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md)
   
