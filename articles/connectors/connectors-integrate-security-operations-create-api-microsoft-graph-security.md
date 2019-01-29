@@ -16,10 +16,10 @@ tags: connectors
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
 [Microsoft Graph Security](https://docs.microsoft.com/graph/security-concept-overview) 
-connector, you can create automated tasks and workflows that 
-improve your app's threat protection, detection, and response 
-capabilities by connecting and integrating Microsoft security 
-products, services, and partners. For example, you can create 
+connector, you can improve your app's threat protection, detection, 
+and response capabilities by creating automated tasks and workflows 
+that connect and integrate Microsoft security products, services, 
+and partners. For example, you can create 
 [Azure Security Center playbooks](../security-center/security-center-playbooks.md) 
 that monitor and manage Microsoft Graph Security entities, such as alerts. 
 Here are some other scenarios supported by the Microsoft Graph Security connector:
@@ -30,9 +30,9 @@ you can get a list that includes high severity alerts.
 assignments, add comments to alerts, or tag alerts.
 * Monitor when alerts are created or changed by creating 
 [webhook subscriptions](https://docs.microsoft.com/graph/api/resources/webhooks).
-* Manage your subscriptions. For example, you can get a list 
-that shows active webhook subscriptions, extend the expiration 
-time for a webhook subscription, or delete subscriptions.
+* Manage your (webhook) subscriptions. For example, 
+you can get active subscriptions, extend the expiration 
+time for a subscription, or delete subscriptions.
 
 Your logic app's workflow can use actions that get responses 
 from the Microsoft Graph Security connector and make that output 
@@ -55,7 +55,7 @@ or [What is PowerApps?](https://powerapps.microsoft.com/)
 * An Azure subscription. If you don't have an Azure subscription, 
 [sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
-* To use the Microsoft Graph Security connector, you need explicitly-given 
+* To use the Microsoft Graph Security connector, you must have *explicitly given* 
 Azure Active Directory (AD) tenant administrator consent, which is part of the 
 [Microsoft Graph Security Authentication requirements](https://aka.ms/graphsecurityauth). 
 This consent requires the Microsoft Graph Security connector's application ID and name, 
