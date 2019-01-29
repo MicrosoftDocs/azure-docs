@@ -229,9 +229,9 @@ There are two parts to this scenario:
 
 With the release of Azure Stack PowerShell 1.3.0 you can now add Virtual Machine Extensions. For example:
 
-````PowerShell
+```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
-````
+```
 
 ## Next steps
 

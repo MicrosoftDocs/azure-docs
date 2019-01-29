@@ -109,6 +109,8 @@
       href: ../common/storage-forced-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Monitor
     items:
+    - name: Monitor Azure File Sync
+      href: storage-sync-files-monitoring.md
     - name: Metrics and logging
       items:
       - name: Migrate to new metrics

@@ -6,7 +6,7 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: tulasim
