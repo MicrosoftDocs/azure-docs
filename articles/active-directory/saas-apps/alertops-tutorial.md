@@ -134,7 +134,7 @@ To configure Azure AD single sign-on with AlertOps, perform the following steps:
 
 1. In a different browser window, sign-on to your AlertOps company site as administrator.
 
-2. Clcik on the **Account settings** from the left navigation panel.
+2. Click on the **Account settings** from the left navigation panel.
 
     ![AlertOps configuration](./media/alertops-tutorial/configure1.png)
 
@@ -211,7 +211,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In a different browser window, sign-on to your AlertOps company site as administrator.
 
-2. Clcik on the **Users** from the left navigation panel.
+2. Click on the **Users** from the left navigation panel.
 
     ![AlertOps configuration](./media/alertops-tutorial/user1.png)
 
@@ -219,7 +219,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![AlertOps configuration](./media/alertops-tutorial/user2.png)
 
-4. On the **Add User** dailog, perform the following steps:
+4. On the **Add User** dialog, perform the following steps:
 
     ![AlertOps configuration](./media/alertops-tutorial/user3.png)
 
@@ -235,7 +235,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     f. Select the **Role** of the user from the dropdown as per your organization.
 
-    g. Selct **Add**.
+    g. Select **Add**.
 
 ### Test single sign-on
 
