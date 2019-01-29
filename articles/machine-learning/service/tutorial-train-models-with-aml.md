@@ -399,6 +399,8 @@ This still snapshot is the widget shown at the end of training:
 
 ![Notebook widget](./media/tutorial-train-models-with-aml/widget.png)
 
+If you need to cancel a run, you can follow [these instructions](https://aka.ms/aml-docs-cancel-run).
+
 ### Get log results upon completion
 
 Model training and monitoring happen in the background. Wait until the model has finished training before you run more code. Use `wait_for_completion` to show when the model training is finished: 
