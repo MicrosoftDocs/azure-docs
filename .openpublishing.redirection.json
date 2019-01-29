@@ -24199,8 +24199,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+      "source_path": "azure/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
       "redirect_url": "/azure/security-center/security-center-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "azure/security-center/security-center-alerts-type.md",
+      "redirect_url": "/azure/security-center/security-center-detection-capabilities",
       "redirect_document_id": false
     },
     {
