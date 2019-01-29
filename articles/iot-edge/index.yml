@@ -41,7 +41,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to install and configure IoT Edge, deploy modules, and utilize Azure services like Stream Analytics at the edge.
+    text: Learn how to install and configure IoT Edge, deploy modules, and utilize Azure services like Stream Analytics and Custom Vision at the edge.
   - type: list
     style: unordered
     items:
