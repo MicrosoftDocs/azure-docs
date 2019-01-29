@@ -9,7 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: curtand
@@ -115,7 +115,7 @@ Task | Least privileged role | Additional roles
 Disable device | Cloud device administrator | 
 Enable device | Cloud device administrator | 
 Read basic configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Read Bitlocker keys | Security Reader | Password administrator, Security administrator
+Read BitLocker keys | Security Reader | Password administrator, Security administrator
 
 ## Enterprise applications
 

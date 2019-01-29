@@ -77,7 +77,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 ```
     # In Linux
-    cmake -Denable_streaming=ON ..
+    cmake ..
     make -j
 ```
 
@@ -86,10 +86,10 @@ In Windows, run the following commands in Developer Command Prompt for your Visu
 ```
     # In Windows
     # For VS2015
-    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
+    cmake .. -G "Visual Studio 15 2015"
     
     # Or for VS2017
-    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
+    cmake .. -G "Visual Studio 15 2017
 
     # Then build the project
     cmake --build . -- /m /p:Configuration=Release
@@ -172,7 +172,7 @@ To run the device-side application, you need to perform the following steps:
 
 ### Run the service-side application
 
-As mentioned earlier, IoT Hub C SDK only supports device streams on the device side. For the service-side application, use the accompaying service programs available in [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md) guides.
+As mentioned earlier, IoT Hub C SDK only supports device streams on the device side. For the service-side application, use the accompanying service programs available in [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md) guides.
 
 
 ## Clean up resources
