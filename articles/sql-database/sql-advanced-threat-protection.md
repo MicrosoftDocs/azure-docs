@@ -37,7 +37,7 @@ The following steps get you started with ADS.
 
 Enable ADS by navigating to **Advanced Threat Protection** under the **Security** heading in your Azure SQL Database pane. To enable ADS for all databases on the server, click **Enable Advanced Threat Protection on the server**.
 
-![Enable ADS](./media/sql-advanced-protection/enable_ADS.png) 
+![Enable ADS](./media/sql-advanced-protection/enable_ATP.png) 
 
 > [!NOTE]
 > The cost of ADS is aligned with Azure Security Center standard tier pricing per node, where a node is the entire SQL Database server. You are thus paying only once for protecting all databases on the server with ADS. You can try ADS out initially with a free trial.
