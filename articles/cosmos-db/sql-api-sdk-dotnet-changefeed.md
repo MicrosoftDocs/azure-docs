@@ -39,7 +39,7 @@ ms.author: maquaran
 ### <a name="2.2.6"/>2.2.6
 * Improved handling of Observer exceptions.
 * Richer information on Observer errors:
- * When an Observer closes due to a user code error, CloseAsync will now receive a reason of ObserverError.
+ * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
  * Added traces to identify errors within user code in an Observer.
 
 ### <a name="2.2.5"/>2.2.5
