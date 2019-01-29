@@ -1,10 +1,10 @@
 ---
 title: Integrate security operations with Microsoft Graph Security - Azure Logic Apps
-description: Improve threat protection with Microsot Graph Security and Azure Logic Apps
+description: Streamline threat protection, detection, and response with Microsot Graph Security and Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: ecfan
+author: preetikr
 ms.author: preetikr
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
@@ -16,8 +16,8 @@ tags: connectors
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
 [Microsoft Graph Security](https://docs.microsoft.com/graph/security-concept-overview) 
-connector, you can improve your app's threat detection, protection, 
-and response capabilities by creating automated workflows that integrate 
+connector, you can improve and streamline how your app detects, protects, 
+and responds to threats by creating automated workflows for integrating 
 Microsoft security products, services, and partners. For example, you can create 
 [Azure Security Center playbooks](../security-center/security-center-playbooks.md) 
 that monitor and manage Microsoft Graph Security entities, such as alerts. 
@@ -28,8 +28,8 @@ you can get a list that includes high severity alerts.
 * Update alerts. For example, you can update alert 
 assignments, add comments to alerts, or tag alerts.
 * Monitor when alerts are created or changed by creating 
-[webhook subscriptions](https://docs.microsoft.com/graph/api/resources/webhooks).
-* Manage your (webhook) subscriptions. For example, 
+[alert subscriptions (webhooks)](https://docs.microsoft.com/graph/api/resources/webhooks).
+* Manage your alert subscriptions. For example, 
 you can get active subscriptions, extend the expiration 
 time for a subscription, or delete subscriptions.
 
@@ -77,9 +77,9 @@ which you can also find in the [Azure portal](https://portal.azure.com):
    
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* The logic app where you want to access your Microsoft Graph Security entities. 
-Currently, this connector has no triggers. So, to use a Microsoft Graph Security 
-action, start your logic app with a trigger, for example, the **Recurrence** trigger.
+* The logic app where you want to access your Microsoft Graph Security entities, 
+such as alerts. Currently, this connector has no triggers. So, to use a Microsoft Graph 
+Security action, start your logic app with a trigger, for example, the **Recurrence** trigger.
 
 ## Connect to Microsoft Graph Security 
 
@@ -109,12 +109,12 @@ From the actions list, select the action you want.
 1. Provide the necessary details for your selected 
 action and continue building your logic app's workflow.
 
-## Actions
+## Add actions
 
 Here are more specific details about using the various actions 
 available with the Microsoft Graph Security connector.
 
-### Alerts
+### Manage alerts
 
 To filter, sort, or get the most recent results, provide *only* the 
 [ODATA query parameters supported by Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Don't 
@@ -138,9 +138,9 @@ that the connector supports.
 | **Update alert** | Update a specific alert based on the alert ID. <p>To make sure you pass the required and editable properties in your request, see the [editable properties for alerts](https://docs.microsoft.com/graph/api/alert-update). For example, to assign an alert to a security analyst so they can investigate, you can update the alert's **Assigned to** property. |
 |||
 
-### Subscriptions
+### Manage alert subscriptions
 
-Microsoft Graph supports [*subscriptions*](https://docs.microsoft.com/en-us/graph/api/resources/subscription), 
+Microsoft Graph supports [*subscriptions*](https://docs.microsoft.com/graph/api/resources/subscription), 
 or [*webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). 
 To get, update, or delete subscriptions, provide the 
 [ODATA query parameters supported by Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) 
