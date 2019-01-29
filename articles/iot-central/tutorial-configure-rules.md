@@ -23,6 +23,8 @@ In this tutorial, you learn how to:
 > * Create a telemetry-based rule
 > * Add an action
 
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+
 ## Prerequisites
 
 Before you begin, you should complete the [Define a new device type in your application](tutorial-define-device-type.md) tutorial to create the **Connected Air Conditioner** device template to work with.
