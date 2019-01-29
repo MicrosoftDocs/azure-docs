@@ -62,8 +62,6 @@ In this section, you create an Azure Databricks service by using the Azure porta
     |**Location**     | Select **West US 2**.  For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).      |
     |**Pricing Tier**     |  Select **Standard**.     |
 
-    ![Create an Azure Databricks workspace](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Create an Azure Databricks service")
-
 1. Select **Pin to dashboard** and then select **Create**.
 
 1. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right. To monitor the operation status, view the progress bar at the top.
