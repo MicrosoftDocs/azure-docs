@@ -43,9 +43,11 @@ This container supports minimum and recommended values for the settings:
 
 |Setting| Minimum | Recommended |
 |-----------|---------|-------------|
-|Cores<BR>`--cpus`|1 core<BR>at least 2.6 gigahertz (GHz) or faster|1 core|
+|Cores<BR>`--cpus`|1 core|1 core|
 |Memory<BR>`--memory`|2 GB|4 GB|
 |Transactions per second<BR>(TPS)|20 TPS|40 TPS|
+
+Each core must be at least 2.6 gigahertz (GHz) or faster.
 
 The `--cpus` and `--memory` settings are used as part of the `docker run` command.
 
@@ -351,7 +353,7 @@ Unsupported app configurations|Details|
 
 In this article, you learned concepts and workflow for downloading, installing, and running Language Understanding (LUIS) containers. In summary:
 
-* Language Understanding (LUIS) provides one Linux containers for Docker providing endpoint query predictions of utterances.
+* Language Understanding (LUIS) provides one Linux container for Docker providing endpoint query predictions of utterances.
 * Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
 * You can use REST API to query the container endpoints by specifying the host URI of the container.

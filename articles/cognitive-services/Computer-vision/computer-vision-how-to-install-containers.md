@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -43,13 +43,15 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Recognize Text container.
+The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 |Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|
 
-Core and memory correspond to the `--cpus` and `--memory` settings which are used as part of the `docker run` command.
+Each core must be at least 2.6 gigahertz (GHz) or faster.
+
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 
 ## Get the container image with `docker pull`
@@ -100,7 +102,7 @@ ApiKey={BILLING_KEY}
 This command:
 
 * Runs a recognize container from the container image
-* Allocates one CPU cores and 4 gigabytes (GB) of memory
+* Allocates one CPU core and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
 
@@ -158,7 +160,7 @@ For more information about these options, see [Configure containers](./computer-
 
 In this article, you learned concepts and workflow for downloading, installing, and running Recognize Text containers. In summary:
 
-* Recognize Text provides a Linux containers for Docker, encapsulating recognize text.
+* Recognize Text provides a Linux container for Docker, encapsulating recognize text.
 * Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Recognize Text containers by specifying the host URI of the container.

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ---
 
@@ -41,13 +41,15 @@ You must meet the following prerequisites before using Face API containers:
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores, at least 2.6 gigahertz (GHz) or faster, and memory, in gigabytes (GB), to allocate for each Face API container.
+The following table describes the minimum and recommended CPU cores and memory to allocate for each Face API container.
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 |Face | 1 core, 2 GB memory | 1 core, 4 GB memory |
 
-Core and memory correspond to the `--cpus` and `--memory` settings which are used as part of the `docker run` command.
+Each core must be at least 2.6 gigahertz (GHz) or faster.
+
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
@@ -94,7 +96,7 @@ ApiKey={BILLING_KEY}
 This command:
 
 * Runs a face container from the container image
-* Allocates one CPU cores and 4 gigabytes (GB) of memory
+* Allocates one CPU core and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer. 
 
