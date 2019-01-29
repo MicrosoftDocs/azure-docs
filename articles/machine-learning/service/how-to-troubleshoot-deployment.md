@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to workaround, solve, and troubleshoot the common Docker deployment errors with AKS and ACI using  Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 author: chris-lauren
 ms.author:  clauren
