@@ -25,7 +25,7 @@ To determine if a resource can be moved, you must find its resource provider and
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+Get-AzResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
 ```
 
 For Azure CLI, use:
