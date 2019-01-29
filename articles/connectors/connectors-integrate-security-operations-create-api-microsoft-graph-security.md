@@ -134,7 +134,7 @@ that the connector supports.
 
 | Action | Description |
 |--------|-------------|
-| **Get alerts** | Get alerts filtered based on one or more [alert properties](https://docs.microsoft.com/graph/api/resources/alert), for example: <p>**Provider eq 'Azure Security Center' or 'Palo Alto Networks'** | 
+| **Get alerts** | Get alerts filtered based on one or more [alert properties](https://docs.microsoft.com/graph/api/resources/alert), for example: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
 | **Get alert by ID** | Get a specific alert based on the alert ID. | 
 | **Update alert** | Update a specific alert based on the alert ID. <p>To make sure you pass the required and editable properties in your request, see the [editable properties for alerts](https://docs.microsoft.com/graph/api/alert-update). For example, to assign an alert to a security analyst so they can investigate, you can update the alert's **Assigned to** property. |
 |||
