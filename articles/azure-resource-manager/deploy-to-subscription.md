@@ -18,7 +18,7 @@ ms.author: tomfitz
 
 Learn how to create Azure resource groups, and how to create Azure resources at the subscription level.  To deploy templates at the subscription level, you use Azure CLI and PowerShell. You can't use the Azure portal.
 
-To create a resource group in an Azure Resource Manager template, define a [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/2018-05-01/resourcegroups.md) resource with a name and location for the resource group. You can create a resource group and deploy resources to that resource group in the same template. The resources that you can deploy at the level include: [Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md).
+To create a resource group in an Azure Resource Manager template, define a [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions.md) resource with a name and location for the resource group. You can create a resource group and deploy resources to that resource group in the same template. The resources that you can deploy at the level include: [Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md).
 
 ## Deployment considerations
 
@@ -78,11 +78,11 @@ The following template creates an empty resource group.
 }
 ```
 
-The template schema can be found at [here](/azure/templates/microsoft.resources/allversions.md).
+The template schema can be found at [here](/azure/templates/microsoft.resources/allversions.md). Similar templates can be found at [github](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 
 To deploy this template with Azure CLI, use:
 
-```azurecli-interactive
+```azurecli
 az deployment create \
   -n demoEmptyRG \
   -l southcentralus \
@@ -92,7 +92,7 @@ az deployment create \
 
 To deploy this template with PowerShell, use:
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzDeployment `
   -Name demoEmptyRG `
   -Location southcentralus `
@@ -101,7 +101,7 @@ New-AzDeployment `
   -rgLocation northcentralus
 ```
 
-## Create several resource groups
+## Create multiple resource groups
 
 Use the [copy element](resource-group-create-multiple.md) with resource groups to create more than one resource group. 
 
@@ -138,6 +138,8 @@ Use the [copy element](resource-group-create-multiple.md) with resource groups t
 }
 ```
 
+For information about resource iteration, see [Deploy more than one instance of a resource or property in Azure Resource Manager Templates](./resource-group-create-multiple.md), and [Tutorial: Create multiple resource instances with Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
+
 To deploy this template with Azure CLI and create three resource groups, use:
 
 ```azurecli-interactive
@@ -160,7 +162,7 @@ New-AzDeployment `
   -instanceCount 3
 ```
 
-## Create resource group and deploy resource
+## Create resource group and deploy resources
 
 To create the resource group and deploy resources to it, use a nested template. The nested template defines the resources to deploy to the resource group. Set the nested template as dependent on the resource group to make sure the resource group exists before deploying the resources.
 
@@ -251,7 +253,9 @@ New-AzDeployment `
   -storagePrefix storage
 ```
 
-## Assign policy
+## Create policy resources
+
+### Assign policy
 
 The following example assigns an existing policy definition to the subscription. If the policy takes parameters, provide them as an object. If the policy doesn't take parameters, use the default empty object.
 
@@ -343,7 +347,7 @@ New-AzDeployment `
   -policyParameters $policyParams
 ```
 
-## Define and assign policy
+### Define and assign policy
 
 You can [define](../azure-policy/policy-definition.md) and assign a policy in the same template.
 
@@ -406,7 +410,9 @@ New-AzDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## Assign role at subscription
+## Create role resources
+
+### Assign role at subscription
 
 The following example assigns a role to a user or group for the subscription. In this example, you don't specify a scope for the assignment because the scope is automatically set to the subscription.
 
@@ -468,7 +474,7 @@ New-AzDeployment `
   -principalId $adgroup.Id
 ```
 
-## Assign role at scope
+### Assign role at scope
 
 The following subscription-level template assigns a role to a user or group that is scoped to a resource group within the subscription. The scope must be at or below the level of deployment. You can deploy to a subscription and specify a role assignment scoped to a resource group within that subscription. However, you can't deploy to a resource group and specify a role assignment scope to the subscription.
 
@@ -557,6 +563,7 @@ New-AzDeployment `
 ```
 
 ## Next steps
+
 * For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
 * For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
