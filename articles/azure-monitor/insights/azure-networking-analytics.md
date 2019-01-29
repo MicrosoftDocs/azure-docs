@@ -17,6 +17,8 @@ ms.author: richrund
 
 # Azure networking monitoring solutions in Log Analytics
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Log Analytics offers the following solutions for monitoring your networks:
 * Network Performance Monitor (NPM) to
     * Monitor the health of your network

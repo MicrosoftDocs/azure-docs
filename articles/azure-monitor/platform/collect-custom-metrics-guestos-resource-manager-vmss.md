@@ -11,6 +11,8 @@ ms.subservice: metrics
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 By using the Azure Monitor [Windows Azure Diagnostics (WAD) extension](diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
 
 This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. Starting with Windows Azure Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. By storing them in this location, you can access the same actions that are available for platform metrics. Actions include near real-time alerting, charting, routing, access from the REST API, and more. In the past, the Windows Azure Diagnostics extension wrote to Azure Storage but not the Azure Monitor data store.  
@@ -21,7 +23,7 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
-- You need to have [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- You need to have [Azure PowerShell](/powershell/azure) installed, or you can use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## Set up Azure Monitor as a data sink 

@@ -25,6 +25,8 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
 - Perform operational troubleshooting by using [log searches](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
 
@@ -364,7 +366,7 @@ At line:12 char:18
 + ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : CloseError: (:) [Set-AzContext], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzureRMContextCommand
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzContextCommand
 
 ```
 

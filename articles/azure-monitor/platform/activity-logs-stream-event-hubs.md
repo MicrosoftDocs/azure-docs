@@ -52,6 +52,9 @@ To update the Activity Log log profile to include streaming, the user who's maki
 6. If you have several subscriptions, repeat this action and send all the data to the same event hub.
 
 ### Via PowerShell cmdlets
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 If a log profile already exists, you first need to remove the existing log profile and then create a new log profile.
 
 1. Use `Get-AzLogProfile` to identify if a log profile exists.  If a log profile does exist, locate the *name* property.

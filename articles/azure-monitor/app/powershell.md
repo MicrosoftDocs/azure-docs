@@ -14,6 +14,9 @@ ms.date: 04/02/2017
 ms.author: mbullwin
 ---
 #  Create Application Insights resources using PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This article shows you how to automate the creation and update of [Application Insights](../../azure-monitor/app/app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md), set up [alerts](../../azure-monitor/app/alerts.md), set the [pricing scheme](pricing.md), and create other Azure resources.
 
 The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md). In a nutshell, the procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.

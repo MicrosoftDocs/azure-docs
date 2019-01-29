@@ -18,6 +18,8 @@ ms.subservice: ""
 > - [Analyze data usage in Log Analytics](../../azure-monitor/platform/data-usage.md) describes how to analyze and alert on your data usage.
 > - [Manage pricing and data volume in Application Insights](../../azure-monitor/app/pricing.md) describes how to analyze data usage in Application Insights.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 In the Monitor hub of the Azure portal, the **Usage and estimated costs** page explains the usage of core monitoring features such as [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/), and [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). For customers on the pricing plans available before April 2018, this also includes Log Analytics usage purchased through the Insights and Analytics offer.
 
 On this page, users can view their resource usage for the past 31 days, aggregated per subscription. Drill-ins show usage trends over the 31-day period. A lot of data needs to come together for this estimate, so please be patient as the page loads.
@@ -106,7 +108,7 @@ To move a subscription to the new pricing model, just select the box and then se
 
 ## Automate moving to the new pricing model
 
-The scripts below require the Azure PowerShell Module. To check if you have the latest version see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-6.1.0).
+The scripts below require the Azure PowerShell Module. To check if you have the latest version see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 Once you have the latest version of Azure PowerShell, you would first need to run ``Connect-AzAccount``.
 

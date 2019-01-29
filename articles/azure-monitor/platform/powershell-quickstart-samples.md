@@ -14,8 +14,8 @@ This article shows you sample PowerShell commands to help you access Azure Monit
 
 > [!NOTE]
 > Azure Monitor is the new name for what was called "Azure Insights" until Sept 25th, 2016. However, the namespaces and thus the following commands still contain the word "insights."
-> 
-> 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Set up PowerShell
 If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/overview).

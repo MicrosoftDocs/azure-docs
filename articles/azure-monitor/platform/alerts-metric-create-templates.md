@@ -11,6 +11,8 @@ ms.subservice: alerts
 ---
 # Create a metric alert with a Resource Manager template
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) to configure [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) in Azure Monitor. Resource Manager templates enable you to programmatically set up alerts in a consistent and reproducible way across your environments. Newer metric alerts are currently available on [this set of resource types](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]

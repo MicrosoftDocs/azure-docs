@@ -41,6 +41,8 @@ To archive the Activity Log using any of the methods below, you set the **Log Pr
 
 ## Archive the Activity Log via PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"

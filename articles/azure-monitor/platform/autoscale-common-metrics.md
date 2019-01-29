@@ -10,6 +10,9 @@ ms.author: ancav
 ms.subservice: autoscale
 ---
 # Azure Monitor autoscaling common metrics
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure Monitor autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). This document describes common metrics that you might want to use. In the Azure portal, you can choose the metric of the resource to scale by. However, you can also choose any metric from a different resource to scale by.
 
 Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Other Azure services use different scaling methods.

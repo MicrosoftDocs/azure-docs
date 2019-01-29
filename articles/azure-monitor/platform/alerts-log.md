@@ -222,6 +222,8 @@ The sample json above can be saved as (say) sampleScheduledQueryRule.json for th
 
 ## Managing log alerts using PowerShell, CLI, or API
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) is a REST API and fully compatible with Azure Resource Manager REST API. Hence it can be used via Powershell using Resource Manager cmdlet as well as Azure CLI.
 
 > [!NOTE]
@@ -229,6 +231,7 @@ Azure Monitor - Scheduled Query Rules API](https://docs.microsoft.com/rest/api/m
 
 
 Log alerts do not have dedicated PowerShell or CLI commands currently; but as illustrated below can be used via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
+
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```

@@ -141,6 +141,8 @@ To use Azure SQL Analytics, users need to be granted a minimum permission of the
 
 ### Creating a custom role in portal
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Recognizing that some organizations enforce strict permission controls in Azure, find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum read and write permissions required to use Azure SQL Analytics to its fullest extent.
 
 Replace the “{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script logged in as an Owner or Contributor role in Azure.

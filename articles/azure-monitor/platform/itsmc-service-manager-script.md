@@ -17,6 +17,8 @@ ms.author: v-jysur
 
 # Create Service Manager Web app using the automated script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Use the following script to create the Web app for your Service Manager instance. More information about Service Manager connection is here: [Service Manager Web app](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Run the script by providing the following required details:

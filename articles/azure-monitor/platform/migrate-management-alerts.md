@@ -11,11 +11,10 @@ ms.subservice: alerts
 ---
 # Migrate Azure alerts on management events to Activity Log alerts
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
 > Alerts on management events will be turned off on or after October 1. Use the directions below to understand if you have these alerts and migrate them if so.
->
-> 
 
 ## What is changing
 

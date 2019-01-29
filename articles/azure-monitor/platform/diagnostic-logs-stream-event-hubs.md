@@ -77,6 +77,8 @@ After a few moments, the new setting appears in your list of settings for this r
 
 ### Via PowerShell Cmdlets
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 To enable streaming via the [Azure PowerShell Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), you can use the `Set-AzDiagnosticSetting` cmdlet with these parameters:
 
 ```powershell

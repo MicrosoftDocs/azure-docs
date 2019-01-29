@@ -19,6 +19,8 @@ ms.author: richrund
 
 ![Key Vault symbol](media/azure-key-vault/key-vault-analytics-symbol.png)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs.
 
 To use the solution, you need to enable logging of Azure Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.

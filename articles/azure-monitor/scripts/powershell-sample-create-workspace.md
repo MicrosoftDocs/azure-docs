@@ -27,6 +27,8 @@ This script gets you up and running quickly with an Azure Log Analytics workspac
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/log-analytics/log-analytics-create-new-resource/log-analytics-create-new-resource.ps1 "Create new Log Analytics workspace")]
 
 ## Script explanation

@@ -105,6 +105,8 @@ Tenant diagnostic settings can only be configured in the portal blade for the te
 
 ### Enable collection of resource diagnostic logs via PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 To enable collection of resource diagnostic logs via Azure PowerShell, use the following commands:
 
 To enable storage of diagnostic logs in a storage account, use this command:

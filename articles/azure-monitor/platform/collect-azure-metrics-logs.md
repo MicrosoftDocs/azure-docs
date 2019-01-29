@@ -74,6 +74,9 @@ Azure resources that support [Azure monitor](../../azure-monitor/overview.md) ca
 * For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ### Enable diagnostics with PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).
 
 The following PowerShell example shows how to use [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting) to enable diagnostics on a network security group. The same approach works for all supported resources - set `$resourceId` to the resource id of the resource you want to enable diagnostics for.

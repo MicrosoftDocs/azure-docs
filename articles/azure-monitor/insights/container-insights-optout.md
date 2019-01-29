@@ -130,6 +130,8 @@ ProvisioningState       : Succeeded
 
 ### Remove the solution using PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Execute the following PowerShell commands in the folder containing the template to remove the solution and clean up the configuration from your AKS cluster.    
 
 ```powershell

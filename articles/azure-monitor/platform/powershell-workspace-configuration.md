@@ -17,6 +17,9 @@ ms.author: richrund
 ---
 
 # Manage Log Analytics using PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can use the [Log Analytics PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) to perform various functions in Log Analytics from a command line or as part of a script.  Examples of the tasks you can perform with PowerShell include:
 
 * Create a workspace
@@ -35,8 +38,6 @@ This article provides two code samples that illustrate some of the functions tha
 
 > [!NOTE]
 > Log Analytics was previously called Operational Insights, which is why it is the name used in the cmdlets.
-> 
-> 
 
 ## Prerequisites
 These examples work with version 2.3.0 or later of the AzureRm.OperationalInsights module.

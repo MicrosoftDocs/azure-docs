@@ -10,6 +10,9 @@ ms.author: mcollier
 ms.subservice: ""
 ---
 # Azure Monitoring REST API walkthrough
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This article shows you how to perform authentication so your code can use the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
 
 The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions, granularity, and metric values. The data can be saved in a separate data store such as Azure SQL Database, Azure Cosmos DB, or Azure Data Lake. From there additional analysis can be performed as needed.

@@ -122,6 +122,8 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 
 ### Configure log profiles using the Azure PowerShell Cmdlets
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 #### Get existing log profile
 
 ```

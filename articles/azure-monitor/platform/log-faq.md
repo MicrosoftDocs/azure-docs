@@ -16,6 +16,9 @@ ms.author: magoedte
 ---
 
 # Log Analytics FAQ
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This Microsoft FAQ is a list of commonly asked questions about Log Analytics in Microsoft Azure. If you have any additional questions about Log Analytics, go to the [discussion forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Get started with roles, permissions, and security with Azure Monitor"
+title: "Get started with roles, permissions, and security with Azure Monitor"j
 description: Learn how to use Azure Monitor's built-in roles and permissions to restrict access to monitoring resources.
 author: johnkemnetz
 services: azure-monitor
@@ -10,6 +10,9 @@ ms.author: johnkem
 ms.subservice: ""
 ---
 # Get started with roles, permissions, and security with Azure Monitor
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Many teams need to strictly regulate access to monitoring data and settings. For example, if you have team members who work exclusively on monitoring (support engineers, devops engineers) or if you use a managed service provider, you may want to grant them access to only monitoring data while restricting their ability to create, modify, or delete resources. This article shows how to quickly apply a built-in monitoring RBAC role to a user in Azure or build your own custom role for a user who needs limited monitoring permissions. It then discusses security considerations for your Azure Monitor-related resources and how you can limit access to the data they contain.
 
 ## Built-in monitoring roles
@@ -43,8 +46,8 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 People assigned the Monitoring Contributor role can view all monitoring data in a subscription and create or modify monitoring settings, but cannot modify any other resources. This role is a superset of the Monitoring Reader role, and is appropriate for members of an organization’s monitoring team or managed service providers who, in addition to the permissions above, also need to be able to:
 
 * Publish monitoring dashboards as a shared dashboard.
-* Set [diagnostic settings](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) for a resource.*
-* Set the [log profile](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) for a subscription.*
+* Set [diagnostic settings](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) for a resource.\*
+* Set the [log profile](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) for a subscription.\*
 * Set alert rules activity and settings via [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
 * Create Application Insights web tests and components.
 * List Log Analytics workspace shared keys.
@@ -52,7 +55,7 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 * Create and delete and execute Log Analytics saved searches.
 * Create and delete the Log Analytics storage configuration.
 
-*user must also separately be granted ListKeys permission on the target resource (storage account or event hub namespace) to set a log profile or diagnostic setting.
+\*user must also separately be granted ListKeys permission on the target resource (storage account or event hub namespace) to set a log profile or diagnostic setting.
 
 > [!NOTE]
 > This role does not give read access to log data that has been streamed to an event hub or stored in a storage account. [See below](#security-considerations-for-monitoring-data) for information on configuring access to these resources.
