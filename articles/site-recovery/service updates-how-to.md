@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery updates | Microsoft Docs
-description: Provides an overview of servic eupdates & how to upgrade components used in Azure Site Recovery.
+description: Provides an overview of service updates & how to upgrade components used in Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram 
 manager: rochakm
