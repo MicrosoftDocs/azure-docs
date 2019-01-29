@@ -14,6 +14,7 @@ ms.topic: get-started-article
 ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
+ms.lastreviewed: 01/24/2019
 
 ---
 # Connect storage explorer to an Azure Stack subscription or a storage account
