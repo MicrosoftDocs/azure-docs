@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -156,7 +156,8 @@ If the definition location is a:
 ## Display name and description
 
 You use **displayName** and **description** to identify the policy definition and provide context
-for when it's used.
+for when it's used. **displayName** has a maximum length of _128_ characters and **description**
+a maximum length of _512_ characters.
 
 ## Policy rule
 
