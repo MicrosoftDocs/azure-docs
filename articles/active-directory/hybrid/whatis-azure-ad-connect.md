@@ -3,12 +3,17 @@ title: 'What is Azure AD Connect and Connect Health. | Microsoft Docs'
 description: Describes the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
+<<<<<<< HEAD
 ms.date: 01/24/2019
 ms.component: hybrid
+=======
+ms.date: 11/28/2018
+ms.subservice: hybrid
+>>>>>>> a7656dbe3589d2870c07e67377d17287cc6888d6
 ms.author: billmath
 ---
 

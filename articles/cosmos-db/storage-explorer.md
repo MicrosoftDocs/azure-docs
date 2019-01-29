@@ -261,7 +261,7 @@ If you're unable to remove an account, or if the reauthenticate link does not do
   - .extaccounts
 - If you want to remove SAS attached Storage resources, delete:
   - %AppData%/StorageExplorer folder for Windows
-  - /Users/<your_name>/Library/Applicaiton SUpport/StorageExplorer for Mac
+  - /Users/<your_name>/Library/Application SUpport/StorageExplorer for Mac
   - ~/.config/StorageExplorer for Linux
   - **You will have to reenter all your credentials** if you delete these files
 

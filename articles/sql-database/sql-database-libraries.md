@@ -34,11 +34,11 @@ The following table lists examples of object-relational mapping (ORM) frameworks
 | Language | Platform | ORM(s) |
 | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
-| Java | Windows, Linux, macOS |[Hibernate ORM](http://hibernate.org/orm)|
+| Java | Windows, Linux, macOS |[Hibernate ORM](https://hibernate.org/orm)|
 | PHP | Windows, Linux, macOS | [Laravel (Eloquent)](https://laravel.com/docs/5.0/eloquent) |
-| Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
+| Node.js | Windows, Linux, macOS | [Sequelize ORM](https://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
-| Ruby | Windows, Linux, macOS | [Ruby on Rails](http://rubyonrails.org/) |
+| Ruby | Windows, Linux, macOS | [Ruby on Rails](https://rubyonrails.org/) |
 ||||
 
 ## Related links

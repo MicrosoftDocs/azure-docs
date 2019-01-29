@@ -1,7 +1,7 @@
 ---
 title: Create a Standard Load Balancer with zonal frontend using Azure CLI
 titlesuffix: Azure Load Balancer
-description: Learn how to create a public Load Balancer Standard with zonal Public IP address frontend using Azure CLI
+description: Learn how to create a public Standard Load Balancer with zonal Public IP address frontend using Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,9 +15,9 @@ ms.date: 03/26/2018
 ms.author: kumud
 ---
 
-#  Create a public Load Balancer Standard with zonal frontend using Azure CLI
+#  Create a Standard Load Balancer with zonal frontend using Azure CLI
 
-This article steps through creating a public [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone.
+This article steps through creating a public [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) with a zonal frontend using a Public IP Standard address. In this scenario, you specify a particular zone for your front-end and back-end instances, to align your data path and resources with a specific zone.
 
 For more information about using Availability zones with Standard Load Balancer, see [Standard Load Balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 
@@ -56,7 +56,7 @@ az network public-ip create \
 --zone 1
 ```
 
-## Create Azure Load Balancer Standard
+## Create Azure Standard Load Balancer
 This section details how you can create and configure the following components of the load balancer:
 - a frontend IP pool that receives the incoming network traffic on the load balancer.
 - a backend IP pool where the frontend pool sends the load balanced network traffic.
@@ -64,7 +64,7 @@ This section details how you can create and configure the following components o
 - a load balancer rule that defines how traffic is distributed to the VMs.
 
 ### Create the load balancer
-Create a Standard load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). The following example creates a load balancer named *myLoadBalancer* and assigns the *myPublicIP* address to the front-end IP configuration.
+Create a Standard Load Balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create). The following example creates a load balancer named *myLoadBalancer* and assigns the *myPublicIP* address to the front-end IP configuration.
 
 ```azurecli-interactive
 az network lb create \

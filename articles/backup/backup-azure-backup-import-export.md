@@ -57,7 +57,7 @@ Before initiating the Offline Backup workflow, complete the following prerequisi
     ![registering the resource provider](./media/backup-azure-backup-import-export/registerimportexport.png)
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * When sending disks to Azure, use only 2.5 inch SSD, or 2.5-inch or 3.5-inch SATA II/III internal hard drives. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-requirements.md#supported-hardware) for the latest set of drives that the service supports.
-* The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the *staging location* to the SATA drives is done. Ensure that Bitlocker is enabled on the *copy computer*.
+* The SATA drives must be connected to a computer (referred to as a *copy computer*) from where the copy of backup data from the *staging location* to the SATA drives is done. Ensure that BitLocker is enabled on the *copy computer*.
 
 ## Workflow
 This section describes the offline-backup workflow so that your data can be delivered to an Azure datacenter and uploaded to Azure Storage. If you have questions about the Import service or any aspect of the process, see the [Import service overview documentation](../storage/common/storage-import-export-service.md).
@@ -103,7 +103,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
     * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
     * BitLocker is enabled on the copy computer.
     * Azure PowerShell 3.7.0 is installed.
-    * The latest compatible browsers (Edge or Internet Explorer 11) are installed and JavaScript is enabled. 
+    * The latest compatible browsers (Microsoft Edge or Internet Explorer 11) are installed and JavaScript is enabled. 
     * The copy computer can access the Azure portal. If necessary, the copy computer can be the same as the source computer.
     
     > [!IMPORTANT] 

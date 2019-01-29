@@ -105,6 +105,7 @@ Create a publication and a push subscription. For more information, see:
 
 ## See Also  
 
+- [Transactional replication](sql-database-managed-instance-transactional-replication.md)
 - [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Create a Push Subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Types of Replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

@@ -15,6 +15,8 @@ ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
 
+ROBOTS: NOINDEX
+
 ---
 
 # Monitor and manage tests in the VaaS portal

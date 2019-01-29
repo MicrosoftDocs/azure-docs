@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
 
 ---
@@ -84,7 +84,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 ## Install and register self-hosted IR from the Download Center
 
 1. Go to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Select **Download**, select the appropriate version (**32-bit** or **64-bit**), and select **Next**.
+2. Select **Download**, select the 64-bit version (32-bit is not supported), and select **Next**.
 3. Run the MSI file directly, or save it to your hard disk and run it.
 4. On the **Welcome** page, select a language and select **Next**.
 5. Accept the Microsoft Software License Terms and select **Next**.

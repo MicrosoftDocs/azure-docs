@@ -16,7 +16,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/13/2018
 ms.author: sethm
-ms.reviewer: 
+ms.reviewer: unknown
 ---
 
 # Tutorial: create and test a subscription

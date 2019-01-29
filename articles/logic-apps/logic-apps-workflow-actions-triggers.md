@@ -3057,7 +3057,7 @@ define the parameters you used in your trigger or action definition:
 If you're creating or using an Azure Resource Manager deployment template, 
 you also have to include an outer `parameters` section for your template definition. 
 For more information about securing parameters, see 
-[Secure access to your logic apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
+[Secure access to your logic apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters). 
 
 ## Next steps
 

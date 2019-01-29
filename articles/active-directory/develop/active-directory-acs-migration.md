@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -287,7 +287,7 @@ Our aim in working with Ping Identity and Auth0 is to ensure that all Access Con
 
 <!--
 
-## Sharepoint 2010, 2013, 2016
+## SharePoint 2010, 2013, 2016
 
 TODO: Azure AD only, use Azure AD SAML 1.1 tokens, when we bring it back online.
 Other IDPs: use Auth0? https://auth0.com/docs/integrations/sharepoint.

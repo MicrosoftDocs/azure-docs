@@ -235,4 +235,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## Next steps
-[Reference data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)
+[Reference data API](/rest/api/time-series-insights/ga-reference-data-api)

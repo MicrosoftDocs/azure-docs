@@ -44,7 +44,7 @@ Single-node ASDK deployments differ from multi-node Azure Stack deployments in a
 |Description|ASDK|Multi-node Azure Stack|
 |-----|-----|-----|
 |**Scale**|All components are installed on a single-node server computer.|Can range in size from 4-16 nodes.|
-|**Resilience**|Single-node configuration does not provide high availability|[High availablity](../azure-stack-key-features.md#high-availability-for-azure-stack) capabilities are supported.|
+|**Resilience**|Single-node configuration does not provide high availability|[High availability](../azure-stack-key-features.md#high-availability-for-azure-stack) capabilities are supported.|
 |**Networking**|The ASDK uses a VM named AzS-BGPNAT01 to route all ASDK network traffic. There are no additional switch requirements.|The AzS-BGPNAT01 VM does not exist in multi-node deployments. More complex [network routing infrastructure](../azure-stack-network.md#network-infrastructure) is necessary including Top-Of-Rack (TOR), Baseboard Management Controller (BMC), and border (datacenter network) switches.|
 |**Patch and update process**|To move to a new version of the ASDK, you must redeploy the ASDK on the development kit host computer.|[Patch and update](../azure-stack-updates.md) process used to update the installed Azure Stack version.|
 |**Support**|MSDN Azure Stack forum. Microsoft Customer Service and Support (CSS) support is *not* available for non-production environments.|[MSDN Azure Stack forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) and full CSS support.|

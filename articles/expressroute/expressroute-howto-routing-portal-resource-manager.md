@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 01/09/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -25,6 +25,7 @@ This article helps you create and manage routing configuration for an ExpressRou
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
+You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [About circuits and peerings](expressroute-circuit-peerings.md).
 
 ## Configuration prerequisites
 
@@ -38,8 +39,6 @@ These instructions only apply to circuits created with service providers offerin
 > We currently do not advertise peerings configured by service providers through the service management portal. We are working on enabling this capability soon. Check with your service provider before configuring BGP peerings.
 > 
 > 
-
-You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md).
 
 ## <a name="msft"></a>Microsoft peering
 

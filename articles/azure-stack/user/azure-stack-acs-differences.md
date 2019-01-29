@@ -15,6 +15,7 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
+ms.lastreviewed: 12/03/2018
 
 ---
 # Azure Stack storage: Differences and considerations

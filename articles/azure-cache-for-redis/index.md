@@ -213,7 +213,7 @@ Learn how to use Azure Cache for Redis, a secure data cache and messaging broker
                     <div class="cardText">
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.redis._redis_cache">Java</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.redis.rediscache">Java</a></p>
                         <p><a href="https://redis.io/clients">Redis clients</a></p>
                         <p><a href="https://redis.io/commands#">Redis commands</a></p>
                    </div>

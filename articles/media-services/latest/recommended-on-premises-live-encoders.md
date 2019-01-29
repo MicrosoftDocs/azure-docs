@@ -58,7 +58,7 @@ Media Services recommends using one of following live encoders that have RTMP as
 
 ## Live encoders that output fragmented-MP4
 
-Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming (fragmented-MP4) as output. The supported URL schemes are `rtmp://` or `rtmps://`.
+Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming (fragmented-MP4) as output. The supported URL schemes are `http://` or `https://`.
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
