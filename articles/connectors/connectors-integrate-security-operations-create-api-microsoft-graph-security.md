@@ -1,6 +1,6 @@
 ---
-title: Integrate security operations with Microsoft Graph Security API - Azure Logic Apps
-description: Streamline and improve your app's threat protection, detection, and responses by using Microsot Graph Security API with Azure Logic Apps
+title: Integrate security operations with Microsoft Graph Security - Azure Logic Apps
+description: Improve and streamline threat protection, detection, and response capabilities with Microsot Graph Security and Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,21 +8,20 @@ author: ecfan
 ms.author: preetikr
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 01/28/19
+ms.date: 01/30/19
 tags: connectors
 ---
 
-# Integrate, streamline, and improve security operations with Microsoft Graph Security and Azure Logic Apps
+# Improve threat detection, protection, and response by integrating security operations with Microsoft Graph Security and Azure Logic Apps
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the 
 [Microsoft Graph Security](https://docs.microsoft.com/graph/security-concept-overview) 
 connector, you can improve your app's threat protection, detection, 
-and response capabilities by creating automated tasks and workflows 
-that connect and integrate Microsoft security products, services, 
-and partners. For example, you can create 
+and response by creating automated workflows that integrate Microsoft 
+security products, services, and partners. For example, you can create 
 [Azure Security Center playbooks](../security-center/security-center-playbooks.md) 
 that monitor and manage Microsoft Graph Security entities, such as alerts. 
-Here are some other scenarios supported by the Microsoft Graph Security connector:
+Here are some scenarios supported by the Microsoft Graph Security connector:
 
 * Get alerts based on queries or by alert ID. For example, 
 you can get a list that includes high severity alerts.
