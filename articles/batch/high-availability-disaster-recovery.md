@@ -25,7 +25,7 @@ When designing an application that uses Batch, you must consider the possibility
 
 If the application or solution using Batch always needs to be available, then it should be designed to either be able to failover to another region or always have the workload split between two or more regions. Both approaches require at least two Batch accounts, with each account located in a different region.
 
-## Multiple Batch accounts in more than one region
+## Multiple Batch accounts in multiple regions
 
 Using multiple Batch accounts in various regions provides the ability for your application to continue running if a Batch account in another region becomes unavailable. This is especially important if your application needs to be highly available.
 
