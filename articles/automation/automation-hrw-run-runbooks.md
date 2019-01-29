@@ -14,7 +14,7 @@ manager: carmonm
 
 There's no difference in the structure of runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly. This difference is because runbooks that target a Hybrid Runbook Worker typically manage resources on the local computer itself or against resources in the local environment where it's deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud.
 
-When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook's tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account **nxautomation** on Linux. This behavior can introduce subtle differences when authoring runbooks for a Hybrid Runbook Worker. These changes should be reviewed when you're writing your runbooks.
+When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook is tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account **nxautomation** on Linux. This behavior can introduce subtle differences when authoring runbooks for a Hybrid Runbook Worker. These changes should be reviewed when you're writing your runbooks.
 
 ## Starting a runbook on Hybrid Runbook Worker
 
@@ -100,7 +100,7 @@ Get-AzureRmVm | Select Name
 
 As part of your automated build process for deploying resources in Azure, you may require access to on-premises systems to support a task or set of steps in your deployment sequence. To support authentication against Azure using the Run As account, you need to install the Run As account certificate.
 
-The following PowerShell runbook, **Export-RunAsCertificateToHybridWorker**, exports the Run As certificate from your Azure Automation account and downloads and imports it into the local machine certificate store on a Hybrid worker which is connected to the same account. Once that step is completed, it verifies the worker can successfully authenticate to Azure using the Run As account.
+The following PowerShell runbook, **Export-RunAsCertificateToHybridWorker**, exports the Run As certificate from your Azure Automation account and downloads and imports it into the local machine certificate store on a Hybrid worker, which is connected to the same account. Once that step is completed, it verifies the worker can successfully authenticate to Azure using the Run As account.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -175,11 +175,11 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 > [!IMPORTANT]
 > **Add-AzureRmAccount** is now an alias for **Connect-AzureRMAccount**. When searching your library items, if you do not see **Connect-AzureRMAccount**, you can use **Add-AzureRmAccount**, or you can update your modules in your Automation Account.
 
-Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a `.ps1` extension. Import it into your Automation account and edit the runbook, changing the value of the variable `$Password` with your own password. Publish and then run the runbook. Target the Hybrid Worker group that'll run and authenticate runbooks using the Run As account. The job stream reports the attempt to import the certificate into the local machine store, and follows with multiple lines. This behavior depends on how many Automation accounts you define in your subscription and if authentication is successful.
+Save the *Export-RunAsCertificateToHybridWorker* runbook to your computer with a `.ps1` extension. Import it into your Automation account and edit the runbook, changing the value of the variable `$Password` with your own password. Publish and then run the runbook. Target the Hybrid Worker group that will run and authenticate runbooks using the Run As account. The job stream reports the attempt to import the certificate into the local machine store, and follows with multiple lines. This behavior depends on how many Automation accounts you define in your subscription and if authentication is successful.
 
 ## Job behavior
 
-Jobs are handled slightly different on Hybrid Runbook Workers than they're when they run on Azure sandboxes. One key difference is that there's no limit on job duration on Hybrid Runbook Workers. Runbooks ran in Azure sandboxes are limited to 3 hours because of [fair share](automation-runbook-execution.md#fair-share). For a long-running runbook you want to make sure that it is resilient to possible restart. For example, if the machine that hosts the Hybrid worker reboots. If the Hybrid worker host machine reboots, then any running runbook job restarts from the beginning, or from the last checkpoint for PowerShell Workflow runbooks. After a runbook job is restarted more than 3 times, then it is suspended.
+Jobs are handled slightly different on Hybrid Runbook Workers than they're when they run on Azure sandboxes. One key difference is that there's no limit on job duration on Hybrid Runbook Workers. Runbooks ran in Azure sandboxes are limited to 3 hours because of [fair share](automation-runbook-execution.md#fair-share). For a long-running runbook, you want to make sure that it's resilient to possible restart. For example, if the machine that hosts the Hybrid worker reboots. If the Hybrid worker host machine reboots, then any running runbook job restarts from the beginning, or from the last checkpoint for PowerShell Workflow runbooks. After a runbook job is restarted more than 3 times, then it's suspended.
 
 ## Run only signed Runbooks
 
@@ -249,9 +249,9 @@ To sign Python runbooks, your Hybrid Runbook Worker needs to have the [GPG](http
 
 #### Create a GPG keyring and keypair
 
-To create the keyring and keypair you will need to use the Hybrid Runbook Worker account `nxautomation`.
+To create the keyring and keypair you'll need to use the Hybrid Runbook Worker account `nxautomation`.
 
-Switch the the `nxautomation` account
+Use `sudo` to log in as the `nxautomation` account.
 
 ```bash
 sudo su – nxautomation
@@ -263,7 +263,7 @@ Once using the `nxautomation` account, generate the gpg keypair.
 sudo gpg --generate-key
 ```
 
-GPG will guide you through the steps to create the keypair. You'll need to provide a name, an email address, expiration time, passphrase and wait for enough entropy on the machine for the key to be generated.
+GPG will guide you through the steps to create the keypair. You'll need to provide a name, an email address, expiration time, passphrase, and wait for enough entropy on the machine for the key to be generated.
 
 Because the GPG directory was generated with sudo, you need to change its owner to nxautomation. 
 
@@ -275,7 +275,7 @@ sudo chown -R nxautomation ~/.gnupg
 
 #### Make the keyring available the Hybrid Runbook Worker
 
-Once the keyring is created you'll need to make it available to the Hybrid Runbook Worker. Modify the settings file `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` to include the following example under the section `[worker-optional]`
+Once the keyring is created, you'll need to make it available to the Hybrid Runbook Worker. Modify the settings file `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` to include the following example under the section `[worker-optional]`
 
 ```bash
 gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
@@ -291,7 +291,7 @@ sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/
 
 #### Sign a runbook
 
-Once signature validation is configured you can use the following command to sign a runbook:
+Once signature validation is configured, you can use the following command to sign a runbook:
 
 ```bash
 gpg –clear-sign <runbook name>
