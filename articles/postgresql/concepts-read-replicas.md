@@ -5,13 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 01/23/2019
 ---
 
 # Read Replicas in Azure Database for PostgreSQL
+
+> [!IMPORTANT]
+> The read replica feature is in Public Preview.
+
 The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server (master) to up to five read-only servers (read replicas) within the same Azure region. Read replicas are asynchronously updated using the PostgreSQL engine's native replication technology.
 
-Replicas are new servers that can be managed in similar ways as normal standalone Azure Database for PostgreSQL servers. Replicas are priced at the same rate as a standalone server.
+Replicas are new servers that can be managed in similar ways as normal standalone Azure Database for PostgreSQL servers. For each read replica, you are billed for the provisioned compute in vCores and provisioned storage in GB/month.
 
 ## When to use read replicas
 The read replica feature is targeted at helping improve the performance and scale of read-intensive workloads. For instance, the read workloads could be isolated to the replicas, while write workloads can be directed to the master.
@@ -112,7 +116,7 @@ After a replica has been created, the pricing tier (except to and from Basic), c
 > [!IMPORTANT]
 > Before a master's server configuration is updated to new values, the replicas' configuration should be updated to equal or greater values. This ensures that the replicas are able to keep up with changes made to the master.
 
-In particular, Postgres requires the master server value for max_connections to be greater than the replica’s value otherwise the replica will not start. In Azure Database for PostgreSQL, the max_connections value is set depending on the sku. For more information, read [the limits doc](concepts-limits.md). 
+In particular, Postgres requires the replica server value for the parameter max_connections to be greater than or equal to the master’s value otherwise the replica will not start. In Azure Database for PostgreSQL, the max_connections value is set depending on the sku. For more information, read [the limits doc](concepts-limits.md). 
 
 Attempting to do an update that violates this will lead to an error.
 

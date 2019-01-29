@@ -4,7 +4,7 @@ description: This article lists all releases of Azure AD Connect and Azure AD Sy
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/18/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---

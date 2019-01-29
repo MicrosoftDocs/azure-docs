@@ -56,7 +56,7 @@ that artifact, for example:
 
 1. To view this metadata in the JavaScript Object Notation (JSON) 
 definition for the integration account, choose **Edit as JSON** 
-so that that JSON editor opens: 
+so that the JSON editor opens: 
 
    ![JSON for partner metadata](media/logic-apps-enterprise-integration-metadata/partner-metadata.png)
 

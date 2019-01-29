@@ -49,7 +49,7 @@ The DSC Linux extension supports all the [Extension Supported OS's](https://azur
 ### Internet connectivity
 
 The DSCForLinux extension requires that the target virtual machine is connected to the internet. For example, Register extension requires connectivity to Automation service. 
-For other actions such as Pull, Pull, Install requires connectivity to azure stroage/github. It depends on settings provided by Customer.
+For other actions such as Pull, Pull, Install requires connectivity to azure storage/github. It depends on settings provided by Customer.
 
 ## Extension schema
 
