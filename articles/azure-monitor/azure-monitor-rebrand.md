@@ -10,7 +10,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: bwren
 ---
 
@@ -26,22 +26,21 @@ Documentation for each of these services has been consolidated into a single set
 ## Log Analytics redefinition
 Log Analytics has played a central role in Azure management by collecting telemetry and other data from a variety of sources and providing a query language and analytics engine that gives you insights into the operation of your applications and resources. 
 
-This critical role hasn't changed, but is now considered the logs feature of Azure Monitor. Other features that were considered part of Log Analytics such as agents and views have also been repositioned as features of Azure Monitor. Their functionality hasn't changed other than potential improvements to their experience in the Azure portal.
+This critical role hasn't changed, but this is now considered the logs feature of Azure Monitor. Other features that were considered part of Log Analytics such as agents and views have also been repositioned as features of Azure Monitor. Their functionality hasn't changed other than potential improvements to their experience in the Azure portal.
 
-The term Log Analytics now applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of Metrics Analytics which is the page in the Azure portal used to analyze metric data.
+The term _log analytics_ now applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of metrics explorer which is the page in the Azure portal used to analyze metric data.
 
 ### Log Analytics workspaces
-Workspaces that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** page in the Azure portal has been renamed to **Log Analytics workspaces** and is where you create new workspaces and configure data sources. Monitor your logs in Azure Monitor and configure them in Log Analytics workspaces.
-
-
-## Metrics explorer is now metrics analytics
-The tool in the Azure portal used to graph and analyze metrics collected by Azure Monitor has been renamed from metrics explorer to metrics analytics. This is the same tool, but the new name provides better consistency with log analytics. Use log analytics to analyze your log data and metrics analytics to analyze your metric data.
+Workspaces that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** page in the Azure portal has been renamed to **Log Analytics workspaces** and is where you create new workspaces and configure data sources. Monitor your logs with other monitoring data in Azure Monitor and configure them in Log Analytics workspaces.
 
 ## Log query language
 Azure Monitor uses Data Explorer query language for log queries. Before Azure Data Explorer was released, this language was referred to as Kusto or the Azure Monitor query language. We're now referring to it with the same name as Data Explorer to reinforce that they use the same language. There are minor differences with the Azure Monitor flavor of the language as detailed in [Azure Monitor log query language differences](log-query/data-explorer-difference.md).
 
+## Management solutions renaming
+[Management solutions](insights/solutions.md) have been renamed to _monitoring solutions_ which better describes their functionality.
+
 ## Application Insights
-Application Insights was a standalone service before being integrated with Azure Monitor. We considered renaming it to follow the convention of other insights such as [Azure Monitor for containers]() and [Azure Monitor for VMs](). The decision was made to keep the name Application Insights because of its strong legacy. It's still considered the peer of these insights tools.
+Application Insights was a standalone service before being integrated with Azure Monitor. A different naming scheme is used for newer tools providing insights such as [Azure Monitor for containers](insights/container-insights-overview.md) and [Azure Monitor for VMs](insights/vminsights-overview.md), but the name for Application Insights is not being changed at this time.
 
 ## Retirement of Operations Management Suite brand
 Operations Management Suite (OMS) was a bundling of the following Azure management services for licensing purposes:
