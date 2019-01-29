@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 01/8/2019
-ms.author: rajanaki
+ms.author: rajanaki 
 
 ---
 # Service updates in Azure Site Recovery
@@ -19,7 +19,7 @@ Site Recovery can manage replication for:
 - On-premises virtual machines and physical servers replicating to Azure, or to a secondary site.
 To know more refer to the  documentation [here](https://docs.microsoft.com/azure/site-recovery) .
 
-Azure Site Recovery publishes service updates on a regular basis - including the addition of new features, improvements in the support matrix, and bug fixes if any. In order to stay current take adavantage of all the latest features & enhancements & bug fixes if any, users are advised to always update to the latest versions of Azure SIte Recovery components. 
+Azure Site Recovery publishes service updates on a regular basis - including the addition of new features, improvements in the support matrix, and bug fixes if any. In order to stay current take advantage of all the latest features & enhancements & bug fixes if any, users are advised to always update to the latest versions of Azure SIte Recovery components. 
  
 ## Support statement for Azure Site Recovery 
 
@@ -40,7 +40,7 @@ Azure Site Recovery publishes service updates on a regular basis - including the
 > If you have a maintenance window scheduled, and a reboot is part of the same, we recommend you first upgrade the Site Recovery components and proceed with the rest of the scheduled activities.
 
 1. Before upgrading your Kernel/OS versions, first verify if the target version is supported by Azure Site Recovery. You can find the information in our documentation for Azure VMs, [VMware VMs](vmware-physical-azure-support-matrix.md) & Hyper-V VMs in
-2. Refer our [Service Updates](https://azure.microsoft.com/updates/?product=site-recovery) to find out which version of Site Recovery components support the specific versionn you want to upgrade to.
+2. Refer our [Service Updates](https://azure.microsoft.com/updates/?product=site-recovery) to find out which version of Site Recovery components support the specific version you want to upgrade to.
 3. First, upgrade to the latest Site Recover version.
 4. Now, upgrade the OS/Kernel to the desired versions.
 5. Perform a reboot.
