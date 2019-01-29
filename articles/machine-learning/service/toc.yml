@@ -121,9 +121,10 @@
   - name: Consume web services
     items:  
     - name: Consume in real-time
-      displayName: create client consume
+      displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Run batch predictions
+      displayName: score scoring asynchronous consume pipeline
       href: how-to-run-batch-predictions.md
   - name: Monitor web services
     items:  
@@ -137,7 +138,7 @@
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Secure with Virtual Networks
+  - name: Secure with virtual networks
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: Use the Machine Learning CLI

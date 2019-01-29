@@ -17,7 +17,7 @@
     href: faq.md
   - name: What's new?
     href: whats-new.md
-- name: Get Started
+- name: Tutorials
   items:
   - name: Create your first experiment
     displayName: quickstart
@@ -40,6 +40,16 @@
     - name: 6 - Access web service
       displayName: consume
       href: walkthrough-6-access-web-service.md
+  - name: Get started in R
+    href: r-quickstart.md
+- name: Samples
+  items:
+  - name: Available datasets
+    href: use-sample-datasets.md
+  - name: Azure AI Gallery
+    href: gallery-how-to-use-contribute-publish.md
+- name: Concepts
+  items:
   - name: Data Science for Beginners
     items:
     - name: 1 - Five questions
@@ -52,19 +62,6 @@
       href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
     - name: 5 - Copy other people's work
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
-  - name: R quick start
-    href: r-quickstart.md
-- name: Samples
-  items:
-  - name: Sample experiments
-    displayName: gallery
-    href: sample-experiments.md
-  - name: Sample datasets
-    href: use-sample-datasets.md
-  - name: Azure AI Gallery
-    href: gallery-how-to-use-contribute-publish.md
-- name: Concepts
-  items:
   - name: Model management
     displayName: deploy, consume, web service
     href: deploy-consume-web-service-guide.md
@@ -102,6 +99,9 @@
     - name: Use PowerShell to create models
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
+    - name: Try experiments in AI Gallery
+      displayName: gallery
+      href: sample-experiments.md
     - name: Choose algorithms
       href: algorithm-choice.md
     - name: Algorithm cheat sheet
@@ -199,29 +199,23 @@
   items:
   - name: Algorithm & Module reference
     href: https://msdn.microsoft.com/library/azure/dn905974.aspx
-  - name: Azure PowerShell module (New)
-    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
-  - name: Azure PowerShell module (Classic)
+  - name: Azure PowerShell modules
     href: powershell-module.md
   - name: Web service error codes
     href: web-service-error-codes.md
   - name: REST management APIs
     href: /rest/api/machinelearning
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.machinelearning/allversions
 - name: Resources
   items:
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: R developer's guide 
     href: ../r-developers-guide.md
   - name: Custom Neural Networks with Net#
     href: azure-ml-netsharp-reference-guide.md
+  - name: Get support
+    href: support-aml-studio.md
   - name: Compare our ML products
     href: ../service/overview-more-machine-learning.md       

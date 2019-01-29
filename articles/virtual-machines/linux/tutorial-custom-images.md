@@ -71,7 +71,7 @@ exit
 
 ### Deallocate and mark the VM as generalized
 
-To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#deallocate). 
+To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm). 
    
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
