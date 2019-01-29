@@ -23,9 +23,11 @@ ms.custom: seodec18
 
 This sample script retrieves a previously completed backup from an existing web app and restores it by overwriting its content. 
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzureRmAccount` to create a connection with Azure. 
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzAccount` to create a connection with Azure. 
 
 ## Sample script
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/backup-restore/backup-restore.ps1?highlight=1-2 "Restore a web app from a backup")]
 
@@ -34,7 +36,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 If you don't need the web app anymore, use the following command to remove the resource group, web app, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroupName -Force
+Remove-AzResourceGroup -Name $resourceGroupName -Force
 ```
 
 ## Script explanation
@@ -43,8 +45,8 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmWebAppBackupList](/powershell/module/azurerm.websites/get-azurermwebappbackuplist) | Gets a list of backups for a web app. |
-| [Restore-AzureRmWebAppBackup](/powershell/module/azurerm.websites/restore-azurermwebappbackup) | Restores a web app from a previously completed backup. |
+| [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Gets a list of backups for a web app. |
+| [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restores a web app from a previously completed backup. |
 
 ## Next steps
 

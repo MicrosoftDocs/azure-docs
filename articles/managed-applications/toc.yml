@@ -48,7 +48,7 @@
   - name: Azure CLI
     href: /cli/azure/managedapp
   - name: PowerShell
-    href: /powershell/module/azurerm.resources
+    href: /powershell/module/az.resources
   - name: REST
     href: /rest/api/resources/
   - name: User interface functions

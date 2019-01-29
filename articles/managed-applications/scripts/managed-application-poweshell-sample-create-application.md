@@ -24,6 +24,8 @@ This script deploys a managed application definition from the service catalog.
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/managed-applications/create-application/create-application.ps1 "Create application")]
 
 
@@ -33,7 +35,7 @@ This script uses the following command to deploy the managed application. Each c
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmManagedApplication](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermmanagedapplication) | Create a managed application. Provide the definition ID and parameters for the template. |
+| [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Create a managed application. Provide the definition ID and parameters for the template. |
 
 
 ## Next steps
