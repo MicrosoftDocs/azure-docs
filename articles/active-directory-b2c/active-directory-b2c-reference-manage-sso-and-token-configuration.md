@@ -3,14 +3,14 @@ title: Manage SSO and token customization using custom policies in Azure Active 
 description: Learn about managing SSO and token customization using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Manage SSO and token customization using custom policies in Azure Active Directory B2C

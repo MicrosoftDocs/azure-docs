@@ -7,9 +7,9 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ---
 
@@ -50,9 +50,9 @@ If your request is approved, you then receive an email with instructions describ
 
 You must create a Face resource on Azure if you want to use the Face container. After you create the resource, you then use the subscription key and endpoint URL from the resource to instantiate the container. For more information about instantiating a container, see [Instantiate a container from a downloaded container image](#instantiate-a-container-from-a-downloaded-container-image).
 
-Perform the following steps to create and retrieve information from an Face resource:
+Perform the following steps to create and retrieve information from a Face resource:
 
-1. Create an Face resource in the Azure portal.  
+1. Create a Face resource in the Azure portal.  
    If you want to use the Face container, you must first create a corresponding Face resource in the Azure portal. For more information, see [Quickstart: Create a Cognitive Services account in the Azure portal](../cognitive-services-apis-create-account.md).
 
 1. Get the endpoint URL and subscription key for the Azure resource.  
@@ -173,3 +173,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Review [Face overview](Overview.md) to learn more about detecting and identifying faces  
 * Refer to the [Face API](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.md) to resolve issues related to Face functionality.
+* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)

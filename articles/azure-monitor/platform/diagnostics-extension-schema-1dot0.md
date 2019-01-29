@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.component: diagnostic-extension
+ms.subservice: diagnostic-extension
 ---
 # Azure Diagnostics 1.0 Configuration Schema
 > [!NOTE]
@@ -265,3 +265,4 @@ Attributes:
 |Attribute|Type|Description|  
 |---------------|----------|-----------------|  
 |**name**|string|Required. An XPath expression specifying the log to collect.|  
+

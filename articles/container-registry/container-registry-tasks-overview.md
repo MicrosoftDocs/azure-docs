@@ -21,7 +21,7 @@ Containers provide new levels of virtualization, isolating application and devel
 Build and test container images with ACR Tasks in four ways:
 
 * [Quick task](#quick-task): Build and push container images on-demand, in Azure, without needing a local Docker Engine installation. Think `docker build`, `docker push` in the cloud. Build from local source code or a Git repository.
-* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is commited to a Git repository.
+* [Build on source code commit](#automatic-build-on-source-code-commit): Trigger a container image build automatically when code is committed to a Git repository.
 * [Build on base image update](#automate-os-and-framework-patching): Trigger a container image build  when that image's base image has been updated.
 * [Multi-step tasks](#multi-step-tasks-preview) (preview): Define multi-step tasks that build images, run containers as commands, and push images to a registry. This preview feature of ACR Tasks supports on-demand task execution and parallel image build, test, and push operations.
 

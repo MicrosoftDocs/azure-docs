@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 01/16/2019
 ms.author: sethm
 
 ---
@@ -80,7 +80,7 @@ To create a key vault, follow these steps:
 
 2. In the **Secret** pane, select **Generate/Import**.
 
-3. In the **Create a secret** pane, from the list of options select **Manual**.
+3. In the **Create a secret** pane, from the list of options select **Manual**. If you have created the service principal using certificates, select the certificates from the drop down list, and then upload the file.
 
 4. Enter **the Application ID** copied from the service principal as the name for your key. The key name can contain only alphanumeric characters and the hyphen (-) character.
 

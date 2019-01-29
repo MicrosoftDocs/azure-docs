@@ -3,7 +3,7 @@ title: Target Updates using SCCM Collections in Azure Automation - Update Manage
 description: This article is intended to help you configure System Center Configuration Manager with this solution to manage updates of SCCM managed computers.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
@@ -47,3 +47,4 @@ To manage updates for Windows Server VMs that are Configuration Manager clients,
 After performing this configuration change, you create a new deployment following the steps described in [Creating an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** drop-down to select the appropriate Configuration Manager collection.
 
 ## Next steps
+

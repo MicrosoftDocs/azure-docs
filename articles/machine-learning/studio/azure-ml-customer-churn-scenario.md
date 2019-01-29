@@ -1,5 +1,5 @@
 ---
-title: Analyzing customer churn
+title: Analyze customer churn
 titleSuffix: Azure Machine Learning Studio
 description: Case study of developing an integrated model for analyzing and scoring customer churn using Azure Machine Learning Studio.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
 ---
-# Analyzing Customer Churn using Azure Machine Learning Studio
+# Analyze Customer Churn using Azure Machine Learning Studio
 ## Overview
 This article presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning. In this article, we discuss associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and assess directions for further development.  
 
