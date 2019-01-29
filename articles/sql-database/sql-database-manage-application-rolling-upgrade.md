@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ---
 # Managing rolling upgrades of cloud applications using SQL Database active geo-replication
 
