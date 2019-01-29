@@ -57,27 +57,27 @@ Using on-premises Active Directory or Active Directory on IaaS VMs alone, withou
 
 If federation is being used and password hashes are synced correcty, but you are getting authentication failures, please check if powershell service principle cloud password authetication is enabled, If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your AAD tenant. To chek and set the HRD policy:
 
-1. Install AzureAD powershell module
+ 1. Install AzureAD powershell module
 
  ```
  Install-Module AzureAD
  ```
 
-2. ```Connect-AzureAD``` using a global administrator (tenant administrator) credentials
+ 2. ```Connect-AzureAD``` using a global administrator (tenant administrator) credentials
 
-3. Check if the “Azure powershell” service principal has already been created
+ 3. Check if the “Azure powershell” service principal has already been created
 
 ```
 Get-AzureADServicePrincipal -SearchString "1950a258-227b-4e31-a9cf-717495945fc2"
 ```
 
-4. If it doesn't exist then create the service principal
+ 4. If it doesn't exist then create the service principal
 
 ```
 New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
 ```
 
-5. Attach the policy to this service principal: 
+ 5. Attach the policy to this service principal: 
 
 ```
 $policy = New-AzureADPolicy -Definition @("{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
