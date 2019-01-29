@@ -30,7 +30,7 @@ Azure AD receives improvements on an ongoing basis. To stay up-to-date with the 
 - Deprecated functionality
 - Plans for changes
 
-This page is updated monthly, so revisit it regularly. If you're looking for items that are older than 6 months, you can find them in the [Archive for What's new in Azure Active Directory](whats-new-archive.md).
+This page is updated monthly, so revisit it regularly. If you're looking for items that are older than six months, you can find them in the [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
 ---
 ## January 2019
@@ -43,11 +43,11 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 We've introduced three new cookie settings, available for your apps that are published through Application Proxy:
 
-- **Use HTTP-Only cookie.** Sets the **HTTPOnly** flag on your Application Proxy access and session cookies. Turning this setting on provides additional security benefits, such as helping to prevent copying or modifying of cookies through client-side scripting. We recommend you turn this flag on (choose **Yes**) for the added benefits.
+- **Use HTTP-Only cookie.** Sets the **HTTPOnly** flag on your Application Proxy access and session cookies. Turning on this setting provides additional security benefits, such as helping to prevent copying or modifying of cookies through client-side scripting. We recommend you turn on this flag (choose **Yes**) for the added benefits.
 
-- **Use secure cookie.** Sets the **Secure** flag on your Application Proxy access and session cookies. Turning this setting on provides additional security benefits, by making sure cookies are only transmitted over TLS secure channels, such as HTTPS. We recommend you turn this flag on (choose **Yes**) for the added benefits.
+- **Use secure cookie.** Sets the **Secure** flag on your Application Proxy access and session cookies. Turning on this setting provides additional security benefits, by making sure cookies are only transmitted over TLS secure channels, such as HTTPS. We recommend you turn on this flag (choose **Yes**) for the added benefits.
 
-- **Use persistent cookie.** Prevents access cookies from expiring when the web browser is closed. These cookies last for the lifetime of the access token. However, the cookies are reset if the expiration time is reached or if the user manually deletes the cookie. We recommend you keep the default setting **No**, only turning the setting on for older apps that don't share cookies between processes.
+- **Use persistent cookie.** Prevents access cookies from expiring when the web browser is closed. These cookies last for the lifetime of the access token. However, the cookies are reset if the expiration time is reached or if the user manually deletes the cookie. We recommend you keep the default setting **No**, only turning on the setting for older apps that don't share cookies between processes.
 
 For more information about the new cookies, see [Cookie settings for accessing on-premises applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
 
