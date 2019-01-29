@@ -129,6 +129,8 @@ use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremed
 
 Same steps as in [Pass-through Live Event verification](#pass-through-live-event-verification) except for the step 11. <br/>Instead of 10 minutes, run your live encoder for one week or longer. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the live streaming from time to time (or archived asset) to ensure that playback has no visible glitches.
 
+### Email your recorded settings
+
 Lastly, email your recorded settings and live archive parameters to Azure Media Services at amsstreaming@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow ups. You can contact the Azure Media Services team with any questions regarding this process.
 
 ## Next steps
