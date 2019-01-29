@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Example: Real-time video analysis - Computer Vision"
 titlesuffix: Azure Cognitive Services
 description: Learn how to perform near-real-time analysis on frames taken from a live video stream by using the Computer Vision API.
@@ -7,7 +7,7 @@ author: KellyDF
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
