@@ -10,8 +10,7 @@ search.appverid: MET150
 
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-grou
-ps-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: curtand
