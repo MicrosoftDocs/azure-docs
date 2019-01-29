@@ -113,7 +113,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Connected air conditioner measurements](./media/tutorial-define-device-type-experimental/airconmeasurementsnew.png)
 
-6. Each type of telemetry you define for a device template includes [configuration options](howto-set-up-template-experimental-experimental.md) such as:
+6. Each type of telemetry you define for a device template includes [configuration options](howto-set-up-template-experimental.md) such as:
 
     * Display options.
 
