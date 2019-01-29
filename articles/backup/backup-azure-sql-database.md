@@ -484,6 +484,8 @@ On the **Restore Configuration** menu, the **Server** drop-down list box shows o
 * Backup operator permissions on the Recovery Services vault where you are performing the restore.
 * Contributor access to the SQL VM and Resource group.
 
+To restore to an alternate location:
+
 1. In the **Restore Configuration** menu:
 
     * Under **Where to Restore**, select **Alternate Location**.
