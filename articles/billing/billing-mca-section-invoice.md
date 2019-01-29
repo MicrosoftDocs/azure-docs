@@ -1,6 +1,6 @@
 ---
 title: Create sections on your invoice to group your charges | Microsoft Docs
-description: Learn to group charges on your invoice with invoice section.
+description: Learn to group charges on your invoice with invoice sections.
 services: ''
 author: amberbhargava
 manager: amberb
@@ -53,14 +53,14 @@ To create an invoice section, you need to be a **Basic purchaser** on the Billin
 
    ![Screenshot that shows Azure portal search](./media/billing-mca-section-invoice/portal-cm-billing-search.png)
 
-3. Go to the invoice section. Depending on your access, you may need to select a Billing account or a Billing profile, select **Invoice sections** and then select an invoice section.
+3. Go to the invoice section. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
 
 4. Select **Access Management (IAM)** from the left-hand pane.
 
 5. From the top of the page, select **Add**.
 
 6. Select **Azure subscription creator** for role and enter the email address of the user.
- 
+
    ![Screenshot that shows giving Azure subscription creator role to a user](./media/billing-mca-section-invoice/mca-invoicesections-IAM.png)
   <!--TODO - Add screenshot for the IAM blade -->
 
