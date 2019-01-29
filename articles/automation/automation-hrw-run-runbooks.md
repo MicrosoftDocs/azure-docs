@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/17/2018
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -188,7 +188,9 @@ Hybrid Runbook Workers can be configured to run only signed runbooks with some c
 > [!NOTE]
 > Once you have configured a Hybrid Runbook Worker to run only signed runbooks, runbooks that have **not** been signed will fail to execute on the worker.
 
-### Create Signing Certificate
+### PowerShell runbooks
+
+#### Create Signing Certificate
 
 The following example creates a self-signed certificate that can be used for signing runbooks. The sample creates the certificate and exports it. The certificate is imported into the Hybrid Runbook Workers later. The thumbprint is returned as well, this value is used later to reference the certificate.
 
@@ -214,7 +216,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 $SigningCert.Thumbprint
 ```
 
-### Configure the Hybrid Runbook Workers
+#### Configure the Hybrid Runbook Workers
 
 Copy the certificate created to each Hybrid Runbook Worker in a group. Run the following script to import the certificate and configure the Hybrid Worker to use signature validation on runbooks.
 
@@ -230,7 +232,7 @@ Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLoca
 Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
 ```
 
-### Sign your Runbooks using the certificate
+#### Sign your Runbooks using the certificate
 
 With the Hybrid Runbook workers configured to use only signed runbooks, you must sign runbooks that are to be used on the Hybrid Runbook Worker. Use the following sample PowerShell to sign your runbooks.
 
@@ -240,6 +242,64 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
 When the runbook has been signed, it must be imported into your Automation Account and published with the signature block. To learn how to import runbooks, see [Importing a runbook from a file into Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+
+### Python runbooks
+
+To sign Python runbooks, your Hybrid Runbook Worker needs to have the [GPG](https://gnupg.org/index.html) executable present on the machine.
+
+#### Create a GPG keyring and keypair
+
+To create the keyring and keypair you will need to use the Hybrid Runbook Worker account `nxautomation`.
+
+Switch the the `nxautomation` account
+
+```bash
+sudo su – nxautomation
+```
+
+Once using the `nxautomation` account, generate the gpg keypair.
+
+```bash
+sudo gpg --generate-key
+```
+
+GPG will guide you through the steps to create the keypair. You'll need to provide a name, an email address, expiration time, passphrase and wait for enough entropy on the machine for the key to be generated.
+
+Because the GPG directory was generated with sudo, you need to change its owner to nxautomation. 
+
+Run the following command to change the owner.
+
+```bash
+sudo chown -R nxautomation ~/.gnupg
+```
+
+#### Make the keyring available the Hybrid Runbook Worker
+
+Once the keyring is created you'll need to make it available to the Hybrid Runbook Worker. Modify the settings file `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` to include the following example under the section `[worker-optional]`
+
+```bash
+gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+```
+
+#### Verify signature validation is on
+
+If signature validation has been disabled on the machine, you’ll need to turn it on. Run the following command to enable signature validation. Replacing `<LogAnalyticsworkspaceId>` with your workspace Id.
+
+```bash
+sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --true <LogAnalyticsworkspaceId>
+```
+
+#### Sign a runbook
+
+Once signature validation is configured you can use the following command to sign a runbook:
+
+```bash
+gpg –clear-sign <runbook name>
+```
+
+The signed runbook will have the name `<runbook name>.asc`.
+
+The signed runbook can now be uploaded to Azure Automation, and can be executed like a regular runbook.
 
 ## Troubleshoot
 
