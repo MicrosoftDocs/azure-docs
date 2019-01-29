@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -78,13 +78,13 @@ The following administrator roles are available:
 
 * **[Directory Writers](#directory-writers)**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). It should not be assigned to any users.
 
-* **[Dynamics 365 administrator / CRM Administrator](#dynamics-365-administrator)**: Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your tenant](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Dynamics 365 administrator / CRM Administrator](#crm-service-administrator)**: Users with this role have global permissions within Microsoft Dynamics 365 Online, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Use the service admin role to manage your tenant](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
   > [!NOTE] 
-  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Dynamics 365 Service Administrator ". It is "Dynamics 365 Administrator" in the Azure portal.
+  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Dynamics 365 Service Administrator ". It is "Dynamics 365 Administrator" in the [Azure portal](https://portal.azure.com).
 
 * **[Exchange Administrator](#exchange-administrator)**: Users with this role have global permissions within Microsoft Exchange Online, when the service is present. as well as the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Exchange Service Administrator ". It is "Exchange Administrator" in the Azure portal.
+  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Exchange Service Administrator ". It is "Exchange Administrator" in the [Azure portal](https://portal.azure.com).
 
 * **[Global Administrator / Company Administrator](#company-administrator)**: Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. The person who signs up for the Azure Active Directory tenant becomes a global administrator. Only global administrators can assign other administrator roles. There can be more than one global administrator at your company. Global admins can reset the password for any user and all other administrators.
 
@@ -99,12 +99,12 @@ The following administrator roles are available:
 
 * **[Intune Administrator](#intune-administrator)**: Users with this role have global permissions within Microsoft Intune Online, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups. More information at [Role-based administration control (RBAC) with Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
   > [!NOTE]
-  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the Azure portal.
+  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Intune Service Administrator ". It is "Intune Administrator" in the [Azure portal](https://portal.azure.com).
 
 * **[License Administrator](#license-administrator)**: 
-Users in this role can add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location.
+Users in this role can add, remove, and update license assignments on users, groups (using group-based licensing), and manage the usage location on users. The role does not grant the ability to purchase or manage subscriptions, create or manage groups, or create or manage users beyond the usage location. This role has no access to view, create, or manage support tickets.
 
-* **[Message Center Reader](#message-center-reader)**: Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. 
+* **[Message Center Reader](#message-center-reader)**: Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
 
 * **[Partner Tier1 Support](#partner-tier1-support)**: Do not use. This role has been deprecated and will be removed from Azure AD in the future. This role is intended for use by a small number of Microsoft resale partners, and is not intended for general use.
 
@@ -130,13 +130,13 @@ Users in this role can add, remove, and update license assignments on users, gro
   
 * **[Power BI Administrator](#power-bi-administrator)**: Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI admin role](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
-  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the Azure portal.
+  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).
 
 * **[Privileged Role Administrator](#privileged-role-administrator)**: Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management.
 
   <b>Important</b>: This role grants the ability to manage membership in all Azure AD roles including the Global Administrator role. This role does not include any other privileged abilities in Azure AD like creating or updating users. However, users assigned to this role can grant themselves or others additional privilege by assigning additional roles.
 
-* **[Reports Reader](#reports-reader)**: Users with this role can view usage reporting data and the reports dashboard in Office 365 admin center and the adoption context pack in Power BI. Additionally, the role provides access to sign-in reports and activity in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. 
+* **[Reports Reader](#reports-reader)**: Users with this role can view usage reporting data and the reports dashboard in Office 365 admin center and the adoption context pack in Power BI. Additionally, the role provides access to sign-in reports and activity in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. This role has no access to view, create, or manage support tickets.
 
 * **[Security Administrator](#security-administrator)**: Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -181,10 +181,12 @@ Users in this role can add, remove, and update license assignments on users, gro
   [Office 365 service health](https://docs.microsoft.com/office365/enterprise/view-service-health) | View the health of Office 365 services
 
 * **[Service Support Administrator](#service-support-administrator)**: Users with this role can open support requests with Microsoft for Azure and Office 365 services, and views the service dashboard and message center in the Azure portal and Office 365 admin portal. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+  > [!NOTE]
+  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Service Support Administrator." It is "Service Administrator" in the [Azure portal](https://portal.azure.com), the Office 365 admin portal, and the Intune portal.
 
 * **[SharePoint Administrator](#sharepoint-administrator)**: Users with this role have global permissions within Microsoft SharePoint Online, when the service is present, as well as the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health. More information at [About Office 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the Azure portal.
+  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "SharePoint Service Administrator." It is "SharePoint Administrator" in the [Azure portal](https://portal.azure.com).
 
 * **[Skype for Business / Lync Administrator](#skype-for-business-administrator)**: Users with this role have global permissions within Microsoft Skype for Business, when the service is present, as well as manage Skype-specific user attributes in Azure Active Directory. Additionally, this role grants the ability to manage support tickets and monitor service health, and to access the Teams and Skype for Business Admin Center. The account must also be licensed for Teams or it can't run Teams PowerShell cmdlets. More information at [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) and Teams licensing information at [Skype for Business and Microsoft Teams add-on licensing](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
@@ -193,13 +195,13 @@ Users in this role can add, remove, and update license assignments on users, gro
 
 * **[Teams Communications Administrator](#teams-communications-administrator)**: Users in this role can manage aspects of the Microsoft Teams workload related to voice & telephony. This includes the management tools for telephone number assignment, voice and meeting policies, and full access to the call analytics toolset.
 
-* **[Teams Communications Support Engineer](#teams-communications-support-engineer)**: Users in this role can troubleshoot communication issues within Microsoft Teams & Skype for Business using the user call troubleshooting tools in the Microsoft Teams & Skype for Business admin center. Users in this role can view full call record information for all participants involved.
+* **[Teams Communications Support Engineer](#teams-communications-support-engineer)**: Users in this role can troubleshoot communication issues within Microsoft Teams & Skype for Business using the user call troubleshooting tools in the Microsoft Teams & Skype for Business admin center. Users in this role can view full call record information for all participants involved. This role has no access to view, create, or manage support tickets.
 
-* **[Teams Communications Support Specialist](#teams-communications-support-specialist)**: Users in this role can troubleshoot communication issues within Microsoft Teams & Skype for Business using the user call troubleshooting tools in the Microsoft Teams & Skype for Business admin center. Users in this role can only view user details in the call for the specific user they have looked up.
+* **[Teams Communications Support Specialist](#teams-communications-support-specialist)**: Users in this role can troubleshoot communication issues within Microsoft Teams & Skype for Business using the user call troubleshooting tools in the Microsoft Teams & Skype for Business admin center. Users in this role can only view user details in the call for the specific user they have looked up. This role has no access to view, create, or manage support tickets.
 
 * **[Teams Administrator](#teams-administrator)**: Users in this role can manage all aspects of the Microsoft Teams workload via the Microsoft Teams & Skype for Business admin center and the respective PowerShell modules. This includes, among other areas, all management tools related to telephony, messaging, meetings, and the teams themselves. This role additionally grants the ability to create and manage all Office 365 Groups, manage support tickets, and monitor service health.
   > [!NOTE]
-  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Teams Service Administrator ". It is "Teams Administrator" in the Azure portal.
+  > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Teams Service Administrator ". It is "Teams Administrator" in the [Azure portal](https://portal.azure.com).
 
 * **[User Account Administrator](#user-account-administrator)**: Users with this role can create users, and manage all aspects of users with some restrictions (see below). Additionally, users with this role can create and manage all groups. This role also includes the ability to create and manage user views, manage support tickets, and monitor service health.
 
@@ -482,7 +484,7 @@ Can manage all aspects of the Dynamics 365 product.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Customer LockBox Access Approver
-Can approve Microsoft support requests to access customer organizational data.
+Can approve Microsoft support requests to access customer organizational data. This role has no access to view, create, or manage support tickets.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -746,7 +748,7 @@ Can manage all aspects of the Skype for Business product.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Message Center Reader
-Can read messages and updates for their organization in Office 365 Message Center only. 
+Can read messages and updates for their organization in Office 365 Message Center only. This role has no access to view, create, or manage support tickets.
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
@@ -1005,7 +1007,7 @@ Can troubleshoot communications issues within Teams using basic tools.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 
 ### Teams Service Administrator
-Can manage the Microsoft Teams service.
+Can manage the Microsoft Teams service. 
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
