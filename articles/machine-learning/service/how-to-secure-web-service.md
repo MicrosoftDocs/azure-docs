@@ -94,8 +94,9 @@ Next, you must update your DNS to point to the web service.
 
   ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
-> [!NOTE]
-> Using SSL with services deployed to FPGA is not supported currently (January 29, 2019).
++ **For FPGA**:
+
+Using SSL with services deployed to FPGA is not currently supported.
 
 ## Next steps
 

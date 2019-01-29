@@ -161,7 +161,7 @@ registered_model.delete()
 
 ## Secure FPGA web services
 
-Securing FPGA web services with SSL is not supported currently (January 29, 2019).
+Securing FPGA web services with SSL is not currently supported.
 
 
 ## Next steps
