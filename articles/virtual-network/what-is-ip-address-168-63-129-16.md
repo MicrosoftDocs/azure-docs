@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is IP address 168.63.129.16? | Microsoft Docs
 description: Learn about IP address 168.63.129.16 and how it works with your resources.
 services: virtual-network
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 1/21/2019
+ms.date: 01/21/2019
 ms.author: genli
 
 ---
