@@ -12,7 +12,7 @@ ms.component: files
 
 # Offline data transfer and Data Box support
 
-Azure File Sync supports the bulk migration of files through online migration tools (e.g. AzCopy) as well as offline migration tools such as Azure Data Box.
+Azure File Sync supports the bulk migration of files through online migration tools (e.g. AzCopy) as well as offline migration tools such as [Azure Data Box](https://azure.microsoft.com/services/storage/databox).
 This article describes the process you should follow to ensure your bulk migration is done in a sync-compatible way. It will describe the best practices that will help you avoid conflict files and preserve your file and folder ACLs once you enable sync.
 
 ## Key benefits of utilizing an offline bulk-migration product with Azure File Sync
@@ -27,7 +27,7 @@ Utilizing Azure Data Box and Azure File Sync allows for zero downtime. The solut
 - Complete your bulk migration to one or multiple Azure file shares prior to enabling sync with Azure File Sync.
 - You will have to plan your bulk migration by:
 - Planning your final Azure File Sync topology:
-  - Plan for an Azure File Sync deployment
+  - [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
   - As part of this plan, you select Azure Storage Account(s) that will hold the file shares you want to sync with. Ensure that your bulk migration happens to temporary staging shares in the same Storage Account(s). Bulk migration can only be enabled utilizing a final- and a staging- share that reside in the same Storage Account.
   - Keep in mind that you can utilize a bulk migration only when you create a new sync relationship with a server location. It cannot be added to an existing sync relationship.
 
@@ -39,11 +39,11 @@ For the following best practices, it is irrelevant how your files got into Azure
 
 ## Process details
 
-1. Order your Data Box. There are several variations to match your needs. Receive your Data Box and follow the Data Box documentation to copy your data and send it back to Azure.
-2. Your files will show up in the Azure file shares you designated during the Data Box process. View these file shares as temporary, staging shares. Do not enable sync to them!
-3. Create a new share that is empty for each file share that Data Box created for you. Make sure that this new share is in the same storage account as the Data Box share. How to create a new Azure file share.
-4. Set up a sync group in a storage sync service and reference the empty share as a cloud endpoint. Repeat this step for every Data Box file share. You should review the Deploy Azure File Sync guide and follow the steps required to setup Azure File Sync.
-5. Create a sync group and add your live server directory as a server endpoint – specify in the process that you already moved the files to Azure and reference the file share Data Box moved the files into (in this guide called the “staging share”). It is important to recognize that the share used for the cloud endpoint and the Data Box share must reside in the same storage account. It is your choice to enable or disable cloud tiering as needed.
+1. [Order your Data Box](../../databox/data-box-deploy-ordered.md). There are [several variations](https://azure.microsoft.com/services/storage/databox/data) to match your needs. Receive your Data Box and follow the Data Box [documentation to copy your data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) and send it back to Azure.
+2. Your files will show up in the Azure file shares you designated during the Data Box process. View these file shares as temporary, staging shares. **Do not enable sync to them!**
+3. Create a new share that is empty for each file share that Data Box created for you. Make sure that this new share is in the same storage account as the Data Box share. [How to create a new Azure file share](storage-how-to-create-file-share.md).
+4. Set up a sync group in a storage sync service and reference the empty share as a cloud endpoint. Repeat this step for every Data Box file share. You should review the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) guide and follow the steps required to setup Azure File Sync.
+5. [Create a sync group](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) and [add your live server directory as a server endpoint](storage-sync-files-deployment-guide.md#create-a-server-endpoint) – specify in the process that you already moved the files to Azure and reference the file share Data Box moved the files into (in this guide called the “staging share”). It is important to recognize that the share used for the cloud endpoint and the Data Box share must reside in the same storage account. It is your choice to enable or disable cloud tiering as needed.
 
 ## Enable offline data transfer
 
@@ -76,7 +76,7 @@ In the offline Data Transfer section, you can observe the status of the process.
 After the server completes its initial sync of the entire namespace, it will have finished leveraging the staging file share with the Data Box bulk migrated files. Observe in the server endpoint properties for offline data transfer that the status is changing to “Complete”. At this time, you can clean up the staging share to save cost:
 
 1. Hit “Disable offline data transfer” in the server endpoint properties, when the status is “Completed”.
-2. Consider deleting the staging share to save cost. The staging share is unlikely to contain file and folder ACLs and as such is of limited use. For backup “point in time” purposes, rather create a real snapshot of the syncing Azure file share. You can enable Azure Backup to take snapshots on a schedule.
+2. Consider deleting the staging share to save cost. The staging share is unlikely to contain file and folder ACLs and as such is of limited use. For backup “point in time” purposes, rather create a real [snapshot of the syncing Azure file share](storage-snapshots-files.md). You can [enable Azure Backup to take snapshots]( ../../backup/backup-azure-files.md) on a schedule.
 
 ![Visualizing the Azure portal user interface for server endpoint properties where the status and disable controls for Offline Data Transfer are located.](media/storage-sync-files-offline-data-transfer/DataBoxIntegration_3_444.png)
 
