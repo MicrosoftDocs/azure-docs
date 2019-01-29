@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 01/28/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -34,7 +34,7 @@ Before you begin, make sure that:
 - Make sure that the subscription you use for Data Box service is one of the following types:
     - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/). 
+    - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 - Ensure that you have owner or contributor access to the subscription to create a Data Box order.
 
@@ -75,8 +75,14 @@ Perform the following steps in the Azure portal to order a device.
     |Name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
     |Resource group     |	Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
     |Destination Azure region     | Select a region for your storage account. <br> For more information, go to [region availability](data-box-overview.md#region-availability).        |
-    |Storage account(s)     | Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General purpose v1**, **General purpose v2**, or **Blob storage account**. You cannot use storage accounts that have rules configured. The storage accounts must **allow access from all networks** in the firewalls and virtual networks section.|
-    
+    |Storage destination     | Choose from storage account or managed disks. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. You cannot use storage accounts that have rules configured. The storage accounts must **allow access from all networks** in the firewalls and virtual networks section.|
+
+    If using Data Box to create managed disks from the on-premises VHDs, you will also need to provide the following information:
+
+    |Setting  |Value  |
+    |---------|---------|
+    |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created by the Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.<br> If you create a resoruce group for an order, then the same resource group can be used for |subsequent orders including when you clone orders.
+
 7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Click **Next**.
 
 8. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
@@ -85,7 +91,7 @@ Perform the following steps in the Azure portal to order a device.
 
 9. Review the information **Summary** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
-10. Click **Order**. The order takes a few minutes to be created. 
+10. Click **Order**. The order takes a few minutes to be created.
 
 
 ## Track the order
@@ -94,9 +100,9 @@ After you have placed the order, you can track the status of the order from Azur
 
 If the device is not available, you receive a notification. If the device is available, Microsoft identifies the device for shipment and prepares the shipment. During device preparation, following actions occur:
 
-- SMB shares are created for each storage account associated with the device. 
+- SMB shares are created for each storage account associated with the device.
 - For each share, access credentials such as username and password are generated.
-- Device password that helps unlock the device is also generated. 
+- Device password that helps unlock the device is also generated.
 - The Data Box is locked to prevent unauthorized access to the device at any point.
 
 When the device preparation is complete, the portal shows the order in **Processed** state.
