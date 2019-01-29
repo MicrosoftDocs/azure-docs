@@ -186,7 +186,7 @@ Then change the class file to contain the below code. It's a 2 step process.
 
         static string FetchSecretValueFromKeyVault(string token)
         {
-            WebRequest kvRequest = WebRequest.Create("https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01");
+            WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();
             return ParseWebResponse(kvResponse, "value");
