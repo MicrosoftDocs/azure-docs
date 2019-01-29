@@ -14,9 +14,9 @@ ms.author: nitinme
 
 # Integrate Azure Data Lake Storage Gen2 with other Azure services
 
-You can ingest, analyze, and visualize data in Azure Data Lake Storage Gen2 by using a variety of Azure services. This article highlights these services.
+You can use Azure services to ingest, analyze, and visualize data in your Azure Data Lake Storage Gen2 storage account. Choose services that best suit that tasks that you are trying to accomplish.
 
-## Services to ingest data into your data lake
+## Ingest data into your data lake
 
 These services help you populate your data lake with data.
 
@@ -36,7 +36,7 @@ See [Move data to and from Data Lake Storage Gen2 using Data Factory](../../data
 
 You can use Apache Sqoop to import and export data between Azure SQL Database and Data Lake Storage Gen2. For more information, see [Copy data between Data Lake Storage Gen2 and Azure SQL database using Sqoop](../../data-lake-store/data-lake-store-data-transfer-sql-sqoop.md).
 
-## Services to analyze and visualize data in your data lake
+## Analyze and visualize data in your data lake
 
 These services can use Data Lake Storage Gen2 as a storage endpoint.
 
@@ -56,7 +56,7 @@ You can use [Azure Data Lake Analytics](../../data-lake-analytics/data-lake-anal
 
 See [Get Started with Data Lake Analytics using Data Lake Storage Gen2](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
-## Services to copy data to other repositories
+## Copy data to other repositories
 
 Use these services to copy data from your data lake and place them into other repositories.
 
