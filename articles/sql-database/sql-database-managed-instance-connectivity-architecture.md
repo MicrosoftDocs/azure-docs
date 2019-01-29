@@ -107,7 +107,8 @@ You can deploy Managed Instance in a dedicated subnet (the Managed Instance subn
 |mi_subnet   |Any           |Any     |Any              |MI SUBNET  |Allow |
 
   > [!Note]
-  > MI SUBNET refers to the the IP Address range for the subnet in the form if 10.x.x.x/y. This information can be found int eh subnet properties page in the Portal
+  > MI SUBNET refers to the the IP Address range for the subnet in the form if 10.x.x.x/y. This information can be found in Azure  Portal( via subnet properties)
+  
   > [!Note]
   > Although mandatory inbound security rules allow traffic from _Any_ source on ports 9000, 9003, 1438, 1440, 1452 these ports are protected by built-in firewall. This [article](sql-database-managed-instance-find-management-endpoint-ip-address.md) shows how you can discover management endpoint IP address and verify firewall rules. 
   
