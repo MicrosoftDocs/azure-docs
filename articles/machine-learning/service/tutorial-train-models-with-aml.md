@@ -50,8 +50,8 @@ Skip to [Set up your development environment](#start) to read through the notebo
 
 Get all these prerequisites from either of the sections below.
  
-* Run on [Azure Notebooks](#azure) 
-* Run on [your own notebook server](#server)
+* Use [Azure Notebooks](#azure) 
+* Use [your own notebook server](#server)
 
 ### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
 
@@ -114,11 +114,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### Create or attach an existing AMlCompute
+### Create or attach an existing compute resource
 
-By using Azure Machine Learning Compute (AmlCompute), a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create AmlCompute as your training environment. This code creates the compute clusters for you if they don't already exist in your workspace.
+By using Azure Machine Learning Compute, a managed service, data scientists can train machine learning models on clusters of Azure virtual machines. Examples include VMs with GPU support. In this tutorial, you create Azure Machine Learning Compute as your training environment. The code below creates the compute clusters for you if they don't already exist in your workspace.
 
- **Creation of the compute takes about five minutes.** If the compute is already in the workspace, this code uses it and skips the creation process:
+ **Creation of the compute takes about five minutes.** If the compute is already in the workspace, the code uses it and skips the creation process.
 
 
 ```python
@@ -175,13 +175,16 @@ Download the MNIST dataset and save the files into a `data` directory locally. I
 import os
 import urllib.request
 
-os.makedirs('./data', exist_ok = True)
+data_path = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_path, exist_ok = True)
 
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
 urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
 ```
+You will see output similar to this:
+```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
 
 ### Display some sample images
 
@@ -230,7 +233,7 @@ The MNIST files are uploaded into a directory named `mnist` at the root of the d
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_path, target_path='mnist', overwrite=True, show_progress=True)
 ```
 You now have everything you need to start training a model. 
 
