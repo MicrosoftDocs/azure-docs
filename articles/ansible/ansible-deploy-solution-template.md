@@ -61,7 +61,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. Select **OK**.
 
-1. In the **Ansible Integration Settings** tab, specify the authentication type. For more information about this securing Azure resources, see [What is managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
+1. In the **Ansible Integration Settings** tab, specify the authentication type. For more information about securing Azure resources, see [What is managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
 <!--![Azure portal tab for Ansible integration settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-3.png)-->
 
 1. Select **OK**.
