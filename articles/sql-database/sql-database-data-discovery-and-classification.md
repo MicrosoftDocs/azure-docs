@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 01/29/2019
 ---
 # Azure SQL Database Data Discovery and Classification
 

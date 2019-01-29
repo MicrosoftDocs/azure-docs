@@ -19,7 +19,7 @@ Azure SQL [Threat Detection](sql-database-threat-detection-overview.md) for stan
 
 You can receive notifications about the detected threats via [email notifications](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) or [Azure portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
-[Threat Detection](sql-database-threat-detection-overview.md) is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ATP portal. Threat detection service is charged 15$/month per SQL Database server, with first 30 days free of charge.
+[Threat Detection](sql-database-threat-detection-overview.md) is part of the [SQL Advanced Data Security](sql-advanced-threat-protection.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ADS portal. Threat detection service is charged 15$/month per SQL Database server, with first 30 days free of charge.
 
 ## Set up threat detection for your database in the Azure portal
 
@@ -40,7 +40,7 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 
 - Learn more about [Threat Detection](sql-database-threat-detection-overview.md).
 - Learn more about [Threat Detection in Managed Instance](sql-database-managed-instance-threat-detection.md).  
-- Learn more about [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
+- Learn more about [SQL Advanced Data Security](sql-advanced-threat-protection.md).
 - Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - For more information on pricing, see the [SQL Database Pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  

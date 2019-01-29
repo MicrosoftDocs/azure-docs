@@ -133,7 +133,7 @@ SQL Database dynamic data masking limits sensitive data exposure by masking it t
 
 ### SQL Vulnerability Assessment
 
-[SQL Vulnerability Assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help remediate potential database vulnerabilities with the goal to proactively improve overall database security. Vulnerability Assessment (VA) is part of the SQL Advanced Threat Protection (ATP) offering, which is a unified package for advanced SQL security capabilities. Vulnerability Assessment can be accessed and managed via the central SQL ATP portal.
+[SQL Vulnerability Assessment](sql-vulnerability-assessment.md) is an easy to configure service that can discover, track, and help remediate potential database vulnerabilities with the goal to proactively improve overall database security. Vulnerability Assessment (VA) is part of the SQL Advanced Data Security (ADS) offering, which is a unified package for advanced SQL security capabilities. Vulnerability Assessment can be accessed and managed via the central SQL ADS portal.
 
 ### Data Discovery & Classification
 

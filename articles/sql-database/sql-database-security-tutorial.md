@@ -9,7 +9,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 01/29/2019
 ---
 # Tutorial: Secure a standalone or pooled database
 

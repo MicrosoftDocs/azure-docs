@@ -143,7 +143,7 @@ SQL Database provides a range of [built-in security and compliance features](sql
 
 ### Advance Threat Protection
 
-SQL Advanced Threat Protection is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
+SQL Advanced Data Security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
 
 - [Data Discovery & Classification](sql-database-data-discovery-and-classification.md):
 

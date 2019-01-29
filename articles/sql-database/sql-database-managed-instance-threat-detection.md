@@ -19,7 +19,7 @@ Azure SQL [Threat Detection](sql-database-threat-detection-overview.md) for [SQL
 
 You can receive notifications about the detected threats via [email notifications](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) or [Azure portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 
-[Threat Detection](sql-database-threat-detection-overview.md) is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ATP portal. Threat detection service is charged 15$/month per Managed Instance, with first 30 days free of charge.
+[Threat Detection](sql-database-threat-detection-overview.md) is part of the [SQL Advanced Data Security](sql-advanced-threat-protection.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ADS portal. Threat detection service is charged 15$/month per Managed Instance, with first 30 days free of charge.
 
 ## Set up Threat Detection for your Managed Instance in the Azure portal
 
