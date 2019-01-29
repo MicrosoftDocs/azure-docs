@@ -1,5 +1,5 @@
 ---
-title: Deploy the Ansible solution template for Azure
+title: Deploy the Ansible solution template for Azure to CentOS
 description: Learn how to deploy the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
 ms.service: ansible
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ---
 
-# Deploy the Ansible solution template for Azure
+# Deploy the Ansible solution template for Azure to CentOS
 The Ansible solution template for Azure is designed to configure an Ansible instance on a CentOS virtual machine along with Ansible and a suite of tools configured to work with Azure. The tools include:
 
 - **Ansible modules for Azure** - The [Ansible modules for Azure](./ansible-matrix.md) are a suite of modules that enable you to create and manage your infrastructure on Azure. The latest version of these modules is deployed by default. However, during the solution-template deployment process, you can specify a version number that is appropriate for your environment.
