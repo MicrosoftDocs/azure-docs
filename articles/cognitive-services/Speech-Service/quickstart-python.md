@@ -78,10 +78,12 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**.
 
    ![Install the Python extension](media/sdk/qs-python-vscode-python-extension.png)
+
 1. Create a folder to store the project in. An example is by using Windows Explorer.
 1. In Visual Studio Code, select the **File** icon. Then open the folder you created.
 
    ![Open a folder](media/sdk/qs-python-vscode-python-open-folder.png)
+   
 1. Create a new Python source file, `speechsdk.py`, by selecting the new file icon.
 
    ![Create a file](media/sdk/qs-python-vscode-python-newfile.png)
