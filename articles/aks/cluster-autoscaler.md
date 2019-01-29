@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: iainfou
 ---
 
@@ -64,12 +64,12 @@ The following example creates an AKS cluster with virtual machine scale set and 
 
 ```azurecli-interactive
 # First create a resource group
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location canadaeast
 
 # Now create the AKS cluster and enable the cluster autoscaler
 az aks create \
-  --resource-group myResourceGroup-AKSVMSS \
-  --name myAKSCluster-Autoscaler \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
   --kubernetes-version 1.12.4 \
   --node-count 1 \
   --enable-vmss \
