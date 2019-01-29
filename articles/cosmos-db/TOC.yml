@@ -81,7 +81,7 @@
         href: consistency-levels-choosing.md
       - name: Consistency levels and Azure Cosmos DB APIs
         href: consistency-levels-across-apis.md
-      - name: Consistency, availability, & performance tradeoffs
+      - name: Consistency, availability, and performance tradeoffs
         href: consistency-levels-tradeoffs.md
       - name: High availability
         href: high-availability.md
@@ -105,13 +105,13 @@
       items:
       - name: Request units
         href: request-units.md
-      - name: Provision throughput on containers & databases
+      - name: Provision throughput on containers and databases
         href: set-throughput.md
-    - name: Work with Azure Cosmos accounts
+    - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
       items:
-      - name: Work with databases, containers, & items
+      - name: Work with databases, containers, and items
         href: databases-containers-items.md
       - name: SQL language reference 
         href: sql-api-query-reference.md
@@ -135,17 +135,17 @@
           href: read-change-feed.md
         - name: Change feed processor
           href: change-feed-processor.md
-        - name: Azure Cosmos DB trigger for Azure Functions 
+        - name: Trigger Azure Functions 
           href: change-feed-functions.md
       - name: Time to live
         href: time-to-live.md
       - name: Unique key constraints
         href: unique-keys.md
-      - name: Database transactions & optimistic concurrency control
+      - name: Transactions and optimistic concurrency control
         href: database-transactions-optimistic-concurrency.md
     - name: Server-side programming
       items:
-        - name: Stored procedures, triggers, & UDFs
+        - name: Stored procedures, triggers, and UDFs
           href: stored-procedures-triggers-udfs.md
         - name: JavaScript query API
           href: javascript-query-api.md
@@ -165,7 +165,7 @@
           href: optimize-cost-storage.md
         - name: Optimize reads and writes cost
           href: optimize-cost-reads-writes.md
-        - name: Optimize multi-regions cost
+        - name: Optimize multi-region cost
           href: optimize-cost-regions.md          
         - name: Optimize development/testing cost 
           href: optimize-dev-test.md
@@ -179,7 +179,7 @@
           href: database-encryption-at-rest.md
         - name: Secure access to data
           href: secure-access-to-data.md
-        - name: Access from IP firewall
+        - name: IP firewall
           href: firewall-support.md
         - name: Access from virtual networks
           href: vnet-service-endpoint.md
@@ -470,7 +470,7 @@
       href: how-to-manage-database-account.md
     - name: Global distribution
       items:
-      - name: Configure consistency levels
+      - name: Manage consistency levels
         href: how-to-manage-consistency.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
@@ -482,9 +482,9 @@
         href: how-to-provision-database-throughput.md
     - name: Working with containers and items
       items:
-      - name: Create an Azure Cosmos container
+      - name: Create a container
         href: how-to-create-container.md
-      - name: Query an Azure Cosmos container
+      - name: Query a container
         href: how-to-query-container.md
       - name: Configure time to live
         href: how-to-time-to-live.md
@@ -494,7 +494,7 @@
         href: data-explorer.md
       - name: Indexing
         items:
-        - name: Configure indexing
+        - name: Manage indexing
           href: how-to-manage-indexing-policy.md
     - name: Security
       items:
@@ -504,7 +504,7 @@
         href: how-to-configure-vnet-service-endpoint.md
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
-      - name: Secure keys with Azure Key Vault
+      - name: Secure Azure Cosmos keys using Key Vault
         href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
@@ -512,9 +512,9 @@
         href: how-to-backup-and-restore.md
     - name : Manage Azure Cosmos DB resources
       items:
-      - name: Use PowerShell
+      - name: Manage using PowerShell 
         href: manage-account-with-powershell.md
-      - name: Use Azure CLI
+      - name: Manage using Azure CLI
         href: manage-with-cli.md
     - name : Logging
       items:
