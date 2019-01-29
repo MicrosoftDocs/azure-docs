@@ -30,8 +30,6 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. The Azure portal appears and displays the Ansible page that describes the solution template. Select **Create**.
 
-<!--    ![Azure portal page for Ansible solution template creation and configuration](./media/ansible-deploy-solution-template/portal-ansible-setup.png) -->
-
 1. In the **Create Ansible** page, you see several tabs. On the **Basics** tab, enter the required information:
 
     - **Name** - Specify the name your Ansible instance. For demo purposes, the name `ansiblehost` is used.
