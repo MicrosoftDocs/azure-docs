@@ -83,7 +83,7 @@ We're excited to announce that we've added the following enhancements to the Azu
 
 - Product-wide alignment across risky users and risky sign-ins
 
-For more information about the enhancements, see https://aka.ms/IdentityProtectionDocs to learn more and to share your thoughts through the in-product prompts.
+For more information about the enhancements, see [What is Azure Active Directory Identity Protection (refreshed)?](https://aka.ms/IdentityProtectionDocs) to learn more and to share your thoughts through the in-product prompts.
 
 ---
 
