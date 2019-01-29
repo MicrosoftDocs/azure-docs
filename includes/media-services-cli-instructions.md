@@ -5,7 +5,7 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 01/25/2019
+ms.date: 01/28/2019
 ms.author: juliako
 ms.custom: include file
 ---
@@ -26,11 +26,23 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 Many Media Services CLI commands allow you to pass a parameter with a file name. 
 
-If you are using **Azure Cloud Shell**, upload your file to **Azure Cloud Shell**. You can find the upload/download files button at the top of the shell window. Then, reference the file like this: `@{FileName}.` 
+#### Azure Cloud Shell
+
+If you are using **Azure Cloud Shell**, upload your file to **Azure Cloud Shell**. You can find the upload/download files button at the top of the shell window. 
 
 ![Upload files]
 
-If you are using the Azure CLI locally, specify the whole file path. For example, `@c:\tracks.json`.
+Then, reference the file. For example:
+
+* `@"mytestfile.json" `
+* `@ "/usr/home/mytestfile.json"` 
+
+#### Locally installed CLI
+
+If you are using CLI locally, specify the file like this:
+
+* `@"mytestfile.json"`
+* `@"c:\tmp\user\mytestfile.json"`
 
 
 [Upload files]: ./media/media-services-cli/upload-download-files.png
