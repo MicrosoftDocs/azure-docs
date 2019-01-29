@@ -65,11 +65,11 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. Select **OK**.
 
-1. The **Summary** page displays showing the validation process and listing the specified criteria for the Ansible deployment. A link at the bottom of the tab allows you to **Download the template and parameters** for use with supported Azure languages and platforms. 
+   The **Summary** page displays showing the validation process and listing the specified criteria for the Ansible deployment. A link at the bottom of the tab allows you to **Download the template and parameters** for use with supported Azure languages and platforms. 
 
     ![Azure portal tab for Ansible Summary tab](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
-1. Select **OK**
+1. Select **OK**.
 
 1. When the **Create** tab appears, select **OK** to deploy Ansible.
 
