@@ -15,9 +15,9 @@ ms.custom: seodec18
 
 # Azure Machine Learning service release notes
 
-In this article, learn about the Azure Machine Learning service releases.  For a full description of each SDK, visit:
-+ [Reference docs for the main **Azure Machine Learning SDK** for Python](https://aka.ms/aml-sdk)
-+ [Reference docs for Azure Machine Learning **Data Prep SDK**](https://aka.ms/aml-sdk)
+In this article, learn about the Azure Machine Learning service releases.  For a full description of each SDK, visit the reference docs for:
++ The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
++ The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/aml-sdk)
 
 ## 2019-01-28
 
