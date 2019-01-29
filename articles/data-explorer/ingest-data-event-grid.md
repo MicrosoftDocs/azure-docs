@@ -4,7 +4,7 @@ description: 'In this quickstart, you will learn how to send storage account dat
 services: data-explorer
 author: radennis
 ms.author: radennis
-ms.reviewer: 
+ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/23/2019
@@ -21,13 +21,15 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/).
 
 1. [A cluster and database](create-cluster-database-portal.md)
-1. [A storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
-1. [An Event Hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
+1. [A storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+1. [An Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
 ## Create an Event Grid Subscription in your Storage Account
 
 * In Azure portal, navigate to your Storage Account
 * Click on **Events** tab, then on **Event Subscription**
+
+    ![Query application link](media/ingest-data-event-grid/create-event-grid-subscription.png)
 
  Provide the following values
 
@@ -36,7 +38,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
     | Name | *test-grid-connection* | The name of the event grid you want to create.|
     | Event schema | *Event Grid Schema* | The schema which should be used for the Event Grid. |
     | Topic Type | *Storage Account* | The type of event grid topic. |
-    | Topic Resource | *grid-test-storage* | The name of your storage account. |
+    | Topic Resource | *gridteststorage* | The name of your storage account. |
     | Subscribe to all event types | *Uncheck* | Whether to get notified on all events. |
     | Defined Event Types | *Blob Created* | Which specific events to get notified for. |
     | Endpoint Type | *Event Hubs* | The type of endpoint to send the events to. |
@@ -94,7 +96,7 @@ Now you connect to the event grid from Azure Data Explorer, so that data flowing
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Data connection name | *test-hub-connection* | The name of the connection you want to create in Azure Data Explorer.|
-    | Storage account | *grid-test-storage* | The name of the storage account you created on the first step.|
+    | Storage account | *gridteststorage* | The name of the storage account you created on the first step.|
     | Event hub namespace | A unique namespace name | The name you chose earlier that identifies your namespace. |
     | Event hub | *test-hub* | The event hub you created. |
     | Consumer group | *test-group* | The consumer group defined in the event hub you created. |
@@ -113,7 +115,7 @@ Now you connect to the event grid from Azure Data Explorer, so that data flowing
 
 Now that Azure Data Explorer and the storage account are connected, you can create sample data and upload to the blob storage.
 
-We'll work with a small shell script that issues a few basic Azure CLI commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container. You can use [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) to execute the script directly in the portal.
+We'll work with a small shell script that issues a few basic Azure CLI commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container. You can use [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to execute the script directly in the portal.
 
 Save the following data into a file and use with the below script.
 
