@@ -94,7 +94,7 @@ In this tutorial, you learned how to:
 > * Create a telemetry-based rule
 > * Add an action
 
-Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator.md).
+Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator-experimental.md).
 
 To learn more about different types of rules in Azure IoT Central and how to parameterize the rule definition, see:
 * [Create a telemetry rule and set up notifications](howto-create-telemetry-rules.md).

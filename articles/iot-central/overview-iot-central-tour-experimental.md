@@ -55,7 +55,7 @@ You can choose between a light theme or a dark theme for the UI:
 
 ![Home page](media/overview-iot-central-tour-experimental/homepage.png)
 
-The home page is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the home page for other users of the application by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial.
+The home page is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the home page for other users of the application by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator-experimental.md) tutorial.
 
 ## Device explorer
 
@@ -63,7 +63,7 @@ The home page is the first page you see when you sign in to your Azure IoT Centr
 
 The explorer page shows the _devices_ in your Azure IoT Central application grouped by _device template_.
 
-* A device template defines a type of device that can connect to your application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md).
+* A device template defines a type of device that can connect to your application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-experimental.md).
 * A device represents either a real or simulated device in your application. To learn more, see the [Add a new device to your Azure IoT Central application](tutorial-add-device.md).
 
 ## Device sets
@@ -88,7 +88,7 @@ The jobs page allows you to perform bulk device management operations onto your 
 
 ![Device Templates page](media/overview-iot-central-tour-experimental/templates.png)
 
-The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
+The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-experimental.md) tutorial.
 
 ## Continuous Data Export
 
