@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/28/2019
 ms.author: maquaran
 
 ---
@@ -35,6 +35,10 @@ ms.author: maquaran
 ## Release notes
 
 ### v2 builds
+
+### <a name="2.2.6"/>2.2.6
+* Improved handling of Observer exceptions
+  * This release fixes an issue that may occur if the user code within an Observer throws a DocumentClientException with Status Code 429 (Throttle). This type of Exception was causing the Processor to not close the Observer and skipping over to the next batch.
 
 ### <a name="2.2.5"/>2.2.5
 * Added support for handling split in collections that use shared database throughput.
@@ -152,6 +156,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |January 28, 2019 |--- |
 | [2.2.5](#2.2.5) |December 13, 2018 |--- |
 | [2.2.4](#2.2.4) |November 29, 2018 |--- |
 | [2.2.3](#2.2.3) |November 19, 2018 |--- |
