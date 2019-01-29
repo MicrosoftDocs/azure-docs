@@ -4,7 +4,7 @@ description: Shows how to use Azure AD dynamic groups with Azure Active Director
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/14/2017
 
