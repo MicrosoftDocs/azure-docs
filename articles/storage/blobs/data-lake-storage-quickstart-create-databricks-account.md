@@ -4,7 +4,7 @@ description: Learn to run a Spark job on Azure Databricks by using the Azure por
 services: storage
 author: normesta
 ms.author: normesta
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 01/24/2019
