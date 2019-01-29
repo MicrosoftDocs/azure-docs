@@ -34,11 +34,12 @@ In the template, you define the resources that are needed for the application. Y
 
 You can find HDInsight template samples at [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=hdinsight). Use cross-platform [Visual Studio Code](https://code.visualstudio.com/#alt-downloads) with the [Resource Manager extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) or a text editor to save the template into a file on your workstation. 
 
-For more information about Resource Manager templates, see the following articles:
+For more information about Resource Manager templates, see the following articles and examples:
 
 * [Author Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md)
-* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) template reference
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) template reference
+* [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 
 ## Generate templates
 
@@ -47,7 +48,6 @@ Resource Manager enables you to export a Resource Manager template from existing
 - Azure portal: See [Export an Azure Resource Manager template from existing resources](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell: See [Export Azure Resource Manager templates with PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
 - Azure Classic CLI: See [Export Azure Resource Manager templates with Azure Classic CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
-
 
 ## Deploy using the portal
 
