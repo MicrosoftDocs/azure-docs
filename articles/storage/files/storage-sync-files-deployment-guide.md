@@ -412,3 +412,4 @@ For more information, see [Azure File Sync interop with Distributed File System 
 ## Next steps
 - [Add or remove an Azure File Sync Server Endpoint](storage-sync-files-server-endpoint.md)
 - [Register or unregister a server with Azure File Sync](storage-sync-files-server-registration.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
