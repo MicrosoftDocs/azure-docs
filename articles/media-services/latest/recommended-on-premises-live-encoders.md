@@ -95,7 +95,7 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **Asset** object.
 6. Create a **Live Output** and use the asset name that you created.
-7. Create a Streaming Locator with the built-in Streaming Policy types
+7. Create a **Streaming Locator** with the built-in **Streaming Policy** types.
 8. List the paths on the **Streaming Locator** to get back the URLs to use.
 9. Get the hostname for the **Streaming Endpoint** you wish to stream from.
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
@@ -114,7 +114,7 @@ use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremed
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **Asset** object.
 6. Create a **Live Output** and use the asset name that you created.
-7. Create a Streaming Locator with the built-in Streaming Policy types
+7. Create a **Streaming Locator** with the built-in **Streaming Policy** types.
 8. List the paths on the **Streaming Locator** to get back the URLs to use.
 9. Get the hostname for the **Streaming Endpoint** you wish to stream from.
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
