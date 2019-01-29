@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using Node.js
 
-Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple JavaScript application sends a news search query to the API, and displays the response.
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple JavaScript application sends a news search query to the API, and displays the response. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
 While this application is written in JavaScript, the API is a RESTful Web service compatible with most programming languages.
 

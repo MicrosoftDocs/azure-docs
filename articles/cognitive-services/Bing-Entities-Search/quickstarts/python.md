@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using Python
 
-Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Python application sends a news search query to the API, and displays the response.
+Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Python application sends a news search query to the API, and displays the response. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
 While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
