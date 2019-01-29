@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources 
 
-Create the virtual network and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet#az-net). You can then add the subnet that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Create the virtual network and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -102,7 +102,7 @@ It may take several minutes for the application gateway to be created. After the
 
 ### Add the backend pools
 
-Add the backend pools that are needed to contain the backend servers using [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address_pool_create).
+Add the backend pools that are needed to contain the backend servers using [az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address_pool_create).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -219,7 +219,7 @@ done
 
 ## Create a CNAME record in your domain
 
-After the application gateway is created with its public IP address, you can get the DNS address and use it to create a CNAME record in your domain. You can use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) to get the DNS address of the application gateway. Copy the *fqdn* value of the DNSSettings and use it as the value of the CNAME record that you create. 
+After the application gateway is created with its public IP address, you can get the DNS address and use it to create a CNAME record in your domain. You can use [az network public-ip show](/cli/azure/network/public-ipwork_public_ip_show) to get the DNS address of the application gateway. Copy the *fqdn* value of the DNSSettings and use it as the value of the CNAME record that you create. 
 
 ```azurecli-interactive
 az network public-ip show \

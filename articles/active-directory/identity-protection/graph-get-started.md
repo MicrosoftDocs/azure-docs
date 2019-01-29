@@ -9,7 +9,7 @@ manager: daveba
 
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -246,7 +246,7 @@ Congratulations, you just made your first call to Microsoft Graph!
 Now you can query identity risk events and use the data however you see fit.
 
 
-To learn more about Microsoft Graph and how to build applications using the Graph API, check out the [documentation](https://graph.microsoft.io/docs) and much more on the [Microsoft Graph site](https://graph.microsoft.io/). 
+To learn more about Microsoft Graph and how to build applications using the Graph API, check out the [documentation](https://docs.microsoft.com/en-us/graph/overview) and much more on the [Microsoft Graph site](https://developer.microsoft.com/en-us/graph). 
 
 
 For related information, see:

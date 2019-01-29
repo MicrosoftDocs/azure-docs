@@ -7,7 +7,7 @@ author: bojunehsu
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu

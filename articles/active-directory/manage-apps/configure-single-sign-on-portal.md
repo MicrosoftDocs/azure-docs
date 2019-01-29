@@ -5,7 +5,7 @@ services: active-directory
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 12/06/2018

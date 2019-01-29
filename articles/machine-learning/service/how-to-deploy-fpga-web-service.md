@@ -161,7 +161,7 @@ registered_model.delete()
 
 ## Secure FPGA web services
 
-Azure Machine Learning models running on FPGAs provide SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients. [Learn how to secure the web service](how-to-secure-web-service.md).
+Azure Machine Learning service models running on FPGAs provide SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients. [Learn how to secure the web service](how-to-secure-web-service.md#fpga).
 
 
 ## Next steps
