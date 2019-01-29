@@ -2165,7 +2165,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 -   `num_expr`  
   
-     Is any valid numeric expression.  
+     Is any valid numeric expression. If num_expr is negative or non-finite, the result is undefined.
+
+  > [!NOTE]
+  > The maximum length of the result is 10,000 characters i.e. (length(str_expr)  *  num_expr) <= 10,000.
   
  **Return Types**  
   

@@ -3,7 +3,7 @@ title: Tutorial - Autoscale a scale set with the Azure CLI | Microsoft Docs
 description: Learn how to use the Azure CLI to automatically scale a virtual machine scale set as CPU demands increases and decreases
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
 
 ---
@@ -37,13 +37,13 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a scale set
 
-Create a resource group with [az group create](/cli/azure/group#create) as follows:
+Create a resource group with [az group create](/cli/azure/group) as follows:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set with an instance count of *2*, and generates SSH keys if they do not exist:
+Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss). The following example creates a scale set with an instance count of *2*, and generates SSH keys if they do not exist:
 
 ```azurecli-interactive
 az vmss create \

@@ -8,7 +8,7 @@ author: MarkusVi
 manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: overview 
 ms.devlang: na
 ms.tgt_pltfrm: na
