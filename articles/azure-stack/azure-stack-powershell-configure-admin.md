@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -58,14 +58,13 @@ Connect to the Azure Stack operator environment with PowerShell with Azure Activ
   # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
-  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
-  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
-
   # Sign in to your environment
+
+  $cred = get-credential
 
   Login-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
-    -TenantId $tenantId
+    -Credential $cred
   ```
 
 > [!Note]  

@@ -10,7 +10,7 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2019
+ms.date: 01/24/2019
 ms.author: bwren
 ---
 # Data ingestion time in Log Analytics
@@ -39,8 +39,15 @@ Agents and management solutions use different strategies to collect data from a 
 ### Agent upload frequency
 To ensure Log Analytics agent is lightweight, the agent buffers logs and periodically uploads them to Log Analytics. Upload frequency varies between 30 seconds and 2 minutes depending on the type of data. Most data is uploaded in under 1 minute. Network conditions may negatively affect the latency of this data to reach Log Analytics ingestion point.
 
-### Azure logs and metrics 
-Activity log data will take about 5 minutes to come available in Log Analytics. Data from diagnostic logs and metrics can take 1-15 minutes to become available for processing, depending on the Azure service. Once it's available, it will then take an additional 30-60 seconds for logs and 3 minutes for metrics for data to be sent to Log Analytics ingestion point.
+### Azure activity logs, diagnostic logs and metrics
+Azure data adds additional time to become available at Log Analytics ingestion point for processing:
+
+- Data from diagnostic logs take 2-15 minutes, depending on the Azure service. See the [query below](#checking-ingestion-time) to examine this latency in your environment
+- Azure platform metrics take 3 minutes to be sent to Log Analytics ingestion point.
+- Activity log data will take about 10-15 minutes to be sent to Log Analytics ingestion point.
+
+Once available at ingestion point, data takes additional 2-5 minutes to be available for querying.
+
 
 ### Management solutions collection
 Some solutions do not collect their data from an agent and may use a collection method that introduces additional latency. Some solutions collect data at regular intervals without attempting near-real time collection. Specific examples include the following:
