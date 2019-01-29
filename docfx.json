@@ -1,6 +1,6 @@
 {
   "build": {
-    "markdownEngineName": "DFM",
+    "markdownEngineName": "dfm-latest",
     "content": [
       {
         "files": [
