@@ -1,19 +1,22 @@
 ---
 title: Make your solutions available in AppSource and within Office 
 description: Upload Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps to AppSource and make them available in the Office Store within Office.
-ms.date: 01/11/2018
+ms.date: 01/29/2019
 localization_priority: Priority
 ---
 
 
 # Make your solutions available in AppSource and within Office
 
-Microsoft AppSource provides a convenient location for you to upload new Office Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. When you add your solution to AppSource, you also make it available in the Office Store within Office. To include your solution in AppSource and within Office, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You need to create an individual or company account and, if applicable, add payout information. For details, see:
+Microsoft AppSource provides a convenient location for you to upload new Office Web Add-ins, SharePoint Add-ins, Power BI custom visuals, and Microsoft Teams apps that provide solutions for both consumers and businesses. When you add your solution to AppSource, you also make it available in the Office Store within Office. To include your solution in AppSource and within Office, you submit it to the [Seller Dashboard](https://sellerdashboard.microsoft.com/Application/Summary). You need to create an individual or company account and, if applicable, add payout information. For details, see:
 
 - [Register as an app developer](https://developer.microsoft.com/store/register). After you create your account, it goes through an approval process.
 - [Use the Seller Dashboard to submit your solution to AppSource and within Office](use-the-seller-dashboard-to-submit-to-the-office-store.md).
 
 For information about how to submit Power BI custom visuals to AppSource, see [Publish custom visuals to AppSource and make them available within Office](/power-bi/developer/office-store).
+
+> [!NOTE]
+> Office *VSTO* Add-ins and *COM* Add-ins may not be submitted to AppSource. For more on the distinction between types of Office Add-ins, see [How are Office Add-ins different from COM and VSTO add-ins?](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/office-add-ins#how-are-office-add-ins-different-from-com-and-vsto-add-ins).
 
 <a name="bk_approval"> </a>
 ## Approval process
