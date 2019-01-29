@@ -19,7 +19,7 @@ ms.author: banders
 ---
 # Request billing ownership of Azure products from other users
 
-Request other users to transfer billing ownership of their Azure subscriptions and Reservations to your invoice section.
+Request other users to transfer billing ownership of their Azure subscriptions and Reservations to your invoice section. 
 
 To request billing ownership for an invoice section, you need to be an Owner, Contributor, Purchaser, or Azure subscription creator on the section. To lean more, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-tasks)
 
@@ -33,36 +33,36 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    ![Screenshot that shows Azure portal search](./media/billing-mca-request-billing-ownership/portal-cm-billing-search.png)
 
-3. Go to the invoice section. Depending on your access, you may need to select a billing account or a billing profile, select **Invoice sections** and then select an invoice section.
+3. Go to the invoice section. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
    <!-- Todo - Add a screenshot -->
 
 4. Select **Transfer requests** from the lower-left side.
 
 5. From the top of the page, select **Add**.
 
-6. Enter the email address of the recipient, who will transfer billing ownership of Azure products to your invoice section. The recipient must be an account administrator on an individual billing account or an account owner on an Enterprise Agreement enrollment.
+6. Enter the email address of the the user you're requesting billing ownership from. The user must be an account administrator on an individual billing account or an account owner on an Enterprise Agreement enrollment.
 
    ![Screenshot that shows adding a new transfer request](./media/billing-mca-request-billing-ownership/mca-new-transfer-request.png)
 
 7. Select **Send transfer request**.
 
-8. The recipient will receive an email with instructions to review your transfer request.
+8. The user you're requesting billing ownership from gets an email with instructions to review your transfer request.
 
    ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request-email.png)
 
-9. The recipient selects the link in the email and follows the instructions to accept your transfer request.
+9. To accept the transfer request, the user selects the link in email and follows the instructions.
 
     ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request.png)
-
-10. The transfer is successful.
 
 ## Check status of your transfer request in the Azure portal
 
 1. Sign in to Azure portal.
 
-2. Select **Cost Management + Billing** from the lower-left side of the portal.
+2. Search on **Cost Management + Billing**.
 
-3. Go to the Invoice section. Depending on your access, you may need to select a billing account or a billing profile, select **Invoice sections** and then select an invoice section.
+   ![Screenshot that shows Azure portal search](./media/billing-mca-request-billing-ownership/portal-cm-billing-search.png)
+
+3. Go to the Invoice section. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
    <!-- Todo - Add a screenshot -->
 
 4. Select **Transfer requests** from the lower-left side.
@@ -74,21 +74,21 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    |Column|Definition|
    |---------|---------|
    |Request date|The date when the transfer request was sent|
-   |Recipient|The email address of the recipient of the transfer request|
-   |Expiration date|The date when the request expires. The recipient can't accept the request after this date|
+   |Recipient|The email address of the user that you sent the request to transfer billing ownership|
+   |Expiration date|The date when the request expires|
    |Status|The status of transfer request|
 
     The transfer request can have one of the following statuses:
 
    |Status|Definition|
    |---------|---------|
-   |In progress|The recipient hasn't accepted the transfer request|
-   |Processing|The recipient accepted the transfer request. Billing for products that recipient selected is getting transitioned|
-   |Completed| The billing for products that recipient selected is transitioned to your invoice section|
-   |Finished with errors|The request completed but billing for some products that recipient selected couldn't be transitioned|
-   |Expired|The recipient didn't accept the request on time and it expired|
+   |In progress|The user hasn't accepted the transfer request|
+   |Processing|The user the transfer request. Billing for products that recipient selected is getting transitioned|
+   |Completed| The billing for products that the user selected is transitioned to your invoice section|
+   |Finished with errors|The request completed but billing for some products that user selected couldn't be transitioned|
+   |Expired|The user didn't accept the request on time and it expired|
    |Canceled|Someone with access to the transfer request canceled the request|
-   |Declined|The recipient declined the transfer request|
+   |Declined|The user declined the transfer request|
 
 6. Select a transfer request to view details. The transfer details page displays the following information:
    <!-- Todo - Add a screenshot -->
@@ -99,7 +99,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    |Transfer requested on|The date when the transfer request was sent|
    |Transfer requested by|The email address of the user who sent the transfer request|
    |Transfer request expires on| The date when the transfer request expires|
-   |Recipient's email address|The email address of the recipient of the transfer request|
+   |Recipient's email address|The email address of the user that you sent the request to transfer billing ownership|
    |Transfer link sent to recipient|The url that was sent to the user to review the transfer request|
 
 ## Frequently asked questions (FAQ)
