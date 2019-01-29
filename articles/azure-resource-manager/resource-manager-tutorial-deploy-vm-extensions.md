@@ -53,7 +53,7 @@ A PowerShell script with the following content is shared from an [Azure Storage 
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-If you choose to publish the file to your own location, you must update the [fileUri] element in the template later in the tutorial.
+If you choose to publish the file to your own location, you must update the `fileUri` element in the template later in the tutorial.
 
 ## Open a quickstart template
 
@@ -73,7 +73,7 @@ Azure Quickstart Templates is a repository for Resource Manager templates. Inste
 
     It's helpful to get some basic understanding of the template before you customize it.
 
-1. Select **File** > **Save As** to save a copy of the file to your local computer with the name *azuredeploy.json*.
+1. Save a copy of the file to your local computer with the name *azuredeploy.json* by selecting **File** > **Save As**.
 
 ## Edit the template
 
@@ -116,11 +116,9 @@ For the deployment procedure, see the "Deploy the template" section of [Tutorial
 
 ## Verify the deployment
 
-In the Azure portal, select the VM.
-
-In the VM overview, copy the IP address by selecting **Click to copy**, and paste it in a browser tab. 
-
-The default Internet Information Services (IIS) welcome page opens:
+1. In the Azure portal, select the VM.
+1. In the VM overview, copy the IP address by selecting **Click to copy**, and then paste it in a browser tab.  
+   The default Internet Information Services (IIS) welcome page opens:
 
 ![The Internet Information Services welcome page](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
