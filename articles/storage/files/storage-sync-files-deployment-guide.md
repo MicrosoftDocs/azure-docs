@@ -15,8 +15,6 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 
 We strongly recommend that you read [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) before you complete the steps described in this article.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Prerequisites
 * An Azure storage account and an Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](storage-sync-files-planning.md#region-availability) for Azure File Sync.
@@ -33,7 +31,13 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 
     > [!Note]  
     > Azure File Sync does not yet support PowerShell 6+ on either Windows Server 2012 R2 or Windows Server 2016.
-* The Azure PowerShell module on the servers you would like to use with Azure File Sync. For more information on how to install the Azure PowerShell modules, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). We always recommend using the latest version of the Azure PowerShell modules. 
+* The Az and the AzureRM PowerShell modules.
+    - The Az module can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+    - The AzureRM PowerShell module can be installed by executing the following PowerShell cmdlet:
+    
+        ```PowerShell
+        Install-Module AzureRM
+        ```
 
 ## Prepare Windows Server to use with Azure File Sync
 For each server that you intend to use with Azure File Sync, including each server node in a Failover Cluster, disable **Internet Explorer Enhanced Security Configuration**. This is required only for initial server registration. You can re-enable it after the server has been registered.
@@ -61,9 +65,100 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Componen
 
 # Force Internet Explorer closed, if open. This is required to fully apply the setting.
 # Save any work you have open in the IE browser. This will not affect other browsers,
-# including Edge.
+# including Microsoft Edge.
 Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 ``` 
+
+---
+
+## Deploy the Storage Sync Service 
+The deployment of Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group of your selected subscription. We recommend provisioning as few of these as needed. You will create a trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
+
+> [!Note]
+> The Storage Sync Service inherited access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
+
+# [Portal](#tab/azure-portal)
+To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), click *New* and then search for Azure File Sync. In the search results, select **Azure File Sync**, and then select **Create** to open the **Deploy Storage Sync** tab.
+
+On the pane that opens, enter the following information:
+
+- **Name**: A unique name (per subscription) for the Storage Sync Service.
+- **Subscription**: The subscription in which you want to create the Storage Sync Service. Depending on your organization's configuration strategy, you might have access to one or more subscriptions. An Azure subscription is the most basic container for billing for each cloud service (such as Azure Files).
+- **Resource group**: A resource group is a logical group of Azure resources, such as a storage account or a Storage Sync Service. You can create a new resource group or use an existing resource group for Azure File Sync. (We recommend using resource groups as containers to isolate resources logically for your organization, such as grouping HR resources or resources for a specific project.)
+- **Location**: The region in which you want to deploy Azure File Sync. Only supported regions are available in this list.
+
+When you are finished, select **Create** to deploy the Storage Sync Service.
+
+# [PowerShell](#tab/azure-powershell)
+Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the Azure PowerShell modules.
+
+> [!Note]  
+> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureStorageSync` was chosen to match the `Login-AzAccount` cmdlet alias in the Azure PowerShell module. This error message (and cmdlet) will be removed when the Azure File Sync agent is added to the Azure PowerShell module.
+
+```PowerShell
+$acctInfo = Login-AzAccount
+
+# The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
+# agent to a non-standard location, please update this path.
+$agentPath = "C:\Program Files\Azure\StorageSyncAgent"
+
+# Import the Azure File Sync management cmdlets
+Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
+
+# this variable stores your subscription ID 
+# get the subscription ID by logging onto the Azure portal
+$subID = $acctInfo.Context.Subscription.Id
+
+# this variable holds your Azure Active Directory tenant ID
+# use Login-AzAccount to get the ID from that context
+$tenantID = $acctInfo.Context.Tenant.Id
+
+# this variable holds the Azure region you want to deploy 
+# Azure File Sync into
+$region = '<Az_Region>'
+
+# Check to ensure Azure File Sync is available in the selected Azure
+# region.
+$regions = @()
+Get-AzLocation | ForEach-Object { 
+    if ($_.Providers -contains "Microsoft.StorageSync") { 
+        $regions += $_.Location 
+    } 
+}
+
+if ($regions -notcontains $region) {
+    throw [System.Exception]::new("Azure File Sync is either not available in the selected Azure Region or the region is mistyped.")
+}
+
+# the resource group to deploy the Storage Sync Service into
+$resourceGroup = '<RG_Name>'
+
+# Check to ensure resource group exists and create it if doesn't
+$resourceGroups = @()
+Get-AzResourceGroup | ForEach-Object { 
+    $resourceGroups += $_.ResourceGroupName 
+}
+
+if ($resourceGroups -notcontains $resourceGroup) {
+    New-AzResourceGroup -Name $resourceGroup -Location $region
+}
+
+# the following command creates an AFS context 
+# it enables subsequent AFS cmdlets to be executed with minimal 
+# repetition of parameters or separate authentication 
+Login-AzureRmStorageSync `
+    -SubscriptionId $subID `
+    -ResourceGroupName $resourceGroup `
+    -TenantId $tenantID `
+    -Location $region
+```
+
+Once you have created the Azure File Sync context with the `Login-AzureR,StorageSync` cmdlet, you can create the Storage Sync Service. Be sure to replace `<my-storage-sync-service>` with the desired name of your Storage Sync Service.
+
+```PowerShell
+$storageSyncName = "<my-storage-sync-service>"
+New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
+```
 
 ---
 
@@ -122,97 +217,6 @@ Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
 
 ---
 
-## Deploy the Storage Sync Service 
-The deployment of Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group of your selected subscription. We recommend provisioning as few of these as needed. You will create a trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
-
-> [!Note]
-> The Storage Sync Service inherited access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
-
-# [Portal](#tab/azure-portal)
-To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), click *New* and then search for Azure File Sync. In the search results, select **Azure File Sync**, and then select **Create** to open the **Deploy Storage Sync** tab.
-
-On the pane that opens, enter the following information:
-
-- **Name**: A unique name (per subscription) for the Storage Sync Service.
-- **Subscription**: The subscription in which you want to create the Storage Sync Service. Depending on your organization's configuration strategy, you might have access to one or more subscriptions. An Azure subscription is the most basic container for billing for each cloud service (such as Azure Files).
-- **Resource group**: A resource group is a logical group of Azure resources, such as a storage account or a Storage Sync Service. You can create a new resource group or use an existing resource group for Azure File Sync. (We recommend using resource groups as containers to isolate resources logically for your organization, such as grouping HR resources or resources for a specific project.)
-- **Location**: The region in which you want to deploy Azure File Sync. Only supported regions are available in this list.
-
-When you are finished, select **Create** to deploy the Storage Sync Service.
-
-# [PowerShell](#tab/azure-powershell)
-Before interacting with the Azure File Sync management cmdlets, you will need to import a DLL and create an Azure File Sync management context. This is required because the Azure File Sync management cmdlets are not yet part of the Azure PowerShell modules.
-
-> [!Note]  
-> The StorageSync.Management.PowerShell.Cmdlets.dll package, which contains the Azure File Sync management cmdlets, (intentionally) contains a cmdlet with an unapproved verb (`Login`). The name `Login-AzureStorageSync` was chosen to match the `Login-AzAccount` cmdlet alias in the Azure PowerShell module. This error message (and cmdlet) will be removed the Azure File Sync agent is added to the Azure PowerShell module.
-
-```PowerShell
-$acctInfo = Login-AzAccount
-
-# The location of the Azure File Sync Agent. If you have installed the Azure File Sync 
-# agent to a non-standard location, please update this path.
-$agentPath = "C:\Program Files\Azure\StorageSyncAgent"
-
-# Import the Azure File Sync management cmdlets
-Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
-
-# this variable stores your subscription ID 
-# get the subscription ID by logging onto the Azure portal
-$subID = $acctInfo.Context.Subscription.Id
-
-# this variable holds your Azure Active Directory tenant ID
-# use Login-AzAccount to get the ID from that context
-$tenantID = $acctInfo.Context.Tenant.Id
-
-# this variable holds the Azure region you want to deploy 
-# Azure File Sync into
-$region = '<Az_Region>'
-
-# Check to ensure Azure File Sync is available in the selected Azure
-# region.
-$regions = @()
-Get-AzLocation | ForEach-Object { 
-    if ($_.Providers -contains "Microsoft.StorageSync") { 
-        $regions += $_.Location 
-    } 
-}
-
-if ($regions -notcontains $region) {
-    throw [System.Exception]::new("Azure File Sync is either not available in the selected Azure Region or the region is mistyped.")
-}
-
-# the resource group to deploy the Storage Sync Service into
-$resourceGroup = '<RG_Name>'
-
-# Check to ensure resource group exists and create it if doesn't
-$resourceGroups = @()
-Get-AzResourceGroup | ForEach-Object { 
-    $resourceGroups += $_.ResourceGroupName 
-}
-
-if ($resourceGroups -notcontains $resourceGroup) {
-    New-AzResourceGroup -Name $resourceGroup -Location $region
-}
-
-# the following command creates an AFS context 
-# it enables subsequent AFS cmdlets to be executed with minimal 
-# repetition of parameters or separate authentication 
-Login-AzStorageSync `
-    -SubscriptionId $subID `
-    -ResourceGroupName $resourceGroup `
-    -TenantId $tenantID `
-    -Location $region
-```
-
-Once you have created the Azure File Sync context with the `Login-AzStorageSync` cmdlet, you can create the Storage Sync Service. Be sure to replace `<my-storage-sync-service>` with the desired name of your Storage Sync Service.
-
-```PowerShell
-$storageSyncName = "<my-storage-sync-service>"
-New-AzStorageSyncService -StorageSyncServiceName $storageSyncName
-```
-
----
-
 ## Register Windows Server with Storage Sync Service
 Registering your Windows Server with a Storage Sync Service establishes a trust relationship between your server (or cluster) and the Storage Sync Service. A server can only be registered to one Storage Sync Service and can sync with other servers and Azure file shares associated with the same Storage Sync Service.
 
@@ -234,7 +238,7 @@ After you have selected the appropriate information, select **Register** to comp
 
 # [PowerShell](#tab/azure-powershell)
 ```PowerShell
-$registeredServer = Register-AzStorageSyncServer -StorageSyncServiceName $storageSyncName
+$registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
 ---
@@ -264,7 +268,7 @@ To create the sync group, execute the following PowerShell. Remember to replace 
 
 ```PowerShell
 $syncGroupName = "<my-sync-group>"
-New-AzStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
+New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 Once the sync group has been successfully created, you can create your cloud endpoint. Be sure to replace `<my-storage-account>` and `<my-file-share>` with the expected values.
@@ -297,7 +301,7 @@ if ($fileShare -eq $null) {
 }
 
 # Create the cloud endpoint
-New-AzStorageSyncCloudEndpoint `
+New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
     -StorageAccountResourceId $storageAccount.Id `
@@ -340,7 +344,7 @@ if ($cloudTieringDesired) {
     }
 
     # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
+    New-AzureRmStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
@@ -350,7 +354,7 @@ if ($cloudTieringDesired) {
 }
 else {
     # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
+    New-AzureRmStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `

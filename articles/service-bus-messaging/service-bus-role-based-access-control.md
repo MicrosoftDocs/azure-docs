@@ -3,9 +3,9 @@ title: Azure Service Bus Role-Based Access Control (RBAC) preview | Microsoft Do
 description: Azure Service Bus role based access control
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid:
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 

@@ -20,6 +20,8 @@
       href: node-ingest-data.md
     - name: Batching data - .NET Standard SDK
       href: net-standard-ingest-data.md
+    - name: Batching data - Logstash
+      href: ingest-data-logstash.md
   - name: Query data
     items:
     - name: Web UI
@@ -65,6 +67,8 @@
       href: manage-cluster-scaling.md
     - name: Delete data
       href: delete-data.md
+    - name: Deal with duplicate data
+      href: dealing-with-duplicates.md
   - name: Work with other tools
     items:
     - name: Connect from Databricks using Python

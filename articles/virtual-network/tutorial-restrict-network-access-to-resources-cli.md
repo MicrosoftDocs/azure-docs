@@ -182,7 +182,7 @@ echo $saConnectionString
 
 ### Create a file share in the storage account
 
-Create a file share in the storage account with [az storage share create](/cli/azure/storage/share#az_storage_share_create). In a later step, this file share is mounted to confirm network access to it.
+Create a file share in the storage account with [az storage share create](/cli/azure/storage/share). In a later step, this file share is mounted to confirm network access to it.
 
 ```azurecli-interactive
 az storage share create \

@@ -288,7 +288,7 @@ In this section, you build and run the project locally and trigger the function 
 
 ## Add Application Insights logging
 
-When the project runs in Azure, you can't monitor function execution by viewing console output. The monitoring solution we recommend is [Application Insights](../application-insights/app-insights-overview.md). For more information, see [Monitor Azure Functions](../azure-functions/functions-monitoring.md).
+When the project runs in Azure, you can't monitor function execution by viewing console output. The monitoring solution we recommend is [Application Insights](../azure-monitor/app/app-insights-overview.md). For more information, see [Monitor Azure Functions](../azure-functions/functions-monitoring.md).
 
 In this section, you do the following tasks to set up Application Insights logging before you deploy to Azure:
 
@@ -300,9 +300,9 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 1. If you don't already have an App Service app that you can use, [create one](app-service-web-get-started-dotnet-framework.md).
 
-1. If you don't already have an Application Insights resource that you can use, [create one](../application-insights/app-insights-create-new-resource.md). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
+1. If you don't already have an Application Insights resource that you can use, [create one](../azure-monitor/app/create-new-resource.md ). Set **Application type** to **General**, and skip the sections that follow **Copy the instrumentation key**.
 
-1. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. If you already have an Application Insights resource that you want to use, [copy the instrumentation key](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
 
 ### Configure app settings 
 

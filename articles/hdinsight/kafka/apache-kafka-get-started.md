@@ -44,7 +44,13 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
 To create an Apache Kafka on HDInsight cluster, use the following steps:
 
-1. From the [Azure portal](https://portal.azure.com), select **+ Create a resource**, **Data + Analytics**, and then select **HDInsight**.
+1. Log in to the [Azure portal](https://portal.azure.com).
+
+1. From the left menu, select **+ Create a resource**.
+
+1. Under **Azure marketplace**, select **Analytics**.
+
+1. Under **Featured**, select **HDInsight**.
    
     ![Create a HDInsight cluster](./media/apache-kafka-get-started/create-hdinsight.png)
 

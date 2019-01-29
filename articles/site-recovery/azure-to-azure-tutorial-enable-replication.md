@@ -37,7 +37,7 @@ To complete this tutorial:
 Create the vault in any region, except the source region.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
+2. Click **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one
    subscription, select the appropriate one.
 4. Create a resource group or select an existing one. Specify an Azure region. To check supported
@@ -192,7 +192,8 @@ Site Recovery creates default settings and replication policy for the target reg
 
 5. In **Customize**, select **Yes** for multi-VM consistency if you want to add VMs to a new or existing replication group. to make VMs part of a replication group. Then click **OK**.
 
-    - All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over. Enabling multi-VM consistency can impact workload performance and should be used only if machines are running the same workload and you need consistency across multiple machines.
+    - All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over. Enabling multi-VM consistency can impact workload performance (as it is CPU intensive) and should be used only if machines are running the same workload and you need consistency across multiple machines.
+    - You can choose to have at max 16 virtual machines in a replication group.
     - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004. If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened as per the guidance of the specific Linux version.
 
 ### Configure encryption settings

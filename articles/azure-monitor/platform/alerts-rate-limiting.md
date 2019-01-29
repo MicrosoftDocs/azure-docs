@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Rate limiting for Voice, SMS, emails, Azure App push notifications and webhook posts
@@ -30,3 +30,4 @@ The rate limit thresholds are:
 * Learn more about [SMS alert behavior](alerts-sms-behavior.md).
 * Get an [overview of activity log alerts](alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+

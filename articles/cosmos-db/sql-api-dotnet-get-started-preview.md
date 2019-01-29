@@ -1,11 +1,9 @@
 ---
 title: 'Build a .NET console app to manage data in Azure Cosmos DB SQL API account (SDK Version 3 Preview)'
 description: A tutorial that creates an online database and C# console application using the SQL API.
-keywords: nosql tutorial, online database, c# console application
 author: deborahc
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
@@ -315,7 +313,7 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
         //ADD THIS PART TO YOUR CODE
         await this.CreateContainer();
     }
-
+    ´´´
 Select **F5** to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB container.  
@@ -594,7 +592,7 @@ Now, we will update an item in Azure Cosmos DB.
         //ADD THIS PART TO YOUR CODE
         await this.ReplaceFamilyItem();
     }
-
+    ´´´
 Select **F5** to run your application.
 
 Congratulations! You have successfully replaced an Azure Cosmos DB item.

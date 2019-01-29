@@ -2,11 +2,11 @@
 title: Azure CLI Samples for Azure Cosmos DB
 description: Azure CLI Samples - Create and manage Azure Cosmos DB accounts, databases, containers, regions, and firewalls. 
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
+ms.reviewer: sngun
 ---
 
 # Azure CLI samples for Azure Cosmos DB

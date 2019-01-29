@@ -6,7 +6,7 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
@@ -90,7 +90,7 @@ Here's the callback code:
 6. Click the "Score Actions" button.
 	- Clicking the button triggers the entity detection callback
 	- The callback code sets the CityResolved Entity value correctly to "new york"
-7. Select the response, "new york is is very nice."
+7. Select the response, "new york is very nice."
 
 This pattern is typical of many bot scenarios. User utterances and extracted entities are supplied to your business logic, and that logic transforms the utterance into canonical form, which is then saved into programmatic entities, for subsequent turns of the dialog.
 

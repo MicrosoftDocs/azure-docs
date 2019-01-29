@@ -2,9 +2,8 @@
 title: 'Tutorial: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data'
 description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Web Apps feature of Microsoft Azure App Service.
 author: SnehaGunda
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/10/2018
@@ -323,7 +322,7 @@ Now that you have completed the initial setup and configuration, next you will w
      })
      .catch(err => {
        console.error(err);
-       console.error("Shutting down because there was an error settinig up the database.");
+       console.error("Shutting down because there was an error setting up the database.");
        process.exit(1);
      });
 

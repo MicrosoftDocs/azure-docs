@@ -29,8 +29,8 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-+ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
-+ Make sure there is a Logic App in your subscription. For more information, [Create your first Logic App](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
+* Make sure there is a Logic App in your subscription that exposes an HTTP endpoint. For more information, [Trigger workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -40,7 +40,7 @@ In this article, you learn how to:
 2. Select **Logic App** from the **Add a new API** list.
 
     ![Logic app](./media/import-logic-app-as-api/logic-app-api.png)
-3. Press **Browse** to see the list of Logic Apps in your subscription.
+3. Press **Browse** to see the list of callable Logic Apps in your subscription.
 4. Select the app. APIM finds the swagger associated with the selected app, fetches it, and imports it. 
 5. Add an API URL suffix. The suffix is a name that identifies this specific API in this APIM instance. It has to be unique in this APIM instance.
 6. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used.  If you want for the API to be published and be available to developers, add it to a product. You can do it during API creation or set it later.

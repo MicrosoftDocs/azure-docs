@@ -1,17 +1,12 @@
 ---
 title: Introduction to Azure Cosmos DB's API for MongoDB
 description: Learn how you can use Azure Cosmos DB to store and query massive amounts of data using Azure Cosmos DB's API for MongoDB.
-keywords: Azure Cosmos DB's API for MongoDB
-services: cosmos-db
-author: rimman
-
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/26/2018
-ms.author: rimman
-experimental: true
-experiment_id: "662dc5fd-886f-4a"
+author: sivethe
+ms.author: sivethe
 ---
 # Azure Cosmos DB's API for MongoDB
 

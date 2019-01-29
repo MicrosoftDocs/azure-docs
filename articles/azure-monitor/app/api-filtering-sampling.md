@@ -20,14 +20,14 @@ ms.author: mbullwin
 
 You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service.
 
-* [Sampling](../../application-insights/app-insights-sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
-* Filtering with Telemetry Processors [for ASP.NET](#filtering) or [Java](../../application-insights/app-insights-java-filter-telemetry.md) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. But filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
+* [Sampling](../../azure-monitor/app/sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
+* Filtering with Telemetry Processors [for ASP.NET](#filtering) or [Java](../../azure-monitor/app/java-filter-telemetry.md) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. But filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
 * [Telemetry Initializers add properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
 * [The SDK API](../../azure-monitor/app/api-custom-events-metrics.md) is used to send custom events and metrics.
 
 Before you start:
 
-* Install the Application Insights [SDK for ASP.NET](../../azure-monitor/app/asp-net.md) or [SDK for Java](../../application-insights/app-insights-java-get-started.md) in your app.
+* Install the Application Insights [SDK for ASP.NET](../../azure-monitor/app/asp-net.md) or [SDK for Java](../../azure-monitor/app/java-get-started.md) in your app.
 
 <a name="filtering"></a>
 
@@ -39,7 +39,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 > [!WARNING]
 > Filtering the telemetry sent from the SDK using processors can skew the statistics that you see in the portal, and make it difficult to follow related items.
 >
-> Instead, consider using [sampling](../../application-insights/app-insights-sampling.md).
+> Instead, consider using [sampling](../../azure-monitor/app/sampling.md).
 >
 >
 
@@ -278,7 +278,7 @@ In ApplicationInsights.config:
 
 ### Java telemetry initializers
 
-[Java SDK documentation](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility._telemetry_initializer?view=azure-java-stable)
+[Java SDK documentation](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
 
 ```Java
 public interface TelemetryInitializer
@@ -367,5 +367,5 @@ What's the difference between telemetry processors and telemetry initializers?
 
 ## <a name="next"></a>Next steps
 * [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
-* [Sampling](../../application-insights/app-insights-sampling.md)
-* [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Sampling](../../azure-monitor/app/sampling.md)
+* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)

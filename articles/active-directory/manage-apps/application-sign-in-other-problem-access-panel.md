@@ -4,11 +4,11 @@ description: How to troubleshoot issues accessing an application from the Micros
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -64,7 +64,7 @@ For password-based SSO, the end user’s browsers can be:
 
 -   Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
 
--   Edge on Windows 10 Anniversary Edition or later
+-   Microsoft Edge on Windows 10 Anniversary Edition or later
 
 -   Chrome -- on Windows 7 or later, and on MacOS X or later
 
@@ -88,11 +88,11 @@ To install the Access Panel Browser extension, follow the steps below:
 
 7.  Sign in into the Access Panel and see if you can **launch** your password-SSO applications
 
-You may also download the extension for Chrome and Edge from the direct links below:
+You may also download the extension for Chrome and Microsoft Edge from the direct links below:
 
 -   [Chrome Access Panel Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Edge Access Panel Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Microsoft Edge Access Panel Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## How to configure federated single sign-on for an Azure AD gallery application
 

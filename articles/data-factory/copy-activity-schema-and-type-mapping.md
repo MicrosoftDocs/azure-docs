@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
@@ -139,7 +139,7 @@ If you are using the syntax of `"columnMappings": "UserId: MyUserId, Group: MyGr
 
 ## Schema mapping
 
-Schema mapping applies when copying data between hierarchical-shaped data and tabular-shaped data, e.g. copy from MongoDB/REST to text file and copy from SQL to Azure Cosmos DB MongoDB API. The following properties are supported in copy activity `translator` section:
+Schema mapping applies when copying data between hierarchical-shaped data and tabular-shaped data, e.g. copy from MongoDB/REST to text file and copy from SQL to Azure Cosmos DB's API for MongoDB. The following properties are supported in copy activity `translator` section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

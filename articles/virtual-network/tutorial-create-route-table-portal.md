@@ -1,5 +1,6 @@
 ---
-title: Route network traffic - tutorial - Azure portal | Microsoft Docs
+title: Route network traffic - tutorial - Azure portal
+titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
@@ -276,7 +277,7 @@ You can create the *myVmPrivate* VM while Azure creates the *myVmPublic* VM. Don
 
 1. Select **Yes** to connect to the VM.
 
-### Enable ICPM through the Windows firewall
+### Enable ICMP through the Windows firewall
 
 In a later step, you'll use the trace route tool to test routing. Trace route uses the Internet Control Message Protocol (ICMP), which the Windows Firewall denies by default. Enable ICMP through the Windows firewall.
 

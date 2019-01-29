@@ -14,7 +14,7 @@ ms.date: 03/15/2018
 
 # Create streaming customer insights dashboard with Azure Logic Apps and Azure Functions
 
-Azure offers serverless tools that help you quickly build 
+Azure offers [serverless](https://azure.microsoft.com/solutions/serverless/) tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 
 In this tutorial, you can create a dashboard that triggers on customer feedback, 
 analyzes feedback with machine learning, and publishes insights to a source, 

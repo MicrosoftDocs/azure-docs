@@ -23,7 +23,7 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Monitor administrator activities to track configuration changes or high privilege operations.
 - Detect and investigate unwanted user behavior, which can be customized for your organizational needs.
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
-- Perform operational troubleshooting by using [log searches](../../azure-monitor/log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
+- Perform operational troubleshooting by using [log searches](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
 
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
@@ -34,7 +34,7 @@ The following is required prior to this solution being installed and configured.
  
 
 ## Management packs
-This solution does not install any management packs in [connected management groups](../../azure-monitor/platform/om-agents.md).
+This solution does not install any management packs in [connected management groups](../platform/om-agents.md).
   
 ## Install and configure
 Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-management-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
@@ -302,7 +302,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
                                     'office365TenantID': '" + $OfficeTennantId + "',
                                     'connectionID': 'office365connection_" + $SubscriptionId + $OfficeTennantId + "',
                                     'office365AdminUsername': '" + $OfficeUsername + "',
-                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory,Audit.Sharepoint'
+                                    'contentTypes':'Audit.Exchange,Audit.AzureActiveDirectory,Audit.SharePoint'
                                   },
                     'etag': '*',
                     'kind': 'Office365',
@@ -470,7 +470,7 @@ You can remove the Office 365 management solution using the process in [Remove a
 
 ## Data collection
 ### Supported agents
-The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../../azure-monitor/platform/agent-data-sources.md).  It retrieves data directly from Office 365.
+The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../platform/agent-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
 It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created. This record is available in Log Analytics within a few minutes after being received.
@@ -510,7 +510,7 @@ The following properties are common to all Office 365 records.
 | Operation | The name of the user or admin activity.  |
 | OrganizationId | The GUID for your organization's Office 365 tenant. This value will always be the same for your organization, regardless of the Office 365 service in which it occurs. |
 | RecordType | Type of operation performed. |
-| ResultStatus | Indicates whether the action (specified in the Operation property) was successful or not. Possible values are Succeeded, PartiallySucceded, or Failed. For Exchange admin activity, the value is either True or False. |
+| ResultStatus | Indicates whether the action (specified in the Operation property) was successful or not. Possible values are Succeeded, PartiallySucceeded, or Failed. For Exchange admin activity, the value is either True or False. |
 | UserId | The UPN (User Principal Name) of the user who performed the action that resulted in the record being logged; for example, my_name@my_domain_name. Note that records for activity performed by system accounts (such as SHAREPOINT\system or NTAUTHORITY\SYSTEM) are also included. | 
 | UserKey | An alternative ID for the user identified in the UserId property.  For example, this property is populated with the passport unique ID (PUID) for events performed by users in SharePoint, OneDrive for Business, and Exchange. This property may also specify the same value as the UserID property for events occurring in other services and events performed by system accounts|
 | UserType | The type of user that performed the operation.<br><br>Admin<br>Application<br>DcAdmin<br>Regular<br>Reserved<br>ServicePrincipal<br>System |
@@ -702,6 +702,6 @@ The following table provides sample log searches for update records collected by
 
 
 ## Next steps
-* Use Log Searches in [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed update data.
-* [Create your own dashboards](../../azure-monitor/platform/dashboards.md) to display your favorite Office 365 search queries.
-* [Create alerts](../../azure-monitor/platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  
+* Use Log Searches in [Log Analytics](../log-query/log-query-overview.md) to view detailed update data.
+* [Create your own dashboards](../learn/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
+* [Create alerts](../platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  

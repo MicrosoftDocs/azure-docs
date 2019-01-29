@@ -1,15 +1,11 @@
 ---
-title: Create a virtual network - quickstart - Azure CLI | Microsoft Docs
+title: Create a virtual network - quickstart - Azure CLI
+titlesuffix: Azure Virtual Network
 description: In this quickstart, you learn to create a virtual network using the Azure CLI. A virtual network lets Azure resources, like virtual machines, communicate privately with each other, and with the internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -17,7 +13,6 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
-ms.custom: mvc
 ---
 
 # Quickstart: Create a virtual network using the Azure CLI
@@ -38,7 +33,7 @@ Before you can create a virtual network, you have to create a resource group to 
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -117,7 +112,7 @@ Exit the SSH session with the *myVm2* VM.
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all the resources it has:
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group and all the resources it has:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

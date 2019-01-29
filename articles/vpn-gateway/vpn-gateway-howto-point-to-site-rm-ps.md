@@ -58,7 +58,7 @@ In this section, you sign in and declare the values used for this configuration.
 
 ### Sign in
 
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### Declare variables
 

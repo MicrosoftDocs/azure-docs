@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords:
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
@@ -30,7 +30,7 @@ write and test queries against Azure Blockchain Workbench's SQL DB. This section
 3. In the **Connect to Server** dialog, enter the server name and your
 database credentials.
 
-    If you are using the credentials created by the Azure Blockchain Workbench deployment process, the username will be **dbadmin** and the password will be the one you provided during deployment.
+    If you are using the credentials created by the Azure Blockchain Workbench deployment process, the username is **dbadmin** and the password is the one you provided during deployment.
 
     ![Enter SQL credentials](./media/data-sql-management-studio/sql-creds.png)
 
@@ -39,7 +39,7 @@ database credentials.
     ![Database list](./media/data-sql-management-studio/db-list.png)
 
 5. To view the data associated with any of the database views, you can automatically generate a select statement using the following steps.
-6. Right click on any of the database views in the Object Explorer.
+6. Right-click any of the database views in the Object Explorer.
 7. Select **Script View as**.
 8. Choose **SELECT to**.
 9. Select **New Query Editor Window**.

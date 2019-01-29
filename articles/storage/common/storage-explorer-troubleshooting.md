@@ -95,7 +95,7 @@ If you are unable to retrieve your subscriptions after you successfully sign in,
 If you are unable to remove an attached account or storage resource through the UI, you can manually delete all attached resources by deleting the following folders:
 
 * Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
