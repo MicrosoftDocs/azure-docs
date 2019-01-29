@@ -6,7 +6,7 @@ author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 01/29/2019
 ms.author: dineshm
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
@@ -26,13 +26,21 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-This tutorial demonstrates how to consume and query airline flight data, which is available from the [United States Department of Transportation](https://transtats.bts.gov/DL_SelectFields.asp). 
+Before you begin this tutorial, create an Azure Data Lake Storage Gen2 account.
 
-1. Select the **Prezipped file** check box to select all data fields.
-2. Select **Download** and save the results to your machine.
-3. Make a note of the file name and the path of the download; you need this information in a later step.
+See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
 
-To complete this tutorial, you need a storage account with analytic capabilities. We recommend completing our [quickstart](data-lake-storage-quickstart-create-account.md) on the subject in order to create one. 
+### Download the flight data
+
+This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
+
+1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+
+2. Select the **Prezipped File** check box to select all data fields.
+
+3. Select the **Download** button and save the results to your computer.
+
+   Make a note of the file name and the path of the download. You need this information in a later step.
 
 ## Set aside storage account configuration
 
@@ -58,27 +66,67 @@ There's a few specific things that you'll have to do as you perform the steps in
 
 :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
 
-## Create a Databricks cluster
+## Create an Azure Databricks service
 
-The next step is to create a Databricks cluster to create a data workspace.
+In this section, you create an Azure Databricks service by using the Azure portal.
 
-1. From the [Azure portal](https://portal.azure.com), select **Create a resource**.
-2. Enter **Azure Databricks** in the search field.
-3. Select **Create** on the Azure Databricks blade.
-4. Name your Databricks service **myFlightDataService** (make sure to check the *Pin to dashboard* checkbox as you create the service).
-5. Select **Launch Workspace** to open the workspace in a new browser window.
-6. Select **Clusters** in the left navigation bar.
-7. Select **Create Cluster**.
-8. Enter a **myFlightDataCluster** in the **Cluster name** field.
-9. Select **Standard_D8s_v3** in the **Worker Type** field.
-10. Change the **Min Workers** value to **4**.
-11. Select **Create Cluster** at the top of the page. (This process may take up to 5 minutes to finish.)
-12. When the process finishes, select **Azure Databricks** on the top left of the navigation bar.
-13. Select **Notebook** under the **New** section on the bottom half of the page.
-14. Enter a name of your choice in the **Name** field, and select **Python** as the language.
-15. All other fields can be left as default values.
-16. Select **Create**.
-17. Copy and paste the following code block into the first cell, but don't run this code yet.
+1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
+
+    ![Databricks on Azure portal](./media/data-lake-storage-use-databricks-spark/azure-databricks-on-portal.png "Databricks on Azure portal")
+
+2. Under **Azure Databricks Service**, provide the following values to create a Databricks service:
+
+    |Property  |Description  |
+    |---------|---------|
+    |**Workspace name**     | Provide a name for your Databricks workspace.  |
+    |**Subscription**     | From the drop-down, select your Azure subscription.        |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
+    |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).       |
+    |**Pricing Tier**     |  Select **Standard**.     |
+
+    ![Create an Azure Databricks workspace](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Create an Azure Databricks service")
+
+3. Select **Pin to dashboard** and then select **Create**.
+
+4. The account creation takes a few minutes. During account creation, the portal displays the **Submitting deployment for Azure Databricks** tile on the right. To monitor the operation status, view the progress bar at the top.
+
+    ![Databricks deployment tile](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Databricks deployment tile")
+
+## Create a Spark cluster in Azure Databricks
+
+1. In the Azure portal, go to the Databricks service that you created, and select **Launch Workspace**.
+
+2. You're redirected to the Azure Databricks portal. From the portal, select **Cluster**.
+
+    ![Databricks on Azure](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks on Azure")
+
+3. In the **New cluster** page, provide the values to create a cluster.
+
+    ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
+
+4. Fill in values for the following fields, and accept the default values for the other fields:
+
+    * Enter a name for the cluster.
+
+    * For this article, create a cluster with the **5.1** runtime.
+
+    * Make sure you select the **Terminate after \_\_ minutes of inactivity** check box. If the cluster isn't being used, provide a duration (in minutes) to terminate the cluster.
+
+    * Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+
+## New section with new name
+
+1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks service that you created, and select **Launch Workspace**.
+
+2. On the left, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
+
+    ![Create a notebook in Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Create notebook in Databricks")
+
+3. In the **Create Notebook** dialog box, enter a name for the notebook. Select **Python** as the language, and then select the Spark cluster that you created earlier.
+
+4. Select **Create**.
+
+5. Copy and paste the following code block into the first cell, but don't run this code yet.
 
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
@@ -121,10 +169,10 @@ Reopen Databricks in your browser and execute the following steps:
 6. Paste the following code into the **Cmd 1** cell. (This code auto-saves in the editor.)
 
     ```python
-    # Use the previously established DBFS mount point to read the data
-    # create a dataframe to read data
+    # Use the previously established DBFS mount point to read the data.
+    # create a dataframe to read data.
     flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time_On_Time*.csv")
-    # read the all the airline csv files and write the output to parquet format for easy query
+    # read the airline csv file and write the output to parquet format for easy query.
     flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
     print("Done")
     ```
@@ -144,14 +192,14 @@ To get a list of CSV files uploaded via AzCopy, run the following script:
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/temp/"))
+display(dbutils.fs.ls("/mnt/flightdata/folder1/"))
 ```
 
 To create a new file and list files in the *parquet/flights* folder, run this script:
 
 ```python
-dbutils.fs.put("/mnt/flightdata/temp/1.txt", "Hello, World!", True)
-dbutils.fs.ls("/mnt/flightdata/temp/parquet/flights")
+dbutils.fs.put("/mnt/flightdata/folder1/1.txt", "Hello, World!", True)
+dbutils.fs.ls("/mnt/flightdata/folder1/parquet/flights")
 ```
 
 With these code samples, you have explored the hierarchical nature of HDFS using data stored in a storage account with Data Lake Storage Gen2 enabled.
