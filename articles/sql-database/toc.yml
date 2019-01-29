@@ -567,9 +567,9 @@
         - name: Single application
           items:
           - name: Deploy example app
-            href: saas-singleapp-get-started-deploy.md
+            href: saas-standaloneapp-get-started-deploy.md
           - name: Provision tenants
-            href: saas-singleapp-provision-and-catalog.md
+            href: saas-standaloneapp-provision-and-catalog.md
         - name: Database per tenant
           items:
           - name: Tutorial intro
