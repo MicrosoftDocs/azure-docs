@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service in Python. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: sample
 
 author: sdgilley
