@@ -7,7 +7,7 @@ author: swhite-msft
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
