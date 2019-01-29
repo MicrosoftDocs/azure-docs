@@ -152,7 +152,7 @@ To enable the administrative account for the first time, you must provide admini
     AdminConsent -ErrorAction Stop
     ```
 
-2. Run the script with the following command.
+2. Run the script with the following command. You will be prompted twice for credentials. Provide the credentials for your workspace first and the credentials for 
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
