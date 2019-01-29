@@ -4,11 +4,11 @@ description: How to resolve issues with Azure AD sign in when the application it
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -27,7 +27,7 @@ There are some possible reasons why the application didn’t accept the response
 
 -   If the application is the Azure AD Gallery, verify you have followed all the steps in the article [How to debug SAML-based single sign-on to applications in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Use a tool like [Fiddler](http://www.telerik.com/fiddler) to capture SAML request, SAML response and SAML token.
+-   Use a tool like [Fiddler](https://www.telerik.com/fiddler) to capture SAML request, SAML response and SAML token.
 
 -   Share the SAML response with the application vendor to know what is missing.
 

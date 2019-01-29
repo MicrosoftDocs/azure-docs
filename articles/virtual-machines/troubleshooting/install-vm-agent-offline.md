@@ -32,6 +32,14 @@ Install the VM Agent in offline mode in the following scenarios:
 
 Use the following steps to install the VM Agent in offline mode.
 
+> [!NOTE]
+> You can automate the process of installing the VM Agent in offline mode.
+> To do this, use the [Azure VM Recovery Scripts](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). If you choose to use the Azure VM Recovery Scripts, you can use the following process:
+> 1. Skip step 1 by using the scripts to attach the OS disk of the affected VM to a recovery VM.
+> 2. Follow steps 2–10 to apply the mitigations.
+> 3. Skip step 11 by using the scripts to rebuild the VM.
+> 4. Follow step 12.
+
 ### Step 1: Attach the OS disk of the VM to another VM as a data disk
 
 1.  Delete the VM. Be sure to select the **Keep the disks** option when you delete the VM.
@@ -72,7 +80,7 @@ Use the following steps to install the VM Agent in offline mode.
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
+          ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
 
     2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file. Remember the **ImagePath** of the current VM agent. We will need to copy the corresponding folder to the attached OS disk. 
 

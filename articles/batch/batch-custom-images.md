@@ -2,13 +2,13 @@
 title: Provision Azure Batch pool from a custom image | Microsoft Docs
 description: Create a Batch pool from a custom image to provision compute nodes that contain the software and data that you need for your application. Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Use a custom image to create a pool of virtual machines 
@@ -46,7 +46,13 @@ In Azure you can prepare a managed image from snapshots of an Azure VM's OS and 
 
 ### Prepare a VM 
 
-If you are creating a new VM for the image, use an Azure Marketplace image supported by Batch as the base image for your managed image and then customize it.  To get a list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus) operation. You can't use a third-party image as your base image.
+If you are creating a new VM for the image, use an Azure Marketplace image supported by Batch as the base image for your managed image and then customize it.  To get a list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus) operation. 
+
+> [!NOTE]
+> You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) VMs.
+
 
 * Ensure that the VM is created with a managed disk. This is the default storage setting when you create a VM.
 * Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.

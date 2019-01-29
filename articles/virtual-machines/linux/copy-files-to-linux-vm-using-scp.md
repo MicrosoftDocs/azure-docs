@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: danlep
-
+ms.component: disks
 ---
 
 # Move files to and from a Linux VM using SCP

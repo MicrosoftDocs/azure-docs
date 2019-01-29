@@ -4,6 +4,7 @@ description: This article explains different types of endpoints that can be used
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

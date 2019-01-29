@@ -1,9 +1,9 @@
 ---
 title: Working with Azure Cosmos DB accounts 
 description: This article describes how create and use Azure Cosmos DB accounts
-author: dharmas
-
+author: dharmas-cosmos
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
@@ -35,7 +35,7 @@ You can now proceed to learn how to manage your Azure Cosmos account or see othe
 * [Global distribution](distribute-data-globally.md)
 * [Consistency levels](consistency-levels.md)
 * [Working with Azure Cosmos containers and items](databases-containers-items.md)
-* [VNET service endpoint for your Azure Cosmos account](firewall-support.md)
-* [IP-firewall for your Azure Cosmos account](vnet-service-endpoint.md)
+* [VNET service endpoint for your Azure Cosmos account](vnet-service-endpoint.md)
+* [IP-firewall for your Azure Cosmos account](firewall-support.md)
 * [How-to add and remove Azure regions to your Azure Cosmos account](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

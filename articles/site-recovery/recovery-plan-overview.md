@@ -3,9 +3,10 @@ title: Using recovery plans in disaster recovery with Azure Site Recovery | Micr
 description: Learn about using recovery plans for disaster recovery with the Azure Site Recovery service. 
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/27/2018
 ms.author: raynew
 
 ---

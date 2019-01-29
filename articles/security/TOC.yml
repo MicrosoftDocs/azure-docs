@@ -331,6 +331,13 @@
       href: azure-security-threat-modeling-tool-feature-overview.md
     - name: Threats
       href: azure-security-threat-modeling-tool-threats.md
+    - name: Releases
+      href: azure-security-threat-modeling-tool-releases.md
+      items:
+      - name: Threat Modeling Tool GA release 7.1.5091.2 - 9/12/2018
+        href: azure-security-threat-modeling-tool-releases-71509112.md
+      - name: Threat Modeling Tool update release 7.1.51023.1 - 11/1/2018
+        href: azure-security-threat-modeling-tool-releases-71510231.md
     - name: Mitigations
       href: azure-security-threat-modeling-tool-mitigations.md
       items:

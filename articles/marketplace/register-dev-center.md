@@ -65,7 +65,7 @@ To help verify that you are not logged into a personal browser account, open a n
 
 9.  In the `Registration - Review` section, review your account information and confirm that everything is correct.  
 
-    Read the terms and conditions of the Microsoft Azure Marketplace publisher agreement.  
+    Read the terms and conditions of the Microsoft Azure Marketplace [publisher agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf).  
 
     Click on the check-box to indicate that you have read and accepted the terms.  
     
@@ -169,7 +169,7 @@ You must be signed in with the Microsoft account that you want to associate with
 > Go to “Your programs” (https://developer.microsoft.com/dashboard/Account/Programs) and log into the Dev Center account. If you don’t see Azure as a registered program, look under “Recommended programs for you”, and then look for Azure to select  “Get Started.”
 
 *	**How do I link my Dev Center account to my Cloud Partner Portal publisher profile?**
-> The final step before publishing is linking your Dev Center account to your Cloud Partner Portal [profile](https://cloudpartner.azure.com/#profile). If your Dev Center account is different from your account on [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), add your Dev Center account as a new [user](https://cloudpartner.azure.com/#documentation/manage-users) in the Cloud Partner Portal. Login to the [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) with your Dev Center Account. Select Publisher profile on menu located on the top right of your web browser. Select Link Dev Center Account.
+> The final step before publishing is linking your Dev Center account to your Cloud Partner Portal [profile](https://cloudpartner.azure.com/#profile). If your Dev Center account is different from your account on [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), add your Dev Center account as a new [user](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) in the Cloud Partner Portal. Login to the [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) with your Dev Center Account. Select Publisher profile on menu located on the top right of your web browser. Select Link Dev Center Account.
 
 *	**Why is my Dev Center application rejected?**
 > The third-party vetting company (Duns & Bradstreet) was unable to contact you through the phone number that you have provided. Contact support at [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) to re-start the vetting process

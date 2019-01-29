@@ -1,20 +1,20 @@
-﻿---
+---
 title: Use a Windows VM system-assigned managed identity  to access Azure SQL
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure SQL. 
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: priyamohanram
+manager: daveba
 editor: bryanla
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
-ms.author: daveba
+ms.author: priyamo
 ---
 
 
@@ -60,6 +60,8 @@ For this next step, you will need [Microsoft SQL Server Management Studio](https
 
 - [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configure and manage Azure Active Directory authentication with SQL Database or SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
+
+SQL DB requires unique AAD display names. With this, the AAD accounts such as users, groups and Service Principals (applications) and VM names enabled for managed identity must be uniquely defined in AAD regarding their display names. SQL DB checks the AAD display name  during T-SQL creation of such users and if it is not unique, the command fails requesting to provide a unique AAD display name for a given account.
 
 1.  Start SQL Server Management Studio.
 2.  In the **Connect to Server** dialog, Enter your SQL server name in the **Server name** field.

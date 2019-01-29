@@ -1,16 +1,19 @@
 ---
-title: Azure Disk Encryption for Windows and Linux IaaS VMs | Microsoft Docs
+title: Appendix - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article is the appendix for Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 11/12/2018
+ms.date: 01/14/2019
+
+ms.custom: seodec18
 ---
 
 
 # Appendix for Azure Disk Encryption 
+
 This article is an appendix to [Azure Disk Encryption for IaaS VMs](azure-security-disk-encryption-overview.md). Make sure you read the Azure Disk Encryption for IaaS VMs articles first to understand the context. This article describes how to prepare pre-encrypted VHDs and other tasks.
 
 ## Connect to your subscription
@@ -53,7 +56,7 @@ Before you start, review the [Prerequisites](azure-security-disk-encryption-prer
 
 ### <a name="bkmk_ConnectCLI"></a> Connect to your subscription with the Azure CLI
 
-1. Sign in to Azure with [az login](/cli/azure/authenticate-azure-cli#interactive-log-in). 
+1. Sign in to Azure with [az login](/cli/azure/authenticate-azure-cli#sign-in-interactively). 
      
      ```azurecli
      az login
@@ -97,7 +100,7 @@ Before you start, review the [Prerequisites](azure-security-disk-encryption-prer
      ```
 
 ### <a name="bkmk_prereq-script"></a> Using the Azure Disk Encryption prerequisites PowerShell script
-If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](quick-encrypt-vm-powershell.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group. 
+If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](quick-encrypt-vm-powershell.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group. 
 
 The following table shows which parameters can be used in the PowerShell script: 
 
@@ -125,6 +128,20 @@ The following table shows which parameters can be used in the PowerShell script:
 - [Enable disk encryption on an existing or running IaaS Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
  -  [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Disabling encryption is only allowed on Data volumes for Linux VMs.  
+
+### Encrypt or decrypt VM scale sets
+
+- [Enable disk encryption on a running Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [Enable disk encryption on a running Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [Deploy a VM Scale Set of Linux VMs with a jumpbox and enables encryption on Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [Deploy a VM Scale Set of Windows VMs with a jumpbox and enables encryption on Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [Disable disk encryption on a running Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [Disable disk encryption on a running Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ### Encrypt or decrypt VMs with an Azure AD app (previous release) 
  
@@ -156,17 +173,7 @@ The following table shows which parameters can be used in the PowerShell script:
 
 - [Enable disk encryption on a running Windows VM using an Azure AD client certificate thumbprint](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
-- [Enable disk encryption on a running Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
-- [Enable disk encryption on a running Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-
- - [Deploy a VM Scale Set of Linux VMs with a jumpbox and enables encryption on Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-
- - [Deploy a VM Scale Set of Windows VMs with a jumpbox and enables encryption on Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-
-- [Disable disk encryption on a running Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
-
-- [Disable disk encryption on a running Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> Prepare a pre-encrypted Windows VHD
 The sections that follow are necessary to prepare a pre-encrypted Windows VHD for deployment as an encrypted VHD in Azure IaaS. Use the information to prepare and boot a fresh Windows VM (VHD) on Azure Site Recovery or Azure. For more information on how to prepare and upload a VHD, see [Upload a generalized VHD and use it to create new VMs in Azure](../virtual-machines/windows/upload-generalized-managed.md).
@@ -185,7 +192,7 @@ For Windows Server 2008 R2, use the following command:
 
     ServerManagerCmd -install BitLockers
 ### Prepare the OS volume for BitLocker by using `bdehdcfg`
-To compress the OS partition and prepare the machine for BitLocker, execute the [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment#using-bitlocker-to-encrypt-volumescommand) if needed:
+To compress the OS partition and prepare the machine for BitLocker, execute the [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) if needed:
 
     bdehdcfg -target c: shrink -quiet 
 
@@ -292,23 +299,23 @@ Configure encryption during the distribution installation by doing the following
 
 1. Select **Configure encrypted volumes** when you partition the disks.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+ ![Ubuntu 16.04 Setup - Configure encrypted volumes](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Create a separate boot drive, which must not be encrypted. Encrypt your root drive.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+ ![Ubuntu 16.04 Setup - Select devices to encrypt](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Provide a passphrase. This is the passphrase that you uploaded to the key vault.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+ ![Ubuntu 16.04 Setup - Provide passphrase](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Finish partitioning.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+ ![Ubuntu 16.04 Setup - Finish partitioning](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. When you boot the VM and are asked for a passphrase, use the passphrase you provided in step 3.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+ ![Ubuntu 16.04 Setup - Provide passphrase on boot](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. Prepare the VM for uploading into Azure using [these instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Don't run the last step (deprovisioning the VM) yet.
 
@@ -316,7 +323,7 @@ Configure encryption to work with Azure by doing the following steps:
 
 1. Create a file under /usr/local/sbin/azure_crypt_key.sh, with the content in the following script. Pay attention to the KeyFileName, because it's the passphrase file name used by Azure.
 
-    ```
+    ```bash
     #!/bin/sh
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -374,7 +381,7 @@ Configure encryption to work with Azure by doing the following steps:
 
 7. Now you can deprovision the VM.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+ ![Ubuntu 16.04 Setup - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Continue to the next step and upload your VHD into Azure.
 
@@ -382,11 +389,11 @@ Configure encryption to work with Azure by doing the following steps:
 To configure encryption during the distribution installation, do the following steps:
 1. When you partition the disks, select **Encrypt Volume Group**, and then enter a password. This is the password that you'll upload to your key vault.
 
- ![openSUSE 13.2 Setup](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+ ![openSUSE 13.2 Setup - Encrypt Volume Group](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
 2. Boot the VM using your password.
 
- ![openSUSE 13.2 Setup](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+ ![openSUSE 13.2 Setup - Provide passphrase on boot](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
 3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Don't run the last step (deprovisioning the VM) yet.
 
@@ -396,7 +403,7 @@ To configure encryption to work with Azure, do the following steps:
     add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
     ```
 2. Comment out these lines by the end of the file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
- ```
+ ```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -409,20 +416,20 @@ To configure encryption to work with Azure, do the following steps:
  ```
 
 3. Append the following line at the beginning of the file /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
- ```
+ ```bash
     DRACUT_SYSTEMD=0
  ```
 And change all occurrences of:
- ```
+ ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
  ```
 to:
-```
+```bash
     if [ 1 ]; then
 ```
 4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append it to “# Open LUKS device”:
 
-    ```
+    ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2
@@ -450,19 +457,19 @@ to:
 To configure encryption during the distribution installation, do the following steps:
 1. Select **Encrypt my data** when you partition disks.
 
- ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+ ![CentOS 7 Setup -Installation destination](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
 
 2. Make sure **Encrypt** is selected for root partition.
 
- ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+ ![CentOS 7 Setup -Select encrypt for root partition](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
 
 3. Provide a passphrase. This is the passphrase that you'll upload to your key vault.
 
- ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+ ![CentOS 7 Setup - provide passphrase](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
 
 4. When you boot the VM and are asked for a passphrase, use the passphrase you provided in step 3.
 
- ![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+ ![CentOS 7 Setup - Enter passphrase on bootup](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
 5. Prepare the VM for uploading into Azure by using the "CentOS 7.0+" instructions in [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Don't run the last step (deprovisioning the VM) yet.
 
@@ -476,7 +483,7 @@ To configure encryption to work with Azure, do the following steps:
     ```
 
 2. Comment out these lines by the end of the file /usr/lib/dracut/modules.d/90crypt/module-setup.sh:
-```
+```bash
     #        inst_multiple -o \
     #        $systemdutildir/system-generators/systemd-cryptsetup-generator \
     #        $systemdutildir/systemd-cryptsetup \
@@ -489,19 +496,19 @@ To configure encryption to work with Azure, do the following steps:
 ```
 
 3. Append the following line at the beginning of the file /usr/lib/dracut/modules.d/90crypt/parse-crypt.sh:
-```
+```bash
     DRACUT_SYSTEMD=0
 ```
 And change all occurrences of:
-```
+```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
 ```
 to
-```
+```bash
     if [ 1 ]; then
 ```
 4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append the following after the “# Open LUKS device”:
-    ```
+    ```bash
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
     echo "Trying to get the key from disks ..." >&2
@@ -523,7 +530,7 @@ to
     ```    
 5. Run the “/usr/sbin/dracut -f -v” to update the initrd.
 
-![CentOS 7 Setup](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
+![CentOS 7 Setup - run /usr/sbin/dracut -f -v](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
 
 ## <a name="bkmk_UploadVHD"></a> Upload encrypted VHD to an Azure storage account
 After BitLocker encryption or DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.

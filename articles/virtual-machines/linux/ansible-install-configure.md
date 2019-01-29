@@ -3,7 +3,7 @@ title: Install Ansible on Azure virtual machines
 description: Learn how to install and configure Ansible for managing Azure resources on Ubuntu, CentOS, and SLES
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart

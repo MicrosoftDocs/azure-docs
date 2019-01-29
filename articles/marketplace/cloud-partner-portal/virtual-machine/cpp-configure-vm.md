@@ -25,14 +25,14 @@ This article explains how to size, update, and generalize a virtual machine (VM)
 ## Sizing the VHDs
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-If you have selected one of the VMs pre-configured with an operating system (and optionally additional services), then you have already picked a standard Azure VM size, as described in [Virtual machine SKUs tab](./cpp-skus-tab.md).  This is the recommended approach.  However, if you are installing an OS manually, then you must size your primary VHD in your VM image:
+If you have selected one of the VMs pre-configured with an operating system (and optionally additional services), then you have already picked a standard Azure VM size, as described in [Virtual machine SKUs tab](./cpp-skus-tab.md).  Starting your solution with a pre-configured OS is the recommended approach.  However, if you are installing an OS manually, then you must size your primary VHD in your VM image:
 
 - For Windows, the operating system VHD should be created as a 127-128 GB fixed-format VHD. 
 - For Linux, this VHD should be created as a 30-50 GB fixed-format VHD.
 
 If the physical size is less than 127-128 GB, the VHD should be sparse. The base Windows and SQL Server images provided already meet these requirements, so do not change the format or the size of the VHD obtained. 
 
-Data disks can be as large as 1 TB. When deciding on the disk size, remember that customers cannot resize VHDs within an image at the time of deployment. Data disk VHDs should be created as fixed-format VHDs. They should also be sparse. Data disks can initially be empty or contain data.
+Data disks can be as large as 1 TB. When deciding on their size, remember that customers cannot resize VHDs within an image at the time of deployment. Data disk VHDs should be created as fixed-format VHDs. They should also be sparse. Data disks can initially be empty or contain data.
 
 
 ## Install the most current updates

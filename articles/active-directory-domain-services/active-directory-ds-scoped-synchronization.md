@@ -4,12 +4,12 @@ description: Configure scoped synchronization from Azure AD to your managed doma
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 9389cf0f-0036-4b17-95da-80838edd2225
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -43,7 +43,12 @@ The following table helps you determine how to use scoped synchronization:
 >
 
 
-## Create a new managed domain and enable group-based scoped synchronization
+## Create a new managed domain and enable group-based scoped synchronization using Azure portal
+
+1. Follow the [Getting Started guide](active-directory-ds-getting-started.md) to create a managed domain.
+2. Choose **scoped** during the synchronization style selection in the Azure AD Domain Services creation wizard.
+
+## Create a new managed domain and enable group-based scoped synchronization using PowerShell
 Use PowerShell to complete this set of steps. Refer to the instructions to [enable Azure Active Directory Domain Services using PowerShell](active-directory-ds-enable-using-powershell.md). A couple of steps in this article are modified slightly to configure scoped synchronization.
 
 Complete the following steps to configure group-based scoped synchronization to your managed domain:
@@ -80,7 +85,7 @@ Complete the following steps to configure group-based scoped synchronization to 
   $AzureLocation = "westus"
 
   # Enable Azure AD Domain Services for the directory.
-  New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
@@ -164,7 +169,7 @@ foreach ($id in $newGroupIds)
     }
     catch
     {
-        Write-Error "Exception occured assigning Object-ID: $id. Exception: $($_.Exception)."
+        Write-Error "Exception occurred assigning Object-ID: $id. Exception: $($_.Exception)."
     }
 }
 
@@ -187,15 +192,15 @@ Use the following PowerShell script to disable group-based scoped synchronizatio
 
 ```powershell
 // Login to your Azure AD tenant
-Login-AzureRmAccount
+Login-AzAccount
 
 // Retrieve the Azure AD Domain Services resource.
-$DomainServicesResource = Get-AzureRmResource -ResourceType "Microsoft.AAD/DomainServices"
+$DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
 // Disable group-based scoped synchronization.
 $disableScopedSync = @{"filteredSync" = "Disabled"}
 
-Set-AzureRmResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
+Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
 ```
 
 ## Next steps

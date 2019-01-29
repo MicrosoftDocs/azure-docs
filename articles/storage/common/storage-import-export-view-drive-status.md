@@ -18,7 +18,6 @@ You can track the status of your import or export jobs from the Azure portal. Cl
 
 ![View Job State](./media/storage-import-export-service/jobstate.png)
 
-
 ## View job status
 
 You see one of the following job statuses depending on where your drive is in the process.
@@ -69,7 +68,7 @@ The amount of time it takes to process an import/export job varies based on a nu
 -  Number of disks in a job. 
 
 Import/Export service does not have an SLA but the service strives to complete the copy in 7 to 10 days after the disks are received. 
-In addition to the status posted on Azure Portal, REST APIs can be used to track the job progress. The percent complete parameter in the [List Jobs]() operation API call provides the percentage copy progress.
+In addition to the status posted on Azure Portal, REST APIs can be used to track the job progress. The percent complete parameter in the [List Jobs](/previous-versions/azure/dn529083(v=azure.100)) operation API call provides the percentage copy progress.
 
 
 ## Next steps
@@ -77,4 +76,3 @@ In addition to the status posted on Azure Portal, REST APIs can be used to track
 * [Set up the WAImportExport tool](storage-import-export-tool-how-to.md)
 * [Transfer data with AzCopy command-line utility](storage-use-azcopy.md)
 * [Azure Import Export REST API sample](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-

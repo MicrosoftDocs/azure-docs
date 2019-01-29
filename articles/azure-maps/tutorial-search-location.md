@@ -3,7 +3,7 @@ title: Search with Azure Maps | Microsoft Docs
 description: Search nearby point of interest using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/22/2018
+ms.date: 01/17/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -98,7 +98,7 @@ The Map Control API is a convenient client library that allows you to easily int
          margin: 0;
       }
 
-      #map {
+      #myMap {
          width: 100%;
          height: 100%;
       }
@@ -148,11 +148,6 @@ The Map Control API is a convenient client library that allows you to easily int
       });
       map.layers.add(resultLayer);
 
-      //Create a popup but leave it closed so we can update it and display it later.
-      popup = new atlas.Popup();
-
-      //Add a mouse over event to the result layer and display a popup when this event fires.
-      map.events.add('mouseover', resultLayer, showPopup);
    });
    ```
 
@@ -229,7 +224,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
 
    ```JavaScript
    function showPopup(e) {
-        //Get the properties and coordinates of the first shape that the event occured on.
+        //Get the properties and coordinates of the first shape that the event occurred on.
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();
 

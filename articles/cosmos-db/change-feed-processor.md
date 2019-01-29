@@ -2,14 +2,12 @@
 title: Working with the change feed processor library in Azure Cosmos DB 
 description: Using the Azure Cosmos DB change feed processor library. 
 author: rafats
-manager: kfile
-
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-
+ms.reviewer: sngun
 ---
 
 # Using the Azure Cosmos DB change feed processor library

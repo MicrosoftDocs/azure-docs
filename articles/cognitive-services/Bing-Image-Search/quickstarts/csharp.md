@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Perform an image search with C# - Bing Image Search API"
+title: "Quickstart: Search for images - Bing Image Search REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an HTTP image search query to the API, and displays the URL of the first image returned.
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using C#, and receive JSON responses.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
 ---
-# Quickstart: Send search queries using the Bing Image Search API and C#
+# Quickstart: Search for images using the Bing Image Search REST API and C#
 
 Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an HTTP image search query to the API, and displays the URL of the first image returned.
 
@@ -20,12 +20,13 @@ While this application is written in C#, the API is a RESTful Web service compat
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) with additional error handling, and code annotations.
 
 ## Prerequisites
-
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
 * If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Create and initialize a project
 
@@ -94,12 +95,12 @@ namespace BingSearchApisQuickstart
 
 In the `BingImageSearch` method, perform the following steps.
 
-1. Construct the URI for the search request. Note that the search term `toSearch` must be formatted before being appended to the string.
+1. Construct the URI for the search request. Note that the search term `SearchTerm` must be formatted before being appended to the string.
 
     ```csharp
-    static SearchResult BingImageSearch(string toSearch){
+    static SearchResult BingImageSearch(string SearchTerm){
 
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(SearchTerm);
     //...
     ```
 
@@ -149,7 +150,6 @@ In the `BingImageSearch` method, perform the following steps.
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
 
-3. Make sure to remove your subscription key from the application's code.
 
 ## JSON response
 

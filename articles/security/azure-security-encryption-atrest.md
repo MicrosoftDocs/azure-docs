@@ -258,6 +258,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Disk (IaaS)                      | -                  | Yes, RSA 2048-bit  | -                  |
 | SQL Server (IaaS)                | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure SQL (Database/Data Warehouse) | Yes                | Yes, RSA 2048-bit  | Yes                |
+| Azure SQL (Database Managed Instance) | Yes                | Preview, RSA 2048-bit  | Yes                |
 | Azure Storage (Block/Page Blobs) | Yes                | Yes, RSA 2048-bit  | Yes                |
 | Azure Storage (Files)            | Yes                | Yes, RSA 2048-bit  | -                  |
 | Azure Storage (Tables, Queues)   | Yes                | -                  | Yes                |

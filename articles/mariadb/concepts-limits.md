@@ -3,17 +3,15 @@ title: Limitations in Azure Database for MariaDB
 description: This article describes limitations in Azure Database for MariaDB, such as number of connection and storage engine options.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/03/2018
 ---
 # Limitations in Azure Database for MariaDB
-The Azure Database for MariaDB service is in public preview. The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
+The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service.
 
 ## Maximum connections
-The maximum number of connections per pricing tier and vCores during preview are as follows:
+The maximum number of connections per pricing tier and vCores are as follows:
 
 |**Pricing Tier**|**vCore(s)**| **Max Connections**|
 |---|---|---|
@@ -40,7 +38,7 @@ When connections exceed the limit, you may receive the following error:
 
 ### Unsupported
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
-- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/l)
+- [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
 ## Privilege support

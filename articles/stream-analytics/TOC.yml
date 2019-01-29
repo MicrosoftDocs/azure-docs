@@ -61,7 +61,7 @@
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
   - name: Error policy
-    href: output-error-policy.md
+    href: stream-analytics-output-error-policy.md
 - name: How-to-guides
   items:
   - name: Manage
@@ -128,6 +128,8 @@
       href: stream-analytics-dotnet-management-sdk.md
     - name: Using Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
+    - name: Using API
+      href: stream-analytics-cicd-api.md
   - name: Visual Studio tools
     items:
     - name: Install tools
@@ -152,7 +154,7 @@
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
-    - name: Diagnostic logs
+    - name: Activity and diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
   - name: Integrate with machine learning
     items:
@@ -345,9 +347,7 @@
           href: /stream-analytics-query/data-types-azure-stream-analytics 
         - name: Parsing JSON and AVRO data
           href: stream-analytics-parsing-json.md
-          maintainContext: true
     - name: Query Language Elements
-      expanded: true
       items: 
         - name: Query Language Elements Overview
           href: /stream-analytics-query/query-language-elements-azure-stream-analytics 
@@ -398,6 +398,8 @@
     href: /dotnet/api/microsoft.azure.management.streamanalytics
   - name: REST
     href: /rest/api/streamanalytics
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.streamanalytics/allversions
 - name: Resources
   items:
   - name: Stream Analytics previews

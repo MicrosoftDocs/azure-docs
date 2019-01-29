@@ -46,7 +46,7 @@ For information on installing additional components on HDInsight cluster during 
 * [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## Use Azure PowerShell
-The following PowerShell code customizes a Hive configuration:
+The following PowerShell code customizes an [Apache Hive](https://hive.apache.org/) configuration:
 
 ```powershell
 # hive-site.xml configuration
@@ -112,7 +112,7 @@ You can use bootstrap in Resource Manager template:
 
 ```json
 "configurations": {
-    …
+    ï¿½
     "hive-site": {
         "hive.metastore.client.connect.retry.delay": "5",
         "hive.execution.engine": "mr",
@@ -124,11 +124,11 @@ You can use bootstrap in Resource Manager template:
 ![HDInsight Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## See also
-* [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
+* [Create Apache Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
-* [Install and use Spark on HDInsight clusters][hdinsight-install-spark]
-* [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
-* [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
+* [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]
+* [Install and use Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
+* [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

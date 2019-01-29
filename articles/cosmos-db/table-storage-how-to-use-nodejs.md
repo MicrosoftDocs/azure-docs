@@ -1,16 +1,13 @@
 ---
-title: How to use Azure Table storage or Azure Cosmos DB Table API from Node.js | Microsoft Docs
+title: How to use Azure Table storage or Azure Cosmos DB Table API from Node.js
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
-services: cosmos-db
-author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
+author: wmengmsft
+ms.author: wmeng
 ---
 # How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -159,7 +156,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-If the operation is successful, `result` contains the [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` contains information about the operation.
+If the operation is successful, `result` contains the [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) of the inserted record and `response` contains information about the operation.
 
 Example response:
 

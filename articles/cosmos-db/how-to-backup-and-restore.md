@@ -2,7 +2,6 @@
 title: How to restore Azure Cosmos DB data from a backup
 description: This article describes how to restore Azure Cosmos DB data from a backup, how to contact Azure support to restore data, steps to take after the data is restored. 
 author: kanshiG
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018

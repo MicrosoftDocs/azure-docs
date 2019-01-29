@@ -1,13 +1,10 @@
 ---
 title: Monitoring in Azure Database for MySQL
 description: This article describes the metrics for monitoring and alerting for Azure Database for MySQL, including CPU, storage, and connection statistics.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/05/2018
 ---
 # Monitoring in Azure Database for MySQL

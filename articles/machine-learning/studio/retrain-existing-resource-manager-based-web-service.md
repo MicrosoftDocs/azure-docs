@@ -1,30 +1,26 @@
 ---
-title: Retrain an existing predictive web service | Microsoft Docs
-description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
-services: machine-learning
-documentationcenter: ''
+title: Retrain an existing predictive Studio web service
+titleSuffix: Azure Machine Learning Studio
+description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning Studio.
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
+
 author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
 ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
-ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 11/07/2017
 ---
-# Retrain an existing predictive web service
+# Retrain an existing predictive Azure Machine Learning Studio web service
+
 This document describes the retraining process for the following scenario:
 
 * You have a training experiment and a predictive experiment that you have deployed as an operationalized web service.
 * You have new data that you want your predictive web service to use to perform its scoring.
 
 > [!NOTE]
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
+> To deploy a new web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
 
 Starting with your existing web service and experiments, you need to follow these steps:
 

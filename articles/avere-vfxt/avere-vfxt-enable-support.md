@@ -37,6 +37,6 @@ Follow these steps from the Avere Control Panel to activate support. (Read [Acce
 
 ## Next steps
 
-If you need to add an on-premises storage system to the cluster, follow the instructions in [Configure storage](avere-vfxt-add-storage.md). 
+If you need to add an on-premises storage system to the cluster, or update the default encryption key in a newly created Blob container, follow the instructions in [Configure storage](avere-vfxt-add-storage.md). 
 
 If you are ready to start attaching clients to the cluster, read [Mount the Avere vFXT cluster](avere-vfxt-mount-clients.md).

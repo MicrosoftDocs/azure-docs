@@ -157,7 +157,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-In addition to text translation, learn how to use the Translator Text API to:
+Learn how to use the Translator Text API to:
 
 * [Transliterate text](quickstart-python-transliterate.md)
 * [Identify the language by input](quickstart-python-detect.md)

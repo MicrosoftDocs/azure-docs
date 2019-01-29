@@ -1,18 +1,19 @@
 ---
-title: "Quickstart: Perform an image search with Java - Bing Image Search API"
+title: "Quickstart: Search for images - Bing Image Search REST API and Java"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Java application sends a search query to the API and displays the raw results.
+description: Use this quickstart to send image search requests to the Bing Image Search REST API using Java, and receive JSON responses.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
+ms.custom: seodec2018
 ---
-# Quickstart: Send search queries using the Bing Image Search REST API and Java
+# Quickstart: Search for images using the Bing Image Search REST API and Java
 
 Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Java application sends a search query to the API and displays the raw results.
 
@@ -21,6 +22,7 @@ While this application is written in Java, the API is a RESTful Web service comp
 The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling, and code annotations.
 
 ## Prerequisites
+* Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 * The [Java Development Kit(JDK) 7 or 8](https://aka.ms/azure-jdks)
 
@@ -99,7 +101,6 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     JsonObject first_result = (JsonObject)results.get(0);
     String resultURL = first_result.get("thumbnailUrl").getAsString();
     ```
-4. Remember to remove your subscription key from the application code.
 
 ## JSON response
 

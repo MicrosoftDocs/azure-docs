@@ -1,21 +1,14 @@
 ---
-title: 'How to configure routing (peering) for an ExpressRoute circuit: Resource Manager: Azure | Microsoft Docs'
+title: 'Configure peering for a circuit - ExpressRoute: Azure | Microsoft Docs'
 description: This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.topic: conceptual
+ms.date: 01/09/2019
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # Create and modify peering for an ExpressRoute circuit
@@ -32,6 +25,7 @@ This article helps you create and manage routing configuration for an ExpressRou
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
+You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [About circuits and peerings](expressroute-circuit-peerings.md).
 
 ## Configuration prerequisites
 
@@ -45,8 +39,6 @@ These instructions only apply to circuits created with service providers offerin
 > We currently do not advertise peerings configured by service providers through the service management portal. We are working on enabling this capability soon. Check with your service provider before configuring BGP peerings.
 > 
 > 
-
-You can configure one, two, or all three peerings (Azure private, Azure public and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. For more information about routing domains and peerings, see [ExpressRoute routing domains](expressroute-circuit-peerings.md).
 
 ## <a name="msft"></a>Microsoft peering
 

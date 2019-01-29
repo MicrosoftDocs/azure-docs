@@ -19,7 +19,6 @@
 | [Local networks](https://msdn.microsoft.com/library/jj157100.aspx) per subscription |10 |500 |
 | DNS servers per subscription |9 |100 |
 | Reserved IPs per subscription |20 |100 |
-| Hosted service certificates per subscription |199 |199 |
 | [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription |256 |256 |
 
 

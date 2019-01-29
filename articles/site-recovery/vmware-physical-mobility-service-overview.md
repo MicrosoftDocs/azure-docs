@@ -5,7 +5,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
+ms.date: 11/27/2018
 ms.author: ramamill
 ---
 
@@ -52,15 +52,15 @@ If machines you want to replicate have active anti-virus software running, make 
 2. In the portal open the vault > **Replicated items**.
 3. If the configuration server is the latest version, you see a notification that reads "New Site recovery replication agent update is available. Click to install."
 
-     ![Replicated items window](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![Replicated items window](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
 4. Click the notification, and in **Agent update**, select the machines on which you want to upgrade the Mobility service. Then click **OK**.
 
-     ![Replicated items VM list](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![Replicated items VM list](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. The Update Mobility Service job starts for each of the selected machines.
 
-## Update the acount used for push installation of the Mobility service
+## Update the account used for push installation of the Mobility service
 
 When you deployed Site Recovery, to enable push installation of the Mobility service, you specified an account that the Site Recovery process server uses to access the machines and install the service when replication is enabled for the machine. If you want to update the credentials for this account, follow [these instructions](vmware-azure-manage-configuration-server.md).
 

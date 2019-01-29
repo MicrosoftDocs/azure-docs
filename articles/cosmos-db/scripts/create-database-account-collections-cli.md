@@ -1,13 +1,13 @@
 ---
-title: Azure CLI Script-Create an Azure Cosmos DB SQL API account, database, and container | Microsoft Docs
+title: Azure CLI Script-Create an Azure Cosmos DB SQL API account, database, and container
 description: Azure CLI Script Sample - Create an Azure Cosmos DB SQL API account, database, and container
 author: markjbrown
-
+ms.author: mjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
+ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB: Create a SQL API account using CLI

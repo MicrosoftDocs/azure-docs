@@ -1,14 +1,11 @@
 ---
 title: How To Configure Server Parameters in Azure Database for MySQL
 description: This article describes how to configure MySQL server parameters in Azure Database for MySQL using the Azure portal.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-ms.date: 07/18/2018
+ms.topic: conceptual
+ms.date: 12/06/2018
 ---
 
 # How to configure server parameters in Azure Database for MySQL by using the Azure portal
@@ -37,9 +34,9 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 
 |**Pricing Tier**| **Compute Generation**|**vCore(s)**|**InnoDB Buffer Pool (MB)**| **Max Connections**|
 |---|---|---|---|--|
-|Basic| Gen 4| 1| 1024| 50|
+|Basic| Gen 4| 1| 960| 50|
 |Basic| Gen 4| 2| 2560| 100|
-|Basic| Gen 5| 1| 1024| 50|
+|Basic| Gen 5| 1| 960| 50|
 |Basic| Gen 5| 2| 2560| 100|
 |General Purpose| Gen 4| 2| 3584| 300|
 |General Purpose| Gen 4| 4| 7680| 625|
@@ -51,10 +48,12 @@ InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pr
 |General Purpose| Gen 5| 8| 15360| 1250|
 |General Purpose| Gen 5| 16| 31232| 2500|
 |General Purpose| Gen 5| 32| 62976| 5000|
+|General Purpose| Gen 5| 64| 125952| 10000|
 |Memory Optimized| Gen 5| 2| 7168| 600|
 |Memory Optimized| Gen 5| 4| 15360| 1250|
 |Memory Optimized| Gen 5| 8| 30720| 2500|
 |Memory Optimized| Gen 5| 16| 62464| 5000|
+|Memory Optimized| Gen 5| 32| 125952| 10000|
 
 These additional server parameters are not configurable in the system:
 

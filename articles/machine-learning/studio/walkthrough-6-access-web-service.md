@@ -1,12 +1,11 @@
 ---
-title: 'Step 6: Access the Machine Learning Web service | Microsoft Docs'
-description: 'Step 6 of the Develop a predictive solution walkthrough: Access an active Azure Machine Learning Web service.'
+title: 'Step 6: Access web service - Azure Machine Learning Studio | Microsoft Docs'
+description: 'Step 6 of the Develop a predictive solution walkthrough: Access an active Azure Machine Learning Studio web service.'
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
 ms.service: machine-learning
@@ -17,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ---
-# Walkthrough Step 6: Access the Azure Machine Learning web service
+# Walkthrough Step 6: Access the Azure Machine Learning Studio web service
 
 This is the last step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 

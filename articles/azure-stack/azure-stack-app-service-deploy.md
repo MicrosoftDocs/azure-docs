@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/11/2019
 ms.author: anwestg
 
 ---
@@ -42,6 +42,9 @@ Installing the App Service resource provider takes at least an hour. The length 
  - Create a DNS zone and entries for App Service.
  - Register the App Service resource provider.
  - Register the App Service gallery items.
+
+ > [!IMPORTANT]
+ > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 To deploy App Service resource provider, follow these steps:
 
@@ -198,17 +201,17 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >If you're deploying to an existing virtual network and using an internal IP address to connect to your fileserver, you must add an outbound security rule. This rule enables SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:<br>
-    >  - Source: Any
-    >  - Source port range: *
-    >  - Destination: IP Addresses
-    >  - Destination IP address range: Range of IPs for your fileserver
-    >  - Destination port range: 445
-    >  - Protocol: TCP
-    >  - Action: Allow
-    >  - Priority: 700
-    >  - Name: Outbound_Allow_SMB445
+    If you're deploying to an existing virtual network and using an internal IP address to connect to your fileserver, you must add an outbound security rule. This rule enables SMB traffic between the worker subnet and the fileserver.  To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+
+    - Source: Any
+    - Source port range: *
+    - Destination: IP Addresses
+    - Destination IP address range: Range of IPs for your fileserver
+    - Destination port range: 445
+    - Protocol: TCP
+    - Action: Allow
+    - Priority: 700
+    - Name: Outbound_Allow_SMB445
 
 ## Test drive App Service on Azure Stack
 
@@ -256,9 +259,9 @@ You can also try out other [platform as a service (PaaS) services](azure-stack-t
  - [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: http://go.microsoft.com/fwlink/?LinkId=733525
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
+[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

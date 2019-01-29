@@ -1,5 +1,5 @@
 ---
-title: DC/OS agent pools for Azure Container Service
+title: (DEPRECATED) DC/OS agent pools for Azure Container Service
 description: How the public and private agent pools work with an Azure Container Service DC/OS cluster
 services: container-service
 author: iainfoulds
@@ -12,7 +12,10 @@ ms.author: iainfou
 ms.custom: mvc
 ---
 
-# DC/OS agent pools for Azure Container Service
+# (DEPRECATED) DC/OS agent pools for Azure Container Service
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
 DC/OS clusters in Azure Container Service contain agent nodes in two pools, a public pool and a private pool. An application can be deployed to either pool, affecting accessibility between machines in your container service. The machines can be exposed to the internet (public) or kept internal (private). This article gives a brief overview of why there are public and private pools.
 
 

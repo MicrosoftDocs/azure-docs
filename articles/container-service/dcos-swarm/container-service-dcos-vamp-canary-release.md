@@ -1,5 +1,5 @@
 ---
-title: Canary release with Vamp on Azure DC/OS cluster
+title: (DEPRECATED) Canary release with Vamp on Azure DC/OS cluster
 description: How to use Vamp to canary release services and apply smart traffic filtering on an Azure Container Service DC/OS cluster 
 services: container-service
 author: gggina
@@ -12,7 +12,9 @@ ms.author: rasquill
 ms.custom: mvc
 ---
 
-# Canary release microservices with Vamp on an Azure Container Service DC/OS cluster
+# (DEPRECATED) Canary release microservices with Vamp on an Azure Container Service DC/OS cluster
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 In this walkthrough, we set up Vamp on Azure Container Service with a DC/OS cluster. We canary release the Vamp demo service "sava", and then resolve an incompatibility of the service with Firefox by applying smart traffic filtering. 
 

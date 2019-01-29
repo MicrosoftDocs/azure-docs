@@ -9,13 +9,13 @@ manager: femila
 editor: ''
 
 ms.service: media-services
-ms.workload: 
+ms.workload: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ---
 
-# Azure Media Services v3 release notes 
+# Azure Media Services v3 release notes
 
 To stay up-to-date with the most recent developments, this article provides you with information about:
 
@@ -23,7 +23,30 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
-* Plans for changes
+
+## Known issues
+
+> [!NOTE]
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
+
+For more information, see [Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
+
+## January 2019
+
+### Media Encoder Standard and MPI files 
+
+When encoding with Media Encoder Standard to produce MP4 file(s), a new .mpi file is generated and added to the output Asset. This MPI file is intended to improve performance for dynamic packaging and streaming scenarios.
+
+You should not modify or remove the MPI file, or take any dependency in your service on the existence (or not) of such a file.
+
+## December 2018
+
+Updates from the GA release of the V3 API include:
+       
+* The **PresentationTimeRange** properties are no longer 'required' for **AssetFilters** and **AccountFilters**. 
+* The $top and $skip query options for **Jobs** and **Transforms** have been removed and $orderby was added. As part of adding the new ordering functionality, it was discovered that the $top and $skip options had accidentally been exposed previously even though they are not implemented.
+* Enumeration extensibility was re-enabled. This feature was enabled in the preview versions of the SDK and got accidentally disabled in the GA version.
+* Two predefined streaming policies have been renamed. **SecureStreaming** is now **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** is now **Predefined_MultiDrmStreaming**.
 
 ## November 2018
 

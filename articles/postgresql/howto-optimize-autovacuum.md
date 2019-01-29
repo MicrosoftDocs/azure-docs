@@ -3,7 +3,6 @@ title: Optimize autovacuum in Azure Database for PostgreSQL server
 description: This article describes how you can optimize autovacuum in Azure Database for PostgreSQL server.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
@@ -61,7 +60,7 @@ Autovacuum is triggered when the number of dead tuples exceeds autovacuum_vacuum
 
 Cleanup from autovacuum needs to keep up with the database load, otherwise you could run out of storage and experience a general slowdown in queries. Amortized over time, the rate at which vacuum cleans up dead tuples should equal the rate at which dead tuples are created.
 
-Databases with many updates/deletes have more dead tuples and need more space. Generally, databases with many updates/deletes benefit from low values of autovacuum_vacuum_scale_factor and low values of autovacuum_vacuum_threshold to prevent prolonged accumulation of dead tuples. You could use higher values for both parameters with smaller databases because the need for vacuum is less urgent. REminder, that frequent vacuuming comes at the cost of compute and memory.
+Databases with many updates/deletes have more dead tuples and need more space. Generally, databases with many updates/deletes benefit from low values of autovacuum_vacuum_scale_factor and low values of autovacuum_vacuum_threshold to prevent prolonged accumulation of dead tuples. You could use higher values for both parameters with smaller databases because the need for vacuum is less urgent. Reminder, that frequent vacuuming comes at the cost of compute and memory.
 
 The default scale factor of 20 percent works well on tables with a low percent of dead tuples, but not on tables with a high percent of dead tuples. For example, on a 20-GB table this translates to 4 GB of dead tuples and on a 1 TB table it’s 200 GB of dead tuples.
 
@@ -95,6 +94,6 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Autovacuum is a per table synchronous process. The larger percent of dead tuples a table has, the higher the "cost" to autovacuum.  Splitting tables that have a high rate of updates/deletes into multiple tables will help to parallelize autovacuum and reduce the "cost" to complete autovacuum on one table. You can also increase the number of parallel autovacuum workers to ensure workers are liberally scheduled.
 
 ## Next steps
-Review the following PostgreSQL documenatation to learn more about using and tuning autovacuum:
+Review the following PostgreSQL documentation to learn more about using and tuning autovacuum:
  - PostgreSQL documentation - [Chapter 18, Server Configuration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
  - PostgreSQL documentation – [Chapter 24, Routine Database Maintenance Tasks](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

@@ -1,26 +1,23 @@
 ---
-# required metadata
-title: Build workflows that process emails and attachments - Azure Logic Apps | Microsoft Docs
-description: This tutorial shows how to create automated workflows so you can process emails and attachments with Azure Logic Apps, Azure Storage, and Azure Functions
+title: Tutorial - Automate processing emails and attachments - Azure Logic Apps | Microsoft Docs
+description: Tutorial - Create automated workflows that handle emails and attachments with Azure Logic Apps, Azure Storage, and Azure Functions
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-
-# optional metadta
-ms.reviewer: klam, LADocs
 ---
 
-# Process emails and attachments with Azure Logic Apps
+# Tutorial: Automate handling emails and attachments with Azure Logic Apps
 
 Azure Logic Apps helps you automate workflows and integrate data across Azure services, 
 Microsoft services, other software-as-a-service (SaaS) apps, and on-premises systems. 
 This tutorial shows how you can build a [logic app](../logic-apps/logic-apps-overview.md) 
-that handles incoming emails and any attachments. This logic app processes that content, 
+that handles incoming emails and any attachments. This logic app analyzes the email content, 
 saves the content to Azure storage, and sends notifications for reviewing that content. 
 
 In this tutorial, you learn how to:
@@ -190,7 +187,7 @@ with these settings:
    | **Hosting Plan** | Consumption Plan | This setting determines how to allocate and scale resources, such as computing power, for running your function app. See [hosting plans comparison](../azure-functions/functions-scale.md). | 
    | **Location** | West US | The same region that you previously used | 
    | **Storage** | cleantextfunctionstorageacct | Create a storage account for your function app. Use only lowercase letters and numbers. <p>**Note:** This storage account contains your function apps, and differs from your previously created storage account for email attachments. | 
-   | **Application Insights** | Off | Turns on application monitoring with [Application Insights](../application-insights/app-insights-overview.md), but for this tutorial, choose the **Off** setting. | 
+   | **Application Insights** | Off | Turns on application monitoring with [Application Insights](../azure-monitor/app/app-insights-overview.md), but for this tutorial, choose the **Off** setting. | 
    |||| 
 
    If your function app doesn't automatically open after deployment, 
@@ -394,7 +391,7 @@ Now add a condition that selects only emails that have attachments.
 
    2. In the middle box, keep the operator **is equal to**.
 
-   3. In the right box, enter **True** as the value to compare 
+   3. In the right box, enter **true** as the value to compare 
    with the **Has Attachment** property value from the trigger.
 
       ![Build condition](./media/tutorial-process-email-attachments-workflow/finished-condition.png)
@@ -413,7 +410,7 @@ Now add a condition that selects only emails that have attachments.
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -727,7 +724,7 @@ sends email to review the attachments.
 
 ## Send email notifications
 
-1. In the **if true** branch, under the **For each email attachment** loop, 
+1. In the **If true** branch, under the **For each email attachment** loop, 
 choose **Add an action**. 
 
    ![Add action under "for each" loop](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)

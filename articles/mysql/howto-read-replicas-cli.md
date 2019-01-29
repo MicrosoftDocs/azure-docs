@@ -1,16 +1,17 @@
 ---
 title: Create and manage read replicas in Azure Database for MySQL
 description: This article describes how to set up and manage read replicas in Azure Database for MySQL using the Azure CLI.
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 01/23/2019
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI
+
+> [!IMPORTANT]
+> The read replica feature is in Public Preview.
 
 In this article, you will learn how to create and manage read replicas within the same Azure region as the master in the Azure Database for MySQL service using the Azure CLI.
 
@@ -31,6 +32,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 ```
 
 The `az mysql server replica create` command requires the following parameters:
+
 | Setting | Example value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the replica server will be created to.  |
@@ -52,6 +54,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 ```
 
 The `az mysql server replica stop` command requires the following parameters:
+
 | Setting | Example value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the replica server exists.  |
@@ -85,6 +88,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 ```
 
 The `az mysql server replica list` command requires the following parameters:
+
 | Setting | Example value | Description  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  The resource group where the replica server will be created to.  |

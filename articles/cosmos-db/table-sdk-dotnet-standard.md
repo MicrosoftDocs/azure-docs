@@ -1,16 +1,13 @@
 ---
-title: Azure Cosmos DB Table API .NET Standard SDK & Resources | Microsoft Docs
+title: Azure Cosmos DB Table API .NET Standard SDK & Resources
 description: Learn all about the Azure Cosmos DB Table API and the .NET Standard SDK including release dates, retirement dates, and changes made between each version.
-services: cosmos-db
-author: donghexu
-manager: sudheerd
-
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.author: dox
 
 ---
 # Azure Cosmos DB Table .NET Standard API: Download and release notes
@@ -29,16 +26,25 @@ ms.author: dox
 
 ## Release notes
 
+### <a name="0.10.1-preview"/>0.10.1-preview
+* Add support for SAS token, operations of TablePermissions, ServiceProperties, and ServiceStats against Azure Storage Table endpoints. 
+   > [!NOTE] Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client-side encryption.
+
+### <a name="0.10.0-preview"/>0.10.0-preview
+* Add support for core CRUD, batch, and query operations against Azure Storage Table endpoints. 
+   > [!NOTE] Some functionalities in previous Azure Storage Table SDKs are not yet supported, such as client-side encryption.
+
 ### <a name="0.9.1-preview"/>0.9.1-preview
-* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md).
-[!NOTE]
-Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.
+* Azure Cosmos DB Table .NET Standard SDK is a cross-platform .NET library that provides efficient access to the Table data model on Cosmos DB. This initial release supports the full set of Table and Entity CRUD + Query functionalities with similar APIs as the [Cosmos DB Table SDK For .NET Framework](table-sdk-dotnet.md). 
+   > [!NOTE] Azure Storage Table endpoints are not yet supported in the 0.9.1-preview version.
 
 ## Release and Retirement dates
 Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [0.10.1-preview](#0.10.1-preview) |January 22, 2019 |--- |
+| [0.10.0-preview](#0.10.0-preview) |December 18, 2018 |--- |
 | [0.9.1-preview](#0.9.1-preview) |October 18, 2018 |--- |
 
 

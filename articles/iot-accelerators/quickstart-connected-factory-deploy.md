@@ -1,5 +1,5 @@
 ---
-title: Try a solution on Azure to manage my industrial IoT devices | Microsoft Docs
+title: Try a solution to manage my industrial IoT devices - Azure | Microsoft Docs
 description: In this quickstart, you deploy the Connected Factory Azure IoT solution accelerator, and sign in to and use the solution dashboard.
 author: dominicbetts
 manager: timlt

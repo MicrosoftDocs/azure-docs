@@ -7,13 +7,13 @@ author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 01/24/2019
 ms.author: diberry
-
+ms.custom: seodec18
 ---
-# QnA Maker REST API with Go 
+# How to use the QnA Maker REST API with Go 
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with Go to do the following.

@@ -1,5 +1,5 @@
 ---
-title: Describing adult and racy content - Computer Vision
+title: Describe adult and racy content - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to detecting adult and racy content in images using the Computer Vision APi.
 services: cognitive-services
@@ -7,10 +7,11 @@ author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
 
 # Detecting adult and racy content

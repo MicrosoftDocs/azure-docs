@@ -3,7 +3,6 @@ title: Optimize query stats collection in Azure Database for PostgreSQL server q
 description: This article describes how you can optimize query stats collection on an Azure Database for PostgreSQL server.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018
@@ -23,7 +22,7 @@ To set `pg_stat_statements.track = NONE`:
 
 - In the Azure portal, navigate to the [PostgreSQL resource management page and select the server parameters blade](howto-configure-server-parameters-using-portal.md).
 
-![PostgreSQL server parameter blade](.\media\howto-optimize-query-stats-collection\pg_stats_statements_portal.png)
+![PostgreSQL server parameter blade](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
 
 - Using [Azure CLI](howto-configure-server-parameters-using-cli.md), az postgres server configuration set `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 

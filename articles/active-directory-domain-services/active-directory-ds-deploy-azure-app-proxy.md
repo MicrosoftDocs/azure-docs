@@ -4,12 +4,12 @@ description: Use Azure AD Application Proxy on Azure Active Directory Domain Ser
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -40,7 +40,7 @@ To perform the tasks listed in this article, you need:
 ## Task 1 - Enable Azure AD Application Proxy for your Azure AD directory
 Perform the following steps to enable the Azure AD Application Proxy for your Azure AD directory.
 
-1. Sign in as an administrator in the [Azure portal](http://portal.azure.com).
+1. Sign in as an administrator in the [Azure portal](https://portal.azure.com).
 
 2. Click **Azure Active Directory** to bring up the directory overview. Click **Enterprise applications**.
 

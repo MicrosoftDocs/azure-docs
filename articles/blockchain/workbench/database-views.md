@@ -21,7 +21,7 @@ This section includes an overview of the database views and the data they contai
 
 > [!NOTE]
 > Any direct usage of database tables found in the database outside of these views, while possible, is not supported.
-> 
+>
 
 ## vwApplication
 
@@ -33,11 +33,11 @@ This view provides details on **Applications** that have been uploaded to Azure 
 | ApplicationName                  | nvarchar(50)  | No          | The name of the application |
 | ApplicationDescription           | nvarchar(255) | Yes         | A description of the application |
 | ApplicationDisplayName           | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled               | bit           | No          | Identifies if the application is currently enabled</br> **Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
+| ApplicationEnabled               | bit           | No          | Identifies if the application is currently enabled<br /> **Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
 | UploadedDtTm                     | datetime2(7)  | No          | The date and time a contract was uploaded |
 | UploadedByUserId                 | int           | No          | The ID of the user who uploaded the application |
 | UploadedByUserExternalId         | nvarchar(255) | No          | The external identifier for the user who uploaded the application. By default, this is the ID for the user from the Azure Active Directory for the consortium.                                                                                                |
-| UploadedByUserProvisioningStatus | int           | No          | Identifies the current status of provisioning process for the user. Possible values are: </br>0 – User has been created by the API<br>1 – A key has been associated with the user in the database</br>2 – The user is fully provisioned                         |
+| UploadedByUserProvisioningStatus | int           | No          | Identifies the current status of provisioning process for the user. Possible values are: <br />0 – User has been created by the API<br />1 – A key has been associated with the user in the database<br />2 – The user is fully provisioned                         |
 | UploadedByUserFirstName          | nvarchar(50)  | Yes         | The first name of the user who uploaded the contract |
 | UploadedByUserLastName           | nvarchar(50)  | Yes         | The last name of the user who uploaded the contract |
 | UploadedByUserEmailAddress       | nvarchar(255) | Yes         | The email address of the user who uploaded the contract |
@@ -75,7 +75,7 @@ In an *Asset Transfer* application, for example, *John Smith* may be associated 
 | ApplicationRoleDescription | nvarchar(255) | Yes         | A description of the role                                                                                                                                                                                                             |
 | UserId                     | int           | No          | The ID of the user associated with the role |
 | UserExternalId             | nvarchar(255) | No          | The external identifier for the user who is associated with the role. By default, this is the ID for the user from the Azure Active Directory for the consortium.                                                                     |
-| UserProvisioningStatus     | int           | No          | Identifies the current status of provisioning process for the user. Possible values are: </br>0 – User has been created by the API</br>1 – A key has been associated with the user in the database<br>2 – The user is fully provisioned |
+| UserProvisioningStatus     | int           | No          | Identifies the current status of provisioning process for the user. Possible values are: <br />0 – User has been created by the API<br />1 – A key has been associated with the user in the database<br />2 – The user is fully provisioned |
 | UserFirstName              | nvarchar(50)  | Yes         | The first name of the user who is associated with the role |
 | UserLastName               | nvarchar(255) | Yes         | The last name of the user who is associated with the role |
 | UserEmailAddress           | nvarchar(255) | Yes         | The email address of the user who is associated with the role |
@@ -97,7 +97,7 @@ This view provides details on the connections defined in Azure Blockchain Workbe
 | LedgerDisplayName        | nvarchar(255) | No          | The name of the ledger to display in the UI |
 | UserId                   | int           | No          | The ID of the user associated with the connection |
 | UserExternalId           | nvarchar(255) | No          | The external identifier for the user who is associated with the connection. By default, this is the ID for the user from the Azure Active Directory for the consortium. |
-| UserProvisioningStatus   | int           | No          |Identifies the current status of provisioning process for the user. Possible values are: </br>0 – User has been created by the API</br>1 – A key has been associated with the user in the database<br>2 – The user is fully provisioned |
+| UserProvisioningStatus   | int           | No          |Identifies the current status of provisioning process for the user. Possible values are: <br />0 – User has been created by the API<br />1 – A key has been associated with the user in the database<br />2 – The user is fully provisioned |
 | UserFirstName            | nvarchar(50)  | Yes         | The first name of the user who is associated with the connection |
 | UserLastName             | nvarchar(255) | Yes         | The last name of the user who is associated with the connection |
 | UserEmailAddress         | nvarchar(255) | Yes         | The email address of the user who is associated with the connection |
@@ -123,7 +123,7 @@ This view provides details about deployed contracts. For each contract, this vie
 | ApplicationId                            | int            | No          | A unique identifier for the application |
 | ApplicationName                          | nvarchar (50)  | No          | The name of the application |
 | ApplicationDisplayName                   | nvarchar (255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled                       | bit            | No          | Identifies if the application is currently enabled.</br> **Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.  |
+| ApplicationEnabled                       | bit            | No          | Identifies if the application is currently enabled.<br /> **Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.  |
 | WorkflowId                               | int            | No          | A unique identifier for the workflow associated with a contract |
 | WorkflowName                             | nvarchar(50)   | No          | The name of the workflow associated with a contract |
 | WorkflowDisplayName                      | nvarchar(255)  | No          | The name of the workflow associated with the contract displayed in the user interface |
@@ -132,11 +132,11 @@ This view provides details about deployed contracts. For each contract, this vie
 | ContractFileName                         | int            | No          | The name of the file containing the smart contract code for this workflow. |
 | ContractUploadedDtTm                     | int            | No          | The date and time the contract code was uploaded |
 | ContractId                               | int            | No          | The unique identifier for the contract |
-| ContractProvisioningStatus               | int            | No          | Identifies the current status of the provisioning process for the contract. Possible values are: </br>0 – The contract has been created by the API in the database</br>1 – The contract has been sent to the ledger</br>2 – The contract has been successfully deployed to the ledger</br>3 or 4 - The contract failed to be deployed to the ledger</br>5 - The contract was successfully deployed to the ledger </br></br>Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractV0** is available that only supports values 0 through 2. |
+| ContractProvisioningStatus               | int            | No          | Identifies the current status of the provisioning process for the contract. Possible values are: <br />0 – The contract has been created by the API in the database<br />1 – The contract has been sent to the ledger<br />2 – The contract has been successfully deployed to the ledger<br />3 or 4 - The contract failed to be deployed to the ledger<br />5 - The contract was successfully deployed to the ledger <br /><br />Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractV0** is available that only supports values 0 through 2. |
 | ContractLedgerIdentifier                 | nvarchar (255) |             | The email address of the user who deployed the contract |
 | ContractDeployedByUserId                 | int            | No          | An external identifier for the user who deployed the contract. By default, this is the guid representing the Azure Active Directory ID for the user.                                                                                                          |
 | ContractDeployedByUserExternalId         | nvarchar(255)  | No          | An external identifier for the user that deployed the contract. By default, this is the guid representing the Azure Active Directory ID for the user.                                                                                                         |
-| ContractDeployedByUserProvisioningStatus | int            | No          | Identifies the current status of the provisioning process for the user. Possible values are: </br>0 – user has been created by the API</br>1 – A key has been associated with the user in the database </br>2 – The user is fully provisioned                     |
+| ContractDeployedByUserProvisioningStatus | int            | No          | Identifies the current status of the provisioning process for the user. Possible values are: <br />0 – user has been created by the API<br />1 – A key has been associated with the user in the database <br />2 – The user is fully provisioned                     |
 | ContractDeployedByUserFirstName          | nvarchar(50)   | Yes         | The first name of the user who deployed the contract |
 | ContractDeployedByUserLastName           | nvarchar(255)  | Yes         | The last name of the user who deployed the contract |
 | ContractDeployedByUserEmailAddress       | nvarchar(255)  | Yes         | The email address of the user who deployed the contract |
@@ -164,7 +164,7 @@ This view represents the majority of information related to actions taken on con
 | WorkflowDisplayName                      | nvarchar(255) | No          | The name of the workflow to display in a user interface |
 | WorkflowDescription                      | nvarchar(255) | Yes         | The description of the workflow |
 | ContractId                               | int           | No          | A unique identifier for the contract |
-| ContractProvisioningStatus               | int           | No          | Identifies the current status of the provisioning process for the contract. Possible values are: </br>0 – The contract has been created by the API in the database</br>1 – The contract has been sent to the ledger</br>2 – The contract has been successfully deployed to the ledger</br>3 or 4 - The contract failed to be deployed to the ledger</br>5 - The contract was successfully deployed to the ledger </br></br>Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractActionV0** is available that only supports values 0 through 2. |
+| ContractProvisioningStatus               | int           | No          | Identifies the current status of the provisioning process for the contract. Possible values are: <br />0 – The contract has been created by the API in the database<br />1 – The contract has been sent to the ledger<br />2 – The contract has been successfully deployed to the ledger<br />3 or 4 - The contract failed to be deployed to the ledger<br />5 - The contract was successfully deployed to the ledger <br /><br />Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractActionV0** is available that only supports values 0 through 2. |
 | ContractCodeId                           | int           | No          | A unique identifier for the code implementation of the contract |
 | ContractLedgerIdentifier                 | nvarchar(255) | Yes         | A unique identifier associated with the deployed version of a smart contract for a specific distributed ledger. For example, Ethereum. |
 | ContractDeployedByUserId                 | int           | No          | The unique identifier of the user that deployed the contract |
@@ -177,12 +177,12 @@ This view represents the majority of information related to actions taken on con
 | WorkflowFunctionDisplayName              | nvarchar(255) | No          | The name of a function to be displayed in the user interface |
 | WorkflowFunctionDescription              | nvarchar(255) | No          | The description of the function |
 | ContractActionId                         | int           | No          | The unique identifier for a contract action |
-| ContractActionProvisioningStatus         | int           | No          | Identifies the current status of the provisioning process for the contract action. Possible values are: </br>0 – The contract action has been created by the API in the database</br>1 – The contract action has been sent to the ledger</br>2 – The contract action has been successfully deployed to the ledger</br>3 or 4 - The contract failed to be deployed to the ledger</br>5 - The contract was successfully deployed to the ledger </br></br>Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractActionV0** is available that only supports values 0 through 2. |
+| ContractActionProvisioningStatus         | int           | No          | Identifies the current status of the provisioning process for the contract action. Possible values are: <br />0 – The contract action has been created by the API in the database<br />1 – The contract action has been sent to the ledger<br />2 – The contract action has been successfully deployed to the ledger<br />3 or 4 - The contract failed to be deployed to the ledger<br />5 - The contract was successfully deployed to the ledger <br /><br />Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractActionV0** is available that only supports values 0 through 2. |
 | ContractActionTimestamp                  | datetime(2,7) | No          | The timestamp of the contract action |
 | ContractActionExecutedByUserId           | int           | No          | Unique identifier of the user that executed the contract action |
 | ContractActionExecutedByUserFirstName    | int           | Yes         | First name of the user who executed the contract action |
 | ContractActionExecutedByUserLastName     | nvarchar(50)  | Yes         | Last name of the user who executed the contract action |
-| ContractActionExecutedByUserExternalId   | nvarchar(255) | Yes         | External identifier of the user who executed the contract action.  By default this is the guid that represents their identity in the consortium Azure Active Directory. |
+| ContractActionExecutedByUserExternalId   | nvarchar(255) | Yes         | External identifier of the user who executed the contract action. By default this is the guid that represents their identity in the consortium Azure Active Directory. |
 | ContractActionExecutedByUserEmailAddress | nvarchar(255) | Yes         | The email address of the user who executed the contract action |
 | WorkflowFunctionParameterId              | int           | No          | A unique identifier for a parameter of the function |
 | WorkflowFunctionParameterName            | nvarchar(50)  | No          | The name of a parameter of the function |
@@ -198,7 +198,7 @@ This view represents the majority of information related to actions taken on con
 | TransactionTo                            | nvarchar(255) | Yes         | The party that was transacted with |
 | TransactionHash                          | nvarchar(255) | Yes         | The hash of a transaction |
 | TransactionIsWorkbenchTransaction        | bit           | Yes         | A bit that identifies if the transaction is a Azure Blockchain Workbench transaction |
-| TransactionProvisioningStatus            | int           | Yes         | Identifies the current status of the provisioning process for the transaction. Possible values are: </br>0 – The transaction has been created by the API in the database</br>1 – The transaction has been sent to the ledger</br>2 – The transaction has been successfully deployed to the ledger                 |
+| TransactionProvisioningStatus            | int           | Yes         | Identifies the current status of the provisioning process for the transaction. Possible values are: <br />0 – The transaction has been created by the API in the database<br />1 – The transaction has been sent to the ledger<br />2 – The transaction has been successfully deployed to the ledger                 |
 | TransactionValue                         | decimal(32,2) | Yes         | The value of the transaction |
 
 ## vwContractProperty
@@ -217,13 +217,13 @@ This view represents the majority of information related to properties associate
 | ApplicationId                      | int           | No          | A unique identifier for the application |
 | ApplicationName                    | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName             | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled                 | bit           | No          | Identifies if the application is currently enabled.</br>**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.                      |
+| ApplicationEnabled                 | bit           | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.                      |
 | WorkflowId                         | int           | No          | The unique identifier for the workflow |
 | WorkflowName                       | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName                | nvarchar(255) | No          | The name of the workflow displayed in the user interface |
 | WorkflowDescription                | nvarchar(255) | Yes         | The description of the workflow |
 | ContractId                         | int           | No          | The unique identifier for the contract |
-| ContractProvisioningStatus         | int           | No          | Identifies the current status of the provisioning process for the contract. Possible values are: </br>0 – The contract has been created by the API in the database</br>1 – The contract has been sent to the ledger</br>2 – The contract has been successfully deployed to the ledger</br>3 or 4 - The contract failed to be deployed to the ledger</br>5 - The contract was successfully deployed to the ledger </br></br>Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractPropertyV0** is available that only supports values 0 through 2. |
+| ContractProvisioningStatus         | int           | No          | Identifies the current status of the provisioning process for the contract. Possible values are: <br />0 – The contract has been created by the API in the database<br />1 – The contract has been sent to the ledger<br />2 – The contract has been successfully deployed to the ledger<br />3 or 4 - The contract failed to be deployed to the ledger<br />5 - The contract was successfully deployed to the ledger <br /><br />Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractPropertyV0** is available that only supports values 0 through 2. |
 | ContractCodeId                     | int           | No          | A unique identifier for the code implementation of the contract |
 | ContractLedgerIdentifier           | nvarchar(255) | Yes         | A unique identifier associated with the deployed version of a smart contract for a specific distributed ledger. For example, Ethereum. |
 | ContractDeployedByUserId           | int           | No          | The unique identifier of the user that deployed the contract |
@@ -257,14 +257,14 @@ This view represents the majority of information related to the state of a speci
 | ApplicationId                      | int           | No          | A unique identifier for the application |
 | ApplicationName                    | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName             | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled                 | bit           | No          | Identifies if the application is currently enabled.</br>**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
+| ApplicationEnabled                 | bit           | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
 | WorkflowId                         | int           | No          | A unique identifier for the workflow |
 | WorkflowName                       | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName                | nvarchar(255) | No          | The name displayed in the user interface |
 | WorkflowDescription                | nvarchar(255) | Yes         | The description of the workflow |
 | ContractLedgerImplementationId     | nvarchar(255) | Yes         | A unique identifier associated with the deployed version of a smart contract for a specific distributed ledger. For example, Ethereum. |
 | ContractId                         | int           | No          | A unique identifier for the contract |
-| ContractProvisioningStatus         | int           | No          |Identifies the current status of the provisioning process for the contract. Possible values are: </br>0 – The contract has been created by the API in the database</br>1 – The contract has been sent to the ledger</br>2 – The contract has been successfully deployed to the ledger</br>3 or 4 - The contract failed to be deployed to the ledger</br>5 - The contract was successfully deployed to the ledger </br></br>Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractStateV0** is available that only supports values 0 through 2. |
+| ContractProvisioningStatus         | int           | No          |Identifies the current status of the provisioning process for the contract. Possible values are: <br />0 – The contract has been created by the API in the database<br />1 – The contract has been sent to the ledger<br />2 – The contract has been successfully deployed to the ledger<br />3 or 4 - The contract failed to be deployed to the ledger<br />5 - The contract was successfully deployed to the ledger <br /><br />Beginning with version 1.5, values 0 through 5 are supported. For backwards compatibility in the current release, view **vwContractStateV0** is available that only supports values 0 through 2. |
 | ConnectionId                       | int           | No          | A unique identifier for the blockchain instance the workflow is deployed to |
 | ContractCodeId                     | int           | No          | A unique identifier for the code implementation of the contract |
 | ContractDeployedByUserId           | int           | No          | Unique identifier of the user that deployed the contract |
@@ -291,7 +291,7 @@ This view provides details on the consortium members that are provisioned to use
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID                 | int           | No          | A unique identifier for a user |
 | ExternalID         | nvarchar(255) | No          | An external identifier for a user. By default, this is the guid representing the Azure Active Directory ID for the user. |
-| ProvisioningStatus | int           | No          |Identifies the current status of provisioning process for the user. Possible values are: </br>0 – User has been created by the API</br>1 – A key has been associated with the user in the database<br>2 – The user is fully provisioned |
+| ProvisioningStatus | int           | No          |Identifies the current status of provisioning process for the user. Possible values are: <br />0 – User has been created by the API<br />1 – A key has been associated with the user in the database<br />2 – The user is fully provisioned |
 | FirstName          | nvarchar(50)  | Yes         | The first name of the user |
 | LastName           | nvarchar(50)  | Yes         | The last name of the user |
 | EmailAddress       | nvarchar(255) | Yes         | The email address of the user |
@@ -325,7 +325,7 @@ This view represents the details core workflow metadata as well as the workflow�
 
 ## vwWorkflowFunction
 
-This view represents the details core workflow metadata as well as the workflow’s functions and parameters. Designed for reporting, this also contains metadata about the application associated with the workflow. This view contains data from multiple underlying tables to facilitate reporting on workflows.  For each workflow function, this view contains the following data:
+This view represents the details core workflow metadata as well as the workflow’s functions and parameters. Designed for reporting, this also contains metadata about the application associated with the workflow. This view contains data from multiple underlying tables to facilitate reporting on workflows. For each workflow function, this view contains the following data:
 
 -   Associated application definition
 -   Associated workflow definition
@@ -365,7 +365,7 @@ This view represents the properties defined for a workflow. For each property, t
 | ApplicationId                | int           | No          | A unique identifier for the application |
 | ApplicationName              | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName       | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled           | bit           | No          | Identifies if the application is currently enabled.</br>**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
+| ApplicationEnabled           | bit           | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
 | WorkflowId                   | int           | No          | A unique identifier for the workflow |
 | WorkflowName                 | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName          | nvarchar(255) | No          | The name to be displayed for the workflow in a user interface |
@@ -392,7 +392,7 @@ This view represents the properties associated with a workflow. For each contrac
 | ApplicationId                | int           | No          | A unique identifier for the application |
 | ApplicationName              | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName       | nvarchar(255) | No          | A description of the application |
-| ApplicationEnabled           | bit           | No          | Identifies if the application is currently enabled.</br>**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
+| ApplicationEnabled           | bit           | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
 | WorkflowId                   | int           | No          | The unique identifier for the workflow |
 | WorkflowName                 | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName          | nvarchar(255) | No          | The name displayed in the user interface for the workflow |

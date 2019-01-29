@@ -1,18 +1,18 @@
 ---
-title: Programming guide for Azure Event Hubs | Microsoft Docs
-description: Write code for Azure Event Hubs using the Azure .NET SDK.
+title: Programming guide - Azure Event Hubs | Microsoft Docs
+description: This article provides information on how to Write code for Azure Event Hubs using the Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
-ms.date: 08/12/2018
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
-# Event Hubs programming guide
-
+# Programming guide for Azure Event Hubs
 This article discusses some common scenarios in writing code using Azure Event Hubs. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-what-is-event-hubs.md).
 
 ## Event publishers
@@ -51,7 +51,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## Send events to an event hub
 
-You send events to an event hub by creating an [EventHubClient][] instance and sending it asynchronously via the [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) method. This method takes a single [EventData][] instance parameter and synchronously sends it to an event hub.
+You send events to an event hub by creating an [EventHubClient][] instance and sending it asynchronously via the [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) method. This method takes a single [EventData][] instance parameter and asynchronously sends it to an event hub.
 
 ## Event serialization
 
@@ -72,7 +72,7 @@ When sending event data, you can specify a value that is hashed to produce a par
 
 ### Availability considerations
 
-Using a partition key is optional, and you should consider carefully whether or not to use one. In many cases, using a partition key is a good choice if event ordering is important. When you use a partition key, these partitions require availability on a single node, and outages can occur over time; for example, when compute nodes reboot and patch. As such, if you set a partition ID and that partition becomes unavailable for some reason, an attempt to access the data in that partition will fail. If high availability is most important, do not specify a partition key; in that case events are sent to partitions using the round-robin model described previously. In this scenario, you are making an explicit choice between availability (no partition ID) and consistency (pinning events to a partition ID).
+Using a partition key is optional, and you should consider carefully whether or not to use one. If you don't specify a partition key when publishing an event, a round-robin assignment is used. In many cases, using a partition key is a good choice if event ordering is important. When you use a partition key, these partitions require availability on a single node, and outages can occur over time; for example, when compute nodes reboot and patch. As such, if you set a partition ID and that partition becomes unavailable for some reason, an attempt to access the data in that partition will fail. If high availability is most important, do not specify a partition key; in that case events are sent to partitions using the round-robin model described previously. In this scenario, you are making an explicit choice between availability (no partition ID) and consistency (pinning events to a partition ID).
 
 Another consideration is handling delays in processing events. In some cases, it might be better to drop data and retry than to try to keep up with processing, which can potentially cause further downstream processing delays. For example, with a stock ticker it's better to wait for complete up-to-date data, but in a live chat or VOIP scenario you'd rather have the data quickly, even if it isn't complete.
 
@@ -88,7 +88,7 @@ For more information and a discussion about the trade-offs between availability 
 
 Sending events in batches can help increase throughput. You can use the [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API to create a batch to which data objects can later be added for a [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) call.
 
-A single batch must not exceed the 256 KB limit of an event. Additionally, each message in the batch uses the same publisher identity. It is the responsibility of the sender to ensure that the batch does not exceed the maximum event size. If it does, a client **Send** error is generated. You can use the helper method [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) to ensure that the batch does not exceed 256 KB. You get an empty [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) from  the [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API and then use [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) to add events to construct the batch. 
+A single batch must not exceed the 1 MB limit of an event. Additionally, each message in the batch uses the same publisher identity. It is the responsibility of the sender to ensure that the batch does not exceed the maximum event size. If it does, a client **Send** error is generated. You can use the helper method [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) to ensure that the batch does not exceed 1 MB. You get an empty [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) from  the [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API and then use [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) to add events to construct the batch. 
 
 ## Send asynchronously and send at scale
 

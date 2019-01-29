@@ -39,6 +39,8 @@
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
       href: tutorial-design-database-using-cli.md
+    - name: Azure Resource Manager template
+      href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
   - name: 2 - Create a Web App
     items:
     - name: Wordpress - Portal
@@ -91,12 +93,14 @@
       href: concepts-server-logs.md
   - name: Development
     items:
-    - name: Drivers and tools compatiblity
+    - name: Drivers and tools compatibility
       href: concepts-compatibility.md
     - name: Application development
       href: concepts-database-application-development.md
     - name: Connection resiliency
       href: concepts-connectivity.md
+    - name: Develop with Azure Kubernetes Service (AKS)
+      href: concepts-aks.md
   - name: Replication
     items:
     - name: Data-in replication
@@ -191,6 +195,8 @@
     href: /cli/azure/mysql
   - name: REST API
     href: /rest/api/mysql
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.dbformysql/allversions
   - name: Data-in replication stored procedures
     href: reference-data-in-stored-procedures.md
 - name: Resources

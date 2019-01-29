@@ -1,12 +1,12 @@
 ---
 title: Partitioning in Azure Cosmos DB
 description: Overview of partitioning in Azure Cosmos DB
-author: aliuy
-
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
+
 
 ---
 
@@ -44,7 +44,6 @@ Consider the following details when choosing a partition key:
 
 ## Next steps
 
-* Learn about [choosing a partition key](partitioning-overview.md#choose-partitionkey)
 * Learn about [partitions](partition-data.md)
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md)

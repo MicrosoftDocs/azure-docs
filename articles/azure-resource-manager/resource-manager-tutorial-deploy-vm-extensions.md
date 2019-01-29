@@ -113,7 +113,7 @@ See the [extension reference](https://docs.microsoft.com/azure/templates/microso
 
 ## Deploy the template
 
-Refer to the [Deploy the template](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template) section for the deployment procedure. It is recommended to use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
+Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. It is recommended to use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
 ## Verify the deployment
 

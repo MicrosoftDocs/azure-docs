@@ -36,11 +36,11 @@ This scenario addresses recovering your entire installation in the event of a fa
 
 The journey of protecting Azure Start starts with backing up the infrastructure and app/tenant data separately. This document covers how to protect the infrastructure. 
 
-![Initial deployment of Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Initial deployment of Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 In worst case scenarios where all data is lost, recovering Azure Stack is the process of restoring the infrastructure data unique to that deployment of Azure Stack and all user data. 
 
-![Redeploy Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![Redeploy Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## Restore
 

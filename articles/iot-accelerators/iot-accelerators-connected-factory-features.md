@@ -16,6 +16,8 @@ Connected Factory is an implementation of Microsoft's Azure Industrial IoT refer
 
 ![Connected Factory solution dashboard](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
+The Connected Factory solution accelerator [code is available on GitHub](https://github.com/Azure/azure-iot-connected-factory).
+
 Connected Factory includes the following features:
 
 ## Industrial device interoperability

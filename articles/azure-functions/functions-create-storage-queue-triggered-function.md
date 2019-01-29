@@ -22,7 +22,7 @@ Learn how to create a function that is triggered when messages are submitted to 
 
 ## Prerequisites
 
-- Download and install the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+- Download and install the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -72,7 +72,7 @@ Next, you connect to your Azure Storage account and create the **myqueue-items**
 
     ![Get the Storage account connection credentials.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
-1. Run the [Microsoft Azure Storage Explorer](http://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
+1. Run the [Microsoft Azure Storage Explorer](https://storageexplorer.com/) tool, click the connect icon on the left, choose **Use a storage account name and key**, and click **Next**.
 
     ![Run the Storage Account Explorer tool.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
 
@@ -108,8 +108,9 @@ Now that you have a storage queue, you can test the function by adding a message
 
 ## Next steps
 
-You have created a function that runs when a message is added to a storage queue.
+You have created a function that runs when a message is added to a storage queue. For more information about Queue storage triggers, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+Now that you have a created your first function, let's add an output binding to the function that writes a message back to another queue.
 
-For more information about Queue storage triggers, see [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md).
+> [!div class="nextstepaction"]
+> [Add messages to an Azure Storage queue using Functions](functions-integrate-storage-queue-output-binding.md)

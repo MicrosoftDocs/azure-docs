@@ -22,7 +22,10 @@ ms.author: genli
 
 You may experience VM or VPN connectivity issues and errors when using a third party Network Virtual Appliance (NVA) in Microsoft Azure. This article provides basic steps to help you validate basic Azure Platform requirements for NVA configurations.
 
-Technical support for third-party NVAs and their integration with the Azure platform is provided by the NVA vendor. If you have a connectivity or routing problem that involves an NVA, you should [contact the vendor of the NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) directly.
+Technical support for third-party NVAs and their integration with the Azure platform is provided by the NVA vendor. 
+
+> [!NOTE]
+> If you have a connectivity or routing problem that involves an NVA, you should [contact the vendor of the NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) directly.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -34,6 +37,7 @@ Technical support for third-party NVAs and their integration with the Azure plat
 - UDRs on virtual network subnets that direct traffic from NVA
 - Routing tables and rules within the NVA (for example, from NIC1 to NIC2)
 - Tracing on NVA NICs to verify receiving and sending network traffic
+- When using a Standard SKU and  Public IP's there must be a NSG created and an explicit rule to allow the traffic to be routed to the NVA.
 
 ## Basic troubleshooting steps
 
@@ -70,6 +74,9 @@ Use PowerShell
           Execute: $nic2 #and check for an expected output:
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
+
+**Check for NSG when using Standard SKU Pubilc IP**
+When using a Standard SKU and Public IP's there must be a NSG created and an explicit rule to allow the traffic to the NVA.
 
 **Check whether the traffic can be routed to the NVA**
 

@@ -61,6 +61,7 @@ When prompted, choose a worker runtime from the following languages:
 
 * `dotnet`: creates a .NET class library project (.csproj).
 * `node`: creates a JavaScript project.
+* `python`: creates a Python project.
 
 When the command executes, you see something like the following output:
 

@@ -55,4 +55,4 @@ A Security Center user assigned the role of Owner, Contributor, or Account Admin
 
 ## Next steps
 For more information about managing user data, see [Manage user data in Azure Security Center](security-center-privacy.md).
-To learn more about deleting private data in Log Analytics, see [How to export and delete private data](../log-analytics/log-analytics-personal-data-mgmt.md#how-to-export-and-delete-private-data).
+To learn more about deleting private data in Log Analytics, see [How to export and delete private data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
 
@@ -31,11 +31,11 @@ One integrated system deployment (referred to as an *Azure Stack cloud*) makes u
 
 Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile is available to an Azure Stack operator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
 
-![The region management tile](media/azure-stack-manage-region/image1.png)
+![The region management tile](media/azure-stack-region-management/image1.png)
 
 If you click a region in the **Region management** tile, you can access the following information:
 
-![Description of panes on the Region management blade](media/azure-stack-manage-region/image2.png)
+[ ![Description of panes on the Region management blade](media/azure-stack-region-management/regionssm.png "Region management blade") ](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **The resource menu**. Access specific infrastructure management areas, and view and manage user resources such as storage accounts and virtual networks.
 
@@ -46,6 +46,8 @@ If you click a region in the **Region management** tile, you can access the foll
 4. **Resource providers**. Manage the user functionality offered by the components required to run Azure Stack. Each resource provider comes with an administrative experience. This experience can include alerts for the specific provider, metrics, and other management capabilities specific to the resource provider.
 
 5. **Infrastructure roles**. The components necessary to run Azure Stack. Only the infrastructure roles that report alerts are listed. By selecting a role, you can view the alerts associated with the role and the role instances where this role is running.
+
+6. **Properties**. The registration status and details of your environment in the region management blade. The status can be **Registered** or **Not registered**. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack, along with the registration resource group and name.
 
 ## Next steps
 

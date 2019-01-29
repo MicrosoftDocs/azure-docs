@@ -1,13 +1,11 @@
 ---
-title: Azure sample application for use with DMZs | Microsoft Docs
+title: Azure sample application for use with DMZs
+titlesuffix: Azure Virtual Network
 description: Deploy this simple web application after creating a DMZ to test traffic flow scenarios
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
-ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -91,7 +89,7 @@ This PowerShell script should be run locally while RDP’d into IIS01.
           <br />
           The following sections show:
           <ul style="margin-top: 0px;">
-            <li> Local Server Time - Shows if this page is or isnt cached anywhere</li>
+            <li> Local Server Time - Shows if this page is or isn''t cached anywhere</li>
             <li> File Output - Shows that the web server is reaching AppVM01 on the backend subnet and successfully returning content</li>
             <li> Image from the Internet - Doesnt really show anything, but it made me happy to see this when the app worked</li>
           </ul>
@@ -138,7 +136,7 @@ This PowerShell script should be run locally while RDP’d into IIS01.
     Restart-Service -Name W3SVC
 
     Write-Host
-    Write-Host "Web App Creation Successfull!" -ForegroundColor Green
+    Write-Host "Web App Creation Successful!" -ForegroundColor Green
     Write-Host
 ```
 
@@ -185,7 +183,7 @@ This PowerShell script should be run locally while RDP’d into AppVM01. PowerSh
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0
 
     Write-Host
-    Write-Host "File Server Set up Successfull!" -ForegroundColor Green
+    Write-Host "File Server Set up Successful!" -ForegroundColor Green
     Write-Host
 ```
 

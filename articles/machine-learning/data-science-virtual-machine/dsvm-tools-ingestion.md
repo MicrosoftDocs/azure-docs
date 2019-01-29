@@ -1,12 +1,12 @@
 ---
 title: Data Science Virtual Machine data ingestion tools - Azure | Microsoft Docs
-description: Data Science Virtual Machine data ingestion tools
+description: Learn about the data ingestion tools and utilities pre-installed in the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-
+ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning

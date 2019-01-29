@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: crdun
+---
 
 1. In the MainPage.xaml.cs project file, add the following **using** statements:
    

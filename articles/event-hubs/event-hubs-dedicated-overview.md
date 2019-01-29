@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Event Hubs Dedicated capacity | Microsoft Docs
-description: Overview of Microsoft Azure Event Hubs Dedicated capacity.
+title: Overview of dedicated event hubs - Azure Event Hubs | Microsoft Docs
+description: This article provides an overview of dedciated Azure Event Hubs, which offers single-tenant deployments of event hubs.  
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -13,7 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -28,7 +29,7 @@ The following table compares the available service tiers of Event Hubs. The Even
 | --- |:---:|:---:|:---:|
 | Ingress events | Pay per million events | Included |
 | Throughput unit (1 MB/sec ingress, 2 MB/sec egress) | Pay per hour | Included |
-| Message Size | 256 KB | 1 MB |
+| Message Size | 1 MB | 1 MB |
 | Publisher policies | Yes | Yes |	 
 | Consumer groups | 20 | 20 |
 | Message replay | Yes | Yes |
@@ -43,7 +44,6 @@ The following table compares the available service tiers of Event Hubs. The Even
 The following benefits are available when using Event Hubs Dedicated:
 
 * Single tenant hosting with no noise from other tenants.
-* Message size increases to 1 MB as compared to 256 KB for Standard.
 * Repeatable performance every time.
 * Guaranteed capacity to meet your burst needs.
 * Includes the [Capture](event-hubs-capture-overview.md) feature of Event Hubs, to provide integration with micro-batch and long-term retention.

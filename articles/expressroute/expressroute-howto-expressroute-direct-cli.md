@@ -1,6 +1,7 @@
 ---
-title: Configure Azure ExpressRoute Direct by using the Azure CLI | Microsoft Docs
-description: This article helps you configure ExpressRoute Direct by using the Azure CLI (Preview)
+
+title: Configure ExpressRoute Direct - Azure CLI | Microsoft Docs
+description: This article helps you configure ExpressRoute Direct by using the Azure CLI (preview)
 services: expressroute
 author: cherylmc
 
@@ -8,10 +9,11 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 
-# Configure ExpressRoute Direct by using the Azure CLI (Preview)
+# Configure ExpressRoute Direct by using the Azure CLI (preview)
 
 You can use Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 

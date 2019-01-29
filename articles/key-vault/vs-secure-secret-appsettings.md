@@ -1,5 +1,5 @@
 ---
-title: Securely saving secret application settings for a web application | Microsoft Docs
+title: Securely saving secret application settings for a web application - Azure Key Vault | Microsoft Docs
 description: How to securely save secret application settings such as Azure credentials or third party API keys using ASP.NET core Key Vault Provider, User Secret, or .NET 4.7.1 configuration builders
 services: visualstudio
 documentationcenter: ''
@@ -11,9 +11,8 @@ ms.assetid:
 ms.service:
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 01/07/2019
 ms.author: cawa
 
 ---
@@ -23,7 +22,7 @@ ms.author: cawa
 ## Overview
 This article describes how to securely save secret application configuration settings for Azure applications.
 
-Traditionally all web application configuration settings are saved in configuration files such as Web.config. This practice leads to checking in secret settings such as Cloud credentials to public source control systems like Github. Meanwhile, it could be hard to follow security best practice because of the overhead required to change source code and reconfigure development settings.
+Traditionally all web application configuration settings are saved in configuration files such as Web.config. This practice leads to checking in secret settings such as Cloud credentials to public source control systems like GitHub. Meanwhile, it could be hard to follow security best practice because of the overhead required to change source code and reconfigure development settings.
 
 To make sure development process is secure, tooling and framework libraries are created to save application secret settings securely with minimal or no source code change.
 

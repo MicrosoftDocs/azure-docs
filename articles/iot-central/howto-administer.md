@@ -30,7 +30,7 @@ To access and use the **Administration** section, you must be in the **Administr
 ### Change application name and URL
 In the **Application Settings** page, you can change the name and URL of your application, then select **Save**.
 
-![Application settings page](media\howto-administer\image0-a.png)
+![Application settings page](media/howto-administer/image0-a.png)
 
 > [!Note]
 > If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
@@ -43,19 +43,21 @@ You can create a copy of any application, minus any device instances, device dat
 
 Click the **Copy** button. In the dialog box, enter the details for the new Pay-As-You-Go application. Then click the **Copy** button to confirm that you want to proceed. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central.md) quickstart.
 
-![Application settings page](media\howto-administer\appCopy2.png)
+![Application settings page](media/howto-administer/appCopy2.png)
 
 After the app copy operation succeeds, you  can go to the new application that was created by copying your application using the link that appears.
 
-![Application settings page](media\howto-administer\appCopy3.png)
+![Application settings page](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > Copying an application also copies the definition of rules and actions. But because users who have access to your original app aren't copied to the copied app, you have to manually add users to actions such as email for which users are a prerequisite. In general it is a good idea to check the rules and actions to make sure they are up to date in the new app.
 
 ### Delete an application
 
-Use the **Delete** button to permanently delete your IoT Central application. 
-Doing this will permanently delete all data that's associated with that application. To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> [!Note]
+> To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+
+Use the **Delete** button to permanently delete your IoT Central application. Doing this will permanently delete all data that's associated with that application.
 
 ## Manage users
 
@@ -67,13 +69,13 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
 1. To add a user to an IoT Central application, go to the **Users** page in the **Administration** section.
 
-    ![List of users](media\howto-administer\image1.png)
+    ![List of users](media/howto-administer/image1.png)
 
 1. To add a user, on the **Users** page, choose **+ Add user**.
 
 1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
 
-    ![Role selection](media\howto-administer\image3.png)
+    ![Role selection](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  To add users in bulk, enter the user IDs of all the users you'd like to add separated by semi-colons. Choose a role from the **Role** drop-down menu. Then select **Save**.
