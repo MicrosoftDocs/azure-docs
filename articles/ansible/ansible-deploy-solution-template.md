@@ -30,7 +30,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 
 1. The Azure portal appears and displays the Ansible page that describes the solution template. Select **Create**.
 
-    ![Azure portal page for Ansible solution template creation and configuration](./media/ansible-deploy-solution-template/portal-ansible-setup.png)
+<!--    ![Azure portal page for Ansible solution template creation and configuration](./media/ansible-deploy-solution-template/portal-ansible-setup.png) -->
 
 1. In the **Create Ansible** page, you see several tabs. On the **Basics** tab, enter the required information:
 
@@ -62,7 +62,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 1. Select **OK**.
 
 1. In the **Ansible Integration Settings** tab, specify the authentication type. For more information about securing Azure resources, see [What is managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview).
-<!--![Azure portal tab for Ansible integration settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-3.png)-->
+![Azure portal tab for Ansible integration settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-3.png)
 
 1. Select **OK**.
 
