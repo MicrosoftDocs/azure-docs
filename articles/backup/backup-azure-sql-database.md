@@ -479,10 +479,13 @@ This procedure walks you through restoring data to an alternate location. To ove
 > You can restore the database to an instance of a SQL Server in the same Azure region. The destination server needs to be registered to the Recovery Services vault.
 >
 
-On the **Restore Configuration** menu, the **Server** drop-down list box shows only the SQL Server instances that are registered with the Recovery Services vault. If the server that you want isn't in the list, see [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases) to find the server. During the discovery process, new servers are registered to the Recovery Services vault, and you will need the below permission:
+On the **Restore Configuration** menu, the **Server** drop-down list box shows only the SQL Server instances that are registered with the Recovery Services vault. If the server that you want isn't in the list, see [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases) to find the server. During the discovery process, new servers are registered to the Recovery Services vault.
+In order to restore a SQL DB, you would need the following permissions:
 
-* Backup operator permissions on the Recovery Services vault where you are performing the restore.
-* Contributor access to the SQL VM and Resource group.
+* **Backup Operator** permissions on Recovery Services **Vault** in which you are doing the restore.
+* **Contributor(write)** access to the **source SQL VM** (the VM that is backed up and you are trying to restore from).
+* **Contributor (write)** access to the target SQL VM (the VM that you are restoring to; will be the same VM as the source VM in case of original level recovery).
+
 
 To restore to an alternate location:
 
