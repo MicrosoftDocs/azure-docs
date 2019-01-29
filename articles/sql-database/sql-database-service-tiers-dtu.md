@@ -15,7 +15,7 @@ ms.date: 01/25/2019
 ---
 # DTU-based service tiers
 
-DTU-based service tiers are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing compute sizes without downtime. Standalone databases and elastic pools are billed hourly based on service tier and compute size.
+DTU-based service tiers are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing compute sizes without downtime. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance, currently in public preview does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
@@ -41,9 +41,9 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 > [!NOTE]
 > You can get a free Azure SQL database at the Basic service tier in conjunction with a Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
 
-## Standalone database DTU and storage limits
+## Single database DTU and storage limits
 
-Compute sizes are expressed in terms of Database Transaction Units (DTUs) for standalone databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](sql-database-service-tiers.md#dtu-based-purchasing-model)?
+Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](sql-database-service-tiers.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -66,7 +66,7 @@ Compute sizes are expressed in terms of Database Transaction Units (DTUs) for st
 ||||||
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: West Central US, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, USGov Iowa, Germany Northeast,  China North. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits-standalone-databases.md#standalone-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: West Central US, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, USGov Iowa, Germany Northeast,  China North. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
@@ -165,5 +165,5 @@ The key metrics in the benchmark are throughput and response time.
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for standalone databases, see [SQL Database DTU-based resource limits for standalone databases](sql-database-dtu-resource-limits-standalone-databases.md#standalone-database-storage-sizes-and-compute-sizes).
+- For details on specific compute sizes and storage size choices available for single databases, see [SQL Database DTU-based resource limits for single databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
 - For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

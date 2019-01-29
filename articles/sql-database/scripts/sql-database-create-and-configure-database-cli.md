@@ -14,7 +14,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 01/25/2019
 ---
-# Use CLI to create a standalone Azure SQL database and configure a firewall rule
+# Use CLI to create a single Azure SQL database and configure a firewall rule
 
 This Azure CLI script example creates an Azure SQL database and configure a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address. 
 
@@ -43,9 +43,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts a standalone database or elastic pool. |
-| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Creates a firewall rule to allow access to all standalone databases an elastic pools on the SQL Database server from the entered IP address range. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Creates a standalone database or elastic pool. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts a single database or elastic pool. |
+| [az sql server firewall create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | Creates a firewall rule to allow access to all single databases an elastic pools on the SQL Database server from the entered IP address range. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Creates a single database or elastic pool. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

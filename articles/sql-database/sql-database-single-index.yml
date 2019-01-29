@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: 'Azure SQL Database: Standalone database'
+title: 'Azure SQL Database: Single database'
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database documentation - tutorials, API reference
@@ -22,7 +22,7 @@ abstract:
       height: 110
       src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250  
-    title: Create a standalone SQL database on Azure (3:12)
+    title: Create a single SQL database on Azure (3:12)
     href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
@@ -40,7 +40,7 @@ sections:
           src: media/index/i_elasticpool.svg
       - title: SQL Database server
         href: /azure/sql-database/sql-database-servers
-        html: <p>A SQL Database server is a central administration point for configuring security, tuning, backup policy, and other configuration properties on a set of standalone or pooled databases within the server.</p>
+        html: <p>A SQL Database server is a central administration point for configuring security, tuning, backup policy, and other configuration properties on a set of single or pooled databases within the server.</p>
         image:
           src: media/index/i_mi.svg 
       - title: Price and service tiers
@@ -129,7 +129,7 @@ sections:
     - html: Migrate an existing database to Azure by using <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a> or <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>.
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL database</a>.
     - html: Distribute your data globally by using a <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">geo-distributed database</a>.
-    - html: Find more <a href="sql-database-howto-standalone-database.md">how-to guides</a> that can help you configure your database.
+    - html: Find more <a href="sql-database-howto-single-database.md">how-to guides</a> that can help you configure your database.
 - title: Samples
   items:
   - type: paragraph

@@ -15,11 +15,11 @@ ms.date: 01/25/2019
 ---
 # How to use Azure SQL Database
 
-In this section you can find various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database. You can also find specific how-to guides for [Standalone database](sql-database-howto-standalone-database.md) and [Managed Instance](sql-database-howto-managed-instance.md).
+In this section you can find various guides, scripts, and explanations that can help you to manage and configure your Azure SQL Database. You can also find specific how-to guides for [single database](sql-database-howto-single-database.md) and [Managed Instance](sql-database-howto-managed-instance.md).
 
 ## Load data
 
-- [Copy a standalone database or pooled database within Azure](sql-database-copy.md)
+- [Copy a single database or pooled database within Azure](sql-database-copy.md)
 - [Import a DB from a BACPAC](sql-database-import.md)
 - [Export a DB to BACPAC](sql-database-export.md)
 - [Load data with BCP](sql-database-load-from-csv-with-bcp.md)
@@ -91,4 +91,4 @@ In this section you can find various guides, scripts, and explanations that can 
 ## Next steps
 
 - Learn more about [How-to guides for managed instances](sql-database-howto-managed-instance.md).
-- Learn more about [How-to guides for standalone databases](sql-database-howto-standalone-database.md).
+- Learn more about [How-to guides for single databases](sql-database-howto-single-database.md).

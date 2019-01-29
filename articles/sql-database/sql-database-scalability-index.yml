@@ -32,7 +32,7 @@ sections:
         html: <p>Business Critical tier provides you a free-of-charge replica of database where you can run reports, analytics, and other read-only queries on a copy of data.</p>
       - title: Database sharding
         href: /azure/sql-database/sql-database-elastic-scale-introduction
-        html: <p>You can use multiple databases shards to scale-out your database beyond maximal compute and storage limits for standalone databases.</p>
+        html: <p>You can use multiple databases shards to scale-out your database beyond maximal compute and storage limits for single databases.</p>
       - title: Elastic queries
         href: /azure/sql-database/sql-database-elastic-query-overview
         html: <p>Elastic Queries enable you run standard Transact-SQL queries on a set of globally-distributed database shards.</p>

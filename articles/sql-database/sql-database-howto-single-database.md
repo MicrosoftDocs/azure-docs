@@ -13,9 +13,9 @@ ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
 ---
-# How to use a standalone database in Azure SQL Database
+# How to use a single database in Azure SQL Database
 
-In this section you can find various guides, scripts, and explanations that can help you to manage and configure your standalone database in Azure SQL Database
+In this section you can find various guides, scripts, and explanations that can help you to manage and configure your single database in Azure SQL Database
 
 ## Migrate
 

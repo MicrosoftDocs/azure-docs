@@ -1,6 +1,6 @@
 ﻿---
 title: PowerShell example-restore-backup-Azure SQL database | Microsoft Docs
-description: Azure PowerShell example script to restore an Azure SQL standalone database from geo-redundant backups
+description: Azure PowerShell example script to restore an Azure SQL single database from geo-redundant backups
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -13,7 +13,7 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ---
-# Use PowerShell to restore an Azure SQL standalone database from backups
+# Use PowerShell to restore an Azure SQL single database from backups
 
 This PowerShell script example restores an Azure SQL database from a geo-redundant backup, restores a deleted Azure SQL database to its latest backup, and restores an Azure SQL database to a specific point in time.  
 
@@ -40,7 +40,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a SQL Database server that hosts a standalone database or elastic pool. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
 | [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Creates a database in a SQL Database server as a standalone or a pooled database. |
 [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) | Gets a geo-redundant backup of a standalone or pooled database. |
 | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) | Restores a SQL standalone or pooled database. |

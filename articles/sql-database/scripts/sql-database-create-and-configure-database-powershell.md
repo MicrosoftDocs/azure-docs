@@ -1,6 +1,6 @@
 ﻿---
-title: PowerShell example-create a standalone database in Azure SQL Database | Microsoft Docs
-description: Azure PowerShell example script to create a standalone database in Azure SQL Database
+title: PowerShell example-create a single database in Azure SQL Database | Microsoft Docs
+description: Azure PowerShell example script to create a single database in Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: standalone-database
@@ -13,7 +13,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 01/25/2019
 ---
-# Use PowerShell to create a standalone Azure SQL database and configure a SQL Database server firewall rule
+# Use PowerShell to create a single Azure SQL database and configure a SQL Database server firewall rule
 
 This PowerShell script example creates an Azure SQL database and configures a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address.
 
@@ -41,9 +41,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a SQL Database server that hosts a standalone database or elastic pool. |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a SQL Database server that hosts a single database or elastic pool. |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | Creates a firewall rule to allow access to all SQL Databases on the server from the entered IP address range. |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Creates a standalone database or elastic pool. |
+| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Creates a single database or elastic pool. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 

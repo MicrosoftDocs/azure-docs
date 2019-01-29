@@ -101,7 +101,7 @@ For another script example, see [Import a database from a BACPAC file](scripts/s
 
 ## Limitations
 
-Importing to a database in elastic pool isn't supported. You can import data into a standalone database and then move the database to an elastic pool.
+Importing to a database in elastic pool isn't supported. You can import data into a single database and then move the database to an elastic pool.
 
 ## Import using wizards
 

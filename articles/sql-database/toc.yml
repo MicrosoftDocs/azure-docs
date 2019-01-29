@@ -2,20 +2,20 @@
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: What is SQL DB
+  - name: What is SQL Database
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md  
 - name: Quickstarts
   expanded: true
   items:
-  - name: Standalone database quickstart guide
+  - name: Single database quickstart guide
     href: sql-database-quickstart-guide.md
   - name: Managed Instance quickstart guide
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
-    - name: Standalone database
+    - name: Single database
       href: sql-database-get-started-portal.md
     - name: Managed instance
       href: sql-database-managed-instance-get-started.md
@@ -74,7 +74,7 @@
       href: sql-database-design-first-database-csharp.md
   - name: Migrate to Azure SQL Database
     items:
-    - name: Migrate to a standalone database using DMS
+    - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrate to a managed instance using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
@@ -122,26 +122,26 @@
       href: sql-database-service-tier-hyperscale.md
     - name: Hyperscale FAQ
       href: sql-database-service-tier-hyperscale-faq.md
-  - name: Standalone databases
+  - name: Single databases
     items:
-    - name: Standalone database overview
-      href: sql-database-standalone-index.yml
+    - name: Single database overview
+      href: sql-database-single-index.yml
     - name: SQL Database servers
       items:
       - name: Database server overview
         href: sql-database-servers.md
       - name: Database server resource limits 
         href: sql-database-resource-limits-database-server.md
-    - name: Standalone database resources
+    - name: Single database resources
       items:    
       - name: vCore-based resource limits
-        href: sql-database-vcore-resource-limits-standalone-databases.md  
+        href: sql-database-vcore-resource-limits-single-databases.md  
       - name: DTU-based resource limits
-        href: sql-database-dtu-resource-limits-standalone-databases.md
+        href: sql-database-dtu-resource-limits-single-databases.md
       - name: Scale resources
-        href: sql-database-standalone-database-scale.md
+        href: sql-database-single-database-scale.md
     - name: Create and manage servers and databases
-      href: sql-database-standalone-databases-manage.md
+      href: sql-database-single-databases-manage.md
     - name: Connectivity architecture
       href: sql-database-connectivity-architecture.md 
     - name: T-SQL differences
@@ -338,10 +338,10 @@
   items:
   - name: Overview
     href: sql-database-howto.md
-  - name: Standalone database 
+  - name: Single database 
     items: 
     - name: Overview
-      href: sql-database-howto-standalone-database.md
+      href: sql-database-howto-single-database.md
     - name: Migrate to SQL Database
       href: sql-database-cloud-migrate.md
     - name: Manage SQL database after migration
@@ -564,12 +564,12 @@
           href: saas-tenancy-welcome-wingtip-tickets-app.md
         - name: General guidance
           href: saas-tenancy-wingtip-app-guidance-tips.md
-        - name: Standalone application
+        - name: Single application
           items:
           - name: Deploy example app
-            href: saas-standaloneapp-get-started-deploy.md
+            href: saas-singleapp-get-started-deploy.md
           - name: Provision tenants
-            href: saas-standaloneapp-provision-and-catalog.md
+            href: saas-singleapp-provision-and-catalog.md
         - name: Database per tenant
           items:
           - name: Tutorial intro

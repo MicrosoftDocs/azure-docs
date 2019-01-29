@@ -32,10 +32,10 @@ If for any reason your primary database fails, or simply needs to be taken offli
 You can manage replication and failover of an individual database or a set of databases on a server or in an elastic pool using active geo-replication. You can do that using:
 
 - The [Azure portal](sql-database-geo-replication-portal.md)
-- [PowerShell: Standalone database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [PowerShell: Single database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell: Elastic pool](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-- [Transact-SQL: Standalone database or elastic pool](/sql/t-sql/statements/alter-database-azure-sql-database)
-- [REST API: Standalone database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
+- [Transact-SQL: Single database or elastic pool](/sql/t-sql/statements/alter-database-azure-sql-database)
+- [REST API: Single database](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
 After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
@@ -144,7 +144,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 |  | |
 
 > [!IMPORTANT]
-> For sample scripts, see [Configure and failover a standalone database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) and [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
+> For sample scripts, see [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) and [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
 ### REST API: Manage failover of standalone and pooled databases
 
@@ -162,7 +162,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 ## Next steps
 
 - For sample scripts, see:
-  - [Configure and failover a standalone database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
 - SQL Database also supports auto-failover groups. For more information, see using [auto-failover groups](sql-database-auto-failover-group.md).
 - For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)

@@ -30,10 +30,10 @@ This article discusses storage and backup considerations for the General Purpose
 Consider the following:
 
 - The allocated storage is used by data files (MDF) and log files (LDF) files.
-- Each standalone database compute size supports a maximum database size, with a default max size of 32 GB.
-- When you configure the required standalone database size (size of MDF), 30% of additional storage is automatically added to support LDF
+- Each single database compute size supports a maximum database size, with a default max size of 32 GB.
+- When you configure the required single database size (size of MDF), 30% of additional storage is automatically added to support LDF
 - Storage size in Managed Instance must be specified in multiples of 32 GB.
-- You can select any standalone database size between 10 GB and the supported maximum
+- You can select any single database size between 10 GB and the supported maximum
   - For Standard storage, increase or decrease size in 10-GB increments
   - For Premium storage, increase or decrease size in 250-GB increments
 - In the General Purpose service tier, `tempdb` uses an attached SSD and this storage cost is included in the vCore price.
@@ -56,5 +56,5 @@ Storage for database backups is allocated to support the Point in Time Restore (
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for standalone database in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for standalone databases](sql-database-vcore-resource-limits-standalone-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- For details on specific compute sizes and storage size choices available for single database in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
 - For details on specific compute sizes and storage size choices available for elastic pools in the General Purpose and Business Critical Service tiers, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

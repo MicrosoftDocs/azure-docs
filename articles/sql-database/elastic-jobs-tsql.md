@@ -1047,7 +1047,7 @@ Return Code Values
 0 (success) or 1 (failure)
 
 #### Remarks
-A job executes on all standalone databases within a SQL Database server or in an elastic pool at time of execution, when a SQL Database server or Elastic pool is included in the target group.
+A job executes on all single databases within a SQL Database server or in an elastic pool at time of execution, when a SQL Database server or Elastic pool is included in the target group.
 
 #### Permissions
 By default, members of the sysadmin fixed server role can execute this stored procedure. They restrict a user to just be able to monitor jobs, you can grant the user to be part of the following database role in the job agent database specified when creating the job agent:

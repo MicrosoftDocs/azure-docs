@@ -1,6 +1,6 @@
 ---
 title: Threat Detection - Azure SQL Database | Microsoft Docs
-description: Threat Detection detects anomalous database activities indicating potential security threats to the database in a standalone database or elastic pool. 
+description: Threat Detection detects anomalous database activities indicating potential security threats to the database in a single database or elastic pool. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security

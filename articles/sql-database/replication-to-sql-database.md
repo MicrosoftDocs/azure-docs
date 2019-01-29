@@ -1,6 +1,6 @@
 ---
 title: Replication to Azure SQL Database | Microsoft Docs"
-description: Learn about using SQL Server replication with Azure SQL Database standalone databases and databases in elastic pools
+description: Learn about using SQL Server replication with Azure SQL Database single databases and databases in elastic pools
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -13,9 +13,9 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/25/2019
 ---
-# Replication to SQL Database standalone and pooled databases
+# Replication to SQL Database single and pooled databases
 
-SQL Server replication can be configured to standalone and pooled databases on a [SQL Database server](sql-database-servers.md) in Azure SQL Database.  
+SQL Server replication can be configured to single and pooled databases on a [SQL Database server](sql-database-servers.md) in Azure SQL Database.  
 
 ## **Supported Configurations:**
   
@@ -59,7 +59,7 @@ SQL Server replication can be configured to standalone and pooled databases on a
 
 1. Create a transactional replication publication on an on-premises SQL Server database.  
 2. On the on-premises SQL Server use the **New Subscription Wizard** or Transact-SQL statements to create a push to subscription to Azure SQL Database.  
-3. With standalone and pooled databases in Azure SQL Database, the initial data set is a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent. With a managed instance database, you can also use a database backup to seed the subscriber database.
+3. With single and pooled databases in Azure SQL Database, the initial data set is a snapshot that is created by the Snapshot Agent and distributed and applied by the Distribution Agent. With a managed instance database, you can also use a database backup to seed the subscriber database.
 
 ### Data Migration Scenario  
 

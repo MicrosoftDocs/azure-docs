@@ -1,6 +1,6 @@
 ---
-title: Create, manage Azure SQL Database servers and standalone databases | Microsoft Docs
-description: Learn about creating and managing SQL Database servers and standalone databases.
+title: Create, manage Azure SQL Database servers and single databases | Microsoft Docs
+description: Learn about creating and managing SQL Database servers and single databases.
 services: sql-database
 ms.service: sql-database
 ms.subservice: standalone-database
@@ -13,11 +13,11 @@ ms.reviewer:
 manager: craigg
 ms.date: 01/25/2019
 ---
-# Create and manage SQL Database servers and standalone databases in Azure SQL Database
+# Create and manage SQL Database servers and single databases in Azure SQL Database
 
-You can create and manage SQL Database servers and standalone databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
+You can create and manage SQL Database servers and single databases using the Azure portal, PowerShell, Azure CLI, REST API, and Transact-SQL.
 
-## Azure portal: Manage SQL Database servers and standalone databases
+## Azure portal: Manage SQL Database servers and single databases
 
 You can create the Azure SQL database's resource group ahead of time or while creating the server itself. There are multiple methods for getting to a new SQL server form, either by creating a new SQL server or as part of creating a new database.
 
@@ -25,9 +25,9 @@ You can create the Azure SQL database's resource group ahead of time or while cr
 
 To create a SQL Database server using the [Azure portal](https://portal.azure.com), navigate to a blank SQL server (logical server) form.  
 
-### Create a blank or sample SQL standalone database
+### Create a blank or sample SQL single database
 
-To create an Azure SQL standalone database using the [Azure portal](https://portal.azure.com), navigate to a blank SQL Database form and provide the requested information. You can create the Azure SQL database's resource group and SQL Database server ahead of time or while creating the standalone database itself. You can create a blank database or create a sample database based on Adventure Works LT.
+To create an Azure SQL single database using the [Azure portal](https://portal.azure.com), navigate to a blank SQL Database form and provide the requested information. You can create the Azure SQL database's resource group and SQL Database server ahead of time or while creating the single database itself. You can create a blank database or create a sample database based on Adventure Works LT.
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -49,12 +49,12 @@ To manage an existing database, navigate to the **SQL databases** page and click
 > [!TIP]
 > For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
 
-## PowerShell: Manage SQL Database servers and standalone databases
+## PowerShell: Manage SQL Database servers and single databases
 
 To create and manage Azure SQL Database servers, standalone and pooled databases, and SQL Database server firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> For PowerShell example scripts, see [Use PowerShell to create an Azure SQL standalone database and configure a SQL Database server firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a SQL standalone database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> For PowerShell example scripts, see [Use PowerShell to create an Azure SQL single database and configure a SQL Database server firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a SQL single database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 | Cmdlet | Description |
 | --- | --- |
@@ -73,12 +73,12 @@ To create and manage Azure SQL Database servers, standalone and pooled databases
 |[Remove-​Azure​Rm​Sql​Server​Firewall​Rule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Deletes a firewall rule from a server.|
 | New-AzureRmSqlServerVirtualNetworkRule | Creates a [*virtual network rule*](sql-database-vnet-service-endpoint-rule-overview.md), based on a subnet that is a Virtual Network service endpoint. |
 
-## Azure CLI: Manage SQL Database servers and standalone databases
+## Azure CLI: Manage SQL Database servers and single databases
 
 To create and manage Azure SQL server, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Create an Azure SQL standalone database using the Azure CLI](sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create an Azure SQL standalone database and configure a SQL Database firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale an Azure SQL standalone database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create an Azure SQL single database using the Azure CLI](sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create an Azure SQL single database and configure a SQL Database firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale an Azure SQL single database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 | Cmdlet | Description |
@@ -103,7 +103,7 @@ To create and manage Azure SQL server, databases, and firewalls with [Azure CLI]
 |[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Updates a firewall rule|
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Deletes a firewall rule|
 
-## Transact-SQL: Manage SQL Database servers and standalone databases
+## Transact-SQL: Manage SQL Database servers and single databases
 
 To create and manage Azure SQL server, databases, and firewalls with Transact-SQL, use the following T-SQL commands. You can issue these commands using the Azure portal, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), or any other program that can connect to an Azure SQL Database server and pass Transact-SQL commands. For managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
@@ -114,7 +114,7 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 
 | Command | Description |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Creates a new standalone database. You must be connected to the master database to create a new database.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Creates a new single database. You must be connected to the master database to create a new database.|
 | [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifies an Azure SQL database. |
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Deletes a database.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returns the edition (service tier), service objective (pricing tier), and elastic pool name, if any, for an Azure SQL database or an Azure SQL Data Warehouse. If logged on to the master database in an Azure SQL Database server, returns information on all databases. For Azure SQL Data Warehouse, you must be connected to the master database.|
@@ -129,7 +129,7 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 |[sys.database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Returns information about the database-level firewall settings associated with your Microsoft Azure SQL Database. |
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Removes database-level firewall setting from your Azure SQL Database or SQL Data Warehouse. |
 
-## REST API: Manage SQL Database servers and standalone databases
+## REST API: Manage SQL Database servers and single databases
 
 To create and manage Azure SQL server, databases, and firewalls, use these REST API requests.
 

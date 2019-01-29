@@ -2391,12 +2391,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-dtu-resource-limits.md",
-      "redirect_url": "/azure/sql-database/sql-database-dtu-resource-limits-standalone-databases",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-dtu-resource-limits-single-databases.md",
-      "redirect_url": "/azure/sql-database/sql-database-dtu-resource-limits-standalone-databases",
+      "redirect_url": "/azure/sql-database/sql-database-dtu-resource-limits-single-databases",
       "redirect_document_id": false
     },
     {
@@ -13578,22 +13573,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-vcore-resource-limits.md",
-      "redirect_url": "/azure/sql-database/sql-database-vcore-resource-limits-standalone-databases",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-vcore-resource-limits-single-databases.md",
-      "redirect_url": "/azure/sql-database/sql-database-vcore-resource-limits-standalone-databases",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-single-database-scale.md",
-      "redirect_url": "/azure/sql-database/sql-database-standalone-database-scale",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/sql-database/sql-database-single-databases-manage.md",
-      "redirect_url": "/azure/sql-database/sql-database-standalone-databases-manage",
+      "redirect_url": "/azure/sql-database/sql-database-vcore-resource-limits-single-databases",
       "redirect_document_id": false
     },
     {

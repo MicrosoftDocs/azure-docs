@@ -19,7 +19,7 @@ SQL Database elastic pools are a simple, cost-effective solution for managing an
 
 ## What are SQL elastic pools
 
-SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a standalone database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. Traditionally, you had two options:
+SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. Traditionally, you had two options:
 
 - Over-provision resources based on peak usage and over pay, or
 - Under-provision to save cost, at the expense of performance and customer satisfaction during peaks.
@@ -31,7 +31,7 @@ Elastic pools solve this problem by ensuring that databases get the performance 
 
 Elastic pools enable the developer to purchase resources for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. You can configure resources for the pool based either on the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or the [vCore-based purchasing model](sql-database-service-tiers-vcore.md). The resource requirement for a pool is determined by the aggregate utilization of its databases. The amount of resources available to the pool is controlled by the developer budget. The developer simply adds databases to the pool, sets the minimum and maximum resources for the databases (either minimum and maximum DTUs or minimum or maximum vCores depending on your choice of resourcing model), and then sets the resources of the pool based on their budget. A developer can use pools to seamlessly grow their service from a lean startup to a mature business at ever-increasing scale.
 
-Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more resources to meet demand. Databases under light loads consume less, and databases under no load consume no resources. Provisioning resources for the entire pool rather than for standalone databases simplifies your management tasks. Plus, you have a predictable budget for the pool. Additional resources can be added to an existing pool with no database downtime, except that the databases may need to be moved to provide the additional compute resources for the new eDTU reservation. Similarly, if extra resources are no longer needed they can be removed from an existing pool at any point in time. And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
+Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more resources to meet demand. Databases under light loads consume less, and databases under no load consume no resources. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus, you have a predictable budget for the pool. Additional resources can be added to an existing pool with no database downtime, except that the databases may need to be moved to provide the additional compute resources for the new eDTU reservation. Similarly, if extra resources are no longer needed they can be removed from an existing pool at any point in time. And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
 
 > [!NOTE]
 > When moving databases into or out of an elastic pool, there is no downtime except for a brief period of time (on the order of seconds) at the end of the operation when database connections are dropped.
@@ -48,9 +48,9 @@ The following sections help you understand how to assess if your specific collec
 
 The following figure shows an example of a database that spends much time idle, but also periodically spikes with activity. This is a utilization pattern that is suited for a pool:
 
-   ![a standalone database suitable for a pool](./media/sql-database-elastic-pool/one-database.png)
+   ![a single database suitable for a pool](./media/sql-database-elastic-pool/one-database.png)
 
-For the five-minute period illustrated, DB1 peaks up to 90 DTUs, but its overall average usage is less than five DTUs. An S3 compute size is required to run this workload in a standalone database, but this leaves most of the resources unused during periods of low activity.
+For the five-minute period illustrated, DB1 peaks up to 90 DTUs, but its overall average usage is less than five DTUs. An S3 compute size is required to run this workload in a single database, but this leaves most of the resources unused during periods of low activity.
 
 A pool allows these unused DTUs to be shared across multiple databases, and so reduces the DTUs needed and overall cost.
 
@@ -60,7 +60,7 @@ Building on the previous example, suppose there are additional databases with si
 
    ![twenty databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool/twenty-databases.png)
 
-The aggregate DTU utilization across all 20 databases is illustrated by the black line in the preceding figure. This shows that the aggregate DTU utilization never exceeds 100 DTUs, and indicates that the 20 databases can share 100 eDTUs over this time period. This results in a 20x reduction in DTUs and a 13x price reduction compared to placing each of the databases in S3 compute sizes for standalone databases.
+The aggregate DTU utilization across all 20 databases is illustrated by the black line in the preceding figure. This shows that the aggregate DTU utilization never exceeds 100 DTUs, and indicates that the 20 databases can share 100 eDTUs over this time period. This results in a 20x reduction in DTUs and a 13x price reduction compared to placing each of the databases in S3 compute sizes for single databases.
 
 This example is ideal for the following reasons:
 
@@ -68,24 +68,24 @@ This example is ideal for the following reasons:
 - The peak utilization for each database occurs at different points in time.
 - eDTUs are shared between many databases.
 
-The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a standalone database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.
+The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.
 
-The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using compute sizes for standalone databases.
+The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using compute sizes for single databases.
 
 ### Minimum number of databases
 
-If the aggregate amount of resources for standalone databases is more than 1.5x the resources needed for the pool, then an elastic pool is more cost effective.
+If the aggregate amount of resources for single databases is more than 1.5x the resources needed for the pool, then an elastic pool is more cost effective.
 
 ***DTU-based purchasing model example***<br>
-At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using compute sizes for standalone databases.
+At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using compute sizes for single databases.
 
 ### Maximum number of concurrently peaking databases
 
-By sharing resources, not all databases in a pool can simultaneously use resources up to the limit available for standalone databases. The fewer databases that concurrently peak, the lower the pool resources can be set and the more cost-effective the pool becomes. In general, not more than 2/3 (or 67%) of the databases in the pool should simultaneously peak to their resources limit.
+By sharing resources, not all databases in a pool can simultaneously use resources up to the limit available for single databases. The fewer databases that concurrently peak, the lower the pool resources can be set and the more cost-effective the pool becomes. In general, not more than 2/3 (or 67%) of the databases in the pool should simultaneously peak to their resources limit.
 
 ***DTU-based purchasing model example***
 
-To reduce costs for three S3 databases in a 200 eDTU pool, at most two of these databases can simultaneously peak in their utilization. Otherwise, if more than two of these four S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs. If the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than compute sizes for standalone databases.
+To reduce costs for three S3 databases in a 200 eDTU pool, at most two of these databases can simultaneously peak in their utilization. Otherwise, if more than two of these four S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs. If the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than compute sizes for single databases.
 
 Note this example does not consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously.
 
@@ -104,7 +104,7 @@ The best size for a pool depends on the aggregate resources needed for all datab
 
 For available service tiers for each resource model, see the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
-In cases where you can't use tooling, the following step-by-step can help you estimate whether a pool is more cost-effective than standalone databases:
+In cases where you can't use tooling, the following step-by-step can help you estimate whether a pool is more cost-effective than single databases:
 
 1. Estimate the eDTUs or vCores needed for the pool as follows:
 
@@ -119,7 +119,7 @@ In cases where you can't use tooling, the following step-by-step can help you es
 2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool. Then determine the eDTU pool size that provides this amount of storage.
 3. For the DTU-based purchasing model, take the larger of the eDTU estimates from Step 1 and Step 2. For the vCore-based purchasing model, take the vCore estimate from Step 1.
 4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest pool size that is greater than the estimate from Step 3.
-5. Compare the pool price from Step 5 to the price of using the appropriate compute sizes for standalone databases.
+5. Compare the pool price from Step 5 to the price of using the appropriate compute sizes for single databases.
 
 ## Using other SQL Database features with elastic pools
 
@@ -131,7 +131,7 @@ For more information about other database tools for working with multiple databa
 
 ### Business continuity options for databases in an elastic pool
 
-Pooled databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to standalone databases.
+Pooled databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases.
 
 - **Point-in-time restore**
 

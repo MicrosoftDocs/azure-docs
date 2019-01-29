@@ -54,7 +54,7 @@ For a single subscription, there are some limitations on number of concurrent re
 
 | | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
-|Standalone database (per subscription)|10|60|
+|Single database (per subscription)|10|60|
 |Elastic pool (per pool)|4|200|
 ||||
 

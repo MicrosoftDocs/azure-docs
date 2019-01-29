@@ -49,11 +49,11 @@ sections:
         image:
           src: media/index/i_scale.svg
         title: Scalability
-      - href: /azure/sql-database/sql-database-standalone-index
-        html: <p>Use the standalone database managed by a SQL Database server for your SaaS aplications and microservices that need a standalone database with the predictable performances.</p>
+      - href: /azure/sql-database/sql-database-single-index
+        html: <p>Use the single database managed by a SQL Database server for your SaaS aplications and microservices that need a single database with the predictable performances.</p>
         image:
           src: media/index/i_db.svg
-        title: Standalone database
+        title: Single database
       - href: /azure/sql-database/sql-database-elastic-pool
         html: <p>SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands.</p>
         image:
@@ -100,7 +100,7 @@ sections:
           src: media/index/logo_arm.svg
         title: Azure Resource Manager template
     rows:
-      - title: Create standalone database
+      - title: Create single database
         values:
           - href: /azure/sql-database/sql-database-get-started-portal
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
@@ -118,7 +118,7 @@ sections:
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-      - title: Scale standalone database
+      - title: Scale single database
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
@@ -149,7 +149,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Create and design the schema for a new standalone database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
+    - html: Create and design the schema for a new single database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a>, or <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: Distribute your data globally using <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Geo-distributed database</a>

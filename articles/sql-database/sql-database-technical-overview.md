@@ -21,7 +21,7 @@ SQL Database is a general-purpose relational database managed service in Microso
 
 Azure SQL Database provides the following deployment options for an Azure SQL database:
 
-- As a standalone database with its own set of resources managed via a SQL Database server
+- As a single database with its own set of resources managed via a SQL Database server
 - As a pooled database in an [elastic pool](sql-database-elastic-pool.md) with a shared set of resources managed via a SQL Database server
 - As a part of a collection of databases known as a [managed instance](sql-database-managed-instance.md) that contains system and user databases and sharing a set of resources
 
@@ -58,16 +58,16 @@ SQL Database offers a [DTU-based purchasing model](sql-database-service-tiers-dt
 - The DTU-based purchasing model offers a blend of compute, memory, and IO resources in three service tiers to support lightweight to heavyweight database workloads: Basic, Standard, and Premium. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
 - The vCore-based purchasing model lets you choose the number of vCores, the amount or memory, and the amount and speed of storage.
 
-You can build your first app on a small, standalone database at a low cost per month in the General Purpose service tier and then change its service tier manually or programmatically at any time to the Business Critical Service tier to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
+You can build your first app on a small, single database at a low cost per month in the General Purpose service tier and then change its service tier manually or programmatically at any time to the Business Critical Service tier to meet the needs of your solution. You can adjust performance without downtime to your app or to your customers. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements and enables you to only pay for the resources that you need when you need them.
 
 > [!IMPORTANT]
 > The [Hyperscale service tier](sql-database-service-tier-hyperscale.md) is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database and update the copy to Hyperscale service tier.
 
-Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. A Standalone database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. However, there are scripts that can help automate scalability for a standalone database. For an example, see [Use PowerShell to monitor and scale a standalone database](scripts/sql-database-monitor-and-scale-database-powershell.md).
+Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. A Single database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. However, there are scripts that can help automate scalability for a single database. For an example, see [Use PowerShell to monitor and scale a single database](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 ### Elastic pools to maximize resource utilization
 
-For many businesses and applications, being able to create standalone databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. [Elastic pools](sql-database-elastic-pool.md) are designed to solve this problem. The concept is simple. You allocate performance resources to a pool rather than an individual database and pay for the collective performance resources of the pool rather than for standalone database performance.
+For many businesses and applications, being able to create single databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. [Elastic pools](sql-database-elastic-pool.md) are designed to solve this problem. The concept is simple. You allocate performance resources to a pool rather than an individual database and pay for the collective performance resources of the pool rather than for single database performance.
 
    ![elastic pools](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -78,13 +78,13 @@ Scripts can help with monitoring and scaling elastic pools. For an example, see 
 > [!IMPORTANT]
 > SQL Database Managed Instance does not support elastic pools.
 
-### Blend standalone databases with pooled databases
+### Blend single databases with pooled databases
 
-Either way you go — standalone databases or elastic pools — you are not locked in. You can blend standalone databases with elastic pools and change the service tiers of standalone databases and elastic pools quickly and easily to adapt to your situation. With the power and reach of Azure, you can mix-and-match other Azure services with SQL Database to meet your unique app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
+Either way you go — single databases or elastic pools — you are not locked in. You can blend single databases with elastic pools and change the service tiers of single databases and elastic pools quickly and easily to adapt to your situation. With the power and reach of Azure, you can mix-and-match other Azure services with SQL Database to meet your unique app design needs, drive cost and resource efficiencies, and unlock new business opportunities.
 
 ### Extensive monitoring and alerting capabilities
 
-But how can you compare the relative performance of standalone databases and elastic pools? How do you know the right click-stop when you dial up and down? You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See  [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for details.
+But how can you compare the relative performance of single databases and elastic pools? How do you know the right click-stop when you dial up and down? You use the [built-in performance monitoring](sql-database-performance.md) and [alerting](sql-database-insights-alerts-portal.md) tools, combined with the performance ratings. Using these tools, you can quickly assess the impact of scaling up or down based on your current or project performance needs. See  [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for details.
 
 Additionally, SQL Database can [emit metrics and diagnostic logs](sql-database-metrics-diag-logging.md) for easier monitoring. You can configure SQL Database to store resource usage, workers and sessions, and connectivity into one of these Azure resources:
 
@@ -200,7 +200,7 @@ SQL Database supports building applications with Python, Java, Node.js, PHP, Rub
 
 ## Next steps
 
-- See the [pricing page](https://azure.microsoft.com/pricing/details/sql-database/) for standalone database and elastic pools cost comparisons and calculators.
+- See the [pricing page](https://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic pools cost comparisons and calculators.
 - See these quickstarts to get you started:
 
   - [Create a SQL database in the Azure portal](sql-database-get-started-portal.md)  

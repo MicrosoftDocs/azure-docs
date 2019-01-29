@@ -37,12 +37,12 @@ az group delete --name myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to create a resource group, SQL Database server, standalone database, and SQL Database firewall rules. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, SQL Database server, single database, and SQL Database firewall rules. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts standalone databases and elastic pools. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts single databases and elastic pools. |
 | [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Creates an elastic pool. |
 | [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Creates a standalone or pooled database. |
 | [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Updates an elastic pool, in this example changes the assigned eDTU. |

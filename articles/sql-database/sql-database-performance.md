@@ -71,6 +71,6 @@ Find more information about this page in the article **[How to use Query Perform
 
 ## Additional resources
 
-* [Azure SQL Database performance guidance for standalone databases](sql-database-performance-guidance.md)
+* [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md)
 * [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md)
 

@@ -41,4 +41,4 @@ In this article you can find various guides, scripts, and explanation that can h
 
 ## Next steps
 
-- Learn more about [How-to guides for standalone databases](sql-database-howto-standalone-database.md)
+- Learn more about [How-to guides for single databases](sql-database-howto-single-database.md)

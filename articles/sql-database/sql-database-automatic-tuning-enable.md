@@ -51,7 +51,7 @@ The Azure SQL Database enables you to individually specify the automatic tuning 
 
 ### Azure portal
 
-To enable automatic tuning on a **standalone database**, navigate to the database in Azure portal and select **Automatic tuning**.
+To enable automatic tuning on a **single database**, navigate to the database in Azure portal and select **Automatic tuning**.
 
 Individual automatic tuning settings can be separately configured for each database. You can manually configure an individual automatic tuning option, or specify that an option inherits its settings from the server.
 
@@ -63,11 +63,11 @@ Once you have selected your desired configuration, click **Apply**.
 
 ### Rest API
 
-Find out more about using REST API to enable Automatic tuning on a standalone database, see [SQL Database Automatic tuning UPDATE and GET HTTP methods](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
+Find out more about using REST API to enable Automatic tuning on a single database, see [SQL Database Automatic tuning UPDATE and GET HTTP methods](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
 ### T-SQL
 
-To enable automatic tuning on a standalone database via T-SQL, connect to the database and execute the following query:
+To enable automatic tuning on a single database via T-SQL, connect to the database and execute the following query:
 
 ```SQL
 ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM

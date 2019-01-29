@@ -1,6 +1,6 @@
 ﻿---
 title: PowerShell example-active geo-replication-standalone Azure SQL Database | Microsoft Docs
-description: Azure PowerShell example script to set up active geo-replication for a standalone database in Azure SQL Database and fail it over.
+description: Azure PowerShell example script to set up active geo-replication for a single database in Azure SQL Database and fail it over.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -13,9 +13,9 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ---
-# Use PowerShell to configure active geo-replication for a standalone database in Azure SQL Database
+# Use PowerShell to configure active geo-replication for a single database in Azure SQL Database
 
-This PowerShell script example configures active geo-replication for a standalone database and fails it over to a secondary replica of the database.
+This PowerShell script example configures active geo-replication for a single database and fails it over to a secondary replica of the database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
@@ -24,7 +24,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Sample scripts
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-single-database.ps1?highlight=17-20 "Set up active geo-replication for standalone database")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-single-database.ps1?highlight=17-20 "Set up active geo-replication for single database")]
 
 ## Clean up deployment
 
@@ -42,7 +42,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a SQL Database server that hosts standalone databases and elastic pools. |
+| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
 | [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Creates an elastic pool. |
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Updates database properties or moves a database into, out of, or between elastic pools. |
 | [New-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Creates a secondary database for an existing database and starts data replication. |

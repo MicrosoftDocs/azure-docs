@@ -56,7 +56,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Adding databases to failover group on a SQL Database server**
 
-  You can put several standalone databases or databases within an elastic pool on the same SQL Database server into the same failover group. If you add a standalone database to the failover group, it automatically creates a secondary database using the same edition and compute size. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
+  You can put several single databases or databases within an elastic pool on the same SQL Database server into the same failover group. If you add a single database to the failover group, it automatically creates a secondary database using the same edition and compute size. If the primary database is in an elastic pool, the secondary is automatically created in the elastic pool with the same name. If you add a database that already has a secondary database in the secondary server, that geo-replication is inherited by the group. When you add a database that already has a secondary database in a server that is not part of the failover group, a new secondary is created in the secondary server.
   
 > [!IMPORTANT]
   > In a Managed Instance, all user databases are replicated. You cannot pick a subset of user databases for replication in the failover group.
@@ -120,7 +120,7 @@ To achieve real business continuity, adding database redundancy between datacent
   > [!IMPORTANT]
   > Managed Instance does not support multiple failover groups.
 
-## Best practices of using failover groups with standalone databases and elastic pools
+## Best practices of using failover groups with single databases and elastic pools
 
 The auto-failover group must be configured on the primary SQL Database server and will connect it to the secondary SQL Database server in a different Azure region.  The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
 
@@ -280,7 +280,7 @@ For information about using point-in-time restore with failover groups, see [Poi
 
 As discussed previously, auto-failover groups and active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../role-based-access-control/overview.md).
 
-### PowerShell: Manage SQL database failover with standalone databases and elastic pools
+### PowerShell: Manage SQL database failover with single databases and elastic pools
 
 | Cmdlet | Description |
 | --- | --- |
@@ -293,7 +293,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 |  | |
 
 > [!IMPORTANT]
-> For a sample script, see [Configure and failover a failover group for a standalone database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
+> For a sample script, see [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md).
 >
 
 ### PowerShell: Managing failover groups with Managed Instances (preview)
@@ -352,9 +352,9 @@ As discussed previously, auto-failover groups and active geo-replication can als
 ## Next steps
 
 - For sample scripts, see:
-  - [Configure and failover a standalone database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+  - [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-  - [Configure and failover a failover group for a standalone database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+  - [Configure and failover a failover group for a single database](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 - For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 - To learn about using automated backups for recovery, see [Restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).

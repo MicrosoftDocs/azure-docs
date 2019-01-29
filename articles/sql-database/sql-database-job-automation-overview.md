@@ -36,10 +36,10 @@ There are several scenarios when you could use job automation:
 
 The following job scheduling technologies are available in Azure SQL Database:
 
-- **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Managed Instance. SQL Agent Jobs are not available in standalone databases.
+- **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Managed Instance. SQL Agent Jobs are not available in single databases.
 - **Elastic Database Jobs** are Job Scheduling service that executes custom jobs on one or many Azure SQL Databases.
 
-It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Database Managed Instance), and the Database Elastic Job agent (available for standalone databases in Azure SQL database and databases in SQL Data Warehouse).
+It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Database Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL database and databases in SQL Data Warehouse).
 
 |  |Elastic Jobs  |SQL Agent |
 |---------|---------|---------|
@@ -218,13 +218,13 @@ A *target group* defines the set of databases a job step will execute on. A targ
 
 - **SQL Database server** - if a server is specified, all databases that exist in the server at the time of the job execution are part of the group. The master database credential must be provided so that the group can be enumerated and updated prior to job execution.
 - **Elastic pool** - if an elastic pool is specified, all databases that are in the elastic pool at the time of the job execution are part of the group. As for a server, the master database credential must be provided so that the group can be updated prior to the job execution.
-- **Standalone database** - specify one or more individual databases to be part of the group.
+- **Single database** - specify one or more individual databases to be part of the group.
 - **Shardmap** - databases of a shardmap.
 
 > [!TIP]
 > At the moment of job execution, *dynamic enumeration* re-evaluates the set of databases in target groups that include servers or pools. Dynamic enumeration ensures that **jobs run across all databases that exist in the server or pool at the time of job execution**. Re-evaluating the list of databases at runtime is specifically useful for scenarios where pool or server membership changes frequently.
 
-Pools and standalone databases can be specified as included or excluded from the group. This enables creating a target group with any combination of databases. For example, you can add a server to a target group, but exclude specific databases in an elastic pool (or exclude an entire pool).
+Pools and single databases can be specified as included or excluded from the group. This enables creating a target group with any combination of databases. For example, you can add a server to a target group, but exclude specific databases in an elastic pool (or exclude an entire pool).
 
 A target group can include databases in multiple subscriptions, and across multiple regions. Note that cross-region executions have higher latency than executions within the same region.
 

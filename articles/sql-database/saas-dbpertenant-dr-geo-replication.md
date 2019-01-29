@@ -156,7 +156,7 @@ The recovery script performs the following tasks:
 
 1. Marks all existing tenants in the recovery catalog as offline to prevent access to tenant databases before they are failed over.
 
-1. Updates the configuration of all elastic pools and replicated standalone databases in the recovery region to mirror their configuration in the original region. (This task is only needed if pools or replicated databases in the recovery environment are scaled down during normal operations to reduce costs).
+1. Updates the configuration of all elastic pools and replicated single databases in the recovery region to mirror their configuration in the original region. (This task is only needed if pools or replicated databases in the recovery environment are scaled down during normal operations to reduce costs).
 
 1. Enables the Traffic Manager endpoint for the web app in the recovery region. Enabling this endpoint allows the application to provision new tenants. At this stage, existing tenants are still offline.
 

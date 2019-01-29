@@ -61,7 +61,7 @@ To create a SQL database containing the AdventureWorksLT sample data:
    >[!NOTE]
    >This quickstart uses the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is also available.
    >[!IMPORTANT]
-   >More than 1 TB of storage in the Premium tier is currently available in all regions except: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, and US Gov East. In these regions, the storage max in the Premium tier is limited to 1 TB. For more information, see [P11-P15 current limitations](sql-database-dtu-resource-limits-standalone-databases.md#standalone-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >More than 1 TB of storage in the Premium tier is currently available in all regions except: UK North, West Central US, UK South2, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, US Gov South Central, Germany Northeast, China North, and US Gov East. In these regions, the storage max in the Premium tier is limited to 1 TB. For more information, see [P11-P15 current limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. For this quickstart, select the **Standard** service tier, and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
 9. Select **Apply**.  
