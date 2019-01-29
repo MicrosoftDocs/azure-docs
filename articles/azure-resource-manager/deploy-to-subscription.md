@@ -10,20 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/15/2018
+ms.date: 01/29/2019
 ms.author: tomfitz
 ---
-# Create resource groups and resources for an Azure subscription
 
-Typically, you deploy resources to a resource group in your Azure subscription. However, you can use the subscription-level deployments to create resource groups and resources that apply across your subscription.
+# Create resource groups and resources at the subscription level
 
-To create a resource group in an Azure Resource Manager template, define a **Microsoft.Resources/resourceGroups** resource with a name and location for the resource group. You can create a resource group and deploy resources to that resource group in the same template.
+Learn how to create Azure resource groups, and how to create Azure resources at the subscription level.  To deploy templates at the subscription level, you use Azure CLI and PowerShell. You can't use the Azure portal.
 
-[Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md) are services that you may want to apply at the subscription level, rather than the resource group level.
+To create a resource group in an Azure Resource Manager template, define a [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/2018-05-01/resourcegroups.md) resource with a name and location for the resource group. You can create a resource group and deploy resources to that resource group in the same template. The resources that you can deploy at the level include: [Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md).
 
-This article shows how to create resource groups, and how to create resources that apply across a subscription. It uses Azure CLI and PowerShell to deploy the templates. You can't use the portal to deploy the templates because the portal interface deploys to resource group, not the Azure subscription.
+## Deployment considerations
 
-## Schema and commands
+Subscription level deployment is different from resource group deployment in the following aspects:
+
+### Schema and commands
 
 The schema and commands you use for subscription-level deployments are different than resource group deployments. 
 
@@ -33,23 +34,23 @@ For the Azure CLI deployment command, use [az deployment create](/cli/azure/depl
 
 For the PowerShell deployment command, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
-## Name and location
+### Deploy name and location
 
 When deploying to your subscription, you must provide a location for the deployment. You can also provide a name for the deployment. If you don't specify a name for the deployment, the name of the template is used as the deployment name. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
 
 The location of subscription level deployments is immutable. You can't create a deployment in one location when there's an existing deployment with the same name but different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
-## Using template functions
+### Use template functions
 
-For subscription level deployments, there are some important considerations when using template functions:
+For subscription-level deployments, there are some important considerations when using template functions:
 
 * The [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [resourceId()](resource-group-template-functions-resource.md#resourceid) function is supported. Use it to get the resource ID for resources that are used at subscription level deployments. For example, get the resource ID for a policy definition with `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
 * The [reference()](resource-group-template-functions-resource.md#reference) and [list()](resource-group-template-functions-resource.md#list) functions are supported.
 
-## Create resource group
+## Create resource groups
 
-The following example creates an empty resource group.
+The following template creates an empty resource group.
 
 ```json
 {
@@ -76,6 +77,8 @@ The following example creates an empty resource group.
     "outputs": {}
 }
 ```
+
+The template schema can be found at [here](/azure/templates/microsoft.resources/allversions.md).
 
 To deploy this template with Azure CLI, use:
 
