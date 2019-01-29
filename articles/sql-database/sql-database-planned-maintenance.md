@@ -11,7 +11,7 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/28/2019
+ms.date: 01/30/2019
 ---
 
 # Planning for Azure maintenance events in Azure SQL Database
@@ -24,7 +24,7 @@ For each database, Azure SQL DB maintains a quorum of database replicas where on
 
 ## What to expect during a planned maintenance event
 
-Reconfigurations/failovers generally complete within 30 seconds. If already connected, your application must reconnect to the healthy copy new primary replica of your database. On the other hand, if a new connection is attempted while the database is undergoing a reconfiguration before the new primary replica is online, you get error 40613 (Database Unavailable): “Database '{databasename}' on server '{servername}' is not currently available. Please retry the connection later.”. If your database has a long running query, this query will be interrupted during a reconfiguration and will need to be restarted.
+Reconfigurations/failovers generally complete within 30 seconds – the average is 8 seconds. If already connected, your application must reconnect to the healthy copy new primary replica of your database. On the other hand, if a new connection is attempted while the database is undergoing a reconfiguration before the new primary replica is online, you get error 40613 (Database Unavailable): “Database '{databasename}' on server '{servername}' is not currently available. Please retry the connection later.”. If your database has a long running query, this query will be interrupted during a reconfiguration and will need to be restarted.
 
 ## Retry Logic
 
@@ -32,7 +32,7 @@ Any client production application that connects to a cloud database service shou
 
 ## Frequency
 
-On average, 1.7 planned maintenance event occurs each month. Please note maintenance events will be paused during regular business hours from 8am - 5pm, in the local time of the resource, to minimize impact.
+On average, 1.7 planned maintenance event occurs each month.
 
 ## Resource Health
 
