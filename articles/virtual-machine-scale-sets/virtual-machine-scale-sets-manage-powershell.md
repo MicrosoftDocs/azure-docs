@@ -19,6 +19,9 @@ ms.author: cynthn
 
 ---
 # Manage a virtual machine scale set with Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure PowerShell cmdlets that let you perform these tasks.
 
 To complete these management tasks, you need the latest Azure PowerShell module. For information, see [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps). If you need to create a virtual machine scale set, you can [create a scale set with Azure PowerShell](quick-create-powershell.md).

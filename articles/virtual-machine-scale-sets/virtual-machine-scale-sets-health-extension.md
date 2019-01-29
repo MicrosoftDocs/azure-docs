@@ -105,6 +105,8 @@ Use `PATCH` to edit an already deployed extension.
 
 ### Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Use the [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet to add the Application Health extension to the scale set model definition.
 
 The following example adds the Application Health extension to the `extensionProfile` in a scale set model of a Windows-based scale set.

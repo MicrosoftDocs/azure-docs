@@ -20,6 +20,8 @@ ms.author: rajraj
 ---
 # Azure virtual machine scale set automatic OS image upgrades
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Automatic OS image upgrade is a feature of Azure virtual machine scale sets that automatically upgrades all VMs to the latest OS image.
 
 Automatic OS upgrade has the following characteristics:

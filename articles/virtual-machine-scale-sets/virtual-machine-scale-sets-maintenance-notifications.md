@@ -20,6 +20,8 @@ ms.author: shants
 
 # Planned maintenance notifications for virtual machine scale sets
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines (VMs). Updates might include patching the hosting environment or upgrading and decommissioning hardware. Most updates don't affect the hosted VMs. However, updates affect VMs in these scenarios:
 
 - If the maintenance doesn't require a reboot, Azure uses in-place migration to pause the VM while the host is updated. Maintenance operations that don't require a reboot are applied fault domain by fault domain. Progress is stopped if any warning health signals are received.
@@ -35,10 +37,8 @@ Planned maintenance that requires a reboot is scheduled in waves. Each wave has 
 
 The goal in having two windows is to give you enough time to start maintenance and reboot your VM while knowing when Azure will automatically start maintenance.
 
-
 You can use the Azure portal, PowerShell, the REST API, and the Azure CLI to query for maintenance windows for your virtual machine scale set VMs, and to start self-service maintenance.
 
-  
 ## Should you start maintenance during the self-service window?  
 
 The following guidelines can help you decide whether to start maintenance at a time that you choose.

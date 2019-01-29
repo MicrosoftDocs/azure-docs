@@ -67,6 +67,8 @@ az vmss create \
 
 ## Use Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](quick-create-powershell.md).
 Just add the '-Priority' parameter to the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) and set it to *Low* as shown in the example below:
 

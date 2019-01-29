@@ -22,6 +22,8 @@ ms.custom: na
 
 # Azure virtual machine scale sets FAQs
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Get answers to frequently asked questions about virtual machine scale sets in Azure.
 
 ## Top frequently asked questions for scale sets

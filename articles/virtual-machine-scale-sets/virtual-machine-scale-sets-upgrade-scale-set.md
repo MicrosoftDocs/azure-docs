@@ -19,6 +19,9 @@ ms.author: manayar
 
 ---
 # Modify a virtual machine scale set
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Throughout the lifecycle of your applications, you may need to modify or update your virtual machine scale set. These updates may include how to update the configuration of the scale set, or change the application configuration. This article describes how to modify an existing scale set with the REST APIs, Azure PowerShell, or Azure CLI.
 
 ## Fundamental concepts

@@ -21,6 +21,8 @@ ms.author: cynthn
 
 # Encrypt OS and attached data disks in a virtual machine scale set with Azure PowerShell (Preview)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To protect and safeguard data at rest using industry standard encryption technology, virtual machine scale sets support Azure Disk Encryption (ADE). Encryption can be enabled for Windows and Linux virtual machine scale sets. For more information, see [Azure Disk Encryption for Windows and Linux](../security/azure-security-disk-encryption.md).
 
 > [!NOTE]
@@ -35,7 +37,7 @@ Scale set VM reimage and upgrade operations are not supported in the current pre
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell Az module version 1.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Register for disk encryption preview
 
