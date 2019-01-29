@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: pafarley
