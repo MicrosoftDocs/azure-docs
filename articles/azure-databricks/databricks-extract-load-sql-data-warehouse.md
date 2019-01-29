@@ -59,10 +59,15 @@ In this section, you create an Azure Databricks service by using the Azure porta
     |**Workspace name**     | Provide a name for your Databricks workspace.        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
+<<<<<<< HEAD
     |**Location**     | Select **West US 2**.  For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).      |
     |**Pricing Tier**     |  Select **Standard**.     |
 
     ![Create an Azure Databricks workspace](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Create an Azure Databricks service")
+=======
+    |**Location**     | Select **East US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
+    |**Pricing Tier**     |  Choose between **Standard** or **Premium**. This tutorial cannot be carried out using a Free Trial Subscription due to quota increase limitations. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
+>>>>>>> ebfdad385979e841138cf4f5954361a1ad084d59
 
 1. Select **Pin to dashboard** and then select **Create**.
 

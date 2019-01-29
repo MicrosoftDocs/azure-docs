@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # What is Azure Active Directory B2C?

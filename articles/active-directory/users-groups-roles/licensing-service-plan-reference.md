@@ -9,15 +9,13 @@
   manager: mtillman
   editor: ''
 
-  ms.assetid:
   ms.service: active-directory
-  ms.devlang: na
   ms.topic: article
-  ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 01/14/2019
+  ms.date: 01/28/2019
   ms.author: curtand
   ms.reviewer: sumitp
+  ms.custom: seo-update-jan
 ---
 
 # Product names and service plan identifiers for licensing

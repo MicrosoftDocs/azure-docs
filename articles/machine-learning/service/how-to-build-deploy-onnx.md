@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about ONNX and how to use Azure Machine Learning to create and deploy ONNX models 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens

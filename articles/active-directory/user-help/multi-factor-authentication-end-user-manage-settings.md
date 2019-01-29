@@ -10,7 +10,7 @@ ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
 
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
