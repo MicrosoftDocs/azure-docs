@@ -43,7 +43,7 @@ Azure virtual machine scale sets provide the management capabilities for applica
 
 - **Works at large-scale**
     - Scale sets support up to 1,000 VM instances. If you create and upload your own custom VM images, the limit is 300 VM instances.
-    - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) and [Premium Storage](../virtual-machines/windows/premium-storage.md).
+    - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 
 ## Differences between virtual machines and scale sets
