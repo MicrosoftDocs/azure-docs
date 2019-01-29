@@ -17,6 +17,39 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2019-01-28
+
+### Azure Machine Learning SDK for Python v1.0.10
+
++ **SDK reference docs**: https://aka.ms/aml-sdk
+
++ **Changes**: 
+  + Azure ML SDK no longer has azure-cli packages as dependency. Specifically, azure-cli-core and azure-cli-profile dependencies have been removed from azureml-core. These are the  user impacting changes:
+  	+ If you are performing "az login" and then using azureml-sdk, the SDK will do the browser or device code login one more time. It won't use any credentials state created by "az login".
+	+ For Azure CLI authentication, such as using "az login", use _azureml.core.authentication.AzureCliAuthentication_ class. For Azure CLI authentication, do  _pip install azure-cli_ in the Python environment where you have installed azureml-sdk.
+	+ If you are doing "az login" using a service principal for automation, we recommend using _azureml.core.authentication.ServicePrincipalAuthentication_ class, as azureml-sdk won't use credentials state created by azure CLI. 
+
++ **Bug fixes**: This release mostly contains minor bug fixes
+
+### Azure Machine Learning Data Prep SDK v1.0.8
+
++ **SDK reference docs**: https://aka.ms/data-prep-sdk
+
++ **Bug fixes**
+  + Significantly improved the performance of getting data profiles.
+  + Fixed minor bugs related to error reporting.
+  
+### Azure portal: new features
++ New drag and drop charting experience for reports. Users can drag a column or attribute from the well to the chart area where the system will automatically select an appropriate chart type for the user based on the type of data. Users can change the chart type to other applicable types or add additional attributes.
+
+	Supported Chart Types:
+	- Line Chart
+	- Histogram
+	- Stacked Bar Chart
+	- Box Plot
+	- Scatter Plot
+	- Bubble Plot
+
 ## 2019-01-14
 
 ### Azure Machine Learning SDK for Python v1.0.8
