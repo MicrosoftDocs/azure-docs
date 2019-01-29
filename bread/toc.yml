@@ -107,17 +107,17 @@
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
   - name: Application Insights
-    tocHref: /azure/application-insights/
-    topicHref: /azure/azure-monitor/
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/application-insights/
   - name: Log Analytics
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/azure-monitor/
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/log-analytics/
   - name: Monitoring
-    tocHref: /azure/monitoring/
-    topicHref: /azure/azure-monitor/
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/monitoring/
   - name: Monitoring and Diagnostics
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/azure-monitor/
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/monitoring-and-diagnostics/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
