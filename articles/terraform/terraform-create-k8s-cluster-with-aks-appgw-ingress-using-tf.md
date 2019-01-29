@@ -1,22 +1,22 @@
 ---
-title: Create a Kubernetes cluster with Application Gateway as ingress controller with Azure Kubernetes Service (AKS) and Terraform
-description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller using Terraform
+title: Create a Kubernetes cluster with Application Gateway as ingress controller with Azure Kubernetes Service (AKS)
+description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, azure, kubernetes, ingress, application gateway
-author: Vaijanath
+author: tomarcher
 manager: jeconnoc
-ms.author: vaangadi
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
 ---
 
 # Create a Kubernetes cluster with Application Gateway ingress controller using Azure Kubernetes Service and Terraform
-[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
+[Azure Kubernetes Service (AKS)](/azure/aks/) manages your hosted Kubernetes environment. AKS makes it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
 
-An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster. All the above functionalities are provided by Azure [Application Gateway](/azure/Application-Gateway/) which makes it an ideal Ingress controller for Kubernetes on Azure. 
+An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster. All the above functionalities are provided by Azure [Application Gateway](/azure/Application-Gateway/), which makes it an ideal Ingress controller for Kubernetes on Azure. 
 
-In this tutorial, you learn how to perform the following tasks in creating a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using [Terraform](http://terraform.io) and AKS with Application Gateway as Ingress Controller:
+In this tutorial, you learn how to perform the following tasks in creating a [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) cluster using AKS with Application Gateway as Ingress Controller:
 
 > [!div class="checklist"]
 > * Use HCL (HashiCorp Language) to define a Kubernetes cluster
@@ -30,8 +30,9 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Take note of the values for the appId, displayName and password.
-    - Note the Object Id of the Service Principal by running the following command
+- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Take note of the values for the appId, displayName, and password.
+    - Note the Object ID of the Service Principal by running the following command
+
     ```bash
      az ad sp list --display-name <displayName>
     ```
@@ -535,13 +536,13 @@ Create Terraform configuration file that creates all the resources.
     ```
 
 ## Set up Azure storage to store Terraform state
-Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server utilizing [Azure storage](/azure/storage/). In this section, you retrieve the necessary storage account information (account name and account key), and create a storage container into which the Terraform state information will be stored.
+Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you retrieve the necessary storage account information (account name and account key), and create a storage container into which the Terraform state information will be stored.
 
 1. In the Azure portal, select **All services** in the left menu.
 
 1. Select **Storage accounts**.
 
-1. On the **Storage accounts** tab, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time.  The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters. **Remember the name of the storage account you select, as it is needed later.**
+1. On the **Storage accounts** tab, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time.  The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters. **Note down the name of the storage account you select, as we need it later.**
 
 1. On the storage account tab, select **Access keys**.
 
@@ -627,7 +628,7 @@ In this section, you see how to use the `terraform init` command to create the r
     ![Cloud Shell prompt](./media/terraform-k8s-cluster-appgw-with-tf-aks/k8s-resources-created.png)
 
 ## Recover from a Cloud Shell timeout
-If the Cloud Shell session times out, you can perform the following steps to recover:
+If the Cloud Shell session times out, you can use the following steps to recover:
 
 1. Start a Cloud Shell session.
 
@@ -670,9 +671,8 @@ The Kubernetes tools can be used to verify the newly created cluster.
 
 
 ## Next steps
-In this article, you learned how to use Terraform and AKS to create a Kubernetes cluster. Here are some additional resources to help you learn more about Terraform on Azure: 
-
- [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider documentation](https://aka.ms/terraform)  
- [Terraform Azure provider source](https://aka.ms/tfgit)  
- [Terraform Azure modules](https://aka.ms/tfmodules)
+In this article, you learned how to use Terraform and AKS to create a Kubernetes cluster. Here are some additional resources to help you learn more about Terraform on Azure.
+ 
+ > [!div class="nextstepaction"] 
+ > [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)
+ 
