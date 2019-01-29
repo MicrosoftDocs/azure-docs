@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
+ms.lastreviewed: 01/24/2019
 ---
 
 # Connect to Azure Stack with PowerShell as an operator

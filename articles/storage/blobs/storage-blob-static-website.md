@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Static website hosting in Azure Storage
