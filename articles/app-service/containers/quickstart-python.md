@@ -176,7 +176,7 @@ The built-in Python image in App Service on Linux is currently in Preview, and y
 > [Python with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure a custom startup command](how-to-configure-python.md#custom-startup-command)
+> [Configure a custom startup command](how-to-configure-python.md#customize-startup-command)
 
 > [!div class="nextstepaction"]
 > [Troubleshooting](how-to-configure-python.md#troubleshooting)
