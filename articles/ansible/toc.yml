@@ -7,9 +7,9 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy Ansible to CentOS
+    - name: Deploy Ansible solution template
       href: ./ansible-deploy-solution-template.md
-    - name: Deploy Ansible to Linux
+    - name: Install Ansible on a Linux VM
       href: /azure/virtual-machines/linux/ansible-install-configure
       maintainContext: true
     - name: Create a Linux VM
