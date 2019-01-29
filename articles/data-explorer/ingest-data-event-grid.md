@@ -14,7 +14,7 @@ ms.date: 1/23/2019
 
 # Quickstart: Ingest Azure Blobs into Azure Data Explorer by subscribing to Event Grid notifications
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers continuous ingestion (data loading) from blobs written to blob containers. This is achieved by setting an [Azure Event Grid](/azure/event-grid/overview) subscription for blob creation events and tunneling these events to Kusto via an Event Hub. For this quickstart, you should already have a Storage Account with an Event Grid subscription which sends its notifications to Event Hub. With that, you will create an Event Grid Data Connection and see the data flow throught the system.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers continuous ingestion (data loading) from blobs written to blob containers. This is achieved by setting an [Azure Event Grid](/azure/event-grid/overview) subscription for blob creation events and routing these events to Kusto via an Event Hub. For this quickstart, you should already have a Storage Account with an Event Grid subscription which sends its notifications to Event Hub. With that, you will create an Event Grid Data Connection and see the data flow throught the system.
 
 ## Prerequisites
 
@@ -22,12 +22,27 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [A cluster and database](create-cluster-database-portal.md)
 1. [A storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
-1. [An Event hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
-1. [An Event grid subscription in the above storage account](https://docs.microsoft.com/en-us/azure/event-grid/blob-event-quickstart-portal) 
-    * The Event Grid needs to be created on the storage account from bullet #3.
-    * Use an "Event Hub" endpoint type and choose the event hub from bullet #4.
-    * Set **Event Type** to blob creation notifications by selecting **Blob Created**
-    * If you want to track files from a specific container, click on the **Additional Features** tab and set the filters for the notifications
+1. [An Event Hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create)
+
+## Create an Event Grid Subscription in your Storage Account
+
+* In Azure portal, navigate to your Storage Account
+* Click on **Events** tab, then on **Event Subscription**
+
+ Provide the following values
+
+    **Setting** | **Suggested value** | **Field description**
+    |---|---|---|
+    | Name | *test-grid-connection* | The name of the event grid you want to create.|
+    | Event schema | *Event Grid Schema* | The schema which should be used for the Event Grid. |
+    | Topic Type | *Storage Account* | The type of event grid topic. |
+    | Topic Resource | *grid-test-storage* | The name of your storage account. |
+    | Subscribe to all event types | *Uncheck* | Whether to get notified on all events. |
+    | Defined Event Types | *Blob Created* | Which specific events to get notified for. |
+    | Endpoint Type | *Event Hubs* | The type of endpoint to send the events to. |
+    | Endpoint | *test-hub* | The event hub you created. |
+    | | |
+* If you want to track files from a specific container, click on the **Additional Features** tab and set the filters for the notifications
         * **Subject Begins With** field is the *literal* prefix of the blob container (as the pattern applied is *startswith*, it can span multiple containers). No wildcards are allowed.
         It *must* be set as follows: *`/blobServices/default/containers/`*[container prefix]
         * **Subject Ends With** field is the *literal* suffix of the blob. No wildcards are allowed.
@@ -76,7 +91,7 @@ Now you connect to the event grid from Azure Data Explorer, so that data flowing
 
      Data Source:
 
-    **Setting** | **Field description** | **Suggested value**
+    **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Data connection name | *test-hub-connection* | The name of the connection you want to create in Azure Data Explorer.|
     | Storage account | *grid-test-storage* | The name of the storage account you created on the first step.|
@@ -86,9 +101,6 @@ Now you connect to the event grid from Azure Data Explorer, so that data flowing
     | | |
 
     Target table:
-
-    There are two options for routing: *static* and *dynamic*. For this quickstart, you use static routing (the default), where you specify the table name, file format, and mapping. Therefore, leave **My data includes routing info** unselected.
-    You can also use dynamic routing, where your data includes the necessary routing information.
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
@@ -101,9 +113,9 @@ Now you connect to the event grid from Azure Data Explorer, so that data flowing
 
 Now that Azure Data Explorer and the storage account are connected, you can create sample data and upload to the blob storage.
 
-We'll work with a small shell script that issues a few basic Azure CLI commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container.
+We'll work with a small shell script that issues a few basic Azure CLI commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container. You can use [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) to execute the script directly in the portal.
 
-Save the following data into a file and use with the below script. 
+Save the following data into a file and use with the below script.
 
 ```Json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
