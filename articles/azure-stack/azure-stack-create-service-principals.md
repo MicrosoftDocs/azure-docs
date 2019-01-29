@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
+ms.lastreviewed: 12/18/2018
 
 ---
 # Provide applications access to Azure Stack
