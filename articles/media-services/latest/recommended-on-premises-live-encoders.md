@@ -100,11 +100,11 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 9. Get the hostname for the **Streaming Endpoint** you wish to stream from.
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
 11. Run your live encoder for approximately 10 minutes.
-12. Stop the Live Event.
-use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (or, alternatively watch and validate via the Preview URL during the live session).
-13. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
-14. Reset the Live Event state after creating each sample.
-15. Repeat steps 5 through 14 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds).
+12. Stop the Live Event. 
+13. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (or, alternatively watch and validate via the Preview URL during the live session).
+14. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
+15. Reset the Live Event state after creating each sample.
+16. Repeat steps 5 through 15 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds).
 
 ### Live encoding Live Event verification
 
@@ -120,10 +120,10 @@ use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremed
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
 11. Run your live encoder for approximately 10 minutes.
 12. Stop the Live Event.
-use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (or, alternatively watch and validate via the Preview URL during the live session).
-13. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
-14. Reset the Live Event state after creating each sample.
-15. Repeat steps 5 through 14 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds).
+13. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels (or, alternatively watch and validate via the Preview URL during the live session).
+14. Record the Asset ID, published streaming URL for the live archive, and the settings and version used from your live encoder.
+15. Reset the Live Event state after creating each sample.
+16. Repeat steps 5 through 15 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds).
 
 ### Longevity verification
 
