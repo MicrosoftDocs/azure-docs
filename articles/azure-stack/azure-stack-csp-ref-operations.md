@@ -12,9 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+<<<<<<< HEAD
 ms.date: 01/23/2019
+=======
+ms.date: 01/08/2019
+>>>>>>> 3b2eb353ccec6e100f36d28253b186d3c1ab61dd
 ms.author: mabrigg
 ms.reviewer: alfredop
+ms.lastreviewed: 01/08/2019
 
 ---
 
