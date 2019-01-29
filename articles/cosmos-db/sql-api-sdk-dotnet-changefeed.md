@@ -37,8 +37,10 @@ ms.author: maquaran
 ### v2 builds
 
 ### <a name="2.2.6"/>2.2.6
-* Improved handling of Observer exceptions
-  * This release fixes an issue that may occur if the user code within an Observer throws a DocumentClientException with Status Code 429 (Throttle). This type of Exception was causing the Processor to not close the Observer and skipping over to the next batch.
+* Improved handling of Observer exceptions.
+* Richer information on Observer errors:
+ * When an Observer closes due to a user code error, CloseAsync will now receive a reason of ObserverError.
+ * Added traces to identify errors within user code in an Observer.
 
 ### <a name="2.2.5"/>2.2.5
 * Added support for handling split in collections that use shared database throughput.
