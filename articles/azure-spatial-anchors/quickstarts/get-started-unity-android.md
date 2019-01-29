@@ -45,23 +45,15 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/azure-spatial-anchors-clone-sample-repository.md)]
 
-Open Unity and open the project at the `Unity` folder.
+[!INCLUDE [Android Unity Build Settings](../../../includes/azure-spatial-anchors-unity-android-build-settings.md)]
 
-Open **Build Settings** by selecting **File** -> **Build Settings**.
+## Configure the Spatial Anchors endpoint and account key
 
-In the **Platform** section, select **Android**. Then, change the **Build System** to **Gradle** and check the **Export Project** option.
-
-Select **Switch Platform** to change the platform to **Android**.
-
-![Unity Build Settings](./media/get-started-unity-android/unity-build-settings.png)
-
-Close the **Build Settings** window.
-
-## Download and import the ARCore SDK for Unity
-
-Download the `unitypackage` file from the [ARCore SDK for Unity releases](https://github.com/google-ar/arcore-unity-sdk/releases/tag/v1.5.0). Back in the Unity project, select **Assets** -> **Import Package** -> **Custom Package...** and then select the `unitypackage` file you previously downloaded. In the **Import Unity Package** dialog, make sure all of the files are selected and then select **Import**.
+In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/azure-spatial-anchors-unity-configure-scene.md)]
+
+Save the scene by selecting **File** -> **Save Scene**.
 
 ## Export the Android Studio project
 
