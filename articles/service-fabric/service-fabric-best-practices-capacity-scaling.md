@@ -158,10 +158,10 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ## Reliability levels
 
 The [reliability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) is a property of your Service Fabric Cluster resource, and can't be configured differently for individual nodeTypes. It controls the replication factor of the system services for the cluster, and is a setting at the cluster resource level. The reliability level will determine the minimum number of nodes that your primary node type must have. The reliability tier can take the following values:
-* Platinum - runs the System services with a target replica set count of seven
-* Gold - runs the System services with a target replica set count of seven
-* Silver - runs the System services with a target replica set count of five
-* Bronze - runs the System services with a target replica set count of three
+* Platinum - runs the System services with a target replica set count of seven and nine seed nodes.
+* Gold - runs the System services with a target replica set count of seven and seven seed nodes.
+* Silver - runs the System services with a target replica set count of five and five seed nodes.
+* Bronze - runs the System services with a target replica set count of three and three seed nodes.
 
 The minimum recommended reliability level is Silver.
 
