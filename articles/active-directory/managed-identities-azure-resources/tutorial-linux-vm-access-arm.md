@@ -8,7 +8,7 @@ manager: daveba
 editor: bryanla
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
