@@ -55,7 +55,7 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
         - [Standard SSD Managed Disks for Azure Virtual machine workloads](/azure/virtual-machines/windows/disks-standard-ssd)
     - **Public IP Address** - Specify this setting if you want to communicate with the virtual machine from outside the virtual machine. The default is a new public IP address that has the name `ansible-pip`. To specify a different IP address, select the arrow specify the attributes - such as name, SKU, and Assignment, of that IP address. 
     - **Domain name label** - Enter the public-facing domain name of the virtual machine. The name must be unique and meet naming requirements. For more information about specifying a name for the virtual machine, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
-    - **Ansible version** - Specify either a version number or the value `latest` to deploy the latest version. Moving your mouse over or selecting the information icon next to **Ansible version** gives more information on available versions and appropriate syntax for specifying which version(s) you want to deploy.
+    - **Ansible version** - Specify either a version number or the value `latest` to deploy the latest version. Move your mouse over - or select - the information icon next to **Ansible version** to see more information regarding available versions and appropriate syntax for specifying which version(s) you want to deploy.
 
     ![Azure portal tab for Ansible additional settings](./media/ansible-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
