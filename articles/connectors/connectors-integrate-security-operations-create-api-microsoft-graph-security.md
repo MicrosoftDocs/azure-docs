@@ -61,8 +61,11 @@ Azure Active Directory (AD) tenant administrator consent, which is part of the
 This consent requires the Microsoft Graph Security connector's application ID and name, 
 which you can also find in the [Azure portal](https://portal.azure.com):
 
-   * **Application Name**: `MicrosoftGraphSecurityConnector` 
-   * **Application ID**: `c4829704-0edc-4c3d-a347-7c4a67586f3c`
+   | Property | Value |
+   |----------|-------|
+   | **Application Name** | `MicrosoftGraphSecurityConnector` |
+   | **Application ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
+   |||
 
    To grant consent for the connector, your Azure AD tenant 
    administrator can follow either these steps:
