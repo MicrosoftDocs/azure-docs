@@ -20,7 +20,7 @@ The steps in this tutorial use the SQL Data Warehouse connector for Azure Databr
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Create an Azure Databricks workspace.
+> * Create an Azure Databricks service.
 > * Create a Spark cluster in Azure Databricks.
 > * Create a file system and upload data to Azure Data Lake Storage Gen2.
 > * Create a service principal.
@@ -32,34 +32,37 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-To complete this tutorial:
+Complete these tasks before you begin this tutorial:
 
-> [!div class="checklist"]
-> * Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse](../sql-data-warehouse/create-data-warehouse-portal.md).
-> * Create a database master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-> * Create an Azure Data Lake Storage Gen2 account. See [Create a Azure Data Lake Storage Gen2 account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
-> * Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Create an Azure Blob storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
-> * Sign in to the [Azure portal](https://portal.azure.com/).
+* Create an Azure SQL data warehouse, create a server-level firewall rule, and connect to the server as a server admin. See [Quickstart: Create an Azure SQL data warehouse](../sql-data-warehouse/create-data-warehouse-portal.md).
 
-## Create an Azure Databricks workspace
+* Create a database master key for the Azure SQL data warehouse. See [Create a database master key](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-In this section, you create an Azure Databricks workspace by using the Azure portal.
+* Create an Azure Data Lake Storage Gen2 account. See [Create a Azure Data Lake Storage Gen2 account](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+* Create an Azure Blob storage account, and a container within it. Also, retrieve the access key to access the storage account. See [Quickstart: Create an Azure Blob storage account](../storage/blobs/storage-quickstart-blobs-portal.md).
+
+* Sign in to the [Azure portal](https://portal.azure.com/).
+
+## Create an Azure Databricks service
+
+In this section, you create an Azure Databricks service by using the Azure portal.
 
 1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
     ![Databricks on Azure portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks on Azure portal")
 
-1. Under **Azure Databricks Service**, provide the following values to create a Databricks workspace:
+1. Under **Azure Databricks Service**, provide the following values to create a Databricks service:
 
     |Property  |Description  |
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace.        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Select **West US 2**.        |
+    |**Location**     | Select **West US 2**.  For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).      |
     |**Pricing Tier**     |  Select **Standard**.     |
 
-    ![Create an Azure Databricks workspace](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Create an Azure Databricks workspace")
+    ![Create an Azure Databricks workspace](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Create an Azure Databricks service")
 
 1. Select **Pin to dashboard** and then select **Create**.
 
@@ -69,7 +72,7 @@ In this section, you create an Azure Databricks workspace by using the Azure por
 
 ## Create a Spark cluster in Azure Databricks
 
-1. In the Azure portal, go to the Databricks workspace that you created, and select **Launch Workspace**.
+1. In the Azure portal, go to the Databricks service that you created, and select **Launch Workspace**.
 
 2. You're redirected to the Azure Databricks portal. From the portal, select **Cluster**.
 
@@ -126,7 +129,7 @@ First, you create a notebook in your Azure Databricks workspace and then run cod
 
 In this section, you create a notebook in Azure Databricks workspace and then run code snippets to extract data from the Data Lake Store into Azure Databricks.
 
-1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace that you created, and select **Launch Workspace**.
+1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks service that you created, and select **Launch Workspace**.
 
 2. On the left, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
@@ -264,7 +267,7 @@ The raw sample data **small_radio_json.json** file captures the audience for a r
 
 In this section, you upload the transformed data into Azure SQL Data Warehouse. You use the Azure SQL Data Warehouse connector for Azure Databricks to directly upload a dataframe as a table in a SQL data warehouse.
 
-As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage as temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must already have created the account as part of the prerequisites for this article.
+As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage as temporary storage to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must already have already created the account as part of the prerequisites for this article.
 
 1. Provide the configuration to access the Azure Storage account from Azure Databricks.
 
@@ -339,7 +342,7 @@ If you don't manually terminate the cluster, it automatically stops, provided yo
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create an Azure Databricks workspace
+> * Create an Azure Databricks service
 > * Create a Spark cluster in Azure Databricks
 > * Create a notebook in Azure Databricks
 > * Extract data from a Data Lake Storage Gen2 account
