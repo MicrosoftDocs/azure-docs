@@ -99,15 +99,10 @@ The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azu
 
 ### Update expired RHUI client certificate on a VM
 
-If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedHat:RHEL:7.4:7.4.2018010506`), you will experience connectivity issues to RHUI due to a now-expired (on Nov 21, 2018) SSL client certificate. The error you see may look like _"SSL peer rejected your certificate as expired"_. To overcome this problem, please update the RHUI client package on the VM using the following command:
+If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedHat:RHEL:7.4:7.4.2018010506`), you will experience connectivity issues to RHUI due to a now-expired SSL client certificate. The error you see may look like _"SSL peer rejected your certificate as expired"_. To overcome this problem, please update the RHUI client package on the VM using the following command:
 
 ```bash
-sudo yum update -y --disablerepo=* --enablerepo=*-microsoft-* rhui-azure-rhel7
-```
-
-If your RHEL VM is in US Government cloud, use the following command:
-```bash
-sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
 Alternatively, running `sudo yum update` will also update the client certificate package despite "expired SSL certificate" errors you will see for other repositories. Following the update, normal connectivity to other RHUI repositories should be restored, so you will be able to run `sudo yum update` successfully.
