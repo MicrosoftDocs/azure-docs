@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
 ---
 
@@ -64,31 +64,10 @@ Using API version 2018-07-01, you can enable sending of bidirectional TCP Resets
 
 ## <a name="regions"></a> Region availability
 
-This parameter is currently effective in the following regions.  In regions not listed here, the parameter has no effect.
-
-| Region |
-|---|
-| Asia Southeast |
-| Brazil South |
-| Canada Central |
-| Europe West |
-| India Central |
-| India West |
-| Japan West |
-| Korea Central |
-| Korea South |
-| UK North |
-| UK South 2 |
-| US East |
-| US East 2 |
-| US North |
-| US West |
-
-This table will be updated as the preview is expanded to other regions.  
+Available in all regions.
 
 ## Limitations
 
-- Limited [region availability](#regions).
 - Portal cannot be used to configure or view TCP Reset.  Use templates, REST API, Az CLI 2.0, or PowerShell instead.
 
 ## Next steps
