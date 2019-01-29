@@ -35,7 +35,7 @@ If your application relies on automatic database backups and uses geo-restore fo
 > Note the preparation steps will not impact the production slot and it can function in full access mode.
 >  
 
-![SQL Database Go-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![SQL Database Go-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-1.png)
 
 Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process.
 
@@ -43,14 +43,14 @@ Once the preparation steps are completed the application is ready for the actual
 2. Disconnect the secondary database using the planned termination mode (4). It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
 3. Turn the primary database to read-write mode and run the upgrade script (5).
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 
 If the upgrade completed successfully you are now ready to switch the end users to the upgraded copy the application. It will now become a  production slot.  This involves a few more steps as illustrated on the following diagram.
 
 1. Activate a swap operation between production and staging slots of the web application (6). It will switch the URLs of the two slots. Now `contoso.azurewebsites.net` will point to V2 version of the web site and the database (production environment).  
 2. If you no longer need the V1 version, which became a staging copy after the swap,  you can decomission the stanging envoronment (7).
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To roll back the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.
 
@@ -62,7 +62,7 @@ At this point the application is fully functional and the upgrade steps can be r
 > [!NOTE]
 > The rollback does not require DNS changes as you did not yet perform a swap operation.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-4.png)
 
 The key **advantage** of this option is that you can upgrade an application in a single region using a set of simple steps. The dollar cost of the upgrade is relatively low. The main **tradeoff** is that if a catastrophic failure occurs during the upgrade the recovery to the pre-upgrade state will involve re-deployment of the application in a different region and restoring the database from backup using geo-restore. This process will result in significant downtime.
 
@@ -92,7 +92,7 @@ To enable the ability to roll back the upgrade, you need create a staging enviro
 > [!NOTE]
 > Note the preparation steps will not impact the application in the production slot and it will remain fully functional in read-write mode.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-1.png)
 
 Once the preparation steps are completed, the staging environment is ready for the upgrade. The following diagram illustrates the upgrade steps.
 
@@ -100,14 +100,14 @@ Once the preparation steps are completed, the staging environment is ready for t
 2. Disconnect the secondary database in the same region using the planned termination mode (11). It will create a independent but fully synchronized copy of the production database. This database will be upgraded.
 3. Run the  upgrade script against `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` and the staging primary database (12). The database changes will be automatically replicated to the staging secondary 
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
 
 If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
 
 1. Activate a swap operation between production and staging slots of the web application in the primary region (13) and in the backup region (14). V2 of the application now becomes a production slot with a redundant copy in the backup region.
 2. You can decommision the the staging environment if you no longer need the V1 application (15 and 16).  
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the staging envoronment be considered in inconsistent state. To roll back the application to the pre-upgrade state you simply revert to using V1 of the applicatuion in production environment. The required stepsare shown on the next diagram.
 
@@ -119,7 +119,7 @@ At this point the application is fully functional and the upgrade steps can be r
 > [!NOTE]
 > The rollback does not require DNS changes because you did not perform a swap operation.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
+![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-4.png)
 
 The key **advantage** of this option is that you can upgrade both the application and its geo-redundant copy in parallel without compromising your business continuity during the upgrade. The main **tradeoff** is that it requires double redundancy of each application component and therefore incurs higher dollar cost. It also involves a more complicated workflow.
 
