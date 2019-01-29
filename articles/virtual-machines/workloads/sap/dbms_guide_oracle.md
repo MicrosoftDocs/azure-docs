@@ -519,4 +519,4 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 
 
 ### Other
-All other general areas like Azure Availability Sets or SAP monitoring apply as described in the first three chapters of this document for deployments of VMs with Oracle Database as well.
+[Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) describes other important concepts related to deployments of VMs with Oracle Database, including Azure availability sets and SAP monitoring.
