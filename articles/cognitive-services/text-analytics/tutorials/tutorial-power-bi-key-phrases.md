@@ -7,7 +7,7 @@ author: luiscabrer
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: luisca
