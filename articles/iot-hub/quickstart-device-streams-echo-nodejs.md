@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To run the service-side application in this quickstart you need Node.js v4.x.x or later on your development machine.
 
-You can download Node.js for multiple platforms from [Node.js.org](https://Node.js.org).
+You can download Node.js for multiple platforms from [Node.js.org](https://nodejs.org).
 
 You can verify the current version of Node.js on your development machine using the following command:
 
