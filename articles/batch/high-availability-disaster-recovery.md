@@ -17,7 +17,7 @@ ms.date: 01/29/2019
 ms.author: lahugh
 ---
 
-# Design your application to cater for a regional outage
+# Design your application for high availability 
 
 Azure Batch is a regional service. Batch is available in all Azure regions, but when a Batch account is created it must be associated with a region, all operations for that account then apply to that region. For example, pools and associated virtual machines (VMs) are allocated in the Batch account region.
 
