@@ -7,7 +7,7 @@ ms.author: davidmu
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: b2c
+ms.subservice: b2c
 ---
 
 # Solutions and Training for Azure Active Directory B2C

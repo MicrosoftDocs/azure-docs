@@ -278,3 +278,4 @@ To support the failover integration between geo-redundant storage and Azure File
 * [Planning for an Azure Files deployment](storage-files-planning.md)
 * [Deploy Azure Files](storage-files-deployment-guide.md)
 * [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Monitor Azure File Sync](storage-sync-files-monitoring.md)
