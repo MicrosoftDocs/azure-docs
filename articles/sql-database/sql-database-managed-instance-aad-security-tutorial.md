@@ -284,7 +284,7 @@ For more information on granting database permissions, see [Getting Started with
 
 ### Add users to database-level roles
 
-For the user to see data in the database, we can provide [database-level roles](/sql/relational-databases/security/authentication-access/database-level-role) to the user.
+For the user to see data in the database, we can provide [database-level roles](/sql/relational-databases/security/authentication-access/database-level-roles) to the user.
 
 1. Log into your Managed Instance using a `sysadmin` account using SQL Server Management Studio.
 
