@@ -50,10 +50,6 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 ## Prerequisites
 
 > [!IMPORTANT]
-> During installation of the 1901 update, you must ensure that all instances of the administrator portal are closed. The user portal can remain open, but the admin portal must be closed.
-
-- Get your Azure Stack deployment ready for the Azure Stack extension host. Prepare your system using the following guidance: [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md). 
-
 - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1811 (if any) before updating to 1901.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
@@ -61,29 +57,6 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
-
-    If you do not have the extension host requirements met, the `Test-AzureStack` output displays the following message:
-  
-    `To proceed with installation of the 1901 update, you will need to import 
-    the SSL certificates required for Extension Host, which simplifies network 
-    integration and increases the security posture of Azure Stack. Refer to this 
-    link to prepare for Extension Host:
-    https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare`
-
-- The Azure Stack 1901 update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. To proceed with installation of the 1901 update, you must import the SSL certificates required for the extension host. To import the certificates, see [this section](azure-stack-extension-host-prepare.md#import-extension-host-certificates).
-
-    If you ignore every warning and still choose to install the update, the update will fail in approximately 1 hour with the following message:
-
-    `The required SSL certificates for the Extension Host have not been found.
-    The Azure Stack update will halt. Refer to this link to prepare for 
-    Extension Host: https://docs.microsoft.com/azure/azure-stack/azure-stack-extension-host-prepare,
-    then resume the update.
-    Exception: The Certificate path does not exist: [certificate path here]`
-
-    Once you have properly imported the mandatory extension host certificates, you can resume the update from the Administrator portal. While Microsoft advises Azure Stack operators to schedule a maintenance window during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
-
-    During the installation of this update, the Azure Stack user portal is unavailable while the extension host is being configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md).
-
 ## New features
 
 This update includes the following new features and improvements for Azure Stack:
@@ -186,17 +159,11 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ## Known issues with the update process
 
-- During installation of the 1901 update, ensure that all instances of the administrator portal are closed during this time. The user portal can remain open, but the admin portal must be closed.
-
 - When running [Test-AzureStack](azure-stack-diagnostic-test.md), if either the **AzsInfraRoleSummary** or the **AzsPortalApiSummary** test fails, you are prompted to run **Test-AzureStack** with the `-Repair` flag.  If you run this command, it fails with the following error message:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
-
-- During installation of the 1901 update, the Azure Stack use portal is unavailable while the extension host is being configured. The configuration of the extension host can take up to 5 hours. During that time, you can check the status of an update, or resume a failed update installation using [Azure Stack Administrator PowerShell or the privileged endpoint](azure-stack-monitor-update.md). 
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
 - <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title `Error – Template for FaultType UserAccounts.New is missing.`  You can safely ignore these alerts. The alerts close automatically after the installation of this update completes.
-
-- <!-- 3139614 | IS --> If you've applied an update to Azure Stack from your OEM, the **Update available** notification may not appear in the Azure Stack administrator portal. To install the Microsoft update, download and import it manually using the instructions located here [Apply updates in Azure Stack](azure-stack-apply-updates.md).
 
 ## Post-update steps
 
