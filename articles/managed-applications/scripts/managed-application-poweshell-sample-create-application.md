@@ -33,7 +33,7 @@ This script uses the following command to deploy the managed application. Each c
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmManagedApplication](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermmanagedapplication) | Create a managed application. Provide the definition ID and parameters for the template. |
+| [New-AzManagedApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azmanagedapplication) | Create a managed application. Provide the definition ID and parameters for the template. |
 
 
 ## Next steps
