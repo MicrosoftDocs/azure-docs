@@ -60,7 +60,7 @@ If federation is being used and password hashes are synced correcty, but you are
  1. Install AzureAD powershell module
 
  ```
- Install-Module AzureAD
+  Install-Module AzureAD
  ```
 
  2. ```Connect-AzureAD``` using a global administrator (tenant administrator) credentials
@@ -68,21 +68,21 @@ If federation is being used and password hashes are synced correcty, but you are
  3. Check if the “Azure powershell” service principal has already been created
 
 ```
-Get-AzureADServicePrincipal -SearchString "1950a258-227b-4e31-a9cf-717495945fc2"
+ Get-AzureADServicePrincipal -SearchString "1950a258-227b-4e31-a9cf-717495945fc2"
 ```
 
  4. If it doesn't exist then create the service principal
 
 ```
-New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+ New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
 ```
 
  5. Attach the policy to this service principal: 
 
 ```
-$policy = New-AzureADPolicy -Definition @("{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+ $policy = New-AzureADPolicy -Definition @("{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
 
-Add-AzureADServicePrincipalPolicy -Id <Service Principal ID> -refObjectID $policy.ID
+ Add-AzureADServicePrincipalPolicy -Id <Service Principal ID> -refObjectID $policy.ID
 ```
 
 ## Next steps
