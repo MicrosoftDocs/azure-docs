@@ -78,9 +78,10 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+    
 ## How to access your storage account with SAS tokens
 
-In this section we will discuss how you can do operations on your storage account by fetching [SAS tokens](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1) from Key Vault
+In this section we will discuss how you can do operations on your storage account by fetching [SAS tokens](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) from Key Vault
 
 In the below section, we demonstrate how to fetch your storage account key that's stored in Key Vault and using that to create a SAS (Shared Access Signature) definition for your storage account.
 
