@@ -45,10 +45,10 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 
 ## Create a response handler
 
-1. Create a function called `response_handler` to take a JSON response from the API. Create a variable for the response body. Store the response when a `data` flag is received, using `response.on()`. Within it, perform the following step:
+1. Create a function called `response_handler` to take a JSON response from the API. Create a variable for the response body. Append the response when a `data` flag is received, using `response.on()`.
 
     ```javascript
-        let response_handler = function (response) {
+    let response_handler = function (response) {
         let body = '';
         response.on('data', function (d) {
             body += d;
@@ -56,7 +56,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     };
     ```
     
-    2. When `end` is signaled, use a function in `response.on()` to store the bing-related headers. Then parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify`, and print it.
+    2. When `end` is signaled, use `response.on()` to store the bing-related headers (beginning with `bingapis` or `x-msedge-`). Then parse the JSON using `JSON.parse()`, convert it to a string with `JSON.stringify()`, and print it.
 
         ```javascript
         response.on('end', function () {

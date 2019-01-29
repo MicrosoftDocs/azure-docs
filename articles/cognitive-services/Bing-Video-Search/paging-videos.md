@@ -15,14 +15,14 @@ ms.author: scottwhi
 
 # Paging through video search results
 
-The Bing Video Search API returns a subset of all search results relevant to your query. Use this article to learn how to page through these search results with subsequent calls to the API.
+The Bing Video Search API returns a subset of all search results it found for your query. By paging through these results with subsequent calls to the API, you can get and display them in your application.
 
 > [!NOTE]
 > Paging applies only to videos search (/videos/search), and not to video insights (/videos/details) or trending videos (/videos/trending).
 
 ## Total estimated matches
 
-To get the estimated total number of results found, use the [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) field in the JSON response.   
+To get the estimated number of found search results, use the [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) field in the JSON response.   
   
 ```json  
 {

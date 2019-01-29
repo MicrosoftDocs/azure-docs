@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: rosh
@@ -17,7 +17,7 @@ ms.author: rosh
 
 Use this quickstart to begin searching for news with the Bing Video Search SDK for C#. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch). It contains more annotations and features.
 
-## Application dependencies
+## Prerequisites
 
 * Any edition of [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 * The Json.NET framework, available [as a NuGet package](https://www.nuget.org/packages/Newtonsoft.Json/).
@@ -59,6 +59,7 @@ Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages
     ```
 
 2. If any results were returned, get the first one with `videoResults.Value[0]`. Then print the video's ID, title, and url.
+
     ```csharp
     if (videoResults.Value.Count > 0)
     {

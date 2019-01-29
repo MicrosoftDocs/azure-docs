@@ -7,16 +7,16 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 02/18/2018
 ms.author: rosh
 ---
-# Quickstart: Perform a video search with the Bing Video Search SDK for C#
+# Quickstart: Perform a video search with the Bing Video Search SDK for Java
 
 Use this quickstart to begin searching for news with the Bing Video Search SDK for Java. While Bing Video Search has a REST API compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch), which contains more annotations and Bing Video Search features.
 
-## Application dependencies
+## Prerequisites
 
 * The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
@@ -67,7 +67,7 @@ Install the Bing Video Search SDK dependencies by using Maven, Gradle, or anothe
     )};
     ```
 
-    To implement the `ServiceClientCredentials`, follow these steps:
+    To implement `ServiceClientCredentials`, follow these steps:
 
     1. override the `applyCredentialsFilter()` function, with a `OkHttpClient.Builder` object as a parameter. 
         
@@ -120,7 +120,7 @@ Install the Bing Video Search SDK dependencies by using Maven, Gradle, or anothe
         //...
     }
     ```
-2. Within `VideoSearch()`, Send a video search request using the client, and `SwiftKey` as the search term. If Bing Video Search returned a result, get the first result and print its id, name, and URL, along with the total number of videos returned. 
+2. Within `VideoSearch()`, Send a video search request using the client, with `SwiftKey` as the search term. If the Video Search API returned a result, get the first result and print its id, name, and URL, along with the total number of videos returned. 
     
     ```java
     VideosInner videoResults = client.searchs().list("SwiftKey");

@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/15/2019
 ms.author: rosh

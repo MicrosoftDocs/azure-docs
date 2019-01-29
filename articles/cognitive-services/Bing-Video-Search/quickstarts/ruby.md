@@ -33,24 +33,33 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     require 'json'
     ```
 
-2. Create variables for the API endpoint, image API search path, your subscription key, and search term.
+2. Create variables for the API endpoint, video API search path, your subscription key, and search term.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
     path = "/bing/v7.0/videos/search"
     term = "kittens"
+    accessKey = "your-subscription-key" 
     ```
 
-## Format and make an API request
+## Create and send an API request
 
-1. Use the variables from the last step to format a search URL for the API request. Then send the request.
+1. Use the variables from the last step to format a search URL for the request. Combine your uri and path, then url-encode your search term before appending it to the `?q=` parameter.
 
     ```ruby
     uri = URI(uri + path + "?q=" + URI.escape(term))
+    ```
 
+2. Add the complete search URL to the request, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+    
+    ``` ruby
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = accessKey
+    ```
+
+3. Send the request, and save the response.
     
+    ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
         http.request(request)
     end

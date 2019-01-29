@@ -74,7 +74,7 @@ sections:
   - type: paragraph
     text: 'Develop applications using the Bing Video Search API:'
   - type: paragraph
-    text: <a href="tutorial-bing-video-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-video-search-single-page-app-source">Source code</a>
+    text: <a href="tutorial-bing-video-search-single-page-app">Single-page web app</a> &#124;
 - title: Samples
   items:
   - type: paragraph

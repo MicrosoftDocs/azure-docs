@@ -7,7 +7,7 @@ author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 1/09/2019
 ms.author: aahi
@@ -72,6 +72,117 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
     ```python
     HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
     ```
+
+
+## JSON Response
+
+A successful response is returned in JSON, as shown in the following example: 
+
+```json
+{
+    "_type": "Videos",
+    "instrumentation": {},
+    "readLink": "https://api.cognitive.microsoft.com/api/v7/videos/search?q=kittens",
+    "webSearchUrl": "https://www.bing.com/videos/search?q=kittens",
+    "totalEstimatedMatches": 1000,
+    "value": [
+        {
+            "webSearchUrl": "https://www.bing.com/videos/search?q=kittens&view=...",
+            "name": "Top 10 cute kitten videos compilation",
+            "description": "HELP HOMELESS ANIMALS AND WIN A PRIZE BY CHOOSING...",
+            "thumbnailUrl": "https://tse4.mm.bing.net/th?id=OVP.n1aE_Oikl4MtzBb...",
+            "datePublished": "2014-11-12T22:47:36.0000000",
+            "publisher": [
+                {
+                    "name": "Fabrikam"
+                }
+            ],
+            "creator": {
+                "name": "Marcus Appel"
+            },
+            "isAccessibleForFree": true,
+            "contentUrl": "https://www.fabrikam.com/watch?v=8HVWitAW-Qg",
+            "hostPageUrl": "https://www.fabrikam.com/watch?v=8HVWitAW-Qg",
+            "encodingFormat": "h264",
+            "hostPageDisplayUrl": "https://www.fabrikam.com/watch?v=8HVWitAW-Qg",
+            "width": 480,
+            "height": 360,
+            "duration": "PT3M52S",
+            "motionThumbnailUrl": "https://tse4.mm.bing.net/th?id=OM.j4QyJAENJphdZQ_1501386166&pid=Api",
+            "embedHtml": "<iframe width=\"1280\" height=\"720\" src=\"https://www.fabrikam.com/embed/8HVWitAW-Qg?autoplay=1\" frameborder=\"0\" allowfullscreen></iframe>",
+            "allowHttpsEmbed": true,
+            "viewCount": 7513633,
+            "thumbnail": {
+                "width": 300,
+                "height": 168
+            },
+            "videoId": "655D98260D012432848F6558260D012432848F",
+            "allowMobileEmbed": true,
+            "isSuperfresh": false
+        },
+        . . .
+    ],
+    "nextOffset": 36,
+    "queryExpansions": [
+        {
+            "text": "Kittens Meowing",
+            "displayText": "Meowing",
+            "webSearchUrl": "https://www.bing.com/videos/search?q=Kittens+Meowing...",
+            "searchLink": "https://api.cognitive.microsoft.com/api/v7/videos/search...",
+            "thumbnail": {
+                "thumbnailUrl": "https://tse3.mm.bing.net/th?q=Kittens+Meowing&pid..."
+            }
+        },
+        {
+            "text": "Funny Kittens",
+            "displayText": "Funny",
+            "webSearchUrl": "https://www.bing.com/videos/search?q=Funny+Kittens...",
+            "searchLink": "https://api.cognitive.microsoft.com/api/v7/videos/search...",
+            "thumbnail": {
+                "thumbnailUrl": "https://tse3.mm.bing.net/th?q=Funny+Kittens&..."
+            }
+        },
+        . . .
+    ],
+    "pivotSuggestions": [
+        {
+            "pivot": "kittens",
+            "suggestions": [
+                {
+                    "text": "Cat",
+                    "displayText": "Cat",
+                    "webSearchUrl": "https://www.bing.com/videos/search?q=Cat...",
+                    "searchLink": "https://api.cognitive.microsoft.com/api/v7/videos/search?...",
+                    "thumbnail": {
+                        "thumbnailUrl": "https://tse3.mm.bing.net/th?q=Cat&pid=Api..."
+                    }
+                },
+                {
+                    "text": "Feral Cat",
+                    "displayText": "Feral Cat",
+                    "webSearchUrl": "https://www.bing.com/videos/search?q=Feral+Cat...",
+                    "searchLink": "https://api.cognitive.microsoft.com/api/v7/videos/search...",
+                    "thumbnail": {
+                        "thumbnailUrl": "https://tse3.mm.bing.net/th?q=Feral+Cat&pid=Api&..."
+                    }
+                }
+            ]
+        }
+    ],
+    "relatedSearches": [
+        {
+            "text": "Kittens Being Born",
+            "displayText": "Kittens Being Born",
+            "webSearchUrl": "https://www.bing.com/videos/search?q=Kittens+Being+Born...",
+            "searchLink": "https://api.cognitive.microsoft.com/api/v7/videos/search?...",
+            "thumbnail": {
+                "thumbnailUrl": "https://tse1.mm.bing.net/th?q=Kittens+Being+Born&pid=..."
+            }
+        },
+        . . .
+    ]
+}
+```
 
 ## Next steps
 

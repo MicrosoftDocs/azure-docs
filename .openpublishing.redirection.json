@@ -31360,6 +31360,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-endpoints.md",
+      "redirect_url": "/rest/api/cognitiveservices/bing-video-api-v7-reference",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Video-Search/sdk.md",
       "redirect_url": "/azure/cognitive-services/Bing-Video-Search/video-sdk-quickstart",
       "redirect_document_id": true

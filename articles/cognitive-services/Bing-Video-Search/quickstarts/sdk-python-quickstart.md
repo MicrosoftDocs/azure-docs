@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: rosh
@@ -19,7 +19,7 @@ Use this quickstart to begin searching for news with the Bing Video Search SDK f
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-## Application dependencies
+## Prerequisites
 
 - [Python](https://www.python.org/) 2.x or 3.x
 - The Bing Video Search SDK for python

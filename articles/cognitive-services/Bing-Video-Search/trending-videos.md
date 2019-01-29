@@ -14,7 +14,7 @@ ms.author: scottwhi
 
 # Get trending videos with the Bing Video Search API 
 
-The Bing Video Search API enables you to find today's trending videos from across the web in different categories. 
+The Bing Video Search API enables you to find today's trending videos from across the web, and in different categories. 
 
 ## GET request
 
@@ -50,7 +50,7 @@ The following markets support trending videos.
 
 ## Example JSON response  
 
-The following example shows an API response that contains trending videos.  
+The following example shows an API response that contains trending videos, which are listed by category and subcategory. The response also contains banner videos, which are the most popular trending videos, and can come from one or more categories.  
 
 ```json
 {  
@@ -114,12 +114,8 @@ The following example shows an API response that contains trending videos.
     ]  
 }  
   
-```  
+```
 
-This response contains a list of videos by category and subcategory. For example, if the list of categories contained a Music Videos category and one of its subcategories was Top, you could create a Top Music Videos category in your user experience. You could then use the `thumbnailUrl`, `displayText`, and `webSearchUrl` fields to create a clickable tile under each category (for example, Top Music Videos). When the user clicks the tile, they're taken to Bing's video browser where the video can be played.
-
-The response also contains banner videos, which are the most popular trending videos. The banner videos may come from one or more categories.  
-  
 ## Next steps
 
 > [!div class="nextstepaction"]

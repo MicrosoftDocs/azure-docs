@@ -95,7 +95,6 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
                 results.relevantHeaders.put(header, headers.get(header).get(0));
             }
         }
-
         stream.close();
         return results;
         ```
@@ -120,19 +119,12 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
 
     ```java
     public static void main (String[] args) {
-        try{
-            SearchResults result = SearchVideos(searchTerm);
-        
-            //print the Relevant HTTP Headers
-            for (String header : result.relevantHeaders.keySet())
-                System.out.println(header + ": " + result.relevantHeaders.get(header));
-        
-            System.out.println(prettify(result.jsonResponse));
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
+
+        SearchResults result = SearchVideos(searchTerm);
+        //print the Relevant HTTP Headers
+        for (String header : result.relevantHeaders.keySet())
+            System.out.println(header + ": " + result.relevantHeaders.get(header));
+        System.out.println(prettify(result.jsonResponse));
     }
     ```
 

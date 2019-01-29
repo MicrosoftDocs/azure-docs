@@ -7,7 +7,7 @@ author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/07/2019
 ms.author: aahi
@@ -66,7 +66,7 @@ Create a method named `BingVideoSearch` to perform the call to the API, and set 
 
     ```csharp
     
-    static SearchResult BingNewsSearch(string toSearch){
+    static SearchResult BingVideoSearch(string toSearch){
     
         var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
     //...
@@ -75,10 +75,12 @@ Create a method named `BingVideoSearch` to perform the call to the API, and set 
 2. Perform the web request by adding your key to the `Ocp-Acpim-Subscription-Key` header, and using a `HttpWebResponse` object to store the API response. Then use a `StreamReader` to get the JSON string.
 
     ```csharp
+    //...
     WebRequest request = HttpWebRequest.Create(uriQuery);
     request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+    //...
     ```
 
 ## Process the result
@@ -99,7 +101,7 @@ Create a method named `BingVideoSearch` to perform the call to the API, and set 
     return searchResult;
     ```
 
-2. You can then print the raw response.
+2. You can then print the response.
 
     ```csharp
     Console.WriteLine(result.jsonResult);

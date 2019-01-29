@@ -7,7 +7,7 @@ author: swhite-msft
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/07/2019
 ms.author: scottwhi
