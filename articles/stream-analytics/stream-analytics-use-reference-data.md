@@ -71,11 +71,11 @@ Azure Stream Analytics automatically scans for refreshed reference data blobs at
 > [!NOTE]
 > This preview feature is available only in West Central US. Please make sure your Stream Analytics jobs are deployed to this region.
 
-To use Azure SQL Database as a reference data input source, configure a storage account for your Stream Analytics job. When your Stream Analytics job is running, the Stream Analytics runtime will retrieve the reference data snapshot from Azure SQL Database using the query you provided. Stream Analytics then loads the data set in memory for processing. A snapshot of your reference data is also stored in a container in the storage account you created. The container is auto-created when the job starts and automatically gets deleted when the job stops.
+Azure SQL Database reference data is retrieved by your Stream Analytics job and is stored as a snapshot in memory for processing. The snapshot of your reference data is also stored in a container in a storage account that you specify in the configuration settings. The container is auto-created when the job starts and automatically gets deleted when the job stops.
 
 If your reference data is a slowly changing data set, you need to periodically refresh the snapshot that is used in your job. Stream Analytics allows you to set a refresh rate when you configure your Azure SQL Database input connection. The Stream Analytics runtime will query your Azure SQL Database at the interval specified by the refresh rate. The fastest refresh rate supported is once per minute. For each refresh, Stream Analytics stores a new snapshot in the storage account provided.
 
-Stream Analytics provides two options for querying your Azure SQL Database. The snapshot query is mandatory and must be included in each job. Stream Analytics runs the snapshot query periodically based on your refresh interval and uses the result of the query (the snapshot) as the reference data set. The snapshot query should fit most scenarios, but if you run into performance issues with large data sets and fast refresh rates, you can use the delta query option.
+Stream Analytics provides two options for querying your Azure SQL Database. A snapshot query is mandatory and must be included in each job. Stream Analytics runs the snapshot query periodically based on your refresh interval and uses the result of the query (the snapshot) as the reference data set. The snapshot query should fit most scenarios, but if you run into performance issues with large data sets and fast refresh rates, you can use the delta query option.
 
 With the delta query option, Stream Analytics runs the snapshot query initially to get a baseline reference data set. After, Stream Analytics runs the delta query periodically based on your refresh interval to retrieve incremental changes. These incremental changes are continually applied to the reference data set to keep it updated. Using delta query may help reduce storage cost and network I/O operations.
 
@@ -83,10 +83,15 @@ With the delta query option, Stream Analytics runs the snapshot query initially 
 
 To configure your SQL Database reference data, you first need to create **Reference Data** input. The table below explains each property that you will need to provide while creating the reference data input with its description. For more information, see [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md).
 
-|**Property Name**  |**Description**  |
+|**Property Name**|**Description**  |
 |---------|---------|
-
-
+|Input alias|A friendly name that will be used in the job query to reference this input.|
+|Subscription|Choose your subscription|
+|Database|The Azure SQL Database that contains your reference data.|
+|Username|The username associated with your Azure SQL Database.|
+|Password|The password associated with your Azure SQL Database.|
+|Refresh periodically|This option allows you to choose a refresh rate. Choosing "On" will allow you to specify the refresh rate in DD:HH:MM.|
+|Delta query|For advanced scenarios with large data sets and a short refresh rate, choose to add a delta query.|
 
 ## Size limitation
 
