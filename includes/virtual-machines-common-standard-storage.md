@@ -5,7 +5,7 @@ services: storage
 author: yuemlu
 ms.service: storage
 ms.topic: "include"
-ms.date: 06/05/2018
+ms.date: 01/08/2019
 ms.author: yuemlu
 ms.custom: "include file"
 ---
@@ -73,15 +73,7 @@ If the needs of your application exceed the scalability targets of a single stor
 
 ### Standard Disks Limits
 
-Unlike Premium Disks, the input/output operations per second (IOPS) and throughput (bandwidth) of Standard Disks are not provisioned. The performance of standard disks varies with the VM size to which the disk is attached, not to the size of the disk. You could expect to achieve up to the performance limit listed in the table below.
-
-**Standard disks limits (managed and unmanaged)**
-
-| **VM Tier**            | **Basic Tier VM** | **Standard Tier VM** |
-|------------------------|-------------------|----------------------|
-| Max Disk size          | 32,767 GiB           | 32,767 GiB        |
-| Max 8 KB IOPS per disk | Up to 2,000         | Up to 2,000        |
-| Max Bandwidth per disk | Up to 500 MB/s     | Up to 500 MB/s      |
+Unlike Premium Disks, the input/output operations per second (IOPS) and throughput (bandwidth) of Standard Disks are not provisioned. The performance of standard disks varies with the VM size to which the disk is attached and the size of the disk.
 
 If your workload requires high-performance, low-latency disk support, you should consider using Premium Storage. To know more benefits of Premium Storage, visit [High-Performance Premium Storage and Azure VM Disks](../articles/virtual-machines/windows/premium-storage.md).
 
@@ -111,7 +103,7 @@ If a managed disk is attached to a VM, certain API operations are not permitted 
 
 When using Standard Storage, the following billing considerations apply:
 
-* Standard storage unmanaged disks/data size 
+* Standard storage unmanaged disks/data size
 * Standard managed disks
 * Standard storage snapshots
 * Outbound data transfers
@@ -121,7 +113,9 @@ When using Standard Storage, the following billing considerations apply:
 
 **Managed disks:** Billing for standard managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you create a standard managed disk and specify a provisioned size of 200 GiB, you are billed as per the pricing of the S15 Disk type.
 
-| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+Sizes denoted with an asterisk are currently in preview.
+
+| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,385 GiB (16 TiB) | 32,767 GiB (32 TiB) |
 

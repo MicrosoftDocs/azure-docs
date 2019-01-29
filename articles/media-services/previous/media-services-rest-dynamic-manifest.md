@@ -38,9 +38,9 @@ The following types are used when creating filters:
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
->[!NOTE]
-
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
+> [!NOTE]
+> 
+> When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
 ## Connect to Media Services
 
@@ -191,7 +191,7 @@ To list filters, use the following HTTP requests:
 
 
 ## Update filters
-Use PATCH, PUT, or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
+Use PATCH, PUT, or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
 If you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Clear the cache after updating the filter. If this option is not possible, consider using a different filter.  
 

@@ -42,7 +42,7 @@ In SSMS, to generate the report:
 * In the **Object Explorer**, right-click your database node.
 * Click **Reports** > **Standard Reports** > **Transaction Performance Analysis Overview**.
 
-For more information, see [Determining if a Table or Stored Procedure Should Be Ported to In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
+For more information, see [Determining if a Table or Stored Procedure Should Be Ported to In-Memory OLTP](https://msdn.microsoft.com/library/dn205133.aspx).
 
 ## Step 3: Create a comparable test database
 Suppose the report indicates your database has a table that would benefit from being converted to a memory-optimized table. We recommend that you first test to confirm the indication by testing.
@@ -75,9 +75,9 @@ To use this migration option:
    * The **Table Memory Optimizer Advisor** wizard is displayed.
 3. In the wizard, click **Migration validation** (or the **Next** button) to see if the table has any unsupported features that are unsupported in memory-optimized tables. For more information, see:
    
-   * The *memory optimization checklist* in [Memory Optimization Advisor](http://msdn.microsoft.com/library/dn284308.aspx).
-   * [Transact-SQL Constructs Not Supported by In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx).
-   * [Migrating to In-Memory OLTP](http://msdn.microsoft.com/library/dn247639.aspx).
+   * The *memory optimization checklist* in [Memory Optimization Advisor](https://msdn.microsoft.com/library/dn284308.aspx).
+   * [Transact-SQL Constructs Not Supported by In-Memory OLTP](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [Migrating to In-Memory OLTP](https://msdn.microsoft.com/library/dn247639.aspx).
 4. If the table has no unsupported features, the advisor can perform the actual schema and data migration for you.
 
 #### Manual T-SQL
@@ -109,7 +109,7 @@ A natively compiled stored procedure must have the following options on its T-SQ
 * NATIVE_COMPILATION
 * SCHEMABINDING: meaning tables that the stored procedure cannot have their column definitions changed in any way that would affect the stored procedure, unless you drop the stored procedure.
 
-A native module must use one big [ATOMIC blocks](http://msdn.microsoft.com/library/dn452281.aspx) for transaction management. There is no role for an explicit BEGIN TRANSACTION, or for ROLLBACK TRANSACTION. If your code detects a violation of a business rule, it can terminate the atomic block with a [THROW](http://msdn.microsoft.com/library/ee677615.aspx) statement.
+A native module must use one big [ATOMIC blocks](https://msdn.microsoft.com/library/dn452281.aspx) for transaction management. There is no role for an explicit BEGIN TRANSACTION, or for ROLLBACK TRANSACTION. If your code detects a violation of a business rule, it can terminate the atomic block with a [THROW](https://msdn.microsoft.com/library/ee677615.aspx) statement.
 
 ### Typical CREATE PROCEDURE for natively compiled
 Typically the T-SQL to create a natively compiled stored procedure is similar to the following template:
@@ -140,7 +140,7 @@ The migration steps are:
 2. Rewrite its header to match the previous template.
 3. Ascertain whether the stored procedure T-SQL code uses any features that are not supported for natively compiled stored procedures. Implement workarounds if necessary.
    
-   * For details see [Migration Issues for Natively Compiled Stored Procedures](http://msdn.microsoft.com/library/dn296678.aspx).
+   * For details see [Migration Issues for Natively Compiled Stored Procedures](https://msdn.microsoft.com/library/dn296678.aspx).
 4. Rename the old stored procedure by using SP_RENAME. Or simply DROP it.
 5. Run your edited CREATE PROCEDURE T-SQL script.
 
@@ -163,7 +163,7 @@ Consider monitoring the performance effects of your In-Memory implementations in
 * [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
 
 ## Related links
-* [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
-* [Introduction to Natively Compiled Stored Procedures](http://msdn.microsoft.com/library/dn133184.aspx)
-* [Memory Optimization Advisor](http://msdn.microsoft.com/library/dn284308.aspx)
+* [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
+* [Introduction to Natively Compiled Stored Procedures](https://msdn.microsoft.com/library/dn133184.aspx)
+* [Memory Optimization Advisor](https://msdn.microsoft.com/library/dn284308.aspx)
 

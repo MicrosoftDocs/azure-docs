@@ -36,7 +36,7 @@ At the end of this article, you run two Swift iOS projects:
 
 To complete this tutorial, you need the following:
 
-- An active Azure account. (If you don't have an account, you can create a [free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+- An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 - An active IoT hub in Azure. 
 

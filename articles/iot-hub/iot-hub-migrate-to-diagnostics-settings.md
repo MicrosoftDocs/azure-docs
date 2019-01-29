@@ -5,13 +5,13 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 11/19/2018
 ms.author: kgremban
 ---
 
 # Migrate your IoT Hub from operations monitoring to diagnostics settings
 
-Customers using [operations monitoring](iot-hub-operations-monitoring.md) to track the status of operations in IoT Hub can migrate that workflow to [Azure diagnostics settings](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), a feature of Azure Monitor. Diagnostics settings supply resource-level diagnostic information for many Azure services.
+Customers using [operations monitoring](iot-hub-operations-monitoring.md) to track the status of operations in IoT Hub can migrate that workflow to [Azure diagnostics settings](../azure-monitor/platform/diagnostic-logs-overview.md), a feature of Azure Monitor. Diagnostics settings supply resource-level diagnostic information for many Azure services.
 
 The operations monitoring functionality of IoT Hub is deprecated, and will be removed in the future. This article provides steps to move your workloads from operations monitoring to diagnostics settings. For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
@@ -44,6 +44,10 @@ Also, diagnostics settings offers tracking for five new categories. After you up
 * Direct Methods
 
 For the specific schema structures, see [Understand the schema for diagnostics settings](iot-hub-monitor-resource-health.md#understand-the-logs).
+
+## Monitoring device connect and disconnect events with low latency
+
+To monitor device connect and disconnect events, we recommend subscribing to the [**device disconnected** event](iot-hub-event-grid.md#event-types) on Event Grid to get alerts and monitor the device connection state. Use this [tutorial](iot-hub-how-to-order-connection-state-events.md) to learn how to integrate Device Connected and Device Disconnected events from IoT Hub in your IoT solution.
 
 ## Next steps
 

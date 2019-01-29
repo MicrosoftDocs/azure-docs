@@ -1,4 +1,3 @@
-
 ---
 title: Group Policy and MDM settings | Microsoft Docs
 description: Provides information about group policy and mobile device management (MDM) settings that should be used on corporate-owned devices. These policies are applied to the user’s entire device.
@@ -6,10 +5,10 @@ services: active-directory
 keywords: what are group Policy and MDM settings for Enterprise State Roaming, Enterprise State Roaming, windows cloud
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: curtand
 
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 6471a9b3-8dd4-4237-89d1-bfbeca9f8252
 ms.service: active-directory
 ms.workload: identity

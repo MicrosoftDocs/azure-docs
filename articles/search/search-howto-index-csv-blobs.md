@@ -1,6 +1,6 @@
 ---
-title: Indexing CSV blobs with Azure Search blob indexer | Microsoft Docs
-description: Learn how to index CSV blobs with Azure Search
+title: Index CSV blobs with Azure Search Blob indexer - Azure Search
+description: Crawl CSV blobs in Azure Blob storage for full text search using an Azure Search index. Indexers automate data ingestion for selected data sources like Azure Blob storage.
 
 ms.date: 10/17/2018
 author: mgottein 
@@ -11,6 +11,7 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
+ms.custom: seodec2018
 ---
 # Indexing CSV blobs with Azure Search blob indexer
 By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses delimited text blobs as a single chunk of text. However, with blobs containing CSV data, you often want to treat each line in the blob as a separate document. For example, given the following delimited text, you might want to parse it into two documents, each containing "id", "datePublished", and "tags" fields: 
@@ -22,7 +23,7 @@ By default, [Azure Search blob indexer](search-howto-indexing-azure-blob-storage
 In this article, you will learn how to parse CSV blobs with an Azure Search blob indexer. 
 
 > [!IMPORTANT]
-> This functionality is currently in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+> CSV blob indexing is currently in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 > 
 
 ## Setting up CSV indexing

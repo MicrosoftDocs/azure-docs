@@ -7,35 +7,40 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Order an Azure Data Box Disk (Preview)
+# Tutorial: Order an Azure Data Box Disk
 
-Azure Data Box Disk is a hybrid cloud solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to solid-state disks (SSDs) supplied by Microsoft and ship the disks back. This data is then uploaded to Azure. 
+Azure Data Box Disk is a hybrid cloud solution that allows you to import your on-premises data into Azure in a quick, easy, and reliable way. You transfer your data to solid-state disks (SSDs) supplied by Microsoft and ship the disks back. This data is then uploaded to Azure.
 
 This tutorial describes how you can order an Azure Data Box Disk. In this tutorial, you learn about:
 
 > [!div class="checklist"]
-> * Sign up for Data Box Disk
 > * Order a Data Box Disk
 > * Track the order
 > * Cancel the order
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
 
-> [!IMPORTANT]
-> - Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
-> - During preview, Data Box Disk can be shipped to customers in US, West and North Europe, Candana, and Australia. For more information, go to [Region availability](data-box-disk-overview.md#region-availability).
+Before you deploy, complete the following configuration prerequisites for Data Box service and Data Box Disk.
 
-## Sign up 
+### For service
 
-Data Box Disk is in preview and you need to sign up for the service. Perform the following steps to sign up for Data Box service:
+Before you begin, make sure that:
+- You have your Microsoft Azure storage account with access credentials.
+- Make sure that the subscription you use for Data Box service is one of the following types:
+    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+- Ensure that you have owner or contributor access to the subscription to create a Data Box order.
 
-1. Sign into the Azure portal at: [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
-2. Pick the subscription that you want to enable for the preview. Answer the questions regarding data size, data residence country, time-frame, and data transfer frequency. Click **Sign me up!**.
-3. Once you are signed up and enabled for preview, you can order a Data Box Disk.
+### For device
+
+Before you begin, make sure that:
+- You have a client computer available from which you can copy the data. Your client computer must:
+    - Run a [Supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+    - Have other [required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it is a Windows client.  
 
 ## Order Data Box Disk
 
@@ -59,7 +64,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
     |Destination Azure region|Select the Azure region where you want to transfer data.|
 
   
-5.  Select **Data Box Disk**. The maximum capacity of the solution for a single order of 5 disks is 35 TB. You could create multiple orders for larger data sizes. 
+5.  Select **Data Box Disk**. The maximum capacity of the solution for a single order of 5 disks is 35 TB. You could create multiple orders for larger data sizes.
 
      ![Select Data Box Disk option](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
@@ -72,6 +77,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
     |Destination Azure region| Select a region for your storage account.<br> Currently, storage accounts in all regions in US, West and North Europe, Canada, and Australia are supported. |
     |Storage account(s)|Based on the specified Azure region, select from the filtered list of an existing storage account. <br>You can also create a new General purpose v1 or General purpose v2 account. |
     |Estimated data size in TB| Enter an estimate in TB. <br>Based on the data size, Microsoft sends you an appropriate number of 8 TB SSDs (7 TB usable capacity). <br>The maximum usable capacity of 5 disks is up to 35 TB. |
+    |Disk passkey| Supply the disk passkey if you check **Use custom key instead of Azure generated passkey**. <br> Provide a 12 to 32 character alphanumeric key that has at least one numeric and one special character. The allowed special characters are `@?_+`. <br> You can choose to skip this option and use the Azure generated passkey to unlock your disks.|
 
 13. Click **Next**. 
 
@@ -91,7 +97,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
  
 ## Track the order
 
-After you have placed the order, you can track the status of the order from Azure preview portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state. 
+After you have placed the order, you can track the status of the order from Azure portal. Go to your order and then go to **Overview** to view the status. The portal shows the job in **Ordered** state. 
 
 ![Data Box Disk status ordered](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -105,17 +111,15 @@ When the disk preparation is complete, the portal shows the order in **Processed
 
 Microsoft then prepares and dispatches your disks via a regional carrier. You receive a tracking number once the disks are shipped. The portal shows the order in **Dispatched** state.
 
-
-
 ## Cancel the order
 
-To cancel this order, in the Azure preview portal, go to **Overview** and click **Cancel** from the command bar. 
+To cancel this order, in the Azure portal, go to **Overview** and click **Cancel** from the command bar. 
 
 You can only cancel when the disks are ordered and the order is being processed for shipment. Once the order is processed, you can no longer cancel the order. 
 
 ![Cancel order](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
-To delete a canceled order, go to **Overview** and click **Delete** from the command bar. 
+To delete a canceled order, go to **Overview** and click **Delete** from the command bar.
 
 
 ## Next steps
@@ -123,7 +127,6 @@ To delete a canceled order, go to **Overview** and click **Delete** from the com
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
-> * Sign up for Data Box Disk
 > * Order Data Box Disk
 > * Track the order
 > * Cancel the order

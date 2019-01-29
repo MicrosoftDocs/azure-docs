@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 01/23/2019
 ms.author: jingwang
 
 ---
-#  Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory 
+# Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version1 ](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Current version](connector-azure-sql-data-warehouse.md)
@@ -213,7 +213,7 @@ To copy data from or to Azure SQL Data Warehouse, set the **type** property of t
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **AzureSqlDWTable**. | Yes |
-| tableName | The name of the table or view in the Azure SQL Data Warehouse instance that the linked service refers to. | Yes |
+| tableName | The name of the table or view in the Azure SQL Data Warehouse instance that the linked service refers to. | No for source, Yes for sink |
 
 #### Dataset properties example
 
@@ -253,7 +253,6 @@ To copy data from Azure SQL Data Warehouse, set the **type** property in the Cop
 
 - If the **sqlReaderQuery** is specified for the **SqlSource**, the Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data. Or you can specify a stored procedure. Specify the **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the **structure** section of the dataset JSON are used to construct a query. `select column1, column2 from mytable` runs against Azure SQL Data Warehouse. If the dataset definition doesn't have the **structure**, all columns are selected from the table.
-- When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
 #### SQL query example
 
@@ -334,9 +333,9 @@ CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 AS
 SET NOCOUNT ON;
 BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
+    select *
+    from dbo.UnitTestSrcTable
+    where dbo.UnitTestSrcTable.stringData != stringData
     and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
@@ -401,28 +400,28 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
    1. `fileName` doesn't contain wildcard filter.
    2. `rowDelimiter` must be **\n**.
-   3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is not set to false.
+   3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
    4. `encodingName` is set to **utf-8**, which is the default value.
    5. `escapeChar`, `quoteChar` and `skipLineCount` aren't specified. PolyBase support skip header row which can be configured as `firstRowAsHeader` in ADF.
    6. `compression` can be **no compression**, **GZip**, or **Deflate**.
 
-	```json
-	"typeProperties": {
-	   "folderPath": "<blobpath>",
-	   "format": {
-	       "type": "TextFormat",
-	       "columnDelimiter": "<any delimiter>",
-	       "rowDelimiter": "\n",
-	       "nullValue": "",
-	       "encodingName": "utf-8",
-           "firstRowAsHeader": <any>
-	   },
-	   "compression": {
-	       "type": "GZip",
-	       "level": "Optimal"
-	   }
-	},
-	```
+    ```json
+    "typeProperties": {
+        "folderPath": "<blobpath>",
+        "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "<any delimiter>",
+            "rowDelimiter": "\n",
+            "nullValue": "",
+            "encodingName": "utf-8",
+            "firstRowAsHeader": <any>
+        },
+        "compression": {
+            "type": "GZip",
+            "level": "Optimal"
+        }
+    },
+    ```
 
 ```json
 "activities":[
@@ -571,7 +570,7 @@ When you copy data from or to Azure SQL Data Warehouse, the following mappings a
 | smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| sql_variant | Object * |
+| sql_variant | Object |
 | text | String, Char[] |
 | time | TimeSpan |
 | timestamp | Byte[] |

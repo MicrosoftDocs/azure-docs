@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 01/28/2019
 ms.author: juliako
 ---
 
@@ -28,22 +28,17 @@ This article shows you how to use the Azure CLI to create an Azure AD applicatio
 
 ## Prerequisites 
 
-Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
+[Create a Media Services account](create-account-cli-how-to.md).
 
-## Sign in to Azure
-
-Sign in to the [Azure portal](http://portal.azure.com) and launch **CloudShell** to execute CLI commands, as shown in the next steps.
-
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+Make sure to remember the values that you used for the resource group name and Media Services account name.
+ 
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Stream a file](stream-files-dotnet-quickstart.md)
+[Stream a file](stream-files-dotnet-quickstart.md)
 
 ## See also
 

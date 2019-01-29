@@ -10,7 +10,7 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
 ---
 
@@ -20,25 +20,17 @@ This script creates an Event Grid subscription to the events for a resource grou
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample script
+The preview sample script requires the Event Grid module. To install, run
+`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
-```powershell
-# Provide an endpoint for handling the events.
-$myEndpoint = "<endpoint URL>"
+## Sample script - stable
 
-# Select the Azure subscription that contains the resource group.
-Set-AzureRmContext -Subscription "Contoso Subscription"
+[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events/filter-events.ps1 "Filter events")]
 
-# Get the resource ID to filter events
-$resourceId = (Get-AzureRmResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
+## Sample script - preview module
 
-# Subscribe to the resource group. Provide the name of the resource group you want to subscribe to.
-New-AzureRmEventGridSubscription `
-  -Endpoint $myEndpoint `
-  -EventSubscriptionName demoSubscriptionToResourceGroup `
-  -ResourceGroupName myResourceGroup `
-  -SubjectBeginsWith $resourceId
-```
+[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events-preview/filter-events-preview.ps1 "Filter events")]
+
 
 ## Script explanation
 

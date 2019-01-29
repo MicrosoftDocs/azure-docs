@@ -61,6 +61,7 @@ When prompted, choose a worker runtime from the following languages:
 
 * `dotnet`: creates a .NET class library project (.csproj).
 * `node`: creates a JavaScript project.
+* `python`: creates a Python project.
 
 When the command executes, you see something like the following output:
 
@@ -235,6 +236,13 @@ az functionapp config appsettings set --name <function_app> \
 --settings AzureWebJobsDashboard=$storageConnectionString \
 AzureWebJobsStorage=$storageConnectionString
 ```
+
+> [!NOTE]
+> If your container is private, you would have to set the following application settings as well  
+> - DOCKER_REGISTRY_SERVER_USERNAME  
+> - DOCKER_REGISTRY_SERVER_PASSWORD  
+>
+> You will have to stop and then start your function app for these values to be picked up
 
 You can now test your functions running on Linux in Azure.
 

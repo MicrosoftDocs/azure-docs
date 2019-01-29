@@ -44,13 +44,13 @@ To use this test tooling to generate certificates, perform the following steps:
  
 1. Open a command prompt or Git Bash shell, and change to a working folder on your machine. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
-  ```cmd/sh
-  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-  ```
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-  The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+   The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
-  The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
+   The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
 
 2. Follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
 

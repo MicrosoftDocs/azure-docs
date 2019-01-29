@@ -449,7 +449,7 @@ In this example, you create a policy that removes the basic claim set from token
 	1. To create the policy, run this command: 
 	
 	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
+	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
 	```
 	2. To see your new policy, and to get the policy ObjectId, run the following command:
 	

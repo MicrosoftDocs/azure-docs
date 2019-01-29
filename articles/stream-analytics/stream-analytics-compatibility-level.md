@@ -2,12 +2,12 @@
 title: Understand compatibility level for Azure Stream Analytics jobs
 description: Learn how to set a compatibility level for an Azure Stream Analytics job and major changes in the latest compatibility level
 services: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
-manager: kfile
+author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 12/06/2018
+ms.custom: seodec18
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
@@ -22,7 +22,7 @@ Compatibility level controls the runtime behavior of a stream analytics job. You
 
 Make sure that you stop the job before updating the compatibility level. You can’t update the compatibility level if your job is in a running state. 
 
-![Compatibility level in portal](media\stream-analytics-compatibility-level/image1.png)
+![Stream Analytics compatibility level in Azure portal](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
  
 When you update the compatibility level, the T-SQL compiler validates the job with the syntax that corresponds to the selected compatibility level. 
@@ -35,11 +35,11 @@ The following major changes are introduced in compatibility level 1.1:
 
   * **previous versions:** Azure Stream Analytics used DataContractSerializer, so the message content included XML tags. For example:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **current version:** The message content contains the stream directly with no additional tags. For example:
   
-   { "SensorId":"1", "Temperature":64} 
+    { "SensorId":"1", "Temperature":64} 
  
 * **Persisting case-sensitivity for field names**  
 
@@ -47,8 +47,8 @@ The following major changes are introduced in compatibility level 1.1:
 
   * **current version:** case-sensitivity is persisted for field names when they are processed by the Azure Stream Analytics engine. 
 
-  > [!NOTE] 
-  > Persisting case-sensitivity isn't yet available for Stream Analytic jobs hosted by using Edge environment. As a result, all field names are converted to lowercase if your job is hosted on Edge. 
+    > [!NOTE] 
+    > Persisting case-sensitivity isn't yet available for Stream Analytic jobs hosted by using Edge environment. As a result, all field names are converted to lowercase if your job is hosted on Edge. 
 
 * **FloatNaNDeserializationDisabled**  
 

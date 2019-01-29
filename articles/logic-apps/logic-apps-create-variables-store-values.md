@@ -38,7 +38,13 @@ also known as *increment* and *decrement*.
 Variables exist and are global only within the logic app instance that creates them. 
 Also, they persist across any loop iterations inside a logic app instance. 
 When referencing a variable, use the variable's name as the token, 
-not the action's name, which is the usual way to reference an action's outputs.
+not the action's name, which is the usual way to reference an action's outputs. 
+
+> [!IMPORTANT]
+> By default, cycles in a "Foreach" loop run in parallel. 
+> When you use variables in loops, 
+> run the loop [sequentially](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) 
+> so variables return predictable results. 
 
 If you don't have an Azure subscription yet, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
@@ -550,7 +556,7 @@ variable that contains this array: `[1,2,3,"red"]`
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

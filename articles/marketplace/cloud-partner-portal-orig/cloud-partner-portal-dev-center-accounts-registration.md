@@ -151,7 +151,7 @@ here. Otherwise, provide your credit card info (or PayPal in supported markets).
    ![Payment registration](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
 
 10. Review your account information and confirm that everything is
-correct. Read and accept the terms and conditions of the [Microsoft Azure Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560). Check the box
+correct. Read and accept the terms and conditions of the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Check the box
 to indicate you have read and accepted these terms.
 
 11. Select **Finish** to confirm your registration. A confirmation message is sent to your email address.
@@ -203,7 +203,7 @@ To publish commercial offers for purchase, you need to add payout and tax inform
     - Select **Next**.
 4.  Enter your tax details, and then select **Next**.
 
->[WARNING!]
+>[!WARNING]
 >You won't be able to push to your commercial offers to production without providing bank account and tax information in your Microsoft Developer Center account.
 
 ### Developer Center registration issues

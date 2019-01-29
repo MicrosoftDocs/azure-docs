@@ -86,7 +86,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 In order to use HTTPS on the VM, you need a trusted SSL certificate. Depending on your scenario, you can use one of the following two methods:
 
-* A valid SSL certificate issued by a Certification Authority (CA) and trusted by Microsoft. The CA root certificates are required to be distributed via the Microsoft Root Certificate Program. For more information about this program, see [Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) and [Introduction to The Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+* A valid SSL certificate issued by a Certification Authority (CA) and trusted by Microsoft. The CA root certificates are required to be distributed via the Microsoft Root Certificate Program. For more information about this program, see [Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) and [Introduction to The Microsoft Root Certificate Program](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 * A self-signed certificate. Self-signed certificates are not recommended for production environments.
 
 ### To use a certificate created by a trusted Certificate Authority (CA)

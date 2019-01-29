@@ -3,14 +3,14 @@ title: Track user behavior by using events in Application Insights from Azure Ac
 description: Learn how to enable event logs in Application Insights from Azure AD B2C user journeys by using custom policies (preview).
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 
 ---
 # Track user behavior in Azure Active Directory B2C using Application Insights
@@ -27,7 +27,7 @@ When you use Azure Active Directory (Azure AD) B2C together with Azure Applicati
 
 ## How it works
 
-The Identity Experience Framework in Azure AD B2C includes the provider `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0`. It sends event data directly to Application Insights by using the instrumentation key provided to Azure AD B2C.
+The Identity Experience Framework in Azure AD B2C includes the provider `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. It sends event data directly to Application Insights by using the instrumentation key provided to Azure AD B2C.
 
 A technical profile uses this provider to define an event from Azure AD B2C. The profile specifies the name of the event, the claims that are recorded, and the instrumentation key. To post an event, the technical profile is then added as an `orchestration step`, or as a `validation technical profile` in a custom user journey.
 

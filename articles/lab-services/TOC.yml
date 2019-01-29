@@ -75,6 +75,8 @@
       href: devtest-lab-store-secrets-in-key-vault.md
     - name: Test your app in Azure
       href: test-app-azure.md
+    - name: Export or delete personal data
+      href: personal-data-delete-export.md
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
@@ -196,6 +198,8 @@
     href: /powershell/module/azurerm.devtestlabs/#devtest_labs
   - name: REST API
     href: https://docs.microsoft.com/rest/api/dtl/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.devtestlab/allversions
 - name: Resources
   items:
   - name: Azure Roadmap

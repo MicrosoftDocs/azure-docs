@@ -3,7 +3,7 @@ title: Create and manage elastic pools - Azure SQL database | Microsoft Docs
 description: Create and manage Azure SQL elastic pools.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
+ms.date: 01/17/2019
 ---
 
 # Create and manage elastic pools in Azure SQL Database
@@ -34,7 +34,7 @@ From here you can make any combination of the following changes and save them al
 
 ## PowerShell: Manage elastic pools and pooled databases
 
-To create and manage SQL Database elastic pools and pooled databases with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). To create and manage the logical servers for an elastic pool, see [Create and Managed logical servers](sql-database-logical-servers.md). To create and manage firewall rules, see [Create and manage firewall rules using PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+To create and manage SQL Database elastic pools and pooled databases with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To create and manage the logical servers for an elastic pool, see [Create and Managed logical servers](sql-database-logical-servers.md). To create and manage firewall rules, see [Create and manage firewall rules using PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > For PowerShell example scripts, see [Create elastic pools and move databases between pools and out of a pool using PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) and [Use PowerShell to monitor and scale a SQL elastic pool in Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -94,11 +94,11 @@ To create and manage SQL Database elastic pools and pooled databases, use these 
 
 | Command | Description |
 | --- | --- |
-|[Elastic pools - Create Or Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
-|[Elastic pools - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Deletes the elastic pool.|
-|[Elastic pools - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Gets an elastic pool.|
-|[Elastic pools - List By Server](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Returns a list of elastic pools in a server.|
-|[Elastic pools - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Updates an existing elastic pool.|
+|[Elastic pools - Create Or Update](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Creates a new elastic pool or updates an existing elastic pool.|
+|[Elastic pools - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Deletes the elastic pool.|
+|[Elastic pools - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Gets an elastic pool.|
+|[Elastic pools - List By Server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Returns a list of elastic pools in a server.|
+|[Elastic pools - Update](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Updates an existing elastic pool.|
 |[Elastic pool Activities](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Returns elastic pool activities.|
 |[Elastic pool Database Activities](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Returns activity on databases inside of an elastic pool.|
 |[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|

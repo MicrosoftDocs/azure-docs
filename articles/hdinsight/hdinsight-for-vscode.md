@@ -4,19 +4,19 @@ description: Learn how to use the Azure HDInsight Tools for Visual Studio Code t
 Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
 documentationcenter: ''
-author: jejiang
-
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.author: jejiang
+ms.date: 12/15/2018
 ---
 
 # Use Azure HDInsight Tools for Visual Studio Code
 
-Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to create and submit Hive batch jobs, interactive Hive queries, and PySpark scripts. The Azure HDInsight Tools can be installed on the platforms that are supported by VS Code. These include Windows, Linux, and macOS. You can find the prerequisites for different platforms.
+Learn how to use the Azure HDInsight Tools for Visual Studio Code (VS Code) to create and submit Apache Hive batch jobs, interactive  Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install the HDInsight tools in VS Code and then we'll walk through how to submit jobs to Hive and Spark. 
+
+The Azure HDInsight Tools can be installed on the platforms that are supported by VS Code, which include Windows, Linux, and macOS. Below you'll find the prerequisites for different platforms.
 
 
 ## Prerequisites
@@ -25,7 +25,7 @@ The following items are required for completing the steps in this article:
 
 - A HDInsight cluster. To create a cluster, see [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
-- [Mono](http://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
+- [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
 
 ## Install the HDInsight Tools
    
@@ -45,11 +45,11 @@ After you have installed the prerequisites, you can install the Azure HDInsight 
 
    ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-## Open HDInsight workspace
+## Open HDInsight work folder
 
-Create a workspace in VS Code before you can connect to Azure.
+Create a work folder in VS Code before you can connect to Azure.
 
-### To open a workspace
+### To open a work folder
 
 1. On the **File** menu, select **Open Folder**. Then designate an existing folder as your work folder or create a new one. The folder appears in the left pane.
 
@@ -72,7 +72,7 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
     ![HDInsight Tools for Visual Studio Code login](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 3. To sign in, follow the sign-in instructions in the **OUTPUT** pane.
-    + For global environment, HDInsight sign in will trigger Azure sign in process.
+    + For Azure global environment, **HDInsight: Login** command will trigger **Sign in to Azure** action in the HDInsight explorer and vice versa.
 
         ![Sign in instructions for azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
@@ -82,7 +82,7 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
 
     After you're connected, your Azure account name is shown on the status bar at the bottom left of the VS Code window. 
 
-    > [!NOTE]
+    > [!NOTE]  
     > Because of a known Azure authentication issue, you need to open a browser in private mode or incognito mode. 
     > If your Azure account has two factors enabled, we recommended using phone authentication instead of PIN authentication.
   
@@ -100,7 +100,7 @@ Before you can submit scripts to HDInsight clusters from VS Code, you need to ei
 
 <h3 id="linkcluster">To link a cluster</h3>
 
-You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
+You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.org/) managed username or link an Enterprise Security Pack secure Hadoop cluster by using a domain username (such as: user1@contoso.com).
 1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a Cluster**.
 
    ![link cluster command](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -109,7 +109,7 @@ You can link a normal cluster by using Ambari managed username, also link a secu
    
    ![link cluster dialog](./media/hdinsight-for-vscode/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster. 
    
 3. You can see a Linked cluster by using command **List Cluster**. Now you can submit a script to this linked cluster.
@@ -119,12 +119,12 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 4. You also can unlink a cluster by inputting **HDInsight: Unlink a Cluster** from command palette.
 
 
-### To link a generic livy endpoint
+### To link a generic Apache Livy endpoint
 
 1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a Cluster**.
 2. Select **Generic Livy Endpoint**.
-3. Enter the generic livy endpoint, for example: http://10.172.41.42:18080.
-4. Select **Basic** when need authorization for the generic livy endpoint, otherwise, select **None**.
+3. Enter the generic Livy endpoint, for example: http\://10.172.41.42:18080.
+4. Select **Basic** when need authorization for the generic Livy endpoint, otherwise, select **None**.
 5. Input user name when select **Basic** in step4.
 6. Input password when select **Basic** in step4.
 7. The generic livy endpoint linked successfully.
@@ -136,16 +136,16 @@ You can link a normal cluster by using Ambari managed username, also link a secu
 To test the connection, you can list your HDInsight clusters:
 
 ### To list HDInsight clusters under your Azure subscription
-1. Open a workspace, and then connect to Azure. For more information, see [Open HDInsight workspace](#open-hdinsight-workspace) and [Connect to Azure](#connect-to-hdinsight-cluster).
+1. Open a work folder, and then connect to Azure. For more information, see [Open HDInsight works folder](#open-hdinsight-work-folder) and [Connect to Azure](#connect-to-hdinsight-cluster).
 
 2. Right-click the script editor, and then select **HDInsight: List Cluster** from the context menu. 
 
-3. The Hive and Spark clusters appear in the **Output** pane.
+3. The HDInsight clusters appear in the **Output** pane.
 
     ![Set a default cluster configuration](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## Set a default cluster
-1. Open a workspace and connect to Azure. See [Open HDInsight workspace](#open-hdinsight-workspace) and [Connect to Azure](#connect-to-hdinsight-cluster).
+1. Open a work folder and connect to Azure. See [Open HDInsight work folder](#open-hdinsight-work-folder) and [Connect to Azure](#connect-to-hdinsight-cluster).
 
 2. Right-click the script editor, and then select **HDInsight: Set Default Cluster**. 
 
@@ -158,7 +158,7 @@ To test the connection, you can list your HDInsight clusters:
 
 2. Enter **HDInsight: Set Azure Environment**.
 
-3. Select one way from Azure and AzureChina as your default login entry.
+3. Select an environment, such as "Azure" or "AzureChina" as your default login entry.
 
 4. Meanwhile, the tool has already saved your default login entry in **.VSCode\settings.json**. You also directly update it in this configuration file. 
 
@@ -179,7 +179,7 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive 
     ```
 4. Right-click the script editor, select **HDInsight: Hive Interactive** to submit the query, or use shortcut **Ctrl + Alt + I**. Select **HDInsight: Hive Batch** to submit the script, or use shortcut **Ctrl + Alt + H**. 
 
-5. Select the cluster when need. The tools also allow you to submit a block of code instead of the whole script file using the context menu. Soon after, the query results appear in a new tab.
+5. Select the cluster if you haven't specified a default cluster. The tools also allow you to submit a block of code instead of the whole script file using the context menu. After a few moments, the query results appear in a new tab.
 
    ![Interactive Hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -189,9 +189,14 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive 
 
 ## Submit interactive PySpark queries
 
-### To submit interactive PySpark queries to Spark clusters.
+### To submit interactive PySpark queries to HDInsight Spark clusters.
 
-1. Create a new work folder and a new script file with the .py extension if you don't already have them.
+1. Create a new work folder and a new .py file if you don't already have them.
+
+    > [!NOTE]
+    > VSCode recommends you install Python extension for .py file. You can install the extension or close the dialog.
+    > 
+    >![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 2. Connect to your Azure account if you haven't yet done so.
 
@@ -209,37 +214,20 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, Hive 
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Highlight these scripts. Then right-click the script editor and select **HDInsight: PySpark Interactive**, or use shortcut **Ctrl + Alt + I**.
+4. Install the Python environment if you haven’t done so, see [Set up PySpark interactive environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
 
-5. If you haven't already installed the **Python** extension in VS Code, select the **Install** button as shown in the following illustration:
+5. Highlight this script. Then right-click the script editor and select **HDInsight: PySpark Interactive**, or use shortcut **Ctrl + Alt + I**.
 
-    ![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
-
-6. Install the Python environment in your system if you haven't already. 
-   - For Windows, download and install [Python](https://www.python.org/downloads/). Then make sure `Python` and `pip` are in your system PATH.
-
-   - For instructions for macOS and Linux, see [Set up PySpark interactive environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
-
-7. Select a cluster to which to submit your PySpark query. Soon after, the query result is shown in the new right tab:
+6. Select a cluster to which to submit your PySpark query. Soon after, the query result is shown in the new right tab:
 
    ![Submit Python job result](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-8. The tool also supports the **SQL Clause** query.
+7. The tool also supports the **SQL Clause** query.
 
    ![Submit Python job result](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)
    The submission status appears on the left of the bottom status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**. 
 
->[!NOTE]
+>[!NOTE]  
 >The clusters can maintain session information. The defined variable, function and corresponding values are kept in the session, so they can be referenced across multiple service calls for the same cluster. 
-
-### To disable environment check
-
-By default, HDInsight tools will check environment and install dependent packages when submit interactive PySpark queries. To disable environment check, set the **hdinsight.disablePysparkEnvironmentValidation** to **yes** under **USER SETTINGS**.
-
-   ![Set the environment check from settings](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check.png)
-
-Alternatively, click **Disable Validation** button when the dialog pops.
-
-   ![Set the environment check from dialog](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check-dialog.png)
 
 ### PySpark3 is not supported with Spark2.2/2.3
 
@@ -293,9 +281,9 @@ Follow the steps to use Python2.x:
 
 After you submit a Python job, submission logs appear in the **OUTPUT** window in VS Code. The **Spark UI URL** and **Yarn UI URL** are shown as well. You can open the URL in a web browser to track the job status.
 
-## Livy configuration
+## Apache Livy configuration
 
-Livy configuration is supported, it could be set at the **.VSCode\settings.json** in work space folder. Currently, livy configuration only supports Python script. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+[Apache Livy](https://livy.incubator.apache.org/) configuration is supported, it could be set at the **.VSCode\settings.json** in work space folder. Currently, livy configuration only supports Python script. More details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**How to trigger livy configuration**
    
@@ -389,28 +377,28 @@ HDInsight for VS Code supports the following features:
 
 ### Tools and extensions
 
-* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Use Azure Toolkit for IntelliJ to debug Spark applications remotely through SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through VPN](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely through SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 * [Use HDInsight Tools for IntelliJ with Hortonworks Sandbox](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Spark applications](spark/apache-spark-eclipse-tool-plugin.md)
-* [Use Zeppelin notebooks with a Spark cluster on HDInsight](spark/apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Spark cluster for HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
+* [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications](spark/apache-spark-eclipse-tool-plugin.md)
+* [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](spark/apache-spark-zeppelin-notebook.md)
+* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Visualize Hive data with Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Visualize Apache Hive data with Microsoft Power BI in Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
 * [Visualize Interactive Query Hive data with Power BI in Azure HDInsight](./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Set Up PySpark Interactive Environment for Visual Studio Code](set-up-pyspark-interactive-environment.md)
-* [Use Zeppelin to run Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md)
+* [Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md)
 
 ### Scenarios
-* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
-* [Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Spark in HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
+* [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Website log analysis using Apache Spark in HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and running applications
 * [Create a standalone application using Scala](spark/apache-spark-create-standalone-application.md)
-* [Run jobs remotely on a Spark cluster using Livy](spark/apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](spark/apache-spark-livy-rest-interface.md)
 
 ### Manage resources
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](spark/apache-spark-resource-manager.md)

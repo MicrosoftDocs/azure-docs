@@ -92,7 +92,7 @@ These are some of the features supported on premium storage enabled VMs:
     You can use premium and standard disks in the same Premium Storage VM. With Premium Storage, you can provision a VM and attach several persistent data disks to the VM. If needed, to increase the capacity and performance of the volume, you can stripe across your disks.
 
     > [!NOTE]
-    > If you stripe premium storage data disks by using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), set up Storage Spaces with 1 column for each disk that you use. Otherwise, overall performance of the striped volume might be lower than expected because of uneven distribution of traffic across the disks. By default, in Server Manager, you can set up columns for up to 8 disks. If you have more than 8 disks, use PowerShell to create the volume. Specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns, even if you have more disks. For example, if you have 32 disks in a single stripe set, specify 32 columns. To specify the number of columns the virtual disk uses, in the [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet, use the *NumberOfColumns* parameter. For more information, see [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx) and [Storage Spaces FAQs](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > If you stripe premium storage data disks by using [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx), set up Storage Spaces with 1 column for each disk that you use. Otherwise, overall performance of the striped volume might be lower than expected because of uneven distribution of traffic across the disks. By default, in Server Manager, you can set up columns for up to 8 disks. If you have more than 8 disks, use PowerShell to create the volume. Specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns, even if you have more disks. For example, if you have 32 disks in a single stripe set, specify 32 columns. To specify the number of columns the virtual disk uses, in the [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet, use the *NumberOfColumns* parameter. For more information, see [Storage Spaces Overview](https://technet.microsoft.com/library/hh831739.aspx) and [Storage Spaces FAQs](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -146,7 +146,9 @@ If you are using premium storage accounts for unmanaged disks and your applicati
 ### Premium Storage disk limits
 When you provision a premium storage disk, the size of the disk determines the maximum IOPS and throughput (bandwidth). Azure offers eight GA types of premium storage disks: P4 (Managed Disks only), P6 (Managed Disks only), P10, P15 (Managed Disks only), P20, P30, P40, and P50. As well as three preview disk sizes: P60, P70, and P80. Each premium storage disk type has specific limits for IOPS and throughput. Limits for the disk types are described in the following table:
 
-| Premium Disks Type  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Sizes denoted with an asterisk are currently in preview.
+
+| Premium Disks Type  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Disk size           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16,384 GiB (16 TiB)| 32,767 GiB (32 TiB)|
 | IOPS per disk       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12,500          | 15,000             | 20,000             |
@@ -160,7 +162,7 @@ Here are some important things to know about Premium Storage scalability and per
 
 * **Provisioned capacity and performance**
 
-    When you provision a premium storage disk, unlike standard storage, you are guaranteed the capacity, IOPS, and throughput of that disk. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250-MB/s throughput for that disk. Your application can use all or part of the capacity and performance.
+    When you provision a premium storage disk, unlike standard storage, you are guaranteed the capacity, IOPS, and throughput of that disk. For example, if you create a P50 disk, Azure provisions 4,095-GB storage capacity, 7,500 IOPS, and 250-MB/s throughput for that disk. Your application can use all or part of the capacity and performance. Premium SSD disks are designed to deliver the target performance 99.9% of the time.
 
 * **Disk size**
 
@@ -233,7 +235,7 @@ The following limits apply to premium storage blob snapshots:
 
 To maintain geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy command-line utility](../articles/storage/common/storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
-For detailed information about performing REST operations against page blobs in a premium storage account, see [Blob service operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969).
+For detailed information about performing REST operations against page blobs in a premium storage account, see [Blob service operations with Azure Premium Storage](https://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### Managed disks
 
@@ -263,12 +265,12 @@ The following Linux distributions have been validated for Azure Premium Storage.
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 required](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recommended](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 required](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 or RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### LIS drivers for OpenLogic CentOS

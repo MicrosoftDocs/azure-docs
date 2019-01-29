@@ -22,5 +22,5 @@ the subscription or the [management group](../articles/governance/management-gro
 | Policy Definition | Parameters | 20 |
 | Initiative Definition | Policies | 100 |
 | Initiative Definition | Parameters | 100 |
-| Policy/Initiative Assignments | Exclusions (notScopes) | 100 |
+| Policy/Initiative Assignments | Exclusions (notScopes) | 250 |
 | Policy Rule | Nested Conditionals | 512 |

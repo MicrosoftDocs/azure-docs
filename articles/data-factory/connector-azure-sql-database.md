@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 01/23/2019
 ms.author: jingwang
 
 ---
@@ -32,6 +32,8 @@ Specifically, this Azure SQL Database connector supports these functions:
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure.
 - As a sink, append data to a destination table or invoke a stored procedure with custom logic during the copy.
+
+Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now. 
 
 > [!IMPORTANT]
 > If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure Services can access the server.
@@ -204,7 +206,7 @@ To copy data from or to Azure SQL Database, set the **type** property of the dat
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **AzureSqlTable**. | Yes |
-| tableName | The name of the table or view in the Azure SQL Database instance that the linked service refers to. | Yes |
+| tableName | The name of the table or view in the Azure SQL Database instance that the linked service refers to. | No for source, Yes for sink |
 
 #### Dataset properties example
 
@@ -244,7 +246,6 @@ To copy data from Azure SQL Database, set the **type** property in the Copy Acti
 
 - If the **sqlReaderQuery** is specified for the **SqlSource**, Copy Activity runs this query against the Azure SQL Database source to get the data. Or you can specify a stored procedure. Specify **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the **structure** section of the dataset JSON are used to construct a query. `select column1, column2 from mytable` runs against Azure SQL Database. If the dataset definition doesn't have the **structure**, all columns are selected from the table.
-- When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
 #### SQL query example
 
@@ -597,7 +598,7 @@ When you copy data from or to Azure SQL Database, the following mappings are use
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object * |
+| sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
@@ -606,6 +607,9 @@ When you copy data from or to Azure SQL Database, the following mappings are use
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
+
+>[!NOTE]
+> For data types maps to Decimal interim type, currently ADF support precision up to 28. If you have data with precision larger than 28, consider to convert to string in SQL query.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).

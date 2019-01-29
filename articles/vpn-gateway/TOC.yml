@@ -174,7 +174,7 @@
       href: vpn-gateway-delete-vnet-gateway-powershell.md
   - name: Gateway SKUs (legacy)
     href: vpn-gateway-about-skus-legacy.md
-  - name: Configure third-party VPN devices
+  - name: Configure VPN devices
     items:
     - name: Overview & Azure configuration
       href: vpn-gateway-3rdparty-device-config-overview.md
@@ -224,7 +224,7 @@
   - name: Azure PowerShell
     href: /powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn
   - name: Azure PowerShell (classic)
-    href: /powershell/module/azure/?view=azuresmps-3.7.0#networking
+    href: /powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)

@@ -3,12 +3,10 @@ title: 'Quickstart: Create an Azure Database for MariaDB server - Azure CLI'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 01/09/2019
 ms.custom: mvc
 ---
 
@@ -56,10 +54,10 @@ version | **10.2** | The MariaDB major engine version.
 admin-user | **myadmin** | The user name for the administrator login. The **admin-user** parameter can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 admin-password | *your password* | The password of the administrator user. Your password must contain between 8 and 128 characters. It must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
-The **sku-name** parameter value follows the convention *pricing tier*\_*compute generation*\_*vCores* as shown in the following examples:
-+ `--sku-name B_Gen5_4` maps to the Basic pricing tier, the Gen 5 compute generation, and 4 vCores.
-+ `--sku-name GP_Gen5_32` maps to the General Purpose pricing tier, the Gen 5 compute generation, and 32 vCores.
-+ `--sku-name MO_Gen5_2` maps to the Memory Optimized pricing tier, the Gen 5 compute generation, and 2 vCores.
+The sku-name parameter value follows the convention {pricing tier}\_{compute generation}\_{vCores} as in the examples below:
++ `--sku-name B_Gen5_1` maps to Basic, Gen 5, and 1 vCore. This option is the smallest SKU available.
++ `--sku-name GP_Gen5_32` maps to General Purpose, Gen 5, and 32 vCores.
++ `--sku-name MO_Gen5_2` maps to Memory Optimized, Gen 5, and 2 vCores.
 
 For information about valid values by region and for tiers, see [Pricing tiers](./concepts-pricing-tiers.md).
 
@@ -68,6 +66,10 @@ The following example creates a server named **mydemoserver** in the West US reg
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
 ```
+
+> [!NOTE]
+> Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mariadb/) for more information.
+> 
 
 ## Configure a firewall rule
 
@@ -231,9 +233,7 @@ If you want to delete only the server that you created in this quickstart, run t
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-<!--
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-using-cli.md)
--->
+> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-cli.md)

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Modify an Azure virtual machine scale set| Microsoft Docs
 description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: negat
+ms.author: manayar
 
 ---
 # Modify a virtual machine scale set
@@ -82,7 +82,7 @@ A scale set also has a "scale set instance view" that captures the current *runt
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -176,7 +176,7 @@ Similar to how a scale set has an instance view, each VM instance in the scale s
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -392,6 +392,26 @@ You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want 
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
+
+Alternatively, you may want to change the image your scale set uses. For example, you may want to update or change a custom image used by your scale set. You can change the image your scale set uses by updating the image reference ID property. The image reference ID property is not part of a list, so you can directly modify this property with one of the following commands:
+
+- Azure PowerShell with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) as follows:
+
+    ```powershell
+    Update-AzureRmVmss `
+        -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
+    ```
+
+- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+
+    ```azurecli
+    az vmss update \
+        --resource-group myResourceGroup \
+        --name myScaleSet \
+        --set virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
 

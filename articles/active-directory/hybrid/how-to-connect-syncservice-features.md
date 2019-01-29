@@ -4,7 +4,7 @@ description: Describes service side features for Azure AD Connect sync service.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
@@ -25,7 +25,7 @@ The synchronization feature of Azure AD Connect has two components:
 
 This topic explains how the following features of the **Azure AD Connect sync service** work and how you can configure them using Windows PowerShell.
 
-These settings are configured by the [Azure Active Directory Module for Windows PowerShell](https://aka.ms/aadposh). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
+These settings are configured by the [Azure Active Directory Module for Windows PowerShell](https://aka.ms/aadposh). Download and install it separately from Azure AD Connect. The cmdlets documented in this topic were introduced in the [2016 March release (build 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). If you do not have the cmdlets documented in this topic or they do not produce the same result, then make sure you run the latest version.
 
 To see the configuration in your Azure AD directory, run `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures result](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)

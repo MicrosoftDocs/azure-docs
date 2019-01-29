@@ -4,12 +4,12 @@ description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -46,7 +46,7 @@ A synced Azure AD tenant is set to synchronize with your organization's on-premi
 ### Install or update Azure AD Connect
 Install the latest recommended release of Azure AD Connect on a domain joined computer. If you have an existing instance of Azure AD Connect setup, you need to update it to use the latest version of Azure AD Connect. To avoid known issues/bugs that may have already been fixed, always use the latest version of Azure AD Connect.
 
-**[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Download Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 Recommended version: **1.1.614.0** - published on September 5, 2017.
 

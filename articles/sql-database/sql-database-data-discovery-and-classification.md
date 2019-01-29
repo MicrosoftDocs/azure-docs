@@ -22,7 +22,7 @@ Discovering and classifying your most sensitive data (business, financial, healt
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 - Controlling access to and hardening the security of databases containing highly sensitive data.
 
-Data Discovery & Classification is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Data Discovery & Classification can be accessed and managed via the central SQL ATP portal.
+Data Discovery & Classification is part of the [SQL Advanced Data Security](sql-advanced-threat-protection.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Data Discovery & Classification can be accessed and managed via the central SQL ADS portal.
 
 > [!NOTE]
 > This document relates to Azure SQL Database only. For SQL Server (on-prem), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -71,7 +71,7 @@ Once the tenant-wide policy has been defined, you can continue with the classifi
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-2. Navigate to **Advanced Threat Protection** under the Security heading in your Azure SQL Database pane. Click to enable Advanced Threat Protection, and then click on the **Data discovery & classification (preview)** card.
+2. Navigate to **Advanced Data Security** under the Security heading in your Azure SQL Database pane. Click to enable Advanced Data Security, and then click on the **Data discovery & classification (preview)** card.
 
    ![Scan a database](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -126,7 +126,7 @@ An important aspect of the information protection paradigm is the ability to mon
 You can use T-SQL to add/remove column classifications, as well as retrieve all classifications for the entire database.
 
 > [!NOTE]
-> When using T-SQL to manage labels, there is no validation that labels added to a column exist in the organizational information protection policy (the set of labels that appear in the portal recommendations). It is therefor up to you to validate this.
+> When using T-SQL to manage labels, there is no validation that labels added to a column exist in the organizational information protection policy (the set of labels that appear in the portal recommendations). It is therefore up to you to validate this.
 
 - Add/update the classification of one or more columns: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - Remove the classification from one or more columns: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
@@ -141,7 +141,7 @@ You can also use REST APIs to programmatically manage classifications. The publi
 
 ## <a id="subheading-5"></a>Next steps
 
-- Learn more about [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
+- Learn more about [SQL Advanced Data Security](sql-advanced-threat-protection.md).
 - Consider configuring [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) for monitoring and auditing access to your classified sensitive data.
 
 <!--Anchors-->

@@ -4,13 +4,13 @@ description: Learn how to configure certificate-based authentication in your env
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 01/15/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
 
 ---
@@ -112,7 +112,7 @@ To create a trusted certificate authority, use the [New-AzureADTrustedCertificat
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
     $new_ca.AuthorityType=0
     $new_ca.TrustedCertificate=$cert
-    $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
+    $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
 ### Remove

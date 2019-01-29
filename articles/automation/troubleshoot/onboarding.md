@@ -4,7 +4,7 @@ description: Learn how to troubleshoot onboarding errors with the Update Managem
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -15,7 +15,25 @@ You may encounter errors when onboarding solutions like Update Management or Cha
 
 ## General Errors
 
-### <a name="computer-grou-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
+### <a name="missing-write-permissions"></a>Scenario: Onboarding fails with the message - The solution cannot be enabled
+
+#### Issue
+
+You receive the following message when you attempt to onboard a virtual machine to a solution:
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### Cause
+
+This error is caused by incorrect or missing permissions on the virtual machine or for the user.
+
+#### Resolution
+
+Ensure you have correct permissions to onboard the virtual machine. Review the [permissions needed to onboard machines](../automation-role-based-access-control.md#onboarding) and try to onboard the solution again.
+
+### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### Issue
 
@@ -69,11 +87,11 @@ The MMA extension on the virtual machine is unable to communicate with external 
 
 The following are examples of error messages that are returned:
 
-```
+```error
 Please verify the VM has a running VM agent, and can establish outbound connections to Azure storage.
 ```
 
-```
+```error
 'Manifest download error from https://<endpoint>/<endpointId>/Microsoft.EnterpriseCloud.Monitoring_MicrosoftMonitoringAgent_australiaeast_manifest.xml. Error: UnknownError. An exception occurred during a WebClient request.
 ```
 
@@ -97,15 +115,15 @@ The installation of the Microsoft Monitoring Agent extension failed during deplo
 
 The following are examples of error messages may be returned:
 
-```
+```error
 The Microsoft Monitoring Agent failed to install on this machine. Please try to uninstall and reinstall the extension. If the issue persists, please contact support.
 ```
 
-```
+```error
 'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1618'
 ```
 
-```
+```error
 'Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.2) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.2\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 1601'
 ```
 
@@ -128,7 +146,7 @@ The installation of the MMA extension did not complete due to a timeout.
 
 The following is an example of an error message that may be returned:
 
-```
+```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
 ```
 

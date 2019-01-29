@@ -44,7 +44,7 @@ Before you start this tutorial, complete the following prerequisites:
 Disaster recovery (DR) is an important consideration for many applications, whether for compliance reasons or business continuity. If there's a prolonged service outage, a well-prepared DR plan can minimize business disruption. A DR plan based on geo-restore must accomplish several goals:
  * Reserve all needed capacity in the chosen recovery region as quickly as possible to ensure that it's available to restore tenant databases.
  * Establish a mirror image recovery environment that reflects the original pool and database configuration. 
- * Allow cancelation of the restore process in mid-flight if the original region comes back online.
+ * Allow cancellation of the restore process in mid-flight if the original region comes back online.
  * Enable tenant provisioning quickly so new tenant onboarding can restart as soon as possible.
  * Be optimized to restore tenants in priority order.
  * Be optimized to get tenants online as soon as possible by doing steps in parallel where practical.

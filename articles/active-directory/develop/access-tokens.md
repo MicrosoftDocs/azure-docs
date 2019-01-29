@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -34,7 +34,7 @@ See the following sections to learn how a resource can validate and use the clai
 
 ## Sample tokens
 
-v1.0 and v2.0 tokens look very similar and contain many of the same claims. An example of each is provided here.
+v1.0 and v2.0 tokens look similar and contain many of the same claims. An example of each is provided here.
 
 ### v1.0
 
@@ -75,14 +75,14 @@ Claims are present only if a value exists to fill it. Thus, your app should not 
 | `nonce` | String | A unique identifier used to protect against token replay attacks. Your resource can record this value to protect against replays. |
 | `alg` | String | Indicates the algorithm that was used to sign the token, for example, "RS256" |
 | `kid` | String | Specifies the thumbprint for the public key that's used to sign this token. Emitted in both v1.0 and v2.0 access tokens. |
-| `x5t` | String | Functions the same (in use and value) as `kid`. This is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
+| `x5t` | String | Functions the same (in use and value) as `kid`. `x5t` is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
 
 ### Payload claims
 
 | Claim | Format | Description |
 |-----|--------|-------------|
 | `aud` | String, an App ID URI | Identifies the intended recipient of the token. In access tokens, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value and reject the token if the value does not match. |
-| `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
+| `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
 |`idp`|String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim is not present, it means that the value of `iss` can be used instead.  For personal accounts being used in an orgnizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred. |
 | `nbf` | int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT must not be accepted for processing. |
@@ -117,7 +117,7 @@ The following claims will be included in v1.0 tokens if applicable, but are not 
 | Claim | Format | Description |
 |-----|--------|-------------|
 | `ipaddr`| String | The IP address the user authenticated from. |
-| `onprem_sid`| String, in [SID format](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In cases where the user has an on-premises authentication, this claim provides their SID. This can be used for authorization in legacy applications. |
+| `onprem_sid`| String, in [SID format](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | In cases where the user has an on-premises authentication, this claim provides their SID. You can use `onprem_sid` for authorization in legacy applications. |
 | `pwd_exp`| int, a UNIX timestamp | Indicates when the user's password expires. |
 | `pwd_url`| String | A URL where users can be sent to reset their password. |
 | `in_corp`|boolean | Signals if the client is logging in from the corporate network. If they are not, the claim is not included. |
@@ -196,7 +196,7 @@ Your application's business logic will dictate this step, some common authorizat
 * Validate the authentication status of the calling client using `appidacr` - it should not be 0 if public clients are not allowed to call your API.
 * Check against a list of past `nonce` claims to verify the token is not being replayed.
 * Check that the `tid` matches a tenant that is allowed to call your API.
-* Use the `acr` claim to verify the user has performed MFA. Note that this should be enforced using [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Use the `acr` claim to verify the user has performed MFA. This should be enforced using [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to perform this action.
   * For tokens retrieved using the implicit flow, you'll likely need to query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token. 
 
@@ -221,7 +221,7 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
 
 ### Revocation
 
-|   | Password based cookie | Password based token | Non-password based cookie | Non-password based token | Confidential client token| 
+|   | Password-based cookie | Password-based token | Non-password-based cookie | Non-password-based token | Confidential client token| 
 |---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
 | Password expires | Stays alive| Stays alive | Stays alive | Stays alive | Stays alive |
 | Password changed by user | Revoked | Revoked | Stays alive | Stays alive | Stays alive |

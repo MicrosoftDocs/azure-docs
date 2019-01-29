@@ -50,6 +50,21 @@ To connect to a Windows VM from a Mac, you will need to install an RDP client fo
    > 
    > 
 
+## Connect to the virtual machine using PowerShell
+
+If you are using PowerShell and have the AzureRM module installed you may also connect using the `Get-AzureRmRemoteDesktopFile` cmdlet, as shown below.
+
+This example will immediately launch the RDP connection, taking you through similar prompts as above.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+```
+
+You may also save the RDP file for future use.
+
+```powershell
+Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+```
 
 ## Next steps
 If you have difficulty connecting, see [Troubleshoot Remote Desktop connections](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

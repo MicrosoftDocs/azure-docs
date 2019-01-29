@@ -11,7 +11,7 @@ ms.assetid: 7e0a2465-2d85-4143-a4bb-42e03c273097
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
@@ -216,8 +216,8 @@ The JSON defines a dataset named **AzureBlobOutput**, which represents output da
                 "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
                 "scriptLinkedService": "AzureStorageLinkedService",
                 "defines": {
-                    "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
-                    "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
+                    "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                    "partitionedtable": "wasb://adfgetstarted@<storageaccountname>t.blob.core.windows.net/partitioneddata"
                 }
             },
             "inputs": [{

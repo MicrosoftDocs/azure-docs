@@ -117,4 +117,4 @@ When you no longer need the resources created for this tutorial, delete the **RG
 In this tutorial, you created an alias record to use your apex domain name to reference a Traffic Manager profile. To learn about Azure DNS and web apps, continue with the tutorial for web apps.
 
 > [!div class="nextstepaction"]
-> [Create DNS records for a web app in a custom domain](./dns-web-sites-custom-domain.md)
+> [Host load-balanced web apps at the zone apex](./dns-alias-appservice.md)

@@ -3,9 +3,9 @@ title: Azure Service Bus messaging exceptions | Microsoft Docs
 description: List of Service Bus messaging exceptions and suggested actions.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # Service Bus messaging exceptions
@@ -25,7 +25,7 @@ The messaging APIs generate exceptions that can fall into the following categori
 
 1. User coding error ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). General action: try to fix the code before proceeding.
 2. Setup/configuration error ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). General action: review your configuration and change if necessary.
-3. Transient exceptions ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). General action: retry the operation or notify users.
+3. Transient exceptions ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). General action: retry the operation or notify users. Note that the `RetryPolicy` class in the client SDK can be configured to handle retries automatically. See [Retry guidance](/azure/architecture/best-practices/retry-service-specific#service-bus) for more information.
 4. Other exceptions ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). General action: specific to the exception type; please refer to the table in the following section: 
 
 ## Exception types
@@ -33,7 +33,7 @@ The following table lists messaging exception types, and their causes, and notes
 
 | **Exception Type** | **Description/Cause/Examples** | **Suggested Action** | **Note on automatic/immediate retry** |
 | --- | --- | --- | --- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |The server did not respond to the requested operation within the specified time, which is controlled by [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout). The server may have completed the requested operation. This can happen due to network or other infrastructure delays. |Check the system state for consistency and retry if necessary. See [Timeout exceptions](#timeoutexception). |Retry might help in some cases; add retry logic to code. |
+| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |The server did not respond to the requested operation within the specified time, which is controlled by [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). The server may have completed the requested operation. This can happen due to network or other infrastructure delays. |Check the system state for consistency and retry if necessary. See [Timeout exceptions](#timeoutexception). |Retry might help in some cases; add retry logic to code. |
 | [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |The requested user operation is not allowed within the server or service. See the exception message for details. For example, [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) generates this exception if the message was received in [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) mode. |Check the code and the documentation. Make sure the requested operation is valid. |Retry does not help. |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |An attempt is made to invoke an operation on an object that has already been closed, aborted, or disposed. In rare cases, the ambient transaction is already disposed. |Check the code and make sure it does not invoke operations on a disposed object. |Retry does not help. |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |The [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) object could not acquire a token, the token is invalid, or the token does not contain the claims required to perform the operation. |Make sure the token provider is created with the correct values. Check the configuration of the Access Control service. |Retry might help in some cases; add retry logic to code. |
@@ -98,7 +98,7 @@ A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.
 You should check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) property, as hitting this limit can also cause a [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 ### Queues and topics
-For queues and topics, the timeout is specified either in the [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) property, as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
+For queues and topics, the timeout is specified either in the [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) property, as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
 
 
 

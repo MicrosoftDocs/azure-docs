@@ -24,7 +24,7 @@ This article addresses frequently asked questions raised by the Azure Media Serv
 
 Q: How do you stream to Apple iOS devices
 
-A: add "(format=m3u8-aapl)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see (delivering content)[media-services-deliver-content-overview.md]),
+A: add "(format=m3u8-aapl)" path to the "/Manifest" portion of the URL to tell the streaming origin server to return back HLS content for consumption on Apple iOS native devices (for details, see [delivering content](media-services-deliver-content-overview.md)),
 
 Q: How do you scale indexing?
 

@@ -10,7 +10,7 @@ tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 05/01/2018
+ms.date: 11/01/2018
 ms.author: genli
 ---
 
@@ -65,10 +65,7 @@ Retry deleting the storage account, container, or blob after these steps are com
 
 ### Scenario 3: Deleting storage account - identify all blob(s) within storage account that are attached to VMs
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **All resources**. Go to the storage account, under **Blob Service** select **Containers**.
-
-    ![Screenshot of the portal, with the storage account containers and the "Lease State" with "Leased" highlighted](./media/troubleshoot-vhds/utd-containers-sm.png)
-
+2. On the Hub menu, select **All resources**. Go to the storage account, under **Blob Service** select **Blobs**.
 3. In **Containers** pane, identify all containers where **Lease State** is **Leased** and follow [Scenario 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) for each **Leased** container.
 4. Follow [Step 2](#step-2-delete-vm-to-detach-os-disk) and [Step 3](#step-3-detach-data-disk-from-the-vm) to delete VM(s) with **OSDisk** and detach **DataDisk**. 
 

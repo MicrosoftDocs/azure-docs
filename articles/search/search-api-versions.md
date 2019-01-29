@@ -1,5 +1,5 @@
 ---
-title: API versions of Azure Search | Microsoft Docs
+title: API version management for .NET SDK and REST APIs - Azure Search
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,6 +9,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
+ms.custom: seodec2018
 ---
 
 # API versions in Azure Search
@@ -16,7 +17,7 @@ Azure Search rolls out feature updates regularly. Sometimes, but not always, the
 
 As a rule, the Azure Search team publishes new versions only when necessary, since it can involve some effort to upgrade your code to use a new API version. A new version is needed only if some aspect of the API has changed in a way that breaks backward compatibility. Such changes can happen because of fixes to existing features, or because of new features that change existing API surface area.
 
-The same rule applies for SDK updates. The Azure Search SDK follows the [semantic versioning](http://semver.org/) rules, which means that its version has three parts: major, minor, and build number (for example, 1.1.0). A new major version of the SDK is released only for changes that break backward compatibility. Non-breaking feature updates will increment the minor version, and bug fixes will only increase the build version.
+The same rule applies for SDK updates. The Azure Search SDK follows the [semantic versioning](https://semver.org/) rules, which means that its version has three parts: major, minor, and build number (for example, 1.1.0). A new major version of the SDK is released only for changes that break backward compatibility. Non-breaking feature updates will increment the minor version, and bug fixes will only increase the build version.
 
 > [!NOTE]
 > Your Azure Search service instance supports several REST API versions, including the latest one. You can continue to use a version when it is no longer the latest one, but we recommend that you migrate your code to use the newest version. When using the REST API, you must specify the API version in every request via the api-version parameter. When using the .NET SDK, the version of the SDK you’re using determines the corresponding version of the REST API. If you are using an older SDK, you can continue to run that code with no changes even if the service is upgraded to support a newer API version.

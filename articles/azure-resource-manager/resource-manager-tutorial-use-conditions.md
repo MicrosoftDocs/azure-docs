@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
-* You need to specify a password for the virtual machine administrator account. To increase security, use a generated password. Here is a sample:
+* To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -55,7 +55,16 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Select **Open** to open the file.
-4. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
+4. There are five resources defined by the template:
+
+    * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    It is helpful to get some basic understanding of the template before customizing it.
+5. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 
 ## Modify the template
 
@@ -63,6 +72,8 @@ Make two changes to the existing template:
 
 * Add a storage account name parameter. Users can specify either a new storage account name or an existing storage account name.
 * Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine where to create a new storage account or use an existing storage account.
+
+Here is the procedure to make the changes:
 
 1. Open **azuredeploy.json** in Visual Studio Code.
 2. Replace **variables('storageAccountName')** with **parameters('storageAccountName')** in the whole template.  There are three appearances of **variables('storageAccountName')**.
@@ -76,7 +87,7 @@ Make two changes to the existing template:
     ```json
     "storageAccountName": {
       "type": "string"
-    },    
+    },
     "newOrExisting": {
       "type": "string", 
       "allowedValues": [
@@ -153,7 +164,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you develop a template that allows users to choose between creating a new storage account and using an existing storage account. The virtual machine created in this tutorial requires an administrator username and password. Instead of passing the password during the deployment, you can pre-store the password using Azure Key Vault, and retrieve the password during the deployment. To learn how to retrieve secrets from Azure Key Vault, and use the secrets in the template deployment, see:
+In this tutorial, you developed a template that allows users to choose between creating a new storage account and using an existing storage account. To learn how to retrieve secrets from Azure Key Vault, and use the secrets as passwords in the template deployment, see:
 
 > [!div class="nextstepaction"]
 > [Integrate Key Vault in template deployment](./resource-manager-tutorial-use-key-vault.md)

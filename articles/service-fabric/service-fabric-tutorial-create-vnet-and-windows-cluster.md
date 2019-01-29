@@ -21,7 +21,7 @@ ms.custom: mvc
 
 This tutorial is part one of a series. You learn how to deploy a Service Fabric cluster running Windows into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) and [network security group](../virtual-network/virtual-networks-nsg.md) using PowerShell and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to.  To create a Linux cluster using Azure CLI, see [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
-This tutorial describes a production scenario.  If you want to quickly create a small cluster for testing purposes, see [Create a three node test cluster](./scripts/service-fabric-powershell-create-test-cluster.md).
+This tutorial describes a production scenario.  If you want to quickly create a smaller cluster for testing purposes, see [Create a test cluster](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
 In this tutorial, you learn how to:
 
@@ -46,7 +46,7 @@ Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Install the [Service Fabric SDK and PowerShell module](service-fabric-get-started.md)
-* Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+* Install the [Azure Powershell module version 4.1 or higher](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
 
 The following procedures create a five-node Service Fabric cluster. To calculate cost incurred by running a Service Fabric cluster in Azure use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
@@ -175,7 +175,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 # Create the Service Fabric cluster.
 New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
--KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateFile $certpath
+-KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
 ### Create a cluster using a new, self-signed certificate
@@ -206,7 +206,7 @@ New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 # Create the Service Fabric cluster.
 New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
--CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResouceGroupName $vaultgroupname -CertificateSubjectName $subname
+-CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
 
 ```
 

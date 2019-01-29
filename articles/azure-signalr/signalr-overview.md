@@ -1,16 +1,9 @@
 ---
-title: What is Azure SignalR | Microsoft Docs
+title: What is Azure SignalR
 description: An overview of the Azure SignalR service.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: 
-
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/13/2018
 ms.author: zhshang
 ---
@@ -21,7 +14,7 @@ Azure SignalR Service simplifies the process of adding real-time web functionali
 
 This article provides an overview of Azure SignalR Service.
 
-## What is Azure SignalR Service used for? 
+## What is Azure SignalR Service used for?
 
 There are many application types that require real-time content updates. The following examples are good candidates for using Azure SignalR Service:
 
@@ -41,4 +34,3 @@ Currently there are three ways to use Azure SignalR Service:
 - **[Scale an ASP.NET Core SignalR App](signalr-overview-scale-aspnet-core.md)** - Integrate Azure SignalR Service with an ASP.NET Core SignalR application to scale out to hundreds of thousands of connections.
 - **[Build serverless real-time apps](signalr-overview-azure-functions.md)** - Use Azure Functions' integration with Azure SignalR Service to build serverless real-time applications in languages such as JavaScript, C#, and Java.
 - **[Send messages from server to clients via REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)** - Azure SignalR Service provides REST API to enable applications to post messages to clients connected with SignalR Service, in any REST capable programming languages.
-

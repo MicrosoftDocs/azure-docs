@@ -140,7 +140,7 @@ The service configuration file is not packaged with the application, but is uplo
 You can refer to the [Service Configuration Schema](https://msdn.microsoft.com/library/azure/ee758710.aspx) for better understanding the XML schema used here, however, here is a quick explanation of the elements:
 
 **Instances**  
-Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommended that you deploy more than one instance of your web-facing roles. By deploying more than one instance, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](http://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
+Configures the number of running instances for the role. To prevent your cloud service from potentially becoming unavailable during upgrades, it is recommended that you deploy more than one instance of your web-facing roles. By deploying more than one instance, you are adhering to the guidelines in the [Azure Compute Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/), which guarantees 99.95% external connectivity for Internet-facing roles when two or more role instances are deployed for a service.
 
 **ConfigurationSettings**  
 Configures the settings for the running instances for a role. The name of the `<Setting>` elements must match the setting definitions in the service definition file.

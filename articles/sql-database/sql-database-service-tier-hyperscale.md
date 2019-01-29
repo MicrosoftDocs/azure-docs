@@ -16,12 +16,17 @@ ms.date: 10/17/2018
 
 # Hyperscale service tier (preview) for up to 100 TB
 
+Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
+- General Purpose/Standard 
+- Business Critical/Premium
+- Hyperscale
+
 The Hyperscale service tier in Azure SQL Database is the newest service tier in the vCore-based purchasing model. This service tier is a highly scalable storage and compute performance tier that leverages the Azure architecture to scale out the storage and compute resources for an Azure SQL Database substantially beyond the limits available for the General Purpose and Business Critical service tiers.
 
 > [!IMPORTANT]
 > Hyperscale service tier is currently in public preview and available in limited Azure regions. For the full region list, see [Hyperscale service tier available regions](#available-regions). We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier.
 > [!NOTE]
-> For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md). For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
+> For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md) service tiers. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
 > [!IMPORTANT]
 > Hyperscale service tier is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier.
 
@@ -30,7 +35,7 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 The Hyperscale service tier in Azure SQL Database provides the following additional capabilities:
 
 - Support for up to 100 TB of database size
-- Nearly instantaneous database backups (based on file snapshots stored in Azure Blob storage) regardless of size with no IO impact on Compute
+- Nearly instantaneous database backups (based on file snapshots stored in Azure Blob storage) regardless of size with no IO impact on Compute   
 - Fast database restores (based on file snapshots) in minutes rather than hours or days (not a size of data operation)
 - Higher overall performance due to higher log throughput and faster transaction commit times regardless of data volumes
 - Rapid scale out - you can provision one or more read-only nodes for offloading your read workload and for use as hot-standbys
@@ -123,9 +128,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> [Transparent Database Encryption (TDE)](transparent-data-encryption-azure-sql.md) should be turned off before altering a non-Hyperscale database to HyperScale.
-
 ## Connect to a read-scale replica of a Hyperscale database
 
 In HyperScale databases, the `ApplicationIntent` argument in the connection string provided by the client dictates whether the connection is routed to the write replica or to a read-only secondary replica. If the `ApplicationIntent` set to `READONLY` and the database does not have a secondary replica, connection will be routed to the primary replica and defaults to `ReadWrite` behavior.
@@ -148,7 +150,8 @@ Hyperscale service tier is currently in public preview and available in followin
 | If a database file grows during migration due to an active workload and crosses the 1 TB per file boundary, the migration fails | Mitigations: <br> - If possible, migrate the database when there is no update workload running.<br> - Re-try the migration, it will succeed as long as the 1 TB boundary is not crossed during the migration.|
 | Managed Instance is not currently supported | Not currently supported |
 | Migration to Hyperscale is currently a one-way operation | Once a database is migrated to Hyperscale, it cannot be migrated directly to a non-Hyperscale service tier. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a BACPAC file.|
-| Migration of databases with in-memory objects is not currently supported | In-Memory objects must be dropped and recreated as non-In-Memory objects before migrating a database to the Hyperscale service tier.
+| Migration of databases with in-memory objects is not currently supported | In-Memory objects must be dropped and recreated as non-In-Memory objects before migrating a database to the Hyperscale service tier.|
+| Change Data Tracking is not currently supported. | You will not be able to use Change Data Tracking with Hyperscale databasess.
 
 ## Next steps
 

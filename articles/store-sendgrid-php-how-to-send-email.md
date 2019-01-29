@@ -183,7 +183,7 @@ code to the example script for sending an email with Swift Mailer.
   * Create the body of the message (a plain-text and an HTML version).
   * $text is your plain-text email
   * $html is your html version of the email
-  * If the reciever is able to view html emails then only the html
+  * If the receiver is able to view html emails then only the html
   * email will be displayed
   */
  $text = "Hi!\nHow are you?\n";
@@ -428,9 +428,9 @@ For more information, see also the [PHP Developer Center](https://azure.microsof
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
 [special offer]: https://www.sendgrid.com/windowsazure.html
-[Packaging and Deploying PHP Applications for Azure]: http://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
+[Packaging and Deploying PHP Applications for Azure]: https://msdn.microsoft.com/library/windowsazure/hh674499(v=VS.103).aspx
 [http://swiftmailer.org/download]: http://swiftmailer.org/download
-[curl function]: http://php.net/curl
+[curl function]: https://php.net/curl
 [cloud-based email service]: https://sendgrid.com/email-solutions
 [transactional email delivery]: https://sendgrid.com/transactional-email
 [sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1

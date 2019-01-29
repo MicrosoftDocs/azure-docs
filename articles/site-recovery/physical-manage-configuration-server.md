@@ -5,7 +5,7 @@ services: site-recovery
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
 ---
 
@@ -37,7 +37,7 @@ The table summarizes the prerequistes for deploying the on-premises configuratio
 
 ## Download the latest installation file
 
-The latest version of the configuration server installation file is available in the Site Recovery portal. Additionally, it can be downloaded directly from the [Microsoft Download Center](http://aka.ms/unifiedsetup).
+The latest version of the configuration server installation file is available in the Site Recovery portal. Additionally, it can be downloaded directly from the [Microsoft Download Center](https://aka.ms/unifiedsetup).
 
 1. Log on to the Azure portal and browse to your Recovery Services Vault.
 2. Browse to **Site Recovery Infrastructure** > **Configuration Servers** (under For VMware & Physical Machines).
@@ -107,7 +107,7 @@ Run the installation file as follows:
 |/InstallLocation|Required|The folder in which the components are installed| Any folder on the computer|
 |/MySQLCredsFilePath|Required|The file path in which the MySQL server credentials are stored|The file should be the format specified below|
 |/VaultCredsFilePath|Required|The path of the vault credentials file|Valid file path|
-|/EnvType|Required|Type of envrionment that you want to protect |VMware<br>NonVMware|
+|/EnvType|Required|Type of environment that you want to protect |VMware<br>NonVMware|
 |/PSIP|Required|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
 |/CSIP|Required|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
 |/PassphraseFilePath|Required|The full path to location of the passphrase file|Valid file path|
@@ -259,7 +259,7 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
+1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
 2. Login into to your Azure account using the command
     
     `Connect-AzureRmAccount`

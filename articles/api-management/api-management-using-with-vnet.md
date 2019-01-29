@@ -23,7 +23,8 @@ Azure API Management can be deployed inside the virtual network (VNET), so it ca
 
 > [!NOTE]
 > Azure API Management supports both classic and Azure Resource Manager VNets.
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 
@@ -34,7 +35,6 @@ To perform the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + An APIM instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ VNET connectivity is available in the Premium and Developer tiers only. Switch to one of these tiers by following the directions in the [upgrade and scale](upgrade-and-scale.md#upgrade-and-scale) topic.
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
 
@@ -117,7 +117,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 25                       | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
 | * / 587                      | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
 | * / 25028                    | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
-| * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Redis Cache Instances between RoleInstances          | External & Internal  |
+| * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Azure Cache for Redis Instances between RoleInstances          | External & Internal  |
 | * / *                        | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
 
 >[!IMPORTANT]

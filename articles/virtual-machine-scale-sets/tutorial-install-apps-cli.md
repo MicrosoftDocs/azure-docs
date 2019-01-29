@@ -3,7 +3,7 @@ title: Tutorial - Install applications in a scale set with Azure CLI | Microsoft
 description: Learn how to use the Azure CLI to install applications into virtual machine scale sets with the Custom Script Extension
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
 
 ---
@@ -45,7 +45,7 @@ To use the Custom Script Extension with the Azure CLI, you create a JSON file th
 ## Create Custom Script Extension definition
 To see the Custom Script Extension in action, let's create a scale set that installs the NGINX web server and outputs the hostname of the scale set VM instance. The following Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 
-In your current shell, create a file named *customConfig.json* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloudConfig.json` in the Cloud Shell to create the file and see a list of available editors.
+In your current shell, create a file named *customConfig.json* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor customConfig.json` in the Cloud Shell to create the file and see a list of available editors.
 
 ```json
 {
@@ -56,13 +56,13 @@ In your current shell, create a file named *customConfig.json* and paste the fol
 
 
 ## Create a scale set
-Create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss#create). The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
+Now create a virtual machine scale set with [az vmss create](/cli/azure/vmss). The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist:
 
 ```azurecli-interactive
 az vmss create \
@@ -94,7 +94,7 @@ Each VM instance in the scale set downloads and runs the script from GitHub. In 
 
 
 ## Test your scale set
-To allow traffic to reach the web server, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a rule named *myLoadBalancerRuleWeb*:
+To allow traffic to reach the web server, create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule). The following example creates a rule named *myLoadBalancerRuleWeb*:
 
 ```azurecli-interactive
 az network lb rule create \

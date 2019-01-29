@@ -42,8 +42,8 @@ This video shows you how to create your own key vault and how to use it from the
 
 Resources mentioned in above video:
 
-- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure Key Vault Sample Code](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Azure Key Vault Sample Code](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## Creating and Managing Key Vaults
 
@@ -145,8 +145,8 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Social
 
-- [Key Vault Blog](http://aka.ms/kvblog)
-- [Key Vault Forum](http://aka.ms/kvforum)
+- [Key Vault Blog](https://aka.ms/kvblog)
+- [Key Vault Forum](https://aka.ms/kvforum)
 
 ## Supporting Libraries
 

@@ -4,8 +4,7 @@ description: This article provides an overview of Azure Traffic Manager. Find ou
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: jeconnoc
-editor: ''
+manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for. 
 ms.devlang: na

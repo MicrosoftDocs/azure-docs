@@ -61,11 +61,11 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
 * For the **ClientId** field, use the **deviceId**.
 
-* For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2016-11-14`, where `{iothubhostname}` is the full CName of the IoT hub.
+* For the **Username** field, use `{iothubhostname}/{device_id}/api-version=2018-06-30`, where `{iothubhostname}` is the full CName of the IoT hub.
 
     For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain:
 
-    `contoso.azure-devices.net/MyDevice01/api-version=2016-11-14`
+    `contoso.azure-devices.net/MyDevice01/api-version=2018-06-30`
 
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
@@ -76,9 +76,9 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
 
-  When testing, you can also use the cross-platform [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) or the [Device Explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the [Device Explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
 
-For Azure IoT Toolkit:
+For Azure IoT Tools:
 
   1. Expand the **AZURE IOT HUB DEVICES** tab in the bottom left corner of Visual Studio Code.
   2. Right-click your device and select **Generate SAS Token for Device**.
@@ -193,20 +193,18 @@ First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's r
 
 Request ID can be any valid value for a message property value, as per [IoT Hub messaging developer's guide][lnk-messaging], and status is validated as an integer.
 
-The response body contains the properties section of the device twin. The following snippet shows the body of the identity registry entry limited to the "properties" member, for example:
+The response body contains the properties section of the device twin, as shown in the following response example:
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -215,7 +213,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 200 | Success |
+| 204 | Success (no content is returned) |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling][lnk-quotas] |
 | 5** | Server errors |
 
@@ -223,7 +221,7 @@ For more information, see [Device twins developer's guide][lnk-devguide-twin].
 
 ### Update device twin's reported properties
 
-To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After processing the request, IoT Hub responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implment this type of request/response interaction in MQTT, we leverage the notion of request id (`$rid`) provided initially by the device in its update request. This request id is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
+To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After processing the request, IoT Hub responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implement this type of request/response interaction in MQTT, we leverage the notion of request id (`$rid`) provided initially by the device in its update request. This request id is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
 
 The following sequence describes how a device updates the reported properties in the device twin in IoT Hub:
 
@@ -274,11 +272,12 @@ When a device is connected, IoT Hub sends notifications to the topic `$iothub/tw
 ```json
 {
     "telemetrySendFrequency": "5m",
-    "route": null
+    "route": null,
+    "$version": 8
 }
 ```
 
-As for property updates, `null` values means that the JSON object member is being deleted.
+As for property updates, `null` values means that the JSON object member is being deleted. Also, note that `$version` indicates the new version of the desired properties section of the twin.
 
 > [!IMPORTANT]
 > IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow][lnk-devguide-twin-reconnection] to keep the desired properties synchronized between IoT Hub and the device app.

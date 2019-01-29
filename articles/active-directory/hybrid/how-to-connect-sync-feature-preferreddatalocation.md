@@ -4,7 +4,7 @@ description: Describes how to put your Office 365 user resources close to the us
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid:
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
@@ -48,7 +48,7 @@ The geos in Office 365 available for Multi-Geo are:
 | United States | NAM |
 
 * If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
-* The India geo is only available to customers with billing address and licenses purchased in this geo.
+
 * Not all Office 365 workloads support the use of setting a user's geo.
 
 ### Azure AD Connect support for synchronization

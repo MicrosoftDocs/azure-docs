@@ -4,7 +4,7 @@ description: Learn about Azure Reservations and pricing to save on your virtual 
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
-manager: yashesvi
+manager: yashar
 editor: ''
 
 ms.service: billing
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # What are Azure Reservations?
@@ -90,6 +90,6 @@ To learn more about Azure Reservations, see the following articles:
 - [Windows software costs not included with reservations](billing-reserved-instance-windows-software-costs.md)
 - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

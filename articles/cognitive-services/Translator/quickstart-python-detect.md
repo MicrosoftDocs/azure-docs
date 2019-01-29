@@ -6,7 +6,7 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
@@ -159,7 +159,7 @@ If you've hardcoded your subscription key into your program, make sure to remove
 
 ## See also
 
-In addition to language detection, learn how to use the Translator Text API to:
+Learn how to use the Translator Text API to:
 
 * [Translate text](quickstart-python-translate.md)
 * [Transliterate text](quickstart-python-transliterate.md)

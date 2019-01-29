@@ -21,7 +21,7 @@ This article shows you how to use the Translator Speech API to translate words s
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+You will need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
 
 You will need the following files.
 - [javax.websocket-api-1.1.jar (or newer)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)

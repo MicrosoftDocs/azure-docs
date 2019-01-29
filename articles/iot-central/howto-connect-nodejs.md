@@ -1,24 +1,24 @@
 ---
 title: Connect a generic Node.js client application to Azure IoT Central | Microsoft Docs
 description: As an device developer, how to connect a generic Node.js device to your Azure IoT Central application.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
+manager: philmea
 ---
 
 # Connect a generic client application to your Azure IoT Central application (Node.js)
 
-This article describes how, as a device developer, to connect a generic Node.js application representing a physical device to your Microsoft Azure IoT Central application.
+This article describes how, as a device developer, to connect a generic Node.js application representing a real device to your Microsoft Azure IoT Central application.
 
 ## Before you begin
 
 To complete the steps in this article, you need the following:
 
-1. An Azure IoT Central application. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
+1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 1. A development machine with [Node.js](https://nodejs.org/) version 4.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
 ## Create a Device Template
@@ -92,7 +92,7 @@ In your Azure IoT Central application, add a real device from the device templat
 
 ### Create a Node.js application
 
-The following steps show how to create a client application that implements the real device you added to the application. Here the Node.js application represents the real physical device. 
+The following steps show how to create a client application that implements the real device you added to the application. Here the Node.js application represents the real device. 
 
 1. Create a folder called `connected-air-conditioner-adv` on your machine. Navigate to that folder in your command-line environment.
 

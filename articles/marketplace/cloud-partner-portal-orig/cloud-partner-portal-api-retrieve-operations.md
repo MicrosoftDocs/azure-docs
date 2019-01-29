@@ -187,7 +187,7 @@ Body example
 |  submissionType              | Identifies the type of operation being reported for the offer, for example `Publish/GGoLive`      |
 |  createdDateTime             | UTC datetime when the operation was created                                                       |
 |  lastActionDateTime          | UTC datetime when the last update was done on the operation                                       |
-|  status                      | Status of the operation, either `not started | running | failed | completed`. Only one operation can have status `running` at a time. |
+|  status                      | Status of the operation, either `not started` \| `running` \| `failed` \| `completed`. Only one operation can have status `running` at a time. |
 |  error                       | Error message for failed operations                                                               |
 |  |  |
 

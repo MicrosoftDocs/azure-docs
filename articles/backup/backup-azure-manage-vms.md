@@ -71,7 +71,7 @@ In the previous procedure you opened the vault dashboard. To open the vault item
 
     ![Backup items dashboard with Settings blade](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    From the vault item dashboard, you can accomplish many key management tasks, such as:
+    From the vault item dashboard, you can accomplish many key tasks, such as:
 
    * change policies or create a new backup policy
    * view restore points, and see their consistency state
@@ -79,7 +79,7 @@ In the previous procedure you opened the vault dashboard. To open the vault item
    * stop protecting virtual machines
    * resume protection of a virtual machine
    * delete a backup data (or recovery point)
-   * [restore backup disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [restore backup disks](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 For the following procedures, the starting point is the vault item dashboard.
 

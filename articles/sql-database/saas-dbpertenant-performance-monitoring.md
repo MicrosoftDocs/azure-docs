@@ -69,7 +69,7 @@ If you already provisioned a batch of tenants in a prior tutorial, skip to the [
 
 The script will deploy 17 tenants in less than five minutes.
 
-The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.md) templates that create a batch of tenants, which by default copies the database **basetenantdb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the app provisions a new tenant. Any changes made to *basetenantdb* are applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](saas-tenancy-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *basetenantdb* database).
+The *New-TenantBatch* script uses a nested or linked set of [Resource Manager](../azure-resource-manager/index.yml) templates that create a batch of tenants, which by default copies the database **basetenantdb** on the catalog server to create the new tenant databases, then registers these in the catalog, and finally initializes them with the tenant name and venue type. This is consistent with the way the app provisions a new tenant. Any changes made to *basetenantdb* are applied to any new tenants provisioned thereafter. See the [Schema Management tutorial](saas-tenancy-schema-management.md) to see how to make schema changes to *existing* tenant databases (including the *basetenantdb* database).
 
 ## Simulate usage on all tenant databases
 

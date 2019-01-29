@@ -38,15 +38,15 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>language</td>
-    <td>*Required parameter*.<br/>Specifies the language of the text to convert from one script to another. Possible languages are listed in the `transliteration` scope obtained by querying the service for its [supported languages](.\v3-0-languages.md).</td>
+    <td>*Required parameter*.<br/>Specifies the language of the text to convert from one script to another. Possible languages are listed in the `transliteration` scope obtained by querying the service for its [supported languages](./v3-0-languages.md).</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*Required parameter*.<br/>Specifies the script used by the input text. Look up [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find input scripts available for the selected language.</td>
+    <td>*Required parameter*.<br/>Specifies the script used by the input text. Look up [supported languages](./v3-0-languages.md) using the `transliteration` scope, to find input scripts available for the selected language.</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*Required parameter*.<br/>Specifies the output script. Look up [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find output scripts available for the selected combination of input language and input script.</td>
+    <td>*Required parameter*.<br/>Specifies the output script. Look up [supported languages](./v3-0-languages.md) using the `transliteration` scope, to find output scripts available for the selected combination of input language and input script.</td>
   </tr>
 </table> 
 

@@ -1,5 +1,5 @@
 ---
-title: Use Azure Key Vault from a Web Application tutorial | Microsoft Docs
+title: Use Azure Key Vault from a Web Application tutorial - Azure Key Vault | Microsoft Docs
 description: Use this tutorial to help you learn how to use Azure Key Vault from a web application.
 services: key-vault
 author: barclayn
@@ -10,7 +10,7 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 # Customer intent: As a web developer, I want to access a secret from Azure Key Vault so that it can be used in a web application.
 ---
@@ -36,9 +36,9 @@ To complete this tutorial, you must have the following items:
 * A Client ID and a Client Secret for a web application registered with Azure Active Directory that has access to your Key Vault
 * A web application. This tutorial shows the steps for an ASP.NET MVC application deployed in Azure as a Web App.
 
-Complete the steps in [Get Started with Azure Key Vault](key-vault-get-started.md) to get the URI to a secret, Client ID, Client Secret, and register the application. The web application will access the vault and must be registered in Azure Active Directory. It also needs to have access rights to Key Vault. If not, go back to Register an Application in the Get Started tutorial and repeat the steps listed. For more information about creating Azure Web Apps, see [Web Apps overview](../app-service/app-service-web-overview.md).
+Complete the steps in [Get Started with Azure Key Vault](key-vault-get-started.md) to get the URI to a secret, Client ID, Client Secret, and register the application. The web application will access the vault and must be registered in Azure Active Directory. It also needs to have access rights to Key Vault. If not, go back to Register an Application in the Get Started tutorial and repeat the steps listed. For more information about creating Azure Web Apps, see [Web Apps overview](../app-service/overview.md).
 
-This sample depends on manually provisioning Azure Active Directory identities. But you should use [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) instead, which automatically provisions Azure AD identities. For more information, see the [sample on GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and the related [App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). You can also look at the Key Vault specific [Configure an Azure web application to read a secret from Key Vault tutorial](tutorial-web-application-keyvault.md).
+This sample depends on manually provisioning Azure Active Directory identities. But you should use [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) instead, which automatically provisions Azure AD identities. For more information, see the [sample on GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and the related [App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/overview-managed-identity). You can also look at the Key Vault specific [Configure an Azure web application to read a secret from Key Vault tutorial](tutorial-web-application-keyvault.md).
 
 ## <a id="packages"></a>Add NuGet packages
 
@@ -67,8 +67,6 @@ There are three application settings that need to be added to the web.config fil
     <add key="SecretUri" value="secreturi" />
     <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
-
-
 
 ## <a id="gettoken"></a>Add method to get an access token
 
@@ -184,7 +182,7 @@ After you've run these commands, you can see the application in Azure AD. When s
 
 Now we'll add code to your Web App to access the cert and use it for authentication. 
 
-First, there's code to access the cert. Note that StoreLocation is CurrentUser instead of LocalMachine. And that we're supplying 'false' to the Find method because we're using a test cert.
+First, there's code to access the cert. The store location is CurrentUser instead of LocalMachine. And that we're supplying 'false' to the Find method because we're using a test cert.
 
 ```cs
 //Add this using statement

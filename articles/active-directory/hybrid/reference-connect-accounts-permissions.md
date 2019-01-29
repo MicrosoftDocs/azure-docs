@@ -4,7 +4,7 @@ description: This topic describes the accounts used and created and permissions 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
@@ -34,7 +34,10 @@ Azure AD Connect uses 3 accounts in order to synchronize information from on-pre
 
 In addition to these three accounts used to run Azure AD Connect, you will also need the following additional accounts to install Azure AD Connect.  These are:
 
-- **AD DS Enterprise Administrator account**:      used to install Azure AD Connect
+- **Local Administrator account**: The administrator who is installing Azure AD Connect and who has local Administrator permissions on the machine.
+
+- **AD DS Enterprise Administrator account**: Optionally used to create the “AD DS Connector account” above.
+
 - **Azure AD Global Administrator account**:  used to create the Azure AD Connector account and configure Azure AD.
 
 - **SQL SA account (optional)**:     used to create the ADSync database when using the full version of SQL Server.  This SQL Server may be local or remote to the Azure AD Connect installation.  This account may be the same account as the Enterprise Administrator.  Provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights.  For information on this see [Install Azure AD Connect using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md)
@@ -128,7 +131,7 @@ Which permissions you require depends on the optional features you enable. If yo
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
 | Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/howto-sspr-writeback.md) for users. |
 | Device writeback |Permissions granted with a PowerShell script as described in [device writeback](how-to-connect-device-writeback.md). |
-| Group writeback |Read, Create, Update, and Delete group objects for synchronized **Office 365 groups**.  For more information see [Group Writeback](how-to-connect-preview.md#group-writeback).|
+| Group writeback |Allows you to writeback **Office 365 Groups** to a forest with Exchange installed.  For more information see [Group Writeback](how-to-connect-preview.md#group-writeback).|
 
 ## Upgrade
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
@@ -236,7 +239,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 
 |Topic |Link|  
 | --- | --- |
-|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Download Azure AD Connect | [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Install using Express settings | [Express installation of Azure AD Connect](how-to-connect-install-express.md)|
 |Install using Customized settings | [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md)|
 |Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md)|

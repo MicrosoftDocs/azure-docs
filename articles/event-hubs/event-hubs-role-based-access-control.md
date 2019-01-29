@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs Role-Based Access Control (RBAC) preview | Microsoft Docs
-description: Azure Event Hubs Role-Based Access Control
+title: Role-Based Access Control preview - Azure Event Hubs | Microsoft Docs
+description: This article provides information on role-based access control for Azure Event Hubs. 
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -9,7 +9,8 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -30,7 +31,7 @@ For the initial public preview, you can only add Azure AD accounts and service p
 
 The following section describes the steps required to create and run a sample application that prompts for an interactive Azure AD user to sign on, how to grant Event Hubs access to that user account, and how to use that identity to access Event Hubs. 
 
-This introduction describes a simple console application, the [code for which is on Github](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+This introduction describes a simple console application, the [code for which is on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
 
 ### Create an Active Directory user account
 
@@ -42,11 +43,7 @@ If you still want to create a specific account for this scenario, [follow these 
 
 Next, [create an Event Hubs namespace](event-hubs-create.md) in one of the Azure regions that have Event Hubs preview support for RBAC: **US East**, **US East 2**, or **West Europe**. 
 
-Once the namespace is created, navigate to its **Access Control (IAM)** page on the portal, and then click **Add** to add the Azure AD user account to the Owner role. If you use your own user account and you created the namespace, you are already in the Owner role. To add a different account to the role, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**.
- 
-![](./media/event-hubs-role-based-access-control/rbac1.PNG)
-
-The user account now has access to the Event Hubs namespace, and to the event hub you previously created.
+Once the namespace is created, navigate to its **Access Control (IAM)** page on the portal, and then click **Add role assignment** to add the Azure AD user account to the Owner role. If you use your own user account and you created the namespace, you are already in the Owner role. To add a different account to the role, search for the name of the web application in the **Add permissions** panel **Select** field, and then click the entry. Then click **Save**. The user account now has access to the Event Hubs namespace, and to the event hub you previously created.
  
 ### Register the application
 
@@ -68,6 +65,8 @@ Before you can run the sample, edit the App.config file and, depending on your s
 - The redirect URI you specified in your app in the previous steps.
  
 When you run the console application, you are prompted to select a scenario; click **Interactive User Login** by typing its number and pressing ENTER. The application displays a sign-in window, asks for your consent to access Event Hubs, and then uses the service to run through the send/receive scenario using the sign-in identity.
+
+The app uses `ServiceAudience.EventHubsAudience` as the token audience. When using other languages or SDKs where the audience is not available as a constant, the right value to use is `https://eventhubs.azure.net/`.
 
 ## Next steps
 

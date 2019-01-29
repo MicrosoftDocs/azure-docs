@@ -105,7 +105,7 @@ The following XML configuration file example shows how to set the `<clientCache>
 To use the **cacheControlMaxAge** attribute, you must set the value of the **cacheControlMode** attribute to `UseMaxAge`. This setting caused the HTTP header and directive, `Cache-Control: max-age=<nnn>`, to be added to the response. The format of the timespan value for the **cacheControlMaxAge** attribute is `<days>.<hours>:<min>:<sec>`. Its value is converted to seconds and is used as the value of the `Cache-Control` `max-age` directive. For more information about the `<clientCache>` element, see [Client Cache <clientCache>](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## Setting Cache-Control headers programmatically
-For ASP.NET applications, you control the CDN caching behavior programmatically by setting the **HttpResponse.Cache** property of the .NET API. For information about the **HttpResponse.Cache** property, see [HttpResponse.Cache Property](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) and [HttpCachePolicy Class](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+For ASP.NET applications, you control the CDN caching behavior programmatically by setting the **HttpResponse.Cache** property of the .NET API. For information about the **HttpResponse.Cache** property, see [HttpResponse.Cache Property](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) and [HttpCachePolicy Class](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
 
 To programmatically cache application content in ASP.NET, follow these steps:
    1. Verify that the content is marked as cacheable by setting `HttpCacheability` to `Public`. 
@@ -128,6 +128,6 @@ You can easily verify the TTL settings of your web content. With your browser's 
 
 ## Next Steps
 * [Read details about the **clientCache** element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Read the documentation for the **HttpResponse.Cache** Property](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Read the documentation for the **HttpCachePolicy Class**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Read the documentation for the **HttpResponse.Cache** Property](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
+* [Read the documentation for the **HttpCachePolicy Class**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [Learn about caching concepts](cdn-how-caching-works.md)

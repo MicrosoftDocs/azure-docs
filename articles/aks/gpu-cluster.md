@@ -118,6 +118,9 @@ To see the GPU in action, schedule a GPU-enabled workload with the appropriate r
 
 Create a file named *samples-tf-mnist-demo.yaml* and paste the following YAML manifest. The following job manifest includes a resource limit of `nvidia.com/gpu: 1`:
 
+> [!NOTE]
+> If you receive a version mismatch error when calling into drivers, such as, CUDA driver version is insufficient for CUDA runtime version, review the nVidia driver matrix compatibility chart - [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+
 ```yaml
 apiVersion: batch/v1
 kind: Job

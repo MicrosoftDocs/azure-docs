@@ -1,3 +1,10 @@
+---
+author: mgoedtel
+ms.service: log-analytics
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: magoedte
+---
 ### Troubleshoot Azure Diagnostics
 
 If you receive the following error message, the Microsoft.insights resource provider is not registered:

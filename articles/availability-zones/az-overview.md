@@ -35,10 +35,10 @@ To achieve comprehensive business continuity on Azure, build your application ar
 ## Regions that support Availability Zones
 
 - Central US
-- East US 2 (Preview)
+- East US 2
 - France Central
 - North Europe
-- Southeast Asia (Preview)
+- Southeast Asia 
 - West Europe
 - West US 2
 
@@ -56,7 +56,7 @@ The Azure services that support Availability Zones are:
 - Zone-redundant storage
 - SQL Database
 - Event Hubs
-- Service Bus
+- Service Bus (Premium Tier Only)
 - VPN Gateway
 - ExpressRoute
 - Application Gateway (preview)
@@ -75,9 +75,9 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
-- [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
 ## Next steps
-- [Quickstart templates](http://aka.ms/azqs)
+- [Quickstart templates](https://aka.ms/azqs)

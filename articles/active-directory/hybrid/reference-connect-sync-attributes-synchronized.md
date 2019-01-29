@@ -4,7 +4,7 @@ description: Lists the attributes that are synchronized to Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
-ms.component: hybrid
+ms.date: 01/24/2019
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
@@ -40,6 +40,7 @@ In this case, start with the list of attributes in this topic and identify those
 | displayName |X | |
 | objectSID |X |mechanical property. AD user identifier used to maintain sync between Azure AD and AD. |
 | pwdLastSet |X |mechanical property. Used to know when to invalidate already issued tokens. Used by both password hash sync, pass-through authentication and federation. |
+|samAccountName|X| |
 | sourceAnchor |X |mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD. |
 | usageLocation |X |mechanical property. The user’s country. Used for license assignment. |
 | userPrincipalName |X |UPN is the login ID for the user. Most often the same as [mail] value. |
@@ -371,7 +372,7 @@ In this case, start with the list of attributes in this topic and identify those
 This group is a set of attributes used as the minimal attributes needed for a generic workload or application. It can be used for a workload not listed in another section or for a non-Microsoft app. It is explicitly used for the following:
 
 * Yammer (only User is consumed)
-* [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
+* [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
 This group is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
 

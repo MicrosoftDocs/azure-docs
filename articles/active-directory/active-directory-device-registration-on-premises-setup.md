@@ -7,7 +7,7 @@ author: MarkusVi
 manager: mtillman
 editor: ''
 
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -46,7 +46,7 @@ These capabilities are available to customers who purchase an Azure Active Direc
 * License for Azure Active Directory Premium
 * Windows Server 2012 R2 Federation Services, configured for SSO to Azure AD
 * Windows Server 2012 R2 Web Application Proxy 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Download Azure AD Connect)](http://www.microsoft.com/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Download Azure AD Connect)](https://www.microsoft.com/download/details.aspx?id=47594)
 * Verified domain
 
 ## Known issues in this release

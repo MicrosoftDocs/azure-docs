@@ -10,7 +10,7 @@ ms.author: victorh
 ---
 # Azure Firewall Log Analytics samples
 
-The following Log Analytics samples can be used to analyze your Azure Firewall logs.
+The following Log Analytics samples can be used to analyze your Azure Firewall logs. The sample file is built in Log Analytics View Designer, the [Log Analytics View Designer](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) article has more information about the View Design concept.
 
 ## Log Analytics View
 

@@ -4,7 +4,7 @@ description: With Conditional access control, Azure Active Directory checks the 
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ---
@@ -86,7 +86,7 @@ You must also be aware of what capabilities will not be available:
 * Transition of Office to passive authentication allows them to support pure SAML 2.0 IdPs, but support will still be on a client-by-client basis
 
 > [!NOTE]
-> For the most updated list read the article https://aka.ms/ssoproviders.
+> For the most updated list read the article [Azure AD federation compatibility list](how-to-connect-fed-compatibility.md).
 > 
 > 
 

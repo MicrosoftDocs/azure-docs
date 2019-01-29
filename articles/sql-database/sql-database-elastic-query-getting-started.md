@@ -3,13 +3,13 @@ title: Report across scaled-out cloud databases (horizontal partitioning) | Micr
 description: Use cross database database queries to report across multiple databases.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: 
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
 
