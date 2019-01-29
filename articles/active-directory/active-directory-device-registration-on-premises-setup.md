@@ -7,7 +7,7 @@ author: MarkusVi
 manager: mtillman
 editor: ''
 
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity

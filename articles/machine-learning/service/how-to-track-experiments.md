@@ -233,8 +233,8 @@ r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
 # check the returned run type and status
 print(type(r), r.get_status())
 
-# you can only cancel a run if the status is Running
-if r.get_status() == 'Running':
+# you can cancel a run if it hasn't completed or failed
+if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
 Please note that currently only ScriptRun and PipelineRun types support cancel operation.

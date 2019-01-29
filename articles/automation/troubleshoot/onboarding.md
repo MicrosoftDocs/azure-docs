@@ -4,7 +4,7 @@ description: Learn how to troubleshoot onboarding errors with the Update Managem
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
@@ -14,6 +14,24 @@ manager: carmonm
 You may encounter errors when onboarding solutions like Update Management or Change Tracking and Inventory. This article describes the various errors that may occur and how to resolve them.
 
 ## General Errors
+
+### <a name="missing-write-permissions"></a>Scenario: Onboarding fails with the message - The solution cannot be enabled
+
+#### Issue
+
+You receive the following message when you attempt to onboard a virtual machine to a solution:
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### Cause
+
+This error is caused by incorrect or missing permissions on the virtual machine or for the user.
+
+#### Resolution
+
+Ensure you have correct permissions to onboard the virtual machine. Review the [permissions needed to onboard machines](../automation-role-based-access-control.md#onboarding) and try to onboard the solution again.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 

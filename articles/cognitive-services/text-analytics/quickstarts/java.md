@@ -7,7 +7,7 @@ author: noellelacharite
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
