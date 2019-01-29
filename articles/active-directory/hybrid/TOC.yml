@@ -276,6 +276,8 @@
       href: tshoot-connect-sync-errors.md
     - name: Object is not synchronized
       href: tshoot-connect-object-not-syncing.md
+    - name: Attribute is not synchronized
+      href: tshoot-connect-attribute-not-syncing.md
     - name: Object sync using the troubleshooting task
       href: tshoot-connect-objectsync.md
     - name: Password hash synchronization
