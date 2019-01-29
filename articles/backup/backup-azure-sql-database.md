@@ -484,7 +484,7 @@ In order to restore a SQL DB, you would need the following permissions:
 
 * **Backup Operator** permissions on Recovery Services **Vault** in which you are doing the restore.
 * **Contributor(write)** access to the **source SQL VM** (the VM that is backed up and you are trying to restore from).
-* **Contributor (write)** access to the target SQL VM (the VM that you are restoring to; will be the same VM as the source VM in case of original level recovery).
+* **Contributor (write)** access to the target SQL VM (the VM that you are restoring to; will be the same VM as the source VM in case of Original Location Recovery(OLR)).
 
 To restore to an alternate location:
 
