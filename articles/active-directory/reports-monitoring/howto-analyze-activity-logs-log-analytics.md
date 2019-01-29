@@ -1,5 +1,5 @@
 ---
-title: How to analyze Azure Active Directory activity logs using Log Analytics (preview)  | Microsoft Docs
+title: Analyze Azure Active Directory activity logs using Log Analytics (preview)  | Microsoft Docs
 description: Learn how to analyze Azure Active Directory activity logs using Log Analytics (preview)
 services: active-directory
 documentationcenter: ''
