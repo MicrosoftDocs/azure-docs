@@ -78,7 +78,7 @@ To create and manage Azure SQL Database servers, standalone and pooled databases
 To create and manage Azure SQL server, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](/azure/cloud-shell/overview) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Create an Azure SQL standalone database using the Azure CLI](sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create an Azure SQL standalone database and configure a SQL Databse firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale an Azure SQL standalone database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create an Azure SQL standalone database using the Azure CLI](sql-database-cli-samples.md). For Azure CLI example scripts, see [Use CLI to create an Azure SQL standalone database and configure a SQL Database firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale an Azure SQL standalone database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 | Cmdlet | Description |

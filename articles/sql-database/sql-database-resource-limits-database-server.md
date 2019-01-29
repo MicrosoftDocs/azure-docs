@@ -15,7 +15,7 @@ ms.date: 11/13/2018
 ---
 # SQL Database resource limits for Azure SQL Database server
 
-This article provides an overview of the SQL Database resource limits for a SQL Database server the manages standalone databases and elastic pools. It also provides information regarding what happens when those resource limits are hit or exceeded.
+This article provides an overview of the SQL Database resource limits for a SQL Database server that manages standalone databases and elastic pools. It also provides information regarding what happens when those resource limits are hit or exceeded.
 
 > [!NOTE]
 > For managed instances limits, see [SQL Database resource limits for managed instances](sql-database-managed-instance-resource-limits.md).

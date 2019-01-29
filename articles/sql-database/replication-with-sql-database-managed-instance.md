@@ -65,7 +65,7 @@ The following features are not supported:
 
    In the example scripts below, use `<SQL_USER>` and `<PASSWORD>` with this SQL Server Account database user and password.
 
-5. [Connect to the SQL Database Managed Instanc](sql-database-connect-query-ssms.md).
+5. [Connect to the SQL Database Managed Instance](sql-database-connect-query-ssms.md).
 
 6. Run the following query to add the distributor and the distribution database.
 

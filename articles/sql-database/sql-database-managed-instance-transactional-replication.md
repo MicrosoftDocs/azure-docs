@@ -15,7 +15,7 @@ ms.date: 01/25/2019
 ---
 # Transactional replication with standalone, pooled, and instance databases in Azure SQL Database
 
-Transactional Replication is a feature of Azure SQL Database, Managed Instance and SQL Server that enables you to replicate data from a table in Azure SQL Database or SQL Server to the tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases.
+Transactional Replication is a feature of Azure SQL Database, Managed Instance, and SQL Server that enables you to replicate data from a table in Azure SQL Database or SQL Server to the tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases.
 
 ## When to use Transactional replication
 
@@ -44,7 +44,7 @@ The **Publisher** is an instance or server that publishes changes made on some t
 
 The **Distributor** is an instance or server that collects changes in the articles from a Publisher and distributes them to the Subscribers. The Distributor can be either Azure SQL Database Managed Instance or SQL Server (any version as long it is equal to or higher than the Publisher version). 
 
-The **Subscriber** is an instance or server that is receiving the changes made on the Publisher. Subscribers can be either standalone, pooled, and instance databases in Azure SQL Database or SQL Server databases. A Subscriber on a standalone or pu must be configured as push-subscriber. 
+The **Subscriber** is an instance or server that is receiving the changes made on the Publisher. Subscribers can be either standalone, pooled, and instance databases in Azure SQL Database or SQL Server databases. A Subscriber on a standalone or polled database must be configured as push-subscriber. 
 
 | Role | Standalone and pooled databases | Instance databases |
 | :----| :------------- | :--------------- |

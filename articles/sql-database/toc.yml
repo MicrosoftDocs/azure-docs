@@ -21,7 +21,7 @@
       href: sql-database-managed-instance-get-started.md
   - name: Configure
     items:
-    - name: Sql Database server firewall rule
+    - name: SQL Database server firewall rules
       href: sql-database-get-started-portal-firewall.md
     - name: Client VM connection to a Managed Instance
       href: sql-database-managed-instance-configure-vm.md
