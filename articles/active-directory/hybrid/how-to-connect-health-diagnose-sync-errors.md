@@ -133,7 +133,7 @@ The user with conflicting attribute in Azure AD should be cleaned before you can
 Cloud-based user in Azure AD should not have source anchor. Updating source anchor is not supported in this case. Manual fix is required from on premises. 
 
 **The fix process failed to update the values.**
-The specific settings in Azure AD Connect is not supported when UserWriteback feature is enabled. 
+The specific settings such as [UserWriteback in Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-preview#user-writeback) is not supported. Please disable in the settings. 
 
 ## FAQ
 **Q.** What happens if execution of the **Apply Fix** fails?  
