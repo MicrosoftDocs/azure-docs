@@ -83,6 +83,8 @@ The following JSON response illustrates what Computer Vision returns when detect
 }
 ```
 
-## Next steps
+## Use the API
+The object detection feature is part of the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. You can call this API through a native SDK or through REST calls. When you get the full JSON response, simply parse the string for the contents of the `"objects"` section.
 
-Learn concepts about [categorizing images](concept-categorizing-images.md) and [describing images](concept-describing-images.md).
+* [Quickstart: Analyze an image (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)

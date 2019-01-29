@@ -16,19 +16,13 @@ ms.custom: seodec18
 ---
 # What is Computer Vision?
 
-The cloud-based Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision works with popular image formats, such as JPEG and PNG. To analyze an image, you can either upload an image or specify an image URL. Computer Vision algorithms can analyze the content of an image in different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content, or find all the faces in an image.
+Azure's Computer Vision service provides developers with access to advanced algorithms that process images and returning information. To analyze an image, you can either upload an image or specify an image URL. The images processing algorithms can analyze content in several different ways, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult or racy content, or it can find all of the human faces in an image.
 
-You can use Computer Vision in your application, by either using our [client libraries](quickstarts-sdk/csharp-analyze-sdk.md) to invoke the service, or invoking the [REST API](vision-api-how-to-topics/howtocallvisionapi.md) directly, to:
+You can use Computer Vision in your application by using either a native SDK or invoking the REST API directly. This page broadly covers what you can do with Computer Vision.
 
-- [Analyze images for insight](#analyzing-images-for-insight)
-- [Extract text from images](#extracting-text-from-images)
-- [Moderate content in images](#moderating-content-in-images)
+## Analyze images for insight
 
-## Analyzing images for insight
-
-You can analyze images using Computer Vision to detect and provide insight about the visual features and characteristics of your images. You can either upload the contents of an image to analyze local images, or you can specify the URL of an image to analyze remote images.
-
-Computer Vision can do the following actions when analyzing an image:
+You can analyze images to detect and provide insights about their visual features and characteristics. All of the features in the table below are provided by the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
 
 | Action | Description |
 | ------ | ----------- |
@@ -45,17 +39,17 @@ Computer Vision can do the following actions when analyzing an image:
 |**[Get the area of interest](concept-generating-thumbnails.md#area-of-interest)**|Analyze the contents of an image to return the coordinates of the *area of interest*. This is the same function that is used to generate a thumbnail, but instead of cropping the image, Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired.|
 
 
-## Extracting text from images
+## Extract text from images
 
 You can use Computer Vision to [extract text using OCR](concept-extracting-text-ocr.md) from an image into a machine-readable character stream. If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis, and provides the frame coordinates of each word. OCR supports 25 languages, and automatically detects the language of extracted text.
 
 You can also [recognize printed and handwritten text](concept-recognizing-text.md) from an image. Computer Vision can detect and extract both printed and handwritten text from images of various objects with different surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards. Currently, recognizing printed and handwritten text is in preview, and English is the only supported language.  
 
-## Moderating content in images
+## Moderate content in images
 
 You can use Computer Vision to [detect adult and racy content](concept-detecting-adult-content.md) in an image, rating the likelihood that the image contains either adult or racy content and generating a confidence score for both. The filter for adult and racy content detection can be set on a sliding scale to accommodate your preferences.
 
-## Using containers
+## Use containers
 
 [Use Computer Vision containers](computer-vision-how-to-install-containers.md) to recognize printed and handwritten text locally, by installing a standardized Docker container closer to your data.
 
@@ -65,8 +59,8 @@ Computer Vision can analyze images that meet the following requirements:
 
 - The image must be presented in JPEG, PNG, GIF, or BMP format
 - The file size of the image must be less than 4 megabytes (MB)
-- The dimensions of the image must be greater than 50 x 50 pixels  
-  For OCR, the dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
+- The dimensions of the image must be greater than 50 x 50 pixels
+  - For OCR, the dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
 
 ## Data privacy and security
 
@@ -74,8 +68,8 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 ## Next steps
 
-Get started with Computer Vision with one of our quickstarts:
+Get started with Computer Vision by following a quickstart guide:
 
-- [Analyze an image](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Extract handwritten text](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Generate a thumbnail](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Quickstart: Analyze an image](quickstarts-sdk/csharp-analyze-sdk.md)
+- [Quickstart: Extract handwritten text](quickstarts-sdk/csharp-hand-text-sdk.md)
+- [Quickstart: Generate a thumbnail](quickstarts-sdk/csharp-thumb-sdk.md)
