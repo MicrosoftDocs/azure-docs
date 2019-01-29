@@ -112,7 +112,7 @@ az appservice plan create \
 The following command creates an App Service plan in _P1V2_. The options for `-WorkerSize` are _Small_, _Medium_, and _Large_.
 
 ```PowerShell
-New-AzureRmAppServicePlan -ResourceGroupName <resource_group_name> `
+New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Name <app_service_plan_name> `
     -Location <region_name> `
     -Tier "PremiumV2" `
