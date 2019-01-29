@@ -474,7 +474,7 @@ For simplicity, this tutorial uses a console app as a demonstration on how to se
 
 Here are different approaches for sending notifications:
 
-* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **REST Interface**:  You can support notification on any backend platform using  the [REST interface](/previous-versions/azure/reference/dn223264(v=azure.100)).
 * **Microsoft Azure Notification Hubs .NET SDK**: In the Nuget Package Manager for Visual Studio, run [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.js**: [How to use Notification Hubs from Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 * **Mobile Apps**: For an example of how to send notifications from an Azure App Service Mobile Apps backend that's integrated with Notification Hubs, see [Add push notifications to your mobile app](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).

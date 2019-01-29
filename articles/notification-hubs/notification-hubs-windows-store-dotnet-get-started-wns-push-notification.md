@@ -39,7 +39,7 @@ In this tutorial, you take the following steps:
 
 - **Azure subscription**. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Microsoft Visual Studio Community 2015 or later](https://www.visualstudio.com/products/visual-studio-community-vs) or later.
-- [UWP app-development tools installed](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
+- [UWP app-development tools installed](/windows/uwp/get-started/get-set-up)
 - An active Windows Store account
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for UWP apps.

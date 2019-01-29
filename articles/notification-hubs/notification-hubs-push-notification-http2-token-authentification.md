@@ -82,7 +82,7 @@ There is a new property – *Authentication Mode*. Selecting Token allows you to
 
 ### Configure via Management API (REST)
 
-You can use our [management APIs](https://msdn.microsoft.com/library/azure/dn495827.aspx) to update your notification hub to use token-based authentication.
+You can use our [management APIs](/previous-versions/azure/reference/dn495827(v=azure.100)) to update your notification hub to use token-based authentication.
 Depending on whether the application you’re configuring is a Sandbox or Production app (specified in your Apple Developer Account), use one of the corresponding endpoints:
 
 * Sandbox Endpoint: [https://api.development.push.apple.com:443/3/device](https://api.development.push.apple.com:443/3/device)

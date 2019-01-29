@@ -38,7 +38,7 @@ The scenarios covered include sending push notifications to applications on the 
 
 ## Notification Hubs
 
-Azure Notification Hubs provide an easy-to-use, multi-platform, scalable infrastructure for sending push notifications to mobile devices. For details on the service infrastructure, see the [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) page.
+Azure Notification Hubs provide an easy-to-use, multi-platform, scalable infrastructure for sending push notifications to mobile devices. For details on the service infrastructure, see the [Azure Notification Hubs](/previous-versions/azure/azure-services/jj927170(v=azure.100)) page.
 
 ## Create a Node.js Application
 
@@ -151,11 +151,11 @@ The `MpnsService` object provides a `send` method that can be used to send push 
 - **Tags** - the tag identifier. If no tag is provided, the notification is sent to all clients.
 - **Payload** - the message's XML payload.
 - **TargetName** - `toast` for toast notifications. `token` for tile notifications.
-- **NotificationClass** - The priority of the notification. See the **HTTP Header Elements** section of the [Push notifications from a server](https://msdn.microsoft.com/library/hh221551.aspx) document for valid values.
+- **NotificationClass** - The priority of the notification. See the **HTTP Header Elements** section of the [Push notifications from a server](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) document for valid values.
 - **Options** - optional request headers.
 - **Callback** - the callback function.
 
-For a list of valid `TargetName`, `NotificationClass` and header options, check out the [Push notifications from a server](https://msdn.microsoft.com/library/hh221551.aspx) page.
+For a list of valid `TargetName`, `NotificationClass` and header options, check out the [Push notifications from a server](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) page.
 
 The following sample code uses the `MpnsService` instance exposed by the `NotificationHubService` to send a toast push notification:
 
@@ -178,7 +178,7 @@ The `WnsService` object provides a `send` method that can be used to send push n
 - **Options** - optional request headers.
 - **Callback** - the callback function.
 
-For a list of valid types and request headers, see [Push notification service request and response headers](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+For a list of valid types and request headers, see [Push notification service request and response headers](/previous-versions/windows/apps/hh465435(v=win.10)).
 
 The following code uses the `WnsService` instance exposed by the `NotificationHubService` to send a toast push notification to a UWP app:
 
@@ -195,7 +195,7 @@ The following code uses the `WnsService` instance exposed by the `NotificationHu
 
 The sample snippets above allow you to easily build service infrastructure to deliver push notifications to a wide variety of devices. Now that you've learned the basics of using Notification Hubs with node.js, follow these links to learn more about how you can extend these capabilities further.
 
-- See the MSDN Reference for [Azure Notification Hubs](https://msdn.microsoft.com/library/azure/jj927170.aspx).
+- See the MSDN Reference for [Azure Notification Hubs](/previous-versions/azure/azure-services/jj927170(v=azure.100)).
 - Visit the [Azure SDK for Node] repository on GitHub for more samples and implementation details.
 
 [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node

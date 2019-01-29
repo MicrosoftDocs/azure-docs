@@ -39,7 +39,7 @@ For more information on push notifications for a few popular platforms, see the 
 
 - [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
 - [iOS](https://developer.apple.com/notifications/)
-- [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
+- [Windows](/previous-versions/windows/apps/hh779725(v=win.10))
 
 ## How push notifications work?
 

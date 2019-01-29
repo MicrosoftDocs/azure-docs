@@ -362,7 +362,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
    * `registerWithGCM` is the first button-click handler, which makes the `chrome.gcm.register` call to GCM to register the current Chrome App instance.
    * `registerCallback` is the callback function that gets called when the GCM registration call returns.
    * `registerWithNH` is the second button-click handler, which registers with Notification Hubs. It gets `hubName` and `connectionString` (which the user has specified) and crafts the Notification Hubs Registration REST API call.
-   * `splitConnectionString` and `generateSaSToken` are helpers that represent the JavaScript implementation of a SaS token creation process, that must be used in all REST API calls. For more information, see [Common Concepts](https://msdn.microsoft.com/library/dn495627.aspx).
+   * `splitConnectionString` and `generateSaSToken` are helpers that represent the JavaScript implementation of a SaS token creation process, that must be used in all REST API calls. For more information, see [Common Concepts](/previous-versions/azure/reference/dn495627(v=azure.100)).
    * `sendNHRegistrationRequest` is the function that makes an HTTP REST call to Azure Notification Hubs.
    * `registrationPayload` defines the registration XML payload. For more information, see [Create Registration NH REST API]. Update the registration ID in it with the value received from GCM.
    * `client` is an instance of `XMLHttpRequest` that the application uses to make the HTTP POST request. Update the `Authorization` header with `sasToken`. Successful completion of this call registers this Chrome App instance with Azure Notification Hubs.
@@ -393,7 +393,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
 For testing purposes, send Chrome push notifications by using a .NET console application.
 
 > [!NOTE]
-> You can send push notifications with Notification Hubs from any backend via the public [REST interface](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx). Check out the [documentation portal](https://azure.microsoft.com/documentation/services/notification-hubs/) for more cross-platform examples.
+> You can send push notifications with Notification Hubs from any backend via the public [REST interface](/previous-versions/azure/reference/dn223264(v=azure.100)). Check out the [documentation portal](https://azure.microsoft.com/documentation/services/notification-hubs/) for more cross-platform examples.
 
 1. In Visual Studio, from the **File** menu, select **New** and then **Project**. Under **Visual C#**, click **Windows** and **Console Application**, and then click **OK**.  This step creates a new console application project.
 2. From the **Tools** menu, click **NuGet Package Manager** and then **Package Manager Console**. You see displays the Package Manager Console in the bottom window.

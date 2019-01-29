@@ -24,7 +24,7 @@ If you have a scenario in which you want to send a notification at some point in
 
 
 ## Schedule your notifications
-When sending a notification, simply use the [`ScheduledNotification` class](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) in the Notification Hubs SDK as shown in the following example:
+When sending a notification, simply use the [`ScheduledNotification` class](/dotnet/api/microsoft.azure.notificationhubs.schedulednotification#microsoft_azure_notificationhubs_schedulednotification) in the Notification Hubs SDK as shown in the following example:
 
 ```c#
 Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");

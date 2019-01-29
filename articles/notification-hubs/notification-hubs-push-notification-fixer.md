@@ -97,7 +97,7 @@ As each batch is sent to the push notification service, which in turn is accepti
 
 We are optimized for at-most once delivery. But in this case, the faulting registration is removed from the database. Then, we retry notification delivery for the rest of the devices in that batch.
 
-To get more error information about the failed delivery attempt against a registration, you can use the Notification Hubs REST APIs [Per Message Telemetry: Get Notification message telemetry](https://msdn.microsoft.com/library/azure/mt608135.aspx) and [PNS feedback](https://msdn.microsoft.com/library/azure/mt705560.aspx). For sample code, see the [Send REST example](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
+To get more error information about the failed delivery attempt against a registration, you can use the Notification Hubs REST APIs [Per Message Telemetry: Get Notification message telemetry](/previous-versions/azure/reference/mt608135(v=azure.100)) and [PNS feedback](/previous-versions/azure/reference/mt705560(v=azure.100)). For sample code, see the [Send REST example](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample).
 
 ## Push notification service issues
 
@@ -154,7 +154,7 @@ You can use **Test Send** page to send a test notification message:
 ![Visual Studio - Test Send](./media/notification-hubs-diagnosing/test-send-vs.png)
 
 > [!NOTE]
-> Use Visual Studio to edit registrations only during dev/test, and with a limited number of registrations. If you need to edit your registrations in bulk, consider using the export and import registration functionality described in [Export and modify registrations in bulk](https://msdn.microsoft.com/library/dn790624.aspx).
+> Use Visual Studio to edit registrations only during dev/test, and with a limited number of registrations. If you need to edit your registrations in bulk, consider using the export and import registration functionality described in [Export and modify registrations in bulk](/previous-versions/azure/azure-services/dn790624(v=azure.100)).
 
 **Service Bus Explorer**
 

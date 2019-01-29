@@ -59,7 +59,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     Your hub is now created and configured to send unauthenticated notification for Windows Phone.
 
     > [!NOTE]
-    > This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications that you can send to each channel. Notification Hubs supports [MPNS authenticated mode](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) by allowing you to upload your certificate.
+    > This tutorial uses MPNS in unauthenticated mode. MPNS unauthenticated mode comes with restrictions on notifications that you can send to each channel. Notification Hubs supports [MPNS authenticated mode](/previous-versions/windows/apps/ff941099(v=vs.105)) by allowing you to upload your certificate.
 
 ## Create a Windows Phone application
 
@@ -108,7 +108,7 @@ In this section, you create a Windows Phone application that registers itself wi
     ```
 
    > [!NOTE]
-   > The value `MyPushChannel` is an index that is used to lookup an existing channel in the [HttpNotificationChannel](https://msdn.microsoft.com/library/windows/apps/microsoft.phone.notification.httpnotificationchannel.aspx) collection. If there isn't one there, create a new entry with that name.
+   > The value `MyPushChannel` is an index that is used to lookup an existing channel in the [HttpNotificationChannel](/previous-versions/ff402781(v=vs.110)) collection. If there isn't one there, create a new entry with that name.
 
     Insert the name of your hub and the connection string called `DefaultListenSharedAccessSignature` that you noted in the previous section.
     This code retrieves the channel URI for the app from MPNS, and then registers that channel URI with your notification hub. It also guarantees that the channel URI is registered in your notification hub each time the application is launched.

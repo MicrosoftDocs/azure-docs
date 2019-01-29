@@ -21,7 +21,7 @@ ms.author: jowargo
 
 ## Overview
 
-This topic describes the security model of Azure Notification Hubs. Because Notification Hubs are a Service Bus entity, they implement the same security model as Service Bus. For more information, see the [Service Bus Authentication](https://msdn.microsoft.com/library/azure/dn155925.aspx) topics.
+This topic describes the security model of Azure Notification Hubs. Because Notification Hubs are a Service Bus entity, they implement the same security model as Service Bus. For more information, see the [Service Bus Authentication](/previous-versions/azure/dn155925(v=azure.100)) topics.
 
 ## Shared Access Signature Security (SAS)
 
