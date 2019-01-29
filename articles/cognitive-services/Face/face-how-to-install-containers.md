@@ -87,7 +87,7 @@ Replace these parameters with your own values in the following example `docker r
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/azure-cognitive-services/face \
+containerpreview.azurecr.io/microsoft/ognitive-services-face \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
