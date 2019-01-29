@@ -173,24 +173,24 @@ The following PowerShell snippets assume:
 First the subscription administrator assigns `key vault Contributor` and `User Access Administrator` roles to the security team. These roles allow the security team to manage access to other resources, and manage key vaults, in the resource group ContosoAppRG.
 
 ```PowerShell
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 The following script shows how the security team can create a key vault, and set up logging and access permissions. For details about Key Vault access policy permissions, see [About Azure Key Vault keys, secrets and certificates](about-keys-secrets-and-certificates.md).
 
 ```PowerShell
 # Create key vault and enable logging
-$sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
-$kv = New-AzureRmKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
+$kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
 # Data plane permissions for Security team
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
+Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
 
 # Management plane permissions for Dev/ops
 # Create a new role from an existing role
-$devopsrole = Get-AzureRmRoleDefinition -Name "Virtual Machine Contributor"
+$devopsrole = Get-AzRoleDefinition -Name "Virtual Machine Contributor"
 $devopsrole.Id = $null
 $devopsrole.Name = "Contoso App Devops"
 $devopsrole.Description = "Can deploy VMs that need secrets from key vault"
@@ -198,13 +198,13 @@ $devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 
 # Add permission for dev/ops so they can deploy VMs that have secrets deployed from key vaults
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
-New-AzureRmRoleDefinition -Role $devopsrole
+New-AzRoleDefinition -Role $devopsrole
 
 # Assign this newly defined role to Dev ops security group
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Data plane permissions for Auditors
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
+Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
 The custom role defined is only assignable to the subscription where the `ContosoAppRG` resource group is created. If the same custom roles will be used for other projects in other subscriptions, its scope can have more subscriptions added.
@@ -244,7 +244,7 @@ We highly recommend that you further secure access to your key vault by [configu
   
 * [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
-* [Set](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) and [Remove](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) Key Vault access policy by using PowerShell
+* [Set](https://docs.microsoft.com/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) and [Remove](https://docs.microsoft.com/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) Key Vault access policy by using PowerShell
   
 ## Next steps
 

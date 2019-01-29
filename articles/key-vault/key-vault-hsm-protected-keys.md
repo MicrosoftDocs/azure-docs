@@ -83,12 +83,12 @@ For installation instructions, see [How to install and configure Azure PowerShel
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:
 
 ```Powershell
-   Add-AzureRMAccount
+   Add-AzAccount
 ```
 In the pop-up browser window, enter your Azure account user name and password. Then, use the [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) command:
 
 ```powershell
-   Get-AzureRMSubscription
+   Get-AzSubscription
 ```
 From the output, locate the ID for the subscription you will use for Azure Key Vault. You will need this subscription ID later.
 
@@ -487,7 +487,7 @@ Use a USB drive or other portable storage to copy the output file from the previ
 
 ## Step 5: Transfer your key to Azure Key Vault
 
-For this final step, on the Internet-connected workstation, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
+For this final step, on the Internet-connected workstation, use the [Add-AzureKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
 
    ```powershell
         Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'

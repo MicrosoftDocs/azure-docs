@@ -45,10 +45,10 @@ To get detailed help for any cmdlet that you see in this tutorial, use the **Get
 Get-Help <cmdlet-name> -Detailed
 ```
     
-For example, to get help for the **Connect-AzureRmAccount** cmdlet, type:
+For example, to get help for the **Connect-AzAccount** cmdlet, type:
 
 ```PowerShell
-Get-Help Connect-AzureRmAccount -Detailed
+Get-Help Connect-AzAccount -Detailed
 ```
 
 You can also read the following articles to get familiar with Azure Resource Manager deployment model in Azure PowerShell:
@@ -61,13 +61,13 @@ You can also read the following articles to get familiar with Azure Resource Man
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
 ```PowerShell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 >[!NOTE]
  If you are using a specific instance of Azure use the -Environment parameter. For example: 
  ```powershell
- Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+ Connect-AzAccount –Environment (Get-AzEnvironment –Name AzureUSGovernment)
  ```
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all the subscriptions that are associated with this account and by default, uses the first one.
@@ -75,13 +75,13 @@ In the pop-up browser window, enter your Azure account user name and password. A
 If you have multiple subscriptions and want to specify a specific one to use for Azure Key Vault, type the following to see the subscriptions for your account:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Then, to specify the subscription to use, type:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 For more information about configuring Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
@@ -91,12 +91,12 @@ For more information about configuring Azure PowerShell, see [How to install and
 When you use Azure Resource Manager, all related resources are created inside a resource group. We will create a new resource group named **ContosoResourceGroup** for this tutorial:
 
 ```powershell
-New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East US'
+New-AzResourceGroup –Name 'ContosoResourceGroup' –Location 'East US'
 ```
 
 ## <a id="vault"></a>Create a key vault
 
-Use the [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-azurermkeyvault) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
+Use the [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
 
 For example, if you use:
 - Vault name of **ContosoKeyVault**.
@@ -106,7 +106,7 @@ For example, if you use:
 you would type:
 
 ```powershell
-New-AzureRmKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
+New-AzKeyVault -Name 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 ![Output after Key Vault creation command completes](./media/key-vault-get-started/output-after-creating-keyvault.png)
 
@@ -118,7 +118,7 @@ The output of this cmdlet shows properties of the key vault that you created. Th
 Your Azure account is now authorized to perform any operations on this key vault. As yet, nobody else is.
 
 > [!NOTE]
-> When you try to create your new key vault you may see the error **The subscription is not registered to use namespace 'Microsoft.KeyVault'**. If that message appears run `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"`. After the registration successfully completes, you can rerun the New-AzureRmKeyVault command. For more information, see [Register-AzureRmResourceProvider](/powershell/module/azurerm.resources/register-azurermresourceprovider).
+> When you try to create your new key vault you may see the error **The subscription is not registered to use namespace 'Microsoft.KeyVault'**. If that message appears run `Register-AzResourceProvider -ProviderNamespace "Microsoft.KeyVault"`. After the registration successfully completes, you can rerun the New-AzKeyVault command. For more information, see [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider).
 >
 >
 
@@ -128,7 +128,7 @@ There are a couple of different ways that you may need to interact with Key Vaul
 
 ### Azure Key Vault generates a software protected key
 
-If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet, and type:
+If you want Azure Key Vault to create a software-protected key for you, use the [Add-AzureKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet, and type:
 
 ```powershell
 $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
@@ -251,18 +251,18 @@ There are two ways to authorize the application to access the key or secret in t
 
 ### Using PowerShell
 
-To use PowerShell, use the [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet.
+To use PowerShell, use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 
 For example, if your vault name is **ContosoKeyVault** and the application you want to authorize has a client ID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, run the following cmdlet:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
 If you want to authorize that same application to read secrets in your vault, run the following:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 ```
 
 ### Using the Azure portal
@@ -283,7 +283,7 @@ To create these HSM-protected keys, you must use the [Azure Key Vault Premium se
 When you create the key vault, add the **-SKU** parameter:
 
 ```powershell
-New-AzureRmKeyVault -Name 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
+New-AzKeyVault -Name 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US' -SKU 'Premium'
 ```
 
 You can add software-protected keys (as shown earlier) and HSM-protected keys to this key vault. To create an HSM-protected key, set the **-Destination** parameter to 'HSM':
@@ -308,16 +308,16 @@ For more detailed instructions about how to generate this BYOK package, see [How
 
 ## <a id="delete"></a>Delete the key vault and associated keys and secrets
 
-If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the [Remove-AzureRmKeyVault](/powershell/module/azurerm.keyvault/remove-azurermkeyvault) cmdlet:
+If you no longer need the key vault and the key or secret that it contains, you can delete the key vault by using the [Remove-AzKeyVault](/powershell/module/az.keyvault/remove-azkeyvault) cmdlet:
 
 ```powershell
-Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+Remove-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
 Or, you can delete an entire Azure resource group, which includes the key vault and any other resources that you included in that group:
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
+Remove-AzResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ```
 
 ## <a id="other"></a>Other Azure PowerShell Cmdlets

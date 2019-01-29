@@ -121,13 +121,13 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ### Relevant Powershell cmdlets
 
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/az.keyvault/get-azurekeyvaultmanagedstorageaccount)
+- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
+- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/az.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
+- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
+- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azurekeyvaultmanagedstorageaccount)
+- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
+- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/az.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
 
 ## See also
 
