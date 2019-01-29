@@ -19,7 +19,7 @@ Your subscription should be enabled to create Azure VMs in the target region tha
 
 **Error code** | **Possible causes** | **Recommendation**
 --- | --- | ---
-150097<br></br>**Message**: Replication couldn't be enabled for the virtual machine VmName. | - Your subscription ID might not be enabled to create any VMs in the target region location.</br></br>- Your subscription ID might not be enabled or doesn't have sufficient quota to create specific VM sizes in the target region location.</br></br>- A suitable target VM size that matches the source VM NIC count (2) isn't found for the subscription ID in the target region location.| Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable VM creation for the required VM sizes in the target location for your subscription. After it's enabled, retry the failed operation.
+150097<br><br>**Message**: Replication couldn't be enabled for the virtual machine VmName. | - Your subscription ID might not be enabled to create any VMs in the target region location.<br><br>- Your subscription ID might not be enabled or doesn't have sufficient quota to create specific VM sizes in the target region location.<br><br>- A suitable target VM size that matches the source VM NIC count (2) isn't found for the subscription ID in the target region location.| Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable VM creation for the required VM sizes in the target location for your subscription. After it's enabled, retry the failed operation.
 
 ### Fix the problem
 You can contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) to enable your subscription to create VMs of required sizes in the target location.
@@ -32,7 +32,7 @@ If all the latest trusted root certificates aren't present on the VM, your "enab
 
 **Error code** | **Possible cause** | **Recommendations**
 --- | --- | ---
-151066<br></br>**Message**: Site Recovery configuration failed. | The required trusted root certificates used for authorization and authentication aren't present on the machine. | - For a VM running the Windows operating system, ensure that the trusted root certificates are present on the machine. For information, see  [Configure trusted roots and disallowed certificates](https://technet.microsoft.com/library/dn265983.aspx).<br></br>- For a VM running the Linux operating system, follow the guidance for trusted root certificates published by the Linux operating system version distributor.
+151066<br>**Message**: Site Recovery configuration failed. | The required trusted root certificates used for authorization and authentication aren't present on the machine. | - For a VM running the Windows operating system, ensure that the trusted root certificates are present on the machine. For information, see  [Configure trusted roots and disallowed certificates](https://technet.microsoft.com/library/dn265983.aspx).<br><br>- For a VM running the Linux operating system, follow the guidance for trusted root certificates published by the Linux operating system version distributor.
 
 ### Fix the problem
 **Windows**
@@ -53,99 +53,136 @@ Because SuSE Linux uses symlinks to maintain a certificate list, follow these st
 
 2.	Run this command to change the directory.
 
-      ``# cd /etc/ssl/certs``
+    ```
+    cd /etc/ssl/certs
+    ```
 
 1. Check if the Symantec root CA cert is present.
 
-      ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+    ```
+    ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+    ```
 
 2. If the Symantec root CA cert is not found, run the following command to download the file. Check for any errors and follow recommended action for network failures.
 
-      ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+    ```
+    wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+    ```
 
 3. Check if the Baltimore root CA cert is present.
 
-      ``# ls Baltimore_CyberTrust_Root.pem``
+    ```
+    ls Baltimore_CyberTrust_Root.pem
+    ```
 
 4. If the Baltimore root CA cert is not found, download the certificate.  
 
-    ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
+    ```
+    wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem
+    ```
 
 5. Check if the DigiCert_Global_Root_CA cert is present.
 
-    ``# ls DigiCert_Global_Root_CA.pem``
+    ```
+    ls DigiCert_Global_Root_CA.pem
+    ```
 
 6. If the DigiCert_Global_Root_CA is not found, run the following commands to download the certificate.
 
-    ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
-
-    ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
+    ```
+    wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt
+    openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem
+    ```
 
 7. Run rehash script to update the certificate subject hashes for the newly downloaded certificates.
 
-    ``# c_rehash``
+    ```
+    c_rehash
+    ```
 
 8.  Check if the subject hashes as symlinks are created for the certificates.
 
     - Command
 
-      ``# ls -l | grep Baltimore``
+    ```
+    ls -l | grep Baltimore
+    ```
 
     - Output
 
-      ``lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
-      -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem``
+    ```
+    lrwxrwxrwx 1 root root   29 Jan  8 09:48 3ad48a91.0 -> Baltimore_CyberTrust_Root.pem
+    -rw-r--r-- 1 root root 1303 Jun  5  2014 Baltimore_CyberTrust_Root.pem
+    ```
 
     - Command
 
-      ``# ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5``
+    ```
+    ls -l | grep VeriSign_Class_3_Public_Primary_Certification_Authority_G5
+    ```
 
     - Output
 
-      ``-rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
-      lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
+    ```
+    -rw-r--r-- 1 root root 1774 Jun  5  2014 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+    lrwxrwxrwx 1 root root   62 Jan  8 09:48 facacbc6.0 -> VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem
+    ```
 
     - Command
 
-      ``# ls -l | grep DigiCert_Global_Root``
+    ```
+    ls -l | grep DigiCert_Global_Root
+    ```
 
     - Output
 
-      ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
-      -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
+    ```
+    lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
+    -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem
+    ```
 
 9.  Create a copy of the file VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem with filename b204d74a.0
 
-    ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
+    ```
+    cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0
+    ```
 
 10. Create a copy of the file Baltimore_CyberTrust_Root.pem with filename 653b494a.0
 
-    ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
+    ```
+    cp Baltimore_CyberTrust_Root.pem 653b494a.0
+    ```
 
 13. Create a copy of the file DigiCert_Global_Root_CA.pem with filename 3513523f.0
 
-    ``# cp DigiCert_Global_Root_CA.pem 3513523f.0``  
+    ```
+    cp DigiCert_Global_Root_CA.pem 3513523f.0
+    ```
 
 
 14. Check if the files are present.  
 
     - Command
 
-      ``# ls -l 653b494a.0 b204d74a.0 3513523f.0``
+    ```
+    ls -l 653b494a.0 b204d74a.0 3513523f.0
+    ```
 
     - Output
 
-      ``-rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
-      -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
-      -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0``
+    ```
+    -rw-r--r-- 1 root root 1774 Jan  8 09:52 3513523f.0
+    -rw-r--r-- 1 root root 1303 Jan  8 09:52 653b494a.0
+    -rw-r--r-- 1 root root 1774 Jan  8 09:52 b204d74a.0
+    ```
 
 
 ## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
 
 For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
 
-### Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
-- **Possible cause** </br>
+### Issue 1: Failed to register Azure virtual machine with Site Recovery (151195)
+- **Possible cause** <br>
   - Connection cannot be established to site recovery endpoints due to DNS resolution failure.
   - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
   
@@ -156,17 +193,17 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
  
 
 ### Issue 2: Site Recovery configuration failed (151196)
-- **Possible cause** </br>
+- **Possible cause**
   - Connection cannot be established to Office 365 authentication and identity IP4 endpoints.
 
 - **Resolution**
   - Azure Site Recovery required access to Office 365 IPs ranges for authentication.
-    If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
+    If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IP ranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
 	    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
 
 
 ### Issue 3: Site Recovery configuration failed (151197)
-- **Possible cause** </br>
+- **Possible cause**
   - Connection cannot be established to Azure Site Recovery service endpoints.
 
 - **Resolution**
@@ -174,21 +211,23 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
     
 
 ### Issue 4: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
- - **Possible cause** </br>
+ - **Possible cause**
    - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
 
 
  - **Resolution**
    1.	Mobility Service agent detects the proxy settings from IE on Windows and /etc/environment on Linux.
-   2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:</br>
-       - ``/usr/local/InMage/config/`` on ***Linux***
-       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` on ***Windows***
-   3.	The ProxyInfo.conf should have the proxy settings in the following INI format.</br>
-                   *[proxy]*</br>
-                   *Address=http://1.2.3.4*</br>
-                   *Port=567*</br>
+   2.  If you prefer to set proxy only for ASR Mobility Service, then you can provide the proxy details in ProxyInfo.conf located at:
+       - `/usr/local/InMage/config/` on ***Linux***
+       - `C:\ProgramData\Microsoft Azure Site Recovery\Config` on ***Windows***
+   3.	The ProxyInfo.conf should have the proxy settings in the following INI format.
+        ```ini
+        [proxy]
+        Address=http://1.2.3.4
+        Port=567
+        ```
    4. ASR Mobility Service agent supports only ***un-authenticated proxies***.
- 
+
 
 ### Fix the problem
 To whitelist [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
@@ -199,7 +238,7 @@ A new disk attached to the VM must be initialized.
 
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
-150039<br></br>**Message**: Azure data disk (DiskName) (DiskURI) with logical unit number (LUN) (LUNValue) was not mapped to a corresponding disk being reported from within the VM that has the same LUN value. | - A new data disk was attached to the VM but it wasn't initialized.</br></br>- The data disk inside the VM is not correctly reporting the LUN value at which the disk was attached to the VM.| Ensure that the data disks are initialized, and then retry the operation.</br></br>For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
+150039<br><br>**Message**: Azure data disk (DiskName) (DiskURI) with logical unit number (LUN) (LUNValue) was not mapped to a corresponding disk being reported from within the VM that has the same LUN value. | - A new data disk was attached to the VM but it wasn't initialized.<br><br>- The data disk inside the VM is not correctly reporting the LUN value at which the disk was attached to the VM.| Ensure that the data disks are initialized, and then retry the operation.<br><br>For Windows: [Attach and initialize a new disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).<br><br>For Linux: [Initialize a new data disk in Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
 ### Fix the problem
 Ensure that the data disks have been initialized, and then retry the operation:
@@ -228,7 +267,7 @@ If you don't see the VM you want to enable for replication, it might be because 
 
 >[!NOTE] 
 >
->Make sure to update the ""AzureRM.Resources"" module before using the below script. ​
+>Make sure to update the "AzureRM.Resources" module before using the below script. ​
 
 You can use [Remove stale ASR configuration script](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) and remove the stale Site Recovery configuration on the Azure VM. You should be able to see the VM after removing the stale configuration.
 
@@ -260,10 +299,10 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
 **Cause 2: If you previously protected the VM using Azure Site Recovery and disabled the replication.**
- - Disabling replication of a VM does not delete the Network Mapping. It has to be deleted from the recovery service vault where the VM was protected. </br>
- Navigate to recovery service vault > Site Recovery Infrastructure > Network mapping. </br>
+ - Disabling replication of a VM does not delete the Network Mapping. It has to be deleted from the recovery service vault where the VM was protected. <br>
+ Navigate to recovery service vault > Site Recovery Infrastructure > Network mapping. <br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
- - Target network configured during the disaster recovery setup can be changed after the initial set up, after the VM is protected. </br>
+ - Target network configured during the disaster recovery setup can be changed after the initial set up, after the VM is protected. <br>
  ![Modify_NW_mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
  - Note that changing network mapping affects all protected VMs that use that specific network mapping.
 
@@ -271,7 +310,7 @@ To enable replication on the VM, the provisioning state should be **Succeeded**.
 ## COM+/Volume Shadow Copy service error (error code 151025)
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
-151025<br></br>**Message**: Site recovery extension failed to install | - 'COM+ System Application' service disabled.</br></br>- 'Volume Shadow Copy' service is disabled.| Set 'COM+ System Application' and 'Volume Shadow Copy' services to automatic or manual start up mode.
+151025<br><br>**Message**: Site recovery extension failed to install | - 'COM+ System Application' service disabled.<br><br>- 'Volume Shadow Copy' service is disabled.| Set 'COM+ System Application' and 'Volume Shadow Copy' services to automatic or manual start up mode.
 
 ### Fix the problem
 
@@ -283,12 +322,12 @@ You can open 'Services' console and ensure the 'COM+ System Application' and 'Vo
 
 **Error code** | **Possible causes** | **Recommendations**
 --- | --- | ---
-150172<br></br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 10 GB. | - The disk is less than supported size of 1024 MB| Ensure that the disk sizes are within the supported size range and retry the operation. 
+150172<br><br>**Message**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 10 GB. | - The disk is less than supported size of 1024 MB| Ensure that the disk sizes are within the supported size range and retry the operation. 
 
 ## Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (error code 151126)
 
-**Possible Cause:** </br>
-The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the value for the parameters **root** and **resume** as the actual device names instead of UUID. Site Recovery mandates UUID approach as devices name may change across reboot of the VM as VM may not come-up with the same name on failover resulting in issues. For example: </br>
+**Possible Cause:** <br>
+The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the value for the parameters **root** and **resume** as the actual device names instead of UUID. Site Recovery mandates UUID approach as devices name may change across reboot of the VM as VM may not come-up with the same name on failover resulting in issues. For example: <br>
 
 
 - The following line is from the GRUB file **/boot/grub2/grub.cfg**. <br>
@@ -304,14 +343,21 @@ If you observe the bold string above,  GRUB has actual device names for the para
 The device names should be replaced with the corresponding UUID.<br>
 
 
-1. Find the UUID of the device by executing the command "blkid <device name>". For example:<br>
+1. Find the UUID of the device by executing the command `blkid <device name>`. For example:<br>
 ```
 blkid /dev/sda1 
-```<br>
-```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
-```blkid /dev/sda2```<br> 
-```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```<br>
+```
+
+```
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+```
+```
+blkid /dev/sda2
+```
+
+```
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
 
 
 
