@@ -10,9 +10,9 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 1/29/2019
 ---
-# SQL Advanced Data Security for Azure SQL Database
+# Advanced Data Security for Azure SQL Database
 
 SQL Advanced Data Security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, surfacing and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities. 
 
@@ -28,19 +28,18 @@ Enable SQL ADS once to enable all of these included features. With one click, yo
 
 ADS pricing aligns with Azure Security Center standard tier, where each protected SQL Database server is counted as one node. Newly protected resources qualify for a free trial of Security Center standard tier. For more information, see the [Azure Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-
 ## Getting Started with ADS
 
 The following steps get you started with ADS. 
 
 ## 1. Enable ADS
 
-Enable ADS by navigating to **Advanced Threat Protection** under the **Security** heading in your Azure SQL Database pane. To enable ADS for all databases on the server, click **Enable Advanced Threat Protection on the server**.
+Enable ADS by navigating to **Advanced Data Security** under the **Security** heading in your Azure SQL Database pane. To enable ADS for all databases on the server, click **Enable Advanced Data Security on the server**.
 
-![Enable ADS](./media/sql-advanced-protection/enable_ATP.png) 
+![Enable ADS](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> The cost of ADS is aligned with Azure Security Center standard tier pricing per node, where a node is the entire SQL Database server. You are thus paying only once for protecting all databases on the server with ADS. You can try ADS out initially with a free trial.
+> The cost of ADS is aligned with Azure Security Center standard tier pricing per node, where a node is the entire SQL logical server. You are thus paying only once for protecting all databases on the server with ADS. You can try ADS out initially with a free trial.
 
 ## 2. Configure Vulnerability Assessment
 
@@ -58,19 +57,19 @@ Click the **Data Discovery and Classification** card to see recommended sensitiv
 
 ## 4. Manage ADS settings on your SQL server
 
-To view and manage Advanced Threat Protection settings, navigate to **Advanced Threat Protection** under the **Security** heading in your SQL server pane. On this page, you can enable or disable ADS, and modify Threat Detection settings for your entire SQL server.
+To view and manage Advanced Data Security settings, navigate to **Advanced Data Security** under the **Security** heading in your SQL server pane. On this page, you can enable or disable ADS, and modify Threat Detection settings for your entire SQL server.
 
 ![Server settings](./media/sql-advanced-protection/server_settings.png) 
 
 ## 5. Manage ADS settings for a SQL database
 
-To override ADS Threat Detection settings for a particular database, check the **Enable Advanced Threat Protection at the database level** checkbox. Use this option only if you have a particular requirement to receive separate threat detection alerts for the individual database, in place of or in addition to the alerts received for all databases on the server. 
+To override ADS Threat Detection settings for a particular database, check the **Enable Advanced Data Security at the database level** checkbox. Use this option only if you have a particular requirement to receive separate threat detection alerts for the individual database, in place of or in addition to the alerts received for all databases on the server. 
 
 Once the checkbox is selected, click **Threat Detection settings for this database** and then configure the relevant settings for this database.
 
 ![Database and threat detection settings](./media/sql-advanced-protection/database_threat_detection_settings.png) 
 
-Advanced Threat Protection settings for your server can also be reached from the ADS database pane. Click **Settings** in the main ADS pane, and then click **View Advanced Threat Protection server settings**. 
+Advanced Data Security settings for your server can also be reached from the ADS database pane. Click **Settings** in the main ADS pane, and then click **View Advanced Data Security server settings**. 
 
 ![Database settings](./media/sql-advanced-protection/database_settings.png) 
 

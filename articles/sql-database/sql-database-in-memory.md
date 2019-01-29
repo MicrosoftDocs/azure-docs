@@ -163,7 +163,7 @@ When you use nonclustered columnstore indexes, the base table is still stored in
 If you have a **clustered** columnstore index, the whole table becomes unavailable after the downgrade. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database to an unsupported tier or level.
 
 > [!Note]
-> Managed Instance supports Columstore indexes in all tiers.
+> Managed Instance supports ColumnStore indexes in all tiers.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
