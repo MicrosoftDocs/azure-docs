@@ -18,6 +18,8 @@ ms.author: barclayn
 ---
 # How to generate and transfer HSM-protected keys for Azure Key Vault
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses Thales nShield family of HSMs to protect your keys.
 
 Use the information in this topic to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
@@ -74,18 +76,16 @@ For this first step, do the following procedures on your workstation that is con
 
 ### Step 1.1: Install Azure PowerShell
 
-From the Internet-connected workstation, download and install the Azure PowerShell module that includes the cmdlets to manage Azure Key Vault. This requires a minimum version of 0.8.13.
-
-For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+From the Internet-connected workstation, download and install the Azure PowerShell module that includes the cmdlets to manage Azure Key Vault. For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ### Step 1.2: Get your Azure subscription ID
 
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:
 
 ```Powershell
-   Add-AzAccount
+   Connect-AzAccount
 ```
-In the pop-up browser window, enter your Azure account user name and password. Then, use the [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) command:
+In the pop-up browser window, enter your Azure account user name and password. Then, use the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) command:
 
 ```powershell
    Get-AzSubscription
@@ -487,10 +487,10 @@ Use a USB drive or other portable storage to copy the output file from the previ
 
 ## Step 5: Transfer your key to Azure Key Vault
 
-For this final step, on the Internet-connected workstation, use the [Add-AzureKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
+For this final step, on the Internet-connected workstation, use the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to upload the key transfer package that you copied from the disconnected workstation to the Azure Key Vault HSM:
 
    ```powershell
-        Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
+        Add-AzKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
    ```
 
 If the upload is successful, you see displayed the properties of the key that you just added.

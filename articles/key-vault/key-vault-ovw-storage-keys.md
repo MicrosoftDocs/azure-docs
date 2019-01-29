@@ -115,19 +115,9 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
+### Relavant Azure CLI commands
 
-### Relavant Azure CLI cmdlets
-[Azure CLI Storage Cmdlets](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
-
-### Relevant Powershell cmdlets
-
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/az.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/az.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/az.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+[Azure CLI Storage commands](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ## See also
 

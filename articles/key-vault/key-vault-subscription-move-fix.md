@@ -18,6 +18,8 @@ ms.author: ambapat
 ---
 # Change a key vault tenant ID after a subscription move
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Q: My subscription was moved from tenant A to tenant B. How do I change the tenant ID for my existing key vault and set correct ACLs for principals in tenant B?
 
 When you create a new key vault in a subscription, it is automatically tied to the default Azure Active Directory tenant ID for that subscription. All access policy entries are also tied to this tenant ID. When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. To fix this issue, you need to:

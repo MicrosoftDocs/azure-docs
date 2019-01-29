@@ -22,6 +22,8 @@ Azure Key Vault is available in most regions. For more information, see the [Key
 
 ## Introduction
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 After you have created one or more key vaults, you will likely want to monitor how and when your key vaults are accessed, and by whom. You can do this by enabling logging for Key Vault, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account, and you can use this same storage account for collecting logs for multiple key vaults.
 
 You can access your logging information at most, 10 minutes after the key vault operation. In most cases, it will be quicker than this.  It's up to you to manage your logs in your storage account:
@@ -45,7 +47,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 To complete this tutorial, you must have the following:
 
 * An existing key vault that you have been using.  
-* Azure PowerShell, **minimum version of 1.0.1**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module azure -ListAvailable).Version`.  
+* Azure PowerShell, **minimum version of 1.0.0**. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and do not know the version, from the Azure PowerShell console, type `(Get-Module Az -ListAvailable).Version`.  
 * Sufficient storage on Azure for your Key Vault logs.
 
 ## <a id="connect"></a>Connect to your subscriptions

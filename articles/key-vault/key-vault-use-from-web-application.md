@@ -30,6 +30,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To complete this tutorial, you must have the following items:
 
 * A URI to a secret in an Azure Key Vault

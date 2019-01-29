@@ -32,11 +32,11 @@ Here's how to configure Key Vault firewalls and virtual networks by using the Az
 
 You can also add new virtual networks and subnets, and then enable service endpoints for the newly created virtual networks and subnets, by selecting **+ Add new virtual network**. Then follow the prompts.
 
-## Use the Azure CLI 2.0
+## Use the Azure CLI 
 
-Here's how to configure Key Vault firewalls and virtual networks by using the Azure CLI 2.0:
+Here's how to configure Key Vault firewalls and virtual networks by using the Azure CLI
 
-1. [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) and [sign in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+1. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and [sign in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
 2. List available virtual network rules. If you haven't set any rules for this key vault, the list will be empty.
    ```azurecli
@@ -71,9 +71,11 @@ Here's how to configure Key Vault firewalls and virtual networks by using the Az
 
 ## Use Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Here's how to configure Key Vault firewalls and virtual networks by using PowerShell:
 
-1. Install the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps), and [sign in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Install the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps), and [sign in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. List available virtual network rules. If you have not set any rules for this key vault, the list will be empty.
    ```PowerShell
@@ -108,7 +110,7 @@ Here's how to configure Key Vault firewalls and virtual networks by using PowerS
 
 ## References
 
-* Azure CLI 2.0 commands: [az keyvault network-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
+* Azure CLI commands: [az keyvault network-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
 * Azure PowerShell cmdlets: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 
 ## Next steps

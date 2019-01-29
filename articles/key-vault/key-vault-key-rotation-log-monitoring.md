@@ -20,6 +20,8 @@ ms.author: barclayn
 
 ## Introduction
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 After you have a key vault, you can start using it to store keys and secrets. Your applications no longer need to persist your keys or secrets, but can request them from the vault as needed. This allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities around your key and secret management.
 
 >[!IMPORTANT]

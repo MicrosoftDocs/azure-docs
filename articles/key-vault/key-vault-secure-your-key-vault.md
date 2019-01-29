@@ -22,6 +22,8 @@ Azure Key Vault is a cloud service that safeguards encryption keys and secrets (
 
 ## Overview
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Access to a key vault is controlled through two separate interfaces: management plane and data plane. 
 **Management plane** deals with managing the vault, for example - creating a vault, updating a vault, deleting a vault. 
 **Data plane** deals with secrets inside a vault, that is create, update, delete and read a secret inside the vault. 

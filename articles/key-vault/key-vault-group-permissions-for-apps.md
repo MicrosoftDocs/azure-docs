@@ -18,6 +18,8 @@ ms.author: ambapat
 ---
 # Grant several applications access to a key vault
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Access control policy can be used to grant several applications access to a key vault. An access control policy can support up to 1024 applications, and is configured as follows:
 
 1. Create an Azure Active Directory security group. 
