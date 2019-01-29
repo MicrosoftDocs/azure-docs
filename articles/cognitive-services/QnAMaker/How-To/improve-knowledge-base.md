@@ -8,7 +8,7 @@ displayName: active learning, suggestion, dialog prompt, train api, feedback loo
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ---
 
@@ -34,6 +34,10 @@ When similar queries are clustered, QnA Maker suggests the user-based questions 
 Active learning is triggered based on the scores of top few answers returned by QnA Maker for any given query. If the score differences lie within a small range, then the query is considered a possible _suggestion_ for each of the possible answers. 
 
 All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
+
+## Upgrade version to use active learning
+
+Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your service](upgrade-qnamaker-service.md) to use this feature. 
 
 ## Best practices
 
@@ -147,7 +151,9 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
+Learn more about how to use active learning with an [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
 ## Next steps
  
 > [!div class="nextstepaction"]
-> [Use QnAMaker API](./upgrade-qnamaker-service.md)
+> [Use QnA Maker API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
