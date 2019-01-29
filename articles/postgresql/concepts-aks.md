@@ -31,7 +31,7 @@ Or through the Azure CLI using the following two commands:
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
 ```
-The output will be the the generated resource group that AKS creates containing the network interface. Take the "nodeResourceGroup" name and use it in the next command. **EnableAcceleratedNetworking** will either be true or false:
+The output will be the generated resource group that AKS creates containing the network interface. Take the "nodeResourceGroup" name and use it in the next command. **EnableAcceleratedNetworking** will either be true or false:
 ```azurecli
 az network nic list --resource-group nodeResourceGroup -o table
 ```
