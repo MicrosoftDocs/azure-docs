@@ -56,9 +56,9 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 ## Add an action
 
-When you define a rule, you also define an action to run when the rule conditions are met. In this tutorial, you create a rule with an action to send an email notification when it triggers.
+When you define a rule, you also define an action to run when the rule conditions are met. In this tutorial, you create a rule with an action that sends an email notification.
 
-1. To add an **Action**, first **Save** the rule and then scroll down on the **Configure Telemetry Rule** panel and choose the **+** next to **Actions**, then choose **Email**:
+1. To add an **Action**, first **Save** the rule and then scroll down on the **Configure Telemetry Rule** panel. Choose the **+** next to **Actions**, and then choose **Email**:
 
     ![Temperature rule action](media/tutorial-configure-rules-experimental/addaction.png)
 
