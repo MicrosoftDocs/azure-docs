@@ -69,7 +69,7 @@ Active Directory Health Check collects data from the following sources using the
 - File Replication Service (NTFRS) API
 - Custom C# code
 
-Data is collected on the domain controller and forwarded to Azure MonitorAzure Monitor every seven days.  
+Data is collected on the domain controller and forwarded to Azure Monitor every seven days.  
 
 ## Understanding how recommendations are prioritized
 Every recommendation made is given a weighting value that identifies the relative importance of the recommendation. Only the 10 most important recommendations are shown.
@@ -118,9 +118,9 @@ If you have recommendations that you want to ignore, you can create a text file 
 
 Use the following query to list recommendations that have failed for computers in your environment.
 
-    ```
-    ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
-    ```
+```
+ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation
+```
 
 Here's a screen shot showing the log query:<br><br> ![failed recommendations](media/ad-assessment/ad-failed-recommendations.png)
 
