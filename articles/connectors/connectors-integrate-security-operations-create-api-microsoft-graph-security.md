@@ -124,7 +124,7 @@ specify* the complete base URL or the HTTP action, for example, `https://graph.m
 shows the parameters for a **Get alerts** action when you want 
 a list with high severity alerts:
 
-**Filter alerts** value as **Severity eq 'high'**
+`Filter alerts value as Severity eq 'high'`
 
 For more information about the queries you can use with this connector, see the 
 [Microsoft Graph Security alerts reference documentation](https://docs.microsoft.com/graph/api/alert-list). 
