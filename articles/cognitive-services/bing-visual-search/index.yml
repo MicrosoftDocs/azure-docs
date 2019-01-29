@@ -48,12 +48,20 @@ sections:
     columns:
       - image:
           src: media/index/logo_csharp.svg
+        href: visual-search-sdk-c-sharp
+        text: "C&#35;"
       - image:
           src: media/index/logo_java.svg
+        href: quickstarts/java.md
+        text: "Java"
       - image:
           src: media/index/logo_nodejs.svg
+        href: visual-search-sdk-node
+        text: "Node.js"
       - image:
           src: media/index/logo_python.svg
+        href:  visual-search-sdk-python
+        text: "Python"
     rows:
       - title: ''
         values:
