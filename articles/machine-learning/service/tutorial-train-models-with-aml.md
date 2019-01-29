@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 # Tutorial: Train an image classification model with Azure Machine Learning service
 
-In this tutorial, you train a machine learning model both locally and on remote compute resources. You use the training and deployment workflow for Azure Machine Learning service in a Python Jupyter notebook. You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
+In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
 This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning service. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multiclass classifier to identify the digit a given image represents. 
 
@@ -84,11 +84,10 @@ Import Python packages you need in this session. Also display the Azure Machine 
 ```python
 %matplotlib inline
 import numpy as np
-import matplotlib
 import matplotlib.pyplot as plt
 
-import azureml
-from azureml.core import Workspace, Run
+import azureml.core
+from azureml.core import Workspace
 
 # check core SDK version number
 print("Azure ML SDK Version: ", azureml.core.VERSION)
@@ -153,8 +152,8 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current AmlCompute status, use the 'status' property    
-    print(compute_target.status.serialize())
+     # For a more detailed view of current AmlCompute status, use get_status()
+    print(compute_target.get_status().serialize())
 ```
 
 You now have the necessary packages and compute resources to train a model in the cloud. 
@@ -235,56 +234,28 @@ ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=T
 ```
 You now have everything you need to start training a model. 
 
-## Train a local model
-
-Train a simple logistic regression model by using scikit-learn locally.
-
-**Training locally can take a minute or two** depending on your computer configuration:
-
-```python
-%%time
-from sklearn.linear_model import LogisticRegression
-
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
-```
-
-Next make predictions by using the test set and calculate the accuracy: 
-
-```python
-y_hat = clf.predict(X_test)
-print(np.average(y_hat == y_test))
-```
-
-The local model accuracy displays:
-
-`0.9202`
-
-With just a few lines of code, you have 92 percent accuracy.
 
 ## Train on a remote cluster
 
-Now you can expand on this simple model by building a model with a different regularization rate. This time, you train the model on a remote resource.  
-
-For this task, submit the job to the remote training cluster you set up earlier. To submit a job, you take the following steps:
-* Create a directory.
-* Create a training script.
-* Create an estimator object.
-* Submit the job.
+For this task, submit the job to the remote training cluster you set up earlier.  To submit a job you:
+* Create a directory
+* Create a training script
+* Create an estimator object
+* Submit the job 
 
 ### Create a directory
 
-Create a directory to deliver the necessary code from your computer to the remote resource:
+Create a directory to deliver the necessary code from your computer to the remote resource.
 
 ```python
 import os
-script_folder = './sklearn-mnist'
+script_folder  = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
 
 ### Create a training script
 
-To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in the directory you created. This training adds a regularization rate to the training algorithm. So it produces a slightly different model than the local version:
+To submit the job to the cluster, first create a training script. Run the following code to create the training script called `train.py` in the directory you just created.
 
 ```python
 %%writefile $script_folder/train.py
@@ -444,7 +415,7 @@ You now have a model trained on a remote cluster. Retrieve the accuracy of the m
 ```python
 print(run.get_metrics())
 ```
-The output shows the remote model has accuracy slightly higher than the local model because of the addition of the regularization rate during training:  
+The output shows the remote model has accuracy of 0.9204:
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
@@ -487,8 +458,7 @@ In this Azure Machine Learning service tutorial, you used Python for the followi
 > [!div class="checklist"]
 > * Set up your development environment.
 > * Access and examine the data.
-> * Train a simple logistic regression locally by using the popular scikit-learn machine learning library.
-> * Train multiple models on a remote cluster.
+> * Train multiple models on a remote cluster using the popular scikit-learn machine learning library
 > * Review training details and register the best model.
 
 You're ready to deploy this registered model by using the instructions in the next part of the tutorial series:
