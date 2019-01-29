@@ -17,6 +17,7 @@ ms.custom: mvc
 ms.date: 11/13/2018
 ms.author: sethm
 ms.reviewer: unknown
+ms.lastreviewed: 11/13/2018
 ---
 
 # Tutorial: create a VM using a community template
