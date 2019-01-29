@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -60,6 +60,8 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 ## New features
 
 This update includes the following new features and improvements for Azure Stack:
+
+- Managed images on Azure Stack enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward.
 
 ## Fixed issues
 
@@ -124,6 +126,35 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
    Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
    ```
+
+- There are currently extensions in Azure Stack that successfully deploy without explicitly needing to download the extensions through marketplace syndication. The following versions of these extensions are being removed. Azure Stack operators must now explicitly syndicate these extensions from the Azure Stack marketplace:
+
+   | Type                     | Version        |
+   |--------------------------|----------------|
+   | DSC                      | 2.19.0.0       |
+   | IaaSAntimalware          | 1.4.0.0        |
+   | BGInfo                   | 2.1            |
+   | VMAccessAgent            | 2.0            |
+   | CustomScriptExtension    | 1.8            |
+   | MicrosoftMonitoringAgent | 1.0.10900.0    |
+   | IaaSDiagnostics          | 1.10.1.1       |
+   | VMAccessForLinux         | 1.4.0.0        |
+   | CustomScriptForLinux     | 1.5.2.0        |
+   | DockerExtension          | 1.1.1606092330 |
+   | JsonADDomainExtension    | 1.3            |
+   | OSPatchingForLinux       | 2.3.0.1        |
+   | WebRole                  | 4.3000.14.0    |
+
+   It is recommended that when deploying extensions, Azure Stack users set `autoUpgradeMinorVersion` to **true**. For example:
+
+   ```json
+   "type": "Extension",
+           "publisher": "ExtensionPublisher",
+           "typeHandlerVersion": "1.2",
+           "autoUpgradeMinorVersion": "true"
+   ```
+
+- There is a new consideration for accurately planning Azure Stack capacity. We have set limits on the total number of VMs that can be deployed within Azure Stack, to ensure all of our internal services fulfill the scale at which customers run. The limit is 60 VMs per host, with a maximum of 700 for the entire stamp (if the 60 per host limit is reached).
 
 ## Common vulnerabilities and exposures
 
