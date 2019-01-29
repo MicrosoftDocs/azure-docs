@@ -15,6 +15,9 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 01/16/2019
+
+
 ---
 
 # Azure Stack registration
