@@ -15,7 +15,7 @@
   ms.date: 01/28/2019
   ms.author: curtand
   ms.reviewer: sumitp
-  ms.custom: seo-update-jan
+  ms.custom: "it-prp;seo-update-azuread-jan"
 ---
 
 # Product names and service plan identifiers for licensing
