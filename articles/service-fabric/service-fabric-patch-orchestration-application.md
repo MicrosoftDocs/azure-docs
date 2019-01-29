@@ -292,7 +292,7 @@ Based on the policy for the application, either one node can go down during a pa
 
 By the end of the Windows Update installation, the nodes are reenabled post restart.
 
-In the following example, the cluster went to an error state temporarily because two nodes were down and the MaxPercentageUnhealthNodes policy was violated. The error is temporary until the patching operation is ongoing.
+In the following example, the cluster went to an error state temporarily because two nodes were down and the MaxPercentageUnhealthyNodes policy was violated. The error is temporary until the patching operation is ongoing.
 
 ![Image of unhealthy cluster](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
