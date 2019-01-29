@@ -1439,6 +1439,12 @@ featureFlags:
                                                 <p>API Management</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure-sphere/">
+                                                <img src="media/index/azure_sphere.svg" alt="" />
+                                                <p>Azure Sphere</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -4285,6 +4291,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
                                                     <p>Publish APIs to developers, partners, and employees securely and at scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-sphere/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_sphere.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Sphere</h3>
+                                                    <p>Create highly secured, connected MCU-powered devices</p>
                                                 </div>
                                             </div>
                                         </div>

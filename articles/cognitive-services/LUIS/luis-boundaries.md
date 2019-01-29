@@ -6,7 +6,7 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: diberry
@@ -23,7 +23,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | [App name][luis-get-started-create-app] | *Default character max |
 | [Batch testing][batch-testing]| 10 datasets, 1000 utterances per dataset|
 | Explicit list | 50 per application|
-| [Intents][intents]|500 per application<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources|
+| [Intents][intents]|500 per application: 499 custom intents, and the required _None_ intent.<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources.|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
 | [Machine-learned entities](./luis-concept-entity-types.md):<br> Composite,<br>  Hierarchical<br> Simple|A limit of either 100 parent entities (not including hierarchical children) or 330 entities (including hierarchical children), whichever limit the user hits first.<br><br>An example of with hierarchy would be 30 hierarchies each with 10 children.  The children will consume 300 total, and the hierarchy elements will consume the remaining 30. |
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|

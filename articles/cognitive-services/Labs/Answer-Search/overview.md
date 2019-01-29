@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is Project Answer Search?
 titlesuffix: Azure Cognitive Services
 description: Introduction to the Project Answer Search.
@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh

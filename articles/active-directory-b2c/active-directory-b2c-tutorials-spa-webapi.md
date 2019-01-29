@@ -10,7 +10,7 @@ ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Tutorial: Grant access to an ASP.NET Core web API from a single-page app using Azure Active Directory B2C
