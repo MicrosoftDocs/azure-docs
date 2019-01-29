@@ -48,17 +48,17 @@ A DNS zone is created by using the `az network dns zone create` command with a v
 If the **ZoneType** parameter is omitted, the zone is created as a public zone, so it is required to create a private zone.
 
 ```azurecli
-az network vnet create \
-  --name myAzureVNet \
-  --resource-group MyAzureResourceGroup \
-  --location eastus \
-  --address-prefix 10.2.0.0/16 \
-  --subnet-name backendSubnet \
+az network vnet create `
+  --name myAzureVNet `
+  --resource-group MyAzureResourceGroup `
+  --location eastus `
+  --address-prefix 10.2.0.0/16 `
+  --subnet-name backendSubnet `
   --subnet-prefix 10.2.0.0/24
 
-az network dns zone create -g MyAzureResourceGroup \
-   -n contoso.local \
-  --zone-type Private \
+az network dns zone create -g MyAzureResourceGroup `
+   -n contoso.local `
+  --zone-type Private `
   --registration-vnets myAzureVNet
 ```
 
@@ -74,7 +74,7 @@ To enumerate DNS zones, use `az network dns zone list`. For help, see `az networ
 Specifying the resource group lists only those zones within the resource group:
 
 ```azurecli
-az network dns zone list \
+az network dns zone list `
   --resource-group MyAzureResourceGroup
 ```
 
@@ -89,22 +89,22 @@ az network dns zone list
 Now, create two virtual machines so you can test your private DNS zone:
 
 ```azurecli
-az vm create \
- -n myVM01 \
- --admin-username test-user \
- -g MyAzureResourceGroup \
- -l eastus \
- --subnet backendSubnet \
- --vnet-name myAzureVnet \
+az vm create `
+ -n myVM01 `
+ --admin-username test-user `
+ -g MyAzureResourceGroup `
+ -l eastus `
+ --subnet backendSubnet `
+ --vnet-name myAzureVnet `
  --image win2016datacenter
 
-az vm create \
- -n myVM02 \
- --admin-username test-user \
- -g MyAzureResourceGroup \
- -l eastus \
- --subnet backendSubnet \
- --vnet-name myAzureVnet \
+az vm create `
+ -n myVM02 `
+ --admin-username test-user `
+ -g MyAzureResourceGroup `
+ -l eastus `
+ --subnet backendSubnet `
+ --vnet-name myAzureVnet `
  --image win2016datacenter
 ```
 
@@ -117,10 +117,10 @@ To create a DNS record, use the `az network dns record-set [record type] add-rec
  The following example creates a record with the relative name **db** in the DNS Zone **contoso.local**, in resource group **MyAzureResourceGroup**. The fully qualified name of the record set is **db.contoso.local**. The record type is "A", with IP address "10.2.0.4".
 
 ```azurecli
-az network dns record-set a add-record \
-  -g MyAzureResourceGroup \
-  -z contoso.local \
-  -n db \
+az network dns record-set a add-record `
+  -g MyAzureResourceGroup `
+  -z contoso.local `
+  -n db `
   -a 10.2.0.4
 ```
 
@@ -129,8 +129,8 @@ az network dns record-set a add-record \
 To list the DNS records in your zone, run:
 
 ```azurecli
-az network dns record-set list \
-  -g MyAzureResourceGroup \
+az network dns record-set list `
+  -g MyAzureResourceGroup `
   -z contoso.local
 ```
 Remember, you won't see the automatically created A records for your two test virtual machines.
