@@ -23,7 +23,7 @@
      - name: Choose the right authentication
        href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
      - name: Identity synchronization and duplicate attribute resiliency
-     href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+       href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
    - name: Password hash synchronization
      items:
      - name: What is password hash synchronization?

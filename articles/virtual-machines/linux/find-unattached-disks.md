@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
+ms.component: disks
 ---
 
 # Find and delete unattached Azure managed and unmanaged disks

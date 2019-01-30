@@ -4,7 +4,7 @@ description: This page documents special considerations for Azure AD instances.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---

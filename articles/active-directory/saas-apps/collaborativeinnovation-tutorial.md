@@ -9,7 +9,6 @@ ms.reviewer: barbkess
 
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
 ms.service: Azure-Active-Directory
-ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial

@@ -16,7 +16,7 @@ ms.custom: seodec2018
 
 In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, or **Standard**, where **Standard** is available in several configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
 
-Tiers determine capacity, not features, and are differentiated by:
+Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
 
 + Number of indexes you can create
 + Size and speed of partitions (physical storage)
