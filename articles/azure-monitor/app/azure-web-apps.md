@@ -55,7 +55,7 @@ If you're already running an app service in Azure, you already get some monitori
 
 3. **Instrument your app service** after Application Insights has been installed.
 
-   **Enable client side monitoring** for page view and user telemetry. (This is enabled by default for .NET Core apps with **Recommended collection**.)
+   **Enable client side monitoring** for page view and user telemetry. (This is enabled by default for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present. Granular UI based support for disabling client side monitoring is not currently available for .NET Core.)
 
    * Select Settings > Application Settings
    * Under App Settings, add a new key value pair:
@@ -120,6 +120,9 @@ For .NET Core the following are currently **not supported**:
     - Self-contained deployment.
     - Apps targeting the .NET Framework.
     - .NET Core 2.2 applications.
+
+> [!NOTE]
+> .NET Core 2.0 and .NET Core 2.1 are supported. When .NET Core 2.2 support is added this article will be updated.
 
 ## Next steps
 * [Run the profiler on your live app](../../azure-monitor/app/profiler.md).
