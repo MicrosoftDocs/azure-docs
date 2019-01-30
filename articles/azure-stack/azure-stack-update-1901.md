@@ -108,6 +108,9 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 
 - Fixed an issue in which running the **Get-AzureStackLog** cmdlet failed after running **Test-AzureStack** in the same privileged endpoint (PEP) session. You can now use the same PEP session in which you executed **Test-AzureStack**.
 
+<!-- bug 3615401, IS -->
+- Fixed issue with automatic backups where the scheduler service would go into disabled state unexpectedly. 
+
 ## Changes
 
 - A new way to view and edit the quotas in a plan was introduced in 1811. For more information, see [View an existing quota](azure-stack-quota-types.md#view-an-existing-quota).
@@ -270,15 +273,6 @@ The following are post-installation known issues for this build version.
 - The **New-AzureRmIpSecPolicy** PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter.
 
 - Network security groups (NSGs) do not work in Azure Stack in the same way as global Azure. In Azure, you can set multiple ports on one NSG rule (using the portal, PowerShell, and Resource Manager templates). In Azure Stack however, you cannot set multiple ports on one NSG rule via the portal. To work around this issue, use a Resource Manager template to set these additional rules.
-
-### Infrastructure backup
-
-<!--scheduler config lost, bug 3615401, new issue in 1811,  hectorl-->
-<!-- TSG: https://www.csssupportwiki.com/index.php/Azure_Stack/KI/Backup_scheduler_configuration_lost --> 
-- After enabling automatic backups, the scheduler service goes into disabled state unexpectedly. The backup controller service will detect that automatic backups are disabled and raise a warning in the administrator portal. This warning is expected when automatic backups are disabled. 
-    - Cause: This issue is due to a bug in the service that results in loss of scheduler configuration. This bug does not change the storage location, user name, password, or encryption key.   
-    - Remediation: To mitigate this issue, open the backup controller settings blade in the Infrastructure Backup resource provider and select **Enable Automatic Backups**. Make sure to set the desired frequency and retention period.
-    - Occurrence: Low 
 
 <!-- ### SQL and MySQL-->
 
