@@ -13,13 +13,15 @@ ms.custom: seodec18
 ---
 
 # Configure ExpressRoute Global Reach by using the Azure CLI (Preview)
-This article helps you configure Azure ExpressRoute Global Reach by using the Azure CLI. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
+
+This article helps you configure Azure ExpressRoute Global Reach by using the Azure CLI. For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
  
 ## Before you begin
+
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-Before you start configuration, check the following requirements:
+Before you start configuration, complete the following requirements:
 
 * Install the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 * Understand the ExpressRoute circuit-provisioning [workflows](expressroute-workflows.md).
@@ -27,19 +29,20 @@ Before you start configuration, check the following requirements:
 * Make sure Azure private peering is configured on your ExpressRoute circuits.  
 
 ### Sign in to your Azure account
-To start the configuration, sign in to your Azure account. The following command opens your default browser and prompts you for the sign-in credentials for your Azure account.  
+
+To start configuration, sign in to your Azure account. The following command opens your default browser and prompts you for the sign-in credentials for your Azure account:  
 
 ```azurecli
 az login
 ```
 
-If you have multiple Azure subscriptions, check the subscriptions for the account.
+If you have multiple Azure subscriptions, check the subscriptions for the account:
 
 ```azurecli
 az account list
 ```
 
-Specify the subscription that you want to use.
+Specify the subscription that you want to use:
 
 ```azurecli
 az account set --subscription <your subscription ID>
@@ -47,17 +50,15 @@ az account set --subscription <your subscription ID>
 
 ### Identify your ExpressRoute circuits for configuration
 
-You can enable ExpressRoute Global Reach between any two ExpressRoute circuits, as long as they're located in supported countries and they're created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration as explained later in this article. If the two circuits are in different Azure subscriptions, you must have authorization from one Azure subscription and must pass in its authorization key when you run the configuration command in the other Azure subscription.
+You can enable ExpressRoute Global Reach between any two ExpressRoute circuits, as long as they're located in supported countries and were created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration as explained later in this article. If the two circuits are in different Azure subscriptions, you must have authorization from one Azure subscription and must pass in its authorization key when you run the configuration command in the other Azure subscription.
 
 ## Enable connectivity between your on-premises networks
 
 When running the command to enable connectivity, note the following requirements for parameter values:
 
-* *peer-circuit* should be the full resource ID. For example: 
+* *peer-circuit* should be the full resource ID. For example:
 
-  ```
-  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
-  ```
+  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 
 * *address-prefix* must be a "/29" IPv4 subnet (for example, "10.0.0.0/29"). We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You must not use addresses in this subnet in your Azure Virtual Networks or in your on-premises networks.
 
@@ -95,7 +96,7 @@ When the preceding operation is complete, you'll have connectivity between your 
 
 ## Enable connectivity between ExpressRoute circuits in different Azure subscriptions
 
-If the two circuits aren't in the same Azure subscription, you'll need authorization. In the following configuration, you generate authorization in circuit 2's subscription and pass the authorization key to circuit 1.
+If the two circuits aren't in the same Azure subscription, you need authorization. In the following configuration, you generate authorization in circuit 2's subscription and pass the authorization key to circuit 1.
 
 1. Generate an authorization key:
 
@@ -154,6 +155,4 @@ After this operation is complete, you'll no longer have connectivity between you
 
 * [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)
 * [Verify ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
-* [Link ExpressRoute circuit to Azure virtual network](expressroute-howto-linkvnet-arm.md)
-
-
+* [Link an ExpressRoute circuit to a virtual network](expressroute-howto-linkvnet-arm.md)
