@@ -17,7 +17,7 @@ ms.date: 09/25/2017
 > [!IMPORTANT]
 > Power BI Workspace Collections is deprecated and is available until June 2018 or when your contract indicates. You are encouraged to plan your migration to Power BI Embedded to avoid interruption in your application. For information on how to migrate your data to Power BI Embedded, see [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Resources for **Microsoft Power BI Workspace Collections** are provisioned through the [Azure Resource Manager APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource provisioned is a **Power BI Workspace Collection**.
+Resources for **Microsoft Power BI Workspace Collections** are provisioned through the [Azure Resource Manager APIs](/previous-versions/azure/reference/mt712306(v=azure.100)). In this case, the resource provisioned is a **Power BI Workspace Collection**.
 
 ![General flow of Power BI Workspace Collections](media/get-started/introduction.png)
 
@@ -68,7 +68,7 @@ Now that you have an instance of Power BI for your application, and **Access Key
 
 ## Working with workspaces
 
-After you have created your workspace collection, you will need to create a workspace that will house your reports and datasets. To create a workspace, you need to use the [Post Workspace REST API](https://msdn.microsoft.com/library/azure/mt711503.aspx).
+After you have created your workspace collection, you will need to create a workspace that will house your reports and datasets. To create a workspace, you need to use the [Post Workspace REST API](/previous-versions/azure/reference/mt711503(v=azure.100)).
 
 ## Create Power BI datasets and reports to embed into an app using Power BI Desktop
 
@@ -87,16 +87,16 @@ Here are the differences between using **Import** and **DirectQuery**.
 
 For more about connecting to a data source, see [Connect to a data source](connect-datasource.md).
 
-After you save your work in **Power BI Desktop**, a PBIX file is created. This file contains your report. In addition, if you import data the PBIX contains the complete dataset, or if you use **DirectQuery**, the PBIX contains just a dataset schema. You programmatically deploy the PBIX into your workspace using the [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx).
+After you save your work in **Power BI Desktop**, a PBIX file is created. This file contains your report. In addition, if you import data the PBIX contains the complete dataset, or if you use **DirectQuery**, the PBIX contains just a dataset schema. You programmatically deploy the PBIX into your workspace using the [Power BI Import API](/previous-versions/azure/reference/mt711504(v=azure.100)).
 
 > [!NOTE]
-> **Power BI Workspace Collections** have additional APIs to change the server and database that your dataset is pointing to and set a service account credential that the dataset will use to connect to your database. See [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) and [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx).
+> **Power BI Workspace Collections** have additional APIs to change the server and database that your dataset is pointing to and set a service account credential that the dataset will use to connect to your database. See [Post SetAllConnections](/previous-versions/azure/reference/mt711505(v=azure.100)) and [Patch Gateway Datasource](/previous-versions/azure/reference/mt711498(v=azure.100)).
 
 ## Create Power BI datasets and reports using APIs
 
 ### Datasets
 
-You can create datasets within Power BI Workspace Collections using the REST API. You can then push data into your dataset. This allows you to work with data without the need of Power BI Desktop. For more information, see [Post Datasets](https://msdn.microsoft.com/library/azure/mt778875.aspx).
+You can create datasets within Power BI Workspace Collections using the REST API. You can then push data into your dataset. This allows you to work with data without the need of Power BI Desktop. For more information, see [Post Datasets](/previous-versions/azure/reference/mt778875(v=azure.100)).
 
 ### Reports
 

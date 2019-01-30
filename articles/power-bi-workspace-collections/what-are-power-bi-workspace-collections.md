@@ -30,7 +30,7 @@ In the **Microsoft Power BI Workspace Collections** usage model, licensing for P
 
 ![Application flow with workspace collections](media/what-are-power-bi-workspace-collections/model.png)
 
-Like any other service in Azure, resources for Power BI Workspace Collections are provisioned through the [Azure Resource Manager APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource that is provision is a **Power BI Workspace Collection**.
+Like any other service in Azure, resources for Power BI Workspace Collections are provisioned through the [Azure Resource Manager APIs](/previous-versions/azure/reference/mt712306(v=azure.100)). In this case, the resource that is provision is a **Power BI Workspace Collection**.
 
 ## Workspace collection
 
@@ -42,7 +42,7 @@ A **Workspace Collection** is the top-level Azure container for resources that c
 
 ## Workspace
 
-A **Workspace** is a container of Power BI content, which can include datasets and reports. A **Workspace** is empty when first created. You’ll author content using Power BI Desktop and you'll programmatically deploy the PBIX into your workspace using the [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx). You can also programmatically create your dataset and then create reports within your application instead of using Power BI Desktop.
+A **Workspace** is a container of Power BI content, which can include datasets and reports. A **Workspace** is empty when first created. You’ll author content using Power BI Desktop and you'll programmatically deploy the PBIX into your workspace using the [Power BI Import API](/previous-versions/azure/reference/mt711504(v=azure.100)). You can also programmatically create your dataset and then create reports within your application instead of using Power BI Desktop.
 
 ## Using workspace collections and workspaces
 

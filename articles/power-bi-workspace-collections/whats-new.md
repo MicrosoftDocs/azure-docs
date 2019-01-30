@@ -28,7 +28,7 @@ Updates to **Power BI Workspace Collections** are released on a regular basis. H
 
 **Data connectivity with REST APIs**
 
-* [Create dataset](https://msdn.microsoft.com/library/azure/mt778875.aspx)
+* [Create dataset](/previous-versions/azure/reference/mt778875(v=azure.100))
 * Push data 
 
 **Management APIs**

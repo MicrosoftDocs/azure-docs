@@ -27,7 +27,7 @@ In order to call the REST API, you can pass the access key which you can get fro
 
 ## Get a report ID
 
-Every access token is based on a report. You will need to get the given report id for the report that you want to embed. This can be done based on calls to the [Get Reports](https://msdn.microsoft.com/library/azure/mt711510.aspx) REST API. This will return the report id and the embed url. This can be done using the Power BI .NET SDK or calling the REST API directly.
+Every access token is based on a report. You will need to get the given report id for the report that you want to embed. This can be done based on calls to the [Get Reports](/previous-versions/azure/reference/mt711510(v=azure.100)) REST API. This will return the report id and the embed url. This can be done using the Power BI .NET SDK or calling the REST API directly.
 
 ### Using the Power BI .NET SDK
 

@@ -20,7 +20,7 @@ With **Microsoft Power BI Workspace Collections**, you can integrate Power BI re
 Before we go any further, you want to save the following resources: They help you when integrating Power BI reports into the sample app and your own apps too.
 
 * [Sample workspace web app](https://go.microsoft.com/fwlink/?LinkId=761493)
-* [Power BI Workspace Collections API reference](https://msdn.microsoft.com/library/azure/mt711507.aspx)
+* [Power BI Workspace Collections API reference](/previous-versions/azure/reference/mt711507(v=azure.100))
 * [Power BI .NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472) (available via NuGet)
 * [JavaScript Report Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
