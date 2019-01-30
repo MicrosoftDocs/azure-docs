@@ -32,11 +32,11 @@ Any client production application that connects to a cloud database service shou
 
 ## Frequency
 
-On average, 1.7 planned maintenance event occurs each month.
+On average, 1.7 planned maintenance events occur each month.
 
 ## Resource Health
 
-If your SQL database is experiencing login failures, check the [Resource Health](../service-health/resource-health-overview.md#getting-started) window in the [Azure portal](https://portal.azure.com) for the current status of your database. The Health History section contains the downtime reason for each event (when available).
+If your SQL database is experiencing login failures, check the [Resource Health](../service-health/resource-health-overview.md#getting-started) window in the [Azure portal](https://portal.azure.com) for the current status. The Health History section contains the downtime reason for each event (when available).
 
 
 ## Next steps
