@@ -129,7 +129,7 @@ The following PowerShell script shows how to change the connection policy.
 
 ```powershell
 # Get SQL Server ID
-$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
+$sqlserverid=(Find-AzureRmResource -ResourceNameContains sql-server-name -ResourceType 'Microsoft.Sql/servers').ResourceId
 
 # Set URI
 $id="$sqlserverid/connectionPolicies/Default"
