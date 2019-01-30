@@ -4,7 +4,7 @@ description: Ban weak passwords from your environment with Azure AD dynamically 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
@@ -25,7 +25,7 @@ Industry leaders tell you not to use the same password in multiple places, to ma
 
 ## Global banned password list
 
-Microsoft is always working to stay one step ahead of cyber-criminals. Therefore the Azure AD Identity Protection team continually look for commonly used and compromised passwords. They then block those passwords that are deemed too common in what is called the global banned password list. Cyber-criminals also use similar strategies in their attacks, therefore Microsoft does not publish the contents of this list publicly. These vulnerable passwords are blocked before they become a real threat to Microsoft's customers. For more information about current security efforts, see the [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
+Microsoft is always working to stay one step ahead of cyber-criminals. Therefore the Azure AD Identity Protection team continually look for commonly used and compromised passwords. They then block those passwords that are deemed too common in what is called the global banned password list. Cyber-criminals also use similar strategies in their attacks, therefore Microsoft does not publish the contents of this list publicly. These vulnerable passwords are blocked before they become a real threat to Microsoft's customers. For more information about current security efforts, see the [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
 ## Preview: Custom banned password list
 
