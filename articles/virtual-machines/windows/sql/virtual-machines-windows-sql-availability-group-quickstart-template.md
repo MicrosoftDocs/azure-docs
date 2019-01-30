@@ -65,9 +65,9 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
    | **Existing Vm List** | The SQL Server VMs you want to participate in the availability group, and as such, be part of this new cluster. Separate these values with a comma and a space (ex: SQLVM1, SQLVM2). |
    | **SQL Server Version** | Select the SQL Server version of your SQL Server VMs from the drop-down. Currently only SQL 2016 and SQL 2017 images are supported. |
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
-   | **Existing Domain Account** | An existing domain account that has sysadmin access to the SQL Server, and has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) (ex: domain\account). | 
-   | **Domain Account Password** | The password for the previously mentioned domain account. | 
-   | **Existing Sql Service Account** | The domain user account that is being used to control the SQL Server service. This information can be found using the [**SQL Server Configuration Manager**](/sql/relational-databases/sql-server-configuration-manager) (ex: domain\account). |
+   | **Existing Domain Account** | An existing domain user account that has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) in the domain (ex: domain\account). | 
+   | **Domain Account Password** | The password for the previously mentioned domain user account. | 
+   | **Existing Sql Service Account** | The domain user account that is being used to control the [SQL Server service](sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) (ex: domain\account). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
    | **Cloud Witness Name** | This is a new Azure storage account that will be created and used for the cloud witness. This name could  be modified. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |
@@ -100,10 +100,10 @@ The Always On availability group (AG) listener requires an internal Azure Load B
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
    | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
-   | **Virtual network** |Select the virtual network that the SQL Server instances are in. |
-   | **Subnet** |Select the subnet that the SQL Server instances are in. |
+   | **Virtual network** | Select the virtual network that the SQL Server instances are in. |
+   | **Subnet** | Select the subnet that the SQL Server instances are in. |
    | **IP address assignment** |**Static** |
-   | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster.|
+   | **Private IP address** | Specify an available IP address from the subnet.|
    | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It is normally the same subscription as all the resources for the availability group. |
    | **Resource group** |Select the resource group that the SQL Server instances are in. |
    | **Location** |Select the Azure location that the SQL Server instances are in. |
@@ -117,7 +117,7 @@ The Always On availability group (AG) listener requires an internal Azure Load B
 
 ## Step 4 - Create the AG listener and configure the ILB with the quickstart template
 
-Create the availability group listener and configure the Internal Load Balancer (ILB) automatically with the **101-sql-vm-aglistener-setup**  quickstart template as it provisions the Microsoft.SqlVirtualMachine/Sql Virtual Machine Groups/Availability Group Listener resource. The  **101-sql-vm-aglistener-setup** quickstart template, via the SQL VM resource provider, does the following actions:
+Create the availability group listener and configure the Internal Load Balancer (ILB) automatically with the **101-sql-vm-aglistener-setup**  quickstart template as it provisions the Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener resource. The  **101-sql-vm-aglistener-setup** quickstart template, via the SQL VM resource provider, does the following actions:
 
  - Configures the network settings for the cluster and ILB. 
  - Configures the ILB backend pool, health probe, and load-balancing rules.
@@ -135,10 +135,9 @@ To configure the ILB and create the AG listener, do the following:
    |**Existing Failover Cluster Name** | The name of the cluster that your SQL Server VMs are joined to. |
    | **Existing Sql Availability Group**| The name of the availability group that your SQL Server VMs are a part of. |
    | **Existing Vm List** | The names of the SQL Server VMs that are part of the previously mentioned availability group. The names should be separated by a comma and a space (ex: SQLVM1, SQLVM2). |
-   | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
-   | **Listener** | The DNS name you would like to assign to the listener. By default, this template specifies the name 'aglistener' but it can be changed. |
+   | **Listener** | The DNS name you would like to assign to the listener. By default, this template specifies the name 'aglistener' but it can be changed. The name should not exceed 15 characters. |
    | **Listener Port** | The port you want the listener to  use. Typically, this port should be the default port of 1433, and as such, this is the port number specified by this template. However, if your default port has been changed, then the listener port should use that value instead. | 
-   | **Existing Vnet** | The name of the vNet where your SQL Server VMs, and ILB reside. |
+    | **Listener IP** | The IP you want the listener to use.  This IP address will be created during template deployment, so provide an IP address that is not already in use.  |
    | **Existing Subnet** | The *name* of the internal subnet of your SQL Server VMs (ex: default). This value can be determined by navigating to your **Resource Group**, selecting your **vNet**, selecting **Subnets** under the **Settings** pane, and copying the value under **Name**. |
    | **Existing Internal Load Balancer** | The name of the ILB that you created in Step 3. |
    | **Probe Port** | The probe port that you want the ILB to use. The template uses 59999 by default but this value can be changed. |
