@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
 
@@ -126,5 +126,6 @@ When they're no longer needed, you can delete the resource group, virtual machin
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
+
 
 

@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 
@@ -58,4 +58,5 @@ The name of a smart group is the name of its first alert. You can't create or re
 
 - [Manage smart groups](https://aka.ms/managing-smart-groups)
 - [Change your alert and smart group state](https://aka.ms/managing-alert-smart-group-states)
+
 

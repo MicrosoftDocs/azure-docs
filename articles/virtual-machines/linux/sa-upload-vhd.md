@@ -38,7 +38,7 @@ First, create a resource group with [az group create](/cli/azure/group#az_group_
 az group create --name myResourceGroup --location westus
 ```
 
-Create a storage account to hold your virtual disks with [az storage account create](/cli/azure/storage/account#az_storage_account_create). The following example creates a storage account named `mystorageaccount`:
+Create a storage account to hold your virtual disks with [az storage account create](/cli/azure/storage/account). The following example creates a storage account named `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -66,7 +66,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+Specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -129,7 +129,7 @@ az group create --name myResourceGroup --location westus
 
 ## Create a storage account
 
-Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account#az_storage_account_create). Any VMs with unmanaged disks that you create from your custom disk need to be in the same storage account as that disk. 
+Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account). Any VMs with unmanaged disks that you create from your custom disk need to be in the same storage account as that disk. 
 
 The following example creates a storage account named `mystorageaccount` in the resource group previously created:
 
@@ -183,9 +183,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## Create the VM
-To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
+To create a VM with unmanaged disks, specify the URI to your disk (`--image`) with [az vm create](/cli/azure/vm). The following example creates a VM named `myVM` using the virtual disk previously uploaded:
 
-You specify the `--image` parameter with [az vm create](/cli/azure/vm#az_vm_create) to point to your custom disk. Ensure that `--storage-account` matches the storage account where your custom disk is stored. You do not have to use the same container as the custom disk to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk.
+You specify the `--image` parameter with [az vm create](/cli/azure/vm) to point to your custom disk. Ensure that `--storage-account` matches the storage account where your custom disk is stored. You do not have to use the same container as the custom disk to store your VMs. Make sure to create any additional containers in the same way as the earlier steps before uploading your custom disk.
 
 The following example creates a VM named `myVM` from your custom disk:
 

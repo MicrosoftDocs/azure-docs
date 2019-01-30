@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Why is my Azure subscription disabled and how do I reactivate it?

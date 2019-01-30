@@ -1,16 +1,16 @@
-﻿---
+---
 title: Add your own attributes to custom policies in Azure Active Directory B2C | Microsoft Docs
 description: A walkthrough on using extension properties and custom attributes and including them in the user interface.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 # Azure Active Directory B2C: Use custom attributes in a custom profile edit policy
 
@@ -41,7 +41,6 @@ Extension properties exist only in the context of a registered application in th
 >The Azure AD B2C directory typically includes a web app named `b2c-extensions-app`. This application is primarily used by the B2C built-in policies for the custom claims created via the Azure portal. We recommend that only advanced users register extensions for B2C custom policies by using this application.  
 Instructions are included in the **Next steps** section in this article.
 
-
 ## Create a new application to store the extension properties
 
 1. Open a browsing session and navigate to the [Azure portal](https://portal.azure.com). Sign in with the administrative credentials of the B2C directory you want to configure.
@@ -61,8 +60,6 @@ Instructions are included in the **Next steps** section in this article.
     * **Application ID**. Example: `103ee0e6-f92d-4183-b576-8c3739027780`.
     * **Object ID**. Example: `80d8296a-da0a-49ee-b6ab-fd232aa45201`.
 
-
-
 ## Modify your custom policy to add the **ApplicationObjectId**
 
 When you followed the steps in [Azure Active Directory B2C: Get started with custom policies](active-directory-b2c-get-started-custom.md), you downloaded and modified [sample files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) named **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, and **PasswordReset.xml**. In this step, you make more modifications to those files.
@@ -71,31 +68,31 @@ When you followed the steps in [Azure Active Directory B2C: Get started with cus
 
     ```xml
     <ClaimsProviders>
-    	<ClaimsProvider>
-    	  <DisplayName>Azure Active Directory</DisplayName>
-    		<TechnicalProfile Id="AAD-Common">
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfile Id="AAD-Common">
           <DisplayName>Azure Active Directory</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-              
+
           <!-- Provide objectId and appId before using extension properties. -->
           <Metadata>
             <Item Key="ApplicationObjectId">insert objectId here</Item>
             <Item Key="ClientId">insert appId here</Item>
           </Metadata>
           <!-- End of changes -->
-              
+
           <CryptographicKeys>
             <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
           </CryptographicKeys>
           <IncludeInSso>false</IncludeInSso>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
-    	</ClaimsProvider>
+      </ClaimsProvider>
     </ClaimsProviders>
     ```
 
 > [!NOTE]
-> When the **TechnicalProfile** writes for the first time to the newly created extension property, you might experience a one-time error. The extension property is created the first time it's used.  
+> When the **TechnicalProfile** writes for the first time to the newly created extension property, you might experience a one-time error. The extension property is created the first time it's used.
 
 ## Use the new extension property or custom attribute in a user journey
 
@@ -125,13 +122,13 @@ When you followed the steps in [Azure Active Directory B2C: Get started with cus
 
     ```xml
     <BuildingBlocks>
-      <ClaimsSchema> 
-        <ClaimType Id="extension_loyaltyId"> 
-          <DisplayName>Loyalty Identification Tag</DisplayName> 
-          <DataType>string</DataType> 
-          <UserHelpText>Your loyalty number from your membership card</UserHelpText> 
-          <UserInputType>TextBox</UserInputType> 
-        </ClaimType> 
+      <ClaimsSchema>
+        <ClaimType Id="extension_loyaltyId">
+          <DisplayName>Loyalty Identification Tag</DisplayName>
+          <DataType>string</DataType>
+          <UserHelpText>Your loyalty number from your membership card</UserHelpText>
+          <UserInputType>TextBox</UserInputType>
+        </ClaimType>
       </ClaimsSchema>
     </BuildingBlocks>
     ```
@@ -152,7 +149,7 @@ When you followed the steps in [Azure Active Directory B2C: Get started with cus
         <InputClaim ClaimTypeReferenceId="alternativeSecurityId" />
         <InputClaim ClaimTypeReferenceId="userPrincipalName" />
         <InputClaim ClaimTypeReferenceId="givenName" />
-            <InputClaim ClaimTypeReferenceId="surname" />
+        <InputClaim ClaimTypeReferenceId="surname" />
 
         <!-- Add the loyalty identifier -->
         <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -162,7 +159,7 @@ When you followed the steps in [Azure Active Directory B2C: Get started with cus
         <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
         <OutputClaim ClaimTypeReferenceId="givenName" />
         <OutputClaim ClaimTypeReferenceId="surname" />
-        
+
         <!-- Add the loyalty identifier -->
         <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
         <!-- End of changes -->
@@ -273,16 +270,16 @@ The ID token sent back to your application includes the new extension property a
 
   ```xml
       <ClaimsProviders>
-     	<ClaimsProvider>
-      	      <DisplayName>Azure Active Directory</DisplayName>
-      		<TechnicalProfile Id="AAD-Common">
-                <DisplayName>Azure Active Directory</DisplayName>
-                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-                <!-- Provide objectId and appId before using extension properties. -->
-                <Metadata>
-                  <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
-                  <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
-                </Metadata>
+        <ClaimsProvider>
+          <DisplayName>Azure Active Directory</DisplayName>
+          <TechnicalProfile Id="AAD-Common">
+            <DisplayName>Azure Active Directory</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <!-- Provide objectId and appId before using extension properties. -->
+            <Metadata>
+              <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+              <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+            </Metadata>
   ```
 
 3. Stay consistent with the portal experience. Create these attributes by using the portal UI before you use them in your custom policies. When you create an attribute **ActivationStatus** in the portal, you must refer to it as follows:
@@ -291,7 +288,6 @@ The ID token sent back to your application includes the new extension property a
   extension_ActivationStatus in the custom policy.
   extension_<app-guid>_ActivationStatus via Graph API.
   ```
-
 
 ## Reference
 
