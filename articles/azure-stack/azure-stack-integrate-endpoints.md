@@ -9,7 +9,6 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: jeffgilb
 ms.reviewer: wamota
-
 ---
 
 # Azure Stack datacenter integration - Publish endpoints
