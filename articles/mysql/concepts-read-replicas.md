@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/23/2019
+ms.date: 1/30/2019
 ---
 
 # Read replicas in Azure Database for MySQL
