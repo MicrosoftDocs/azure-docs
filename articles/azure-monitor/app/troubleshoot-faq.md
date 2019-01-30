@@ -240,7 +240,7 @@ We recommend you use our SDKs and use the [SDK API](../../azure-monitor/app/api-
 ## Can I monitor an intranet web server?
 
 Yes, but you will need to allow traffic to our services.
-Review our list of services and IP addresses [here](../../azure-monitor/app/ip-addresses).
+Review our list of services and IP addresses [here](../../azure-monitor/app/ip-addresses.md).
 
 Here are two methods:
 
