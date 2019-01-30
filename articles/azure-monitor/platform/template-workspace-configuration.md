@@ -16,6 +16,9 @@ ms.author: magoedte
 ---
 
 # Manage Log Analytics using Azure Resource Manager templates
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
 
 * Create a workspace including setting pricing tier 
@@ -117,7 +120,7 @@ The following parameters set a default value:
    * For PowerShell use the following commands from the folder containing the template:
    
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
    * For command line, use the following commands from the folder containing the template:
@@ -495,7 +498,7 @@ To deploy the sample template:
 
 #### PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### Command line

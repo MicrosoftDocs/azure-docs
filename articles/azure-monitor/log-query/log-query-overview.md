@@ -31,6 +31,8 @@ You require a log query to retrieve any data from Log Analytics.  Whether you're
 
 ## Where log queries are used
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 The different ways that you will use queries in Log Analytics include the following:
 
 - **Portals.** You can perform interactive analysis of log data in the [Azure portal](../log-query/portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
@@ -38,7 +40,7 @@ The different ways that you will use queries in Log Analytics include the follow
 - **Dashboards.** You can pin the results of any query into an [Azure dashboard](../learn/tutorial-logs-dashboards.md) which allow you to visualize log and metric data together and optionally share with other Azure users. 
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](../platform/view-designer.md).  Log queries provide the data used by [tiles](../platform/view-designer-tiles.md) and [visualization parts](../platform/view-designer-parts.md) in each view.  
 - **Export.**  When you import data from Log Analytics workspace into Excel or [Power BI](../platform/powerbi.md), you create a log query to define the data to export.
-- **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
+- **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresults) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
 - **Log Analytics API.**  The [Log Analytics log search API](../platform/alerts-overview.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
 
 ![Log searches](media/log-query-overview/queries-overview.png)

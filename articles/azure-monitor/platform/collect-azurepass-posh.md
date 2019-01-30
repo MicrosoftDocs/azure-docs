@@ -17,6 +17,8 @@ ms.author: magoedte
 
 # Configure collection of Azure PaaS resource metrics with Log Analytics
 
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
+
 Azure Platform as a Service (PaaS) resources, like Azure SQL and Web Sites (Web Apps), can emit performance metrics data natively to Log Analytics. This script allows users to enable metrics logging for PaaS resources already deployed in a specific resource group or across an entire subscription. 
 
 Today, there is no way to enable metrics logging for PaaS resources through the Azure portal. Therefore, you need to use a PowerShell script. This native metrics logging capability along with Log Analytics monitoring, enable you to monitor Azure resources at scale. 

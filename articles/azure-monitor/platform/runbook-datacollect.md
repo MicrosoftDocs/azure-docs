@@ -15,6 +15,9 @@ ms.date: 05/27/2017
 ms.author: bwren
 ---
 # Collect data in Log Analytics with an Azure Automation runbook
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can collect a significant amount of data in Log Analytics from a variety of sources including [data sources](../../azure-monitor/platform/agent-data-sources.md) on agents and also [data collected from Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md). There are a scenarios though where you need to collect data that isn't accessible through these standard sources. In these cases, you can use the [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) to write data to Log Analytics from any REST API client. A common method to perform this data collection is using a runbook in Azure Automation.
 
 This tutorial walks through the process for creating and scheduling a runbook in Azure Automation to write data to Log Analytics.
@@ -86,7 +89,7 @@ Azure Automation has an editor in the portal where you can edit and test your ru
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -103,7 +106,7 @@ Azure Automation has an editor in the portal where you can edit and test your ru
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json

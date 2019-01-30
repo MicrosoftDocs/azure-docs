@@ -17,6 +17,8 @@ ms.author: mbullwin
 
 # Profile web apps running on an Azure virtual machine or a virtual machine scale set by using Application Insights Profiler
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 You can also deploy Azure Application Insights Profiler on these services:
 * [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
@@ -53,15 +55,15 @@ This article shows you how to get Application Insights Profiler running on your 
 
    Applying the modifications usually involves a full template deployment or a cloud service-based publish through PowerShell cmdlets or Visual Studio.  
 
-   The following PowerShell commands are an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension. Add the previously mentioned ProfilerSink to the config that's returned by the Get-AzureRmVMDiagnosticsExtension command, and then pass the updated config to the Set-AzureRmVMDiagnosticsExtension command.
+   The following PowerShell commands are an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension. Add the previously mentioned ProfilerSink to the config that's returned by the Get-AzVMDiagnosticsExtension command, and then pass the updated config to the Set-AzVMDiagnosticsExtension command.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
     # After you export the currently deployed Diagnostics config to a file, edit it to include the ApplicationInsightsProfiler sink.
-    (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
-    # Set-AzureRmVMDiagnosticsExtension might require the -StorageAccountName argument
+    (Get-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
+    # Set-AzVMDiagnosticsExtension might require the -StorageAccountName argument
     # If your original diagnostics configuration had the storageAccountName property in the protectedSettings section (which is not downloadable), be sure to pass the same original value you had in this cmdlet call.
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
+    Set-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
 1. If the intended application is running through [IIS](https://www.microsoft.com/web/downloads/platform.aspx), enable the `IIS Http Tracing` Windows feature.

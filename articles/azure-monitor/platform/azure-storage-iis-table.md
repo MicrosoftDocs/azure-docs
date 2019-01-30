@@ -141,6 +141,9 @@ In approximately 30 minutes, you are able to see data from the storage account i
 >
 
 ## Enable Azure diagnostics in a virtual machine for event log and IIS log collection using PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Use the steps in [Configuring Log Analytics to index Azure diagnostics](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) to use PowerShell to read from Azure diagnostics that are written to table storage.
 
 Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage.
@@ -172,7 +175,7 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 
     #Construct Azure diagnostics private config
 
-    $wad_storage_account_key = (Get-AzureStorageKey $wad_storage_account_name).Primary
+    $wad_storage_account_key = (Get-AzStorageKey $wad_storage_account_name).Primary
     $wad_private_config = [string]::Format("{{""storageAccountName"":""{0}"",""storageAccountKey"":""{1}""}}",$wad_storage_account_name,$wad_storage_account_key)
 
     #Enable Diagnostics Extension for Virtual Machine

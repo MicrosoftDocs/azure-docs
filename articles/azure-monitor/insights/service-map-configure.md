@@ -165,6 +165,8 @@ For more information on data collection and usage, see the [Microsoft Online Ser
 
 ## Installation
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### Azure VM Extension
 There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux), and you can easily deploy the Dependency agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  With the Azure VM Extension, you can deploy the Dependency agent to your Windows and Linux VMs using either a PowerShell script or directly in the VM using an Azure Resource Manager template.  If you deploy the agent with the Azure VM Extension, your agents are automatically updated to the latest version.
 
@@ -180,7 +182,7 @@ $ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
 $OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
 $rmgroup = "<Your Resource Group Here>"
 
-Get-AzureRmVM -ResourceGroupName $rmgroup |
+Get-AzVM -ResourceGroupName $rmgroup |
 ForEach-Object {
 	""
 	$name = $_.Name
@@ -190,7 +192,7 @@ ForEach-Object {
 	"${name}: ${os} (${location})"
 	Date -Format o
 	$ext = $OsExtensionMap.($os.ToString())
-	$result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+	$result = Set-AzVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
 	-Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
 	$result.IsSuccessStatusCode
 }
