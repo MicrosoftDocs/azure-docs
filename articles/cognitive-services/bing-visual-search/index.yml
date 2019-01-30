@@ -45,7 +45,7 @@ sections:
     text: 'Get insights about an image using the Bing Visual Search API:'
   - type: list
     style: icon48
-    columns:
+    items:
       - image:
           src: media/index/logo_csharp.svg
         href: visual-search-sdk-c-sharp
