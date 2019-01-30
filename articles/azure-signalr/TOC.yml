@@ -39,7 +39,7 @@
   - name: Messages and connections
     href: signalr-messages.md
   - name: Resiliency and Disaster Recovery
-    href: disaster-recovery.md
+    href: signalr-disaster-recovery.md
 - name: Resources
   items:
   - name: SignalR Roadmap

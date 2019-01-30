@@ -1,12 +1,21 @@
+---
+title: Resiliency and Disaster Recovery
+description: An overview on how to setup multiple SignalR service instances to achieve resiliency and disaster recovery
+author: chenkennt
+ms.service: signalr
+ms.topic: overview
+ms.date: 01/29/2019
+ms.author: kenchen
+---
 # Resiliency and Disaster Recovery
 
-Resiliency and disaster recovery is a common need for online systems. Azure SignalR Service already guarantees 99.9% availability but it's still a regional service, which means your service instance is always running in one region and won't failover to another region when there is a region-wide outage.
+Resiliency and disaster recovery is a common need for online systems. Azure SignalR Service already guarantees 99.9% availability, but it's still a regional service. This means your service instance is always running in one region and won't failover to another region when there is a region-wide outage.
 
-Instead, our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them are not available. With this feature you'll be able to have the ability to recover when there is disaster takes place, but you will need to setup the right system topology by yourself. You'll learn how to do so in this document.
+Instead, our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them are not available. With this feature, you'll be able to recover when there is disaster takes place, but you will need to setup the right system topology by yourself. You'll learn how to do so in this document.
 
 ## High Available Architecture for SignalR Service
 
-In order to have cross region resiliency for SignalR service, you need to setup multiple service instances in different regions, so when one region is down, the others can be used as backup. When connecting multiple service instances to app server, there're two roles, primary and secondary. Primary is an instance who is taking online traffic and secondary is a fully functional but backup instance for primary. In our SDK implementation, negotiate will only return primary endpoints so in a normal case clients only connect to primary endpoints. But when primary is down, negotiate will return secondary endpoints so client can still make connections. Primary and app server are connected thorugh normal server connections but secondary and app server are connected through a special kind of connections called weak connections. The main difference of a weak connection is it doesn't accept client connection routing, because secondary instance is usually located in another region and routing a client to another region is usually not an optimal choice (increases latency).
+In order to have cross region resiliency for SignalR service, you need to setup multiple service instances in different regions. So when one region is down, the others can be used as backup. When connecting multiple service instances to app server, there are two roles, primary and secondary. Primary is an instance who is taking online traffic and secondary is a fully functional but backup instance for primary. In our SDK implementation, negotiate will only return primary endpoints so in normal case clients only connect to primary endpoints. But when primary is down, negotiate will return secondary endpoints so client can still make connections. Primary and app server are connected through normal server connections but secondary and app server are connected through a special kind of connections called weak connections. The main difference of a weak connection is it doesn't accept client connection routing, because secondary instance is usually located in another region and routing a client to another region is usually not an optimal choice (increases latency).
 
 One service instance can have different roles when connecting to multiple app servers. One typical setup for cross region scenario is to have two (or more) pairs of SignalR service instances and app servers. Inside each pair app server and SignalR service are located in the same region, and SignalR service is connected to the app server as a primary role. Between each pairs app server and SignalR service are also connected, but SignalR becomes a secondary when connecting to server in another region.
 
@@ -20,7 +29,7 @@ Below is a diagram that illustrates such topology:
 
 Once you have SignalR service and app servers created in each region, you can configure your app servers to connect to all SignalR service instances.
 
-There're two ways you can do it:
+There are two ways you can do it:
 
 ### Through config
 
@@ -61,13 +70,13 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
 
 ## Failover Sequence and Best Practice
 
-Now you have the right system topology setup, whenever one SignalR service instance is down, online traffic will be routed to other instances. Here is what happens when a primary instance is down (and recovers after some time):
+Now you have the right system topology setup. Whenever one SignalR service instance is down, online traffic will be routed to other instances. Here is what happens when a primary instance is down (and recovers after some time):
 
 1. Primary service instance is down, all server connections on this instance will be dropped.
-2. All servers connected to this instance will mark this instance as offline, and negotiate will stop returning this endpoint and start returning secondary endpoint.
+2. All servers connected to this instance will mark it as offline, and negotiate will stop returning this endpoint and start returning secondary endpoint.
 3. All client connections on this instance will also be closed, clients will reconnect. Since app servers now return secondary endpoint, clients will connect to secondary instance.
 4. Now secondary instance takes all online traffic. All messages from server to clients can still be delivered as secondary is connected to all app servers. But client to server messages are only routed to the app server in the same region.
-5. After primary instance is recovered and back online, app server will reestablish connections to it and mark it as online. Negotiate will now return primary endpoint again so new clients are connected back to primary but existing clients won't be dropped and continue being routed to secondary until they disconnect themselves.
+5. After primary instance is recovered and back online, app server will reestablish connections to it and mark it as online. Negotiate will now return primary endpoint again so new clients are connected back to primary. But existing clients won't be dropped and will continue being routed to secondary until they disconnect themselves.
 
 Below diagrams illustrate how failover is done in SignalR service:
 
@@ -80,9 +89,9 @@ Fig.2 After Failover
 Fig.3 Short Time After Primary Recovers
 ![after-recover](media/signalr-disaster-recovery/after-recover.png)
 
-You can see in a normal case only primary app server and SignalR service have online traffic (in blue). After failover, secondary app server and SignalR service also become active. After primary SignalR service is back online, new clients will connect to primary SignalR but existing clients still connect to secondary so both instances have traffic. After all existing clients disconnect, your system will be back to normal (Fig.1).
+You can see in normal case only primary app server and SignalR service have online traffic (in blue). After failover, secondary app server and SignalR service also become active. After primary SignalR service is back online, new clients will connect to primary SignalR. But existing clients still connect to secondary so both instances have traffic. After all existing clients disconnect, your system will be back to normal (Fig.1).
 
-There're two main patterns for implementing a cross region high available architecture:
+There are two main patterns for implementing a cross region high available architecture:
 
 1. The first one is to have a pair of app server and SignalR service instance taking all online traffic, and have another pair as a backup (called active/passive, illustrated in Fig.1). 
 2. The other one is to have two (or more) pairs of app servers and SignalR service instances, each one taking part of the online traffic and serves as backup for other pairs (called active/active, similar to Fig.3).
@@ -91,4 +100,4 @@ SignalR service can support both patterns, the main difference is how you implem
 
 Please be noted no matter which patterns you choose to use, you'll need to connect each SignalR service instance to an app server as primary.
 
-Also due to the nature of SignalR connection (it's a long connection), clients will experience connection drops when there is a disaster and failover take place. You'll need to handle such cases at client side to make it transparent to your end customers (for example, do a reconnect after a connection is closed).
+Also due to the nature of SignalR connection (it's a long connection), clients will experience connection drops when there is a disaster and failover take place. You'll need to handle such cases at client side to make it transparent to your end customers. For example, do a reconnect after a connection is closed.
