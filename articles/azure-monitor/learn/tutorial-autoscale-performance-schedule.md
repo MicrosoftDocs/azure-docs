@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 
 # Create an Autoscale Setting for  Azure resources based on performance data or a schedule
@@ -180,3 +180,4 @@ To learn more about autoscale settings, continue on to the [autoscale overview](
 
 > [!div class="nextstepaction"]
 > [Archive your monitoring data](tutorial-archive-data.md)
+

@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/09/2018
+ms.date: 01/23/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -43,6 +43,8 @@ In a terminal window, run the following commands to clone the sample application
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
+
+The repository contains an *application.py*, which tells App Service that the repository contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
 
 ## Run the app locally
 
@@ -174,7 +176,7 @@ The built-in Python image in App Service on Linux is currently in Preview, and y
 > [Python with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure a custom startup command](how-to-configure-python.md#custom-startup-command)
+> [Configure a custom startup command](how-to-configure-python.md#customize-startup-command)
 
 > [!div class="nextstepaction"]
 > [Troubleshooting](how-to-configure-python.md#troubleshooting)

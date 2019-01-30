@@ -3,7 +3,7 @@ title: Manage Azure Service Fabric Mesh Application Secrets | Microsoft Docs
 description: Manage application Secrets so you can securely create and deploy a Service Fabric Mesh application.
 services: service-fabric-mesh
 keywords: secrets
-author: aljo
+author: aljo-microsoft
 ms.author: aljo
 ms.date: 11/28/2018
 ms.topic: get-started-article
@@ -179,7 +179,7 @@ The following is an example of how to declare Mesh Secrets/Values resources in a
 
 ## Modify Mesh application to reference Mesh Secret values
 Service Fabric Mesh applications need to be aware of the following two strings in order to consume Secure Store Service Secret values:
-1. Micrsoft.ServiceFabricMesh/Secrets.name contains the name of the file, and will contain the Secrets value in plaintext.
+1. Microsoft.ServiceFabricMesh/Secrets.name contains the name of the file, and will contain the Secrets value in plaintext.
 2. The Windows or Linux environment variable "Fabric_SettingPath" contains the directory path to where files containing Secure Store Service Secrets values will be accessible. This is "C:\Settings" for Windows-hosted and "/var/settings" for Linux-hosted Mesh applications respectively.
 
 ## Deploy or use a rolling upgrade for Mesh application to consume Secret values
