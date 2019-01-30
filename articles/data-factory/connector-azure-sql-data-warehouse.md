@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
 
 ---
@@ -570,7 +570,7 @@ When you copy data from or to Azure SQL Data Warehouse, the following mappings a
 | smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| sql_variant | Object * |
+| sql_variant | Object |
 | text | String, Char[] |
 | time | TimeSpan |
 | timestamp | Byte[] |

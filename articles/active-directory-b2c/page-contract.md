@@ -3,14 +3,14 @@ title: Select a page contract in Azure Active Directory B2C | Microsoft Docs
 description: Learn about how to select a page contract in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Select a page contract in Azure Active Directory B2C using custom policies

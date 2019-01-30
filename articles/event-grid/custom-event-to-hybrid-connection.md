@@ -3,8 +3,8 @@ title: Send custom events to hybrid connection - Event Grid, Azure CLI
 description: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. A hybrid connection is used for the endpoint. 
 services: event-grid 
 keywords: 
-author: tfitzmac
-ms.author: tomfitz
+author: spelluru
+ms.author: spelluru
 ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: event-grid
