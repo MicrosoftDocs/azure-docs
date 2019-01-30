@@ -22,12 +22,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to set up the workspace and resources for Azure Machine Learning service using a quickstart:'
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: Start by creating the Azure Machine Learning workspace and resources <a href="quickstart-get-started">in Azure portal</a> or <a href="quickstart-create-workspace-with-python">in Python</a>.
+    text: 'Start by creating the Azure Machine Learning workspace and resources <a href="quickstart-get-started">in Azure portal</a> or <a href="quickstart-create-workspace-with-python">in Python</a>.'
     
 - title: Step-by-Step Tutorials
   items:
@@ -35,7 +30,6 @@ sections:
     text: 'Learn how to prep data, set up experiments, and operationalize your machine learning models:'
   - type: list
     style: unordered
-    className: spaced noBullet
     items:
     - html: <a href="tutorial-train-models-with-aml">Train</a> and <a href="tutorial-deploy-models-with-aml">deploy</a>  image classification models(<b>two-part series</b>).
     - html: <a href="tutorial-data-prep">Prep data</a> and <a href="tutorial-auto-train-models">use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).
@@ -51,10 +45,9 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <b>Python SDKs</b>
-    - html: <a href="https://aka.ms/aml-sdk">main SDK</a>
-    - html: <a href="https://aka.ms/data-prep-sdk">Data Prep SDK</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">Monitoring SDK</a>
+    - html: <a href="https://aka.ms/aml-sdk">Main Python SDK</a>
+    - html: <a href="https://aka.ms/data-prep-sdk">Data Prep Python SDK</a>
+    - html: <a href="https://aka.ms/aml-monitoring-sdk">Monitoring Python SDK</a>
 
 - title: Other Azure Machine Learning technologies
   items:
