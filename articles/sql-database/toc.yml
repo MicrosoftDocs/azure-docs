@@ -78,8 +78,12 @@
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrate to a Managed Instance using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Secure your database
-    href: sql-database-security-tutorial.md
+  - name: Security in Azure SQL Database
+    items:
+    - name: Single database security
+      href: sql-database-security-tutorial.md
+    - name: Managed Instance security with Azure AD logins
+      href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
   - name: Set up Azure SQL Data Sync
@@ -204,9 +208,9 @@
       href: sql-database-security-index.yml
     - name: Security capabilities
       href: sql-database-security-overview.md
-    - name: Advanced Threat Protection
+    - name: Advanced Data Security
       items:
-      - name: Advanced Threat Protection
+      - name: Advanced Data Security
         href: sql-advanced-threat-protection.md
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md

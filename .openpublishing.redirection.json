@@ -535,6 +535,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/avere-vfxt/avere-vfxt-pre-role.md",
+      "redirect_url": "/azure/avere-vfxt/avere-vfxt-deploy",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/avere-vfxt/avere-vfxt-required-ports.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
       "redirect_document_id": true
@@ -21179,6 +21184,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-fabric/service-fabric-create-your-first-application-in-visual-studio.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-tutorial-create-dotnet-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-get-started-with-a-local-cluster.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-deploy-remove-applications",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-fabric/service-fabric-deploy-container.md",
       "redirect_url": "/azure/service-fabric/service-fabric-get-started-containers",
       "redirect_document_id": false
@@ -34505,10 +34520,10 @@
       "redirect_document_id":  true
     },
     {
-      "source_path":  "articles/platform/dashboards.md",
-      "redirect_url":  "/azure/azure-monitorr/learn/tutorial-logs-dashboards",
-      "redirect_document_id":  true
-    },  
+      "source_path":  "articles/azure-monitor/platform/dashboards.md",
+      "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
+      "redirect_document_id":  false
+    },    
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",

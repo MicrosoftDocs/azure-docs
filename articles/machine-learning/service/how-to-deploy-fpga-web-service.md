@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning service for ultra-low latency inferencing. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens
@@ -161,7 +161,7 @@ registered_model.delete()
 
 ## Secure FPGA web services
 
-Azure Machine Learning service models running on FPGAs provide SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients. [Learn how to secure the web service](how-to-secure-web-service.md#fpga).
+Securing FPGA web services with SSL is not currently supported.
 
 
 ## Next steps
