@@ -230,9 +230,12 @@ By default, copy activity stops copying data and returns failure when it encount
 
 See the [Copy Activity performance and tuning guide](copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
 
-For some scenarios, when you execute a copy activity in ADF, you will also see a "**Performance tuning tips**" section on top of the [copy activity monitoring page](#monitor-visually), which tells you the bottleneck identified and guides you on how to boost copy throughput for such copy case.
+In some cases, when you execute a copy activity in ADF, you will directly see "**Performance tuning tips**" on top of the [copy activity monitoring page](#monitor-visually) as shown in the following example. It not only tells you the bottleneck identified for the given copy run, but also guides you on what to change so as to boost copy throughput. The performance tuning tips currently provide suggestions like to use PolyBase when copying data into Azure SQL Data Warehouse, to increase Azure Cosmos DB RU or Azure SQL DB DTU when the resource on data store side is the bottleneck, to remove the unnecessary staged copy, etc. The performance tuning rules will be gradually enriched as well.
 
 **Example: copy into Azure SQL DB with performance tuning tips**
+
+In this sample, during copy run, ADF notice the sink Azure SQL DB reaches high DTU utilization which slows down the write operations, thus the suggestion is to increase the Azure SQL DB tier with more DTU. 
+
 ![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## Incremental copy 
