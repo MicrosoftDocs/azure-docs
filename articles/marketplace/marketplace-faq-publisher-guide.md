@@ -23,8 +23,6 @@ Answers to common questions about the Microsoft Azure Marketplace.
 
 ## FAQ for customers
 
-Answers to common questions about the Microsoft Azure Marketplace.
-
 ### What you need to know about Azure Marketplace
 
 **What is Azure Marketplace?**

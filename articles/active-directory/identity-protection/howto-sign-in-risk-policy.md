@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
@@ -74,7 +74,7 @@ However, for security reasons, this setting only works for users that have alrea
 
 If you want to require MFA for risky sign-ins, you should:
 
-1. Enable the [multi-factor authentication registration policy](#multi-factor-authentication-registration-policy) for the affected users.
+1. Enable the [multi-factor authentication registration policy](howto-mfa-policy.md) for the affected users.
 
 2. Require the affected users to sign in to a non-risky session to perform an MFA registration.
 
