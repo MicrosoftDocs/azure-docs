@@ -152,7 +152,10 @@ Click to see the list of activities in this pipeline run. In the **Actions** col
 
 ![Monitor activity runs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario. For some scenarios, you will also see a "**Performance tuning tips**" section on top which tells you the bottleneck identified and guides you on how to boost copy throughput for such copy case, see example [here](#performance-and-tuning).
+Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario. 
+
+>[!TIP]
+>For some scenarios, you will also see "**Performance tuning tips**" on top of the copy monitoring page,  which tells you the bottleneck identified and guides you on what to change so as to boost copy throughput, see example with details [here](#performance-and-tuning).
 
 **Example: copy from Amazon S3 to Azure Data Lake Store**
 ![Monitor activity run details](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
