@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
-ms.component: files
+ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Windows
 

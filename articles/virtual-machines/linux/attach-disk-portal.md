@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.component: disks
+ms.subservice: disks
 
 ---
 # Use the portal to attach a data disk to a Linux VM 
