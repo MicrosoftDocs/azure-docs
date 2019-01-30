@@ -55,8 +55,10 @@ If you're already running an app service in Azure, you already get some monitori
 
 3. **Instrument your app service** after Application Insights has been installed.
 
-   **Enable client-side monitoring** for page view and user telemetry. (This is enabled by default for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present. Granular UI-based support for disabling client-side monitoring is not currently available for .NET Core.)
+   **Enable client-side monitoring** for page view and user telemetry.
 
+    (This is enabled by default for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present. Granular UI-based support for disabling client-side monitoring is not currently available for .NET Core.)
+    
    * Select Settings > Application Settings
    * Under App Settings, add a new key value pair:
 
@@ -100,26 +102,22 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 * [Web page load data](../../azure-monitor/app/javascript.md)
 * [Custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
 
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
-
 ## Troubleshooting
 
 ### APPINSIGHTS_JAVASCRIPT_ENABLED causes incomplete HTML response in NET CORE web applications.
 
 Enabling Javascript via App Services can cause html responses to be cut off.
 
-- Workaround 1: set APPINSIGHTS_JAVASCRIPT_ENABLED Application Setting to false or remove it completely and restart
-- Workaround 2: add sdk via code and remove extension (Profiler and Snapshot debugger won't with this configuration)
+* Workaround 1: set APPINSIGHTS_JAVASCRIPT_ENABLED Application Setting to false or remove it completely and restart
+* Workaround 2: add sdk via code and remove extension (Profiler and Snapshot debugger won't with this configuration)
 
 We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
 
 For .NET Core the following are currently **not supported**:
 
-    - Self-contained deployment.
-    - Apps targeting the .NET Framework.
-    - .NET Core 2.2 applications.
+* Self-contained deployment.
+* Apps targeting the .NET Framework.
+* .NET Core 2.2 applications.
 
 > [!NOTE]
 > .NET Core 2.0 and .NET Core 2.1 are supported. When .NET Core 2.2 support is added this article will be updated.
