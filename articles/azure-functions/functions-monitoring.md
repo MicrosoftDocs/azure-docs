@@ -9,9 +9,9 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 01/25/2019
 ms.author: glenga
-#Customer intent: As a developer, I want to monitor the status of my functions, so that I can respond to any errors that occur and make improvements to my applications.
+# Customer intent: As a developer, I want to be able to monitor my functions so that I can know if they are running correctly.
 ---
 
 # Monitor Azure Functions
@@ -50,26 +50,13 @@ You can set up this connection in the [Azure portal](https://portal.azure.com):
 
 The next step is to [disable built-in logging](#disable-built-in-logging).
 
-
 <a id="manually-connect-an-app-insights-resource"></a>
 ### Application Insights resource 
 <!-- Add a transitional sentence to introduce the procedure. -->
 
-1. Create the Application Insights resource. Set application type to **General**.
+If you have an existing function app, you must create the Application Insights resource and then add an app setting to your function app. This is also what you must do when you create your function app outside of the portal, such as by using the Azure CLI or by using Visual Studio or Visual Studio Code tooling.
 
-   ![Create an Application Insights resource of type General](media/functions-monitoring/ai-general.png)
-
-1. Copy the instrumentation key from the **Essentials** page of the Application Insights resource. Point to the end of the displayed key value to get a **Click to copy** button.
-
-   ![Copy the Application Insights instrumentation key](media/functions-monitoring/copy-ai-key.png)
-
-1. In the function app's **Application settings** page, [add an app setting](functions-how-to-use-azure-function-app-settings.md#settings) by selecting **Add new setting**. Name the new setting **APPINSIGHTS_INSTRUMENTATIONKEY** and paste the copied instrumentation key.
-
-   ![Add instrumentation key to app settings](media/functions-monitoring/add-ai-key.png)
-
-1. Select **Save**.
-
-<!-- Before the next H2 heading, add transitional sentences to summarize why the procedures were necessary. -->
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 ## Disable built-in logging
 
