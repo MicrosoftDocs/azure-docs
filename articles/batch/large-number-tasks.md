@@ -3,7 +3,7 @@ title: Submit a large number of tasks - Azure Batch | Microsoft Docs
 description: How to efficiently submit a very large number of tasks in a single Azure Batch job
 services: batch
 documentationcenter: 
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: 
 
 ---
@@ -61,7 +61,7 @@ It can take some time to add a large collection of tasks to a job - for example,
 
 The following C# snippets show settings to configure when adding a large number of tasks using the Batch .NET API.
 
-To increase task throughput, increase the value of the [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) property of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). For example:
+To increase task throughput, increase the value of the [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) property of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). For example:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()

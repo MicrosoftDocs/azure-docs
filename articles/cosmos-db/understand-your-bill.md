@@ -9,7 +9,7 @@ ms.author: rimman
 ms.reviewer: sngun
 ---
 
-# Understanding your Azure Cosmos DB bill
+# Understand your Azure Cosmos DB bill
 
 As a fully managed cloud-native database service, Azure Cosmos DB simplifies billing by charging only for provisioned throughput and consumed storage. There are no additional license fees, hardware, utility costs, or facility costs compared to on-premise or IaaS-hosted alternatives. When you consider the multi region capabilities of Azure Cosmos DB, the database service provides a substantial reduction in costs compared to existing on-premise or IaaS solutions.
 

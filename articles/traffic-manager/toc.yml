@@ -77,6 +77,8 @@
     href: traffic-manager-load-balancing-azure.md
   - name: Measure Traffic Manager performance
     href: traffic-manager-performance-considerations.md
+  - name: Enable diagnostic logs
+    href: traffic-manager-diagnostic-logs.md
   - name: Use Azure PowerShell to manage Traffic Manager
     href: traffic-manager-powershell-arm.md
   - name: Point your Internet domain to Traffic Manager
@@ -103,6 +105,8 @@
     href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
   - name: REST
     href: https://msdn.microsoft.com/library/mt163667.aspx
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.network/trafficmanagerprofiles
 - name: Related
   items:
   - name: Application Gateway

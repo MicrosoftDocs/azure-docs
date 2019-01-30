@@ -118,6 +118,8 @@
     href: https://redis.io/commands#
   - name: REST
     href: https://docs.microsoft.com/rest/api/redis/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.cache/allversions
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

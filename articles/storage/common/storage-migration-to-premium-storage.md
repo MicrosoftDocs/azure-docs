@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.component: common
+ms.subservice: common
 ---
 # Migrating to Azure Premium Storage (Unmanaged Disks)
 

@@ -8,7 +8,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 # Using the Azure CLI with Azure Storage
 
@@ -191,7 +191,7 @@ az storage account create \
 
 You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
-First, display your storage account keys by using the [az storage account keys list](/cli/azure/storage/account/keys#list) command:
+First, display your storage account keys by using the [az storage account keys list](/cli/azure/storage/account/keys) command:
 
 ```azurecli-interactive
 az storage account keys list \

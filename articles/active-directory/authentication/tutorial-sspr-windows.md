@@ -4,13 +4,13 @@ description: In this tutorial, you will enable password reset at the Windows 10 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/30/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable password reset for Windows 10 users on the login screen to reduce helpdesk calls?
@@ -26,11 +26,12 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
 
 ## Prerequisites
 
-* Windows 10 April 2018 Update, or newer client that is:
-   * [Azure AD joined machine](../device-management-azure-portal.md)
+* You must running at least Windows 10, version April 2018 Update, and the devices must be either:
+   * [Azure AD-joined](../device-management-azure-portal.md)
    or
-   * [Hybrid Azure AD joined machine](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
-* Azure AD self-service password reset must be enabled.
+   * [Hybrid Azure AD-joined](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
+* You must enable Azure AD self-service password reset.
+* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com` to your HTTPS traffic (port 443) Allowed URLs list.
 
 ## Configure Reset password link using Intune
 
@@ -126,9 +127,7 @@ The following policy settings are known to interfere with the ability to reset p
 
 This feature does not work for networks with 802.1x network authentication deployed and the option “Perform immediately before user logon”. For networks with 802.1x network authentication deployed it is recommended to use machine authentication to enable this feature.
 
-If your Windows 10 machines are behind a proxy server or firewall, HTTPS traffic (443) to passwordreset.microsoftonline.com and ajax.aspnetcdn.com should be allowed.
-
-For Hybrid Domain Joined scenarios, a scenario exists where the SSPR workflow will complete without needing an Active Directory domain controller. Connectivity with a domain controller is required to use the new password for the first time.
+For Hybrid Domain Joined scenarios, the SSPR workflow will successfully complete without needing an Active Directory domain controller. If a user completes the password reset process when communication to an Active Directory domain controller is not available, like when working remotely, the user will not be able to log in to the device until the device can communicate with a domain controller and update the cached credential. **Connectivity with a domain controller is required to use the new password for the first time**.
 
 ## Clean up resources
 

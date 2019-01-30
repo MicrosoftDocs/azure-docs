@@ -1,12 +1,12 @@
 ---
 title: Review the cost estimation report in the Azure Site Recovery Deployment Planner | Microsoft Docs
 description: This articles describes how to review the cost estimation report in the Azure Site Recovery Deployment Planner for VMware to Azure disaster recovery.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
+ms.author: mayg
 
 ---
 # Review the cost estimation report in the Site Recovery Deployment Planner for VMware disaster recovery to Azure

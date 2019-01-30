@@ -5,6 +5,7 @@ description: Learn how to create a public Standard Load Balancer with zone-redun
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

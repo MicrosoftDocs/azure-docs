@@ -25,7 +25,7 @@ If the [built-in roles](built-in-roles.md) don't meet the specific needs of your
 To create custom roles, you need:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) installed locally
+- [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) installed locally
 
 ## List custom roles
 
