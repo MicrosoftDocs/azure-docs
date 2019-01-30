@@ -50,7 +50,7 @@ sections:
           src: media/index/i_scale.svg
         title: Scalability
       - href: /azure/sql-database/sql-database-single-index
-        html: <p>Use the single database managed by a SQL Database server for your SaaS aplications and microservices that need a single database with the predictable performances.</p>
+        html: <p>Use the single database managed by a SQL Database server for your SaaS applications and microservices that need a single database with the predictable performances.</p>
         image:
           src: media/index/i_db.svg
         title: Single database

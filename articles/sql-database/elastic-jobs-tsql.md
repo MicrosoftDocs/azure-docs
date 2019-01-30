@@ -97,7 +97,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -1252,7 +1252,7 @@ Shows all jobs.
 
 ### job_versions view
 
-[jobs].[job_verions]
+[jobs].[job_versions]
 
 Shows all job versions.
 
