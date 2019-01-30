@@ -8,7 +8,7 @@ ms.date: 10/17/2018
 ms.author: chrande
 ---
 
-# Configure conflict resolution policies in Azure Cosmos DB
+# Manage conflict resolution policies in Azure Cosmos DB
 
 With multi-region writes, when a data conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies by using different language platforms.
 

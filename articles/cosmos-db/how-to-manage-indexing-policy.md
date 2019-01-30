@@ -8,7 +8,7 @@ ms.date: 11/10/2018
 ms.author: mjbrown
 ---
 
-# Configure indexing in Azure Cosmos DB
+# Manage indexing in Azure Cosmos DB
 
 In Azure Cosmos DB, you can choose whether you want a container to automatically index all the items or not. By default, all items in an Azure Cosmos container are automatically indexed, but you can turn off the automatic indexing. When indexing is turned off, items can be accessed through their self-links or through the queries by using the ID of the item, such as document id. You can explicitly request to serve results without using index by passing in **x-ms-documentdb-enable-scan** header in REST API or the **EnableScanInQuery** request option by using the .NET SDK.
 

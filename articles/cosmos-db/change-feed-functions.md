@@ -9,7 +9,7 @@ ms.author: rimman
 ms.reviewer: sngun
 ---
 
-# Use Azure Cosmos DB trigger for Azure Functions to connect to change feed
+# Trigger Azure Functions from Azure Cosmos DB
 
 If you're using Azure Functions, the simplest way to connect to change feed is to add an [Azure Cosmos DB trigger](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) to your Azure Functions app. When you create a Cosmos DB trigger in an Azure Functions app, you select the Cosmos container to connect to and the function is triggered whenever you change something in the container.
 

@@ -9,7 +9,7 @@ ms.author: rafats
 
 ---
 
-# Secure your Azure Cosmos database
+# Security in Azure Cosmos DB - overview
 
 This article discusses database security best practices and key features offered by Azure Cosmos DB to help you prevent, detect, and respond to database breaches.
  
