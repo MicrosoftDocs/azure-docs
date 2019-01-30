@@ -1,10 +1,10 @@
 ---
 title: Scale a Machine Learning Studio web service
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Learn how to increase concurrency of an Azure Machine Learning Studio web service by adding additional endpoints.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding

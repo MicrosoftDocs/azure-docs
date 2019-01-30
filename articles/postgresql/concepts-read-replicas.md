@@ -96,7 +96,7 @@ You can [learn how to stop a replica in the how-to documentation](howto-read-rep
 **azure.replication_support** must be set to REPLICA on the master server before you can create a replica. Changing this parameter requires a server restart to take effect. This parameter applies to General Purpose and Memory Optimized tiers only.
 
 ### Stopped replicas
-When you choose to stop replication between a master and replica, the replica will restart to apply these changes. Afterwards, it cannot be made into a replica again.
+If you choose to stop replication between a master and replica, the replica will restart to apply this change. The replica will then become a read-write server. Afterwards, it cannot be made into a replica again.
 
 ### Replicas are new servers
 Replicas are created as new Azure Database for PostgreSQL servers. Existing servers cannot be made into replicas.
