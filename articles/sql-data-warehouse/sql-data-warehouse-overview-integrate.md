@@ -26,7 +26,7 @@ SQL Data Warehouse continues to integrate with more services across Azure, and m
 Power BI integration allows you to combine the compute power of SQL Data Warehouse with the dynamic reporting and visualization of Power BI. Power BI integration currently includes:
 
 * **Direct Connect**: A more advanced connection with logical pushdown against SQL Data Warehouse. Pushdown provides faster analysis on a larger scale.
-* **Open in Power BI**: The 'Open in Power BI' button passes instance information to Power BI for a simplifed way to connect.
+* **Open in Power BI**: The 'Open in Power BI' button passes instance information to Power BI for a simplified way to connect.
 
 For more information, see [Integrate with Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), or the [Power BI documentation](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
