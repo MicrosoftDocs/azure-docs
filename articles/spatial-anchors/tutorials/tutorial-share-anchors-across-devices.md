@@ -39,3 +39,10 @@ Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` f
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+
+## Next steps
+
+In this tutorial, you have deployed an ASP.NET Core Web App in Azure, and then configured and deployed a Unity App. With the app, you were able to create Spatial Anchors, and shared them with other devices by using your ASP.NET Core Web App. To learn more about how to improve your ASP.NET Core Web App so that it uses Cosmos DB to store your shared Spatial Anchors, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Use Cosmos DB to Store Anchors](./tutorial-use-cosmosdb-to-store-anchors.md)

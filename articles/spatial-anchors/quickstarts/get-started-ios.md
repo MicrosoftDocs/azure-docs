@@ -118,3 +118,10 @@ Select **Build and then run the current scheme**.
 In Xcode, stop the app by pressing **Stop**.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+
+## Next steps
+
+In this quickstart, you have created a Spatial Anchors account, and then configured and deployed an App capable of saving and recalling Spatial Anchors. To learn more about how to improve the App so that it can share Spatial Anchors with other devices, continue to the next tutorial
+
+> [!div class="nextstepaction"]
+> [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md)
