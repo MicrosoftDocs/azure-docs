@@ -91,7 +91,12 @@ function tradePlayers(playerId1, playerId2) {
     var player1Document, player2Document;
 
     // query for players
-    var filterQuery = 'SELECT * FROM Players p where p.id  = "' + playerId1 + '"';
+    var filterQuery = 
+    {     
+        'query' : 'SELECT * FROM Players p where p.id = @playerId1',
+        'parameters' : [{'name':'@playerId1', 'value':playerId1}] 
+    };
+            
     var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
@@ -99,7 +104,11 @@ function tradePlayers(playerId1, playerId2) {
             if (items.length != 1) throw "Unable to find both names";
             player1Item = items[0];
 
-            var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
+            var filterQuery2 = 
+            {     
+                'query' : 'SELECT * FROM Players p where p.id = @playerId2',
+                'parameters' : [{'name':'@playerId2', 'value':playerId2}] 
+            };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
                     if (err2) throw new Error("Error" + err2.message);
