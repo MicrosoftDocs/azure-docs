@@ -535,6 +535,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/avere-vfxt/avere-vfxt-pre-role.md",
+      "redirect_url": "/azure/avere-vfxt/avere-vfxt-deploy",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/avere-vfxt/avere-vfxt-required-ports.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
       "redirect_document_id": true
