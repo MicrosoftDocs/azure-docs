@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/30/2019
 ms.author: tamram
 ms.component: common
 ---
@@ -78,6 +78,10 @@ To initiate a forced failover from PowerShell, execute the following command:
 ```powershell
 Invoke-AzureRmStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
+
+## Azure CLI
+
+
 
 ## Next steps
 
