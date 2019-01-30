@@ -435,7 +435,7 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 </Channel>
 ```
 
-If you are using SpringBoot starter, add the following to your configuration file (application.properies):
+If you are using SpringBoot starter, add the following to your configuration file (application.properties):
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->

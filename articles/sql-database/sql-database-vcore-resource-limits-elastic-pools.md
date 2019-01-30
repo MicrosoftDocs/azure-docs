@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/09/2019
+ms.date: 01/30/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for elastic pools
 
@@ -144,7 +144,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|1|2|3|4|5|6|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (GB)|1024|1024|1024|1024|1024|1024|
+|Max data size (GB)|512|512|512|512|512|512|
 |Max log size (GB)|307|307|307|307|307|307|
 |TempDB size (GB)|32|64|96|128|160|192|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
@@ -170,7 +170,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|7|8|9.5|11|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (GB)|1024|1024|1024|1024|1024|1024|
+|Max data size (GB)|512|512|512|512|1024|1024|
 |Max log size (GB)|307|307|307|307|307|307|
 |TempDB size (GB)|224|256|288|320|384|384|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|

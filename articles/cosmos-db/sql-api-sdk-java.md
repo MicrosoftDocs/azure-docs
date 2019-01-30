@@ -133,7 +133,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ### <a name="1.9.3"/>1.9.3
 * Fixed a bug in the connection management to prevent connection leaks in direct connectivity mode.
-* Fixed a bug in the TOP query where it may throw NullReferenece exception.
+* Fixed a bug in the TOP query where it may throw NullReference exception.
 * Improved performance by reducing the number of network call for the internal caches.
 * Added status code, ActivityID and Request URI in DocumentClientException for better troubleshooting.
 

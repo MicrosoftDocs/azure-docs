@@ -35,7 +35,7 @@ This sample shows how to overlay an image of a [map of Newark New Jersey from 19
 
 In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
-In the second block of code, an [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is created by passing a URL to an image and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Conter, Bottom Left Corner]`.
+In the second block of code, an [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is created by passing a URL to an image and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ## Import a KML ground overlay
 

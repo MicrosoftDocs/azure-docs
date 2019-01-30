@@ -5,17 +5,18 @@ description: Overview of Azure Standard Load Balancer features
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 01/11/2019
 ms.author: kumud
 ---
 
-# Azure Standard Balancer overview
+# Azure Standard Load Balancer overview
 
 Azure Load Balancer allows you to scale your applications and create high availability for your services. Load Balancer can be used for inbound as well as outbound scenarios and provides low latency, high throughput, and scales up to millions of flows for all TCP and UDP applications. 
 
@@ -205,7 +206,12 @@ Standard Load Balancers are available with a 99.99% SLA.  Review the [Standard L
 
 ## Pricing
 
-Standard Load Balancer is a charged product based on number of load-balancing rules configured and all inbound and outbound data processed. For Standard Load Balancer pricing information, visit the [Load Balancer Pricing](https://aka.ms/lbpricing) page.
+Standard Load Balancer usage is charged.
+
+- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules)
+- Amount of data processed inbound and outbound irrespective of rule. 
+
+For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
 
 ## Limitations
 

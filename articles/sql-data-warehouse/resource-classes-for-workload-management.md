@@ -85,7 +85,7 @@ On **Gen2 only**, dynamic resource classes are truly dynamic addressing the poin
 ### Default resource class
 By default, each user is a member of the dynamic resource class **smallrc**. 
 
-The resource class of the service administrator is fixed and cannot be changed.  The service administrator is the user created during the provisioning process.
+The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new SQL Data Warehouse instance with a new server.
 
 > [!NOTE]
 > Users or groups defined as Active Directory admin are also service administrators.

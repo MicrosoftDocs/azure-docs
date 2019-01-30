@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
 
@@ -211,7 +211,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Azure Global Services* | 12076:5050 |
 | Other Office 365 Online services | 12076:5100 |
 
-***Azure Global Services includes Azure DevOps**
+*Azure Global Services includes only Azure DevOps at this time.
 
 
 > [!NOTE]

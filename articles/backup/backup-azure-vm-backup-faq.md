@@ -70,7 +70,7 @@ We do have a private preview for an SAP HANA backup with an RPO of 15 minutes. I
 ### How do I decide whether to restore disks only or a full VM?
 Think of a VM restore as a quick create option for an Azure VM. This option changes disk names, containers used by the disks, public IP addresses and network interface names. The change maintains unique resources when a VM is created. The VM isn't added to an availability set.
 
-The restore disk option if you want to:
+You can use the restore disk option if you want to:
   * Customize the VM that gets created. For example change the size.
   * Add configuration settings which weren't there at the time of backup
   * Control the naming convention for resources that are created.

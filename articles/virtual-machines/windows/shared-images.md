@@ -47,7 +47,7 @@ To complete the example in this article, you must have an existing managed image
  
 ## Create VMs from an image
 
-Once the image version is complte, you can create one or more new VMs. Using the simplified parameter set for the [New-AzureRMVM]() cmdlet, you just need to provide image ID of the image version. 
+Once the image version is complete, you can create one or more new VMs. Using the simplified parameter set for the [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet, you just need to provide image ID of the image version. 
 
 This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the *East US* datacenter.
 
