@@ -24,9 +24,9 @@ Webhooks are one of the many ways to receive events from Azure Event Grid. When 
 
 Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. When you use any of the three Azure services listed below, the Azure infrastructure automatically handles this validation:
 
-* Azure Logic Apps,
-* Azure Automation,
-* Azure Functions for Event Grid Trigger.
+* Azure Logic Apps with [Event Grid Connector](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+* Azure Functions with [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)
 
 If you're using any other type of endpoint, such as an HTTP trigger based Azure function, your endpoint code needs to participate in a validation handshake with Event Grid. Event Grid supports two ways of validating the subscription.
 
@@ -74,6 +74,8 @@ To prove endpoint ownership, echo back the validation code in the validationResp
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response.
 
 Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
 

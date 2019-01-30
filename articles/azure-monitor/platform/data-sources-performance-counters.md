@@ -1,5 +1,5 @@
 ---
-title: Collect and analyze performance counters in Azure Log Analytics | Microsoft Docs
+title: Collect and analyze performance counters in Log Analytics | Microsoft Docs
 description: Performance counters are collected by Log Analytics to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
 services: log-analytics
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2017
+ms.date: 11/28/2018l
 ms.author: magoedte
 ---
 
@@ -21,9 +21,9 @@ Performance counters in Windows and Linux provide insight into the performance o
 ![Performance counters](media/data-sources-performance-counters/overview.png)
 
 ## Configuring Performance counters
-Configure Performance counters from the [Data menu in Log Analytics Settings](agent-data-sources.md#configuring-data-sources).
+Configure Performance counters from the [Data menu in Advanced Settings](agent-data-sources.md#configuring-data-sources).
 
-When you first configure Windows or Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
+When you first configure Windows or Linux Performance counters for a new workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
 For Windows performance counters, you can choose a specific instance for each performance counter. For Linux performance counters, the instance of each counter that you choose applies to all child counters of the parent counter. The following table shows the common instances available to both Linux and Windows performance counters.
 
@@ -177,7 +177,7 @@ Following is the default configuration for performance metrics.
 	</source>
 
 ## Data collection
-Log Analytics collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log search views for the duration specified by your subscription.
+Log Analytics collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log query views for the duration specified by your subscription.
 
 ## Performance record properties
 Performance records have a type of **Perf** and have the properties in the following table.
@@ -198,8 +198,8 @@ Performance records have a type of **Perf** and have the properties in the follo
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
-## Log searches with Performance records
-The following table provides different examples of log searches that retrieve Performance records.
+## Log queries with Performance records
+The following table provides different examples of log queries that retrieve Performance records.
 
 | Query | Description |
 |:--- |:--- |
@@ -220,5 +220,5 @@ The following table provides different examples of log searches that retrieve Pe
 
 ## Next steps
 * [Collect performance counters from Linux applications](data-sources-linux-applications.md) including MySQL and Apache HTTP Server.
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
-* Export collected data to [Power BI](../../azure-monitor/platform/powerbi.md) for additional visualizations and analysis.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.  
+* Export collected data to [Power BI](powerbi.md) for additional visualizations and analysis.

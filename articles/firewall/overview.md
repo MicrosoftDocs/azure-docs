@@ -8,7 +8,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.author: victorh
-#Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
+Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
 # What is Azure Firewall?
 
@@ -64,7 +64,9 @@ Azure Firewall has the following known issues:
 Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work for Internet bound traffic|Network filtering rules for non-TCP/UDP protocols don’t work with SNAT to your public IP address. Non-TCP/UDP protocols are supported between spoke subnets and VNets.|Azure Firewall uses the Standard Load Balancer, [which doesn't support SNAT for IP protocols today](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). We are exploring options to support this scenario in a future release.|
 |Missing PowerShell and CLI support for ICMP|Azure PowerShell and CLI don’t support ICMP as a valid protocol in network rules.|It is still possible to use ICMP as a protocol via the portal and the REST API. We are working to add ICMP in PowerShell and CLI soon.|
 |FQDN tags require a protocol: port to be set|Application rules with FQDN tags require port:protocol definition.|You can use **https** as the port: protocol value. We are working to make this field optional when FQDN tags are used.|
-|Moving a firewall to a different resource group or subscription is not supported.|Moving a firewall to a different resource group or subscription is not supported.|Supporting this functionality is on our road map. To move a firewall to a different resource group or subscription, you must delete the current instance and recreate it in the new resource group or subscription.|
+|Moving a firewall to a different resource group or subscription is not supported|Moving a firewall to a different resource group or subscription is not supported.|Supporting this functionality is on our road map. To move a firewall to a different resource group or subscription, you must delete the current instance and recreate it in the new resource group or subscription.|
+|Port range in network and application rules|Ports are limited to 64,000 as high ports are reserved for management and health probes. |We are working to relax this limitation.|
+|
 
 ## Next steps
 

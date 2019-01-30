@@ -3,7 +3,7 @@ title: Known issues with Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn about the limitations and known issues with Azure Data Lake Storage Gen2
 services: storage
 author: normesta
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
@@ -61,10 +61,6 @@ Support is at the discretion of each third-party application provider. Currently
 AzCopy version 8 doesn’t support Azure Data Lake Storage Gen2.
 
 Instead, use the latest preview version of AzCopy ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) as it supports Azure Data Lake Storage Gen2 endpoints.
-
-## OAuth authentication
-
-Services such as Azure Databricks, HDInsight, and Azure Data Factory don't yet integrate with Azure Active Directory (Azure AD) OAuth bearer token authentication.
 
 ## Azure Event Grid
 

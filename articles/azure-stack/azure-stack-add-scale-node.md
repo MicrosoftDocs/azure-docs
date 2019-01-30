@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
-ms.reviewer: thoroet 
+ms.reviewer: thoroet
+ms.lastreviewed: 09/17/2018
 ---
 
 # Add additional scale unit nodes in Azure Stack
@@ -102,6 +103,7 @@ The status for scale unit and scale unit nodes can be retrieved using PowerShell
 
 ### Status for the add node operation 
 **For a scale unit:**
+
 |Status               |Description  |
 |---------------------|---------|
 |Running              |All nodes are actively participating in the scale unit.|
@@ -112,6 +114,7 @@ The status for scale unit and scale unit nodes can be retrieved using PowerShell
 
 
 **For a scale unit node:**
+
 |Status                |Description  |
 |----------------------|---------|
 |Running               |The node is actively participating in the scale unit.|

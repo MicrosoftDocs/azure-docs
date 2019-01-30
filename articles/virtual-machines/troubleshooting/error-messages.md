@@ -198,7 +198,7 @@ This section lists the common error messages you may encounter when managing VMs
 |  VMArtifactRepositoryInternalError  |  An internal error occurred while retrieving the VM artifact data from the artifact repository.  |
 |  VMExtensionHandlerNonTransientError  |  Handler '{0}' has reported failure for VM Extension '{1}' with terminal error code '{2}' and error message: '{3}'  |
 |  VMExtensionManagementInternalError  |  Internal error occurred while processing VM extension '{0}'.  |
-|  VMExtensionManagementInternalError  |  Multiple errors occured while preparing the VM extensions. See VM extension instance view for details.  |
+|  VMExtensionManagementInternalError  |  Multiple errors occurred while preparing the VM extensions. See VM extension instance view for details.  |
 |  VMExtensionProvisioningError  |  VM has reported a failure when processing extension '{0}'. Error message: "{1}".  |
 |  VMExtensionProvisioningError  |  Multiple VM extensions failed to be provisioned on the VM. Please see the VM extension instance view for details.  |
 |  VMExtensionProvisioningTimeout  |  Provisioning of VM extension '{0}' has timed out. Extension installation may be taking too long, or extension status could not be obtained.  |

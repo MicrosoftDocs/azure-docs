@@ -173,7 +173,7 @@ If you do not manually terminate the cluster it will automatically stop, provide
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. You can also look at the Resource Manager template to [Create an Azure Databricks workspace with custom VNET address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address).
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Azure storage. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. You can also look at the Resource Manager template to [Create an Azure Databricks workspace with custom VNET address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). For the JSON syntax and properties to use in a template, see [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces) template reference.
 
 Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 

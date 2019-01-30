@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* [Azure CLI](http://docs.microsoft.com/cli/azure/overview), installed on your own computer. 
+* [Azure CLI](https://docs.microsoft.com/cli/azure/overview), installed on your own computer. 
 * [Git](https://git-scm.com/)
 * [Java JDK](https://aka.ms/azure-jdks)
 * [Maven](https://maven.apache.org)
@@ -293,7 +293,7 @@ bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEG
 2018-10-28T22:44:56.265944408Z \____|__  /_____ \____/ |__|    \___  >
 2018-10-28T22:44:56.265948508Z         \/      \/                  \/ 
 2018-10-28T22:44:56.265952508Z A P P   S E R V I C E   O N   L I N U X
-2018-10-28T22:44:56.265956408Z Documentation: http://aka.ms/webapp-linux
+2018-10-28T22:44:56.265956408Z Documentation: https://aka.ms/webapp-linux
 2018-10-28T22:44:56.266260910Z Setup openrc ...
 2018-10-28T22:44:57.396926506Z Service `hwdrivers' needs non existent service `dev'
 2018-10-28T22:44:57.397294409Z  * Caching service dependencies ... [ ok ]
@@ -330,7 +330,7 @@ If you don't need these resources for another tutorial (see [Next steps](#next))
   
 ```bash
 az group delete --name your-azure-group-name
-``` 
+```
 
 <a name="next"></a>
 

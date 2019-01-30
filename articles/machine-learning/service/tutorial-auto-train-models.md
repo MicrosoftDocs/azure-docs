@@ -1,10 +1,10 @@
 ---
-title: 'Regression model tutorial: Automatically train models'
+title: 'Regression model tutorial: Automated ML'
 titleSuffix: Azure Machine Learning service
-description: Learn how to generate a ML model using automated machine learning.  Azure Machine Learning can perform data preprocessing, algorithm selection and hyperparameter selection in an automated way for you. The final model then be deployed with Azure Machine Learning service.
+description: Learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you. Then the final model is deployed with Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
@@ -17,38 +17,38 @@ ms.custom: seodec18
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [prepared the NYC taxi data for regression modeling](tutorial-data-prep.md).
 
-Now, you're ready to start building your model with Azure Machine Learning service. In this part of the tutorial, you will use the prepared data and automatically generate a regression model to predict taxi fare prices. Using the automated ML capabilities of the service, you define your machine learning goals and constraints, launch the automated machine learning process and then allow the algorithm selection and hyperparameter-tuning to happen for you. The automated ML technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
+Now you're ready to start building your model with Azure Machine Learning service. In this part of the tutorial, you use the prepared data and automatically generate a regression model to predict taxi fare prices. By using the automated machine learning capabilities of the service, you define your machine learning goals and constraints. You launch the automated machine learning process. Then allow the algorithm selection and hyperparameter tuning to happen for you. The automated machine learning technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
 
-![flow diagram](./media/tutorial-auto-train-models/flow2.png)
+![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
-In this tutorial, you learn how to:
+In this tutorial, you learn the following tasks:
 
 > [!div class="checklist"]
-> * Setup a Python environment and import the SDK packages
-> * Configure an Azure Machine Learning service workspace
-> * Auto-train a regression model
-> * Run the model locally with custom parameters
-> * Explore the results
-> * Register the best model
+> * Set up a Python environment and import the SDK packages.
+> * Configure an Azure Machine Learning service workspace.
+> * Autotrain a regression model.
+> * Run the model locally with custom parameters.
+> * Explore the results.
+> * Register the best model.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.0
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.0.
 
 ## Prerequisites
 
 > * [Run the data preparation tutorial](tutorial-data-prep.md).
-> * Automated machine learning configured environment e.g. Azure notebooks, Local Python environment or Data Science Virtual Machine. [Setup](samples-notebooks.md) automated machine learning.
+> * An automated machine learning configured environment. Examples are [Azure Notebooks](https://notebooks.azure.com/), a local Python environment, or a Data Science Virtual Machine. [Set up automated machine learning](samples-notebooks.md).
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Run the `regression-part2-automated-ml.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Run the `regression-part2-automated-ml.ipynb` notebook either in [Azure Notebooks](https://notebooks.azure.com/) or in your own Jupyter Notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## Import packages
-Import Python packages you need in this tutorial.
+Import the Python packages you need in this tutorial:
 
 
 ```python
@@ -61,11 +61,19 @@ import logging
 import os
 ```
 
+If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+
+```shell
+pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
+```
+
 ## Configure workspace
 
-Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information, and creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. A `Workspace` is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs.
 
-Once you have a workspace object, specify a name for the experiment and create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment and in [Azure portal](https://portal.azure.com).
+`Workspace.from_config()` reads the file **aml_config/config.json** and loads the details into an object named `ws`.  `ws` is used throughout the rest of the code in this tutorial.
+
+After you have a workspace object, specify a name for the experiment. Create and register a local directory with the workspace. The history of all runs is recorded under the specified experiment and in the [Azure portal](https://portal.azure.com).
 
 
 ```python
@@ -88,7 +96,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## Explore data
 
-Utilize the data flow object created in the previous tutorial. Open and execute the data flow and review the results.
+Use the data flow object created in the previous tutorial. To summarize, part 1 of this tutorial cleaned the NYC Taxi data so it could be used in a machine learning model. Now, you use various features from the data set and allow an automated model to build relationships between the features and the price of a taxi trip. Open and run the data flow and review the results:
 
 
 ```python
@@ -109,22 +117,22 @@ dflow_prepared.get_profile()
       <th>Min</th>
       <th>Max</th>
       <th>Count</th>
-      <th>Missing Count</th>
-      <th>Not Missing Count</th>
+      <th>Missing count</th>
+      <th>Not missing count</th>
       <th>Percent missing</th>
-      <th>Error Count</th>
+      <th>Error count</th>
       <th>Empty count</th>
-      <th>0.1% Quantile</th>
-      <th>1% Quantile</th>
-      <th>5% Quantile</th>
-      <th>25% Quantile</th>
-      <th>50% Quantile</th>
-      <th>75% Quantile</th>
-      <th>95% Quantile</th>
-      <th>99% Quantile</th>
-      <th>99.9% Quantile</th>
+      <th>0.1% quantile</th>
+      <th>1% quantile</th>
+      <th>5% quantile</th>
+      <th>25% quantile</th>
+      <th>50% quantile</th>
+      <th>75% quantile</th>
+      <th>95% quantile</th>
+      <th>99% quantile</th>
+      <th>99.9% quantile</th>
       <th>Mean</th>
-      <th>Standard Deviation</th>
+      <th>Standard deviation</th>
       <th>Variance</th>
       <th>Skewness</th>
       <th>Kurtosis</th>
@@ -576,16 +584,16 @@ dflow_prepared.get_profile()
   </tbody>
 </table>
 
-You prepare the data for the experiment by adding columns to `dflow_x` to be features for our model creation. You define `dflow_y` to be our prediction value; cost.
+You prepare the data for the experiment by adding columns to `dflow_x` to be features for our model creation. You define `dflow_y` to be our prediction value, **cost**:
 
 ```python
 dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
-### Split data into train and test sets
+### Split the data into train and test sets
 
-Now you split the data into training and test sets using the `train_test_split` function in the `sklearn` library. This function segregates the data into the x (features) data set for model training and the y (values to predict) data set for testing. The `test_size` parameter determines the percentage of data to allocate to testing. The `random_state` parameter sets a seed to the random generator, so that your train-test splits are always deterministic.
+Now you split the data into training and test sets by using the `train_test_split` function in the `sklearn` library. This function segregates the data into the x, **features**, dataset for model training and the y, **values to predict**, dataset for testing. The `test_size` parameter determines the percentage of data to allocate to testing. The `random_state` parameter sets a seed to the random generator, so that your train-test splits are always deterministic:
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -598,27 +606,27 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-You now have the necessary packages and data ready for auto training for your model.
+The purpose of this step is to have data points to test the finished model that haven't been used to train the model, in order to measure true accuracy. In other words, a well-trained model should be able to accurately make predictions from data it hasn't already seen. You now have the necessary packages and data ready for autotraining your model.
 
 ## Automatically train a model
 
-To automatically train a model:
-1. Define settings for the experiment run
-1. Submit the experiment for model tuning
+To automatically train a model, take the following steps:
+1. Define settings for the experiment run. Attach your training data to the configuration, and modify settings that control the training process.
+1. Submit the experiment for model tuning. After submitting the experiment, the process iterates through different machine learning algorithms and hyperparameter settings, adhering to your defined constraints. It chooses the best-fit model by optimizing an accuracy metric.
 
 ### Define settings for autogeneration and tuning
 
-Define the experiment parameters and models settings for autogeneration and tuning. View the full list of [settings](how-to-configure-auto-train.md).
+Define the experiment parameter and model settings for autogeneration and tuning. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 10-15 min, but if you want a shorter run time, reduce either `iterations` or `iteration_timeout_minutes`.
 
 
 |Property| Value in this tutorial |Description|
 |----|----|---|
-|**iteration_timeout_minutes**|10|Time limit in minutes for each iteration|
-|**iterations**|30|Number of iterations. In each iteration, the model trains with the data with a specific pipeline|
-|**primary_metric**| spearman_correlation | Metric that you want to optimize.|
-|**preprocess**| True | True enables experiment to perform preprocessing on the input.|
+|**iteration_timeout_minutes**|10|Time limit in minutes for each iteration. Reduce this value to decrease total runtime.|
+|**iterations**|30|Number of iterations. In each iteration, a new machine learning model is trained with your data. This is the primary value that affects total run time.|
+|**primary_metric**| spearman_correlation | Metric that you want to optimize. The best-fit model will be chosen based on this metric.|
+|**preprocess**| True | By using **True**, the experiment can preprocess the input data (handling missing data, converting text to numeric, etc.)|
 |**verbosity**| logging.INFO | Controls the level of logging.|
-|**n_cross_validationss**|5|Number of cross validation splits
+|**n_cross_validations**|5|Number of cross-validation splits to perform when validation data is not specified.|
 
 
 
@@ -633,6 +641,7 @@ automl_settings = {
 }
 ```
 
+Use your defined training settings as a parameter to an `AutoMLConfig` object. Additionally, specify your training data and the type of model, which is `regression` in this case.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -648,7 +657,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### Train the automatic regression model
 
-Start the experiment to run locally. Pass the defined `automated_ml_config` object to the experiment, and set the output to `True` to view progress during the experiment.
+Start the experiment to run locally. Pass the defined `automated_ml_config` object to the experiment. Set the output to `True` to view progress during the experiment:
 
 
 ```python
@@ -656,6 +665,8 @@ from azureml.core.experiment import Experiment
 experiment=Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
+
+The output shown updates live as the experiment runs. For each iteration, you see the model type, the run duration, and the training accuracy. The field `BEST` tracks the best running training score based on your metric type.
 
     Parent Run ID: AutoML_02778de3-3696-46e9-a71b-521c8fca0651
     *******************************************************************************************
@@ -665,7 +676,7 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     *******************************************************************************************
-    
+
      ITERATION   PIPELINE                                       DURATION      METRIC      BEST
              0   MaxAbsScaler ExtremeRandomTrees                0:00:08       0.9447    0.9447
              1   StandardScalerWrapper GradientBoosting         0:00:09       0.9536    0.9536
@@ -704,7 +715,7 @@ Explore the results of automatic training with a Jupyter widget or by examining 
 
 ### Option 1: Add a Jupyter widget to see results
 
-If you are using a Juypter notebook, use this Jupyter notebook widget to see a graph and a table of all results.
+If you use a Jupyter notebook, use this Jupyter notebook widget to see a graph and a table of all results:
 
 
 ```python
@@ -712,12 +723,12 @@ from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
-![Jupyter Widget run details](./media/tutorial-auto-train-models/automl-dash-output.png)
-![Jupyter Widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
+![Jupyter widget run details](./media/tutorial-auto-train-models/automl-dash-output.png)
+![Jupyter widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
 
 ### Option 2: Get and examine all run iterations in Python
 
-Alternatively, you can retrieve the history of each experiment and explore the individual metrics for each iteration run.
+You can also retrieve the history of each experiment and explore the individual metrics for each iteration run. By examining RMSE (root_mean_squared_error) for each individual model run, you see that most iterations are predicting the taxi fair cost within a reasonable margin ($3-4).
 
 ```python
 children = list(local_run.get_children())
@@ -1069,7 +1080,7 @@ rundata
 
 ## Retrieve the best model
 
-Select the best pipeline from our iterations. The `get_output` method on `automl_classifier` returns the best run and the fitted model for the last fit invocation. There are overloads on `get_output` that allow you to retrieve the best run and fitted model for any logged metric or a particular iteration.
+Select the best pipeline from our iterations. The `get_output` method on `automl_classifier` returns the best run and the fitted model for the last fit invocation. By using the overloads on `get_output`, you can retrieve the best run and fitted model for any logged metric or a particular iteration:
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1077,28 +1088,16 @@ print(best_run)
 print(fitted_model)
 ```
 
-## Register the model
-
-Register the model in your Azure Machine Learning service workspace.
-
-
-```python
-description = 'Automated Machine Learning Model'
-tags = None
-local_run.register_model(description=description, tags=tags)
-local_run.model_id # Use this id to deploy the model as a web service in Azure
-```
-
 ## Test the best model accuracy
 
-Use the best model to run predictions on the test data set. The function `predict` uses the best model, and predicts the values of y (trip cost) from the `x_test` data set. Print the first 10 predicted cost values from `y_predict`.
+Use the best model to run predictions on the test dataset to predict taxi fares. The function `predict` uses the best model and predicts the values of y, **trip cost**, from the `x_test` dataset. Print the first 10 predicted cost values from `y_predict`:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Create a scatter plot to visualize the predicted cost values compared to the actual cost values. The following code uses the `distance` feature as the x-axis, and trip `cost` as the y-axis. The first 100 predicted and actual cost values are created as separate series, in order to compare the variance of predicted cost at each trip distance value. Examining the plot shows that the distance/cost relationship is nearly linear, and the predicted cost values are in most cases very close to the actual cost values for the same trip distance.
+Create a scatter plot to visualize the predicted cost values compared to the actual cost values. The following code uses the `distance` feature as the x-axis and trip `cost` as the y-axis. To compare the variance of predicted cost at each trip distance value, the first 100 predicted and actual cost values are created as separate series. Examining the plot shows that the distance/cost relationship is nearly linear, and the predicted cost values are in most cases very close to the actual cost values for the same trip distance.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1123,7 +1122,7 @@ plt.show()
 
 ![Prediction scatter plot](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Calculate the `root mean squared error` of the results. Use the `y_test` dataframe, and convert it to a list to compare to the predicted values. The function `mean_squared_error` takes two arrays of values, and calculates the average squared error between them. Taking the square root of the result gives an error in the same units as the y variable (cost), and indicates roughly how far your predictions are from the actual value.
+Calculate the `root mean squared error` of the results. Use the `y_test` dataframe. Convert it to a list to compare to the predicted values. The function `mean_squared_error` takes two arrays of values and calculates the average squared error between them. Taking the square root of the result gives an error in the same units as the y variable, **cost**. It indicates roughly how far the taxi fare predictions are from the actual fares:
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1135,7 +1134,7 @@ rmse
 
     3.2204936862688798
 
-Run the following code to calculate MAPE (mean absolute percent error) using the full `y_actual` and `y_predict` data sets. This metric calculates an absolute difference between each predicted and actual value, sums all the differences, and then expresses that sum as a percent of the total of the actual values.
+Run the following code to calculate mean absolute percent error (MAPE) by using the full `y_actual` and `y_predict` datasets. This metric calculates an absolute difference between each predicted and actual value and sums all the differences. Then it expresses that sum as a percent of the total of the actual values:
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1162,18 +1161,20 @@ print(1 - mean_abs_percent_error)
     Model Accuracy:
     0.8945484613043041
 
+From the final prediction accuracy metrics, you see that the model is fairly good at predicting taxi fares from the data set's features, typically within +- $3.00. The traditional machine learning model development process is highly resource-intensive, and requires significant domain knowledge and time investment to run and compare the results of dozens of models. Using automated machine learning is a great way to rapidly test many different models for your scenario.
+
 ## Clean up resources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## Next steps
 
-In this automated machine learning tutorial, you:
+In this automated machine learning tutorial, you did the following tasks:
 
 > [!div class="checklist"]
-> * Configured a workspace and prepared data for an experiment
-> * Trained using an automated regression model locally with custom parameters
-> * Explored and reviewed training results
-> * Registered the best model
+> * Configured a workspace and prepared data for an experiment.
+> * Trained by using an automated regression model locally with custom parameters.
+> * Explored and reviewed training results.
+> * Registered the best model.
 
 [Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.

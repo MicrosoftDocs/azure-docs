@@ -2,14 +2,13 @@
 title: Optimize request units and cost to run queries in Azure Cosmos DB
 description: Learn how to evaluate request unit charges for a query and optimize the query in terms of performance and cost. 
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ---
 
-# Optimize the cost required to run queries in Azure Cosmos DB
+# Optimize query cost in Azure Cosmos DB
 
 Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries that operate on the items within a container. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations to serve a request. This article describes how to evaluate request unit charges for a query and optimize the query in terms of performance and cost. 
 

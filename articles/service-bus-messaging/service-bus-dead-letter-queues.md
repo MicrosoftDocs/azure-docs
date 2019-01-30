@@ -3,9 +3,9 @@ title: Service Bus dead-letter queues | Microsoft Docs
 description: Overview of Azure Service Bus dead-letter queues
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # Overview of Service Bus dead-letter queues
@@ -72,7 +72,7 @@ In addition to the system-provided dead-lettering features, applications can use
 
 Messages will be sent to the transfer dead-letter queue under the following conditions:
 
-- A message passes through more than 3 queues or topics that are [chained together](service-bus-auto-forwarding.md).
+- A message passes through more than 4 queues or topics that are [chained together](service-bus-auto-forwarding.md).
 - The destination queue or topic is disabled or deleted.
 - The destination queue or topic exceeds the maximum entity size.
 

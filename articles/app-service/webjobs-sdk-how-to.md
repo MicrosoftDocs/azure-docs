@@ -412,7 +412,7 @@ public class WorkItem
 
 The default scope for a lock is `SingletonScope.Function` meaning the lock scope (the blob lease path) is tied to the fully qualified function name. To lock across functions, specify `SingletonScope.Host` and use a scope ID name that is the same across all of the functions that you don't want to run simultaneously. In the following example, only one instance of `AddItem` or `RemoveItem` runs at a time:
 
-```charp
+```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
 public static void AddItem([QueueTrigger("add-item")] string message)
 {
@@ -446,7 +446,7 @@ The queue and blob triggers automatically prevent a function from processing a q
 
 The timer trigger automatically ensures that only one instance of the timer runs, so you don't get more than one function instance running at a given scheduled time.
 
-If you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the [Singleton](#singleton) attribute.
+If you want to ensure that only one instance of a function runs even when there are multiple instances of the host web app, you can use the [Singleton attribute](#singleton-attribute).
 	
 ## Filters 
 

@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage Service Encryption for data at rest
@@ -76,7 +76,7 @@ Yes, all copies of the storage account are encrypted. All redundancy options are
 Storage Service Encryption is available in all regions.
 
 **Is Storage Service Encryption FIPS 140-2 compliant?**  
-Yes, Storage Service Encryption is FIPS 140-2 compliant.
+Yes, Storage Service Encryption is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Storage Service Encryption, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
 **How do I contact someone if I have any problems or want to provide feedback?**  
 Contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) for any problems or feedback related to Storage Service Encryption.

@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
+ms.date: 01/25/2019
 ---
 # Automated backups
 
@@ -36,7 +36,7 @@ You can use these backups to:
 
 ## How long are backups kept
 
-Each SQL Database has a default backup retention period between 7 and 35 days that depends on the [purchasing model and service tier](#pitr-retention-period). You can update the backup retention period for a database on Azure Logical Server. For more information, see [Change Backup Retention Period](#how-to-change-the-pitr-backup-retention-period).
+Each SQL Database has a default backup retention period between 7 and 35 days that depends on the purchasing model and service tier. You can update the backup)retention period for a database on SQL Database server. For more information, see [Change Backup Retention Period](#how-to-change-the-pitr-backup-retention-period).
 
 If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
 
@@ -57,7 +57,7 @@ The default retention period for a database created using the DTU-based purchasi
 
 #### vCore-based purchasing model
 
-If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (for single, pooled, and Managed Instance databases). For all Azure SQL databases (single, pooled, and Managed Instance databases, you can [change backup retention period up to 35 days](#how-to-change-the-pitr-backup-retention-period).
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (for standalone, pooled, and instance databases). For all Azure SQL databases (standalone, pooled, and instance databases, you can [change backup retention period up to 35 days](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > If you reduce the current retention period, all existing backups older than the new retention period are no longer be available. If you increase the current retention period, SQL Database will keep the existing backups until the longer retention period is reached.
@@ -74,7 +74,7 @@ For more information, see [Point-in-time restore](sql-database-recovery-using-ba
 
 ### Backups for long-term retention
 
-SQL Database hosted in Logical Server offers the option of configuring long-term retention (LTR) of full backups for up to 10 years in Azure blob storage. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage.
+Standalone and pooled databases offer the option of configuring long-term retention (LTR) of full backups for up to 10 years in Azure blob storage. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage.
 
 Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -99,13 +99,19 @@ When you migrate your database from a DTU-based service tier with the default PI
 You can change the default PITR backup retention period using the Azure Portal, PowerShell, or the REST API. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days.
 
 > [!NOTE]
-> Thes APIs will only impact the PITR retention period. If you configured LTR for your database, it will not be impacted. For more information about how to change the LTR retention period(s), see [Long-term retention](sql-database-long-term-retention.md).
+> These APIs will only impact the PITR retention period. If you configured LTR for your database, it will not be impacted. For more information about how to change the LTR retention period(s), see [Long-term retention](sql-database-long-term-retention.md).
 
 ### Change PITR backup retention period using the Azure portal
 
-To change the PITR backup retention period using the Azure portal, navigate to the database whose retention period that you wish to change and then click **Overview**.
+To change the PITR backup retention period using the Azure portal, navigate to the server object whose retention period you wish to change within the Portal and then select the appropriate option based on which server object you're modifying.
 
-![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention.png)
+#### Change PITR for a SQL Database server
+
+![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### Change PITR for a Managed Instance
+
+![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ### Change PITR backup retention period using PowerShell
 

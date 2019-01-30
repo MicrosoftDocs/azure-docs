@@ -109,7 +109,7 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
     
 #### TermService service is stopped because of an Access Denied problem
 
-1. Connect to [Serial Console](serial-console-windows.md#) and open a PowerShell instance.
+1. Connect to [Serial Console](serial-console-windows.md) and open a PowerShell instance.
 2. Download the Process Monitor tool by running the following script:
 
    ```

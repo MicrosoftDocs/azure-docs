@@ -4,7 +4,7 @@ description: Use Terraform with Azure Cloud Shell to simplify authentication and
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, scale set, virtual machine, network, storage, modules
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

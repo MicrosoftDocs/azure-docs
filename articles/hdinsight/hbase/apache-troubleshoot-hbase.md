@@ -309,7 +309,7 @@ You might see a message on your Linux cluster that indicates that the *hbase: me
 
 ### Additional reading
 
-[Unable to process the HBase table](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[Unable to process the HBase table](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### Error

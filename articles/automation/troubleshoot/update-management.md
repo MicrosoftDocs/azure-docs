@@ -68,6 +68,20 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
+### <a name="nologs"></a>Scenario: Update Management data not showing in Log Analytics for a machine
+
+#### Issue
+
+You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Log Analytics for the Hybrid Runbook Worker but not Update Management.
+
+#### Cause
+
+The Hybrid Runbook Worker may need to be re-registered and reinstalled.
+
+#### Resolution
+
+Follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows or [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) for Linux.
+
 ## Windows
 
 If you encounter issues while attempting to onboard the solution on a virtual machine, check the **Operations Manager** event log under **Application and Services Logs** on the local machine for events with event ID **4502** and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
@@ -136,20 +150,6 @@ The Hybrid Runbook Worker wasn't able to generate a self-signed certificate
 
 Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypto\RSA** and try again.
 
-### <a name="nologs"></a>Scenario: Update Management data not showing in Log Analytics for a machine
-
-#### Issue
-
-You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Log Analytics for the Hybrid Runbook Worker but not Update Management.
-
-#### Cause
-
-The Hybrid Runbook Worker may need to be re-registered and reinstalled.
-
-#### Resolution
-
-Follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker.
-
 ### <a name="hresult"></a>Scenario: Machine shows as Not assessed and shows an HResult exception
 
 #### Issue
@@ -158,7 +158,7 @@ You have machines that show as **Not Assessed** under **Compliance**, and you se
 
 #### Cause
 
-Windows update is not configured correctly in the machine.
+Windows Update or WSUS is not configured correctly in the machine. Update Management relies of Windows Update or WSUS to provide the updates that are needed, the status of the patch, and the results of patches deployed. Without this information Update Management can not properly report on the patches that are needed or installed.
 
 #### Resolution
 
@@ -171,6 +171,11 @@ Double-click on the exception displayed in red to see the entire exception messa
 |`0x8024402C`     | If you are using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` have the correct WSUS server.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and is not disabled.        |
 |Any other generic exception     | Do a search the internet for the possible solutions and work with your local IT support.         |
+
+Additionally you can download and run the [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) to check if there are any issues with Windows Update on the machine.
+
+> [!NOTE]
+> The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) states it is for Windows clients but it works on Windows Server as well.
 
 ## Linux
 

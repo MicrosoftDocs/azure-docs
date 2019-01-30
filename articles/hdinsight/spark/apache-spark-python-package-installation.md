@@ -16,15 +16,11 @@ ms.author: hrasheed
 > [!div class="op_single_selector"]
 > * [Using cell magic](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Using Script Action](apache-spark-python-package-installation.md)
->
->
 
 Learn how to use Script Actions to configure an [Apache Spark](https://spark.apache.org/) cluster on HDInsight (Linux) to use external, community-contributed **python** packages that are not included out-of-the-box in the cluster.
 
-> [!NOTE]
+> [!NOTE]  
 > You can also configure a Jupyter notebook by using `%%configure` magic to use external packages. For instructions, see [Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight](apache-spark-jupyter-notebook-use-external-packages.md).
-> 
-> 
 
 You can search the [package index](https://pypi.python.org/pypi) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, you can install packages made available through [conda-forge](https://conda-forge.org/feedstocks/).
 
@@ -36,10 +32,8 @@ You must have the following:
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-   > [!NOTE]
+   > [!NOTE]  
    > If you do not already have a Spark cluster on HDInsight Linux, you can run script actions during cluster creation. Visit the documentation on [how to use custom script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
-   > 
-   > 
    
 ## Support for open-source software used on HDInsight clusters
 
@@ -50,10 +44,10 @@ There are two types of open-source components that are available in the HDInsigh
 * **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, Apache Hadoop YARN ResourceManager, the Apache Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Apache Hadoop cluster versions provided by HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 * **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
 
-> [!WARNING]
+> [!WARNING]   
 > Components provided with the HDInsight cluster are fully supported. Microsoft Support helps to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may be able to resolve the issue OR they may ask you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. Microsoft support may be able to resolve the issue OR they may ask you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/).
 
 
 ## Use external packages with Jupyter notebooks
@@ -63,10 +57,8 @@ There are two types of open-source components that are available in the HDInsigh
 2. From the Spark cluster blade, click **Script Actions** from the left pane. Use the script type "Custom" and enter a friendly name for the script action. Run the script on the **head and worker nodes** and leave the parameters field blank. The bash script can be referenced from: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh
 Visit the documentation on [how to use custom script actions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
-   > [!NOTE]
-   > There are two python installations in the cluster. Spark will use the Anaconda python installation located at `/usr/bin/anaconda/bin`. Reference that installation in your custom actions via `/usr/bin/anaconda/bin/pip` and `/usr/bin/anaconda/bin/conda`.
-   > 
-   > 
+   > [!NOTE]  
+   > There are two python installations in the cluster. Spark will use the Anaconda python installation located at `/usr/bin/anaconda/bin` and will default to the Python 2.7 environment. To use Python 3.x and install packages in the PySpark3 kernel, use the path to the `conda` executable for that environment and use the `-n` parameter to specify the environment. For example, the command `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, installs the `ggplot` package to the Python 3.5 environment using the `conda-forge` channel.
 
 3. Open a PySpark Jupyter notebook
 
@@ -100,7 +92,7 @@ Visit the documentation on [how to use custom script actions](https://docs.micro
 
 ### Create and run applications
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on an Apache Spark cluster using Livy](apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 * [Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight](apache-spark-jupyter-notebook-use-external-packages.md)

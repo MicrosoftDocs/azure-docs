@@ -1,7 +1,7 @@
 ---
 title: Create and manage event rules in your Azure IoT Central application | Microsoft Docs
 description: Azure IoT Central event rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
-author: ankitgupta
+author: ankitscribbles
 ms.author: ankitgup
 ms.date: 08/14/2018
 ms.topic: conceptual

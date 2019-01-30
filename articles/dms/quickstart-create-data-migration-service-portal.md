@@ -5,8 +5,8 @@ services: database-migration
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: 
-ms.service: database-migration
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart

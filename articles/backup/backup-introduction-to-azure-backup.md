@@ -72,14 +72,14 @@ The following table provides a matrix of the data and workloads that can be prot
 | Azure IaaS VMs (Linux) |running in Azure |[Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 
 ## Linux support
-The following table shows the Azure Backup components that have support for Linux.  
+The following table shows Azure Backup components supported for Linux.  
 
-| Component | Linux (Azure endorsed) Support |
-| --- | --- |
-| Azure Backup (MARS) agent |No (Only Windows based agent) |
-| System Center DPM |<li> File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br> </br>  *File-consistent backup not available for Azure VM* <br/> |
-| Azure Backup Server |<li>File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/> <li> VM restore of Hyper-V and VMWare Linux Guest VMs </br></br> *File-consistent backup not available for Azure VM*  |
-| Azure IaaS VM Backup |Application-consistent backup using [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/> [Granular file recovery](backup-azure-restore-files-from-vm.md)<br/> [Restore all VM disks](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM restore](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**Component** | **Linux (Azure endorsed)**
+--- | --- 
+Azure Backup (MARS) agent | No ( Windows-based agent only) 
+System Center DPM | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux Guest VMs</br></br> File-consistent backup not available for Azure VMs
+Azure Backup Server | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux guest VMs</br></br> File-consistent backup not available for Azure VMs 
+Azure IaaS VM Backup | App-consistent backup using the [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/><br/> [File-level recovery](backup-azure-restore-files-from-vm.md)<br/><br/> [Create a VM from a restored disk](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Create a VM from a recovery point](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## Using Premium Storage VMs with Azure Backup
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../virtual-machines/windows/premium-storage.md).

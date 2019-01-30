@@ -85,6 +85,10 @@ The circuit owner has the power to modify and revoke authorizations at any time.
 
 The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
 
+> [!NOTE]
+> Each connection requires a separate authorization.
+>
+
 1. In the ExpressRoute page, Click **Authorizations** and then type a **name** for the authorization and click **Save**.
 
   ![Authorizations](./media/expressroute-howto-linkvnet-portal-resource-manager/authorization.png)

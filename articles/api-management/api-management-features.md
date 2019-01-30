@@ -38,7 +38,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Azure Monitor logs and metrics                                                               | No<sup>5</sup>                | Yes            | Yes            | Yes            | Yes            |
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user signin on the developer portal.<br/>
-<sup>2</sup> Including related functionality e.g. users, groups, issues, applicationsn and email templates and notifications.<br/>
+<sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>
 <sup>3</sup> External cache support for this tier is coming soon.<br/>
 <sup>4</sup> Client certificate authentication will be added to the Consumption tier prior to its General Availability.<br/>
 <sup>5</sup> Full Azure Monitor support will be added to the Consumption tier.

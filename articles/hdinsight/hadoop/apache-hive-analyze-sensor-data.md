@@ -12,9 +12,9 @@ ROBOTS: NOINDEX
 ---
 # Analyze sensor data using the Apache Hive Query Console on Apache Hadoop in HDInsight
 
-Learn how to analyze sensor data by using the Hive Query Console with HDInsight (Apache Hadoop), then visualize the data in Microsoft Excel by using Power View.
+Learn how to analyze sensor data by using the Apache Hive Query Console with HDInsight (Apache Hadoop), then visualize the data in Microsoft Excel by using Power View.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
@@ -29,10 +29,10 @@ In this sample, you use Hive to process historical data and identify problems wi
 
 ## Prerequisites
 
-* An HDInsight (Hadoop) cluster: See [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) for information about creating a cluster.
+* An HDInsight (Hadoop) cluster: See [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) for information about creating a cluster.
 * Microsoft Excel 2013
 
-  > [!NOTE]
+  > [!NOTE]  
   > Microsoft Excel is used for data visualization with [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
 * [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886)

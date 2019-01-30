@@ -44,7 +44,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
 
     For more information, see the [Connect to Apache Kafka with a VPN client](#vpnclient) section.
 
-    > [!WARNING]
+    > [!WARNING]  
     > This configuration is only recommended for development purposes because of the following limitations:
     >
     > * Each client must connect using a VPN software client.
@@ -56,7 +56,7 @@ For more information on using HDInsight in a virtual network, see [Extend HDInsi
 
 To create a Kafka cluster that communicates with your on-premises network, follow the steps in the [Connect HDInsight to your on-premises network](./../connect-on-premises-network.md) document.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > When creating the HDInsight cluster, select the __Kafka__ cluster type.
 
 These steps create the following configuration:
@@ -181,7 +181,7 @@ Use the steps in this section to create the following configuration:
         -VpnClientRootCertificates $p2sRootCert
     ```
 
-    > [!WARNING]
+    > [!WARNING]  
     > It can take several minutes for this process to complete.
 
 5. Use the following code to create the Azure Storage Account and blob container:
@@ -227,7 +227,7 @@ Use the steps in this section to create the following configuration:
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]
+  > [!WARNING]  
   > This process takes around 15 minutes to complete.
 
 ### Configure Kafka for IP advertising
@@ -312,7 +312,7 @@ To validate connectivity to Kafka, use the following steps to create and run a P
 
     Save the returned information for use in the next steps.
 
-2. Use the following to install the [kafka-python](http://kafka-python.readthedocs.io/) client:
+2. Use the following to install the [kafka-python](https://kafka-python.readthedocs.io/) client:
 
         pip install kafka-python
 

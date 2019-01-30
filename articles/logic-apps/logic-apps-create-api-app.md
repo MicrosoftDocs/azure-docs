@@ -30,7 +30,7 @@ Basically, connectors are web APIs that use REST for pluggable interfaces,
 and JSON as their data exchange format. Because connectors are REST APIs 
 that communicate through HTTP endpoints, you can use any language, 
 like .NET, Java, or Node.js, for building connectors. 
-You can also host your APIs on [Azure App Service](../app-service/app-service-web-overview.md), 
+You can also host your APIs on [Azure App Service](../app-service/overview.md), 
 a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
 and most scalable ways for API hosting. 
 
@@ -44,7 +44,7 @@ for building actions and triggers in your API,
 based on the behavior that you want your API to provide.
 
 You can host your APIs on 
-[Azure App Service](../app-service/app-service-web-overview.md), 
+[Azure App Service](../app-service/overview.md), 
 a platform-as-a-service (PaaS) offering that provides highly scalable, 
 easy API hosting.
 

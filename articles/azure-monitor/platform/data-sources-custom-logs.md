@@ -1,6 +1,6 @@
 ---
-title: Collect custom logs in Azure Log Analytics | Microsoft Docs
-description: Log Analytics can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in the Log Analytics workspace.
+title: Collect custom logs in Log Analytics | Microsoft Docs
+description: Log Analytics can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/19/2018
+ms.date: 01/09/2018
 ms.author: bwren
 ---
 
@@ -30,7 +30,7 @@ The log files to be collected must match the following criteria.
 - The log file must use ASCII or UTF-8 encoding.  Other formats such as UTF-16 are not supported.
 
 >[!NOTE]
->If there are duplicate entries in the log file, Log Analytics will collect them.  However, the search results will be inconsistent where the filter results show more events than the result count.  It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
+>If there are duplicate entries in the log file, Log Analytics will collect them.  However, the query results will be inconsistent where the filter results show more events than the result count.  It will be important that you validate the log to determine if the application that creates it is causing this behavior and address it if possible before creating the custom log collection definition.  
 >
   
 >[!NOTE]
@@ -94,10 +94,10 @@ The name that you specify will be used for the log type as described above.  It 
 ### Step 5. Validate that the custom logs are being collected
 It may take up to an hour for the initial data from a new custom log to appear in Log Analytics.  It will start collecting entries from the logs found in the path you specified from the point that you defined the custom log.  It will not retain the entries that you uploaded during the custom log creation, but it will collect already existing entries in the log files that it locates.
 
-Once Log Analytics starts collecting from the custom log, its records will be available with a Log Search.  Use the name that you gave the custom log as the **Type** in your query.
+Once Log Analytics starts collecting from the custom log, its records will be available with a log query.  Use the name that you gave the custom log as the **Type** in your query.
 
 > [!NOTE]
-> If the RawData property is missing from the search, you may need to close and reopen your browser.
+> If the RawData property is missing from the query, you may need to close and reopen your browser.
 
 
 ### Step 6. Parse the custom log entries
@@ -160,6 +160,18 @@ We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* 
 
 ![Log query with custom fields](media/data-sources-custom-logs/query-02.png)
 
+## Alternatives to custom logs
+While custom logs are useful if your data fits the criteria listed about, but there are cases such as the following where you need another strategy:
+
+- The data doesn't fit the required structure such as having the timestamp in a different format.
+- The log file doesn't adhere to requirements such as file encoding or an unsupported folder structure.
+- The data requires preprocessing or filtering  before collection. 
+
+In the cases where your data can't be collected with custom logs, consider the following alternate strategies:
+
+- Use a custom script or other method to write data to [Windows Events](data-sources-windows-events.md) or [Syslog](data-sources-syslog.md) which are collected by Log Analytics. 
+- Send the data directly to Log Analytics using [HTTP Data Collector API](data-collector-api.md). An example using runbooks in Azure Automation is provided in [Collect data in Log Analytics with an Azure Automation runbook](runbook-datacollect.md).
+
 ## Next steps
 * See [Parse text data in Log Analytics](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.
-* Learn about [log searches](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.

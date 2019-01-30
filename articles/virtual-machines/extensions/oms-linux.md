@@ -92,6 +92,7 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
     "typeHandlerVersion": "1.7",
+    "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId"
     },

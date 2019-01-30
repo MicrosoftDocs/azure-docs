@@ -1,12 +1,9 @@
 ---
 title: 'Azure Cosmos DB: Build a todo app with Xamarin'
 description: Presents a Xamarin code sample you can use to connect to and query Azure Cosmos DB
-services: cosmos-db
 author: codemillmatt
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
@@ -198,7 +195,7 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
     }
     ```
 
-    Again note the unique doument URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
+    Again note the unique document URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
 
 ## Run the app
 

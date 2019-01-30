@@ -19,7 +19,7 @@ ms.author: shvija
 
 ---
 
-# Enable capturing of events streaming through Azure Event Event Hubs
+# Enable capturing of events streaming through Azure Event Hubs
 
 Azure [Event Hubs Capture][capture-overview] enables you to automatically deliver the streaming data in Event Hubs to an [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) account of your choice.
 

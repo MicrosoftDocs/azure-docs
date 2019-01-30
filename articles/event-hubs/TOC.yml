@@ -145,6 +145,9 @@
     href: event-hubs-streaming-azure-diags-data.md
   - name: Exchange events between applications using different protocols
     href: event-hubs-exchange-events-different-protocols.md    
+  - name: Create a Spring Cloud Stream Binder application
+    href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
+    maintainContext: true
 - name: Reference
   items:
   - name: Java
@@ -167,6 +170,8 @@
       href: /dotnet/api/microsoft.azure.management.eventhub
   - name: REST
     href: /rest/api/eventhub
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.eventhub/allversions
   - name: Quotas
     href: event-hubs-quotas.md
 - name: Resources

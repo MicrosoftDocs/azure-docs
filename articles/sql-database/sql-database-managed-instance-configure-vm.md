@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 12/07/2018
+ms.date: 12/13/2018
 ---
 # Quickstart: Configure Azure VM to connect to an Azure SQL Database Managed Instance
 
@@ -78,7 +78,7 @@ The easiest way to create a client virtual machine with all necessary tools is t
    |**Password**|Any valid password|The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>You use this password any time you [connect to the VM](#connect-to-virtual-machine).|
    | **Virtual Machine Size** | Any valid size | The default in this template of **Standard_B2s** is sufficient for this quickstart. |
    | **Location**|[resourceGroup().location].| Don't change this value. |
-   | **Virtual Network Name**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
+   | **Virtual Network Name**|The virtual netword in which you created the Managed Instance.|
    | **Subnet name**|The name of the subnet that you created in the previous procedure| Don't choose the subnet in which you created the Managed Instance.|
    | **artifacts Location** | [deployment().properties.templateLink.uri] | Don't change this value. |
    | **artifacts Location Sas token** | leave blank | Don't change this value. |

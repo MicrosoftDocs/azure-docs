@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 # Enabling Azure Storage metrics and viewing metrics data
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -31,7 +31,10 @@ Follow these steps to enable metrics in the [Azure portal](https://portal.azure.
 The [Azure portal](https://portal.azure.com) does not currently enable you to configure minute metrics in your storage account; you must enable minute metrics using PowerShell or programmatically.
 
 ## How to enable metrics using PowerShell
-You can use PowerShell on your local machine to configure Storage Metrics in your storage account by using the Azure PowerShell cmdlet Get-AzureStorageServiceMetricsProperty to retrieve the current settings, and the cmdlet Set-AzureStorageServiceMetricsProperty to change the current settings.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+You can use PowerShell on your local machine to configure Storage Metrics in your storage account by using the Azure PowerShell cmdlet Get-AzStorageServiceMetricsProperty to retrieve the current settings, and the cmdlet Set-AzStorageServiceMetricsProperty to change the current settings.
 
 The cmdlets that control Storage Metrics use the following parameters:
 
@@ -42,13 +45,13 @@ The cmdlets that control Storage Metrics use the following parameters:
 For example, the following command switches on minute metrics for the Blob service in your default storage account with the retention period set to five days:
 
 ```powershell
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 ```
 
 The following command retrieves the current hourly metrics level and retention days for the blob service in your default storage account:
 
 ```powershell
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
 For information about how to configure the Azure PowerShell cmdlets to work with your Azure subscription and how to select the default storage account to use, see: [How to install and configure Azure PowerShell](/powershell/azure/overview).

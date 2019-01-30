@@ -17,10 +17,10 @@ ROBOTS: NOINDEX
 
 In this article, you will learn how to use the HDInsight Query Console to run Apache Hive queries on an HDInsight Hadoop cluster from your browser.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The HDInsight Query Console is only available on Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> For HDInsight 3.4 or greater, see [Run Hive queries in Ambari Hive View](apache-hadoop-use-hive-ambari-view.md) for information on running Hive queries from a web browser.
+> For HDInsight 3.4 or greater, see [Run Apache Hive queries in Ambari Hive View](apache-hadoop-use-hive-ambari-view.md) for information on running Hive queries from a web browser.
 
 ## <a id="prereq"></a>Prerequisites
 To complete the steps in this article, you will need the following.
@@ -28,7 +28,7 @@ To complete the steps in this article, you will need the following.
 * A Windows-based HDInsight Hadoop cluster
 * A modern web browser
 
-## <a id="run"></a> Run Hive queries using the Query Console
+## <a id="run"></a> Run Apache Hive queries using the Query Console
 1. Open a web browser and navigate to **https://CLUSTERNAME.azurehdinsight.net**, where **CLUSTERNAME** is the name of your HDInsight cluster. If prompted, enter the user name and password that you used when you created the cluster.
 2. From the links at the top of the page, select **Hive Editor**. This displays a form that can be used to enter the HiveQL statements that you want to run in the HDInsight cluster.
 
@@ -48,7 +48,7 @@ To complete the steps in this article, you will need the following.
    * **DROP TABLE**: Deletes the table and the data file if the table already exists.
    * **CREATE EXTERNAL TABLE**: Creates a new 'external' table in Hive. External tables store only the table definition in Hive; the data is left in the original location.
 
-     > [!NOTE]
+     > [!NOTE]  
      > External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
      >
      > Dropping an external table does **not** delete the data, only the table definition.
@@ -69,17 +69,17 @@ To learn more about using Hive Query Console to run Hive jobs, select **Getting 
 ## <a id="nextsteps"></a>Next steps
 For general information about Hive in HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 If you are using Tez with Hive, see the following documents for debugging information:
 
-* [Use the Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Use the Apache Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
+* [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

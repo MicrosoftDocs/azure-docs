@@ -79,8 +79,6 @@ Exclude following folders from Antivirus software
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. ASR load balanced process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
-## Common issues
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 ## Next steps
 [Set up your target environment](./vmware-azure-set-up-target.md) 

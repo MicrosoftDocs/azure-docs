@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -66,6 +66,8 @@ For example, the following JSON shows a policy that limits where resources are d
 
 All Azure Policy samples are at [Policy samples](../samples/index.md).
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## Mode
 
 The **mode** determines which resource types will be evaluated for a policy. The supported modes
@@ -80,7 +82,7 @@ parameter manually. If the policy definition doesn't include a **mode** value, i
 in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support
 backwards compatibility.
 
-`indexed` should be used when creating policies that enforce tags or locations. While note
+`indexed` should be used when creating policies that enforce tags or locations. While not
 required, it prevents resources that don't support tags and locations from showing up as
 non-compliant in the compliance results. The exception is **resource groups**. Policies that
 enforce location or tags on a resource group should set **mode** to `all` and specifically target
@@ -154,7 +156,8 @@ If the definition location is a:
 ## Display name and description
 
 You use **displayName** and **description** to identify the policy definition and provide context
-for when it's used.
+for when it's used. **displayName** has a maximum length of _128_ characters and **description**
+a maximum length of _512_ characters.
 
 ## Policy rule
 
@@ -244,6 +247,9 @@ The following fields are supported:
 - `kind`
 - `type`
 - `location`
+  - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
+- `identity.type`
+  - Returns the type of [Managed Identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
 - `tags`
 - `tags.<tagName>`
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
@@ -368,13 +374,13 @@ Policy, use one of the following methods:
 - Azure PowerShell
 
   ```azurepowershell-interactive
-  # Login first with Connect-AzureRmAccount if not using Cloud Shell
+  # Login first with Connect-AzAccount if not using Cloud Shell
 
-  # Use Get-AzureRmPolicyAlias to list available providers
-  Get-AzureRmPolicyAlias -ListAvailable
+  # Use Get-AzPolicyAlias to list available providers
+  Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzureRmPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzureRmPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
+  Get-AzPolicyAlias -NamespaceMatch 'automation'
   ```
 
 - Azure CLI

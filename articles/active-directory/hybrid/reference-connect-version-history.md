@@ -4,7 +4,7 @@ description: This article lists all releases of Azure AD Connect and Azure AD Sy
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
-ms.component: hybrid
+ms.date: 12/18/2018
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
@@ -31,6 +31,17 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](reference-connect-accounts-permissions.md#upgrade).
 
 Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## 1.2.70.0
+
+### Release status
+
+12/18/2018: Released for download
+
+### Fixed issues
+
+This build updates the non-standard connectors (for example, Generic LDAP Connector and Generic SQL Connector) shipped with Azure AD Connect. For more information on applicable connectors, see version 1.1.911.0 in [Connector Version Release History](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history).
+
 
 ## 1.2.69.0
 

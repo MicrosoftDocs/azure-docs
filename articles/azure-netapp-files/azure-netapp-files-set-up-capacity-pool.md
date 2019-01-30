@@ -50,6 +50,6 @@ You must have already created a NetApp account.
 
 ## Next steps 
 
-1. [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-2. [Configure export policy for a volume (optional)](azure-netapp-files-configure-export-policy.md)
+[Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+
 

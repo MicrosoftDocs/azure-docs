@@ -153,7 +153,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
     * If this entry can be expanded, you are using an __Azure Storage Account__ as default storage for the cluster. To view the files on the default storage for the cluster, expand the entry and then double-click the __(Default Container)__.
 
-    * If this entry cannot be expanded, you are using __Azure Data Lake Store__ as the default storage for the cluster. To view the files on the default storage for the cluster, double-click the __(Default Storage Account)__ entry.
+    * If this entry cannot be expanded, you are using __Azure Data Lake Storage__ as the default storage for the cluster. To view the files on the default storage for the cluster, double-click the __(Default Storage Account)__ entry.
 
 5. To upload the .exe files, use one of the following methods:
 
@@ -161,7 +161,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
         ![upload icon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * If using __Azure Data Lake Store__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **mapper.exe** file and click **Open**.
+    * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **mapper.exe** file and click **Open**.
 
     Once the __mapper.exe__ upload has finished, repeat the upload process for the __reducer.exe__ file.
 
@@ -171,7 +171,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 2. Use one of the following commands to start the MapReduce job:
 
-    * If using __Data Lake Store__ as default storage:
+    * If using __Data Lake Storage__ as default storage:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -232,6 +232,6 @@ This script prompts you for the cluster login account name and password, along w
 
 For more information on using MapReduce with HDInsight, see [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md).
 
-For information on using C# with Hive and Pig, see [Use a C# user-defined function with Hive and Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+For information on using C# with Hive and Pig, see [Use a C# user-defined function with Apache Hive and Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-For information on using C# with Storm on HDInsight, see [Develop C# topologies for Storm on HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+For information on using C# with Storm on HDInsight, see [Develop C# topologies for Apache Storm on HDInsight](../storm/apache-storm-develop-csharp-visual-studio-topology.md).

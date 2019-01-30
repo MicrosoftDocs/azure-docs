@@ -1,5 +1,5 @@
 ---
-title: Media Encoder Standard formats and codecs
+title: Media Encoder Standard formats and codecs - Azure
 description: This topic gives an overview of Media Encoder Standard formats and codecs.
 services: media-services
 documentationcenter: ''
@@ -7,20 +7,24 @@ author: juliako
 manager: femila
 editor: ''
 
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
 
 ---
 # Media Encoder Standard Formats and Codecs
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Version 2](media-services-media-encoder-standard-formats.md)
+> * [Version 3](../latest/media-encoder-standard-formats.md)
+
 This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
 
-## Input Container/File Formats
+## Input container/file Formats
 | File formats (file extensions) | Supported |
 | --- | --- | --- | --- |
 | FLV (with H.264 and AAC codecs) (.flv) |Yes |
@@ -49,8 +53,6 @@ or
 
 * MXF, GXF, and QuickTime files where the audio is carried as separate PCM tracks but the channel mapping (to stereo or 5.1) can be deduced from the file metadata
 
-Support for explicit/user-supplied channel mapping will be provided in the near future.
-
 ## Input video codecs
 | Input video codecs | Supported |
 | --- | --- | --- | --- |
@@ -74,7 +76,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Apple ProRes 4444 XQ |Yes |
 | HEVC/H.265| Main Profile|
 
-## Input Audio Codecs
+## Input audio codecs
 | Input Audio Codecs | Supported |
 | --- | --- | --- | --- |
 | AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1) |Yes |
@@ -91,7 +93,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Dolby® Digital (AC3) |No |
 | Dolby® Digital Plus (E-AC3) |No |
 
-## Output Formats and codecs
+## Output formats and codecs
 The following table lists the codecs and file formats that are supported for export.
 
 | File Format | Video Codec | Audio Codec |

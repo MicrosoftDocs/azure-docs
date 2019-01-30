@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Use the Azure storage emulator for development and testing
 
@@ -82,21 +82,24 @@ Once you've installed and started the storage emulator, you can test your code a
 For more information on connection strings, see [Configure Azure Storage connection strings](../storage-configure-connection-string.md).
 
 ### Authorize with a shared access signature
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using a tool like the [Storage Explorer](http://storageexplorer.com/) or another application that supports Shared Key authentication.
 
 You can also generate a SAS token by using Azure PowerShell. The following example generates a SAS token with full permissions to a blob container:
 
-1. Install Azure PowerShell if you haven't already (using the latest version of the Azure PowerShell cmdlets is recommended). For installation instructions, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Install Azure PowerShell if you haven't already (using the latest version of the Azure PowerShell cmdlets is recommended). For installation instructions, see [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 2. Open Azure PowerShell and run the following commands, replacing `CONTAINER_NAME` with a name of your choosing:
 
 ```powershell
-$context = New-AzureStorageContext -Local
+$context = New-AzStorageContext -Local
 
-New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+New-AzStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
 $now = Get-Date
 
-New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+New-AzStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 ```
 
 The resulting shared access signature URI for the new container should be similar to:

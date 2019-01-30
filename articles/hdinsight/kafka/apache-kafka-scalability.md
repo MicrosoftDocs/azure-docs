@@ -27,7 +27,7 @@ The following diagram provides a comparison between Kafka on HDInsight before ma
 
 2. From the __Cluster size__ section, use the __Disks per worker node__ field to configure the number of disks.
 
-    > [!NOTE]
+    > [!NOTE]  
     > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
     ![Image of the cluster size section with the disks per worker node highlighted](./media/apache-kafka-scalability/set-managed-disks-portal.png)

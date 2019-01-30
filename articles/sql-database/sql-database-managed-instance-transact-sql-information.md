@@ -222,14 +222,14 @@ Undocumented DBCC statements that are enabled in SQL Server are not supported in
 
 ### Distributed transactions
 
-Neither MSDTC nor [Elastic Transactions](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) are currently supported in Managed Instance.
+Neither MSDTC nor [Elastic Transactions](sql-database-elastic-transactions-overview.md) are currently supported in Managed Instance.
 
 ### Extended Events
 
 Some Windows-specific targets for XEvents are not supported:
 
 - `etw_classic_sync target` is not supported. Store `.xel` files on Azure blob storage. See [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- `event_file target`is not supported. Store `.xel` files on Azure blob storage. See [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- `event_file target`is not supported. Store `.xel` files on Azure blob storage. See [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### External libraries
 
@@ -273,8 +273,8 @@ Operations
 - SQL logins created `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (AAD) logins created with [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported (**public preview**).
 - Windows logins created with `CREATE LOGIN ... FROM WINDOWS` syntax are not supported. Use Azure Active Directory logins and users.
-- Azure Active Directory (Azure AD) user who created the instance has [unrestricted admin privileges](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
-- Non-administrator Azure Active Directory (Azure AD) database-level users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
+- Azure Active Directory (Azure AD) user who created the instance has [unrestricted admin privileges](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Non-administrator Azure Active Directory (Azure AD) database-level users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
 
 ### Polybase
 
@@ -497,6 +497,12 @@ Although this code works with data within the same instance it required MSDTC.
 CLR modules placed in Managed Instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This error is a transient issue.
 
 **Workaround**: Use context connections in CLR module if possible.
+
+### TDE encrypted databases don't support user initiated backups
+
+You cannot execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that is encrypted with Transparent Data Encryption (TDE). TDE forces backups to be encrypted with internal TDE keys, and the key cannot be exported, so you will not be able to restore the backup.
+
+**Workaround**: Use automatic backups and point-in-time restore, or disable encryption on database.
 
 ## Next steps
 

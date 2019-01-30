@@ -116,7 +116,7 @@ Because the file *CacheSecrets.config* isn't deployed to Azure with your applica
 * Before: `<appSettings>`
 * After: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
-The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file can't be found. Your secrets (the connection string to your cache) aren't included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrests.config* file isn't deployed.
+The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file can't be found. Your secrets (the connection string to your cache) aren't included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrets.config* file isn't deployed.
 
 ### To configure the application to use StackExchange.Redis
 
@@ -171,7 +171,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
             ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
             ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             ViewBag.command4 = "GET Message";
             ViewBag.command4Result = cache.StringGet("Message").ToString();
 

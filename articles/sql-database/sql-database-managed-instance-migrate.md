@@ -3,15 +3,15 @@ title: Migrate SQL Server instance to Azure SQL Database Managed Instance | Micr
 description: Learn how to migrate a SQL Server instance to Azure SQL Database Managed Instance. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: migration
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 01/25/2019
 ---
 # SQL Server instance migration to Azure SQL Database Managed Instance
 
@@ -28,7 +28,7 @@ At a high level, the database migration process looks like:
 - [Monitor applications](#monitor-applications)
 
 > [!NOTE]
-> To migrate a single database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
+> To migrate an individual database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
 
 ## Assess Managed Instance compatibility
 
@@ -54,7 +54,7 @@ You can select compute and storage resources at deployment time and then change 
 To learn how to create the VNet infrastructure and a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNet requirements](sql-database-managed-instance-vnet-configuration.md#requirements). Any incompatibility can prevent you from creating new instances or using those that you already created.
+> It is important to keep your destination VNet and subnet always in accordance with [Managed Instance VNet requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Any incompatibility can prevent you from creating new instances or using those that you already created. Learn more about [creating new](sql-database-managed-instance-create-vnet-subnet.md) and [configuring existing](sql-database-managed-instance-configure-vnet-subnet.md) networks.
 
 ## Select migration method and migrate
 

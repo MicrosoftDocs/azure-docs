@@ -7,7 +7,7 @@ manager: darosa
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 01/01/2019
 ms.author: babanisa
 ---
 
@@ -366,6 +366,6 @@ You can also test this functionality live by [sending a custom event with CURL f
 
 ## Next steps
 
-* Explore the [Azure Event Grid Mangement and Publish SDKs](./sdk-overview.md)
+* Explore the [Azure Event Grid Management and Publish SDKs](./sdk-overview.md)
 * Learn how to [post to a custom topic](./post-to-custom-topic.md)
 * Try one of the in-depth Event Grid and Functions tutorials such as [resizing images uploaded to Blob storage](resize-images-on-storage-blob-upload-event.md)

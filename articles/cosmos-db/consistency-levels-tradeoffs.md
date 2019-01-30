@@ -1,18 +1,15 @@
 ---
 title: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB
 description: Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB.
-keywords: consistency, performance, azure cosmos db, azure, Microsoft azure
-services: cosmos-db
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-
+ms.reviewer: sngun
 ---
 
-# Availability and performance tradeoffs for various consistency levels in Azure Cosmos DB
+# Consistency, availability, and performance tradeoffs 
 
 Distributed databases that rely on replication for high availability, low latency, or both must make tradeoffs. The tradeoffs are between read consistency vs. availability, latency, and throughput. 
 

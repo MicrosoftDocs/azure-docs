@@ -11,9 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 01/14/2019
+
+
+
+ROBOTS: NOINDEX
 
 ---
 
@@ -21,7 +26,7 @@ ms.reviewer: johnhas
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft will periodically release updates to the Azure Stack software. These updates are provided to Azure Stack co-engineering partners in advance of being made publicly available so that they can validate the updates against their solutions and provide feedback to Microsoft.
+Microsoft will periodically release updates to the Azure Stack software. These updates are provided to Azure Stack coengineering partners. The updates are provided in advance of publicly available. You can check the updates against your solution and provide feedback to Microsoft.
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
@@ -31,13 +36,17 @@ Microsoft will periodically release updates to the Azure Stack software. These u
 
 ## Create a workflow
 
-Update validations use the same workflow as **Package Validation**. Follow the instructions at [Create a Package Validation workflow](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow).
+Update validations use the same workflow as **Solution Validation**.
 
 ## Run tests
 
-Update validations use the same workflow as **Package Validation**. Follow the instructions at [Execute Package Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
+1. Update validations use the same workflow as **Solution Validation**. 
 
-You do not need to request package signing for update validations.
+2. Follow the instructions at [Run Solution Validation tests](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests). Select the following tests instead:
+    - Monthly Azure Stack Update Verification
+    - Cloud Simulation Engine
+
+You don't need to request package signing for update validations.
 
 ## Next steps
 

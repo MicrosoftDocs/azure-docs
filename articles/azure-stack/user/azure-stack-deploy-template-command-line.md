@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/09/2019
 ms.author: sethm
-ms.reviewer:
+ms.reviewer: unknown
+ms.lastreviewed: 01/09/2019
 
 ---
 # Deploy templates in Azure Stack using the command line
@@ -26,9 +27,9 @@ Use the command line to deploy Azure Resource Manager templates in the Azure Sta
 
 ## Before you begin
 
- - [Install and connect](azure-stack-version-profiles-azurecli2.md) to Azure Stack with Azure CLI.
- - Download the files *azuredeploy.json* and *azuredeploy.parameters.json* from the [create storage account example template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
- 
+- [Install and connect](azure-stack-version-profiles-azurecli2.md) to Azure Stack with Azure CLI.
+- Download the files *azuredeploy.json* and *azuredeploy.parameters.json* from the [create storage account example template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
+
 ## Deploy template
 
 Navigate to the folder into which these files were downloaded, and run the following command to deploy the template:
@@ -41,7 +42,7 @@ This command deploys the template to the resource group **cliRG** in the Azure S
 
 ## Validate template deployment
 
-To see this resource group and storage account, use the following commands:
+To see this resource group and storage account, use the following CLI commands:
 
 ```azurecli
 az group list
@@ -51,7 +52,6 @@ az storage account list
 
 ## Next steps
 
-To learn more about deploying templates, see:
+- To learn more about deploying templates, see:
 
 [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
-

@@ -30,7 +30,7 @@ This tutorial shows you how to secure your web app by creating (purchasing) an A
 To follow this how-to guide:
 
 - [Create an App Service app](/azure/app-service/)
-- [Map a domain name to your web app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](custom-dns-web-site-buydomains-web-app.md)
+- [Map a domain name to your web app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -45,7 +45,7 @@ Use the following table to help you configure the certificate. When finished, cl
 | Setting | Description |
 |-|-|
 | Name | A friendly name for your App Service certificate. |
-| Naked Domain Host Name | This step is one of the most critical parts of the purchase process. Use the root domain name that you have mapped to your app. Do _not_ prepend the domain name with `www`. |
+| Naked Domain Host Name | If you specify the root domain here, you get a certificate that secures *both* the root domain and the `www` subdomain. To secure any subdomain only, specify the fully qualified domain name of the subdomain here (for example, `mysubdomain.contoso.com`). |
 | Subscription | The datacenter where the web app is hosted. |
 | Resource group | The resource group that contains the certificate. You can use a new resource group or select the same resource group as your App Service app, for example. |
 | Certificate SKU | Determines the type of certificate to create, whether a standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate). |
@@ -72,7 +72,7 @@ In the **Key Vault Status** page, click **Key Vault Repository** to create a new
 | Access policies| Defines the applications and the allowed access to the vault resources. You can configure it later, following the steps at [Grant several applications access to a key vault](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Virtual Network Access | Restrict vault access to certain Azure virtual networks. You can configure it later, following the steps at [Configure Azure Key Vault Firewalls and Virtual Networks](../key-vault/key-vault-network-security.md) |
 
-Once you have selected the vault, close the **Key Vault Repository** page. The **Store** option should show a green check mark for success. Keep the page open for the next step.
+Once you've selected the vault, close the **Key Vault Repository** page. The **Store** option should show a green check mark for success. Keep the page open for the next step.
 
 ## Verify domain ownership
 
@@ -86,7 +86,7 @@ Select **App Service Verification**. Since you already mapped the domain to your
 > Four types of domain verification methods are supported: 
 > 
 > - **App Service** - The most convenient option when the domain is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
-> - **Domain** - Verify an [App Service domain that you purchased from Azure](custom-dns-web-site-buydomains-web-app.md). Azure automatically adds the verification TXT record for you and completes the process.
+> - **Domain** - Verify an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and completes the process.
 > - **Mail** - Verify the domain by sending an email to the domain administrator. Instructions are provided when you select the option.
 > - **Manual** - Verify the domain using either an HTML page (**Standard** certificate only) or a DNS TXT record. Instructions are provided when you select the option.
 
@@ -110,7 +110,7 @@ Use the following table to help you configure the binding in the **SSL Bindings*
 |-|-|
 | Hostname | The domain name to add SSL binding for. |
 | Private Certificate Thumbprint | The certificate to bind. |
-| SSL Type | <ul><li>**SNI SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP-based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. After configure the binding, follow the steps in [Remap A record for IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| SSL Type | <ul><li>**SNI SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP-based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap A record for IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## Verify HTTPS access
 
@@ -120,7 +120,7 @@ Visit your app using `HTTPS://<domain_name>` instead of `HTTP://<domain_name>` t
 
 If you ever need to rekey your certificate, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Rekey and Sync** from the left navigation.
 
-Click **Rekey** Button to initiate the process. This process can take 1-10 minutes to complete.
+Click **Rekey** Button to start the process. This process can take 1-10 minutes to complete.
 
 ![insert image of Rekey SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
@@ -128,7 +128,7 @@ Rekeying your certificate rolls the certificate with a new certificate issued fr
 
 ## Renew certificate
 
-To turn on automatic renewal of your certificate at anytime, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. 
+To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. 
 
 Select **On** and click **Save**. Certificates can start automatically renewing 60 days before expiration if you have automatic renewal turned on.
 
