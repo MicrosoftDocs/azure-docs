@@ -20,15 +20,17 @@ Azure Key Vault's soft delete feature allows recovery of deleted vaults and vaul
 
 ## Prerequisites
 
-- Azure PowerShell 4.0.0 or later - If you don't have this already setup, install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Azure PowerShell 1.0.0 or later - If you don't have this already setup, install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 
 >[!NOTE]
 > There is an outdated version of our Key Vault PowerShell output formatting file that **may** be loaded into your environment instead of the correct version. We are anticipating an updated version of PowerShell to contain the needed correction for the output formatting and will update this topic at that time. 
 The current workaround, should you encounter this formatting problem, is:
-> - Use the following query if you notice you're not seeing the soft-delete enabled property described in this topic: `$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
+> - Use the following query if you notice you're not seeing the soft-delete enabled property described in this topic: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 
 
-For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0).
+For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/az.keyvault).
 
 ## Required permissions
 
@@ -54,9 +56,9 @@ You enable "soft-delete" to allow recovery of a deleted key vault, or objects st
 For an existing key vault named ContosoVault, enable soft-delete as follows. 
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "ContosoVault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```
 
 ### New key vault
@@ -64,7 +66,7 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Prope
 Enabling soft-delete for a new key vault is done at creation time by adding the soft-delete enable flag to your create command.
 
 ```powershell
-New-AzureRmKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
+New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
 ```
 
 ### Verify soft-delete enablement
@@ -72,7 +74,7 @@ New-AzureRmKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Locatio
 To verify that a key vault has soft-delete enabled, run the *show* command and look for the 'Soft Delete Enabled?' attribute:
 
 ```powershell
-Get-AzureRmKeyVault -VaultName "ContosoVault"
+Get-AzKeyVault -VaultName "ContosoVault"
 ```
 
 ## Deleting a key vault protected by soft-delete
@@ -83,7 +85,7 @@ The command to delete a key vault changes in behavior, depending on whether soft
 >If you run the following command for a key vault that does not have soft-delete enabled, you will permanently delete this key vault and all its content with no options for recovery!
 
 ```powershell
-Remove-AzureRmKeyVault -VaultName 'ContosoVault'
+Remove-AzKeyVault -VaultName 'ContosoVault'
 ```
 
 ### How soft-delete protects your key vaults
@@ -97,7 +99,7 @@ With soft-delete enabled:
 You may view deleted state key vaults, associated with your subscription, using the following command:
 
 ```powershell
-PS C:\> Get-AzureRmKeyVault -InRemovedState 
+PS C:\> Get-AzKeyVault -InRemovedState 
 ```
 
 - *Id* can be used to identify the resource when recovering, or purging. 
@@ -109,7 +111,7 @@ PS C:\> Get-AzureRmKeyVault -InRemovedState
 To recover a key vault, you specify the key vault name, resource group, and location. Note the location and the resource group of the deleted key vault, as you need them for the recovery process.
 
 ```powershell
-Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
+Undo-AzKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG -Location westus
 ```
 
 When a key vault is recovered, a new resource is created with the key vault's original resource ID. If the original resource group is removed, one must be created with same name before attempting recovery.
@@ -162,7 +164,7 @@ The **recover** and **purge** actions have their own permissions associated in a
 The following command grants user@contoso.com permission to use several operations on keys in *ContosoVault* including **purge**:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
+Set-AzKeyVaultAccessPolicy -VaultName ContosoVault -UserPrincipalName user@contoso.com -PermissionsToKeys get,create,delete,list,update,import,backup,restore,recover,purge
 ```
 
 >[!NOTE] 
@@ -203,13 +205,13 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 Purging a key, secret, or certificate, causes permanent deletion and it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
 
 ### Key vaults as containers
-When a key vault is purged, its entire contents are permanently deleted, including keys, secrets, and certificates. To purge a key vault, use the `Remove-AzureRmKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzureRmKeyVault -InRemovedState`.
+When a key vault is purged, its entire contents are permanently deleted, including keys, secrets, and certificates. To purge a key vault, use the `Remove-AzKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzKeyVault -InRemovedState`.
 
 >[!IMPORTANT]
 >Purging a key vault will permanently delete it, meaning it will not be recoverable!
 
 ```powershell
-Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus
+Remove-AzKeyVault -VaultName ContosoVault -InRemovedState -Location westus
 ```
 
 ### Purge permissions required

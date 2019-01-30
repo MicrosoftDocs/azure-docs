@@ -18,6 +18,8 @@ ms.author: ambapat
 ---
 # Grant several applications access to a key vault
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Access control policy can be used to grant several applications access to a key vault. An access control policy can support up to 1024 applications, and is configured as follows:
 
 1. Create an Azure Active Directory security group. 
@@ -45,7 +47,7 @@ Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId
 # You can add several members to this group, in this fashion. 
  
 # Set the Key Vault ACLs 
-Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
+Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId `
 -PermissionsToKeys decrypt,encrypt,unwrapKey,wrapKey,verify,sign,get,list,update,create,import,delete,backup,restore,recover,purge `
 –PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge `
 –PermissionsToCertificates get,list,delete,create,import,update,managecontacts,getissuers,listissuers,setissuers,deleteissuers,manageissuers,recover,purge,backup,restore `
