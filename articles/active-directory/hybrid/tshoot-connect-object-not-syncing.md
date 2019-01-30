@@ -26,7 +26,7 @@ If an object is not synchronizing as expected to Azure AD, then it can be becaus
 
 ## Synchronization Process
 
-Before investigating synchronization issues, let’s understand the **Azure AD Connect** Synchronization process:
+Before investigating synchronization issues, letâ€™s understand the **Azure AD Connect** Synchronization process:
 
   ![Azure AD Connect Synchronization Process](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
 
@@ -40,15 +40,15 @@ Before investigating synchronization issues, let’s understand the **Azure AD Con
 ### **Synchronization Steps**
 The synchronization process involves following steps:
 
-* **Import from AD:** **Active Directory** objects are brought into **AD CS**.
+1. **Import from AD:** **Active Directory** objects are brought into **AD CS**.
 
-* **Import from AAD:** **Azure Active Directory** objects are brought into **AAD CS**.
+2. **Import from AAD:** **Azure Active Directory** objects are brought into **Azure AD CS**.
 
-* **Synchronization:** **Inbound Synchronization Rules** and **Outbound Synchronization Rules** are run in the order of precedence number from lower to higher. To view the Synchronization Rules, you can go to **Synchronization Rules Editor** from the desktop applications. The **Inbound Synchronization Rules** brings in data from CS to MV. The **Outbound Synchronization Rules** moves data from MV to CS.
+3. **Synchronization:** **Inbound Synchronization Rules** and **Outbound Synchronization Rules** are run in the order of precedence number from lower to higher. To view the Synchronization Rules, you can go to **Synchronization Rules Editor** from the desktop applications. The **Inbound Synchronization Rules** brings in data from CS to MV. The **Outbound Synchronization Rules** moves data from MV to CS.
 
-* **Export to AD:** After running Synchronization, objects are exported from AD CS to **Active Directory**.
+4. **Export to AD:** After running Synchronization, objects are exported from AD CS to **Active Directory**.
 
-* **Export to AAD:** After running Synchronization, objects are exported from AAD CS to **Azure Active Directory**.
+5. **Export to AAD:** After running Synchronization, objects are exported from AAD CS to **Azure Active Directory**.
 
 ## Troubleshooting
 
