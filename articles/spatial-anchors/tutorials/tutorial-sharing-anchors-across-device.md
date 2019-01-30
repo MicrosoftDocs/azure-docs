@@ -41,7 +41,7 @@ To complete this tutorial, make sure you have:
     * A macOS machine with <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 9.4+</a>, <a href="https://cocoapods.org" target="_blank">CocoaPods</a> and <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a> installed.
     * A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
-[!INCLUDE [Create Spatial Anchors resource](../../../includes/azure-spatial-anchors-get-started-create-resource.md)]
+[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Deploy your Sharing Anchors Service
 
@@ -99,21 +99,21 @@ The app name specified in the [create and publish step](#create-and-publish-the-
 
 ## Open the sample project in Unity
 
-[!INCLUDE [Clone Sample Repo](../../../includes/azure-spatial-anchors-clone-sample-repository.md)]
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 ## To setup for an Android Device
 
-[!INCLUDE [Android Unity Build Settings](../../../includes/azure-spatial-anchors-unity-android-build-settings.md)]
+[!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
 ## To setup for an iOS Device
 
-[!INCLUDE [iOS Unity Build Settings](../../../includes/azure-spatial-anchors-unity-ios-build-settings.md)]
+[!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
 ## Configure the Spatial Anchors endpoint, account key, and Sharing Service url
 
 In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsLocalSharedDemo.unity` scene file.
 
-[!INCLUDE [Configure Unity Scene](../../../includes/azure-spatial-anchors-unity-configure-scene.md)]
+[!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
 Also, in the **Inspector** pane, enter the `Sharing Anchors Service url` (from the ASP.NET web app Azure deployment performed earlier) as the value for `Base Sharing Url`, replacing `index.html` with `api/anchors`. So, it should look like: `https://<app_name>.azurewebsites.net/api/anchors`.
 
@@ -133,7 +133,7 @@ Follow the instructions in the app. You can choose to **Create & Share Anchor** 
 
 Open **Build Settings** by selecting **File** -> **Build Settings**.
 
-[!INCLUDE [Configure Xcode](../../../includes/azure-spatial-anchors-unity-ios-xcode.md)]
+[!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
 Follow the instructions in the app. You can choose to **Create & Share Anchor** (allowing you to create an Anchor that can be later on located on the same device or a different one) or **Locate Shared Anchor** (if you have previously run the app, either on the same device or a different one, allowing you to locate shared anchors).
 

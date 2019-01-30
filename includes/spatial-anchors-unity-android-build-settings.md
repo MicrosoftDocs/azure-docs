@@ -13,7 +13,7 @@ In the **Platform** section, select **Android**. Then, change the **Build System
 
 Select **Switch Platform** to change the platform to **Android**.
 
-![Unity Build Settings](./media/azure-spatial-anchors-unity/unity-build-settings.png)
+![Unity Build Settings](./media/spatial-anchors-unity/unity-build-settings.png)
 
 Close the **Build Settings** window.
 
