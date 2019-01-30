@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/29/2019
+ms.date: 1/31/2019
 ms.author: victorh
 ---
 
@@ -48,9 +48,9 @@ During preview, there is no charge. You are billed for resources other than appl
 |FIPS mode, WebSocket|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Web application firewall autoscaling|WAF does not support autoscaling mode. Fixed capacity mode is supported.|
+|Netwatcher integration|Not supported in the Public Preview.|
 
 ## Next steps
 - [Create an autoscaling, zone redundant application gateway with a reserved virtual IP address using Azure PowerShell](tutorial-autoscale-ps.md)
 - Learn more about [Application Gateway](overview.md).
-- Learn more about [Azure Firewall](../firewall/overview.md). 
-
+- Learn more about [Azure Firewall](../firewall/overview.md).
