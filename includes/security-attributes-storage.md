@@ -36,7 +36,7 @@ ms.author: mbaldwin
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Access management - Authentication| Yes | Azure Active Directory, Shared key, Shared access token. |
-| Access management - Authorization| Yes | Support Authorization via RBAC, POSIX ACL's, and SAS Tokens |
+| Access management - Authorization| Yes | Support Authorization via RBAC, POSIX ACLs, and SAS Tokens |
 
 
 ## Audit Trail
@@ -44,10 +44,10 @@ ms.author: mbaldwin
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Control/Management Plan Logging and Audit| Yes | ARM Activity Log |
-| Data plane Logging and Audit| Yes | Service Diagnostic Logs, and Azure Montor Logging starting preview  |
+| Data plane Logging and Audit| Yes | Service Diagnostic Logs, and Azure Monitor Logging starting preview  |
 
 ## Configuration Management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration etc)| Yes | Support Resource Provider versioning through ARM API's |
+| Configuration management support (versioning of configuration etc)| Yes | Support Resource Provider versioning through ARM APIs |
