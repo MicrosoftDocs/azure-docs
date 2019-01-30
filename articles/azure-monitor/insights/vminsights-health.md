@@ -225,7 +225,7 @@ The overall health of a target is determined by the health of each of its health
 
 ![Configuring a health criteria example](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-In the configuration pane for the selected health criteria, in this example the **Average Disk Seconds Per Write** thresholds can be configured with a different numeric values.  It is a two-state monitor, meaning it only changes from healthy to critical. Other health criterion may be three state, where you can configure the value for the warning and critical health state threshold.  
+In the configuration pane for the selected health criteria, using the example **Average Disk Seconds Per Write**, its threshold can be configured with a different numeric value. It is a two-state monitor, meaning it only changes from healthy to warning. Other health criterion may be three state, where you can configure the value for the warning and critical health state threshold.  
 
 >[!NOTE]
 >Applying health criteria configuration changes to one instance is applied to all monitored instances.  For example, if you select **Physical Disk -1 D:** and modify the **Average Disk Seconds Per Write** threshold, it doesn't apply to only that instance, but all other disk instances discovered and monitored on the VM.
