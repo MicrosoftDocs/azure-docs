@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/21/2018
+ms.date: 12/13/2018
 ms.author: akjosh; cynthn
 ms.custom: 
 
@@ -29,4 +29,4 @@ ms.custom:
 
 ## Next steps
 
-Learn how to [deploy shared images using Azure CLI](../linux/shared-images.md).
+Learn how to [deploy shared images using Azure PowerShell](shared-images.md).

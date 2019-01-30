@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to make batch predictions asynchronously on large amounts of data using Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens, garye
@@ -182,7 +182,7 @@ model = Model.register(
 ## Write your scoring script
 
 >[!Warning]
->The following code is only a sample of what is contained in the [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/batch_score.py) used by the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-batch-scoring.ipynb). You’ll need to create your own scoring script for your scenario.
+>The following code is only a sample of what is contained in the [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) used by the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). You’ll need to create your own scoring script for your scenario.
 
 The `batch_score.py` script takes input images in *dataset_path*, pretrained models in *model_dir,* and outputs *results-label.txt* to *output_dir*.
 

@@ -15,7 +15,7 @@ ms.date: 06/14/2018
 ---
 # Create an Elastic Job agent using PowerShell
 
-[Elastic jobs](elastic-jobs-overview.md) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
+[Elastic jobs](sql-database-job-automation-overview.md#elastic-database-jobs) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
 
 In this tutorial you learn the steps required to run a query across multiple databases:
 
@@ -59,7 +59,7 @@ If you don't have already have an Azure subscription, [create a free account](ht
 
 ## Create required resources
 
-Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](elastic-jobs-overview.md#job-database). 
+Creating an Elastic Job agent requires a database (S0 or higher) for use as the [Job database](sql-database-job-automation-overview.md#job-database). 
 
 *The script below creates a new resource group, server, and database for use as the Job database. The script below also creates a second server with 2 blank databases to execute jobs against.*
 
@@ -204,7 +204,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## Define the target databases you want to run the job against
 
-A [target group](elastic-jobs-overview.md#target-group) defines the set of one or more databases a job step will execute on. 
+A [target group](sql-database-job-automation-overview.md#target-group) defines the set of one or more databases a job step will execute on. 
 
 The following snippet creates two target groups: *ServerGroup*, and *ServerGroupExcludingDb2*. *ServerGroup* targets all databases that exist on the server at the time of execution, and *ServerGroupExcludingDb2* targets all databases on the server, except *TargetDb2*:
 

@@ -195,7 +195,7 @@
     - name: Google BigQuery
       href: connector-google-bigquery.md
     - name: Google Cloud Storage
-      href: connector-amazon-simple-storage-service.md#copy-from-google-cloud-storage
+      href: connector-google-cloud-storage.md
     - name: Greenplum
       href: connector-greenplum.md
     - name: HBase
@@ -263,7 +263,9 @@
       href: connector-salesforce.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
-    - name: SAP Business Warehouse
+    - name: SAP Business Warehouse Open Hub
+      href: connector-sap-business-warehouse-open-hub.md
+    - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
@@ -411,6 +413,8 @@
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Reconfigure Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
+    - name: Copy or clone a data factory
+      href: copy-clone-data-factory.md
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
@@ -461,6 +465,8 @@
     href: /powershell/module/azurerm.datafactoryv2/
   - name: REST API
     href: /rest/api/datafactory
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.datafactory/allversions
   - name: Python
     href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources

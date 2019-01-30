@@ -271,9 +271,9 @@ The following examples demonstrate how to configure your JSON body in several co
 
 ## Next steps
 
-To review Azure Digital Twins role-based-access-control, read [Role-base-access-control](./security-authenticating-apis.md).
+- To review Azure Digital Twins role-based-access-control, read [Role-base-access-control](./security-authenticating-apis.md).
 
-To learn about Azure Digital Twins API authentication, read [API authentication](./security-authenticating-apis.md).
+- To learn about Azure Digital Twins API authentication, read [API authentication](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/security-roles/roleassignments.png

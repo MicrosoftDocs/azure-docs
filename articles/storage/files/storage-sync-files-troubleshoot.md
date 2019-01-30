@@ -5,7 +5,7 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.component: files
 ---
@@ -140,11 +140,13 @@ A server endpoint health status of "No Activity" means the server endpoint has n
 
 A server endpoint may not log sync activity for the following reasons:
 
-- The server has reached the maximum number of concurrent sync sessions. Azure File Sync currently supports 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
+- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the same volume cannot start a start sync session until the VSS sync session completes.
 
-- The server has an active VSS sync session (SnapshotSync). When a VSS sync session is active for a server endpoint, other server endpoints on the server cannot start a start sync session until the VSS sync session completes.
+	To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-To check current sync activity on a server, see [How do I monitor the progress of a current sync session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- The server has reached the maximum number of concurrent sync sessions. 
+	- Agent version 4.x and later: Limit varies based on available system resources.
+	- Agent version 3.x: 2 active sync sessions per processor or a maximum of 8 active sync sessions per server.
 
 > [!Note]  
 > If the server state on the registered servers blade is “Appears Offline,” perform the steps documented in the [Server endpoint has a health status of “No Activity” or “Pending” and the server state on the registered servers blade is “Appears offline”](#server-endpoint-noactivity) section.
@@ -546,6 +548,16 @@ In cases where there are many per file sync errors, sync sessions may begin to f
 
 Ensure the path exists, is on a local NTFS volume, and is not a reparse point or existing server endpoint.
 
+<a id="-2134375817"></a>**Sync failed because the filter driver version is not compatible with the agent version**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C80277 |
+| **HRESULT (decimal)** | -2134375817 |
+| **Error string** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
+| **Remediation required** | Yes |
+
+This error occurs because the Cloud Tiering filter driver (StorageSync.sys) version loaded is not compatible with the Storage Sync Agent (FileSyncSvc) service. If the Azure File Sync agent was upgraded, restart the server to complete the installation. If the error continues to occur, uninstall the agent, restart the server and reinstall the Azure File Sync agent.
+
 <a id="-2134376373"></a>**The service is currently unavailable.**  
 | | |
 |-|-|
@@ -787,24 +799,19 @@ There are two main classes of failures that can happen via either failure path:
 The following sections indicate how to troubleshoot cloud tiering issues and determine if an issue is a cloud storage issue or a server issue.
 
 <a id="monitor-tiering-activity"></a>**How to monitor tiering activity on a server**  
-To monitor tiering activity on a server, use Event ID 9002, 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
-
-- Event ID 9002 provides ghosting statistics for a server endpoint. For example, TotalGhostedFileCount, SpaceReclaimedMB, etc.
+To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9003 provides error distribution for a server endpoint. For example, Total Error Count, ErrorCode, etc. Note, one event is logged per error code.
-
 - Event ID 9016 provides ghosting results for a volume. For example, Free space percent is, Number of files ghosted in session, Number of files failed to ghost, etc.
-
-- Event ID 9029 provides ghosting session information. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
+- Event ID 9029 provides ghosting session information for a server endpoint. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
 
 <a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**  
-To monitor recall activity on a server, use Event ID 9005, 9006, 9007 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer). Note, these events are logged hourly.
+To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9005 provides recall reliability for a server endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
-
 - Event ID 9006 provides recall error distribution for a server endpoint. For example, Total Failed Requests, ErrorCode, etc. Note, one event is logged per error code.
-
-- Event ID 9007 provides recall performance for a server endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- Event ID 9009 provides recall session information for a server endpoint. For example, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
+- Event ID 9059 provides application recall distribution for a server endpoint. For example, ShareId, Application Name, and TotalEgressNetworkBytes.
 
 <a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
 If files fail to tier to Azure Files:
@@ -867,6 +874,7 @@ If the issue is not resolved, run the AFSDiag tool:
 6. A .zip file that contains logs and trace files is saved to the output directory that you specified.
 
 ## See also
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
 - [Azure Files frequently asked questions](storage-files-faq.md)
 - [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files problems in Linux](storage-troubleshoot-linux-file-connection-problems.md)

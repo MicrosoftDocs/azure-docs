@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about loading data with Azure Machine Learning Data Prep SDK. You can load different types of input data, specify data file types and parameters, or use the SDK smart reading functionality to automatically detect file type.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -22,7 +22,25 @@ In this article, you learn different methods of loading data using the [Azure Ma
 * Type-conversion using inference during file loading
 * Connection support for MS SQL Server and Azure Data Lake Storage
 
-## Load text line data 
+## Load data automatically
+
+To load data automatically without specifying the file type, use the `auto_read_file()` function. The type of the file and the arguments required to read it are inferred automatically.
+
+```python
+import azureml.dataprep as dprep
+
+dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+```
+
+This function is useful for automatically detecting file type, encoding, and other parsing arguments all from one convenient entry point. The function also automatically performs the following steps commonly performed when loading delimited data:
+
+* Inferring and setting the delimiter
+* Skipping empty records at the top of the file
+* Inferring and setting the header row
+
+Alternatively, if you know the file type ahead of time and want to explicitly control the way it is parsed, continue following this article to see the specialized functions the SDK offers.
+
+## Load text line data
 
 To read simple text data into a dataflow, use the `read_lines()` without specifying optional parameters.
 
@@ -183,7 +201,7 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 The SDK can also load data from a SQL source. Currently, only Microsoft SQL Server is supported. To read data from a SQL server, create a `MSSQLDataSource` object that contains the connection parameters. The password parameter of `MSSQLDataSource` accepts a `Secret` object. You can build a secret object in two ways:
 
-* Register the secret and its value with the execution engine. 
+* Register the secret and its value with the execution engine.
 * Create the secret with only an `id` (if the secret value is already registered in the execution environment) using `dprep.create_secret("[SECRET-ID]")`.
 
 ```python
@@ -227,7 +245,7 @@ az account show --query tenantId
 dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > If your user account is a member of more than one Azure tenant, you need to specify the tenant in the AAD URL hostname form.
 
 ### Create a service principal with the Azure CLI
@@ -251,7 +269,7 @@ To configure the ACL for the Azure Data Lake Storage file system, use the object
 az ad sp show --id "8dd38f34-1fcb-4ff9-accd-7cd60b757174" --query objectId
 ```
 
-To configure `Read` and `Execute` access for the Azure Data Lake Storage file system, you configure the ACL for folders and files individually. This is due to the fact that the underlying HDFS ACL model doesn't support inheritance. 
+To configure `Read` and `Execute` access for the Azure Data Lake Storage file system, you configure the ACL for folders and files individually. This is due to the fact that the underlying HDFS ACL model doesn't support inheritance.
 
 ```azurecli
 az dls fs access set-entry --account dpreptestfiles --acl-spec "user:e37b9b1f-6a5e-4bee-9def-402b956f4e6f:r-x" --path /
@@ -287,4 +305,4 @@ dataflow.to_pandas_dataframe().head()
 |1|1011871|Stearns Homestead Farmers' Market|http://Stearnshomestead.com |6975 Ridge Road|Parma|Cuyahoga|
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Six Mile|||
-|4|1010691|10th Street Community Farmers Market|http://agrimissouri.com/mo-grown/grodetail.php... |10th Street and Poplar|Lamar|Barton|
+|4|1010691|10th Street Community Farmers Market|https://agrimissouri.com/... |10th Street and Poplar|Lamar|Barton|

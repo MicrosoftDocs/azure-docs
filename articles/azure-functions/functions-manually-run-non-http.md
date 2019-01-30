@@ -47,19 +47,20 @@ After copying the master key, click on the function name to return to the code f
 
 Open Postman and follow these steps:
 
-1. Enter the **request location in the URL text box**. 
-2. **Click** on the **Headers** tab.
-3. Enter **x-functions-key** as the first **key** and paste the master key (from the clipboard) into the **value** box.
-4. Enter **Content-Type** as the second **key** and enter **application/json** as the **value**.
+1. Enter the **request location in the URL text box**.
+2. Ensure the HTTP method is set to **POST**.
+3. **Click** on the **Headers** tab.
+4. Enter **x-functions-key** as the first **key** and paste the master key (from the clipboard) into the **value** box.
+5. Enter **Content-Type** as the second **key** and enter **application/json** as the **value**.
 
     ![Postman headers settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-5. **Click** on the **Body** tab.
-6. Enter **{ "input": "test" }** as the body for the request.
+6. **Click** on the **Body** tab.
+7. Enter **{ "input": "test" }** as the body for the request.
 
     ![Postman body settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-7. Click **Send**.
+8. Click **Send**.
 
     ![Sending a request with Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 

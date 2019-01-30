@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
@@ -71,11 +71,11 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 	A: For this setup, the email attribute is required for the users to be able to sign-in. This attribute cannot be set manually.
 
-	The email attribute is autopopulated for any user with a valid Exchange license. If user is not email-enabled, this error will be received as the application needs to get this attribute to give access.
+	The email attribute is autopopulated for any user with a valid Exchange license. If user is not mail-enabled, this error will be received as the application needs to get this attribute to give access.
 
-	You can go to portal.office.com with an Admin account, then click in the Admin center, billing, subscriptions, select your Office 365 Subscription and then click on assign to users, select the users you want to check their subscription and in the right pane, click on edit licenses.
+	In order to assign an Exchange license, please go to portal.office.com with an Admin account, then click in the Admin center, billing, subscriptions, select your Office 365 Subscription and then click on assign to users, select the users you want to check their subscription and in the right pane, click on edit licenses.
 
-	Once the O365 license is assigned, it may take some minutes to be applied. After that, the user.mail attribute will be autopopulated and the issue should be resolved.
+	Once the Exchange license is assigned, it may take some minutes to be applied. After that, the user.mail attribute will be autopopulated and the issue should be resolved.
 
 ## Scenario description
 
@@ -150,8 +150,8 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
 	|--|
 	| `google.com/a/<yourdomain.com>` |
 	| `google.com` |
-	| `http://google.com` |
-	| `http://google.com/a/<yourdomain.com>` |
+	| `https://google.com` |
+	| `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [G Suite Client support team](https://www.google.com/contact/) to get these values.
@@ -200,7 +200,7 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
 
 ### Configure G Suite Single Sign-On
 
-1. Open a new tab in your browser, and sign into the [G Suite Admin Console](http://admin.google.com/) using your administrator account.
+1. Open a new tab in your browser, and sign into the [G Suite Admin Console](https://admin.google.com/) using your administrator account.
 
 2. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
 

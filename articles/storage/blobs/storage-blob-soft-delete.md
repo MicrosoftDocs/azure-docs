@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Soft delete for Azure Storage blobs
@@ -197,7 +197,7 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
-To find the currrent soft delete retention policy, use the following command:
+To find the current soft delete retention policy, use the following command:
 
 ```azurepowershell-interactive
    $account = Get-AzStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount

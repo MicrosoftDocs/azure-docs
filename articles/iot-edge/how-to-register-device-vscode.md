@@ -21,7 +21,7 @@ This article shows how to register a new IoT Edge device using Visual Studio Cod
 
 * An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code
 
 ## Sign in to access your IoT hub
 

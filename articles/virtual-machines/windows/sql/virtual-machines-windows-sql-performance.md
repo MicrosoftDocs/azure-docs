@@ -3,7 +3,7 @@ title: Performance guidelines for SQL Server in Azure | Microsoft Docs
 description: Provides guidelines for optimizing SQL Server performance in Microsoft Azure VMs.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
-ms.author: jroth
-
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Performance guidelines for SQL Server in Azure Virtual Machines
 

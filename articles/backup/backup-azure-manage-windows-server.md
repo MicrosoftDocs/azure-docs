@@ -245,7 +245,7 @@ The day and time when the query ends.
 
 Use **Export jobs** to create a spreadsheet containing all Jobs menu information. The spreadsheet has one sheet that holds a summary of all jobs, and individual sheets for each job.
 
-To export the jobs information to a spreadsheet, click **Export jobs**. The service creates a speadsheet using the name of the vault and date, but you can change the name.
+To export the jobs information to a spreadsheet, click **Export jobs**. The service creates a spreadsheet using the name of the vault and date, but you can change the name.
 
 ## Monitor Backup usage
 

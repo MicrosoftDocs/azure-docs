@@ -12,7 +12,7 @@ ms.custom: mvc
 ---
 # Azure Resource Manager templates for Azure Backup
 
-The following table includes links to Azure Resource Manager templates for use with Recovery Services vaults and Azure Backup features.
+The following table includes links to Azure Resource Manager templates for use with Recovery Services vaults and Azure Backup features. To learn about the JSON syntax and properties, see [Microsoft.RecoveryServices resource types](/azure/templates/microsoft.recoveryservices/allversions).
 
 |   |   |
 |---|---|

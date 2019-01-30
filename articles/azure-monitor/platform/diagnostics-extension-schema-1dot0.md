@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.component: diagnostic-extension
+ms.subservice: diagnostic-extension
 ---
 # Azure Diagnostics 1.0 Configuration Schema
 > [!NOTE]
@@ -20,7 +20,7 @@ Azure Diagnostics is used with other Microsoft diagnostics products like Azure M
 
 The Azure Diagnostics configuration file defines values that are used to initialize the Diagnostics Monitor. This file is used to initialize diagnostic configuration settings when the diagnostics monitor starts.  
 
- By default, the Azure Diagnostics configuration schema file is installed to the `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` directory. Replace `<version>` with the installed version of the [Azure SDK](http://www.windowsazure.com/develop/downloads/).  
+ By default, the Azure Diagnostics configuration schema file is installed to the `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` directory. Replace `<version>` with the installed version of the [Azure SDK](https://www.windowsazure.com/develop/downloads/).  
 
 > [!NOTE]
 >  The diagnostics configuration file is typically used with startup tasks that require diagnostic data to be collected earlier in the startup process. For more information about using Azure Diagnostics, see [Collect Logging Data by Using Azure Diagnostics](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7).  
@@ -265,3 +265,4 @@ Attributes:
 |Attribute|Type|Description|  
 |---------------|----------|-----------------|  
 |**name**|string|Required. An XPath expression specifying the log to collect.|  
+

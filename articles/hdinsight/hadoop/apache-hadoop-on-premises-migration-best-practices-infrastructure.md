@@ -200,7 +200,7 @@ HDInsight supports [virtual network service endpoints](../../virtual-network/vir
 For more information, see the following articles:
 
 - [Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/.md)
+- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
 
 ## Connect HDInsight to the on-premises network
 

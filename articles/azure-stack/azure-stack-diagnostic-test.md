@@ -14,7 +14,8 @@ ms.devlang: PowerShell
 ms.topic: article
 ms.date: 12/03/2018
 ms.author: jeffgilb
-ms.reviewer: adshar  
+ms.reviewer: adshar
+ms.lastreviewed: 12/03/2018
 ---
 
 # Validate Azure Stack system state
@@ -122,7 +123,7 @@ The following cloud scenarios are tested by the validation tool:
 
 - **BackupSharePath** and **BackupShareCredential** are used when testing infrastructure backup settings as shown in the [Use case examples](azure-stack-diagnostic-test.md#use-case-examples) section.
 
-- The validation tool also supports common PowerShell parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, and OutVariable. For more information, see [About Common Parameters](http://go.microsoft.com/fwlink/?LinkID=113216).  
+- The validation tool also supports common PowerShell parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, and OutVariable. For more information, see [About Common Parameters](https://go.microsoft.com/fwlink/?LinkID=113216).  
 
 ## Use case examples
 

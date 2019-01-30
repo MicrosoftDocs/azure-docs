@@ -78,4 +78,4 @@ To grant permissions to a recipient, create a role assignment. To revoke permiss
 
 ## Next steps
 
-To learn more about creating and managing Azure Digital Twins role assignments, read [Create and manage role assignments](./security-create-manage-role-assignments.md).
+- To learn more about creating and managing Azure Digital Twins role assignments, read [Create and manage role assignments](./security-create-manage-role-assignments.md).

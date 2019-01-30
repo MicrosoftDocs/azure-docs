@@ -32,7 +32,7 @@ This reference architecture, associated implementation guide, and threat model a
 ## Architecture diagram and components
 This solution provides a reference architecture for a PaaS web application with an Azure SQL Database backend. The web application is hosted in an isolated Azure App Service Environment, which is a private, dedicated environment in an Azure datacenter. The environment load balances traffic for the web application across VMs managed by Azure. This architecture also includes network security groups, an Application Gateway, Azure DNS, and Load Balancer. Furthermore, Azure Monitor provides real-time analytics of system health. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![PaaS Web Applicaiton for GDPR reference architecture diagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS Web Applicaiton for GDPR reference architecture diagram")
+![PaaS Web Application for GDPR reference architecture diagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS Web Application for GDPR reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -187,7 +187,7 @@ Additionally, the following monitoring solutions are included as a part of this 
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/gdprPaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![PaaS Web Applicaiton for GDPR threat model](images/gdpr-paaswa-threat-model.png?raw=true "PaaS Web Applicaiton for GDPR threat model")
+![PaaS Web Application for GDPR threat model](images/gdpr-paaswa-threat-model.png?raw=true "PaaS Web Application for GDPR threat model")
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint – GDPR Customer Responsibility Matrix](https://aka.ms/gdprCRM) lists controller and processor responsibilities for all GDPR articles. Please note that for Azure services, a customer is usually the controller and Microsoft acts as the processor.

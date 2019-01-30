@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.component: diagnostic-extension
+ms.subservice: diagnostic-extension
 ---
 # Azure Diagnostics troubleshooting
 This article describes troubleshooting information that's relevant to using Azure Diagnostics. For more information about Azure diagnostics, see [Azure Diagnostics overview](diagnostics-extension-overview.md).
@@ -112,7 +112,7 @@ The Diagnostics configuration contains instructions for a particular type of dat
 #### Is the host generating data?
 - **Performance counters**: Open perfmon and check the counter.
 
-- **Trace logs**:  Remote access into the VM and add a TextWriterTraceListener to the app’s config file.  See http://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
+- **Trace logs**:  Remote access into the VM and add a TextWriterTraceListener to the app’s config file.  See https://msdn.microsoft.com/library/sk36c28t.aspx to set up the text listener.  Make sure the `<trace>` element has `<trace autoflush="true">`.<br />
 If you don't see trace logs being generated, see [More about trace logs missing](#more-about-trace-logs-missing).
 
 - **ETW traces**: Remote access into the VM and install PerfView.  In PerfView, run **File** > **User Command** > **Listen etwprovder1** > **etwprovider2**, and so on. The **Listen** command is case-sensitive, and there cannot be spaces between the comma-separated list of ETW providers. If the command fails to run, you can select the **Log** button in the bottom right of the Perfview tool to see what  attempted to run and what the result was.  Assuming the input is correct, a new window pops up. In a few seconds, you begin seeing ETW traces.
@@ -211,9 +211,9 @@ Alternatively, remote desktop into the machine and look at the Azure Diagnostics
 
 In either case, search for **Microsoft.Azure.Diagnostics**, and then for the **xmlCfg** or **WadCfg** field.
 
-If you're searching on a virtual machine and the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML and is base64-encoded. You need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
+If you're searching on a virtual machine and the **WadCfg** field is present, it means the config is in JSON format. If the **xmlCfg** field is present, it means the config is in XML and is base64-encoded. You need to [decode it](https://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
-For the cloud service role, if you pick the configuration from disk, the data is base64-encoded, so you need to [decode it](http://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
+For the cloud service role, if you pick the configuration from disk, the data is base64-encoded, so you need to [decode it](https://www.bing.com/search?q=base64+decoder) to see the XML that was loaded by Diagnostics.
 
 ### Azure Diagnostics plugin exit codes
 The plugin returns the following exit codes:
@@ -287,3 +287,4 @@ The portal experience in the virtual machines shows certain performance counters
 - Whether the data in storage has counter names in English. If the counter names are not in English, the portal metric chart won't able to recognize it. **Mitigation**: Change the machine's language to English for system accounts. To do this, select **Control Panel** > **Region** > **Administrative** > **Copy Settings**. Next, deselect **Welcome screen and system accounts** so that the custom language is not applied to the system account.
 
 - If you are using wildcards (\*) in your performance counter names, the portal won't able to correlate the configured and collected counter when the performance counters are sent to the Azure Storage sink. **Mitigation**: To make sure you can use wildcards and have the portal expand the (\*), route your performance counters to the ["Azure Monitor" sink](diagnostics-extension-schema.md#diagnostics-extension-111).
+

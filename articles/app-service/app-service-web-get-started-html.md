@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
@@ -29,22 +29,6 @@ ms.custom: seodec18
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Install web app extension for Cloud Shell
-
-To complete this quickstart, you need to add the [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). If the extension is already installed, you should update it to the latest version. To update the web app extension, type `az extension update -n webapp`.
-
-To install the webapp extension, run the following command:
-
-```bash
-az extension add --name webapp
-```
-
-When the extension has been installed, the Cloud Shell shows information to the following example:
-
-```bash
-The installed extension 'webapp' is in preview.
-```
-
 ## Download the sample
 
 In the Cloud Shell, create a quickstart directory and then change to it.
@@ -52,7 +36,7 @@ In the Cloud Shell, create a quickstart directory and then change to it.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Next, run the following command to clone the sample app repository to your quickstart directory.

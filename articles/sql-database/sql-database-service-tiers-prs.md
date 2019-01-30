@@ -21,7 +21,7 @@ The following are the migration destinations and pricing options that may be sui
 
 - vCore service tiers
 
-  The **General Purpose** and **Business Critical** service tiers in the [vCore-based purchase model](sql-database-service-tiers-vcore.md). These two service tiers are in general availablity. The vCore-based purchasing model also offers the **Hyperscale** service tier (in public preview) that adapts on-demand to your workload's needs with auto-scaling up to 100 TB per database. The Hyperscale service tier provides IO performance comparable to the Premium service tier in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) at a price closer to the Premium RS service tier.
+  The **General Purpose** and **Business Critical** service tiers in the [vCore-based purchase model](sql-database-service-tiers-vcore.md). These two service tiers are in general availability. The vCore-based purchasing model also offers the **Hyperscale** service tier (in public preview) that adapts on-demand to your workload's needs with auto-scaling up to 100 TB per database. The Hyperscale service tier provides IO performance comparable to the Premium service tier in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) at a price closer to the Premium RS service tier.
 - Dev/Test pricing
 
   [Dev/test pricing](https://azure.microsoft.com/pricing/dev-test/) provides savings up to 55% versus license-included rates with your Visual Studio subscription.
