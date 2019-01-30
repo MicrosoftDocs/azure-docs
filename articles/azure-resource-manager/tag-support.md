@@ -4,7 +4,7 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/11/2019
+ms.date: 1/24/2019
 ms.author: tomfitz
 ---
 
@@ -1102,6 +1102,16 @@ This article describes whether a resource type supports [tags](resource-group-us
 ## Microsoft.SQL
 | Resource type | Supports tags |
 | ------------- | ----------- |
+| managedInstances | Yes |
+| managedInstances/databases | Yes |
+| managedInstances/databases/backupShortTermRetentionPolicies | No |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | No |
+| managedInstances/databases/vulnerabilityAssessments | No |
+| managedInstances/databases/vulnerabilityAssessments/rules/baselines | No |
+| managedInstances/encryptionProtector | No |
+| managedInstances/keys | No |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No |
+| managedInstances/vulnerabilityAssessments | No |
 | servers | Yes | 
 | servers/administrators | No | 
 | servers/communicationLinks | No | 

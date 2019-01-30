@@ -61,7 +61,7 @@ These steps show how to programmatically create an individual enrollment for a T
         console.log("enrollment record returned: " + JSON.stringify(enrollmentResponse, null, 2));
       }
     });
-    ````
+    ```
 
 ## Run the individual enrollment sample
   
