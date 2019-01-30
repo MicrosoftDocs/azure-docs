@@ -1,5 +1,5 @@
 ---
-title: Optimize query stats collection in Azure Database for PostgreSQL server
+title: Optimize query stats collection on an Azure Database for PostgreSQL server
 description: This article describes how you can optimize query stats collection on an Azure Database for PostgreSQL server.
 author: dianaputnam
 ms.author: dianas
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 10/25/2018
 ---
 
-# Optimize query statistics collection in Azure Database for PostgreSQL server 
-This article describes how to optimize query statistics collection in an Azure Database for PostgreSQL server.
+# Optimize query statistics collection on an Azure Database for PostgreSQL server 
+This article describes how to optimize query statistics collection on an Azure Database for PostgreSQL server.
 
 ## Use pg_stats_statements
 **Pg_stat_statements** is a PostgreSQL extension that's enabled by default in Azure Database for PostgreSQL. The extension provides a means to track execution statistics for all SQL statements executed by a server. This module hooks into every query execution and comes with a non-trivial performance cost. Enabling **pg_stat_statements** forces query text writes to files on disk.
 
-If you have unique queries with long query text or you aren't actively monitoring **pg_stat_statements**, disable **pg_stat_statements** for best performance. To do so, change the setting to `pg_stat_statements.track = NONE`.
+If you have unique queries with long query text or you don't actively monitor **pg_stat_statements**, disable **pg_stat_statements** for best performance. To do so, change the setting to `pg_stat_statements.track = NONE`.
 
 Some customer workloads have seen up to a 50 percent performance improvement when **pg_stat_statements** is disabled. The tradeoff you make when you disable pg_stat_statements is the inability to troubleshoot performance issues.
 
@@ -32,4 +32,6 @@ The [Query Store](concepts-query-store.md) feature in Azure Database for Postgre
 ## Next steps
 Consider setting `pg_stat_statements.track = NONE` in the [Azure portal](howto-configure-server-parameters-using-portal.md) or by using the [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
-For more information, see the [Query Store usage scenarios](concepts-query-store-scenarios.md) and the [Query Store best practices](concepts-query-store-best-practices.md). 
+For more information, see: 
+- [Query Store usage scenarios](concepts-query-store-scenarios.md) 
+- [Query Store best practices](concepts-query-store-best-practices.md) 

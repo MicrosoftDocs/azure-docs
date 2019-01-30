@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # RelyingParty

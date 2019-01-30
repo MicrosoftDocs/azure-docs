@@ -39,8 +39,8 @@ The following properties are supported for Azure File Storage linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **FileServer**. | Yes |
-| host | Specifies the Azure File Storage endpoint as `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Yes |
-| userid | Specify the user to access the Azure File Storage as `"userid": "AZURE\\<storage name>"`. | Yes |
+| host | Specifies the Azure File Storage endpoint as: <br/>-Using UI: specify `\\<storage name>.file.core.windows.net\<file service name>`<br/>- Using JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Yes |
+| userid | Specify the user to access the Azure File Storage as: <br/>-Using UI: specify `AZURE\<storage name>`<br/>-Using JSON: `"userid": "AZURE\\<storage name>"`. | Yes |
 | password | Specify the storage access key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No for source, Yes for sink |
 

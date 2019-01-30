@@ -1,6 +1,6 @@
 ---
-title: Optimize bulk inserts in Azure Database for PostgreSQL server
-description: This article describes how you can optimize bulk insert operations on Azure Database for PostgreSQL server.
+title: Optimize bulk inserts on an Azure Database for PostgreSQL server
+description: This article describes how you can optimize bulk insert operations on an Azure Database for PostgreSQL server.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ---
 
-# Optimize bulk inserts and use transient data on Azure Database for PostgreSQL server 
+# Optimize bulk inserts and use transient data on an Azure Database for PostgreSQL server 
 This article describes how you can optimize bulk insert operations and use transient data on an Azure Database for PostgreSQL server.
 
 ## Use unlogged tables
@@ -27,7 +27,7 @@ To reverse the process, use the syntax `ALTER <tableName> SET LOGGED`.
 ## Unlogged table tradeoff
 Unlogged tables aren't crash-safe. An unlogged table is automatically truncated after a crash or subject to an unclean shutdown. The contents of an unlogged table also aren't replicated to standby servers. Any indexes created on an unlogged table are automatically unlogged as well. After the insert operation completes, convert the table to logged so that the insert is durable.
 
-Some customer workloads have experienced approximately a 15 percent to 20 percent performance improvement when using unlogged tables.
+Some customer workloads have experienced approximately a 15 percent to 20 percent performance improvement when unlogged tables were used.
 
 ## Next steps
 Review your workload for uses of transient data and large bulk inserts. See the following PostgreSQL documentation:

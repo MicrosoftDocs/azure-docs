@@ -61,13 +61,13 @@ Tags names and values persist until you delete or modify the tag. To see if you 
 To list **tags**, use:
 
 * [List](/rest/api/resources/tags/list)
-* [Get-AzTag](/powershell/module/az.tags/get-aztag)
+* [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
 * [az tag list](/cli/azure/tag#az-tag-list)
 
 To delete **tags**, use:
 
 * [Delete](/rest/api/resources/tags/delete)
-* [Remove-AzTag](/powershell/module/az.tags/remove-aztag)
+* [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
 * [az tag delete](/cli/azure/tag#az-tag-delete)
 
 ## Next steps
