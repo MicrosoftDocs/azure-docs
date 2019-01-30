@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -47,13 +47,24 @@ By default, all users can create application registrations, but you can selectiv
 2. Set one or both of the following to No:
   * On the [User settings page for your tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set **Users can register applications** to No.
   * On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set **Users can consent to applications accessing company data on their behalf** to No.
-3. Then assign users needing this permission to be members of the Application Developer role as described in [Delegate app administration](#delegate-app-administration).
+3. Then assign users needing this permission to be members of the Application Developer role as needed.
 
-When a member of the Application Developer role creates a new application registration, they are automatically added as the first owner. You can view the description for these roles in [Available roles](directory-assign-admin-roles.md#available-roles).
+When a user registers an application, they are automatically added as the first owner for the application.
 
 ## Delegate app ownership
 
-Owners can manage only the enterprise applications and app registrations that they own. For example, when you add an owner for the Salesforce application, that owner can manage access to and configuration for Salesforce but not for any other applications. An enterprise application can have many owners, and a user can be the owner for many enterprise applications.
+App owners and app registration owners can each manage only the app applications or app registrations that they own. For example, when you add an owner for the Salesforce application, that owner can manage access to and configuration for Salesforce but not any other applications. An enterprise application can have many owners, and a user can be the owner for many enterprise applications.
+
+An application owner can:
+
+* Change application properties, such as the name and permissions the app requests
+* Configure single sign-on
+* Assign user access
+* Add or remove other owners
+* Edit the app manifest
+* Publish the app to the app gallery
+
+The owner of an app registration can view and edit the app registration.
 
 <!-- ### To assign an enterprise app ownership role to a user
 
@@ -64,14 +75,14 @@ Owners can manage only the enterprise applications and app registrations that th
 3. On the **Members** page for the role, select **Add member**.
 4. Select one or more members to add to the role. -->
 
-### To assign ownership to an enterprise application
+### To assign an owner to an enterprise application
 
 1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
 2. On the [App registrations page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the tenant, select an enterprise app to open the Overview page for the app.
 3. Select **Owners** to see the list of the owners for the app.
 4. Select **Add** to select one or more owners to add to the app.
 
-### To assign ownership to an application registration
+### To assign an owner to an application registration
 
 1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
 2. On the [Enterprise Applications page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the tenant, select an app registration to open it.
