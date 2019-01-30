@@ -26,5 +26,5 @@
   items:
   - name: Share Anchors
     href: tutorials/tutorial-share-anchors-across-devices.md
-  - name: Store Anchors in Cosmos DB
-    href: tutorials/tutorial-use-cosmosdb-to-store-anchors.md
+  - name: Use Cosmos DB
+    href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md

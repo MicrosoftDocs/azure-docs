@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Share Spatial Anchors across devices | Microsoft Docs
+title: Tutorial - Share Azure Spatial Anchors across devices | Microsoft Docs
 description: In this tutorial, you learn how to share Spatial Anchors across other devices.
 author: ramonarguelles
 manager: vicenterivera
@@ -45,4 +45,4 @@ Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` f
 In this tutorial, you've deployed an ASP.NET Core Web App in Azure, and then configured and deployed a Unity App. You created Spatial Anchors with the app, and shared them with other devices by using your ASP.NET Core Web App. To learn more about how to improve your ASP.NET Core Web App so that it uses Cosmos DB to store your shared Spatial Anchors, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use Cosmos DB to Store Anchors](./tutorial-use-cosmosdb-to-store-anchors.md)
+> [Tutorial: Use Cosmos DB to Store Anchors](./tutorial-use-cosmos-db-to-store-anchors.md)

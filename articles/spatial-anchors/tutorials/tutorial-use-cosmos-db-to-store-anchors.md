@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Cosmos DB to Store Anchors | Microsoft Docs
+title: Tutorial - Use Cosmos DB to Store Azure Spatial Anchors | Microsoft Docs
 description: In this tutorial, you learn how to use CosmosDB to store your Spatial Anchors.
 author: ramonarguelles
 manager: vicenterivera
