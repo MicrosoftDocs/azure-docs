@@ -1,10 +1,10 @@
 ---
 title: Algorithm examples
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: An easy-to-understand overview of machine learning basics includes algorithm examples. The downloadable infographic covers most machine learning questions.
 services: machine-learning
-ms.service: machine-learning
-ms.component: studio
+ms.service: machine-learning
+ms.subservice: studio
 ms.topic: article
 
 author: garyericson

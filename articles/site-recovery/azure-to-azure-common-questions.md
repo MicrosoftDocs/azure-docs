@@ -96,8 +96,8 @@ The following screenshot illustrates the example. In the screenshot:
 ### How far back can I recover?
 The oldest recovery point that you can use is 72 hours.
 
-### What will happen if I have a replication policy of 24 hours and a problem prevents Site Recovery from generating recovery points for more than 24 hours? Will my previous recovery points be pruned?
-No, Site Recovery will keep all your previous recovery points in this case. 
+### What will happen if I have a replication policy of 24 hours and a problem prevents Site Recovery from generating recovery points for more than 24 hours? Will my previous recovery points be lost?
+No, Site Recovery will keep all your previous recovery points. Depending upon the recovery points retention window, 24 hours in this case, Site Recovery replaces oldest point only if there is a generation of new points. In this case, as there won't be any new recovery point generated due to some issue, all the old points will remain intact  once we reach the window of retention.
 
 ### After replication is enabled on a VM, how do I change the replication policy? 
 Go to **Site Recovery Vault** > **Site Recovery Infrastructure** > **Replication policies**. Select the policy that you want to edit and save the changes. Any change will apply to all the existing replications too. 

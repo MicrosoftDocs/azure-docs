@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
@@ -60,4 +60,4 @@ Check or uncheck the **Role** checkbox next to each role to include or exclude i
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [View audit history for Azure resource roles in PIM](pim-resource-roles-use-the-audit-log.md)
+- [View activity and audit history for Azure resource roles in PIM](azure-pim-resource-rbac.md)
