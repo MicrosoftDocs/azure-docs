@@ -41,7 +41,7 @@ You can enable and manage metrics and diagnostics telemetry logging by using one
 - Azure Monitor REST API
 - Azure Resource Manager template
 
-When you enable metrics and diagnostics logging, you need to specify the Azure resource destination for collecting the diagnotics telemetry. Available options include:
+When you enable metrics and diagnostics logging, you need to specify the Azure resource destination for collecting the diagnostics telemetry. Available options include:
 
 - Azure SQL Analytics
 - Azure Event Hubs
