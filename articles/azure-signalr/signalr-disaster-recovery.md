@@ -1,6 +1,6 @@
 ---
 title: Resiliency and Disaster Recovery
-description: An overview on how to setup multiple SignalR service instances to achieve resiliency and disaster recovery
+description: An overview on how to set up multiple SignalR service instances to achieve resiliency and disaster recovery
 author: chenkennt
 ms.service: signalr
 ms.topic: overview
@@ -10,20 +10,20 @@ ms.author: kenchen
 # Resiliency and Disaster Recovery
 
 Resiliency and disaster recovery is a common need for online systems. Azure SignalR Service already guarantees 99.9% availability, but it's still a regional service.
-This means your service instance is always running in one region and won't failover to another region when there is a region-wide outage.
+Your service instance is always running in one region and won't failover to another region when there is a region-wide outage.
 
 Instead, our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them are not available.
-With this feature, you'll be able to recover when there is disaster takes place, but you will need to setup the right system topology by yourself. You'll learn how to do so in this document.
+With this feature, you'll be able to recover when there is disaster takes place, but you will need to set up the right system topology by yourself. You'll learn how to do so in this document.
 
 ## High Available Architecture for SignalR Service
 
-In order to have cross region resiliency for SignalR service, you need to setup multiple service instances in different regions. So when one region is down, the others can be used as backup.
+In order to have cross region resiliency for SignalR service, you need to set up multiple service instances in different regions. So when one region is down, the others can be used as backup.
 When connecting multiple service instances to app server, there are two roles, primary and secondary.
 Primary is an instance who is taking online traffic and secondary is a fully functional but backup instance for primary.
 In our SDK implementation, negotiate will only return primary endpoints so in normal case clients only connect to primary endpoints.
-But when primary is down, negotiate will return secondary endpoints so client can still make connections.
-Primary and app server are connected through normal server connections but secondary and app server are connected through a special kind of connections called weak connections.
-The main difference of a weak connection is it doesn't accept client connection routing, because secondary instance is usually located in another region and routing a client to another region is usually not an optimal choice (increases latency).
+But when primary instance is down, negotiate will return secondary endpoints so client can still make connections.
+Primary instance and app server are connected through normal server connections but secondary instance and app server are connected through a special kind of connections called weak connections.
+The main difference of a weak connection is that it doesn't accept client connection routing, because secondary instance is usually located in another region. Routing a client to another region is usually not an optimal choice (increases latency).
 
 One service instance can have different roles when connecting to multiple app servers.
 One typical setup for cross region scenario is to have two (or more) pairs of SignalR service instances and app servers.
@@ -121,4 +121,4 @@ If app servers are active/active, SignalR service will also be active/active (as
 Please be noted no matter which patterns you choose to use, you'll need to connect each SignalR service instance to an app server as primary.
 
 Also due to the nature of SignalR connection (it's a long connection), clients will experience connection drops when there is a disaster and failover take place.
-You'll need to handle such cases at client side to make it transparent to your end customers. For example, do a reconnect after a connection is closed.
+You'll need to handle such cases at client side to make it transparent to your end customers. For example, do reconnect after a connection is closed.
