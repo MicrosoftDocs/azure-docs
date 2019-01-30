@@ -39,7 +39,7 @@ Technical support for third-party NVAs and their integration with the Azure plat
 - UDRs on virtual network subnets that direct traffic from NVA
 - Routing tables and rules within the NVA (for example, from NIC1 to NIC2)
 - Tracing on NVA NICs to verify receiving and sending network traffic
-- When using a Standard SKU and  Public IP's there must be a NSG created and an explicit rule to allow the traffic to be routed to the NVA.
+- When using a Standard SKU and Public IPs, there must be an NSG created and an explicit rule to allow the traffic to be routed to the NVA.
 
 ## Basic troubleshooting steps
 
@@ -78,7 +78,7 @@ Use PowerShell
           NetworkSecurityGroup : null
 
 **Check for NSG when using Standard SKU Pubilc IP**
-When using a Standard SKU and Public IP's there must be a NSG created and an explicit rule to allow the traffic to the NVA.
+When using a Standard SKU and Public IPs, there must be an NSG created and an explicit rule to allow the traffic to the NVA.
 
 **Check whether the traffic can be routed to the NVA**
 
@@ -109,7 +109,7 @@ When using a Standard SKU and Public IP's there must be a NSG created and an exp
 
 ### Validate VM CPU
 
-If CPU usage gets close to 100 percent, you may experience issue that affect network packet drops. Your VM reports average CPU for a specific time span in the Azure portal. During a CPU spike, investigate which process on the guest VM is causing the high CPU, and mitigate it, if possible. You may also have to resize the VM to a larger SKU size or, for virtual machine scale set, increase the instance count or set to auto-scale on CPU usage. For either of these issues, [contact the NVA vendor for assistance](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), as needed.
+If CPU usage gets close to 100 percent, you may experience issues that affect network packet drops. Your VM reports average CPU for a specific time span in the Azure portal. During a CPU spike, investigate which process on the guest VM is causing the high CPU, and mitigate it, if possible. You may also have to resize the VM to a larger SKU size or, for virtual machine scale set, increase the instance count or set to auto-scale on CPU usage. For either of these issues, [contact the NVA vendor for assistance](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), as needed.
 
 ### Validate VM Network statistics 
 
