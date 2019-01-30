@@ -46,21 +46,21 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 2. Retrieve the virtual network and subnet you want to create the VM in.
 
 	```powershell
-	$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+	$vnet   = Get-AzVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	$subnet = $vnet.Subnets[0].Id
 	```
 
 3. If necessary, create a public IP address to access the VM from the Internet.
 
 	```powershell
-	$pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
+	$pip = New-AzPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
 	-Location $locName -AllocationMethod Dynamic
 	```
 
 4. Create a NIC using the static private IP address you want to assign to the VM. Make sure the IP is from the subnet range you are adding the VM to. This is the main step for this article, where you set the private IP to be static.
 
 	```powershell
-	$nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
+	$nic = New-AzNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
 	-Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id `
 	-PrivateIpAddress 192.168.1.101
 	```
@@ -68,16 +68,16 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 5. Create the VM with the NIC:
 
 	```powershell
-	$vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
-	$vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName DNS01 `
+	$vm = New-AzVMConfig -VMName DNS01 -VMSize "Standard_A1"
+	$vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName DNS01 `
 	-Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer `
+	$vm = Set-AzVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer `
 	-Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+	$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri `
+	$vm = Set-AzVMOSDisk -VM $vm -Name "windowsvmosdisk" -VhdUri $osDiskUri `
 	-CreateOption fromImage
-	New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm 
+	New-AzVM -ResourceGroupName $rgName -Location $locName -VM $vm 
 	```
 
 It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-powershell.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings. You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
@@ -86,7 +86,7 @@ It’s recommended that you do not statically assign the private IP assigned to 
 To view the static private IP address information for the VM created with the script above, run the following PowerShell command and observe the values for *PrivateIpAddress* and *PrivateIpAllocationMethod*:
 
 ```powershell
-Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+Get-AzNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 ```
 
 Expected output:
@@ -133,9 +133,9 @@ Expected output:
 To remove the static private IP address added to the VM in the script above, run the following PowerShell commands:
 
 ```powershell
-$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+$nic=Get-AzNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Dynamic"
-Set-AzureRmNetworkInterface -NetworkInterface $nic
+Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 Expected output:
@@ -182,10 +182,10 @@ Expected output:
 To add a static private IP address to the VM created using the script above, run the following commands:
 
 ```powershell
-$nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
+$nic=Get-AzNetworkInterface -Name TestNIC -ResourceGroupName TestRG
 $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
-Set-AzureRmNetworkInterface -NetworkInterface $nic
+Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-powershell.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings. You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
@@ -198,9 +198,9 @@ A private IP address is assigned to a NIC with the static or dynamic allocation 
 $RG = "TestRG"
 $NIC_name = "testnic1"
 
-$nic = Get-AzureRmNetworkInterface -ResourceGroupName $RG -Name $NIC_name
+$nic = Get-AzNetworkInterface -ResourceGroupName $RG -Name $NIC_name
 $nic.IpConfigurations[0].PrivateIpAllocationMethod = 'Static'
-Set-AzureRmNetworkInterface -NetworkInterface $nic 
+Set-AzNetworkInterface -NetworkInterface $nic 
 $IP = $nic.IpConfigurations[0].PrivateIpAddress
 
 Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for the IP address" $IP"." -NoNewline
@@ -209,7 +209,7 @@ Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].Private
 If you don't know the name of the NIC, you can view a list of NICs within a resource group by entering the following command:
 
 ```powershell
-Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
+Get-AzNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
 ```
 
 ## Next steps

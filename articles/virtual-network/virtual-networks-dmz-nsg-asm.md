@@ -417,7 +417,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
         Write-Host "Fatal Error: This storage account name is already in use, please pick a different name." -ForegroundColor Red
         Return}
     Else {Write-Host "Creating Storage Account" -ForegroundColor Cyan 
-          New-AzureStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
+          New-AzStorageAccount -Location $DeploymentLocation -StorageAccountName $StorageAccountName}
 
   # Update Subscription Pointer to New Storage Account
     Write-Host "Updating Subscription Pointer to New Storage Account" -ForegroundColor Cyan 

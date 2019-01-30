@@ -49,32 +49,32 @@ You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the
 
 ### PowerShell
 
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, version 6.1.1 or later. Run `Get-Module -ListAvailable AzureRM` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions)].
+You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, version 6.1.1 or later. Run `Get-Module -ListAvailable AzureRM` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions)].
 
-To enable diagnostic logging, you need the Id of an existing NSG. If you don't have an existing NSG, you can create one with [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
+To enable diagnostic logging, you need the Id of an existing NSG. If you don't have an existing NSG, you can create one with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
-Retrieve the network security group that you want to enable diagnostic logging for with [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup). For example, to retrieve an NSG named *myNsg* that exists in a resource group named *myResourceGroup*, enter the following command:
+Retrieve the network security group that you want to enable diagnostic logging for with [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup). For example, to retrieve an NSG named *myNsg* that exists in a resource group named *myResourceGroup*, enter the following command:
 
 ```azurepowershell-interactive
-$Nsg=Get-AzureRmNetworkSecurityGroup `
+$Nsg=Get-AzNetworkSecurityGroup `
   -Name myNsg `
   -ResourceGroupName myResourceGroup
 ```
 
-You can write diagnostic logs to three destination types. For more information, see [Log destinations](#log-destinations). In this article, logs are sent to the *Log Analytics* destination, as an example. Retrieve an existing Log Analytics workspace with [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). For example, to retrieve an existing workspace named *myWorkspace* in a resource group named *myWorkspaces*, enter the following command:
+You can write diagnostic logs to three destination types. For more information, see [Log destinations](#log-destinations). In this article, logs are sent to the *Log Analytics* destination, as an example. Retrieve an existing Log Analytics workspace with [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace). For example, to retrieve an existing workspace named *myWorkspace* in a resource group named *myWorkspaces*, enter the following command:
 
 ```azurepowershell-interactive
-$Oms=Get-AzureRmOperationalInsightsWorkspace `
+$Oms=Get-AzOperationalInsightsWorkspace `
   -ResourceGroupName myWorkspaces `
   -Name myWorkspace
 ```
 
-If you don't have an existing workspace, you can create one with [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
+If you don't have an existing workspace, you can create one with [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-There are two categories of logging you can enable logs for. For more information, see [Log categories](#log-categories). Enable diagnostic logging for the NSG with [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting). The following example logs both event and counter category data to the workspace for an NSG, using the IDs for the NSG and workspace you retrieved previously:
+There are two categories of logging you can enable logs for. For more information, see [Log categories](#log-categories). Enable diagnostic logging for the NSG with [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting). The following example logs both event and counter category data to the workspace for an NSG, using the IDs for the NSG and workspace you retrieved previously:
 
 ```azurepowershell-interactive
-Set-AzureRmDiagnosticSetting `
+Set-AzDiagnosticSetting `
   -ResourceId $Nsg.Id `
   -WorkspaceId $Oms.ResourceId `
   -Enabled $true
@@ -113,7 +113,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-If you don't have an existing workspace, you can create one using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace). There are two categories of logging you can enable logs for. 
+If you don't have an existing workspace, you can create one using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). There are two categories of logging you can enable logs for. 
 
 If you only want to log data for one category or the other, remove the category you don't want to log data for in the previous command. If you want to log to a different [destination](#log-destinations) than a Log Analytics workspace, use the appropriate parameters for an Azure [Storage account](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
