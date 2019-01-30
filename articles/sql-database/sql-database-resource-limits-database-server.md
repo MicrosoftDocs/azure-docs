@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database resource limits - logical server | Microsoft Docs
-description: This article provides an overview of the Azure SQL Database logical server resource limits for single databases and pooled databases using elastic pools. It also provides information regarding what happens when those resource limits are hit or exceeded.
+title: Azure SQL Database server resource limits | Microsoft Docs
+description: This article provides an overview of the Azure SQL Database server resource limits for single databases and elastic pools. It also provides information regarding what happens when those resource limits are hit or exceeded.
 services: sql-database
 ms.service: sql-database
 ms.subservice: 
@@ -13,12 +13,12 @@ ms.reviewer: sashan,moslake
 manager: craigg
 ms.date: 11/13/2018
 ---
-# SQL Database resource limits for single and pooled databases
+# SQL Database resource limits for Azure SQL Database server
 
-This article provides an overview of the SQL Database resource limits for single and pooled databases on a logical server. It also provides information regarding what happens when those resource limits are hit or exceeded.
+This article provides an overview of the SQL Database resource limits for a SQL Database server that manages single databases and elastic pools. It also provides information regarding what happens when those resource limits are hit or exceeded.
 
 > [!NOTE]
-> For Managed Instance limits, see [SQL Database resource limits for managed instances](sql-database-managed-instance-resource-limits.md).
+> For managed instances limits, see [SQL Database resource limits for managed instances](sql-database-managed-instance-resource-limits.md).
 
 ## Maximum resource limits
 
@@ -29,13 +29,13 @@ This article provides an overview of the SQL Database resource limits for single
 | Max number of servers per subscription in any region | 200 |  
 | DTU / eDTU quota per server | 54,000 |  
 | vCore quota per server/instance | 540 |
-| Max pools per server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a single server can support 54 pools.|
+| Max pools per server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a server can support 54 pools.|
 ||||
 
 > [!NOTE]
 > To obtain more DTU /eDTU quota, vCore quota, or more servers than the default amount, a new support request can be submitted in the Azure portal for the subscription with issue type “Quota”. The DTU / eDTU quota and database limit per server constrains the number of elastic pools per server.
 > [!IMPORTANT]
-> As the number of databases approaches the limit per logical server, the following can occur:
+> As the number of databases approaches the limit per SQL Database server, the following can occur:
 > - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 

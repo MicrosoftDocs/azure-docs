@@ -848,6 +848,9 @@ Consult with your software vendor to learn how to configure their solution to sk
 
 Unintended recalls also might occur in other scenarios, like when you are browsing files in File Explorer. Opening a folder that has cloud-tiered files in File Explorer on the server might result in unintended recalls. This is even more likely if an antivirus solution is enabled on the server.
 
+> [!NOTE]
+>Use Event ID 9059 in the Telemetry event log to determine which application(s) is causing recalls. This event provides application recall distribution for a server endpoint and is logged once an hour.
+
 ## General troubleshooting
 If you encounter issues with Azure File Sync on a server, start by completing the following steps:
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs.
