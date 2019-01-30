@@ -45,61 +45,21 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/azure-spatial-anchors-clone-sample-repository.md)]
 
-Open Unity and open the project at the `Unity` folder.
+[!INCLUDE [iOS Unity Build Settings](../../../includes/azure-spatial-anchors-unity-ios-build-settings.md)]
 
-Open **Build Settings** by selecting **File** -> **Build Settings**.
+## Configure the Spatial Anchors endpoint and account key
 
-In the **Platform** section, select **iOS**.
-
-Select **Switch Platform** to change the platform to **iOS**.
-
-![Unity Build Settings](./media/get-started-unity-ios/unity-build-settings.png)
-
-Close the **Build Settings** window.
-
-## Download and import the Unity ARKit Plugin
-
-Download [Unity ARKit Plugin v2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip) and extract the archive.
-
-Copy the contents of the `Assets` folder from the extracted Unity ARKit Plugin folder to the sample's `Assets` folder.
+In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/azure-spatial-anchors-unity-configure-scene.md)]
+
+Save the scene by selecting **File** -> **Save Scene**.
 
 ## Export the Xcode project
 
 [!INCLUDE [Export Unity Project](../../../includes/azure-spatial-anchors-unity-export-project-snip.md)]
 
-Select **Build** to open a dialog. Then, select a folder to export the Xcode project.
-
-When the export is complete, a folder will be displayed containing the exported Xcode project.
-
-## Open the Xcode project
-
-In the exported Xcode project folder, double-click on `Unity-iPhone.xcodeproj` to open the project in Xcode.
-
-Open the `iOS/frameworks` folder in Finder. Drag and drop the `SpatialServiceApi.framework` file under the **Classes** node of the **Project navigator**. In the import dialog, make sure that **Copy items if needed** is checked.
-
-![Import framework](./media/get-started-unity-ios/import-framework.png)
-
-Select the root **Unity-iPhone** node to view the project settings and select the **General** tab.
-
-Under **Signing**, select **Automatically manage signing**. Select **Enable Automatic** in the dialog that appears to reset build settings.
-
-Under **Deployment Info**, make sure the **Deployment Target** is set to `11.0`.
-
-Under **Embedded Binaries**, select **Add items**. In the dialog, select `SpatialServicesApi.framework` and select **Add** to close the dialog.
-
-![Import framework](./media/get-started-unity-ios/configure-embedded-binaries.png)
-
-## Deploy the app to your iOS device
-
-Connect the iOS device to the Mac and set the **active scheme** to your iOS device.
-
-![Select the device](./media/get-started-unity-ios/select-device.png)
-
-Select **Build and then run the current scheme**.
-
-![Deploy and run](./media/get-started-unity-ios/deploy-run.png)
+[!INCLUDE [Configure Xcode](../../../includes/azure-spatial-anchors-unity-ios-xcode.md)]
 
 Follow the instructions in the app to place and recall an anchor.
 

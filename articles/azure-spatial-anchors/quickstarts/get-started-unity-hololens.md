@@ -58,6 +58,8 @@ Close the **Build Settings** window.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/azure-spatial-anchors-unity-configure-scene.md)]
 
+Save the scene by selecting **File** -> **Save Scene**.
+
 ## Export the HoloLens Visual Studio project
 
 [!INCLUDE [Export Unity Project](../../../includes/azure-spatial-anchors-unity-export-project-snip.md)]
