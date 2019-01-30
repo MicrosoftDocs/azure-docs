@@ -43,8 +43,8 @@ sections:
   items:
   - type: paragraph
     text: 'Get insights about an image using the Bing Visual Search API:'
-  - type: table
-    style: dataMatrix
+  - type: list
+    style: icon48
     columns:
       - image:
           src: media/index/logo_csharp.svg
@@ -52,7 +52,7 @@ sections:
         text: "C&#35;"
       - image:
           src: media/index/logo_java.svg
-        href: quickstarts/java.md
+        href: quickstarts/java
         text: "Java"
       - image:
           src: media/index/logo_nodejs.svg
