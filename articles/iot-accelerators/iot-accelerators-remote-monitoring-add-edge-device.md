@@ -39,7 +39,7 @@ When you register a device directly with the IoT hub in the Remote Monitoring so
 
 ## Install the IoT Edge runtime
 
-Before you can deploy modules to your Edge device, you must install the IoT Edge runtime on the physical device. The following how-to guides show you how to install the runtime on common device platforms:
+Before you can deploy modules to your Edge device, you must install the IoT Edge runtime on the real device. The following how-to guides show you how to install the runtime on common device platforms:
 
 - [Install the Azure IoT Edge runtime on Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
 - [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)
