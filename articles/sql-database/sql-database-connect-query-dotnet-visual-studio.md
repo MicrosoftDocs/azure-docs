@@ -23,8 +23,6 @@ To complete this quickstart, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
   
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) to allow the public IP address of the computer you use.
-  
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional, or Enterprise edition.
 
 ## Get SQL server connection information

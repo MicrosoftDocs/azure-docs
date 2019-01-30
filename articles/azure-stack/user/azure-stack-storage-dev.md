@@ -9,6 +9,7 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
+ms.lastreviewed: 12/03/2018
 
 ---
 

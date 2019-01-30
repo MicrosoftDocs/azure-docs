@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
 ---
 
@@ -190,7 +190,7 @@ There will be a time period when devices with unopened apps won't receive notifi
 
 ### Is there audit log capability?
 
-All Notification Hubs management operations go to operation logs, which are exposed in the [Azure portal].
+Yes. All Notification Hubs management operations update the Azure Activity Log to which is exposed in the [Azure portal]. The Azure Activity Log offers insights into the operations performed on resources in your subscriptions. Using the Activity Log, you can determine the what, who, and when for any write operations (PUT, POST, DELETE) made for the resources in your subscription. You can also understand the status of the operations and other relevant properties. However. the Activity Log does not include read (GET) operation.
 
 ## Monitoring and troubleshooting
 

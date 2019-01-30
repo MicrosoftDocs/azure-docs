@@ -46,6 +46,8 @@ Once you configure a workspace, you need to download and install agents on each 
 
 ### Install the MMA
 
+#### Install the agent on a Windows machine
+
 To install the agent on a Windows machine:
 
 1. Double-click the downloaded agent.
@@ -54,7 +56,9 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
-[Learn more](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) about the list of Windows operating systems support by MMA.
+You can install the agent from the command line or using an automated method such as Azure Automation DSC, System Center Configuration Manager, or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+
+#### Install the agent on a Linux machine
 
 To install the agent on a Linux machine:
 
@@ -90,6 +94,10 @@ Learn more about the Dependency agent support for the [Windows](../azure-monitor
       ![View machine dependencies](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. You can look at dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
+
+    > [!NOTE]
+      Currently, the dependency visualization UI does not support selection of a time range longer than an hour. Use Log Analytics to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) over a longer duration.
+
 5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
 6. Specify a group name. Verify that the dependent machines are discovered by Azure Migrate.
 
@@ -100,6 +108,20 @@ Learn more about the Dependency agent support for the [Windows](../azure-monitor
 8. Click **OK** to save the group.
 
 Once the group is created, it is recommended to install agents on all the machines of the group and refine the group by visualizing the dependency of the entire group.
+
+## Query dependency data from Log Analytics
+
+Dependency data captured by Service Map is available for querying in Log Analytics. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Log Analytics. 
+
+To run the Log Analytics queries:
+
+1. After you install the agents, go to the portal and click **Overview**.
+2. In **Overview**, go to **Essentials** section of the project and click on workspace name provided next to **OMS Workspace**.
+3. On the Log Analytics workspace page, click **General** > **Logs**.
+4. Write your query to gather dependency data using Log Analytics. Sample queries to gather dependency data are available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+5. Run your query by clicking on Run. 
+
+[Learn more](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) about how to write Log Analytics queries. 
 
 ## Next steps
 

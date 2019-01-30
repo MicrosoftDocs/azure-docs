@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2019
+ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -44,7 +44,7 @@ In this phase, a migration of SAP workload onto Azure public cloud is planned. T
 	3.	Business Continuity and Disaster Recovery architecture
 	4.	Detailed OS, DB, Kernel, and SAP support pack versions. It is not a given that any OS release that is supported by SAP NetWeaver or S/4HANA is supported in Azure VMs. Same is true for DBMS releases. It is mandatory that the following sources get checked in order to align and if necessary upgrade SAP releases, DBMS releases, or OS releases in order to be in an SAP and Azure supported window. It is mandatory that you are within SAP and Azure supported release combinations to get full support by SAP and Microsoft. If necessary, you need to plan for upgrading some of the software components. More details on supported SAP, OS, and DBMS software is documented in these locations:
 		1.	SAP support note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). This note defines the minimum OS releases supported in Azure VMs. It also defines minimum database releases required for most non-HANA database. The note also presents the SAP sizing of the different SAP supported Azure VM types.
-		2.	SAP support note [#2039619](https://launchpad.support.sap.com/#/notes/2039619). The note defines the Oracle support matrix on Azure. Realize that Oracle only supports Windows and Oracle Linux as guest OS in Azure for SAP workload. This support statement applies for the SAP application layer running SAP instances as well. However, Oracle does not support high availability for SAP Central Services in Oracle Linux. For Windows, the SAP supported Windows Failover Cluster Failover solution for SAP Central Services is supported in conjunction with Oracle as DBMS layer. 
+		2.	SAP support note [#2039619](https://launchpad.support.sap.com/#/notes/2039619). The note defines the Oracle support matrix on Azure. Realize that Oracle only supports Windows and Oracle Linux as guest OS in Azure for SAP workload. This support statement applies for the SAP application layer running SAP instances as well. However, Oracle does not support high availability for SAP Central Services in Oracle Linux through Pacemaker. If you require high availability for ASCS on Oracle Linux, you need to leverage SIOS Protection Suite for Linux. For detailed SAP certification data, check SAP support note [#1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610). For Windows, the SAP supported Windows Failover Cluster Failover solution for SAP Central Services is supported in conjunction with Oracle as DBMS layer. 
 		3.	SAP support note [#2235581](https://launchpad.support.sap.com/#/notes/2235581) to get the support matrix for SAP HANA on the different OS releases
 		4.	SAP HANA supported Azure VMs and [HANA Large Instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) are listed [here](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 		5.	[SAP Product Availability Matrix](https://support.sap.com/en/)
@@ -194,7 +194,7 @@ In this phase, you want to collect all the experiences and learnings of your non
 	2.	Use Backup/restore for smaller databases
 	3.	Use SAP Migration Monitor implemented into SAP SWPM tool to perform heterogeneous migrations
 	4.	Use the [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) process if you need to combine with an SAP release upgrade. Keep in mind that not all combinations between source and target DBMS are supported. More information can be found in the specific SAP support notes for the different releases of DMO. For example, [Database Migration Option (DMO) of SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872)
-	5.	Test whether data transfer through internet or through ExpressRoute is better in throughput in case you need to move backups or SAP export files. Be aware that for the case of moving data through internet, you might need to change some of your NSG/ASG security rules that you need to have in place for future production systems
+	5.	Test whether data transfer through internet or through ExpressRoute is better in throughput in case you need to move backups or SAP export files. For the case of moving data through internet, you might need to change some of your NSG/ASG security rules that you need to have in place for future production systems
 3.	Before moving systems from the old platform into Azure collect resource consumption data, like CPU usage, storage throughput and IOPS data. Especially from the DBMS layer units, but also from the application layer units. Also measure network and storage latency.
 4.	Validate the resources on SAP support notes, SAP HANA hardware directory, and SAP PAM again to make sure that there were no changes in supported VMs for Azure, supported OS releases in those VMs and supported SAP and DBMS releases 
 4.	Adapt deployment scripts to the latest changes you decided on VM types and Azure functionality
@@ -222,7 +222,7 @@ In this phase, you want to collect all the experiences and learnings of your non
  	
 
 ## Go Live Phase
-For the Go-Live phase, you need to make sure to follow your playbooks you developed in earlier phases. Execute the steps that you tested and trained. Don't accept last-minute changes in configurations and process. Besides that apply the following:
+For the Go-Live phase, you need to make sure to follow your playbooks you developed in earlier phases. Execute the steps that you tested and trained. Don't accept last-minute changes in configurations and process. Besides that apply the following measures:
 
 1. Verify that Azure portal monitoring and other monitoring tools are working.  Recommended tools are Perfmon (Windows) or SAR (Linux): 
 	1.	CPU Counters 

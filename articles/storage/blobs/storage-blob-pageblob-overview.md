@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Overview of Azure page blobs

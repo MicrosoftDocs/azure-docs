@@ -64,7 +64,7 @@ az postgres server firewall-rule show --resource-group myresourcegroup --server-
 Upon success, the command output lists the details of the firewall rule you have specified, by default in JSON format. If there is a failure, the output shows an error message instead.
 
 ## Delete firewall rule
-To revoke access for an IP range to the server, delete an existing firewall rule by executing the [az postgres server firewall-rule delete](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete) command. Provide the name of the existing firewall rule.
+To revoke access for an IP range to the server, delete an existing firewall rule by executing the [az postgres server firewall-rule delete](/cli/azure/postgres/server/firewall-rule) command. Provide the name of the existing firewall rule.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange
 ```

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 09/05/2018
 
 ---
 # Back up Azure Stack
