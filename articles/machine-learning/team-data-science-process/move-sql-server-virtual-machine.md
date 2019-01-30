@@ -89,7 +89,7 @@ If the data you are moving is large, you can speed things up by simultaneously e
 >
 >
 
-The sample PowerShell script below demonstrate parallel inserts using bcp:
+The following sample PowerShell script demonstrates parallel inserts using bcp:
 
 ```powershell
 $NO_OF_PARALLEL_JOBS=2
