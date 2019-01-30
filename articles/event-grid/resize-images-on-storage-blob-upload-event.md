@@ -10,7 +10,7 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/19/2019
+ms.date: 01/29/2019
 ms.author: spelluru
 ms.custom: mvc
 ---
@@ -63,11 +63,21 @@ Storage account names must be between 3 and 24 characters in length and may cont
 
 In the following command, substitute your own globally unique name for the general storage account where you see the `<general_storage_account>` placeholder. 
 
-```azurecli-interactive
-az storage account create --name <general_storage_account> \
---location westcentralus --resource-group myResourceGroup \
---sku Standard_LRS --kind storage
-```
+1. Set a variable to hold the name of the resource group that you created in the previous tutorial. 
+
+    ```azurecli-interactive
+    resourceGroupName=<Name of the resource group that you created in the previous tutorial>
+    ```
+2. Set a variable for the name of the storage account that Azure function requires. 
+
+    ```azurecli-interactive
+    functionstorage=<name of the storage account to be used by function>
+    ```
+3. Create the storage account for the Azure function. This is different from the storage that contains the images. 
+
+    ```azurecli-interactive
+    az storage account create --name $functionstorage --location eastus --resource-group $resourceGroupName --sku Standard_LRS --kind storage
+    ```
 
 ## Create a function app  
 
@@ -75,10 +85,16 @@ You must have a function app to host the execution of your function. The functio
 
 In the following command, substitute your own unique function app name where you see the `<function_app>` placeholder. The function app name is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. For `<general_storage_account>`, substitute the name of the general storage account you created.
 
-```azurecli-interactive
-az functionapp create --name <function_app> --storage-account  <general_storage_account>  \
---resource-group myResourceGroup --consumption-plan-location westcentralus
-```
+1. Specify a name for the function app that's to be created. 
+
+    ```azurecli-interactive
+    functionapp=<name of the function app>
+    ```
+2. Create the Azure function. 
+
+    ```azurecli-interactive
+    az functionapp create --name $functionapp --storage-account  $functionstorage --resource-group $resourceGroupName --consumption-plan-location eastus
+    ```
 
 Now you must configure the function app to connect to the Blob storage account you created in the [previous tutorial][previous-tutorial].
 
@@ -88,18 +104,18 @@ The function needs the connection string to connect to the Blob storage account.
 
 In the following CLI commands, `<blob_storage_account>` is the name of the Blob storage account you created in the previous tutorial.
 
-```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
---resource-group myResourceGroup --name <blob_storage_account> \
---query connectionString --output tsv)
+1. Get the connection string for the storage account that contains the images. 
 
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup \
---settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
-```
+    ```azurecli-interactive
+    storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
+    ```
+2. Configure the function app. 
 
-The `FUNCTIONS_EXTENSION_VERSION=~2` setting makes the function app run on version 2.x of the Azure Functions runtime.
+    ```azurecli-interactive
+    az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+    ```
+
+    The `FUNCTIONS_EXTENSION_VERSION=~2` setting makes the function app run on version 2.x of the Azure Functions runtime.
 
 You can now deploy a function code project to this function app.
 
@@ -112,9 +128,7 @@ The sample C# script (.csx) resize is available on [GitHub](https://github.com/A
 In the following command, `<function_app>` is the name of the function app you created earlier.
 
 ```azurecli-interactive
-az functionapp deployment source config --name <function_app> \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/function-image-upload-resize
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
 # [Node.js](#tab/nodejs)
