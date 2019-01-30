@@ -1,6 +1,6 @@
 ---
 title: PowerShell example - create an Azure SQL Database Managed Instance | Microsoft Docs
-description: Azure PowerShell example script to create an Azure SQL Database Managd Instance
+description: Azure PowerShell example script to create an Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -35,7 +35,7 @@ Instance name, SQL Administrator user name, VNet/subnet, and collation cannot be
 
 This sample assumes that you have [created a valid network environment](../sql-database-managed-instance-create-vnet-subnet.md) or [modified existing VNet](../sql-database-managed-instance-configure-vnet-subnet.md) for your Managed Instance. The sample uses the commandlets [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) and [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) so make sure that you have installed the following PowerShell modules:
 
-```
+```powershell
 Install-Module AzureRM.Network
 Install-Module AzureRM.Resources
 ```
@@ -43,7 +43,7 @@ Install-Module AzureRM.Resources
 ## Azure Resource Manager template
 
 The following content should be placed in a file that represents a template that will be used to create the instance:
-```
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
