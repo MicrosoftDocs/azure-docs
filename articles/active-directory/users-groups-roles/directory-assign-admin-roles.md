@@ -6,7 +6,6 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-search.appverid: MET150
 
 ms.service: active-directory
 ms.workload: identity
