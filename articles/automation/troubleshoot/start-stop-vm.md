@@ -54,6 +54,39 @@ Review the following list for potential solutions to your problem or places to l
 
 * Verify your [RunAs Account](../manage-runas-account.md) has proper permissions to the VMs you're trying to start or stop. To learn more about the permissions needed see, [Role Based Access Control with Azure Automation](../automation-role-based-access-control.md).
 
+### <a name="some-vms-fail-to-startstop"></a>Scenario: Some of my VMs fail to start/stop
+
+#### Issue
+
+You've configured the Start/Stop VM solution but it doesn't start/stop some of the VMs configured.
+
+#### Cause
+
+This error can be caused by one of the following reasons:
+
+1. If using the sequence scenario, a tag could be missing or incorrect
+2. The VM may be specifically excluded
+3. The RunAs account may not have enough permissions on the VM
+4. The VM could have something stopped it from starting or stopping
+
+#### Resolution
+
+Review the following list for potential solutions to your problem or places to look:
+
+* When using the [sequence scenario](../automation-solution-vm-management.md#scenario-2-startstop-vms-in-sequence-by-using-tags) of the Start/Stop VM during off hours solution, you must make sure each VM you want to start or stop has the proper tag. Make sure the VMs that you want to start have the `sequencestart` tag and the VMs you want to stop have the `sequencestop` tag. Both tags require a positive integer value. You can use a query similar to the following example to look for all the VMs with the tags and their values.
+
+  ```powershell-interactive
+  Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
+  ```
+
+* VMs may not be started or stopped if they are being explicitely excluded. Excluded VMs at set in the **External_ExcludeVMNames** variable in the Automation Account the solution is deployed to. The following example, shows how you can query that value with PowerShell.
+
+  ```powershell-interactive
+  Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
+  ```
+
+* If the VM is having a problem starting or deallocating this can be caused by an issue on the VM itself. Some examples or potential problems are, an update is being applied when attempting to shutdown, a service hangs, and more). Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You may also attempt to log into the VM to see if there are any errors in the Event logs.
+
 ### <a name="custom-runbook"></a>Scenario: My custom runbook fails to start or stop my VMs
 
 #### Issue
