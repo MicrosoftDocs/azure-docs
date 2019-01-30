@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Set up a device template
+# Set up a device template (New UI design)
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 
@@ -115,8 +115,6 @@ For example, you can add a new **Fan Mode** state that has two possible values t
 !["Edit State" form with details for fan mode](./media/howto-set-up-template-experimental/statemeasurementsform.png)
 
 After you click **Save**, the **Fan Mode** state measurement appears in the list of measurements. In a short while, you see the visualization of the state data from the simulated device.
-
-![State measurement chart](./media/howto-set-up-template-experimental/statemeasurementschart.png)
 
 If the device sends too many data points in a small duration, the state measurement appears with a different visual. Click on the chart to view all the data points within that time period in chronological order. You can also narrow down the time range to see the measurement plotted on the chart.
 
@@ -266,9 +264,7 @@ If you configured a location property, you can visualize the location by using a
 
    !["Configure Map" form with details for title and properties](./media/howto-set-up-template-experimental/locationcloudproperty5map.png)
 
-4. Select **Save**. The map tile now displays the location that you selected:
-
-   ![Map tile with selected location](./media/howto-set-up-template-experimental/locationcloudproperty6map.png)
+4. Select **Save**. The map tile now displays the location that you selected.
 
 You can resize the map to your desired size. Now when an operator views the dashboard in the **Device Explorer**, all the dashboard tiles that you've configured, including a location map are visible.
 

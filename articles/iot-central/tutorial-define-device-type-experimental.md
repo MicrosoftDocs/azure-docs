@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Tutorial: Define a new device type in your Azure IoT Central application
+# Tutorial: Define a new device type in your Azure IoT Central application (New UI design)
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of device in your Microsoft Azure IoT Central application. A device template defines the telemetry, state, properties, and settings for your device type.
 
@@ -90,7 +90,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Custom Device](./media/tutorial-define-device-type-experimental/createcustomdevice.png)
 
-4. In the **Connected Air Conditioner** device template, make sure you're on the **Measurements** page where you define the telemetry. Each device template you define has separate pages for you to:
+4. In the **Connected Air Conditioner** device template, make sure you're on the **Measurements** tab where you define the telemetry. Each device template you define has separate tabs for you to:
 
     * Specify the _measurements_, such as telemetry, event, and state, sent by the device.
 
@@ -136,7 +136,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Configure Temperature simulation](./media/tutorial-define-device-type-experimental/temperaturesimulation.png)
 
-7. After a short while, the **Measurements** page shows a chart of the temperature telemetry from your simulated connected air conditioner device. Use the controls to manage visibility, aggregation, or to edit the telemetry definition:
+7. After a short while, the **Measurements** tab shows a chart of the temperature telemetry from your simulated connected air conditioner device. Use the controls to manage visibility, aggregation, or to edit the telemetry definition:
 
     ![View temperature simulation](./media/tutorial-define-device-type-experimental/viewsimulation.png)
 
@@ -172,7 +172,7 @@ Use events to define point-in-time data that the device sends when there's an ev
 
     ![Configure Event measurement](./media/tutorial-define-device-type-experimental/eventconfiguration.png)
 
-3. After a short while, the **Measurements** page shows a chart of the events randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the event definition:
+3. After a short while, the **Measurements** tab shows a chart of the events randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the event definition:
 
     ![View event simulation](./media/tutorial-define-device-type-experimental/eventview.png)
 
@@ -213,7 +213,7 @@ You can use state to define and visualize the state of the device or its compone
 
     ![Configure State measurement](./media/tutorial-define-device-type-experimental/stateconfiguration.png)
 
-3. After a short while, the **Measurements** page shows a chart of the states randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the state definition:
+3. After a short while, the **Measurements** tab shows a chart of the states randomly generated from your simulated connected air conditioner device. Use the controls to manage visibility, or to edit the state definition:
 
     ![View state simulation](./media/tutorial-define-device-type-experimental/stateview.png)
 
@@ -239,13 +239,9 @@ Settings, properties, and commands are different values defined in a device temp
 
 You use *settings* to enable an operator to send configuration data to a device. In this section, you add a setting to your **Connected Air Conditioner** device template that enables an operator to set the target temperature of the connected air conditioner.
 
-1. Navigate to the **Settings** page for your **Connected Air Conditioner** device template:
+1. Navigate to the **Settings** tab for your **Connected Air Conditioner** device template.
 
-    ![Prepare to add a setting](./media/tutorial-define-device-type-experimental/deviceaddsetting.png)
-
-    You can create settings of different types such as numbers or text.
-
-2. Click **Number** to add a number setting to your device.
+2. You can create settings of different types such as numbers or text. Click **Number** to add a number setting to your device.
 
 3. To configure your **Set Temperature** setting, use the information in the following table:
 
@@ -267,7 +263,7 @@ You use *settings* to enable an operator to send configuration data to a device.
     > [!NOTE]
     > When the device acknowledges a setting change, the status of the setting changes to **synced**.
 
-4. You can customize the layout of the **Settings** page by moving and resizing settings tiles:
+4. You can customize the layout of the **Settings** tab by moving and resizing settings tiles:
 
     ![Customize settings layout](./media/tutorial-define-device-type-experimental/settingslayout.png)
 
@@ -275,13 +271,9 @@ You use *settings* to enable an operator to send configuration data to a device.
 
 You use *application properties* to store information about your device in the application. In this section, you add application properties to your **Connected Air Conditioner** device template to store the location of the device and the last service date. These properties are editable in the application. The device also reports properties such as serial number and firmware version that are read-only in the application.
 
-1. Navigate to the **Properties** page for your **Connected Air Conditioner** device template:
+1. Navigate to the **Properties** tab for your **Connected Air Conditioner** device template.
 
-    ![Prepare to add a property](./media/tutorial-define-device-type-experimental/deviceaddproperty.png)
-
-    You can create device properties of different types such as numbers or text. To add a location property to your device template, choose **Location**.
-
-1. To configure your location property, use the information in the following table:
+1. You can create device properties of different types such as numbers or text. To add a location property to your device template, choose **Location**. To configure your location property, use the information in the following table:
 
     | Field                | Value                |
     | -------------------- | -------------------- |
@@ -311,7 +303,7 @@ You use *application properties* to store information about your device in the a
 
     Click **Save**.
 
-1. You can customize the layout of the **Properties** page by moving and resizing property tiles.
+1. You can customize the layout of the **Properties** tab by moving and resizing property tiles.
 
 1. To add a device property such as firmware version to your device template, choose **Device Property**.
 
@@ -350,7 +342,7 @@ You use *application properties* to store information about your device in the a
 
 You use _commands_ to enable an operator to run commands directly on the device. In this section, you add a command to your **Connected Air Conditioner** device template that enables an operator to echo a certain message on the connected air conditioner.
 
-1. Navigate to the **Commands** page for your **Connected Air Conditioner** device template to edit the template.
+1. Navigate to the **Commands** tab for your **Connected Air Conditioner** device template to edit the template.
 
 1. Click **+ New Command** to add a command to your device and begin configuring your new command.
 
@@ -370,13 +362,13 @@ You use _commands_ to enable an operator to run commands directly on the device.
 
      Click **Save**.
 
-1. You can customize the layout of the **Commands** page by moving and resizing the command tiles.
+1. You can customize the layout of the **Commands** tab by moving and resizing the command tiles.
 
 ## View your simulated device
 
 Now you've defined your **Connected Air Conditioner** device template, you can customize its **Dashboard** to include the measurements, settings, and properties you defined. Then you can preview the dashboard as an operator:
 
-1. Choose the **Dashboard** page for your **Connected Air Conditioner** device template.
+1. Choose the **Dashboard** tab for your **Connected Air Conditioner** device template.
 
 1. Click **Line Chart** to add the component onto the **Dashboard**.
 

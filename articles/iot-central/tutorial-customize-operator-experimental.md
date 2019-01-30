@@ -10,7 +10,7 @@ services: iot-central
 ms.custom: mvc
 ---
 
-# Tutorial: Customize the Azure IoT Central operator's view
+# Tutorial: Customize the Azure IoT Central operator's view (New UI design)
 
 This tutorial shows you, as a builder, how to customize the operator's view of your application. When you make a change to the application as a builder, you can preview the operator's view in the Microsoft Azure IoT Central application.
 
@@ -45,9 +45,7 @@ As a builder, you can define what information displays on a device dashboard. In
 
 2. To customize your device dashboard, click the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type-experimental.md) tutorial.
 
-3. To edit the dashboard, choose **Dashboard**:
-
-    ![Device template dashboard page](media/tutorial-customize-operator-experimental/dashboard.png)
+3. To edit the dashboard, select the **Dashboard** tab.
 
 4. To add a Key Performance Indicator (KPI) tile to the dashboard, choose **KPI**:
 
@@ -72,28 +70,19 @@ As a builder, you can define what information displays on a device dashboard. In
 
 ## Configure your settings layout
 
-As a builder, you can also configure the operator's view of the device settings. An operator uses the device settings page to configure a device. For example, an operator uses the settings page to set the target temperature for the connected air conditioner.
+As a builder, you can also configure the operator's view of the device settings. An operator uses the device settings tab to configure a device. For example, an operator uses the settings tab to set the target temperature for the connected air conditioner.
 
-1. To edit the settings layout for your connected air conditioner, choose **Settings**:
-
-    ![Settings page](media/tutorial-customize-operator-experimental/settings.png)
+1. To edit the settings layout for your connected air conditioner, choose the **Settings** tab.
 
 2. You can move and resize the settings tiles:
 
     ![Edit the settings layout](media/tutorial-customize-operator-experimental/settingslayout.png)
 
-3. Click **Done** when you are finished making changes.
-
-> [!NOTE]
-> In **Edit Template** mode, you can't edit the values of the settings.
-
 ## Configure your properties layout
 
-In addition to the dashboard and settings, you can also configure the operator's view of the device properties. An operator uses the device properties page to manage device metadata. For example, an operator uses the properties page to view a device serial number or update contact details for the manufacturer.
+In addition to the dashboard and settings, you can also configure the operator's view of the device properties. An operator uses the device properties tab to manage device metadata. For example, an operator uses the properties tab to view a device serial number or update contact details for the manufacturer.
 
-1. To edit the properties layout for your connected air conditioner, choose **Properties**, and select **Edit Template**:
-
-    ![Properties page](media/tutorial-customize-operator-experimental/properties.png)
+1. To edit the properties layout for your connected air conditioner, choose the **Properties** tab.
 
 2. You can move and resize the properties fields:
 
@@ -101,7 +90,7 @@ In addition to the dashboard and settings, you can also configure the operator's
 
 ## Preview the connected air conditioner device as an operator
 
-You use the **Device Templates** page to customize the dashboard, settings, and properties pages for an operator. You use the **Device Explorer** page to view and use the device template.
+You use the **Device Templates** page to customize the dashboard, settings, and properties tabs for an operator. You use the **Device Explorer** page to view and use the device template.
 
 1. To view and use the connected air conditioner template as an operator, navigate to the **Device Explorer** page and choose the simulated device that IoT Central generated from your template:
 
