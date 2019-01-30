@@ -85,7 +85,7 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-Create two additional subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create).
+Create two additional subnets with [az network vnet subnet create](/cli/azure/network/vnet/subnet).
 
 ```azurecli-interactive
 # Create a private subnet.
@@ -117,7 +117,7 @@ az network vnet subnet update \
 
 An NVA is a VM that performs a network function, such as routing, firewalling, or WAN optimization.
 
-Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm#az_vm_create). When you create a VM, Azure creates and assigns a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
+Create an NVA in the *DMZ* subnet with [az vm create](/cli/azure/vm). When you create a VM, Azure creates and assigns a public IP address to the VM, by default. The `--public-ip-address ""` parameter instructs Azure not to create and assign a public IP address to the VM, since the VM doesn't need to be connected to from the internet. If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option.
 
 ```azure-cli-interactive
 az vm create \
@@ -157,7 +157,7 @@ The command may take up to a minute to execute.
 
 Create two VMs in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the NVA in a later step. 
 
-Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm#az_vm_create). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command. To streamline this article, a password is used. Keys are typically used in production deployments. If you use keys, you must also configure SSH agent forwarding. For more information, see the documentation for your SSH client. Replace `<replace-with-your-password>` in the following command with a password of your choosing.
+Create a VM in the *Public* subnet with [az vm create](/cli/azure/vm). The `--no-wait` parameter enables Azure to execute the command in the background so you can continue to the next command. To streamline this article, a password is used. Keys are typically used in production deployments. If you use keys, you must also configure SSH agent forwarding. For more information, see the documentation for your SSH client. Replace `<replace-with-your-password>` in the following command with a password of your choosing.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"

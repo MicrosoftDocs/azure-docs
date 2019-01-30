@@ -7,7 +7,7 @@ author: danieldobalian
 manager: mtillman
 ms.author: CelesteDG
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

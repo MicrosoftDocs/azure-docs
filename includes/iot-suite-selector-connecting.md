@@ -36,7 +36,7 @@ To complete this tutorial, you need an active Azure account. If you don't have a
 
 ## Before you start
 
-Before you write any code for your device, deploy your Remote Monitoring solution accelerator and add a new physical device to the solution.
+Before you write any code for your device, deploy your Remote Monitoring solution accelerator and add a new real device to the solution.
 
 ### Deploy your Remote Monitoring solution accelerator
 
@@ -57,7 +57,7 @@ To add a device to your Remote Monitoring solution, complete the following steps
 
 1. Choose **+ New device**, and then choose **Physical** as the **Device type**:
 
-    ![Add a physical device](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Add a real device](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Enter **Physical-chiller** as the Device ID. Choose the **Symmetric Key** and **Auto generate keys** options:
 
@@ -67,7 +67,7 @@ To add a device to your Remote Monitoring solution, complete the following steps
 
     ![Retrieve credentials](media/iot-suite-selector-connecting/credentials.png)
 
-You've now added a physical device to the Remote Monitoring solution accelerator and noted its device connection string. In the following sections, you implement the client application that uses the device connection string to connect to your solution.
+You've now added a real device to the Remote Monitoring solution accelerator and noted its device connection string. In the following sections, you implement the client application that uses the device connection string to connect to your solution.
 
 The client application implements the built-in **Chiller** device model. A solution accelerator device model specifies the following about a device:
 

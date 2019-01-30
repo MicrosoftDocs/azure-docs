@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-This tutorial requires that you run PowerShell locally. You must have Azure PowerShell module version 6.12.0 or later installed. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzureRmAccount` to create a connection with Azure.
+This tutorial requires that you run PowerShell locally. You must have Azure PowerShell module version 6.12.0 or later installed. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzureRmAccount` to create a connection with Azure.
 
 There are three key requirements for this scenario to work correctly:
 

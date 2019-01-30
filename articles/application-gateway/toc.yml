@@ -63,6 +63,8 @@
     href: application-gateway-probe-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
+  - name: FAQ
+    href: application-gateway-faq.md
 - name: How-to guides
   items:
   - name: Manage web traffic
@@ -197,5 +199,3 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-  - name: FAQ
-    href: application-gateway-faq.md
