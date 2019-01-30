@@ -27,7 +27,7 @@ If your application or script reaches these limits, you need to throttle your re
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Remaining requests
 You can determine the number of remaining requests by examining response headers. Each request includes values for the number of remaining read and write requests. The following table describes the response headers you can examine for those values:

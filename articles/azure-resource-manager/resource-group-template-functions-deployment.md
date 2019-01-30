@@ -27,7 +27,7 @@ To get values from resources, resource groups, or subscriptions, see [Resource f
 
 <a id="deployment" />
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## deployment
 `deployment()`

@@ -22,7 +22,7 @@ As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/
 
 To create a subscription, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscription.md).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Delegate access to an enrollment account using RBAC
 

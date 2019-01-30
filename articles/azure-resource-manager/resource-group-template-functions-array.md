@@ -43,7 +43,7 @@ To get an array of string values delimited by a value, see [split](resource-grou
 
 <a id="array" />
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## array
 `array(convertToArray)`

@@ -30,7 +30,7 @@ When deploying resources, you frequently need to retrieve information about the 
 
 You can perform these steps through the portal, PowerShell, or Azure CLI.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## PowerShell
 

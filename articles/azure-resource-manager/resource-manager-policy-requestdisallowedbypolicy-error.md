@@ -20,7 +20,7 @@ ms.author: genli
 
 This article describes the cause of the RequestDisallowedByPolicy error, it also provides solution for this error.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Symptom
 
