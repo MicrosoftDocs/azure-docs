@@ -35,11 +35,7 @@ In order to run the LUIS container, you must have the following:
 
 ### The host computer
 
-The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
-
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../../azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
@@ -47,9 +43,11 @@ This container supports minimum and recommended values for the settings:
 
 |Setting| Minimum | Recommended |
 |-----------|---------|-------------|
-|Cores<BR>`--cpus`|1 core<BR>at least 2.6 gigahertz (GHz) or faster|1 core|
+|Cores<BR>`--cpus`|1 core|1 core|
 |Memory<BR>`--memory`|2 GB|4 GB|
 |Transactions per second<BR>(TPS)|20 TPS|40 TPS|
+
+Each core must be at least 2.6 gigahertz (GHz) or faster.
 
 The `--cpus` and `--memory` settings are used as part of the `docker run` command.
 
@@ -61,17 +59,12 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image.
+
 For a full description of available tags, such as `latest` used in the preceding command, see [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) on Docker Hub.
 
-> [!TIP]
-> You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
->  ``` 
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
 
 ## How to use the container
 
@@ -321,14 +314,7 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 ## Container's API documentation
 
-The container provides a full set of documentation for the endpoints as well as a `Try it now` feature. This feature allows you to enter your settings into a web-based HTML form and make the query without having to write any code. Once the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format required. 
-
-> [!TIP]
-> Read the [OpenAPI specification](https://swagger.io/docs/specification/about/), describing the API operations supported by the container, from the `/swagger` relative URI. For example:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 
@@ -367,7 +353,7 @@ Unsupported app configurations|Details|
 
 In this article, you learned concepts and workflow for downloading, installing, and running Language Understanding (LUIS) containers. In summary:
 
-* Language Understanding (LUIS) provides one Linux containers for Docker providing endpoint query predictions of utterances.
+* Language Understanding (LUIS) provides one Linux container for Docker providing endpoint query predictions of utterances.
 * Container images are downloaded from the Microsoft Container Registry (MCR).
 * Container images run in Docker.
 * You can use REST API to query the container endpoints by specifying the host URI of the container.

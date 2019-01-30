@@ -1,9 +1,9 @@
 ---
 title: Create a workspace
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: To use Azure Machine Learning Studio, you need to have a Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.
-services: machine-learning
-ms.service: machine-learning
+services: machine-learning
+ms.service: machine-learning
 ms.subservice: studio
 ms.topic: article
 
