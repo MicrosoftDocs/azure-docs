@@ -223,19 +223,19 @@ In these steps, you configure the connection from the classic VNet to the Resour
 Open the PowerShell console with elevated rights and log in to your Azure account. After logging in, your account settings are downloaded so that they are available to Azure PowerShell. The following cmdlet prompts you for the login credentials for your Azure Account for the Resource Manager deployment model:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Get a list of your Azure subscriptions.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 If you have more than one subscription, specify the subscription that you want to use.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzSubscription -SubscriptionName "Name of subscription"
 ```
 
 Next, log in to use the classic PowerShell cmdlets (Service Management). Use the following command to add your Azure account for the classic deployment model:
