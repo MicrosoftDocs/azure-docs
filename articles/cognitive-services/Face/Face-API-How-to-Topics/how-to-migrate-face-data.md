@@ -15,7 +15,7 @@ ms.author: lewlu
 
 # Migrate your face data to a different Face subscription
 
-This guide shows you how to migrate an existing group of faces to a different Face API subscription using the Snapshot feature. This allows you to avoid having to repeatedly build up a **PersonGroup** or **FaceList** when moving or expanding your operations. For example, you may have created a **PersonGroup** using a free trial subscription and now want to migrate it to your paid subscription, or you may need to sync face data across regions for a large enterprise operation.
+This guide shows you how to migrate an existing group of faces to a different Face API subscription using the Snapshot feature. This allows you to avoid having to repeatedly build up a PersonGroup or **FaceList** when moving or expanding your operations. For example, you may have created a PersonGroup using a free trial subscription and now want to migrate it to your paid subscription, or you may need to sync face data across regions for a large enterprise operation.
 
 The same migration strategy also applies to **LargePersonGroup** and **LargeFaceList** objects. If you are not familiar with the concepts in this guide, see their definitions in the [glossary](../Glossary.md). This guide uses the Face API .NET client library with C#.
 
@@ -63,7 +63,7 @@ You need the ID of the PersonGroup in your source subscription to migrate it to 
 
 ## Take a Snapshot of the PersonGroup
 
-Use the source subscription **FaceClient** instance to take a snapshot of the PersonGroup, using **TakeAsync** with the PersonGroup ID and the target subscription's ID. If you have multiple target subscriptions,you can add them as additional array entries in the third parameter.
+Use the source subscription **FaceClient** instance to take a snapshot of the PersonGroup, using **TakeAsync** with the PersonGroup ID and the target subscription's ID. If you have multiple target subscriptions, you can add them as additional array entries in the third parameter.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -72,15 +72,15 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
     new[] { "<Azure West US Subscription ID>" /* Put other IDs here, if multiple target subscriptions wanted */ });
 ```
 
-The snapshot request should immediately return `202 Accepted` as the response code. There is an operation ID in the response which you can use to get the snapshot status. You can obtain it by parsing the `OperationLocation` field. A typical `OperationLocation` value will look like this:
+## Retrieve the Snapshot ID
+
+The snapshot retrieving method is asynchronous, so you'll need to wait for its completion. In this code, the `WaitForOperation` function monitors the method call, checking the status every 100ms. When the operation completes, you will be able to retrieve a snapshot ID. You can obtain it by parsing the `OperationLocation` field. A typical `OperationLocation` value will look like this:
 
 ```csharp
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
 ```
 
-## Retrieve the Snapshot ID
-
-The snapshot retrieving method is asynchronous, so you'll need to wait for its completion. In this code, the `WaitForOperation` function monitors the method call, checking the status every 100ms. It uses the operation ID we receive from the original snapshot result.
+The following code waits for the snapshot-taking operation to complete and parses its result to get the take operation ID.
 
 ```csharp
 var takeOperationId = takeSnapshotResult.OperationLocation.Split('/')[2];
@@ -122,40 +122,47 @@ When the operation status is marked as `Succeeded`, you can then get the snapsho
 "/snapshots/e58b3f08-1e8b-4165-81df-aa9858f233dc"
 ```
 
-## Apply Snapshot to target subscription
-
-Create the new PersonGroup in the target subscription using a randomly generated ID. Then use the target subscription Face Client instance to apply the snapshot to this PersonGroup, passing in the snapshot ID and new PersonGroup ID. 
-
-> [!NOTE]
-> A Snapshot object is only valid for 48 hours.
+Parse the snapshot ID with the following line:
 
 ```csharp
 var snapshotId = operationStatus.ResourceLocation.Split('/')[2];
+```
+
+## Apply Snapshot to target subscription
+
+Next, create the new PersonGroup in the target subscription, using a randomly generated ID. Then use the target subscription's **FaceClient** instance to apply the snapshot to this PersonGroup, passing in the snapshot ID and new PersonGroup ID. 
+
+> [!NOTE]
+> A Snapshot object is only valid for 48 hours. You should only take a snapshot if you intend to use it for data migration soon after.
+
+```csharp
 var newPersonGroupId = Guid.NewGuid().ToString();
 var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId, newPersonGroupId);
 ```
 
-Usually, a snapshot application request will immediately return `202 Accepted` as the response code. And there is an operation ID in the response header. The operation ID is used to get the snapshot application status. You can obtain the operation ID by parsing the `Operation-Location` field. A sample response of snapshot application request is shown as below.
+A snapshot apply request will return an operation ID. You can get this ID by parsing the `OperationLocation` field of the returned **applySnapshotResult** instance. A typical `OperationLocation` value will look like this:
 
-```
-HTTP/1.1 202 Accepted
-Operation-Location: /operations/84276574-2a2a-4540-a1b0-f65d834d225b
+```csharp
+"/operations/84276574-2a2a-4540-a1b0-f65d834d225b"
 ```
 
-The snapshot application process is also asynchronous, so use `WaitForOperation` to wait for it to complete.
+Parse the apply operation ID with the following line:
 
 ```csharp
 var applyOperationId = applySnapshotResult.OperationLocation.Split('/')[2];
+```
+
+The snapshot application process is also asynchronous, so again use `WaitForOperation` to wait for it to complete.
+
+```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);
 ```
 
 ## Test the data migration
 
-After you've applied the snapshot, the new PersonGroup in the target subscription should be populated with the original face data. 
+After you've applied the snapshot, the new PersonGroup in the target subscription should be populated with the original face data. By default, training results are also copied, so the new PersonGroup will be ready for face identification calls without needing retraining.
 
-By default, training results are also copied by snapshot feature. The new PersonGroup is ready for identify without retrain needed.
-
-Run the following operations and compare their results.
+To test the data migration, you can run the following operations and compare their results.
 
 ```csharp
 await DisplayPersonGroup(FaceClientEastAsia, personGroupId);
@@ -167,9 +174,48 @@ await DisplayPersonGroup(FaceClientWestUS, newPersonGroupId);
 await IdentifyInPersonGroup(FaceClientWestUS, newPersonGroupId);
 ```
 
+Use the following helper methods:
+
+```csharp
+private static async Task DisplayPersonGroup(IFaceClient client, string personGroupId)
+{
+    var personGroup = await client.PersonGroup.GetAsync(personGroupId);
+    Console.WriteLine("Person Group:");
+    Console.WriteLine(JsonConvert.SerializeObject(personGroup));
+
+    // List persons.
+    var persons = await client.PersonGroupPerson.ListAsync(personGroupId);
+
+    foreach (var person in persons)
+    {
+        Console.WriteLine(JsonConvert.SerializeObject(person));
+    }
+
+    Console.WriteLine();
+}
+```
+
+```csharp
+/// <summary>
+/// Identification against the person group.
+/// </summary>
+private static async Task IdentifyInPersonGroup(IFaceClient client, string personGroupId)
+{
+    using (var fileStream = new FileStream("data\\PersonGroup\\Daughter\\Daughter1.jpg", FileMode.Open, FileAccess.Read))
+    {
+        var detectedFaces = await client.Face.DetectWithStreamAsync(fileStream);
+
+        var result = await client.Face.IdentifyAsync(detectedFaces.Select(face => face.FaceId.Value).ToList(), personGroupId);
+        Console.WriteLine("Test identify against PersonGroup");
+        Console.WriteLine(JsonConvert.SerializeObject(result));
+        Console.WriteLine();
+    }
+}
+```
+
 ## Clean up resources
 
-Once the data migration is finished, we recommend you manually delete the snapshot object by running the following code.
+Once you are finished migrating face data, we recommend you manually delete the snapshot object by running the following code.
 
 ```csharp
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
@@ -177,20 +223,15 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 ## Tips
 
-- Each subscription ID can only access the snapshots created by it, and the snapshots created for it (included in the applyScope of the snapshot specified as a parameter when call `Snapshot.TakeAsync`). The API ListSnapshots will return all these snapshots. = unnecessary.
-
 - You can fire multiple snapshot taking requests for a PersonGroup at the same time, applying one same snapshot to personGroup under different subscriptions or to different personGroups under the same subscription at the same time. To be clear, the personGroup to be applied should be newly created and not applied any snapshot before. Currently, the snapshot apply model does not support replace operation.
-- The snapshot taking and applying operation does not support cancelling for now.
-- Snapshot does not break any operation to the source PersonGroup when taking or the target PersonGroup when applying, but it is not guaranteed to work as expected when calling PersonGroup (Person, Face) - Management and PersonGroup - Train.
 
-- For both Take/Apply a snapshot, they're asynchronous processes.
-- Training results are also copied by snapshot feature and new PersonGroup is ready for identify once migration is finished.
-- Snapshot is only valid for 48 hours by design currently.
+- The snapshot taking and applying operation does not support cancelling for now.
+
+- Snapshot does not break any operation to the source PersonGroup when taking or the target PersonGroup when applying, but it is not guaranteed to work as expected when calling PersonGroup (Person, Face) - Management and PersonGroup - Train.
 
 ## Related Topics
 
-- Snapshot reference documentation (.NET SDK)
-- Snapshot reference documentation (REST)
+- [Face reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face)
 - [How to add faces](how-to-add-faces.md)
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
 - [How to Identify Faces in image](HowtoIdentifyFacesinImage.md)
