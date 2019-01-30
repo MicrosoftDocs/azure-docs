@@ -70,13 +70,16 @@ In the below instructions, we are assigning Key Vault as a service to have opera
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     In case the user didn't create the storage account and does not have permissions to the storage account, the steps below set the permissions for your account to ensure that you can manage all the storage permissions in the Key Vault.
+    
  > [!NOTE] 
-    In the case that the user does not have permissions to the storage account, we first get the Object-Id of the user
+ > In the case that the user does not have permissions to the storage account, we first get the Object-Id of the user
+
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    
     ```
     
 ## How to access your storage account with SAS tokens
@@ -87,9 +90,9 @@ In the below section, we demonstrate how to fetch your storage account key that'
 
 > [!NOTE] 
   There are 3 ways to authenticate to Key Vault as you can read in the [basic concepts](key-vault-whatis.md#basic-concepts)
-- Using Managed Service Identity (Highly recommended)
-- Using Service Principal and certificate 
-- Using Service Principal and password (NOT recommended)
+> - Using Managed Service Identity (Highly recommended)
+> - Using Service Principal and certificate 
+> - Using Service Principal and password (NOT recommended)
 
 ```cs
 // Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials
