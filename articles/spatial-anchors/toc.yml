@@ -33,5 +33,5 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Anchors API
-    href: concepts/creating-and-finding-anchors.md
+  - name: Create and locate anchors
+    href: concepts/create-and-locate-anchors.md
