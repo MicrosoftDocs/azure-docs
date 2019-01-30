@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-author: lahugh
+ms.author: lahugh
 ---
 
 # Configure or disable remote access to compute nodes in an Azure Batch pool

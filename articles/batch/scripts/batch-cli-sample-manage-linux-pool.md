@@ -14,7 +14,7 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
-author: lahugh
+ms.author: lahugh
 ---
 
 # CLI example: Create and manage a Linux pool in Azure Batch
