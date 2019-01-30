@@ -874,6 +874,7 @@ If the issue is not resolved, run the AFSDiag tool:
 6. A .zip file that contains logs and trace files is saved to the output directory that you specified.
 
 ## See also
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
 - [Azure Files frequently asked questions](storage-files-faq.md)
 - [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files problems in Linux](storage-troubleshoot-linux-file-connection-problems.md)

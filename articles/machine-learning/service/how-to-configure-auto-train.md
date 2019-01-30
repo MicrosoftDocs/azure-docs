@@ -7,7 +7,7 @@ ms.author: nilesha
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
@@ -191,7 +191,7 @@ Some examples include:
     ```
 2.	Below is an example of a regression experiment set to end after 100 iterations, with each iteration lasting up to 600 seconds with 5 validation cross folds.
 
-    ````python
+    ```python
     automl_regressor = AutoMLConfig(
         task='regression',
         max_time_sec=600,
@@ -200,7 +200,7 @@ Some examples include:
         X=X,
         y=y,
         n_cross_validations=5)
-    ````
+    ```
 
 This table lists parameter settings available for your experiment and their default values.
 

@@ -10,7 +10,7 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/24/2019
 ms.author: bwren
 ---
 # Office 365 management solution in Azure (Preview)
@@ -152,7 +152,7 @@ To enable the administrative account for the first time, you must provide admini
     AdminConsent -ErrorAction Stop
     ```
 
-2. Run the script with the following command.
+2. Run the script with the following command. You will be prompted twice for credentials. Provide the credentials for your Log Analytics workspace first and then the global admin credentials for your Office 365 tenant.
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
@@ -345,7 +345,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
 
 ### Troubleshooting
 
-You may see the following error if you attempt to create a subscription after the subscription already exists.
+You may see the following error if your application is already subscribed to this workspace or if this tenant is subscribed to another workspace.
 
 ```
 Invoke-WebRequest : {"Message":"An error has occurred."}
@@ -388,7 +388,7 @@ You can remove the Office 365 management solution using the process in [Remove a
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
