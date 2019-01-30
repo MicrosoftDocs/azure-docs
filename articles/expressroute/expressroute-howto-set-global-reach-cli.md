@@ -92,7 +92,7 @@ The CLI output looks like this:
 }
 ```
 
-When the preceding operation is complete, you'll have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
+When this operation is complete, you'll have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
 
 ## Enable connectivity between ExpressRoute circuits in different Azure subscriptions
 
@@ -127,7 +127,7 @@ If the two circuits aren't in the same Azure subscription, you need authorizatio
    az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29> --authorization-key <authorizationKey>
    ```
 
-When the preceding operation is complete, you'll have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
+When this operation is complete, you'll have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
 
 ## Get and verify the configuration
 
@@ -149,7 +149,7 @@ az network express-route peering connection delete -g <ResourceGroupName> --circ
 
 Use the ```show``` command to verify the status.
 
-After this operation is complete, you'll no longer have connectivity between your on-premises networks through your ExpressRoute circuits.
+When this operation is complete, you'll no longer have connectivity between your on-premises networks through your ExpressRoute circuits.
 
 ## Next steps
 
