@@ -17,6 +17,8 @@ ms.author: victorh
 
 # Configure reverse DNS for services hosted in Azure
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 This article explains how to configure reverse DNS lookups for services hosted in Azure.
 
 Services in Azure use IP addresses assigned by Azure and owned by Microsoft. These reverse DNS records (PTR records) must be created in the corresponding Microsoft-owned reverse DNS lookup zones. This article explains how to do this.

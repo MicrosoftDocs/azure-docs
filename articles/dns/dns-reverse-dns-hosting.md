@@ -17,6 +17,8 @@ ms.author: victorh
 
 # Host reverse DNS lookup zones in Azure DNS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 This article explains how to host the reverse DNS lookup zones for your assigned IP ranges in Azure DNS. The IP ranges represented by the reverse lookup zones must be assigned to your organization, typically by your ISP.
 
 To configure reverse DNS for an Azure-owned IP address that's assigned to your Azure service, see [Configure reverse DNS for services hosted in Azure](dns-reverse-dns-for-azure-services.md).

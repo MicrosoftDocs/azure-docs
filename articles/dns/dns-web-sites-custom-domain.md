@@ -41,6 +41,8 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - [Create an App Service app](../app-service/app-service-web-get-started-html.md), or use an app that you created for another tutorial.
 
 - Create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS.

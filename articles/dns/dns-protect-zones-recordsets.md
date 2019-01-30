@@ -11,6 +11,8 @@ ms.author: victorh
 
 # How to protect DNS zones and records
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 DNS zones and records are critical resources. Deleting a DNS zone or even just a single DNS record can result in a total service outage.  It is therefore important that critical DNS zones and records are protected against unauthorized or accidental changes.
 
 This article explains how Azure DNS enables you to protect your DNS zones and records against such changes.  We apply two powerful security features provided by Azure Resource Manager: [role-based access control](../role-based-access-control/overview.md) and [resource locks](../azure-resource-manager/resource-group-lock-resources.md).

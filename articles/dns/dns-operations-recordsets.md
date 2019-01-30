@@ -31,6 +31,8 @@ The examples in this article assume you have already [installed Azure PowerShell
 
 ## Introduction
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Before creating DNS records in Azure DNS, you first need to understand how Azure DNS organizes DNS records into DNS record sets.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]

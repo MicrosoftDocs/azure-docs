@@ -14,6 +14,8 @@
 
 ### Before you begin
 
+[!INCLUDE [requires-azurerm](requires-azurerm.md)
+
 Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
