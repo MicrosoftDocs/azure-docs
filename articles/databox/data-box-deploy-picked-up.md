@@ -55,12 +55,22 @@ After the verification is complete, the Data Box is connected to the network in 
 
 Once the copy is complete, order status updates to **Completed**.
 
-Verify that your data is in the storage account(s) before you delete it from the source. When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
+Verify that your data is uploaded to Azure before you delete it from the source. Your data can be in:
 
-- For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-- For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+- Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
 
-Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
+    - For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+    - For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+    Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
+
+- Your resource group (s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation. You can go to the **Order details** in the Azure portal and make a note of the resource groups specified for managed disks.
+
+    ![Identify managed disk resource groups](media/data-box-deploy-copy-data-from-vhds/order-details-mananged-disk-res-groups.png)
+
+    You can then navigate to the resource group and locate your managed disks.
+
+    ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-in-res-group.png)
 
 ## Erasure of data from Data Box
  
