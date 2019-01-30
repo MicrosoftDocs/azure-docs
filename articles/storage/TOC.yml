@@ -24,4 +24,4 @@
   - name: Linux
     href: ../virtual-machines/linux/about-disks-and-vhds.md
 - name: Common Security Attributes
-  href: key-vault-security-attributes.md  
+  href: storage-security-attributes.md  
