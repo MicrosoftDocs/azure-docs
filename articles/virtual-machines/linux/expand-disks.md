@@ -15,6 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/15/2018    
 ms.author: rogarana
+ms.component: disks
 ---
 
 # Expand virtual hard disks on a Linux VM with the Azure CLI

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to run single-node and distributed training of TensorFlow models with the TensorFlow estimator
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao

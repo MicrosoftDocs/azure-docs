@@ -7,7 +7,7 @@ author: blackmist
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr

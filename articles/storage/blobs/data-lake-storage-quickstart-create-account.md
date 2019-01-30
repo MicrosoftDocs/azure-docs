@@ -3,7 +3,7 @@ title: Create an Azure Data Lake Storage Gen2 storage account | Microsoft Docs
 description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
@@ -203,7 +203,7 @@ az group create `
 
 ### Create a general-purpose v2 storage account
 
-To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account create `
@@ -217,7 +217,7 @@ az storage account create `
 
 ### Clean up resources
 
-To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

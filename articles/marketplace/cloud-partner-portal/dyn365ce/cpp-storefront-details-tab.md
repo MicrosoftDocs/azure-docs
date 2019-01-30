@@ -72,7 +72,7 @@ Where the following table describes the fields in this tab:
 |      Field            |    Description                 |
 |  ---------------      |  ---------------               |
 | Offer logo (png format, 48x48) | Upload an image that will display on your app's search page. Format is PNG and size must be 48 x 48 pixel. |
-| Offer logo (png format, 216x216) | Upload an image that will disaply on your app's detail page. Format is PNG and size must be 216 x 216 pixel. |
+| Offer logo (png format, 216x216) | Upload an image that will display on your app's detail page. Format is PNG and size must be 216 x 216 pixel. |
 | Videos                | Upload promotional or instructional videos for the app, with a maximum of four.  For each video, fill in the video name, URL (YouTube or Vimeo only), and associated thumbnail in PNG format and sized 1280 x 720 pixel.  | 
 | Documents             | Upload product promotional or instructional documents in PDF format, with a maximum of three.  For each document, provide a document name.  |
 | Screenshots           | Upload a maximum of five images of the app UI in PNG format and sized 1280 x 720 pixels.  These  screenshots will appear on the AppSource detail page for your app. |
