@@ -29,7 +29,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 ||||
 
 <sup>[1](#tab1400a)</sup>  Tabular 1400 and higher models only.   
-<sup>[2](#azsqlmanaged)</sup> Azure SQL Database Managed Instance is also supported. Because a managed instance runs within Azure VNet with a private IP address, an On-premises Data Gateway is required.   
+<sup>[2](#azsqlmanaged)</sup> Azure SQL Database Managed Instance is supported. Because a managed instance runs within Azure VNet with a private IP address, an On-premises Data Gateway is required.   
 <sup>[3](#databricks)</sup> Azure Databricks using the Spark connector is currently not supported.
 
 
