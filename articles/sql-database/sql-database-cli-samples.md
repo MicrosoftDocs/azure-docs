@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
 ---
 
 # Azure CLI samples for Azure SQL Database

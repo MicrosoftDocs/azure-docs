@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
-ms.component: files
+ms.subservice: files
 ---
 
 # Azure File Sync proxy and firewall settings
