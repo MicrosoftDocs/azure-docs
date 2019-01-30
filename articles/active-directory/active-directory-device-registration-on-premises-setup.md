@@ -104,9 +104,9 @@ The deployment is now complete, and you can try out some scenarios. Use the foll
 
 | Task | Reference |
 | --- | --- |
-| Join some devices to your workplace by using Azure Active Directory device registration service. You can join iOS, Windows, and Android devices. |[Join devices to your workplace using Azure Active Directory device registration service](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
+| Join some devices to your workplace by using Azure Active Directory device registration service. You can join iOS, Windows, and Android devices. |[Join devices to your workplace using Azure Active Directory device registration service](#join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service) |
 | View and enable or disable registered devices by using the administrator portal. In this task, you view some registered devices by using the administrator portal. |[Azure Active Directory device registration service overview](active-directory-device-registration-get-started.md) |
-| Verify that device objects are written back from Azure Active Directory to Windows Server Active Directory. |[Verify registered devices are written back to Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
+| Verify that device objects are written back from Azure Active Directory to Windows Server Active Directory. |[Verify registered devices are written back to Active Directory](#verify-that-registered-devices-are-written-back-to-active-directory) |
 | Now that users can register their devices, you can create application access polices in AD FS that allow only registered devices. In this task, you create an application access rule and a custom access-denied message. |[Create an application access policy and custom access-denied message](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## Integrate Azure Active Directory with on-premises Active Directory
