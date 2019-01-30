@@ -81,7 +81,7 @@ To enable the SyslogConsumer, you need to perform an upgrade of your cluster. Th
 Here are the changes to call out
 1. In the Common section, there is a new parameter called `LinuxStructuredTracesEnabled`. **This is required to have Linux events structured and serialized when sent to Syslog.**
 2. In the Diagnostics section, a new ConsumerInstance: SyslogConsumer has been added. This tells the platform there is another consumer of the events. 
-3. The new section SyslogConsumer needs to have `IsEnabled` as `true`. It is configurd to use the Local0 facility automatically. You can override this by adding another parameter.
+3. The new section SyslogConsumer needs to have `IsEnabled` as `true`. It is configured to use the Local0 facility automatically. You can override this by adding another parameter.
 
 ```json
     {

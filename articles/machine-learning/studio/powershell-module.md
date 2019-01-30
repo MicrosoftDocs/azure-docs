@@ -1,10 +1,10 @@
 ---
 title: PowerShell modules for Machine Learning Studio
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Use PowerShell to create and manage Azure Machine Learning Studio workspaces, experiments, web services, and more. 
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
 ms.topic: article
 
 author: ericlicoding
