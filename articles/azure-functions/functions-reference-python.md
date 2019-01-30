@@ -319,7 +319,14 @@ func azure functionapp publish <app name> --build-native-deps
 Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
 
 > [!NOTE]
-> Core Tools (func) uses the PyInstaller program to freeze the user's code and dependencies into a single stand-alone executable to run in Azure. This functionality is currently in preview and may not extend to all types of Python packages. If you're unable to import your modules, try publishing again using the `--no-bundler` option. 
+> Core Tools (func) uses the PyInstaller program to freeze the user's code and dependencies into a single stand-alone executable to run in Azure. This functionality is currently in preview and may not extend to all types of Python packages. If you're unable to import your modules, try publishing again using the `--no-bundler` option.
+> 
+> Set the `FUNCTIONS_WORKER_RUNTIME` paramater and install `az extensions`.
+> ```
+> func settings add FUNCTIONS_WORKER_RUNTIME python
+>
+> func extensions install
+>```
 > ```
 > func azure functionapp publish <app_name> --build-native-deps --no-bundler
 > ```
