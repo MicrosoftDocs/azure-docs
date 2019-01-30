@@ -28,6 +28,8 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "Peer two networks")]
 
 ## Clean up deployment 

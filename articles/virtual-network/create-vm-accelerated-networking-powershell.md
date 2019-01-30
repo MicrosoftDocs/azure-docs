@@ -63,7 +63,9 @@ Though this article provides steps to create a virtual machine with accelerated 
 
 ## Create a virtual network
 
-Install [Azure PowerShell](/powershell/azure/azurerm/install-Az-ps) version 5.1.1 or later. To find your currently installed version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In a PowerShell session, log in to an Azure account using [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Install [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 or later. To find your currently installed version, run `Get-Module -ListAvailable Az`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM). In a PowerShell session, log in to an Azure account using [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount).
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVM*.
 

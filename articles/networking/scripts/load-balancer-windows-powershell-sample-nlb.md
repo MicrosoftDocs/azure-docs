@@ -28,6 +28,8 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Quick Create VM")]
 
 ## Clean up deployment 

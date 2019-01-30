@@ -82,7 +82,7 @@ You need to create a new cloud service and a storage account for the data disks 
 2. Create a new premium storage account.
 
 	```powershell
-	New-AzStorageAccount -StorageAccountName $prmStorageAccountName `
+	New-AzureStorageAccount -StorageAccountName $prmStorageAccountName `
 	-Location $location -Type Premium_LRS
 	```
 3. Set the storage account created above as the current storage account for your subscription.
@@ -185,7 +185,7 @@ Now that you downloaded and changed the script based on your needs, runt the scr
 		OperationDescription    OperationId                          OperationStatus
 
 		New-AzureService        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
-		New-AzStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+		New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 		
 		WARNING: No deployment found in service: 'IaaSStory-Backend'.
 2. Fill out the information needed in the credentials prompt and click **OK**. The following output is returned.
