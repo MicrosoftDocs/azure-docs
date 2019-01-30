@@ -14,6 +14,8 @@
     href: tutorial-passthrough-authentication.md
   - name: Federate a single AD forest environment to the cloud
     href: tutorial-federation.md
+  - name: Set up PHS as backup for AD FS in Azure AD Connect 
+    href: tutorial-phs-backup.md
 - name: Concepts
   items:
    - name: Azure AD Connect and Connect Health
