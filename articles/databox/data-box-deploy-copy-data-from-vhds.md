@@ -51,7 +51,10 @@ The following table shows the UNC paths to the shares on your Data Box.
 | SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Premium SSD>\file.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard HDD>\file.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard SSD>\file.vhd`<br>`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Ultra SSD>\file.vhd` |  
 | NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<Premium SSD>/file.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard HDD>/file.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard SSD>/file.vhd`<br>`//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Ultra SSD>/file.vhd` |
 
-Depending on whether you are using SMB or NFS to connect to Data Box shares, the steps to connect are different.
+Depending on whether you are using SMB or NFS to connect to Data Box shares, the steps to connect are different. 
+
+> [!NOTE]
+> Connecting via REST is not supported for this feature.
 
 ### Connect to Data Box via SMB
 
@@ -129,6 +132,7 @@ Once you're connected to the data server, the next step is to copy data. Dependi
 
 > [!IMPORTANT]
 > - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs will be uploaded to Azure Storage account as page blobs and not managed disks.
+> - Only the fixed VHDs can be uploaded to create managed disks. VHDX files or dynamic and differencing VHDs are not supported.
 > -  Ensure that you copy data only to those precreated folders that correspond to the managed disk types supported by your subscription. For example, if Ultra SSDs are not supported by your subscription, and if you copy data to the Ultra SSD folder, then the upload to Azure will fail with an error.
 > -  You can only have one managed disk with a given name in a resource group across all the precreated folders. This implies that the VHDs uploaded to the precreated folders should have unique names.
 
