@@ -9,7 +9,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/18/2019
+ms.date: 01/30/2019
 ---
 # Tutorial: Single database security in Azure SQL Database
 
@@ -29,7 +29,7 @@ You can improve your database security with just a few simple steps. In this tut
 > - Create server-level and database-level firewall rules
 > - Configure an Azure Active Directory (AD) administrator
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable security features, such as threat protection, auditing, data masking, and encryption
+> - Enable security features, such as advanced data security, auditing, data masking, and encryption
 
 To learn more, see the [Azure SQL Database security overview](/azure/sql-database/sql-database-security-index) and [capabilities](sql-database-security-overview.md) articles.
 
@@ -225,30 +225,30 @@ To copy a secure connection string:
 
 ## Enable security features
 
-Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced threat detection](sql-advanced-threat-protection.md), [Auditing](sql-database-auditing.md), [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md), and [Transparent data encryption](transparent-data-encryption-azure-sql.md).
+Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](sql-advanced-threat-protection.md), [Auditing](sql-database-auditing.md), [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md), and [Transparent data encryption](transparent-data-encryption-azure-sql.md).
 
-### Advanced threat protection
+### Advanced data security
 
-The advanced threat protection feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
+The advanced data security feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
 
 > [!NOTE]
 > An example threat is SQL injection, a process where attackers inject malicious SQL into application inputs. An application can then unknowingly execute the malicious SQL and allow attackers access to breach or modify data in the database.
 
-To enable threat protection:
+To enable advanced data security:
 
 1. In Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. On the **Overview** page, select the **Server name** link. The database server page will open.
 
-1. On the **SQL server** page, find the **Security** section and select **Advanced Threat Protection**.
+1. On the **SQL server** page, find the **Security** section and select **Advanced Data Security**.
 
-    1. Select **ON** under **Advanced Threat Protection** to enable the feature. Then select **Save**.
+    1. Select **ON** under **Advanced Data Security** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
 
     ![Navigation pane](./media/sql-database-security-tutorial/threat-settings.png)
 
     You can also configure emails to receive security alerts, storage details, and threat detection types.
 
-1. Return to the **SQL databases** page of your database and select **Advanced Threat Protection** under the **Security** section. Here you'll find various security indicators available for the database.
+1. Return to the **SQL databases** page of your database and select **Advanced Data Security** under the **Security** section. Here you'll find various security indicators available for the database.
 
     ![Threat status](./media/sql-database-security-tutorial/threat-status.png)
 
@@ -338,7 +338,7 @@ In this tutorial, you've learned to improve the security of your database with j
 > - Create server-level and database-level firewall rules
 > - Configure an Azure Active Directory (AD) administrator
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable security features, such as threat protection, auditing, data masking, and encryption
+> - Enable security features, such as advanced data security, auditing, data masking, and encryption
 
 Advance to the next tutorial to learn how to implement geo-distribution.
 
