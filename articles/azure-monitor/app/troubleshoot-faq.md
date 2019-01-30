@@ -239,6 +239,9 @@ We recommend you use our SDKs and use the [SDK API](../../azure-monitor/app/api-
 
 ## Can I monitor an intranet web server?
 
+Yes, but you will need to allow traffic to our services.
+Review our list of services and IP addresses [here](../../azure-monitor/app/ip-addresses).
+
 Here are two methods:
 
 ### Firewall door
@@ -250,9 +253,16 @@ Allow your web server to send telemetry to our endpoints https://dc.services.vis
 Route traffic from your server to a gateway on your intranet, by overwriting these settings in the example ApplicationInsights.config.
 If these "Endpoint" properties are not present in your config, these classes will be using the default values shown in the example below.
 
-#### Example ApplicationInsights.config:
+#### Example ApplicationInsights.config with default endpoints:
 ```xml
 <ApplicationInsights>
+    ...
+    <TelemetryModules>
+
+        <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+            <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
+        </Add>
+    </TelemetryModules>
     ...
     <TelemetryChannel>
          <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
