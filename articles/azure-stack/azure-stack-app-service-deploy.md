@@ -13,8 +13,9 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 01/11/2019
 ms.author: anwestg
+ms.lastreviewed: 01/11/2019
 
 ---
 # Add an App Service resource provider to Azure Stack
@@ -42,6 +43,9 @@ Installing the App Service resource provider takes at least an hour. The length 
  - Create a DNS zone and entries for App Service.
  - Register the App Service resource provider.
  - Register the App Service gallery items.
+
+ > [!IMPORTANT]
+ > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 To deploy App Service resource provider, follow these steps:
 

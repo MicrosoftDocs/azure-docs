@@ -89,7 +89,7 @@ This PowerShell script should be run locally while RDP’d into IIS01.
           <br />
           The following sections show:
           <ul style="margin-top: 0px;">
-            <li> Local Server Time - Shows if this page is or isnt cached anywhere</li>
+            <li> Local Server Time - Shows if this page is or isn''t cached anywhere</li>
             <li> File Output - Shows that the web server is reaching AppVM01 on the backend subnet and successfully returning content</li>
             <li> Image from the Internet - Doesnt really show anything, but it made me happy to see this when the app worked</li>
           </ul>

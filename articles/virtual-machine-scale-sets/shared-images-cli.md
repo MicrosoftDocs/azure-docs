@@ -28,7 +28,6 @@ When you create a scale set, you specify an image to be used when the VM instanc
 > * Create a shared image definition
 > * Create a shared image version
 > * Create a VM from a shared image
-> * Delete a resources
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

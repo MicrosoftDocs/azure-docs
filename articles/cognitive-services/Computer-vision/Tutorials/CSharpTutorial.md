@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Tutorial: Build an image processing app - C#"
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
@@ -6,7 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
@@ -93,9 +93,6 @@ You can run the sample app, to see how it interacts with you and with the Comput
    |Recognize Text (OCR) | Uses the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) operation to recognize and extract printed text from an image. You can either choose the language to use, or let Computer Vision auto-detect the language. |
    |Recognize Text V2 (English) | Uses the [Recognize Text](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) and [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) operations to asynchronously recognize and extract printed or handwritten text from an image. |
    |Get Thumbnail | Uses the [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) operation to generate a thumbnail for a local or remote image. |
-
-   > [!IMPORTANT]
-   > Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    The following screenshot illustrates the page provided for the Analyze Image scenario, after analyzing a sample image.
    ![Screenshot of the Analyze image page](../Images/Analyze_Image_Example.PNG)

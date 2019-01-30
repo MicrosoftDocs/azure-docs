@@ -152,7 +152,7 @@ The List listing type includes the following Offer types on the storefronts in t
 | Requirement | Details |  
 |:--- |:--- |  
 | Billing and metering | Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based *true-up* options are not supported at this time. |  
-| Cancelation | Your offer is cancelable by the customer at any time. |  
+| Cancellation | Your offer is cancelable by the customer at any time. |  
 | Transaction Landing Page | Host an Azure co-branded transaction landing page. Your landing page enables your customers to create and manage your SaaS service account. |  
 | SaaS Subscription API | Provide a service that interacts with the SaaS Subscription to create, update, and delete a user account and service plan. All critical API changes must be supported within 24 hours. Any non-critical API changes are updated periodically. |  
 

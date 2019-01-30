@@ -1,6 +1,6 @@
 ---
 title: Singletons for Durable Functions - Azure
-description: How to use singletons in the Durable Functons extension for Azure Functions.
+description: How to use singletons in the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
 manager: jeconnoc

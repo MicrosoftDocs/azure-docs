@@ -262,7 +262,7 @@
       - name: Azure apps
         items:
         - name: Azure app service
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: Add continuous monitoring
@@ -633,18 +633,14 @@
         href: platform/view-designer-parts.md
       - name: Filters
         href: platform/view-designer-filters.md
-    - name: Dashboards
-      items:
-      - name: Logs
-        href: platform/dashboards.md
-      - name: Applications
-        href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: Export log data
         href: platform/powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
+    - name: Dashboards
+      href: app/app-insights-dashboards.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Analyze data
@@ -661,6 +657,8 @@
         href: log-query/query-language.md
       - name: Language differences
         href: log-query/data-explorer-difference.md
+      - name: Transition from log search
+        href: log-query/log-search-transition.md
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -701,6 +699,10 @@
         items:
         - name: Examples
           href: log-query/examples.md
+        - name: Write efficient queries
+          href: log-query/log-query-performance.md
+        - name: Smart analytics
+          href: log-query/smart-analytics.md
         - name: Cross-resource searches
           href: log-query/cross-workspace-query.md
         - name: app expression
@@ -711,6 +713,8 @@
         items:
         - name: Application data
           href: app/analytics.md
+        - name: Unify application data resources
+          href: log-query/unify-app-resource-data.md
         - name: Standard properties
           href: platform/log-standard-properties.md
         - name: Parse text data
@@ -733,7 +737,7 @@
           href: platform/alerts-metric.md
         - name: Create, view and manage classic metric alerts in Azure Monitor
           href: platform/alerts-classic-portal.md
-        - name: Alerts with dynamic thresholds
+        - name: Metric Alerts with Dynamic Thresholds
           href: platform/alerts-dynamic-thresholds.md
         - name: Configure metric alerts on logs
           href: platform/alerts-metric-logs.md
@@ -747,6 +751,8 @@
         items:  
         - name: Configure alerts on analytics query
           href: platform/alerts-log.md
+        - name: Log alert queries
+          href: platform/alerts-log-query.md
         - name: Webhook actions for log alerts
           href: platform/alerts-log-webhook.md
         - name: Troubleshooting log alerts
@@ -943,6 +949,12 @@
       href: /rest/api/monitor/
     - name: Logs
       href: /rest/api/loganalytics 
+  - name: Resource Manager template
+    items:
+    - name: Monitor
+      href: /azure/templates/microsoft.insights/allversions
+    - name: Logs
+      href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Metrics
     items:
     - name: Supported metrics
@@ -952,7 +964,7 @@
   - name: Schemas
     items:
     - name: Diagnostic logs services, categories, and schemas
-      href: platform/tutorial-dashboards.md
+      href: platform/diagnostic-logs-schema.md
     - name: Activity log event schema
       href: platform/activity-log-schema.md
     - name: Azure Diagnostics extension schema
@@ -974,6 +986,8 @@
       href: platform/alerts-extend.md
     - name: Copy alerts from OMS portal to Azure portal 
       href: platform/alerts-extend-tool.md
+    - name: Switch log alert API preference
+      href: platform/alerts-log-api-switch.md
 - name: Resources
   items:
   - name: Azure Roadmap

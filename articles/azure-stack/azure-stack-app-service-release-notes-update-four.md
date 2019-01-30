@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.reviewer: 
+ms.reviewer: anwestg
+ms.lastreviewed: 11/13/2018
 
 ---
 # App Service on Azure Stack update 4 release notes

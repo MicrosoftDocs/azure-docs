@@ -133,6 +133,8 @@
   items:
   - name: REST API
     href: /rest/api/mariadb
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.dbformariadb/allversions
   - name: Data-in replication stored procedures
     href: reference-data-in-stored-procedures.md
 - name: Resources

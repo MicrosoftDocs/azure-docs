@@ -126,6 +126,8 @@
       href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
     - name: Service module
       href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.maps/accounts
 - name: Related
   items:
   - name: Solutions

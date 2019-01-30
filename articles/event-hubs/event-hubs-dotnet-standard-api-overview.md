@@ -62,7 +62,7 @@ The recommended way to receive events from Event Hubs is using the [Event Proces
 
 #### Create a receiver
 
-Receivers are tied to specific partitions, so in order to receive all events in an event hub, you must create multiple instances. It is a good practice to get the partition information programatically, rather than hard-coding the partition IDs. In order to do so, you can use the [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) method.
+Receivers are tied to specific partitions, so in order to receive all events in an event hub, you must create multiple instances. It is a good practice to get the partition information programmatically, rather than hard-coding the partition IDs. In order to do so, you can use the [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) method.
 
 ```csharp
 // Create a list to keep track of the receivers

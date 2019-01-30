@@ -31,7 +31,7 @@ Before starting this tutorial, you must have the following:
 
 + [Create an organization in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=vsts)
 + [Create and add a project to the Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&%3Bbc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav)
-+ Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)
++ Install and set up [Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.1.1)
 
 If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 

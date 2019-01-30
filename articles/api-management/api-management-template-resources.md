@@ -270,7 +270,7 @@ Azure API Management provides the following types of resources for use in the de
 |OAuth2TokenType_ImplicitGrant_AuthorizationResponse|REQUIRED. The type of the token issued.|  
 |OAuth2TokenType_ResourceOwnerPasswordCredentialsGrant_TokenResponse|REQUIRED. The type of the token issued.|  
 |OAuth2UserName_ResourceOwnerPasswordCredentialsGrant_TokenRequest|REQUIRED. The resource owner username.|  
-|OAuth2UnsupportedTokenType|Token type '{0}' is not supporetd.|  
+|OAuth2UnsupportedTokenType|Token type '{0}' is not supported.|  
 |OAuth2InvalidState|Invalid response from authorization server|  
 |OAuth2GrantType_AuthorizationCode|Authorization code|  
 |OAuth2GrantType_Implicit|Implicit|  
@@ -356,7 +356,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebProductsUsageLimitsHeader|Usage limits|  
 |WebProductsYouAreNotSubscribed|You are subscribed to this product.|  
 |WebProductsYouRequestedSubscription|You requested subscription to this product.|  
-|ErrorYouNeedtoAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed.|  
+|ErrorYouNeedToAgreeWithLegalTerms|You must agree to the Terms of Use before you can proceed.|  
 |ButtonLabelAddSubscription|Add subscription|  
 |LinkLabelChangeSubscriptionName|change|  
 |ButtonLabelConfirm|Confirm|  
@@ -512,7 +512,7 @@ Azure API Management provides the following types of resources for use in the de
 |WebDevelopersSecondaryKey|Secondary key|  
 |ButtonLabelShowKey|Show|  
 |ButtonLabelRenewSubscription|Renew|  
-|WebDevelopersSubscriptionReqested|Requested on {0}|  
+|WebDevelopersSubscriptionRequested|Requested on {0}|  
 |WebDevelopersSubscriptionRequestedState|Requested|  
 |WebDevelopersSubscriptionTableNameHeader|Name|  
 |WebDevelopersSubscriptionTableStateHeader|State|  

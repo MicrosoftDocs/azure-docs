@@ -16,9 +16,10 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
+ms.lastreviewed: 12/10/2018
 ---
  
-# Azure Stack customer journey
+# Azure Stack datacenter integration
 
 This article describes the end-to-end Azure Stack customer experience from purchasing an integrated solution through to a successful on-site deployment by a solution provider. Use this information to ease your journey and to help set expectations on what you, as an Azure Stack customer, should expect when integrating Azure Stack into your datacenter.
 

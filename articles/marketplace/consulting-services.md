@@ -68,7 +68,7 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 |Dynamics 365 for Finance and Operations, Enterprise edition  |  Silver or Gold [Enterprise Resource Planning](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) competency, and a minimum revenue of $25K in Cloud Operations in the trailing 12 months.       |
 |Dynamics 365 for Finance and Operations, Business edition  |  Serve as [Cloud Service Provider (CSP)](https://partner.microsoft.com/cloud-solution-provider) or [Digital Partner of Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) for at least one customer      |
 |Power BI, Power BI Custom Visuals | Meet the [Solution Partner criteria](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Have a published [Partner Showcase]() solution
+|PowerApps | Have a published [Partner Showcase](https://appsource.microsoft.com/partners) solution
 
 <b> For more information, see [competencies through Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  

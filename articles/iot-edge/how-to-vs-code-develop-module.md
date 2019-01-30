@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 01/12/2019
 ms.topic: article
 ms.service: iot-edge
 
@@ -130,7 +130,7 @@ If you're developing in C#, Node.js, or Java, your module requires use of a **Mo
 
 ### Set up IoT Edge simulator for IoT Edge solution
 
-In your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
+On your development machine, you can start an IoT Edge simulator instead of installing the IoT Edge security daemon so that you can run your IoT Edge solution.
 
 1. In device explorer on the left side, right-click on your IoT Edge device ID, and then select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
 1. You can see the IoT Edge Simulator has been successfully set up by reading the progress detail in the integrated terminal.
@@ -157,7 +157,7 @@ To set up and start the simulator, run the command **Azure IoT Edge: Start IoT E
        dotnet build
        ```
 
-     - Open the file `program.cs` and add a breakpoint.
+     - Open the file `Program.cs` and add a breakpoint.
 
      - Navigate to the Visual Studio Code Debug view by selecting **View > Debug**. Select the debug configuration ***&lt;your module name&gt;* Local Debug (.NET Core)** from the dropdown.
 
@@ -219,7 +219,7 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 
 ### Build and run container for debugging and debug in attach mode
 
-1. Open your module file (`program.cs`, `app.js`, `App.java`, or `<your module name>.cs`) and add a breakpoint.
+1. Open your module file (`Program.cs`, `app.js`, `App.java`, or `<your module name>.cs`) and add a breakpoint.
 
 1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
 
@@ -238,17 +238,17 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 >
 > For modules written in C#, including Azure Functions, this example is based on the debug version of `Dockerfile.amd64.debug`, which includes the .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use the Dockerfile without VSDBG for production-ready IoT Edge modules.
 
-## Debug a module with IoT Edge runtime
+## Debug a module with the IoT Edge runtime
 
 In each module folder, there are several Docker files for different container types. Use any of the files that end with the extension **.debug** to build your module for testing.
 
-When debugging modules with IoT Edge runtime, your modules are running on top of IoT Edge runtime. The IoT Edge device and your VS Code can be in the same machine, or more typically, the are in the different machines (VS Code is in the development machine, and IoT Edge runtime and modules are running in another physical machine). The following steps need to be done for your debugging session in VS Code.
+When debugging modules using this method, your modules are running on top of the IoT Edge runtime. The IoT Edge device and your Visual Studio Code can be on the same machine, or more typically, Visual Studio Code is on the development machine and the IoT Edge runtime and modules are running on another physical machine. In order to debug from Visual Studio Code, you must:
 
-- Set up your IoT Edge device, build IoT Edge module(s) with the **.debug** Dockerfile, and deploy to IoT Edge device. 
-- Expose the IP and port of the module for the debugger to attach.
-- Update `launch.json` file so that VS Code can attach to the process in the container in remote machine.
+- Set up your IoT Edge device, build your IoT Edge module(s) with the **.debug** Dockerfile, and then deploy to the IoT Edge device.
+- Expose the IP and port of the module so that the debugger can be attached.
+- Update the `launch.json` so that Visual Studio Code can attach to the process in the container on the remote machine. This file is located in the `.vscode` folder in your workspace and updates each time you add a new module that supports debugging.
 
-### Build and deploy your module and deploy to IoT Edge device
+### Build and deploy your module to the IoT Edge device
 
 1. In Visual Studio Code, open the `deployment.debug.template.json` file, which contains the debug version of your module images with the proper `createOptions` values set.
 
@@ -289,36 +289,57 @@ When debugging modules with IoT Edge runtime, your modules are running on top of
    1. Select the `deployment.debug.template.json` file for your solution.
 
 1. In the **Azure IoT Hub Devices** section of the Visual Studio Code Explorer view:
-   1. Right-click an IoT Edge device ID and then select **Create deployment for Single Device**.
+   1. Right-click an IoT Edge device ID and then select **Create Deployment for Single Device**.
+
+      > [!TIP]
+      > To confirm that the device you've chosen is an IoT Edge device, select it to expand the list of modules and verify the presence of **$edgeHub** and **$edgeAgent**. Every IoT Edge device includes these two modules.
 
    1. Navigate to your solution's **config** folder, select the `deployment.debug.amd64.json` file, and then select **Select Edge Deployment Manifest**.
 
 You'll see the deployment successfully created with a deployment ID in the integrated terminal.
 
-You can check your container status by running the `docker ps` command in the terminal. If your VS Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view.
+You can check your container status by running the `docker ps` command in the terminal. If your Visual Studio Code and IoT Edge runtime are running on the same machine, you can also check the status in the Visual Studio Code Docker view.
 
-### Expose the IP and port of the module for the debugger to attach
+### Expose the IP and port of the module for the debugger
 
-If your modules are running in the same machine as your VS Code. You are using localhost to attach the container and you already have the correct port settings in the **.debug** Dockerfile, module container CreateOptions, and `launch.json`. You can skip this section. If your modules and VS Code are running in separate machines, follow the steps below for each language.
+You can skip this section if your modules are running on the same machine as Visual Studio Code, as you are using localhost to attach to the container and already have the correct port settings in the **.debug** Dockerfile, module's container `createOptions` settings, and `launch.json` file. If your modules and Visual Studio Code are running on separate machines, follow the steps for your development language.
 
-  - **C#, C# Function**: [Configure the SSH channel on your development machine and IoT Edge device](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes), edit `launch.json` file to attach.
-  - **Node.js**: Make sure the module is ready for debuggers to attach, and 9229 port of the debuggee machine is accessible from outside. You can verify this by opening [http://%3cdebuggee-machine-IP%3e:9229/json]http://<debuggee-machine-IP>:9229/json on the debugger machine. This URL should show information about the Node.js to be debugged. And then on debugger machine, open VS Code, edit the `launch.json` file so that address value of the “<module-name> Remote Debug (Node.js)” profile (or “<module-name> Remote Debug (Node.js in Windows Container)” profile if the module is running as a Windows container) is the IP of the debuggee machine.
-  - **Java**: Build an ssh tunnel to the edge device by running `ssh -f <username>@<edgedevicehost> -L 5005:127.0.0.1:5005 -N`, then edit `launch.json` file to attach. You can learn more about the settings [here](https://code.visualstudio.com/docs/java/java-debugging). 
-  - **Python**: In the code `ptvsd.enable_attach(('0.0.0.0', 5678))`, change 0.0.0.0 to the IP address of the IoT Edge device. Build, push and deploy your IoT Edge modules again. In `launch.json` in your development machine, update `"host"` `"localhost"` change `"localhost"` with your remote IoT Edge device's public IP address.
+- **C#, including Azure Functions**
 
+  [Configure the SSH channel on your development machine and IoT Edge device](https://github.com/OmniSharp/omnisharp-vscode/wiki/Attaching-to-remote-processes) and then edit `launch.json` file to attach.
+
+- **Node.js**
+
+  - Make sure the module on the machine to be debugged is running and ready for debuggers to attach, and that port 9229 is accessible externally. You can verify this by opening `http://<target-machine-IP>:9229/json` on the debugger machine. This URL should show information about the Node.js module to be debugged.
+  
+  - On your development machine, open Visual Studio Code and then edit `launch.json` so that the address value of the ***&lt;your module name&gt;* Remote Debug (Node.js)** profile (or ***&lt;your module name&gt;* Remote Debug (Node.js in Windows Container)** profile if the module is running as a Windows container) is the IP of the machine being debugged.
+
+- **Java**
+
+  - Build an SSH tunnel to the machine to be debugged by running `ssh -f <username>@<target-machine> -L 5005:127.0.0.1:5005 -N`.
+  
+  - On your development machine, open Visual Studio Code and edit the ***&lt;your module name&gt;* Remote Debug (Java)** profile in `launch.json` so that you can attach to the target machine. To learn more about editing `launch.json` and debugging Java with Visual Studio Code, see the section on [configuring the debugger](https://code.visualstudio.com/docs/java/java-debugging#_configuration).
+
+- **Python**
+
+  - Make sure that port 5678 on the machine to be debugged is open and accessible.
+
+  - In the code `ptvsd.enable_attach(('0.0.0.0', 5678))` that you earlier inserted into `main.py`, change **0.0.0.0** to the IP address of the machine to be debugged. Build, push, and deploy your IoT Edge module again.
+
+  - On your development machine, open Visual Studio Code and then edit `launch.json` so that the `host` value of the ***&lt;your module name&gt;* Remote Debug (Python)** profile uses the IP address of the target machine instead of `localhost`.
 
 ### Debug your module
-
-Visual Studio Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace. This `launch.json` file was generated when you created a new IoT Edge solution. It updates each time you add a new module that supports debugging.
 
 1. In the Visual Studio Code Debug view, select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
 
 1. Open the module file for your development language and add a breakpoint:
-   - **C#, C# Function**: Open the file `Program.cs` and add a breakpoint.
-   - **Node.js**: Open the file `app.js` and add a breakpont.
-   - **Java**: Open the file `App.java` and add a breakpoint.
-   - **Python**: Open `main.py` and add a breakpoint in the callback method where you added the `ptvsd.break_into_debugger()` line.
-   - **C**: Open the file `main.c` and add a breakpoint.
+
+   - **Azure Function (C#)**: Add your breakpoint to the file `<your module name>.cs`.
+   - **C#**: Add your breakpoint to the file `Program.cs`.
+   - **Node.js**: Add your breakpoint to the file `app.js`.
+   - **Java**: Add your breakpoint to the file `App.java`.
+   - **Python**: Add your breakpoint to the file `main.py`in the callback method where you added the `ptvsd.break_into_debugger()` line.
+   - **C**: Add your breakpoint to the file `main.c`.
 
 1. Select **Start Debugging** or select **F5**. Select the process to attach to.
 

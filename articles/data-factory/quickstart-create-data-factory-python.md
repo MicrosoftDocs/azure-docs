@@ -94,18 +94,18 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     def print_activity_run_details(activity_run):
         """Print activity run details."""
         print("\n\tActivity run details\n")
-        print("\tActivity run status: {}".format(activity_run.status))    
+        print("\tActivity run status: {}".format(activity_run.status))
         if activity_run.status == 'Succeeded':
-            print("\tNumber of bytes read: {}".format(activity_run.output['dataRead']))       
-            print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))           
-            print("\tCopy duration: {}".format(activity_run.output['copyDuration']))           
+            print("\tNumber of bytes read: {}".format(activity_run.output['dataRead']))
+            print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))
+            print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
         else:
             print("\tErrors: {}".format(activity_run.error['message']))
 
     ```
 3. Add the following code to the **Main** method that creates an instance of DataFactoryManagementClient class. You use this object to create the data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details. Set **subscription_id** variable to the ID of your Azure subscription. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
-    ```python   
+    ```python
     def main():
 
         # Azure subscription ID
@@ -123,7 +123,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
 
         rg_params = {'location':'eastus'}
-        df_params = {'location':'eastus'}    
+        df_params = {'location':'eastus'}
     ```
 
 ## Create a data factory
@@ -200,7 +200,7 @@ Add the following code to the **Main** method that creates a **pipeline with a c
 
 ```python
     # Create a copy activity
-    act_name =  'copyBlobtoBlob'
+    act_name = 'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
@@ -208,7 +208,7 @@ Add the following code to the **Main** method that creates a **pipeline with a c
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
-    p_name =  'copyPipeline'
+    p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)
     p = adf_client.pipelines.create_or_update(rg_name, df_name, p_name, p_obj)
@@ -268,7 +268,7 @@ def print_item(group):
         print("\tTags: {}".format(group.tags))
     if hasattr(group, 'properties'):
         print_properties(group.properties)
-    print("\n")        
+    print("\n")
 
 def print_properties(props):
     """Print a ResourceGroup properties instance."""
@@ -280,11 +280,11 @@ def print_properties(props):
 def print_activity_run_details(activity_run):
     """Print activity run details."""
     print("\n\tActivity run details\n")
-    print("\tActivity run status: {}".format(activity_run.status))    
+    print("\tActivity run status: {}".format(activity_run.status))
     if activity_run.status == 'Succeeded':
-        print("\tNumber of bytes read: {}".format(activity_run.output['dataRead']))       
-        print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))           
-        print("\tCopy duration: {}".format(activity_run.output['copyDuration']))           
+        print("\tNumber of bytes read: {}".format(activity_run.output['dataRead']))
+        print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))
+        print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
     else:
         print("\tErrors: {}".format(activity_run.error['message']))
 
@@ -297,7 +297,7 @@ def main():
     rg_name = '<Azure resource group name>'
 
     # The data factory name. It must be globally unique.
-    df_name = '<Your data factory name>'        
+    df_name = '<Your data factory name>'
 
     # Specify your Active Directory client ID, client secret, and tenant ID
     credentials = ServicePrincipalCredentials(client_id='<Active Directory client ID>', secret='<client secret>', tenant='<tenant ID>')
@@ -346,7 +346,7 @@ def main():
     print_item(dsOut)
 
     # Create a copy activity
-    act_name =  'copyBlobtoBlob'
+    act_name = 'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
@@ -354,7 +354,7 @@ def main():
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     # Create a pipeline with the copy activity
-    p_name =  'copyPipeline'
+    p_name = 'copyPipeline'
     params_for_pipeline = {}
     p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)
     p = adf_client.pipelines.create_or_update(rg_name, df_name, p_name, p_obj)
@@ -370,7 +370,7 @@ def main():
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))
-    activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1),  datetime.now() + timedelta(1)))
+    activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1), datetime.now() + timedelta(1)))
     print_activity_run_details(activity_runs_paged[0])
 
 # Start the main method

@@ -24,7 +24,7 @@ ms.author: mlearned
 
 ## Why should I use DevOps Projects?
 
-  DevOps Project automates the setup of an entire continuous integration (CI) and continuous delivery (CD) pipeline to Azure.  You can start with existing code or use one of the provided sample applications. Then you can quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Kubernetes Servies (AKS), Azure SQL Database, and Azure Service Fabric.  
+  DevOps Project automates the setup of an entire continuous integration (CI) and continuous delivery (CD) pipeline to Azure.  You can start with existing code or use one of the provided sample applications. Then you can quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Kubernetes Services (AKS), Azure SQL Database, and Azure Service Fabric.  
 
   DevOps Projects does all the work for the initial configuration of a DevOps pipeline including everything from setting up the initial Git repository, configuring the CI/CD pipeline, creating an Application Insights resource for monitoring, and providing a single view of the entire solution with the creation of a DevOps Projects dashboard in the Azure portal.
 
