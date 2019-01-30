@@ -31,8 +31,8 @@ At a conceptual level, each of these services plays a distinct role in the load-
   * Performance routing to send the requestor to the closest endpoint in terms of latency.
   * Priority routing to direct all traffic to an endpoint, with other endpoints as backup.
   * Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each endpoint.
-  * Geography based routing to distribute the traffic to your application endpoints based on geographic location of the user.
-  * Subnet based routing to distribute the traffic to your application endpoints based on the subnet (IP address range) of the user.
+  * Geography-based routing to distribute the traffic to your application endpoints based on geographic location of the user.
+  * Subnet-based routing to distribute the traffic to your application endpoints based on the subnet (IP address range) of the user.
   * Multi Value routing that enable you to send IP addresses of more than one application endpoints in a single DNS response.
 
   The client connects directly to the endpoint returned by Traffic Manager. Azure Traffic Manager detects when an endpoint is unhealthy and then redirects the clients to another healthy instance. Refer to [Azure Traffic Manager documentation](traffic-manager-overview.md) to learn more about the service.
