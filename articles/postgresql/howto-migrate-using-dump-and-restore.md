@@ -63,7 +63,9 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
 
 ### For the restore
 - We suggest that you move the backup file to an Azure VM in the same region as the Azure Database for PostgreSQL server you are migrating to, and do the pg_restore from that VM to reduce network latency. We also recommend that the VM is created with [accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) enabled.
+
 - It should be already done by default, but open the dump file to verify that the create index statements are after the insert of the data. If it isn't the case, move the create index statements after the data is inserted.
+
 - Restore with the switches -Fc and -j *#* to parallelize the restore. *#* is the number of cores on the target server. You can also try with *#* set to twice the number of cores of the target server to see the impact. For example:
 
     ```
@@ -74,7 +76,9 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
 
 - On the target Azure Database for PostgreSQL server, consider doing the following before the restore:
     - Turn off query performance tracking, since these statistics are not needed during the migration. You can do this by setting pg_stat_statements.track, pg_qs.query_capture_mode, and pgms_wait_sampling.query_capture_mode to NONE.
+
     - Use a high compute and memory sku, like 32 vCore Memory Optimized, to speed up the migration. You can easily scale back down to your preferred sku after the restore is complete. The higher the sku, the more paralellism you can achieve by increasing the corresponding `-j` parameter in the pg_restore command. 
+
     - More IOPS on the target server will improve the write performance. You can provision more IOPS by increasing the server's storage size. This setting is not reversible, but consider whether a higher IOPS would benefit your actual workload in the future.
 
 Remember to test and validate these commands in a test environment before you use them in production.
