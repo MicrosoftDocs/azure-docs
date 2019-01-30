@@ -4,7 +4,7 @@ description: Documents version release and behavior change history
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 11/01/2018
 
