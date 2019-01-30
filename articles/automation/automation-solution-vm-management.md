@@ -127,7 +127,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 #### Target the start and stop action by VM list
 
-1. Add a **sequencestart** and a **sequencestop** tag with a positive integer value to VMs you plan to add to the **VMList** variable. 
+1. Add a **sequencestart** and a **sequencestop** tag with a positive integer value to VMs you plan to add to the **VMList** parameter.
 1. Run the **SequencedStartStop_Parent** runbook with the ACTION parameter set to **start**, add a comma-separated list of VMs in the *VMList* parameter, and then set the WHATIF parameter to **True**. Preview your changes.
 1. Configure the **External_ExcludeVMNames** parameter with a comma-separated list of VMs (VM1, VM2, VM3).
 1. This scenario does not honor the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupnames** variables. For this scenario, you need to create your own Automation schedule. For details, see [Scheduling a runbook in Azure Automation](../automation/automation-schedules.md).
@@ -308,6 +308,20 @@ Alternatively you can add additional actions to the action group, to learn more 
 The following is an example email that is sent when the solution shuts down virtual machines.
 
 ![Automation Update Management solution page](media/automation-solution-vm-management/email.png)
+
+## <a name="add-exclude-vms"></a>Add/Exclude VMs
+
+The solution provides the ability to add VMs to be targeted by the solution or specifically exclude machines from the solution.
+
+### Add a VM
+
+There are a couple options that you can use to make sure that a VM is included in the Start/Stop solution when it runs. Each of the parent [runbooks](#runbooks) of the solution have a **VMList** parameter. You can pass a comma separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
+
+To select multiple VMs, set the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** with the resource group names that contain the VMs you want to start or stop. You can also set this value to `*`, to have the solution run against all resource groups in the subscription.
+
+### Exclude a VM
+
+To exclude a VM from the solution, you can add it to the **External_ExcludeVMNames** variable. This variable is a comma seperated list of specific VMs to exclude from the Start/Stop solution.
 
 ## Modify the startup and shutdown schedules
 
