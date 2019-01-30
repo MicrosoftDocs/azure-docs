@@ -53,7 +53,7 @@ At the root of the project, there's a shared [host.json](functions-host-json.md)
 
 Certain bindings require the presence of an `extensions.csproj`. Binding extensions, required in [version 2.x](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
 
-In PowerShell Function Apps, you may optionally have a `profile.ps1` which will run on a Function App's ["cold start"](#cold-start). More information on the `profile.ps1` can be found [here](#powershell-profile)
+In PowerShell Function Apps, you may optionally have a `profile.ps1` which will run on a Function App's ["cold start"](#cold-start). More information on the `profile.ps1` can be found [here](#powershell-profile).
 
 ## Defining a PowerShell script to be a function
 
@@ -256,7 +256,7 @@ If you're running your Function App locally for development, logs default to the
 
 ## Triggers and bindings types
 
-There are a number of triggers and bindings available to you to use with your Function App. The full list of triggers and bindings [can be found here](azure/azure-functions/functions-triggers-bindings#supported-bindings).
+There are a number of triggers and bindings available to you to use with your Function App. The full list of triggers and bindings [can be found here](functions-triggers-bindings#supported-bindings).
 
 With that said, all triggers and bindings are represented in code as a few real data types:
 
