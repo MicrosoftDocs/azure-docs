@@ -284,4 +284,4 @@ Advance to the next tutorial to learn more about using the publish/subscribe cap
 > [Update inventory using PowerShell and topics/subscriptions](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Install and Configure Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps
