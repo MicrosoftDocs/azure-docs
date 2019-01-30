@@ -174,10 +174,10 @@ $fileName = "linkedStorageAccount.json" # A file name used for downloading and u
 Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
 
 # Create a resource group
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 # Create a storage account
-$storageAccount = New-AzureRmStorageAccount `
+$storageAccount = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
     -Location $location `

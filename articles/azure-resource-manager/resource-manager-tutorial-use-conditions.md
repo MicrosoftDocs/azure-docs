@@ -137,8 +137,8 @@ $vmAdmin = Read-Host -Prompt "Enter the admin username"
 $vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -Name $deploymentName `
     -ResourceGroupName $resourceGroupName `
     -adminUsername $vmAdmin `
     -adminPassword $vmPassword `

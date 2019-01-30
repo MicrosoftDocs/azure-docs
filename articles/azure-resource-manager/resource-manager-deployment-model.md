@@ -53,7 +53,7 @@ For virtual machines, storage accounts, and virtual networks, if the resource wa
 In some cases, a Resource Manager command can retrieve information about a resource created through classic deployment, or can perform an administrative task such as moving a classic resource to another resource group. But, these cases should not give the impression that the type supports Resource Manager operations. For example, suppose you have a resource group that contains a virtual machine that was created with classic deployment. If you run the following Resource Manager PowerShell command:
 
 ```powershell
-Get-AzureRmResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
+Get-AzResource -ResourceGroupName ExampleGroup -ResourceType Microsoft.ClassicCompute/virtualMachines
 ```
 
 It returns the virtual machine:
@@ -68,10 +68,10 @@ Location          : westus
 SubscriptionId    : {guid}
 ```
 
-However, the Resource Manager cmdlet **Get-AzureRmVM** only returns virtual machines deployed through Resource Manager. The following command does not return the virtual machine created through classic deployment.
+However, the Resource Manager cmdlet **Get-AzVM** only returns virtual machines deployed through Resource Manager. The following command does not return the virtual machine created through classic deployment.
 
 ```powershell
-Get-AzureRmVM -ResourceGroupName ExampleGroup
+Get-AzVM -ResourceGroupName ExampleGroup
 ```
 
 Only resources created through Resource Manager support tags. You cannot apply tags to classic resources.

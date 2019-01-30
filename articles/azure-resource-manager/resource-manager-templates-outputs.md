@@ -35,7 +35,7 @@ The following example shows how to return the resource ID for a public IP addres
 After the deployment, you can retrieve the value with script. For PowerShell, use:
 
 ```powershell
-(Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
 For Azure CLI, use:

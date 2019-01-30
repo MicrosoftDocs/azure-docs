@@ -185,7 +185,7 @@ When deploying a template, you must provide a location for each resource. Differ
 The following example uses PowerShell to get the locations for the `Microsoft.Web\sites` resource type:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 The following example uses Azure CLI to get the locations for the `Microsoft.Web\sites` resource type:

@@ -34,9 +34,9 @@ The following example sets up a private storage account container and uploads a 
    
 ```powershell
 # create a storage account for templates
-New-AzureRmResourceGroup -Name ManageGroup -Location "South Central US"
-New-AzureRmStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+New-AzResourceGroup -Name ManageGroup -Location "South Central US"
+New-AzStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Type Standard_LRS -Location "West US"
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # create a container and upload template
 New-AzureStorageContainer -Name templates -Permission Off
@@ -47,15 +47,15 @@ Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.js
 To deploy a private template in a storage account, generate a SAS token and include it in the URI for the template. Set the expiry time to allow enough time to complete the deployment.
    
 ```powershell
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # get the URI with the SAS token
 $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri $templateuri
 ```
 
 For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
