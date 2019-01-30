@@ -1,4 +1,4 @@
-﻿---
+---
 title: Social account claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
 description: Social account claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Social accounts claims transformations

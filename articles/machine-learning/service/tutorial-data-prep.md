@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: In the first part of this tutorial, you learn how to prepare data in Python for regression modeling by using the Azure Machine Learning SDK.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 
 author: cforbe

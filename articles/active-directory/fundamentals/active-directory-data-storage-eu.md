@@ -7,7 +7,7 @@ manager: daveba
 ms.author: lizross
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018

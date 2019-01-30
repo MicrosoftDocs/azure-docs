@@ -4,7 +4,7 @@ description: As an Azure AD Administrator how do I protect user authentication w
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: overview
 ms.date: 07/11/2018
 
