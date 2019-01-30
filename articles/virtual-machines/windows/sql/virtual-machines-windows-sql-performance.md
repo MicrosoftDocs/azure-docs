@@ -86,7 +86,7 @@ For VMs that support premium SSDs (DS-series, DSv2-series, and GS-series), we re
 
 ### Data disks
 
-* **Use data disks for data and log files**: If you are not using disk striping, use two premium SSD [P30 disks](../premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each premium SSD provides a number of IOPs and bandwidth (MB/s) depending on its size, as depicted in the article, [Select a disk type](../disks-types.md). If you are using a disk striping technique, such as Storage Spaces, you achieve optimal performance by having two pools, one for the log file(s) and the other for the data files. However, if you plan to use SQL Server Failover Cluster Instances (FCI), you must configure one pool.
+* **Use data disks for data and log files**: If you are not using disk striping, use two premium SSD P30 disks where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each premium SSD provides a number of IOPs and bandwidth (MB/s) depending on its size, as depicted in the article, [Select a disk type](../disks-types.md). If you are using a disk striping technique, such as Storage Spaces, you achieve optimal performance by having two pools, one for the log file(s) and the other for the data files. However, if you plan to use SQL Server Failover Cluster Instances (FCI), you must configure one pool.
 
    > [!TIP]
    > For test results on various disk and workload configurations, see the following blog post: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
