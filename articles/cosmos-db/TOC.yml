@@ -260,12 +260,6 @@
             href: working-with-dates.md
           - name: Geospatial
             href: geospatial.md
-<<<<<<< HEAD
-        - name: Bulk executor - .NET library
-          href: bulk-executor-dot-net.md
-        - name: Bulk executor - Java library
-          href: bulk-executor-java.md
-=======
           - name: Bulk executor - .NET library
             href: bulk-executor-dot-net.md
           - name: Bulk executor - Java library
@@ -280,7 +274,6 @@
             href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db 
           - name: Use the Spring Data MongoDB API
             href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
->>>>>>> e9a0a0c9606a7909d95eedc2f828810f4078dbef
       - name: Reference
         items:
         - name: .NET
@@ -336,7 +329,7 @@
           - name: Node.js and React app
             href: tutorial-develop-mongodb-react.md
         - name: 2 - Migrate data
-          href: mongodb-migrate.md
+          href: https://docs.microsoft.com/azure/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
         - name: 3 - Query data
           href: tutorial-query-mongodb.md
         - name: 4 - Distribute data globally
