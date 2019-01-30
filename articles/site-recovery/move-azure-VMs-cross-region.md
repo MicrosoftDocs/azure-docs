@@ -98,7 +98,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 1. In the next step, . Select the VM you want to move. Then click **OK**.
 3. In **Settings**, click **Disaster recovery**.
 4. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate.
-5. For this tutorial, accept the other default settings.
+5. You can either choose to go with the default target resources or use the ones you have pre-created.
 6. Click **Enable replication**. This starts a job to enable replication for the VM.
 
     ![enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
@@ -141,7 +141,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 1. Navigate to the VM.  Click on **Disable Replication**.  This stops the process of copying the data for the VM.  
 
 > [!IMPORTANT]
-> It is important to perform this step to avoid getting charged for ASR replication.
+> It is important to perform this step to avoid getting charged for Site Recovery replication.
 
 In case you have no plans to reuse any of the source resources please proceed with the next set of steps.
 
