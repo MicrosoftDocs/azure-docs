@@ -23,18 +23,22 @@ sections:
   items:
   - type: paragraph
     text: 'Learn how to set up the workspace and resources for Azure Machine Learning service using a quickstart:'
-  - type: paragraph
-    text: 'Get started by creating an Azure Machine Learning workspace: <a href="quickstart-get-started">in Azure portal</a> |  <a href="quickstart-create-workspace-with-python">in Python</a>.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: Get started by creating an Azure Machine Learning workspace <a href="quickstart-get-started">in Azure portal</a> or <a href="quickstart-create-workspace-with-python">in Python</a>.
     
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Learn how to prep data, set up experiments, and operationalize your machine learning models:'
-  - type: paragraph
-    text: '<a href="tutorial-train-models-with-aml">Train</a> and <a href="tutorial-deploy-models-with-aml">deploy image classification models</a> (<b>two-part series</b>).
-  - type: paragraph
-    text: '<a href="tutorial-data-prep">Prep data</a> and <a href="tutorial-auto-train-models">use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).
-
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="tutorial-train-models-with-aml">Train</a> and <a href="tutorial-deploy-models-with-aml">deploy image classification models</a> (<b>two-part series</b>).
+    - html: <a href="tutorial-data-prep">Prep data</a> and <a href="tutorial-auto-train-models">use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).
 
 - title: Samples
   items:
