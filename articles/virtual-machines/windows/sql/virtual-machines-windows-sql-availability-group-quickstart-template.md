@@ -38,7 +38,7 @@ To automate the setup of an Always On availability group using quickstart templa
 ## Register existing SQL VM with new resource provider
 Since these availability group Azure Quickstart Templates rely on the SQL VM resource provider (Microsoft.SqlVirtualMachine), existing SQL Server VMs must be registered with the SQL VM resource provider. Skip this step if you created your SQL Server VM after December 2018, as all SQL Server VMs created after this date are automatically registered. This section provides steps to register with the provider using the Azure portal, but you can also use [PowerShell](virtual-machines-windows-sql-ahb.md#powershell). 
 
-  >[!IMPORTANT]
+  > [!IMPORTANT]
   > If you drop your SQL Server VM resource, you will go back to the hard coded license setting of the image. 
 
 1. Open the Azure portal and navigate to **All Services**. 
@@ -65,9 +65,9 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
    | **Existing Vm List** | The SQL Server VMs you want to participate in the availability group, and as such, be part of this new cluster. Separate these values with a comma and a space (ex: SQLVM1, SQLVM2). |
    | **SQL Server Version** | Select the SQL Server version of your SQL Server VMs from the drop-down. Currently only SQL 2016 and SQL 2017 images are supported. |
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
-   | **Existing Domain Account** | An existing domain user account that has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) in the domain (ex: domain\account). | 
+   | **Existing Domain Account** | An existing domain user account that has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) in the domain (ex: account@domain.com). | 
    | **Domain Account Password** | The password for the previously mentioned domain user account. | 
-   | **Existing Sql Service Account** | The domain user account that is being used to control the [SQL Server service](sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) (ex: domain\account). |
+   | **Existing Sql Service Account** | The domain user account that is being used to control the [SQL Server service](sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) (ex: account@domain.com). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
    | **Cloud Witness Name** | This is a new Azure storage account that will be created and used for the cloud witness. This name could  be modified. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |
@@ -137,7 +137,7 @@ To configure the ILB and create the AG listener, do the following:
    | **Existing Vm List** | The names of the SQL Server VMs that are part of the previously mentioned availability group. The names should be separated by a comma and a space (ex: SQLVM1, SQLVM2). |
    | **Listener** | The DNS name you would like to assign to the listener. By default, this template specifies the name 'aglistener' but it can be changed. The name should not exceed 15 characters. |
    | **Listener Port** | The port you want the listener to  use. Typically, this port should be the default port of 1433, and as such, this is the port number specified by this template. However, if your default port has been changed, then the listener port should use that value instead. | 
-    | **Listener IP** | The IP you want the listener to use.  This IP address will be created during template deployment, so provide an IP address that is not already in use.  |
+   | **Listener IP** | The IP you want the listener to use.  This IP address will be created during template deployment, so provide an IP address that is not already in use.  |
    | **Existing Subnet** | The *name* of the internal subnet of your SQL Server VMs (ex: default). This value can be determined by navigating to your **Resource Group**, selecting your **vNet**, selecting **Subnets** under the **Settings** pane, and copying the value under **Name**. |
    | **Existing Internal Load Balancer** | The name of the ILB that you created in Step 3. |
    | **Probe Port** | The probe port that you want the ILB to use. The template uses 59999 by default but this value can be changed. |
@@ -160,7 +160,7 @@ The following code snippet deletes the SQL availability group listener from both
 Remove-AzureRmResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<resource-group-name>/providers/Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/<cluster-name>/availabilitygrouplisteners/<listener-name>' -Force
 ```
  
-## Known issues and errors
+## Common errors
 This section discusses some known issues and their possible resolution. 
 
 ### Availability group listener for availability group '\<AG-Name>' already exists
@@ -173,6 +173,24 @@ To resolve this behavior, remove the listener using [PowerShell](#remove-availab
 
 ### BadRequest - Only SQL virtual machine list can be updated
 This error may occur when deploying the **101-sql-vm-aglistener-setup** template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL VM resource provider. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL VM resource provider; the listener must be deleted from the resource provider using [PowerShell](#remove-availability-group-listener). 
+
+### Domain account does not exist
+This error can be caused by one of two reasons. Either the domain account specified really does not exist, or it is missing the [User Principal Name (UPN)](windows/desktop/ad/naming-properties#userprincipalname) data. The **101-sql-vm-ag-setup** template expects a domain account in the UPN form (i.e. user@domain.com), but some domain accounts may be missing it. This can typically happen when a local user has been migrated to be the first domain administrator account when the server was promoted to a domain controller, or when a user was created through PowerShell. 
+
+ Verify that the account does exist. If it does, you may be running into the second situation. To resolve this, do the following:
+
+ 1. On the domain controller, open the **Active Directory Users and Computers** window from the **Tools** option in **Server Manager**. 
+ 2. Navigate to the account by selecting **Users** on the left pane.
+ 3. Right-click the desired account, and select **Properties**.
+ 4. Select the **Account** tab and verify if the **User logon name** is blank. If it is, this is the cause of your error. 
+
+     ![Blank user account indicates missing UPN](media/virtual-machines-windows-sql-availability-group-quickstart-template/account-missing-upn.png)
+
+ 5. Fill in the **User logon name** to match the name of the user, and select the proper domain from the drop down. 
+ 6. Select **Apply** to save your changes, and close the dialog box by selecting **OK**. 
+
+ Once these changes are made, attempt to deploy the Azure Quickstart Template once more. 
+
 
 
 ## Next steps
