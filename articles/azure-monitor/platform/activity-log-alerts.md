@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Alerts on activity log 
 
@@ -59,4 +59,5 @@ To learn more about action groups, see [Create and manage action groups in the A
 - Learn about [create and modify activity log alerts](../../azure-monitor/platform/alerts-activity-log.md).
 - Review the [activity log alert webhook schema](activity-log-alerts-webhook.md).
 - Learn about [service health notifications](../../azure-monitor/platform/service-notifications.md).
+
 

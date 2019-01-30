@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
@@ -71,11 +71,11 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 	A: For this setup, the email attribute is required for the users to be able to sign-in. This attribute cannot be set manually.
 
-	The email attribute is autopopulated for any user with a valid Exchange license. If user is not email-enabled, this error will be received as the application needs to get this attribute to give access.
+	The email attribute is autopopulated for any user with a valid Exchange license. If user is not mail-enabled, this error will be received as the application needs to get this attribute to give access.
 
-	You can go to portal.office.com with an Admin account, then click in the Admin center, billing, subscriptions, select your Office 365 Subscription and then click on assign to users, select the users you want to check their subscription and in the right pane, click on edit licenses.
+	In order to assign an Exchange license, please go to portal.office.com with an Admin account, then click in the Admin center, billing, subscriptions, select your Office 365 Subscription and then click on assign to users, select the users you want to check their subscription and in the right pane, click on edit licenses.
 
-	Once the O365 license is assigned, it may take some minutes to be applied. After that, the user.mail attribute will be autopopulated and the issue should be resolved.
+	Once the Exchange license is assigned, it may take some minutes to be applied. After that, the user.mail attribute will be autopopulated and the issue should be resolved.
 
 ## Scenario description
 

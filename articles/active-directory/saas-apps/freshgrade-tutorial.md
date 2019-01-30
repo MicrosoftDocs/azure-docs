@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with FreshGrade | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and FreshGrade.
 services: active-directory
@@ -8,7 +8,7 @@ manager: femila
 
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

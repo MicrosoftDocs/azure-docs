@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
@@ -85,6 +85,8 @@ SQL Data Warehouse is a scale-out system that can provision vast amounts of comp
 ## Permissions
 
 Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). 
+
+Built-in roles for Azure resources such as SQL DB Contributor and SQL Server Contributor can change DWU settings. 
 
 ## View current DWU settings
 
