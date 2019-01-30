@@ -4,7 +4,7 @@ description: This page is the central location for all documentation regarding A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
