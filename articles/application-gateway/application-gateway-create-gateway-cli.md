@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you run the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -37,7 +37,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources 
 
-Create the virtual network and subnet using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Create the public IP address using [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create).
+Create the virtual network and subnet using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Create the public IP address using [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \

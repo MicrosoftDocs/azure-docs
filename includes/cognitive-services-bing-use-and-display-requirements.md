@@ -9,7 +9,6 @@ ms.custom: include file
 ms.date: 04/19/2018
 ms.author: rosh, v-gedod
 ---
-# Bing Search API use and display requirements
 
 Use and display requirements apply to any implementation of the content and associated information. For example, the requirements apply to relationships, metadata, and other signals. These can be available through calls to the following APIs:
 

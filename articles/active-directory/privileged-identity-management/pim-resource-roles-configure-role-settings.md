@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
@@ -84,6 +84,8 @@ To ensure that the resource administrator fulfilling the assignment is who they 
 You can require eligible members of a role to run MFA before they can activate. This process ensures that the user who is requesting activation is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised.
 
 To require an eligible member to run MFA before activation, check the **Require Multi-Factor Authentication on activation** box.
+
+For more information, see [Multi-factor authentication (MFA) and PIM](pim-how-to-require-mfa.md).
 
 ## Activation maximum duration
 

@@ -3,19 +3,19 @@ title: 'Azure Active Directory Domain Services: Administer DNS on managed domain
 description: Administer DNS on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Administer DNS on an Azure AD Domain Services managed domain

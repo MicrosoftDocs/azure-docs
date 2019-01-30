@@ -2,8 +2,8 @@
 title: What's New in Azure Data Catalog
 description: This article provides an overview of new capabilities added to Azure Data Catalog.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
@@ -39,7 +39,7 @@ As of August 2017, the following capabilities have been added to Azure Data Cata
 
 ## What's new for July 2017 
 As of July 2017, the following capabilities have been added to Azure Data Catalog:
-*	Support for more granular control over permited metadata operations including:
+*	Support for more granular control over permitted metadata operations including:
     - Catalog administrators can restrict users’ ability to contribute tags and related metadata to the catalog, enabling read-only access to the catalog.
     - Catalog administrators can restrict users’ ability to register new data sources in the catalog.
     - Catalog administrators can restrict users’ ability to take ownership of data asset metadata in the catalog.

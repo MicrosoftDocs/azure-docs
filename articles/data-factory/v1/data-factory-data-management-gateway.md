@@ -11,7 +11,7 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
@@ -140,7 +140,7 @@ At corporate firewall level, you need configure the following domains and outbou
 
 | Domain names | Ports | Description |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Used for communication with Data Movement Service backend |
+| *.servicebus.windows.net |443 |Used for communication with Data Movement Service backend |
 | *.core.windows.net |443 |Used for Staged copy using Azure Blob (if configured)|
 | *.frontend.clouddatahub.net |443 |Used for communication with Data Movement Service backend |
 | *.servicebus.windows.net |9350-9354, 5671 |Optional service bus relay over TCP used by the Copy Wizard |

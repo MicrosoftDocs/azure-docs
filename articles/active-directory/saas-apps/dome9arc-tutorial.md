@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Dome9 Arc | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Dome9 Arc.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -146,7 +146,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. Click **Ok**.
 	
 	> [!NOTE]
-	> Please refer to this [link](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
+	> Please refer to this [link](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
 
 7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 

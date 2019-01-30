@@ -1,25 +1,25 @@
 ---
-title: Build a PHP and MySQL web app in Azure App Service on Linux | Microsoft Docs 
-description: Learn how to get a PHP app working in Azure, with connection to a MySQL database in Azure.
+title: Build PHP app with MySQL on Linux - Azure App Service | Microsoft Docs 
+description: Learn how to get a PHP app working in Azure App Service on Linux, with connection to a MySQL database in Azure.
 services: app-service\web
-documentationcenter: ''
 author: cephalin
 manager: erikre
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: nodejs
+ms.devlang: php
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
-# Build a PHP and MySQL web app in Azure App Service on Linux
+# Build a PHP and MySQL app in Azure App Service on Linux
 
 > [!NOTE]
-> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a PHP and MySQL web app in Azure](../app-service-web-tutorial-php-mysql.md).
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a PHP and MySQL app in Azure](../app-service-web-tutorial-php-mysql.md).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP web app and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on App Service on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on App Service on Linux.
 
 ![PHP app running in Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 To complete this tutorial:
 
 * [Install Git](https://git-scm.com/)
-* [Install PHP 5.6.4 or above](http://php.net/downloads.php)
+* [Install PHP 5.6.4 or above](https://php.net/downloads.php)
 * [Install Composer](https://getcomposer.org/doc/00-intro.md)
 * Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
 * [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
@@ -156,21 +156,21 @@ In this step, you create a MySQL database in [Azure Database for MySQL](/azure/m
 
 Create a server in Azure Database for MySQL with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) command.
 
-In the following command, substitute your MySQL server name where you see the _&lt;mysql_server_name>_ placeholder (valid characters are `a-z`, `0-9`, and `-`). This name is part of the MySQL server's hostname  (`<mysql_server_name>.database.windows.net`), it needs to be globally unique.
+In the following command, substitute a unique server name for the *\<mysql_server_name>* placeholder, a user name for the *\<admin_user>*, and a password for the *\<admin_password>*  placeholder. The server name is used as part of your MySQL endpoint (`https://<mysql_server_name>.mysql.database.azure.com`), so the name needs to be unique across all servers in Azure. For details on selecting MySQL DB SKU, please see [Create an Azure Database for MySQL server](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
-az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user adminuser --admin-password My5up3r$tr0ngPa$w0rd!
+az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
 ```
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
-  "administratorLogin": "adminuser",
+  "administratorLogin": "<admin_user>",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql_server_name>.database.windows.net",
+  "fullyQualifiedDomainName": "<mysql_server_name>.mysql.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
-  "location": "northeurope",
+  "location": "westeurope",
   "name": "<mysql_server_name>",
   "resourceGroup": "myResourceGroup",
   ...
@@ -186,18 +186,22 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 ```
 
 > [!TIP] 
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
+> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
+
+In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your_ip_address>* with [your local IPv4 IP address](http://www.whatsmyip.org/).
+
+```azurecli-interactive
+az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
+```
 
 ### Connect to production MySQL server locally
 
-In the terminal window, connect to the MySQL server in Azure. Use the value you specified previously for _&lt;mysql_server_name>_.
+In the terminal window, connect to the MySQL server in Azure. Use the value you specified previously for _&lt;admin_user>_ and _&lt;mysql_server_name>_. When prompted for a password, use the password you specified when you created the database in Azure.
 
 ```bash
-mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
+mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
 ```
-
-When prompted for a password, use _$tr0ngPa$w0rd!_, which you specified when you created the database server.
 
 ### Create a production database
 
@@ -338,10 +342,10 @@ In App Service, you set environment variables as _app settings_ by using the [`a
 The following command configures the app settings `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`. Replace the placeholders _&lt;appname>_ and _&lt;mysql_server_name>_.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
+az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-You can use the PHP [getenv](http://php.net/manual/en/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
+You can use the PHP [getenv](https://php.net/manual/en/function.getenv.php) method to access the settings. the Laravel code uses an [env](https://laravel.com/docs/5.4/helpers#method-env) wrapper over the PHP `getenv`. For example, the MySQL configuration in _config/database.php_ looks like the following code:
 
 ```php
 'mysql' => [
@@ -364,13 +368,13 @@ Use `php artisan` to generate a new application key without saving it to _.env_.
 php artisan key:generate --show
 ```
 
-Set the application key in the App Service web app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
+Set the application key in the App Service app by using the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command. Replace the placeholders _&lt;appname>_ and _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"` tells Laravel to return debugging information when the deployed web app encounters errors. When running a production application, set it to `false`, which is more secure.
+`APP_DEBUG="true"` tells Laravel to return debugging information when the deployed app encounters errors. When running a production application, set it to `false`, which is more secure.
 
 ### Push to Azure from Git
 
@@ -413,7 +417,7 @@ remote: Running deployment command...
 > You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
 Browse to `http://<app_name>.azurewebsites.net` and add a few tasks to the list.
 
@@ -557,21 +561,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Once the `git push` is complete, navigate to the Azure web app and test the new functionality.
+Once the `git push` is complete, navigate to the Azure app and test the new functionality.
 
 ![Model and database changes published to Azure](media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
 If you added any tasks, they are retained in the database. Updates to the data schema leave existing data intact.
 
-## Manage the Azure web app
+## Manage the Azure app
 
-Go to the [Azure portal](https://portal.azure.com) to manage the web app you created.
+Go to the [Azure portal](https://portal.azure.com) to manage the app you created.
 
-From the left menu, click **App Services**, and then click the name of your Azure web app.
+From the left menu, click **App Services**, and then click the name of your Azure app.
 
-![Portal navigation to Azure web app](./media/tutorial-php-mysql-app/access-portal.png)
+![Portal navigation to Azure app](./media/tutorial-php-mysql-app/access-portal.png)
 
-You see your web app's Overview page. Here, you can perform basic management tasks like  stop, start, restart, browse, and delete.
+You see your app's Overview page. Here, you can perform basic management tasks like  stop, start, restart, browse, and delete.
 
 The left menu provides pages for configuring your app.
 
@@ -593,7 +597,7 @@ In this tutorial, you learned how to:
 > * Stream diagnostic logs from Azure
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to a web app.
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)

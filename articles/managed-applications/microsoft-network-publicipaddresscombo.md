@@ -82,6 +82,7 @@ If the user selects a new or existing IP address, the control returns the follow
   "resourceGroup": "rg01",
   "domainNameLabel": "mydomain",
   "publicIPAllocationMethod": "Dynamic",
+  "sku": "Basic",
   "newOrExistingOrNone": "new"
 }
 ```

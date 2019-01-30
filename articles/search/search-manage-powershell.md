@@ -1,5 +1,5 @@
-﻿---
-title: Manage Azure Search with Powershell scripts | Microsoft Docs
+---
+title: Manage an Azure Search service with Powershell scripts - Azure Search
 description: Manage your Azure Search service with PowerShell scripts. Create or update an Azure Search service and manage Azure Search admin keys
 author: HeidiSteen
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 # Manage your Azure Search service with PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ First, you must login to Azure with this command:
 
 Specify the email address of your Azure account and its password in the Microsoft Azure login dialog.
 
-Alternatively you can [login non-interactively with a service principal](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Alternatively you can [login non-interactively with a service principal](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 If you have multiple Azure subscriptions, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
 

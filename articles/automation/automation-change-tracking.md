@@ -3,10 +3,10 @@ title: Track changes with Azure Automation
 description: The Change Tracking solution helps you identify software and Windows Service changes that occur in your environment.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -21,30 +21,38 @@ Changes to installed software, Windows services, Windows registry and files, and
 
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
-* Windows Server 2008 Service Pack 1 (SP1) or later
-* Windows 7 SP1 and later.
+* Windows Server 2008 R2 or later
 
 ## Supported Linux operating systems
 
 The following Linux distributions are officially supported. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.  
 
-* Amazon Linux 2012.09 to 2015.09 (x86/x64)
-* CentOS Linux 5, 6, and 7 (x86/x64)  
-* Oracle Linux 5, 6, and 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
-* Debian GNU/Linux 6, 7, and 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+### 64-bit
 
-## Enable Change Tracking and Inventory
+* CentOS 6 and 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 and 7
+* Red Hat Enterprise Linux Server 6 and 7
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS and 18.04 LTS
+* SUSE Linux Enterprise Server 12
 
-To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
+### 32-bit
 
-1. In the Azure portal, navigate to your Automation Account
-1. Select **Change Tracking** under **CONFIGURATION**.
-1. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS and 16.04 LTS
 
-This enables the solution for your automation account. The solution can take up to 15 minutes to enable. The blue banner notifies you when the solution is enabled. Navigate back to the **Change Tracking** page to manage the solution.
+## <a name="onboard"></a>Enable Change Tracking and Inventory
+
+To begin tracking changes, you need to enable the Change Tracking and Inventory solution. There are many ways to onboard machines to Change Tracking and Inventory. The following are the recommended and supported ways to onboard the solution.
+
+* [From a virtual machine](automation-onboard-solutions-from-vm.md)
+* [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
+* [From your Automation account](automation-onboard-solutions-from-automation-account.md)
+* [With an Azure Automation runbook](automation-onboard-solutions.md)
 
 ## Configuring Change Tracking and Inventory
 
@@ -156,6 +164,17 @@ The following table shows the data collection frequency for the types of changes
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
 
+The following table shows the tracked item limits per machine for Change Tracking.
+
+| **Resource** | **Limit**| **Notes** |
+|---|---|---|
+|File|500||
+|Registry|250||
+|Windows software|250|Does not include software updates|
+|Linux packages|1250||
+|Services|250||
+|Daemon|250||
+
 ### Windows service tracking
 
 The default collection frequency for Windows services is 30 minutes. To configure the frequency go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there is a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.
@@ -209,6 +228,17 @@ The purpose of monitoring changes to registry keys is to pinpoint extensibility 
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of packages able to receive event notifications from Winlogon, the interactive logon support model for the Windows operating system.|
 
+## Network requirements
+
+The following addresses are required specifically for Change Tracking. Communication to these addresses is done over port 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
+
 ## Use Change Tracking
 
 After the solution is enabled, you can view the summary of changes for your monitored computers by selecting **Change Tracking** under **CONFIGURATION MANAGEMENT** in your Automation account.
@@ -242,3 +272,4 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
 * Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+

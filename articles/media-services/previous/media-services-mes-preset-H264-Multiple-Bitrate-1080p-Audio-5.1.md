@@ -2,7 +2,7 @@
 title: H264 Multiple Bitrate 1080p Audio 5.1 | Microsoft Docs
 description: The topic gives an overview of the **H264 Multiple Bitrate 1080p Audio 5.1** task preset.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
 
 ---

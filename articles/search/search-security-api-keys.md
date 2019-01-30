@@ -1,5 +1,5 @@
 ---
-title: Create, manage, and secure admin and query api-keys for Azure Search | Microsoft Docs
+title: Create, manage, and secure admin and query api-keys - Azure Search
 description: api-keys control access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
 author: HeidiSteen
 manager: cgronlun
@@ -10,7 +10,7 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 
 # Create and manage api-keys for an Azure Search service
@@ -61,7 +61,7 @@ If you regenerate both primary and secondary keys at the same time, any applicat
 ## Secure api-keys
 Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command-line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
-+ In the service dashboard, click **Access control (IAM)** to view role assignments for your service.
++ In the service dashboard, click **Access control (IAM)** and then the **Role assignments** tab to view role assignments for your service.
 
 Members of the following roles can view and regenerate keys: Owner, Contributor, [Search Service Contributors](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 

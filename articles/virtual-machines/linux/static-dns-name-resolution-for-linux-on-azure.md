@@ -1,6 +1,6 @@
 ---
-title: Use internal DNS for VM name resolution with the Azure CLI 2.0 | Microsoft Docs
-description: How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI 2.0
+title: Use internal DNS for VM name resolution with the Azure CLI | Microsoft Docs
+description: How to create virtual network interface cards and use internal DNS for VM name resolution on Azure with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -20,7 +20,8 @@ ms.author: v-livech
 ---
 
 # Create virtual network interface cards and use internal DNS for VM name resolution on Azure
-This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names with the Azure CLI 2.0. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
+
+This article shows you how to set static internal DNS names for Linux VMs using virtual network interface cards (vNics) and DNS label names with the Azure CLI. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
 
 The requirements are:
 
@@ -28,7 +29,7 @@ The requirements are:
 * [SSH public and private key files](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quick commands
-If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+If you need to quickly accomplish the task, the following section details the commands needed. More detailed information and context for each step can be found in the rest of the document, [starting here](#detailed-walkthrough). To perform these steps, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
 
 Pre-Requirements: Resource Group, virtual network and subnet, Network Security Group with SSH inbound.
 
@@ -45,7 +46,7 @@ az network nic create \
 ```
 
 ### Deploy a VM and connect the vNic
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The `--nics` flag connects the vNic to the VM during the deployment to Azure. The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
+Create a VM with [az vm create](/cli/azure/vm). The `--nics` flag connects the vNic to the VM during the deployment to Azure. The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
 
 ```azurecli
 az vm create \
@@ -76,7 +77,7 @@ az group create --name myResourceGroup --location westus
 
 The next step is to build a virtual network to launch the VMs into. The virtual network contains one subnet for this walkthrough. For more information on Azure virtual networks, see [Create a virtual network](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Create the virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
+Create the virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -99,7 +100,7 @@ az network nsg create \
 ```
 
 ## Add an inbound rule to allow SSH
-Add an inbound rule for the network security group with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). The following example creates a rule named `myRuleAllowSSH`:
+Add an inbound rule for the network security group with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule named `myRuleAllowSSH`:
 
 ```azurecli
 az network nsg rule create \
@@ -145,7 +146,7 @@ az network nic create \
 ## Deploy the VM into the virtual network infrastructure
 We now have a virtual network and subnet, a Network Security Group acting as a firewall to protect our subnet by blocking all inbound traffic except port 22 for SSH, and a vNic. You can now deploy a VM inside this existing network infrastructure.
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named `myVM` with Azure Managed Disks and attaches the vNic named `myNic` from the preceding step:
 
 ```azurecli
 az vm create \

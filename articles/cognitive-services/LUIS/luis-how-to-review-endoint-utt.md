@@ -1,17 +1,19 @@
 ---
-title: Label suggested utterances with LUIS | Microsoft Docs
-description: Use Language Understanding (LUIS) to label suggested utterances and help boost active machine learning.
+title: Review user utterances
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: The breakthrough feature of LUIS is the concept of active learning. Once your LUIS has endpoint queries, active learning improves the quality of the results by selects utterances that it is unsure of. If you label these utterances, train, and publish, then LUIS identifies utterances more accurately.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 01/23/2019
 ms.author: diberry
 ---
 
-# Review endpoint utterances
+# How to review endpoint utterances in LUIS portal
 
 The breakthrough feature of LUIS is the [concept](luis-concept-review-endpoint-utterances.md) of active learning. Once your LUIS has endpoint queries, LUIS uses active learning to improve the quality of the results. In the active learning process, LUIS examines all the endpoint utterances, and selects utterances that it is unsure of. If you label these utterances, train, and publish, then LUIS identifies utterances more accurately. 
 
@@ -19,8 +21,6 @@ The breakthrough feature of LUIS is the [concept](luis-concept-review-endpoint-u
 1. Open your app (for example, TravelAgent) by selecting its name on **My Apps** page, then select **Build** in the top bar.
 
 2. Under the **Improve app performance**, select **Review endpoint utterances**.
-
-    ![Review utterances](./media/label-suggested-utterances/review.png)
 
 3. On the **Review endpoint utterances** page, select in the **Filter list by intent or entity** text box. This drop-down list includes all intents under **INTENTS** and all entities under **ENTITIES**.
 

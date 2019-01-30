@@ -1,5 +1,5 @@
 ---
-title: Change FabricTransport settings in Azure microservices | Microsoft Docs
+title: Change FabricTransport settings in Azure Service Fabric actors | Microsoft Docs
 description: Learn about configuring Azure Service Fabric actor communication settings.
 services: Service-Fabric
 documentationcenter: .net
@@ -23,8 +23,8 @@ ms.author: suchiagicha
 Here are the settings that you can configure:
 - C#:
 [FabricTransportRemotingSettings](
-https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
-- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
 You can modify the default configuration of FabricTransport in following ways.
 

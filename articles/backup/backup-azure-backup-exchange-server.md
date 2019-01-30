@@ -2,18 +2,18 @@
 title: Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
 description: Learn how to back up an Exchange server to Azure Backup using System Center 2012 R2 DPM
 services: backup
-author: MaanasSaran
+author: adigan
 manager: NKolli1
 ms.service: backup
-ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: adigan
 ---
 # Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
 This article describes how to configure a System Center 2012 R2 Data Protection Manager (DPM) server to back up a Microsoft Exchange server to  Azure Backup.  
 
 ## Updates
-To successfully register the DPM server with Azure Backup, you must install the latest update rollup for System Center 2012 R2 DPM and the latest version of the Azure Backup Agent. Get the latest update rollup from the [Microsoft Catalog](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
+To successfully register the DPM server with Azure Backup, you must install the latest update rollup for System Center 2012 R2 DPM and the latest version of the Azure Backup Agent. Get the latest update rollup from the [Microsoft Catalog](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
 > [!NOTE]
 > For the examples in this article, version 2.0.8719.0 of the Azure Backup Agent is installed, and Update Rollup 6 is installed on System Center 2012 R2 DPM.
@@ -21,7 +21,7 @@ To successfully register the DPM server with Azure Backup, you must install the 
 >
 
 ## Prerequisites
-Before you continue, make sure that all the [prerequisites](backup-azure-dpm-introduction.md#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. These prerequisites include the following:
+Before you continue, make sure that all the [prerequisites](backup-azure-dpm-introduction.md#prerequisites-and-limitations) for using Microsoft Azure Backup to protect workloads have been met. These prerequisites include the following:
 
 * A backup vault on the Azure site has been created.
 * Agent and vault credentials have been downloaded to the DPM server.

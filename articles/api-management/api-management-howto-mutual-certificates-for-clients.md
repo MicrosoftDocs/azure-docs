@@ -22,6 +22,8 @@ API Management provides the capability to secure access to APIs (i.e., client to
 
 For information about securing access to the back-end service of an API using client certificates (i.e., API Management to back-end), see [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## Checking the expiration date
 
 Below policies can be configured to check if the certificate is expired:

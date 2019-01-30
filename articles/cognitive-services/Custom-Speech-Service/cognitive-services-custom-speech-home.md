@@ -5,13 +5,15 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
 ---
 
 # What is Custom Speech Service?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Custom Speech Service is a cloud-based service that provides users with the ability to customize speech models for Speech-to-Text transcription.
 To use the Custom Speech Service, refer to the [Custom Speech Service Portal](https://cris.ai).
@@ -37,7 +39,7 @@ For example, if you were building an app to search MSDN by voice, it’s likely 
 
 ## Next steps
 
-For more information about how to use the Custom Speech Service, see the [Custom Speech Service Portal] (https://cris.ai).
+For more information about how to use the Custom Speech Service, see the [Custom Speech Service Portal](https://cris.ai).
 
 * [Get Started](cognitive-services-custom-speech-get-started.md)
 * [FAQ](cognitive-services-custom-speech-faq.md)

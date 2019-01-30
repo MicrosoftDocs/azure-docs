@@ -1,17 +1,19 @@
 ---
-title: Understand data storage in LUIS - Azure | Microsoft Docs
-description: Learn how data is stored in Language Understanding (LUIS)
+title: Data storage 
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 05/08/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 01/09/2019
 ms.author: diberry
 ---
 
-# Data storage and removal
+# Data storage and removal in Language Understanding (LUIS) Cognitive Services
 LUIS stores data encrypted in an Azure data store corresponding to the region specified by the key. This data is stored for 30 days. 
 
 ## Export and delete app

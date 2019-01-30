@@ -1,36 +1,34 @@
 ---
-title: 'Configure ExpressRoute and Site-to-Site VPN connections that can coexist: Resource Manager: Azure | Microsoft Docs'
-description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for Resource Manager model.
-documentationcenter: na
+title: 'Configure ExpressRoute and Site-to-Site VPN connections - coexist: PowerShell: Azure | Microsoft Docs'
+description: Configure ExpressRoute and a Site-to-Site VPN connection that can coexist for the Resource Manager model using PowerShell.
 services: expressroute
 author: charwen
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/17/2018
-ms.author: charwen,cherylmc,rambala
+ms.topic: conceptual
+ms.date: 01/07/2019
+ms.author: charwen
+ms.custom: seodec18
 
 ---
-# Configure ExpressRoute and Site-to-Site coexisting connections
+# Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Classic](expressroute-howto-coexist-classic.md)
 > 
 > 
 
+
+This article helps you configure ExpressRoute and Site-to-Site VPN connections that coexist. Having the ability to configure Site-to-Site VPN and ExpressRoute has several advantages. You can configure Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. This article applies to the Resource Manager deployment model.
+
 Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several advantages:
 
 * You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute. 
 * Alternatively, you can use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. 
 
-The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. 
+The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. You can also configure these scenarios using the Azure portal, although documentation is not yet available. You can configure either gateway first. Typically, you will incur no downtime when adding a new gateway or gateway connection.
+
+
 
 >[!NOTE]
 >If you want to create a Site-to-Site VPN over an ExpressRoute circuit, please see [this article](site-to-site-vpn-over-microsoft-peering.md).
@@ -41,6 +39,7 @@ The steps to configure both scenarios are covered in this article. This article 
 * **Basic SKU gateway is not supported.** You must use a non-Basic SKU gateway for both the [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) and the [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Only route-based VPN gateway is supported.** You must use a route-based [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Static route should be configured for your VPN gateway.** If your local network is connected to both ExpressRoute and a Site-to-Site VPN, you must have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet.
+* **VPN Gateway defaults to ASN 65515 if not specified.** Azure VPN Gateway supports the BGP routing protocol. You can specify ASN (AS Number) for a virtual network by adding the -Asn switch. If you don't specify this parameter, the default AS number is 65515. You can use any ASN for the configuration, but if you select something other than 65515, you must reset the gateway for the setting to take effect.
 
 ## Configuration designs
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
@@ -80,7 +79,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 
 1. Install the latest version of the Azure PowerShell cmdlets. For information about installing the cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
 
-2. Log in to your account and set up the environment.
+2. Sign in to your account and set up the environment.
 
   ```powershell
   Connect-AzureRmAccount
@@ -212,7 +211,7 @@ If you have a virtual network that has only one virtual network gateway (let's s
 5. At this point, you have a virtual network with no gateways. To create new gateways and set up the connections, follow the steps in the previous section.
 
 ## To add point-to-site configuration to the VPN gateway
-You can follow the steps below to add Point-to-Site configuration to your VPN gateway in a co-existence setup.
+You can follow the steps below to add Point-to-Site configuration to your VPN gateway in a coexistence setup.
 
 1. Add VPN Client address pool.
 
@@ -227,7 +226,8 @@ You can follow the steps below to add Point-to-Site configuration to your VPN ga
   $p2sCertMatchName = "RootErVpnCoexP2S" 
   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
   ```
 
 For more information on Point-to-Site VPN, see [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).

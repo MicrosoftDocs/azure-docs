@@ -30,7 +30,7 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions).
 
-- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and webhooks, to the notifications using Azure [Activity Log Alerts](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).  
+- A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and webhooks, to the notifications using Azure [Activity Log Alerts](../../azure-monitor/platform/activity-logs-overview.md).  
 - At the time of the notification, a *self-service window* is made available. During this window, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 
@@ -106,7 +106,7 @@ az vm perform-maintenance -g rgName -n vmName
 
 ## Classic deployments
 
-If you still have legacy VMs that were deployed using the classic deployment model, you can use CLI 1.0 to query for VMs and initiate maintenance.
+If you still have legacy VMs that were deployed using the classic deployment model, you can use the Azure classic CLI to query for VMs and initiate maintenance.
 
 Make sure you are in the correct mode to work with classic VM by typing:
 

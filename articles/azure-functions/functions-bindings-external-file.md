@@ -2,19 +2,15 @@
 title: External File bindings for Azure Functions (experimental)
 description: Using External File bindings in Azure Functions
 services: functions
-documentationcenter: ''
-author: alexkarcher-msft
-manager: cfowler
-editor: ''
+author: craigshoemaker
+manager: jeconnoc
 
 ms.assetid:
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: alkarche
+ms.author: cshoe
 
 ---
 # Azure Functions External File bindings (experimental)
@@ -31,7 +27,7 @@ This article shows how to manipulate files from different SaaS providers (such a
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
+|[FTP](https://docs.microsoft.com/azure/app-service/deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive for Business](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x

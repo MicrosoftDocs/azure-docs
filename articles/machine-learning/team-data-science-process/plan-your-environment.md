@@ -1,22 +1,16 @@
 ---
-title: Identify scenarios and plan your analytics process - Azure | Microsoft Docs
-description: Plan for advanced analytics by considering a series of key questions.
+title: Identify scenarios and plan the analytics process - Team Data Science Process
+description: Identify scenarios and plan for advanced analytics data processing by considering a series of key questions.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 421520dd-7728-4d29-889c-ebe6a0a6fb07
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # How to identify scenarios and plan for advanced analytics data processing
 What resources should you plan to include when setting up an environment to do advanced analytics processing on a dataset? This article suggests a series of questions to ask that help identify the tasks and resources relevant your scenario. The order of high-level steps for predictive analytics is outlined in [What is the Team Data Science Process (TDSP)?](overview.md). Each of these steps requires specific resources for the  tasks relevant to your particular scenario. The key questions to identify your scenario concern data logistics, characteristics, the quality of the datasets, and the tools and languages you prefer to do the analysis.
@@ -73,7 +67,7 @@ Take the Azure Machine Learning Studio environment for example:
 
 * For a list of the data formats and types supported by Azure Machine Learning Studio, see
   [Data formats and data types supported](../studio/import-data.md#data-formats-and-data-types-supported) section.
-* For information on data limitations for Azure Machine Learning Studio, see the **How large can the data set be for my modules?** section of [Importing and exporting data for Machine Learning](../studio/faq.md#machine-learning-studio-questions)
+
 
 For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
 
@@ -96,10 +90,10 @@ There are lots of options here depending on what languages and development envir
    * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
    * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
    * [RStudio](http://www.rstudio.com)
-   * [Python Tools for Visual Studio](http://aka.ms/ptvsdocs)
+   * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
    * [Anaconda](https://www.continuum.io/why-anaconda)
    * [Jupyter notebooks](http://jupyter.org/)
-   * [Microsoft Power BI](http://powerbi.microsoft.com)
+   * [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## Identify your advanced analytics scenario
 Once you have answered the questions in the previous section, you are ready to determine which scenario best fits your case. The sample scenarios are outlined in [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md).

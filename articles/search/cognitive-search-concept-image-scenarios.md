@@ -1,5 +1,5 @@
 ---
-title: Process and extract text from images in Azure Search | Microsoft Docs
+title: Process and extract text from images in cognitive search - Azure Search
 description: Process and extract text and other information from images in cognitive search pipelines in Azure Search.
 services: search
 manager: pablocas
@@ -11,6 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
+ms.custom: seodec2018
 ---
 #  How to process and extract information from images in cognitive search scenarios
 
@@ -116,7 +117,6 @@ The following example skillset creates a *merged_text* field containing the text
   "skills":
   [
     {
-        "name": "OCR skill",
         "description": "Extract text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
@@ -153,7 +153,7 @@ The following example skillset creates a *merged_text* field containing the text
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

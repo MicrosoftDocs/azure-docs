@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 ## <a name="create-client"></a>Create a client connection
 Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.  Replace `appUrl` with the
 URL to your Mobile App.

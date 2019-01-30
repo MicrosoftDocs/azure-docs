@@ -29,7 +29,7 @@ This quickstart describes how to use PowerShell to create an Azure data factory.
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### Azure PowerShell
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 #### Log in to PowerShell
 
@@ -51,7 +51,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
     ```
 
 ## Create a data factory
-1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"adfrg"`. 
+1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) in double quotes, and then run the command. For example: `"ADFQuickStartRG"`. 
    
      ```powershell
     $resourceGroupName = "ADFQuickStartRG";
@@ -235,16 +235,6 @@ In this quickstart, you create a pipeline with one activity that takes two param
     $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "Adfv2QuickStartPipeline" -DefinitionFile ".\Adfv2QuickStartPipeline.json"
     ```
 
-    Here is the sample output:
-
-    ```
-    PipelineName      : Adfv2QuickStartPipeline
-    ResourceGroupName : <resourceGroupName>
-    DataFactoryName   : <dataFactoryName>
-    Activities        : {CopyFromBlobToBlob}
-    Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
-    ```
-
 ## Create a pipeline run
 
 In this step, you set values for the pipeline parameters:  **inputPath** and **outputPath** with actual values of source and sink blob paths. Then, you create a pipeline run by using these arguments. 
@@ -315,7 +305,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 
         ```json
         "connectionString": {
-            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageacountkey;EndpointSuffix=core.windows.net",
+            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageaccountkey;EndpointSuffix=core.windows.net",
             "type": "SecureString"
         }
         ```

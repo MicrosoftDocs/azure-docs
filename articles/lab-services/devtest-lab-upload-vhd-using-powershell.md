@@ -28,7 +28,7 @@ The following steps walk you through using PowerShell to upload a VHD file to a 
 
 The following steps walk you through uploading a VHD file to Azure DevTest Labs using PowerShell. 
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **All services**, and then select **DevTest Labs** from the list.
 

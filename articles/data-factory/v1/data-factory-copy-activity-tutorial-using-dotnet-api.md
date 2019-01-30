@@ -11,7 +11,7 @@ ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -46,8 +46,8 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 ## Prerequisites
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
 * Visual Studio 2012 or 2013 or 2015
-* Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.

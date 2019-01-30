@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). 
 
 ## Create virtual networks
 
@@ -43,7 +43,7 @@ Before creating a virtual network, you have to create a resource group for the v
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVirtualNetwork1* with the address prefix *10.0.0.0/16*.
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named *myVirtualNetwork1* with the address prefix *10.0.0.0/16*.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -84,7 +84,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Create a peering from *myVirtualNetwork1* to *myVirtualNetwork2* with [az network vnet peering create](/cli/azure/network/vnet/peering#az_network_vnet_peering_create). If the `--allow-vnet-access` parameter is not specified, a peering is established, but no communication can flow through it.
+Create a peering from *myVirtualNetwork1* to *myVirtualNetwork2* with [az network vnet peering create](/cli/azure/network/vnet/peering). If the `--allow-vnet-access` parameter is not specified, a peering is established, but no communication can flow through it.
 
 ```azurecli-interactive
 az network vnet peering create \

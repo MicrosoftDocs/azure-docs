@@ -1,17 +1,18 @@
 ---
-title: Review text in Azure Content Moderator | Microsoft Docs
+title: Review text in Azure Content Moderator - Content Moderator
 description: Learn how to review text in Content Moderator to see its score and detected tags. Use the information to detemine whether content is appropriate.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Review text
+# Let human reviewers review text
 
 You can use Azure Content Moderator to review text by using scores and detected tags. Use the information to determine whether content is appropriate. 
 
@@ -27,4 +28,4 @@ The Review tool first calls the Text Moderation API. Then, it generates text rev
 
 Detailed results appear in the windows. Results include detected tags and terms that were returned by the Text Moderation API. To toggle a tag's selection status, select the tag. You can also work with any custom tags that you might have created.
 
-![Review text results](images/3-review-text-2.png)
+![Screenshot of the review tool showing flagged text in a Chrome browser window](../images/reviewresults_text.png)

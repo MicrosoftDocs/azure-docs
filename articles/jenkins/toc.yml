@@ -13,9 +13,9 @@
 - name: Tutorials
   items:
   - name: CI/CD to App Service
-    href: /azure/jenkins/java-deploy-webapp-tutorial
+    href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service
   - name: CI/CD to Kubernetes
-    href: /azure/container-service/kubernetes/container-service-kubernetes-jenkins
+    href: /azure/aks/jenkins-continuous-deployment
     maintainContext: true
   - name: CI/CD to Linux VMs
     href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
@@ -38,7 +38,7 @@
     - name: Publish to Azure Storage
       href: /azure/storage/storage-java-jenkins-continuous-integration-solution
       maintainContext: true
-    - name: Use Jenkins with VSTS
+    - name: Use Jenkins with Azure DevOps
       href: https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins
     - name: Deploy Service Fabric apps
       href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins

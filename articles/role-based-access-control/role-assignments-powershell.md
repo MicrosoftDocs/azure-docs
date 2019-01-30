@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -25,7 +25,7 @@ ms.reviewer: bagovind
 To manage access, you need one of the following:
 
 * [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## List roles
 
@@ -170,7 +170,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 To list all the roles that are assigned to a specified user, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <user email>
+Get-AzureRmRoleAssignment -SignInName <email, userprincipalname>
 ```
 
 ```Example
@@ -184,7 +184,7 @@ Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourc
 To list all the roles that are assigned to a specified user and the roles that are assigned to the groups to which the user belongs, use [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 ```azurepowershell
-Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
+Get-AzureRmRoleAssignment -SignInName <email, userprincipalname> -ExpandPrincipalGroups
 ```
 
 ```Example
@@ -226,7 +226,7 @@ Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 To grant access to an application at the subscription scope, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
+New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>
 ```
 
 ```Example
@@ -248,7 +248,7 @@ CanDelegate        : False
 To grant access to a user at the resource group scope, use [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -SignInName <email of user> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
+New-AzureRmRoleAssignment -SignInName <email, userprincipalname> -RoleDefinitionName <role name in quotes> -ResourceGroupName <resource group name>
 ```
 
 ```Example

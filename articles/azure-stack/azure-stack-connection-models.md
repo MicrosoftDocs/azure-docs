@@ -13,9 +13,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 
 ---
 # Azure Stack integrated systems connection models

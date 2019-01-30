@@ -1,27 +1,26 @@
 ---
-title: Compare default user permissions in Azure AD | Microsoft Docs
-description: Compare member, guest, app owner, and group owner permissions
+title: Default user permissions - Azure Active Directory | Microsoft Docs
+description: Learn about the different user permissions available in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
-manager: mtillman
-editor: ''
+manager: daveba
+
 ms.service: active-directory
+ms.subservice: fundamentals
 ms.workload: identity
-ms.component: fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
+ms.custom: "it-pro, seodec18"
 ---
 
-# Default user permissions in Azure Active Directory
-
-In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists the type of user, their [role
+# What are the default user permissions in Azure Active Directory?
+In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists of the type of user, their [role
 memberships](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
 
 ## Member and guest users
-The set of default permissions received depends on if the user is a native member of the tenant (member user) or if the user is a B2B collaboration guest (guest user). For more information about B2B collaboration, see [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md) for more information about guest users). 
+The set of default permissions received depends on if the user is a native member of the tenant (member user) or if the user is a B2B collaboration guest (guest user). For more information about B2B collaboration, see [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md) for more information about guest users. 
 * Member users can register applications, manage their own profile photo and mobile phone number, change their own password, and invite B2B guests. In addition, users can read all directory information (with a few exceptions). 
 * Azure AD B2B guest users have restricted directory permissions. For example, guest users cannot browse information from the tenant beyond their own profile information. However, a guest user can retrieve information about another user by providing the User Principal Name or objectId. A guest cannot view any information about other tenant objects such as groups and applications.
 
@@ -48,7 +47,7 @@ Permission | Setting explanation
 ---------- | ------------
 Ability to create security groups | Setting this option to No prevents users from creating security groups. Global Administrators and User Account Administrators can still create security groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
 Ability to create Office 365 groups | Setting this option to No prevents users from creating Office 365 groups. Setting this option to Some allows a select set of users to create Office 365 groups. Global Administrators and User Account Administrators will still be able to create Office 365 groups. See [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) to learn how.
-Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing the Azure Active Directory portal.
+Restrict access to Azure AD administration portal | Setting this option to No prevents users from accessing Azure Active Directory.
 Ability to read other users | This setting is available in PowerShell only. Setting this to $false prevents all non-admins from reading user information from the directory. This does not prevent reading user information in other Microsoft services like Exchange Online. This setting is meant for special circumstances, and setting this to $false is not recommended.
 
 ## Object ownership
@@ -66,7 +65,7 @@ When a user creates a group, they are automatically added as an owner for that g
 
 ## Next steps
 
-* To learn more about how to change administrators for an Azure subscription, see [How to add or change Azure administrator roles](../../billing/billing-add-change-azure-subscription-administrator.md)
+* To learn more about how to assign Azure AD administrator roles, see [Assign a user to administrator roles in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * For more information on how Azure Active Directory relates to your Azure subscription, see [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 * [Manage users](add-users-azure-active-directory.md)

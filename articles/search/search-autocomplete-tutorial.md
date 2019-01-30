@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial for adding auto-complete to your search box using Azure Search | Microsoft Docs'
+title: 'Tutorial for adding auto-complete to your search box - Azure Search'
 description: Examples of how to improve the end user experience of your data-centric applications using Azure Search auto-complete and suggestions APIs. 
 manager: pablocas
 author: mrcarter8
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
+ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand auto-complete implementation, benefits, and tradeoffs.
 ---
 
 # Tutorial: Add auto-complete to your search box using Azure Search
 
-In this tutorial, you'll learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [auto-complete](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) and [facets](search-faceted-navigation.md) in the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) to build a powerful search box. *Suggestions* provide recommendations of actual results based on what the user has typed so far. *Auto-complete*, [a new preview feature](search-api-preview.md) in Azure Search, provides terms from the index to complete what the user is currently typing. We'll compare multiple techniques to improve user productivity and quickly and easily find what they are looking for by bringing the richness of search directly to the user as they type.
+In this tutorial, you'll learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [auto-complete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) and [facets](search-faceted-navigation.md) in the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) to build a powerful search box. *Suggestions* provide recommendations of actual results based on what the user has typed so far. *Auto-complete*, [a new preview feature](search-api-preview.md) in Azure Search, provides terms from the index to complete what the user is currently typing. We'll compare multiple techniques to improve user productivity and quickly and easily find what they are looking for by bringing the richness of search directly to the user as they type.
 
 This tutorial walks you through an ASP.NET MVC-based application that uses C# to call the [Azure Search .NET client libraries](https://aka.ms/search-sdk), and JavaScript to call the Azure Search REST API directly. The application for this tutorial targets an index populated the [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) sample data. You can either use the index already configured in NYC Jobs demo, or populate your own index using a data loader in the NYCJobs sample solution. The sample uses the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript libraries to build a search box that supports auto-complete. Using these components along with Azure Search, you'll see multiple examples of how to support auto-complete with type-ahead in your search box.
 
@@ -55,7 +56,7 @@ Follow the steps in this section if you would like to import the data for the NY
 
 ### Running the sample
 
-You are now ready to run the tutorial sample application.  Open the AutocompleteTutorial.sln solution file in Visual Studio to run the tutorial.  The solution contains an ASP.NET MVC project.  Press F5 to run the project and load the page in your browser of choice.  At the top, you'll see an option to select C# or JavaScript.  The C# option calls into the HomeController from the browser and uses the Azure Search .Net SDK to retrieve results.  The JavaScript option calls the Azure Search REST API directly from the browser.  This option will typically have noticably better performance since it takes the controller out of the flow.  You can choose the option that suits your needs and language preferences.  There are several auto-complete examples on the page with some guidance for each.  Each example has some recommended sample text you can try.  Try typing in a few letters in each search box to see what happens.
+You are now ready to run the tutorial sample application.  Open the AutocompleteTutorial.sln solution file in Visual Studio to run the tutorial.  The solution contains an ASP.NET MVC project.  Press F5 to run the project and load the page in your browser of choice.  At the top, you'll see an option to select C# or JavaScript.  The C# option calls into the HomeController from the browser and uses the Azure Search .Net SDK to retrieve results.  The JavaScript option calls the Azure Search REST API directly from the browser.  This option will typically have noticeably better performance since it takes the controller out of the flow.  You can choose the option that suits your needs and language preferences.  There are several auto-complete examples on the page with some guidance for each.  Each example has some recommended sample text you can try.  Try typing in a few letters in each search box to see what happens.
 
 ## How this works in code
 
@@ -210,7 +211,7 @@ This tutorial demonstrates the basic steps for building a search box that suppor
 Integrate suggestions and auto-complete into your search experience.  Consider how using the .Net SDK or the REST API directly can help bring the power of Azure Search to your users as they type to make them more productive.
 
 > [!div class="nextstepaction"]
-> [Autocomplete REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [Suggestions REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Facets index attribute on a Create Index REST API](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index)
+> [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Facets index attribute on a Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

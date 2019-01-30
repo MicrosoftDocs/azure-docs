@@ -1,6 +1,6 @@
 ---
 title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
-description: Learn how to create a Linux virtual machine with Accelerated Networking.
+description: Learn how to create a Linux virtual machine with Accelerated Networking enabled.
 services: virtual-network
 documentationcenter: na
 author: gsilva5
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/02/2018
+ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: 
 
@@ -27,9 +27,9 @@ In this tutorial, you learn how to create a Linux virtual machine (VM) with Acce
 
 Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. The virtual switch provides all policy enforcement, such as network security groups, access control lists, isolation, and other network virtualized services to network traffic. To learn more about virtual switches, read the [Hyper-V network virtualization and virtual switch](https://technet.microsoft.com/library/jj945275.aspx) article.
 
-With accelerated networking, network traffic arrives at the VM's network interface (NIC), and is then forwarded to the VM. All network policies that the virtual switch applies are now offloaded and applied in hardware. Applying policy in hardware enables the NIC to forward network traffic directly to the VM, bypassing the host and the virtual switch, while maintaining all the policy it applied in the host.
+With accelerated networking, network traffic arrives at the virtual machine's network interface (NIC), and is then forwarded to the VM. All network policies that the virtual switch applies are now offloaded and applied in hardware. Applying policy in hardware enables the NIC to forward network traffic directly to the VM, bypassing the host and the virtual switch, while maintaining all the policy it applied in the host.
 
-The benefits of accelerated networking only apply to the VM that it is enabled on. For the best results, it is ideal to enable this feature on at least two VMs connected to the same Azure Virtual Network (VNet). When communicating across VNets or connecting on-premises, this feature has minimal impact to overall latency.
+The benefits of accelerated networking only apply to the VM that it is enabled on. For the best results, it is ideal to enable this feature on at least two VMs connected to the same Azure virtual network (VNet). When communicating across VNets or connecting on-premises, this feature has minimal impact to overall latency.
 
 ## Benefits
 * **Lower Latency / Higher packets per second (pps):** Removing the virtual switch from the datapath removes the time packets spend in the host for policy processing and increases the number of packets that can be processed inside the VM.
@@ -58,8 +58,9 @@ For more information on VM instances, see [Linux VM sizes](../virtual-machines/l
 ### Regions
 Available in all public Azure regions as well as Azure Government Clouds.
 
-### Network interface creation 
+<!-- ### Network interface creation 
 Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
+removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ### Enabling Accelerated Networking on a running VM
 A supported VM size without accelerated networking enabled can only have the feature enabled when it is stopped and deallocated.  
 ### Deployment through Azure Resource Manager
@@ -71,7 +72,7 @@ Though this article provides steps to create a virtual machine with accelerated 
 
 ### Create a virtual network
 
-Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
+Install the latest [Azure CLI](/cli/azure/install-azure-cli) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
 
 Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
 

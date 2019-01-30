@@ -22,6 +22,9 @@ ms.author: ellacroi
 
 The Marketplace publishing guide is designed to help new and existing publishers learn how to use storefronts in the [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Microsoft AppSource](https://appsource.microsoft.com) to grow their business in partnership with Microsoft by listing applications and services.
 
+>[!Note]
+>The Marketplace here refers to both Azure Marketplace and AppSource.  See [One Marketplace, two storefronts](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) for more information.
+
 This guide covers the following topics: 
 *   What the Marketplace is and how it works 
 *   The difference between Azure Marketplace and AppSource storefronts 

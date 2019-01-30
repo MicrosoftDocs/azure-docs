@@ -3,7 +3,7 @@ title: Understand instance IDs for Azure VM scale set VMs | Microsoft Docs
 description: Understand instance IDs for Azure VM scale set VMs
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
-ms.author: negat
+ms.author: manayar
 
 ---
 # Understand instance IDs for Azure VM scale set VMs
@@ -37,7 +37,7 @@ REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 Powershell: `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (for more information, see the [Powershell documentation](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instances)).
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (for more information, see the [CLI documentation](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
 
 You can also use [resources.azure.com](https://resources.azure.com) or the [Azure SDKs](https://azure.microsoft.com/downloads/) to list the VMs in a scale set.
 

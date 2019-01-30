@@ -28,7 +28,7 @@ Service Fabric provides multiple ways to get the aggregated health of the entiti
 * Health queries (through PowerShell, API, or REST)
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, API, or REST)
 
-To demonstrate these options, let's use a local cluster with five nodes and the [fabric:/WordCount application](http://aka.ms/servicefabric-wordcountapp). The **fabric:/WordCount** application contains two default services, a stateful service of type `WordCountServiceType`, and a stateless service of type `WordCountWebServiceType`. I changed the `ApplicationManifest.xml` to require seven target replicas for the stateful service and one partition. Because there are only five nodes in the cluster, the system components report a warning on the service partition because it is below the target count.
+To demonstrate these options, let's use a local cluster with five nodes and the [fabric:/WordCount application](https://aka.ms/servicefabric-wordcountapp). The **fabric:/WordCount** application contains two default services, a stateful service of type `WordCountServiceType`, and a stateless service of type `WordCountWebServiceType`. I changed the `ApplicationManifest.xml` to require seven target replicas for the stateful service and one partition. Because there are only five nodes in the cluster, the system components report a warning on the service partition because it is below the target count.
 
 ```xml
 <Service Name="WordCountService">
@@ -42,7 +42,7 @@ To demonstrate these options, let's use a local cluster with five nodes and the 
 Service Fabric Explorer provides a visual view of the cluster. In the image below, you can see that:
 
 * The application **fabric:/WordCount** is red (in error) because it has an error event reported by **MyWatchdog** for the property **Availability**.
-* One of its services, **fabric:/WordCount/WordCountService** is yellow (in warning). The service is configured with seven replicas and the cluster has five nodes, so two repicas can't be placed. Although it's not shown here, the service partition is yellow because of a system report from `System.FM` saying that `Partition is below target replica or instance count`. The yellow partition triggers the yellow service.
+* One of its services, **fabric:/WordCount/WordCountService** is yellow (in warning). The service is configured with seven replicas and the cluster has five nodes, so two replicas can't be placed. Although it's not shown here, the service partition is yellow because of a system report from `System.FM` saying that `Partition is below target replica or instance count`. The yellow partition triggers the yellow service.
 * The cluster is red because of the red application.
 
 The evaluation uses default policies from the cluster manifest and application manifest. They are strict policies and do not tolerate any failure.
@@ -460,7 +460,7 @@ To get service health through the API, create a `FabricClient` and call the [Get
 
 The following example gets the health of a service with specified service name (URI):
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
@@ -609,7 +609,7 @@ HealthStatistics      :
 ```
 
 ### REST
-You can get partition health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) that includes health policies described in the body.
+You can get partition health with a [GET request](/rest/api/servicefabric/sfclient-api-getpartitionhealth) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Get replica health
 Returns the health of a stateful service replica or a stateless service instance. Input:

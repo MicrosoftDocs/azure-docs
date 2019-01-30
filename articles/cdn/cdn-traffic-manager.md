@@ -3,8 +3,8 @@ title: Set up failover across multiple Azure CDN endpoints with Azure Traffic Ma
 description: Learn about how to set up Azure Traffic Manager with Azure CDN endpoints.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: v-deasim
+ms.author: kumud
 ms.custom: 
 
 ---
@@ -42,7 +42,7 @@ Create an Azure Traffic Manager profile and set up load balancing across your CD
 
     For **Routing method**, select **Priority**.
 
-2. Add your CDN endpoints in your Traffic Manager profile by following the steps in [Add Traffic Manager endpoints](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
+2. Add your CDN endpoints in your Traffic Manager profile by following the steps in [Add Traffic Manager endpoints](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
 
     For **Type**, select **External endpoints**. For **Priority**, enter a number.
 
@@ -88,7 +88,7 @@ After you set up your CDN and Traffic Manager profiles, follow these steps to ad
 After you complete these steps, your multi-CDN service with failover capabilities is set up with Azure Traffic Manager. You'll be able to access the test URLs from your custom domain. To test the functionality, disable the primary CDN endpoint and verify that the request is correctly moved over to the secondary CDN endpoint. 
 
 ## Next steps
-You can also set up other routing methods, such as geographic, to balance the load among different CDN endpoints. For more information, see [Configure the geographic traffic routing method using Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+You can also set up other routing methods, such as geographic, to balance the load among different CDN endpoints. For more information, see [Configure the geographic traffic routing method using Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
 
 

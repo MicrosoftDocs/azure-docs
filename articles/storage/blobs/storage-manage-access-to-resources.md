@@ -29,14 +29,14 @@ You can use the following to set container permissions:
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Azure CLI 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
+* [Azure CLI](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Programmatically, by using one of the storage client libraries or the REST API
 
 ### Set container permissions in the Azure portal
 To set container permissions in the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. Open your **Storage account** blade in the portal. You can find your storage account by selecting **Storage accounts** in the main portal menu blade.
-1. Under **BLOB SERVICE** on the menu blade, select **Containers**.
+1. Under **BLOB SERVICE** on the menu blade, select **Blobs**.
 1. Right-click on the container row or select the ellipsis to open the container's **Context menu**.
 1. Select **Access policy** in the context menu.
 1. Select an **Access type** from the drop down menu.

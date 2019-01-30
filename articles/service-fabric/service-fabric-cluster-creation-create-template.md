@@ -253,6 +253,14 @@ The following diagram illustrates where your key vault and Azure AD configuratio
 ## Next steps
 Now that you have a template for your cluster, learn how to [deploy the cluster to Azure](service-fabric-cluster-creation-via-arm.md).  If you haven't already, read the [Production readiness checklist](service-fabric-production-readiness-checklist.md) before deploying a production cluster.
 
+To learn about the JSON syntax and properties for the resources deployed in this article, see:
+
+* [Microsoft.ServiceFabric/clusters](/azure/templates/microsoft.servicefabric/clusters)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers)
+* [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets)
 
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md

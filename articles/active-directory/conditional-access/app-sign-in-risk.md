@@ -5,16 +5,16 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure a policy to handle suspicious sign-ins, so that they can be automatically handled.
@@ -43,7 +43,7 @@ To complete the scenario in this tutorial, you need:
 
 - **Tor Browser** - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is designed to help you preserve your privacy online. Identity Protection detects a sign-in from a Tor Browser as **sign-ins from anonymous IP addresses**, which has a medium risk level. For more information, see [Azure Active Directory risk events](../reports-monitoring/concept-risk-events.md).  
 
-- **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **A test account called Alain Charon** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## Test your sign-in 
@@ -84,7 +84,7 @@ This section shows how to create the required conditional access policy. In your
 
     ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-3. On the **Azure Active Directory** page, in the **Manage** section, click **Conditional access**.
+3. On the **Azure Active Directory** page, in the **Security** section, click **Conditional access**.
 
     ![Conditional access](./media/app-sign-in-risk/03.png)
  
@@ -203,13 +203,13 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 
 When no longer needed, delete the test user, the Tor Browser and the conditional access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 
     ![Multi-factor authentication](./media/app-sign-in-risk/33.png)
 
-- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- For instructions to remove the Tor Browser, see [Uninstalling](https://tb-manual.torproject.org/uninstalling/).
 
 ## Next steps
 

@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
@@ -164,7 +164,7 @@ The following table provides inbound port requirements for Windows Firewall:
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Required by the PowerShell encryption cmdlet as described in [Encrypt credentials for on-premises data stores in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), and by the credential manager application to securely set credentials for on-premises data stores on the self-hosted integration runtime. |
 
-![Gateway port requirements](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![Gateway port requirements](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### IP configurations and whitelisting in data stores
 Some data stores in the cloud also require that you whitelist the IP address of the machine accessing the store. Ensure that the IP address of the self-hosted integration runtime machine is whitelisted or configured in the firewall appropriately.
@@ -185,7 +185,7 @@ We do not support this feature yet. We are actively working on it.
 
 **What are the port requirements for the self-hosted integration runtime to work?**
 
-The self-hosted integration runtime makes HTTP-based connections to access the internet. The outbound ports 443 and 80 must be opened for the self-hosted integration runtime to make this connection. Open inbound port 8050 only at the machine level (not the corporate firewall level) for credential manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as the source or the destination, you need to open port 1433 as well. For more information, see the [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of-gateway) section. 
+The self-hosted integration runtime makes HTTP-based connections to access the internet. The outbound ports 443 must be opened for the self-hosted integration runtime to make this connection. Open inbound port 8050 only at the machine level (not the corporate firewall level) for credential manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as the source or the destination, you need to open port 1433 as well. For more information, see the [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of-gateway) section. 
 
 
 ## Next steps

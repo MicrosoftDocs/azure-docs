@@ -40,14 +40,14 @@ include:
 * Forwarding customer inquiries
 * Email notifications from your application
 
-For more information, see <http://sendgrid.com>.
+For more information, see <https://sendgrid.com>.
 
 ## Create a SendGrid account
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## How to: Use the javax.mail libraries
 Obtain the javax.mail libraries, for example from
-<http://www.oracle.com/technetwork/java/javamail> and import them into
+<https://www.oracle.com/technetwork/java/javamail> and import them into
 your code. At a high-level, the process for using the javax.mail library
 to send email using SMTP is to do the following:
 
@@ -56,7 +56,6 @@ to send email using SMTP is to do the following:
 
 ```
         import java.util.Properties;
-        import javax.activation.*;
         import javax.mail.*;
         import javax.mail.internet.*;
 
@@ -213,13 +212,13 @@ these links to learn more.
 * SendGrid API documentation: <https://sendgrid.com/docs/API_Reference/index.html>
 * SendGrid special offer for Azure customers: <https://sendgrid.com/windowsazure.html>
 
-[http://sendgrid.com]: https://sendgrid.com
-[http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
+[https://sendgrid.com]: https://sendgrid.com
+[https://sendgrid.com/pricing.html]: https://sendgrid.com/pricing.html
 [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
-[http://sendgrid.com/features]: https://sendgrid.com/features
-[http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
+[https://sendgrid.com/features]: https://sendgrid.com/features
+[https://www.oracle.com/technetwork/java/javamail]: https://www.oracle.com/technetwork/java/javamail/index.html
 [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
 [SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
-[http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
+[https://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [cloud-based email service]: https://sendgrid.com/email-solutions
 [transactional email delivery]: https://sendgrid.com/transactional-email

@@ -1,3 +1,10 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+---
 #### Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * A [Dynamics CRM Online](https://www.microsoft.com/en-us/dynamics/crm-free-trial-overview.aspx) account 

@@ -23,7 +23,7 @@ ms.author: mikerou
 Service Fabric clusters running in Azure are built on top of virtual machine scale sets.  [Cluster scaling](./service-fabric-cluster-scale-up-down.md) describes how Service Fabric clusters can be scaled either manually or with auto-scale rules. This article describes how to manage credentials and scale a cluster in or out using the fluent Azure compute SDK, which is a more advanced scenario. For an overview, read [programmatic methods of coordinating Azure scaling operations](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 ## Manage credentials
-One challenge of writing a service to handle scaling is that the service must be able to access virtual machine scale set resources without an interactive login. Accessing the Service Fabric cluster is easy if the scaling service is modifying its own Service Fabric application, but credentials are needed to access the scale set. To log in, you can use a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) created with the [Azure CLI 2.0](https://github.com/azure/azure-cli).
+One challenge of writing a service to handle scaling is that the service must be able to access virtual machine scale set resources without an interactive login. Accessing the Service Fabric cluster is easy if the scaling service is modifying its own Service Fabric application, but credentials are needed to access the scale set. To log in, you can use a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) created with the [Azure CLI](https://github.com/azure/azure-cli).
 
 A service principal can be created with the following steps:
 

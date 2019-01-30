@@ -136,7 +136,7 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-    If using a Mac, start the local cluster from the Docker image (this is assuming you have followed the [preqrequisites](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) to set up your local cluster for Mac). 
+    If using a Mac, start the local cluster from the Docker image (this is assuming you have followed the [prerequisites](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) to set up your local cluster for Mac). 
 
     ```bash
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
@@ -172,7 +172,7 @@ To deploy the application to a cluster in Azure, create your own cluster.
 
 Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team. You can use party clusters to deploy applications and learn about the platform. The cluster uses a single, self-signed certificate for node-to-node and client-to-node security.
 
-Sign in and join a [Linux cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **ReadMe** link to find the certificate password and instructions about how to configure various environments to use the certificate. Keep both the **Welcome** page and the **ReadMe** page open, you will use some of the instructions in the following steps.
+Sign in and join a [Linux cluster](https://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **ReadMe** link to find the certificate password and instructions about how to configure various environments to use the certificate. Keep both the **Welcome** page and the **ReadMe** page open, you will use some of the instructions in the following steps.
 
 > [!Note]
 > There are a limited number of party clusters available per hour. If you get an error when you try to sign up for a party cluster, you can wait for a period and try again, or you can follow these steps in [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) to create a cluster in your subscription.
@@ -183,7 +183,7 @@ Sign in and join a [Linux cluster](http://aka.ms/tryservicefabric). Download the
 Service Fabric provides several tools that you can use to manage a cluster and its applications:
 
 * Service Fabric Explorer, a browser-based tool.
-* Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI 2.0.
+* Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI.
 * PowerShell commands.
 
 In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer.

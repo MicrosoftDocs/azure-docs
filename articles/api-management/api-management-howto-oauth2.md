@@ -18,7 +18,7 @@ ms.author: apimpm
 
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management
 
-Many APIs support [OAuth 2.0](http://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. In order to use Azure API Management's interactive Developer Console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
+Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. In order to use Azure API Management's interactive Developer Console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
 
 ## <a name="prerequisites"> </a>Prerequisites
 
@@ -26,6 +26,8 @@ This guide shows you how to configure your API Management service instance to us
 
 > [!NOTE]
 > For more information on configuring OAuth 2.0 using Azure Active Directory, see the [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] sample.
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>Configure an OAuth 2.0 authorization server in API Management
 
@@ -59,9 +61,9 @@ This guide shows you how to configure your API Management service instance to us
 
     ![OAuth 2.0 new server](./media/api-management-howto-oauth2/oauth-03.png)
 
-    For an Azure Active Directory OAuth 2.0 server, the **Token endpoint URL** will have the following format, where `<APPID>`  has the format of `yourapp.onmicrosoft.com`.
+    For an Azure Active Directory OAuth 2.0 server, the **Token endpoint URL** will have the following format, where `<TenantID>`  has the format of `yourapp.onmicrosoft.com`.
 
-    `https://login.microsoftonline.com/<APPID>/oauth2/token`
+    `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
     The default setting for **Client authentication methods** is **Basic**, and  **Access token sending method** is **Authorization header**. These values are configured on this section of the form, along with the **Default scope**.
 
@@ -137,7 +139,7 @@ For more information about using OAuth 2.0 and API Management, see the following
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
-[http://oauth.net/2/]: http://oauth.net/2/
+[https://oauth.net/2/]: https://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 
 [Prerequisites]: #prerequisites

@@ -20,7 +20,7 @@ This article describes how to run an SSIS package in an Azure Data Factory pipel
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Preview).
+The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance.
 
 ## Create an Azure-SSIS integration runtime
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](tutorial-create-azure-ssis-runtime-portal.md).
@@ -140,7 +140,7 @@ In this section, you trigger a pipeline run and then monitor it.
 ## Azure PowerShell
 In this section, you use Azure PowerShell to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package. 
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 ### Create a data factory
 You can either use the same data factory that has the Azure-SSIS IR or create a separate data factory. The following procedure provides steps to create a data factory. You create a pipeline with a stored procedure activity in this data factory. The stored procedure activity executes a stored procedure in the SSISDB database to run your SSIS package. 

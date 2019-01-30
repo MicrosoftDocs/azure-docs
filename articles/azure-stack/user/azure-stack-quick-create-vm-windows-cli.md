@@ -7,15 +7,15 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: E26B246E-811D-44C9-9BA6-2B3CE5B62E83
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/23/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
+ms.lastreviewed: 01/14/2019
 ---
 
 # Quickstart: create a Windows Server virtual machine by using Azure CLI in Azure Stack

@@ -1,21 +1,21 @@
 ---
-title: Protect Active Directory and DNS with Azure Site Recovery | Microsoft Docs
-description: This article describes how to implement a disaster recovery solution for Active Directory by using Azure Site Recovery.
+title: Set up disaster recovery for Active Directory and DNS with Azure Site Recovery | Microsoft Docs
+description: This article describes how to implement a disaster recovery solution for Active Directory and DNS with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/19/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: mayg
 
 ---
-# Use Azure Site Recovery to protect Active Directory and DNS
+# Set up disaster recovery for Active Directory and DNS
 
 Enterprise applications such as SharePoint, Dynamics AX, and SAP depend on Active Directory and a DNS infrastructure to function correctly. When you set up disaster recovery for applications,  you often need to recover Active Directory and DNS before you recover other application components, to ensure correct application functionality.
 
-You can use [Site Recovery](site-recovery-overview.md) to create a disaster recovery plan for Active Directory. When a disruption occurs, you can initiate a failover. You can have Active Directory up and running in a few minutes. If you have deployed Active Directory for multiple applications in your primary site, for example, for SharePoint and SAP, you might want to fail over the complete site. You can first fail over Active Directory using ite Recovery. Then, fail over the other applications, using application-specific recovery plans.
+You can use [Site Recovery](site-recovery-overview.md) to create a disaster recovery plan for Active Directory. When a disruption occurs, you can initiate a failover. You can have Active Directory up and running in a few minutes. If you have deployed Active Directory for multiple applications in your primary site, for example, for SharePoint and SAP, you might want to fail over the complete site. You can first fail over Active Directory using Site Recovery. Then, fail over the other applications, using application-specific recovery plans.
 
 This article explains how to create a disaster recovery solution for Active Directory. It includes prerequisites, and failover instructions. You should be familiar with Active Directory and Site Recovery before you begin.
 
@@ -39,7 +39,7 @@ You can use Site Recovery to protect the virtual machine that hosts the domain c
 The domain controller that is replicated by using Site Recovery is used for [test failover](#test-failover-considerations). Ensure that it meets the following requirements:
 
 1. The domain controller is a global catalog server.
-2. The domain controller should be the FSMO role owner for roles that are needed during a test failover. Otherwise, these roles will need to be [seized](http://aka.ms/ad_seize_fsmo) after the failover.
+2. The domain controller should be the FSMO role owner for roles that are needed during a test failover. Otherwise, these roles will need to be [seized](https://aka.ms/ad_seize_fsmo) after the failover.
 
 ### Configure VM network settings
 For the virtual machine that hosts the domain controller or DNS, in Site Recovery, configure network settings under the **Compute and Network** settings of the replicated virtual machine. This ensures that the virtual machine is attached to the correct network after failover.
@@ -88,7 +88,7 @@ Most applications require the presence of a domain controller or a DNS server. T
 
 
 ### Remove references to other domain controllers
-When you initiate a test failover, don't include all the domain controllers in the test network. To remove references to other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](http://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/library/cc816907.aspx) for missing domain controllers.
+When you initiate a test failover, don't include all the domain controllers in the test network. To remove references to other domain controllers that exist in your production environment, you might need to [seize FSMO Active Directory roles](https://aka.ms/ad_seize_fsmo) and do [metadata cleanup](https://technet.microsoft.com/library/cc816907.aspx) for missing domain controllers.
 
 
 ### Issues caused by virtualization safeguards
@@ -175,7 +175,7 @@ If the preceding conditions are satisfied, it's likely that the domain controlle
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    For more information, see [Disable the requirement that a global catalog server be available to validate user logons](http://support.microsoft.com/kb/241789).
+    For more information, see [Disable the requirement that a global catalog server be available to validate user logons](https://support.microsoft.com/kb/241789).
 
 ### DNS and domain controller on different machines
 

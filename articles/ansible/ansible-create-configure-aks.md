@@ -3,7 +3,7 @@ title: Create and configure Azure Kubernetes Service clusters in Azure using Ans
 description: Learn how to use Ansible to create and manage an Azure Kubernetes Service cluster in Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
@@ -23,7 +23,10 @@ Ansible allows you to automate the deployment and configuration of resources in 
 > Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
 
 ## Create a managed AKS cluster
-The following sample Ansible playbook creates a resource group, and an AKS cluster that resides in the resource group:
+The code in this section presents a sample Ansible playbook to create a resource group, and an AKS cluster that resides in the resource group.
+
+> [!Tip]
+> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes). 
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -74,7 +77,7 @@ To create the AKS cluster with Ansible, save the preceding sample playbook as `a
 
 The output from the **ansible-playbook* command looks similar to the following showing that the AKS cluster has been successfully created:
 
-  ```bash
+  ```Output
   PLAY [Create AKS] ****************************************************************************************
 
   TASK [Gathering Facts] ********************************************************************************************
@@ -94,7 +97,8 @@ The output from the **ansible-playbook* command looks similar to the following s
 
 The sample playbook in the previous section defines two nodes. If you need fewer or more container workloads on your cluster, you can easily adjust the number of nodes. The sample playbook in this section increases the number of nodes from two nodes to three. Modifying the node count is done by changing the **count** value in the **agent_pool_profiles** block. 
 
-Enter your own `ssh_key`, `client_id`, and `client_secret` in the **service_principal** block:
+> [!Tip]
+> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes). 
 
 ```yaml
 - name: Scale AKS cluster
@@ -135,7 +139,7 @@ To scale the Azure Kubernetes Service cluster with Ansible, save the preceding p
 
 The following output shows that the AKS cluster has been successfully created:
 
-  ```bash
+  ```Output
   PLAY [Scale AKS cluster] ***************************************************************
 
   TASK [Gathering Facts] ******************************************************************
@@ -173,7 +177,7 @@ To delete the Azure Kubernetes Service cluster with Ansible, save the preceding 
   ```
 
 The following output shows that the AKS cluster has been successfully deleted:
-  ```bash
+  ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
 
 TASK [Gathering Facts] ********************************************************************

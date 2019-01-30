@@ -4,11 +4,11 @@ description: Describes how Azure Active Directory enables organizations to speci
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -50,7 +50,5 @@ In this case, all assigned users would be automatically provisioned to Salesforc
 Administrators can employ [Azure AD conditional access](../active-directory-conditional-access-azure-portal.md) to set access policies for specific roles. These policies can include whether access is permitted outside the corporate environment and even Multi-Factor Authentication or device requirements to achieve access in various cases.
 
 ## Next steps
-
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [Protecting apps with conditional access](../active-directory-conditional-access-azure-portal.md)
 * [Self-service group management/SSAA](../users-groups-roles/groups-self-service-management.md)

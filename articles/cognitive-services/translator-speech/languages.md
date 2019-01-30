@@ -1,16 +1,21 @@
 ---
-title: Supported languages in the Microsoft Translator Speech API | Microsoft Docs
-description: View languages supported by the Microsoft Translator Speech API.
+title: Supported languages - Translator Speech API
+titlesuffix: Azure Cognitive Services
+description: View languages supported by the Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
 ---
-# Languages supported by the Microsoft Translator Speech API
+# Languages supported by the Translator Speech API
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 The following languages are supported for speech translation. If both languages are supported for speech translation, speech to speech or speech to text is available. If the target language is not supported for speech translation, only speech to text translation is available. 
 
 | Speech language    |
@@ -26,7 +31,7 @@ The following languages are supported for speech translation. If both languages 
 | Russian      |
 | Spanish      | 
 
-The Microsoft Translator Speech API supports the following languages as a target language for speech to text translation. 
+The Translator Speech API supports the following languages as a target language for speech to text translation. 
 
 | Text language    | Language code |
 |:----------- |:-------------:|
@@ -96,7 +101,7 @@ The Microsoft Translator Speech API supports the following languages as a target
 
 ## Access the list programmatically
 
-You can access the list of supported languages programmatically using the languages resource. The list provides the language code as well as the language name in English, or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages become available.
+You can access the list of supported languages programmatically using the languages resource. The list provides the language code as well as the language name in English, or any other supported language. This list is automatically updated by the Translator Speech service as new languages become available.
 
 The Languages resource returns the list of supported languages for speech, text, and text to speech. The Languages resource does not require authentication.
 

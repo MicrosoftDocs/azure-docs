@@ -1,12 +1,14 @@
 ---
-title: Project Answer Search reference - Microsoft Cognitive Services | Microsoft Docs
+title: Project Answer Search reference
+titlesuffix: Azure Cognitive Services
 description: Reference for Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.subservice: answer-search
+ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ---
@@ -23,10 +25,10 @@ The JSON response can be parsed for facts and entities that contain details abou
 To request Answer Search results, send a request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
 Endpoint GET: 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>&subscription-key=0123456789ABCDEF&mkt=en-us
 
-````
+```
 
 The request must use the HTTPS protocol and include following query parameter:
 -  q=<URL> - The query that identifies the object of search
@@ -116,7 +118,7 @@ The top-level object that the response includes when the request fails.
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Type hint.|String|  
-|<a name="errors" />errors|A list of errors that describe the reasons why the request failed.|[Error](#error)[]|  
+|<a name="errors" />errors|A list of errors that describe the reasons why the request failed.|[Error](#error)|  
 
   
   

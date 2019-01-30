@@ -1,6 +1,6 @@
 ---
-title: Manage Virtual Machine Scale Sets with the Azure CLI 2.0 | Microsoft Docs
-description: Common Azure CLI 2.0 commands to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
+title: Manage Virtual Machine Scale Sets with the Azure CLI | Microsoft Docs
+description: Common Azure CLI commands to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -18,10 +18,10 @@ ms.date: 05/29/2018
 ms.author: cynthn
 
 ---
-# Manage a virtual machine scale set with the Azure CLI 2.0
-Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure CLI 2.0 commands that let you perform these tasks.
+# Manage a virtual machine scale set with the Azure CLI
+Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure CLI commands that let you perform these tasks.
 
-To complete these management tasks, you need the latest Azure CLI 2.0. For information, see [Install the Azure CLI 2.0](/cli/azure/install-azure-cli). If you need to create a virtual machine scale set, you can [create a scale set with the Azure CLI 2.0](quick-create-cli.md).
+To complete these management tasks, you need the latest Azure CLI. For information, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you need to create a virtual machine scale set, you can [create a scale set with the Azure CLI](quick-create-cli.md).
 
 
 ## View information about a scale set
@@ -33,7 +33,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## View VMs in a scale set
-To view a list of VM instance in a scale set, use [az vmss list-instances](/cli/azure/vmss#list-instances). The following example lists all VM instances in the scale set named *myScaleSet* in the *myResourceGroup* resource group. Provide your own values for these names:
+To view a list of VM instance in a scale set, use [az vmss list-instances](/cli/azure/vmss). The following example lists all VM instances in the scale set named *myScaleSet* in the *myResourceGroup* resource group. Provide your own values for these names:
 
 ```azurecli
 az vmss list-instances \
@@ -42,7 +42,7 @@ az vmss list-instances \
     --output table
 ```
 
-To view additional information about a specific VM instance, add the `--instance-id` parameter to [az vmss get-instance-view](/cli/azure/vmss#get-instance-view) and specify an instance to view. The following example views information about VM instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Enter your own names as follows:
+To view additional information about a specific VM instance, add the `--instance-id` parameter to [az vmss get-instance-view](/cli/azure/vmss) and specify an instance to view. The following example views information about VM instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Enter your own names as follows:
 
 ```azurecli
 az vmss get-instance-view \
@@ -104,7 +104,7 @@ az vmss deallocate --resource-group myResourceGroup --name myScaleSet --instance
 
 
 ### Start VMs in a scale set
-To start one or more VMs in a scale set, use [az vmss start](/cli/azure/vmss#az_vmss_start). The `--instance-ids` parameter allows you to specify one or more VMs to start. If you do not specify an instance ID, all VMs in the scale set are started. To start multiple VMs, separate each instance ID with a space.
+To start one or more VMs in a scale set, use [az vmss start](/cli/azure/vmss). The `--instance-ids` parameter allows you to specify one or more VMs to start. If you do not specify an instance ID, all VMs in the scale set are started. To start multiple VMs, separate each instance ID with a space.
 
 The following example starts instance *0* in the scale set named *myScaleSet* and the *myResourceGroup* resource group. Provide your own values as follows:
 

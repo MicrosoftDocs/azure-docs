@@ -3,7 +3,7 @@ title: Working with large Azure Virtual Machine Scale Sets | Microsoft Docs
 description: What you need to know to use large Azure virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: rajsqr
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
-ms.author: negat
+ms.author: rajraj
 
 ---
 # Working with large virtual machine scale sets
@@ -31,18 +31,18 @@ What makes a _large_ scale set special is not the number of VMs, but the number 
 ## Checklist for using large scale sets
 To decide whether your application can make effective use of large scale sets, consider the following requirements:
 
-- Large scale sets require Azure Managed Disks. Scale sets that are not created with Managed Disks require multiple storage accounts (one for every 20 VMs). Large scale sets are designed to work exclusively with Managed Disks to reduce your storage management overhead, and to avoid the risk of running into subscription limits for storage accounts. If you do not use Managed Disks, your scale set is limited to 100 VMs.
+- If you are planning to deploy large number of VMs, your Compute vCPU quota limits may need to be increased. 
 - Scale sets created from Azure Marketplace images can scale up to 1,000 VMs.
-- Scale sets created from custom images (VM images you create and upload yourself) can currently scale up to 300 VMs.
+- Scale sets created from custom images (VM images you create and upload yourself) can currently scale up to 600 VMs.
+- Large scale sets require Azure Managed Disks. Scale sets that are not created with Managed Disks require multiple storage accounts (one for every 20 VMs). Large scale sets are designed to work exclusively with Managed Disks to reduce your storage management overhead, and to avoid the risk of running into subscription limits for storage accounts. 
 - Layer-4 load balancing with scale sets composed of multiple placement groups requires [Azure Load Balancer Standard SKU](../load-balancer/load-balancer-standard-overview.md). The Load Balancer Standard SKU provides additional benefits, such as the ability to load balance between multiple scale sets. Standard SKU also requires that the scale set has a Network Security Group associated with it, otherwise NAT pools don't work correctly. If you need to use the Azure Load Balancer Basic SKU, make sure the scale set is configured to use a single placement group, which is the default setting.
 - Layer-7 load balancing with the Azure Application Gateway is supported for all scale sets.
 - A scale set is defined with a single subnet - make sure your subnet has an address space large enough for all the VMs you need. By default a scale set overprovisions (creates extra VMs at deployment time or when scaling out, which you are not charged for) to improve deployment reliability and performance. Allow for an address space 20% greater than the number of VMs you plan to scale to.
-- If you are planning to deploy many VMs, your Compute vCPU quota limits may need to be increased.
-- Fault domains and upgrade domains are only consistent within a placement group. This architecture does not change the overall availability of a scale set, as VMs are evenly distributed across distinct physical hardware, but it does means that if you need to guarantee two VMs are on different hardware, make sure they are in different fault domains in the same placement group. Fault domain and placement group ID are shown in the _instance view_ of a scale set VM. You can view the instance view of a scale set VM in the [Azure Resource Explorer](https://resources.azure.com/).
-
+- Fault domains and upgrade domains are only consistent within a placement group. This architecture does not change the overall availability of a scale set, as VMs are evenly distributed across distinct physical hardware, but it does means that if you need to guarantee two VMs are on different hardware, make sure they are in different fault domains in the same placement group. Please refer to this link [Azure Regions and availability](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability/). 
+- Fault domain and placement group ID are shown in the _instance view_ of a scale set VM. You can view the instance view of a scale set VM in the [Azure Resource Explorer](https://resources.azure.com/).
 
 ## Creating a large scale set
-When you create a scale set in the Azure portal, you can allow it to scale to multiple placement groups by setting the _Limit to a single placement group_ option to _False_ in the _Basics_ blade. With this option set to _False_, you can specify an _Instance count_ value of up to 1,000.
+When you create a scale set in the Azure portal, just specify the *Instance count* value of up to 1,000. If it is more than 100 instances, *Enable scaling beyond 100 instances* will be set to *Yes*, which will allow it to scale to multiple placement groups. 
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 

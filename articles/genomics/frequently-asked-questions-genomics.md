@@ -1,14 +1,12 @@
 ---
-title: 'Microsoft Genomics: Common questions | Microsoft Docs'
+title: 'Microsoft Genomics: Common questions - FAQ | Microsoft Docs'
 titleSuffix: Azure
 description: Answers to common questions customers ask about Microsoft Genomics. 
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
 
@@ -16,6 +14,23 @@ ms.date: 12/07/2017
 # Microsoft Genomics: Common questions
 
 This article lists the top queries you might have related to Microsoft Genomics. For more information on the Microsoft Genomics service, see [What is Microsoft Genomics?](overview-what-is-genomics.md). For more information about troubleshooting, see our [Troubleshooting Guide](troubleshooting-guide-genomics.md). 
+
+## What is the Microsoft Genomics service GATK 4 promotion?
+Until the end of the calendar year, 2018, the Microsoft Genomics service is offering 20 WGS runs with GATK4 at no cost. To participate in this offering register [here](https://aka.ms/msgatk4). 
+
+### What are the common issues I might encounter while running the Microsoft Genomics service GATK4 promotion
+Here is the list of common errors you might encounter and their recommended resolution:
+
+| **Message**                                                                                                                                                                                    | **Cause**                                                                                                    | **Resolution**                                                                                                                                                                                                       |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `gatk4-promo` is not enabled for your account. For more information, see https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                               | You are trying to run GATK4 workflows with the Microsoft Genomics service without being activated.       | Please visit [here](https://aka.ms/msgatk4) to activate your account. Note that the trial expires at the end of the calendar year 2018. You will not be able to activate  your account for the promotional runs after this date. |
+| Thank you for trying `gatk4-promo`.Your trial period has ended. For more information, https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                  | The GATK4 trial has expired at the end of the calendar year, and you are trying to invoke the `gatk4-promo` process_name.  | Switch the process_name parameter to, `gatk4`, instead of `gatk4-promo`. This is the official gatk4 version, and your workflow will be billed if you use this parameter.                                         |
+| Thank you for trying `gatk4-promo` You have used all of your allocated runs. For more information, see https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics | You have successfully submitted all of your 20 promotional runs for GATK4.                               | Submit any new gatk4 runs with process_name argument set to `gatk4` instead of `gatk4-promo`. Your workflow will be billed when you use this parameter.                                                          |        
+
+
+## Can I run GATK4 workflows on Microsoft Genomics without signing up for the GATK4 promotion?
+Yes, in the Microsoft Genomics service's config.txt file, specify the process_name to `gatk4`. Note that you will be billed at regular billing rates, and the 20 free runs will not apply to your Microsoft Genomics account.
+
 
 
 ## What is the SLA for Microsoft Genomics?
@@ -45,7 +60,7 @@ Go to Azure portal and open your Genomics account page. Under the **Management**
 Go to Azure portal and open your Genomics account page. Under the **Management** heading, choose **Access keys**. There, you find both the API URL and your access keys.
 
 ## Why do I need two access keys?
-You need two access keys in case you want to update (regenerate) them without interrupting usage of the service. For example, you want to update the first key. In that case, you switch all new workflows to using the second key. Then, wait until the already running workflows using the first key are finished. Only then, update the key.
+You need two access keys in case you want to update (regenerate) them without interrupting usage of the service. For example, if you want to update the first key, you should have all new workflows use the second key. Then, wait for all the workflows using the first key to finish before updating the first key.
 
 ## Do you save my storage account keys?
 Your storage account key is used to create short-term access tokens for the Microsoft Genomics service to read your input files and write the output files. The default token duration is 48 hours. The token duration can be changed with the `-sas/--sas-duration` option of the submit command; the value is in hours.

@@ -11,7 +11,7 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
@@ -205,9 +205,9 @@ If you really want to stop all the executions immediately, the only way would be
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories
+[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/set-azurermdatafactoryslicestatus
+[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

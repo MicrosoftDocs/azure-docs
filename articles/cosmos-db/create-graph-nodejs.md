@@ -1,30 +1,35 @@
 ---
-title: Build an Azure Cosmos DB Node.js application by using Graph API | Microsoft Docs
+title: Build an Azure Cosmos DB Node.js application by using Gremlin API
 description: Presents a Node.js code sample you can use to connect to and query Azure Cosmos DB
-services: cosmos-db
 author: luisbosquez
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
 
 ---
-# Azure Cosmos DB: Build a Node.js application by using Graph API
+# Azure Cosmos DB: Build a Node.js application by using Gremlin API
+
+> [!div class="op_single_selector"]
+> * [Gremlin console](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
 
 Azure Cosmos DB is the globally distributed multimodel database service from Microsoft. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quick start demonstrates how to create an Azure Cosmos DB [Graph API](graph-introduction.md) account, database, and graph using the Azure portal. You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driver.
+This quick start demonstrates how to create an Azure Cosmos DB [Gremlin API](graph-introduction.md) account, database, and graph using the Azure portal. You then build and run a console app by using the open-source [Gremlin Node.js](https://www.npmjs.com/package/gremlin) driver.
 
 ## Prerequisites
 
 Before you can run this sample, you must have the following prerequisites:
 * [Node.js](https://nodejs.org/en/) version v0.10.29 or later
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +43,7 @@ Before you can run this sample, you must have the following prerequisites:
 
 ## Clone the sample application
 
-Now let's clone a Graph API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Gremlin API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 

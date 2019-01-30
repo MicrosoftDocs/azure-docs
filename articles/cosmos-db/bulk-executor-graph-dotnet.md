@@ -1,20 +1,13 @@
 ---
 title: Using the graph BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
 description: Learn how to use the BulkExecutor library to massively import graph data into an Azure Cosmos DB Gremlin API container.
-services: cosmos-db
-keywords: graph, gremlin, bulk, bulkexecutor, migration, data, cosmosdb, cosmos, database, import
 author: luisbosquez
-manager: kfile
-editor: cgronlun
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.devlang: na
+ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: lbosq
-ms.custom: mvc
-
+ms.reviewer: sngun
 ---
 
 # Using the graph BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API

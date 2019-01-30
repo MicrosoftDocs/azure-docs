@@ -1,30 +1,25 @@
-﻿---
-title: 'Azure Databricks: Common questions and help | Microsoft Docs'
+---
+title: 'Azure Databricks: Common questions and help'
 description: Get answers to common questions and troubleshooting information about Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea 
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-
+ms.topic: conceptual
+ms.date: 10/25/2018
 ---
 # Frequently asked questions about Azure Databricks
 
-This article lists the top queries you might have related to Azure Databricks. It also lists some common problems you might have while using Databricks. For more information, see [What is Azure Databricks](what-is-azure-databricks.md). 
+This article lists the top questions you might have related to Azure Databricks. It also lists some common problems you might have while using Databricks. For more information, see [What is Azure Databricks](what-is-azure-databricks.md). 
 
-## Can I use my own keys for local encryption? 
-In the current release, using your own keys from Azure Key Vault is not supported. 
+## Can I use Azure Key Vault to store keys/secrets to be used in Azure Databricks?
+Yes. You can use Azure Key Vault to store keys/secrets for use with Azure Databricks. For more information, see [Azure Key Vault-backed scopes](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
 
-## Can I use Azure virtual networks with Databricks?
-A new virtual network is created as part of Databricks provisioning. In this release, you cannot use your own Azure virtual network.
+
+## Can I use Azure Virtual Networks with Databricks?
+Yes. You can use an Azure Virtual Network (VNET) with Azure Databricks. For more information, see [Deploying Azure Databricks in your Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
 
 ## How do I access Azure Data Lake Store from a notebook? 
 
@@ -113,7 +108,7 @@ For more detailed instructions, see [Resource providers and types](../azure-reso
 
 #### Background
 
-Azure Databricks is integrated with Azure AD. This enables you to set permissions within Azure Databricks (for example, on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information. This requires a consent. If the consent is not already available, you see the error.
+Azure Databricks is integrated with Azure Active Directory. You can set permissions within Azure Databricks (for example, on notebooks or clusters) by specifying users from Azure AD. For Azure Databricks to be able to list the names of the users from your Azure AD, it requires read permission to that information and consent to be given. If the consent is not already available, you see the error.
 
 #### Solution
 

@@ -4,13 +4,13 @@ description: In this tutorial, you will enable password reset at the Windows 10 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable password reset for Windows 10 users on the login screen to reduce helpdesk calls?
@@ -26,11 +26,12 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
 
 ## Prerequisites
 
-* Windows 10 April 2018 Update, or newer client that is:
-   * [Azure AD joined](../device-management-azure-portal.md)
-   or 
-   * [Hybrid Azure AD joined](../device-management-hybrid-azuread-joined-devices-setup.md)
-* Azure AD self-service password reset must be enabled.
+* You must running at least Windows 10, version April 2018 Update, and the devices must be either:
+   * [Azure AD-joined](../device-management-azure-portal.md)
+   or
+   * [Hybrid Azure AD-joined](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
+* You must enable Azure AD self-service password reset.
+* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnet.cdn.com` to your HTTPS traffic (port 443) Allowed URLs list.
 
 ## Configure Reset password link using Intune
 
@@ -44,8 +45,6 @@ Deploying the configuration change to enable password reset from the login scree
    * Optionally provide a meaningful description of the profile
    * Platform **Windows 10 and later**
    * Profile type **Custom**
-
-   ![CreateProfile][CreateProfile]
 
 3. Configure **Settings**
    * **Add** the following OMA-URI Setting to enable the Reset password link
@@ -99,21 +98,36 @@ Now that the policy is configured and assigned, what changes for the user? How d
 ![LoginScreen][LoginScreen]
 
 When users attempt to log in, they now see a Reset password link that opens the self-service password reset experience at the login screen. This functionality allows users to reset their password without having to use another device to access a web browser.
-When users attempt to log in, they now see a Reset password link that opens the self-service password reset experience at the login screen. This functionality allows users to reset their password without having to use another device to access a web browser.
 
 Your users will find guidance for using this feature in [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
-## Common issues
+The Azure AD audit log will include information about the IP address and ClientType where the password reset occurred.
+
+![Example logon screen password reset in the Azure AD audit log](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## Limitations
 
 When testing this functionality using Hyper-V, the "Reset password" link does not appear.
 
 * Go to the VM you are using to test click on **View** and then uncheck **Enhanced session**.
 
-When testing this functionality using Remote Desktop, the "Reset password" link does not appear.
+When testing this functionality using Remote Desktop or an Enhanced VM Session, the "Reset password" link does not appear.
 
 * Password reset is not currently supported from a Remote Desktop.
 
-If the Windows lockscreen is disabled using a registry key or group policy **Reset password** will not be availalbe.
+If Ctrl+Alt+Del is required by policy, or Lock screen notifications are turned off, **Reset password** will not work.
+
+The following policy settings are known to interfere with the ability to reset passwords
+
+   * HideFastUserSwitching is set to enabled or 1
+   * DontDisplayLastUserName is set to enabled or 1
+   * NoLockScreen is set to enabled or 1
+   * EnableLostMode is set on the device
+   * Explorer.exe is replaced with a custom shell
+
+This feature does not work for networks with 802.1x network authentication deployed and the option “Perform immediately before user logon”. For networks with 802.1x network authentication deployed it is recommended to use machine authentication to enable this feature.
+
+For Hybrid Domain Joined scenarios, a scenario exists where the SSPR workflow will complete without needing an Active Directory domain controller. Connectivity with a domain controller is required to use the new password for the first time.
 
 ## Clean up resources
 
@@ -126,6 +140,5 @@ In this tutorial, you have enabled users to reset their passwords from the Windo
 > [!div class="nextstepaction"]
 > [Evaluate risk at sign in](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Create Intune device configuration profile to enable Reset password link on the Windows 10 login screen"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Assign Intune device configuration policy to a group of Windows 10 devices"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Reset password link at the Windows 10 login screen"

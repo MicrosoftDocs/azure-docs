@@ -1,6 +1,6 @@
 ---
-title: Upgrading to the Azure Search .NET SDK version 3 | Microsoft Docs
-description: Upgrading to the Azure Search .NET SDK version 3
+title: Upgrade to the Azure Search .NET SDK version 3 - Azure Search
+description: Migrate code to the Azure Search .NET SDK version 3 from older versions. Learn what's new and which code changes are required.
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,7 +9,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
-
+ms.custom: seodec2018
 ---
 # Upgrading to the Azure Search .NET SDK version 3
 If you're using version 2.0-preview or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 3.

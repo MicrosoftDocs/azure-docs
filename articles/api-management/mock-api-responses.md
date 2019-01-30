@@ -36,11 +36,15 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Learn the [Azure API Management terminology](api-management-terminology.md).
++ Understand the [concept of policies in Azure API Management](api-management-howto-policies.md).
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 ## Create a test API 
 
 The steps in this section show how to create a blank API with no backend. It also shows how to add an operation to the API. Calling the operation after completing steps in this section produces an error. You will get no errors after you complete steps in the "Enable response mocking" section.
+
+![Create blank API](./media/mock-api-responses/03-MockAPIResponses-01-CreateTestAPI.png)
 
 1. Select **APIs** from the **API Management** service.
 2. From the left menu, select **+ Add API**.
@@ -51,19 +55,20 @@ The steps in this section show how to create a blank API with no backend. It als
 
 ## Add an operation to the test API
 
+![Add operation to API](./media/mock-api-responses/03-MockAPIResponses-02-AddOperation.png)
+
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
-    ![Mocked operation response](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
-    |Setting|Value|Description|
-    |---|---|---|
-    |**Display name**|*Test call*|The name that is displayed in the **Developer portal**.|
-    |**URL** (HTTP verb)|GET|You can choose from one of the predefined HTTP verbs.|
-    |**URL** |*/test*|A URL path for the API. |
-    |**Description**||Provide a description of the operation that is used to provide documentation to the developers using this API in the **Developer portal**.|
-    |**Query** tab||You can add query parameters. Besides providing a name and description, you can provide values that can be assigned to this parameter. One of the values can be marked as default (optional).|
-    |**Request** tab||You can define request content types, examples, and schemas. |
-    |**Response** tab|See steps that follow this table.|Define response status codes, content types, examples, and schemas.|
+    | Setting             | Value                             | Description                                                                                                                                                                                   |
+    |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Display name**    | *Test call*                       | The name that is displayed in the **Developer portal**.                                                                                                                                       |
+    | **URL** (HTTP verb) | GET                               | You can choose from one of the predefined HTTP verbs.                                                                                                                                         |
+    | **URL**             | */test*                           | A URL path for the API.                                                                                                                                                                       |
+    | **Description**     |                                   | Provide a description of the operation that is used to provide documentation to the developers using this API in the **Developer portal**.                                                    |
+    | **Query** tab       |                                   | You can add query parameters. Besides providing a name and description, you can provide values that can be assigned to this parameter. One of the values can be marked as default (optional). |
+    | **Request** tab     |                                   | You can define request content types, examples, and schemas.                                                                                                                                  |
+    | **Response** tab    | See steps that follow this table. | Define response status codes, content types, examples, and schemas.                                                                                                                           |
 
 3. Select the **Response** tab, located under the URL, Display name, and Description fields.
 4. Click **+ Add response**.
@@ -75,16 +80,25 @@ The steps in this section show how to create a blank API with no backend. It als
 
 ## Enable response mocking
 
+![Enable response mocking](./media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png)
+
 1. Select the API you created in the "Create a test API" step.
 2. Select the test operation that you added.
 3. In the window on the right, click the **Design** tab.
-4. In the **Inbound processing** window, click the pencil icon.
-5. In the **Mocking** tab, select **Static responses** for **Mocking behavior**.
-6. In the **API Management returns the following response:** text box, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
+4. In the **Inbound processing** window, click **+ Add policy**.
+5. Select the **Mock responses** tile from the gallery.
+
+    ![Mock responses policy tile](./media/mock-api-responses/mock-responses-policy-tile.png)
+
+6. In the **API Management response** textbox, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
+
     ![Enable response mocking](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+
 7. Click **Save**.
 
 ## Test the mocked API
+
+![Test mocked API](./media/mock-api-responses/03-MockAPIResponses-04-TestMocking.png)
 
 1. Select the API you created in the "Create a test API" step.
 2. Open the **Test** tab.
@@ -95,15 +109,15 @@ The steps in this section show how to create a blank API with no backend. It als
 
 4. Select **Send** to make a test call.
 5. The **HTTP response** displays the JSON provided as a sample in the first section of the tutorial.
+
     ![Enable response mocking](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## Video
 
 > [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
-> 
-> 
 
 ## Next steps
+
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]

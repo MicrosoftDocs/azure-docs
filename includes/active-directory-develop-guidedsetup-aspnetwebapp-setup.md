@@ -2,18 +2,24 @@
 title: include file
 description: include file
 services: active-directory
+documentationcenter: dev-center-name
 author: andretms
+manager: mtillman
+editor: ''
+
 ms.service: active-directory
+ms.devlang: na
 ms.topic: include
-ms.date: 05/08/2018
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
 ms.author: andret
 ms.custom: include file
-
 ---
 
 ## Set up your project
 
-This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect. 
+This section shows the steps to install and configure the authentication pipeline via OWIN middleware on an ASP.NET project using OpenID Connect.
 
 > Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) and skip to the [Configuration step](#register-your-application) to configure the code sample before executing.
 
@@ -37,7 +43,7 @@ This section shows the steps to install and configure the authentication pipelin
 
 <!--start-collapse-->
 > ### About these libraries
->The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype the password, and no additional verification is needed.
+> The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype the password, and no additional verification is needed.
 <!--end-collapse-->
 
 ## Configure the authentication pipeline
@@ -77,7 +83,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -135,4 +141,3 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 > ### More Information
 > The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Azure AD. Because the OpenID Connect middleware uses cookies in the background, you also need to set up cookie authentication as the code above shows. The *ValidateIssuer* value tells OpenIdConnect to not restrict access to one specific organization.
 <!--end-collapse-->
-

@@ -3,7 +3,7 @@ title: Create an Azure Service Fabric container application | Microsoft Docs
 description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: 'vturecek'
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
-ms.author: ryanwi
+ms.author: twhitney
 
 ---
 
@@ -24,6 +24,9 @@ ms.author: ryanwi
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
 Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
+
+> [!NOTE]
+> This article applies to a Windows development environment.  The Service Fabric cluster runtime and the Docker runtime must be running on the same OS.  You cannot run Windows containers on a Linux cluster.
 
 ## Prerequisites
 * A development computer running:
@@ -226,6 +229,7 @@ These environment variables can be overridden in the application manifest:
 ```xml
 <ServiceManifestImport>
   <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <EnvironmentOverrides CodePackageRef="FrontendService.Code">
     <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
   </EnvironmentOverrides>
   ...
@@ -323,6 +327,61 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 </ServiceManifestImport>
 ```
 
+### Configure cluster-wide credentials
+
+Starting with the 6.3 runtime, Service Fabric allows you to configure cluster-wide credentials which can be used as default repository credentials by applications.
+
+You can enable or disable the feature by adding the `UseDefaultRepositoryCredentials` attribute to `ContainerHostPolicies` in ApplicationManifest.xml with a `true` or `false` value.
+
+```xml
+<ServiceManifestImport>
+    ...
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code" UseDefaultRepositoryCredentials="true">
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ...
+</ServiceManifestImport>
+```
+
+Service Fabric then uses the default repository credentials which you can specify in the ClusterManifest under the `Hosting` section.  If `UseDefaultRepositoryCredentials` is `true`, Service Fabric reads the following values from the ClusterManifest:
+
+* DefaultContainerRepositoryAccountName (string)
+* DefaultContainerRepositoryPassword (string)
+* IsDefaultContainerRepositoryPasswordEncrypted (bool)
+* DefaultContainerRepositoryPasswordType (string) --- Supported starting with the 6.4 runtime
+
+Here is an example of what you can add inside the `Hosting` section in the ClusterManifestTemplate.json file. For more information, see [Change Azure Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md) and [Manage Azure Service Fabric application secrets](service-fabric-application-secret-management.md)
+
+```json
+      {
+        "name": "Hosting",
+        "parameters": [
+          {
+            "name": "EndpointProviderEnabled",
+            "value": "true"
+          },
+          {
+            "name": "DefaultContainerRepositoryAccountName",
+            "value": "someusername"
+          },
+          {
+            "name": "DefaultContainerRepositoryPassword",
+            "value": "somepassword"
+          },
+          {
+            "name": "IsDefaultContainerRepositoryPasswordEncrypted",
+            "value": "false"
+          },
+          {
+            "name": "DefaultContainerRepositoryPasswordType",
+            "value": "PlainText"
+          }
+        ]
+      },
+```
+
 ## Configure isolation mode
 Windows supports two isolation modes for containers: process and Hyper-V. With the process isolation mode, all the containers running on the same host machine share the kernel with the host. With the Hyper-V isolation mode, the kernels are isolated between each Hyper-V container and the container host. The isolation mode is specified in the `ContainerHostPolicies` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default  is process isolation mode on Windows Server hosts. On Windows 10 hosts, only Hyper-V isolation mode is supported, so the container runs in Hyper-V isolation mode regardless of its isolation mode setting. The following snippet shows how the isolation mode is specified in the application manifest file.
 
@@ -352,7 +411,7 @@ Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](http
 
 ![HealthCheckHealthy][3]
 
-![HealthCheckUnealthyApp][4]
+![HealthCheckUnhealthyApp][4]
 
 ![HealthCheckUnhealthyDsp][5]
 
@@ -488,7 +547,7 @@ Here are the complete service and application manifests used in this article.
 
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -571,7 +630,7 @@ The default time interval is set to 10 seconds. Since this configuration is dyna
 
 ## Configure the runtime to remove unused container images
 
-You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node. To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node. To enable this feature, update the [Hosting](service-fabric-cluster-fabric-settings.md#hosting) section in the cluster manifest as shown in the following snippet: 
 
 
 ```json
@@ -592,7 +651,7 @@ You can configure the Service Fabric cluster to remove unused container images f
 } 
 ```
 
-For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter.  
 
 
 ## Configure container image download time

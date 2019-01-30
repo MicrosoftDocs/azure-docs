@@ -5,13 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
 ---
 
 # Create a custom speech-to-text endpoint
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 After you have created custom acoustic models or language models, you can deploy them in a custom speech-to-text endpoint. 
 
 ## Create an endpoint

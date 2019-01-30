@@ -13,8 +13,9 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/05/2018
 ms.author: anwestg
+ms.lastreviewed: 09/05/2018
 
 ---
 # How to redistribute Azure App Service on Azure Stack across fault domains
@@ -28,7 +29,7 @@ With the 1802 update, Azure Stack now supports the distribution of workloads acr
 
 ## Rebalance an App Service resource provider across fault domains
 
-To redistribute the scale sets deployed for the App Service resource provider, you must perform the steps in this article for each scale set. By default, the scaleset names are:
+To redistribute the scale sets deployed for the App Service resource provider, you must perform the steps in this article for each scale set. By default, the scale set names are:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
@@ -44,8 +45,8 @@ To redistribute the scale sets deployed for the App Service resource provider, y
 To scale out the scale sets, follow these steps:
 
 1. Sign in to the Azure Stack Administrator Portal.
-1. Select **More services**.
-1. Under COMPUTE, select **Virtual machine scale sets**. Existing scale sets deployed as part of the App Service deployment will be listed with instance count information. The following screen capture shows an example of scale sets.
+1. Select **All services**.
+2. In the **COMPUTE** category, select **Virtual machine scale sets**. Existing scale sets deployed as part of the App Service deployment will be listed with instance count information. The following screen capture shows an example of scale sets.
 
       ![Azure App Service Scale Sets listed in Virtual Machine Scale Sets UX][1]
 

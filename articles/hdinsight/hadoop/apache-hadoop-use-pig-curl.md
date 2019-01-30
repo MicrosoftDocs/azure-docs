@@ -1,41 +1,42 @@
 ---
-title: Use Hadoop Pig with REST in HDInsight - Azure 
-description: Learn how to use REST to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight.
+title: Use Apache Hadoop Pig with REST in HDInsight - Azure 
+description: Learn how to use REST to run Pig Latin jobs on an Apache Hadoop cluster in Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run Pig jobs with Hadoop on HDInsight by using REST
+# Run Apache Pig jobs with Apache Hadoop on HDInsight by using REST
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight using the WebHCat REST API.
+Learn how to run Apache Pig Latin jobs by making REST requests to an Azure HDInsight cluster. Curl is used to demonstrate how you can interact with HDInsight using the WebHCat REST API.
 
-> [!NOTE]
-> If you are already familiar with using Linux-based Hadoop servers, but are new to HDInsight, see [Linux-based HDInsight Tips](../hdinsight-hadoop-linux-information.md).
+> [!NOTE]  
+> If you are already familiar with using Linux-based Apache Hadoop servers, but are new to HDInsight, see [Linux-based HDInsight Tips](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Prerequisites
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux-based or Windows-based)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* [Curl](http://curl.haxx.se/)
+* [Curl](https://curl.haxx.se/)
 
-* [jq](http://stedolan.github.io/jq/)
+* [jq](https://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Run Pig jobs by using Curl
+## <a id="curl"></a>Run Apache Pig jobs by using Curl
+
 
 > [!NOTE]
-> The REST API is secured via [basic access authentication](http://en.wikipedia.org/wiki/Basic_access_authentication). Always make requests by using Secure HTTP (HTTPS) to ensure that your credentials are securely sent to the server.
+> The REST API is secured via [basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). Always make requests by using Secure HTTP (HTTPS) to ensure that your credentials are securely sent to the server.
 >
 > When using the commands in this section, replace `USERNAME` with the user to authenticate to the cluster, and replace `PASSWORD` with the password for the user account. Replace `CLUSTERNAME` with the name of your cluster.
 >
@@ -72,7 +73,7 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
     * **execute**: The Pig Latin statements to execute
     * **statusdir**: The directory that the status for this job is written to
 
-    > [!NOTE]
+    > [!NOTE]  
     > Notice that the spaces in Pig Latin statements are replaced by the `+` character when used with Curl.
 
     This command should return a job ID that can be used to check the status of the job, for example:
@@ -89,14 +90,14 @@ Learn how to run Pig Latin jobs by making REST requests to an Azure HDInsight cl
 
     If the job has finished, the state is **SUCCEEDED**.
 
-    > [!NOTE]
+    > [!NOTE]  
     > This Curl request returns a JavaScript Object Notation (JSON) document with information about the job, and jq is used to retrieve only the state value.
 
 ## <a id="results"></a>View results
 
 When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/pigcurl`.
 
-HDInsight can use either Azure Storage or Azure Data Lake Store as the default data store. There are various ways to get at the data depending on which one you use. For more information, see the storage section of the [Linux-based HDInsight information](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) document.
+HDInsight can use either Azure Storage or Azure Data Lake Storage as the default data store. There are various ways to get at the data depending on which one you use. For more information, see the storage section of the [Linux-based HDInsight information](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-storage) document.
 
 ## <a id="summary"></a>Summary
 
@@ -108,9 +109,9 @@ For more information about the REST interface used in this article, see the [Web
 
 For general information about Pig on HDInsight:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For information about other ways you can work with Hadoop on HDInsight:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

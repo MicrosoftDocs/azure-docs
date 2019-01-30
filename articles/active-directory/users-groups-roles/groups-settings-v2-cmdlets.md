@@ -10,7 +10,7 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: curtand
@@ -215,15 +215,15 @@ To disable group creation for non-admin users:
 
 1. Verify that non-admin users are allowed to create groups:
    
-  ````
+  ```
   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ````
+  ```
   
 2. If it returns `UsersPermissionToCreateGroupsEnabled : True`, then non-admin users can create groups. To disable this feature:
   
-  ```` 
+  ``` 
   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ````
+  ```
   
 ## Manage owners of groups
 To add owners to a group, use the Add-AzureADGroupOwner cmdlet:
@@ -265,4 +265,4 @@ When a group is created, certain endpoints allow the end user to specify a mailN
 You can find more Azure Active Directory PowerShell documentation at [Azure Active Directory Cmdlets](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 * [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
-* [Integrating your on-premises identities with Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrating your on-premises identities with Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

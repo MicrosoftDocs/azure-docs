@@ -1,14 +1,14 @@
 ---
 title: Connect HDInsight to your on-premises network - Azure HDInsight  
 description: Learn how to create an HDInsight cluster in an Azure Virtual Network, and then connect it to your on-premises network. Learn how to configure name resolution between HDInsight and your on-premises network by using a custom DNS server.
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
-ms.author: jasonh
+ms.date: 12/28/2018
+ms.author: hrasheed
 
 ---
 
@@ -17,11 +17,8 @@ ms.author: jasonh
 Learn how to connect HDInsight to your on-premises network by using Azure Virtual Networks and a VPN gateway. This document provides planning information on:
 
 * Using HDInsight in an Azure Virtual Network that connects to your on-premises network.
-
 * Configuring DNS name resolution between the virtual network and your on-premises network.
-
 * Configuring network security groups to restrict internet access to HDInsight.
-
 * Ports provided by HDInsight on the virtual network.
 
 ## Create the Virtual network configuration
@@ -29,9 +26,7 @@ Learn how to connect HDInsight to your on-premises network by using Azure Virtua
 Use the following documents to learn how to create an Azure Virtual Network that is connected to your on-premises network:
     
 * [Using the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-
 * [Using Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
-
 * [Using Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
 ## Configure name resolution
@@ -39,15 +34,12 @@ Use the following documents to learn how to create an Azure Virtual Network that
 To allow HDInsight and resources in the joined network to communicate by name, you must perform the following actions:
 
 * Create a custom DNS server in the Azure Virtual Network.
-
 * Configure the virtual network to use the custom DNS server instead of the default Azure Recursive Resolver.
-
 * Configure forwarding between the custom DNS server and your on-premises DNS server.
 
 This configuration enables the following behavior:
 
 * Requests for fully qualified domain names that have the DNS suffix __for the virtual network__ are forwarded to the custom DNS server. The custom DNS server then forwards these requests to the Azure Recursive Resolver, which returns the IP address.
-
 * All other requests are forwarded to the on-premises DNS server. Even requests for public internet resources such as microsoft.com are forwarded to the on-premises DNS server for name resolution.
 
 In the following diagram, green lines are requests for resources that end in the DNS suffix of the virtual network. Blue lines are requests for resources in the on-premises network or on the public internet.
@@ -59,49 +51,62 @@ In the following diagram, green lines are requests for resources that end in the
 > [!IMPORTANT]
 > You must create and configure the DNS server before installing HDInsight into the virtual network.
 
-To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
+These steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see 
+ [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) and [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md).  To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
 
-> [!NOTE]
-> The following steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see the following documents:
->
-> * [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
-> * [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
+  
+1. Log in to the [Azure portal](https://portal.azure.com).
+  
+1. From the left menu, select **+ Create a resource**.
+ 
+1. Select **Compute**.
 
-1. From the [Azure portal](https://portal.azure.com), select __+__, __Compute__, and __Ubuntu Server 16.04 LTS__.
+1. Select **Ubuntu Server 18.04 LTS**.<br />  
 
     ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
-2. From the __Basics__ section, enter the following information:
-
-    * __Name__: A friendly name that identifies this virtual machine. For example, __DNSProxy__.
-    * __User name__: The name of the SSH account.
-    * __SSH public key__ or __Password__: The authentication method for the SSH account. We recommend using public keys, as they are more secure. For more information, see the [Create and use SSH keys for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md) document.
-    * __Resource group__: Select __Use existing__, and then select the resource group that contains the virtual network created earlier.
-    * __Location__: Select the same location as the virtual network.
+1. From the __Basics__ tab, enter the following information:  
+  
+    | Field | Value |
+    | --- | --- |
+    |Subscription |Select your appropriate subscription.|
+    |Resource group |Select the resource group that contains the virtual network created earlier.|
+    |Virtual machine name | Enter a friendly name that identifies this virtual machine. This example uses **DNSProxy**.|
+    |Region | Select the same region as the virtual network created earlier.  Not all VM sizes are available in all regions.  |
+    |Availability options |  Select your desired level of availability.  Azure offers a range of options for managing availability and resiliency for your applications.  Architect your solution to use replicated VMs in Availability Zones or Availability Sets to protect your apps and data from datacenter outages and maintenance events. This example uses **No infrastructure redundancy required**. |
+    |Image | Select the base operating system or application for the VM.  For this example, select the smallest and lowest cost option. |
+    |Authentication type | __Password__ or __SSH public key__: The authentication method for the SSH account. We recommend using public keys, as they are more secure. This example uses a public key.  For more information, see the [Create and use SSH keys for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md) document.|
+    |User name |Enter the administrator username for the VM.  This example uses **sshuser**.|
+    |Password or SSH public key | The available field is determined by your choice for **Authentication type**.  Enter the appropriate value.|
+    |||
 
     ![Virtual machine basic configuration](./media/connect-on-premises-network/vm-basics.png)
 
-    Leave other entries at the default values and then select __OK__.
+    Leave other entries at the default values and then select the **Networking** tab.
 
-3. From the __Choose a size__ section, select the VM size. For this tutorial, select the smallest and lowest cost option. To continue, use the __Select__ button.
+1. From the **Networking** tab, enter the following information: 
 
-4. From the __Settings__ section, enter the following information:
-
-    * __Virtual network__: Select the virtual network that you created earlier.
-
-    * __Subnet__: Select the default subnet for the virtual network. Do __not__ select the subnet used by the VPN gateway.
-
-    * __Diagnostics storage account__: Either select an existing storage account or create a new one.
+    | Field | Value |
+    | --- | --- |
+    |Virtual network | Select the virtual network that you created earlier.|
+    |Subnet | Select the default subnet for the virtual network that you created earlier. Do __not__ select the subnet used by the VPN gateway.|
+    |Public IP | Use the auto-populated value.  |
 
     ![Virtual network settings](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Leave the other entries at the default value, then select __OK__ to continue.
+    Leave other entries at the default values and then select the **Review + create**.
 
-5. From the __Purchase__ section, select the __Purchase__ button to create the virtual machine.
+1. From the **Review + create** tab, select **Create** to create the virtual machine.
+ 
 
-6. Once the virtual machine has been created, its __Overview__ section is displayed. From the list on the left, select __Properties__. Save the __Public IP address__ and __Private IP address__ values. It will be used in the next section.
+### Review IP Addresses
+Once the virtual machine has been created, you will receive a **Deployment succeeded** notification with a **Go to resource** button.  Select **Go to resource** to go to your new virtual machine.  From the default view for your new virtual machine, follow these steps to identify the associated IP Addresses:
 
-    ![Public and private IP addresses](./media/connect-on-premises-network/vm-ip-addresses.png)
+1. From **Settings**, select **Properties**. 
+
+1. Note the values for **PUBLIC IP ADDRESS/DNS NAME LABEL** and **PRIVATE IP ADDRESS** for later use.
+
+   ![Public and private IP addresses](./media/connect-on-premises-network/vm-ip-addresses.png)
 
 ### Install and configure Bind (DNS software)
 
@@ -113,7 +118,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 
     Replace `sshuser` with the SSH user account you specified when creating the cluster.
 
-    > [!NOTE]
+    > [!NOTE]  
 	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
     >
     > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
@@ -154,7 +159,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 				listen-on { any; };
 		};
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Replace the values in the `goodclients` section with the IP address range of the virtual network and on-premises network. This section defines the addresses that this DNS server accepts requests from.
     >
     > Replace the `192.168.0.1` entry in the `forwarders` section with the IP address of your on-premises DNS server. This entry routes DNS requests to your on-premises DNS server for resolution.
@@ -187,7 +192,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 			forwarders {168.63.129.16;}; # The Azure recursive resolver
 		};
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > You must replace the `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` with the DNS suffix you retrieved earlier.
 
     To edit this file, use the following command:
@@ -211,7 +216,7 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
     nslookup dns.mynetwork.net 10.0.0.4
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Replace `dns.mynetwork.net` with the fully qualified domain name (FQDN) of a resource in your on-premises network.
     >
     > Replace `10.0.0.4` with the __internal IP address__ of your custom DNS server in the virtual network.
@@ -227,11 +232,19 @@ To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) D
 
 ### Configure the virtual network to use the custom DNS server
 
-To configure the virtual network to use the custom DNS server instead of the Azure recursive resolver, use the following steps:
+To configure the virtual network to use the custom DNS server instead of the Azure recursive resolver, use the following steps from the [Azure portal](https://portal.azure.com):
 
-1. In the [Azure portal](https://portal.azure.com), select the virtual network, and then select __DNS Servers__.
+1. From the left menu, select **All services**.  
 
-2. Select __Custom__, and enter the __internal IP address__ of the custom DNS server. Finally, select __Save__.
+1. Under **Networking**, select **Virtual networks**.  
+
+1. Select your virtual network from the list, which will open the default view for your virtual network.  
+
+1. From the default view, under **Settings**, select **DNS servers**.  
+
+1. Select __Custom__, and enter the **PRIVATE IP ADDRESS** of the custom DNS server.   
+
+1. Select __Save__.  <br />  
 
     ![Set the custom DNS server for the network](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -264,7 +277,7 @@ This example uses the on-premises DNS server at 196.168.0.4 to resolve the name 
 
 You can use network security groups (NSG) or user-defined routes (UDR) to control network traffic. NSGs allow you to filter inbound and outbound traffic, and allow or deny the traffic. UDRs allow you to control how traffic flows between resources in the virtual network, the internet, and the on-premises network.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight requires inbound access from specific IP addresses in the Azure cloud, and unrestricted outbound access. When using NSGs or UDRs to control traffic, you must perform the following steps:
 
 1. Find the IP addresses for the location that contains your virtual network. For a list of required IPs by location, see [Required IP addresses](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip).
@@ -278,7 +291,7 @@ For an example of using Azure PowerShell or the Azure CLI to create NSGs, see th
 
 ## Create the HDInsight cluster
 
-> [!WARNING]
+> [!WARNING]  
 > You must configure the custom DNS server before installing HDInsight in the virtual network.
 
 Use the steps in the [Create an HDInsight cluster using the Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md) document to create an HDInsight cluster.
@@ -318,12 +331,12 @@ To directly connect to HDInsight through the virtual network, use the following 
 	az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
 	```
 
-2. To determine the port that a service is available on, see the [Ports used by Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
+2. To determine the port that a service is available on, see the [Ports used by Apache Hadoop services on HDInsight](./hdinsight-hadoop-port-settings-for-services.md) document.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Some services hosted on the head nodes are only active on one node at a time. If you try accessing a service on one head node and it fails, switch to the other head node.
     >
-    > For example, Ambari is only active on one head node at a time. If you try accessing Ambari on one head node and it returns a 404 error, then it is running on the other head node.
+    > For example, Apache Ambari is only active on one head node at a time. If you try accessing Ambari on one head node and it returns a 404 error, then it is running on the other head node.
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Deploy the LAMP Stack in a Load-Balanced Virutal Machin Scale Set | Microsoft Docs
+title: Azure CLI Script Sample - Deploy the LAMP Stack in a Load-Balanced Virtual Machine Scale Set | Microsoft Docs
 description: Use a custom script extension to deploy the LAMP Stack in a load=balanced virtual machine scale set on Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -57,7 +57,7 @@ This script uses the following commands to create a resource group, virtual mach
 | [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Create the extension that runs the custom script on deployment of a VM |
 | [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Run the custom script on the VM instances that were deployed before the extension was applied to the scale set. |
 | [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Scale up the scale set by adding more VM instances. The custom script is run on these when they are deployed. |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | Get the IP addresses of the VMs created by the sample. |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Get the IP addresses of the VMs created by the sample. |
 | [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Get the frontend and backend ports used by the load balancer. |
 
 ## Next steps

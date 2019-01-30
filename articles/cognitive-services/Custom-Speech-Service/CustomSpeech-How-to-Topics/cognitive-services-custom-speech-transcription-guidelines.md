@@ -5,13 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
 ---
 
 # Transcription guidelines
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 To ensure the best use of your text data for acoustic and language model customization, the following transcription guidelines should be followed. These guidelines are language specific.
 
 ## Text normalization

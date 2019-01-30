@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -115,7 +115,7 @@ az network application-gateway frontend-port create \
 
 ### Add backend listener
 
-Add the backend listener named *backendListener* that's needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create).
+Add the backend listener named *backendListener* that's needed to route traffic using [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
 
 ```azurecli-interactive
@@ -216,7 +216,7 @@ done
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Copy the public IP address, and then paste it into the address bar of your browser. Such as, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, or *http://40.121.222.19:8080/video/test.htm*.
+To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip). Copy the public IP address, and then paste it into the address bar of your browser. Such as, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm*, or *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurepowershell-interactive
 az network public-ip show \

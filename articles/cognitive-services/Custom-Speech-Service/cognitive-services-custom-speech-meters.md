@@ -5,13 +5,15 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
 ---
 
 # Custom Speech Service meters and quotas
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 With cloud-based Custom Speech Service, you can customize speech models for speech-to-text transcription.
 

@@ -29,6 +29,7 @@ To create your data warehouse solution, choose from a wide variety of industry-l
 To learn more about other partners, see [Business Intelligence partners][bi_partners] and [Data Integration partners][di_partners].
 
 <!--Image references-->
+
 [1]: ./media/sql-data-warehouse-partner-data-management/coffing_data_warehousing_logo.png
 [2]: ./media/sql-data-warehouse-partner-data-management/inbrein_logo.png
 [3]: ./media/sql-data-warehouse-partner-data-management/infolibrarian_logo.png
@@ -36,11 +37,13 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 [5]: ./media/sql-data-warehouse-partner-data-management/sql_sentry_logo.png
 
 <!--Article links-->
+
 [bi_partners]: ./sql-data-warehouse-partner-business-intelligence.md
 [dm_partners]: ./sql-data-warehouse-partner-data-management.md
 [di_partners]: ./sql-data-warehouse-partner-data-integration.md
 
 <!--Website links -->
+
 [coffing_website]:http://www.coffingdw.com/software/nexus/
 [inbrein_website]:http://microerd.com/
 [infolibrarian_website]:http://www.infolibcorp.com/metadata-management/software-tools
@@ -51,37 +54,53 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 <!--ebook Links-->
 
 <!--Datasheet Links-->
+
 <!--[coffing_datasheet]:-->
+
 [inbrein_datasheet]:http://microerd.com/images/MicroERD_Manual/MicroERD_Manual.pdf
+
 <!--[infolibrarian_datasheet]:-->
+
 [redpoint_it_datasheet]:http://www.redpoint.net/wp-content/uploads/2016/06/RedPoint-Interaction-FS-wordle-8.5x11-RPIUS0815-07-PRINT.pdf
 [redpoint_dm_datasheet]:http://www.redpoint.net/wp-content/uploads/2014/09/RedPoint-Data-Management-FS-V2-wordle-8.5x11-0216-WEB.pdf
+
 <!--[sql_sentry_datasheet]:-->
 
 <!--Marketplace Links -->
+
 <!--[coffing_marketplace]:https://azure.microsoft.com/marketplace/partners/nexus/nexus-chameleon-9/ -->
+
 <!--[inbrein_marketplace]:-->
+
 [infolibrarian_marketplace]:https://azure.microsoft.com/marketplace/partners/infolibrarian/infolibrarian-metadata-management-server/
 [redpoint_it_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-interaction/
 [redpoint_dm_marketplace]:https://azure.microsoft.com/marketplace/partners/redpoint-global/redpoint-rpdm/ 
 [sql_sentry_marketplace]:https://www.sentryone.com/products/sentryone-platform/dw-sentry/azure-sql-data-warehouse-monitoring
 
 <!--Press links-->
+
 [coffing_press]:http://www.coffingdw.com/press-release-nexus-tuned-for-azure-sql-data-warehouse/
+
 <!--[inbrein_press]:-->
+
 <!--[infolibrarian_press]:-->
+
 [redpoint_press]:http://www.redpoint.net/press/redpoint-global-announces-support-for-microsoft-azure-sql-data-warehouse-microsoft-azure-data-lake-service/
 [sql_sentry_press]:https://www.sentryone.com/sentryone-v-11.2-offers-new-insights-and-powerful-automation
 
 
 <!--YouTube links-->
+
 [coffing_youtube]:https://www.youtube.com/channel/UC8o1zhc9tNp9ve6vDn34tkw
 [inbrein_youtube]:https://www.youtube.com/channel/UCHTYjFFaTpo6bPAtuxgdZig
+
 <!--[infolibrarian_youtube]:-->
+
 [redpoint_youtube]:https://www.youtube.com/user/RedPointGlobal
 [sql_sentry_youtube]:https://www.youtube.com/user/SQLSentry
 
 <!--Twitter links-->
+
 [coffing_twitter]:https://twitter.com/CoffingDW
 [inbrein_twitter]:https://twitter.com/microerd
 [infolibrarian_twitter]:https://twitter.com/InfoLibCorp

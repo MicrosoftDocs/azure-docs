@@ -84,7 +84,7 @@ To start with, [download the Service Fabric for Windows Server package](service-
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]",
                 "IsAdmin": true
             }
         ],
@@ -253,7 +253,7 @@ If you are using issuer stores, then no config upgrade needs to be performed for
 ## Acquire the X.509 certificates
 To secure communication within the cluster, you first need to obtain X.509 certificates for your cluster nodes. Additionally, to limit connection to this cluster to authorized machines/users, you need to obtain and install certificates for the client machines.
 
-For clusters that are running production workloads, use a [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-signed X.509 certificate to secure the cluster. For more information on how to obtain these certificates, see [How to obtain a certificate](http://msdn.microsoft.com/library/aa702761.aspx).
+For clusters that are running production workloads, use a [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority)-signed X.509 certificate to secure the cluster. For more information on how to obtain these certificates, see [How to obtain a certificate](https://msdn.microsoft.com/library/aa702761.aspx).
 
 For clusters that you use for test purposes, you can choose to use a self-signed certificate.
 
@@ -350,7 +350,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-You can then run other PowerShell commands to work with this cluster. For example, you can run [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps) to show a list of nodes on this secure cluster.
+You can then run other PowerShell commands to work with this cluster. For example, you can run [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) to show a list of nodes on this secure cluster.
 
 
 To remove the cluster, connect to the node on the cluster where you downloaded the Service Fabric package, open a command line, and go to the package folder. Now run the following command:

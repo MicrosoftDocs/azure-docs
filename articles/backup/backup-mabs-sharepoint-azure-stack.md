@@ -17,8 +17,8 @@ You back up a SharePoint farm on Azure Stack to Microsoft Azure by using Microso
 Azure Backup for MABS supports the following scenarios:
 
 | Workload | Version | SharePoint deployment | Protection and recovery |
-| --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint deployed as a physical server or Hyper-V/VMware virtual machine <br> -------------- <br> SQL AlwaysOn | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
+| --- | --- | --- | --- |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint deployed as a Azure Stack virtual machine <br> -------------- <br> SQL AlwaysOn | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
 
 ## Before you start
 There are a few things you need to confirm before you back up a SharePoint farm to Azure.

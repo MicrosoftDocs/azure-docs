@@ -1,16 +1,14 @@
 ﻿---
-title: Create a public load balancer - Azure template | Microsoft Docs
+title: Create a public Load Balancer - Azure template
+titlesuffix: Azure Load Balancer
 description: Learn how to create a public load balancer in Resource Manager using a template
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-tags: azure-resource-manager
-
-ms.assetid: b24f4729-4559-4458-8527-71009d242647
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
@@ -33,7 +31,7 @@ ms.author: kumud
 
 ## Deploy the template by using click to deploy
 
-The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](http://go.microsoft.com/fwlink/?LinkId=544801), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://go.microsoft.com/fwlink/?LinkId=544801), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
 ## Deploy the template by using PowerShell
 
@@ -77,3 +75,5 @@ To deploy the template by using the Azure CLI, follow the steps below.
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+For the JSON syntax and properties of a load balancer in a template, see [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

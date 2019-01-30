@@ -1,24 +1,17 @@
 ﻿---
-title: 'Move ExpressRoute circuits from classic to Resource Manager: PowerShell: Azure | Microsoft Docs'
+title: 'Move circuits from classic to Resource Manager - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: This page describes how to move a classic circuit to the Resource Manager deployment model using PowerShell.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/28/2018
+ms.topic: conceptual
+ms.date: 01/07/2019
 ms.author: ganesr;cherylmc
+ms.custom: seodec18
 
 ---
-# Move ExpressRoute circuits from the classic to the Resource Manager deployment model using PowerShell
+# Move ExpressRoute circuits from classic to Resource Manager deployment model using PowerShell
 
 To use an ExpressRoute circuit for both the classic and Resource Manager deployment models, you must move the circuit to the Resource Manager deployment model. The following sections help you move your circuit by using PowerShell.
 
@@ -51,8 +44,8 @@ Sign in to the Azure classic environment and gather the service key.
 3. Import the PowerShell modules for Azure and ExpressRoute.
 
   ```powershell
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
   ```
 
 4. Use the cmdlet below to get the service keys for all of your ExpressRoute circuits. After retrieving the keys, copy the **service key** of the circuit that you want to move to the Resource Manager deployment model.

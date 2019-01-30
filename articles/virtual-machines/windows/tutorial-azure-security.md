@@ -105,7 +105,7 @@ As recommendations are remediated, they are marked as resolved.
 
 In addition to resource configuration recommendations, Security Center displays threat detection alerts. The security alerts feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information about Security Center threat detection capabilities, see [Azure Security Center detection capabilities](../../security-center/security-center-detection-capabilities.md).
 
-The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A 60-day **free trial** is available when you move to this higher pricing tier. 
+The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A **free trial** is available when you move to this higher pricing tier. 
 
 To change the pricing tier:  
 
@@ -131,7 +131,7 @@ In this tutorial, you set up Azure Security Center, and then reviewed VMs in Sec
 > * View and fix configuration health issues
 > * Review detected threats
 
-Advance to the next tutorial to learn how to create a CI/CD pipeline with Visual Studio Team Services and a Windows VM running IIS.
+Advance to the next tutorial to learn how to install a SQL&#92;IIS&#92;.NET stack on a pair of Windows VMs.
 
 > [!div class="nextstepaction"]
-> [Visual Studio Team Services CI/CD pipeline](./tutorial-vsts-iis-cicd.md)
+> [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)
