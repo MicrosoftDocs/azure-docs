@@ -30,3 +30,8 @@
     items:
     - name: Using Cosmos DB
       href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Anchors API
+    href: concepts/creating-and-finding-anchors.md

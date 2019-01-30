@@ -57,3 +57,10 @@ sections:
     items:
       - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Share Azure Spatial Anchors across devices.</a>
       - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Use Cosmos DB to Store Azure Spatial Anchors.</a>
+- title: In-depth Concepts
+  items:
+  - type: list
+    style: ordered
+    items:
+    - text: Creating and finding anchors
+      href: concepts/creating-and-finding-anchors.md
