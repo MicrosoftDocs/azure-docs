@@ -5,7 +5,7 @@ description: Creating Web service endpoints in Azure Machine Learning. Each endp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
