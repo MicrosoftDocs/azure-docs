@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2019
+ms.date: 01/30/2019
 ms.author: tomfitz
 ---
 
 # Create resource groups and resources at the subscription level
 
-Typically, you deploy Azure resource to a resource group in your Azure subscription. However, you can also create Azure resource groups, and create Azure resources at the subscription level.  To deploy templates at the subscription level, you use Azure CLI and PowerShell. The Azure portal doesn't support deployment in the subscription level.
+Typically, you deploy Azure resources to a resource group in your Azure subscription. However, you can also create Azure resource groups, and create Azure resources at the subscription level. To deploy templates at the subscription level, you use Azure CLI and Azure PowerShell. The Azure portal doesn't support deployment in the subscription level.
 
 To create a resource group in an Azure Resource Manager template, define a [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions.md) resource with a name and location for the resource group. You can create a resource group and deploy resources to that resource group in the same template. The resources that you can deploy at the level include: [Policies](../azure-policy/azure-policy-introduction.md), [Role-based access control](../role-based-access-control/overview.md), and [Azure Security Center](../security-center/security-center-intro.md).
 
