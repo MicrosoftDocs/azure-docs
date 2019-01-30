@@ -292,7 +292,7 @@ When you enable Dev Spaces on a namespace in your AKS cluster, an additional con
 ### Try:
 You can move the affected pods to a namespace inside the cluster that does _not_ have Dev Spaces enabled. The rest of your application can continue to run inside a Dev Spaces-enabled namespace. Dev Spaces will not install the _mindaro-proxy_ container inside non-Dev Spaces enabled namespaces.
 
-## Azure Dev Spaces doesn't seem to use my existing Dockerfile to build a container 
+## Azure Dev Spaces doesn't seem to use my existing Dockerfile to build a container
 
 ### Reason
 Azure Dev Spaces can be configured to point to a specific _Dockerfile_ in your project. If it appears Azure Dev Spaces isn't using the _Dockerfile_ you expect to build your containers, you might need to explicitly tell Azure Dev Spaces which Dockerfile to use. 
