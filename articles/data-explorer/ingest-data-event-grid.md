@@ -14,7 +14,7 @@ ms.date: 1/30/2019
 
 # Quickstart: Ingest Azure Blobs into Azure Data Explorer by subscribing to Event Grid notifications
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers continuous ingestion (data loading) from blobs written to blob containers. This is achieved by setting an [Azure Event Grid](/azure/event-grid/overview) subscription for blob creation events and routing these events to Kusto via an Event Hub. For this quickstart, you should have a storage account with an Event Grid subscription which sends its notifications to Event Hub. You can then create an Event Grid data connection and see the data flow throughout the system.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers continuous ingestion (data loading) from blobs written to blob containers. This is achieved by setting an [Azure Event Grid](/azure/event-grid/overview) subscription for blob creation events and routing these events to Kusto via an Event Hub. For this quickstart, you should have a storage account with an Event Grid subscription that sends its notifications to Event Hub. You can then create an Event Grid data connection and see the data flow throughout the system.
 
 ## Prerequisites
 
@@ -35,10 +35,10 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Name | *test-grid-connection* | The name of the event grid you want to create.|
-    | Event Schema | *Event Grid Schema* | The schema which should be used for the Event Grid. |
+    | Event Schema | *Event Grid Schema* | The schema that should be used for the Event Grid. |
     | Topic Type | *Storage account* | The type of event grid topic. |
     | Topic Resource | *gridteststorage* | The name of your storage account. |
-    | Subscribe to all event types | *Uncheck* | Do not get notified on all events. |
+    | Subscribe to all event types | *Uncheck* | Don't get notified on all events. |
     | Defined Event Types | *Blob Created* | Which specific events to get notified for. |
     | Endpoint Type | *Event Hubs* | The type of endpoint to which you send the events. |
     | Endpoint | *test-hub* | The event hub you created. |
@@ -51,7 +51,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ## Create a target table in Azure Data Explorer
 
-Create a table in Azure Data Explorer, to which Event Hubs will send data. You create the table in the cluster and database provisioned in **Prerequisites**.
+Create a table in Azure Data Explorer, to which Event Hubs will send data. You create the table in the cluster and database prepared in **Prerequisites**.
 
 1. In the Azure portal, under your cluster, select **Query**.
 
@@ -96,9 +96,10 @@ Now you connect to the Event Grid from Azure Data Explorer, so that data flowing
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Data connection name | *test-hub-connection* | The name of the connection you want to create in Azure Data Explorer.|
+    | Storage account subscription | Your subscription ID | The subscription ID where your storage account resides.|
     | Storage account | *gridteststorage* | The name of the storage account you created previously.|
-    | Event hub namespace | A unique namespace name | The name you chose previously that identifies your namespace. |
-    | Event hub | *test-hub* | The event hub you created previously. |
+    | Event Grid | *test-grid-connection* | The name of the Event Grid you created. |
+    | Event Hub name | *test-hub* | The event hub you created. This is automatically filled out when you pick an Event Grid. |
     | Consumer group | *test-group* | The consumer group defined in the event hub you created. |
     | | |
 
@@ -165,7 +166,7 @@ You’ll be able to alter the policy at later time as needed. In this quickstart
     | count
     ```
 
-1. To see the content of the messages run the following query in your test database.
+1. To see the content of the messages, run the following query in your test database.
 
     ```Kusto
     TestTable
