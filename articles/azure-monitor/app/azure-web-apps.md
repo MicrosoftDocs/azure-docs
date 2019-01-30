@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/229/2019
+ms.date: 01/29/2019
 ms.author: mbullwin
 
 ---
