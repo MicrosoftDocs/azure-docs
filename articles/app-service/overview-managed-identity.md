@@ -257,7 +257,7 @@ For .NET applications and functions, the simplest way to work with a managed ide
 
 1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and any other necessary NuGet packages to your application. The below example also uses [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Add the following code to your application, modifying to target the correct resource. This example shows two ways to work with Azure Key Vault:
+2. Add the following code to your application, modifying to target the correct resource. This example shows two ways to work with Azure Key Vault:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -274,12 +274,12 @@ To learn more about Microsoft.Azure.Services.AppAuthentication and the operation
 ### Using the REST protocol
 
 An app with a managed identity has two environment variables defined:
+
 - MSI_ENDPOINT
 - MSI_SECRET
 
 The **MSI_ENDPOINT** is a local URL from which your app can request tokens. To get a token for a resource, make an HTTP GET request to this endpoint, including the following parameters:
 
-> [!div class="mx-tdBreakAll"]
 > |Parameter name|In|Description|
 > |-----|-----|-----|
 > |resource|Query|The AAD resource URI of the resource for which a token should be obtained. This could be one of the [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.|
@@ -287,10 +287,8 @@ The **MSI_ENDPOINT** is a local URL from which your app can request tokens. To g
 > |secret|Header|The value of the MSI_SECRET environment variable.|
 > |clientid|Query|(Optional) The ID of the user-assigned identity to be used. If omitted, the system-assigned identity is used.|
 
-
 A successful 200 OK response includes a JSON body with the following properties:
 
-> [!div class="mx-tdBreakAll"]
 > |Property name|Description|
 > |-------------|----------|
 > |access_token|The requested access token. The calling web service can use this token to authenticate to the receiving web service.|
@@ -298,24 +296,27 @@ A successful 200 OK response includes a JSON body with the following properties:
 > |resource|The App ID URI of the receiving web service.|
 > |token_type|Indicates the token type value. The only type that Azure AD supports is Bearer. For more information about bearer tokens, see [The OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
-
 This response is the same as the [response for the AAD service-to-service access token request](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
-> [!NOTE] 
+> [!NOTE]
 > Environment variables are set up when the process first starts, so after enabling a managed identity for your application, you may need to restart your application, or redeploy its code, before `MSI_ENDPOINT` and `MSI_SECRET` are available to your code.
 
 ### REST protocol examples
+
 An example request might look like the following:
+
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
+
 And a sample response might look like the following:
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
- 
+
 {
     "access_token": "eyJ0eXAi…",
     "expires_on": "09/14/2017 00:00:00 PM +00:00",
@@ -325,7 +326,9 @@ Content-Type: application/json
 ```
 
 ### Code examples
+
 <a name="token-csharp"></a>To make this request in C#:
+
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -333,10 +336,12 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
     return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
 }
 ```
+
 > [!TIP]
 > For .NET languages, you can also use [Microsoft.Azure.Services.AppAuthentication](#asal) instead of crafting this request yourself.
 
 <a name="token-js"></a>In Node.JS:
+
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -352,6 +357,7 @@ const getToken = function(resource, apiver, cb) {
 ```
 
 <a name="token-powershell"></a>In PowerShell:
+
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -367,13 +373,13 @@ A system-assigned identity can be removed by disabling the feature using the por
 ```json
 "identity": {
     "type": "None"
-}    
+}
 ```
 
 Removing a system-assigned identity in this way will also delete it from AAD. System-assigned identities are also automatically removed from AAD when the app resource is deleted.
 
-> [!NOTE] 
-> There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommmended.
+> [!NOTE]
+> There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommended.
 
 ## Next steps
 

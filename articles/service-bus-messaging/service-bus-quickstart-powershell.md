@@ -260,4 +260,4 @@ In this article, you created a Service Bus namespace and other resources require
 > [Update inventory using Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Install and Configure Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

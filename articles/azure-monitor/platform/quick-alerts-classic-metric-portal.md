@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Receive a notification when a metric value meets a condition
@@ -111,3 +111,4 @@ In this quickstart, you’ve learned how to create a metric alert for your resou
 
 > [!div class="nextstepaction"]
 > [Azure Monitor subscription action alerts](./../../azure-monitor/platform/quick-audit-notify-action-subscription.md )
+
