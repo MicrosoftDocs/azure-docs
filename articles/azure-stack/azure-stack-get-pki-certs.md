@@ -14,6 +14,7 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
+ms.lastreviewed: 01/25/2019
 ---
 
 # Azure Stack certificates signing request generation
