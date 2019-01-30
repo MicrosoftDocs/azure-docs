@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/11/2019
+ms.date: 01/30/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -97,6 +97,14 @@ Check that the .OVA file is secure, before you deploy it.
 3. The generated hash should match these settings.
 
 #### Continuous discovery
+
+  For OVA version 1.0.10.11
+
+  **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 5f6b199d8272428ccfa23543b0b5f600
+    SHA1 | daa530de6e8674a66a728885a7feb3b0a2e8ccb0
+    SHA256 | 85da50a21a7a6ca684418a87ccc1dd4f8aab30152c438a17b216ec401ebb3a21
 
   For OVA version 1.0.10.9
 
