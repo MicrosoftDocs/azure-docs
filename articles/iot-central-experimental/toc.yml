@@ -1,6 +1,6 @@
 - name: Azure IoT Fundamentals 
   href: /azure/iot-fundamentals
-- name: Azure IoT Central Documentation (New design)
+- name: Azure IoT Central Documentation (New UI design)
   href: ../iot-central/index.yml?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json
 - name: Overview
   items:
