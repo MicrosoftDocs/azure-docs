@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Use the Azure storage emulator for development and testing
 

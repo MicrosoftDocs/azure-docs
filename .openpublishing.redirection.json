@@ -13369,10 +13369,14 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-servers-databases.md",
-      "redirect_url": "/azure/sql-database/sql-database-logical-servers",
+      "redirect_url": "/azure/sql-database/sql-database-servers",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-logical-servers.md",
+      "redirect_url": "/azure/sql-database/sql-database-servers",
+      "redirect_document_id": false
+    },    {
       "source_path": "articles/sql-database/sql-database-servers-databases-manage.md",
       "redirect_url": "/azure/sql-database/sql-database-single-databases-manage",
       "redirect_document_id": false
@@ -13499,7 +13503,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-server-overview.md",
-      "redirect_url": "/azure/sql-database/sql-database-logical-servers",
+      "redirect_url": "/azure/sql-database/sql-database-servers",
       "redirect_document_id": false
     },
     {
@@ -13548,6 +13552,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-resource-limits-logical-server.md",
+      "redirect_url": "/azure/sql-database/sql-database-resource-limits-database-server",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-upgrade-server-powershell.md",
       "redirect_url": "/azure/sql-database/sql-database-faq",
       "redirect_document_id": false
@@ -13559,7 +13568,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-resource-limits.md",
-      "redirect_url": "/azure/sql-database/sql-database-resource-limits-logical-server",
+      "redirect_url": "/azure/sql-database/sql-database-resource-limits-database-server",
       "redirect_document_id": false
     },
     {
@@ -34897,6 +34906,11 @@
       "source_path": "articles/azure-stack/azure-stack-deploy-overview.md",
       "redirect_url": "/azure/azure-stack/asdk/asdk-download",
       "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/aks/autoscaler.md",
+      "redirect_url":  "/azure/aks/cluster-autoscaler",
+      "redirect_document_id":  "false"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-keys.md",
