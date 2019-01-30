@@ -1,9 +1,9 @@
 ---
 title: Create custom neural networks with Net#
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Syntax guide for the Net# neural networks specification language. Learn how to create custom neural network models in Azure Machine Learning Studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 
