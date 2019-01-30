@@ -24,8 +24,6 @@ To complete this tutorial, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-* A configured server-level firewall rule. For more information, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
-
 #### Install the latest SSMS
 
 Before you start, make sure you've installed the latest [SSMS][ssms-install-latest-84g]. 
