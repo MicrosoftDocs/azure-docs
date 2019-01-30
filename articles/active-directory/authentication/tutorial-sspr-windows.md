@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/30/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -127,7 +127,7 @@ The following policy settings are known to interfere with the ability to reset p
 
 This feature does not work for networks with 802.1x network authentication deployed and the option “Perform immediately before user logon”. For networks with 802.1x network authentication deployed it is recommended to use machine authentication to enable this feature.
 
-For Hybrid Domain Joined scenarios, a scenario exists where the SSPR workflow will complete without needing an Active Directory domain controller. Connectivity with a domain controller is required to use the new password for the first time.
+For Hybrid Domain Joined scenarios, the SSPR workflow will successfully complete without needing an Active Directory domain controller. If a user completes the password reset process when communication to an Active Directory domain controller is not available, like when working remotely, the user will not be able to log in to the device until the device can communicate with a domain controller and update the cached credential. **Connectivity with a domain controller is required to use the new password for the first time**.
 
 ## Clean up resources
 
