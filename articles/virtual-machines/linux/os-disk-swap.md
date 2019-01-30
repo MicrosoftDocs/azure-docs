@@ -30,7 +30,7 @@ Make sure that the VM size and storage type are compatible with the disk you wan
 This article requires Azure CLI version 2.0.25 or greater. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 
-Use [az disk list](/cli/azure/disk#list) to get a list of the disks in your resource group.
+Use [az disk list](/cli/azure/disk) to get a list of the disks in your resource group.
 
 ```azurecli-interactive
 az disk list \

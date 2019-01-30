@@ -109,7 +109,7 @@ For more information on Azure Storage encryption, see [Azure Storage Service Enc
 
 ## Next steps
 
-Learn more about Terraform backed configuration at the [Terraform backend documentation][terraform-backend].
+Learn more about Terraform backend configuration at the [Terraform backend documentation][terraform-backend].
 
 <!-- LINKS - internal -->
 [azure-key-vault]: ../key-vault/quick-create-cli.md

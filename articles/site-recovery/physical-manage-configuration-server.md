@@ -15,7 +15,7 @@ You set up an on-premises configuration server when you use the [Azure Site Reco
 
 ## Prerequisites
 
-The table summarizes the prerequistes for deploying the on-premises configuration server machine.
+The table summarizes the prerequisites for deploying the on-premises configuration server machine.
 
 | **Component** | **Requirement** |
 | --- |---|
@@ -107,7 +107,7 @@ Run the installation file as follows:
 |/InstallLocation|Required|The folder in which the components are installed| Any folder on the computer|
 |/MySQLCredsFilePath|Required|The file path in which the MySQL server credentials are stored|The file should be the format specified below|
 |/VaultCredsFilePath|Required|The path of the vault credentials file|Valid file path|
-|/EnvType|Required|Type of envrionment that you want to protect |VMware<br>NonVMware|
+|/EnvType|Required|Type of environment that you want to protect |VMware<br>NonVMware|
 |/PSIP|Required|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
 |/CSIP|Required|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
 |/PassphraseFilePath|Required|The full path to location of the passphrase file|Valid file path|
@@ -123,7 +123,7 @@ Run the installation file as follows:
 ### Create file input for MYSQLCredsFilePath
 
 The MySQLCredsFilePath parameter takes a file as input. Create the file using the following format and pass it as input MySQLCredsFilePath parameter.
-```
+```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
@@ -131,7 +131,7 @@ MySQLUserPassword = "Password"
 ### Create file input for ProxySettingsFilePath
 ProxySettingsFilePath parameter takes a file as input. Create the file using the following format and pass it as input ProxySettingsFilePath parameter.
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -152,7 +152,7 @@ You can modify proxy settings for the configuration server machine as follows:
 5. Provide the new proxy details and click the **Register** button.
 6. Open an Admin PowerShell command window.
 7. Run the following command:
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine
@@ -172,7 +172,7 @@ You can modify proxy settings for the configuration server machine as follows:
   6. Open an Admin PowerShell command window.
   7. Run the following command
 
-      ```
+      ```powershell
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
       net stop obengine
@@ -200,7 +200,7 @@ You can modify proxy settings for the configuration server machine as follows:
 6. Provide the Proxy Server details and click the **Register** button.  
 7. Open an Admin PowerShell command window.
 8. Run the following command
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
@@ -259,7 +259,7 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
+1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
 2. Login into to your Azure account using the command
     
     `Connect-AzureRmAccount`
@@ -268,7 +268,7 @@ Upgrade the server as follows:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Now set up your vault context
     
-    ```
+    ```powershell
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```
