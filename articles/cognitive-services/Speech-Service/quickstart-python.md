@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Recognize speech, Python - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to create a speech-to-text console application by using the Speech SDK for Python. When finished, you can use your computer's microphone to transcribe speech to text in real time.
+description: Use this guide to create a speech-to-text console application that uses the Speech SDK for Python. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
@@ -45,8 +45,6 @@ This command installs the Python package from [PyPI](https://pypi.org/) for the 
 pip install azure-cognitiveservices-speech
 ```
 
-The current version of the Speech SDK for Azure Cognitive Services is `1.2.0`.
-
 ## Support and updates 
 
 Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](./releasenotes.md).
@@ -55,7 +53,7 @@ Check which version is currently installed by inspecting the `azure.cognitiveser
 
 If you have a problem, or you're missing a feature, see [Support and help options](./support.md).
 
-## Create a Python application by using the Speech SDK
+## Create a Python application that uses the Speech SDK
 
 ### Run the sample
 
@@ -88,7 +86,7 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 
    ![Create a file](media/sdk/qs-python-vscode-python-newfile.png)
 
-1. Copy, paste, and save the [Python code](#quickstart-code) to the newly created file.
+1. Copy, paste, and save the [Python code](#sample-code) to the newly created file.
 1. Insert your Speech service subscription information.
 1. If selected, a Python interpreter displays on the left side of the status bar at the bottom of the window.
    Otherwise, bring up a list of available Python interpreters. Open the command palette (Ctrl+Shift+P) and enter **Python: Select Interpreter**. Choose an appropriate one.
