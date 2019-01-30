@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
+ms.lastreviewed: 01/08/2019
 
 ---
 # Create and publish a Marketplace item

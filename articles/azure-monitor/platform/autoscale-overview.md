@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 # Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
 This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
@@ -114,3 +114,4 @@ To learn more about autoscale, use the Autoscale Walkthroughs listed previously 
 * [Use autoscale actions to send email and webhook alert notifications](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 * [Troubleshooting Virtual Machine Scale Sets Autoscale](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+

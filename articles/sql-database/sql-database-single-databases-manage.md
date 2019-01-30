@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 01/17/2019
 ---
 # Create and manage logical servers and single databases in Azure SQL Database
 
@@ -51,7 +51,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
 
 ## PowerShell: Manage logical servers and databases
 
-To create and manage Azure SQL logical servers, single and pooled databases, and logical server firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+To create and manage Azure SQL logical servers, single and pooled databases, and logical server firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!TIP]
 > For PowerShell example scripts, see [Use PowerShell to create a single Azure SQL database and configure a logical server firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a single SQL database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).

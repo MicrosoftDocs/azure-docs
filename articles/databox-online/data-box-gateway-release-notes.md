@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Gateway Preivew release notes| Microsoft Docs
+title: Azure Data Box Gateway Preview release notes| Microsoft Docs
 description: Describes critical open issues and resolutions for the Azure Data Box Gateway running Preview release.
 services: databox
 author: alkohli
