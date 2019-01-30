@@ -42,7 +42,7 @@ The synchronization process involves following steps:
 
 1. **Import from AD:** **Active Directory** objects are brought into **AD CS**.
 
-2. **Import from AAD:** **Azure Active Directory** objects are brought into **Azure AD CS**.
+2. **Import from AAD:** **Azure Active Directory** objects are brought into **AAD CS**.
 
 3. **Synchronization:** **Inbound Synchronization Rules** and **Outbound Synchronization Rules** are run in the order of precedence number from lower to higher. To view the Synchronization Rules, you can go to **Synchronization Rules Editor** from the desktop applications. The **Inbound Synchronization Rules** brings in data from CS to MV. The **Outbound Synchronization Rules** moves data from MV to CS.
 
