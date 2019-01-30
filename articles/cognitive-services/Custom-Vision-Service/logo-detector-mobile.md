@@ -137,13 +137,33 @@ Take note of the `clientId`, and `tenantId` values. Add them to the appropriate 
 
 ## Run the app
 
-At this point, you;ve given the app a reference to: a trained Custom Vision model; the Computer Vision service; and a service principal account. In Visual Studio, select either the VisualProvision.Android or VisualProvision.iOS project in the solution explorer, and choose a corresponding emulator or connected mobile device from the dropdown menu in the main toolbar (note that you need a MacOS device to run an iOS emulator). Then, run the app.
+At this point, you've given the app a reference to:
+* a trained Custom Vision model
+* the Computer Vision service
+* a service principal account. 
+
+In the Visual Studio Solution Explorer, select either the VisualProvision.Android or VisualProvision.iOS project and choose a corresponding emulator or connected mobile device from the dropdown menu in the main toolbar (note that you need a MacOS device to run an iOS emulator). Then run the app.
+
+In the first screen that loads, enter your service principal client ID, tenant ID, and password. Click the **Login** button.
+
+> [!NOTE]
+> On some emulators, the **Login** button may not activate at this step. If this happens, stop the app, open the _VisualProvision/Pages/LoginPage.xaml_ file, find the `Button` element labelled LOGIN BUTTON, and remove the line:
+    ```xaml
+    IsEnabled="{Binding IsValid}"
+    ```
+Then, run the app again.
+
+On the next screen, select your Azure subscription from the dropdown menu (this should contain all of the subscriptions to which your service principal has access). Click the **Continue** button.
+
+At this point the app may prompt you to grant access to the devices to camera and photo storage. Accept these permissions.
+
+Next, the camera on your device will activate. Take a photo of one of the Azure service logos you trained. A deployment dialogue should prompt you to select a region and resource group for the new services (as you would do if you were deploying them from the Azure portal).
 
 ## Clean up resources 
 
 If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, be sure to go to the [Azure portal](https://ms.portal.azure.com/) when you're finished and cancel the services you don't wish to use.
 
-Also, if you plan to create own object detection project with Custom Vision, you may wish to delete the logo detection project you created in this tutorial. A free trial for Custom Vision allows for two projects. On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under **My New Project**.
+Also, if you plan to create own object detection project with Custom Vision in the future, you may wish to delete the logo detection project you created in this tutorial. A free trial for Custom Vision allows for two projects. On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under **My New Project**.
 
 ## Next steps
 
