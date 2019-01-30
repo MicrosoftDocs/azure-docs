@@ -49,7 +49,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-You can also use [InlineScript](automation-powershell-workflow.md#inlinescript), which  allows you to run blocks of code on another computer with credentials which are specified by the [PSCredential common parameter](/powershell/module/psworkflow/about/about_workflowcommonparameters).
+You can also use [InlineScript](automation-powershell-workflow.md#inlinescript), which  allows you to run blocks of code on another computer with credentials, which are specified by the [PSCredential common parameter](/powershell/module/psworkflow/about/about_workflowcommonparameters).
 
 ### RunAs account
 
@@ -183,7 +183,7 @@ Jobs are handled slightly different on Hybrid Runbook Workers than they're when 
 
 ## Run only signed Runbooks
 
-Hybrid Runbook Workers can be configured to run only signed runbooks with some configuration. The following section describes how to set up your Hybrid Runbook Workers to run signed runbooks and how to sign your runbooks.
+Hybrid Runbook Workers can be configured to run only signed runbooks with some configuration. The following section describes how to set up your Hybrid Runbook Workers to run signed [PowerShell runbooks](#powershell-runbooks) and [Python runbooks](#python-runbooks)
 
 > [!NOTE]
 > Once you have configured a Hybrid Runbook Worker to run only signed runbooks, runbooks that have **not** been signed will fail to execute on the worker.
