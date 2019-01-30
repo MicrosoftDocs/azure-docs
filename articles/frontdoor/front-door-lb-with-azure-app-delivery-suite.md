@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service - Load Balancing with Azure's applciation delivery suite | Microsoft Docs
+title: Azure Front Door Service - Load Balancing with Azure's application delivery suite | Microsoft Docs
 description: This article helps you learn about how Azure recommends load balancing with it's application delivery suite
 services: frontdoor
 documentationcenter: ''

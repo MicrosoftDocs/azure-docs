@@ -25,7 +25,7 @@ To publish a managed application for the service catalog, you must:
 
 For this article, your managed application has only a storage account. It's intended to illustrate the steps of publishing a managed application. For complete examples, see [Sample projects for Azure managed applications](sample-projects.md).
 
-The PowerShell examples in this article require Azure PowerShell 6.2 or later. If needed, [update your version](/powershell/azure/install-azurerm-ps).
+The PowerShell examples in this article require Azure PowerShell 6.2 or later. If needed, [update your version](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## Create the resource template
 
