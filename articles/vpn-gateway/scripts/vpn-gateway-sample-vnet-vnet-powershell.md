@@ -17,6 +17,8 @@ ms.author: alzam
 
 This script connects two virtual networks by using the VNet-to-VNet connection type.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```azurepowershell-interactive
 # Declare variables for VNET 1
   $RG1 = "TestRG1"

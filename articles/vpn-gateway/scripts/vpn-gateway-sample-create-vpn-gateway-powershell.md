@@ -16,6 +16,8 @@ ms.author: alzam
 
 This script creates a route-based VPN Gateway.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 
 ```azurepowershell-interactive
 # Create a resource group

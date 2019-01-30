@@ -59,6 +59,8 @@ To view the shared key for the Azure VPN connection, use one of the following me
 
 **Azure PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 For the Azure Resource Manager deployment model:
 
     Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group name>

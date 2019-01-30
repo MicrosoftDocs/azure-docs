@@ -37,6 +37,8 @@ P2S connections require the following:
 * A RADIUS server to handle user authentication. The RADIUS server can be deployed on-premises, or in the Azure VNet.
 * A VPN client configuration package for the Windows devices that will connect to the VNet. A VPN client configuration package provides the settings required for a VPN client to connect over P2S.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="aboutad"></a>About Active Directory (AD) Domain Authentication for P2S VPNs
 
 AD Domain authentication allows users to sign in to Azure using their organization domain credentials. It requires a RADIUS server that integrates with the AD server. Organizations can also leverage their existing RADIUS deployment.

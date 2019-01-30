@@ -17,6 +17,7 @@ ms.author: alzam
 
 This script creates a route-based VPN Gateway and adds point-to-site configuration using native Azure certificate authentication
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables

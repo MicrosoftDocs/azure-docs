@@ -17,6 +17,7 @@ ms.author: alzam
 
 This script downloads the VPN device template for a connection
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables

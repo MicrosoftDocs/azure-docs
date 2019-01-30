@@ -17,6 +17,7 @@ ms.author: alzam
 
 This script creates a route-based VPN Gateway and adds Site-to-Site configuration. In order to create the connection, you also need to configure your VPN device. For more information, see [About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections](../vpn-gateway-about-vpn-devices.md).
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables

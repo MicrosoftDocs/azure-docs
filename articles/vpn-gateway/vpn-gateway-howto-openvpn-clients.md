@@ -20,6 +20,8 @@ This article helps you configure OpenVPN clients.
 
 ## Before you begin
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Verify that you have completed the steps to configure OpenVPN for your VPN gateway. For details, see [Configure OpenVPN for Azure VPN Gateway](vpn-gateway-howto-openvpn.md).
 
 ## <a name="windows"></a>Windows clients

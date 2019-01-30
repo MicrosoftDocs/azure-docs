@@ -24,8 +24,6 @@ The steps in this article apply to the Resource Manager deployment model and use
 > * [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connect different deployment models - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
->
->
 
 ## <a name="about"></a>About connecting VNets
 
@@ -76,7 +74,9 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 ### Before you begin
 
-Before beginning, you need to install the latest version of the Azure Resource Manager PowerShell cmdlets, at least 4.0 or later. For more information about installing the PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Before beginning, you need to install the latest version of the Azure PowerShell module. For more information about installing the PowerShell module, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 

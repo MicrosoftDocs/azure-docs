@@ -19,10 +19,12 @@ A VPN gateway connection relies on the configuration of multiple resources, each
 >[!NOTE]
 > The values in this article apply VPN gateways (virtual network gateways that use the -GatewayType Vpn). This article does not cover all gateway types or zone-redundant gateways.
 >
->* For values that apply to -GatewayType 'ExpressRoute', see [Virtual Network Gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
->* For zone-redundant gateways, see [About zone-redundant gateways](about-zone-redundant-vnet-gateways.md).
->* For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md). 
+> * For values that apply to -GatewayType 'ExpressRoute', see [Virtual Network Gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
+> * For zone-redundant gateways, see [About zone-redundant gateways](about-zone-redundant-vnet-gateways.md).
+> * For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md). 
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gwtype"></a>Gateway types
 

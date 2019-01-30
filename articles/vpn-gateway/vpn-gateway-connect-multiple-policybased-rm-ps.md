@@ -15,6 +15,8 @@ ms.author: yushwang
 
 This article helps you configure an Azure route-based VPN gateway to connect to multiple on-premises policy-based VPN devices leveraging custom IPsec/IKE policies on S2S VPN connections.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="about"></a>About policy-based and route-based VPN gateways
 
 Policy- *vs.* route-based VPN devices differ in how the IPsec traffic selectors are set on a connection:
