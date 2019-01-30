@@ -79,7 +79,7 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
 
     - Use a high compute and memory sku, like 32 vCore Memory Optimized, to speed up the migration. You can easily scale back down to your preferred sku after the restore is complete. The higher the sku, the more paralellism you can achieve by increasing the corresponding `-j` parameter in the pg_restore command. 
 
-    - More IOPS on the target server will improve the write performance. You can provision more IOPS by increasing the server's storage size. This setting is not reversible, but consider whether a higher IOPS would benefit your actual workload in the future.
+    - More IOPS on the target server could improve the restore performance. You can provision more IOPS by increasing the server's storage size. This setting is not reversible, but consider whether a higher IOPS would benefit your actual workload in the future.
 
 Remember to test and validate these commands in a test environment before you use them in production.
 
