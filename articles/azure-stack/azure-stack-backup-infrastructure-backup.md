@@ -11,9 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
+ms.lastreviewed: 01/25/2019
 
 ---
 # Backup and data recovery for Azure Stack with the Infrastructure Backup Service
