@@ -44,7 +44,12 @@ If you're already running an app service in Azure, you already get some monitori
 
     * .NET **Basic collection** level offers essential single-instance APM capabilities.
     
-    * .NET **Recommended collection** level adds CPU, memory, and I/O usage trends, correlates micro-services across request/dependency boundaries, collects usage trends, and enables correlation from availability results to transactions; collects exceptions unhandled by the host process; improves APM metrics accuracy under load, when sampling is used.
+    * .NET **Recommended collection** level:
+        * Adds CPU, memory, and I/O usage trends.
+        * Correlates micro-services across request/dependency boundaries.
+        * Collects usage trends, and enables correlation from availability results to transactions.
+        * Collects exceptions unhandled by the host process.
+        * Improves APM metrics accuracy under load, when sampling is used.
     
     .NET Core offers **Recommended collection** or Disabled for .NET Core 2.0 and 2.1.
 
