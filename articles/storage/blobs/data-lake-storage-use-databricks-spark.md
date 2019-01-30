@@ -26,9 +26,15 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-Before you begin this tutorial, create an Azure Data Lake Storage Gen2 account.
+Complete these tasks before you begin this tutorial:
 
-See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+* Create an Azure Data Lake Storage Gen2 account.
+
+  See [Create a Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+
+* Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-rbac) assigned to it.
+
+* Install AzCopy v10. See [Transfer data with AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### Download the flight data
 
@@ -114,7 +120,7 @@ In this section, you create an Azure Databricks service by using the Azure porta
 
     * Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-## New section with new name
+## Create a file system and mount it
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks service that you created, and select **Launch Workspace**.
 
@@ -149,13 +155,21 @@ In this section, you create an Azure Databricks service by using the Azure porta
 
 ### Copy source data into the storage account
 
-The next task is to use AzCopy to copy data from the *.csv* file into Azure storage. Open a command prompt window and enter the following commands. Make sure you replace the placeholders `<DOWNLOAD_FILE_PATH>`,  `<ACCOUNT_NAME>`, and `<ACCOUNT_KEY>` with the corresponding values you set aside in a previous step.
+Use AzCopy to copy data from the *.csv* file that you downloaded earlier into your Data Lake Storage Gen2 account.
 
-```bash
-set ACCOUNT_NAME=<ACCOUNT_NAME>
-set ACCOUNT_KEY=<ACCOUNT_KEY>
-azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
-```
+1. Open a command prompt window, and enter the following command to log into your storage account.
+
+   ```bash
+   azcopy login
+   ```
+
+2. To copy data from the *.csv* account, enter the following command.
+
+   Replace the `<download-file-path>` placeholder value with the path to the *.csv* file that you downloaded earlier. Replace the `storage-account-name` placeholder value with the name of your storage account.
+
+   ```bash
+   azcopy cp "<csv-file-path>" https://<storage-account-name>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive
+   ```
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
