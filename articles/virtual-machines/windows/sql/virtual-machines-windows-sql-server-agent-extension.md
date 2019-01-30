@@ -58,6 +58,8 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 
 * [Download and configure the latest Azure PowerShell commands](/powershell/azure/overview)
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > At this time, the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is not supported for SQL Server FCI on Azure. We recommend that you uninstall the extension from VMs that participate in an FCI. The features supported by the extension are not available to the SQL VMs after the agent is uninstalled.
 

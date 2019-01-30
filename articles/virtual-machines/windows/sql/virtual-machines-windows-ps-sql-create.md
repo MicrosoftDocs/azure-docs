@@ -23,7 +23,7 @@ This guide explains your options to create Windows SQL Server VMs with Azure Pow
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This article requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-az-ps).
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Configure your subscription
 
