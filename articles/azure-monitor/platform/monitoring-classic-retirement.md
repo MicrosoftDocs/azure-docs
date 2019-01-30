@@ -68,7 +68,7 @@ Additionally, the following will be chargeable under the ambit of [Azure Monitor
 - Any multi-test web tests executed by Application Insights
 - Any custom metrics stored beyond free units included in Azure Monitor
 
-This article will be continually updated will links & details regarding the new Azure monitoring & alerting functionality, as well as the availability of tools to assist users in adopting the new Azure Monitor platform.
+This article will be continually updated with links & details regarding the new Azure monitoring & alerting functionality, as well as the availability of tools to assist users in adopting the new Azure Monitor platform.
 
 
 ## Next steps
