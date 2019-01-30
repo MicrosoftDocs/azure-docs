@@ -4,7 +4,7 @@ description: Retention policies on report data in your Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -13,7 +13,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk

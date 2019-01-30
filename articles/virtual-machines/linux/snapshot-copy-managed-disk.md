@@ -13,6 +13,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
+ms.component: disks
 ---
 
 # Create a snapshot 

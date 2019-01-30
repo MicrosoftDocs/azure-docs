@@ -144,4 +144,4 @@ If you no longer need the solution accelerator, delete it from the [Provisioned 
 
 ## Next steps
 
-This guide showed you how to deploy custom device models to the Remote Monitoring solution accelerator. The suggested next step is to learn how to [connect a physical device to your Remote Monitoring solution](iot-accelerators-connecting-devices-node.md).
+This guide showed you how to deploy custom device models to the Remote Monitoring solution accelerator. The suggested next step is to learn how to [connect a real device to your Remote Monitoring solution](iot-accelerators-connecting-devices-node.md).

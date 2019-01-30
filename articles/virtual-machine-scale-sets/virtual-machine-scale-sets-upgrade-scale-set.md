@@ -1,4 +1,4 @@
-﻿---
+---
 title: Modify an Azure virtual machine scale set| Microsoft Docs
 description: Learn how to modify and update an Azure virtual machine scale set with the REST APIs, Azure PowerShell, and Azure CLI
 services: virtual-machine-scale-sets
@@ -82,7 +82,7 @@ A scale set also has a "scale set instance view" that captures the current *runt
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -176,7 +176,7 @@ Similar to how a scale set has an instance view, each VM instance in the scale s
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- Azure CLI with [az vmss get-instance-view](/cli/azure/vmss)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId

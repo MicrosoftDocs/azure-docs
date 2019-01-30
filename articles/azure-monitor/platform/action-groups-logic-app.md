@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
-ms.component: alerts
+ms.subservice: alerts
 ---
 # How to trigger complex actions with Azure Monitor alerts
 
@@ -292,3 +292,4 @@ Logic Apps has a number of different connectors that allow you to trigger action
 * Get an [overview of Azure activity log alerts](../../azure-monitor/platform/alerts-overview.md) and learn how to receive alerts.  
 * Learn how to [configure alerts when an Azure Service Health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Learn more about [action groups](../../azure-monitor/platform/action-groups.md).
+

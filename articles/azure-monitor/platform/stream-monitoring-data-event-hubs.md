@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ""
+ms.subservice: ""
 ---
 # Stream Azure monitoring data to an event hub for consumption by an external tool
 
@@ -114,4 +114,5 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
 * [Archive the Activity Log to a storage account](../../azure-monitor/platform/archive-activity-log.md)
 * [Read the overview of the Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md)
 * [Set up an alert based on an Activity Log event](../../azure-monitor/platform/alerts-log-webhook.md)
+
 
