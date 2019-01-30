@@ -48,7 +48,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    
     A sample output for installing the first order updates is shown below. For the first order update, you need to point to the specific file.
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -59,7 +59,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 4. Type **Y** when prompted to confirm the hotfix installation.
 5. Monitor the update by using the `Get-HcsUpdateStatus` cmdlet. The update will first complete on the passive controller. Once the passive controller is updated, there will be a failover and the update will then get applied on the other controller. The update is complete when both the controllers are updated.
    
