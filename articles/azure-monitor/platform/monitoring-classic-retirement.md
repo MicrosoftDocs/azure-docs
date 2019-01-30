@@ -30,7 +30,7 @@ The new unified Monitoring and Alerting for Application Insights will encompass:
 - **Application Insights Custom metrics** – which lets you define and emit their own metrics for monitoring and alerts. For more information, see this article on using [Custom Metric for Application Insights on new Azure Monitor](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Application Insights Failure Anomalies (part of Smart Detection)** – which automatically notifies you in near real time if your web app experiences an abnormal rise in the rate of failed HTTP requests or dependency calls. Application Insights Failure Anomalies (part of Smart Detection) as part of new Azure Monitor, will be available soon and we will update this doc with links on the next iteration as it is rolled-out in the coming months.
 
-## Unified Metrics & Alerts for other Azure resources
+## Unified Metrics and Alerts for other Azure resources
 
 Since March 2018, the next generation of alerting and multi-dimensional monitoring for Azure resources have been in availability. Now the newer metric platform and alerting is faster with near-real time capabilities. More importantly, the newer metric platform alerts provide more granularity, as the newer platform includes the option of dimensions, which allow you to slice and filter to specific value combination, condition, or operation. Like all alerts in the new Azure Monitor, the newer metric alerts are more extensible with the use of ActionGroups – allowing notifications to expand beyond email or webhook to SMS, Voice, Azure Function, Automation Runbook and more.
 Newer metrics for Azure resources are available as:
@@ -54,6 +54,10 @@ At the end of June 2019, in Azure Monitor:
 - Classic monitoring and alerts service will be retired and no longer available for creation of new alert rules
 - Any alert rules that continue to exist in Alerts (classic) beyond June 2019 will continue to execute and fire notifications, but not be available for modification.
 - Starting July 2019, any alert rules in classic monitoring & alerting will be automatically migrated by Microsoft to their equivalent in the new Azure monitor platform. The process will be seamless without any downtime and customers will have no loss in monitoring coverage.
+- Alert rules migrated to the new alerts platform will provide monitoring coverage as before but will fire notification with new payloads. Any email address, webhook endpoint or logic app link associated with classic alert rule will be carried forward when migrated, but may not behave correctly as alert payload will be different in the new platform
+
+> [!IMPORTANT]
+> Microsoft Azure Monitor will be provide tool for customers to automatically migrate their classic alert rules on to the new platform soon. And run it by force for all classic alert rules that still exist, starting July 2019. Customers will need to ensure automation consuming classic alert rule payload is adapted to handle the new payload from Unified Metrics and Alerts in Application Insights and Unified Metrics and Alerts for other Azure resources, post-migration of the classic alert rules. 
 
 We will soon provide tools to allow you to voluntarily migrate your alerts from [Alerts (classic) section](../../azure-monitor/platform/alerts-classic.overview.md) of Azure portal to the new Azure alerts. All rules configured in Alerts (classic) that are migrated to new Azure Monitor will remain free and not be charged. Migrated classic alert rules will also not bear any charge for pushing notifications via email, webhook, or LogicApp. However, use of the newer notification or action types (such as SMS, Voice Call, ITSM integration, etc.) will be chargeable whether added to a migrated or new alert. For more information, see [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
