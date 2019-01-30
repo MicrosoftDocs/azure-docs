@@ -13,7 +13,7 @@ ms.author: crtreasu
 
 3. Search for "Spatial Anchors" in the search bar.
 
-   ![Search for Spatial Anchors](./media/azure-spatial-anchors-get-started-create-resource/portal-search.png)
+   ![Search for Spatial Anchors](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
 4. Select **Spatial Anchors (preview)** to open a dialog and select **Create**.
 
@@ -26,13 +26,13 @@ ms.author: crtreasu
    4. Select a location (region) where the resource will be placed.
    5. Select **New** to begin creating the resource.
 
-   ![Create a resource](./media/azure-spatial-anchors-get-started-create-resource/create-resource-form.png)
+   ![Create a resource](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
 6. After the resource creation has completed successfully, the resource properties can be viewed. Make note of the
    resource's **Endpoint** value as it will be required later.
 
-   ![View resource properties](./media/azure-spatial-anchors-get-started-create-resource/view-resource-properties.png)
+   ![View resource properties](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
 7. Under **Settings**, select **Key** and make a note of the **Key** value. This value is the `Account Key` and will be used later.
 
-   ![View account key](./media/azure-spatial-anchors-get-started-create-resource/view-account-key.png)
+   ![View account key](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
