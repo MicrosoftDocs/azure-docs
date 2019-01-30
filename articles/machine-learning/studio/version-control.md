@@ -1,10 +1,10 @@
 ---
 title: Application lifecycle management
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Apply Application Lifecycle Management best practices in Azure Machine Learning Studio
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
 ms.topic: article
 
 author: ericlicoding

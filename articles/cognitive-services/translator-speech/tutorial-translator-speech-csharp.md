@@ -7,7 +7,7 @@ author: v-jerkin
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin

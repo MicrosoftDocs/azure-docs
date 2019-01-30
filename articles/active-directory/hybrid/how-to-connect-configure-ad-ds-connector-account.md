@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2019
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
@@ -201,21 +201,21 @@ This cmdlet will set the following permissions:
 To set permissions for the AD DS Connector account when using Group Writeback, run: 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 or; 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 This cmdlet will set the following permissions: 
 
 |Type |Name |Access |Applies To|
 |-----|-----|-----|-----| 
-|Allow |AD DS Connector Account |Generic Read/Write |Descendant Group objects| 
-|Allow |AD DS Connector Account |Create/Delete child object |This object and all descendent objects| 
-|Allow |AD DS Connector Account |Create/Delete an object and all of it's children |This object and all descendent objects|
+|Allow |AD DS Connector Account |Generic Read/Write |All attributes of object type group and subobjects| 
+|Allow |AD DS Connector Account |Create/Delete child object |All attributes of object type group and subobjects| 
+|Allow |AD DS Connector Account |Delete/Delete tree objects|All attributes of object type group and subobjects|
 
 ### Permissions for Exchange Hybrid Deployment 
 To set permissions for the AD DS Connector account when using Exchange Hybrid deployment, run: 

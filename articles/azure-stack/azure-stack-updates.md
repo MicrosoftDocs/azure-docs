@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
+ms.lastreviewed: 01/22/2019
 
 ---
 # Manage updates in Azure Stack overview
