@@ -26,6 +26,8 @@ When using linked templates, you create a main template that receives the parame
 
 For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Link or nest a template
 
 To link to another template, add a **deployments** resource to your main template.

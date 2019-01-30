@@ -19,6 +19,8 @@ ms.author: tomfitz
 
 In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you're deploying to provide the right values.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Available properties
 
 You define resources with the following structure:

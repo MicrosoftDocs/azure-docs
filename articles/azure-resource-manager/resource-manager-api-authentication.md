@@ -18,7 +18,7 @@ ms.author: dugill
 
 ---
 # Use Resource Manager authentication API to access subscriptions
-## Introduction
+
 If you are a software developer who needs to create an app that manages a customer's Azure resources, this article shows you how to authenticate with the Azure Resource Manager APIs and gain access to resources in other subscriptions.
 
 Your app can access the Resource Manager APIs in couple of ways:
@@ -28,7 +28,10 @@ Your app can access the Resource Manager APIs in couple of ways:
 
 This article provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to perform each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## What the web app does
+
 The web app:
 
 1. Signs-in an Azure user.

@@ -54,6 +54,8 @@ Resource Manager provides the following functions for working with strings:
 
 <a id="base64" />
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## base64
 `base64(inputString)`
 

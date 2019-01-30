@@ -17,7 +17,10 @@ ms.author: tomfitz
 
 ---
 # Outputs section in Azure Resource Manager templates
+
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Define and use output values
 

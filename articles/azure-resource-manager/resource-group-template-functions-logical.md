@@ -27,6 +27,8 @@ Resource Manager provides several functions for making comparisons in your templ
 * [not](#not)
 * [or](#or)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## and
 `and(arg1, arg2)`
 
