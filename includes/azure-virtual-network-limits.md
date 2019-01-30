@@ -75,6 +75,7 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per resource, Basic | 250 |
 | Rules per resource, Standard | 1500 | 
 | Rules per IP configuration | 299 |
+| Rules per backend NIC | 500 |
 | Frontend IP configurations, Basic | 200 |
 | Frontend IP configurations, Standard | 600 |
 | Backend pool, Basic | 100, single Availability Set |
