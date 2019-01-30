@@ -25,6 +25,8 @@ To apply tags to resources, the user must have write access to that resource typ
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## PowerShell
 
 The examples in this article require version 6.0 or later of Azure PowerShell. If you don't have version 6.0 or later, [update your version](/powershell/azure/install-az-ps).
