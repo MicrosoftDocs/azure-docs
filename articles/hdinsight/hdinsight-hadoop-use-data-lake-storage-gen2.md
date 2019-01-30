@@ -75,7 +75,7 @@ The code snippet below performs the following initial steps:
 
 ```azurecli
 az login
-az account set --subscription <your_subscription_id>
+az account set --subscription <subscription_id>
 
 #create resource group
 az group create --name hdinsight-deployment-rg --location eastus
@@ -85,7 +85,10 @@ az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
 
 az extension add --name storage-preview
 
-az storage account create --name hdinsightadlsgen2 --resource-group hdinsight-deployment-rg --location eastus --sku Standard_LRS --kind StorageV2 --hierarchical-namespace true
+az storage account create --name hdinsightadlsgen2 `
+--resource-group hdinsight-deployment-rg `
+--location eastus --sku Standard_LRS `
+--kind StorageV2 --hierarchical-namespace true
 ```
 
 Next, login to the portal and add the new MSI to the **Storage Blob Data Contributor (Preview)** role on the storage account, as described in step 3 above under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
@@ -93,7 +96,10 @@ Next, login to the portal and add the new MSI to the **Storage Blob Data Contrib
 After completing the MSI role assignment in the portal, proceed to deploy the template using the code snippet below.
 
 ```azurecli
-az group deployment create --name HDInsightADLSGen2Deployment --resource-group hdinsight-deployment-rg --template-file hdinsight-adls-gen2-template.json --parameters parameters.json
+az group deployment create --name HDInsightADLSGen2Deployment `
+--resource-group hdinsight-deployment-rg `
+--template-file hdinsight-adls-gen2-template.json `
+--parameters parameters.json
 ```
 
 ## Access Control for Data Lake Storage Gen2 in HDInsight
