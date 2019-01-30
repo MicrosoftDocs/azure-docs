@@ -4,7 +4,7 @@ description: Sign-in to Azure AD using the Microsoft Authenticator app without u
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/20/2018
 

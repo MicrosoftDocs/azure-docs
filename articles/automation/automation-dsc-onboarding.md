@@ -201,7 +201,7 @@ the internet, via a few simple steps:
 1. Make sure the latest version of [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is installed on the machines you want to onboard to Azure Automation State Configuration.
 1. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation State Configuration:
 
-   - On each Linux machine to onboard to Azure Automation State Configuratin, use `Register.py` to onboard using the PowerShell DSC Local Configuration Manager defaults:
+   - On each Linux machine to onboard to Azure Automation State Configuration, use `Register.py` to onboard using the PowerShell DSC Local Configuration Manager defaults:
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 

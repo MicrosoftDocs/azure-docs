@@ -121,9 +121,10 @@
   - name: Consume web services
     items:  
     - name: Consume in real-time
-      displayName: create client consume
+      displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Run batch predictions
+      displayName: score scoring asynchronous consume pipeline
       href: how-to-run-batch-predictions.md
   - name: Monitor web services
     items:  
