@@ -106,7 +106,6 @@ Claims are present only if a value exists to fill it. Thus, your app should not 
 | `sub` | String, a GUID | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource, and can be used as a key in database tables. Because the subject is always present in the tokens that Azure AD issues, we recommend using this value in a general-purpose authorization system. The subject is, however, a pairwise identifier - it is unique to a particular application ID. Therefore, if a single user signs into two different apps using two different client IDs, those apps will receive two different values for the subject claim. This may or may not be desired depending on your architecture and privacy requirements. |
 | `tid` | String, a GUID | Represents the Azure AD tenant that the user is from. For work and school accounts, the GUID is the immutable tenant ID of the organization that the user belongs to. For personal accounts, the value is `9188040d-6c67-4c5b-b112-36a304b66dad`. The `profile` scope is required in order to receive this claim. |
 | `unique_name` | String | Only present in v1.0 tokens. Provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique within a tenant and should be used only for display purposes. |
-| `upn` | String | The username of the user. May be a phone number, email address, or unformatted string. Should only be used for display purposes and providing username hints in reauthentication scenarios. |
 | `uti` | Opaque String | An internal claim used by Azure to revalidate tokens. Resources should not use this claim. |
 | `ver` | String, either 1.0 or 2.0 | Indicates the version of the access token. |
 
@@ -124,6 +123,7 @@ The following claims will be included in v1.0 tokens if applicable, but are not 
 | `nickname`| String | An additional name for the user, separate from first or last name.|
 | `family_name` | String | Provides the last name, surname, or family name of the user as defined on the user object. |
 | `given_name` | String | Provides the first or given name of the user, as set on the user object. |
+| `upn` | String | The username of the user. May be a phone number, email address, or unformatted string. Should only be used for display purposes and providing username hints in reauthentication scenarios. |
 
 #### The `amr` claim
 
