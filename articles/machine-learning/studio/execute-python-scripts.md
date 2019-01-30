@@ -1,10 +1,10 @@
 ---
 title: Execute Python machine learning scripts
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Outlines design principles underlying support for Python scripts in Azure Machine Learning Studio and basic usage scenarios, capabilities, and limitations.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
 ms.topic: article
 
 author: ericlicoding
