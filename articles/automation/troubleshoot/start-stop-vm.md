@@ -79,13 +79,13 @@ Review the following list for potential solutions to your problem or places to l
   Get-AzureRmResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
   ```
 
-* VMs may not be started or stopped if they are being explicitly excluded. Excluded VMs at set in the **External_ExcludeVMNames** variable in the Automation Account the solution is deployed to. The following example, shows how you can query that value with PowerShell.
+* VMs may not be started or stopped if they're being explicitly excluded. Excluded VMs at set in the **External_ExcludeVMNames** variable in the Automation Account the solution is deployed to. The following example, shows how you can query that value with PowerShell.
 
   ```powershell-interactive
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-* In order to start and stop VMs the RunAs account for the Automation account must have apprioriate permissions to the VM. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
+* To start and stop VMs, the RunAs account for the Automation account must have appropriate permissions to the VM. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
 
 * If the VM is having a problem starting or deallocating, this behavior can be caused by an issue on the VM itself. Some examples or potential problems are, an update is being applied when trying to shutdown, a service hangs, and more). Navigate to your VM resource and check the **Activity Logs** to see if there are any errors in the logs. You may also attempt to log into the VM to see if there are any errors in the Event logs.
 
@@ -137,7 +137,7 @@ This issue can be caused by an improperly configured or expired Run As Account. 
 
 To check your Run As account is properly configured, go to your Automation Account in the Azure portal and select **Run as accounts** under **Account Settings**. Here you will see the status of your run as accounts, if a Run As Account is improperly configured or expired the status will show this. 
 
-If your account [misconfigured](../manage-runas-account.md#misconfiguration) you should delete and recreate your Run As Account.
+If your Run As account is [misconfigured](../manage-runas-account.md#misconfiguration), you should delete and recreate your Run As Account.
 
 If the certificate is expired for your Run As Account, follow the steps listed at [Self-signed certificate renewal](../manage-runas-account#cert-renewal) to renew the certificate.
 
