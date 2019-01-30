@@ -127,7 +127,6 @@ For Azure VM Linux backups, Azure Backup supports [the list of distributions end
 
 Sizes limits are as follows:
 
-
 OS/machine | Size limit of data source
 --- | --- | ---
 Windows 8 or later | 54,400 GB
@@ -150,7 +149,6 @@ BMR/System state |Each individual copy of BMR or system state of the machine bei
 
 
 ### Is there a limit on the amount of data backed up using a Recovery Services vault?
-
 There is no limit on the amount of data you can back up using a Recovery Services vault.
 
 ### If I cancel a backup job once it has started, is the transferred backup data deleted?
@@ -158,7 +156,7 @@ No. All data transferred into the vault, before the backup job was canceled, sta
 
 If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
 
-## Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
+### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
 
  Data backed up from Azure Backup Agent, DPM, and Azure Backup Server is compressed and encrypted before being transferred. With compression and encryption is applied, the data in the vault is 30-40% smaller.
 
@@ -173,7 +171,10 @@ No. All data that was transferred into the vault before the backup job was cance
 - Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files.
 - The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
 
+## General restore
 
+### Is there a limitation on the number of restore on a data source?
+Yes, limit is 10 restores per day per data source (virtual machine, database, volume etc.).
 
 
 ## Retention and recovery
