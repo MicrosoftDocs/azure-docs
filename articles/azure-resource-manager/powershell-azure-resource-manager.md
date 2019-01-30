@@ -21,9 +21,9 @@ ms.author: tomfitz
 
 [!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
