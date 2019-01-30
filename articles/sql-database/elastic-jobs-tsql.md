@@ -1252,7 +1252,7 @@ Shows all jobs.
 
 ### job_versions view
 
-[jobs].[job_verions]
+[jobs].[job_versions]
 
 Shows all job versions.
 
