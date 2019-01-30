@@ -65,7 +65,7 @@ After you complete the steps below, run the **tutorials/regression-part2-automat
 
 Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part2-automated-ml.ipynb** notebook.
 
-1. Complete the [Azure Machine Learning Python quickstart](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) to create a Miniconda environment and create a workspace.
+1. Complete the [Azure Machine Learning Python quickstart](quickstart-create-workspace-with-python.md) to create a Miniconda environment and create a workspace.
 1. Install the `automl` and `notebooks` extras in your environment using `pip install azureml-sdk[automl,notebooks]`.
 1. Install `maplotlib` using `pip install maplotlib`.
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
