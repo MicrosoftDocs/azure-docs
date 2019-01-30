@@ -101,7 +101,7 @@ As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://d
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
 -->
 
-When a thumbnail is clicked, there are three options for videwing the video:
+When a thumbnail is clicked, there are three options for viewing the video:
 
 - Use [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-hostpageurl) to view the video on the host website (for example, YouTube)
 - Use [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-websearchurl) to view the video in the Bing video browser
