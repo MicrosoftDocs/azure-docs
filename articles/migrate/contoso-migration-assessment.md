@@ -118,7 +118,7 @@ Contoso and other users must meet the following prerequisites for the assessment
 - An on-premises vCenter Server instance running version 6.5, 6.0, or 5.5.
 - A read-only account in vCenter Server, or permissions to create one.
 - Permissions to create a VM on the vCenter Server instance by using an .ova template.
-- At least one ESXi host running version 5.0 or later.
+- At least one ESXi host running version 5.5 or later.
 - At least two on-premises VMware VMs, one running a SQL Server database.
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.  
