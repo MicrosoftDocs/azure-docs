@@ -92,7 +92,7 @@ To configure Azure AD single sign-on with Appraisd, perform the following steps:
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set-up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
