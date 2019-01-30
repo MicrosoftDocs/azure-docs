@@ -17,6 +17,9 @@ ms.author: tomfitz
 
 ---
 # Outputs section in Azure Resource Manager templates
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
 
 ## Define and use output values
@@ -35,7 +38,7 @@ The following example shows how to return the resource ID for a public IP addres
 After the deployment, you can retrieve the value with script. For PowerShell, use:
 
 ```powershell
-(Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
 For Azure CLI, use:

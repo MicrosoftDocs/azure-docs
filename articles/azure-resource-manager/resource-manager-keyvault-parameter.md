@@ -17,6 +17,8 @@ ms.author: tomfitz
 ---
 # Use Azure Key Vault to pass secure parameter value during deployment
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md). You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you are deploying to.
 
 ## Deploy a key vault and secret
@@ -58,14 +60,14 @@ $resourceGroupName="{your-resource-group-name}"
 $location='Central US'
 $userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $keyVaultName `
   -resourceGroupName $resourceGroupName `
   -Location $location `
   -EnabledForTemplateDeployment
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
 
 $password = openssl rand -base64 32
 echo $password
@@ -116,11 +118,11 @@ The following procedure shows how to create a role with the minimum permission, 
     ```azurepowershell
     $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
     $userPrincipalName = "<Email Address of the deployment operator>"
-    New-AzureRmRoleDefinition -InputFile "<PathToTheJSONFile>" 
-    New-AzureRmRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
+    New-AzRoleDefinition -InputFile "<PathToTheJSONFile>" 
+    New-AzRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
     ```
 
-    The `New-AzureRmRoleAssignment` sample assign the custom role to the user on the resource group level.  
+    The `New-AzRoleAssignment` sample assign the custom role to the user on the resource group level.  
 
 When using a Key Vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
@@ -214,8 +216,8 @@ az group deployment create \
 For PowerShell, use:
 
 ```powershell-interactive
-New-AzureRmResourceGroup -Name datagroup -Location $location
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroup -Name datagroup -Location $location
+New-AzResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
@@ -341,8 +343,8 @@ az group deployment create \
 For PowerShell, use:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location $location
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroup -Name datagroup -Location $location
+New-AzResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json `

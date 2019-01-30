@@ -18,6 +18,8 @@ ms.author: jgao
 
 # Tutorial: Move Azure resources to another resource group or subscription
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Learn how to move Azure resources from one resource group to another resource group. You can also move Azure resources from one Azure subscription to another Azure subscription. In this tutorial, you use a resource manager template to deploy two resource groups and one storage account. Then you move the storage account from one resource group to the other.
 
 This tutorial covers the following tasks:
@@ -59,7 +61,7 @@ Select **Try it** to open the Cloud shell, and then execute the PowerShell scrip
 
 ```azurepowershell-interactive
 $projectName = Read-Host -prompt "Enter a project name"
-New-AzureRmDeployment `
+New-AzDeployment `
     -Name $projectname `
     -Location "centralus" `
     -TemplateUri "https://armtutorials.blob.core.windows.net/moveresources/azuredeploy.json" `
@@ -97,8 +99,8 @@ $resourceGroupSource = $projectName + "rg1"
 $resourceGroupDestination = $projectName + "rg2"
 $storageAccountName = $projectName + "store"
 
-$storageAccount = Get-AzureRmResource -ResourceGroupName $resourceGroupSource -ResourceName $storageAccountName
-Move-AzureRmResource -DestinationResourceGroupName $resourceGroupDestination -ResourceId $storageAccount.ResourceId
+$storageAccount = Get-AzResource -ResourceGroupName $resourceGroupSource -ResourceName $storageAccountName
+Move-AzResource -DestinationResourceGroupName $resourceGroupDestination -ResourceId $storageAccount.ResourceId
 ```
 
 Open the [Azure portal](https://portal.azure.com), verify the storage account has been moved to the other resource group, and also verify the storage account location is still East US.
