@@ -72,9 +72,12 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
     new[] { "<Azure West US Subscription ID>" /* Put other IDs here, if multiple target subscriptions wanted */ });
 ```
 
+> [!NOTE]
+> The process of taking and applying snapshots will not disrupt any regular calls to the source or target PersonGroups. However, it is not guaranteed to work as expected when calling PersonGroup (Person, Face) - Management and PersonGroup - Train.
+
 ## Retrieve the Snapshot ID
 
-The snapshot retrieving method is asynchronous, so you'll need to wait for its completion. In this code, the `WaitForOperation` function monitors the method call, checking the status every 100ms. When the operation completes, you will be able to retrieve a snapshot ID. You can obtain it by parsing the `OperationLocation` field. A typical `OperationLocation` value will look like this:
+The snapshot retrieving method is asynchronous, so you'll need to wait for its completion (snapshot operations cannot be cancelled). In this code, the `WaitForOperation` function monitors the method call, checking the status every 100ms. When the operation completes, you will be able to retrieve a snapshot ID. You can obtain it by parsing the `OperationLocation` field. A typical `OperationLocation` value will look like this:
 
 ```csharp
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
@@ -213,6 +216,8 @@ private static async Task IdentifyInPersonGroup(IFaceClient client, string perso
 }
 ```
 
+Then replace ??? the PersonGroup in the target subscription with this new one.
+
 ## Clean up resources
 
 Once you are finished migrating face data, we recommend you manually delete the snapshot object by running the following code.
@@ -220,14 +225,6 @@ Once you are finished migrating face data, we recommend you manually delete the 
 ```csharp
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
-
-## Tips
-
-- You can fire multiple snapshot taking requests for a PersonGroup at the same time, applying one same snapshot to personGroup under different subscriptions or to different personGroups under the same subscription at the same time. To be clear, the personGroup to be applied should be newly created and not applied any snapshot before. Currently, the snapshot apply model does not support replace operation.
-
-- The snapshot taking and applying operation does not support cancelling for now.
-
-- Snapshot does not break any operation to the source PersonGroup when taking or the target PersonGroup when applying, but it is not guaranteed to work as expected when calling PersonGroup (Person, Face) - Management and PersonGroup - Train.
 
 ## Related Topics
 
