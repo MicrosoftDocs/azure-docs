@@ -27,7 +27,7 @@ For information about configuring Azure Monitor for VMs, see [Enable Azure Monit
 >[!NOTE]
 >Starting February 15, 2019 we will begin migrating you from the current health model in Azure Monitor for VMs health feature, which is visible when you're in the Health diagnostics experience today, to a new version of the health model. This update improves the performance of health rollup processing and includes a refined health model presented in the Health diagnostics view. 
 >
->With the new health model, rollup of child health criteria to parent/entity level health criteria will be faster, and as a result, health state of the parent updates to the desired or targeted state with less latency. You can still filter the health criteria under the **Performance** and **Availability” categories** unlike the previous tab-based method to select either category in the view.
+>With the new health model, rollup of child health criteria to parent/entity level health criteria will be faster, and as a result, health state of the parent updates to the desired or targeted state with less latency. You can still filter the health criteria under the **Performance** and **Availability** categories unlike the previous tab-based method to select either category in the view.
 >
 >For more details on the new Health diagnostics experience, please refer the Health diagnostics [section](#health-diagnostics) in this article. 
 >
