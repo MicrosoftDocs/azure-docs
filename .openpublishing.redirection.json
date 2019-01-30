@@ -35219,12 +35219,12 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/classic/TOC.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/TOC",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/faq-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/classic/TOC.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/TOC",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/faq-classic",
       "redirect_document_id": false
     }
   ]
