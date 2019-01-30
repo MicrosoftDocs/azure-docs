@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: anwestg
+ms.lastreviewed: 01/16/2019
 
 ---
 # Offline update of Azure App Service on Azure Stack

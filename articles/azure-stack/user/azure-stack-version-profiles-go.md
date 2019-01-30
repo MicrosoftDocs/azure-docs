@@ -14,6 +14,7 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
+ms.lastreviewed: 01/19/2019
 
 ---
 
@@ -48,7 +49,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compu
 
 You can find more information about the Azure GO SDK at the following links:
 
-- The Azure Go SDK at [Installing the Azure SDK for Go](/azure/azure-sdk-go-install).
+- The Azure Go SDK at [Installing the Azure SDK for Go](/go/azure/azure-sdk-go-install).
 - The Azure Go SDK is publicly available on GitHub in the [azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) repo.
 
 ### Go-AutoRest dependencies
