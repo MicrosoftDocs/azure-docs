@@ -19,9 +19,9 @@ ms.author: robreed
 ---
 # Pass credentials to the Azure DSCExtension handler
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 This article covers the Desired State Configuration (DSC) extension for Azure. For an overview of the DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](dsc-overview.md).
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Pass in credentials
 
