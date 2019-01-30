@@ -53,7 +53,7 @@ When a user registers an application, they are automatically added as the first 
 
 ## Delegate app ownership
 
-App owners and app registration owners can each manage only the app applications or app registrations that they own. For example, when you add an owner for the Salesforce application, that owner can manage access to and configuration for Salesforce but not any other applications. An enterprise application can have many owners, and a user can be the owner for many enterprise applications.
+App owners and app registration owners can each manage only the app applications or app registrations that they own. For example, when you add an owner for the Salesforce application, that owner can manage access to and configuration for Salesforce but not any other applications. An app can have many owners, and a user can be the owner of many apps.
 
 An application owner can:
 
@@ -75,16 +75,16 @@ The owner of an app registration can view and edit the app registration.
 3. On the **Members** page for the role, select **Add member**.
 4. Select one or more members to add to the role. -->
 
-### To assign an owner to an enterprise application
+### To assign an owner to an application
 
 1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
-2. On the [App registrations page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the tenant, select an enterprise app to open the Overview page for the app.
+2. On the [App registrations page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the tenant, select an app to open the **Overview** page for the app.
 3. Select **Owners** to see the list of the owners for the app.
 4. Select **Add** to select one or more owners to add to the app.
 
 ### To assign an owner to an application registration
 
-1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
+1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global administrator for the tenant.
 2. On the [Enterprise Applications page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the tenant, select an app registration to open it.
 3. Select **Settings**.
 4. Select **Owners** on the **Settings** page to see the list of the owners for the app.
