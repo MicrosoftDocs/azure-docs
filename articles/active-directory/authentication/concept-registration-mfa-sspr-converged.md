@@ -72,8 +72,6 @@ Audit logs for this new experience exist under the Authentication Methods catego
 
 ## Known issues
 
-We have identified a bug with converged registration where B2B guest users who are enabled for converged registration are not able to register for MFA. When they are directed to the registration page, the page errors out. Our developers are aware of this issue and are working to provide a solution. For now, the recommendation is to create a group and exclude any B2B users from that group.
-
 **Default MFA method is set to phone call when a user registers a phone by using text message**
 
    * Some users might notice that their default MFA method is set to phone call after they register their phone number by using text message. Users can resolve this issue by changing their default method by following the instructions in the article [Manage your security info (preview)](../user-help/security-info-manage-settings.md#change-your-info).

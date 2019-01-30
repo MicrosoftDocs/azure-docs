@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: How to debug errors produced by Train Model and Score Model modules in Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding
