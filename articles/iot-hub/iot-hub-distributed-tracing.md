@@ -12,7 +12,7 @@ ms.author: jlian
 
 # Add correlation IDs to Azure IoT device-to-cloud messages with distributed tracing support for IoT Hub (preview)
 
-Microsoft Azure IoT Hub currently provides distributed tracing support as a [preview feature](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+Microsoft Azure IoT Hub currently supports distributed tracing as a [preview feature](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
 IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you will be able trace IoT messages throughout the Azure services involved in your solution. For a background on distributed tracing see, [What is Distributed tracing?](../azure-monitor/app/distributed-tracing.md).
 
@@ -25,7 +25,7 @@ Enabling distributed tracing for IoT Hub, gives you the ability to:
 
 ## Prerequisites
 
-- This How-To article assumes that you have already created an IoT hub, and that you are familiar with sending telemetry messages to your IoT hub. Make sure you have completed one of the [5-minute Quickstarts](https://docs.microsoft.com/azure/iot-hub/) for your preferred development environment.
+- This article assumes that you have already created an IoT hub, and that you are familiar with sending telemetry messages to your IoT hub. Make sure you have completed one of the [5-minute Quickstarts](https://docs.microsoft.com/azure/iot-hub/) for your preferred development environment.
 
 ## Configure IoT Hub
 
