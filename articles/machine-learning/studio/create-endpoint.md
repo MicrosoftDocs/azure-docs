@@ -1,9 +1,9 @@
 ---
 title: Creating Web service endpoints
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Creating Web service endpoints in Azure Machine Learning. Each endpoint in the Web service is independently addressed, throttled, and managed.
-services: machine-learning
-ms.service: machine-learning
+services: machine-learning
+ms.service: machine-learning
 ms.subservice: studio
 ms.topic: article
 
