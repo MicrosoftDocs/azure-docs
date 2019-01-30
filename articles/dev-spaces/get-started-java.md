@@ -3,7 +3,7 @@ title: "Create a Kubernetes dev space in the cloud using Java and VS Code| Micro
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: "stepro"
 ms.author: "stephpr"
 ms.date: "09/26/2018"
