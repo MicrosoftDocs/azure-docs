@@ -25,7 +25,7 @@ In the CLI, you can output more information during command execution by using th
 
 ## Debugging services with multiple instances
 
-Currently, Azure Dev Spaces works best when debugging a single instance, or pod. The azds.yaml file contains a setting, replicaCount, that indicates the number of pods that Kubernetes runs for your service. If you change the replicaCount to configure your app to run multiple pods for a given service, the debugger attaches to the first pod, when listed alphabetically. The debugger attaches to a different pod when the original pod recycles, possibly resulting in unexpected behavior.
+Currently, Azure Dev Spaces works best when debugging a single instance, or pod. The azds.yaml file contains a setting, *replicaCount*, that indicates the number of pods that Kubernetes runs for your service. If you change the replicaCount to configure your app to run multiple pods for a given service, the debugger attaches to the first pod, when listed alphabetically. The debugger attaches to a different pod when the original pod recycles, possibly resulting in unexpected behavior.
 
 ## Error 'Failed to create Azure Dev Spaces controller'
 
@@ -70,7 +70,7 @@ In Visual Studio:
     ![Screenshot of Tools Options dialog](media/common/VerbositySetting.PNG)
     
 ### Multi-stage Dockerfiles:
-You receive a "Service cannot be started" error when using a multi-stage Dockerfile. In this situation, the verbose output contains the following text:
+You receive a *Service cannot be started* error when using a multi-stage Dockerfile. In this situation, the verbose output contains the following text:
 
 ```cmd
 $ azds up -v
@@ -88,7 +88,7 @@ Service cannot be started.
 This error occurs because AKS nodes run an older version of Docker that does not support multi-stage builds. To avoid multi-stage builds, rewrite your Dockerfile.
 
 ### Rerunning a service after controller re-creation
-You receive a "Service cannot be started" error when attempting to rerun a service after you have removed and then recreated the Azure Dev Spaces controller associated with this cluster. In this situation, the verbose output contains the following text:
+You receive a *Service cannot be started* error when attempting to rerun a service after you have removed and then recreated the Azure Dev Spaces controller associated with this cluster. In this situation, the verbose output contains the following text:
 
 ```cmd
 Installing Helm chart...
@@ -104,7 +104,7 @@ To address this problem, use the `kubectl delete` command to manually remove the
 
 ## DNS name resolution fails for a public URL associated with a Dev Spaces service
 
-You can configure a public URL endpoint for your service by specifying the `--public` switch to the `azds prep` command, or by selecting the `Publicly Accessible` checkbox in Visual Studio. The public DNS name is automatically registered when you run your service in Dev Spaces. If this DNS name is not registered, you see a "Page cannot be displayed" or "Site cannot be reached" error in your web browser when connecting to the public URL.
+You can configure a public URL endpoint for your service by specifying the `--public` switch to the `azds prep` command, or by selecting the `Publicly Accessible` checkbox in Visual Studio. The public DNS name is automatically registered when you run your service in Dev Spaces. If this DNS name is not registered, you see a *Page cannot be displayed* or *Site cannot be reached* error in your web browser when connecting to the public URL.
 
 ### Try:
 
@@ -116,7 +116,7 @@ azds list-uris
 
 If a URL is in the *Pending* state, that means that Dev Spaces is still waiting for DNS registration to complete. Sometimes, it takes a few minutes for registration to complete. Dev Spaces also opens a localhost tunnel for each service, which you can use while waiting on DNS registration.
 
-If a URL stays in the *Pending* state for more than 5 minutes, it may indicate a problem with the external DNS pod that creates the public endpoint or the nginx ingress controller pod that acquires the public endpoint. You can use the following commands to delete these pods. AKS automatically recreates them.
+If a URL stays in the *Pending* state for more than 5 minutes, it may indicate a problem with the external DNS pod that creates the public endpoint or the nginx ingress controller pod that acquires the public endpoint. You can use the following commands to delete these pods. AKS automatically recreates the deleted pods.
 
 ```cmd
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
@@ -160,7 +160,7 @@ You might see this error if azds.exe is not installed or configured correctly.
 ## Warning 'Dockerfile could not be generated due to unsupported language'
 Azure Dev Spaces provides native support for C# and Node.js. When you run *azds prep* in a directory containing code written in one of these languages, Azure Dev Spaces will automatically create an appropriate Dockerfile for you.
 
-You can still use Azure Dev Spaces with code written in other languages, but you need to create the Dockerfile yourself before running *azds up* for the first time.
+You can still use Azure Dev Spaces with code written in other languages, but you need to manually create the Dockerfile before running *azds up* for the first time.
 
 ### Try:
 If your application is written in a language that Azure Dev Spaces does not natively support, you need to provide an appropriate Dockerfile to build a container image running your code. Docker provides a [list of best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) and a [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) that can help you write a Dockerfile that suits your needs.
@@ -241,7 +241,7 @@ What needs to be done:
 You can find an example at https://github.com/sgreenmsft/buildcontextsample
 
 ## 'Microsoft.DevSpaces/register/action' authorization error
-You might see the following error when you are managing an Azure Dev Space in an Azure subscription for which you do not have Owner or Contributor access.
+You need *Owner* or *Contributor* access in your Azure subscription to manage Azure Dev Spaces. You may see this error if you're trying to manage Dev Spaces and you do not have *Owner* or *Contributor* access to the associated Azure subscription.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### Reason
@@ -254,7 +254,7 @@ Someone with Owner or Contributor access to the Azure subscription can run the f
 az provider register --namespace Microsoft.DevSpaces
 ```
 
-## Dev Spaces times out at "Waiting for container image build..." step with AKS virtual nodes
+## Dev Spaces times out at *Waiting for container image build...* step with AKS virtual nodes
 
 ### Reason
 This occurs when you attempt to use Dev Spaces to run a service that is configured to run on an [AKS virtual node](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal). Dev Spaces does not currently support building or debugging services on virtual nodes.
@@ -269,10 +269,10 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-This shows that the service's pod was assigned to `virtual-node-aci-linux`, which is a virtual node.
+This shows that the service's pod was assigned to *virtual-node-aci-linux*, which is a virtual node.
 
 ### Try:
-Update the Helm chart for the service to remove any `nodeSelector` and/or `tolerations` values that allow the service to run on a virtual node. These values are typically defined in the chart's `values.yaml` file.
+Update the Helm chart for the service to remove any *nodeSelector* and/or *tolerations* values that allow the service to run on a virtual node. These values are typically defined in the chart's `values.yaml` file.
 
 You can still use an AKS cluster that has the virtual nodes feature enabled, if the service you wish to build/debug via Dev Spaces runs on a VM node. This is the default configuration.
 
@@ -298,7 +298,7 @@ You can move the affected pods to a namespace inside the cluster that does _not_
 Azure Dev Spaces can be configured to point to a specific _Dockerfile_ in your project. If it appears Azure Dev Spaces isn't using the _Dockerfile_ you expect to build your containers, you might need to explicitly tell Azure Dev Spaces which Dockerfile to use. 
 
 ### Try:
-Open the _azds.yaml_ file that Azure Dev Spaces generated in your project. Use the `configurations->develop->build->dockerfile` directive to point to the Dockerfile you want to use:
+Open the _azds.yaml_ file that Azure Dev Spaces generated in your project. Use the *configurations->develop->build->dockerfile* directive to point to the Dockerfile you want to use:
 
 ```
 ...
