@@ -4,7 +4,9 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: "07/09/2018"
 ms.topic: "quickstart"

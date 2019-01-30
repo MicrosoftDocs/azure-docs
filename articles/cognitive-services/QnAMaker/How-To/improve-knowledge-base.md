@@ -37,7 +37,7 @@ All the suggestions are clustered together by similarity and top suggestions for
 
 ## Upgrade version to use active learning
 
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your service](upgrade-qnamaker-service.md) to use this feature. 
+Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
 
 ## Best practices
 

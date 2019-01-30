@@ -208,9 +208,9 @@
       href: sql-database-security-index.yml
     - name: Security capabilities
       href: sql-database-security-overview.md
-    - name: Advanced Threat Protection
+    - name: Advanced Data Security
       items:
-      - name: Advanced Threat Protection
+      - name: Advanced Data Security
         href: sql-advanced-threat-protection.md
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md

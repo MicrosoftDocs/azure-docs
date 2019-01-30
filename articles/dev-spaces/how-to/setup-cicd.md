@@ -3,7 +3,7 @@ title: "Using CI/CD with Azure Dev Spaces | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: "12/17/2018"

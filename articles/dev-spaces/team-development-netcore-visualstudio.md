@@ -3,7 +3,9 @@ title: "Team development with Azure Dev Spaces using .NET Core and Visual Studio
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: "12/09/2018"
@@ -133,7 +135,7 @@ You've completed the getting started guide! You learned how to:
 > * Iteratively develop code in containers.
 > * Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
 > * Productively develop and test your code in a team environment.
-> * Leverage CI/CD together with Dev Spaces to easily test isolated changes within the context of a larger microservice application
+> * Establish a baseline of functionality using Dev Spaces to easily test isolated changes within the context of a larger microservice application
 
 Now that you've explored Azure Dev Spaces, [share your dev space with a team member](how-to/share-dev-spaces.md) and help them see how easy it is to collaborate together.
 

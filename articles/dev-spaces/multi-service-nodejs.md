@@ -3,7 +3,7 @@ title: "Running multiple dependent services using Node.js and VS Code | Microsof
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: "11/21/2018"

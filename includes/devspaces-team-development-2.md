@@ -74,7 +74,7 @@ You've completed the getting started guide! You learned how to:
 > * Iteratively develop code in containers.
 > * Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
 > * Productively develop and test your code in a team environment.
-> * Leverage CI/CD together with Dev Spaces to easily test isolated changes within the context of a larger microservice application
+> * Establish a baseline of functionality using Dev Spaces to easily test isolated changes within the context of a larger microservice application
 
 Now that you've explored Azure Dev Spaces, [share your dev space with a team member](../articles/dev-spaces/how-to/share-dev-spaces.md) and help them see how easy it is to collaborate together.
 

@@ -1,10 +1,10 @@
 ---
 title: Import data into Machine Learning Studio
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: How to import your data into Azure Machine Learning Studio from various data sources. Learn what data types and data formats are supported.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
 ms.topic: article
 
 author: ericlicoding
