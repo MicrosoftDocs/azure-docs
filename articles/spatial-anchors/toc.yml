@@ -24,7 +24,7 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Share Anchors
+  - name: Share anchors
     href: tutorials/tutorial-share-anchors-across-devices.md
   - name: Use Cosmos DB
     href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
