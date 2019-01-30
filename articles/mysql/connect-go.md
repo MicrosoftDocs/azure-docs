@@ -1,16 +1,13 @@
 ---
-title: 'Connect to Azure Database for MySQL using Go | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL using Go'
 description: This quickstart provides several Go code samples you can use to connect and query data from Azure Database for MySQL.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 09/22/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Go language to connect and query data
@@ -77,11 +74,10 @@ Install [Go](https://golang.org/doc/install) and the [go-sql-driver for MySQL](h
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in the Azure portal, click **All resources** and then search for the server you have creased (such as **myserver4demo**).
-3. Click the server name **myserver4demo**.
-4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL - Server Admin Login](./media/connect-go/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Click the server name.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-go/1_server-overview-name-login.png)
    
 
 ## Build and run Go code 
@@ -112,9 +108,9 @@ import (
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
+	host     = "mydemoserver.mysql.database.azure.com"
 	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
+	user     = "myadmin@mydemoserver"
 	password = "yourpassword"
 )
 
@@ -189,9 +185,9 @@ import (
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
+	host     = "mydemoserver.mysql.database.azure.com"
 	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
+	user     = "myadmin@mydemoserver"
 	password = "yourpassword"
 )
 
@@ -258,9 +254,9 @@ import (
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
+	host     = "mydemoserver.mysql.database.azure.com"
 	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
+	user     = "myadmin@mydemoserver"
 	password = "yourpassword"
 )
 
@@ -312,9 +308,9 @@ import (
 )
 
 const (
-	host     = "myserver4demo.mysql.database.azure.com"
+	host     = "mydemoserver.mysql.database.azure.com"
 	database = "quickstartdb"
-	user     = "myadmin@myserver4demo"
+	user     = "myadmin@mydemoserver"
 	password = "yourpassword"
 )
 

@@ -1,20 +1,13 @@
 ---
-title: Upgrade a Backup vault to a Recovery Services vault (Preview) | Microsoft Docs
+title: Upgrade a Backup vault to a Recovery Services vault
 description: Instructions and support information to upgrade your Azure Backup vault to a Recovery Services vault.
 services: backup
-documentationcenter: dev-center-name
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
-
-ms.assetid: 228fef19-2f6b-4067-acc3-fb6e501afb88
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/09/2017
-ms.author: sogup;markgal;arunak
-
+ms.topic: conceptual
+ms.date: 1/4/2018
+ms.author: sogup
 ---
 # Upgrade a Backup vault to a Recovery Services vault
 
@@ -31,7 +24,7 @@ When upgrading a Backup vault to a Recovery Services vault, there is no impact t
 ## Changes to your automation and tool after upgrading
 
 While preparing your infrastructure for the vault upgrade, you must update your existing automation or tooling to ensure that it continues to work after the upgrade.
-Consult the PowerShell cmdlets references for the [Service Manager deployment model](backup-client-automation-classic.md) and the [Resource Manager deployment model](backup-client-automation.md).
+Consult the PowerShell cmdlets references for the [Resource Manager deployment model](backup-client-automation.md).
 
 
 ## Before you upgrade
@@ -81,7 +74,7 @@ The PowerShell script prompts you to enter your credentials. Enter your credenti
 ### Pre-requisites checking
 Once you have entered your Azure credentials, Azure checks that your environment meets the following prerequisites:
 
-- **Minimum agent version** - Upgrading Backup vaults to Recovery Services vaults requires the MARS agent to be at least version 2.0.9083.0. If you have items registered to a Backup vault with an agent earlier than 2.0.9083.0, the prerequisite check fails. If the prerequisite check fails, update the agent and try to upgrade the vault again. You can download the latest version of the agent from [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Minimum agent version** - Upgrading Backup vaults to Recovery Services vaults requires the MARS agent to be at least version 2.0.9083.0. If you have items registered to a Backup vault with an agent earlier than 2.0.9083.0, the prerequisite check fails. If the prerequisite check fails, update the agent and try to upgrade the vault again. You can download the latest version of the agent from [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **On-going configuration jobs**: If someone is configuring job for a Backup vault set to be upgraded, or registering an item, the prerequisite check fails. Complete the configuration, or finish registering the item, and then start the vault upgrade process.
 - **Storage-based billing model**: Recovery Services vaults support the Instance-based billing model. If you run the vault upgrade on a Backup vault that uses the Storage-based billing model, you are prompted to upgrade your billing model along with the vault. Otherwise, you can update your billing model first, and then run the vault upgrade.
 - Identify a Resource Group for the Recovery Services vault. To take advantage of the Resource Manager deployment features, you must put a Recovery Services vault in a Resource Group. If you don't know which Resource Group to use, provide a name and the upgrade process creates the Resource Group for you. The upgrade process also associates the vault with the new Resource Group.
@@ -103,7 +96,7 @@ Recovery Services vault supports specifying time zone information in backup poli
 
 ## Enhanced security
 
-When a Backup vault is upgraded to a Recovery Services vault, the security settings for that vault are automatically turned on. When the security settings are on, certain operations such as deleting backups, or changing a passphrase require an [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN. For more information on the enhanced security, see the article [Security features to protect hybrid backups](backup-azure-security-feature.md). 
+When a Backup vault is upgraded to a Recovery Services vault, the security settings for that vault are automatically turned on. When the security settings are on, certain operations such as deleting backups, or changing a passphrase require an [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) PIN. For more information on the enhanced security, see the article [Security features to protect hybrid backups](backup-azure-security-feature.md). 
 
 When the enhanced security is turned on, data is retained up to 14 days after the recovery point information has been deleted from the vault. Customers are billed for storage of this security data. Security data retention applies to recovery points taken for the Azure Backup agent, Azure Backup Server, and System Center Data Protection Manager. 
 
@@ -117,7 +110,7 @@ Once you upgrade to a Recovery Services vault, configure reports for Azure Backu
 No. Your ongoing backups continue uninterrupted during and after upgrade.
 
 **If I don’t plan on upgrading soon, what happens to my vaults?**</br>
-Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Microsoft will eventually deprecate the classic portal. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. After November 30,2017, you can no longer create Backup vaults using PowerShell. Your vault can be automatically upgraded any time in between. Microsoft recommends you upgrade your vault as soon as possible.
+Since all new features apply only to Recovery Services vaults, we urge you to upgrade your vaults. Starting September 1, 2017, Microsoft will begin auto-upgrading backup vaults to Recovery Services vaults. After November 30,2017, you can no longer create Backup vaults using PowerShell. Your vault can be automatically upgraded any time in between. Microsoft recommends you upgrade your vault as soon as possible.
 
 **What does this upgrade mean for my existing tooling?**</br>
 Update your tooling to the Resource Manager deployment model. Recovery Services vaults were created for use in the Resource Manager deployment model. Planning for the Resource Manager deployment model, and accounting for the difference in your vaults is important. 
@@ -130,9 +123,6 @@ No. Rollback is not supported after the resources have been successfully upgrade
 
 **Can I validate my subscription or resources to see if they're capable of upgrade?**</br>
 Yes. The first step in upgrade validates that the resources are capable of upgrade. In case the validation of pre-requisites fails, you receive messages for all the reasons the upgrade cannot be completed.
-
-**What permissions should I have to trigger vault upgrade?**</br>
-To perform the vault upgrade, you must be added as co-administrator for the subscription in the Azure classic portal. This is required even if you are already listed as owner in the Azure portal. Try to add a co-administrator for the subscription in Azure classic portal to find out if you are co-administrator for the subscription. If you are not able to add a co-administrator, contact a service administrator or co-administrator for the subscription, who can add you as a co-administrator.
 
 **Can I upgrade my CSP-based Backup vault?**</br>
 No. Currently, you cannot upgrade CSP-based backup vaults. We will add support for upgrading CSP-based Backup vaults in the next releases.

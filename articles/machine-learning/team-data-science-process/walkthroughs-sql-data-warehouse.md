@@ -1,21 +1,16 @@
 ---
-title: SQL Data Warehouse data science walkthroughs using T-SQL and Python on Azure  | Microsoft Docs
+title: Analytics on SQL Data Warehouse with T-SQL, Python - Team Data Science Process
 description: Examples that walk through the use of SQL Data Warehouse to do predictive analytics.
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: jhubbard
+author: marktab
+manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 # SQL Data Warehouse data science walkthroughs using T-SQL and Python on Azure

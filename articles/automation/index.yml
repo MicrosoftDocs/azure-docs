@@ -1,0 +1,61 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Automation User Documentation
+metadata:
+  document_id: 
+  title: Azure Automation Documentation - Tutorials, API Reference
+  description: Learn how to use Azure automation
+  services: automation
+  author: georgewallace
+  manager: carmonm
+  ms.service: automation
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  ms.date: 12/13/2017
+  ms.author: gwallace
+abstract:
+  description: Learn how to use Automation to configure and automate operational tasks across a hybrid environment. Tutorials, API references, and other documentation show you how to automate processes, perform update management, deliver desired state configuration, track changes, and collect inventory.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to automate and configure your Azure and hybrid environment using Automation:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/automation/media/index/automation.svg
+      text: Create an Automation account
+      href: "/azure/automation/automation-quickstart-create-account"
+    - image: 
+        src: /azure/automation/media/index/runbook.svg
+      text: Create a runbook
+      href: "/azure/automation/automation-quickstart-create-runbook"
+    - image: 
+        src: /azure/automation/media/index/dscconfig.svg
+      text: Create a DSC configuration
+      href: "/azure/automation/automation-quickstart-dsc-configuration"
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to integrate, deploy, and manage your Azure and hybrid environments.'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/automation/automation-watchers-tutorial">Configure watcher tasks</a>
+    - html: <a href="/azure/automation/automation-tutorial-update-management">Manage updates on your VM</a>
+    - html: <a href="/azure/automation/automation-onboard-solutions">Onboard at scale</a>
+    - html: <a href="/azure/automation/automation-tutorial-installed-software">Identify software installed on a VM</a>
+    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Troubleshoot changes on a VM</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/automation">Automation REST API</a></p>

@@ -2,21 +2,14 @@
 title: Create a new report from a dataset in Power BI Workspace Collections | Microsoft Docs
 description: Power BI Workspace Collection reports can now be created from a dataset in your own application. 
 services: power-bi-embedded
-documentationcenter: ''
-author: guyinacube
-manager: erikre
-editor: ''
-tags: ''
-
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: 
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
+ms.author: maghan
 ---
 # Create a new report from a dataset in Power BI Workspace Collections
 
@@ -33,7 +26,7 @@ When creating an Embedded report, the tokens issued are for a specific dataset. 
 
 Power BI Workspace Collections use an embed token, which is HMAC signed JSON Web Tokens. The tokens are signed with the access key from your Power BI Workspace Collection. Embed tokens, by default, are used to provide read-only access to a report to embed into an application. Embed tokens are issued for a specific report and should be associated with an embed URL.
 
-Access tokens should be created on the server as the access keys are used to sign/encrypt the tokens. For information on how to create an access token, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md). You can also review the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) method. Here is an example of what this would look like using the .NET SDK for Power BI.
+Access tokens should be created on the server as the access keys are used to sign/encrypt the tokens. For information on how to create an access token, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md). You can also review the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) method. Here is an example of what this would look like using the .NET SDK for Power BI.
 
 In this example, we have our dataset ID that we want to create the new report on. We also need to add the scopes for *Dataset.Read and Workspace.Report.Create*.
 

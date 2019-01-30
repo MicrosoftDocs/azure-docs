@@ -31,7 +31,7 @@ By using Network Watcher, alerting, and functions from within the Azure ecosyste
 
 ## Prerequisites
 
-* The latest version of [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* The latest version of [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * An existing instance of Network Watcher. If you don't already have one, [create an instance of Network Watcher](network-watcher-create.md).
 * An existing virtual machine in the same region as Network Watcher with the [Windows extension](../virtual-machines/windows/extensions-nwa.md) or [Linux virtual machine extension](../virtual-machines/linux/extensions-nwa.md).
 
@@ -62,7 +62,7 @@ This scenario does the following:
 
 The first step is to create an Azure function to process the alert and create a packet capture.
 
-1. In the [Azure portal](https://portal.azure.com), select **New** > **Compute** > **Function App**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Compute** > **Function App**.
 
     ![Creating a function app][1-1]
 
@@ -286,7 +286,7 @@ The following example is PowerShell code that can be used in the function. There
             #Authentication
             $secpassword = $pw | ConvertTo-SecureString -Key (Get-Content $keypath)
             $credential = New-Object System.Management.Automation.PSCredential ($clientid, $secpassword)
-            Add-AzureRMAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
+            Connect-AzureRmAccount -ServicePrincipal -Tenant $tenant -Credential $credential #-WarningAction SilentlyContinue | out-null
 
 
             #Get the VM that fired the alert
@@ -327,7 +327,7 @@ The following example is PowerShell code that can be used in the function. There
 
     ![Copying the function URL][2]
 
-If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+If you require custom properties in the payload of the webhook POST request, refer to [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
 
 ## Configure an alert on a VM
 

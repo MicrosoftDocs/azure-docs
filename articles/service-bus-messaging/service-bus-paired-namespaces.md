@@ -3,9 +3,9 @@ title: Azure Service Bus paired namespaces | Microsoft Docs
 description: Paired namespace implementation details and cost
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
-ms.author: sethm
+ms.date: 09/21/2018
+ms.author: aschhab
 
 ---
 # Paired namespace implementation details and cost implications
+
 The [PairNamespaceAsync][PairNamespaceAsync] method, using a [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] instance, performs visible tasks on your behalf. Because there are cost considerations when using the feature, it is useful to understand those tasks so that you expect the behavior when it happens. The API engages the following automatic behavior on your behalf:
 
 * Creation of backlog queues.

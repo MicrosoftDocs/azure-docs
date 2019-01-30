@@ -2,21 +2,16 @@
 title: Building scalable cloud databases | Microsoft Docs
 description: Build scalable .NET database apps with the elastic database client library
 services: sql-database
-documentationcenter: ''
-manager: jhubbard
-author: ddove
-editor: ''
-
-ms.assetid: 1f11c52d-13c1-4994-b9b1-5b1ae2f9255f
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/12/2017
-ms.author: ddove
-
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang:
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: 
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Building scalable cloud databases
 Scaling out databases can be easily accomplished using scalable tools and features for Azure SQL Database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases. [Elastic jobs](sql-database-elastic-jobs-powershell.md) can then be used to help ease management of these databases.

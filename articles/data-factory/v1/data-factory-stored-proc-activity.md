@@ -3,18 +3,18 @@ title: SQL Server Stored Procedure Activity
 description: Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure SQL Data Warehouse from a Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+
 
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/01/2017
-ms.author: spelluru
+
+ms.topic: conceptual
+ms.date: 01/10/2018
+ms.author: douglasl
 
 robots: noindex
 ---
@@ -32,7 +32,7 @@ robots: noindex
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> This article applies to version 1 of Azure Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using stored procedure activity in Data Factory version 2](../transform-data-using-stored-procedure.md).
+> This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [transform data using stored procedure activity in Data Factory](../transform-data-using-stored-procedure.md).
 
 ## Overview
 You use data transformation activities in a Data Factory [pipeline](data-factory-create-pipelines.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities in Data Factory.
@@ -74,7 +74,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
 	```SQL
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+    CREATE PROCEDURE usp_sample @DateTime nvarchar(127)
     AS
 
     BEGIN
@@ -106,7 +106,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
    ![Data Factory home page](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### Create an Azure SQL linked service
-After creating the data factory, you create an Azure SQL linked service that links your Azure SQL database, which contains the sampletable table and sp_sample stored procedure, to your data factory.
+After creating the data factory, you create an Azure SQL linked service that links your Azure SQL database, which contains the sampletable table and usp_sample stored procedure, to your data factory.
 
 1. Click **Author and deploy** on the **Data Factory** blade for **SProcDF** to launch the Data Factory Editor.
 2. Click **New data store** on the command bar and choose **Azure SQL Database**. You should see the JSON script for creating an Azure SQL linked service in the editor.
@@ -158,8 +158,8 @@ Now, let's create a pipeline with a stored procedure activity.
 Notice the following properties: 
 
 - The **type** property is set to **SqlServerStoredProcedure**. 
-- The **storedProcedureName** in type properties is set to **sp_sample** (name of the stored procedure).
-- The **storedProcedureParameters** section contains one parameter named **DataTime**. Name and casing of the parameter in JSON must match the name and casing of the parameter in the stored procedure definition. If you need pass null for a parameter, use the syntax: `"param1": null` (all lowercase).
+- The **storedProcedureName** in type properties is set to **usp_sample** (name of the stored procedure).
+- The **storedProcedureParameters** section contains one parameter named **DateTime**. Name and casing of the parameter in JSON must match the name and casing of the parameter in the stored procedure definition. If you need pass null for a parameter, use the syntax: `"param1": null` (all lowercase).
  
 1. Click **... More** on the command bar and click **New pipeline**.
 2. Copy/paste the following JSON snippet:   
@@ -172,7 +172,7 @@ Notice the following properties:
                 {
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
-                        "storedProcedureName": "sp_sample",
+                        "storedProcedureName": "usp_sample",
                         "storedProcedureParameters": {
                             "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                         }
@@ -338,7 +338,7 @@ CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
 **Stored procedure:**
 
 ```SQL
-CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
+CREATE PROCEDURE usp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
 
 AS
 
@@ -353,7 +353,7 @@ Now, pass the **Scenario** parameter and the value from the stored procedure act
 ```JSON
 "typeProperties":
 {
-    "storedProcedureName": "sp_sample",
+    "storedProcedureName": "usp_sample",
     "storedProcedureParameters":
     {
         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
@@ -392,7 +392,7 @@ Now, pass the **Scenario** parameter and the value from the stored procedure act
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample2",
+                    "storedProcedureName": "usp_sample2",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
                         "Scenario": "Document sample"

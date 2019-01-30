@@ -1,6 +1,13 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 | Resource | Target |
 |----------|---------------|
-| Max size of single blob container | 500 TiB |
+| Max size of single blob container | Same as max storage account capacity |
 | Max number of blocks in a block blob or append blob | 50,000 blocks |
 | Max size of a block in a block blob | 100 MiB |
 | Max size of a block blob | 50,000 X 100 MiB (approx. 4.75 TiB) |

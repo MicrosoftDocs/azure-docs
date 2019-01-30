@@ -1,3 +1,10 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: rogarana
+---
 **Premium unmanaged virtual machine disks: per account limits**
 
 | Resource | Default Limit |

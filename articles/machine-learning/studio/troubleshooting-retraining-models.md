@@ -1,23 +1,18 @@
 ---
-title: Troubleshoot retraining an Azure Machine Learning Classic web service | Microsoft Docs
-description: Identify and correct common issues encounted when you are retraining the model for an Azure Machine Learning Web Service.
+title: Troubleshoot retraining a Machine Learning Studio classic web service
+titleSuffix: Azure Machine Learning Studio
+description: Identify and correct common issues encountered when you are retraining the model for an Azure Machine Learning Studio web service.
 services: machine-learning
-documentationcenter: ''
-author: garyericson
-manager: raymondl
-editor: ''
-
-ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 011/01/2017
-ms.author: garye
+ms.subservice: studio
+ms.topic: article
 
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 11/01/2017
 ---
-# Troubleshooting the retraining of an Azure Machine Learning Classic web service
+# Troubleshooting the retraining of an Azure Machine Learning Studio classic web service
 ## Retraining overview
 When you deploy a predictive experiment as a scoring web service it is a static model. As new data becomes available or when the consumer of the API has their own data, the model needs to be retrained. 
 
@@ -44,7 +39,7 @@ With all the pieces in place, the major steps you must take to retrain the model
 ### Check to see if you have the correct PATCH URL
 The PATCH URL you are using must be the one associated with the new scoring endpoint you added to the scoring web service. There are a number of ways to obtain the PATCH URL:
 
-**Option 1: Programatically**
+**Option 1: Programmatically**
 
 To get the correct PATCH URL:
 
@@ -99,7 +94,7 @@ You can verify which web service the endpoint is on by visiting the Web Services
 
 <!-- Image Links -->
 
-[image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connnected-to-web-service-out.png
+[image1]: ./media/troubleshooting-retraining-a-model/ml-studio-tm-connected-to-web-service-out.png
 [image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
 [image3]: ./media/troubleshooting-retraining-a-model/azure-portal-update-resource.png
 [image4]: ./media/troubleshooting-retraining-a-model/check-workspace-region.png

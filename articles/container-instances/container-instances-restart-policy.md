@@ -1,27 +1,26 @@
 ---
-title: Run containerized tasks in Azure Container Instances
+title: Use restart policies with containerized tasks in Azure Container Instances 
 description: Learn how to use Azure Container Instances to execute tasks that run to completion, such as in build, test, or image rendering jobs.
 services: container-instances
-author: mmacy
-manager: timlt
+author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2017
-ms.author: marsma
+ms.date: 12/10/2018
+ms.author: danlep
 ---
 
-# Run a containerized task in Azure Container Instances
+# Run containerized tasks with restart policies
 
 The ease and speed of deploying containers in Azure Container Instances provides a compelling platform for executing run-once tasks like build, test, and image rendering in a container instance.
 
 With a configurable restart policy, you can specify that your containers are stopped when their processes have completed. Because container instances are billed by the second, you're charged only for the compute resources used while the container executing your task is running.
 
-The examples presented in this article use the Azure CLI. You must have Azure CLI version 2.0.21 or greater [installed locally](/cli/azure/install-azure-cli), or use the CLI in the [Azure Cloud Shell](../cloud-shell/overview.md).
+The examples presented in this article use the Azure CLI. You must have Azure CLI version 2.0.21 or greater [installed locally][azure-cli-install], or use the CLI in the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## Container restart policy
 
-When you create a container in Azure Container Instances, you can specify one of three restart policy settings.
+When you create a [container group](container-instances-container-groups.md) in Azure Container Instances, you can specify one of three restart policy settings.
 
 | Restart policy   | Description |
 | ---------------- | :---------- |
@@ -43,7 +42,7 @@ az container create \
 
 ## Run to completion example
 
-To see the restart policy in action, create a container instance from the [microsoft/aci-wordcount](https://hub.docker.com/r/microsoft/aci-wordcount/) image, and specify the `OnFailure` restart policy. This example container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits.
+To see the restart policy in action, create a container instance from the [microsoft/aci-wordcount][aci-wordcount-image] image, and specify the `OnFailure` restart policy. This example container runs a Python script that, by default, analyzes the text of Shakespeare's [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), writes the 10 most common words to STDOUT, and then exits.
 
 Run the example container with the following [az container create][az-container-create] command:
 
@@ -90,6 +89,24 @@ Output:
 
 This example shows the output that the script sent to STDOUT. Your containerized tasks, however, might instead write their output to persistent storage for later retrieval. For example, to an [Azure file share](container-instances-mounting-azure-files-volume.md).
 
+## Manually stop and start a container group
+
+Regardless of the restart policy configured for a [container group](container-instances-container-groups.md), you might want to manually stop or start a container group.
+
+* **Stop** - You can manually stop a running container group at any time - for example, by using the [az container stop][az-container-stop] command. For certain container workloads, you might want to stop a container group after a defined period to save on costs. 
+
+  Stopping a container group terminates and recycles the containers in the group; it does not preserve container state. 
+
+* **Start** - When a container group is stopped - either because the containers terminated on their own or you manually stopped the group - you can use the [container start API](/rest/api/container-instances/containergroups/start) or Azure portal to manually start the containers in the group. If the container image for any container is updated, a new image is pulled. 
+
+  Starting a container group begins a new deployment with the same container configuration. This action can help you quickly reuse a known container group configuration that works as you expect. You don't have to create a new container group to run the same workload.
+
+* **Restart** - You can restart a container group while it is running - for example, using the [az container restart][az-container-restart] command. This action restarts all containers in the container group. If the container image for any container is updated, a new image is pulled. 
+
+  Restarting a container group is helpful when you want to troubleshoot a deployment problem. For example, if a temporary resource limitation prevents your containers from running successfully, restarting the group might solve the problem.
+
+After you manually start or restart a container group, the container group runs according to the configured restart policy.
+
 ## Configure containers at runtime
 
 When you create a container instance, you can set its **environment variables**, as well as specify a custom **command line** to execute when the container is started. You can use these settings in your batch jobs to prepare each container with task-specific configuration.
@@ -129,6 +146,8 @@ Output:
  ('GUILDENSTERN', 54)]
 ```
 
+
+
 ## Command line override
 
 Specify a command line when you create a container instance to override the command line baked into the container image. This is similar to the `--entrypoint` command-line argument to `docker run`.
@@ -165,7 +184,13 @@ Output:
 
 For details on how to persist the output of your containers that run to completion, see [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md).
 
-<!-- LINKS -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+<!-- LINKS - External -->
+[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+
+<!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-restart]: /cli/azure/container?view=azure-cli-latest#az-container-restart
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
+[az-container-stop]: /cli/azure/container?view=azure-cli-latest#az-container-stop
+[azure-cli-install]: /cli/azure/install-azure-cli

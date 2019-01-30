@@ -1,18 +1,20 @@
 ---
-title: Moderate images with Azure Content Moderator | Microsoft Docs
-description: Test-drive image moderation in the Content Moderator API console.
+title: Moderate images with the API Console - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Use the Image Moderation API in Azure Content Moderator to initiate scan-and-review moderation workflows for image content.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: content-moderator
-ms.topic: article
-ms.date: 08/05/2017
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Moderate images by using the API console
+# Moderate images from the API console
 
 Use the [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) in Azure Content Moderator to initiate scan-and-review moderation workflows for image content. The moderation job scans your content for profanity, and compares it against custom and shared blacklists.
 
@@ -97,4 +99,4 @@ You can use the Content Moderator OCR capability to detect text in images.
 
 ## Next steps
 
-* Learn how to use the [Text Moderation AP](try-text-api.md).
+Use the REST API in your code or start with the [image moderation .NET quickstart](image-moderation-quickstart-dotnet.md) to integrate with your application.

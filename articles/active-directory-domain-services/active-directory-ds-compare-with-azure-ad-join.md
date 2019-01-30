@@ -3,18 +3,19 @@ title: 'Compare Azure AD Join and Azure Active Directory Domain Services | Micro
 description: Deciding between Azure AD Join and Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: maheshu
+ms.author: ergreenl
 ---
 
 # Choose between Azure Active Directory join and Azure Active Directory Domain Services

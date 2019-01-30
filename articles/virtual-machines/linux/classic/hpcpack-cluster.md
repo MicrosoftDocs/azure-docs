@@ -1,10 +1,10 @@
----
+﻿---
 title: Linux compute VMs in an HPC Pack cluster | Microsoft Docs
 description: Learn how to create and use an HPC Pack cluster in Azure for Linux high performance computing (HPC) workloads
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 
@@ -60,24 +60,24 @@ Additional prerequisites to deploy the cluster by using the HPC Pack IaaS deploy
 
 ### Deployment option 1. Use a Resource Manager template
 1. Go to the [HPC Pack cluster for Linux workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) template in the Azure Marketplace, and click **Deploy**.
-2. In the Azure portal, review the information and then click **Create**.
+1. In the Azure portal, review the information and then click **Create**.
    
     ![Portal creation][portal]
-3. On the **Basics** blade, enter a name for the cluster, which also names the head node VM. You can choose an existing resource group or create a group for the deployment in a location that's available to you. The location affects the availability of certain VM sizes and other Azure services (see [Products available by region](https://azure.microsoft.com/regions/services/)).
-4. On the **Head node settings** blade, for a first deployment, you can generally accept the default settings. 
+1. On the **Basics** blade, enter a name for the cluster, which also names the head node VM. You can choose an existing resource group or create a group for the deployment in a location that's available to you. The location affects the availability of certain VM sizes and other Azure services (see [Products available by region](https://azure.microsoft.com/regions/services/)).
+1. On the **Head node settings** blade, for a first deployment, you can generally accept the default settings. 
    
    > [!NOTE]
    > The **Post-configuration script URL** is an optional setting to specify a publicly available Windows PowerShell script that you want to run on the head node VM after it is running. 
    > 
    > 
-5. On the **Compute node settings** blade, select a naming pattern for the nodes, the number and size of the nodes, and the Linux distribution to deploy.
-6. On the **Infrastructure settings** blade, enter names for the virtual network and Active Directory domain, domain and VM administrator credentials, and a naming pattern for the storage accounts.
+1. On the **Compute node settings** blade, select a naming pattern for the nodes, the number and size of the nodes, and the Linux distribution to deploy.
+1. On the **Infrastructure settings** blade, enter names for the virtual network and Active Directory domain, domain and VM administrator credentials, and a naming pattern for the storage accounts.
    
    > [!NOTE]
    > HPC Pack uses the Active Directory domain to authenticate cluster users. 
    > 
    > 
-7. After the validation tests run and you review the terms of use, click **Purchase**.
+1. After the validation tests run and you review the terms of use, click **Purchase**.
 
 ### Deployment option 2. Use the IaaS deployment script
 Following are additional prerequisites to deploy the cluster by using the HPC Pack IaaS deployment script:
@@ -131,12 +131,12 @@ Modify the file as needed for your environment and desired cluster configuration
 **To run the HPC Pack IaaS deployment script**
 
 1. Open Windows PowerShell on the client computer as an administrator.
-2. Change directory to the folder where the script is installed (E:\IaaSClusterScript in this example).
+1. Change directory to the folder where the script is installed (E:\IaaSClusterScript in this example).
    
     ```powershell
     cd E:\IaaSClusterScript
     ```
-3. Run the following command to deploy the HPC Pack cluster. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml
+1. Run the following command to deploy the HPC Pack cluster. This example assumes that the configuration file is located in E:\HPCDemoConfig.xml
    
     ```powershell
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -182,7 +182,7 @@ You have several choices to move data among Linux nodes and the Windows head nod
 ### Azure File storage
 The [Azure File](https://azure.microsoft.com/services/storage/files/) service exposes file shares using the standard SMB 2.1 protocol. Azure VMs and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share through the File storage API. 
 
-For detailed steps to create an Azure File share and mount it on the head node, see [Get started with Azure File storage on Windows](../../../storage/files/storage-how-to-use-files-windows.md). To mount the Azure File share on the Linux nodes, see [How to use Azure File storage with Linux](../../../storage/files/storage-how-to-use-files-linux.md). To set up persisting connections, see [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+For detailed steps to create an Azure File share and mount it on the head node, see [Get started with Azure File storage on Windows](../../../storage/files/storage-how-to-use-files-windows.md). To mount the Azure File share on the Linux nodes, see [How to use Azure File storage with Linux](../../../storage/files/storage-how-to-use-files-linux.md). To set up persisting connections, see [Persisting connections to Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 In the following example, create an Azure File share on a storage account. To mount the share on the head node, open a Command Prompt and enter the following commands:
 
@@ -219,7 +219,7 @@ Alternatively, mount a shared folder of the head node on Linux nodes. A share pr
     ![File share permissions][fileshareperms]
    
     ![File sharing][filesharing]
-2. Open a Windows PowerShell window and run the following commands:
+1. Open a Windows PowerShell window and run the following commands:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
@@ -248,7 +248,7 @@ The NFS service enables you to share and migrate files between computers running
     ![NFS NTFS permissions][nfsperm]
    
     ![NFS management properties][nfsmanage]
-2. Open a Windows PowerShell window and run the following commands:
+1. Open a Windows PowerShell window and run the following commands:
    
     ```powershell
     clusrun /nodegroup:LinuxNodes mkdir -p /nfsshare
@@ -267,7 +267,7 @@ There are several ways to submit jobs to the HPC Pack cluster:
 
 Job submission to the cluster in Azure via HPC Pack GUI tools and the HPC web portal are the same as for Windows compute nodes. See [HPC Pack Job Manager](https://technet.microsoft.com/library/ff919691.aspx) and [How to submit jobs from an on-premises client computer](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-To submit jobs via the REST API, refer to [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). To submit jobs from a Linux client, also refer to the Python sample in the [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
+To submit jobs via the REST API, refer to [Creating and Submitting Jobs by Using the REST API in Microsoft HPC Pack](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). To submit jobs from a Linux client, also refer to the Python sample in the [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756).
 
 ## Clusrun for Linux nodes
 The HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) tool can be used to execute commands on Linux nodes either through a Command Prompt or HPC Cluster Manager. Following are some basic examples.

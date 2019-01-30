@@ -2,20 +2,12 @@
 title: Azure Storage migration FAQ | Microsoft Docs
 description: Answers to common questions about migrating Azure Storage
 services: storage
-documentationcenter: na
 author: genlin
-manager: timlt
-editor: tysonn
-
-
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
-ms.date: 11/16/2017
+ms.date: 10/31/2018
 ms.author: genli
-
+ms.subservice: common
 ---
 # Frequently asked questions about Azure Storage migration
 
@@ -87,7 +79,7 @@ Follow these steps:
 
 1.  Create the container (folder) in the destination blob.
 
-2.  Use [AzCopy](https://azure.microsoft.com/en-us/blog/azcopy-5-1-release/) to copy the contents from the original blob container to a different blob container.
+2.  Use [AzCopy](https://azure.microsoft.com/blog/azcopy-5-1-release/) to copy the contents from the original blob container to a different blob container.
 
 **How do I create a PowerShell script to move data from one Azure file share to another in Azure Storage?**
 
@@ -137,6 +129,8 @@ For more information, see [Transfer data with AzCopy on Windows](storage-use-azc
 
 **How do I move managed disks to another storage account?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Follow these steps:
 
 1.  Stop the virtual machine that the managed disk is attached to.
@@ -145,15 +139,15 @@ Follow these steps:
     following Azure PowerShell script:
 
     ```
-    Login-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  Create a managed disk by using the VHD file in another region to which you copied the VHD. To do this, run the following Azure PowerShell script:  
@@ -171,9 +165,9 @@ Follow these steps:
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 For more information about how to deploy a virtual machine from a managed disk, see [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
@@ -186,7 +180,7 @@ with AzCopy on Windows](storage-use-azcopy.md) and [Transfer data with AzCopy on
 **How do I change the secondary location to the Europe region for a storage account?**
 
 When you create a storage account, you select the primary region for the
-account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Azure Storage replication](storage-redundancy.md).
+account. The selection of the secondary region is based on the primary region, and it cannot be changed. For more information, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy.md).
 
 **Where can I get more information about Azure Storage Service Encryption (SSE)?**  
   
@@ -263,7 +257,7 @@ If you have virtual machines, you must take additional steps before you migrate 
 
 **How do I move from a classic storage account to an Azure Resource Manager storage account?**
 
-You can use the **Move-AzureStorageAccount** cmdlet. This cmdlet has multiple steps (validate, prepare, commit). You can validate the move before you make it.
+You can use the **Move-AzStorageAccount** cmdlet. This cmdlet has multiple steps (validate, prepare, commit). You can validate the move before you make it.
 
 If you have virtual machines, you must take additional steps before you migrate the storage account data. For more information, see [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -288,7 +282,7 @@ To give other people access to the storage resources:
 
 -   Provide a user with the primary or secondary key for the
     storage account. For more information, see [Manage your storage
-    account](storage-create-storage-account.md#manage-your-storage-account).
+    account](storage-account-manage.md#access-keys).
 
 -   Change the access policy to allow anonymous access. For more
     information, see [Grant anonymous users permissions to containers
@@ -328,6 +322,10 @@ see [Configure a custom domain name for your Blob storage endpoint](../blobs/sto
 There is no way to access a storage account directly by using FTP. However, you can set up an Azure virtual machine, and then install an FTP server on the virtual machine. You can have the FTP server store files on an Azure Files share or on a data disk that is available to the virtual machine.
 
 If you want only to download data without having to use Storage Explorer or a similar application, you might be able to use an SAS token. For more information, see [Using shared access signatures](storage-dotnet-shared-access-signature-part-1.md).
+
+**How do I migrate Blobs from one storage account to another?**
+
+ You can do this using our [Blob migration script](../scripts/storage-common-transfer-between-storage-accounts.md).
 
 ## Need help? Contact support.
 

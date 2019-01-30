@@ -1,20 +1,17 @@
 ---
-title: 'Azure portal: Create an Azure Database for PostgreSQL server | Microsoft Docs'
+title: Quickstart - Create an Azure Database for PostgreSQL server using the Azure portal
 description: Quickstart guide to creating and managing an Azure Database for PostgreSQL server by using the Azure portal user interface.
-services: postgresql
-author: SaloniSonpal
-ms.author: salonis
-manager: jhubbard
-editor: jasonwhowell
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/03/2017
+ms.date: 01/09/2019
 ---
 
-# Create an Azure Database for PostgreSQL server in the Azure portal
+# Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal
 
-Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL server in about five minutes by using the Azure portal.
+Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL server in about five minutes using the Azure portal.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
@@ -23,66 +20,66 @@ Open your web browser and go to the [portal](https://portal.azure.com/). Enter y
 
 ## Create an Azure Database for PostgreSQL server
 
-An Azure Database for PostgreSQL server is created with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+An Azure Database for PostgreSQL server is created with a configured set of [compute and storage resources](./concepts-pricing-tiers.md). The server is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
 
 To create an Azure Database for PostgreSQL server, take the following steps:
-1. Select the **New** button (+) in the upper-left corner of the portal.
+1. Select the **Create a resource** button (+) in the upper-left corner of the portal.
 
 2. Select **Databases** > **Azure Database for PostgreSQL**.
 
     ![The "Azure Database for PostgreSQL" option](./media/quickstart-create-database-portal/1-create-database.png)
 
-3. Fill out the new server details form with the following information, as shown in the preceding image:
+3. Fill out the new server details form with the following information:
 
-    Setting|Suggested value|Description
+    ![Create a server](./media/quickstart-create-database-portal/3-create.png)
+
+    Setting|Suggested Value|Description
     ---|---|---
-    Server name |*mypgserver-20170401*|A unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.
-    Subscription|Your subscription|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you're billed for the resource.
+    Server name |*mydemoserver*|A unique name that identifies your Azure Database for PostgreSQL server. The domain name *postgres.database.azure.com* is appended to the server name you provide. The server can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain at least 3 through 63 characters.
+    Subscription|Your subscription name|The  Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you're billed for the resource.
     Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
-    Server admin login |*mylogin*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser,** **azure_pg_admin,** **admin,** **administrator,** **root,** **guest,** or **public.** It can't start with **pg_**.
-    Password |Your choice | A new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and nonalphanumeric characters (!, $, #, %, etc.).
-    Location|The region closest to your users| The location that's closest to your users.
-    PostgreSQL version|The latest version| The latest version, unless you have specific requirements.
-    Pricing tier | **Basic**, **50 Compute Units**, **50 GB** | The service tier and performance level for your new database. Select **Pricing tier**. Next, select the **Basic** tab. Then select the left end of the **Compute Units** slider to adjust the value to the least amount available for this Quickstart. To save the pricing tier selection, select **OK**. For more information, see the following screenshot. 
-    Pin to dashboard | Check | Enables easy tracking of your server on the front dashboard page of your portal.
+    Select source | *Blank* | Select *Blank* to create a new server from scratch. (You would select *Backup* if you were creating a server from a geo-backup of an existing Azure Database for PostgreSQL server).
+    Server admin login |*myadmin*| Your own login account to use when you connect to the server. The admin login name can't be **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest**, or **public**. It can't start with **pg_**.
+    Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
+    Location|The region closest to your users| The location that is closest to your users.
+    Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
+    Pricing tier | **General Purpose**, **Gen 4**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 4*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
 
-    > [!IMPORTANT]
-    > The server admin login and password that you specify here are required to sign in to the server and its databases later in this Quickstart. Remember or record this information for later use.
+   > [!NOTE]
+   > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/postgresql/) for more information.
+   > 
 
-    ![The "Pricing tier" pane](./media/quickstart-create-database-portal/2-service-tier.png)
+    ![The "Pricing tier" pane](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-4. Select **Create** to provision the server. Provisioning can take up to 20 minutes.
+4. Select **Create** to provision the server. This operation may take a few minutes.
 
-5. On the toolbar, select the **Notifications** symbol to monitor the deployment process.
+5. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this server on your Azure portal dashboard as a shortcut to the server's **Overview** page. Selecting **Go to resource** opens the server's **Overview** page.
 
     ![The "Notifications" pane](./media/quickstart-create-database-portal/3-notifications.png)
    
-  By default, a **postgres** database is created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database that's meant for use by users, utilities, and third-party applications. 
+   By default, a **postgres** database is created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database that's meant for use by users, utilities, and third-party applications. (The other default database is **azure_maintenance**. Its function is to separate the managed service processes from user actions. You cannot access this database.)
 
 ## Configure a server-level firewall rule
 
 Azure Database for PostgreSQL creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses. 
 
-1. After the deployment finishes, locate your server. If needed, you can search for it. For example, on the menu on the left, select **All resources**. Type your server name, such as the example, **mypgserver-20170401**, to search for your newly created server. Select your server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
+1. After the deployment finishes, locate your server. If needed, you can search for it. For example, on the menu on the left, select **All resources**. Type your server name, such as the example, **mydemoserver**, to search for your newly created server. Select your server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
  
     ![Server name search](./media/quickstart-create-database-portal/4-locate.png)
 
 2. On the server page, select **Connection security**.
 
-    ![The "Connection security" setting](./media/quickstart-create-database-portal/5-firewall-2.png)
+3. Under the **Firewall rules**, in the **Rule Name** column, select the blank text box to begin creating the firewall rule. 
 
-3. Under the **Firewall rules** heading, in the **Rule Name** column, select the blank text box to begin creating the firewall rule. 
+   Fill in the text boxes with a name, and the start and end IP range of the clients that will be accessing your server. If it is a single IP, use the same value for the start IP and end IP.
 
-    For this Quickstart, let's allow all IP addresses into the server. Fill in the text box in each column with the following values:
-
-    Rule name | Start IP | End IP 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
+   ![Set Firewall Rules](./media/quickstart-create-database-portal/5-firewall-2.png)
+     
 
 4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the connection security update has finished successfully before you continue.
 
     > [!NOTE]
-    > Connections to your Azure Database for PostgreSQL server communicate over port 5432. If you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed by your network's firewall. If so, you can't connect to your server unless your IT department opens port 5432.
+    > Connections to your Azure Database for PostgreSQL server communicate over port 5432. When you try to connect from within a corporate network, outbound traffic over port 5432 might not be allowed by your network's firewall. If so, you can't connect to your server unless your IT department opens port 5432.
     >
 
 ## Get the connection information
@@ -93,21 +90,13 @@ Open your server's **Overview** page. Make a note of the **Server name** and the
 
  ![The server "Overview" page](./media/quickstart-create-database-portal/6-server-name.png)
 
-## Connect to the PostgreSQL Database by using psql in Cloud Shell
+## Connect to the PostgreSQL database using psql
 
-There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. Let's first use the psql command-line utility to illustrate how to connect to the server. You can use a web browser and Azure Cloud Shell as described here without the need to install any additional software. If you have the psql utility installed locally on your own machine, you can connect from there as well.
+There are a number of applications you can use to connect to your Azure Database for PostgreSQL server. If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure PostgreSQL server.
 
-1. In the top navigation pane, select the terminal symbol to open Cloud Shell.
+1. In a shell, connect to a database in your Azure Database for PostgreSQL server by typing the psql command line.
 
-   ![Azure Cloud Shell terminal symbol](./media/quickstart-create-database-portal/7-cloud-console.png)
-
-2. Cloud Shell opens in your browser, where you can type Bash shell commands.
-
-   ![Cloud Shell Bash prompt](./media/quickstart-create-database-portal/8-bash.png)
-
-3. At the Cloud Shell prompt, connect to a database in your Azure Database for PostgreSQL server by typing the psql command line.
-
-    To connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility, use the following format:
+    To connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/current/static/app-psql.html) utility, use the following format:
     ```bash
     psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
     ```
@@ -115,12 +104,12 @@ There are a number of applications you can use to connect to your Azure Database
     For example, the following command connects to an example server:
 
     ```bash
-    psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 --dbname=postgres
+    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
     ```
 
-    psql parameter |Suggested value|Description
+    psql parameter |Value|Description
     ---|---|---
-    --host | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. The example server shown is **mypgserver-20170401.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
+    --host | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. The example server shown is **mydemoserver.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
     --port | 5432 | The port to use when you connect to the Azure Database for PostgreSQL server. 
     --username | Server admin login name |The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember your username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
     --dbname | *postgres* | The default, system-generated database name that was created for the first connection. Later, you create your own database.
@@ -129,9 +118,9 @@ There are a number of applications you can use to connect to your Azure Database
 
     psql parameter |Suggested value|Description
     ---|---|---
-    password | Your admin password | The typed password characters aren't shown on the bash prompt. After you type all the characters, select the **Enter** key to authenticate and connect.
+    password | Your admin password | The typed password characters aren't shown on the bash prompt. After you type all the characters, hit the Enter key to authenticate and connect.
 
-    After you connect, the psql utility displays a postgres prompt where you type sql commands. In the initial connection output, a warning might appear because the psql in Cloud Shell might be a different version than the Azure Database for PostgreSQL server version. 
+    After you connect, the psql utility displays a postgres prompt where you type sql commands. In the initial connection output, a warning may appear because the psql you're using might be a different version than the Azure Database for PostgreSQL server version. 
     
     Example psql output:
     ```bash
@@ -145,73 +134,74 @@ There are a number of applications you can use to connect to your Azure Database
     ```
 
     > [!TIP]
-    > If the firewall is not configured to allow the IP address of Cloud Shell, the following error occurs:
+    > If the firewall is not configured to allow the IP address of your client, the following error occurs:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
+    > "psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
     > 
     > To resolve the error, make sure the server configuration matches the steps in the "Configure a server-level firewall rule" section of this article.
 
-4. Create a blank database at the prompt by typing the following command:
+2. Create a blank database called "mypgsqldb" at the prompt by typing the following command:
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
     The command might take a few minutes to finish. 
 
-5. At the prompt, execute the following command to switch connections to the newly created database **mypgsqldb**:
+3. At the prompt, execute the following command to switch connections to the newly created database **mypgsqldb**:
     ```bash
     \c mypgsqldb
     ```
 
-6. Type  `\q`, and then select the **Enter** key to quit psql. You can close Cloud Shell after you're finished.
+4. Type  `\q`, and then select the Enter key to quit psql. 
 
-Now you're connected to the Azure Database for PostgreSQL server, and you created a blank user database. Continue to the next section to connect by using another common tool, pgAdmin.
+You connected to the Azure Database for PostgreSQL server via psql, and you created a blank user database. Continue to the next section to connect by using another common tool, pgAdmin.
 
-## Connect to the PostgreSQL Database by using pgAdmin
+## Connect to the PostgreSQL Server using pgAdmin
 
-To connect to the Azure PostgreSQL server by using the GUI tool pgAdmin:
-1. Open the pgAdmin application on your client computer. You can install pgAdmin from the [pgAdmin website](http://www.pgadmin.org/).
+pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin from the [pgAdmin website](https://www.pgadmin.org/). The pgAdmin version you're using may be different from what is used in this Quickstart. Read the pgAdmin documentation if you need additional guidance.
 
-2. On the dashboard page, under the **Quick Links** section, select the **Add New Server** symbol.
+1. Open the pgAdmin application on your client computer.
 
-3. In the **Create - Server** dialog box, on the **General** tab, enter a unique friendly name for the server, such as **Azure PostgreSQL Server**.
+2. From the toolbar go to **Object**, hover over **Create**, and select **Server**.
+
+3. In the **Create - Server** dialog box, on the **General** tab, enter a unique friendly name for the server, such as **mydemoserver**.
 
     ![The "General" tab](./media/quickstart-create-database-portal/9-pgadmin-create-server.png)
 
-4. In the **Create - Server** dialog box, on the **Connection** tab, use the settings as specified, and then select **Save**.
+4. In the **Create - Server** dialog box, on the **Connection** tab, fill in the settings table.
 
    ![The "Connection" tab](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
-    pgAdmin parameter |Suggested value|Description
+    pgAdmin parameter |Value|Description
     ---|---|---
-    Host Name/Address | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. Our example server is **mypgserver-20170401.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
+    Host name/address | Server name | The server name value that you used when you created the Azure Database for PostgreSQL server earlier. Our example server is **mydemoserver.postgres.database.azure.com.** Use the fully qualified domain name (**\*.postgres.database.azure.com**) as shown in the example. If you don't remember your server name, follow the steps in the previous section to get the connection information. 
     Port | 5432 | The port to use when you connect to the Azure Database for PostgreSQL server. 
     Maintenance database | *postgres* | The default system-generated database name.
     Username | Server admin login name | The server admin login username that you supplied when you created the Azure Database for PostgreSQL server earlier. If you don't remember the username, follow the steps in the previous section to get the connection information. The format is *username@servername*.
     Password | Your admin password | The password you chose when you created the server earlier in this Quickstart.
     Role | Leave blank | There's no need to provide a role name at this point. Leave the field blank.
-    SSL mode | Required | By default, all Azure PostgreSQL servers are created with SSL enforcing turned on. To turn off SSL enforcing, see [Enforce SSL](./concepts-ssl-connection-security.md).
+    SSL mode | *Require* | You can set the SSL mode in pgAdmin's SSL tab. By default, all Azure Database for PostgreSQL servers are created with SSL enforcing turned on. To turn off SSL enforcing, see [SSL Enforcing](./concepts-ssl-connection-security.md).
     
 5. Select **Save**.
 
-6. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for example, **Azure PostgreSQL Server**. Click to connect to it.
+6. In the **Browser** pane on the left, expand the **Servers** node. Select your server, for example, **mydemoserver**. Click to connect to it.
 
-7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database and any newly created user database, such as **mypgsqldb**, which was created in the previous section. Notice that you can create multiple databases per server with Azure Database for PostgreSQL.
+7. Expand the server node, and then expand **Databases** under it. The list should include your existing *postgres* database and any other databases you've created. You can create multiple databases per server with Azure Database for PostgreSQL.
 
 8. Right-click **Databases**, choose the **Create** menu, and then select **Database**.
 
-9. Type a database name of your choice in the **Database** field, such as **mypgsqldb**, as shown in the example.
+9. Type a database name of your choice in the **Database** field, such as **mypgsqldb2**.
 
-10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as the example, **mylogin**.
+10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as the example, **my admin**.
+
+   ![Create a database in pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 11. Select **Save** to create a new blank database.
 
-12. In the **Browser** pane, see the database that you created in the list of databases under your server name.
-
-    ![The "Browser " pane](./media/quickstart-create-database-portal/11-pgadmin-database.png)
+12. In the **Browser** pane, you can see the database that you created in the list of databases under your server name.
 
 
 ## Clean up resources
-You can clean up the resources that you created in the Quickstart in one of two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the single server resource.
+You can clean up the resources that you created in the Quickstart in one of two ways. You can delete the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which includes all the resources in the resource group. If you want to keep the other resources intact, delete only the server resource.
 
 > [!TIP]
 > Other Quickstarts in this collection build on this Quickstart. If you plan to continue working with Quickstarts, don't clean up the resources that you created in this Quickstart. If you don't plan to continue, follow these steps to delete the resources that were created by this Quickstart in the portal.
@@ -228,7 +218,7 @@ To delete only the newly created server:
 
     ![The "Delete" button](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Confirm the server name you want to delete, and view the databases under it that are affected. Type your server name in the text box, such as the example, **mypgserver-20170401**. Select **Delete**.
+3. Confirm the name of the server you want to delete, and view the databases under it that are affected. Type your server name in the text box, such as the example, **mydemoserver**. Select **Delete**.
 
 ## Next steps
 > [!div class="nextstepaction"]

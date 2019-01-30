@@ -1,26 +1,21 @@
 ---
-title: Interpret model results in Machine Learning | Microsoft Docs
+title: Interpret model results in Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
-documentationcenter: ''
-author: bradsev
-manager: cgronlun
-editor: cgronlun
-
-ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
-ms.author: bradsev;garye
+ms.subservice: studio
+ms.topic: article
 
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 11/29/2017
 ---
-# Interpret model results in Azure Machine Learning
+# Interpret model results in Azure Machine Learning Studio
 This topic explains how to visualize and interpret prediction results in Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 There are four major kinds of machine learning models in Azure Machine Learning:
 

@@ -29,11 +29,11 @@ The address for SQL Database in Azure Germany is different from the address in g
 | SQL Database | *.database.windows.net | *.database.cloudapi.de |
 
 
-## Azure Redis Cache
-For details on Azure Redis Cache and how to use it, see [Azure Redis Cache global documentation](../redis-cache/index.md).
+## Azure Cache for Redis
+For details on Azure Cache for Redis and how to use it, see [Azure Cache for Redis global documentation](../azure-cache-for-redis/index.md).
 
 ### Variations
-The URLs for accessing and managing Azure Redis Cache in Azure Germany are different from the URLs in global Azure:
+The URLs for accessing and managing Azure Cache for Redis in Azure Germany are different from the URLs in global Azure:
 
 | Service type | Global Azure | Azure Germany |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ The URLs for accessing and managing Azure Redis Cache in Azure Germany are diffe
 | Azure portal | https://portal.azure.com | https://portal.microsoftazure.de |
 
 > [!NOTE]
-> All your scripts and code need to account for the appropriate endpoints and environments. For more information, see "To connect to Microsoft Azure Germany" in [Manage Azure Redis Cache with Azure PowerShell](../redis-cache/cache-howto-manage-redis-cache-powershell.md).
+> All your scripts and code need to account for the appropriate endpoints and environments. For more information, see "To connect to Microsoft Azure Germany" in [Manage Azure Cache for Redis with Azure PowerShell](../azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md).
 >
 >
 

@@ -1,16 +1,13 @@
 ---
-title: Azure CLI samples to scale an Azure Database for MySQL server | Microsoft Docs
+title: Azure CLI script - Scale an Azure Database for MySQL server
 description: This sample CLI script scales Azure Database for MySQL server to a different performance level after querying the metrics.
-services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
-editor: jasonwhowell
-ms.service: mysql-database
-ms.devlang: azure-cli
+author: ajlam
+ms.author: andrela
+ms.service: mysql
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 11/02/2017
+ms.date: 04/05/2018
 ---
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI
@@ -18,27 +15,27 @@ This sample CLI script scales a single Azure Database for MySQL server to a diff
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI. 
 
 ## Sample script
-In this sample script, change the highlighted lines to customize the admin username and password. Replace the subscription ID used in the az monitor commands with your own subscription id.
+In this sample script, edit the highlighted lines to update the admin username and password to your own. Replace the subscription ID used in the `az monitor` commands with your own subscription id.
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh?highlight=15-16 "Create and scale Azure Database for MySQL.")]
 
 ## Clean up deployment
-After the script sample has been run, you can remove the resource group and all resources associated with it by running the following command:
+Use the following command to remove the resource group and all resources associated with it after the script has been run. 
 [!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/delete-mysql.sh  "Delete the resource group.")]
 
 ## Script explanation
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the commands outlined in the following table:
 
 | **Command** | **Notes** |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az mysql server create](/cli/azure/mysql/server#az_mysql_server_create) | Creates a MySQL server that hosts the databases. |
-| [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) | List the metric value for the resources. |
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Creates a MySQL server that hosts the databases. |
+| [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | List the metric value for the resources. |
+| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview).
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).
 - Try additional scripts: [Azure CLI samples for Azure Database for MySQL](../sample-scripts-azure-cli.md)
 - For more information on scaling, see [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md).

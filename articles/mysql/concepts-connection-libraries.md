@@ -1,14 +1,11 @@
 ---
-title: Connection libraries for Azure Database for MySQL | Microsoft Docs
+title: Connection libraries for Azure Database for MySQL
 description: This article lists each library or driver that client programs can use when connecting to Azure Database for MySQL.
-services: mysql
-author: mswutao
-ms.author: wutao
-manager: jhubbard
-editor: jasonwhowell
-ms.service: mysql-database
-ms.topic: article
-ms.date: 10/20/2017
+author: ajlam
+ms.author: andrela
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 02/28/2018
 ---
 
 # Connection libraries for Azure Database for MySQL
@@ -19,7 +16,7 @@ MySQL offers standard database driver connectivity for using MySQL with applicat
 
 | **Language** | **Platform** | **Additional Resource** | **Download** |
 | :----------- | :------------| :-----------------------| :------------|
-| PHP | Windows, Linux | [MySQL native driver for PHP - mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Download](http://php.net/downloads.php) |
+| PHP | Windows, Linux | [MySQL native driver for PHP - mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Download](https://secure.php.net/downloads.php) |
 | ODBC | Windows, Linux, Mac OS X, and Unix platforms | [MySQL Connector/ODBC Developer Guide](https://dev.mysql.com/doc/connector-odbc/en/) | [Download](https://dev.mysql.com/downloads/connector/odbc/) |
 | ADO.NET | Windows | [MySQL Connector/Net Developer Guide](https://dev.mysql.com/doc/connector-net/en/) | [Download](https://dev.mysql.com/downloads/connector/net/) |
 | JDBC | Platform independent | [MySQL Connector/J 5.1 Developer Guide](https://dev.mysql.com/doc/connector-j/5.1/en/) | [Download](https://dev.mysql.com/downloads/connector/j/) |

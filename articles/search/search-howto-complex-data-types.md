@@ -1,22 +1,15 @@
 ---
-title: How to model complex data types in Azure Search | Microsoft Docs
+title: How to model complex data types - Azure Search
 description: Nested or hierarchical data structures can be modeled in an Azure Search index using flattened rowset and Collections data type.
-services: search
-documentationcenter: ''
-author: LiamCa
-manager: pablocas
-editor: ''
+author: brjohnstmsft
+manager: jlembicz
+ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-
-ms.assetid: e4bf86b4-497a-4179-b09f-c1b56c3c0bb2
+services: search
 ms.service: search
-ms.devlang: na
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
-ms.author: liamca
-
+ms.custom: seodec2018
 ---
 # How to model complex data types in Azure Search
 External datasets used to populate an Azure Search index sometimes include hierarchical or nested substructures that do not break down neatly into a tabular rowset. Examples of such structures might include multiple locations and phone numbers for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex data types*, *compound data types*, *composite data types*, or *aggregate data types*, to name a few.

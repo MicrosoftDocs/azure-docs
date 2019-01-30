@@ -1,20 +1,14 @@
 ---
-title: Azure ExpressRoute for Cloud Solution Providers | Microsoft Docs
-description: This article provides information for Cloud Service Providers that want to incorporate Azure services and ExpressRoute into their offerings.
-documentationcenter: na
+title: ExpressRoute for Cloud Solution Providers - Azure | Microsoft Docs
+description: This article provides information for Cloud Solution Providers that want to incorporate Azure services and ExpressRoute into their offerings.
 services: expressroute
 author: richcar
-manager: carmonm
-editor: ''
 
-ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
+ms.custom: seodec18
 
 ---
 # ExpressRoute for Cloud Solution Providers (CSP)
@@ -62,7 +56,7 @@ This connectivity scenario requires that the customer connects directly through 
 
 The choice between these two option are based on your customer’s needs and your current need to provide Azure services. The details of these models and the associated role-based access control, networking, and identity design patterns are covered in details in the following links:
 
-* **Role Based Access Control (RBAC)** – RBAC is based on Azure Active Directory.  For more information on Azure RBAC see [here](../active-directory/role-based-access-control-configure.md).
+* **Role Based Access Control (RBAC)** – RBAC is based on Azure Active Directory.  For more information on Azure RBAC see [here](../role-based-access-control/role-assignments-portal.md).
 * **Networking** – Covers the various topics of networking in Microsoft Azure.
 * **Azure Active Directory (Azure AD)** – Azure AD provides the identity management for Microsoft Azure and 3rd party SaaS applications. For more information about Azure AD see [here](https://azure.microsoft.com/documentation/services/active-directory/).  
 

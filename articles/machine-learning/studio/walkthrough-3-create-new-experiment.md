@@ -1,23 +1,18 @@
 ---
-title: 'Step 3: Create a new Machine Learning experiment | Microsoft Docs'
+title: 'Step 3: Create a new Machine Learning Studio experiment'
+titleSuffix: Azure Machine Learning Studio
 description: 'Step 3 of the Develop a predictive solution walkthrough: Create a new training experiment in Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: ''
-author: garyericson
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/23/2017
-ms.author: garye
+ms.subservice: studio
+ms.topic: article
 
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/23/2017
 ---
-# Walkthrough Step 3: Create a new Azure Machine Learning experiment
+# Walkthrough Step 3: Create a new Azure Machine Learning Studio experiment
 This is the third step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
 1. [Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md)

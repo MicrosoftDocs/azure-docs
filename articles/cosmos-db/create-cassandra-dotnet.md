@@ -1,26 +1,26 @@
 ---
-title: 'Quickstart: Cassandra API with .NET - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Cassandra API with .NET - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and .NET
-services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: ''
 
-ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: cosmosdb-cassandra
+author: SnehaGunda
+ms.author: sngun
+ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/15/2017
-ms.author: mimig
-
+ms.date: 09/24/2018
 ---
 
 # Quickstart: Build a Cassandra app with .NET and Azure Cosmos DB
 
-This quickstart shows how to use .NET and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.   
+> [!div class="op_single_selector"]
+> * [.NET](create-cassandra-dotnet.md)
+> * [Java](create-cassandra-java.md)
+> * [Node.js](create-cassandra-nodejs.md)
+> * [Python](create-cassandra-python.md)
+>  
+
+This quickstart shows how to use .NET and the Azure Cosmos DB [Cassandra API](cassandra-introduction.md) to build a profile app by cloning an example from GitHub. This quickstart also shows you how to use the web-based Azure portal to create an Azure Cosmos DB account.
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -28,9 +28,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
-Access to the Azure Cosmos DB Cassandra API preview program. If you haven't applied for access yet, [sign up now](cassandra-introduction.md#sign-up-now).
-
-In addition: 
+In addition, you need: 
 * If you don't already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 * Install [Git](https://www.git-scm.com/) to clone the example.
 
@@ -44,23 +42,29 @@ In addition:
 
 Now let's switch to working with code. Let's clone a Cassandra API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
+1. Open a command prompt. Create a new folder named `git-samples`. Then, close the command prompt.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
     ```
 
-3. Then open the CassandraQuickStartSample solution file in Visual Studio. 
+4. Next, open the CassandraQuickStartSample solution file in Visual Studio. 
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.cs` file installed in the C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
+This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. The snippets are all taken from the `Program.cs` file installed in the `C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample` folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
 
 * Initialize the session by connecting to a Cassandra cluster endpoint. The Cassandra API on Azure Cosmos DB supports only TLSv1.2. 
 
@@ -98,7 +102,7 @@ This step is optional. If you're interested in learning how the database resourc
    }
     ```
     
- * Query to get a single user's information.
+* Query to get a single user's information.
 
     ```csharp
     mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
@@ -108,7 +112,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string information enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**.
 
     Use the ![Copy button](./media/create-cassandra-dotnet/copy.png) button on the right side of the screen to copy the USERNAME value.
 
@@ -132,26 +136,26 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 15 of Program.cs should now look similar to 
 
-    `private const string CassandraContactPoint = "cosmos-db-quickstarts.documents.azure.com"; //  DnsName`
+    `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
 5. Save the Program.cs file.
     
-## Run the app
+## Run the .Net app
 
-1. In Visual Studio, click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
 2. At the command prompt, use the following command to install the .NET Driver's NuGet package. 
 
     ```cmd
     Install-Package CassandraCSharpDriver
     ```
-3. Click CTRL + F5 to run the application. Your app displays in your console window. 
+3. Press CTRL + F5 to run the application. Your app displays in your console window. 
 
     ![View and verify the output](./media/create-cassandra-dotnet/output.png)
 
-    Press CTRL + C to stop exection of the program and close the console window. 
+    Press CTRL + C to stop execution of the program and close the console window. 
     
-    You can now open Data Explorer in the Azure portal to see query, modify, and work with this new data. 
+4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data.
 
     ![View the data in Data Explorer](./media/create-cassandra-dotnet/data-explorer.png)
 
@@ -165,7 +169,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a collection using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you've learned how to create an Azure Cosmos DB account, create a container using the Data Explorer, and run a web app. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import Cassandra data into Azure Cosmos DB](cassandra-import-data.md)

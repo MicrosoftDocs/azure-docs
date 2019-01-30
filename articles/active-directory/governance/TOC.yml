@@ -1,0 +1,55 @@
+- name: Azure AD identity governance documentation
+  href: index.yml
+- name: Overview
+  expanded: false
+  items:
+  - name: What is identity governance?
+    href: identity-governance-overview.md
+  - name: What are access reviews?
+    href: access-reviews-overview.md
+- name: Concepts
+  expanded: false
+  items:
+    - name: Manage guest access with reviews
+      href: manage-guest-access-with-access-reviews.md
+    - name: Manage user access with reviews
+      href: manage-user-access-with-access-reviews.md
+    - name: Manage programs and their controls
+      href: manage-programs-controls.md
+    - name: Manage users excluded from conditional access
+      href: conditional-access-exclusion.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Access reviews
+    items:
+    - name: Groups and apps
+      items:
+      - name: Create an access review
+        href: create-access-review.md
+      - name: Start an access review
+        href: perform-access-review.md
+      - name: Review your own access
+        href: review-your-access.md
+      - name: Complete an access review
+        href: complete-access-review.md
+      - name: Retrieve access review results
+        href: retrieve-access-review.md
+    - name: Directory roles
+      items:
+      - name: Review my directory roles
+        href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Start an access review
+        href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Complete an access review
+        href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Resource roles
+      items:
+      - name: Review my resource roles
+        href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Start an access review
+        href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Complete an access review
+        href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+  - name: Terms of use
+    href: active-directory-tou.md

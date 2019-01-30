@@ -3,8 +3,8 @@ title: Create an Azure Application Gateway - templates | Microsoft Docs
 description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: davidmu
+ms.author: victorh
 
 ---
 # Create an application gateway by using the Azure Resource Manager template
@@ -80,7 +80,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -117,7 +117,7 @@ You can download the existing Azure Resource Manager template to create a virtua
     }
     ```
 
-1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
+1. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](https://www.jslint.com/).
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
@@ -126,7 +126,7 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 1. Login to PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Check the subscriptions for the account.

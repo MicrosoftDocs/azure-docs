@@ -4,24 +4,25 @@ description: Data exploration and visualization tools for the Data Science Virtu
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
+
 
 ms.assetid: 
 ms.service: machine-learning
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/11/2017
-ms.author: gokuma;bradsev
+ms.topic: conceptual
+ms.date: 03/16/2018
+ms.author: gokuma
 
 ---
 
 # Data exploration and visualization tools on the Data Science Virtual Machine
 
-A key step in data science is to understand the data. Visualization and data exploration tools help accelerate data understanding. Here are some tools provided on the DSVM that faciliate this key step. 
+A key step in data science is to understand the data. Visualization and data exploration tools help accelerate data understanding. Here are some tools provided on the DSVM that facilitate this key step. 
 
 ## Apache Drill
 |    |           |
@@ -29,7 +30,7 @@ A key step in data science is to understand the data. Visualization and data exp
 | What is it?   | Open source SQL query engine on Big data    |
 | Supported DSVM Versions      | Windows, Linux  |
 | How is it configured / installed on the DSVM?      |  Installed in `/dsvm/tools/drill*` in embedded mode only   |
-| Typical Uses      |  In-situ Data exploration without requiring ETL. Query different data sources and formats includign CSV, JSON, relational tables, Hadoop     |
+| Typical Uses      |  In-situ Data exploration without requiring ETL. Query different data sources and formats including CSV, JSON, relational tables, Hadoop     |
 | How to use / run it?      | Desktop Shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Related Tools on the DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 

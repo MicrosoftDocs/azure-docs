@@ -1,14 +1,14 @@
 ---
 title: Create a VM cluster with Terraform and HCL
 description: Use Terraform and HashiCorp Configuration Language (HCL) to create a Linux virtual machine cluster with a load balancer in Azure
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, virtual machine, network, modules
-author: tomarcher
-manager: routlaw
-ms.service: virtual-machines-linux
-ms.custom: devops
-ms.topic: article
-ms.date: 11/13/2017
+author: tomarchermsft
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
+ms.date: 11/13/2017
 ---
 
 # Create a VM cluster with Terraform and HCL
@@ -27,7 +27,7 @@ In this tutorial, you:
 ## 1. Set up Azure authentication
 
 > [!NOTE]
-> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
+> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
 
 In this section, you generate an Azure service principal, and two Terraform configuration files containing the credentials from the security principal.
 
@@ -215,7 +215,7 @@ In this section, you create a file that contains resource definitions for your i
 
 ## 3. Initialize Terraform 
 
-The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous sections. You should always run the `terraform init` command after writing a new Terraform configuration. 
+The [terraform init command](https://www.terraform.io/docs/commands/init.html) is used to initialize a directory that contains the Terraform configuration files - the files you created with the previous sections. It is a good practice to always run the `terraform init` command after writing a new Terraform configuration. 
 
 > [!TIP]
 > The `terraform init` command is idempotent meaning that it can be called repeatedly while producing the same result. Therefore, if you're working in a collaborative environment, and you think the configuration files might have been changed, it's always a good idea to call the `terraform init` command before executing or applying a plan.
@@ -262,7 +262,7 @@ If you want to apply the latest execution plan, run the following command:
   terraform apply
   ```
 
-If you want to apply a previously-saved execution plan, run the following command (replacing the &lt;path> placeholder with the path that contains the saved execution plan):
+If you want to apply a previously saved execution plan, run the following command (replacing the &lt;path> placeholder with the path that contains the saved execution plan):
 
   ```cmd
   terraform apply <path>

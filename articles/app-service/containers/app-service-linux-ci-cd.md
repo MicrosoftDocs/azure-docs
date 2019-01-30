@@ -1,11 +1,11 @@
 ---
-title: Continuous Deployment from a Docker container registry with Web App for Containers - Azure | Microsoft Docs
-description: How to setup continuous deployment from a Docker container registry in Web App for Containers.
+title: Continuous deployment with Web App for Containers - Azure App Service | Microsoft Docs
+description: How to set up continuous deployment in Web App for Containers.
 keywords: azure app service, linux, docker, acr,oss
 services: app-service
 documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
@@ -14,79 +14,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: aelnably;wesmc
+ms.date: 11/08/2018
+ms.author: yili
+ms.custom: seodec18
 
 ---
 # Continuous deployment with Web App for Containers
 
-In this tutorial, you configure continuous deployment for a custom container image from Managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
+In this tutorial, you configure continuous deployment for a custom container image from managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
-## Sign in to Azure
+## Enable continuous deployment with ACR
 
-Sign in to the [Azure portal](https://portal.azure.com)
+![Screenshot of ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-## Enable container continuous deployment feature
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the **App Service** option on the left side of the page.
+3. Select the name of the app for which you want to configure continuous deployment.
+4. On the **Container Settings** page, select **Single Container**
+5. Select **Azure Container Registry**
+6. Select **Continuous Deployment > On**
+7. Select **Save** to enable continuous deployment.
 
-You can enable the continuous deployment feature using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command
+## Use the ACR webhook
 
-```azurecli-interactive
-az webapp deployment container config -n sname -g rgname -e true
-```
+Once Continuous Deployment has been enabled, you can view the newly created webhook on your Azure Container Registry webhooks page.
 
-In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** option on the left of the page.
+![Screenshot of ACR webhook](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-03.png)
 
-Click on the name of your app that you want to configure Docker Hub continuous deployment for.
+In your Container Registry, click on Webhooks to view the current webhooks.
 
-In the **App settings**, add an app setting called `DOCKER_ENABLE_CI` with the value `true`.
+## Enable continuous deployment with Docker Hub (optional)
 
-![insert image of app setting](./media/app-service-webapp-service-linux-ci-cd/step2.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the **App Service** option on the left side of the page.
+3. Select the name of the app for which you want to configure continuous deployment.
+4. On the **Container Settings** page, select **Single Container**
+5. Select **Docker Hub**
+6. Select **Continuous Deployment > On**
+7. Select **Save** to enable continuous deployment.
 
-## Prepare Webhook URL
+![Screenshot of app setting](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
-You can obtain the Webhook URL using [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and executing the following command
-
-```azurecli-interactive
-az webapp deployment container show-cd-url -n sname1 -g rgname
-```
-
-For the Webhook URL, you need to have the following endpoint:
-`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`.
-
-You can obtain your `publishingusername` and `publishingpwd` by downloading the web app publish profile using the Azure portal.
-
-![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
-
-## Add a web hook
-
-### Azure Container Registry
-
-In your registry portal blade, click **Webhooks**, create a new webhook by clicking **Add**. In the **Create webhook** blade, give your webhook a name. For the Webhook URI, you need to provide the URL obtained from **Step 3**
-
-Make sure that you define the scope as the repo that contains your container image.
-
-![insert image of webhook](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
-
-When the image gets updated, the web app get updated automatically with the new image.
-
-### Docker Hub
-
-In your Docker Hub page, click **Webhooks**, then **CREATE A WEBHOOK**.
-
-![insert image of adding webhook 1](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
-
-For the Webhook URL, you need to provide the URL obtained from **Step 3**
-
-![insert image of adding webhook 2](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-When the image gets updated, the web app get updated automatically with the new image.
+Copy the Webhook URL. To add a webhook for Docker Hub, follow <a href="https://docs.docker.com/docker-hub/webhooks/" target="_blank">webhooks for Docker Hub</a>.
 
 ## Next steps
 
-* [What is Azure App Service on Linux?](./app-service-linux-intro.md)
+* [Introduction to Azure App Service on Linux](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-* [Using .NET Core in Azure App Service on Linux](quickstart-dotnetcore.md)
-* [Using Ruby in Azure App Service on Linux](quickstart-ruby.md)
-* [How to use a custom Docker image for Web App for Containers](quickstart-custom-docker-image.md)
-* [Azure App Service Web App for Containers FAQ](./app-service-linux-faq.md)
-* [Manage Web App for Containers using Azure CLI 2.0](./app-service-linux-cli.md)
+* [Create a .NET Core web app in App Service on Linux](quickstart-dotnetcore.md)
+* [Create a Ruby web app in App Service on Linux](quickstart-ruby.md)
+* [Deploy a Docker/Go web app in Web App for Containers](quickstart-docker-go.md)
+* [Azure App Service on Linux FAQ](./app-service-linux-faq.md)
+* [Manage Web App for Containers using Azure CLI](./app-service-linux-cli.md)

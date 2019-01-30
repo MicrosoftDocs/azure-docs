@@ -1,3 +1,22 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file 
+
+---
 
 # Call the Microsoft Graph API from an iOS application
 
@@ -6,7 +25,8 @@ This guide shows how a native iOS application (Swift) can call APIs that require
 After you complete the exercises in this guide, your application can call a protected API from any company or organization that has Azure AD. Your application can make protected API calls by using personal accounts like outlook.com, live.com, and others, as well as work or school accounts.
 
 ## Prerequisites
-- XCode version 8.x is required for the sample that is created in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
+
+- XCode version 10.x is required for the sample that is created in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - The [Carthage](https://github.com/Carthage/Carthage) dependency manager is required for package management.
 
 ## How this guide works
@@ -14,7 +34,6 @@ After you complete the exercises in this guide, your application can call a prot
 ![How this guide works](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
 
 In this guide, the sample application enables an iOS application to query the Microsoft Graph API or a web API that accepts tokens from the Azure AD v2.0 endpoint. For this scenario, a token is added to HTTP requests by using the **Authorization** header. Token acquisition and renewal are handled by the Microsoft Authentication Library (MSAL).
-
 
 ### Handle token acquisition for access to protected web APIs
 
@@ -24,7 +43,6 @@ APIs, such as Microsoft Graph, require an access token to allow access to specif
 
 MSAL manages caching and refreshing access tokens for you, so your application doesn't need to.
 
-
 ## Libraries
 
 This guide uses the following library:
@@ -32,4 +50,3 @@ This guide uses the following library:
 |Library|Description|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|Microsoft Authentication Library Preview for iOS|
-

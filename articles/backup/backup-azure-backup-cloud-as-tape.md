@@ -1,22 +1,14 @@
 ---
-title: Use Azure Backup to replace your tape infrastructure | Microsoft Docs
+title: Use Azure Backup to replace your tape infrastructure
 description: Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-
-ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/10/2017
-ms.author: saurse;trinadhk;markgal
+ms.author: saurse
 ms.custom: H1Hack27Feb2017
-
 ---
 # Move your long-term storage from tape to the Azure cloud
 Azure Backup and System Center Data Protection Manager customers can:
@@ -25,7 +17,7 @@ Azure Backup and System Center Data Protection Manager customers can:
 * Retain the backup data for longer periods
 * Make Azure a part of their long-term retention needs (instead of tape).
 
-This article explains how customers can enable backup and retention policies. Customers who use tapes to address their long-term-retention needs now have a powerful and viable alternative with the availability of this feature. The feature is enabled in the latest release of the Azure Backup (which is available [here](http://aka.ms/azurebackup_agent)). System Center DPM customers must update to, at least, DPM 2012 R2 UR5 before using DPM with the Azure Backup service.
+This article explains how customers can enable backup and retention policies. Customers who use tapes to address their long-term-retention needs now have a powerful and viable alternative with the availability of this feature. The feature is enabled in the latest release of the Azure Backup (which is available [here](https://aka.ms/azurebackup_agent)). System Center DPM customers must update to, at least, DPM 2012 R2 UR5 before using DPM with the Azure Backup service.
 
 ## What is the Backup Schedule?
 The backup schedule indicates the frequency of the backup operation. For example, the settings in the following screen indicate that backups are taken daily at 6pm and at midnight.

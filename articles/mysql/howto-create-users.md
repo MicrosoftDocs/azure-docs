@@ -1,14 +1,11 @@
 ---
-title: Create users in Azure Database for MySQL server | Microsoft Docs
+title: Create users in Azure Database for MySQL server
 description: This article describes how you can create new user accounts to interact with an Azure Database for MySQL server.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-manager: jhubbard
-ms.service: mysql-database
-ms.topic: article
-ms.date: 11/27/2017
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 02/28/2018
 ---
 
 # Create users in Azure Database for MySQL server 
@@ -77,7 +74,7 @@ Once the Azure Database for MySQL server is created, you can use the first serve
 5. Log in to the server, specifying the designated database, using the new user name and password. This example shows the mysql command line. With this command, you are prompted for the password for the user name. Replace your own server name, database name, and user name.
 
    ```azurecli-interactive
-   mysql --host myserver4demo.mysql.database.azure.com --database testdb --user db_user@myserver4demo -p
+   mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
 ## Next steps

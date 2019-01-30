@@ -2,23 +2,17 @@
 title: Table Auditing, TDS redirection, and IP endpoints for Azure SQL Database | Microsoft Docs
 description: Learn about auditing, TDS redirection and IP endpoint changes when implementing table auditing in Azure SQL Database.
 services: sql-database
-documentationcenter: ''
-author: giladm
-manager: jhubbard
-editor: ''
-
-ms.assetid: 4ef19ed1-e798-43a2-ad99-0e563f93ab53
 ms.service: sql-database
-ms.custom: security
-ms.workload: "On Demand"
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/31/2017
-ms.author: giladm
-
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: ronitr
+ms.author: ronitr
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
 ---
-
 # SQL Database -  Downlevel clients support and IP endpoint changes for Table Auditing
 
 > [!IMPORTANT]
@@ -43,7 +37,7 @@ A partial list of "Downlevel clients" includes:
 * JDBC (while JDBC does support TDS 7.4, the TDS redirection feature is not fully supported)
 * Tedious (for Node.JS)
 
-**Remark:** The above server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).
+**Remark:** The above server FQDN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).
 
 ## <a id="subheading-2"></a>IP endpoint changes when enabling Auditing
 Please note that when you enable Table Auditing, the IP endpoint of your database will change. If you have strict firewall settings, please update those firewall settings accordingly.

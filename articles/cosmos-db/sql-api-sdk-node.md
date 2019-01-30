@@ -1,21 +1,14 @@
 ---
-title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL Node.js API, SDK & resources'
 description: Learn all about the SQL Node.js API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Node.js SDK.
-services: cosmos-db
-documentationcenter: nodejs
-author: rnagpal
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
+author: deborahc
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 11/14/2017
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.topic: reference
+ms.date: 09/24/2018
+ms.author: dech
+
 
 ---
 # Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
@@ -24,41 +17,74 @@ ms.custom: H1Hack27Feb2017
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
+> * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [SQL](sql-api-query-reference.md)
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
-
-<table>
-
-<tr><td>**Download SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Node.js API reference documentation](http://azure.github.io/azure-documentdb-node/DocumentClient.html)</td></tr>
-
-<tr><td>**SDK installation instructions**</td><td>[Installation instructions](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**Samples**</td><td>[Node.js code samples](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**Get started tutorial**</td><td>[Get started with the Node.js SDK](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**Current supported platform**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|Resource  |Link  |
+|---------|---------|
+|Download SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|API Documentation  |  [JavaScript SDK reference documentation](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-cosmos-js#installation)
+|Contribute to SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| Samples | [Node.js code samples](sql-api-nodejs-samples.md)
+| Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started.md)
+| Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)
+| Current supported platform | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - required for SDK Version 2.0.0 and above.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## Release notes
+
+### <a name="2.0.5"/>2.0.5</a>
+* Adds interface for node Agent type. Typescript users no longer have to install @types/node as a dependency
+* Preferred locations are now properly honored
+* Improvements to contributing developer documentation
+* Various typo fixes
+
+### <a name="2.0.4"/>2.0.4</a>
+* Fixes type definition issue introduced in 2.0.3
+
+### <a name="2.0.3"/>2.0.3</a>
+* Remove `big-integer` dependency
+* Switch to reference directives for AsyncIterable type. Typescript users no longer have to customize their "lib" setting.
+* Typo Fixes
+
+### <a name="2.0.2"/>2.0.2</a>
+* Fix readme links
+
+### <a name="2.0.1"/>2.0.1</a>
+* Fix retry interface implementation
+
+### <a name="2.0.0"/>2.0.0</a>
+* GA of Version 2.0.0 of the JavaScript SDK
+* Added support for multi-region writes.
+
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* RC1 of Version 2.0.0 of the JavaScript SDK for public preview.
+* New object model, with top-level CosmosClient and methods split across relevant Database, Container, and Item classes. 
+* Support for [promises](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
+* SDK converted to TypeScript.
+
+### <a name="1.14.4"/>1.14.4</a>
+* npm documentation fixed.
+
+### <a name="1.14.3"/>1.14.3</a>
+* Added support for default retries on connection issues.
+* Added support to read collection change feed.
+* Fixed session consistency bug that intermittently caused "read session not available".
+* Added support for query metrics.
+* Modified http Agent's maximum number of connections.
+
+### <a name="1.14.2"/>1.14.2</a>
+* Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
+* Added Support for proxyUrl setting in ConnectionPolicy.
+
+### <a name="1.14.1"/>1.14.1</a>
+* Minor fix for case sensitive file systems.
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Adds support for Session Consistency.
@@ -74,8 +100,8 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.12.1"/>1.12.1</a>
 * Fixed a bug in executeStoredProcedure where documents involved had special Unicode characters (LS, PS).
 * Fixed a bug in handling documents with Unicode characters in the partition key.
-* Fixed support for creating collections with the name media. Github issue #114.
-* Fixed support for permission authorization token. Github issue #178.
+* Fixed support for creating collections with the name media. GitHub issue #114.
+* Fixed support for permission authorization token. GitHub issue #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Added support for a new [consistency level](consistency-levels.md) called ConsistentPrefix.
@@ -87,8 +113,8 @@ ms.custom: H1Hack27Feb2017
 * Added the option for controlling degree of parallelism for cross partition queries.
 * Added the option for disabling SSL verification when running against Azure Cosmos DB Emulator.
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
-* Fixed the continuation token bug for single partition collection. Github issue #107.
-* Fixed the executeStoredProcedure bug in handling 0 as single param. Github issue #155.
+* Fixed the continuation token bug for single partition collection. GitHub issue #107.
+* Fixed the executeStoredProcedure bug in handling 0 as single param. GitHub issue #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Fixed user-agent header to include the SDK version.
@@ -120,7 +146,7 @@ ms.custom: H1Hack27Feb2017
 * Fixed RangePartitionResolver.resolveForRead bug where it was not returning links due to a bad concat of results.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Fixed hashParitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
+* Fixed hashPartitionResolver resolveForRead(): When no partition key supplied was throwing exception, instead of returning a list of all registered links.
 
 ### <a name="1.5.4"/>1.5.4</a>
 * Fixes issue [#100](https://github.com/Azure/azure-documentdb-node/issues/100) - Dedicated HTTPS Agent: Avoid modifying the global agent for Azure Cosmos DB purposes. Use a dedicated agent for all of the lib’s requests.
@@ -184,6 +210,11 @@ Any request to Cosmos DB using a retired SDK is be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.0.0-3 (RC)](#2.0.0-3) |August 2, 2018 |--- |
+| [1.14.4](#1.14.4) |May 03, 2018 |--- |
+| [1.14.3](#1.14.3) |May 03, 2018 |--- |
+| [1.14.2](#1.14.2) |December 21, 2017 |--- |
+| [1.14.1](#1.14.1) |November 10, 2017 |--- |
 | [1.14.0](#1.14.0) |November 9, 2017 |--- |
 | [1.13.0](#1.13.0) |October 11, 2017 |--- |
 | [1.12.2](#1.12.2) |August 10, 2017 |--- |

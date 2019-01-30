@@ -1,9 +1,9 @@
 ---
-title: Azure API managment policy sample - authorize acces based on JWT claims| Microsoft Docs
-description: Azure API managment policy sample - Demonstrates how to authorize access to specific HTTP methods on an API based on JWT claims.
+title: Azure API management policy sample - authorize access based on JWT claims| Microsoft Docs
+description: Azure API management policy sample - Demonstrates how to authorize access to specific HTTP methods on an API based on JWT claims.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
@@ -24,7 +24,7 @@ This article shows an Azure API management policy sample that demonstrates how t
 
 Paste the code into the **inbound** block.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Pre-authorize requests based on HTTP method with validate-jwt.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Pre-authorize requests based on HTTP method with validate-jwt.policy.xml)]
 
 ## Next steps
 

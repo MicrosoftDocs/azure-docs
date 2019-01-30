@@ -4,8 +4,8 @@ description: This provides a comparision of features and guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: brendalee
-manager: zakramer
+author: gsacavdm
+manager: pathuff
 
 ms.assetid: a1e173a9-996a-4091-a2e3-6b1e36da9ae1
 ms.service: azure-government
@@ -13,47 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/17/2017
-ms.author: brendal
+ms.date: 10/28/2018
+ms.author: gsacavdm
 ---
 # Azure Government Web + Mobile
 ## App Services
 ### Variations
 Azure App Services is generally available in Azure Government.
 
-The Address for Azure App Service apps created in Azure Government is different from 
+The address for Azure App Service apps created in Azure Government is different from 
 those apps created in the public cloud:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
 | App Service |\*.azurewebsites.net |\*.azurewebsites.us|
-| Service Principal ID| abfa0a7c-a6b6-4736-8310-5855508787cd | 04f281cf-dfa6-4986-981d-7f8ddb9e7bd8 |
-
-Some App Service features available in Azure Government have variations:
-
-- Deployment Options are limited to local git and external git.
+| Service Principal ID| abfa0a7c-a6b6-4736-8310-5855508787cd | 6a02c803-dafd-4136-b4c3-5a6f318b4714 |
 
 Some App Service features available in the public cloud are not yet available 
 in Azure Government:
 
-- App Service Environments
+- Diagnose and solve problems
+- Deployment
+    - Deployment Options: Only Local Git Repository and External Repository are available.
+    - Deployment Center
 - Settings
-    - Security scanning
+    - Application Insights
 - Development Tools
     - Performance test
     - Resource explorer
     - PHP Debugging
-- Monitoring
-    - Application Insights
-    - Metrics per instance
-    - Live HTTP traffic
-    - Application events
-    - FREB logs
 - Support & Troubleshooting
     - App Service Advisor
-    - Failure History
-    - Diagnostics as a Service
-    - Mitigate
+- App Service Certificates
 
 
 ### Considerations
@@ -68,23 +59,22 @@ For details on this service and how to use it, see [Azure API Management documen
 
 ### Variations
 
-Azure API Management service is in public preview in Azure Government. Features that are not currently available in API Management service for Azure Government are:
+Azure API Management service  is generally available in Azure Government. Features that are not currently available in API Management service for Azure Government are:
 
-- Azure Monitor Integration 
-    - API Management and Azure Monitor integration is in progress in Azure Government.  As of now it is not available for customers.  Hence, Azure Monitor metrics and diagnostic logs will not be available to API Management customers in Azure Government.
-- Azure AAD B2C Integration 
-    - Integration with Azure AAD B2C is not available in Azure Government 
+- Azure AD B2C Integration 
+    - Integration with Azure AD B2C is not available in Azure Government 
 
 The URLs for accessing Azure API Management in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-|API Management gateway| *.azure-api.net| *.azure-api.us|
-|API Management portal | *.portal.azure-api.net |*.portal.azure-api.us| 
-|API Management management|	*.management.azure-api.net	|*.management.azure-api.us|
+|API Management gateway| \*.azure-api.net| \*.azure-api.us|
+|API Management portal | \*.portal.azure-api.net |\*.portal.azure-api.us| 
+|API Management management|	\*.management.azure-api.net	|\*.management.azure-api.us|
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure API Management service:
+
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
 |All data stored and processed in Azure API Management service can contain Azure Government-regulated data.|Azure API Management service metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: API Management service name, Subscription name, Resource groups, Resource tags.|

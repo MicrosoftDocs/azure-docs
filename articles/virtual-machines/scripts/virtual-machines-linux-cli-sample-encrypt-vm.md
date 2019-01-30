@@ -3,8 +3,8 @@ title: Azure CLI Script Sample - Encrypt a Linux VM | Microsoft Docs
 description: Azure CLI Script Sample - Encrypt a Linux VM 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/02/2017
-ms.author: iainfou
+ms.date: 12/15/2017
+ms.author: cynthn
 ms.custom: mvc
 ---
 
@@ -57,6 +57,6 @@ This script uses the following commands to create a resource group, Azure Key Va
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional virtual machine CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

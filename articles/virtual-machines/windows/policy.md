@@ -4,7 +4,7 @@ description: How to apply a policy to an Azure Resource Manager Windows Virtual 
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -102,7 +102,7 @@ Use anyOf to modify the preceding policy to allow any Windows Server 2012 R2 Dat
 }
 ```
 
-For information about policy fields, see [Policy aliases](../../azure-policy/policy-definition.md#aliases).
+For information about policy fields, see [Policy aliases](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## Managed disks
 
@@ -224,7 +224,7 @@ You may want to forbid usage of certain types of extensions. For example, an ext
 
 ## Azure Hybrid Use Benefit
 
-When you have an on-premise license, you can save the license fee on your virtual machines. When you don't have the license, you should forbid the option. The following policy forbids usage of Azure Hybrid Use Benefit (AHUB):
+When you have an on-premises license, you can save the license fee on your virtual machines. When you don't have the license, you should forbid the option. The following policy forbids usage of Azure Hybrid Use Benefit (AHUB):
 
 ```json
 {
@@ -249,4 +249,4 @@ When you have an on-premise license, you can save the license fee on your virtua
 ## Next steps
 * After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. To assign policies, see [Use Azure portal to assign and manage resource policies](../../azure-policy/assign-policy-definition.md), [Use PowerShell to assign policies](../../azure-policy/assign-policy-definition-ps.md), or [Use Azure CLI to assign policies](../../azure-policy/assign-policy-definition-cli.md).
 * For an introduction to resource policies, see [What is Azure Policy?](../../azure-policy/azure-policy-introduction.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](../../azure-resource-manager/resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
