@@ -1,7 +1,7 @@
 ﻿---
 ms.assetid:
 title: Azure Key Vault managed storage account - CLI
-description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
+description: Storage account keys provide a seamless integration between Azure Key Vault and key based access to Azure Storage Account.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
@@ -115,7 +115,7 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
-### Relavant Azure CLI commands
+### Relevant Azure CLI commands
 
 [Azure CLI Storage commands](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
