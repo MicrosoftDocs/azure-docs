@@ -83,12 +83,9 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
   While deploying to FPGA, provide values for the SSL-related parameters as shown in the code snippet:
 
     ```python
-    from azureml.contrib.brainwave import BrainwaveWebservice, BrainwaveImage
- 
-    image_config = BrainwaveImage.image_configuration()
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
     deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
-    service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
-    service.wait_for_deployment(true)
     ```
 
 ## Update your DNS
