@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/29/2019
+ms.date: 01/30/2019
 ms.author: maquaran
 
 ---
