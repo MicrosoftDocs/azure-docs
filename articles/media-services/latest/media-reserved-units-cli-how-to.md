@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -28,13 +28,13 @@ This article shows how to use [Media Services v3 CLI](https://aka.ms/ams-v3-cli-
 
 ## Prerequisites 
 
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+[Create a Media Services account](create-account-cli-how-to.md).
 
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
-
-- [Create a Media Services account](create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## Scale Media Reserved Units with CLI
+
+Run the `mru` command.
 
 The following [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
 
