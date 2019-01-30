@@ -16,7 +16,7 @@ If you need to configure an HTTP proxy for making outbound requests, use these t
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 --mount type=bind,src=/home/azureuser/output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/<image-name> \
+<registry-location>/<image-name> \
 Eula=accept \
 Billing=<billing-endpoint> \
 ApiKey=<api-key> \
