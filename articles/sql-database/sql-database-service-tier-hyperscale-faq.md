@@ -92,7 +92,7 @@ SQL Database Hyperscale provides rapid scalability based on your workload demand
 
 ## Deep dive questions
 
-### Can I mix Hyperscale and single databases a my logical server
+### Can I mix Hyperscale and single databases on my logical server
 
 Yes, you can.
 
