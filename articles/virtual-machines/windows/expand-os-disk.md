@@ -33,6 +33,10 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
 > 
 
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
+
 ## Resize a managed disk
 
 Open your Powershell ISE or Powershell window in administrative mode and follow the steps below:

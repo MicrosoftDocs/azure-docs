@@ -25,8 +25,6 @@ The Azure PowerShell module is used to create and manage Azure resources from th
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
-
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 

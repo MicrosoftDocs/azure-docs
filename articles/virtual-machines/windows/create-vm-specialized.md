@@ -33,13 +33,7 @@ You can also use the Azure portal to [create a new VM from a specialized VHD](cr
 
 This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md).
 
-## Before you begin
-To use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. 
-
-```powershell
-Install-Module AzureRM -RequiredVersion 6.0.0
-```
-For more information, see [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Option 1: Use an existing disk
 

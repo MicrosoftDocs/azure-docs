@@ -27,13 +27,7 @@ You have two options:
 * [Upload a VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Copy the VHD of an existing Azure VM](sa-create-vm-specialized.md#option-2-copy-an-existing-azure-vm)
 
-## Before you begin
-If you use PowerShell, make sure that you have the latest version of the AzureRM.Compute PowerShell module. Run the following command to install it.
-
-```powershell
-Install-Module AzureRM.Compute 
-```
-For more information, see [Azure PowerShell Versioning](/powershell/azure/overview).
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## Option 1: Upload a specialized VHD

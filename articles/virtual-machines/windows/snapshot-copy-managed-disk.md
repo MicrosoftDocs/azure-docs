@@ -40,7 +40,7 @@ If you are going to use the snapshot to create a new VM, we recommend that you c
 
 The following steps show how to copy the VHD disk, create the snapshot configuration, and take a snapshot of the disk by using the [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
-Before you begin, ensure you have the latest version of the AzureRM.Compute PowerShell module, which must be version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-az-ps). If you're running PowerShell locally, run [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) to create a connection with Azure.
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 1. Set some parameters: 
 

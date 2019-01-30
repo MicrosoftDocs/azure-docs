@@ -20,6 +20,7 @@ ms.author: cynthn
 # How to use Packer to create Windows virtual machine images in Azure
 Each virtual machine (VM) in Azure is created from an image that defines the Windows distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common OS' and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open-source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.

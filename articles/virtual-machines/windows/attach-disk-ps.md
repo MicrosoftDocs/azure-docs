@@ -27,6 +27,8 @@ First, review these tips:
 * The size of the virtual machine controls how many data disks you can attach. For more information, see [Sizes for virtual machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * To use Premium storage, you'll need a Premium Storage-enabled VM type like the DS-series or GS-series virtual machine. For more information, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
 To install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 6.0.0 or later. Run ` Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-az-ps). If you are running PowerShell locally, you'll also need to run `Connect-AzAccount` to create a connection with Azure.

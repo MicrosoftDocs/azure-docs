@@ -13,6 +13,8 @@ manager: carmonm
 
 Run Command uses the VM agent to run PowerShell scripts within an Azure Windows VM. These scripts can be used for general machine or application management, and can be used to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 ## Benefits
 
 There are multiple options that can be used to access your virtual machines. Run Command can run scripts on your virtual machines remotely using the VM agent. Run Command can be used through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), or [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) for Windows VMs.

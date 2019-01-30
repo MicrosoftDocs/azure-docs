@@ -32,6 +32,7 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 > For classic VMs, only deploying new VM from on-prem custom images is supported. To take advantage of the capabilities supported in this article, you must first migrate classic VMs to Resource Manager model.
 >
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Ways to use Azure Hybrid Benefit for Windows Server
 There are few ways to use Windows virtual machines with the Azure Hybrid Benefit:
@@ -49,6 +50,8 @@ All Windows Server OS based images are supported for Azure Hybrid Benefit for Wi
 To create a VM with Azure Hybrid Benefit for Windows Server, use the toggle under the "Save money" section.
 
 ### Powershell
+
+
 ```powershell
 New-AzVm `
     -ResourceGroupName "myResourceGroup" `

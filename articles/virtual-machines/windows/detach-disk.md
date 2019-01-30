@@ -31,6 +31,8 @@ When you no longer need a data disk that's attached to a virtual machine, you ca
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
 
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 ## Detach a data disk using PowerShell
 
 You can *hot* remove a data disk using PowerShell, but make sure nothing is actively using the disk before detaching it from the VM.

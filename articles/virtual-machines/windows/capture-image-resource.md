@@ -22,6 +22,8 @@ ms.author: cynthn
 
 A managed image resource can be created from a generalized virtual machine (VM) that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. For information on how managed images are billed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 ## Generalize the Windows VM using Sysprep
 
 Sysprep removes all your personal account and security information, and then prepares the machine to be used as an image. For information about Sysprep, see [Sysprep overview](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).

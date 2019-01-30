@@ -22,7 +22,7 @@ ms.author: cynthn
 
 This article covers some of the Azure PowerShell commands that you can use to create and manage virtual machines in your Azure subscription.  For more detailed help with specific command-line switches and options, you can use the **Get-Help** *command*.
 
-See [How to install and configure Azure PowerShell](/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 These variables might be useful for you if running more than one of the commands in this article:
 

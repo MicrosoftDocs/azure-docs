@@ -19,14 +19,6 @@ ms.author: kasing
 
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager
-## WinRM in Azure Service Management vs Azure Resource Manager
-
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
-
-* For an overview of the Azure Resource Manager, please see this [article](../../azure-resource-manager/resource-group-overview.md)
-* For differences between Azure Service Management and Azure Resource Manager, please see this [article](../../resource-manager-deployment-model.md)
-
-The key difference in setting up WinRM configuration between the two stacks is how the certificate gets installed on the VM. In the Azure Resource Manager stack, the certificates are modeled as resources managed by the Key Vault Resource Provider. Therefore, the user needs to provide their own certificate and upload it to a Key Vault before using it in a VM.
 
 Here are the steps you need to take to set up a VM with WinRM connectivity
 
@@ -35,6 +27,8 @@ Here are the steps you need to take to set up a VM with WinRM connectivity
 3. Upload your self-signed certificate to Key Vault
 4. Get the URL for your self-signed certificate in the Key Vault
 5. Reference your self-signed certificates URL while creating a VM
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Step 1: Create a Key Vault
 You can use the below command to create the Key Vault
