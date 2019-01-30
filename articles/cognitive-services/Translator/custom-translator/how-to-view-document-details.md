@@ -5,7 +5,7 @@ description: The document list page shows the first 10 document in your workspac
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: how to edit a model

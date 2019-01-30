@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
-ms.component: ""
+ms.subservice: ""
 ---
 # Azure Monitor PowerShell quick start samples
 This article shows you sample PowerShell commands to help you access Azure Monitor features.
@@ -381,3 +381,4 @@ Note that the WorkspaceId property takes the *resource ID* of the workspace. You
 ```
 
 These commands can be combined to send data to multiple destinations.
+

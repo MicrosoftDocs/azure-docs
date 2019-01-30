@@ -253,7 +253,7 @@ Many designs must meet requirements to enable lookup of entities based on multip
 
 ### Sorting data in the Table service
 
-Query results returned by the  are sorted in ascending order based on **PartitionKey** and then by **RowKey**.
+Query results returned by the Table service are sorted in ascending order based on **PartitionKey** and then by **RowKey**.
 
 > [!NOTE]
 > Query results returned by the Azure Table API in Azure Cosmso DB are not sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
