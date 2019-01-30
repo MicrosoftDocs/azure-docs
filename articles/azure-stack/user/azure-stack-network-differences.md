@@ -10,6 +10,7 @@ ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
+ms.lastreviewed: 01/25/2019
 
 ---
 
