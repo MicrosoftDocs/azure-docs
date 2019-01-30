@@ -202,4 +202,4 @@ ssl.truststore.password=<client_password>
 
 ## Next steps
 
-* [What is Apache Kafka on HDInsight?](/../azure/hdinsight/kafka/apache-kafka-introduction)
+* [What is Apache Kafka on HDInsight?](apache-kafka-introduction.md)
