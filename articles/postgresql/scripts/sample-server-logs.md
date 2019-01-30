@@ -32,7 +32,7 @@ This script uses the commands outlined in the following table:
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az postgres server create](/cli/azure/postgres/server#az_msql_server_create) | Creates a PostgreSQL server that hosts the databases. |
-| [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | List the configuration values for a server. |
+| [az postgres server configuration list](/cli/azure/postgres/server/configuration) | List the configuration values for a server. |
 | [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Update the configuration of a server. |
 | [az postgres server-logs list](/cli/azure/postgres/server-logs#az_postgres_server_logs_list) | List log files for a server. |
 | [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) | Download log files. |

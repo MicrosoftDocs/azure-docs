@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Manage alerts from SCOM, Zabbix and Nagios in Azure Monitor
@@ -27,3 +27,4 @@ Once you have configured the import into Log Analytics, you can start viewing al
 >  1. All fired alert instances will be available both in Azure Monitor and Azure Log Analytics. Currently, there is no way to choose between the two or ingest only specific fired alerts.
 >  1. All alerts from SCOM, Zabbix and Nagios have the signal type "Unknown" since the underlying telemetry type is not available.
 >  1. Nagios alerts are not stateful – for example, the [monitor condition](https://aka.ms/azure-alerts-overview) of an alert will not go from "Fired" to "Resolved". Instead, both the “Fired” and “Resolved” are displayed as separate alert instances. 
+
