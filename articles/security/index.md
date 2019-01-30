@@ -10,7 +10,7 @@ ms.service: security
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/15/2019
+ms.date: 01/16/2019
 ms.author: angrobe
 ---
 # Azure Security Documentation
@@ -210,10 +210,10 @@ Security is integrated into every aspect of Azure. Azure offers you unique secur
                                 <a class="barLink" href="/azure/security/azure-security-iaas">IaaS security</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-service-fabric-security-best-practices">Service Fabric security</a>
+                                <a class="barLink" href="/azure/security/security-paas-deployments">Secure PaaS deployments</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-global-admin">Securing the Azure Admin accounts</a>
+                                <a class="barLink" href="/azure/security/azure-security-global-admin">Secure Azure Admin accounts</a>
                             </li>
                         </ul>
                     </div>

@@ -43,6 +43,7 @@ sections:
     items:
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Utilize the Resource Manager template reference</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Create multiple instances of an Azure resource</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-move-resources">Move resources</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">Set resource deployment order</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">Use conditions</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Integrate Azure Key Vault</a>.
@@ -51,6 +52,7 @@ sections:
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">Deploy SQL extensions</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Secure template artifacts</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Use safe deployment practices</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Troubleshoot template deployments</a>.
 - title: Samples
   items:
   - type: paragraph
