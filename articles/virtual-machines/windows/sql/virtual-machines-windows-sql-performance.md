@@ -53,10 +53,10 @@ For performance sensitive applications, it’s recommended that you use the foll
 
 ## Storage guidance
 
-DS-series (along with DSv2-series and GS-series) VMs support [Premium Storage](../premium-storage.md). Premium Storage is recommended for all production workloads.
+DS-series (along with DSv2-series and GS-series) VMs support [premium SSDs](../disks-types.md). Premium SSDs are recommended for all production workloads.
 
 > [!WARNING]
-> Standard Storage has varying latencies and bandwidth and is only recommended for dev/test workloads. This includes the new Standard SSD storage. Production workloads should use Premium Storage.
+> Standard HDDs and SSDs have varying latencies and bandwidth and are only recommended for dev/test workloads. Production workloads should use premium SSDs.
 
 In addition, we recommend that you create your Azure storage account in the same data center as your SQL Server virtual machines to reduce transfer delays. When creating a storage account, disable geo-replication as consistent write order across multiple disks is not guaranteed. Instead, consider configuring a SQL Server disaster recovery technology between two Azure data centers. For more information, see [High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -82,11 +82,11 @@ The temporary storage drive, labeled as the **D**: drive, is not persisted to Az
 
 For D-series, Dv2-series, and G-series VMs, the temporary drive on these VMs is SSD-based. If your workload makes heavy use of TempDB (such as temporary objects or complex joins), storing TempDB on the **D** drive could result in higher TempDB throughput and lower TempDB latency. For an example scenario, see the TempDB discussion in the following blog post: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
-For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we recommend storing TempDB on a disk that supports Premium Storage with read caching enabled. There is one exception to this recommendation; if your TempDB usage is write-intensive, you can achieve higher performance by storing TempDB on the local **D** drive, which is also SSD-based on these machine sizes.
+For VMs that support premium SSDs (DS-series, DSv2-series, and GS-series), we recommend storing TempDB on a disk that supports premium SSDs with read caching enabled. There is one exception to this recommendation; if your TempDB usage is write-intensive, you can achieve higher performance by storing TempDB on the local **D** drive, which is also SSD-based on these machine sizes.
 
 ### Data disks
 
-* **Use data disks for data and log files**: If you are not using disk striping, use two Premium Storage [P30 disks](../premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each Premium Storage disk provides a number of IOPs and bandwidth (MB/s) depending on its size, as described in the article, [Using Premium Storage for Disks](../premium-storage.md). If you are using a disk striping technique, such as Storage Spaces, you achieve optimal performance by having two pools, one for the log file(s) and the other for the data files. However, if you plan to use SQL Server Failover Cluster Instances (FCI), you must configure one pool.
+* **Use data disks for data and log files**: If you are not using disk striping, use two premium SSD [P30 disks](../premium-storage.md#scalability-and-performance-targets) where one disk contains the log file(s) and the other contains the data and TempDB file(s). Each premium SSD provides a number of IOPs and bandwidth (MB/s) depending on its size, as depicted in the article, [Select a disk type](../disks-types.md). If you are using a disk striping technique, such as Storage Spaces, you achieve optimal performance by having two pools, one for the log file(s) and the other for the data files. However, if you plan to use SQL Server Failover Cluster Instances (FCI), you must configure one pool.
 
    > [!TIP]
    > For test results on various disk and workload configurations, see the following blog post: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
@@ -116,7 +116,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
   * Determine the number of disks associated with your storage pool based on your load expectations. Keep in mind that different VM sizes allow different numbers of attached data disks. For more information, see [Sizes for Virtual Machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-  * If you are not using Premium Storage (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and use Disk Striping.
+  * If you are not using premium SSDs (dev/test scenarios), the recommendation is to add the maximum number of data disks supported by your [VM size](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and use Disk Striping.
 
 * **Caching policy**: Note the following recommendations for caching policy depending on your storage configuration.
 
@@ -124,7 +124,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
   * If you are using disk striping in a single storage pool, most workloads will benefit from read caching. If you have separate storage pools for the log and data files, enable read caching only on the storage pool for the data files. In certain heavy write workloads, better performance might be achieved with no caching. This can only be determined through testing.
 
-  * The previous recommendations apply to Premium Storage disks. If you are not using Premium Storage, do not enable any caching on any data disks.
+  * The previous recommendations apply to premium SSDs. If you are not using premium SSDs, do not enable any caching on any data disks.
 
   * For instructions on configuring disk caching, see the following articles. For the classic (ASM) deployment model see: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). For the Azure Resource Manager deployment model see: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) and [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
@@ -140,7 +140,7 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
 ## I/O guidance
 
-* The best results with Premium Storage are achieved when you parallelize your application and requests. Premium Storage is designed for scenarios where the IO queue depth is greater than 1, so you will see little or no performance gains for single-threaded serial requests (even if they are storage intensive). For example, this could impact the single-threaded test results of performance analysis tools, such as SQLIO.
+* The best results with premium SSDs are achieved when you parallelize your application and requests. Premium SSDs are designed for scenarios where the IO queue depth is greater than 1, so you will see little or no performance gains for single-threaded serial requests (even if they are storage intensive). For example, this could impact the single-threaded test results of performance analysis tools, such as SQLIO.
 
 * Consider using [database page compression](https://msdn.microsoft.com/library/cc280449.aspx) as it can help improve performance of I/O intensive workloads. However, the data compression might increase the CPU consumption on the database server.
 
