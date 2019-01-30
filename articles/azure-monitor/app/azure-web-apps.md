@@ -65,8 +65,6 @@ If you're already running an app service in Azure, you already get some monitori
     Value: `true`
    * **Save** the settings and **Restart** your app.
 
-*
-
 4. Explore your app's monitoring data by selecting **Settings** > **Application Insights** > **View more in Application Insights**.
 
 Later, you can build the app with Application Insights if you want.
