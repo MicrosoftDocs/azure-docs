@@ -64,7 +64,7 @@ Perform the following steps in the Azure portal to order a device.
     |Source country     |	Select the country where your data currently resides.         |
     |Destination Azure region     | 	Select the Azure region where you want to transfer data.        |
 
-5. Select Data **Box**. The maximum solution capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
+5. Select Data **Box**. The maximum usable capacity for a single order is 786 TB. You can create multiple orders for larger data sizes.
 
       [![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
@@ -77,11 +77,17 @@ Perform the following steps in the Azure portal to order a device.
     |Destination Azure region     | Select a region for your storage account. <br> For more information, go to [region availability](data-box-overview.md#region-availability).        |
     |Storage destination     | Choose from storage account or managed disks. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. You cannot use storage accounts that have rules configured. The storage accounts must **allow access from all networks** in the firewalls and virtual networks section.|
 
+    If using storage account as the storage destination, you will see the following screenshot:
+
+    ![Data Box order for storage account](media/data-box-deploy-ordered/order-for-storage-account.png)
+
     If using Data Box to create managed disks from the on-premises VHDs, you will also need to provide the following information:
 
     |Setting  |Value  |
     |---------|---------|
-    |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created by the Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.<br> If you create a resoruce group for an order, then the same resource group can be used for |subsequent orders including when you clone orders.
+    |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created by the Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.<br> If you create a resoruce group for an order, then the same resource group can be used for subsequent orders including when you clone orders.|
+
+    ![Data Box order for managed disk](media/data-box-deploy-ordered/order-for-managed-disks.png)
 
 7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect. Click **Next**.
 
