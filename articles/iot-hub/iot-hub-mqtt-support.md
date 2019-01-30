@@ -106,7 +106,7 @@ The device app can specify a **Will** message in the **CONNECT** packet. The dev
 
 ## Using the MQTT protocol directly (as a module)
 
-Connecting to IoT Hub over MQTT using a module identity is similar to the device (described [above](#using-the-MQTT-protocol-directly-as-a-device)) but you need to substitute the following information:
+Connecting to IoT Hub over MQTT using a module identity is similar to the device (described [above](#using-the-mqtt-protocol-directly-as-a-device)) but you need to substitute the following information:
 * Set the client id to `<deviceID>/<moduleID>`.
 * If authenticating with username and password, set the username to `<hubname>.azure-devices.net/<deviceID>/<moduleID>/?api-version=2018-06-30` and use the SAS token associated with the module identity as your password.
 * Use `devices/<deviceID>/modules/<moduleID>/messages/events/` as topic for publishing telemetry.
