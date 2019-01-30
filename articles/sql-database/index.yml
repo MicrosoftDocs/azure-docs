@@ -9,10 +9,11 @@ metadata:
   author: CarlRabeler
   manager: craigg
   ms.service: sql-database
+  ms.subservice: service
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
-  ms.date: 07/07/2018
+  ms.date: 01/25/2019
   ms.author: carlrab
 abstract:
   description: Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
@@ -49,10 +50,10 @@ sections:
           src: media/index/i_scale.svg
         title: Scalability
       - href: /azure/sql-database/sql-database-single-index
-        html: <p>Use the Single database hosted in logical servers for your SaaS aplications and microservices that need a single database with the predictable performances.</p>
+        html: <p>Use the single database managed by a SQL Database server for your SaaS applications and microservices that need a single database with the predictable performances.</p>
         image:
           src: media/index/i_db.svg
-        title: Single Database
+        title: Single database
       - href: /azure/sql-database/sql-database-elastic-pool
         html: <p>SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands.</p>
         image:
@@ -99,36 +100,36 @@ sections:
           src: media/index/logo_arm.svg
         title: Azure Resource Manager template
     rows:
-      - title: Create Single SQL Database
+      - title: Create single database
         values:
           - href: /azure/sql-database/sql-database-get-started-portal
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
           - href:
-      - title: Create SQL Managed Instance
+      - title: Create managed instance
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
-      - title: Create SQL elastic pool
+      - title: Create elastic pool
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-      - title: Scale Single SQL Database
+      - title: Scale single database
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
           - href:
-      - title: Scale SQL elastic pool
+      - title: Scale elastic pool
         values:
           - href: 
           - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
           - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-      - title: Scale Managed Instance
+      - title: Scale managed instance
         values:
           - href: 
           - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
@@ -144,11 +145,11 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to create, manage, and migrate databases using SQL DB
+    text: Learn how to create, manage, and migrate databases using SQL Database
   - type: list
     style: ordered
     items:
-    - html: Create and design the schema for a new SQL Database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
+    - html: Create and design the schema for a new single database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
     - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a>, or <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
     - html: Distribute your data globally using <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Geo-distributed database</a>

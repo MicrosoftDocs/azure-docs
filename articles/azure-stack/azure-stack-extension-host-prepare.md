@@ -10,6 +10,7 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
+ms.lastreviewed: 01/25/2019
 ---
 
 # Prepare for extension host for Azure Stack
