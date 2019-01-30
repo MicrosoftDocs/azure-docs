@@ -157,12 +157,6 @@ No. All data that was transferred into the vault before the backup job was cance
 - Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files.
 - The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
 
-## General restore
-
-### Is there a limitation on the number of restore on a data source?
-Yes, limit is 10 restores per day per data source (virtual machine, database, volume etc.).
-
-
 ## Retention and recovery
 
 ### Are the retention policies for DPM and Windows machines without DPM the same?
