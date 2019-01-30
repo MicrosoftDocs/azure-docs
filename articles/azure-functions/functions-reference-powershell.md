@@ -409,7 +409,7 @@ Save-Module MyGalleryModule -Path ./Modules
 > [!NOTE]
 > Remember, your Function App is the container of _all_ of you're functions for a particular project.
 
-Use `Save-Module` to save all of the modules you depend on or copy your own custom modules to the `Modules` folder. Your folder structure should look like the following:
+Use `Save-Module` to save all of the modules you depend on or copy your own custom modules to the `Modules` folder. Your folder structure should look like the following structure:
 
 ```
 PSFunctionApp
@@ -430,8 +430,8 @@ When you start your Function App, the PowerShell language worker will add this `
 
 We ship a few commonly used modules in the last position of the `PSModulePath`. The current list of modules is:
 
-- [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive) - The module for working with archives like `.zip`'s, `.nupkg`'s, etc.
-- [Az](https://www.powershellgallery.com/packages/Az) - The Azure PowerShell module
+* [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive) - The module for working with archives like `.zip`'s, `.nupkg`'s, etc.
+* [Az](https://www.powershellgallery.com/packages/Az) - The Azure PowerShell module
 
 We ship the latest of these modules. If you would like to use a specific version of these modules, you can put them in the Function App level `Modules` folder.
 
@@ -479,7 +479,7 @@ The `function.json` for `myFunction` should include a `scriptFile` property poin
 
 ### Using `entryPoint`
 
-Currently, PowerShell does not support the use of `entryPoint`.
+Currently, PowerShell doesn't support the use of `entryPoint`.
 
 ## Considerations for PowerShell functions
 
@@ -497,6 +497,6 @@ Your script will get run on every invocation. Refrain from using `Install-Module
 
 For more information, see the following resources:
 
-+ [Best practices for Azure Functions](functions-best-practices.md)
-+ [Azure Functions developer reference](functions-reference.md)
-+ [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Best practices for Azure Functions](functions-best-practices.md)
+* [Azure Functions developer reference](functions-reference.md)
+* [Azure Functions triggers and bindings](functions-triggers-bindings.md)
