@@ -7,51 +7,51 @@ ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/23/2019
+ms.date: 1/30/2019
 
 #Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
 ---
 
 # Quickstart: Ingest Azure Blobs into Azure Data Explorer by subscribing to Event Grid notifications
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers continuous ingestion (data loading) from blobs written to blob containers. This is achieved by setting an [Azure Event Grid](/azure/event-grid/overview) subscription for blob creation events and routing these events to Kusto via an Event Hub. For this quickstart, you should already have a Storage Account with an Event Grid subscription which sends its notifications to Event Hub. With that, you will create an Event Grid Data Connection and see the data flow throught the system.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers continuous ingestion (data loading) from blobs written to blob containers. This is achieved by setting an [Azure Event Grid](/azure/event-grid/overview) subscription for blob creation events and routing these events to Kusto via an Event Hub. For this quickstart, you should have a storage account with an Event Grid subscription which sends its notifications to Event Hub. You can then create an Event Grid data connection and see the data flow throughout the system.
 
 ## Prerequisites
 
-1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/).
-
+1. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/)
 1. [A cluster and database](create-cluster-database-portal.md)
 1. [A storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 1. [An Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-## Create an Event Grid Subscription in your Storage Account
+## Create an Event Grid subscription in your storage account
 
-* In Azure portal, navigate to your Storage Account
-* Click on **Events** tab, then on **Event Subscription**
+1. In the Azure portal, navigate to your storage account
+1. Click on **Events** tab, then on **Event Subscription**
 
     ![Query application link](media/ingest-data-event-grid/create-event-grid-subscription.png)
 
- Provide the following values
+1. In the **Create Event Subscription** window within the **Basic** tab, provide the following values:
 
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Name | *test-grid-connection* | The name of the event grid you want to create.|
-    | Event schema | *Event Grid Schema* | The schema which should be used for the Event Grid. |
-    | Topic Type | *Storage Account* | The type of event grid topic. |
+    | Event Schema | *Event Grid Schema* | The schema which should be used for the Event Grid. |
+    | Topic Type | *Storage account* | The type of event grid topic. |
     | Topic Resource | *gridteststorage* | The name of your storage account. |
-    | Subscribe to all event types | *Uncheck* | Whether to get notified on all events. |
+    | Subscribe to all event types | *Uncheck* | Do not get notified on all events. |
     | Defined Event Types | *Blob Created* | Which specific events to get notified for. |
-    | Endpoint Type | *Event Hubs* | The type of endpoint to send the events to. |
+    | Endpoint Type | *Event Hubs* | The type of endpoint to which you send the events. |
     | Endpoint | *test-hub* | The event hub you created. |
     | | |
-* If you want to track files from a specific container, click on the **Additional Features** tab and set the filters for the notifications
-        * **Subject Begins With** field is the *literal* prefix of the blob container (as the pattern applied is *startswith*, it can span multiple containers). No wildcards are allowed.
-        It *must* be set as follows: *`/blobServices/default/containers/`*[container prefix]
-        * **Subject Ends With** field is the *literal* suffix of the blob. No wildcards are allowed.
+
+1. Select the **Additional Features** tab if you want to track files from a specific container. Set the filters for the notifications as follows:
+    * **Subject Begins With** field is the *literal* prefix of the blob container (as the pattern applied is *startswith*, it can span multiple containers). No wildcards are allowed.
+     It *must* be set as follows: *`/blobServices/default/containers/`*[container prefix]
+    * **Subject Ends With** field is the *literal* suffix of the blob. No wildcards are allowed.
 
 ## Create a target table in Azure Data Explorer
 
-Now you create a table in Azure Data Explorer, to which Event Hubs will send data. You create the table in the cluster and database provisioned in **Prerequisites**.
+Create a table in Azure Data Explorer, to which Event Hubs will send data. You create the table in the cluster and database provisioned in **Prerequisites**.
 
 1. In the Azure portal, under your cluster, select **Query**.
 
@@ -71,9 +71,9 @@ Now you create a table in Azure Data Explorer, to which Event Hubs will send dat
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.TimeStamp"},{"column":"Value","path":"$.Value"},{"column":"Source","path":"$.Source"}]'
     ```
 
-## Create an Event Grid Data Connection in Azure Data Explorer
+## Create an Event Grid data connection in Azure Data Explorer
 
-Now you connect to the event grid from Azure Data Explorer, so that data flowing into the blob container is streamed to the test table.
+Now you connect to the Event Grid from Azure Data Explorer, so that data flowing into the blob container is streamed to the test table.
 
 1. Select **Notifications** on the toolbar to verify that the event hub deployment was successful.
 
@@ -85,20 +85,20 @@ Now you connect to the event grid from Azure Data Explorer, so that data flowing
 
     ![Data ingestion](media/ingest-data-event-hub/data-ingestion-create.png)
 
-1. Select **Blob Storage** connection type
+1. Select connection type: **Blob Storage**.
 
-1. Fill out the form with the following information, then select **Create**.
+1. Fill out the form with the following information, then click **Create**.
 
     ![Event hub connection](media/ingest-data-event-grid/create-event-grid-data-connection.png)
 
-     Data Source:
+     Data source:
 
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Data connection name | *test-hub-connection* | The name of the connection you want to create in Azure Data Explorer.|
-    | Storage account | *gridteststorage* | The name of the storage account you created on the first step.|
-    | Event hub namespace | A unique namespace name | The name you chose earlier that identifies your namespace. |
-    | Event hub | *test-hub* | The event hub you created. |
+    | Storage account | *gridteststorage* | The name of the storage account you created previously.|
+    | Event hub namespace | A unique namespace name | The name you chose previously that identifies your namespace. |
+    | Event hub | *test-hub* | The event hub you created previously. |
     | Consumer group | *test-group* | The consumer group defined in the event hub you created. |
     | | |
 
@@ -115,9 +115,9 @@ Now you connect to the event grid from Azure Data Explorer, so that data flowing
 
 Now that Azure Data Explorer and the storage account are connected, you can create sample data and upload to the blob storage.
 
-We'll work with a small shell script that issues a few basic Azure CLI commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container. You can use [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to execute the script directly in the portal.
+We'll work with a small shell script that issues a few basic Azure CLI commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all the blobs in the container. You can use [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to execute the script directly in the portal.
 
-Save the following data into a file and use with the below script.
+Save the following data into a file and use with the script below:
 
 ```Json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
