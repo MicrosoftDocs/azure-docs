@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
 ---
 # Manage file space in Azure SQL Database
 This article describes different types of storage space in Azure SQL Database, and steps that can be taken when the file space allocated for databases and elastic pools needs to be explicitly managed.
@@ -21,6 +21,7 @@ This article describes different types of storage space in Azure SQL Database, a
 In Azure SQL Database, there are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages. This condition can occur when space used increases and data is subsequently deleted. The reason is because file space allocated is not automatically reclaimed when data is deleted.
 
 Monitoring file space usage and shrinking data files may be necessary in the following scenarios:
+
 - Allow data growth in an elastic pool when the file space allocated for its databases reaches the pool max size.
 - Allow decreasing the max size of a single database or elastic pool.
 - Allow changing a single database or elastic pool to a different service tier or performance tier with a lower max size.
@@ -112,6 +113,7 @@ Understanding the following storage space quantities are important for managing 
 The following queries can be used to determine storage space quantities for an elastic pool.  
 
 ### Elastic pool data space used
+
 Modify the following query to return the amount of elastic pool data space used.  Units of the query result are in MB.
 
 ```sql
@@ -228,9 +230,9 @@ After database data files are shrunk, indexes may become fragmented and lose the
 ## Next steps
 
 - For information about database max sizes, see:
-  - [Azure SQL Database vCore-based purchasing model limits for a single database](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [Resource limits for single databases using the DTU-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [Azure SQL Database vCore-based purchasing model limits for elastic pools](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [Resources limits for elastic pools using the DTU-based purchasing model](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [Azure SQL Database vCore-based purchasing model limits for a single database](sql-database-vcore-resource-limits-single-databases.md)
+  - [Resource limits for single databases using the DTU-based purchasing model](sql-database-dtu-resource-limits-single-databases.md)
+  - [Azure SQL Database vCore-based purchasing model limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Resources limits for elastic pools using the DTU-based purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
 - For more information about the `SHRINKDATABASE` command, see [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - For more information on fragmentation and rebuilding indexes, see [Reorganize and Rebuild Indexes](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
