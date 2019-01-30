@@ -69,6 +69,20 @@ Here is where the log files live:
 
 Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
 
+## Authentication errors
+
+If you perform a management operation on a compute target from a remote job, you will recieve an error similar to one of the following:
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
+
 ## Get more support
 
 You can submit requests for support and get help from technical support, forums, and more. [Learn more...](support-for-aml-services.md)
