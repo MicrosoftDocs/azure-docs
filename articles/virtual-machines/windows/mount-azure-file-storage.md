@@ -14,7 +14,7 @@ ms.devlang:
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
-
+ms.component: files
 ---
 
 # Use Azure file shares with Windows VMs 
