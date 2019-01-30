@@ -27,6 +27,8 @@ Each Traffic Manager profile is represented by a resource of type 'TrafficManage
 
 ## Setting up Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
 * [How to install and configure Azure PowerShell](/powershell/azure/overview)

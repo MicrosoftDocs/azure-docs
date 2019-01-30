@@ -21,8 +21,10 @@ Azure Traffic Manager diagnostic logs can provide insight into the behavior of t
 
 ## Enable diagnostic logging
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. 
-If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, 6.13.1 or later. You can run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to sign in to Azure.
+If you run PowerShell from your computer, you need the Azure PowerShell module, 1.0.0 or later. You can run `Get-Module -ListAvailable Az` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to sign in to Azure.
 
 1. **Retrieve the Traffic Manager profile:**
 
