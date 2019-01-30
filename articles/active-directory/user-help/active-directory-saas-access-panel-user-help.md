@@ -7,7 +7,7 @@ manager: daveba
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2018

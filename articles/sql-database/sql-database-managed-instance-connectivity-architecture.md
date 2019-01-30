@@ -63,7 +63,7 @@ Let’s take a deeper dive in Managed Instance connectivity architecture. The fo
 
 ![connectivity architecture diagram virtual cluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Clients connect to Managed Instance using the host name that has a form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to private IP address although it is registered in public DNS zone and is publicly resolvable. The `zone-id` is automatically generated when the cluster is created. If a newly created cluster is hosting a secondary managed instance, it shares its zone id with the primary cluster. For more information, see [Auto-failover groups](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
+Clients connect to Managed Instance using the host name that has a form `<mi_name>.<dns_zone>.database.windows.net`. This host name resolves to private IP address although it is registered in public DNS zone and is publicly resolvable. The `zone-id` is automatically generated when the cluster is created. If a newly created cluster is hosting a secondary managed instance, it shares its zone ID with the primary cluster. For more information, see [Auto-failover groups](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
 
 This private IP address belongs to the Managed Instance Internal Load Balancer (ILB) that directs traffic to the Managed Instance Gateway (GW). As multiple Managed Instances could potentially run inside the same cluster, GW uses Managed Instance host name to redirect traffic to the correct SQL Engine service.
 
@@ -73,7 +73,7 @@ Management and deployment services connect to Managed Instance using [management
 
 The Azure SQL Database Managed Instance virtual cluster contains a management endpoint that Microsoft uses for managing the Managed Instance. The management endpoint is protected with built-in firewall on network level and mutual certificate verification on application level. You can [find management endpoint ip address](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-When connections are initiated from inside the Managed Instance (backup, audit log) it appears that traffic originates from management endpoint public IP address. You could limit access to public services from Managed Instance by setting firewall rules to allow the Managed Instance IP address only. Find mor einformation about the method that can [verify the Managed Instance built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+When connections are initiated from inside the Managed Instance (backup, audit log) it appears that traffic originates from management endpoint public IP address. You could limit access to public services from Managed Instance by setting firewall rules to allow the Managed Instance IP address only. Find more information about the method that can [verify the Managed Instance built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
 > This doesn’t apply to setting firewall rules for Azure services that are in the same region as Managed Instance as the Azure platform has an optimization for the traffic that goes between the services that are collocated.
@@ -103,9 +103,12 @@ You can deploy Managed Instance in a dedicated subnet (the Managed Instance subn
 
 | Name       |Port          |Protocol|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |Any              |Any        |Allow |
+|management  |80, 443, 12000|TCP     |Any              |Internet   |Allow |
 |mi_subnet   |Any           |Any     |Any              |MI SUBNET  |Allow |
 
+  > [!Note]
+  > MI SUBNET refers to the IP Address range for the subnet in the form 10.x.x.x/y. This information can be found in the Azure portal (via subnet properties).
+  
   > [!Note]
   > Although mandatory inbound security rules allow traffic from _Any_ source on ports 9000, 9003, 1438, 1440, 1452 these ports are protected by built-in firewall. This [article](sql-database-managed-instance-find-management-endpoint-ip-address.md) shows how you can discover management endpoint IP address and verify firewall rules. 
   

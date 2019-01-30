@@ -45,7 +45,7 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
     6. Select **Pin to dashboard**. After you create the lab, the lab shows up in the dashboard. 
 
         ![Create a lab section of DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
-2. Confirm that the lab is created successfully by looking at the notificaitons. Select **Go to resource**.  
+2. Confirm that the lab is created successfully by looking at the notifications. Select **Go to resource**.  
 
     ![Notification](./media/tutorial-create-custom-lab/creation-notification.png)
 3. Confirm that you see the **DevTest Lab** page for your lab. 
