@@ -166,7 +166,7 @@ There are two parts to this scenario:
    The `-AzsCredential` parameter is optional. It is used to renew the access token, if it has expired. If the `-AzsCredential` parameter is not specified and the token expires, you receive a prompt to enter the operator credentials.
 
     > [!Note]  
-    > AD FS only supports interactive authentication with user identities. If a credential object is required you must use a service principal (SPN). For more information on setting up a service principal with Azure Stack and AS FS as your identity management service, see [Manage service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
+    > AD FS only supports interactive authentication with user identities. If a credential object is required you must use a service principal (SPN). For more information on setting up a service principal with Azure Stack and AD FS as your identity management service, see [Manage service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 4. After the script successfully completes, the item should be available in the Azure Stack Marketplace.
 
