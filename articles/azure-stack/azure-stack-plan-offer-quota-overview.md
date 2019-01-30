@@ -16,6 +16,7 @@ ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: unknown
+ms.lastreviewed: 10/12/2018
 
 ---
 # Plan, offer, quota, and subscription overview
