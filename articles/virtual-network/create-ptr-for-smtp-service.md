@@ -33,7 +33,7 @@ To configure PTR records in Microsoft owned zones, use the -ReverseFqdn property
 
 When you configure the PTR records, make sure that the IP address and the reverse FQDN are owned by the subscription. If you try to set a reverse FQDN that does not belong to the subscription, you receive the following error message:
 
-    Set-AzureRmPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
+    Set-AzPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
                         
     1) ReverseFqdn matches fqdn of any public ip resource under the subscription; 
     2) ReverseFqdn resolves to the fqdn (through CName records chain) of any public ip resource under the subscription; 
