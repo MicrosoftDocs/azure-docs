@@ -65,13 +65,13 @@ For the compatibility matrix of the operating system and HLI firmware/driver ver
 **Applications**
 
 - Licenses and software installation components for any SAP applications that connect to SAP HANA and related SAP support contracts.
-- Licenses and software installation components for any non-SAP applications used in relation to SAP HANA on Azure (Large Instances) environments and related support contracts.
+- Licenses and software installation components for any non-SAP applications used with SAP HANA on Azure (Large Instances) environments and related support contracts.
 
 **Skills**
 
 - Experience with and knowledge of Azure IaaS and its components.
 - Experience with and knowledge of how to deploy an SAP workload in Azure.
-- SAP HANA installation certified personnel.
+- SAP HANA installation certified personal.
 - SAP architect skills to design high availability and disaster recovery around SAP HANA.
 
 **SAP**
