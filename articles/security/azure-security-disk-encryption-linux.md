@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 01/30/2018
 
 ms.custom: seodec18
 
@@ -39,7 +39,7 @@ You can enable disk encryption on your encrypted VHD by installing and using The
 
 Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) command to enable encryption on a running IaaS virtual machine in Azure.
 
--  **Encrypt a running VM:**
+- **Encrypt a running VM:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
@@ -72,7 +72,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 ### <a name="bkmk_RunningLinuxPSH"> </a> Enable encryption on an existing or running Linux VM using PowerShell
 Use the [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet to enable encryption on a running IaaS virtual machine in Azure. 
 
--  **Encrypt a running VM:** The script below initializes your variables and runs the Set-AzureRmVMDiskEncryptionExtension cmdlet. The resource group, VM, and key vault,  should have already been created as prerequisites. Replace MySecureRg, MySecureVM, and MySecureVault with your values. You may need to add the -VolumeType parameter if you're encrypting data disks and not the OS disk. 
+- **Encrypt a running VM:** The script below initializes your variables and runs the Set-AzureRmVMDiskEncryptionExtension cmdlet. The resource group, VM, and key vault,  should have already been created as prerequisites. Replace MySecureRg, MySecureVM, and MySecureVault with your values. You may need to add the -VolumeType parameter if you're encrypting data disks and not the OS disk. 
 
      ```azurepowershell-interactive
       $rgName = 'MySecureRg';
@@ -147,7 +147,7 @@ The following table lists Resource Manager template parameters for existing or r
 
 A batch file example for Linux scale set data disk encryption can be found [here](https://github.com/Azure-Samples/azure-cli-samples/tree/master/disk-encryption/vmss). This example creates a resource group, Linux scale set, mounts a 5-GB data disk, and encrypts the virtual machine scale set.
 
-###  Encrypt virtual machine scale sets with Azure CLI
+### Encrypt virtual machine scale sets with Azure CLI
 
 Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) to enable encryption on a Windows virtual machine scale set. If you set the upgrade policy on the scale set to manual, start the encryption with [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). The resource group, VM, and key vault should have already been created as prerequisites. 
 
@@ -172,7 +172,7 @@ Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryptio
      az vmss encryption disable --resource-group "MySecureRG" --name "MySecureVmss"
     ```
 
-###  Encrypt virtual machine scale sets with Azure PowerShell
+### Encrypt virtual machine scale sets with Azure PowerShell
 
 Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension) cmdlet to enable encryption on a Windows virtual machine scale set. The resource group, VM, and key vault should have already been created as prerequisites.
 
