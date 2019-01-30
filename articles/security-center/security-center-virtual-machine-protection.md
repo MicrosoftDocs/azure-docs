@@ -38,7 +38,7 @@ Under **Compute & apps**, there are the following tabs:
 - **Overview**: monitoring and recommendations identified by Security Center.
 - **VMs and computers**: list of your VMs, computers, and current security state of each.
 - **Cloud Services**: list of your web and worker roles monitored by Security Center.
-- **App services (Preview)**: list of your App service environments and current security state of each.
+- **App services**: list of your App service environments and current security state of each.
 - **Containers (Preview)**: list of your containers hosted on IaaS Linux machines and security assessment of their Docker configurations.
 - **Compute resources (Preview)**: list of recommendations for your compute resources, such as Service Fabric clusters and Event hubs.
 
@@ -120,7 +120,7 @@ To see a more prescriptive explanation about this recommendation, click **Update
 
 ![Update OS version](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### App services
+### App services<a name="app-services" /a>
 
 >>
 >You need to enable App Service in your subscription in order to view the App Service information. For instructions on how to enable this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
