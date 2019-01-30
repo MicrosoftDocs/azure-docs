@@ -1,5 +1,5 @@
 ---
-title: Create video insights from existing videos
+title: Create video insights from existing videos - Azure
 titlesuffix: Azure Media Services
 description: This topic shows you how to create and publish video insights based on existing video files.
 services: media-services
@@ -8,11 +8,11 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
 ---
 
-# Tutorial: Create highlights from existing videos
+# Create highlights from existing videos
 
 This topic shows you how to create and publish video insights based on some other video.
 

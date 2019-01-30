@@ -15,7 +15,7 @@ You set up an on-premises configuration server when you use the [Azure Site Reco
 
 ## Prerequisites
 
-The table summarizes the prerequistes for deploying the on-premises configuration server machine.
+The table summarizes the prerequisites for deploying the on-premises configuration server machine.
 
 | **Component** | **Requirement** |
 | --- |---|
@@ -123,7 +123,7 @@ Run the installation file as follows:
 ### Create file input for MYSQLCredsFilePath
 
 The MySQLCredsFilePath parameter takes a file as input. Create the file using the following format and pass it as input MySQLCredsFilePath parameter.
-```
+```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
@@ -131,7 +131,7 @@ MySQLUserPassword = "Password"
 ### Create file input for ProxySettingsFilePath
 ProxySettingsFilePath parameter takes a file as input. Create the file using the following format and pass it as input ProxySettingsFilePath parameter.
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -152,7 +152,7 @@ You can modify proxy settings for the configuration server machine as follows:
 5. Provide the new proxy details and click the **Register** button.
 6. Open an Admin PowerShell command window.
 7. Run the following command:
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine
@@ -172,7 +172,7 @@ You can modify proxy settings for the configuration server machine as follows:
   6. Open an Admin PowerShell command window.
   7. Run the following command
 
-      ```
+      ```powershell
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
       net stop obengine
@@ -200,7 +200,7 @@ You can modify proxy settings for the configuration server machine as follows:
 6. Provide the Proxy Server details and click the **Register** button.  
 7. Open an Admin PowerShell command window.
 8. Run the following command
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
@@ -268,7 +268,7 @@ Upgrade the server as follows:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Now set up your vault context
     
-    ```
+    ```powershell
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```

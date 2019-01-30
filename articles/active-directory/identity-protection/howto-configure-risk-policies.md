@@ -8,7 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -78,7 +78,7 @@ If you want to require MFA for risky sign-ins, you should:
 
 1. Enable the [multi-factor authentication registration policy](#multi-factor-authentication-registration-policy) for the affected users.
 
-2. Require the affected users to log in in a non-risky session to perform an MFA registration.
+2. Require the affected users to login in a non-risky session to perform an MFA registration.
 
 Completing these steps ensures that multi-factor authentication is required for a risky sign-in.
 
