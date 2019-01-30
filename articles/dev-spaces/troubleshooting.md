@@ -259,7 +259,7 @@ az provider register --namespace Microsoft.DevSpaces
 ### Reason
 This occurs when you attempt to use Dev Spaces to run a service that is configured to run on an [AKS virtual node](https://docs.microsoft.com/en-us/azure/aks/virtual-nodes-portal). Dev Spaces does not currently support building or debugging services on virtual nodes.
 
-If you run `azds up` with the `-verbose` switch, or enable verbose logging in Visual Studio, you see additional detail:
+If you run `azds up` with the `--verbose` switch, or enable verbose logging in Visual Studio, you see additional detail:
 
 ```cmd
 Installed chart in 2s
