@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: TomSh
 
 ---
@@ -26,6 +26,7 @@ Azure provides a wide array of configurable security auditing and logging option
 > Certain recommendations in this article might result in increased data, network, or compute resource usage, and increase your license or subscription costs.
 
 ## Types of logs in Azure
+
 Cloud applications are complex, with many moving parts. Logs provide data to help keep your applications up and running. Logs help you troubleshoot past problems or prevent potential ones. And they can help improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
 Azure logs are categorized into the following types:
@@ -49,6 +50,7 @@ The following table lists the most important types of logs available in Azure:
 |Process data / security alerts|	Azure Security Center alerts, Azure Log Analytics alerts|	Provides security information and alerts.| 	REST APIs, JSON|
 
 ### Activity logs
+
 [Azure activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into the operations that were performed on resources in your subscription. Activity logs were previously known as “audit logs” or “operational logs,” because they report [control-plane events](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) for your subscriptions. 
 
 Activity logs help you determine the “what, who, and when” for write operations (that is, PUT, POST, or DELETE). Activity logs also help you understand the status of the operation and other relevant properties. Activity logs do not include read (GET) operations.
@@ -78,6 +80,7 @@ Integration scenarios for an activity log event:
 You can use a storage account or [event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one that's emitting the log. Whoever configures the setting must have the appropriate [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) access to both subscriptions.
 
 ### Azure diagnostics logs
+
 Azure diagnostics logs are emitted by a resource that provides rich, frequent data about the operation of that resource. The content of these logs varies by resource type. For example, [Windows event system logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) are a category of diagnostics logs for VMs, and [blob, table, and queue logs](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) are categories of diagnostics logs for storage accounts. Diagnostics logs differ from activity logs, which provide insight into the operations that were performed on resources in your subscription.
 
 ![Azure diagnostics logs diagrams](./media/azure-log-audit/azure-log-audit-fig2.png)
@@ -112,6 +115,7 @@ Azure diagnostics logs offer multiple configuration options, such as the Azure p
 |Azure Service Bus|[Service Bus diagnostics logs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
 ### Azure Active Directory reporting
+
 Azure Active Directory (Azure AD) includes security, activity, and audit reports for a user's directory. The [Azure AD audit report](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) helps you identify privileged actions that occurred in the user's Azure AD instance. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example, password policies), or changes to the directory configuration (for example, changes to domain federation settings).
 
 The reports provide the audit record for the event name, the user who performed the action, the target resource affected by the change, and the date and time (in UTC). Users can retrieve the list of audit events for Azure AD via the [Azure portal](https://portal.azure.com/), as described in [View your audit logs](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal). 
@@ -140,6 +144,7 @@ Events in the Azure AD audit report are retained for 180 days.
 If you're interested in retaining your audit events longer, use the Reporting API to regularly pull [audit events](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-audit-events) into a separate data store.
 
 ### Virtual machine logs that use Azure Diagnostics
+
 [Azure Diagnostics](https://docs.microsoft.com/azure/azure-diagnostics) is the capability within Azure that enables the collection of diagnostics data on a deployed application. You can use the diagnostics extension from any of several sources. Currently supported are [Azure cloud service web and worker roles](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me).
 
 ![Virtual machine logs that use Azure Diagnostics](./media/azure-log-audit/azure-log-audit-fig3.png)
@@ -157,6 +162,7 @@ You can enable Azure Diagnostics on a virtual machine by doing any of the follow
 * [Create a Windows virtual machine with monitoring and diagnostics by using an Azure Resource Manager template](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ### Storage Analytics
+
 [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) logs and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account. Storage Analytics logging is available for the [Azure Blob, Azure Queue, and Azure Table storage services](https://docs.microsoft.com/azure/storage/storage-introduction). Storage Analytics logs detailed information about successful and failed requests to a storage service.
 
 You can use this information to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis. Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs that pertain to the Blob storage service are created.
@@ -182,6 +188,7 @@ Storage Analytics logs the following types of authenticated and anonymous reques
 | Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in [Storage Analytics logged operations and status messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics log format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). | All other failed anonymous requests are not logged. A full list of the logged data is documented in [Storage Analytics logged operations and status messages](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics log format](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
 ### Azure networking logs
+
 Network logging and monitoring in Azure is comprehensive and covers two broad categories:
 
 * [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher): Scenario-based network monitoring is provided with the features in Network Watcher. This service includes packet capture, next hop, IP flow verify, security group view, NSG flow logs. Scenario level monitoring provides an end to end view of network resources in contrast to individual network resource monitoring.
@@ -279,6 +286,7 @@ The following table lists and describes integration scenarios:
 |[Continuous export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Bulk export of raw data to storage when it arrives.||
 
 ### Azure Security Center alerts
+
 Azure Security Center threat detection works by automatically collecting security information from your Azure resources, the network, and connected partner solutions. It analyzes this information, often correlating information from multiple sources, to identify threats. Security alerts are prioritized in Security Center along with recommendations on how to remediate the threat. For more information, see [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).
 
 ![Azure Security Center diagram](./media/azure-log-audit/azure-log-audit-fig7.png)
@@ -293,7 +301,7 @@ Security Center employs advanced security analytics, which go far beyond signatu
 
 Many security operations and incident response teams rely on a SIEM solution as the starting point for triaging and investigating security alerts. With Azure Log Integration, you can sync Security Center alerts and virtual machine security events, collected by Azure diagnostics and audit logs, with your Log Analytics or SIEM solution in near real time.
 
-## Log Analytics 
+## Log Analytics
 
 Log Analytics is a service in Azure that helps you collect and analyze data that's generated by resources in your cloud and on-premises environments. It gives you real-time insights by using integrated search and custom dashboards to readily analyze millions of records across all your workloads and servers, regardless of their physical location.
 
@@ -306,6 +314,7 @@ Connected sources are the computers and other resources that generate the data t
 [Data sources](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) are the various kinds of data that's collected from each connected source. Sources include events and [performance data](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) from [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) and Linux agents, in addition to sources such as [IIS logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) and [custom text logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). You configure each data source that you want to collect, and the configuration is automatically delivered to each connected source.
 
 There are four ways to [collect logs and metrics for Azure services](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
+
 * Azure Diagnostics direct to Log Analytics (**Diagnostics** in the following table)
 
 * Azure Diagnostics to Azure storage to Log Analytics (**Storage** in the following table)
@@ -348,7 +357,8 @@ There are four ways to [collect logs and metrics for Azure services](https://doc
 
 
 ## Log Integration with on-premises SIEM systems
-With [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324), you can integrate raw logs from your Azure resources with your on-premises SIEM system (Security information and event management system).
+
+With Azure Log Integration you can integrate raw logs from your Azure resources with your on-premises SIEM system (Security information and event management system). AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 ![Log Integration diagram](./media/azure-log-audit/azure-log-audit-fig9.png)
 

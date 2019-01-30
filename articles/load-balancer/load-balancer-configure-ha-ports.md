@@ -5,6 +5,7 @@ description: Learn how to use High Availability Ports for load balancing interna
 services: load-balancer
 documentationcenter: na
 author: rdhillon
+manager: narayan
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

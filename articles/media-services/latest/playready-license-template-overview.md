@@ -73,7 +73,7 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
     BeginDate = new DateTime(2016, 1, 1),
     ContentKeyLocation = new ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader(),
     ContentType = ContentKeyPolicyPlayReadyContentType.UltraVioletStreaming,
-    LicenseType = drmSettings.EnbleOfflineMode ? ContentKeyPolicyPlayReadyLicenseType.Persistent : ContentKeyPolicyPlayReadyLicenseType.NonPersistent,
+    LicenseType = drmSettings.EnableOfflineMode ? ContentKeyPolicyPlayReadyLicenseType.Persistent : ContentKeyPolicyPlayReadyLicenseType.NonPersistent,
     PlayRight = new ContentKeyPolicyPlayReadyPlayRight
     {
         ImageConstraintForAnalogComponentVideoRestriction = true,

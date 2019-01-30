@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: tutorial
 
 author: hning86
@@ -39,7 +39,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Get the notebook
 
-For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Run the `tutorials/img-classification-part1-training.ipynb` notebook either in Azure Notebooks or in your own Jupyter notebook server.
+For your convenience, this tutorial is available as a [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb). Run the `tutorials/img-classification-part1-training.ipynb` notebook either in [Azure Notebooks](https://notebooks.azure.com/) or in your own Jupyter notebook server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

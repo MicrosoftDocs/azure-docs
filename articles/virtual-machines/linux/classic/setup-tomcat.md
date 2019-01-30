@@ -131,7 +131,7 @@ Tomcat is written in Java. See [Azure supported JDKs](https://aka.ms/azure-jdks)
 
 #### Install Azure supported JDK
 
-Follow the `apt-get` install instructions documented on the  [Azul Zulu Enteprise for Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) website.
+Follow the `apt-get` install instructions documented on the  [Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) website.
 
 #### Confirm that Java installation is successful
 You can use a command like the following to test if the Java runtime environment is installed correctly:  

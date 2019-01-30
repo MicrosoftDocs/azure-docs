@@ -35,7 +35,7 @@ A network security group (NSG) enables you to filter inbound traffic to, and out
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE] 
-> Flow Logs Version 2 are only available in the West Central US Region. Configuration is available through the Azure portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs saved to your storage account.
+> Flow Logs Version 2 are only available in the West Central US Region. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
 
 ## Create a VM
 

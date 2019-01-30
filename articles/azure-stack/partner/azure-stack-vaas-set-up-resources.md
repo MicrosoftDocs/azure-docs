@@ -14,6 +14,11 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
+
+
+
+ROBOTS: NOINDEX
 
 # Customer intent: As a system engineer at a partner OEM, I need to create a solution to check for a new, unique set of hardware intended to run Azure Stack, so I can validate that my hardware runs Azure Stack.
 ---

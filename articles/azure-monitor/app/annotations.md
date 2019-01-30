@@ -20,7 +20,7 @@ ms.author: mbullwin
 Annotations on [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) charts show where you deployed a new build, or other significant event. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure DevOps Services build system](https://docs.microsoft.com/azure/devops/pipelines/tasks/). You can also create annotations to flag any event you like by [creating them from PowerShell](#create-annotations-from-powershell).
 
 > [!NOTE]
-> This article reflects the deprecated **classic metrics experience**. Annotations are only currently available in the classic experience and in **[workbooks](../../azure-monitor/app/usage-workbooks.md)**. To learn more about the currrent metrics experience, you can consult [this article](../../azure-monitor/platform/metrics-charts.md).
+> This article reflects the deprecated **classic metrics experience**. Annotations are only currently available in the classic experience and in **[workbooks](../../azure-monitor/app/usage-workbooks.md)**. To learn more about the current metrics experience, you can consult [this article](../../azure-monitor/platform/metrics-charts.md).
 
 ![Example of annotations with visible correlation with server response time](./media/annotations/00.png)
 

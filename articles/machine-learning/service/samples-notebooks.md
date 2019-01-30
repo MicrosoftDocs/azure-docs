@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service in Python. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: sample
 
 author: sdgilley
@@ -28,7 +28,7 @@ Complete the [Azure Machine Learning Python quickstart](quickstart-get-started.m
 
 ## Try Azure Notebooks: Free Jupyter notebooks in the cloud
 
-It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on Azure Notebooks. The installation and future updates are automatically managed via Azure services.
+It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
   
 + To run the **core tutorial notebooks**:
   1. Go to [Azure Notebooks](https://notebooks.azure.com/).

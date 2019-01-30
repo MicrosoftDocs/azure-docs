@@ -1,14 +1,14 @@
-﻿---
+---
 title: Set up security info to use email - Azure Active Directory | Microsoft Docs
 description: Set up your security info to verify your identity using your work or school email address.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross

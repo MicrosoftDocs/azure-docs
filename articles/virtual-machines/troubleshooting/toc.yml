@@ -106,6 +106,8 @@
       href: serial-console-cmd-ps-commands.md
 - name: Errors when deleting storage resources
   href: storage-resource-deletion-errors.md
+- name: Errors when deleting classic storage resources
+  href: storage-classic-cannot-delete-storage-account-container-vhd.md
 - name: Unexpected reboots of VMs with attached VHDs
   href: unexpected-reboots-attached-vhds.md
 - name: Windows activation problems
