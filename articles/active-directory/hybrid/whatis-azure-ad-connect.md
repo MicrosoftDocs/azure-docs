@@ -7,13 +7,9 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: get-started-article
-<<<<<<< HEAD
-ms.date: 01/24/2019
 ms.component: hybrid
-=======
-ms.date: 11/28/2018
+ms.date: 01/30/2019
 ms.subservice: hybrid
->>>>>>> a7656dbe3589d2870c07e67377d17287cc6888d6
 ms.author: billmath
 ---
 
