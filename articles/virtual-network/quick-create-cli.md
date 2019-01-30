@@ -33,7 +33,7 @@ Before you can create a virtual network, you have to create a resource group to 
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
 
 ```azurecli-interactive
 az network vnet create \

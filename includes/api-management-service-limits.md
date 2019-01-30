@@ -21,7 +21,7 @@ ms.custom: include file
 | Maximum cached response size | 2MB |
 | Maximum policy document size | 256KB<sup>5</sup> | 
 | Maximum custom gateway domains per service instance<sup>6</sup> | 20 | 
-| Maximum number of service instances per subscription<sup>7</sup> | 5 | 
+| Maximum number of service instances per subscription<sup>7</sup> | 20 | 
 | Maximum number of subscriptions per service instance<sup>7</sup> | 500 |
 | Maximum number of client certificates per service instance<sup>7</sup> | 50 | 
 | Maximum number of APIs per service instance<sup>7</sup> | 50 | 
