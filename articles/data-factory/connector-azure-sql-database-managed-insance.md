@@ -92,17 +92,17 @@ The following properties are supported for the Azure SQL Database Managed Instan
                 "type": "SecureString",
                 "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
             },
-             "userName": "<domain\\username>",
-             "password": {
+            "userName": "<domain\\username>",
+            "password": {
                 "type": "SecureString",
                 "value": "<password>"
-             }
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
         }
-     }
+    }
 }
 ```
 
@@ -235,9 +235,9 @@ CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 AS
 SET NOCOUNT ON;
 BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
+    select *
+    from dbo.UnitTestSrcTable
+    where dbo.UnitTestSrcTable.stringData != stringData
     and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
@@ -340,8 +340,8 @@ The following example copies data from a source table with no identity column to
 ```sql
 create table dbo.SourceTbl
 (
-       name varchar(100),
-       age int
+    name varchar(100),
+    age int
 )
 ```
 
@@ -350,9 +350,9 @@ create table dbo.SourceTbl
 ```sql
 create table dbo.TargetTbl
 (
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
+    identifier int identity(1,1),
+    name varchar(100),
+    age int
 )
 ```
 
