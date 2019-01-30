@@ -4,7 +4,7 @@ description: In this quickstart, you will quickly configure Azure AD self-servic
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: quickstart
 ms.date: 07/17/2018
 

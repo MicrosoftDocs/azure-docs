@@ -101,10 +101,10 @@ These questions are key to planning your storage and processing environments. Th
 
 Take the Azure Machine Learning Studio environment for example:
 
-* For a list of the data formats and types supported by Azure Machine Learning Studio, see [Data formats and data types supported](../studio/import-data.md#data-formats-and-data-types-supported).
-* For information on data limitations for Azure Machine Learning Studio, see [How large can the dataset be for my modules?](../studio/faq.md#ModuleLimit)
+* For a list of the data formats and types supported by Azure Machine Learning Studio, see
+  [Data formats and data types supported](../studio/import-data.md#data-formats-and-data-types-supported) section.
 
-For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
+* For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
 
 ## Data quality questions: exploration and pre-processing
 

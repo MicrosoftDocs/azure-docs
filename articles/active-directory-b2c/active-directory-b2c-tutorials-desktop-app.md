@@ -10,7 +10,7 @@ ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Tutorial: Enable desktop app authentication with accounts using Azure Active Directory B2C

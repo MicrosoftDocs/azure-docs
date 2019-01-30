@@ -5,7 +5,7 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.component: files
 ---
@@ -799,24 +799,19 @@ There are two main classes of failures that can happen via either failure path:
 The following sections indicate how to troubleshoot cloud tiering issues and determine if an issue is a cloud storage issue or a server issue.
 
 <a id="monitor-tiering-activity"></a>**How to monitor tiering activity on a server**  
-To monitor tiering activity on a server, use Event ID 9002, 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
-
-- Event ID 9002 provides ghosting statistics for a server endpoint. For example, TotalGhostedFileCount, SpaceReclaimedMB, etc.
+To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9003 provides error distribution for a server endpoint. For example, Total Error Count, ErrorCode, etc. Note, one event is logged per error code.
-
 - Event ID 9016 provides ghosting results for a volume. For example, Free space percent is, Number of files ghosted in session, Number of files failed to ghost, etc.
-
-- Event ID 9029 provides ghosting session information. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
+- Event ID 9029 provides ghosting session information for a server endpoint. For example, Number of files attempted in the session, Number of files tiered in the session, Number of files already tiered, etc.
 
 <a id="monitor-recall-activity"></a>**How to monitor recall activity on a server**  
-To monitor recall activity on a server, use Event ID 9005, 9006, 9007 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer). Note, these events are logged hourly.
+To monitor recall activity on a server, use Event ID 9005, 9006, 9009 and 9059 in the Telemetry event log (located under Applications and Services\Microsoft\FileSync\Agent in Event Viewer).
 
 - Event ID 9005 provides recall reliability for a server endpoint. For example, Total unique files accessed, Total unique files with failed access, etc.
-
 - Event ID 9006 provides recall error distribution for a server endpoint. For example, Total Failed Requests, ErrorCode, etc. Note, one event is logged per error code.
-
-- Event ID 9007 provides recall performance for a server endpoint. For example, TotalRecallIOSize, TotalRecallTimeTaken, etc.
+- Event ID 9009 provides recall session information for a server endpoint. For example, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, etc.
+- Event ID 9059 provides application recall distribution for a server endpoint. For example, ShareId, Application Name, and TotalEgressNetworkBytes.
 
 <a id="files-fail-tiering"></a>**Troubleshoot files that fail to tier**  
 If files fail to tier to Azure Files:
@@ -853,6 +848,9 @@ Consult with your software vendor to learn how to configure their solution to sk
 
 Unintended recalls also might occur in other scenarios, like when you are browsing files in File Explorer. Opening a folder that has cloud-tiered files in File Explorer on the server might result in unintended recalls. This is even more likely if an antivirus solution is enabled on the server.
 
+> [!NOTE]
+>Use Event ID 9059 in the Telemetry event log to determine which application(s) is causing recalls. This event provides application recall distribution for a server endpoint and is logged once an hour.
+
 ## General troubleshooting
 If you encounter issues with Azure File Sync on a server, start by completing the following steps:
 1. In Event Viewer, review the telemetry, operational and diagnostic event logs.
@@ -879,6 +877,7 @@ If the issue is not resolved, run the AFSDiag tool:
 6. A .zip file that contains logs and trace files is saved to the output directory that you specified.
 
 ## See also
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
 - [Azure Files frequently asked questions](storage-files-faq.md)
 - [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Troubleshoot Azure Files problems in Linux](storage-troubleshoot-linux-file-connection-problems.md)
