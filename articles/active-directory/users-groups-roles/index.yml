@@ -6,7 +6,7 @@ metadata:
   title: Azure Active Directory users, groups, roles, and licenses documentation
   description: Learn how to use users, groups, roles, and licenses to manage authentication to Azure cloud services in your tenant.
   services: active-directory
-  ms.component: users-groups-roles
+  ms.subservice: users-groups-roles
   author: curtand
   manager: mtillman
   ms.service: active-directory

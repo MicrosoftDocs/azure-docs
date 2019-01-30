@@ -11,7 +11,7 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/05/2018
+ms.date: 01/25/2019
 ---
 # Quickstart: Import a BACPAC file to a new Azure SQL Database
 
@@ -27,7 +27,7 @@ This section shows how, in the [Azure portal](https://portal.azure.com), to crea
 > [!NOTE]
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) supports importing from a BACPAC file using the other methods in this article but does not currently support migrating in the Azure portal.
 
-To import a database in the Azure portal, open the page for the logical server that will host the import and, on the toolbar, select **Import database**.  
+To import a database in the Azure portal, open the page for the SQL Database server that will host the import and, on the toolbar, select **Import database**.  
 
    ![Database import](./media/sql-database-import/import.png)
 
@@ -35,7 +35,7 @@ Select the storage account, container, and BACPAC file you want to import. Speci
 
 ### Monitor import's progress
 
-To monitor an import's progress, open the imported database's logical server page, and, under **Settings**, select **Import/Export history**. When successful, the import has a **Completed** status.
+To monitor an import's progress, open the imported database's server page, and, under **Settings**, select **Import/Export history**. When successful, the import has a **Completed** status.
 
 To verify the database is live on the server, select **SQL databases** and verify the new database is **Online**.
 
@@ -45,14 +45,14 @@ To import a SQL database using the [SqlPackage](https://docs.microsoft.com/sql/t
 
 For scale and performance, we recommend using SqlPackage in most production environments. For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
-The following SqlPackage command imports the **AdventureWorks2008R2** database from local storage to an Azure SQL Database logical server called **mynewserver20170403**. It creates a new database called **myMigratedDatabase** with a **Premium** service tier and a **P6** Service Objective. Change these values as appropriate for your environment.
+The following SqlPackage command imports the **AdventureWorks2008R2** database from local storage to an Azure SQL Database server called **mynewserver20170403**. It creates a new database called **myMigratedDatabase** with a **Premium** service tier and a **P6** Service Objective. Change these values as appropriate for your environment.
 
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> An Azure SQL Database logical server listens on port 1433. To connect to a logical server from behind a corporate firewall, the firewall must have this port open.
+> A SQL Database server listens on port 1433. To connect to a SQL Database server from behind a corporate firewall, the firewall must have this port open.
 >
 
 This example shows how to import a database using SqlPackage with Active Directory Universal Authentication.
@@ -101,7 +101,7 @@ For another script example, see [Import a database from a BACPAC file](scripts/s
 
 ## Limitations
 
-Importing to a database in elastic pool isn't supported. You can import data into a single database and then move the database to a pool.
+Importing to a database in elastic pool isn't supported. You can import data into a single database and then move the database to an elastic pool.
 
 ## Import using wizards
 

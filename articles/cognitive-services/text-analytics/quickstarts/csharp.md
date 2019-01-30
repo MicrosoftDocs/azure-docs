@@ -7,7 +7,7 @@ author: ashmaka
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi

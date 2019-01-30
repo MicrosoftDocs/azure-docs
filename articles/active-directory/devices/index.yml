@@ -6,7 +6,7 @@ metadata:
   title: Azure Active Directory Device Management Documentation - Tutorials, concepts, references | Microsoft Docs
   description: Learn how to configure and test Azure Active device management.
   services: active-directory
-  ms.component: devices
+  ms.subservice: devices
   author: MarkusVi
   manager: daveba
   ms.service: active-directory
