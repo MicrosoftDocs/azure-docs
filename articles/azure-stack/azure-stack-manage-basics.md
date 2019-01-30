@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
+ms.lastreviewed: 10/15/2018
 
 ---
 # Azure Stack administration basics

@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
@@ -32,7 +32,7 @@ It is implemented in the following steps:
 
 The complete code for this demo follows:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -78,7 +78,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## Next steps
 - [C# example code](csharp.md)
