@@ -2,7 +2,7 @@
 title: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 description: Learn how to query data from Azure Data Lake Storage Gen2 and store results of your analysis.
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
