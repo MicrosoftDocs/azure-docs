@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 01/30/2019
 ms.component: hybrid
 ms.author: billmath
 
