@@ -30,6 +30,7 @@ You have a choice of two routes to apply Application Insights to your .NET web a
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code.
 * **Run time:** Instrument your web app on the server, as described below, without rebuilding and redeploying the code.
+
 > [!NOTE]
 > If you use build time instrumentation, run time instrumention will not work even if it is turned on.
 
@@ -107,9 +108,10 @@ handle.exe /p w3wp.exe
 
 ### Unable to login
 
-* If Status Monitor cannot login, do a command line install instead. Status Monitor attempts to login to collect your ikey, but you can provide this manually using the command: 
+* If Status Monitor cannot login, do a command line install instead. Status Monitor attempts to login to collect your ikey, but you can provide this manually using the command:
+
 ```powershell
-Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll
+Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'
 Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-000-000-000-0000000
 ```
 

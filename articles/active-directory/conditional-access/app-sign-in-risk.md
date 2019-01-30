@@ -8,7 +8,7 @@ author: MarkusVi
 manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article

@@ -4,7 +4,7 @@ description: Steps and guidance to upgrade the Azure Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/12/2018
 

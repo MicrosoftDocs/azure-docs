@@ -152,6 +152,8 @@
       href: copy-vm.md
   - name: Secure VMs
     items:
+    - name: Just-in-time access
+      href: ../../security-center/security-center-just-in-time.md
     - name: Encrypt
       href: encrypt-disks.md
     - name: Use access controls
@@ -169,8 +171,10 @@
       - name: Detailed steps
         href: create-ssh-keys-detailed.md
   - name: Protect VMs
-    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     items:
+    - name: Back up VMs
+      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
       - name: Back up a single VM
         href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Back up multiple VMs
@@ -179,6 +183,17 @@
         href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Restore individual files
         href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Set up disaster recovery for VMs
+      href: ../../site-recovery/site-recovery-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: Enable disaster recovery for a VM
+        href: ../../site-recovery/azure-to-azure-tutorial-enable-replication.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Run a disaster recovery drill for a VM
+        href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Fail over a VM to another region
+        href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Move VMs to another region
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Manage VMs
     items:
     - name: VM usage
