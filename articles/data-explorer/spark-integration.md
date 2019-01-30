@@ -12,11 +12,11 @@ ms.date: 02/05/2018
 
 # Azure Data Explorer connector for Apache Spark
 
-Using Azure Data Explorer and Apache Spark, you can build fast and scalable applications targeting a variety of data driven scenarios, such as mahcine learning (ML), Extract-Transform-Load (ETL), and Log Analytics.
+Using Azure Data Explorer and Apache Spark, you can build fast and scalable applications targeting data driven scenarios, such as machine learning (ML), Extract-Transform-Load (ETL), and Log Analytics.
 
 ## Prerequisites
 
-In order to use the connector, your application must have the following:
+To use the connector, your application must have:
 
 * Java 1.8 SDK
 * Maven 3.x
