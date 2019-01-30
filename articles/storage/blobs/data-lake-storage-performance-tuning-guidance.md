@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Gen2 Performance Tuning Guidelines | Microsoft Do
 description: Azure Data Lake Storage Gen2 Performance Tuning Guidelines
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
