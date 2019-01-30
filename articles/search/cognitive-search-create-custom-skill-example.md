@@ -149,7 +149,7 @@ namespace TranslateFunction
 
 
         /// <summary>
-        /// Use Cognitive Service to translate text from one language to antoher.
+        /// Use Cognitive Service to translate text from one language to another.
         /// </summary>
         /// <param name="originalText">The text to translate.</param>
         /// <param name="toLanguage">The language you want to translate to.</param>

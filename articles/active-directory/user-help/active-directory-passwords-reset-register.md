@@ -3,12 +3,12 @@ title: Register for self-service password reset - Azure Active Directory | Micro
 description: Register authentication data for Azure AD self-service password reset
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid:
 
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018

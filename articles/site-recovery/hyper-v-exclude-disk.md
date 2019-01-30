@@ -54,7 +54,7 @@ Let's consider two scenarios to understand the exclude disk feature:
 - SQL Server tempdb disk
 - Paging file (pagefile.sys) disk
 
-## Excample 1: Exclude the SQL Server tempdb disk
+## Example 1: Exclude the SQL Server tempdb disk
 Let's consider a SQL Server virtual machine that has a tempdb that can be excluded.
 
 The name of the virtual disk is SalesDB.
