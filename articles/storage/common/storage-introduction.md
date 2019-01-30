@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 01/02/2019
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Introduction to Azure Storage

@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage metrics in Azure Monitor
