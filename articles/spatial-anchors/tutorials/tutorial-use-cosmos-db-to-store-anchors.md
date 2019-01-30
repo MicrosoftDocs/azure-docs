@@ -12,7 +12,7 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Cosmos DB to store Spatial Anchors to be able to share them across other devices.
 ---
-# Tutorial: Use Cosmos DB to Store Anchors
+# Tutorial: Use Cosmos DB to Store Azure Spatial Anchors
 
 [Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
 using objects that persist their location across devices over time. This tutorial shows how to use an Azure Cosmos DB to store anchors to be shared across other devices. When you're finished, you'll have an app that can be deployed to two or more devices. Spatial Anchors created by one instance can be shared to the others using Cosmos DB.

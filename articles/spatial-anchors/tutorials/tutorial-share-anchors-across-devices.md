@@ -12,7 +12,7 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to share Spatial Anchors I create across other devices.
 ---
-# Tutorial: Share Spatial Anchors across devices
+# Tutorial: Share Azure Spatial Anchors across devices
 
 [Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
 using objects that persist their location across devices over time. This tutorial covers how to share Spatial Anchors that you have created across other devices. When you're finished, you'll have an app that can be deployed to two or more devices. Spatial Anchors created by one instance can be shared to the others.

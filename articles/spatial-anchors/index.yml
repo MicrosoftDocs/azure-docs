@@ -55,5 +55,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Create an Azure Spatial Anchors resource.
-    - html: Create a HoloLens, iOS, Android, or Unity application that uses Azure Spatial Anchors.
+    - html: Share Azure Spatial Anchors across devices.
+      href: tutorials/tutorial-share-anchors-across-devices.md
+    - html: Use Cosmos DB to Store Azure Spatial Anchors.
+      href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
