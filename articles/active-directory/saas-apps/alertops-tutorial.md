@@ -154,7 +154,7 @@ To configure Azure AD single sign-on with AlertOps, perform the following steps:
 
     f. Select **SHA256** as a **SAML Signature Algorithm** from the dropdown.
 
-    g. Open your downloaded Certificate(Base64) file in Notepad. Copy the content of it into your clipboard, and then paste it to the IdP Certificate text box.
+    g. Open your downloaded Certificate(Base64) file in Notepad. Copy the content of it into your clipboard, and then paste it to the X.509 Certificate text box.
 
 ### Create an Azure AD test user
 
