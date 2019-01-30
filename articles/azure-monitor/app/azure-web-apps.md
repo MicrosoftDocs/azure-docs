@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 01/229/2019
 ms.author: mbullwin
 
 ---
@@ -40,11 +40,17 @@ If you're already running an app service in Azure, you already get some monitori
 
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application.
 
-    ![Choose options per platform](./media/azure-web-apps/choose-options.png)
+    ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
+
+    * .NET **Basic collection** level offers essential single-instance APM capabilities.
+    
+    * .NET **Recommended collection** level adds CPU, memory, and I/O usage trends, correlates micro-services across request/dependency boundaries, collects usage trends, and enables correlation from availability results to transactions; collects exceptions unhandled by the host process; improves APM metrics accuracy under load, when sampling is used.
+    
+    .NET Core offers **Recommended collection** or Disabled for .NET Core 2.0 and 2.1.
 
 3. **Instrument your app service** after Application Insights has been installed.
 
-   **Enable client side monitoring** for page view and user telemetry.
+   **Enable client side monitoring** for page view and user telemetry. (This is enabled by default for .NET Core apps with **Recommended collection**.)
 
    * Select Settings > Application Settings
    * Under App Settings, add a new key value pair:
@@ -53,6 +59,9 @@ If you're already running an app service in Azure, you already get some monitori
 
     Value: `true`
    * **Save** the settings and **Restart** your app.
+
+*
+
 4. Explore your app's monitoring data by selecting **Settings** > **Application Insights** > **View more in Application Insights**.
 
 Later, you can build the app with Application Insights if you want.
@@ -102,6 +111,12 @@ Enabling Javascript via App Services can cause html responses to be cut off.
 - Workaround 2: add sdk via code and remove extension (Profiler and Snapshot debugger won't with this configuration)
 
 We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+
+For .NET Core the following are currently **not supported**:
+
+    - Self-contained deployment.
+    - Apps targeting the .NET Framework.
+    - .NET Core 2.2 applications.
 
 ## Next steps
 * [Run the profiler on your live app](../../azure-monitor/app/profiler.md).
