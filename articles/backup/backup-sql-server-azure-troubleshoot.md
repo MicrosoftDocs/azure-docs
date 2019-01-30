@@ -40,7 +40,7 @@ Use the information in the following tables to troubleshoot issues and errors en
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database do not support certain kind of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup are possible. </li><br><br> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad-hoc backup.
+| Warning | Current settings for this database do not support certain kind of backup types present in the associated policy. | <li>**Master DB**: Only a full database backup operation can be performed on the master database; neither **differential** backup nor transaction **logs** backup are possible. </li> <li>Any database in **simple recovery model** does not allow for transaction **logs** backup to be taken.</li> | Modify the database settings such that all the backup types in the policy are supported. Alternatively, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad-hoc backup.
 
 
 ## Backup failures
