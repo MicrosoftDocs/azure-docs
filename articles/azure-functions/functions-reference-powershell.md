@@ -44,6 +44,7 @@ PSFunctionApp
  | | | - mySecondHelperModule.psm1
  | - local.settings.json
  | - host.json
+ | - profile.ps1
  | - extensions.csproj
  | - bin
 ```
@@ -51,6 +52,8 @@ PSFunctionApp
 At the root of the project, there's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.ps1) and binding configuration file (function.json). The name of `function.json`'s parent directory is always the name of your function.
 
 Certain bindings require the presence of an `extensions.csproj`. Binding extensions, required in [version 2.x](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+
+In PowerShell Function Apps, you may optionally have a `profile.ps1` which will run on a Function App's ["cold start"](#cold-start). More information on the `profile.ps1` can be found [here](#powershell-profile)
 
 ## Defining a PowerShell script to be a function
 
@@ -173,7 +176,7 @@ PARAMETERS
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see
-        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
+        about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 ```
 
 If you want to retrieve what your output bindings are currently set to, you can use the cmdlet `Get-OutputBinding`, which will retrieve a hashtable containing the names of the output bindings to their respective values.
@@ -251,11 +254,29 @@ If your Function App is running in Azure, you can use Application Insights to mo
 
 If you're running your Function App locally for development, logs default to the file system. To see the logs in the console, set the `AZURE_FUNCTIONS_ENVIRONMENT` environment variable to `Development` before starting the Function App.
 
-## HTTP triggers and bindings
+## Triggers and bindings types
 
-HTTP and webhook triggers and HTTP output bindings use request and response objects to represent the HTTP messaging.  
+There are a number of triggers and bindings available to you to use with your Function App. The full list of triggers and bindings [can be found here](azure/azure-functions/functions-triggers-bindings#supported-bindings).
 
-### Request object
+With that said, all triggers and bindings are represented in code as a few real data types:
+
+* Hashtable
+* string
+* byte[]
+* int
+* double
+* HttpRequestContext
+* HttpResponseContext
+
+The first 5 in the list are standard .NET types. The last two are only used for the [HttpTrigger trigger](#Http-trigger-and-bindings).
+
+Each binding parameter in your functions will be one of these types.
+
+### HTTP triggers and bindings
+
+HTTP and webhook triggers and HTTP output bindings use request and response objects to represent the HTTP messaging.
+
+#### Request object
 
 The Request object that's passed into the script comes from a type called `HttpRequestContext`, which has the following properties:
 
@@ -274,7 +295,7 @@ The Request object that's passed into the script comes from a type called `HttpR
 > [!NOTE]
 > All `Dictionary<string,string>` keys are case-insensitive.
 
-### Response object
+#### Response object
 
 The Response object that you should send back comes from a type called `HttpResponseContext`, which has the following properties:
 
@@ -285,7 +306,7 @@ The Response object that you should send back comes from a type called `HttpResp
 | _Headers_     | An object that contains the response headers.               | Dictionary or Hashtable   |
 | _StatusCode_  | The HTTP status code of the response.                       | string or int             |
 
-### Accessing the request and response
+#### Accessing the request and response
 
 When you work with HTTP triggers, you can access the HTTP request the same way you would with any other input binding. It's in the `param` block.
 
@@ -328,6 +349,29 @@ The result of invoking this function would be:
 PS > irm http://localhost:5001?Name=Functions
 Hello Functions!
 ```
+
+### Type-casting for triggers and bindings
+
+For certain bindings like the blob binding, you are able to specify the type that you want the parameter to be.
+
+For example, if I would like my blob to come in as a string, I can add the following type cast to my `param` block:
+
+```powershell
+param([string] $myBlob)
+```
+
+## PowerShell profile
+
+In PowerShell Function Apps, we have the concept of a PowerShell profile. If you're not familiar with PowerShell profiles, check out the PowerShell documentation about profiles [here](/powershell/module/microsoft.powershell.core/about/about_profiles).
+
+In Azure Functions, the concept is similar in that it's a script that executes when the Function App starts up. The Function App starts up when it's first deployed and for every ["cold start"](#cold-start).
+
+When you create a new Function App using the Azure Functions Core (by calling `func init`), it will create a default `profile.ps1` for you. The default profile can be found
+[on the Core Tools GitHub repository](https://github.com/Azure/azure-functions-core-tools/blob/dev/src/Azure.Functions.Cli/StaticResources/profile.ps1)
+and contains:
+
+* Automatic MSI authentication to Azure
+* The ability to turn on the Azure PowerShell `AzureRM` PowerShell aliases if you would like
 
 ## PowerShell version
 
