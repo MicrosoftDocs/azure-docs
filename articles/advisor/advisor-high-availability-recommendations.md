@@ -1,22 +1,17 @@
 ---
-title: Azure Advisor High Availability recommendations | Microsoft Docs
+title: Improve availability of your application with Azure Advisor | Microsoft Docs
 description: Use Azure Advisor to improve high availability of your Azure deployments.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-
-ms.assetid: 
+ms.author: kasparks
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
-ms.author: kasparks
+ms.date: 01/29/2019
+
 ---
 
-# Advisor High Availability recommendations
+# Improve availability of your application with Azure Advisor
 
 Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get high availability recommendations by Advisor from the **High Availability** tab of the Advisor dashboard.
 
@@ -27,7 +22,7 @@ To provide redundancy to your application, we recommend that you group two or mo
 > [!NOTE]
 > If you choose to create an availability set, you must add at least one more virtual machine into it. We recommend that you group two or more virtual machines in an availability set to ensure that at least one machine is available during an outage.
 
-## Ensure availability set fault tolerance 
+## Ensure availability set fault tolerance
 
 To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
 
@@ -60,7 +55,7 @@ If a Traffic Manager profile is configured for geographic routing, then traffic 
 
 ## Use soft delete on your Azure Storage Account to save and recover data in the event of accidental overwrite or deletion
 
-Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. This allows you to recover in the event of accidental deletion or overwrites. Advisor identifies Azure Storage Accounts that don't have soft delete enabled and suggests you enable it.
+Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft deletes allows you to recover if there are accidental deletions or overwrites. Advisor identifies Azure Storage Accounts that don't have soft delete enabled and suggests you enable it.
 
 ## Configure your VPN gateway to active-active for connection resiliency
 

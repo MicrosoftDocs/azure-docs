@@ -1,22 +1,16 @@
 ﻿---
-title: Azure Advisor Performance recommendations | Microsoft Docs
+title: Improve performance of Azure applications with Azure Advisor | Microsoft Docs
 description: Use Advisor to optimize the performance of your Azure deployments.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: carmonm
-editor: ''
-
-ms.assetid:
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
 ---
 
-# Advisor Performance recommendations
+# Improve performance of Azure applications with Azure Advisor
 
 Azure Advisor performance recommendations help improve the speed and responsiveness of your business-critical applications. You can get performance recommendations from Advisor on the **Performance** tab of the Advisor dashboard.
 
@@ -45,7 +39,7 @@ For more information about App Services recommendations, see [Best Practices for
 
 ## Use Managed Disks to prevent disk I/O throttling
 
-Advisor will identify virtual machines that belong to a storage account that is reaching its scalability target. This makes it susceptible to I/O throttling. Advisor will recommend that these virtual machines use Managed Disks to prevent performance degradation.
+Advisor will identify virtual machines that belong to a storage account that is reaching its scalability target. This condition makes those VMs susceptible to I/O throttling. Advisor will recommend that they use Managed Disks to prevent performance degradation.
 
 ## Improve the performance and reliability of virtual machine disks by using Premium Storage
 
@@ -59,11 +53,11 @@ Data skew can cause unnecessary data movement or resource bottlenecks when runni
 
 ## Create or update outdated table statistics on your SQL data warehouse table to increase query performance
 
-Advisor identifies tables that do not have up-to-date [table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) and recommends creating or updating table statistics. The SQL data warehouse query optimizer uses up-to-date statics to estimate the cardinality or number of rows in the query result which enables the query optimizer to create a high quality query plan for fastest performance.
+Advisor identifies tables that do not have up-to-date [table statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) and recommends creating or updating table statistics. The SQL data warehouse query optimizer uses up-to-date statics to estimate the cardinality or number of rows in the query result that enables the query optimizer to create a high-quality query plan for fastest performance.
 
 ## Scale up to optimize cache utilization on your SQL Data Warehouse tables to increase query performance
 
-Azure Advisor detects if your SQL Data Warehouse has high cache used percentage and a low hit percentage. This indicates high cache eviction which can impact the performance of your SQL Data Warehouse. Advisor suggests that you scale up your SQL Data Warehouse to ensure you allocate enough cache capacity for your workload.
+Azure Advisor detects if your SQL Data Warehouse has high cache used percentage and a low hit percentage. This condition indicates high cache eviction, which can impact the performance of your SQL Data Warehouse. Advisor suggests that you scale up your SQL Data Warehouse to ensure you allocate enough cache capacity for your workload.
 
 ## Convert SQL Data Warehouse tables to replicated tables to increase query performance
 
@@ -71,7 +65,7 @@ Advisor identifies tables that are not replicated tables but would benefit from 
 
 ## Migrate your Storage Account to Azure Resource Manager to get all of the latest Azure features
 
-Migrate your Storage Account deployment model to Azure Resource Manager (ARM) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the ARM deployment model.
+Migrate your Storage Account deployment model to Azure Resource Manager (Resource Manager) to take advantage of template deployments, additional security options, and the ability to upgrade to a GPv2 account for utilization of Azure Storage's latest features. Advisor will identify any stand-alone storage accounts that are using the Classic deployment model and recommends migrating to the Resource Manager deployment model.
 
 > [!NOTE]
 > Classic alerts in Azure Monitor is announced to retire in June 2019, it is recommended that you upgrade your classic storage account to ARM to retain alerting functionality with the new platform. For more information, see [Classic Alerts Retirement](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).

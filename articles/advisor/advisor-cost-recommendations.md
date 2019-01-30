@@ -1,20 +1,16 @@
 ---
-title: Azure Advisor Cost recommendations | Microsoft Docs
+title: Reduce service costs using Azure Advisor | Microsoft Docs
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: 
-ms.assetid: 
 ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 01/29/2019
 ms.author: kasparks
 ---
 
-# Advisor Cost recommendations
+# Reduce service costs using Azure Advisor
 
 Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
 
