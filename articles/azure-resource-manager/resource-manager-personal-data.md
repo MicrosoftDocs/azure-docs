@@ -22,7 +22,7 @@ To avoid exposing sensitive information, delete any personal information you may
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Delete personal data in deployment history
 

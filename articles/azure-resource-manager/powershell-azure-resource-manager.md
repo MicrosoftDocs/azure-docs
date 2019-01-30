@@ -23,7 +23,7 @@ ms.author: tomfitz
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

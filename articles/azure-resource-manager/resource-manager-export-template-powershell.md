@@ -27,7 +27,7 @@ It's important to note that there are two different ways to export a template:
 
 This article shows both approaches.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Deploy a solution
 

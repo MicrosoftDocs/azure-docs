@@ -23,7 +23,7 @@ The Resource Manager template you deploy can either be a local file on your mach
 
 If needed, install the Azure PowerShell module using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzAccount` to create a connection with Azure.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 
 <a id="deploy-local-template" />

@@ -43,7 +43,7 @@ The rest of this guide describes the areas to consider when planning to develop 
 
 For an introduction to Azure Resource Manger templates, see [Template deployment](resource-group-overview.md#template-deployment).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Ensure template functions work
 
