@@ -7,7 +7,7 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
@@ -21,7 +21,7 @@ The [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech-
 For this article, you need a free [LUIS][LUIS] website account in order to import the application.
 
 ## Create LUIS endpoint key
-In the Azure portal, [create](luis-how-to-azure-subscription.md#create-luis-endpoint-key) a **Language Understanding** (LUIS) key. 
+In the Azure portal, [create](luis-how-to-azure-subscription.md) a **Language Understanding** (LUIS) key. 
 
 ## Import Human Resources LUIS app
 The intents, and utterances for this article are from the Human Resources LUIS app available from the [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) GitHub repository. Download the [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json) file, save it with the `.json` extension, and [import](luis-how-to-start-new-app.md#import-new-app) it into LUIS. 

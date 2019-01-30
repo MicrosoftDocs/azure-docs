@@ -11,25 +11,23 @@ ms.topic: "include"
 ms.date: 09/24/2018
 ---
 
-Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for the Azure subscription you use. 
-
-The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Firefox browsers only.
+1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for the Azure subscription you use. 
 
    ![Azure portal](./media/aml-create-in-portal/portal-dashboard.png)
 
-In the upper-left corner of the portal, select **Create a resource**.
+1. In the upper-left corner of the portal, select **Create a resource**.
 
    ![Create a resource in Azure portal](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-In the search bar, enter **Machine Learning**. Select the **Machine Learning service workspace** search result.
+1. In the search bar, enter **Machine Learning**. Select the **Machine Learning service workspace** search result.
 
    ![Search for a workspace](./media/aml-create-in-portal/allservices-search.PNG)
 
-In the **ML service workspace** pane, scroll to the bottom and select **Create** to begin.
+1. In the **ML service workspace** pane, scroll to the bottom and select **Create** to begin.
 
    ![Create](./media/aml-create-in-portal/portal-create-button.png)
 
-In the **ML service workspace** pane, configure your workspace.
+1. In the **ML service workspace** pane, configure your workspace.
 
    Field|Description
    ---|---
@@ -40,10 +38,10 @@ In the **ML service workspace** pane, configure your workspace.
 
    ![Create workspace](./media/aml-create-in-portal/workspace-create.png)
 
-To start the creation process, select **Create**. It can take a few moments to create the workspace.
+1. To start the creation process, select **Create**. It can take a few moments to create the workspace.
 
-To check on the status of the deployment, select the Notifications icon, **bell**, on the toolbar.
+1. To check on the status of the deployment, select the Notifications icon, **bell**, on the toolbar.
+
+1. When the process is finished, a deployment success message appears. It's also present in the notifications section. To view the new workspace, select **Go to resource**.
 
    ![Workspace creation status](./media/aml-create-in-portal/notifications.png)
-
-When the process is finished, a deployment success message appears. It's also present in the notifications section. To view the new workspace, select **Go to resource**.

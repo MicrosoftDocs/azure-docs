@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 11/05/2018
 
 ---
 # Recover from catastrophic data loss

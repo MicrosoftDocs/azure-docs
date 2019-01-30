@@ -128,16 +128,8 @@
       href: azure-stack-registration.md
     - name: Region management
       href: azure-stack-region-management.md
-    - name: Connect to Azure
-      items:
-      - name: Connect using VPN
-        href: azure-stack-connect-vpn.md
-      - name: About VPN gateway
-        href: azure-stack-vpn-gateway-about-vpn-gateways.md
-      - name: VPN gateway settings
-        href: azure-stack-vpn-gateway-settings.md
-      - name: Connect using ExpressRoute
-        href: azure-stack-connect-expressroute.md  
+    - name: Connect to Azure using ExpressRoute
+      href: azure-stack-connect-expressroute.md  
     - name: Enable CLI for users
       href: azure-stack-cli-admin.md
     - name: Set up management environment
