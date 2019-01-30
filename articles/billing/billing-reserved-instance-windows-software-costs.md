@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2019
-ms.author: cwatson
+ms.date: 01/30/2019
+ms.author: banders
 
 ---
 # Software costs not included with Azure Reserved VM Instances
@@ -77,6 +77,3 @@ To learn more about Azure Reservations, see the following articles:
 ## Need help? Contact us.
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-
-

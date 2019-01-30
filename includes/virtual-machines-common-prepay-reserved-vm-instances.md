@@ -1,6 +1,6 @@
 ---
 author: yashesvi
-ms.author: cwatson
+ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 01/18/2019

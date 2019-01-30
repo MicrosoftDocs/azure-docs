@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: false
 title: Azure Monitor Application insights Documentation - Tutorials, API Reference | Microsoft Docs
-description: TBD
+description: Azure Monitor Application Insights provides deep code-level application performance monitoring.
 services: application-insights
 author: mrbullwinkle
 manager: carmonmills
@@ -216,7 +216,7 @@ ms.author: mbullwin
                                                         <h3>Privacy, security, usage &amp; cost</h3>
                                                         <p>
                                                             <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">Handling personal data</a><br>
-                                                            <a href="./app/data-retention-privacy.md">Data collection, retentions, &amp; storage</a><br>
+                                                            <a href="./app/data-retention-privacy.md">Data collection, retention, &amp; storage</a><br>
                                                             <a href="./app/resources-roles-access-control.md">Role based access</a><br>
                                                             <a href="./app/ip-addresses.md">IP address &amp; firewall exceptions</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">Usage and estimated costs</a>

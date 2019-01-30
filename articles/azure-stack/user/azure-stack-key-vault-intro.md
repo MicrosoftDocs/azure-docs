@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/05/2019
 ms.author: sethm
+ms.lastreviewed: 01/05/2019
 
 ---
 # Introduction to Key Vault in Azure Stack
