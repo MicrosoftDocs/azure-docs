@@ -32,10 +32,10 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Azure Diagnostics](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
-| [Azure storage account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Log Analytics doesn't read the data from a storage account. |
-| [Windows agents](../../azure-monitor/platform/agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
-| [Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
+| [Azure Diagnostics](../platform/collect-azure-metrics-logs.md) | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
+| [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Log Analytics doesn't read the data from a storage account. |
+| [Windows agents](../platform/agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
+| [Linux agents](../learn/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
 | [System Center Operations Manager management group](../platform/om-agents.md) | No | A direct connection from the Operations Manager agent to Log Analytics is not used by the solution. |
 
 ## Configuration
@@ -180,7 +180,7 @@ Automated alerting in the solution is based on writing a Log Analytics query tha
 
 ### Creating alerts for Azure SQL Database
 
-You can easily [create alerts](../../azure-monitor/platform/alerts-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log queries](../../azure-monitor/log-query/log-query-overview.md) that you can use with a log alert:
+You can easily [create alerts](../platform/alerts-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log queries](../log-query/log-query-overview.md) that you can use with a log alert:
 
 #### High CPU on Azure SQL Database
 
@@ -292,6 +292,6 @@ While the solution is free to use, consumption of diagnostics telemetry above th
 
 ## Next steps
 
-- Use [Log Searches](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics to view detailed Azure SQL data.
-- [Create your own dashboards](../../azure-monitor/platform/dashboards.md) showing Azure SQL data.
-- [Create alerts](../../azure-monitor/platform/alerts-overview.md) when specific Azure SQL events occur.
+- Use [Log Searches](../log-query/log-query-overview.md) in Log Analytics to view detailed Azure SQL data.
+- [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing Azure SQL data.
+- [Create alerts](../platform/alerts-overview.md) when specific Azure SQL events occur.
