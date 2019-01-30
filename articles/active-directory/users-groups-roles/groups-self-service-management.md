@@ -15,7 +15,7 @@ ms.date: 01/28/2019
 ms.author: curtand
 
 ms.reviewer: krbain
-ms.custom: it-pro;seo-update-jan
+ms.custom: "it-pro;seo-update-azuread-jan"
 
 ---
 # Set up Azure Active Directory for self-service group management

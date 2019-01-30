@@ -198,7 +198,7 @@ The script files included are:
    
 ## Use PowerShell to verify your deployment
 1. Open a new PowerShell window and navigate to the directory where you downloaded the Split-Merge package, and then navigate into the “powershell” directory.
-2. Create an Azure SQL database server (or choose an existing server) where the shard map manager and shards will be created.
+2. Create an Azure SQL Database server (or choose an existing server) where the shard map manager and shards will be created.
    
    > [!NOTE]
    > The SetupSampleSplitMergeEnvironment.ps1 script creates all these databases on the same server by default to keep the script simple. This is not a restriction of the Split-Merge Service itself.
