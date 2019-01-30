@@ -3,7 +3,7 @@ title: Secure score in Azure Security Center | Microsoft Docs
 description: " Prioritize your security recommendations using the secure score in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: rkarlin
+ms.author: monhaber
 
 ---
 # Improve your secure score in Azure Security Center
@@ -41,7 +41,7 @@ To view your overall secure score:
 2. At the top you can see Secure score highlights:
    - The **Overall secure score** represents the score per policies, per selected subscription
    - **Secure score by category** shows you which resources need the most attention
-   - **Top recommendations by secure score impact** provides you with a list of the recommendations that will improve your secure score the most if you remediate them.
+   - **Top recommendations by secure score impact** provides you with a list of the recommendations that will improve your secure score the most if you implement them.
  
    ![secure score](./media/security-center-secure-score/secure-score-dashboard.png)
 

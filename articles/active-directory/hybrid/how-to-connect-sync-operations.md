@@ -4,7 +4,7 @@ description: This topic describes operational tasks for Azure AD Connect sync an
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
