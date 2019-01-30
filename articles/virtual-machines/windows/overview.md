@@ -59,7 +59,7 @@ This table shows some of the ways you can get a list of available locations.
 | Azure portal |Select a location from the list when you create a VM. |
 | Azure PowerShell |Use the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) command. |
 | REST API |Use the [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) operation. |
-| Azure CLI |Use the [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_list_locations) operation. |
+| Azure CLI |Use the [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) operation. |
 
 ### VM size
 The [size](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) of the VM that you use is determined by the workload that you want to run. The size that you choose then determines factors such as processing power, memory, and storage capacity. Azure offers a wide variety of sizes to support many types of uses.

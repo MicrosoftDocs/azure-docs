@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python. You use pipelines to create and manage the workflows that stitch together machine learning (ML) phases. These phases include data preparation, model training, model deployment, and inferencing. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
@@ -283,7 +283,7 @@ When you submit the pipeline, Azure Machine Learning service checks the dependen
 ```python
 # Submit the pipeline to be run
 pipeline_run1 = Experiment(ws, 'Compare_Models_Exp').submit(pipeline1)
-pipeline_run.wait_for_completion()
+pipeline_run1.wait_for_completion()
 ```
 
 When you first run a pipeline, Azure Machine Learning:

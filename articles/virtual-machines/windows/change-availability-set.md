@@ -4,7 +4,7 @@ description: Learn how to change the availability set for your virtual machines 
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: zarhoads
+ms.author: cynthn
 
 ---
 # Change the availability set for a Windows VM

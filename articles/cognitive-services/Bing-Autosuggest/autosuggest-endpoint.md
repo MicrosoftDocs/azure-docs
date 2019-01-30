@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
