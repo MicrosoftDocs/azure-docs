@@ -48,8 +48,9 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 1. After creating a storage account run the following command to get the resource ID of the storage account, you want to manage
 
     ```
-    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
+    az storage account show -n storageaccountname 
     ```
+    Copy ID field out of the result of the above command
     
 2. Get Application ID of Azure Key Vault's service principal 
 
