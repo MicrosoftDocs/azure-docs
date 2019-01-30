@@ -15,7 +15,7 @@ ms.service: azure-spatial-anchors
 # Tutorial: Use Cosmos DB to Store Anchors
 
 [Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
-using objects that persist their location across devices over time. This tutorial shows how to use the Azure Cosmos DB [Table API](table-introduction.md) to store anchors that can be shared across other devices. When you're finished, you'll have an app that can be deployed to two or more devices. Spatial Anchors created by one instance can be shared to the others using Cosmos DB.
+using objects that persist their location across devices over time. This tutorial shows how to use an Azure Cosmos DB to store anchors to be shared across other devices. When you're finished, you'll have an app that can be deployed to two or more devices. Spatial Anchors created by one instance can be shared to the others using Cosmos DB.
 
 You'll learn how to:
 
@@ -42,11 +42,11 @@ Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` f
 
 ### Configure the service so that it uses your Cosmos DB
 
-In the **Solution Explorer**, open `SharingService\Startup.cs'
+In the **Solution Explorer**, open `SharingService\Startup.cs`.
 
 Locate the `#define INMEMORY_DEMO` line at the top of the file and comment it out. Save the file.
 
-In the **Solution Explorer**, open `SharingService\appsettings.json'
+In the **Solution Explorer**, open `SharingService\appsettings.json`.
 
 Locate the `StorageConnectionString` property, and set the value to be the `Connection String` that you took note of in the [create a database account step](#create-a-database-account). Save the file.
 
