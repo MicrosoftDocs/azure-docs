@@ -22,7 +22,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Start by creating the Azure Machine Learning workspace and resources <a href="quickstart-get-started">in Azure portal</a> or <a href="quickstart-create-workspace-with-python">in Python</a>.'
+    text: 'Start by creating a service workspace and resources <a href="quickstart-get-started">in the Azure portal</a> or <a href="quickstart-create-workspace-with-python">in Python</a>.'
     
 - title: Step-by-Step Tutorials
   items:
@@ -31,13 +31,13 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Train</a> and <a href="tutorial-deploy-models-with-aml">deploy</a>  image classification models(<b>two-part series</b>).
+    - html: <a href="tutorial-train-models-with-aml">Train</a> and <a href="tutorial-deploy-models-with-aml">deploy</a>  image classification models (<b>two-part series</b>).
     - html: <a href="tutorial-data-prep">Prep data</a> and <a href="tutorial-auto-train-models">use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).
 
 - title: Samples
   items:
   - type: paragraph
-    text: 'Find <a href="samples-notebooks">Jupyter notebooks</a> to explore the service on Github.'
+    text: 'Find <a href="samples-notebooks">Jupyter notebooks</a> to help you explore the service on Github.'
     
 - title: Reference
   items:
