@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.brightidea.com`
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+4. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -139,13 +139,13 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 
 ### Configure Brightidea Single Sign-On
 
-1. In a different web browser window, Log in to Brightidea using the administrator credentials.
+1. In a different web browser window, sign in to Brightidea using the administrator credentials.
 
 2. To get to the SSO feature in your Brightidea system, navigate to **Enterprise Setup** -> **Authentication Tab**. There you will see two sub tabs: Auth Selection & SAML Profiles.
 
 	![Brightidea Configuration](./media/brightidea-tutorial/configure1.png)
 
-3. Select **Auth Selection**, By default, it only shows two standard methods: Brightidea Login & Registration. When a SSO method added, it will show up in the list.
+3. Select **Auth Selection**. By default, it only shows two standard methods: Brightidea Login & Registration. When an SSO method added, it will show up in the list.
 
 	![Brightidea Configuration](./media/brightidea-tutorial/configure2.png)
 
