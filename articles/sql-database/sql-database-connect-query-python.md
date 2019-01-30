@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/10/2018
+ms.date: 01/28/2019
 ---
 # Quickstart: Use Python to query an Azure SQL database
 
@@ -22,8 +22,6 @@ ms.date: 12/10/2018
 To complete this quickstart, make sure you have the following:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
   
 - Python and related software for your operating system:
   

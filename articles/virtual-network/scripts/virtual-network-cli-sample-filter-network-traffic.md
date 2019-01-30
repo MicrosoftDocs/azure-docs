@@ -52,7 +52,7 @@ This script uses the following commands to create a resource group, virtual netw
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address to access the VM from the internet. |
 | [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Creates virtual network interfaces and attaches them to the virtual network's front-end and back-end subnets. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Creates network security groups (NSG) that are associated to the front-end and back-end subnets. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Creates NSG rules that allow or block specific ports to specific subnets. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) |Creates NSG rules that allow or block specific ports to specific subnets. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Creates virtual machines and attaches a NIC to each VM. This command also specifies the virtual machine image to use and administrative credentials. |
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group and all resources it contains. |
 
