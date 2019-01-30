@@ -5,7 +5,6 @@ author: craigktreasure
 manager: aliemami
 services: azure-spatial-anchors
 
-ms.assetid: 52062008-5641-467d-ac79-4283a87842d1
 ms.author: crtreasu
 ms.date: 12/13/2018
 ms.topic: quickstart
