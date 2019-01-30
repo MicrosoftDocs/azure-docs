@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 01/30/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -37,6 +37,11 @@ The Microsoft peering path lets you connect to Microsoft cloud services that are
 ![Asymmetric routing with ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## NAT requirements for Azure public peering
+
+> [!NOTE]
+> Azure public peering is not available for new circuits.
+> 
+
 The Azure public peering path enables you to connect to all services hosted in Azure over their public IP addresses. These include services listed in the [ExpessRoute FAQ](expressroute-faqs.md) and any services hosted by ISVs on Microsoft Azure. 
 
 > [!IMPORTANT]
