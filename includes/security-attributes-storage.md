@@ -12,7 +12,7 @@ ms.author: mbaldwin
 |---|---|--|
 | Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes |  |
 | Encryption in Transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Support standard HTTPS/TLS mechanisms.  Users can also encrypt data before it is transmitted to the service. |
-| Encryption Key Handling (CMK, BYOK, etc.)| No | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Encryption Key Handling (CMK, BYOK, etc.)| Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Column Level Encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes |  |
 
@@ -44,7 +44,7 @@ ms.author: mbaldwin
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Control/Management Plan Logging and Audit| Yes | ARM Activity Log |
-| Data plane Logging and Audit| No | Service Diagnostic Logs, and Azure Montor Logging starting preview  |
+| Data plane Logging and Audit| Yes | Service Diagnostic Logs, and Azure Montor Logging starting preview  |
 
 ## Configuration Management
 
