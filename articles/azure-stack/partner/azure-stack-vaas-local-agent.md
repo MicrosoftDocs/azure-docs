@@ -14,6 +14,9 @@ ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
+
+
 
 ROBOTS: NOINDEX
 
@@ -112,9 +115,9 @@ The tests run remote actions. The machine that runs the tests must have access t
 
 2. Run the following command:
 
-    ````PowerShell
+    ```PowerShell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
-    ````
+    ```
 
       **Parameters**  
     | Parameter | Description |

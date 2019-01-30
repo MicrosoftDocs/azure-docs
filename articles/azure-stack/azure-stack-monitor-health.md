@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: mabrigg
+ms.lastreviewed: 01/18/2019
 
 ---
 # Monitor health and alerts in Azure Stack

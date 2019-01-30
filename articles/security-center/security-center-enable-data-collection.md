@@ -277,7 +277,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
      
             $PublicConf = '{
                 "workspaceId": "WorkspaceID value",
-                "MultipleConnectistopOnons": true
+                "MultipleConnections": true
             }' 
  
             $PrivateConf = '{

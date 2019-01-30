@@ -18,6 +18,7 @@ ms.author: jeffgilb
 ms.reviewer: 
 ms.custom: mvc
 ms.reviewer: anwestg
+ms.lastreviewed: 11/05/2018
 ---
 # Tutorial: make web and API apps available to your Azure Stack users
 
