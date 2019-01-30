@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services 
-ms.component: computer-vision 
+ms.subservice: computer-vision 
 ms.topic: overview
 ms.date: 08/22/2018 
 ms.author: pafarley

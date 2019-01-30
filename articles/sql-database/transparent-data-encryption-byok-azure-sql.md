@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 01/17/2019
 ---
 # Azure SQL Transparent Data Encryption: Bring Your Own Key support
 
@@ -111,7 +111,7 @@ The following section will go over the setup and configuration steps in more det
 
 ### Azure Key Vault Configuration Steps
 
-- Install [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)
+- Install [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)
 - Create two Azure Key Vaults in two different regions using [PowerShell to enable the “soft-delete” property](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) on the key vaults (this option is not available from the AKV Portal yet – but required by SQL).
 - Both Azure Key Vaults must be located in the two regions available in the same Azure Geo in order for backup and restore of keys to work.  If you need the two key vaults to be located in different geos to meet SQL Geo-DR requirements, follow the [BYOK Process](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) that allows keys to be imported from an on-premises HSM.
 - Create a new key in the first key vault:  
