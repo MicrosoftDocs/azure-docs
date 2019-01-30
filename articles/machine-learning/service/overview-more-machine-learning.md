@@ -4,7 +4,7 @@ titleSuffix: Microsoft
 description: Compare the variety of products from Microsoft to build, deploy, and manage your machine learning models. Decide which products to choose for your solution.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: overview
 
 ms.reviewer: jmartens
