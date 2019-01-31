@@ -318,7 +318,7 @@
       - name: Java
         items:
         - name: Use the Spring Boot Starter
-        - href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
       - name: Xamarin
         href: storage-xamarin-blob-storage.md
       - name: Legacy SDKs
