@@ -209,6 +209,8 @@
     href: whats-new.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/    
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Get support
