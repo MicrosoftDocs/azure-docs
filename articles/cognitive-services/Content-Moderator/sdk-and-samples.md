@@ -7,7 +7,7 @@ author: sanjeev3
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 02/27/2018
 ms.author: sajagtap

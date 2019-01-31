@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/24/2019
+ms.date: 1/30/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -56,7 +56,7 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    - Specify a name for the new **Log Analytics Workspace**, such as "ContosoLAWorkspace".
    - Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    - For **Resource Group**, you can create a new resource group or select an existing one.
-   - Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, and **West Europe**.
+   - Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, **West Europe**, and **West US 2**.
    - Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Log Analytics has updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
 
 5. After providing the required information on the **Log Analytics workspace** page, click **Create**. You can track its progress under **Notifications** from the menu, which returns you to the **Add Solution** page when done.

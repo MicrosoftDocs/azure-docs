@@ -172,7 +172,7 @@ Learn more about networking in AKS in the following articles:
 
 ### AKS Engine
 
-[Azure Kubernetes Service Engine (AKS Engine)][aks-engine] is an open-source project that generates Azure Resource Manager templates you can use for deploying Docker-enabled clusters on Azure. Kubernetes, DC/OS, Swarm Mode, and Swarm orchestrators can be deployed with AKS Engine.
+[Azure Kubernetes Service Engine (AKS Engine)][aks-engine] is an open-source project that generates Azure Resource Manager templates you can use for deploying Kubernetes clusters on Azure.
 
 Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] and [Azure CNI][cni-networking] plugins. As such, both networking scenarios are supported by AKS Engine.
 

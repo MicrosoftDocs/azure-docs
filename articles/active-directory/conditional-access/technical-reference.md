@@ -8,12 +8,12 @@ manager: daveba
 
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -242,7 +242,7 @@ This setting applies to the following client apps:
 
 - The **Require approved client app** requirement:
 
-    - Only supports the iOS and Android for [device platform condition](#device-platforms-condition).
+    - Only supports the iOS and Android for [device platform condition](#device-platform-condition).
 
 
 ## Next steps

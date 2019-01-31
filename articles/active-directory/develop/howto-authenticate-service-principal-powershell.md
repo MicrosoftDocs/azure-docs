@@ -8,7 +8,7 @@ manager: mtillman
 
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
@@ -42,7 +42,7 @@ The easiest way to check whether your account has adequate permissions is throug
 
 ## Create service principal with self-signed certificate
 
-The following example covers a simple scenario. It uses [New-​AzAD​Service​Principal](/powershell/module/az.resources/new-azadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-​Azure​Rm​Role​Assignment](/powershell/module/az.resources/new-azroleassignment) to assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzContext](/powershell/module/az.profile/set-azcontext).
+The following example covers a simple scenario. It uses [New-​AzAD​Service​Principal](/powershell/module/az.resources/new-azadserviceprincipal) to create a service principal with a self-signed certificate, and uses [New-​Azure​Rm​Role​Assignment](/powershell/module/az.resources/new-azroleassignment) to assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role to the service principal. The role assignment is scoped to your currently selected Azure subscription. To select a different subscription, use [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

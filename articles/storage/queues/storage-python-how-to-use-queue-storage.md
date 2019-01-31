@@ -9,7 +9,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/14/2018
 ms.author: tamram
-ms.component: queues
+ms.subservice: queues
 ---
 
 # How to use Queue storage from Python

@@ -44,6 +44,7 @@ The following limits apply only for networking resources managed through Azure R
 | DNS Servers per virtual network |20 |
 | Private IP Addresses per virtual network |65536 |
 | Private IP Addresses per network interface |256 |
+| Private IP Addresses per virtual machine |256 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |
 | Network Interfaces (NIC) |65536 |
 | Network Security Groups (NSG) |5000 |
@@ -65,6 +66,7 @@ The following limits apply only for networking resources managed through Azure R
 | Public IP addresses - dynamic |(Basic) 1000 |contact support |
 | Public IP addresses - static |(Basic) 200 |contact support |
 | Public IP addresses - static |(Standard) 200 |contact support |
+| Public IP Prefix size (preview) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Load Balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md)

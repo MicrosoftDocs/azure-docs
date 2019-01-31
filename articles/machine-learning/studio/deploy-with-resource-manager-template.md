@@ -1,11 +1,11 @@
 ---
 title: Deploy Studio workspace with Azure Resource Manager
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: How to deploy a workspace for Azure Machine Learning using Azure Resource Manager template
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
-ms.topic: article
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -73,7 +73,7 @@ Save this template as mlworkspace.json file under c:\temp\.
 
 ### Deploy the resource group, based on the template
 * Open PowerShell
-* Install modules for Azure Resource Manager and Azure Service Management  
+* Install modules for Azure Resource Manager and Azure Service Management
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -83,9 +83,9 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   These steps download and install the modules necessary to complete the remaining steps. This only needs to be done once in the environment where you are executing the PowerShell commands.   
+   These steps download and install the modules necessary to complete the remaining steps. This only needs to be done once in the environment where you are executing the PowerShell commands.
 
-* Authenticate to Azure  
+* Authenticate to Azure
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
@@ -119,22 +119,22 @@ $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\ml
 Once the deployment is completed, it is straightforward to access properties of the workspace you deployed. For example, you can access the Primary Key Token.
 
 ```
-# Access Azure ML Workspace Token after its deployment.
+# Access Azure Machine Learning studio Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
 Another way to retrieve tokens of existing workspace is to use the Invoke-AzureRmResourceAction command. For example, you can list the primary and secondary tokens of all workspaces.
 
-```  
+```
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 After the workspace is provisioned, you can also automate many Azure Machine Learning Studio tasks using the [PowerShell Module for Azure Machine Learning](https://aka.ms/amlps).
 
 ## Next Steps
-* Learn more about [authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md). 
-* Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates). 
-* Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
+* Learn more about [authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates).
+* Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * See the [Resource Manager template reference help](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
 <!--Image references-->
 [1]: ./media/deploy-with-resource-manager-template/azuresubscription.png

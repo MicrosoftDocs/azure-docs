@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
 
 ---
@@ -21,7 +21,10 @@ This article explains how to use Azure PowerShell with Resource Manager template
 
 The Resource Manager template you deploy can either be a local file on your machine or an external file that is located in a repository like GitHub. The template you deploy in this article is available as [storage account template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-If needed, install the Azure PowerShell module using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzureRmAccount` to create a connection with Azure.
+If needed, install the Azure PowerShell module using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzAccount` to create a connection with Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 <a id="deploy-local-template" />
 
@@ -38,12 +41,12 @@ A template can include parameters that enable you to customize the deployment. F
 The following example creates a resource group, and deploys a template from your local machine:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
@@ -60,7 +63,7 @@ Instead of storing Resource Manager templates on your local machine, you may pre
 To deploy an external template, use the **TemplateUri** parameter. Use the URI in the example to deploy the sample template from GitHub.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
   -storageAccountType Standard_GRS
 ```
@@ -72,8 +75,8 @@ The preceding example requires a publicly accessible URI for the template, which
 In the Cloud Shell, use the following commands:
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri <copied URL> `
   -storageAccountType Standard_GRS
 ```
@@ -90,11 +93,11 @@ To pass parameter values, you can use either inline parameters or a parameter fi
 
 ### Inline parameters
 
-To pass inline parameters, provide the names of the parameter with the `New-AzureRmResourceGroupDeployment` command. For example, to pass a string and array to a template, use:
+To pass inline parameters, provide the names of the parameter with the `New-AzResourceGroupDeployment` command. For example, to pass a string and array to a template, use:
 
 ```powershell
 $arrayParam = "value1", "value2"
-New-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile c:\MyTemplates\demotemplate.json `
   -exampleString "inline string" `
   -exampleArray $arrayParam
@@ -104,7 +107,7 @@ You can also get the contents of file and provide that content as an inline para
 
 ```powershell
 $arrayParam = "value1", "value2"
-New-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile c:\MyTemplates\demotemplate.json `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
@@ -137,7 +140,7 @@ Copy the preceding example and save it as a file named `storage.parameters.json`
 To pass a local parameter file, use the **TemplateParameterFile** parameter:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
@@ -145,7 +148,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 To pass an external parameter file, use the **TemplateParameterUri** parameter:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
@@ -158,21 +161,21 @@ However, when you use an external parameter file, you can't pass other values ei
 
 ### Parameter name conflicts
 
-If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. You're prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
+If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
 
 ## Test a template deployment
 
-To test your template and parameter values without actually deploying any resources, use [Test-​Azure​Rm​Resource​Group​Deployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
+To test your template and parameter values without actually deploying any resources, use [Test-​Azure​Rm​Resource​Group​Deployment](/powershell/module/az.resources/test-azresourcegroupdeployment). 
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
 If no errors are detected, the command finishes without a response. If an error is detected, the command returns an error message. For example, passing an incorrect value for the storage account SKU, returns the following error:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+Test-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType badSku
 
 Code    : InvalidTemplate
@@ -185,7 +188,7 @@ Details :
 If your template has a syntax error, the command returns an error indicating it couldn't parse the template. The message indicates the line number and position of the parsing error.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
+Test-AzResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
   ". Path 'variables', line 31, position 3.
 ```
 

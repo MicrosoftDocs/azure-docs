@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about the Azure Machine Learning CLI extension for the Azure CLI. The Azure CLI is a cross-platform command-line utility that enables you to work with resources in the Azure cloud. The Machine Learning extension enables you to work with the Azure Machine Learning Service. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens
@@ -86,20 +86,8 @@ The following commands demonstrate how to use the CLI to manage resources used b
     ```azurecli-interactive
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
-
-+ Create a managed compute target for distributed training:
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
-    ```
-
-* Update a managed compute target:
-
-    ```azurecli-interactive
-    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
-    ```
-
-* Attach an unmanaged compute target for training or deployment:
+    
+* Attach an AKS cluster
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
