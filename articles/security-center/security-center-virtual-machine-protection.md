@@ -121,9 +121,7 @@ To see a more prescriptive explanation about this recommendation, click **Update
 ![Update OS version](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### App services
-
->>
->You need to enable App Service in your subscription in order to view the App Service information. For instructions on how to enable this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
+You need to enable App Service in your subscription in order to view the App Service information. For instructions on how to enable this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
 [!NOTE]
 > Monitoring App Service is in preview and available only on the Standard tier of Security Center.
 
