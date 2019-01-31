@@ -151,7 +151,7 @@ Instances are defined by *typeId*, *timeSeriesId*, *name*, *description*, *hiera
 
 *instanceFields* are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations.
 
-The *name* property is optional. If *name* is not available, it will default to the Time Series ID. If a *name* is provided, the Time Series ID will still be available in the Well (the grid below the charts in the explorer).
+The *name* property is optional and case sensitive. If *name* is not available, it will default to the Time Series ID. If a *name* is provided, the Time Series ID will still be available in the Well (the grid below the charts in the explorer). 
 
 ## Time Series Model instance JSON example
 
