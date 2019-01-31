@@ -32,18 +32,18 @@ In this tutorial, you learn how to:
 
 Before you begin, you should complete the two previous tutorials:
 
-* [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-experimental.md).
-* [Configure rules and actions for your device](tutorial-configure-rules-experimental.md).
+* [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+* [Configure rules and actions for your device](tutorial-configure-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## Configure your device dashboard
 
-As a builder, you can define what information displays on a device dashboard. In the [Define a new device type in your application](tutorial-define-device-type-experimental.md) tutorial, you added a line-chart and other information to the **Connected Air Conditioner** dashboard.
+As a builder, you can define what information displays on a device dashboard. In the [Define a new device type in your application](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) tutorial, you added a line-chart and other information to the **Connected Air Conditioner** dashboard.
 
 1. To edit the **Connected Air Conditioner** device template, choose **Device Templates** on the left navigation menu:
 
     ![Device Templates page](media/tutorial-customize-operator-experimental/devicetemplates.png)
 
-2. To customize your device dashboard, click the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type-experimental.md) tutorial.
+2. To customize your device dashboard, click the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) tutorial.
 
 3. To edit the dashboard, select the **Dashboard** tab.
 
@@ -129,7 +129,7 @@ When a builder or operator signs in to an Azure IoT Central application, they se
 
     ![Add image to home page](media/tutorial-customize-operator-experimental/addimage.png)
 
-    To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images.md).
+    To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## Preview the default home page as an operator
 
@@ -154,5 +154,5 @@ In this tutorial, you learned how to customize the operator's view of the applic
 
 Now that you have learned how to customize the operator's view of the application, the suggested next steps are:
 
-* [Monitor your devices (as an operator)](tutorial-monitor-devices.md)
-* [Add a new device to your application (as an operator and device developer)](tutorial-add-device.md)
+* [Monitor your devices (as an operator)](tutorial-monitor-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Add a new device to your application (as an operator and device developer)](tutorial-add-device.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
