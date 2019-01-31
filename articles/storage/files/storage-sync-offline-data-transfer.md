@@ -44,7 +44,7 @@ For the following best practices, it is irrelevant how your files got into Azure
 | ![Process step 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Order your Data Box](../../databox/data-box-deploy-ordered.md). There are [several variations](https://azure.microsoft.com/services/storage/databox/data) to match your needs. Receive your Data Box and follow the Data Box [documentation to copy your data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) and send it back to Azure. |
 | ![Process step 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Your files will show up in the Azure file shares you designated during the Data Box process. View these file shares as temporary, staging shares. **Do not enable sync to them!** |
 | ![Process step 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Create a new share that is empty for each file share that Data Box created for you. Make sure that this new share is in the same storage account as the Data Box share. [How to create a new Azure file share](storage-how-to-create-file-share.md). |
-| ![Process step 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | Set up a sync group in a storage sync service and reference the empty share as a cloud endpoint. Repeat this step for every Data Box file share. Review the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) guide and follow the steps required to setup Azure File Sync. |
+| ![Process step 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | Set up a sync group in a storage sync service and reference the empty share as a cloud endpoint. Repeat this step for every Data Box file share. Review the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) guide and follow the steps required to set up Azure File Sync. |
 | ![Process step 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Create a sync group](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) and [add your live server directory as a server endpoint](storage-sync-files-deployment-guide.md#create-a-server-endpoint) – specify in the process that you already moved the files to Azure and reference the file share Data Box moved the files into (in this guide called the “staging share”). It is important to recognize that the share used for the cloud endpoint and the Data Box share must reside in the same storage account. It is your choice to enable or disable cloud tiering as needed. |
 
 ## Enable offline data transfer
@@ -52,7 +52,7 @@ For the following best practices, it is irrelevant how your files got into Azure
 Once your files have arrived in Azure and reside in staging shares, your next step is to enable sync. You enable sync to a specific location on a server by creating a server endpoint in a sync group. During this create process, you need to reference the staging share.
 Enable “Offline Data Transfer” in the new server endpoint blade and reference the staging share that must reside in the same storage account as the cloud endpoint. The list of available shares is filtered by storage account and shares that are not already syncing.
 
-![Visualizing the Azure Portal user interface for enabling Offline Data Transfer while creating a new server endpoint.](media/storage-sync-files-offline-data-transfer/DataBoxIntegration_2_600.png)
+![Visualizing the Azure portal user interface for enabling Offline Data Transfer while creating a new server endpoint.](media/storage-sync-files-offline-data-transfer/DataBoxIntegration_2_600.png)
 
 ## Syncing the share
 
@@ -72,7 +72,7 @@ The shape of the namespace is determined by what’s on the server when sync is 
 
 ## Finishing bulk migration and clean-up
 
-The screenshot below shows the server endpoint properties blade in the Azure Portal.
+The screenshot below shows the server endpoint properties blade in the Azure portal.
 In the offline Data Transfer section, you can observe the status of the process. It will either show “In Progress” or “Completed”.
 
 After the server completes its initial sync of the entire namespace, it will have finished leveraging the staging file share with the Data Box bulk migrated files. Observe in the server endpoint properties for offline data transfer that the status is changing to “Complete”. At this time, you can clean up the staging share to save cost:
