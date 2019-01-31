@@ -62,7 +62,7 @@
     - name: Access classroom labs
       href: classroom-labs/how-to-use-classroom-lab.md
     - name: Create and manage schedules
-      href: how-to-create-schedules.md
+      href: classroom-labs/how-to-create-schedules.md
   - name: DevTest labs
     items:
     - name: Create a lab
