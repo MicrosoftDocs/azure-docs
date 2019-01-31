@@ -28,7 +28,7 @@ Many Media Services CLI commands allow you to pass a parameter with a file name.
 
 ![Upload files]
 
-Whether you are using a local CLI or **Cloud Shell**, you need to specify the file path according to the OS or the shell (Bash or PowerShell) that you are using.
+Whether you are using a local CLI or **Cloud Shell**, you need to specify the file path according to the OS or Cloud Shell (Bash or PowerShell) that you are using. Below are some examples:
 
 Relative path to the file (all OS)
 
