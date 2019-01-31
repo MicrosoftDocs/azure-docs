@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/18/2019
-ms.author: cwatson
+ms.date: 01/30/2019
+ms.author: banders
 
 ---
 # What are Azure Reservations?
@@ -34,7 +34,7 @@ If you have virtual machines, Azure Cosmos DB or SQL databases that run for long
 
 - Reserved Virtual Machine Instance: A reservation only covers the virtual machine compute costs. It doesn't cover additional software, networking, or storage charges.
 - SQL Database reserved vCore: Only the compute costs are included with a reservation. The license is billed separately.
-- Azure Cosmos DB reserved capacity: A reservation covers throughput provisioned for your resources, it does not cover the storage and networking charges. 
+- Azure Cosmos DB reserved capacity: A reservation covers throughput provisioned for your resources, it does not cover the storage and networking charges.
 
 For Windows virtual machines and SQL Database, you can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -82,7 +82,7 @@ parameter manually. If the policy definition doesn't include a **mode** value, i
 in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support
 backwards compatibility.
 
-`indexed` should be used when creating policies that enforce tags or locations. While note
+`indexed` should be used when creating policies that enforce tags or locations. While not
 required, it prevents resources that don't support tags and locations from showing up as
 non-compliant in the compliance results. The exception is **resource groups**. Policies that
 enforce location or tags on a resource group should set **mode** to `all` and specifically target
@@ -156,7 +156,8 @@ If the definition location is a:
 ## Display name and description
 
 You use **displayName** and **description** to identify the policy definition and provide context
-for when it's used.
+for when it's used. **displayName** has a maximum length of _128_ characters and **description**
+a maximum length of _512_ characters.
 
 ## Policy rule
 
