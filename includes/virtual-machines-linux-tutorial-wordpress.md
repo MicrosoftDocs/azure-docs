@@ -59,7 +59,6 @@ To configure PHP, run the following command to open a text editor of your choice
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-
 Copy the following lines to the file, substituting your WordPress database password for *yourPassword* (leave other values unchanged). Then save the file.
 
 ```php

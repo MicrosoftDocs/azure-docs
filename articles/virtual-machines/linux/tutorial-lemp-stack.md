@@ -3,7 +3,7 @@ title: Tutorial - Deploy LEMP on a Linux virtual machine in Azure | Microsoft Do
 description: In this tutorial, you learn how to install the LEMP stack on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: dlepow
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 01/30/2019
-ms.author: cynthn
+ms.date: 11/27/2017
+ms.author: danlep
 
 #Customer intent: As an IT administrator, I want to learn how to install the LEMP stack so that I can quickly prepare a Linux VM to run web applications.
 ---
@@ -47,12 +47,14 @@ Run the following command to update Ubuntu package sources and install NGINX, My
 sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
 ```
 
-You are prompted to install the packages and other dependencies. This process installs the minimum required PHP extensions needed to use PHP with MySQL.  
+You are prompted to install the packages and other dependencies. When prompted, set a root password for MySQL, and then [Enter] to continue. Follow the remaining prompts. This process installs the minimum required PHP extensions needed to use PHP with MySQL. 
+
+![MySQL root password page][1]
 
 ## Verify installation and configuration
 
 
-### Verify NGINX
+### NGINX
 
 Check the version of NGINX with the following command:
 ```bash
@@ -64,7 +66,7 @@ With NGINX installed, and port 80 open to your VM, the web server can now be acc
 ![NGINX default page][3]
 
 
-### Verify and secure MySQL
+### MySQL
 
 Check the version of MySQL with the following command (note the capital `V` parameter):
 
@@ -72,24 +74,24 @@ Check the version of MySQL with the following command (note the capital `V` para
 mysql -V
 ```
 
-To help secure the installation of MySQL, including setting a root password, run the `mysql_secure_installation` script. 
+To help secure the installation of MySQL, run the `mysql_secure_installation` script. If you are only setting up a temporary server, you can skip this step. 
 
 ```bash
-sudo mysql_secure_installation
+mysql_secure_installation
 ```
 
-You can optionally set up the Validate Password Plugin (recommended). Then, set a password for the MySQL user, and configure the remaining security settings for your environment. We recommend that you answer "Y" (yes) to all questions.
+Enter a root password for MySQL, and configure the security settings for your environment.
 
 If you want to try MySQL features (create a MySQL database, add users, or change configuration settings), login to MySQL. This step is not required to complete this tutorial. 
 
 
 ```bash
-sudo mysql -u root -p
+mysql -u root -p
 ```
 
 When done, exit the mysql prompt by typing `\q`.
 
-### Verify PHP
+### PHP
 
 Check the version of PHP with the following command:
 
@@ -173,5 +175,6 @@ Advance to the next tutorial to learn how to secure web servers with SSL certifi
 > [!div class="nextstepaction"]
 > [Secure web server with SSL](tutorial-secure-web-server.md)
 
+[1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png
