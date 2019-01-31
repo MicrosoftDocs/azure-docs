@@ -1101,13 +1101,10 @@ This article describes whether a resource type supports [tags](resource-group-us
 | jitRequests | Yes | 
 
 ## Microsoft.SQL
-
-The Master database doesn't support tags, but other databases support tags.
-
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | managedInstances | Yes |
-| managedInstances/databases | Yes |
+| managedInstances/databases | Yes (see note below) |
 | managedInstances/databases/backupShortTermRetentionPolicies | No |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | No |
 | managedInstances/databases/vulnerabilityAssessments | No |
@@ -1119,12 +1116,16 @@ The Master database doesn't support tags, but other databases support tags.
 | servers | Yes | 
 | servers/administrators | No | 
 | servers/communicationLinks | No | 
-| servers/databases | Yes | 
+| servers/databases | Yes (see note below) | 
 | servers/encryptionProtector | No | 
 | servers/keys | No | 
 | servers/restorableDroppedDatabases | No | 
 | servers/serviceobjectives | No | 
 | servers/tdeCertificates | No | 
+
+> [!NOTE]
+> The Master database doesn't support tags, but other databases support tags.
+
 
 ## Microsoft.SqlVirtualMachine
 | Resource type | Supports tags |
@@ -1160,13 +1161,13 @@ The Master database doesn't support tags, but other databases support tags.
 | managers | Yes | 
 
 ## Microsoft.StreamAnalytics
-
-You can't add a tag when streamingjobs is running. Stop the resource to add a tag.
-
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| streamingjobs | Yes | 
+| streamingjobs | Yes (see note below) | 
 | streamingjobs/diagnosticSettings | No | 
+
+> [!NOTE]
+> You can't add a tag when streamingjobs is running. Stop the resource to add a tag.
 
 ## Microsoft.Subscription
 | Resource type | Supports tags |
