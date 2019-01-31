@@ -36,16 +36,15 @@ Server Endpoint Health
 
 Metrics
 - The following metrics are viewable in the Storage Sync Service portal:
-  -	Bytes Synced 
-    -	Portal blades: Sync group and Server endpoint
-  - Files Synced 
-    -	Portal blades: Sync group and Server endpoint
-  -	Files Not Syncing 
-    -	Portal blade: Server endpoint
-  -	Cloud Tiering Recall 
-    -	Portal blade: Registered servers 
-  -	Server Heartbeat 
-    - Portal blade: Registered servers
+
+  | Metric name | Description | Portal blade(s) | 
+  |-|-|-|
+  | Bytes synced | Size of data transferred (upload and download) | Sync group, Server endpoint |
+  | Cloud tiering recall | Size of data recalled | Registered servers |
+  | Files not syncing | Count of files that are failing to sync | Server endpoint |
+  | Files synced | Count of files transferred (upload and download) | Sync group, Server endpoint |
+  | Server heartbeat | Count of heartbeats received from the server | Registered servers |
+
 - To learn more, see [Azure Monitor](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-monitoring#azure-monitor) section. 
 
   > [!Note]  
@@ -65,7 +64,7 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 | Bytes synced | Size of data transferred (upload and download).<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Cloud tiering recall | Size of data recalled.<br><br>Unit: Bytes<br>Aggregation Type: Sum<br>Applicable dimension: Server Name |
 | Files not syncing | Count of files that are failing to sync.<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
-| Files synced | Count of files uploaded and downloaded.<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
+| Files synced | Count of files transferred (upload and download).<br><br>Unit: Count<br>Aggregation Type: Sum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 | Server heartbeat | Count of heartbeats received from the server.<br><br>Unit: Count<br>Aggregation Type: Maximum<br>Applicable dimension: Server Name |
 | Sync session result | Sync session result (1=successful sync session; 0=failed sync session)<br><br>Unit: Count<br>Aggregation Types: Maximum<br>Applicable dimensions: Server Endpoint Name, Sync Direction, Sync Group Name |
 
