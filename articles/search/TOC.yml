@@ -201,7 +201,6 @@
       - name: Facet filters
         href: search-filters-facets.md
       - name: Filter expression syntax
-<<<<<<< HEAD
         href: how-to-odata-expression-syntax-for-azure-search.md
       - name: OData support
         href: how-to-support-for-odata.md
@@ -211,9 +210,6 @@
     items:
     - name: Add scoring profiles
       href: how-to-add-scoring-profiles-to-a-search-index.md
-=======
-        href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
->>>>>>> 13e8a5ec989e3d0479ccb1ac653360abbc06ed9f
   - name: Administration & analytics
     items:
     - name: Administration (portal)
