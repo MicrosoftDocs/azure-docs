@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.component: files
+ms.subservice: files
 ---
 
 # Use an Azure file share with Windows
