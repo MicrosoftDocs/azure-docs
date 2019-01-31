@@ -14,7 +14,7 @@ ms.author: jlian
 
 Microsoft Azure IoT Hub currently supports distributed tracing as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you will be able trace IoT messages throughout the Azure services involved in your solution. For a background on distributed tracing, see [What is Distributed Tracing?](../azure-monitor/app/distributed-tracing.md).
+IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you will be able trace IoT messages throughout the Azure services involved in your solution. For a background on distributed tracing, see [Distributed Tracing](../azure-monitor/app/distributed-tracing.md).
 
 Enabling distributed tracing for IoT Hub gives you the ability to:
 
@@ -23,11 +23,18 @@ Enabling distributed tracing for IoT Hub gives you the ability to:
 - Measure and understand message flow and latency from devices to IoT Hub and routing endpoints.
 - Start considering how you will implement distributed tracing for the non-Azure services in your IoT solution.
 
+In this article you will use the [Azure IoT device SDK for C](./iot-hub-device-sdk-c-intro.md) with distributed tracing. Distributed tracing support is still in-progress for the other SDKs.
+
 ## Prerequisites
 
-- This article assumes that you have already created an IoT hub, and that you are familiar with sending telemetry messages to your IoT hub. Make sure you have completed one of the [5-minute Quickstarts](https://docs.microsoft.com/azure/iot-hub/) for your preferred development environment.
+- This article assumes that you have already created an IoT hub, and that you are familiar with sending telemetry messages to your IoT hub. Make sure you have completed the [Send telemetry C Quickstart](./quickstart-send-telemetry-c.md).
 
-- Register a device with your IoT hub (steps available in each Quickstart) and note down the connection string. 
+- The preview of distributed tracing is currently only supported for IoT Hubs created in the following regions:
+  - **North Europe**
+  - **Southeast Asia**
+  - **West US 2**
+
+- Register a device with your IoT hub (steps available in each Quickstart) and note down the connection string.
 
 - Install the latest version of [Git](https://git-scm.com/download/).
 
@@ -51,7 +58,7 @@ In this section, you configure an IoT Hub to include distributed tracing attribu
 
 1. In the **Log** section, select the operations that you want logging information for.
 
-    Make sure to include **DistributedTracing**, and configure a **Retention** for how many days you want the logging retained.
+    Make sure to include **DistributedTracing**, and configure a **Retention** for how many days you want the logging retained. Log retention does affect storage costs.
 
     ![Screenshot showing where the DistributedTracing category is for IoT diagnostic settings](./media/iot-hub-distributed-tracing/diag-settings.png)
 
@@ -63,7 +70,9 @@ In this section, you configure an IoT Hub to include distributed tracing attribu
 
 ## Set up device
 
-To use [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) for distributed tracing, follow below instructions. You will prepare a development environment used to clone and build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) from GitHub, then modify one of samples to enable the device to start stamping trace context in the messages as well as listening to twin changes for sampling decisions.
+In this section, you will prepare a development environment for use with the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Then, you will modify one of samples to enable distributed tracing on your device's telemetry messages.
+
+To use the [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md) for distributed tracing, follow below instructions. 
 
 These instructions are for building the sample from. For other environments, see [Compile the C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compile) or [Prepackaged C SDK for Platform Specific Development](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#prepackaged-c-sdk-for-platform-specific-development)
 
@@ -72,21 +81,23 @@ These instructions are for building the sample from. For other environments, see
 1. Install [CMake](https://cmake.org/). Make sure it is in your `PATH` by typing `cmake -version` from a command prompt.
 
 1. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
-    
-    ```
+
+    ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
+
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
-1. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
+1. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder.
 
     ```cmd/sh
     cd azure-iot-sdk-c
     git checkout public-preview
     mkdir cmake
     cd cmake
-	cmake ..
+    cmake ..
     ```
+
     If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Once the build succeeds, the last few output lines will look similar to the following output:
@@ -103,40 +114,40 @@ These instructions are for building the sample from. For other environments, see
     -- Configuring done
     -- Generating done
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
-    ```	
+    ```
 
-1. Use an editor to open `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` source file.
+1. Use an editor to open the `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` source file.
 
 1. Find the declaration of the `connectionString` constant:
 
     [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
-	
-    Replace the value of the `connectionString` constant with the device connection string you made a note of previously. 
 
-1. To make the sample run for longer, change the `MESSAGE_COUNT` to a bigger value, like 5000:
+    Replace the value of the `connectionString` constant with the device connection string you made a note of in the [register a device](./quickstart-send-telemetry-c.md#register-a-device) section of the [Send telemetry C Quickstart](./quickstart-send-telemetry-c.md).
 
-	[!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=3)]
+1. Change the `MESSAGE_COUNT` define to `5000`:
 
-	Also add a bigger delay at the end of the send message loop:
+    [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=3)]
 
-	[!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
+    Also add a one second delay at the end of the send message loop:
 
-1. Find the line with `IoTHubDeviceClient_LL_SetConnectionStatusCallback`, and add code under it to enable the device for distributed tracing:
+    [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
 
-	[!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_tracing&highlight=3-9)]
+1. Find the line of code that registers a connection status callback function with `IoTHubDeviceClient_LL_SetConnectionStatusCallback`. Add code under that line as shown below to call `IoTHubDeviceClient_LL_EnablePolicyConfiguration` enabling distributed tracing for the device:
 
-1. navigate to the *iothub_ll_telemetry_sample* project directory from the CMake directory (`azure-iot-sdk-c/cmake`) you created earlier, and compile the sample:
+    [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_tracing&highlight=3)]
 
-	```cmd/sh
-	cd iothub_client/samples/iothub_ll_telemetry_sample
-	cmake --build . --target iothub_ll_telemetry_sample --config Debug
-	```
+1. Navigate to the *iothub_ll_telemetry_sample* project directory from the CMake directory (`azure-iot-sdk-c/cmake`) you created earlier, and compile the sample:
 
-1. Run the application. The device starts to listen for instructions on how often to add trace properties to messages (sampling) via the device twin.
+    ```cmd/sh
+    cd iothub_client/samples/iothub_ll_telemetry_sample
+    cmake --build . --target iothub_ll_telemetry_sample --config Debug
+    ```
 
-	```cmd/sh
-	Debug\iothub_ll_telemetry_sample.exe
-	```
+1. Run the application. The device sends telemetry supporting distributed tracing.
+
+    ```cmd/sh
+    Debug\iothub_ll_telemetry_sample.exe
+    ```
 
 1. Keep the app running. Optionally observe the message being sent to IoT Hub by looking at the console window.
 

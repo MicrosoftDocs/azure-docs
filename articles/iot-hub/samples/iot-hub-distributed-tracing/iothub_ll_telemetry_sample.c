@@ -145,16 +145,10 @@ int main(void)
         (void)IoTHubDeviceClient_LL_SetConnectionStatusCallback(device_ll_handle, connection_status_callback, NULL);
         (void)IoTHubDeviceClient_LL_EnablePolicyConfiguration(device_ll_handle, POLICY_CONFIGURATION_DISTRIBUTED_TRACING, true);
 
-        for (int i = 0; i < 1000; i++)
-        {
-            IoTHubDeviceClient_LL_DoWork(device_ll_handle);
-            ThreadAPI_Sleep(1);
-        }
-        // </snippet_tracing>
-
         do
         {
             if (messages_sent < MESSAGE_COUNT)
+        // </snippet_tracing>
             {
                 // Construct the iothub message from a string or a byte array
                 message_handle = IoTHubMessage_CreateFromString(telemetry_msg);
@@ -177,7 +171,7 @@ int main(void)
 
                 messages_sent++;
             }
-            // <snippet_sleep>
+        // <snippet_sleep>
             else if (g_message_count_send_confirmations >= MESSAGE_COUNT)
             {
                 // After all messages are all received stop running
@@ -186,9 +180,9 @@ int main(void)
 
             IoTHubDeviceClient_LL_DoWork(device_ll_handle);
             ThreadAPI_Sleep(1000);
-            // </snippet_sleep>
 
         } while (g_continueRunning);
+        // </snippet_sleep>
 
         // Clean up the iothub sdk handle
         IoTHubDeviceClient_LL_Destroy(device_ll_handle);
