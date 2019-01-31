@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell cmdlets reference - Azure Scheduler
 description: Learn about PowerShell cmdlets for Azure Scheduler
 services: scheduler
@@ -64,4 +64,4 @@ Get-Help <cmdlet name> -Full
 * [What is Azure Scheduler?](scheduler-intro.md)
 * [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Create and schedule your first job - Azure portal](scheduler-get-started-portal.md)
-* [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
+* [Azure Scheduler REST API reference](/rest/api/scheduler/)

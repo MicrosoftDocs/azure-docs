@@ -420,5 +420,5 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 * [What is Azure Scheduler?](scheduler-intro.md)
 * [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 * [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
-* [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143)
+* [Azure Scheduler REST API](/rest/api/scheduler/)
 * [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
