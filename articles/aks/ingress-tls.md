@@ -26,7 +26,7 @@ You can also:
 
 ## Before you begin
 
-This article uses Helm to install the NGINX ingress controller, cert-manager, and a sample web app. You need to have Helm initialized within your AKS cluster and using a service account for Tiller. Make sure that you are using the latest release of Helm. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+This article uses Helm to install the NGINX ingress controller, cert-manager, and a sample web app. You need to have Helm initialized within your AKS cluster and using a service account for Tiller. Make sure that you are using the [latest release of Helm][helm-latest]. Run `helm version` to confirm that you are using the latest version. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
 This article also requires that you are running the Azure CLI version 2.0.41 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -38,19 +38,21 @@ To create the ingress controller, use `Helm` to install *nginx-ingress*. For add
 > The following example installs the ingress controller in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system --set controller.replicaCount=2
+helm install --name aks-ingress \
+  --namespace kube-system \
+  --set controller.replicaCount=2 \
+  stable/nginx-ingress
 ```
 
 During the installation, an Azure public IP address is created for the ingress controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
 
 To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
 
-```
-$ kubectl get service -l app=nginx-ingress --namespace kube-system
+```bash
+kubectl --namespace kube-system get services -o wide  aks-ingress-nginx-ingress-controller
 
-NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210  80:30920/TCP,443:30426/TCP   20m
-eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
+NAME                                   TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE       SELECTOR
+aks-ingress-nginx-ingress-controller   LoadBalancer   10.0.173.35   13.71.184.136   80:32277/TCP,443:32644/TCP   30m       app=nginx-ingress,component=controller,release=aks-ingress
 ```
 
 No ingress rules have been created yet. If you browse to the public IP address, the NGINX ingress controller's default 404 page is displayed.
@@ -59,23 +61,38 @@ No ingress rules have been created yet. If you browse to the public IP address, 
 
 For the HTTPS certificates to work correctly, configure an FQDN for the ingress controller IP address. Update the following script with the IP address of your ingress controller and a unique name that you would like to use for the FQDN:
 
-```console
+```bash
 #!/bin/bash
+set -e
+# DNS Name you want to associate with public IP address
+DNSNAME_BASE="demo-aks-ingress"
+# Namespace where the Ingress controller was launched
+NS="kube-system"
+# Ingress controller service name
+SVC="aks-ingress-nginx-ingress-controller"
 
 # Public IP address of your ingress controller
-IP="51.145.155.210"
+IP=$(kubectl get svc $SVC -n $NS --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
 
-# Name to associate with public IP address
-DNSNAME="demo-aks-ingress"
+if [ ! -z $IP ]; then
+  echo "External IP found:"
+  echo $IP
+  # Get the resource-id of the public ip
+  echo "Obtaining resource ID for Public IP..."
+  PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
 
-# Get the resource-id of the public ip
-PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-
-# Update public ip address with DNS name
-az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+  # Addind random numbers to avoid DNS collisions
+  DNSNAME=$DNSNAME_BASE-`echo ${RANDOM:0:4}`
+  # Update public ip address with DNS name
+  echo "Adding DNS name \"$DNSNAME\" record to Public IP \"$IP\""
+  az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME -o tsv --query dnsSettings.fqdn
+else
+  echo "Error: External IP was not found on \"$SVC\" in namespace \"$NS\". Plese confirm that the Ingress controller is running and that it has an External IP assigned by running:"
+  echo "kubectl --namespace $NS get services -o wide $SVC"
+fi
 ```
 
-The ingress controller is now accessible through the FQDN.
+The ingress controller is now accessible through the FQDN that is displayed by the script.
 
 ## Install cert-manager
 
@@ -331,7 +348,7 @@ You can also:
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
-[cert-manager]: https://github.com/jetstack/cert-manager
+[helm-latest]: https://github.com/helm/helm/releases/latest
 [cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
 [ingress-shim]: http://docs.cert-manager.io/en/latest/reference/ingress-shim.html
 [cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html
