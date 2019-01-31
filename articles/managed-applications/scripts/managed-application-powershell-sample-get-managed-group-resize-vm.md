@@ -7,7 +7,7 @@ author: tfitzmac
 manager: timlt
 
 ms.service: managed-applications
-ms.devlang: poweshell
+ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na

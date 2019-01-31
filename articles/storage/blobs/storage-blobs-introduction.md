@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: overview
 ms.date: 01/03/2019
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Introduction to Azure Blob storage

@@ -20,7 +20,7 @@ Azure Site Recovery has a monthly release cadence where enhancements to existing
  
 ## How does automatic update work
 
-Once you allow Site Recovery to manage updates, a global runbook (which is used by Azure services) is deployed via an automation account, which is created in the same subscription as the vault. One automation account is used for a specific vault. The runbook checks for each VM in a vault for which auto-updates are turned ON and initiates an upgrade of the Mobility Service extension if a newer version is available. The default schedule of the runbook recurrs daily at 12:00 AM as per the time zone of the replicated virtual machine's geo. 
+Once you allow Site Recovery to manage updates, a global runbook (which is used by Azure services) is deployed via an automation account, which is created in the same subscription as the vault. One automation account is used for a specific vault. The runbook checks for each VM in a vault for which auto-updates are turned ON and initiates an upgrade of the Mobility Service extension if a newer version is available. The default schedule of the runbook recurs daily at 12:00 AM as per the time zone of the replicated virtual machine's geo. 
 The runbook schedule can also be modified via the automation account by the user, if necessary. 
 
 > [!NOTE]
@@ -50,7 +50,7 @@ When you enable replication for a virtual machine either starting [from the virt
 1. Inside the vault, navigate to **Manage**-> **Site Recovery Infrastructure**
 2. Under **For Azure virtual Machines**-> **Extension Update Settings**, click the toggle to choose whether you want to allow *ASR to manage updates* or *manage manually*. Click **Save**.
 
-![vault-toggle-autuo-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > When you choose *Allow ASR to manage*, the setting is applied to all virtual machines in the corresponding vault.

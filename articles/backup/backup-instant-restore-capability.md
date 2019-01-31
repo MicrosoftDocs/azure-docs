@@ -2,19 +2,18 @@
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 services: backup
-author: trinadhk
+author: sogup
 manager: vijayts
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: trinadhk
+ms.author: sogup
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
 
 > [!NOTE]
-> Based on the feedback received from users that the **VM backup stack V2** is confusing with Azure stack, we have renamed it to **Instant Restore** thus providing an upgraded and better experience.
+> Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
 
 The new model for Instant Restore provides the following feature enhancements:
 
@@ -50,14 +49,19 @@ The incremental snapshots are stored in VM’s storage account, which are used f
 
 
 ## Upgrading to Instant Restore
-If you use the Azure portal, you will see a notification on the vault dashboard. This notification relates to large-disk support and backup and restore speed improvements. Alternatively you can go to Properties page of the vault to get the upgrade option.
 
+If you use the Azure portal, you will see a notification on the vault dashboard. This notification relates to large-disk support and backup and restore speed improvements.
 
 ![Backup job in VM backup stack Resource Manager deployment model--support notification](./media/backup-azure-vms/instant-rp-banner.png)
 
 To open a screen for upgrading to Instant Restore, select the banner.
 
 ![Backup job in VM backup stack Resource Manager deployment model--upgrade](./media/backup-azure-vms/instant-rp.png)
+
+Alternatively you can go to **Properties** page of the vault to get the **Upgrade** option under **VM backup stack**.
+
+![Backup job in VM backup stack -- Properties page](./media/backup-azure-vms/instant-restore-capability-properties.png)
+
 
 ## Upgrade to Instant Restore using PowerShell
 

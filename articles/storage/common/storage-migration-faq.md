@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.component: common
+ms.subservice: common
 ---
 # Frequently asked questions about Azure Storage migration
 

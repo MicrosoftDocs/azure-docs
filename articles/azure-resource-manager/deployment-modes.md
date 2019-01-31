@@ -10,23 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 01/24/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager deployment modes
 
 When deploying your resources, you specify that the deployment is either an incremental update or a complete update.  The primary difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. The default mode is incremental.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Incremental and complete deployments
 
-When deploying resources:
+For both modes, Resource Manager tries to create all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, no operation is taken for that resource. If you change the property values for a resource, the resource is updated with those new values. If you try to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.
 
-* In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template.
-* In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template.
+In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template. Resources that are specified in the template, but not deployed because a [condition](resource-manager-templates-resources.md#condition) evaluates to false, aren't deleted.
 
-For both modes, Resource Manager tries to create all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, the operation results in no change. If you change the property values for a resource, the resource is updated with those new values. If you try to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.
-
-When redeploying a resource in incremental mode, specify all property values for the resource, not just the ones you're updating. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
+In incremental mode, Resource Manager **leaves unchanged** resources that exist in the resource group but aren't specified in the template. When redeploying a resource in incremental mode, specify all property values for the resource, not just the ones you're updating. If you don't specify certain properties, Resource Manager interprets the update as overwriting those values.
 
 ## Example result
 
@@ -62,7 +61,7 @@ When deployed in **complete** mode, Resource C is deleted. The resource group ha
 To set the deployment mode when deploying with PowerShell, use the `Mode` parameter.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `

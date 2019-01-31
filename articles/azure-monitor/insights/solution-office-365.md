@@ -10,7 +10,7 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/24/2019
 ms.author: bwren
 ---
 # Office 365 management solution in Azure (Preview)
@@ -23,7 +23,7 @@ The Office 365 management solution allows you to monitor your Office 365 environ
 - Monitor administrator activities to track configuration changes or high privilege operations.
 - Detect and investigate unwanted user behavior, which can be customized for your organizational needs.
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
-- Perform operational troubleshooting by using [log searches](../../azure-monitor/log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
+- Perform operational troubleshooting by using [log searches](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
 
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
@@ -34,7 +34,7 @@ The following is required prior to this solution being installed and configured.
  
 
 ## Management packs
-This solution does not install any management packs in [connected management groups](../../azure-monitor/platform/om-agents.md).
+This solution does not install any management packs in [connected management groups](../platform/om-agents.md).
   
 ## Install and configure
 Start by adding the [Office 365 solution to your subscription](solutions.md#install-a-management-solution). Once it's added, you must perform the configuration steps in this section to give it access to your Office 365 subscription.
@@ -152,7 +152,7 @@ To enable the administrative account for the first time, you must provide admini
     AdminConsent -ErrorAction Stop
     ```
 
-2. Run the script with the following command.
+2. Run the script with the following command. You will be prompted twice for credentials. Provide the credentials for your Log Analytics workspace first and then the global admin credentials for your Office 365 tenant.
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
@@ -345,7 +345,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
 
 ### Troubleshooting
 
-You may see the following error if you attempt to create a subscription after the subscription already exists.
+You may see the following error if your application is already subscribed to this workspace or if this tenant is subscribed to another workspace.
 
 ```
 Invoke-WebRequest : {"Message":"An error has occurred."}
@@ -388,7 +388,7 @@ You can remove the Office 365 management solution using the process in [Remove a
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -470,7 +470,7 @@ You can remove the Office 365 management solution using the process in [Remove a
 
 ## Data collection
 ### Supported agents
-The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../../azure-monitor/platform/agent-data-sources.md).  It retrieves data directly from Office 365.
+The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../platform/agent-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
 It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created. This record is available in Log Analytics within a few minutes after being received.
@@ -702,6 +702,6 @@ The following table provides sample log searches for update records collected by
 
 
 ## Next steps
-* Use Log Searches in [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed update data.
-* [Create your own dashboards](../../azure-monitor/platform/dashboards.md) to display your favorite Office 365 search queries.
-* [Create alerts](../../azure-monitor/platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  
+* Use Log Searches in [Log Analytics](../log-query/log-query-overview.md) to view detailed update data.
+* [Create your own dashboards](../learn/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
+* [Create alerts](../platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  

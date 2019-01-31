@@ -4,7 +4,7 @@ description: Learn how to download an audit report using the Azure portal
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -23,7 +23,7 @@ ms.reviewer: dhanyahk
 
 # Quickstart: Download an audit report using the Azure portal
 
-In this quickstart, you learn how to download the audit logs for your tenant for the past 24 hours.
+In this quickstart, you learn how to download the audit logs for your tenant for the past 24 hours. You can download up to 5000 records from the Azure portal. The records are sorted by most recent so by default, you get the most recent 5000 records. 
 
 ## Prerequisites
 
