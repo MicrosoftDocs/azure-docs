@@ -135,7 +135,7 @@ These instructions are for building the sample from. For other environments, see
 
     [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_tracing&highlight=5)]
 
-    By calling `IoTHubDeviceClient_LL_EnablePolicyConfiguration`, the IoT C SDK registers an internal asynchronous callback that is called in response to changes to the distributed tracing configuration. This means this single line of code enables the device to respond to changes to the distributed tracing changes on the device twin.
+    By calling `IoTHubDeviceClient_LL_EnablePolicyConfiguration`, the IoT C SDK registers an internal asynchronous callback that is called in response to changes to the distributed tracing configuration. This means this single line of code enables the device to respond to distributed tracing changes made on the [device twin](./iot-hub-devguide-device-twins.md).
 
 1. Navigate to the *iothub_ll_telemetry_sample* project directory from the CMake directory (`azure-iot-sdk-c/cmake`) you created earlier, and compile the sample:
 
