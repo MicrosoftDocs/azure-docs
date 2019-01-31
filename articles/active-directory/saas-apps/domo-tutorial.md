@@ -131,7 +131,7 @@ To configure Azure AD single sign-on with Domo, perform the following steps:
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
-	| Name identifier value | user.userprinicipalname |
+	| nameidentifier | user.userprinicipalname |
 	| name | user.displayname |
 	| email | user.mail |
 
