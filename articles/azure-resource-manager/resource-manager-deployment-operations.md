@@ -22,7 +22,10 @@ You can view the operations for a deployment through the Azure portal. You may b
 
 You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This article shows both methods. For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Portal
+
 To see the deployment operations, use the following steps:
 
 1. For the resource group involved in the deployment, notice the status of the last deployment. You can select this status to get more details.
@@ -49,28 +52,28 @@ To see the deployment operations, use the following steps:
     ![see events](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## PowerShell
-1. To get the overall status of a deployment, use the **Get-AzureRmResourceGroupDeployment** command. 
+1. To get the overall status of a deployment, use the **Get-AzResourceGroupDeployment** command. 
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
    Or, you can filter the results for only those deployments that have failed.
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
 1. To get the correlation ID, use:
 
   ```powershell
-  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
   ```
 
-1. Each deployment includes multiple operations. Each operation represents a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
+1. Each deployment includes multiple operations. Each operation represents a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
-  Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
     Which returns multiple operations with each one in the following format:
@@ -88,7 +91,7 @@ To see the deployment operations, use the following steps:
 1. To get more details about failed operations, retrieve the properties for operations with **Failed** state.
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
     Which returns all the failed operations with each one in the following format:
@@ -111,7 +114,7 @@ To see the deployment operations, use the following steps:
 1. To get the status message of a particular failed operation, use the following command:
 
   ```powershell
-  ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
   ```
 
     Which returns:
@@ -126,9 +129,9 @@ To see the deployment operations, use the following steps:
   You get that information from the log, and save it locally by using the following PowerShell commands:
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
 ## Azure CLI

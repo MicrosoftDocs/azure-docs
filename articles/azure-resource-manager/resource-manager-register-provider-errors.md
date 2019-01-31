@@ -20,6 +20,8 @@ ms.author: tomfitz
 
 This article describes the errors you may encounter when using a resource provider that you haven't previously used in your subscription.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Symptom
 
 When deploying resource, you may receive the following error code and message:
@@ -49,28 +51,28 @@ You receive these errors for one of three reasons:
 
 ## Solution 1 - PowerShell
 
-For PowerShell, use **Get-AzureRmResourceProvider** to see your registration status.
+For PowerShell, use **Get-AzResourceProvider** to see your registration status.
 
 ```powershell
-Get-AzureRmResourceProvider -ListAvailable
+Get-AzResourceProvider -ListAvailable
 ```
 
-To register a provider, use **Register-AzureRmResourceProvider** and provide the name of the resource provider you wish to register.
+To register a provider, use **Register-AzResourceProvider** and provide the name of the resource provider you wish to register.
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 ```
 
 To get the supported locations for a particular type of resource, use:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 To get the supported API versions for a particular type of resource, use:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 ```
 
 ## Solution 2 - Azure CLI
