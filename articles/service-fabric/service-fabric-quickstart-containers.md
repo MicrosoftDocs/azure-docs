@@ -149,6 +149,10 @@ Open a browser and navigate to the address that you put into the **Connection En
  You should see the IIS default web page:
 ![IIS default web page][iis-default]
 
+## Clean up
+
+You continue to incur charges while the cluster is running. Consider [deleting your cluster](service-fabric-cluster-delete.md).
+
 ## Next steps
 
 In this quickstart, you learned how to:
