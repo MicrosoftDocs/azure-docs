@@ -23,8 +23,8 @@ In this tutorial, you learn how to integrate iProva with Azure Active Directory 
 Integrating iProva with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to iProva.
-* You can enable your users to be automatically signed-in to iProva (single sign-on) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can enable your users to be automatically signed in to iProva (single sign-on) with their Azure AD accounts.
+* You can manage your accounts in one central location, the Azure portal.
 
 For more information about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -46,7 +46,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of iProva into Azure AD, add iProva from the gallery to your list of managed SaaS apps.
 
-To add iProva from the gallery, follow these steps.
+To add iProva from the gallery, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
 
