@@ -27,6 +27,7 @@ To provide redundancy to your application, we recommend that you group two or mo
 To provide redundancy to your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
 
 ## Use Managed Disks to improve data reliability
+
 Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Advisor will identify these availability sets and recommend migrating to Azure Managed Disks. This will ensure that the disks of the different virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
 
 ## Ensure application gateway fault tolerance
