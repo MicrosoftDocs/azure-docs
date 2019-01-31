@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 09/30/2018
+ms.date: 01/31/2019
 ms.author: mbaldwin
 ---
 
@@ -12,7 +12,7 @@ ms.author: mbaldwin
 |---|---|--|
 | Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes |  |
 | Encryption in Transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Support standard HTTPS/TLS mechanisms.  Users can also encrypt data before it is transmitted to the service. |
-| Encryption Key Handling (CMK, BYOK, etc.)| Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Encryption Key Handling (CMK, BYOK, etc.)| Yes | See [Storage Service Encryption using customer-managed keys in Azure Key Vault](../articles/storage/common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Column Level Encryption (Azure Data Services)| N/A |  |
 | API calls encrypted| Yes |  |
 
@@ -23,7 +23,7 @@ ms.author: mbaldwin
 | Service Endpoint support| Yes |  |
 | vNET Injection support| N/A |  |
 | Network Isolation / Firewalling support| Yes | |
-| Support forforced tunneling | N/A |  |
+| Support for forced tunneling | N/A |  |
 
 ## Detection
 
@@ -43,11 +43,11 @@ ms.author: mbaldwin
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control/Management Plan Logging and Audit| Yes | ARM Activity Log |
+| Control/Management Plan Logging and Audit | Yes | Azure Resource Manager Activity Log |
 | Data plane Logging and Audit| Yes | Service Diagnostic Logs, and Azure Monitor Logging starting preview  |
 
 ## Configuration Management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Configuration management support (versioning of configuration etc)| Yes | Support Resource Provider versioning through ARM APIs |
+| Configuration management support (versioning of configuration etc)| Yes | Support Resource Provider versioning through Azure Resource Manager APIs |

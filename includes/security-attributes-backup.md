@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: backup
 ms.topic: include
-ms.date: 01/10/2019
+ms.date: 01/31/2019
 ms.author: mbaldwin
 ---
 
@@ -22,8 +22,8 @@ ms.author: mbaldwin
 |---|---|--|
 | Service Endpoint support| No |  |
 | vNET Injection support| No |  |
-| Network Isolation / Firewalling support| Yes | Forced tunneling is supported for VM backup. Forced tunneling is not supported for workloads running inside VMs. |
-| Support forforced tunneling | No |  |
+| Network Isolation / Firewalling support| Yes | Forced tunneling is supported for VM backup. Forced tunneling is not supported for workloads running inside VMs. |
+| Support for forced tunneling | No |  |
 
 ## Detection
 

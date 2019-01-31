@@ -8,7 +8,7 @@ manager: mbaldwin
 ms.service: backup
 
 ms.topic: conceptual
-ms.date: 09/30/2018
+ms.date: 01/31/2019
 ms.author: mbaldwin
 
 ---

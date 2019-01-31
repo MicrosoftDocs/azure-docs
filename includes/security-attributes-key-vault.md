@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 01/10/2019
+ms.date: 01/31/2019
 ms.author: mbaldwin
 ---
 
@@ -23,7 +23,7 @@ ms.author: mbaldwin
 | Service Endpoint support| Yes | Using Virtual Network (Vnet) service endpoints. |
 | vNET Injection support| No |  |
 | Network Isolation / Firewalling support| Yes | Using Vnet firewall rules. |
-| Support forforced tunneling | No |  |
+| Support for forced tunneling | No |  |
 
 ## Detection
 

@@ -2,7 +2,7 @@
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: include
-ms.date: 09/30/2018
+ms.date: 01/31/2019
 ms.author: mbaldwin
 ---
 
@@ -22,8 +22,8 @@ ms.author: mbaldwin
 |---|---|--|
 | Service Endpoint support| Yes |  |
 | vNET Injection support| Yes |  |
-| Network Isolation / Firewalling support| Yes | Using networking security groups (NSG). |
-| Support forforced tunneling | Yes | Azure networking provides forced tunneling. |
+| Network Isolation / Firewalling support| Yes | Using networking security groups (NSG). |
+| Support for forced tunneling | Yes | Azure networking provides forced tunneling. |
 
 ## Detection
 
