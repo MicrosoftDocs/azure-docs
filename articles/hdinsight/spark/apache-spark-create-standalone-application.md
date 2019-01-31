@@ -99,8 +99,8 @@ Perform the following steps to install the Scala plugin:
 
 7. Provide relevant values for **GroupId**, **ArtifactId**, and **Version**. The following values are used in this tutorial:
 
-    - GroupId: com.microsoft.spark.example
-    - ArtifactId: SparkSimpleApp
+    - **GroupId:** com.microsoft.spark.example
+    - **ArtifactId:** SparkSimpleApp
 
 8. Select **Next**.
 
