@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: magoedte
 ---
 
@@ -25,11 +25,11 @@ This article will help you understand how to quickly assess, investigate, and re
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](vminsights-onboard.md).
 
 >[!NOTE]
->Starting February 15, 2019 we will begin migrating you from the current health model in Azure Monitor for VMs health feature, which is visible when you're in the Health diagnostics experience today, to a new version of the health model. This update improves the performance of health rollup processing and includes a refined health model presented in the Health diagnostics view. 
+>Starting February 11, 2019 we will begin migrating you from the current health model in Azure Monitor for VMs health feature, which is visible when you're in the Health diagnostics experience today, to a new version of the health model. This update improves the performance of health rollup processing and includes a refined health model presented in the Health diagnostics view. 
 >
 >With the new health model, rollup of child health criteria to parent/entity level health criteria will be faster, and as a result, health state of the parent updates to the desired or targeted state with less latency. You can still filter the health criteria under the **Performance** and **Availability** categories unlike the previous tab-based method to select either category in the view.
 >
->For more details on the new Health diagnostics experience, please refer the Health diagnostics [section](#health-diagnostics) in this article. 
+>For more details about the Health diagnostics experience, please refer the Health diagnostics [section](#health-diagnostics) in this article. 
 >
 >This update will improve the following: 
 >
@@ -103,12 +103,14 @@ To view the health of an Azure VM, select **Insights (preview)** from the left-h
 
 On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. Refer to [Alerting and an alert management](#alerting-and-alert-management) for more details.  
 
-The health states defined for a VM are: 
+The health states defined for a VM are described in the following table: 
 
-* **Healthy** – no issues detected for the VM and it is functioning as required.  
-* **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal functionality as expected. 
-* **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.  
-* **Unknown** – if the service was not able to make a connection with the VM, the status changes to an unknown state.  
+|Icon |Health state |Meaning |
+|-----|-------------|------------|
+| |Healthy |Health state is healthy if it is within the defined health conditions, indicating no issues detected for the VM and it is functioning as required. In the case of a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
+| |Critical |Health state is critical if it is not within the defined health condition, indicating that one or more critical issues were detected, which need to be addressed in order to restore normal functionality. In the case of a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
+| |Warning |Health state is warning if it is between two thresholds for the defined health condition, where one indicates a *Warning* state and the other indicates a *Critical* state (three user controlled states are possible), or when a non-critical issue is detected which may cause critical problems if not resolved. In the case of a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect *warning* state. If there is a child that is in a *Critical* and another child in a *Warning* state, the parent rollup will show a health state of *Critical*.|
+| |Unknown |Health state is in an *Unknown* state when the health state cannot be computed for several reasons, such as not able to collect data, service uninitialized, etc. This is not a user controlled state.| 
 
 Selecting **View health diagnostics** opens a page showing all the components of the VM, associated health criteria, state changes, and other significant issues encountered by monitoring components related to the VM. For more information, see [Health diagnostics](#health-diagnostics). 
 
@@ -186,16 +188,7 @@ Health Diagnostics organizes health information into the following categories:
  
 All health criteria defined for a specific component such as logical disk, CPU, etc. Additionally, the category of the monitor can be seen next to it in the **Health Criteria** column.  
 
-State of a health criteria is defined by one of the four states – *Critical*, *Warning*, *Healthy*, and *Unknown*. The first three are configurable, meaning you can modify the threshold values of the monitors using the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Unknown* is not configurable and reserved for specific scenarios as described in the table below.  
-
-The following table provides details on the health states represented in Health Diagnostics.
-
-|Icon |Health state |Meaning |
-|-----|-------------|------------|
-| |Healthy |Health state is healthy if it is within the defined health conditions, indicating no issues detected for the VM such taht it is functioning as required. In the case of a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
-| |Critical |Health state is critical if it is not within the defined health condition, indicating that one or more critical issues were detected, which need to be addressed in order to restore normal functionality. In the case of a parent rollup monitor, health rolls-up and it reflects the best-case or worst-case state of the child.|
-| |Warning |Health state is warning if it is between two thresholds for the defined health condition, where one indicates a *Warning* state and the other indicates a *Critical* state (three user controlled states are possible), or when a non-critical issue is detected which may cause critical problems if not resolved. In the case of a parent rollup monitor, if one or more of the children is in a warning state, then the parent will reflect *warning* state. If there is a child that is in a *Critical* and another child in a *Warning* state, the parent rollup will show a health state of *Critical*.|
-| |Unknown |Health state is in an *Unknown* state when the health state cannot be computed for several reasons, such as not able to collect data, service uninitialized etc. This is not a user controlled state.| 
+State of a health criteria is defined by one of the four states – *Critical*, *Warning*, *Healthy*, and *Unknown*. The first three are configurable, meaning you can modify the threshold values of the monitors using the [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Unknown* is not configurable and reserved for specific scenarios.  
 
 Health diagnostics page has three main sections:
 
@@ -228,7 +221,7 @@ The overall health of a target is determined by the health of each of its health
 In the configuration pane for the selected health criteria, using the example **Average Disk Seconds Per Write**, its threshold can be configured with a different numeric value. It is a two-state monitor, meaning it only changes from healthy to warning. Other health criterion may be three state, where you can configure the value for the warning and critical health state threshold.  
 
 >[!NOTE]
->Applying health criteria configuration changes to one instance is applied to all monitored instances.  For example, if you select **Physical Disk -1 D:** and modify the **Average Disk Seconds Per Write** threshold, it doesn't apply to only that instance, but all other disk instances discovered and monitored on the VM.
+>Applying health criteria configuration changes to one instance is applied to all monitored instances.  For example, if you select **Disk -1 D:** and modify the **Average Disk Seconds Per Write** threshold, it doesn't apply to only that instance, but all other disk instances discovered and monitored on the VM.
 >
 
 ![Configuring a health criteria of a unit monitor example](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
@@ -247,7 +240,7 @@ The three columns are interlinked with each other. When you select a discovered 
 
 ![Example of selecting monitored instance and results](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-In the above example, when you select **Physical Disk - 1 D:**, the Health Criteria tree is filtered to **Physical Disk - 1D:**. The **State Change** column shows the state change based on the availability of **Physical Disk - 1 D:**. 
+In the above example, when you select **Disk - 1 D:**, the Health Criteria tree is filtered to **Disk - 1D:**. The **State Change** column shows the state change based on the availability of **Disk - 1 D:**. 
 
 To see an updated health state, you can refresh the Health Diagnostics page by clicking the **Refresh** link.  If there is an update to the health criterion's health state based on the pre-defined polling interval, this task allows you to avoid waiting and reflects the latest health state.  The **Health Criteria State** is a filter allowing you to scope the results based on the selected health state - *Healthy*, *Warning*, *Critical*, *Unknown*, and *All*.  The **Last Updated** time in the top right corner represents the last time when the Health Diagnostics page was refreshed.  
 
