@@ -55,9 +55,9 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 
 > You can only have one Sync Database per region and subscription.
 
->Sync Database cannot be deleted or renamed while sync groups or sync agents exist. Please do not manually change or remove any of these objects. Manually removing them from the database will not guarantee you can delete or rename the database because links to the Azure backend will still remain.
+>Sync Database cannot be deleted or renamed while sync groups or sync agents exist. Please do not manually change or remove any of these objects. Manually removing them from the database will not guarantee you can delete or rename the database because links to the Azure backend will remain.
 
->You can re-use the same database as Hub or Member, but we recommend you to use a dedicated database as Sync Database.
+>You can re-use the same database as Hub or Member, but we recommend you use a dedicated database as Sync Database.
 
 > [!NOTE]
 > If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
