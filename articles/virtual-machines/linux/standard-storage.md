@@ -9,7 +9,7 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
-ms.component: disks
+ms.subservice: disks
 ---
 
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]
