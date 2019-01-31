@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/25/2019
+ms.date: 01/25/2019
 ms.author: jeedes
 
 ---
@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with Euromonitor Passport, perform the foll
 	| Name | Source Attribute|
 	| ---------------| --------- |
 	| Name identifier value | user.userprincipalname |
-	| Mail | user.mail |
+	| emailaddress | user.mail |
 
 	> [!NOTE]
 	> Client admins can add/change attributes as per their need.

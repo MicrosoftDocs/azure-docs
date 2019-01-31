@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized Web service.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding
