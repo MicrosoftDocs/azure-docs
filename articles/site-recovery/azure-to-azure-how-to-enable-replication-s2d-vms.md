@@ -16,7 +16,7 @@ ms.author: asgang
 This article describes how to enable disaster recovery of Azure VMs running storage spaces direct.
 
 >[!NOTE]
->Only crash consistent points are supported for storage spaces direct clusters.
+>Only crash consistent recovery points are supported for storage spaces direct clusters.
 >
 
 ##Introduction 
@@ -50,7 +50,8 @@ Below diagram shows the pictorial representation of two Azure VMs failover clust
 
 ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
-2. Go to replicated items and you can see both the virtual machine status.
+2. Go to replicated items and you can see both the virtual machine status. 
+3. Both the virtual machines are getting protected and are also shown as part of multi-VM consistency group.
 
 ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
