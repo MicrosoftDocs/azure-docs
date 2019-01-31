@@ -45,7 +45,7 @@
     href: search-indexer-tutorial.md
   - name: Add synonyms in .NET
     href: search-synonyms-tutorial-sdk.md
-  - name: Add auto-complete in .NET
+  - name: Add autocomplete in .NET
     href: search-autocomplete-tutorial.md
 - name: Samples
   items:
@@ -121,7 +121,7 @@
         href: how-to-custom-analyzers-in-azure-search.md
     - name: Auto-suggestions
       href: how-to-suggesters.md
-    - name: Auto-complete
+    - name: autocomplete
       href: how-to-autocomplete.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
@@ -137,15 +137,15 @@
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
-    - name: Rebuild an index
-      href: search-howto-reindex.md
     - name: Import data (portal)
       href: search-import-data-portal.md
+    - name: Rebuild an index
+      href: search-howto-reindex.md
     - name: Index large data sets
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-    - name: Indexers
+    - name: Indexers (crawlers)
       items:
       - name: Indexers overview
         href: search-indexer-overview.md
@@ -189,15 +189,15 @@
       href: cognitive-search-resources-documentation.md
   - name: Querying data
     items:
-    - name: Query types & composition
+    - name: Create a basic query
       href: search-query-overview.md
-    - name: Search explorer (portal)
+    - name: Search Explorer (portal)
       href: search-explorer.md
     - name: Simple syntax examples 
       href: search-query-simple-examples.md
     - name: Lucene syntax examples
       href: search-query-lucene-examples.md
-    - name: Query reference
+    - name: Query syntax
       items:
       - name: Simple query syntax
         href: how-to-simple-query-syntax-in-azure-search.md
@@ -205,18 +205,16 @@
         href: how-to-lucene-query-syntax-in-azure-search.md
     - name: Paging results
       href: search-pagination-page-layout.md
-    - name: Filters
-      items:
-      - name: Filter overview
-        href: search-filters.md
-      - name: Facet filters
-        href: search-filters-facets.md
-      - name: Filter expression syntax
-        href: how-to-odata-expression-syntax-for-azure-search.md
-      - name: OData support
-        href: how-to-support-for-odata.md
-    - name: Performance & optimization
-      href: search-performance-optimization.md
+  - name: Filtering and sorting data
+    items:
+    - name: Filter overview
+      href: search-filters.md
+    - name: Facet filters
+      href: search-filters-facets.md
+    - name: Filter and OrderBy expression syntax
+      href: how-to-odata-expression-syntax-for-azure-search.md
+    - name: OData support
+      href: how-to-support-for-odata.md
   - name: Relevance tuning
     items:
     - name: Add scoring profiles

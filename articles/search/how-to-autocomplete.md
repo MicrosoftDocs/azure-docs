@@ -1,16 +1,11 @@
 ---
-title: "Autocomplete (Azure Search Service REST API)"
-ms.custom: ""
-ms.date: "2018-12-14"
+title: Add autocomplete in Azure Search solutions - Azure Search
+description: Autofill a search box by completing a partial search term input with existing terms in your index.
+ms.date: 01/31/2019
 services: search
 ms.service: search
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-applies_to:
-  - "Azure"
-ms.assetid: b3fed159-774d-42e0-8ded-ee453f6cd857
-caps.latest.revision: 32
+
+ms.topic: conceptual
 author: "yahnoosh"
 ms.author: "jlembicz"
 manager: "pablocas"
@@ -26,12 +21,12 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Autocomplete (Azure Search Service REST API)
+# Add autocomplete support in an Azure Search index
 
 > [!NOTE]  
-> Autocomplete API is a preview feature and is not intended to be used in production code. Preview features are subject to change and are exempt from the service level agreement (SLA). A list of the most recent REST API and SDK versions can be found [here](https://docs.microsoft.com/azure/search/search-api-versions). Refer to this [.NET code sample](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) and [tutorial](https://docs.microsoft.com/azure/search/search-autocomplete-tutorial) to learn more about autocomplete.
+> Autocomplete API is a preview feature and is not intended to be used in production code. Preview features are subject to change and are exempt from the service level agreement (SLA). A list of the most recent REST API and SDK versions can be found [Azure Search API versions](search-api-versions.md). Refer to this [.NET code sample](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) and [tutorial](search-autocomplete-tutorial.md) to learn more about autocomplete.
 
-The **Autocomplete API** helps users issue better search queries by completing partial search terms based on terms from an index. For example, if the query term is "medic", the Autocomplete API will return "medicare", "medicaid", "medicine" if those terms are in the index. Specifically, the search engine looks for matching terms in fields that have a [**Suggester**](suggesters.md) configured.
+The **Autocomplete API** helps users issue better search queries by completing partial search terms based on terms from an index. For example, if the query term is "medic", the Autocomplete API will return "medicare", "medicaid", "medicine" if those terms are in the index. Specifically, the search engine looks for matching terms in fields that have a [**Suggester API**](https://docs.microsoft.com/rest/api/searchservice/autocomplete) configured.
 
  **Autocomplete Modes**  
 

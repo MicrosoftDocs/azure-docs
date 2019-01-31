@@ -1,10 +1,10 @@
 ---
-title: "Add scoring profiles to a search index (Azure Search Service REST API) | Microsoft Docs"
+title: Add scoring profiles to a search index - Azure Search
 description: Boost search rank scores for Azure Search search results by adding scoring profiles.
-ms.date: "10/17/2018"
+ms.date: 01/31/2019
 services: search
 ms.service: search
-ms.topic: "language-reference"
+ms.topic: conceptual
 author: "Brjohnstmsft"
 ms.author: "brjohnst"
 ms.manager: cgronlun
@@ -20,7 +20,8 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Add scoring profiles to a search index (Azure Search Service REST API)
+# Add scoring profiles to an Azure Search index
+
   Scoring refers to the computation of a *search score* for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item.  
 
  Azure Search uses default scoring to compute an initial score, but you can customize the calculation through a *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long.  
@@ -164,7 +165,7 @@ The search score is computed based on statistical properties of the data and the
 |**Weights**|Specify name-value pairs that assign a relative weight to a field. In the [Example](#bkmk_ex), the albumTitle, genre, and artistName fields are boosted 1.5, 5, and 2 respectively. Why is genre boosted so much higher than the others? If search is conducted over data that is somewhat homogenous (as is the case with 'genre' in the `musicstoreindex`), you might need a larger variance in the relative weights. For example, in the `musicstoreindex`, ‘rock’ appears as both a genre and in identically phrased genre descriptions. If you want genre to outweigh genre description, the genre field will need a much higher relative weight.|  
 |**Functions**|Used when additional calculations are required for specific contexts. Valid values are `freshness`, `magnitude`, `distance`, and `tag`. Each function has parameters that are unique to it.<br /><br /> -   `freshness` should be used when you want to boost by how new or old an item is. This function can only be used with `datetime` fields (edm.DataTimeOffset). Note the `boostingDuration` attribute is used only with the `freshness` function.<br />-   `magnitude` should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with double and integer fields.<br />     For the `magnitude` function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set `boostingRangeStart` at 100 and `boostingRangeEnd` at 1 to boost the lower-priced items.<br />-   `distance` should be used when you want to boost by proximity or geographic location. This function can only be used with `Edm.GeographyPoint` fields.<br />-   `tag` should be used when you want to boost by tags in common between documents and search queries. This function can only be used with `Edm.String` and `Collection(Edm.String)` fields.<br /><br /> **Rules for using functions**<br /><br /> Function type (`freshness`, `magnitude`, `distance`), `tag` must be lower case.<br /><br /> Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.<br /><br /> Functions can only be applied to filterable fields. See [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) for more information about filterable fields.<br /><br /> Functions can only be applied to fields that are defined in the fields collection of an index.|  
 
- After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) and [Add, Update or Delete Documents &#40;Azure Search Service REST API&#41;](addupdate-or-delete-documents.md) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.  
+ After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) and [Add, Update or Delete Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.  
 
 ##  <a name="bkmk_template"></a> Template  
  This section shows the syntax and template for scoring profiles. Refer to [Index attributes reference](#bkmk_indexref) in the next section for descriptions of the attributes.  
@@ -259,7 +260,7 @@ The search score is computed based on statistical properties of the data and the
 |`Quadratic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Quadratic will initially decrease at smaller pace and then as it approaches the end range, it decreases at a much higher interval. This interpolation option is not allowed in tag scoring functions.|  
 |`Logarithmic`|In comparison to a Linear interpolation that has a constantly decreasing boost, Logarithmic will initially decrease at higher pace and then as it approaches the end range, it decreases at a much smaller interval. This interpolation option is not allowed in tag scoring functions.|  
 
- ![Constant, linear, quadratic, log10 lines on graph](media/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
+ ![Constant, linear, quadratic, log10 lines on graph](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
 ##  <a name="bkmk_boostdur"></a> Set boostingDuration  
  `boostingDuration` is an attribute of the `freshness` function. You use it to set an expiration period after which boosting will stop for a particular document. For example, to boost a product line or brand for a 10-day promotional period, you would specify the 10-day period as "P10D" for those documents.  
@@ -278,6 +279,6 @@ The search score is computed based on statistical properties of the data and the
  For more examples, see [XML Schema: Datatypes (W3.org web site)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration).  
 
 ## See also  
- [Azure Search Service REST](index.md)   
+ [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

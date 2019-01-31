@@ -1,10 +1,10 @@
 ---
-title: "Suggesters (Azure Search Service REST API) | Microsoft Docs"
+title: Add suggesters to an Azure Search index
 description: Enables fields for type-ahead query actions, where suggested queries are composed of text from fields in an Azure Search index.
-ms.date: "2017-07-17"
+ms.date: 01/31/2019
 services: search
 ms.service: search
-ms.topic: "language-reference"
+ms.topic: conceptual
 
 author: "Brjohnstmsft"
 ms.author: "brjohnst"
@@ -21,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Suggesters
+# Add suggesters to an Azure Search index
 
 A **Suggester** is a construct supporting the "search-as-you-type" [Suggestions](suggestions.md) feature in Azure Search. Before you can call the Suggestions API, you must define a **suggester** to enable suggestions on specific fields.
 

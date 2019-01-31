@@ -1,10 +1,10 @@
 ---
-title: "OData expression syntax for filters and order-by clauses in Azure Search | Microsoft Docs"
+title: OData expression syntax for filters and order-by clauses - Azure Search
 description: Filter and order-by expression OData syntax for Azure Search queries.
-ms.date: "07/24/2018"
+ms.date: 01/31/2019
 services: search
 ms.service: search
-ms.topic: "language-reference"
+ms.topic: conceptual
 author: "Brjohnstmsft"
 ms.author: "brjohnst"
 ms.manager: cgronlun
@@ -53,7 +53,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 -   Comparison expressions (`eq, ne, gt, lt, ge, le`). String comparisons are case-sensitive.  
 
--   Constants of the supported [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) types (see [Supported data types &#40;Azure Search&#41;](supported-data-types.md) for a list of supported types). Constants of collection types are not supported.  
+-   Constants of the supported [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM) types (see [Supported data types &#40;Azure Search&#41;](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for a list of supported types). Constants of collection types are not supported.  
 
 -   References to field names. Only `filterable` fields can be used in filter expressions.  
 
@@ -69,7 +69,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 -   Geospatial functions `geo.distance` and `geo.intersects`. The `geo.distance` function returns the distance in kilometers between two points, one being a field and one being a constant passed as part of the filter. The `geo.intersects` function returns true if a given point is within a given polygon, where the point is a field and the polygon is specified as a constant passed as part of the filter.  
 
-    The polygon is a two-dimensional surface stored as a sequence of points defining a bounding ring (see the example below). The polygon needs to be closed, meaning the first and last point sets must be the same. [Points in a polygon must be in counterclockwise order](Supported-data-types.md#Anchor_1).
+    The polygon is a two-dimensional surface stored as a sequence of points defining a bounding ring (see the example below). The polygon needs to be closed, meaning the first and last point sets must be the same. [Points in a polygon must be in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
     `geo.distance` returns distance in kilometers in Azure Search. This differs from other services that support OData geospatial operations, which typically return distances in meters.  
 
@@ -94,7 +94,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
     where: 
   
-    - `search`: the search query (in either [simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or [full](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) query syntax). 
+    - `search`: the search query (in either [simple](how-to-simple-query-syntax-in-azure-search.md) or [full](how-to-lucene-query-syntax-in-azure-search.md) query syntax). 
     - `queryType`: "simple" or "full", defaults to "simple". Specifies what query language was used in the `search` parameter.
     - `searchFields`: comma-separated list of searchable fields to search in, defaults to all searchable fields in the index.    
     - `searchMode`: "any" or "all", defaults to "any". Indicates whether any or all of the search terms must be matched in order to count the document as a match.
@@ -182,7 +182,7 @@ $filter=tags/any()
 $filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10  
 ```  
 
- Find all hotels within a given viewport described as a polygon (where location is a field of type Edm.GeographyPoint). Note that the polygon is closed (the first and last point sets must be the same) and [the points must be listed in counterclockwise order](Supported-data-types.md#Anchor_1).
+ Find all hotels within a given viewport described as a polygon (where location is a field of type Edm.GeographyPoint). Note that the polygon is closed (the first and last point sets must be the same) and [the points must be listed in counterclockwise order](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
 ```  
 $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')  
@@ -218,7 +218,7 @@ Find all hotels without the tag 'motel' nor 'cabin':
 $filter=tags/all(t: not search.in(t, 'motel, cabin'))  
 ```  
 
-Find documents with the word "waterfront". This filter query is identical to a [search request](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents) with `search=waterfront`.
+Find documents with the word "waterfront". This filter query is identical to a [search request](https://docs.microsoft.com/rest/api/searchservice/search-documents) with `search=waterfront`.
 
 ```
 $filter=search.ismatchscoring('waterfront')
@@ -243,7 +243,7 @@ Note, documents that matched only the second clause of the disjunction will be r
 $filter=search.ismatchscoring('"ocean view"', 'description,hotelName') or rating eq 5
 ```
 
-Find documents where the terms "hotel" and "airport" are within 5 words from each other in the description of the hotel, and where smoking is not allowed. This query uses the [full Lucene query language](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Find documents where the terms "hotel" and "airport" are within 5 words from each other in the description of the hotel, and where smoking is not allowed. This query uses the [full Lucene query language](how-tolucene-query-syntax-in-azure-search.md).
 
 ```
 $filter=search.ismatch('"hotel airport"~5', 'description', 'full', 'any') and not smokingAllowed 
@@ -300,8 +300,8 @@ $orderby=search.score() desc,rating desc,geo.distance(location, geography'POINT(
 
 ## See also  
 
-+ [Faceted navigation in Azure Search](https://azure.microsoft.com/documentation/articles/search-faceted-navigation/) 
-+ [Filters in Azure Search](https://docs.microsoft.com//azure/search/search-filters) 
++ [Faceted navigation in Azure Search](search-faceted-navigation.md) 
++ [Filters in Azure Search](search-filters.md) 
 + [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
-+ [Lucene query syntax](lucene-query-syntax-in-azure-search.md)
-+ [Simple query syntax in Azure Search](simple-query-syntax-in-azure-search.md)   
++ [Lucene query syntax](how-to-lucene-query-syntax-in-azure-search.md)
++ [Simple query syntax in Azure Search](how-to-simple-query-syntax-in-azure-search.md)   

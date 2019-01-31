@@ -1,10 +1,10 @@
 ---
-title: "Lucene query syntax in Azure Search | Microsoft Docs"
-description: "Reference for the full Lucene syntax as it is used with Azure Search."
+title: Lucene query syntax - Azure Search
+description: Reference for the full Lucene syntax, as used with Azure Search.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: "07/24/2018"
+ms.date: 01/31/2019
 
 author: "brjohnstmsft"
 ms.author: "brjohnst"
@@ -22,7 +22,7 @@ translation.priority.mt:
   - "zh-tw"
 ---
 # Lucene query syntax in Azure Search
-You can write queries against Azure Search based on the rich [Lucene Query Parser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture), with the exception of *range searches* which are constructed in Azure Search through `$filter` expressions. 
+You can write queries against Azure Search based on the rich [Lucene Query Parser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Search through `$filter` expressions. 
 
 ## How to invoke full parsing
 
@@ -51,10 +51,10 @@ POST /indexes/hotels/docs/search?api-version=2015-02-28
 }  
 ```  
 
-For additional examples, see [Lucene query syntax examples for building queries in Azure Search](https://azure.microsoft.com/documentation/articles/search-query-lucene-examples/). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+For additional examples, see [Lucene query syntax examples for building queries in Azure Search](search-query-lucene-examples.md). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
->  Azure Search also supports [Simple Query Syntax](simple-query-syntax-in-azure-search.md), a simple and robust query language that can be used for straightforward keyword search.  
+>  Azure Search also supports [Simple Query Syntax](how-to-simple-query-syntax-in-azure-search.md), a simple and robust query language that can be used for straightforward keyword search.  
 
 
 ##  <a name="bkmk_fields"></a> Field-scoped queries  
@@ -82,7 +82,7 @@ For additional examples, see [Lucene query syntax examples for building queries 
 ##  <a name="bkmk_termboost"></a> Term boosting  
  Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. This differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms.  
 
-The following example helps illustrate the differences. Suppose that there's a scoring profile that boosts matches in a certain field, say *genre* in the  [musicstoreindex example](add-scoring-profiles-to-a-search-index.md#bkmk_ex). Term boosting could be used to further boost certain search terms higher than others. For example, `rock^2 electronic` will boost documents that contain the search terms in the genre field higher than other searchable fields in the index. Further, documents that contain the search term *rock* will be ranked higher than the other search term *electronic* as a result of the term boost value (2).  
+The following example helps illustrate the differences. Suppose that there's a scoring profile that boosts matches in a certain field, say *genre* in the  [musicstoreindex example](how-to-add-scoring-profiles-to-a-search-index.md#bkmk_ex). Term boosting could be used to further boost certain search terms higher than others. For example, `rock^2 electronic` will boost documents that contain the search terms in the genre field higher than other searchable fields in the index. Further, documents that contain the search term *rock* will be ranked higher than the other search term *electronic* as a result of the term boost value (2).  
 
  To boost a term use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching. You can also boost phrases. The higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.20).  
 
@@ -109,7 +109,7 @@ Placement determines whether a symbol is interpreted as an operator or just anot
 
 For example, in Lucene full syntax, the tilde (~) is used for both fuzzy search and proximity search. When placed after a quoted phrase, ~ invokes proximity search. When placed at the end of a term, ~ invokes fuzzy search.
 
-Within a term, such as "business~analyst", the character is not evaluated as an operator. In this case, assuming the query is a term or phrase query, [full text search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture) with [lexical analysis](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis) strips out the ~ and breaks the term "business~analyst" in two: business OR analyst.
+Within a term, such as "business~analyst", the character is not evaluated as an operator. In this case, assuming the query is a term or phrase query, [full text search](search-lucene-query-architecture.md) with [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis) strips out the ~ and breaks the term "business~analyst" in two: business OR analyst.
 
 The example above is the tilde (~), but the same principle applies to every operator.
 
@@ -132,7 +132,7 @@ The example above is the tilde (~), but the same principle applies to every oper
 Field grouping is similar but scopes the grouping to a single field. For example, `hotelAmenities:(gym+(wifi||pool))` searches the field "hotelAmenities" for "gym" and "wifi", or "gym" and "pool".  
 
 ### SearchMode parameter considerations  
- The impact of `searchMode` on queries, as described in [Simple query syntax in Azure Search](simple-query-syntax-in-azure-search.md), applies equally to the Lucene query syntax. Namely, `searchMode` in conjunction with NOT operators can result in query outcomes that might seem unusual if you aren't clear on the implications of how you set the parameter. If you retain the default, `searchMode=any`, and use a NOT operator, the operation is computed as an OR action, such that "New York" NOT "Seattle" returns all cities that are not Seattle.  
+ The impact of `searchMode` on queries, as described in [Simple query syntax in Azure Search](how-to-simple-query-syntax-in-azure-search.md), applies equally to the Lucene query syntax. Namely, `searchMode` in conjunction with NOT operators can result in query outcomes that might seem unusual if you aren't clear on the implications of how you set the parameter. If you retain the default, `searchMode=any`, and use a NOT operator, the operation is computed as an OR action, such that "New York" NOT "Seattle" returns all cities that are not Seattle.  
 
 ##  <a name="bkmk_boolean"></a> Boolean operators  
  Always specify text boolean operators (AND, OR, NOT) in all caps.  
@@ -163,5 +163,5 @@ Using `searchMode=all` increases the precision of queries by including fewer res
 ## See also  
 
 + [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [OData expression syntax for filters and sorting](odata-expression-syntax-for-azure-search.md)   
-+ [Simple query syntax in Azure Search](simple-query-syntax-in-azure-search.md)   
++ [OData expression syntax for filters and sorting](how-to-odata-expression-syntax-for-azure-search.md)   
++ [Simple query syntax in Azure Search](how-to-simple-query-syntax-in-azure-search.md)   

@@ -1,10 +1,10 @@
 ---
-title: "Language analyzers (Azure Search Service REST API) | Microsoft Docs"
+title: Add language analyzers - Azure Search
 description: Multi-lingual lexical text analysis for non-English queries and indexes in Azure Search.
-ms.date: "2017-09-02"
+ms.date: 01/31/2019
 services: search
 ms.service: search
-ms.topic: "language-reference"
+ms.topic: conceptual
 author: "Yahnoosh"
 ms.author: "jlembicz"
 ms.manager: cgronlun
@@ -20,7 +20,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Language analyzers in Azure Search
+# Add language analyzers to an Azure Search index
 
 A *language analyzer* is a specific component of a [full-text search engine](https://docs.microsoft.com/azure/search/search-lucene-query-architecture) that performs lexical analysis using the linguistic rules of the target language. Every searchable field has an `analyzer` property. If your index contains translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.  
 

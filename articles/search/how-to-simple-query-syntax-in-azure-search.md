@@ -1,11 +1,10 @@
 ---
-title: "Simple query syntax in Azure Search  | Microsoft Docs"
-description: "Reference for the simple query syntax used for full text search queries in Azure Search"
+title: Simple query syntax - Azure Search
+description: Reference for the simple query syntax used for full text search queries in Azure Search.
 services: search
 ms.service: search
-ms.topic: "conceptual"
-ms.date: "07/24/2018"
-
+ms.topic: conceptual
+ms.date: 01/31/2019
 author: "brjohnstmsft"
 ms.author: "brjohnst"
 ms.manager: cgronlun
