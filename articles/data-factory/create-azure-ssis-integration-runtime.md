@@ -20,7 +20,7 @@ This article provides steps for provisioning Azure-SSIS Integration Runtime (IR)
 
 The [Tutorial: Deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) shows you how to create Azure-SSIS IR by using Azure SQL Database server to host SSIS catalog database (SSISDB). This article expands on the tutorial and shows you how to do the following things: 
 
-- Optionally use Azure SQL Database server with virtual network service endpoints/Managed Instance to host SSISDB. For guidance in choosing the type of database server to host SSISDB, see [Compare Azure SQL Database server and Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). As a prerequisite, you  need to join your Azure-SSIS IR to a virtual network and configure virtual network permissions/settings as necessary. See [Join Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+- Optionally use Azure SQL Database server with virtual network service endpoints/Managed Instance to host SSISDB. For guidance in choosing the type of database server to host SSISDB, see [Compare Azure SQL Database single databases/elastic pools and Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). As a prerequisite, you  need to join your Azure-SSIS IR to a virtual network and configure virtual network permissions/settings as necessary. See [Join Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
 - Optionally use Azure Active Directory (AAD) authentication with the managed identity for your ADF to connect to the database server. As a prerequisite, you will need to add the managed identity for your ADF as a contained database user capable of creating SSISDB in your Azure SQL Database server/Managed Instance, see [Enable AAD authentication for Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -46,16 +46,16 @@ When you provision Azure-SSIS IR, Azure Feature Pack for SSIS and Access Redistr
     - You are hosting SSISDB in Azure SQL Database server with virtual network service endpoints or in Managed Instance that is inside a virtual network. 
     - You want to connect to on-premises data stores from SSIS packages running on your Azure-SSIS IR. 
 
-- **Azure PowerShell**. Follow the instructions on [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps), if you want to run a PowerShell script to provision Azure-SSIS IR. 
+- **Azure PowerShell**. Follow the instructions on [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps), if you want to run a PowerShell script to provision Azure-SSIS IR. 
 
 ### Region support
 For a list of Azure regions, in which ADF and Azure-SSIS IR are currently available, see [ADF + SSIS IR availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
-### Compare SQL Database logical server and SQL Database Managed Instance
+### Compare SQL Database single database/elastic pool and SQL Database Managed Instance
 
 The following table compares certain features of Azure SQL Database server and Managed Instance as they relate to Azure-SSIR IR:
 
-| Feature | Azure SQL Database server| Managed Instance |
+| Feature | single database/elastic pool| Managed Instance |
 |---------|--------------|------------------|
 | **Scheduling** | SQL Server Agent is not available.<br/><br/>See [Schedule a package execution in ADF pipeline](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Managed Instance Agent is available. |
 | **Authentication** | You can create SSISDB with a contained database user representing any AAD group with the managed identity of your ADF as a member in the **db_owner** role.<br/><br/>See [Enable Azure AD authentication to create SSISDB in Azure SQL Database server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | You can create SSISDB with a contained database user representing the managed identity of your ADF. <br/><br/>See [Enable Azure AD authentication to create SSISDB in Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
@@ -65,9 +65,11 @@ The following table compares certain features of Azure SQL Database server and M
 | | | |
 
 ## Azure portal
+
 In this section, you use Azure portal, specifically ADF User Interface (UI)/app, to create Azure-SSIS IR. 
 
 ### Create a data factory 
+
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers. 
 1. Log in to the [Azure portal](https://portal.azure.com/). 
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**. 

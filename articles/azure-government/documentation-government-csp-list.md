@@ -84,7 +84,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Dell Marketing LP](https://www.dell.com/learn/us/en/rc1009777/fed)|
 |[Doublehorn, LLC](https://doublehorn.com/)|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
-|[DXL Enterprises, Inc.](http://dxl.com/)|
+|[DXL Enterprises, Inc.](http://www.dxl-enterprises.com/)|
 |[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
 |[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|

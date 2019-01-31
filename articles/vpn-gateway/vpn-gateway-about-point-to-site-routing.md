@@ -2,19 +2,11 @@
 title: 'About Azure Point-to-Site routing | Microsoft Docs'
 description: This article helps you understand how Point-to-Site VPN routing behaves.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: ''
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 01/28/2019
 ms.author: anzaman
 
 ---

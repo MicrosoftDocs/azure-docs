@@ -84,6 +84,8 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
             $registrationPath = $asrHivePath + '\Registration'
             $proxySettingsPath = $asrHivePath + '\ProxySettings'
             $draIdvalue = 'DraID'
+            $idMgmtCloudContainerId='IdMgmtCloudContainerId'
+
 
             if (Test-Path $asrHivePath)
             {
@@ -105,6 +107,11 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
                 }
+                if($regNode.IdMgmtCloudContainerId -ne $null)
+                {            
+                    "Removing IdMgmtCloudContainerId"
+                    Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
+                }
                 "Registry keys removed."
             }
 
@@ -122,7 +129,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
         }catch
         {    
             [system.exception]
-            Write-Host "Error occured" -ForegroundColor "Red"
+            Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
             Write-Host "FAILED" -ForegroundColor "Red"
         }

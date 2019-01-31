@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/8/2019
+ms.date: 1/9/2019
 ms.author: douglasl
 ---
 # Enable Azure Active Directory authentication for Azure-SSIS Integration Runtime
@@ -183,6 +183,17 @@ For this next step, you need [Microsoft SQL Server Management Studio](https://d
     ```
     
     The command should complete successfully, granting the managed identity for your ADF the ability to create a database (SSISDB).
+
+8.  If your SSISDB was created using SQL authentication and you want to switch to use Azure AD authentication for your Azure-SSIS IR to access it, right-click on **SSISDB** database and select **New query**.
+
+9.  In the query window, enter the following T-SQL command, and select **Execute** on the toolbar.
+
+    ```sql
+    CREATE USER [{the managed identity name}] FOR LOGIN [{the managed identity name}] WITH DEFAULT_SCHEMA = dbo
+    ALTER ROLE db_owner ADD MEMBER [{the managed identity name}]
+    ```
+
+    The command should complete successfully, granting the managed identity for your ADF the ability to access SSISDB.
 
 ## Provision Azure-SSIS IR in Azure portal/ADF app
 

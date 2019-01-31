@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
 
@@ -22,7 +22,7 @@ ms.custom: azlog
 
 
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 You should only use Azure log integration if an [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) connector isn't available from your Security Incident and Event Management (SIEM) vendor.
 
@@ -81,7 +81,7 @@ To help improve performance, you also have the option to scale up the Azure Log 
 
 ## Install Azure Log Integration
 
-To install Azure Log Integration, download the [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) installation file. Complete the setup process. Choose whether to provide telemetry information to Microsoft.
+Run through the set up routine. Choose whether to provide telemetry information to Microsoft.
 
 The Azure Log Integration service collects telemetry data from the machine on which it's installed.  
 
@@ -246,7 +246,6 @@ You can also open a [support request](../azure-supportability/how-to-create-azur
 To learn more about Azure Log Integration, see the following articles:
 Before you attempt the steps in this article, you must review the Get started article and complete the steps there.
 
-* [Azure Log Integration for Azure logs](https://www.microsoft.com/download/details.aspx?id=53324). The Download Center includes details, system requirements, and installation instructions for Azure Log Integration.
 * [Introduction to Azure Log Integration](security-azure-log-integration-overview.md). This article introduces you to Azure Log Integration, its key capabilities, and how it works.
 * [Partner configuration steps](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). This blog post shows you how to configure Azure Log Integration to work with partner solutions Splunk, HP ArcSight, and IBM QRadar. It describes our current guidance about how to configure the SIEM components. Check with your SIEM vendor for additional details.
 * [Azure Log Integration frequently asked questions (FAQ)](security-azure-log-integration-faq.md). This FAQ answers common questions about Azure Log Integration.

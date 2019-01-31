@@ -39,7 +39,7 @@ The quickstart Azure VM deployment template, is available as the online file [az
 | vmName	            | Name of the VM                                    |
 | vaultName	            | Name of the key vault                             |
 | vaultResourceGroup	| Resource group of the key vault                   |
-| certificateUrl	    | URL for the certificate, including version in KeyVault, for example  https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7 |
+| certificateUrl	    | URL for the certificate, including version in KeyVault, for example  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 |  |  |
 
 

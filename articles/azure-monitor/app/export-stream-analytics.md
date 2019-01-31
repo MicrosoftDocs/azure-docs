@@ -217,5 +217,5 @@ Noam Ben Zeev shows how to process exported data using Stream Analytics.
 ## Next steps
 * [Continuous export](export-telemetry.md)
 * [Detailed data model reference for the property types and values.](export-data-model.md)
-* [Application Insights](../../application-insights/app-insights-overview.md)
+* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
 

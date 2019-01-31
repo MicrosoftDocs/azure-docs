@@ -5385,7 +5385,7 @@ Note the following points:
 - The **type** property is set to **HDInsightSpark**.
 - The **rootPath** is set to **adfspark\\pyFiles** where adfspark is the Azure Blob container and pyFiles is fine folder in that container. In this example, the Azure Blob Storage is the one that is associated with the Spark cluster. You can upload the file to a different Azure Storage. If you do so, create an Azure Storage linked service to link that storage account to the data factory. Then, specify the name of the linked service as a value for the **sparkJobLinkedService** property. See [Spark Activity properties](#spark-activity-properties) for details about this property and other properties supported by the Spark Activity.
 - The **entryFilePath** is set to the **test.py**, which is the python file.
-- The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).	
+- The **getDebugInfo** property is set to **Always**, which means the log files are always generated (success or failure).
 
 	> [!IMPORTANT]
 	> We recommend that you do not set this property to Always in a production environment unless you are troubleshooting an issue.
@@ -5394,13 +5394,13 @@ Note the following points:
 For more information about the activity, see [Spark Activity](data-factory-spark.md) article.
 
 ## Machine Learning Batch Execution Activity
-You can specify the following properties in a Azure ML Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
+You can specify the following properties in a Azure Machine Learning studio Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
 
 Property | Description | Required
 -------- | ----------- | --------
-webServiceInput | The dataset to be passed as an input for the Azure ML web service. This dataset must also be included in the inputs for the activity. |Use either webServiceInput or webServiceInputs. |
-webServiceInputs | Specify datasets to be passed as inputs for the Azure ML web service. If the web service takes multiple inputs, use the webServiceInputs property instead of using the webServiceInput property. Datasets that are referenced by the **webServiceInputs** must also be included in the Activity **inputs**. | Use either webServiceInput or webServiceInputs. |
-webServiceOutputs | The datasets that are assigned as outputs for the Azure ML web service. The web service returns output data in this dataset. | Yes |
+webServiceInput | The dataset to be passed as an input for the Azure Machine Learning studio web service. This dataset must also be included in the inputs for the activity. |Use either webServiceInput or webServiceInputs. |
+webServiceInputs | Specify datasets to be passed as inputs for the Azure Machine Learning studio web service. If the web service takes multiple inputs, use the webServiceInputs property instead of using the webServiceInput property. Datasets that are referenced by the **webServiceInputs** must also be included in the Activity **inputs**. | Use either webServiceInput or webServiceInputs. |
+webServiceOutputs | The datasets that are assigned as outputs for the Azure Machine Learning studio web service. The web service returns output data in this dataset. | Yes |
 globalParameters | Specify values for the web service parameters in this section. | No |
 
 ### JSON example
@@ -5450,7 +5450,7 @@ In the JSON example, the deployed Azure Machine Learning Web service uses a read
 > Only inputs and outputs of the AzureMLBatchExecution activity can be passed as parameters to the Web service. For example, in the above JSON snippet, MLSqlInput is an input to the AzureMLBatchExecution activity, which is passed as an input to the Web service via webServiceInput parameter.
 
 ## Machine Learning Update Resource Activity
-You can specify the following properties in a Azure ML Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
+You can specify the following properties in a Azure Machine Learning studio Update Resource Activity JSON definition. The type property for the activity must be: **AzureMLUpdateResource**. You must create a Azure Machine Learning linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLUpdateResource:
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -5458,7 +5458,7 @@ trainedModelName | Name of the retrained model. | Yes |
 trainedModelDatasetName | Dataset pointing to the iLearner file returned by the retraining operation. | Yes |
 
 ### JSON example
-The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure ML Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
+The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure Machine Learning studio Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
 
 ```json
@@ -5611,7 +5611,7 @@ Output dataset specifies the **schedule** for the stored procedure activity (hou
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample",
+                    "storedProcedureName": "usp_sample",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }

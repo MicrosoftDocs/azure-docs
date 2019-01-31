@@ -513,7 +513,7 @@ and check that the generated schemas generated exist.
 
 Here are the currently known issues and limitations for the SAP connector:
 
-* The SAP trigger does't support receiving batch IDOCs from SAP. 
+* The SAP trigger doesn't support receiving batch IDOCs from SAP. 
 This action might result in RFC connection failure between your SAP system and the data gateway.
 
 * The SAP trigger doesn't support data gateway clusters. 

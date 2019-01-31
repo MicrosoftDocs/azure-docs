@@ -254,7 +254,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## Output data for a ServiceNow change request
 
-| Log Analytics | ServieNow field |
+| Log Analytics | ServiceNow field |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
 | CreatedBy_s | Requested by |

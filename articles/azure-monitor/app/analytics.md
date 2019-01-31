@@ -15,7 +15,7 @@ ms.author: mbullwin
 
 ---
 # Analytics in Application Insights
-Analytics is the powerful search and query tool of [Application Insights](../../application-insights/app-insights-overview.md). Analytics is a web tool so no setup is required. 
+Analytics is the powerful search and query tool of [Application Insights](../../azure-monitor/app/app-insights-overview.md). Analytics is a web tool so no setup is required. 
 If you've already configured Application Insights for one of your apps then you can  analyze your app's data by opening Analytics from your 
 app's [overview blade](../../azure-monitor/app/app-insights-dashboards.md).
 
