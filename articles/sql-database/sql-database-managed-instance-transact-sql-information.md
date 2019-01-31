@@ -15,8 +15,7 @@ ms.date: 01/31/2019
 ---
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
 
-Azure SQL Database Managed Instance provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
-## <a name="Differences"></a>
+Azure SQL Database Managed Instance provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences. <a name="Differences"></a>
 - [Availability](#availability) including the differences in [Always-On](#always-on-availability) and [Backups](#backup),
 - [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credentials), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
 - [Configuration](#configuration) including the differences in [Buffer pool extension](#buffer-pool-extension), [Collation](#collation), [Compatibility levels](#compatibility-levels),[Database mirroring](#database-mirroring), [Database options](#database-options), [SQL Server Agent](#sql-server-agent), [Table options](#tables),
