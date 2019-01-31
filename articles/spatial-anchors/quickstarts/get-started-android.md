@@ -92,9 +92,4 @@ Stop the app by selecting **Stop** from the Android Studio toolbar.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
-## Next steps
-
-In this quickstart, you've created a Spatial Anchors account. You then configured and deployed an App to save and recall Spatial Anchors. To learn more about how to improve the App so that it can share Spatial Anchors with other devices, continue to the next tutorial
-
-> [!div class="nextstepaction"]
-> [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md)
+[!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
