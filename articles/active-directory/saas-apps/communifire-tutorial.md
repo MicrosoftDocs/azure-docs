@@ -202,7 +202,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 The objective of this section is to create a user called Britta Simon in Communifire. Communifire supports **just-in-time provisioning**, which is by default enabled. A new user is created after saving the profile details during an attempt to access Communifire if it doesn't exist yet.
 
 >[!Note]
->If you need to create a user manually, Contact [Communifire support team](https://my.axerosolutions.com/spaces/77/communifire-support/help/welcome).
+>If you need to create a user manually, Contact [Communifire support team](mailto:support@axerosolutions.com).
 
 ### Test single sign-on 
 
