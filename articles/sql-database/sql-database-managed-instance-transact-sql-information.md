@@ -11,23 +11,22 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 01/31/2018
+ms.date: 01/31/2019
 ---
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
 
 Azure SQL Database Managed Instance provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
-
-- [T-SQL differences and unsupported features](#Differences)
+## <a name="Differences"></a>
+- [Availability](#availability) including the differences in [Always-On](#always-on-availability) and [Backups](#backup),
+- [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credentials), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
+- [Configuration](#configuration) including the diferences in [Buffer pool extension](#buffer-pool-extension), [Collation](#collation), [Compatibility levels](#compatibility-levels),[Database mirroring](#database-mirroring), [Database options](#database-options), [SQL Server Agent](#sql-server-agent), [Table options](#tables),
+- [Functionalities](#functionalities) including [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Distributed transactions](#distributed-transactions), [Extended events](#extended-events), [External libraries](#external-libraries), [Filestream and Filetable](#filestream-and-filetable), [Full-text Semantic Search](#full-text-semantic-search), [Linked servers](#linked-servers), [Polybase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Stored procedures, functions, and triggers](#stored-procedures-functions-triggers),
 - [Features that have different behavior in Managed Instance](#Changes)
 - [Temporary limitations and known issues](#Issues)
 
-## <a name="Differences"></a> T-SQL differences from SQL Server
-
-This section summarizes key differences in T-SQL syntax and behavior between Managed Instance and on-premises SQL Server Database Engine, as well as unsupported features.
-
 ## Availability
 
-### Always-On availability
+### <a name="always-on-availability"></a>Always-On
 
 [High availability](sql-database-high-availability.md) is built into Managed Instance and cannot be controlled by users. The following statements are not supported:
 
