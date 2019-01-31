@@ -975,6 +975,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/mongodb-migrate.md",
+      "redirect_url": "/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/indexing-policies.md",
       "redirect_url": "/azure/cosmos-db/index-policy",
       "redirect_document_id": true
@@ -11670,6 +11675,11 @@
     {
       "source_path": "articles/machine-learning/machine-learning-faq.md",
       "redirect_url": "/azure/machine-learning/studio/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/whats-new.md",
+      "redirect_url": "https://azure.microsoft.com/updates/?product=machine-learning-studio",
       "redirect_document_id": false
     },
     {
@@ -29881,6 +29891,66 @@
     {
       "source_path": "articles/security/protection-personal-data-azure-reporting-tools.md",
       "redirect_url": "/azure/security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-web-search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-web-search/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/use-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-Spell-Check/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-custom-search/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/use-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
       "redirect_document_id": false
     },
     {

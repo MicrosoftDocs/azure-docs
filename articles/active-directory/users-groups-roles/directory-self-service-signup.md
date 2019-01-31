@@ -1,5 +1,5 @@
 ---
-title: Self-service or trial signup in Azure Active Directory | Microsoft Docs
+title: Add users via self-service or trial signup - Azure Active Directory | Microsoft Docs
 description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
 services: active-directory
 documentationcenter: ''
@@ -11,13 +11,14 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 
 ---
 # What is self-service signup for Azure Active Directory?
+
 This article explains self-service signup and how to support it in Azure Active Directory (Azure AD). If you want to take over a domain name from an unmanaged Azure AD tenant, see [Take over an unmanaged directory as administrator](domains-admin-takeover.md).
 
 ## Why use self-service signup?

@@ -205,19 +205,19 @@
     href: /rest/api/machinelearning
 - name: Resources
   items:
-  - name: Release notes
-    href: whats-new.md
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
+  - name: Get support
+    href: support-aml-studio.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/    
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: Get support
-    href: support-aml-studio.md
-  - name: Compare our ML products
-    href: ../service/overview-more-machine-learning.md       
   - name: R developer's guide 
     href: ../r-developers-guide.md
-  - name: Custom Neural Networks with Net#
+  - name: Custom neural networks (Net#)
     href: azure-ml-netsharp-reference-guide.md
+  - name: Compare our ML products
+    href: ../service/overview-more-machine-learning.md       
