@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -132,7 +132,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
         public async Task<string> GetAnswer(string question)
         {
             string uri = qnaServiceHostName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
-            string questionJSON = @"{'question': '" + question + "'}";
+            string questionJSON = "{\"question\": \"" + question.Replace("\"","'") +  "\"}";
 
             var response = await Post(uri, questionJSON);
 
