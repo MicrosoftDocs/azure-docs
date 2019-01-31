@@ -2,12 +2,12 @@
 title: Back up a SharePoint farm on Azure Stack
 description: Use Azure Backup Server to back up and restore your SharePoint data on Azure Stack. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
 services: backup
-author: pvrk
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
+ms.author: adigan
 ---
 
 # Back up a SharePoint farm on Azure Stack
