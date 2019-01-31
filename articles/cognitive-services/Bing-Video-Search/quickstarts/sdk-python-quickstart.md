@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 02/15/2018
+ms.date: 01/31/2019
 ms.author: rosh
 ---
 
@@ -54,7 +54,7 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
 ## Create the search client
 
-1. Create an instance of the `CognitiveServicesCredentials`, and instantiate the client:
+Create an instance of the `CognitiveServicesCredentials`, and instantiate the client:
 
     ```python
     client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))

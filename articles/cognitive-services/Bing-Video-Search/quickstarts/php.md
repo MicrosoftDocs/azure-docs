@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 01/31/2019
 ms.author: aahi
 ---
 
@@ -96,7 +96,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ?>
 ```
 
-## JSON Response
+## JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 

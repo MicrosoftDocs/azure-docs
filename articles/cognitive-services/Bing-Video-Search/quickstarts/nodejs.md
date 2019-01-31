@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 1/09/2019
+ms.date: 01/31/2019
 ms.author: aahi
 ---
 # Quickstart: Search for videos using the Bing Video Search REST API and Node.js
@@ -90,7 +90,7 @@ Use this quickstart to make your first call to the Bing Video Search API and vie
     }
     ```
 
-## JSON Response
+## JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 

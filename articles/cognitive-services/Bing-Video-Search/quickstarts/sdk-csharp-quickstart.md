@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/10/2018
+ms.date: 01/31/2019
 ms.author: rosh
 ---
 

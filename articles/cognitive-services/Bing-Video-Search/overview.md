@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 01/07/2019
+ms.date: 01/31/2019
 ms.author: scottwhi
 ---
 # What is the Bing Video Search API?
@@ -37,7 +37,7 @@ The Bing Video Search API is a RESTful web service, making it easy to call from 
 
 ## Next steps
 
-The Bing Video Search API [interactive demo](https://azure.microsoft.com/en-us/services/cognitive-services/bing-video-search-api/) shows how you can quickly customize a search query and search the web for videos.
+The Bing Video Search API [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/) shows how you can customize a search query and search the web for videos.
 
 When you are ready to call the API, create a [Cognitive services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) for free.
 

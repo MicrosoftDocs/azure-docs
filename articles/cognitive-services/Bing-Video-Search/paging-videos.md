@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 01/31/2019
 ms.author: scottwhi
 ---
 
@@ -53,7 +53,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```  
 
-If you use the default value for the [count](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-video-api-v7-reference#count), you only need to specify the `offset` query parameter, as in the following example.  
+If you use the default value for the [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#count), you only need to specify the `offset` query parameter, as in the following example.  
   
 ```cURL  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  

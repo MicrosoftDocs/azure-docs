@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 1/09/2019
+ms.date: 01/31/2019
 ms.author: aahi
 ---
 
@@ -74,7 +74,7 @@ You can run this example as a Jupyter notebook on [MyBinder](https://mybinder.or
     ```
 
 
-## JSON Response
+## JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 

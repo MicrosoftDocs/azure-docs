@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 02/18/2018
+ms.date: 01/31/2019
 ms.author: rosh
 ---
 # Quickstart: Perform a video search with the Bing Video Search SDK for Java
@@ -39,7 +39,7 @@ Install the Bing Video Search SDK dependencies by using Maven, Gradle, or anothe
 ## Create and initalize a project
 
 
-1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
+Create a new Java project in your favorite IDE or editor, and import the following libraries.
 
     ```java
     import com.microsoft.azure.cognitiveservices.videosearch.*;
