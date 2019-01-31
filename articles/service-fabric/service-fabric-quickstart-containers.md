@@ -4,20 +4,19 @@ description: In this quickstart, you create your first Windows container applica
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: timlt
+manager: jeanpaul.connock
 editor: 'vturecek'
-
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 01/31/2019
 ms.author: twhitney
 ms.custom: mvc
-
 ---
+
 # Quickstart: Deploy Windows containers to Service Fabric
 
 Azure Service Fabric is a distributed systems platform for deploying and managing scalable and reliable microservices and containers.
@@ -77,17 +76,62 @@ Microsoft publishes different images for versions of IIS built on different vers
     </ContainerHostPolicies> 
 ```
 
-The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`. 
+The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`.
+
+## Create a cluster
+
+This sample script creates a five-node Service Fabric cluster secured with an X.509 certificate.  The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory.  Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes.  Customize the parameters as needed.
+
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview).
+
+Before you can run the script, in PowerShell run `Connect-AzureRmAccount` to create a connection with Azure.
+
+[!code-powershell[main](../../powershell_scripts/service-fabric/create-secure-cluster/create-secure-cluster.ps1 "Create a Service Fabric cluster")]
+
+To run this script, copy it and open **Windows PowerShell ISE**.  Paste the contents into the empty Untitled1.ps1 window. Then provide your values for the variables in the script: `subscriptionId`, `certpwd`, `certfolder`, `adminuser`, `adminpwd`, etc.  The directory you specify for `certfolder` must exist. 
+
+Once you have provided your values for the variables, press **F5** to run the script.
+
+After the script runs and the cluster is created, find the `ClusterEndpoint` in the output. For example:
+
+```PowerShell
+...
+ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
+```
+
+Learn more about creating a cluster using this script in [Create a Service Fabric cluster](../scripts/service-fabric-powershell-create-secure-cluster-cert).
+
+### Install the certificate for the cluster
+
+Install the PFX in *CurrentUser\My* certificate store. The PFX file will be in the directory you specified using the `certfolder` environment variable in the PowerShell script above.
+
+Change to that directory, and then run the following PowerShell command, substituting the name of the PFX file that is in your `certfolder` directory, and the password that you specified in the `certpwd` variable. For example:
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\mysfclustergroup20190130193456.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString Password#1234 -AsPlainText -Force)
+```
+
+The command returns the Thumbprint:
+
+```powershell
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=mysfcluster.SouthCentralUS.cloudapp.azure.com
+```
+
+Remember the thumbprint for the following step.
 
 ## Deploy the application to Azure using Visual Studio
 
-Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.  For this quickstart, we will use a local cluster.
-
-By default, Visual Studio will create a local cluster for you. Because we are using a local test cluster, in ApplicationManifest.xml, set  **PasswordEncrypted** to **false**.
+Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
 Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-Because we will use a local cluster, change **Target Profile** to **PublishPofiles\Local.1Node.xml** and change **Connection Endpoint**  to **Local Cluster**.
+Copy the **CN** output in the PowerShell window when you ran the `Import-PfxCertificate` command above, and add port `19000` to it. For example, `mysfcluster.SouthCentralUS.cloudapp.azure.com:19000`. Copy it into the **Connection Endpoint** field. Remember this value because you will need it in a future step.
+
+Click **Advanced Connection Parameters** and verify the connection parameter information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step.
 
 ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -95,7 +139,9 @@ Click **Publish**.
 
 Each application in the cluster must have a unique name. If there is a name conflict, rename the Visual Studio project and deploy again.
 
-Open a browser and navigate to the **Connection endpoint** specified in the cluster page. Because we are using a local cluster, navigate to `http://localhost:80`. You should see the IIS default web page:
+Open a browser and navigate to the address that you put into the **Connection Endpoint** field in the previous step. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+
+ You should see the IIS default web page:
 ![IIS default web page][iis-default]
 
 ## Next steps
