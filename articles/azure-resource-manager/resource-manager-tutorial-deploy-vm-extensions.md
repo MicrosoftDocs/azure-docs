@@ -136,4 +136,4 @@ When you no longer need the Azure resources you deployed, clean them up by delet
 In this tutorial, you deployed a virtual machine and a virtual machine extension. The extension installed the IIS web server on the virtual machine. To learn how to use the Azure SQL Database extension to import a BACPAC file, see:
 
 > [!div class="nextstepaction"]
-> [](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Deploy SQL extensions](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)
