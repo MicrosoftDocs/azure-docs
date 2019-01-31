@@ -146,7 +146,7 @@ To configure Azure AD single sign-on with AlertOps, perform the following steps:
 
     b. Select **Azure Active Directory** as a **SSO Provider** from the dropdown.
 
-    c. In the **Issuer URL** textbox, paste the **Azure Ad Identifier** value which you have copied from the Azure portal.
+    c. In the **Issuer URL** textbox, use the identifier value which you have used in the **Basic SAML Configuration** section in the Azure portal.
 
     d. In the **SAML endpoint URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
