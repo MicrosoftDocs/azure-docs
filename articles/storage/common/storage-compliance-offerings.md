@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage compliance offerings

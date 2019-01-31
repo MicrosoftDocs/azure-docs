@@ -75,17 +75,17 @@
       items:
       - name: Overview
         href: distribute-data-globally.md
-      - name: Consistency Levels
+      - name: Consistency levels
         href: consistency-levels.md
-      - name: Choosing the right consistency level
+      - name: Choose the right consistency level
         href: consistency-levels-choosing.md
-      - name: Consistency levels and Cosmos DB APIs
+      - name: Consistency levels and Azure Cosmos DB APIs
         href: consistency-levels-across-apis.md
-      - name: Consistency, availability and performance tradeoffs
+      - name: Consistency, availability, and performance tradeoffs
         href: consistency-levels-tradeoffs.md
       - name: High availability
         href: high-availability.md
-      - name: Globally scaling provisioned throughput
+      - name: Globally scale provisioned throughput
         href: scaling-throughput.md
       - name: Conflict types and resolution policies
         href: conflict-resolution-policies.md
@@ -97,9 +97,9 @@
       items:
       - name: Overview
         href: partitioning-overview.md  
-      - name: Logical partitions
+      - name: Partitioning and horizontal scaling
         href: partition-data.md
-      - name: Creating a synthetic partition key
+      - name: Create a synthetic partition key
         href: synthetic-partition-keys.md
     - name: Provisioned throughput
       items:
@@ -107,11 +107,11 @@
         href: request-units.md
       - name: Provision throughput on containers and databases
         href: set-throughput.md
-    - name: Working with Azure Cosmos account
+    - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
       items:
-      - name: Working with databases, containers, and items
+      - name: Work with databases, containers, and items
         href: databases-containers-items.md
       - name: SQL language reference 
         href: sql-api-query-reference.md
@@ -121,7 +121,7 @@
         items:
         - name: Overview
           href: index-overview.md
-        - name: Indexing policy
+        - name: Index policy
           href: index-policy.md
         - name: Index types
           href: index-types.md
@@ -135,17 +135,17 @@
           href: read-change-feed.md
         - name: Change feed processor
           href: change-feed-processor.md
-        - name: Change feed with Azure Functions 
+        - name: Trigger Azure Functions 
           href: change-feed-functions.md
       - name: Time to live
         href: time-to-live.md
       - name: Unique key constraints
         href: unique-keys.md
-      - name: Transactions and optimistic concurrency
+      - name: Transactions and optimistic concurrency control
         href: database-transactions-optimistic-concurrency.md
     - name: Server-side programming
       items:
-        - name: Stored procedures, triggers, & UDFs
+        - name: Stored procedures, triggers, and UDFs
           href: stored-procedures-triggers-udfs.md
         - name: JavaScript query API
           href: javascript-query-api.md
@@ -165,11 +165,11 @@
           href: optimize-cost-storage.md
         - name: Optimize reads and writes cost
           href: optimize-cost-reads-writes.md
-        - name: Optimize multi-regions cost
+        - name: Optimize multi-region cost
           href: optimize-cost-regions.md          
-        - name: Optimize your dev/test workloads 
+        - name: Optimize development/testing cost 
           href: optimize-dev-test.md
-        - name: Optimize with reserved capacity
+        - name: Optimize cost with reserved capacity
           href: cosmos-db-reserved-capacity.md
     - name: Security
       items:
@@ -179,13 +179,13 @@
           href: database-encryption-at-rest.md
         - name: Secure access to data
           href: secure-access-to-data.md
-        - name: IP Firewall
+        - name: IP firewall
           href: firewall-support.md
         - name: Access from virtual networks
           href: vnet-service-endpoint.md
     - name: Enterprise readiness 
       items:
-      - name: Online backup and restore
+      - name: Online backup and on-demand restore
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
@@ -253,15 +253,7 @@
       - name: How-to guides
         items:
         - name: Tune query performance
-          href: sql-api-query-metrics.md
-        - name : Server-side programming
-          items:
-          - name: Write stored procedures, triggers, & UDFs
-            href: how-to-write-stored-procedures-triggers-udfs.md
-          - name: Write stored procedures & triggers with JavaScript query API
-            href: how-to-write-javascript-query-api.md
-          - name: Use stored procedures, triggers, & UDFs
-            href: how-to-use-stored-procedures-triggers-udfs.md  
+          href: sql-api-query-metrics.md 
         - name: Data types
           items:
           - name: DateTime
@@ -337,7 +329,7 @@
           - name: Node.js and React app
             href: tutorial-develop-mongodb-react.md
         - name: 2 - Migrate data
-          href: mongodb-migrate.md
+          href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
         - name: 3 - Query data
           href: tutorial-query-mongodb.md
         - name: 4 - Distribute data globally
@@ -466,19 +458,19 @@
             href: /rest/api/storageservices/Table-Service-Concepts
   - name: How-to guides
     items:
-    - name: Manage database account
+    - name: Manage Azure Cosmos account
       href: how-to-manage-database-account.md
     - name: Global distribution
       items:
-      - name: Manage consistency
+      - name: Manage consistency levels
         href: how-to-manage-consistency.md
-      - name: Manage conflicts
+      - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
     - name: Provisioned throughput
       items:
-      - name: Provision container throughput
+      - name: Provision throughput on a container
         href: how-to-provision-container-throughput.md
-      - name: Provision database throughput
+      - name: Provision throughput on a database
         href: how-to-provision-database-throughput.md
     - name: Working with containers and items
       items:
@@ -488,10 +480,22 @@
         href: how-to-query-container.md
       - name: Configure time to live
         href: how-to-time-to-live.md
+      - name: Work with data using Azure Storage Explorer
+        href: storage-explorer.md
+      - name: Work with data using Azure Cosmos explorer
+        href: data-explorer.md
       - name: Indexing
         items:
-        - name: Configure indexing
+        - name: Manage indexing
           href: how-to-manage-indexing-policy.md
+    - name : Server-side programming
+      items:
+      - name: Write stored procedures, triggers, & UDFs
+        href: how-to-write-stored-procedures-triggers-udfs.md
+      - name: Write stored procedures & triggers with JavaScript query API
+        href: how-to-write-javascript-query-api.md
+      - name: Use stored procedures, triggers, & UDFs
+        href: how-to-use-stored-procedures-triggers-udfs.md 
     - name: Security
       items:
       - name: Configure IP firewall
@@ -500,22 +504,18 @@
         href: how-to-configure-vnet-service-endpoint.md
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
-      - name: Secure with Key Vault
+      - name: Secure Azure Cosmos keys using Key Vault
         href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
-    - name : Manage
+    - name : Manage Azure Cosmos DB resources
       items:
-      - name: Manage using PowerShell
+      - name: Manage using PowerShell 
         href: manage-account-with-powershell.md
       - name: Manage using Azure CLI
         href: manage-with-cli.md
-      - name: Manage using Storage Explorer
-        href: storage-explorer.md
-      - name: Manage using data explorer
-        href: data-explorer.md
     - name : Logging
       items:
       - name: Diagnostic logging
