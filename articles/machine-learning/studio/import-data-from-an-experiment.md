@@ -4,8 +4,8 @@ titleSuffix: Azure Machine Learning Studio
 description: How to save training data in Azure Machine Learning Studio and use it in another experiment.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
-ms.topic: article
+ms.subservice: studio
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

@@ -96,7 +96,7 @@
       href: security-center-managing-and-responding-alerts.md
     - name: Security incidents
       href: security-center-incident.md
-    - name: Alert types
+    - name: Understanding security alerts
       href: security-center-alerts-type.md
     - name: Alert validation
       href: security-center-alert-validation.md

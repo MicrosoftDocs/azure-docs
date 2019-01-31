@@ -9,7 +9,7 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: rogarana
-ms.component: disks
+ms.subservice: disks
 ---
 # Introduction to Azure managed disks
 
