@@ -16,6 +16,9 @@ ms.topic: article
 ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 09/10/2018
+
+
 ---
 
 # Install the Azure Stack Development Kit (ASDK)

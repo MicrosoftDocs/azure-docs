@@ -5,13 +5,13 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
 ---
 # Create and manage action groups in the Azure portal
 ## Overview ##
-An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
+An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. You may configure up to 2,000 action groups in a subscription.
 
 When an action is configured to notify a person by email or SMS the person will receive a confirmation indicating he / she has been added to the action group.
 
@@ -86,16 +86,18 @@ See the [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md
 **Voice** - You may have up to 10 Voice actions in an Action Group</dd>
 See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article</dd>
 
-**Webhook** - You may have up to 10 Webhook actions in an Action Group. 
-Retry logic - The timeout period for a response is 10 seconds. The webhook call will be retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second and last retry happens after 100 seconds.
+**Webhook** - You may have up to 10 Webhook actions in an Action Group.
+Retry logic - The timeout period for a response is 10 seconds. The webhook call will be retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second retry happens after 100 seconds. After two failures the endpoint will not be called for 30 minutes from any action group.
 
 Source IP address ranges
+    - 13.72.19.232
     - 13.106.57.181
     - 13.106.54.3
     - 13.106.54.19
     - 13.106.38.142
     - 13.106.38.148
     - 13.106.57.196
+    - 52.244.68.117
 
 To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert](./../../azure-monitor/platform/service-notifications.md) which monitors for Informational notifications about the Action Groups service.
 

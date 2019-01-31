@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 10/22/2018
 ---
 
 # Prepare the ASDK host computer

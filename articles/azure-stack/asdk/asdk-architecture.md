@@ -16,6 +16,9 @@ ms.topic: article
 ms.date: 01/21/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 10/15/2018
+
+
 
 ---
 # Microsoft Azure Stack Development Kit architecture

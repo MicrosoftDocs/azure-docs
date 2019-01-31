@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Create a VM from a snapshot | Microsoft Docs
 description: Azure CLI Script Sample - Create a VM from a snapshot
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
