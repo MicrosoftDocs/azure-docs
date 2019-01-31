@@ -27,4 +27,5 @@ This article lists the new features and improvements in the SQL Database service
 | Security content for managed instances updated | Updated and clarified content for the [security model for managed instances](sql-database-security-overview.md), and contrasted in with the security model for single databases and elastic pools |
 | Refreshed all quickstarts and tutorials | All of the quickstarts and tutorials in the [documentation](https://docs.microsoft.com/azure/sql-database) have been updated and refreshed to match changes in the Azure portal |
 | Added quickstart overview guides | Added a quickstart overview guide for [single databases](sql-database-quickstart-guide.md) and for [managed instances](sql-database-managed-instance-quickstart-guide.md) |
+| Added SQL Database glossary of terms | This [terms glossary](sql-database-glossary-terms.md) article provides a definitive list of SQL Database terms and links to the primary conceptual page that explains the term in context.
 | &nbsp; | &nbsp; | 
