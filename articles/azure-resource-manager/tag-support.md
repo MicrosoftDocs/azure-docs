@@ -661,6 +661,7 @@ This article describes whether a resource type supports [tags](resource-group-us
 | logDefinitions | No | 
 | logprofiles | No | 
 | logs | No | 
+| metricAlerts | Yes |
 | migrateToNewPricingModel | No | 
 | myWorkbooks | No | 
 | queries | No | 
@@ -1100,6 +1101,9 @@ This article describes whether a resource type supports [tags](resource-group-us
 | jitRequests | Yes | 
 
 ## Microsoft.SQL
+
+The Master database doesn't support tags, but other databases support tags.
+
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | managedInstances | Yes |
@@ -1156,6 +1160,9 @@ This article describes whether a resource type supports [tags](resource-group-us
 | managers | Yes | 
 
 ## Microsoft.StreamAnalytics
+
+You can't add a tag when streamingjobs is running. Stop the resource to add a tag.
+
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | streamingjobs | Yes | 
