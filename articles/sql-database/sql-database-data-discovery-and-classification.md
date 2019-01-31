@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 01/29/2019
 ---
 # Azure SQL Database Data Discovery and Classification
 
@@ -117,7 +117,7 @@ Once the tenant-wide policy has been defined, you can continue with the classifi
 
 ## <a id="subheading-3"></a>Auditing access to sensitive data
 
-An important aspect of the information protection paradigm is the ability to monitor access to sensitive data. [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) has been enhanced to include a new field in the audit log called *data_sensitivity_information*, which logs the sensitivity classifications (labels) of the actual data that was returned by the query.
+An important aspect of the information protection paradigm is the ability to monitor access to sensitive data. [Azure SQL Database Auditing](sql-database-auditing.md) has been enhanced to include a new field in the audit log called *data_sensitivity_information*, which logs the sensitivity classifications (labels) of the actual data that was returned by the query.
 
 ![Audit log](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -142,7 +142,7 @@ You can also use REST APIs to programmatically manage classifications. The publi
 ## <a id="subheading-5"></a>Next steps
 
 - Learn more about [SQL Advanced Data Security](sql-advanced-threat-protection.md).
-- Consider configuring [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) for monitoring and auditing access to your classified sensitive data.
+- Consider configuring [Azure SQL Database Auditing](sql-database-auditing.md) for monitoring and auditing access to your classified sensitive data.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

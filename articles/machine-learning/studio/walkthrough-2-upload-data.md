@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: 'Step 2 of the Develop a predictive solution walkthrough: Upload stored public data into Azure Machine Learning Studio.'
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: garyericson
