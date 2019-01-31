@@ -17,6 +17,8 @@ ms.author: kumud
 
 # Configure the distribution mode for Azure Load Balancer
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Hash-based distribution mode
 
 The default distribution mode for Azure Load Balancer is a 5-tuple hash. The tuple is composed of the source IP, source port, destination IP, destination port, and protocol type. The hash is used to map traffic to the available servers and the algorithm provides stickiness only within a transport session. Packets that are in the same session are directed to the same datacenter IP (DIP) instance behind the load-balanced endpoint. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different DIP endpoint.

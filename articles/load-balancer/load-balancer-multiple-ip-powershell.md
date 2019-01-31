@@ -27,6 +27,8 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 
 ![LB scenario image](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Steps to load balance on multiple IP configurations
 
 Follow the steps below to achieve the scenario outlined in this article:
