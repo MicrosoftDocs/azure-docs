@@ -242,7 +242,7 @@
       href: sql-database-aad-authentication.md
     - name: Auditing
       items:
-      - name: Auditing - Single databases / elastic pools
+      - name: Auditing - Single databases and elastic pools
         href: sql-database-auditing.md
       - name: Auditing - Managed instance
         href: sql-database-managed-instance-auditing.md
@@ -663,6 +663,8 @@
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
+  - name: Glossary of terms
+    href: sql-database-glossary-terms.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
   - name: Azure Roadmap
