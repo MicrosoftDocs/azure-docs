@@ -52,7 +52,7 @@ Below diagram shows the pictorial representation of two Azure VMs failover clust
 
 2. Go to replicated items and you can see both the virtual machine status.
 
-![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storaagespacesdirectgroup.PNG)
+![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## Creating a recovery plan
 A recovery plan supports the sequencing of various tiers in a multi-tier application during a failover. Sequencing helps maintain application consistency. When you create a recovery plan for a multi-tier web application, complete the steps described in [Create a recovery plan by using Site Recovery](site-recovery-create-recovery-plans.md).
