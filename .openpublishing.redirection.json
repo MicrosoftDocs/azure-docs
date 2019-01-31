@@ -31501,7 +31501,7 @@
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-quickstart.md",
       "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Video-Search/search-the-web.md",
