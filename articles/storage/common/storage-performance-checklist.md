@@ -77,6 +77,8 @@ This article organizes the proven practices into the following groups. Proven pr
 This section lists proven practices that are applicable to the use of any of the Azure Storage services (blobs, tables, queues, or files).  
 
 ### <a name="subheading1"></a>Scalability Targets
+Azure Storage itself has a limit of 250 storage accounts per region per subscription. If you reach that limit, you will be unable to create any more storage accounts in that subscription/region combination.
+
 Each of the Azure Storage services has scalability targets for capacity (GB), transaction rate, and bandwidth. If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When a Storage service throttles your application, the service begins to return "503 Server busy" or "500 Operation timeout" error codes for some storage transactions. This section discusses both the general approach to dealing with scalability targets and bandwidth scalability targets in particular. Later sections that deal with individual storage services discuss scalability targets in the context of that specific service:  
 
 * [Blob bandwidth and requests per second](#subheading16)
@@ -87,6 +89,12 @@ Each of the Azure Storage services has scalability targets for capacity (GB), tr
 At the time of writing, the bandwidth targets in the US for a geo-redundant storage (GRS) account are 10 gigabits per second (Gbps) for ingress (data sent to the storage account) and 20 Gbps for egress (data sent from the storage account). For a locally redundant storage (LRS) account, the limits are higher – 20 Gbps for ingress and 30 Gbps for egress.  International bandwidth limits may be lower and can be found on our [scalability targets page](https://msdn.microsoft.com/library/azure/dn249410.aspx).  For more information on the storage redundancy options, see the links in [Useful Resources](#sub1useful) below.  
 
 #### What to do when approaching a scalability target
+If you're approaching the limit of storage accounts you can have in a particular subscription/region combination, evaluate your application and usage of storage accounts and determine if any of these conditions apply.
+
+* Using storage accounts as unmanaged disks and adding those disks to your virtual machines. In this scenario, we recommend using [managed disks](../../virtual-machines/windows/managed-disks-overview.md), as they handle storage disk scalability for you without you having to create and manage individual storage accounts.
+* Using one storage account on a per customer basis, for the purpose of data isolation. In this scenario, we recommend using storage containers for each customer rather than an entire storage account. Azure Storage now allows you to specify role based access control on a per [container basis](storage-auth-aad-rbac.md).
+* Using multiple storage accounts to shard for greater scalability of ingress/egress/iops/capacity. In this scenario, if possible, we recommend you take advantage of the [increased limits](https://azure.microsoft.com/en-us/blog/announcing-larger-higher-scale-storage-accounts/) of standard storage accounts to reduce the number of storage accounts required for your workload.
+
 If your application is approaching the scalability targets for a single storage account, consider adopting one of the following approaches:  
 
 * Reconsider the workload that causes your application to approach or exceed the scalability target. Can you design it differently to use less bandwidth or capacity, or fewer transactions?
