@@ -205,8 +205,8 @@
     href: /rest/api/machinelearning
 - name: Resources
   items:
-  - name: Release notes
-    href: whats-new.md
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
