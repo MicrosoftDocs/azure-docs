@@ -11,7 +11,7 @@
   items:
   - name: Single database quickstart guide
     href: sql-database-quickstart-guide.md
-  - name: Managed Instance quickstart guide
+  - name: Managed instance quickstart guide
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
@@ -21,11 +21,11 @@
       href: sql-database-managed-instance-get-started.md
   - name: Configure
     items:
-    - name: SQL Database server/database firewall rules
+    - name: Database server firewall rules
       href: sql-database-get-started-portal-firewall.md
-    - name: Client VM connection to a Managed Instance
+    - name: Client VM connection to a managed instance
       href: sql-database-managed-instance-configure-vm.md
-    - name: Point-to-site connection to a Managed Instance
+    - name: Point-to-site connection to a managed instance
       href: sql-database-managed-instance-configure-p2s.md
   - name: Load data
     items:
@@ -82,7 +82,7 @@
     items:
     - name: Single database security
       href: sql-database-security-tutorial.md
-    - name: Managed Instance security with Azure AD logins
+    - name: Managed instance security with Azure AD logins
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
@@ -244,7 +244,7 @@
       items:
       - name: Auditing - Single databases / elastic pools
         href: sql-database-auditing.md
-      - name: Auditing - Managed Instance
+      - name: Auditing - Managed instance
         href: sql-database-managed-instance-auditing.md
       - name: Table auditing (deprecated)
         href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
@@ -430,11 +430,11 @@
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
-    - name: Determine size of Managed Instance subnet 
+    - name: Determine size of managed instance subnet 
       href: sql-database-managed-instance-determine-size-vnet-subnet.md
-    - name: Create new VNet and subnet for Managed Instance
+    - name: Create new VNet and subnet for managed instance
       href: sql-database-managed-instance-create-vnet-subnet.md
-    - name: Configure existing VNet and subnet for Managed Instance
+    - name: Configure existing VNet and subnet for managed instance
       href: sql-database-managed-instance-configure-vnet-subnet.md
     - name: Configure custom DNS
       href: sql-database-managed-instance-custom-dns.md
