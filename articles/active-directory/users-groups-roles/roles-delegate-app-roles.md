@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -25,11 +25,13 @@ ms.custom: it-pro
 
 ## Delegate app administration
 
-The following roles grant permissions to manage application registrations, single sign-on settings, user and group assignments, licensing, and consent. The only difference is that the Application administrator role also grants permissions to manage Application Proxy settings. Neither role grants the ability to manage Conditional Access settings.
+The following roles grant permissions to manage application registrations, single sign-on settings, user and group assignments, and to consent to delegated permissions and application permissions (excluding Microsoft Graph and Azure AD Graph). The only difference is that the Application administrator role also grants permissions to manage Application Proxy settings. Neither role grants the ability to manage Conditional Access settings.
+> [!IMPORTANT]
+> Users assigned this role can add credentials to an application and use those credentials to impersonate the application’s identity. This impersonation of the application’s identity might be an elevation of privilege over what the user can do under their other role assignments in Azure AD. A user assigned to this role could potentially create or update users or other objects while impersonating the application.
 
 To grant the ability to manage application access in the Azure portal:
 
-1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator or Privileged Role Administrator role in the tenant.
+1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator role in the tenant.
 2. When you have sufficient permissions, open the [Roles and administrators page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Open one of the following roles to see its member assignments:
   * **Application administrator**
@@ -43,11 +45,11 @@ You can view the description for these roles in [Available roles](directory-assi
 
 By default, all users can create application registrations, but you can selectively grant permission to create application registrations or permission to consent to authorize an app.
 
-1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator or Privileged Role Administrator role in the tenant.
+1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator role in the tenant.
 2. When you have obtained sufficient permissions, set one or both of the following:
   * On the [User settings page for your tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set **Users can register applications** to No.
   * On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set **Users can consent to applications accessing company data on their behalf** to No.
-3. Then assign users needing this permission to be members of the Application Developer role as needed.
+3. Then assign users needing this permission to be members of the Application developer role as needed.
 
 When a user registers an application, they are automatically added as the first owner for the application.
 
@@ -58,11 +60,15 @@ App owners and app registration owners can each manage only the app applications
 An application owner can:
 
 * Change application properties, such as the name and permissions the app requests
+* Manage credentials
 * Configure single sign-on
 * Assign user access
 * Add or remove other owners
 * Edit the app manifest
 * Publish the app to the app gallery
+
+> [!IMPORTANT]
+> Users assigned this role can add credentials to an application and use those credentials to impersonate the application’s identity. This impersonation of the application’s identity might be an elevation of privilege over what the user can do under their other role assignments in Azure AD. A user assigned to this role could potentially create or update users or other objects while impersonating the application.
 
 The owner of an app registration can view and edit the app registration.
 
