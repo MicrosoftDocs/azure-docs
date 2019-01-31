@@ -36,7 +36,7 @@ sections:
     className: cardsD
     items:
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/advisor/">REST API Reference</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/advisor/">REST API Reference</a></p>
     - title: Command-Line
       html: <p><a href="https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest">Common Language Interface (CLI)</a></p>
     - title: PowerShell
