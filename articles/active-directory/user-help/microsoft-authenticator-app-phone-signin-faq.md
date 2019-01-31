@@ -31,7 +31,7 @@ Before you can use the Microsoft Authenticator app, you must:
 
  1. Download and install the Microsoft Authenticator app. If you haven't done this yet, see [Download and install the app](microsoft-authenticator-app-how-to.md).
 
- 2. Add your work/school, personal, and third-party accounts to the Microsoft Authenticator app. For the detailed steps, see [Add your work or school account](microsoft-authenticator-app-add-work-account.md), [Add your personal accounts](microsoft-authenticator-app-add-personal-account.md), and [Add your personal non-Microsoft accounts](microsoft-authenticator-app-add-non-microsoft-account.md).
+ 2. Add your work/school, personal, and third-party accounts to the Microsoft Authenticator app. For the detailed steps, see [Add your work or school account](microsoft-authenticator-app-add-work-account.md), [Add your personal accounts](microsoft-authenticator-app-add-personal-account.md), and [Add your non-Microsoft accounts](microsoft-authenticator-app-add-non-microsoft-account.md).
 
 ## Turn on and use phone sign-in for your work or school account
 Phone sign-in is a type of two-step verification. You must still verify your identity by providing a thing you know and a thing you have, but phone sign-in lets you skip entering your account password and performs all of your identity verification on your mobile device.
@@ -109,7 +109,6 @@ For the steps necessary to sign in to your work or school or your personal accou
 |**How do I stop using this feature and go back to using my password?**|For personal accounts, select the **Use a password instead** link during sign in. Your most recent choice is remembered and offered by default the next time you sign in. If you ever want to go back to using phone sign-in, select the **Use an app instead** link during sign in.<br><br>For work or school accounts, you must to your Additional security verification page (such as, https://aka.ms/MFASetup) and remove the Microsoft Authenticator app.|
 |**Why can’t I use more than one work or school account for phone sign-in?**| A phone must be registered to a single work or school account. If you want to turn on phone sign-in for a different work or school account, you must first unregister the old device through the **Settings** page.|
 |**Can I sign in to my PC using my phone?**| For your PC, we recommend signing in using Windows Hello on Windows 10. Windows Hello lets you use your face, fingerprint, or PIN to sign in.|
-|**Can I use phone sign-in with my Windows Phone?**| No. This feature isn’t supported by the Microsoft Authenticator app on Windows Phone.|
 
 ## Next steps
 - If you have more general questions about the app, see the [Microsoft Authenticator FAQs](microsoft-authenticator-app-faq.md)
