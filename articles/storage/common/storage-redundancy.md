@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage redundancy
