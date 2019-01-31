@@ -15,7 +15,7 @@ ms.author: lewlu
 
 # Migrate your face data to a different Face subscription
 
-This guide shows you how to migrate an existing group of faces to a different Face API subscription using the Snapshot feature. This allows you to avoid having to repeatedly build up a PersonGroup or **FaceList** when moving or expanding your operations. For example, you may have created a PersonGroup using a free trial subscription and now want to migrate it to your paid subscription, or you may need to sync face data across regions for a large enterprise operation.
+This guide shows you how to move face data (such as a saved **PersonGroup** of faces) to a different Face API subscription using the Snapshot feature. This allows you to avoid having to repeatedly build up a **PersonGroup** or **FaceList** when moving or expanding your operations. For example, you may have created a **PersonGroup** using a free trial subscription and now want to migrate it to your paid subscription, or you may need to sync face data across regions for a large enterprise operation.
 
 The same migration strategy also applies to **LargePersonGroup** and **LargeFaceList** objects. If you are not familiar with the concepts in this guide, see their definitions in the [glossary](../Glossary.md). This guide uses the Face API .NET client library with C#.
 
@@ -56,14 +56,14 @@ You will need to fill in the subscription key values and endpoint URLs for your 
 
 ## Prepare a PersonGroup for migration
 
-You need the ID of the PersonGroup in your source subscription to migrate it to the target subscription. Use the **[PersonGroupOperation.ListWithHttpMessages](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations.listwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_PersonGroupOperations_ListWithHttpMessagesAsync_System_String_System_Nullable_System_Int32__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)** method to retrieve a list of your PersonGroup objects; then get the **[PersonGroup.PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId)** property. In the following code snippets, this ID is stored in `personGroupId`.
+You need the ID of the **PersonGroup** in your source subscription to migrate it to the target subscription. Use the **[PersonGroupOperation.ListWithHttpMessages](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations.listwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_PersonGroupOperations_ListWithHttpMessagesAsync_System_String_System_Nullable_System_Int32__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)** method to retrieve a list of your **PersonGroup** objects; then get the **[PersonGroup.PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId)** property. In the following code snippets, this ID is stored in `personGroupId`.
 
 > [!NOTE]
-> The sample code creates and trains a new PersonGroup to migrate, but in most cases you should already have a PersonGroup to use.
+> The sample code creates and trains a new **PersonGroup** to migrate, but in most cases you should already have a **PersonGroup** to use.
 
 ## Take a Snapshot of the PersonGroup
 
-Use the source subscription **FaceClient** instance to take a snapshot of the PersonGroup, using **TakeAsync** with the PersonGroup ID and the target subscription's ID. If you have multiple target subscriptions, you can add them as additional array entries in the third parameter.
+Use the source subscription **FaceClient** instance to take a snapshot of the PersonGroup, using **TakeAsync** with the **PersonGroup** ID and the target subscription's ID. If you have multiple target subscriptions, you can add them as additional array entries in the third parameter.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -73,7 +73,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> The process of taking and applying snapshots will not disrupt any regular calls to the source or target PersonGroups. However, it is not guaranteed to work as expected when calling PersonGroup (Person, Face) - Management and PersonGroup - Train.
+> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s. However, it may cause [Face List management calls](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) or the [Person Group - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) REST call to fail.
 
 ## Retrieve the Snapshot ID
 
@@ -133,7 +133,7 @@ var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
 
 ## Apply Snapshot to target subscription
 
-Next, create the new PersonGroup in the target subscription, using a randomly generated ID. Then use the target subscription's **FaceClient** instance to apply the snapshot to this PersonGroup, passing in the snapshot ID and new PersonGroup ID. 
+Next, create the new **PersonGroup** in the target subscription, using a randomly generated ID. Then use the target subscription's **FaceClient** instance to apply the snapshot to this PersonGroup, passing in the snapshot ID and new **PersonGroup** ID. 
 
 > [!NOTE]
 > A Snapshot object is only valid for 48 hours. You should only take a snapshot if you intend to use it for data migration soon after.
@@ -163,7 +163,7 @@ operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);
 
 ## Test the data migration
 
-After you've applied the snapshot, the new PersonGroup in the target subscription should be populated with the original face data. By default, training results are also copied, so the new PersonGroup will be ready for face identification calls without needing retraining.
+After you've applied the snapshot, the new **PersonGroup** in the target subscription should be populated with the original face data. By default, training results are also copied, so the new **PersonGroup** will be ready for face identification calls without needing retraining.
 
 To test the data migration, you can run the following operations and compare their results.
 
