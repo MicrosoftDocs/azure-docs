@@ -10,7 +10,7 @@ ms.author: amlstudiodocs
 editor: cgronlun
 ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

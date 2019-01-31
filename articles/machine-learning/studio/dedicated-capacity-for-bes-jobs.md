@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: Overview of Azure Batch services for Machine Learning jobs. Batch Pool processing allows you to create pools on which you can submit batch jobs.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding

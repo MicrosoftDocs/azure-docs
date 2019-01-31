@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
 ---
 # Monitor and manage performance of sharded multi-tenant Azure SQL database in a multi-tenant SaaS app
 
@@ -155,7 +155,7 @@ If you already provisioned a new tenant in its own database, skip the next few s
 
 The script will provision this tenant in a separate database, register the database and the tenant with the catalog, and then open the tenant’s Events page in the browser. Refresh the Events Hub page and you will see "Salix Salsa" has been added as a venue.
 
-## Manage performance of a single database
+## Manage performance of an individual database
 
 If a single tenant within a multi-tenant database experiences a sustained high load, it may tend to dominate the database resources and impact other tenants in the same database. If the activity is likely to continue for some time, the tenant can be temporarily moved out of the database and into its own single-tenant database. This allows the tenant to have the extra resources it needs, and fully isolates it from the other tenants.
 

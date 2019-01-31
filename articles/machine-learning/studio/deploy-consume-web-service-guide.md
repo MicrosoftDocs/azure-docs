@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: You can use Azure Machine Learning to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the internet to do predictions in real time or in batch mode. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding
