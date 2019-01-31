@@ -79,17 +79,15 @@ Microsoft publishes different images for versions of IIS built on different vers
 
 The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`. 
 
-## Create a cluster
-
-Follow these steps in the [Deploy a .NET app](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) tutorial to create a Service Fabric cluster in your Azure subscription and deploy the application to it. The cluster created through Visual Studio supports containers. After you have deployed and verified the application in your cluster, you can skip ahead to [Complete example Service Fabric application and service manifests](#complete-example-service-fabric-application-and-service-manifests) in this quickstart.
-
 ## Deploy the application to Azure using Visual Studio
 
-Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
+Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.  For this quickstart, we will use a local cluster.
+
+By default, Visual Studio will create a local cluster for you. Because we are using a local test cluster, in ApplicationManifest.xml, set  **PasswordEncrypted** to **false**.
 
 Right-click **MyFirstContainer** in the Solution Explorer and choose **Publish**. The Publish dialog appears.
 
-Copy the **Connection Endpoint** from the cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and verify the connection parameter information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step.
+Because we will use a local cluster, change **Target Profile** to **PublishPofiles\Local.1Node.xml** and change **Connection Endpoint**  to **Local Cluster**.
 
 ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
 
@@ -97,7 +95,7 @@ Click **Publish**.
 
 Each application in the cluster must have a unique name. If there is a name conflict, rename the Visual Studio project and deploy again.
 
-Open a browser and navigate to the **Connection endpoint** specified in the cluster page. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http://zwin7fh14scd.westus.cloudapp.azure.com:80. You should see the IIS default web page:
+Open a browser and navigate to the **Connection endpoint** specified in the cluster page. Because we are using a local cluster, navigate to `http://localhost:80`. You should see the IIS default web page:
 ![IIS default web page][iis-default]
 
 ## Next steps
