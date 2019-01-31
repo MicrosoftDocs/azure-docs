@@ -55,7 +55,7 @@ However, an additional factor to note is the frequency of changes to your softwa
 How can I set up an easily repeatable process to bring my custom organizational images into a DevTest Labs environment?
 
 ### Answer
-See [this video on Immage Factory pattern](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
+See [this video on Image Factory pattern](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
 
 Using DevTest Labs to create a custom image pipeline in Azure Pipelines:
 
