@@ -121,9 +121,9 @@ Your recent backup job failed because there is an existing backup job in progres
 3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
 
 	* If a backup job is in progress, wait for it to complete or cancel the backup job.
-		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.backup/stop-azbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
 	* If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists then cancel the backup job.
-		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.backup/stop-azbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
 4. Retry backup operation.
 
 If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#restore-considerations).

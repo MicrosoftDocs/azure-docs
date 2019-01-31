@@ -40,9 +40,9 @@ PS C:\> $encryptedBlobName = $properties["Encryption Info Blob Name"]
 Set the Azure storage context and restore JSON configuration file containing key and secret details for encrypted VM.
 
 ```
-PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
+PS C:\> Set-AzCurrentStorageAccount -Name $storageaccountname -ResourceGroupName '<rg-name>'
 PS C:\> $destination_path = 'C:\vmencryption_config.json'
-PS C:\> Get-AzureStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Destination $destination_path
+PS C:\> Get-AzStorageBlobContent -Blob $encryptedBlobName -Container $containerName -Destination $destination_path
 PS C:\> $encryptionObject = Get-Content -Path $destination_path  | ConvertFrom-Json
 ```
 
@@ -103,7 +103,7 @@ The approach mentioned above would work for all the recovery points. However, th
 Use the following cmdlets to get key (KEK) information from recovery point and feed it to restore key cmdlet to put it back in the key vault.
 
 ```
-PS C:\> $rp1 = Get-AzureRmRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
+PS C:\> $rp1 = Get-AzRecoveryServicesBackupRecoveryPoint -RecoveryPointId $rp[0].RecoveryPointId -Item $backupItem -KeyFileDownloadLocation 'C:\Users\downloads'
 PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile 'C:\Users\downloads'
 ```
 
@@ -121,7 +121,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 > [!NOTE]
 > * Value for $secretname can be obtained by referring to the output of $rp1.KeyAndSecretDetails.SecretUrl and using text after secrets/ e.g. output secret URL is https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 and secret name is B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > * Value of the tag DiskEncryptionKeyFileName is same as secret name.
-> * Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey) cmdlet
+> * Value for DiskEncryptionKeyEncryptionKeyURL can be obtained from key vault after restoring the keys back and using [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/get-azurekeyvaultkey) cmdlet
 >
 >
 

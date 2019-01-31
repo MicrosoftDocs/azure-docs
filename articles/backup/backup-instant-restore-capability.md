@@ -71,19 +71,19 @@ If you wish to self-serve and upgrade to Instant Restore, run the following cmdl
 1.	Sign in to your Azure account:
 
     ```
-    PS C:> Connect-AzureRmAccount
+    PS C:> Connect-AzAccount
     ```
 
 2.	Select the subscription that you want to register:
 
     ```
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
     ```
 
 3.	Register this subscription:
 
     ```
-    PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
+    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
 ## Upgrade to Instant Restore using CLI
@@ -114,7 +114,7 @@ Run the following commands from a shell:
 From an elevated PowerShell terminal, run the following cmdlet:
 
 ```
-Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
+Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
 ```
 
 ### CLI

@@ -26,38 +26,38 @@ A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is
 The first time you use Azure Backup, you must register the Azure Recovery Service provider with your subscription. If you have already registered the provider with your subscription, go to the next step.
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 ```
 
-Create a Recovery Services vault with **New-AzureRmRecoveryServicesVault**. Be sure to specify the resource group name and location used when configuring the virtual machine that you want to back up. 
+Create a Recovery Services vault with **New-AzRecoveryServicesVault**. Be sure to specify the resource group name and location used when configuring the virtual machine that you want to back up. 
 
 ```powershell
-New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
+New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable. Then use **Set-AzureRmRecoveryServicesBackupProperties** to set the **-BackupStorageRedundancy** option to [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). 
+Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable. Then use **Set-AzRecoveryServicesBackupProperties** to set the **-BackupStorageRedundancy** option to [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). 
 
 ```powershell
-$vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault
-Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
+$vault1 = Get-AzRecoveryServicesVault –Name myRSVault
+Set-AzRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
 ```
 
 ## Back up Azure virtual machines
 
 Before you can run the initial backup, you must set the vault context. The vault context is the type of data protected in the vault. When you create a Recovery Services vault, it comes with default protection and retention policies. The default protection policy triggers a backup job each day at a specified time. The default retention policy retains the daily recovery point for 30 days. For this tutorial, accept the default policy. 
 
-Use **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** to set the vault context. Once the vault context is set, it applies to all subsequent cmdlets. 
+Use **[Set-AzRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)** to set the vault context. Once the vault context is set, it applies to all subsequent cmdlets. 
 
 ```powershell
-Get-AzureRmRecoveryServicesVault -Name myRSVault | Set-AzureRmRecoveryServicesVaultContext
+Get-AzRecoveryServicesVault -Name myRSVault | Set-AzRecoveryServicesVaultContext
 ```
 
-Use **[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** to trigger the backup job. The backup job creates a recovery point. If it is the initial backup, then the recovery point is a full backup. Subsequent backups create an incremental copy.
+Use **[Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-Azrecoveryservicesbackupitem)** to trigger the backup job. The backup job creates a recovery point. If it is the initial backup, then the recovery point is a full backup. Subsequent backups create an incremental copy.
 
 ```powershell
-$namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -FriendlyName "V2VM"
-$item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -WorkloadType AzureVM
-$job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
+$namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -FriendlyName "V2VM"
+$item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType AzureVM
+$job = Backup-AzRecoveryServicesBackupItem -Item $item
 ```
 
 ## Delete the Recovery Services vault
@@ -66,11 +66,11 @@ To delete a Recovery Services vault, you must first delete any recovery points i
 
 
 ```powershell
-$Cont = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered
-$PI = Get-AzureRmRecoveryServicesBackupItem -Container $Cont[0] -WorkloadType AzureVm
-Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints $PI[0]
-Unregister-AzureRmRecoveryServicesBackupContainer -Container $namedContainer
-Remove-AzureRmRecoveryServicesVault -Vault $vault1
+$Cont = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered
+$PI = Get-AzRecoveryServicesBackupItem -Container $Cont[0] -WorkloadType AzureVm
+Disable-AzRecoveryServicesBackupProtection -RemoveRecoveryPoints $PI[0]
+Unregister-AzRecoveryServicesBackupContainer -Container $namedContainer
+Remove-AzRecoveryServicesVault -Vault $vault1
 ```
 
 ## Troubleshooting errors

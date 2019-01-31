@@ -29,7 +29,7 @@ To view the **AzureRm.RecoveryServices.Backup** PowerShell cmdlet reference, see
 ## Setup and registration
 
 > [!NOTE]
-> As noted in [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0), support for new features in the AzureRM module ends in November 2018. Support is provided for backup of Azure file shares with the new Az PowerShell module that's now generally available.
+> As noted in [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-6.13.0), support for new features in the AzureRM module ends in November 2018. Support is provided for backup of Azure file shares with the new Az PowerShell module that's now generally available.
 
 Follow these steps to begin.
 
@@ -52,7 +52,7 @@ Follow these steps to begin.
 4. Associate the subscription you want to use with the account because an account can have several subscriptions.
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
 5. If you're using Azure Backup for the first time, use the **Register-AzResourceProvider** cmdlet to register the Azure Recovery Services provider with your subscription.
