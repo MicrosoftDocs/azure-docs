@@ -78,7 +78,7 @@ Make sure that your subscription has the capacity to run the Avere vFXT cluster 
 
 ## Back-end data storage
 
-Where should the Avere vFXT cluster store your data when it's not in the cache? Decide whether your working set will be stored long-term in a new Blob container or in an existing cloud or hardware storage system. 
+Where should the Avere vFXT cluster store your data when it's not in the cache? Decide whether your working set will be stored long term in a new Blob container or in an existing cloud or hardware storage system. 
 
 If you want to use Azure Blob storage for the back end, you should create a new container as part of creating the vFXT cluster. This option creates and configures the new container so that it is ready to use as soon as the cluster is ready. 
 
@@ -112,7 +112,7 @@ For details about these options, read the [Azure Virtual Network documentation a
 
 If you set a public IP address on the cluster controller, you can use it as a jump host to contact the Avere vFXT cluster from outside the private subnet. However, because the controller has access privileges to modify cluster nodes, this creates a small security risk.  
 
-For improved security with a public IP address, use a network security group to allow inbound access only through port 22.
+For improved security with a public IP address, use a network security group to allow inbound access only through port 22. Optionally, you can further protect the system by locking down access to your range of IP source addresses - that is, only allow connections from machines you intend to use for cluster access.
 
 When creating the cluster, you can choose whether or not to create a public IP address on the cluster controller. 
 
