@@ -91,7 +91,7 @@ To modify the secondary DNS server in Azure portal, perform the following steps.
 
 2. In the **Settings** blade, go to **Device settings > Network**. This opens up the **Network settings** blade. Click **DNS settings** tile. Modify the secondary DNS server IP address.
 
-    ![Modify secondary DNS server IP adderss](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
+    ![Modify secondary DNS server IP address](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
 
 4. From the command bar, click **Save** and when prompted for confirmation, click **OK**.
 
