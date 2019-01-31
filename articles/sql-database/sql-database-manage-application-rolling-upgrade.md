@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/29/2019
+ms.date: 01/30/2019
 ---
 # Managing rolling upgrades of cloud applications using SQL Database active geo-replication
 
@@ -26,7 +26,7 @@ When evaluating the upgrade options, you should consider the following factors:
 
 ## Upgrading applications that rely on database backups for disaster recovery
 
-If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is deployed to a single Azure region. To minimize the end-user disruption, you will create a staging environment in that region with all the application components involved in the upgrade. The following diagram illustrates the operational environment prior to the upgrade process. The endpoint `contoso.azurewebsites.net` represents a production slot of the web application. To enable the ability to rollback the upgrade, you need create a staging slot with a fully synchronized copy of the database. The following steps will create a staging environment for the upgrade:
+If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is deployed to a single Azure region. To minimize the end-user disruption, you will create a staging environment in that region with all the application components involved in the upgrade. The following diagram illustrates the operational environment prior to the upgrade process. The endpoint `contoso.azurewebsites.net` represents a production slot of the web application. To enable the ability to rollback the upgrade, you need create a staging environment with a fully synchronized copy of the database. The following steps will create a staging environment for the upgrade:
 
 1. Create a secondary database in the same Azure region. Monitor the secondary to see if the seeding process is completed (1).
 2. Create a new deployment slot for your web application called 'Staging'. It will be registered in DNS with URL  `contoso-staging.azurewebsites.net` (2).
