@@ -14,9 +14,7 @@ ms.author: pafarley
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
 
-In this tutorial, you will step through a sample app that uses Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you will learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. 
-
-You may wish to run the whole app for yourself, or you can simply complete the Custom Vision part of the setup and explore how the app utilizes it.
+In this tutorial, you will step through a sample app that uses Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you will learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. You may wish to run the whole app for yourself, or you can simply complete the Custom Vision part of the setup and explore how the app utilizes it.
 
 This tutorial will show you how to:
 
@@ -29,37 +27,35 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-- Xamarin workload for Visual Studio (see [Installing Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows)).
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- Xamarin workload for Visual Studio (see [Installing Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
 - An iOS or Android emulator for Visual Studio
 - [Azure command-line interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
 
 ## Get the source code
 
-First, clone or download the app's source code from the [AI Visual Provision](https://github.com/Microsoft/AIVisualProvision) repository on GitHub. Open the *Source/VisualProvision.sln* file in Visual Studio. Later on, you will make the necessary edits to some of the project files in order to be able to run the app.
+If you'd like to use the provided web app, clone or download the app's source code from the [AI Visual Provision](https://github.com/Microsoft/AIVisualProvision) repository on GitHub. Open the *Source/VisualProvision.sln* file in Visual Studio. Later on, you will make the necessary edits to some of the project files in order to be able to run the app.
 
 ## Create an object detector
 
-Sign in to the [Custom Vision website](https://customvision.ai/) and create a new project. Specify an Object Detection project and use the Logo domain; this will cause the service to use an algorithm optimized for logo detection. 
+Sign in to the [Custom Vision website](https://customvision.ai/) and create a new project. Specify an Object Detection project and use the Logo domain; this will let the service to use an algorithm optimized for logo detection. 
 
 ![new project dialogue window on the Custom Vision website in Chrome browser](media/azure-logo-tutorial/new-project.png)
 
 ## Upload and tag images
 
-Next, you will need to train the logo detection algorithm by uploading images of Azure service logos and tagging them manually. The AIVisualProvision repository includes a set of training images. Select the **Add images** button under the **Training Images** tab, and then navigate to the **Documents/Images/Training_DataSet** folder of the repo. 
-
-You will need to manually tag the logos in each image, so if
+Next, you will need to train the logo detection algorithm by uploading images of Azure service logos and tagging them manually. The AIVisualProvision repository includes a set of training images that you can use. On the website, select the **Add images** button in the **Training Images** tab, and then navigate to the **Documents/Images/Training_DataSet** folder of the repo. You will need to manually tag the logos in each image, so if
 you are only testing out this project, you may wish to upload only a subset of the images. At minimum, you must upload 15 instances of each tag you plan to use.
 
 Once you've uploaded the training images, select the first one on the display. This will bring up the tagging window. Draw boxes and assign tags for each logo in each image. 
 
 ![image of logos with tags being applied on the Custom Vision website](media/azure-logo-tutorial/tag-logos.png)
 
-Note that the app is configured to work with specific tag strings; see the definitions in the *Source\VisualProvision\AppSettings.cs* file:
+Note that the app is configured to work with specific tag strings; see the definitions in the *Source\VisualProvision\Services\Recognition\RecognitionService.cs* file:
 
 [!code-csharp[tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
 
-When you have tagged an image, navigate to the right to tag the next one. Exit out of the tagging window when you are finished.
+When you've tagged an image, navigate to the right to tag the next one. Exit out of the tagging window when you are finished.
 
 ## Train the object detector
 
@@ -69,13 +65,13 @@ In the left pane, set the **Tags** switch to **Tagged**, and you should see all 
 
 ## Get the prediction URL
 
-Once your model is trained, you are ready to integrate it into the app. To do this, you'll need to get the endpoint URL (the address of your model, which the app will query) and the prediction key (to grant the app access to prediction requests). In the **Performance** tab, click the **Prediction URL** button at the top of the page.
+Once your model is trained, you are ready to integrate it into your app. To do this, you'll need to get the endpoint URL (the address of your model, which the app will query) and the prediction key (to grant the app access to prediction requests). In the **Performance** tab, click the **Prediction URL** button at the top of the page.
 
 ![the Custom Vision website with a Prediction API screen, showing a URL address and api key](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copy the **image file** URL and the `Predictionkey` value to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file:
+Copy the image file URL and the `Prediction-key` value to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file:
 
-[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-25)]
+[!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
 
 ## Examine Custom Vision usage
 
@@ -91,7 +87,7 @@ If you wish to learn more about how the app handles this data, start at the **Ge
 
 ## Add Computer Vision
 
-The Custom Vision portion of the tutorial is complete, but if you wish to run the app, you will need to integrate the Computer Vision service as well. The app uses Computer Vision's text recognition feature to supplement the logo detection process; an Azure logo can be recognized by its visual look _or_ by the text printed near it. Unlike Custom Vision models, Computer Vision is pre-trained to perform certain operations on images or videos.
+The Custom Vision portion of the tutorial is complete, but if you wish to run the app, you will need to integrate the Computer Vision service as well. The app uses Computer Vision's text recognition feature to supplement the logo detection process; an Azure logo can be recognized by its appearance _or_ by the text printed near it. Unlike Custom Vision models, Computer Vision is pre-trained to perform certain operations on images or videos.
 
 Simply subscribe to the Computer Vision service to get a key and endpoint URL. See [How to obtain subscription keys](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe) if you need help with this step.
 
@@ -99,14 +95,14 @@ Simply subscribe to the Computer Vision service to get a key and endpoint URL. S
 
 Then, open the *Source\VisualProvision\AppSettings.cs* file and populate the `ComputerVisionEndpoint` and `ComputerVisionKey` variables with the correct values.
 
-[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=27-30)]
+[!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
 
 ## Create a service principal
 
 The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using role-based access control. See the [service principals guide](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-create-service-principals) if you'd like to learn more.
 
-You can create a service principal either using Azure Cloud Shell or by using the Azure CLI, as follows. First, log in and select the subscription you'd like to use.
+You can create a service principal using either Azure Cloud Shell or the Azure CLI (as follows). First, log in and select the subscription you'd like to use.
 
 ```console
 az login
@@ -137,28 +133,38 @@ Take note of the `clientId`, and `tenantId` values. Add them to the appropriate 
 
 ## Run the app
 
-At this point, you've given the app a reference to:
+At this point, you've given the app access to:
 * a trained Custom Vision model
 * the Computer Vision service
-* a service principal account. 
+* a service principal account 
 
-In the Visual Studio Solution Explorer, select either the VisualProvision.Android or VisualProvision.iOS project and choose a corresponding emulator or connected mobile device from the dropdown menu in the main toolbar (note that you need a MacOS device to run an iOS emulator). Then run the app.
+Follow these steps to run the app:
 
-In the first screen that loads, enter your service principal client ID, tenant ID, and password. Click the **Login** button.
+1. In the Visual Studio Solution Explorer, select either the VisualProvision.Android or VisualProvision.iOS project and choose a corresponding emulator or connected mobile device from the dropdown menu in the main toolbar (note that you need a MacOS device to run an iOS emulator). Then run the app.
 
-> [!NOTE]
-> On some emulators, the **Login** button may not activate at this step. If this happens, stop the app, open the _VisualProvision/Pages/LoginPage.xaml_ file, find the `Button` element labelled LOGIN BUTTON, and remove the line:
-  ```xaml
-  IsEnabled="{Binding IsValid}"
-  ```
+1. In the first screen that loads, enter your service principal client ID, tenant ID, and password. Click the **Login** button.
 
-> Then, run the app again.
+    > [!NOTE]
+    > On some emulators, the **Login** button may not activate at this step. If this happens, stop the app, open the _Source/VisualProvision/Pages/LoginPage.xaml_ file, find the `Button` element labelled LOGIN BUTTON, and remove the line:
+      ```xaml
+      IsEnabled="{Binding IsValid}"
+      ```
+    
+    > Then, run the app again.
 
-On the next screen, select your Azure subscription from the dropdown menu (this should contain all of the subscriptions to which your service principal has access). Click the **Continue** button.
+    ![the app screen with fields for service principal credentials](media/azure-logo-tutorial/app-credentials.png)
 
-At this point the app may prompt you to grant access to the devices to camera and photo storage. Accept these permissions.
+1. On the next screen, select your Azure subscription from the dropdown menu (this should contain all of the subscriptions to which your service principal has access). Click the **Continue** button.
 
-Next, the camera on your device will activate. Take a photo of one of the Azure service logos you trained. A deployment dialogue should prompt you to select a region and resource group for the new services (as you would do if you were deploying them from the Azure portal).
+    ![the app screen with a drop-down field for Target Azure subscription](media/azure-logo-tutorial/app-az-subscription.png)
+
+    At this point the app may prompt you to grant access to the devices to camera and photo storage. Accept these permissions.
+
+1. Next, the camera on your device will activate. Take a photo of one of the Azure service logos you trained. A deployment dialogue should prompt you to select a region and resource group for the new services (as you would do if you were deploying them from the Azure portal). 
+
+    ![a smartphone camera screen with two paper cutouts of Azure logos in view](media/azure-logo-tutorial/app-camera-capture.png)
+
+    ![an app screen with fields for deployment region and resource group entry](media/azure-logo-tutorial/app-deployment-options.png)
 
 ## Clean up resources 
 
