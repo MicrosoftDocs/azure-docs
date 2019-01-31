@@ -55,7 +55,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 To deploy the application to Azure, you need a Service Fabric cluster to run the application. The following commands create a five-node cluster in Azure.  The commands also create a self-signed certificate, adds it to a key vault and downloads the certificate locally. The new certificate is used to secure the cluster when it deploys and is used to authenticate clients.
 
-```azure-cli
+```azurecli
 #!/bin/bash
 
 # Variables
@@ -137,7 +137,7 @@ Service Fabric makes sure that your container instances automatically move to ot
 To fail over the front-end container, do the following steps:
 
 1. Open Service Fabric Explorer in your cluster; for example, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`.
-2. Click the **fabric:/Voting/azurevotefront** node in the tree view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that the container is currently running on; for example, `_nodetype_4`.
+2. Click the **fabric:/Voting/azurevotefront** node in the tree view and expand the partition node (represented by a GUID). Notice the node name in the treeview, which shows you the nodes that the container is currently running on; for example, `_nodetype_1`.
 3. Expand the **Nodes** node in the tree view. Click the ellipsis (...) next to the node that is running the container.
 4. Choose **Restart** to restart that node and confirm the restart action. The restart causes the container to fail over to another node in the cluster.
 
@@ -167,18 +167,29 @@ Through this simple management task, you've doubled the resources available for 
 
 ## Clean up resources
 
-1. Use the uninstall script (uninstall.sh) provided in the template to delete the application instance from the cluster and unregister the application type. This script takes some time to clean up the instance, so you should not run the install script immediately after this script. You can use Service Fabric Explorer to determine when the instance has been removed and the application type unregistered.
+Use the uninstall script (uninstall.sh) provided in the template to delete the application instance from the cluster and unregister the application type. This script takes some time to clean up the instance, so you should not run the install script immediately after this script. You can use Service Fabric Explorer to determine when the instance has been removed and the application type unregistered.
 
-    ```bash
-    ./uninstall.sh
-    ```
+```bash
+./uninstall.sh
+```
 
-2. If you are finished working with your cluster, you can remove the certificate from your certificate store. For example:
-   - On Windows: Use the [Certificates MMC snap-in](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
-   - On Mac: Use the Keychain app.
-   - On Ubuntu: Follow the steps you used to view certificates and remove the certificate.
+The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-3. If you don't want to continue to use Cloud Shell, you can delete the storage account associated with it to avoid charges. Close your Cloud Shell session. In Azure portal, click the storage account associated with Cloud Shell, then click **Delete** at the top of the page and respond to the prompts.
+Log in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group?view=azure-cli-latest).
+
+```azurecli
+az login
+az account set --subscription <guid>
+ResourceGroupName="containertestcluster"
+az group delete --name $ResourceGroupName
+```
+
+If you are finished working with your cluster, you can remove the certificate from your certificate store. For example:
+- On Windows: Use the [Certificates MMC snap-in](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
+- On Mac: Use the Keychain app.
+- On Ubuntu: Follow the steps you used to view certificates and remove the certificate.
+
+If you don't want to continue to use Cloud Shell, you can delete the storage account associated with it to avoid charges. Close your Cloud Shell session. In Azure portal, click the storage account associated with Cloud Shell, then click **Delete** at the top of the page and respond to the prompts.
 
 ## Next steps
 
