@@ -50,6 +50,7 @@ Installing the [[NuGet Video Search SDK package]](https://www.nuget.org/packages
     ```csharp
     var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
+
 ## Send a search request and process the results
 
 1. Use the client to send a search request. Use "SwiftKey" for the search query.
