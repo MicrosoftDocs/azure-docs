@@ -8,7 +8,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 # Using the Azure CLI with Azure Storage
 

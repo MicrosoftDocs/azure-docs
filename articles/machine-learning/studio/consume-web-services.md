@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: Once a machine learning service is deployed from Azure Machine Learning Studio, the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding
