@@ -3,7 +3,7 @@ title: Manage VM disks in Azure Stack | Microsoft Docs
 description: Create disks for virtual machines in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/18/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
 ---
