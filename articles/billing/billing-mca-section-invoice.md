@@ -1,5 +1,5 @@
 ---
-title: Create sections on your invoice to group your charges | Microsoft Docs
+title: Create sections on your invoice to group your charges - Azure | Microsoft Docs
 description: Learn to group charges on your invoice with invoice sections.
 services: ''
 author: amberbhargava
