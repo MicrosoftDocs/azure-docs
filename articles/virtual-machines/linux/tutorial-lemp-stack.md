@@ -78,7 +78,7 @@ To help secure the installation of MySQL, including setting a root password, run
 sudo mysql_secure_installation
 ```
 
-You can optionally set up the Validate Password Plugin (recommended). Then, set a password for the MySQL user, and configure the remaining security settings for your environment. We recommend that you answer "Y" (yes) to all questions.
+You can optionally set up the Validate Password Plugin (recommended). Then, set a password for the MySQL root user, and configure the remaining security settings for your environment. We recommend that you answer "Y" (yes) to all questions.
 
 If you want to try MySQL features (create a MySQL database, add users, or change configuration settings), login to MySQL. This step is not required to complete this tutorial. 
 
