@@ -19,6 +19,9 @@
   items:
   - name: Extend Windows file servers with Azure File Sync
     href: storage-sync-files-extend-servers.md
+  items:
+  - name: Bulk migrate files to Azure with Data Box and Azure File Sync
+    href: storage-sync-offline-data-transfer.md
 - name: Concepts
   items:
   - name: About Azure Files
