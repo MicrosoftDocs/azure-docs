@@ -21,33 +21,33 @@ This article describes how to enable replication of Azure VMs running storage sp
 >
 
 ##Introduction 
-[Storage spaces direct (S2D)][https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct] is a software-defined, shared nothing storage. It provides a way to create guest clusters on Azure.  A guest cluster in Microsoft Azure is a Failover Cluster comprised of IaaS VMs. This allows hosted VM workloads to failover across the guest clusters achieving higher availability SLA for applications than a single Azure VM can provide. It is especially usefully in scenarios where VM hosting a critical application that needs to be patched or requires configuration changes.
+[Storage spaces direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is a software-defined, shared nothing storage. It provides a way to create guest clusters on Azure.  A guest cluster in Microsoft Azure is a Failover Cluster comprised of IaaS VMs. This allows hosted VM workloads to failover across the guest clusters achieving higher availability SLA for applications than a single Azure VM can provide. It is especially usefully in scenarios where VM hosting a critical application that needs to be patched or requires configuration changes.
 
 #Disaster Recovery of Azure Virtual Machines using storage spaces direct
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermissions.png)
+In a typical scenario, you may have virtual machines guest cluster on Azure for higher resiliency of your application like Scale out file server. While this can provide your application higher availability, you would like to protect these applications using Site Recovery for any region level failure. Site Recovery replicates the data from one region to another Azure region and brings up the cluster in disaster recovery region in an event of failover.
 
-If the user enabling disaster recovery (DR) does not have the required permissions to copy the keys, the below script can be given to the security administrator with appropriate permissions to copy the encryption secrets and keys to the target region.
+Below diagram shows the pictorial representation of 2 Azure VMs failover cluster using storage spaces direct.
 
->[!NOTE]
->To enable replication of ADE VM from portal, you at least need "List" permissions on the key vaults, secrets and keys
->
+![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
-## Copy ADE keys to DR region using PowerShell Script
+ 
+- Two Azure virtual machines in a Windows Failover Cluster and each virtual machine has two or more data disks.
+- S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool.
+- The storage pool presents as a cluster shared volume (CSV) to the failover cluster.
+- The Failover cluster uses the CSV for the data drives.
 
-1. Open the 'CopyKeys' raw script code in a browser window by clicking on [this link](https://aka.ms/ade-asr-copy-keys-code).
-2. Copy the script to a file and name it 'Copy-keys.ps1'.
-2. Open the Windows PowerShell application and go to the folder location where the file exists.
-3. Launch 'Copy-keys.ps1'
-4. Provide the Azure login credentials.
-5. Select the **Azure subscription** of your VMs.
-6. Wait for the resource groups to load and then select the **resource group** of your VMs.
-7. Select the VMs from the list of VMs displayed. Only VMs enabled with Azure disk encryption are shown in the list.
-8. Select the **target location**.
-9. **Disk encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source VM disk encryption keys. In case key vault created by Azure Site Recovery already exists, it is reused. You can select a different key vault from the list if necessary.
-10. **Key encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source VM key encryption keys. In case key vault created by Azure Site Recovery already exists, it is reused. You can select a different key vault from the list if necessary.
+Things to keep in mind 
+1. When setting up cloud witness of the virtual machine keep witness in the Disaster Recovery region
+2. Azure site Recovery will not be able to change the ip of the cluster and that has to be done through the script
 
-## Enable replication
+**Enabling Site Recovery for S2D cluster:**
+
+1. Inside the recovery services vault, click “+replicate”
+1. Select all the nodes in the cluster and make them part of a Multi-VM consistency group.
+1. Select replication policy with application consistency off* (only crash consistency support is available)
+1. Enable the replication
+
 
 
 ## Next steps
