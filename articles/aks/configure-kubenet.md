@@ -138,7 +138,8 @@ The following IP address ranges are also defined as part of the cluster create p
 
 * The *--dns-service-ip* address should be the *.10* address of your service IP address range.
 
-* The *--pod-cidr* should be a large address space that isn't in use elsewhere in your network environment. This includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connections.
+* The *--pod-cidr* should be a large address space that isn't in use elsewhere in your network environment. This includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
+    * This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed if you need more addresses for additional nodes.
     * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *192.168.0.0/16* assigns the first node *192.168.0.0/24*, the second node *192.168.1.0/24*, and the third node *192.168.2.0/24*.
     * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
 
