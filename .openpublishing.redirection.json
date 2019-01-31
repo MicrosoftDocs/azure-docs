@@ -11678,6 +11678,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/whats-new.md",
+      "redirect_url": "https://azure.microsoft.com/updates/?product=machine-learning-studio",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-algorithm-cheat-sheet.md",
       "redirect_url": "/azure/machine-learning/studio/algorithm-cheat-sheet",
       "redirect_document_id": false
