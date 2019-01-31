@@ -41,7 +41,7 @@ Clone the sample Git repository from [GitHub](https://github.com/Azure/azure-eve
 ## Install Node.js package
 Install Node.js package for Azure Event Hubs on your machine. 
 
-```javascript
+```shell
 npm install @azure/event-hubs
 ```
 
@@ -56,13 +56,13 @@ The SDK you have cloned contains multiple samples that show you how to send even
 3. Configure your event hub connection string, event hub name, and storage endpoint. You can copy connection string for your event hub from **Connection string-primary** key under **RootManageSharedAccessKey** on the Event Hub page in the Azure portal. For detailed steps, see [Get connection string](event-hubs-create.md#create-an-event-hubs-namespace).
 4. On your Azure CLI, navigate to the **client** folder path. Install node packages and build the project by running the following commands:
 
-    ```javascript
+    ```shell
     npm i
     npm run build
     ```
 5. Start sending events by running the following command: 
 
-    ```javascript
+    ```shell
     node dist/examples/simpleSender.js
     ```
 
@@ -92,7 +92,7 @@ main().catch((err) => {
 
 Remember to set your environment variables before running the script. You can either configure this in the command line as shown in the following example, or use the [dotenv package](https://www.npmjs.com/package/dotenv#dotenv). 
 
-```
+```shell
 // For windows
 set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
 set EVENTHUB_NAME="<your-event-hub-name>"
