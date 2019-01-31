@@ -38,6 +38,9 @@ To run the Azure Marketplace offering to provision a new host pool:
 Follow the guidance to enter the information for the appropriate blades.
 
 ### Basics
+
+Here's what you do for the Basics blade:
+
 1. Enter a name for the host pool that’s unique within the Windows Virtual Desktop tenant.
 2. Select the appropriate option for personal desktop. If you select **Yes**, each user that connects to this host pool will be permanently assigned to a virtual machine.
 3. Select **Create new** and provide a name for the new resource group.
@@ -45,24 +48,34 @@ Follow the guidance to enter the information for the appropriate blades.
 5. Select **OK**.
 
 ### Configure virtual machines
+
+For the Configure virtual machines blade:
+
 1. Either accept the defaults or customize the number and size of the VMs.
-2. Enter a prefix for the names of the virtual machines. The virtual machines will be ***prefix-0***, ***prefix-1***, etc.
+2. Enter a prefix for the names of the virtual machines. For example, the virtual machines will be formatted as **prefix-0***, **prefix-1**, and so on.
 3. Select **OK**.
 
 ### Virtual machine settings
+
+For the Virtual machine setting blade:
+
 1. Select the **Image** and enter the appropriate information for how to find it and how to store it. If you choose not to use managed disks, select the storage account containing the vhd file.
 2. Enter the user principal name and password for a domain account that will join the VMs to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
 3. Select the virtual network that has connectivity to the Active Directory server, then choose the subnet which will host the virtual machines.
 4. Select **OK**.
 
-### WVD tenant information
+### Windows Virtual Desktop tenant information
+
+For the Windows Virtual Desktop tenant information blade:
+
 1. Enter the name of the Windows Virtual Desktop tenant group that contains your tenant. If you do not have a specific tenant group name, leave it as the default.
 2. Enter the name of the Windows Virtual Desktop tenant under which this host pool will be created.
 3. Specify the type of credentials you will provide to authenticate as a tenant admin. If you select **Service principal**, you must also provide the **Azure AD tenant ID** associated with the service principal.
 4. Enter either the credentials for the tenant admin account. Only service principals with a password credential are supported.
 5. Select **OK**.
 
-### Final steps
+## Complete setup and create the virtual machine
+
 4. In the **Summary** blade, review the setup information. If you need to change something, go back to the appropriate blade and make your change before continuing. If the information looks correct, select **OK**.
 5. In the **Buy** blade, review additional information provided by the Azure Marketplace.
 6. Select **Create** to kick off the deployment of your host pool.
