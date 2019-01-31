@@ -27,7 +27,7 @@ Large messages do negatively affect messaging performance. Use smaller messages 
 
 For billing, only outbound messages from Azure SignalR Service are counted. Ping messages between clients and servers are ignored.
 
-Messages larger than 2 KB are counted as multiple messages of 2 KB each. The message count chart in the Azure portal updates with every 100 messages per hub.
+Messages larger than 2 KB are counted as multiple messages of 2 KB each. The message count chart in the Azure portal is updated with every 100 messages per hub.
 
 For example, imagine that you have three clients and one application server. One client sends a 4-KB message to let the server broadcast to all clients. The message count is eight: one message from the service to the application server and three messages from the service to the clients. Each message is counted as two 2-KB messages.
 
@@ -45,7 +45,7 @@ ASP.NET SignalR calculates server connections in a different way. It includes on
 
 ## How inbound/outbound traffic is counted
 
-The distinction between inbound traffic and outbound traffic is based on the perspective of Azure SignalR Service. Traffic is calculated in bytes. Like the message count, traffic also has a sampling rate. The Inbound/Outbound chart in the Azure portal updates every 100 KB per hub.
+The distinction between inbound traffic and outbound traffic is based on the perspective of Azure SignalR Service. Traffic is calculated in bytes. Like the message count, traffic also has a sampling rate. The inbound/outbound chart in the Azure portal is updated every 100 KB per hub.
 
 ## Related resources
 
