@@ -18,15 +18,15 @@ ms.date: 01/30/2019
 ms.author: manayar
 
 ---
-# Sequencing extension deployment in virtual machine scale sets
+# Sequencing extension provisioning in virtual machine scale sets
 Azure virtual machine extensions provide capabilities such as post-deployment configuration and management, monitoring, security, and more. Production deployments typically use a combination of multiple extensions configured for the VM instances to achieve desired results.
 
-When using multiple extensions on a virtual machine, it is important to ensure that extensions requiring the same OS resources are not attempting to acquire these resources at the same time. In addition, some extensions require certain pre-requisite configurations to be available and depend on other extensions to be deployed first to make those configurations available. Without the correct ordering and sequencing in place, extension deployments would fail.
+When using multiple extensions on a virtual machine, it's important to ensure that extensions requiring the same OS resources aren't trying to acquire these resources at the same time. Some extensions also depend on other extensions to provide required configurations such as environment settings and secrets. Without the correct ordering and sequencing in place, dependent extension deployments can fail.
 
 This article details how you can sequence extensions to be configured for the VM instances in virtual machine scale sets.
 
 ## Pre-requisites
-This article assumes that you are familiar with:
+This article assumes that you're familiar with:
 -	Azure virtual machine [extensions](../virtual-machines/extensions/overview.md)
 -	[Modifying](virtual-machine-scale-sets-upgrade-scale-set.md) virtual machine scale sets
 
@@ -60,91 +60,91 @@ The following example defines a template where the scale set has three extension
 
 ```json
 "virtualMachineProfile": {
-    "extensionProfile": {
-        "extensions": [
-     {
-                "name": "ExtensionA",
-                "properties": {
-                    "publisher": "ExtensionA.Publisher",
-                    "settings": {},
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "type": "ExtensionA"
-                 }
-             },
-     {
-                "name": "ExtensionB",
-                "properties": {
-                    "provisionAfterExtensions": [
-                        "ExtensionA"
-                    ],
-                    "publisher": "ExtensionB.Publisher",
-                    "settings": {},
-                    "typeHandlerVersion": "2.0",
-                    "autoUpgradeMinorVersion": true,
-                    "type": "ExtensionB"
-                 }
-             }, 
-     {
-                "name": "ExtensionC",
-                "properties": {
-                    "provisionAfterExtensions": [
-                        "ExtensionB"
-                    ],
-                    "publisher": "ExtensionC.Publisher",
-                "settings": {},
-                    "typeHandlerVersion": "3.0",
-                    "autoUpgradeMinorVersion": true,
-                    "type": "ExtensionC"                   
-                }
-            }
-        ]
-    }
- }
+  "extensionProfile": {
+    "extensions": [
+      {
+        "name": "ExtensionA",
+        "properties": {
+          "publisher": "ExtensionA.Publisher",
+          "settings": {},
+          "typeHandlerVersion": "1.0",
+          "autoUpgradeMinorVersion": true,
+          "type": "ExtensionA"
+        }
+      },
+      {
+        "name": "ExtensionB",
+        "properties": {
+          "provisionAfterExtensions": [
+            "ExtensionA"
+          ],
+          "publisher": "ExtensionB.Publisher",
+          "settings": {},
+          "typeHandlerVersion": "2.0",
+          "autoUpgradeMinorVersion": true,
+          "type": "ExtensionB"
+        }
+      }, 
+      {
+        "name": "ExtensionC",
+        "properties": {
+          "provisionAfterExtensions": [
+            "ExtensionB"
+          ],
+          "publisher": "ExtensionC.Publisher",
+          "settings": {},
+          "typeHandlerVersion": "3.0",
+          "autoUpgradeMinorVersion": true,
+          "type": "ExtensionC"                   
+        }
+      }
+    ]
+  }
+}
 ```
 
 Since the property "provisionAfterExtensions" accepts an array of extension names, the above example can be modified such that ExtensionC is provisioned after ExtensionA and ExtensionB, but no ordering is required between ExtensionA and ExtensionB. The following template can be used to achieve this scenario:
 
 ```json
 "virtualMachineProfile": {
-    "extensionProfile": {
-        "extensions": [
-     {
-                "name": "ExtensionA",
-                "properties": {
-                    "publisher": "ExtensionA.Publisher",
-                    "settings": {},
-                    "typeHandlerVersion": "1.0",
-                    "autoUpgradeMinorVersion": true,
-                    "type": "ExtensionA"
-                 }
-             },
-     {
-                "name": "ExtensionB",
-                "properties": {
-                    "publisher": "ExtensionB.Publisher",
-                    "settings": {},
-                    "typeHandlerVersion": "2.0",
-                    "autoUpgradeMinorVersion": true,
-                    "type": "ExtensionB"
-                 }
-             }, 
-     {
-                "name": "ExtensionC",
-                "properties": {
-                    "provisionAfterExtensions": [
-                        "ExtensionA","ExtensionB"
-                    ],
-                    "publisher": "ExtensionC.Publisher",
-                "settings": {},
-                    "typeHandlerVersion": "3.0",
-                    "autoUpgradeMinorVersion": true,
-                    "type": "ExtensionC"                   
-                }
-            }
-        ]
-    }
- }
+  "extensionProfile": {
+    "extensions": [
+      {
+        "name": "ExtensionA",
+        "properties": {
+          "publisher": "ExtensionA.Publisher",
+          "settings": {},
+          "typeHandlerVersion": "1.0",
+          "autoUpgradeMinorVersion": true,
+          "type": "ExtensionA"
+        }
+      },
+      {
+        "name": "ExtensionB",
+        "properties": {
+          "publisher": "ExtensionB.Publisher",
+          "settings": {},
+          "typeHandlerVersion": "2.0",
+          "autoUpgradeMinorVersion": true,
+          "type": "ExtensionB"
+        }
+      }, 
+      {
+        "name": "ExtensionC",
+        "properties": {
+          "provisionAfterExtensions": [
+            "ExtensionA","ExtensionB"
+          ],
+          "publisher": "ExtensionC.Publisher",
+          "settings": {},
+          "typeHandlerVersion": "3.0",
+          "autoUpgradeMinorVersion": true,
+          "type": "ExtensionC"                   
+        }
+      }
+    ]
+  }
+}
 ```
 
 ### REST API
@@ -157,16 +157,16 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 ```json
 { 
   "name": "ExtensionC",
-        "properties": {
-          "provisionAfterExtensions": [
-               "ExtensionA","ExtensionB"
-             ],
-           "publisher": "ExtensionC.Publisher",
-        "settings": {},
-           "typeHandlerVersion": "3.0",
-           "autoUpgradeMinorVersion": true,
-           "type": "ExtensionC" 
-   }                  
+  "properties": {
+    "provisionAfterExtensions": [
+      "ExtensionA","ExtensionB"
+    ],
+    "publisher": "ExtensionC.Publisher",
+    "settings": {},
+    "typeHandlerVersion": "3.0",
+    "autoUpgradeMinorVersion": true,
+    "type": "ExtensionC" 
+  }                  
 }
 ```
 
@@ -179,9 +179,9 @@ PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/provider
 ```json
 { 
   "properties": {
-          "provisionAfterExtensions": [
-               "ExtensionA","ExtensionB"
-             ]
+    "provisionAfterExtensions": [
+      "ExtensionA","ExtensionB"
+    ]
   }                  
 }
 ```
@@ -245,7 +245,7 @@ az vmss extension set \
 
 ### Not able to add extension with dependencies?
 1. Ensure that the extensions specified in provisionAfterExtensions are defined in the scale set model.
-2. Ensure there are no circular dependencies being introduced. For example, the following sequence is not allowed:
+2. Ensure there are no circular dependencies being introduced. For example, the following sequence isn't allowed:
 ExtensionA -> ExtensionB -> ExtensionC -> ExtensionA
 3. Ensure that any extensions that you take dependencies on, have a "settings" property under extension "properties". For example, if ExtentionB needs to be provisioned after ExtensionA, then ExtensionA must have the "settings" field under ExtensionA "properties". You can specify an empty "settings" property if the extension does not mandate any required settings.
 
