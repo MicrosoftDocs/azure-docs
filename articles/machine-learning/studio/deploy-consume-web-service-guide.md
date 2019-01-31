@@ -5,7 +5,7 @@ description: You can use Azure Machine Learning to deploy machine learning workf
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
