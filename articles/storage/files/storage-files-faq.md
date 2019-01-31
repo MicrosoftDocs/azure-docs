@@ -6,7 +6,7 @@ author: RenaShahMSFT
 ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
-ms.component: files
+ms.subservice: files
 ---
 
 # Frequently asked questions (FAQ) about Azure Files

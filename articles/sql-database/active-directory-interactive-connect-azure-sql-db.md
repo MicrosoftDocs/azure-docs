@@ -75,7 +75,7 @@ To use Azure AD authentication, your C# client program must supply a GUID as a *
 
 ### B. Set Azure AD admin on your SQL Database server
 
-Each Azure SQL Database server has its own SQL logical server of Azure AD. For our C# scenario, you must set an Azure AD administrator for your Azure SQL server.
+Each Azure SQL single database and elastic pool has its own SQL Database server of Azure AD. For our C# scenario, you must set an Azure AD administrator for your Azure SQL server.
 
 1. **SQL Server** &gt; **Active Directory admin** &gt; **Set admin**
 
