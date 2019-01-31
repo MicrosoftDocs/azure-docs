@@ -176,7 +176,7 @@ Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
 Managed disk - standard | Supported in Azure regions in which Azure Site Recovery is supported. |
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
-Standard SSD | Not Supported |
+Standard SSD | Supported |
 Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
@@ -185,8 +185,8 @@ Azure Disk Encryption (ADE) for Windows OS | VMs enabled for [encryption with Az
 Azure Disk Encryption (ADE) for Linux OS | Not supported |
 Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Not supported|	Temporary disk is excluded by default.
-Storage Spaces Direct  | Not supported|
-Scale-out File Server  | Not supported|
+Storage Spaces Direct  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
+Scale-out File Server  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |
