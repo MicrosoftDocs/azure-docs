@@ -40,8 +40,6 @@
     - name: 6 - Access web service
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: Get started in R
-    href: r-quickstart.md
 - name: Samples
   items:
   - name: Available datasets
@@ -119,6 +117,8 @@
         href: debug-models.md
     - name: Use R and Python
       items:
+      - name: Get started in R
+        href: r-quickstart.md
       - name: Execute R scripts
         href: extend-your-experiment-with-r.md
       - name: Author custom R modules
