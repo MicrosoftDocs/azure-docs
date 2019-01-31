@@ -30,6 +30,7 @@ The **New offer** menu enables partners to create instances of offer types suppo
 | ![Dynamics 365 for Customer Engagement menu item](./media/new-offer-menu5.png) | [Dynamics 365 for Customer Engagement offer](./../../cloud-partner-portal-orig/cpp-customer-engagement-offer.md) |
 | ![Dynamics 365 for Operations menu item](./media/new-offer-menu6.png) | [Dynamics 365 for Operations offer](./../../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) |
 | ![IoT Edge modules menu item](./media/new-offer-menu7.png) | [IoT Edge module offer](./../iot-edge-module/cpp-offer-process-parts.md) |
+| ![Power BI App menu item](./media/new-offer-pbi.png)   |  [Power BI App offer](../power-bi/cpp-power-bi-offer.md)  |
 | ![ SasS applications menu item](./media/new-offer-menu8.png) | [SasS application offer](../saas-app/cpp-saas-offer.md) |
 | ![ Virtual machines menu item](./media/new-offer-menu9.png) | [Virtual machine offer](./../virtual-machine/cpp-virtual-machine-offer.md) |
 |  |  |

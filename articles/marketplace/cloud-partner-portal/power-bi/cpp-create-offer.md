@@ -46,5 +46,5 @@ The subsequent articles in this section mirror the tabs in the **New Offer** pag
 
 -  [Offer Settings tab](./cpp-offer-settings-tab.md)
 -  [Technical info tab](./cpp-technical-info-tab.md)
--  [Storefront details tab](./cpp-storefront-tab.md)
+-  [Storefront details tab](./cpp-storefront-details-tab.md)
 -  [Contacts](./cpp-contacts-tab.md)
