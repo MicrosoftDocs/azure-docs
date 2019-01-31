@@ -32,6 +32,7 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
    * [Hybrid Azure AD-joined](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
 * You must enable Azure AD self-service password reset.
 * If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com` to your HTTPS traffic (port 443) Allowed URLs list.
+* Review limitations below before trying this in your environment.
 
 ## Configure Reset password link using Intune
 
@@ -115,7 +116,9 @@ When testing this functionality using Remote Desktop or an Enhanced VM Session, 
 
 * Password reset is not currently supported from a Remote Desktop.
 
-If Ctrl+Alt+Del is required by policy, or Lock screen notifications are turned off, **Reset password** will not work.
+If Ctrl+Alt+Del is required by policy in versions of Windows 10 before 1809, **Reset password** will not work.
+
+If lock screen notifications are turned off, **Reset password** will not work.
 
 The following policy settings are known to interfere with the ability to reset passwords
 
