@@ -1,32 +1,31 @@
 ---
-title: Azure Data Box Gateway limits | Microsoft Docs
-description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Gateway.
+title: Azure Data Box Edge limits | Microsoft Docs
+description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Edge.
 services: databox
 author: alkohli
 
 ms.service: databox
-ms.subservice: gateway
+ms.subservice: edge
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: alkohli
 ---
 
-# Azure Data Box Gateway limits (Preview)
+# Azure Data Box Edge limits (Preview)
+
+Consider these limits as you deploy and operate your Microsoft Azure Data Box Edge solution.
+
+> [!IMPORTANT]
+> Data Box Edge is in Preview. Review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
 
 
-Consider these limits as you deploy and operate your Microsoft Azure Data Box Gateway solution. 
-
-> [!IMPORTANT] 
-> Data Box Gateway is in Preview. Review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
-
-
-## Data Box Gateway service limits
+## Data Box Edge service limits
 
 [!INCLUDE [Data Box Edge/Data Box Gateway limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## Data Box Gateway device limits
+## Data Box Edge device limits
 
-The following table describes the limits for the Data Box Gateway device.
+The following table describes the limits for the Data Box Edge device.
 
 | Description | Value |
 |---|---|
@@ -46,11 +45,9 @@ The following table describes the limits for the Data Box Gateway device.
 
 [!INCLUDE [Azure storage account size and object size limits](../../includes/data-box-edge-gateway-storage-acct-limits.md)]
 
-
 ## Azure object size limits
 
 [!INCLUDE [Azure object size limits](../../includes/data-box-edge-gateway-object-size-limits.md)]
-
 
 ## Next steps
 
