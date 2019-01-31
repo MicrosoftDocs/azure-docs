@@ -28,6 +28,8 @@ This script creates a Recovery Services vault with Geo-redundant storage (GRS) f
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/backup/backup-encrypted-vm/backup-encrypted-vm.ps1 "Back up encrypted virtual machine")]
 
 ## Clean up deployment 

@@ -33,15 +33,18 @@ To view the AzureRm.RecoveryServices.Backup PowerShell cmdlet reference, see the
 
 ## Setup and Registration
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To begin:
 
-1. [Download the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps) (the minimum version required is: 1.4.0)
+1. [Download the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 
     ```powershell
-    Get-Command *azurermrecoveryservices*
-    ```    
+    Get-Command *azrecoveryservices*
+    ```   
+ 
     The aliases and cmdlets for Azure Backup, Azure Site Recovery, and the Recovery Services vault appear. The following image is an example of what you'll see. It is not the complete list of cmdlets.
 
     ![list of Recovery Services](./media/backup-azure-vms-automation/list-of-recoveryservices-ps.png)

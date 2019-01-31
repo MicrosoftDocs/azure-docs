@@ -16,6 +16,8 @@ ms.author: trinadhk
 > [!NOTE]
 > Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The new model for Instant Restore provides the following feature enhancements:
 
 * Ability to use snapshots taken as part of a backup job that is available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
@@ -23,7 +25,6 @@ The new model for Instant Restore provides the following feature enhancements:
 * Supports disk sizes up to 4 TB.
 * Supports Standard SSD disks.
 * Ability to use an unmanaged VM's original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
-
 
 ## What's new in this feature
 

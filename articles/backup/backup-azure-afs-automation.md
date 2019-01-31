@@ -24,16 +24,15 @@ To use PowerShell effectively, it's necessary to understand the hierarchy of obj
 
 ![Recovery Services object hierarchy](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-To view the **AzureRm.RecoveryServices.Backup** PowerShell cmdlet reference, see [Azure Backup - Recovery Services cmdlets](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup) in the Azure library.
+To view the **Az.RecoveryServices** PowerShell cmdlet reference, see [Azure Backup - Recovery Services cmdlets](/powershell/module/az.recoveryservices) in the Azure library.
 
 ## Setup and registration
 
-> [!NOTE]
-> As noted in [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-6.13.0), support for new features in the AzureRM module ends in November 2018. Support is provided for backup of Azure file shares with the new Az PowerShell module that's now generally available.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Follow these steps to begin.
 
-1. [Download the latest version of Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0). The minimum version required is 1.0.0.
+1. [Download the latest version of Az PowerShell](/powershell/azure/install-az-ps). The minimum version required is 1.0.0.
 
 2. Find the **Azure Backup PowerShell** cmdlets available by entering the following command.
 

@@ -44,6 +44,8 @@ If you already have the Recovery Services vault open, skip to the second step.
 
 ## Delete the Recovery Services vault by force
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 You can use PowerShell to delete a Recovery Services vault by force. By force means the Recovery Services vault, and all associated backup data, is permanently deleted. 
 
 > [!Warning]

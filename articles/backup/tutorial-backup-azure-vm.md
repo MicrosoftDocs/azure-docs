@@ -13,6 +13,8 @@ ms.custom: mvc
 ---
 # Back up Azure virtual machines in Azure at scale
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 This tutorial details how to back up Azure virtual machines to a Recovery Services vault. Most of the work for backing up virtual machines is the preparation. Before you can back up (or protect) a virtual machine, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs. 
 
 > [!IMPORTANT]
