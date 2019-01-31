@@ -302,6 +302,6 @@ $orderby=search.score() desc,rating desc,geo.distance(location, geography'POINT(
 
 + [Faceted navigation in Azure Search](https://azure.microsoft.com/documentation/articles/search-faceted-navigation/) 
 + [Filters in Azure Search](https://docs.microsoft.com//azure/search/search-filters) 
-+ [Search Documents &#40;Azure Search Service REST API&#41;](search-documents.md) 
++ [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
 + [Lucene query syntax](lucene-query-syntax-in-azure-search.md)
 + [Simple query syntax in Azure Search](simple-query-syntax-in-azure-search.md)   

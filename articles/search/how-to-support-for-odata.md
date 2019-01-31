@@ -91,5 +91,5 @@ GET /indexes('[index name]')/docs/suggest?[query parameters]
  [OData Expression Syntax for Azure Search](odata-expression-syntax-for-azure-search.md)   
  [Azure Search Service REST](index.md)   
  [HTTP status codes &#40;Azure Search&#41;](http-status-codes.md)   
- [Create Index &#40;Azure Search Service REST API&#41;](create-index.md)   
+ [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Add, Update or Delete Documents &#40;Azure Search Service REST API&#41;](addupdate-or-delete-documents.md)  

@@ -71,6 +71,18 @@
       href: search-limits-quotas-capacity.md
     - name: Allocate partitions and replicas
       href: search-capacity-planning.md
+  - name: Security
+    items:
+    - name: Security overview
+      href: search-security-overview.md
+    - name: Service key management
+      href: search-security-api-keys.md
+    - name: Role-based admin access
+      href: search-security-rbac.md
+    - name: Security filters
+      href: search-security-trimming-for-azure-search.md
+    - name: Filter on AAD identities
+      href: search-security-trimming-for-azure-search-with-aad.md
   - name: Development
     items:
     - name: API versions
@@ -93,7 +105,35 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-  - name: Indexing (data import)
+  - name: Designing Indexes
+    items:
+    - name: Index definition
+      href: search-what-is-an-index.md
+    - name: Create an index (portal)
+      href: search-create-index-portal.md
+    - name: Analyzers
+      items:
+      - name: Text Analyzers
+        href: search-analyzers.md
+      - name: Language analyzers API
+        href: how-to-language-support.md
+      - name: Custom analyzers API
+        href: how-to-custom-analyzers-in-azure-search.md
+    - name: Auto-suggestions
+      href: how-to-suggesters.md
+    - name: Auto-complete
+      href: how-to-autocomplete.md
+    - name: Model complex data types
+      href: search-howto-complex-data-types.md
+    - name: Faceted navigation
+      href: search-faceted-navigation.md
+    - name: Synonyms
+      href: search-synonyms.md
+    - name: Model relational data
+      href: search-example-adventureworks-modeling.md
+    - name: Model multi-level facets
+      href: search-example-adventureworks-multilevel-faceting.md
+  - name: Indexing data
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
@@ -147,34 +187,6 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
-  - name: Designing Indexes
-    items:
-    - name: Index definition
-      href: search-what-is-an-index.md
-    - name: Create an index (portal)
-      href: search-create-index-portal.md
-    - name: Analyzers
-      items:
-      - name: Text Analyzers
-        href: search-analyzers.md
-      - name: Language analyzers API
-        href: how-to-language-support.md
-      - name: Custom analyzers API
-        href: how-to-custom-analyzers-in-azure-search.md
-    - name: Auto-suggestions
-      href: how-to-suggesters.md
-    - name: Auto-complete
-      href: how-to-autocomplete.md
-    - name: Model complex data types
-      href: search-howto-complex-data-types.md
-    - name: Faceted navigation
-      href: search-faceted-navigation.md
-    - name: Synonyms
-      href: search-synonyms.md
-    - name: Model relational data
-      href: search-example-adventureworks-modeling.md
-    - name: Model multi-level facets
-      href: search-example-adventureworks-multilevel-faceting.md
   - name: Querying data
     items:
     - name: Query types & composition
@@ -193,7 +205,6 @@
         href: how-to-lucene-query-syntax-in-azure-search.md
     - name: Paging results
       href: search-pagination-page-layout.md
-    - 
     - name: Filters
       items:
       - name: Filter overview
@@ -210,30 +221,20 @@
     items:
     - name: Add scoring profiles
       href: how-to-add-scoring-profiles-to-a-search-index.md
-  - name: Administration & analytics
+  - name: Administration
     items:
-    - name: Administration (portal)
+    - name: Portal administration
       href: search-manage.md
-    - name: PowerShell (Azure Search)
+    - name: PowerShell administration
       href: search-manage-powershell.md
     - name: Performance & optimizations
       href: search-performance-optimization.md
+  - name: Monitoring
+    items:
     - name: Monitor activity and logging
       href: search-monitor-usage.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
-  - name: Security
-    items:
-    - name: Security overview
-      href: search-security-overview.md
-    - name: Service key management
-      href: search-security-api-keys.md
-    - name: Role-based admin access
-      href: search-security-rbac.md
-    - name: Security filters
-      href: search-security-trimming-for-azure-search.md
-    - name: Filter on AAD identities
-      href: search-security-trimming-for-azure-search-with-aad.md
 - name: Reference
   items:
   - name: Azure CLI

@@ -51,7 +51,7 @@ POST /indexes/hotels/docs/search?api-version=2015-02-28
 }  
 ```  
 
-For additional examples, see [Lucene query syntax examples for building queries in Azure Search](https://azure.microsoft.com/documentation/articles/search-query-lucene-examples/). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Search Service REST API&#41;](search-documents.md).
+For additional examples, see [Lucene query syntax examples for building queries in Azure Search](https://azure.microsoft.com/documentation/articles/search-query-lucene-examples/). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
 >  Azure Search also supports [Simple Query Syntax](simple-query-syntax-in-azure-search.md), a simple and robust query language that can be used for straightforward keyword search.  
@@ -66,7 +66,7 @@ For additional examples, see [Lucene query syntax examples for building queries 
 
  Be sure to put multiple strings within quotation marks if you want both strings to be evaluated as a single entity, in this case searching for two distinct artists in the `artists` field.  
 
- The field specified in `fieldname:searchterm` must be a `searchable` field.  See [Create Index](create-index.md) for details on how index attributes are used in field definitions.  
+ The field specified in `fieldname:searchterm` must be a `searchable` field.  See [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) for details on how index attributes are used in field definitions.  
 
 ##  <a name="bkmk_fuzzy"></a> Fuzzy search  
  A fuzzy search finds matches in terms that have a similar construction. Per [Lucene documentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy searches are based on [Damerau-Levenshtein Distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  
@@ -162,6 +162,6 @@ Using `searchMode=all` increases the precision of queries by including fewer res
 
 ## See also  
 
-+ [Search Documents](search-documents.md)
++ [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [OData expression syntax for filters and sorting](odata-expression-syntax-for-azure-search.md)   
 + [Simple query syntax in Azure Search](simple-query-syntax-in-azure-search.md)   

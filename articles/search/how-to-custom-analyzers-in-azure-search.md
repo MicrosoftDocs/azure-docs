@@ -385,4 +385,4 @@ In the table below, the token filters that are implemented using Apache Lucene a
 ## See also  
  [Azure Search Service REST](index.md)   
  [Analyzers in Azure Search > Examples](https://docs.microsoft.com/azure/search/search-analyzers#examples)    
- [Create Index &#40;Azure Search Service REST API&#41;](create-index.md)  
+ [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

@@ -69,9 +69,9 @@ Properties that define a **suggester** include the following:
 ```  
 
 ## See also  
- [Create Index &#40;Azure Search Service REST API&#41;](create-index.md)   
- [Update Index &#40;Azure Search Service REST API&#41;](update-index.md)   
- [Suggestions &#40;Azure Search Service REST API&#41;](suggestions.md)   
- [Index operations &#40;Azure Search Service REST API&#41;](index-operations.md)   
- [Azure Search Service REST](index.md)   
+ [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)   
+ [Update Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)   
+ [Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)   
+ [Index operations &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)   
+ [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
