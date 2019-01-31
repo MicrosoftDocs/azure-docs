@@ -2,10 +2,10 @@
 title: Azure AD UserPrincipalName population
 description: The following document describes how the UserPrincipalName attribute is populated.  
 author: billmath
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.date: 06/26/2018
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.service: active-Directory
 manager: daveba

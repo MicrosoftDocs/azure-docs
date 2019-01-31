@@ -292,7 +292,7 @@ Based on the policy for the application, either one node can go down during a pa
 
 By the end of the Windows Update installation, the nodes are reenabled post restart.
 
-In the following example, the cluster went to an error state temporarily because two nodes were down and the MaxPercentageUnhealthNodes policy was violated. The error is temporary until the patching operation is ongoing.
+In the following example, the cluster went to an error state temporarily because two nodes were down and the MaxPercentageUnhealthyNodes policy was violated. The error is temporary until the patching operation is ongoing.
 
 ![Image of unhealthy cluster](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
@@ -327,7 +327,7 @@ Q. **How long does it take to patch an entire cluster?**
 A. The time needed to patch an entire cluster depends on the following factors:
 
 - Time needed to patch a node.
-- The policy of the Coordinator Service. - The default policy, `NodeWise`, results in patching only one node at a time, which would be slower than `UpgradeDomainWise`. For example: If a node takes ~1 hour to be patched, inorder to patch a 20 node (same type of nodes) cluster with 5 upgrade domains, each containing 4 nodes.
+- The policy of the Coordinator Service. - The default policy, `NodeWise`, results in patching only one node at a time, which would be slower than `UpgradeDomainWise`. For example: If a node takes ~1 hour to be patched, in order to patch a 20 node (same type of nodes) cluster with 5 upgrade domains, each containing 4 nodes.
     - It should take ~20 hours to patch the entire cluster, if policy is `NodeWise`
     - It should take ~5 hours if policy is `UpgradeDomainWise`
 - Cluster load - Each patching operation requires relocating the customer workload to other available nodes in the cluster. Node undergoing patch would be in [Disabling](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) state during this time. If the cluster is running near peak load, the disabling process would take longer time. Hence overall patching process may appear to be slow in such stressed conditions.

@@ -14,6 +14,7 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
+ms.lastreviewed: 01/25/2019
 
 ---
 # Use the Azure Stack portal

@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 # Microsoft Azure Storage Performance and Scalability Checklist
 ## Overview
