@@ -67,7 +67,7 @@ Use the source subscription **FaceClient** instance to take a snapshot of the Pe
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
-    "PersonGroup",
+    SnapshotObjectType.PersonGroup,
     personGroupId,
     new[] { "<Azure West US Subscription ID>" /* Put other IDs here, if multiple target subscriptions wanted */ });
 ```
@@ -86,7 +86,7 @@ The snapshot retrieving method is asynchronous, so you'll need to wait for its c
 The following code waits for the snapshot-taking operation to complete and parses its result to get the take operation ID.
 
 ```csharp
-var takeOperationId = takeSnapshotResult.OperationLocation.Split('/')[2];
+var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
 var operationStatus = await WaitForOperation(FaceClientEastAsia, takeOperationId);
 ```
 
@@ -97,7 +97,7 @@ The `WaitForOperation` helper method is here:
 /// Waits for the take/apply operation to complete and returns the final operation status.
 /// </summary>
 /// <returns>The final operation status.</returns>
-private static async Task<OperationStatus> WaitForOperation(IFaceClient client, string operationId)
+private static async Task<OperationStatus> WaitForOperation(IFaceClient client, Guid operationId)
 {
     OperationStatus operationStatus = null;
     do
@@ -128,7 +128,7 @@ When the operation status is marked as `Succeeded`, you can then get the snapsho
 Parse the snapshot ID with the following line:
 
 ```csharp
-var snapshotId = operationStatus.ResourceLocation.Split('/')[2];
+var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
 ```
 
 ## Apply Snapshot to target subscription
@@ -152,7 +152,7 @@ A snapshot apply request will return an operation ID. You can get this ID by par
 Parse the apply operation ID with the following line:
 
 ```csharp
-var applyOperationId = applySnapshotResult.OperationLocation.Split('/')[2];
+var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
 The snapshot application process is also asynchronous, so again use `WaitForOperation` to wait for it to complete.
