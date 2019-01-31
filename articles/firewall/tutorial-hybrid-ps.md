@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
+description: In this tutorial, you learn how to deploy and configure Azure Firewall using Azure PowerShell. 
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -55,6 +55,8 @@ See the [Create Routes](#create-routes) section in this tutorial to see how thes
 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
+
+To review the related Azure PowerShell reference documentation, see [Azure PowerShell Reference](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

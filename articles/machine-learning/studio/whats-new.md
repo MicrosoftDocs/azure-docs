@@ -1,23 +1,18 @@
 ---
-title: What's new - Azure Machine Learning Studio | Microsoft Docs
-description: New features that are available in Azure Machine Learning Studio.
+title: Release notes
+titleSuffix: Azure Machine Learning Studio
+description: Learn about changed in each release of Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
 ms.date: 10/28/2018
+ms.custom: seodec18
 ---
-# What's New in Azure Machine Learning Studio?
+# Azure Machine Learning Studio release notes
 
 ## October 2018
 

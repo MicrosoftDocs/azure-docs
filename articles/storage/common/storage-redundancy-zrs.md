@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
-ms.component: common
+ms.subservice: common
 ---
 
 # Zone-redundant storage (ZRS): Highly available Azure Storage applications
