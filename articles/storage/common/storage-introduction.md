@@ -131,7 +131,7 @@ In order to ensure that your data is durable, Azure Storage replicates multiple 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-For more information about disaster recovery, see [Disaster recovery and forced failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
+For more information about disaster recovery, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## Transferring data to and from Azure Storage
 

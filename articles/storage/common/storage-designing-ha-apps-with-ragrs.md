@@ -38,7 +38,7 @@ Keep in mind these key points when designing your application for RA-GRS:
 
 * You can use the Storage Client Library to interact with the data in either the primary or secondary region. You can also redirect read requests automatically to the secondary region if a read request to the primary region times out.
 
-* If the primary region becomes unavailable, you can initiate a customer-managed forced failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and forced failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
+* If the primary region becomes unavailable, you can initiate an account failover. When you fail over to the secondary region, the DNS entries pointing to the primary region are changed to point to the secondary region. After the failover is complete, write access is restored for GRS and RA-GRS accounts. For more information, see [Disaster recovery and storage account failover (preview) in Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## Application design considerations when using RA-GRS
 

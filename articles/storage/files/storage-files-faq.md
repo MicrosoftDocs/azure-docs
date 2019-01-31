@@ -99,7 +99,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-storage-redundancy"></a>
 **Is geo-redundant storage supported for Azure File Sync?**  
-    Yes, Azure Files supports both locally redundant storage (LRS) and geo-redundant storage (GRS). If you initiate a forced failover between paired regions from an account configured for GRS, Microsoft recommends that you treat the new region as a backup of data only. Azure File Sync does not automatically begin syncing with the new primary region. 
+    Yes, Azure Files supports both locally redundant storage (LRS) and geo-redundant storage (GRS). If you initiate a storage account failover between paired regions from an account configured for GRS, Microsoft recommends that you treat the new region as a backup of data only. Azure File Sync does not automatically begin syncing with the new primary region. 
 
 * <a id="sizeondisk-versus-size"></a>
 **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
@@ -111,7 +111,6 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-recall-file"></a>**A file I want to use has been tiered. How can I recall the file to disk to use it locally?**  
  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-recall-file).
-
 
 * <a id="afs-force-tiering"></a>
 **How do I force a file or directory to be tiered?**  

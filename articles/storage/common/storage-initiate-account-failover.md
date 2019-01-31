@@ -24,7 +24,7 @@ This article shows how to initiate an account failover for your storage account 
 
 Before you can perform an account failover on your storage account, make sure that you have performed the following steps:
 
-- Register for the customer-managed account failover preview. For information about how to register, see [About the preview](storage-disaster-recovery-guidance.md#about-the-preview).
+- Register for the account failover preview. For information about how to register, see [About the preview](storage-disaster-recovery-guidance.md#about-the-preview).
 - Make sure that your storage account is configured to use either geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS). For more information about geo-redundant storage, see [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md). 
 
 ## Important implications of account failover
