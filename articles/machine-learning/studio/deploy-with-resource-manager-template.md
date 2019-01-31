@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: How to deploy a workspace for Azure Machine Learning using Azure Resource Manager template
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding
