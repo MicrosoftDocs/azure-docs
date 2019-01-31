@@ -54,15 +54,15 @@ The following steps show you how to create a Hive ODBC Data Source.
    |  Password |Enter HDInsight cluster user password. |
 
    
-     Optional: Select **Advanced Options...**  
+5. Optional: Select **Advanced Options...**  
    
    | Parameter | Description |
    | --- | --- |
    |  Use Native Query |When it is selected, the ODBC driver does NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked. |
    |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
-   |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned due to loss of precision and/or truncation. |
+   |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned due to loss of precision and/or truncation. |</table>
 
-      ![Advanced options](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "Advanced DSN configuration options")
+    ![Advanced options](./media/apache-hadoop-connect-excel-hive-odbc-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "Advanced DSN configuration options")
 
 5. Select **Test** to test the data source. When the data source is configured correctly, the test result shows **SUCCESS!**.  
 
@@ -85,7 +85,7 @@ The following steps describe the way to import data from a Hive table into an Ex
 
 4. Enter the Hadoop user name (the default name is admin) and the password, and then select **Connect** to open the **Navigator** window.
 
-5. From **Navigator**, expand **HIVE** and then navigate to **default** > **hivesampletable**, and then select **Load**. It takes a few moments before data gets imported to Excel.
+5. From **Navigator**, navigate to **HIVE** > **default** > **hivesampletable**, and then select **Load**. It takes a few moments before data gets imported to Excel.
 
     ![HDInsight Hive ODBC navigator](./media/apache-hadoop-connect-excel-hive-odbc-driver/hdinsight.hive.odbc.navigator.png "Open data connection wizard")
 

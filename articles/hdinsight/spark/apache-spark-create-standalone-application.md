@@ -40,15 +40,16 @@ In this tutorial, you learn how to:
 Perform the following steps to install the Scala plugin:
 
 1. Open IntelliJ IDEA.
-1. On the welcome screen, navigate to **Configure** > **Plugins** to open the **Plugins** window.
+
+2. On the welcome screen, navigate to **Configure** > **Plugins** to open the **Plugins** window.
    
     ![Enable scala plugin](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
 
-1. Select **Install** for the Scala plugin that is featured in the new window.  
+3. Select **Install** for the Scala plugin that is featured in the new window.  
  
     ![Install scala plugin](./media/apache-spark-create-standalone-application/install-scala-plugin.png)
 
-1. After the plugin installs successfully, you must restart the IDE.
+4. After the plugin installs successfully, you must restart the IDE.
 
 
 ## Use IntelliJ to create application
