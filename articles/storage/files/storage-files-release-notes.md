@@ -53,7 +53,7 @@ The following release notes are for version 5.0.2.0 of the Azure File Sync agent
         - Number of files not syncing
         - Size of data recalled
         - Server connectivity status
-     - To learn more, see [Monitor Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring).
+    - To learn more, see [Monitor Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring).
 - Improved scalability and reliability
     - Maximum number of file system objects (directories and files) in a directory has increased to 1,000,000. Previous limit was 200,000.
     - Sync will try to resume data transfer for large files when a transfer is interrupted.
