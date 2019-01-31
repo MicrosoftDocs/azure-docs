@@ -38,7 +38,7 @@
     href: signalr-key-rotation.md
   - name: Messages and connections
     href: signalr-messages.md
-  - name: Resiliency and Disaster Recovery
+  - name: Resiliency and disaster recovery
     href: signalr-disaster-recovery.md
 - name: Resources
   items:

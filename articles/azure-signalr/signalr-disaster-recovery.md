@@ -1,5 +1,5 @@
 ---
-title: Resiliency and Disaster Recovery
+title: Resiliency and disaster recovery
 description: An overview on how to set up multiple SignalR service instances to achieve resiliency and disaster recovery
 author: chenkennt
 ms.service: signalr
@@ -7,7 +7,7 @@ ms.topic: overview
 ms.date: 01/29/2019
 ms.author: kenchen
 ---
-# Resiliency and Disaster Recovery
+# Resiliency and disaster recovery
 
 Resiliency and disaster recovery is a common need for online systems. Azure SignalR Service already guarantees 99.9% availability, but it's still a regional service.
 Your service instance is always running in one region and won't failover to another region when there is a region-wide outage.
@@ -15,7 +15,7 @@ Your service instance is always running in one region and won't failover to anot
 Instead, our service SDK provides a functionality to support multiple SignalR service instances and automatically switch to other instances when some of them are not available.
 With this feature, you'll be able to recover when there is disaster takes place, but you will need to set up the right system topology by yourself. You'll learn how to do so in this document.
 
-## High Available Architecture for SignalR Service
+## High available architecture for SignalR service
 
 In order to have cross region resiliency for SignalR service, you need to set up multiple service instances in different regions. So when one region is down, the others can be used as backup.
 When connecting multiple service instances to app server, there are two roles, primary and secondary.
@@ -37,7 +37,7 @@ Below is a diagram that illustrates such topology:
 
 ![topology](media/signalr-disaster-recovery/topology.png)
 
-## Configure App Servers with Multiple SignalR Service Instances
+## Configure app servers with multiple SignalR service instances
 
 Once you have SignalR service and app servers created in each region, you can configure your app servers to connect to all SignalR service instances.
 
@@ -82,7 +82,7 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
     };
 ```
 
-## Failover Sequence and Best Practice
+## Failover sequence and best practice
 
 Now you have the right system topology setup. Whenever one SignalR service instance is down, online traffic will be routed to other instances.
 Here is what happens when a primary instance is down (and recovers after some time):
@@ -95,14 +95,14 @@ Here is what happens when a primary instance is down (and recovers after some ti
 
 Below diagrams illustrate how failover is done in SignalR service:
 
-Fig.1 Before Failover
-![before-failover](media/signalr-disaster-recovery/before-failover.png)
+Fig.1 Before failover
+![Before Failover](media/signalr-disaster-recovery/before-failover.png)
 
-Fig.2 After Failover
-![after-failover](media/signalr-disaster-recovery/after-failover.png)
+Fig.2 After failover
+![After Failover](media/signalr-disaster-recovery/after-failover.png)
 
-Fig.3 Short Time After Primary Recovers
-![after-recover](media/signalr-disaster-recovery/after-recover.png)
+Fig.3 Short time after primary recovers
+![Short time after primary recovers](media/signalr-disaster-recovery/after-recover.png)
 
 You can see in normal case only primary app server and SignalR service have online traffic (in blue).
 After failover, secondary app server and SignalR service also become active.
