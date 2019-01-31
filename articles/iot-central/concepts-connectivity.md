@@ -208,7 +208,7 @@ Follow the steps based on your choice of device authentication scheme (X509/SAS)
 
 1. **Connect device to IoT Central:** Once switched on the devices connect to DPS/IoT Central for registration.
 
-1. **Associate Device to a template:** The connected device will show up under **UnAssociated Devices** in **Device Explorer**. The device provisioning status is **Registered**. **Associate** the device to the appropriate device template and approve the device to connect to the IoT Central app. The device gets the connection details for the IoT Central app, it connects and starts sending data. Device provisioning is now complete and the *Provisioning status* turns to **Provisioned**.
+1. **Associate Device to a template:** The connected device will show up under **UnAssociated Devices** in **Device Explorer**. The device provisioning status is **Registered**. **Associate** the device to the appropriate device template and approve the device to connect to the IoT Central app. The device gets the connection details for the IoT Central app, and then it connects and starts sending data. Device provisioning is now complete and the *Provisioning status* turns to **Provisioned**.
 
 ## Device Provisioning status
 There are a series of steps involved when a real device is connected to Azure IoT Central 
@@ -230,7 +230,7 @@ You can get Iot hub device connection string to Azure IoT Hub using the followin
 
     ![Connection details](media/concepts-connectivity/device-connect.PNG)
 
-1. Get the device connection string using the command line tool below.
+1. Get the device connection string using the command-line tool below.
     Use the below instructions to get the device connection string  
 
     ```cmd/sh
