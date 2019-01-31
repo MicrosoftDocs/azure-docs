@@ -12,7 +12,7 @@ ms.component: files
 
 # Offline data transfer and Data Box support
 
-Azure File Sync supports the bulk migration of files through online migration tools (for example AzCopy) as well as offline migration tools such as [Azure Data Box](https://azure.microsoft.com/services/storage/databox).
+Version 5 and newer of the Azure File Sync agent supports the bulk migration of files through online migration tools (for example AzCopy) as well as offline migration tools such as [Azure Data Box](https://azure.microsoft.com/services/storage/databox).
 This article describes the process you should follow to ensure your bulk migration is done in a sync-compatible way. It will describe the best practices that will help you avoid conflict files and preserve your file and folder ACLs once you enable sync.
 
 ## Key benefits of utilizing an offline bulk-migration product with Azure File Sync
