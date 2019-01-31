@@ -73,8 +73,8 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 
 You can also get all the datastores for a workspace:
 ```Python
-datastores = ws.datastores()
-for name, ds in datastores.items(),
+datastores = ws.datastores
+for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 
