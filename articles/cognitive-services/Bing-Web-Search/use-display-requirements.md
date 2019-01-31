@@ -1,15 +1,15 @@
 ---
-title: Use and display requirements - Bing Web Search API
+title: Use and display requirements for the Bing Search APIs
 titleSuffix: Azure Cognitive Services
-description: Requirements for displaying search results from the Bing Web Search API.
+description: The requirements for displaying search results from the Bing Search APIs in your applications.
 services: cognitive-services
-author: swhite-msft
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
-ms.date: 05/15/2018
-ms.author: scottwhi
+ms.date: 01/31/2019
+ms.author: aahi
 ---
 
 # Bing Search API use and display requirements
@@ -45,7 +45,7 @@ Do not:
 
 ## Bing Search APIs
 
-> [NOTE]
+> [!NOTE]
 > The requirements in this section apply to only the Search APIs, which does not include Bing Spell Check or Bing Autosuggest. 
 
 ### Internet search experience requirements

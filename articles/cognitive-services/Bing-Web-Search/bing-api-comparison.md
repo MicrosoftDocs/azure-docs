@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: article
-ms.date: 1/24/2019
+ms.date: 01/31/2019
 ms.author: aahi
 ---
 
@@ -46,9 +46,9 @@ The following Bing Search APIs enable you to improve your search experience by c
 | API | Description |
 | -- | -- | 
 | [Bing Autosuggest](../Bing-Autosuggest/index.yml) | Improve your application's search experience with The Bing Autosuggest API by returning suggested searches in real time.  |
-| [Bing Statistics](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-news-search/bing-news-stats) | Bing Statistics provides analytics for the Bing Search APIs your application uses. Some of the available analytics include call volume, top query strings, and geographic distribution. |
+| [Bing Statistics](bing-web-stats.md) | Bing Statistics provides analytics for the Bing Search APIs your application uses. Some of the available analytics include call volume, top query strings, and geographic distribution. |
 
-## See also
+## Next steps
 
 * Bing Search API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)
-* The [Bing Use and Display Requirements](./useanddisplayrequirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
+* The [Bing Use and Display Requirements](./use-display-requirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.
