@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2010
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -175,7 +175,7 @@ This behavior isn't applicable to any other user who signs in to that device. So
 
 **Q: Why do I see the *Oops… an error occurred!* dialog when I try to Azure AD join my PC?**
 
-**A:** This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment).  
+**A:** This error happens when you set up Azure Active Directory enrollment with Intune. Make sure that the user who tries to Azure AD join has the correct Intune license assigned. For more information, see [Set up enrollment for Windows devices](https://docs.microsoft.com/intune/windows-enroll#azure-active-directory-enrollment).  
 
 ---
 

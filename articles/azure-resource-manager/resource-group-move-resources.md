@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 01/29/2019
 ms.author: tomfitz
 
 ---
@@ -53,6 +53,7 @@ The following list provides a general summary of Azure services that can be move
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Data Explorer
+* Azure Database for MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.

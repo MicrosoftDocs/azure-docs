@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
+ms.subservice: files
 ---
 
 # Troubleshoot Azure File Sync
@@ -847,6 +847,9 @@ Antivirus, backup, and other applications that read large numbers of files cause
 Consult with your software vendor to learn how to configure their solution to skip reading offline files.
 
 Unintended recalls also might occur in other scenarios, like when you are browsing files in File Explorer. Opening a folder that has cloud-tiered files in File Explorer on the server might result in unintended recalls. This is even more likely if an antivirus solution is enabled on the server.
+
+> [!NOTE]
+>Use Event ID 9059 in the Telemetry event log to determine which application(s) is causing recalls. This event provides application recall distribution for a server endpoint and is logged once an hour.
 
 ## General troubleshooting
 If you encounter issues with Azure File Sync on a server, start by completing the following steps:

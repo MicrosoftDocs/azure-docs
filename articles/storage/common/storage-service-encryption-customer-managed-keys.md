@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
-ms.component: common
+ms.subservice: common
 ---
 
 # Storage Service Encryption using customer-managed keys in Azure Key Vault
