@@ -31,6 +31,8 @@ Before we go any further, please read the [basic concepts for Key Vault](key-vau
 >
 >With [managed service identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure get an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## Prerequisites
 
 * On Windows:
@@ -45,7 +47,7 @@ Before we go any further, please read the [basic concepts for Key Vault](key-vau
 * All platforms:
   * Git ([download](https://git-scm.com/downloads)).
   * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. This is available for Windows, Mac, and Linux. This quickstart requires that you run the Azure CLI locally. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
+  * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. This is available for Windows, Mac, and Linux.
 
 ## Log in to Azure
 
@@ -173,6 +175,5 @@ Delete the resource group, virtual machine, and all related resources when you n
 
 ## Next steps
 
-* [Learn more about Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
-* [Azure SDK For .NET](https://github.com/Azure/azure-sdk-for-net)
-* [Azure REST API reference](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [Learn more about Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
