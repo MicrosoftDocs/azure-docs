@@ -168,7 +168,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Now when you run the application, you should see your secret value retrieved. In the above command you are giving the Identity(MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault.
+Now when you run the application, you should see your secret value retrieved. In the preceding command, you're giving the identity of the app aervice permissions to do **get** and **list** operations on your key vault.
 
 ## Clean up resources
 Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.
