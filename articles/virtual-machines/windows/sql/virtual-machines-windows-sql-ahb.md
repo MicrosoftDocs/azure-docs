@@ -26,7 +26,7 @@ The **Bring-your-own-license** model is also known as the [Azure Hybrid Benefit]
 
 Switching between the two license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:

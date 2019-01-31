@@ -100,7 +100,7 @@ You can use PowerShell to configure Automated Backup. Before you begin, you must
 - [Download and install the latest Azure PowerShell](https://aka.ms/webpi-azps).
 - Open Windows PowerShell and associate it with your account with the **Connect-AzAccount** command.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ### Install the SQL IaaS Extension
 If you provisioned a SQL Server virtual machine from the Azure portal, the SQL Server IaaS Extension should already be installed. You can determine if it is installed for your VM by calling **Get-AzVM** command and examining the **Extensions** property.

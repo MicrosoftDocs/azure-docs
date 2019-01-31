@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## <a id="powershell"></a> Get Azure PowerShell
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
 ## Configure PowerShell
 
