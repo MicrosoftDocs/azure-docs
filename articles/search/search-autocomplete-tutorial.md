@@ -15,7 +15,12 @@ ms.custom: seodec2018
 
 # Tutorial: Add autocomplete to your search box using Azure Search
 
-In this tutorial, you'll learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) and [facets](search-faceted-navigation.md) in the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) to build a powerful search box. *Suggestions* provide recommendations of actual results based on what the user has typed so far. *autocomplete*, [a new preview feature](search-api-preview.md) in Azure Search, provides terms from the index to complete what the user is currently typing. We'll compare multiple techniques to improve user productivity and quickly and easily find what they are looking for by bringing the richness of search directly to the user as they type.
+In this tutorial, you'll learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) and [facets](search-faceted-navigation.md) in the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) to build a powerful search box. 
+
++ *Suggestions* provide recommendations of actual results based on what the user has typed so far. 
++ *Autocomplete*, [a new preview feature](search-api-preview.md) in Azure Search, provides terms from the index to complete what the user is currently typing. 
+
+We'll compare multiple techniques to improve user productivity by bringing the richness of search directly to the user as they type.
 
 This tutorial walks you through an ASP.NET MVC-based application that uses C# to call the [Azure Search .NET client libraries](https://aka.ms/search-sdk), and JavaScript to call the Azure Search REST API directly. The application for this tutorial targets an index populated the [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) sample data. You can either use the index already configured in NYC Jobs demo, or populate your own index using a data loader in the NYCJobs sample solution. The sample uses the [jQuery UI](https://jqueryui.com/autocomplete/) and [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript libraries to build a search box that supports autocomplete. Using these components along with Azure Search, you'll see multiple examples of how to support autocomplete with type-ahead in your search box.
 

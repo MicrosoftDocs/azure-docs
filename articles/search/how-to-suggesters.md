@@ -23,9 +23,9 @@ translation.priority.mt:
 ---
 # Add suggesters to an Azure Search index
 
-A **Suggester** is a construct supporting the "search-as-you-type" [Suggestions](suggestions.md) feature in Azure Search. Before you can call the Suggestions API, you must define a **suggester** to enable suggestions on specific fields.
+A **Suggester** is an Azure Search construct supporting the "search-as-you-type" [Suggestions](suggestions.md) feature and the [autocomplete (preview)](search-autocomplete-tutorial.md) feature. Before you can call the Suggestions API, you must define a **suggester** in an index to enable suggestions on specific fields.
 
-Although a **suggester** has several properties, it is primarily a collection of fields for which you are enabling the Suggestions API. For example, a travel app might want to enable typeahead search on destinations, cities, and attractions. As such, all three fields would go in the field collection.
+Although a **suggester** has several properties, it is primarily a collection of fields for which you are enabling the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions). For example, a travel app might want to enable typeahead search on destinations, cities, and attractions. As such, all three fields would go in the field collection.
 
 You can have only one **suggester** resource for each index (specifically, one **suggester** in the **suggesters** collection).
 
@@ -46,7 +46,7 @@ Properties that define a **suggester** include the following:
 |`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Only fields of type `Edm.String` and `Collection(Edm.String)` may be sources for suggestions. Only fields that don't have a custom language analyzer set can be used. |  
 
 ## Suggester example  
- A **suggester** is part of the index. Only one **suggester** can exist in the **suggesters** collection in the current version, alongside the **fields** collection and **scoringProfiles**.  
+ A **suggester** is part of the index definition. Only one **suggester** can exist in the **suggesters** collection in the current version, alongside the **fields** collection and **scoringProfiles**.  
 
 ```  
 {  

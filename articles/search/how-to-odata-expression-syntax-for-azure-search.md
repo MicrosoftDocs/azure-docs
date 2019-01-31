@@ -22,7 +22,7 @@ translation.priority.mt:
 ---
 # OData expression syntax for filters and order-by clauses in Azure Search
 
-Azure Search supports a subset of the OData expression syntax for **$filter** and **$orderby** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set. Both filters and order-by expressions are included in a query request, adhering to an OData syntax independent of the [simple](simple-query-syntax-in-azure-search.md) or [full](lucene-query-syntax-in-azure-search.md) query syntax used in a **search** parameter. This article provides the reference documentation for OData expressions used in filters and sort expressions.
+Azure Search supports a subset of the OData expression syntax for **$filter** and **$orderby** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set. Both filters and order-by expressions are included in a query request, adhering to an OData syntax independent of the [simple](how-to-simple-query-syntax-in-azure-search.md) or [full](how-to-lucene-query-syntax-in-azure-search.md) query syntax used in a **search** parameter. This article provides the reference documentation for OData expressions used in filters and sort expressions.
 
 ## Filter syntax
 
@@ -243,7 +243,7 @@ Note, documents that matched only the second clause of the disjunction will be r
 $filter=search.ismatchscoring('"ocean view"', 'description,hotelName') or rating eq 5
 ```
 
-Find documents where the terms "hotel" and "airport" are within 5 words from each other in the description of the hotel, and where smoking is not allowed. This query uses the [full Lucene query language](how-tolucene-query-syntax-in-azure-search.md).
+Find documents where the terms "hotel" and "airport" are within 5 words from each other in the description of the hotel, and where smoking is not allowed. This query uses the [full Lucene query language](how-to-lucene-query-syntax-in-azure-search.md).
 
 ```
 $filter=search.ismatch('"hotel airport"~5', 'description', 'full', 'any') and not smokingAllowed 

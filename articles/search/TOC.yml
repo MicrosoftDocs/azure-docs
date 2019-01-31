@@ -113,22 +113,20 @@
       href: search-create-index-portal.md
     - name: Analyzers
       items:
-      - name: Text Analyzers
+      - name: Add text analyzers
         href: search-analyzers.md
-      - name: Language analyzers API
+      - name: Add language analyzers
         href: how-to-language-support.md
-      - name: Custom analyzers API
+      - name: Add custom analyzers
         href: how-to-custom-analyzers-in-azure-search.md
-    - name: Auto-suggestions
+    - name: Add autosuggest
       href: how-to-suggesters.md
-    - name: autocomplete
-      href: how-to-autocomplete.md
+    - name: Add faceted navigation
+      href: search-faceted-navigation.md
+    - name: Add synonyms
+      href: search-synonyms.md
     - name: Model complex data types
       href: search-howto-complex-data-types.md
-    - name: Faceted navigation
-      href: search-faceted-navigation.md
-    - name: Synonyms
-      href: search-synonyms.md
     - name: Model relational data
       href: search-example-adventureworks-modeling.md
     - name: Model multi-level facets
