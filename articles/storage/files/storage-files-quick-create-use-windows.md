@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: wgries
 ms.component: files
 #Customer intent: As a IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
@@ -25,10 +25,9 @@ Before you create an Azure file share, you need to set up the following items fo
 - An Azure storage account and an Azure file share
 - A Windows Server 2016 Datacenter VM
 
-
 ### Create a storage account
 
-Before you can work with an Azure file share, you have to create an Azure storage account.
+Before you can work with an Azure file share, you have to create an Azure storage account. A storage account is a shared pool of storage in which you can deploy an Azure file share or other storage resources, such as blobs or queues. A storage account can contain an unlimited number of shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -40,7 +39,7 @@ Next, you create a file share.
 
     ![Select Files](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. select **+ File Share**.
+1. Select **+ File Share**.
 
     ![Select the add file share button](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
@@ -86,7 +85,7 @@ At this point, you've created a new virtual machine and attached a data disk. No
 
 1. You may receive a certificate warning during the sign-in process. select **Yes** or **Continue** to create the connection.
 
-## Map the Azure file share to a Window drive
+## Map the Azure file share to a Windows drive
 
 1. In the Azure portal, navigate to the *qsfileshare* fileshare and select **Connect**.
 1. Copy the contents of the second box and paste it in **Notepad**.
