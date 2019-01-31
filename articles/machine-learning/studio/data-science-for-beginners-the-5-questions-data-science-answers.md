@@ -5,7 +5,7 @@ description: Data Science for Beginners is teaches basic concepts in 5 short vid
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: garyericson
 ms.author: garye
