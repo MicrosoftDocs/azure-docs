@@ -41,7 +41,7 @@ The connection count shown in the Azure portal includes both server connections 
 
 For example, assume that you have two application servers and that you define five hubs in code. The server connection count will be 50: 2 app servers x 5 hubs x 5 connections per hub.
 
-ASP.NET SignalR calculates server connections in a different way. It includes one default hub in addition to customer-defined hubs. By default, each application server needs five more server connections. The connection count for the default hub stays consistent with that of the other hubs.
+ASP.NET SignalR calculates server connections in a different way. It includes one default hub in addition to hubs that you define. By default, each application server needs five more server connections. The connection count for the default hub stays consistent with that of the other hubs.
 
 ## How inbound/outbound traffic is counted
 
