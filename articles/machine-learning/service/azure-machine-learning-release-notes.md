@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about the latest updates to Azure Machine Learning service and the machine learning and data prep Python SDKs.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: reference
 author: hning86
 ms.author: haining
@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 In this article, learn about the Azure Machine Learning service releases.  For a full description of each SDK, visit the reference docs for:
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
-+ The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/aml-sdk)
++ The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
 ## 2019-01-28
 

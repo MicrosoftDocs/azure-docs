@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ---
 # Azure SQL Database Premium RS service tier (preview) is being retired - options for migration
 
