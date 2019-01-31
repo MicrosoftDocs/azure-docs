@@ -46,17 +46,17 @@ To complete this quickstart:
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
+	
 ## Build a cluster
 
-By default, Visual Studio will create a one node cluster for you if a cluster doesn't already exist. However, for this tutorial, we need more than one node to demonstrate scaling and upgrade. Use the following instructions to manually create a five node cluster.
+After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docker running, create a five-node local development cluster.
 
 > [!IMPORTANT]
 > Docker **must** be running before you can build a cluster.
 > Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
 
-After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docker running, create a five-node local development cluster.
 
-1. Open a new, elevated PowerShell window as an administrator. This step is necessary to load the Service Fabric modules that were recently installed.
+1. Open a new, elevated PowerShell window as an administrator.
 2. Run the following PowerShell command to create a development cluster:
 
     ```powershell
@@ -163,16 +163,17 @@ To upgrade the application, do the following:
 
     ![Change Version Dialog](./media/service-fabric-quickstart-dotnet/change-version.png)
 7. In the **Publish Service Fabric Application** dialog, check the **Upgrade the Application checkbox**.
-8.  Change the Target profile to **PublishProfiles\Local.5Node.xml** and ensure that **Connection Endpoint** is set to **Local Cluster**. 
+8.  Change **Target profile** to **PublishProfiles\Local.5Node.xml** and ensure that **Connection Endpoint** is set to **Local Cluster**. 
+9. Select **Upgrade the Application**.
 
     ![Publish Dialog Upgrade Setting](./media/service-fabric-quickstart-dotnet/upgrade-app.png)
 
-9. Click **Publish**.
+10. Click **Publish**.
 
     While the upgrade is running, you can still use the application. Because you have two instances of the service running in the cluster, some of your requests may get an upgraded version of the application, while others may still get the old version.
 
-10. Open your browser and browse to the cluster address on port 19080 - for example, `http://localhost:19080/`.
-11. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next. An upgrade domain in the progress bar appears green when the health of the domain has been verified.
+11. Open your browser and browse to the cluster address on port 19080. For example `http://localhost:19080/`.
+12. Click on the **Applications** node in the tree view, and then **Upgrades in Progress** in the right-hand pane. You see how the upgrade rolls through the upgrade domains in your cluster, making sure each domain is healthy before proceeding to the next. An upgrade domain in the progress bar appears green when the health of the domain has been verified.
     ![Upgrade View in Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric makes upgrades safe by waiting two minutes after upgrading the service on each node in the cluster. Expect the entire update to take approximately eight minutes.
