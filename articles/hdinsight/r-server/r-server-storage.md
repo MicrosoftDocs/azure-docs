@@ -15,7 +15,7 @@ ms.date: 06/27/2018
 ML Services on HDInsight can use a variety of storage solutions to persist data, code, or objects that contain results from analysis. These include the following options:
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure File storage](https://azure.microsoft.com/services/storage/files/)
 
 You also have the option of accessing multiple Azure storage accounts or containers with your HDInsight cluster. Azure File storage is a convenient data storage option for use on the edge node that enables you to mount an Azure Storage file share to, for example, the Linux file system. But Azure File shares can be mounted and used by any system that has a supported operating system such as Windows or Linux. 
@@ -166,4 +166,4 @@ A major benefit of Azure Files is that the file shares can be mounted and used b
 * [Overview of ML Services cluster on HDInsight](r-server-overview.md)
 * [Get started with ML Services cluster on Apache Hadoop](r-server-get-started.md)
 * [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
-
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

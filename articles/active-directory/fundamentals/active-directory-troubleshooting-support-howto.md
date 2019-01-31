@@ -4,11 +4,11 @@ description: Instructions about how to get help and open a support ticket for Az
 services: active-directory
 documentationcenter: na
 author: eross-msft
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.date: 08/28/2017
 ms.author: lizross
@@ -46,7 +46,7 @@ If you are unable to find answers by using self-help resources, you can open an 
    
 4. For **Service**, select **Azure Active Directory**, and then select **Next**.
 
-5. On the **Problem** blade, select a [Severity](https://azure.microsoft.com/support/plans/response/)).
+5. On the **Problem** blade, select a [Severity](https://azure.microsoft.com/support/plans/response/).
   
 6. Select a **Problem type**, and then select a **Category** for that type. At this point, you are also offered self-help information for your problem category.
   

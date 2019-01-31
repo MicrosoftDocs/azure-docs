@@ -100,7 +100,7 @@ Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azu
     | Field | Sample value | Description |
     |---|---|---|
     | Name | HelloProxy | A friendly name used only for management |
-    | Route template | /api/hello | Determines what route is used to invoke this proxy |
+    | Route template | /api/remotehello | Determines what route is used to invoke this proxy |
     | Backend URL | https://%HELLO_HOST%/api/hello | Specifies the endpoint to which the request should be proxied |
     
 1. Note that Proxies does not provide the `/api` base path prefix, and this must be included in the route template.
@@ -108,9 +108,9 @@ Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azu
 1. Click **Create**.
 1. You can try out your new proxy by copying the Proxy URL and testing it in the browser or with your favorite HTTP client.
     1. For an anonymous function use:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. For a function with authorization use:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## Create a mock API
 
@@ -128,7 +128,7 @@ If you've followed along so far, your proxies.json should look like the followin
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -144,7 +144,7 @@ Next you'll add your mock API. Replace your proxies.json file with the following
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },

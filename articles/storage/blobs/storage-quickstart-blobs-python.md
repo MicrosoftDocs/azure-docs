@@ -7,7 +7,7 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 12/14/2018
 ms.author: tamram
 ---
 
@@ -49,7 +49,7 @@ This sample creates a test file in the *Documents* folder. The sample program up
 
 First, install the dependencies by running `pip install`:
 
-    pip install azure-storage
+    pip install azure-storage-blob
 
 Next, run the sample. You’ll see messages similar to the following output:
   

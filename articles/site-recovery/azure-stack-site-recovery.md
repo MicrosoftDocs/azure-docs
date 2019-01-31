@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ---
 # Replicate Azure Stack VMs to Azure
@@ -27,7 +27,7 @@ In this article, you learn how to:
 > * **Step 1: Prepare Azure stack VMs for replication**. Check that VMs comply with Site Recovery requirements, and prepare for installation of the Site Recovery Mobility service. This service is installed on each VM you want to replicate.
 > * **Step 2: Set up a Recovery Services vault**. Set up a vault for Site Recovery, and specify what you want to replicate. Site Recovery components and actions are configured and managed in the vault.
 > * **Step 3: Set up the source replication environment**. Set up a Site Recovery configuration server. The configuration server is a single Azure Stack VM that runs all the components needed by Site Recovery. After you've set up the configuration server, you register it in the vault.
-> * **Step 4: Set up the target replication environment**. Select your Azure acccount, and the Azure storage account and network that you want to use. During replication, VM data is copied to Azure storage. After failover, Azure VMs are joined to the specified network.
+> * **Step 4: Set up the target replication environment**. Select your Azure account, and the Azure storage account and network that you want to use. During replication, VM data is copied to Azure storage. After failover, Azure VMs are joined to the specified network.
 > * **Step 5: Enable replication**. Configure replication settings, and enable replication for VMs. The Mobility service will be installed on a VM when replication is enabled. Site Recovery performs an initial replication of the VM, and then ongoing replication begins.
 > * **Step 6: Run a disaster recovery drill**: After replication is up and running, you verify that failover will work as expected by running a drill. To initiate the drill, you run a test failover in Site Recovery. The test failover doesn't impact your production environment.
 
@@ -136,7 +136,7 @@ For each machine you want to replicate, find the IP address:
 
 ## Step 2: Create a vault and select a replication goal
 
-1. In the Azure portal, select **Create a resource** > **Monitoring + Management** > **Backup and Site Recovery**.
+1. In the Azure portal, select **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
 2. In **Name**, enter a friendly name to identify the vault. 
 3. In **Resource group**, create or select a resource group. We're using **contosoRG**.
 4. In **Location**, enter the Azure region. We're using **West Europe**.

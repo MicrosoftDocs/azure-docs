@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/28/2018
+ms.date: 01/03/2019
 ms.author: b-juche
 ---
 # Understand the storage hierarchy of Azure NetApp Files
@@ -54,4 +54,5 @@ The following example shows the relationships of the Azure subscription, NetApp 
 
 ## Next steps
 
-[Register for Azure NetApp Files](azure-netapp-files-register.md)
+- [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+- [Register for Azure NetApp Files](azure-netapp-files-register.md)

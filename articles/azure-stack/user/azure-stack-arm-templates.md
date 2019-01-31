@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: sethm
-ms.reviewer: jeffgo
+ms.reviewer: justini
+ms.lastreviewed: 11/14/2018
 
 ---
 # Use Azure Resource Manager templates in Azure Stack

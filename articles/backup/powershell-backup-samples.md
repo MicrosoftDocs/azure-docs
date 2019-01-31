@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.topic: sample
 ms.date: 09/07/2017
-ms.author: rayne
+ms.author: raynew
 ms.custom: mvc
 ---
 # Azure Backup PowerShell samples

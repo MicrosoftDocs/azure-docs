@@ -85,7 +85,7 @@ You can use [Azure Resource Manager](https://azure.microsoft.com/documentation/a
 - Make sure that your app can handle traffic for your next launch or marketing campaign.
 
 **Best practice**: Monitor application performance.  
-**Detail**: [Azure Application Insights](../application-insights/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
+**Detail**: [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
 
 ## Mitigate and protect against DDoS
 Distributed denial of service (DDoS) is a type of attack that tries to exhaust application resources. The goal is to affect the application’s availability and its ability to handle legitimate requests. These attacks are becoming more sophisticated and larger in size and impact. They can be targeted at any endpoint that is publicly reachable through the internet.

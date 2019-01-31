@@ -1,5 +1,5 @@
 ---
-title: Use Azure Key Vault from a Web Application tutorial | Microsoft Docs
+title: Use Azure Key Vault from a Web Application tutorial - Azure Key Vault | Microsoft Docs
 description: Use this tutorial to help you learn how to use Azure Key Vault from a web application.
 services: key-vault
 author: barclayn
@@ -10,7 +10,7 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 # Customer intent: As a web developer, I want to access a secret from Azure Key Vault so that it can be used in a web application.
 ---
@@ -67,8 +67,6 @@ There are three application settings that need to be added to the web.config fil
     <add key="SecretUri" value="secreturi" />
     <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
-
-
 
 ## <a id="gettoken"></a>Add method to get an access token
 
@@ -184,7 +182,7 @@ After you've run these commands, you can see the application in Azure AD. When s
 
 Now we'll add code to your Web App to access the cert and use it for authentication. 
 
-First, there's code to access the cert. Note that StoreLocation is CurrentUser instead of LocalMachine. And that we're supplying 'false' to the Find method because we're using a test cert.
+First, there's code to access the cert. The store location is CurrentUser instead of LocalMachine. And that we're supplying 'false' to the Find method because we're using a test cert.
 
 ```cs
 //Add this using statement

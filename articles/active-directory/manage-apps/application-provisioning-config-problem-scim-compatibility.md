@@ -4,11 +4,11 @@ description: How to solve common protocol compatibility issues faced when adding
 services: active-directory
 documentationcenter: ''
 author: asmalser
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -52,7 +52,7 @@ For information on how to migrate a pre-existing user provisioning job to includ
 Yes. If you are already using this application instance for single sign-on, and need to migrate the existing provisioning job to include the latest fixes, follow the procedure below. This procedure describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to remove your old provisioning job from your existing SCIM app, and create a new one that exhibits the new behavior.
 
 > [!NOTE]
-> If your application is still in development and has not yet been deployed for either single sign-on or user provisioning, the easiest solution is to delete the application entry in the **Azure Active Directory > Enterprise Applications** section of the Azure portal, and simply add a new entry for the application using the **Create applicaiton > Non-gallery** option. This is an alternative to running the procedure below.
+> If your application is still in development and has not yet been deployed for either single sign-on or user provisioning, the easiest solution is to delete the application entry in the **Azure Active Directory > Enterprise Applications** section of the Azure portal, and simply add a new entry for the application using the **Create application > Non-gallery** option. This is an alternative to running the procedure below.
  
 1. Sign into the Azure portal at https://portal.azure.com.
 2. In the **Azure Active Directory > Enterprise Applications** section of the Azure portal, locate and select your existing SCIM application.

@@ -5,17 +5,17 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -87,7 +87,7 @@ Azure has a safety feature that prevents you from creating a policy like this be
 ![Policy configuration not supported](./media/block-legacy-authentication/04.png)
 
 
-The safety feature is necessary because *block all users and all cloud apps* has the potential to block your entire organization from signing on to your tenant. You must exclude at least one user to satisfy the minimal best practice requirement. You could also 
+The safety feature is necessary because *block all users and all cloud apps* has the potential to block your entire organization from signing on to your tenant. You must exclude at least one user to satisfy the minimal best practice requirement. You could also exclude a directory role.
 
 ![Policy configuration not supported](./media/block-legacy-authentication/05.png)
 
@@ -116,6 +116,15 @@ It can take up to 24 hours for the policy to go into effect.
 You can select all available grant controls for the other clients condition; however, the end-user experience is always the same - blocked access.
 
 You can configure all other conditions next to the other clients condition.
+For example, if you only want to block legacy authentication for mobile devices, set the **device platforms** condition by selecting:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+![Policy configuration not supported](./media/block-legacy-authentication/06.png)
 
 
 

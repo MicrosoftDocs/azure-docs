@@ -12,6 +12,8 @@
     items:
     - name: Streaming data - Event Hub
       href: ingest-data-event-hub.md
+    - name: Streaming data - Event Grid
+      href: ingest-data-event-grid.md
     - name: Streaming data - Kafka
       href: ingest-data-kafka.md
     - name: Batching data - Python
@@ -20,6 +22,8 @@
       href: node-ingest-data.md
     - name: Batching data - .NET Standard SDK
       href: net-standard-ingest-data.md
+    - name: Batching data - Logstash
+      href: ingest-data-logstash.md
   - name: Query data
     items:
     - name: Web UI
@@ -65,6 +69,8 @@
       href: manage-cluster-scaling.md
     - name: Delete data
       href: delete-data.md
+    - name: Deal with duplicate data
+      href: dealing-with-duplicates.md
   - name: Work with other tools
     items:
     - name: Connect from Databricks using Python

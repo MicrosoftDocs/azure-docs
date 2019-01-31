@@ -2,14 +2,13 @@
 title: SQL queries for Azure Cosmos DB
 description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
 
 ---
-# SQL query examples to query data from Azure Cosmos DB
+# SQL query examples for Azure Cosmos DB
 
 Azure Cosmos DB supports querying items using SQL (Structured Query Language) as a JSON query language on SQL API accounts. While designing the query language for Azure Cosmos DB, the following two goals are considered:
 
@@ -17,7 +16,7 @@ Azure Cosmos DB supports querying items using SQL (Structured Query Language) as
 
 * Azure Cosmos DB uses JavaScript's programming model as the foundation for the query language. The SQL API is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON items, self-joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript, among other features.
 
-This article walks you through some examples SQL queries by using simple JSON items. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-query-reference.md) article.
+This article walks you through some example SQL queries by using simple JSON items. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-query-reference.md) article.
 
 ## <a id="GettingStarted"></a>Get started with SQL commands
 
@@ -502,7 +501,7 @@ You can also nest the calls to the operator like in the query below.
 
 As with other query operators, if the referenced properties in the conditional expression are missing in any item, or if the types being compared are different, then those items are excluded in the query results.
 
-The Coalesce (??) operator can be used to efficiently check for the presence of a property (a.k.a. is defined) in an item. This operator is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
+The Coalesce (??) operator can be used to efficiently check for the presence of a property in an item. This operator is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

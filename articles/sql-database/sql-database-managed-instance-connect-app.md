@@ -87,7 +87,7 @@ This scenario is illustrated in the following diagram:
 
 For troubleshooting connectivity issues, review the following:
 - If you are unable to connect to Managed Instance from an Azure virtual machine within the same VNet but different subnet, check if you have a Network Security Group set on VM subnet that might be blocking access.Additionally note that you need to open outbound connection on SQL port 1433 as well as ports in range 11000-12000 since those are needed for connecting via redirection inside the Azure boundary. 
-- Ensure that BGP Propogation is set to **Enabled** for the route table associated with the VNet.
+- Ensure that BGP Propagation is set to **Enabled** for the route table associated with the VNet.
 - If using P2S VPN, check the configuration in the Azure portal to see if you see **Ingress/Egress** numbers. Non-zero numbers indicate that Azure is routing traffic to/from on-premises.
 
    ![ingress/egress numbers](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)

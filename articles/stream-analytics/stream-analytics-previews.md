@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/10/2019
 ---
 
 # Azure Stream Analytics preview features
@@ -21,10 +21,6 @@ The following features are in public preview. You can take advantage of these fe
 ### Integration with Azure Machine Learning
 
 You can scale Stream Analytics jobs with Machine Learning (ML) functions. To learn more about how you can use ML functions in your Stream Analytics job, visit [Scale your Stream Analytics job with Azure Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md). Check out a real-world scenario with [Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### Session windows
-
-Stream Analytics has native support for windowing functions, enabling developers to author complex stream processing jobs with minimal effort. [Session windows](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) group events that arrive at similar times, filtering out periods of time where there's no data. To learn more about windowing functions, visit [Introduction to Stream Analytics windowing functions](stream-analytics-window-functions.md).
 
 ### Blob output partitioning by custom time
 

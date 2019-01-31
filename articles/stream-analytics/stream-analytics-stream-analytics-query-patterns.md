@@ -677,15 +677,15 @@ The [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/refere
 ```SQL
 With Temp AS (
     SELECT
-        COUNT(DISTINCT Time) AS Time,
+        COUNT(DISTINCT Time) AS CountTime,
         Value,
         DeviceId
     FROM
-        Input
+        Input TIMESTAMP BY Time
     GROUP BY
         Value,
         DeviceId,
-        TumblingWindow(minute, 5)
+        SYSTEM.TIMESTAMP
 )
 
 SELECT

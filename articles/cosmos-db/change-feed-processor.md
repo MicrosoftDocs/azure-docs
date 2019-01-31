@@ -2,16 +2,15 @@
 title: Working with the change feed processor library in Azure Cosmos DB 
 description: Using the Azure Cosmos DB change feed processor library. 
 author: rafats
-
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-
+ms.reviewer: sngun
 ---
 
-# Using the Azure Cosmos DB change feed processor library
+# Change feed processor in Azure Cosmos DB 
 
 The [Azure Cosmos DB change feed processor library](sql-api-sdk-dotnet-changefeed.md) helps you distribute event processing across multiple consumers. This library simplifies reading changes across partitions and multiple threads working in parallel.
 

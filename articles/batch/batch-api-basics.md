@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -260,7 +260,7 @@ When you create a task, you can specify:
 * A **container image** reference in Docker Hub or a private registry and additional settings to create a Docker container in which the task runs on the node. You only specify this information if the pool is set up with a container configuration.
 
 > [!NOTE]
-> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
+> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for 7 days; data for tasks not completed within the maximum lifetime is not accessible.
 
 In addition to tasks you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 

@@ -3,7 +3,7 @@ title: Configure pre and post scripts on your Update Management deployment in Az
 description: This article describes how to configure and manage pre and post scripts for update deployments
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
@@ -95,9 +95,6 @@ The following is an example of a JSON string passed in to the **SoftwareUpdateCo
 ```
 
 A full example with all properties can be found at: [Software Update Configurations - Get By Name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
-
-> [!NOTE]
-> Computers added to a deployment using [Dynamic groups (preview)](automation-update-management.md#using-dynamic-groups) are not currently part of the **SoftwareUpdateConfigurationRunContext** parameter.
 
 ## Samples
 
@@ -221,3 +218,4 @@ Continue to the tutorial to learn how to manage updates for your Windows virtual
 
 > [!div class="nextstepaction"]
 > [Manage updates and patches for your Azure Windows VMs](automation-tutorial-update-management.md)
+

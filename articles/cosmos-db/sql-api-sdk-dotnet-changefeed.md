@@ -1,14 +1,12 @@
 ---
 title: 'Azure Cosmos DB: .NET Change Feed Processor API, SDK & resources'
 description: Learn all about the Change Feed Processor API and SDK including release dates, retirement dates, and changes made between each version of the .NET Change Feed Processor SDK.
-services: cosmos-db
 author: ealsur
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
 
 ---
@@ -37,6 +35,12 @@ ms.author: maquaran
 ## Release notes
 
 ### v2 builds
+
+### <a name="2.2.6"/>2.2.6
+* Improved handling of Observer exceptions.
+* Richer information on Observer errors:
+ * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
+ * Added traces to identify errors within user code in an Observer.
 
 ### <a name="2.2.5"/>2.2.5
 * Added support for handling split in collections that use shared database throughput.
@@ -68,7 +72,7 @@ ms.author: maquaran
 * Supports Microsoft.Azure.DocumentDB SDK 2.0. Requires Microsoft.Azure.DocumentDB 2.0 or later.
 
 ### <a name="2.0.6"/>2.0.6
-* Added ChangeFeedEventHost.HostName public property for compativility with v1.
+* Added ChangeFeedEventHost.HostName public property for compatibility with v1.
 
 ### <a name="2.0.5"/>2.0.5
 * Fixed a race condition that occurs during partition split. The race condition may lead to acquiring lease and immediately losing it during partition split and causing contention. The race condition issue is fixed with this release.
@@ -154,6 +158,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |January 29, 2019 |--- |
 | [2.2.5](#2.2.5) |December 13, 2018 |--- |
 | [2.2.4](#2.2.4) |November 29, 2018 |--- |
 | [2.2.3](#2.2.3) |November 19, 2018 |--- |

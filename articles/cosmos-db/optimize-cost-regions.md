@@ -2,14 +2,13 @@
 title: Optimize cost for multi-region deployments in Azure Cosmos DB
 description: This article explains how to manage costs of multi-region deployments in Azure Cosmos DB.
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ---
 
-# Optimize the cost for multi-region deployments in Azure Cosmos DB
+# Optimize multi-region cost in Azure Cosmos DB
 
 You can add and remove regions to your Azure Cosmos account at any time. The throughput that you configure for various Azure Cosmos databases and containers is reserved in each region associated with your account. If the throughput provisioned per hour, that is the sum of RU/s configured across all the databases and containers for your Azure Cosmos account is `T` and the number of Azure regions associated with your database account is `N`, then the total provisioned throughput for your Cosmos account, for a given hour is equal to:
 

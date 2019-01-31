@@ -1,18 +1,18 @@
 ---
-title: "Quickstart: Get alternate translations, Java - Translator Text API"
+title: "Quickstart: Look up words with bilingual dictionary, Java - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to get alternate translations for a term, and also usage examples of those alternate translations, using Java and the Translator Text API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Use the Translator Text API to get alternate translations using Java
+# Quickstart: Look up words with bilingual dictionary using Java
 
 In this quickstart, you'll learn how to get alternate translations for a term, and also usage examples of those alternate translations, using Java and the Translator Text API.
 

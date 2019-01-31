@@ -391,18 +391,20 @@ which you can usually find here: ```C:\Program Files\On-premises data gateway\Mi
 
 ## Windows service account
 
-The on-premises data gateway runs as a Windows service named 
-"On-premises data gateway service" but uses "NT SERVICE\PBIEgwService" 
-for its "Log On As" account credentials. 
-By default, the on-premises data gateway has "Log on as a service" 
-permissions for the computer where you install the gateway. 
-To create and maintain the gateway in the Azure portal, 
-the Windows service account must have at least **Contributor** permissions. 
+On the computer where you install the on-premises data gateway, 
+the gateway runs as a Windows service account named 
+"On-premises data gateway service". However, the 
+gateway uses the "NT SERVICE\PBIEgwService" name for 
+its "Log On As" account credentials. By default, 
+the gateway has "Log on as a service" permissions 
+on the computer where you install the gateway. 
+The Windows service account for the gateway usually differs from 
+the account you use for connecting to on-premises data sources, 
+and from the work or school account you use for signing in to cloud services.
 
-> [!NOTE]
-> The Windows service account differs from the account 
-> used for connecting to on-premises data sources, 
-> and from the work or school account used to sign in to cloud services.
+For you to create and maintain the gateway in the Azure portal, 
+this Windows service account must have at least **Contributor** permissions. 
+To check these permissions, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md). 
 
 <a name="restart-gateway"></a>
 
