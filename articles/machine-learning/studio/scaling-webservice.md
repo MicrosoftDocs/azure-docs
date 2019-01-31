@@ -5,7 +5,7 @@ description: Learn how to increase concurrency of an Azure Machine Learning Stud
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

@@ -68,6 +68,9 @@ You can set quotas per user by using the following steps:
 
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)
 
+> [!IMPORTANT]
+> The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs. 
+
 ### Add users by uploading a CSV file
 You can also add users by uploading a CSV file with email addresses of users.
 

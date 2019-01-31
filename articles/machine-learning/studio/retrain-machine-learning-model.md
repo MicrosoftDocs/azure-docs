@@ -5,7 +5,7 @@ description: Learn how to retrain a model and update the Web service to use the 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
