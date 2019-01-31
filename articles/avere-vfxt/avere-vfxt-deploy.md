@@ -158,7 +158,7 @@ To find this information, follow this procedure:
 
 ## Create a storage endpoint (if using Azure Blob)
 
-If you are using Azure Blob storage for your back-end data storage, you should create a storage service endpoint in your virtual network. This [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it through the internet.
+If you are using Azure Blob storage for your back-end data storage, you should create a storage service endpoint in your virtual network. This [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it outside the virtual network.
 
 1. From the portal, click **Virtual networks** on the left.
 1. Select the vnet for your controller. 

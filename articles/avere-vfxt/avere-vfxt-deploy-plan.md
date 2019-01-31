@@ -104,7 +104,7 @@ Access options include:
 
 * Virtual private network (VPN) - Configure a point-to-site or site-to-site VPN to your private network.
 
-* Azure ExpressRoute - Configure a private connection through and ExpressRoute partner. 
+* Azure ExpressRoute - Configure a private connection through an ExpressRoute partner. 
 
 For details about these options, read the [Azure Virtual Network documentation about internet communication](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
 
