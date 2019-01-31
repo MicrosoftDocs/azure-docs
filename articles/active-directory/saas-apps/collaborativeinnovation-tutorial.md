@@ -41,6 +41,8 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Collaborative Innovation supports **SP** initiated SSO
 
+* Collaborative Innovation supports **just in time** user provisioning
+
 ## Adding Collaborative Innovation from the gallery
 
 To configure the integration of Collaborative Innovation into Azure AD, you need to add Collaborative Innovation from the gallery to your list of managed SaaS apps.
