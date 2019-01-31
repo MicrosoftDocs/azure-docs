@@ -101,7 +101,7 @@ To view the health of an Azure VM, select **Insights (preview)** from the left-h
 
 ![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. Refer to [Alerting and an alert management](#alerting-and-alert-management) for more details.  
+On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. Refer to [Alerts](#alerting-and-alert-management) section for more details about the alerting experience.  
 
 The health states defined for a VM are described in the following table: 
 
