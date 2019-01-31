@@ -20,7 +20,7 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | January 31, 2019 | Supported (recommended version) |
+| V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | February 4, 2019 | Supported (recommended version) |
 | January 2019 update rollup - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | January 14, 2019 | Supported |
 | December 2018 update rollup - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | December 10, 2018 | Supported |
 | December 2018 update rollup | 4.1.0.0 | December 4, 2018 | Supported |
@@ -34,7 +34,7 @@ The following versions are supported for the Azure File Sync agent:
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Agent version 5.0.2.0
-The following release notes are for version 5.0.2.0 of the Azure File Sync agent (released January 31, 2019).
+The following release notes are for version 5.0.2.0 of the Azure File Sync agent (released February 4, 2019).
 
 ### Improvements and issues that are fixed
 
