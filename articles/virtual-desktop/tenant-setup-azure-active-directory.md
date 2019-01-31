@@ -97,4 +97,4 @@ After you've created your Windows Virtual Desktop tenant, you can run the follow
 Once you've created your tenant, you'll need to make a host pool. To learn more about host pools, continue to the tutorial for creating a host pool in Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Windows Virtual Desktop host pool tutorial](./manage-host-pools.md)
+> [Windows Virtual Desktop host pool tutorial](./create-host-pools-azure-marketplace.md)
