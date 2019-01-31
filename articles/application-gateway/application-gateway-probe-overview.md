@@ -19,6 +19,8 @@ Azure Application Gateway by default monitors the health of all resources in its
 
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. In this article, both default and custom health probes are covered.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Default health probe
 
 An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool. For default probes if the backend http settings are configured for HTTPS, the probe uses HTTPS as well to test health of the backends.

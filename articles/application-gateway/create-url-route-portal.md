@@ -96,6 +96,8 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Install IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Open the interactive shell and make sure that it is set to **PowerShell**.
 
     ![Install custom extension](./media/create-url-route-portal/application-gateway-extension.png)

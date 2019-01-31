@@ -28,6 +28,8 @@ In this article, you learn how to:
 
 ![Web application firewall example](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Log in to Azure
 
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)

@@ -19,6 +19,8 @@ By using Azure Application Gateway, you can monitor resources in the following w
 
 * [Metrics](#metrics): Application Gateway currently has seven metrics to view performance counters.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Back-end health
 
 Application Gateway provides the capability to monitor the health of individual members of the back-end pools through the portal, PowerShell, and the command-line interface (CLI). You can also find an aggregated health summary of back-end pools through the performance diagnostic logs. 

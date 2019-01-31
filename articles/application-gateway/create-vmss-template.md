@@ -24,6 +24,8 @@ This article walks you through downloading and modifying an existing [Azure Reso
 
 If you are simply deploying the template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Scenario
 
 In this scenario you will:

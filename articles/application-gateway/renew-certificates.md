@@ -26,6 +26,8 @@ Upload your new PFX certificate, give it a name, type the password, and then cli
 
 ## Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To renew your certificate using Azure PowerShell, use the following script:
 
 ```azurepowershell-interactive

@@ -15,6 +15,8 @@ ms.author: victorh
 
 Learn how to configure SSL policy versions and cipher suites on Application Gateway. You can select from a [list of predefined policies](#predefined-ssl-policies) that contain different configurations of SSL policy versions and enabled cipher suites. You also have the ability to define a [custom SSL policy](#configure-a-custom-ssl-policy) based on your requirements.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Get available SSL options
 
 The `Get-AzApplicationGatewayAvailableSslOptions` cmdlet provides a listing of available pre-defined policies, available cipher suites, and protocol versions that can be configured. The following example shows an example output from running the cmdlet.

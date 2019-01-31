@@ -13,6 +13,8 @@ ms.author: victorh
 
 Application gateway allows you to have an App Service app or other multi-tenant service as a back-end pool member. In this article, you learn to configure an App Service app with Application Gateway. The first example shows you how to configure an existing application gateway to use a web app as a back-end pool member. The second example shows you how to create a new application gateway with a web app as a back-end pool member.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Configure a web app behind an existing application gateway
 
 The following example adds a web app as a back-end pool member to an existing application gateway. Both the switch `-PickHostNamefromBackendHttpSettings`on the Probe configuration and `-PickHostNameFromBackendAddress` on the back-end http settings must be provided in order for web apps to work.

@@ -12,6 +12,8 @@ ms.author: victorh
 
 # Frequently asked questions for Application Gateway
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## General
 
 ### What is Application Gateway?

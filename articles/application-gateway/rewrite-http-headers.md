@@ -11,6 +11,8 @@ ms.author: absha
 
 # Rewrite HTTP headers with Application Gateway (public preview)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 HTTP headers allow the client and the server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios such as adding Security-related header fields like HSTS/ X-XSS-Protection or removing response header fields, which may reveal sensitive information like backend server name.
 
 Application Gateway now supports the ability to rewrite headers of the incoming HTTP requests as well as the outgoing HTTP responses. You will be able to add, remove, or update HTTP request and response headers while the request/response packets move between the client and backend pools. You can rewrite both standard as well as non-standard header fields.
@@ -22,7 +24,7 @@ Application Gateway now supports the ability to rewrite headers of the incoming 
 Application Gateway header rewrite support offers:
 
 - **Global header rewrite**: You can rewrite specific headers for all the requests and responses pertaining to the site.
-- **Path-based header rewrite**:This type of rewrite enables header rewrite for only those requests and responses that pertain to only on a specific site area, for example a shopping cart area denoted by /cart/*.
+- **Path-based header rewrite**:This type of rewrite enables header rewrite for only those requests and responses that pertain to only on a specific site area, for example a shopping cart area denoted by /cart/\*.
 
 With this change, you need to:
 

@@ -54,6 +54,8 @@ In all cases matching is case insensitive and regular expression aren't allowed 
 
 ### Examples
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following Azure PowerShell snippet demonstrates the use of exclusions:
 
 ```azurepowershell

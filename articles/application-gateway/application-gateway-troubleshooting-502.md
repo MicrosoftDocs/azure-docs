@@ -23,6 +23,8 @@ ms.author: amsriva
 
 Learn how to troubleshoot bad gateway (502) errors received when using application gateway.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Overview
 
 After configuring an application gateway, one of the errors that users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:

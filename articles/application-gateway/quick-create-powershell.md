@@ -16,13 +16,15 @@ This quickstart shows you how to use the Azure portal to quickly create an appli
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## Run Azure PowerShell locally
 
-If you choose to install and use Azure PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later.
+If you choose to install and use Azure PowerShell locally, this tutorial requires the Azure PowerShell module version 1.0.0 or later.
 
-1. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps). 
+1. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). 
 2. To create a connection with Azure, run `Login-AzAccount`.
 
 ## Create a resource group
