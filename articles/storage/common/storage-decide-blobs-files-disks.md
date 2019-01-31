@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Deciding when to use Azure Blobs, Azure Files, or Azure Disks
