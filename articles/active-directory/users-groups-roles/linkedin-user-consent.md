@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: beengen
-ms.custom: it-pro;seo-update-jan
+ms.custom: "it-pro;seo-update-azuread-jan"
 ---
 
 # LinkedIn integration data sharing and consent

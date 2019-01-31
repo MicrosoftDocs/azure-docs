@@ -1,11 +1,11 @@
 ---
 title: Retrain a Machine Learning Studio model
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Learn how to retrain a model and update the Web service to use the newly trained model in Azure Machine Learning.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
-ms.topic: article
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

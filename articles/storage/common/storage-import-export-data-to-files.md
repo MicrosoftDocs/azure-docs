@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Use Azure Import/Export service to import data to Azure Files
 
