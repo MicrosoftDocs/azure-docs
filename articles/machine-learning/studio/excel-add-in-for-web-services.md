@@ -5,7 +5,7 @@ description: How to use Azure Machine Learning Web services directly in Excel wi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

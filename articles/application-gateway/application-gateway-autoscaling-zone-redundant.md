@@ -29,7 +29,7 @@ Application Gateway and Web Application Firewall (WAF) are now available in Publ
 
 ## Supported regions
 
-The autoscaling SKU is available in the following regions: eastus2, westus2, westeurope, southeastasia, centralus, francecentral, eastus, japaneast, northeurope, southcentralus, ukwest, northcentralus, westus, eastus (BL), centralus (DM), japanwest (OS).
+The autoscaling SKU is available in the following regions: eastus2, westus2, westeurope, southeastasia, centralus, francecentral, eastus, japaneast, northeurope, southcentralus, ukwest, northcentralus, westus, eastus, centralus, japanwest.
 
 ## Pricing
 
