@@ -33,21 +33,8 @@ Other parts of the availability group configuration must be done manually, such 
 To automate the setup of an Always On availability group using quickstart templates, you must already have the following prerequisites: 
 - An [Azure Subscription](https://azure.microsoft.com/free/).
 - A resource group with a [domain controller](/azure/architecture/reference-architectures/identity/adds-forest). 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](#register-existing-sql-vm-with-new-resource-provider).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
 
-## Register existing SQL VM with new resource provider
-Since these availability group Azure Quickstart Templates rely on the SQL VM resource provider (Microsoft.SqlVirtualMachine), existing SQL Server VMs must be registered with the SQL VM resource provider. Skip this step if you created your SQL Server VM after December 2018, as all SQL Server VMs created after this date are automatically registered. This section provides steps to register with the provider using the Azure portal, but you can also use [PowerShell](virtual-machines-windows-sql-ahb.md#powershell). 
-
-  > [!IMPORTANT]
-  > If you drop your SQL Server VM resource, you will go back to the hard coded license setting of the image. 
-
-1. Open the Azure portal and navigate to **All Services**. 
-1. Navigate to **Subscriptions** and select the subscription of interest.  
-1. In the **Subscriptions** blade, navigate to **Resource Provider**. 
-1. Type `sql` in the filter to bring up the SQL-related resource providers. 
-1. Select either *Register*, *Re-register*, or *Unregister* for the  **Microsoft.SqlVirtualMachine** provider depending on your desired action. 
-
-  ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 ## Step 1 - Create the WSFC and join SQL Server VMs to the cluster using quickstart template 
 Once your SQL Server VMs have been registered with the SQL VM new resource provider, you can join your SQL Server VMs into *SqlVirtualMachineGroup*. This resource defines the metadata of the Windows Failover Cluster, including the version, edition, Fully Qualified Domain Name, AD accounts to manage the cluster, and the Storage Account as the Cloud Witness. Adding the SQL Server VM to the *SqlVirtualMachineGroup* bootstraps the Windows Failover Cluster Service and joins the SQL Server VMs to the cluster. This step is automated with the **101-sql-vm-ag-setup** quickstart template and can be implemented with the following steps:
