@@ -6,7 +6,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 01/23/2019
+ms.date: 01/31/2019
 ms.author: dacoulte
 ---
 # Enforce tag and its value on resource groups
@@ -74,8 +74,8 @@ defined.
 
 ## Azure portal
 
-[![Deploy to Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
-[![Deploy to Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+[![Deploy to Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fenforce-tag-value%2Fazurepolicy.json)
+[![Deploy to Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fenforce-tag-value%2Fazurepolicy.json)
 
 ## Azure PowerShell
 
@@ -94,7 +94,7 @@ $scope = Get-AzResourceGroup -Name 'YourResourceGroup'
 $policyParam = '{ "tagName": { "value": "costCenter" }, "tagValue": { "value": "headquarter" } }'
 
 # Create the Policy Assignment
-$assignment = New-AzPolicyAssignment -Name 'enforce-resourceGroup-tags' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyParam
+$assignment = New-AzPolicyAssignment -Name 'enforce-resourceGroup-tags-assignment' -Scope $scope.ResourceId -PolicyDefinition $definition -PolicyParameter $policyParam
 ```
 
 ### Remove with Azure PowerShell
@@ -139,7 +139,7 @@ policyParam='{ "tagName": { "value": "costCenter" }, "tagValue": { "value": "hea
 
 # Create the Policy Assignment
 assignment=$(
-az policy assignment create --name 'enforce-resourceGroup-tags' --display-name 'Enforce tag and its value on resource groups'  --scope `echo $scope | jq '.id' -r` --policy `echo $definition | jq '.name' -r` --params "$policyparam")
+az policy assignment create --name 'enforce-resourceGroup-tags-assignment' --display-name 'Enforce tag and its value on resource groups'  --scope `echo $scope | jq '.id' -r` --policy `echo $definition | jq '.name' -r` --params "$policyparam")
 ```
 
 ### Remove with Azure CLI
@@ -190,7 +190,7 @@ from PowerShell can be found in the **Aliases** section of [Policy definition st
   {
       "properties": {
           "displayName": "Enforce tag and its value Assignment",
-          "policyDefinitionId": "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/enforce-resourceGroup-tags",
+          "policyDefinitionId": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/enforce-resourceGroup-tags",
           "parameters": {
               "tagName": {
                   "value": "costCenter"
