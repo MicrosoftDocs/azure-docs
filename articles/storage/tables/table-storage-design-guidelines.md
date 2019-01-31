@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
+ms.subservice: tables
 ---
 # Guidelines for table design
 

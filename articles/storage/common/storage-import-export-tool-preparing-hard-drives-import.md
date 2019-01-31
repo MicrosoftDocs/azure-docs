@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 # Preparing hard drives for an Import Job
 
@@ -107,7 +107,7 @@ H,Format,SilentMode,Encrypt,
 | FormatOption | **[Required]** Format &#124; AlreadyFormatted<br/><br/> **Format**: Specifying this will format all the data on the disk. <br/>**AlreadyFormatted**: The tool will skip formatting when this value is specified. |
 | SilentOrPromptOnFormat | **[Required]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Providing this value will enable user to run the tool in Silent Mode. <br/>**PromptOnFormat**: The tool will prompt the user to confirm whether the action is really intended at every format.<br/><br/>If not set, command will abort and display error message: "Incorrect value for SilentOrPromptOnFormat: none" |
 | Encryption | **[Required]** Encrypt &#124; AlreadyEncrypted<br/> The value of this field decides which disk to encrypt and which not to. <br/><br/>**Encrypt**: Tool will format the drive. If value of "FormatOption" field is "Format" then this value is required to be "Encrypt". If "AlreadyEncrypted" is specified in this case, it will result into an error "When Format is specified, Encrypt must also be specified".<br/>**AlreadyEncrypted**: Tool will decrypt the drive using the BitLockerKey provided in "ExistingBitLockerKey" Field. If value of "FormatOption" field is "AlreadyFormatted", then this value can be either "Encrypt" or "AlreadyEncrypted" |
-| ExistingBitLockerKey | **[Required]** If value of "Encryption" field is "AlreadyEncrypted"<br/> The value of this field is the BitLocker key that is associated with the particular disk. <br/><br/>This field should be left blank if the value of "Encryption" field is "Encrypt".  If BitLocker Key is specified in this case, it will result into an error "Bitlocker Key should not be specified".<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| ExistingBitLockerKey | **[Required]** If value of "Encryption" field is "AlreadyEncrypted"<br/> The value of this field is the BitLocker key that is associated with the particular disk. <br/><br/>This field should be left blank if the value of "Encryption" field is "Encrypt".  If BitLocker Key is specified in this case, it will result into an error "BitLocker Key should not be specified".<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  Preparing disk for import job
 
@@ -336,7 +336,7 @@ One or more empty 2.5-inch or 3.5-inch SATAII or III or SSD hard drives connecte
 
 #### How can I enable BitLocker on my machine?
 
-Simple way to check is by right-clicking on System drive. It will show you options for Bitlocker if the capability is turned on. If it is off, you won't see it.
+Simple way to check is by right-clicking on System drive. It will show you options for BitLocker if the capability is turned on. If it is off, you won't see it.
 
 ![Check BitLocker](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 

@@ -4,7 +4,7 @@ description: Use Azure Blueprints to create, define, and deploy artifacts.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
@@ -81,7 +81,7 @@ a role assignment on the resource group.
 
 In each REST API URI, there are variables that are used that you need to replace with your own values:
 
-- `{YourMG}` - Replace with the ID of your management group 
+- `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
 
 1. Create the initial _blueprint_ object. The **Request Body** includes properties about the
@@ -148,7 +148,8 @@ are set during assignment and used by the artifacts added in later steps.
 1. Add role assignment at subscription. The **Request Body** defines the _kind_ of artifact, the
 properties align to the role definition identifier, and the principal identities are passed as an
 array of values. In the example below, the principal identities granted the specified role are
-configured to a parameter that is set during blueprint assignment.
+configured to a parameter that is set during blueprint assignment. This example uses the
+_Contributor_ built-in role with a GUID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - REST API URI
 
@@ -170,7 +171,9 @@ configured to a parameter that is set during blueprint assignment.
 
 1. Add policy assignment at subscription. The **Request Body** defines the _kind_ of artifact, the
 properties that align to a policy or initiative definition, and configures the policy assignment to
-use the defined blueprint parameters to configure during blueprint assignment.
+use the defined blueprint parameters to configure during blueprint assignment. This example uses
+the _Apply tag and its default value to resource groups_ built-in policy with a GUID of
+`49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - REST API URI
 
@@ -202,7 +205,8 @@ use the defined blueprint parameters to configure during blueprint assignment.
 subscription. This additional policy assignment artifact demonstrates that a parameter defined on
 the blueprint is usable by more than one artifact. In the example, the **storageAccountType** is
 used to set a tag on the resource group. This value provides information about the storage account
-that is created in the next step.
+that is created in the next step. This example uses the _Apply tag and its default value to
+resource groups_ built-in policy with a GUID of `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - REST API URI
 
@@ -325,7 +329,8 @@ artifact.
 
 1. Add role assignment under resource group. Similar to the previous role assignment entry, the
 example below uses the definition identifier for the **Owner** role and provides it a different
-parameter from the blueprint.
+parameter from the blueprint. This example uses the _Owner_ built-in role with a GUID of
+`8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
    - REST API URI
 

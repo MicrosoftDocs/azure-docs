@@ -17,7 +17,7 @@ ms.custom: mvc
 
 In this tutorial, you use the Remote Monitoring solution accelerator to configure and manage your connected IoT devices. You add a new device to the solution accelerator and configure the device.
 
-Contoso has ordered new machinery to expand one of their facilities. While you wait for the new machinery to be delivered, you want to run a simulation to test the behavior of your solution. To run the simulation, you add a new simulated engine device to the Remote Monitoring solution accelerator and test that this simulated device responds correctly to configuration updates. While this tutorial uses simulated devices, a device developer can implement direct methods on a [physical device connected to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
+Contoso has ordered new machinery to expand one of their facilities. While you wait for the new machinery to be delivered, you want to run a simulation to test the behavior of your solution. To run the simulation, you add a new simulated engine device to the Remote Monitoring solution accelerator and test that this simulated device responds correctly to configuration updates. While this tutorial uses simulated devices, a device developer can implement direct methods on a [real device connected to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
 
 In this tutorial, you:
 

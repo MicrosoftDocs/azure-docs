@@ -196,7 +196,7 @@ try
 
     $adApp = New-AzureRmADApplication -DisplayName $siteName -HomePage $azureSite -IdentifierUris $azureSite -Password $clientSecret
 
-    Write-Host "AzureAD application created succesfully!!"
+    Write-Host "AzureAD application created successfully!!"
 }
 catch
 {
