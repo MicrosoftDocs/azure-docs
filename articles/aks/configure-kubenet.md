@@ -6,33 +6,38 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/31/2019
 ms.author: iainfou
+ms.reviewer: nieberts, jomore
 ---
 
 # Use kubenet networking with your own IP address ranges in Azure Kubernetes Service (AKS)
 
-By default, AKS clusters use [kubenet][kubenet], and a virtual network and subnet are created for you. With *kubenet*, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach greatly reduces the number of IP addresses that you need to reserve in your network space for pods to use.
+By default, AKS clusters use [kubenet][kubenet], and an Azure virtual network and subnet are created for you. With *kubenet*, nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address. This approach greatly reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
 With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
 
 This article shows you how to use *kubenet* networking to create and use a virtual network subnet for an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
 
+## Before you begin
+
+You need the Azure CLI version 2.0.56 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
 ## Overview of kubenet networking with your own subnet
 
 In many environments, you have defined virtual networks and subnets with allocated IP address ranges. These virtual network resources are used to support multiple services and applications. To provide network connectivity, AKS clusters can use *kubenet* (basic networking) or Azure CNI (*advanced networking*).
 
-With *kubenet*, only the nodes receive an IP address in the virtual network subnet. Pods can't communicate directly with each other or to other services in your network. Instead, User Defined Routing (UDR) and IP forwarding is used for connectivity between pods across nodes or to other services. You could also deploy pods behind a service that receives an assigned IP address and load balances traffic for the application. The following diagram shows how the AKS nodes receive an IP address in the virtual network subnet, but not the pods:
+With *kubenet*, only the nodes receive an IP address in the virtual network subnet. Pods can't communicate directly with each other. Instead, User Defined Routing (UDR) and IP forwarding is used for connectivity between pods across nodes. You could also deploy pods behind a service that receives an assigned IP address and load balances traffic for the application. The following diagram shows how the AKS nodes receive an IP address in the virtual network subnet, but not the pods:
 
 ![Kubenet network model with an AKS cluster](media/use-kubenet/kubenet-overview.png)
 
 Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS features such as [Virtual Nodes][virtual-nodes] or network policies aren't supported with *kubenet*.
 
-With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify, as UDR is not used for pod communication. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or network policies are supported with *Azure CNI*.
+With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or network policies are supported with *Azure CNI*.
 
 ### IP address availability and exhaustion
 
-With *Azure CNI*, a common issue is that an IP address range that is too small to run the current number of nodes and pods and then add additional nodes to scale or during rolling node upgrades. The network team may also not be able to issue a large enough IP address range to support your expected application demands.
+With *Azure CNI*, a common issue is the assigned IP address range is too small to then add additional nodes when you scale or upgrade a cluster. The network team may also not be able to issue a large enough IP address range to support your expected application demands.
 
 As a compromise, you can create an AKS cluster that uses *kubenet* and connect to an existing virtual network subnet. This approach lets the nodes receive defined IP addresses, without the need to reserve a large number of IP addresses up front for all of the potential pods that could run in the cluster.
 
@@ -77,7 +82,7 @@ To get started with using *kubenet* and your own virtual network subnet, first c
 az group create --name myResourceGroup --location eastus
 ```
 
-Next, create a virtual network using the [az network vnet create][az-network-vnet-create] command. In the following example, the virtual network is named *myVnet* with the address prefix of *10.0.0.0/8*. A subnet is created named *myAKSSubnet* with the address prefix *10.240.0.0/16*.
+If you don't have an existing virtual network and subnet to use, create these network resources using the [az network vnet create][az-network-vnet-create] command. In the following example, the virtual network is named *myVnet* with the address prefix of *10.0.0.0/8*. A subnet is created named *myAKSSubnet* with the address prefix *10.240.0.0/16*.
 
 ```azurecli-interactive
 az network vnet create \
@@ -127,14 +132,25 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 You've now created a virtual network and subnet, and created and assigned permissions for a service principal to use those network resources. Now create an AKS cluster in your virtual network and subnet using the [az aks create][az-aks-create] command. Define your own service principal */<appId/>* and */<password/>*, as shown in the output from the previous command to create the service principal.
 
+The following IP address ranges are also defined as part of the cluster create process:
+
+* The *--service-cidr* is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment. This includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connections.
+
+* The *--dns-service-ip* address should be the *.10* address of your service IP address range.
+
+* The *--pod-cidr* should be a large address space that isn't in use elsewhere in your network environment. This includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connections.
+    * The pod IP address range is used to assign a */24* address space to each node in the cluster. In the following example, the *--pod-cidr* of *192.168.0.0/16* assigns the first node *192.168.0.0/24*, the second node *192.168.1.0/24*, and the third node *192.168.2.0/24*.
+    * As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
+
 ```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 3 \
     --network-plugin kubenet \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
+    --pod-cidr 192.168.0.0/16 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal <appId> \
@@ -172,6 +188,7 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
+[install-azure-cli]: /cli/azure/install-azure-cli
 [aks-network-concepts]: concepts-network.md
 [az-group-create]: /cli/azure/group#az-group-create
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
