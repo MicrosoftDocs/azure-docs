@@ -1,19 +1,20 @@
 ---
-title: Managing custom domain names in your Azure Active Directory | Microsoft Docs
+title: Add and verify custom domain names - Azure Active Directory | Microsoft Docs
 description: Management concepts and how-tos for managing a domain name in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
+
+ms.custom: it-pro
 
 ---
 # Managing custom domain names in your Azure Active Directory
