@@ -152,14 +152,6 @@ In the first screen that loads, enter your service principal client ID, tenant I
   IsEnabled="{Binding IsValid}"
   ```
 
-Then, run the app again.
-
-> [!NOTE]
-> On some emulators, the **Login** button may not activate at this step. If this happens, stop the app, open the _VisualProvision/Pages/LoginPage.xaml_ file, find the `Button` element labelled LOGIN BUTTON, and remove the line:
-  ```xaml
-  IsEnabled="{Binding IsValid}"
-  ```
-
 > Then, run the app again.
 
 On the next screen, select your Azure subscription from the dropdown menu (this should contain all of the subscriptions to which your service principal has access). Click the **Continue** button.
