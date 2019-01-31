@@ -22,8 +22,6 @@ As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/
 
 To create a subscription, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscription.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Delegate access to an enrollment account using RBAC
 
 To give another user or service principal the ability to create subscriptions against a specific account, [give them an RBAC Owner role at the scope of the enrollment account](../active-directory/role-based-access-control-manage-access-rest.md). The following example gives a user in the tenant with `principalId` of `<userObjectId>` (for SignUpEngineering@contoso.com) an Owner role on the enrollment account. To find the enrollment account ID and principal ID, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscription.md).
@@ -40,6 +38,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
+
 When the Owner role is successfully assigned at the enrollment account scope, Azure responds with information of the role assignment:
 
 ```json
