@@ -87,6 +87,8 @@
       href: storage-files-deployment-guide.md
     - name: Deploy Azure File Sync
       href: storage-sync-files-deployment-guide.md
+    - name: Bulk migrate files to Azure with Data Box and Azure File Sync
+      href: storage-sync-offline-data-transfer.md
     - name: Configure File Sync proxy and firewall settings
       href: storage-sync-files-firewall-and-proxy.md
   - name: Mount

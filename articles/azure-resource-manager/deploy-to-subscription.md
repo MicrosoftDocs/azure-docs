@@ -20,6 +20,8 @@ Typically, you deploy Azure resources to a resource group in your Azure subscrip
 
 To create a resource group in an Azure Resource Manager template, define a [**Microsoft.Resources/resourceGroups**](/azure/templates/microsoft.resources/allversions.md) resource with a name and location for the resource group. You can create a resource group and deploy resources to that resource group in the same template. The resources that you can deploy at the  subscription level include: [Policies](../azure-policy/azure-policy-introduction.md), and [Role-based access control](../role-based-access-control/overview.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Deployment considerations
 
 Subscription level deployment is different from resource group deployment in the following aspects:

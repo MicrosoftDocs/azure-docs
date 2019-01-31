@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
-ms.component: files
+ms.subservice: files
 ---
 
 # Troubleshoot Azure File Sync
@@ -365,7 +365,7 @@ This error occurs when the Azure file share storage limit has been reached, whic
 
 5. Select **Files** to view the list of file shares.
 6. Click the three dots at the end of the row for the Azure file share referenced by the cloud endpoint.
-7. Verify that the **Usage** is below the **Quota**. Note unless an alternate quota has been specified, the quota will match the [maxium size of the Azure file share](storage-files-scale-targets.md).
+7. Verify that the **Usage** is below the **Quota**. Note unless an alternate quota has been specified, the quota will match the [maximum size of the Azure file share](storage-files-scale-targets.md).
 
     ![A screenshot of the Azure file share properties.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 

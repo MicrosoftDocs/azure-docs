@@ -2,12 +2,12 @@
 title: Troubleshoot backup errors with Azure virtual machines
 description: Troubleshoot backup and restore of Azure virtual machines
 services: backup
-author: trinadhk
-manager: shreeshd
+author: srinathv
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
-ms.author: trinadhk
+ms.author: srinathv
 ---
 # Troubleshoot Azure virtual machine backup
 You can troubleshoot errors encountered while using Azure Backup with the information listed in the following table:
