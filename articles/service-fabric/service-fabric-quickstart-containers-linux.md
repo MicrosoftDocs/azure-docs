@@ -55,7 +55,7 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 To deploy the application to Azure, you need a Service Fabric cluster to run the application. The following commands create a five-node cluster in Azure.  The commands also create a self-signed certificate, adds it to a key vault and downloads the certificate locally. The new certificate is used to secure the cluster when it deploys and is used to authenticate clients.
 
-```
+```azure-cli
 #!/bin/bash
 
 # Variables
@@ -83,7 +83,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location --
 ```
 
 > [!Note]
-> The web front end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. (If you are using a party cluster, this port is open.)
+> The web front end service is configured to listen on port 80 for incoming traffic. By default, port 80 is open on your cluster VMs and the Azure load balancer.
 >
 
 ## Configure your environment
@@ -94,11 +94,7 @@ Service Fabric provides several tools that you can use to manage a cluster and i
 - Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI. 
 - PowerShell commands.
 
-In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer. The following sections show you how to install the certificate needed to connect to your secure cluster with these tools.
-
-### Configure certificate for Service Fabric Explorer
-
-To use Service Fabric Explorer, you need to import the certificate PFX file into the browser. You need the PFX private key password.
+In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer (a web based tool). To use Service Fabric Explorer, you need to import the certificate PFX file into the browser. By default, the PFX file has no password.
 
 Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
 
@@ -109,10 +105,10 @@ Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificat
 1. Connect to the Service Fabric cluster in Azure using the CLI. The endpoint is the management endpoint for your cluster. You created the PEM file in the previous section. 
 
     ```bash
-    sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+    sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
     ```
 
-2. Use the install script to copy the Voting application definition to the cluster, register the application type, and create an instance of the application.
+2. Use the install script to copy the Voting application definition to the cluster, register the application type, and create an instance of the application.  The PEM certificate file should be located in the same directory as the *install.sh* file.
 
     ```bash
     ./install.sh
