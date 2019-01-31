@@ -11,11 +11,11 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/31/2019
+ms.date: 01/25/2019
 ---
 # Use PowerShell to create a single Azure SQL database and configure a SQL Database server firewall rule
 
-This PowerShell script example creates an Azure SQL database and configures a SQL Database server firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address.
+This PowerShell script example creates an Azure SQL database and configures a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
