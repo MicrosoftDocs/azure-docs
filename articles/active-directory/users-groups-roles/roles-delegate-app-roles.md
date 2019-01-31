@@ -29,8 +29,8 @@ The following roles grant permissions to manage application registrations, singl
 
 To grant the ability to manage application access in the Azure portal:
 
-1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
-2. Open the [Roles and administrators page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
+1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator or Privileged Role Administrator role in the tenant.
+2. When you have sufficient permissions, open the [Roles and administrators page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Open one of the following roles to see its member assignments:
   * **Application administrator**
   * **Cloud application administrator**
@@ -43,8 +43,8 @@ You can view the description for these roles in [Available roles](directory-assi
 
 By default, all users can create application registrations, but you can selectively grant permission to create application registrations or permission to consent to authorize an app.
 
-1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
-2. Set one or both of the following to No:
+1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Global Administrator or Privileged Role Administrator role in the tenant.
+2. When you have obtained sufficient permissions, set one or both of the following:
   * On the [User settings page for your tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings), set **Users can register applications** to No.
   * On the [user settings for enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/), set **Users can consent to applications accessing company data on their behalf** to No.
 3. Then assign users needing this permission to be members of the Application Developer role as needed.
@@ -77,15 +77,15 @@ The owner of an app registration can view and edit the app registration.
 
 ### To assign an owner to an application
 
-1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global Administrator for the tenant.
+1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Application administrator or Cloud application administrator for the tenant.
 2. On the [App registrations page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the tenant, select an app to open the **Overview** page for the app.
 3. Select **Owners** to see the list of the owners for the app.
 4. Select **Add** to select one or more owners to add to the app.
 
 ### To assign an owner to an application registration
 
-1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the Global administrator for the tenant.
-2. On the [Enterprise Applications page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the tenant, select an app registration to open it.
+1. Sign in to your [Azure AD tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Application administrator or Cloud application administrator role in the tenant.
+2. When you have sufficient permissions, on the [Enterprise Applications page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the tenant, select an app registration to open it.
 3. Select **Settings**.
 4. Select **Owners** on the **Settings** page to see the list of the owners for the app.
 5. Select **Add owner** to select one or more owners to add to the app.
