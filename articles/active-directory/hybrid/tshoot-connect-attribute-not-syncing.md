@@ -50,27 +50,27 @@ Before investigating attribute syncing issues, let’s understand the **Azure AD
 
 * Launch **Synchronization Service Manager** from the desktop applications, as shown below:
 
-  ![Launch Synchronization Service Manager](./tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/startmenu.png)
+  ![Launch Synchronization Service Manager](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/startmenu.png)
 
 * On the **Synchronization Service Manager**, select the **Metaverse Search**, select **Scope by Object Type**, select the object using an attribute, and click **Search** button.
 
-  ![Metaverse Search](./tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvsearch.png)
+  ![Metaverse Search](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvsearch.png)
 
 * Double click the object found in the **Metaverse** search to view all its attributes. You can click on the **Connectors** tab to look at corresponding object in all the **Connector Spaces**.
 
-  ![Metaverse Object Connectors](./tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvattributes.png)
+  ![Metaverse Object Connectors](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvattributes.png)
 
 * Double click on the **Active Directory Connector** to view the **Connector Space** attributes. Click on the **Preview** button, on the following dialog click on the **Generate Preview** button.
 
-  ![Connector Space Attributes](./tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
+  ![Connector Space Attributes](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
 
 * Now click on the **Import Attribute Flow**, this shows flow of attributes from **Active Directory Connector Space** to the **Metaverse**. **Sync Rule** column shows which **Synchronization Rule** contributed to that attribute. **Data Source** column shows you the attributes from the **Connector Space**. **Metaverse Attribute** column shows you the attributes in the **Metaverse**. You can look for the attribute not syncing here. If you don't find the attribute here, then this is not mapped and you have to create new custom **Synchronization Rule** to map the attribute.
 
-  ![Connector Space Attributes](./tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/cstomvattributeflow.png)
+  ![Connector Space Attributes](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/cstomvattributeflow.png)
 
 * Click on the **Export Attribute Flow** in the left pane to view the attribute flow from **Metaverse** back to **Active Directory Connector Space** using **Outbound Synchronization Rules**.
 
-  ![Connector Space Attributes](./tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
+  ![Connector Space Attributes](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
 * Similarly, you can view the **Azure Active Directory Connector Space** object and can generate the **Preview** to view attribute flow from **Metaverse** to the **Connector Space** and vice versa, this way you can investigate why an attribute is not syncing.
 

@@ -24,11 +24,11 @@ You can use the synchronization rule editor to edit or create a new synchronizat
 
 * Launch the synchronization editor from the application menu in desktop as shown below:
 
-    ![Synchronization Rule Editor Menu](./media/how-to-connect-create-custom-sync-rule/syncruleeditormenu.png)
+    ![Synchronization Rule Editor Menu](media/how-to-connect-create-custom-sync-rule/how-to-connect-create-custom-sync-rule/syncruleeditormenu.png)
 
 * In order to customize a default synchronization rule, clone the existing rule by clicking the “Edit” button on the Synchronization Rules Editor, which will create a copy of the standard default rule and disable it. Save the cloned rule with a precedence less than 100.  Precedence determines what rule wins(lower numeric value) a conflict resolution if there is an attribute flow conflict.
 
-    ![Synchronization Rule Editor](./media/how-to-connect-create-custom-sync-rule/clonerule.png)
+    ![Synchronization Rule Editor](media/how-to-connect-create-custom-sync-rule/how-to-connect-create-custom-sync-rule/clonerule.png)
 
 * When modifying a specific attribute, ideally you should only keep the modifying attribute in the cloned rule.  Then enable the default rule so that modified attribute comes from cloned rule and other attributes are picked from default standard rule. 
 
