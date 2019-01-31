@@ -5,7 +5,6 @@ author: craigktreasure
 manager: aliemami
 services: azure-spatial-anchors
 
-ms.assetid: 7bc4dab8-ca78-4423-b06b-3962a7b45eaa
 ms.author: crtreasu
 ms.date: 12/13/2018
 ms.topic: quickstart
@@ -74,3 +73,8 @@ Follow the instructions in the app to place and recall an anchor.
 In Visual Studio, stop the app by either selecting **Stop Debugging** or pressing **Shift + F5**.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+
+[!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
+
+> [!div class="nextstepaction"]
+> [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md)

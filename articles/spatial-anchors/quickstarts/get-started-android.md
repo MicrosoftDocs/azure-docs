@@ -5,7 +5,6 @@ author: craigktreasure
 manager: aliemami
 services: azure-spatial-anchors
 
-ms.assetid: 3be3aa43-7748-40e6-a20b-f6030147baaa
 ms.author: crtreasu
 ms.date: 12/13/2018
 ms.topic: quickstart
@@ -92,3 +91,8 @@ Stop the app by selecting **Stop** from the Android Studio toolbar.
 ![Android Studio Stop](./media/get-started-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+
+[!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
+
+> [!div class="nextstepaction"]
+> [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md)

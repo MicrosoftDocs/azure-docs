@@ -5,7 +5,6 @@ author: craigktreasure
 manager: aliemami
 services: azure-spatial-anchors
 
-ms.assetid: 52062008-5641-467d-ac79-4283a87842d1
 ms.author: crtreasu
 ms.date: 12/13/2018
 ms.topic: quickstart
@@ -66,3 +65,8 @@ Follow the instructions in the app to place and recall an anchor.
 In Xcode, stop the app by pressing **Stop**.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+
+[!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
+
+> [!div class="nextstepaction"]
+> [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md)

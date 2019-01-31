@@ -5,7 +5,6 @@ author: craigktreasure
 manager: aliemami
 services: azure-spatial-anchors
 
-ms.assetid: f6441643-18a0-4620-9a30-9970cf92ccfe
 ms.author: crtreasu
 ms.date: 12/13/2018
 ms.topic: quickstart
@@ -119,3 +118,8 @@ Select **Build and then run the current scheme**.
 In Xcode, stop the app by pressing **Stop**.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+
+[!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
+
+> [!div class="nextstepaction"]
+> [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md)
