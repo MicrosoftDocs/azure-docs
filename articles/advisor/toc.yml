@@ -1,5 +1,5 @@
 - name: Azure Advisor Documentation
-  href: index.md
+  href: index.yml
 - name: Overview 
   items:
   - name: What is Azure Advisor?
@@ -27,11 +27,11 @@
   - name: App Service
     href: https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
   - name: REST API
-    href: /rest/api/advisor
+    href: https://docs.microsoft.com/rest/api/advisor/
   - name: CLI
-    href: /cli/azure/advisor?view=azure-cli-latest
-  - name: PowerShell (TEMP MONTOR POINTER)
-    href: /powershell/module/azurerm.insights/?view=azurermps-6.13.0
+    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
+  - name: PowerShell
+    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
 - name: Resources
   items:
   - name: Azure Roadmap
