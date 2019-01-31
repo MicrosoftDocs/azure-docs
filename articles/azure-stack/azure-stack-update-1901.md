@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/01/2019
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -61,7 +61,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
 
 This update includes the following new features and improvements for Azure Stack:
 
-- Managed images on Azure Stack enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward.
+- Managed images on Azure Stack enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward. For more information, see [Azure Stack Managed Disks](user/azure-stack-managed-disk-considerations.md#managed-images).
 
 ## Fixed issues
 
