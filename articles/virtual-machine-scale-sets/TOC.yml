@@ -195,6 +195,8 @@
       href: virtual-machine-scale-sets-deploy-app.md
     - name: Extensions on scale sets
       items:
+        - name: Extension sequencing on scale sets
+          href: virtual-machine-scale-sets-extension-sequencing.md
         - name: Application Health extension
           href: virtual-machine-scale-sets-health-extension.md
     - name: Use data disks with scale sets

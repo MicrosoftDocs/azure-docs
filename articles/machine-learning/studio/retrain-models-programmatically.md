@@ -1,10 +1,10 @@
 ---
 title: Retrain Machine Learning Studio models programmatically
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Learn how to programmatically retrain a model using C# and the Machine Learning Batch Execution service.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding

@@ -3,7 +3,7 @@ title: "Team development with Azure Dev Spaces using Java and VS Code| Microsoft
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: "stepro"
 ms.author: "stephpr"
 ms.date: "08/01/2018"
