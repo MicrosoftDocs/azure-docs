@@ -74,6 +74,8 @@ To see information for a particular resource provider:
 
 ## Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To see all resource providers in Azure, and the registration status for your subscription, use:
 
 ```azurepowershell-interactive

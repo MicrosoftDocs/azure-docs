@@ -975,6 +975,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/mongodb-migrate.md",
+      "redirect_url": "/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/indexing-policies.md",
       "redirect_url": "/azure/cosmos-db/index-policy",
       "redirect_document_id": true
@@ -11670,6 +11675,11 @@
     {
       "source_path": "articles/machine-learning/machine-learning-faq.md",
       "redirect_url": "/azure/machine-learning/studio/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/whats-new.md",
+      "redirect_url": "https://azure.microsoft.com/updates/?product=machine-learning-studio",
       "redirect_document_id": false
     },
     {
@@ -24233,7 +24243,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+      "source_path": "azure/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
       "redirect_url": "/azure/security-center/security-center-faq",
       "redirect_document_id": false
     },
@@ -34906,6 +34916,11 @@
       "source_path": "articles/azure-stack/azure-stack-deploy-overview.md",
       "redirect_url": "/azure/azure-stack/asdk/asdk-download",
       "redirect_document_id": false
+    },
+    {
+      "source_path":  "articles/aks/autoscaler.md",
+      "redirect_url":  "/azure/aks/cluster-autoscaler",
+      "redirect_document_id":  "false"
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-keys.md",
