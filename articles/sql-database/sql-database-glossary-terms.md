@@ -24,7 +24,7 @@ ms.date: 01/31/2019
 |Deployment options / choices|Single database|[Single databases](sql-database-single-database.md)|
 ||Elastic pool||[Elastic pool](sql-database-elastic-pool.md)| 
 ||Managed instance|[Managed instance](sql-database-managed-instance.md)|
-|Server objects|SQL Database server or database server|[Database server](sql-database-servers)|
+|Server objects|SQL Database server or database server|[Database server](sql-database-servers.md)|
 ||SQL Database managed instance or managed instance|[Managed instance](sql-database-managed-instance.md)|
 Database objects|Azure SQL database|Any database in Azure SQL Database|
 ||Single database|A database created as a standalone database using the single database deployment option|
