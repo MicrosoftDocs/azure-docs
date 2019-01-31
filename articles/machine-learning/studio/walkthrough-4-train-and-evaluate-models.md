@@ -5,7 +5,7 @@ description: 'Step 4 of the Develop a predictive solution walkthrough: Train, sc
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: garyericson
 ms.author: garye
