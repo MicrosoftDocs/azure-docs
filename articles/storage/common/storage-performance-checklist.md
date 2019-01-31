@@ -93,7 +93,7 @@ If you're approaching the limit of storage accounts you can have in a particular
 
 * Using storage accounts as unmanaged disks and adding those disks to your virtual machines. In this scenario, we recommend using [managed disks](../../virtual-machines/windows/managed-disks-overview.md), as they handle storage disk scalability for you without you having to create and manage individual storage accounts.
 * Using one storage account on a per customer basis, for the purpose of data isolation. In this scenario, we recommend using storage containers for each customer rather than an entire storage account. Azure Storage now allows you to specify role-based access control on a per [container basis](storage-auth-aad-rbac.md).
-* Using multiple storage accounts to shard for greater scalability of ingress/egress/iops/capacity. In this scenario, if possible, we recommend you take advantage of the [increased limits](https://azure.microsoft.com/en-us/blog/announcing-larger-higher-scale-storage-accounts/) of standard storage accounts to reduce the number of storage accounts required for your workload.
+* Using multiple storage accounts to shard for greater scalability of ingress/egress/iops/capacity. In this scenario, if possible, we recommend you take advantage of the [increased limits](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) of standard storage accounts to reduce the number of storage accounts required for your workload.
 
 If your application is approaching the scalability targets for a single storage account, consider adopting one of the following approaches:  
 
