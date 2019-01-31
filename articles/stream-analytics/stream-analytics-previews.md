@@ -40,7 +40,7 @@ With .NET standard user-defined functions, you can run .NET Standard code as par
 
 ## Private previews
 
-The following features are in private preview. To access these previews, visit the Azure Stream Analytics private preview [sign up](https://aka.ms/ASApreview1) page.
+The following features are in private preview.
 
 ### Anomaly Detection
 
