@@ -47,14 +47,14 @@ As each node and pod receive its own IP address, plan out the address ranges for
 
 To calculate the IP address required, see [Configure Azure CNI networking in AKS][advanced-networking].
 
-### Kubenet networking with Kubenet
+### Kubenet networking
 
-Although kubenet networking doesn't require you to set up the virtual networks before the cluster is deployed, there are disadvantages:
+Although kubenet doesn't require you to set up the virtual networks before the cluster is deployed, there are disadvantages:
 
 * Nodes and pods are placed on different IP subnets. User Defined Routing (UDR) and IP forwarding is used to route traffic between pods and nodes. This additional routing may reduce network performance.
 * Connections to existing on-premises networks or peering to other Azure virtual networks can be complex.
 
-Kubenet networking is suitable for small development or test workloads, as you don't have to create the virtual network and subnets separately from the AKS cluster. Simple websites with low traffic, or to lift and shift workloads into containers, can also benefit from the simplicity of AKS clusters deployed with kubenet networking. For most production deployments, you should plan for and use Azure CNI networking, or at the least [configure your own IP address ranges and virtual networks using kubenet][aks-configure-kubenet-networking].
+Kubenet is suitable for small development or test workloads, as you don't have to create the virtual network and subnets separately from the AKS cluster. Simple websites with low traffic, or to lift and shift workloads into containers, can also benefit from the simplicity of AKS clusters deployed with kubenet networking. For most production deployments, you should plan for and use Azure CNI networking. You can also [configure your own IP address ranges and virtual networks using kubenet][aks-configure-kubenet-networking].
 
 ## Distribute ingress traffic
 
