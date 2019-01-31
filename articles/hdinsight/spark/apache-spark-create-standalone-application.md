@@ -53,7 +53,7 @@ Perform the following steps to install the Scala plugin:
 
 ## Use IntelliJ to create application
 
-1. Start IntelliJ IDEA, and select  create **Create New Project** to open the **New Project** window.
+1. Start IntelliJ IDEA, and select **Create New Project** to open the **New Project** window.
 
 2. Select **Azure Spark/HDInsight** from the left pane.
 
@@ -82,7 +82,7 @@ Perform the following steps to install the Scala plugin:
 
 ## Create a standalone Scala project
 
-1. Start IntelliJ IDEA, and select  create **Create New Project** to open the **New Project** window.
+1. Start IntelliJ IDEA, and select **Create New Project** to open the **New Project** window.
 
 2. Select **Maven** from the left pane.
 
@@ -147,9 +147,9 @@ Perform the following steps to install the Scala plugin:
             rdd1.saveAsTextFile("wasb:///HVACout")
           }
         }
-19. In the left pane, double-click **pom.xml**.
+19. In the left pane, double-click **pom.xml**.  
    
- 20. Within `<project>\<properties>` add the following segments:
+20. Within `<project>\<properties>` add the following segments:
       
           <scala.version>2.11.8</scala.version>
           <scala.compat.version>2.11.8</scala.compat.version>
@@ -163,7 +163,8 @@ Perform the following steps to install the Scala plugin:
              <version>2.3.0</version>
            </dependency>
       
-      Save changes to pom.xml.
+    Save changes to pom.xml.
+
 22. Create the .jar file. IntelliJ IDEA enables creation of JAR as an artifact of a project. Perform the following steps.
     
     1. From the **File** menu, select **Project Structure...**.
@@ -188,7 +189,7 @@ Perform the following steps to install the Scala plugin:
        
         Ensure sure the **Include in project build** checkbox is selected, which ensures that the jar is created every time the project is built or updated. Select **Apply** and then **OK**.
 
-    7. To create the jar, navigate to **Build** > **Build Artifacts** > **Build**. The project will compile in about thirty seconds.  The output jar is created under **\out\artifacts**.
+    7. To create the jar, navigate to **Build** > **Build Artifacts** > **Build**. The project will compile in about 30 seconds.  The output jar is created under **\out\artifacts**.
        
         ![Create JAR](./media/apache-spark-create-standalone-application/output.png)
 
@@ -196,6 +197,7 @@ Perform the following steps to install the Scala plugin:
 To run the application on the cluster, you can use the following approaches:
 
 * **Copy the application jar to the Azure storage blob** associated with the cluster. You can use [**AzCopy**](../../storage/common/storage-use-azcopy.md), a command-line utility, to do so. There are many other clients as well that you can use to upload data. You can find more about them at [Upload data for Apache Hadoop jobs in HDInsight](../hdinsight-upload-data.md).
+
 * **Use Apache Livy to submit an application job remotely** to the Spark cluster. Spark clusters on HDInsight includes Livy that exposes REST endpoints to remotely submit Spark jobs. For more information, see [Submit Apache Spark jobs remotely using Apache Livy with Spark clusters on HDInsight](apache-spark-livy-rest-interface.md).
 
 ## Next step
