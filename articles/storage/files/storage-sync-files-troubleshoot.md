@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
+ms.subservice: files
 ---
 
 # Troubleshoot Azure File Sync
