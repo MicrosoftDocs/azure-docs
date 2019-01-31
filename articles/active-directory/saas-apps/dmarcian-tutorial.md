@@ -107,7 +107,6 @@ To configure Azure AD single sign-on with dmarcian, perform the following steps:
 	| `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 	| `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
-
     b. In the **Reply URL** text box, type a URL using the following pattern:
     | |
 	|--|
