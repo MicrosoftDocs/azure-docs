@@ -23,7 +23,7 @@ ms.author: billmath
 
 Before investigating attribute syncing issues, let’s understand the **Azure AD Connect** syncing process:
 
-  ![Azure AD Connect Synchronization Process](./tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/syncingprocess.png)
+  ![Azure AD Connect Synchronization Process](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/syncingprocess.png)
 
 ### **Terminology**
 

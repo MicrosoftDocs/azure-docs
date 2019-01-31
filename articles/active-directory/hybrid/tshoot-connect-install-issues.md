@@ -27,11 +27,11 @@ However, if you don’t meet the express installation criteria and must do the c
 
 * Let all the options to be default on the following page, except for “Use an existing SQL Server”, if you want to use existing SQL Server. Here are [more details](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom) about how to use custom installation options. 
 
-    ![Use Existing SQL Server](./tshoot-connect-install-issues/tshoot-connect-install-issues/useexistingsqlserver.png)
+    ![Use Existing SQL Server](media/tshoot-connect-install-issues/tshoot-connect-install-issues/useexistingsqlserver.png)
 
 * On the following page, pick option “Create new AD account", to avoid any permission issues with existing account.
 
-    ![AD Forest Account](./tshoot-connect-install-issues/tshoot-connect-install-issues/createnewaccount.png)
+    ![AD Forest Account](media/tshoot-connect-install-issues/tshoot-connect-install-issues/createnewaccount.png)
 
 ### **Common Issues**
 
