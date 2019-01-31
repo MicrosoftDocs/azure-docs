@@ -350,9 +350,9 @@ Azure Premium Storage provisions specified number of IOPS and Throughput dependi
 
 ## Next steps
 
-Learn more about Azure Premium Storage:
+Learn more about the available disk types:
 
-* [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/virtual-machines/windows/premium-storage.md)  
+* [Select a disk type](../articles/virtual-machines/windows/premium-storage.md)  
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 
