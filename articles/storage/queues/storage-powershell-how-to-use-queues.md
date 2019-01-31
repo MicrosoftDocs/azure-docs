@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
-ms.component: queues
+ms.subservice: queues
 ---
 
 # Perform Azure Queue storage operations with Azure PowerShell
