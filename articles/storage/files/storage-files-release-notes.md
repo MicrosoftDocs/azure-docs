@@ -56,7 +56,7 @@ The following release notes are for version 5.0.2.0 of the Azure File Sync agent
      - To learn more, see [Monitor Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring).
 - Improved scalability and reliability
     - Maximum number of file system objects (directories and files) in a directory has increased to 1,000,000. Previous limit was 200,000.
-    - Sync will try to resume data transfer for large files when a transfer is interrupted
+    - Sync will try to resume data transfer for large files when a transfer is interrupted.
 
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) section in the planning guide. 
