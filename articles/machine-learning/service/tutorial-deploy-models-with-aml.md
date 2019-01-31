@@ -38,9 +38,7 @@ Container Instances is a great solution for testing and understanding the workfl
 ## Prerequisites
 Skip to [Set the development environment](#start) to read through the notebook steps.  
 
-To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).  
-
-After you complete the train tutorial, run the **tutorials/img-classification-part2-deploy.ipynb** notebook.
+To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).   Then run the  **tutorials/img-classification-part2-deploy.ipynb** notebook using the same notebook server.
 
 
 ## <a name="start"></a>Set up the environment
