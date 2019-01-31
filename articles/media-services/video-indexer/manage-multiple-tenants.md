@@ -49,12 +49,11 @@ When using this architecture, a Video Indexer account is created for each tenant
 
 * There is no ability to share custom models between tenants.
 
-    > [!TIP]
-    > Make sure there is no business requirement to share custom models.
+    Make sure there is no business requirement to share custom models.
 * Harder to manage due to multiple Video Indexer (and associated Media Services) accounts per tenant.
 
 > [!TIP]
-> Create an admin user for your system in [Video Indexer developer portal](https://api-portal.videoindexer.ai/) and use the Authorization API to provide your tenants the relevant [account access token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+> Create an admin user for your system in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/) and use the Authorization API to provide your tenants the relevant [account access token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
 
 ## Single Video Indexer account for all users
 
