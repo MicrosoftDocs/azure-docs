@@ -27,6 +27,8 @@ It's important to note that there are two different ways to export a template:
 
 This article shows both approaches.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Deploy a solution
 
 To illustrate both approaches for exporting a template, let's start by deploying a solution to your subscription. If you already have a resource group in your subscription that you want to export, you don't have to deploy this solution. However, the rest of this article refers to the template for this solution. The example script deploys a storage account.

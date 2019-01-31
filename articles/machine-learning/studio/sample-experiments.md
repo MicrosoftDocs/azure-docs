@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: conceptual
 
 author: ericlicoding
