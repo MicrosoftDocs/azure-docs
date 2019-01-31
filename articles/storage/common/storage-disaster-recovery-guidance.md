@@ -142,12 +142,14 @@ As a best practice, Microsoft recommends converting unmanaged disks to managed d
 
 Unmanaged disks are stored as page blobs in Azure Storage. When a VM is running in Azure, any unmanaged disks attached to the VM are leased. An account failover cannot proceed when there is a lease on a blob. To perform the failover, follow these steps:
 
-1. Before you begin, note the names of any unmanaged disks, their logican unit numbers (LUN), and the VM to which they are attached. Doing so will make it easier to reattach the disks after the failover. 
+1. Before you begin, note the names of any unmanaged disks, their logical unit numbers (LUN), and the VM to which they are attached. Doing so will make it easier to reattach the disks after the failover. 
 2. Shut down the VM.
-3. Delete the VM.
-5. Perform the account failover.
-6. Create a VM in the new primary region and reattach the disk.
-7. Start the new VM.
+3. Delete the VM, but retain the VHD files for the unmanaged disks. Note the time at which you deleted the VM.
+4. Wait until the **Last Sync Time** has updated, and is later than the time at which you deleted the VM. This step is important, because if the secondary endpoint has not been fully updated with the VHD files when the failover occurs, then the VM may not function properly in the new primary region.
+5. Initiate the account failover.
+6. Wait until the account failover is complete and the secondary region has become the new primary region.
+7. Create a VM in the new primary region and reattach the VHDs.
+8. Start the new VM.
 
 Keep in mind that any data stored in a temporary disk is lost when the VM is shut down.
 
