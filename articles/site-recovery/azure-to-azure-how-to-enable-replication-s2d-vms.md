@@ -20,10 +20,9 @@ This article describes how to enable disaster recovery of Azure VMs running stor
 >
 
 ##Introduction 
-[Storage spaces direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is a software-defined storage, which provides a way to create [guest clusters](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) on Azure.  A guest cluster in Microsoft Azure is a Failover Cluster comprised of IaaS VMs. It allows hosted VM workloads to fail over across the guest clusters achieving higher availability SLA for applications than a single Azure VM can provide. It is useful in scenarios where VM hosting a critical application like SQL or Scale out file server.
+[Storage spaces direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is a software-defined storage, which provides a way to create [guest clusters](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) on Azure.  A guest cluster in Microsoft Azure is a Failover Cluster comprised of IaaS VMs. It allows hosted VM workloads to fail over across the guest clusters achieving higher availability SLA for applications than a single Azure VM can provide. It is useful in scenarios where VM hosting a critical application like SQL or Scale out file server etc.
 
 ##Disaster Recovery of Azure Virtual Machines using Storage spaces direct
-
 In a typical scenario, you may have virtual machines guest cluster on Azure for higher resiliency of your application like Scale out file server. While this can provide your application higher availability, you would like to protect these applications using Site Recovery for any region level failure. Site Recovery replicates the data from one region to another Azure region and brings up the cluster in disaster recovery region in an event of failover.
 
 Below diagram shows the pictorial representation of two Azure VMs failover cluster using storage spaces direct.
@@ -74,7 +73,6 @@ Both the nodes of the virtual machines needs to be fail over using the [ASR Reco
 ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 
 ## Run a test failover
-
 1.	In the Azure portal, select your Recovery Services vault.
 2.	Select the recovery plan that you created.
 3.	Select **Test Failover**.
