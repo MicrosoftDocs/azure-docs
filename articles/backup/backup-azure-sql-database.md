@@ -718,7 +718,7 @@ When you stop protection for a SQL Server database, Azure Backup requests whethe
 
 If you choose Stop backup with retain data, recovery points will be cleaned up as per the backup policy. You will incur the SQL protected instance pricing charge, plus the storage consumed till all recovery points are cleaned. For more information about Azure Backup pricing for SQL, see the [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/).
 
-Whenever you Stop Backup with retain data, recovery points will expire as per the retention policy but Azure Backup will always keep one last recovery point till you explicitly delete backup data. Similarly if you delete a data source without doing Stop Backup, new backups will start failing and old recovery points will expire as per retention policy but one last recovery point will always be retained till you do Stop Backup with delete data.
+Whenever you Stop Backup with retain data, recovery points will expire as per the retention policy but Azure Backup will always keep one last recovery point till you explicitly delete backup data. Similarly if you delete a data source without performing Stop Backup, new backups will start failing and old recovery points will expire as per retention policy but one last recovery point will always be retained till you perform Stop Backup with delete data.
 
 To stop protection for a database:
 
