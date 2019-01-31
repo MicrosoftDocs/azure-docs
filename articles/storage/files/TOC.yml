@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create and use file shares - Windows
+  - name: Create / use file shares - Windows
     href: storage-files-quick-create-use-windows.md
   - name: Create file shares - Portal
     href: storage-how-to-use-files-portal.md
