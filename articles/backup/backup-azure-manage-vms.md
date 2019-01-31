@@ -2,12 +2,12 @@
 title: Manage Resource Manager-deployed virtual machine backups
 description: Learn how to manage and monitor Resource Manager-deployed virtual machine backups
 services: backup
-author: trinadhk
-manager: shreeshd
+author: sogup
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk
+ms.author: sogup
 ---
 # Manage Azure virtual machine backups
 
