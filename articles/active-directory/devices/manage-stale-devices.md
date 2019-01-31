@@ -1,6 +1,6 @@
 ---
-title: How to manage the lifecycle of devices in Azure AD | Microsoft Docs
-description: Learn how device management can help you to get control over the devices that are accessing resources in your environment.
+title: How to manage stale devices in Azure AD | Microsoft Docs
+description: Due to lost, stolen, broken devices, or OS reinstallations you typically have stale devices in your environment. Learn how to remove stale devices from your database of registered devices in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
 
@@ -23,7 +23,7 @@ ms.reviewer: spunukol
 
 ---
 
-# How To: Manage the stale devices in Azure AD
+# How To: Manage stale devices in Azure AD
 
 Ideally, to complete the lifecycle, registered devices should be unregistered when they are not needed anymore. However, due to, for example, lost, stolen, broken devices, or OS reinstallations you typically have stale devices in your environment. As an IT admin, you probably want a method to remove stale devices, so that you can focus your resources on managing devices that actually require management.
 
