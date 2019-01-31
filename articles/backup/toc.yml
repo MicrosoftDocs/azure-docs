@@ -245,6 +245,8 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
+  - name: Common Security Attributes
+    href: backup-security-attributes.md  
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
