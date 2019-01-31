@@ -49,6 +49,17 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 - The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
 
 > [!NOTE]
+> The Sync Database will hold information about all the Sync Groups, Sync Members, Sync Agents, logs, etc. in that region for the subscription. These objects will exist in the ‘dss’ schema.
+
+>Data Sync is a task-based system, different tasks like Provisioning, Sync, etc. will be triggered. The metadata for these tasks is stored in ‘TaskHosting’ schema.
+
+> You can only have one Sync Database per region and subscription.
+
+>Sync Database cannot be deleted or renamed while sync groups or sync agents exist. Please do not manually change or remove any of these objects. Manually removing them from the database will not guarantee you can delete or rename the database because links to the Azure backend will still remain.
+
+>You can re-use the same database as Hub or Member, but we recommend you to use a dedicated database as Sync Database.
+
+> [!NOTE]
 > If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Sync data between databases](media/sql-database-sync-data/sync-data-overview.png)
