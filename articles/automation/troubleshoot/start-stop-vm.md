@@ -10,7 +10,7 @@ ms.date: 01/30/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Troubleshoot Start / Stop VMs
+# Troubleshoot the Start/Stop VMs during off hours solution
 
 ### <a name="cant-deploy-solution"></a>Scenario: I can't deploy the Start/Stop VMs during off-hours solution
 
@@ -24,7 +24,7 @@ manager: carmonm
 
 #### Issue
 
-You've configured the Start/Stop VM solution but it doesn't start/stop all the VMs configured.
+You've configured the Start/Stop VM solution but it doesn't start or stop all the VMs configured.
 
 #### Cause
 
@@ -32,7 +32,7 @@ This error can be caused by one of the following reasons:
 
 1. A schedule isn't configured correctly
 2. The RunAs account may not be configured correctly
-3. The runbook may have run into errors
+3. A runbook may have run into errors
 
 #### Resolution
 
@@ -54,11 +54,11 @@ Review the following list for potential solutions to your problem or places to l
 
 * Verify your [RunAs Account](../manage-runas-account.md) has proper permissions to the VMs you're trying to start or stop. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
 
-### <a name="some-vms-fail-to-startstop"></a>Scenario: Some of my VMs fail to start/stop
+### <a name="some-vms-fail-to-startstop"></a>Scenario: Some of my VMs fail to start or stop
 
 #### Issue
 
-You've configured the Start/Stop VM solution but it doesn't start/stop some of the VMs configured.
+You've configured the Start/Stop VM solution but it doesn't start or stop some of the VMs configured.
 
 #### Cause
 
@@ -67,7 +67,7 @@ This error can be caused by one of the following reasons:
 1. If using the sequence scenario, a tag could be missing or incorrect
 2. The VM may be excluded
 3. The RunAs account may not have enough permissions on the VM
-4. The VM could have something stopped it from starting or stopping
+4. The VM could have something that stopped it from starting or stopping
 
 #### Resolution
 
@@ -93,7 +93,7 @@ Review the following list for potential solutions to your problem or places to l
 
 #### Issue
 
-You've authored a custom runbook or downloaded one from the gallery and it isn't properly working.
+You've authored a custom runbook or downloaded one from the PowerShell Gallery and it isn't working properly.
 
 #### Cause
 
@@ -103,7 +103,7 @@ The cause for the failure could be one of many things. Go to your Automation Acc
 
 It's recommended to use the [Start/Stop VMs during off hours solution](../automation-solution-vm-management.md) to start and stop VMs in Azure Automation. This solution is authored by Microsoft. Custom runbooks are not supported by Microsoft. You might find a solution for your custom runbook by visiting the [runbook troubleshooting](runbooks.md) article. This article provides general guidance and troubleshooting for runbooks of all types.
 
-### <a name="dont-start-stop-in-sequence"></a>Scenario: VMs don't start/stop on correct sequence
+### <a name="dont-start-stop-in-sequence"></a>Scenario: VMs don't start or stop in the correct sequence
 
 #### Issue
 
@@ -117,7 +117,7 @@ This is caused by incorrect tagging on the VMs.
 
 Take the following steps to ensure that the solution is configured correctly.
 
-1. Ensure all VMs to be started or stopped have a `sequencestart` or `sequencestop` tag, depending on your situation with a positive integer value. VMs are processed in ascending order.
+1. Ensure all VMs to be started or stopped have a `sequencestart` or `sequencestop` tag, depending on your situation. These tags need a positive integer as the value. VMs are processed in ascending order based on this value.
 2. Make sure the resource groups for the VMs to be started or stopped are in the `External_Start_ResourceGroupNames` or `External_Stop_ResourceGroupNames` variables, depending on your situation.
 3. Test your changes by executing the `SequencedStartStop_Parent` runbook with the WHATIF parameter set to True to preview your changes.
 
@@ -127,7 +127,7 @@ For more detailed and additional instructions on how to use the solution to star
 
 #### Issue
 
-The Start/Stop VMs during off hours solution jobs fail with a 403 forbidden error.
+You find jobs that failed with a `403 forbidden` error for the Start/Stop VMs during off hours solution runbooks.
 
 #### Cause
 
@@ -135,11 +135,11 @@ This issue can be caused by an improperly configured or expired Run As Account. 
 
 #### Resolution
 
-To check your Run As account is properly configured, go to your Automation Account in the Azure portal and select **Run as accounts** under **Account Settings**. Here you will see the status of your run as accounts, if a Run As Account is improperly configured or expired the status will show this. 
+To check your Run As account is properly configured, go to your Automation Account in the Azure portal and select **Run as accounts** under **Account Settings**. Here you will see the status of your run as accounts, if a Run As Account is improperly configured or expired the status will show this.
 
 If your Run As account is [misconfigured](../manage-runas-account.md#misconfiguration), you should delete and recreate your Run As Account.
 
-If the certificate is expired for your Run As Account, follow the steps listed at [Self-signed certificate renewal](../manage-runas-account#cert-renewal) to renew the certificate.
+If the certificate is expired for your Run As Account, follow the steps listed at [Self-signed certificate renewal](../manage-runas-account.md#cert-renewal) to renew the certificate.
 
 The issue may be caused by missing permissions. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
 
