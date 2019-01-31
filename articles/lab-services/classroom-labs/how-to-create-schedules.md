@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 # Create and manage schedules for classroom labs in Azure Lab Services 
-Schedules allow you to configure a classroom lab such that VMs in the lab automatically start up and shutdown at a specified time. You can define a one-time schedule or a recurring schedule. The following procedures give you steps to create and manage schedules for a classroom lab: 
+Schedules allow you to configure a classroom lab such that VMs in the lab automatically start and shut down at a specified time. You can define a one-time schedule or a recurring schedule. The following procedures give you steps to create and manage schedules for a classroom lab: 
 
 > [!IMPORTANT]
 > The scheduled running time of VMs does not count against the [quota allotted to a user](how-to-configure-student-usage.md#set-quotas-per-user). The quota is for the time outside of schedule hours that a student spends on VMs. 
@@ -43,7 +43,7 @@ Schedules allow you to configure a classroom lab such that VMs in the lab automa
 
     ![Add schedule button on the Schedules page](../media/how-to-create-schedules/add-schedule-button.png)
 2. On the **Add schedule** page, switch to **Weekly** at the top. 
-3. For **Schedule days (required)**, select the days on which you want the schedule to take effect. In the following example, Monday-Friday are selected. 
+3. For **Schedule days (required)**, select the days on which you want the schedule to take effect. In the following example, Monday-Friday is selected. 
 4. For the **From** field, enter the **schedule start date**, which is required. Alternatively, you can pick a date by selecting the **calendar** button. 
 5. For **Schedule end date**, enter or select an end date on which the VMs are to be shut down. 
 6. For **Start time**, select the time when you want the VMs to be started. The start time is required if the stop time is not set. Select **Remove start event** if you want to specify only the stop time. if the **Start time** is disabled, select **Add start event** next to the drop-down list to enable it. 
@@ -62,7 +62,7 @@ You can see the scheduled dates and times highlighted in the calendar view as sh
 Select the **Today** button in the top-right corner to switch to current date in the calendar. Select **left arrow** to switch to the previous week and **right arrow** to switch to the next week in the calendar. 
 
 ## Edit a schedule
-When you double-click on a highlighed schedule in the calendar or select the **pencil** button on the toolbar, you see the **Edit schedule** page. Updating settings on this page is same as updating settings in the **Add schedule** page as shown in the previous sections. 
+When you double-click on a highlighted schedule in the calendar or select the **pencil** button on the toolbar, you see the **Edit schedule** page. Updating settings on this page is same as updating settings in the **Add schedule** page as shown in the previous sections. 
 
 ![Edit schedule page](../media/how-to-create-schedules/edit-schedule-page.png)
 
