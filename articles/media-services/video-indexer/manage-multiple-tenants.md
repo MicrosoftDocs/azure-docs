@@ -17,36 +17,21 @@ ms.author: juliako
 
 # Manage multiple tenants
 
-Some customers use Video Indexer on behalf of their tenants. This article suggests different integration options for managing multiple tenants with Video Indexer:
+This article discusses different options for managing multiple tenants with Video Indexer. Choose a method that is most suitable for your scenario:
 
-* Azure subscription per tenant
 * Video Indexer account per tenant
 * Single Video Indexer account for all tenants
-
-## Azure subscription per tenant 
-
-When using this architecture, each tenant will have his own Azure subscription. For each user, you will create a new Video Indexer account in the tenant subscription.
-
-### Pros
-
-* This is the only option that enables billing separation.
-
-### Cons
-
-* This integration has more management overhead than Video Indexer account per tenant. If billing is not a requirement, it is recommended to use one of the other options described in this article.
+* Azure subscription per tenant
 
 ## Video Indexer account per tenant
 
 When using this architecture, a Video Indexer account is created for each tenant. The tenants have full isolation in the persistent and compute layer.  
 
-### Pros
+### Considerations
 
 * Customers do not share storage accounts (unless manually configured by the customer).
 * Customers do not share compute (reserved units) and don't impact processing jobs times of one another.
 * You can easily remove a tenant from the system by deleting the Video Indexer account.
-
-### Cons
-
 * There is no ability to share custom models between tenants.
 
     Make sure there is no business requirement to share custom models.
@@ -61,17 +46,23 @@ When using this architecture, the customer is responsible for tenants isolation.
 
 With this option, customization models (Person, Language, and Brands) can be shared or isolated between  tenants by filtering the models by tenant.
 
-### Pros 
+ ### Considerations
 
 * Ability to share content and customization models between tenants.
-
-### Cons
-
 * One tenant impacts the performance of other tenants.
 * Customer needs to build a complex management layer on top of Video Indexer.
 
 > [!TIP]
 > You can use the [priority](upload-index-videos.md) attribute to prioritize tenants jobs.
+
+## Azure subscription per tenant 
+
+When using this architecture, each tenant will have his own Azure subscription. For each user, you will create a new Video Indexer account in the tenant subscription.
+
+### Considerations
+
+* This is the only option that enables billing separation.
+* This integration has more management overhead than Video Indexer account per tenant. If billing is not a requirement, it is recommended to use one of the other options described in this article.
 
 ## Next steps
 
