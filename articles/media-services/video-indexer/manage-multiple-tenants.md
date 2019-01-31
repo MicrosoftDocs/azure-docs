@@ -41,7 +41,7 @@ When using this architecture, a Video Indexer account is created for each tenant
 
 ### Pros
 
-* Customers do not share storage accounts. (Unless manually configured by the customer).
+* Customers do not share storage accounts (unless manually configured by the customer).
 * Customers do not share compute (reserved units) and don't impact processing jobs times of one another.
 * You can easily remove a tenant from the system by deleting the Video Indexer account.
 
