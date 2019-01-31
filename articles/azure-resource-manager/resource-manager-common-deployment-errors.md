@@ -22,6 +22,8 @@ ms.author: tomfitz
 
 This article describes some common Azure deployment errors, and provides information to resolve the errors. If you can't find the error code for your deployment error, see [Find error code](#find-error-code).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Error codes
 
 | Error code | Mitigation | More information |
@@ -67,7 +69,7 @@ This article describes some common Azure deployment errors, and provides informa
 | RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you are trying to perform during deployment. Find the policy that blocks the action. If possible, modify your deployment to meet the limitations from the policy. | [Resolve policies](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Provide a resource name that doesn't include a reserved name. | [Reserved resource names](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wait for deletion to complete. | |
-| ResourceGroupNotFound | Check the name of the target resource group for the deployment. It must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/az.profile/set-azcontext) |
+| ResourceGroupNotFound | Check the name of the target resource group for the deployment. It must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | Your deployment references a resource that can't be resolved. Verify that your use of the **reference** function includes the parameters required for your scenario. | [Resolve references](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | The deployment is trying to create resources that exceed the quota for the subscription, resource group, or region. If possible, revise your infrastructure to stay within the quotas. Otherwise, consider requesting a change to your quotas. | [Resolve quotas](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Select SKU (such as VM size) that is available for the location you've selected. | [Resolve SKU](resource-manager-sku-not-available-errors.md) |

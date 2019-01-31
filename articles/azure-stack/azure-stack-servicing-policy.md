@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: sethm
 ms.reviewer: harik
+ms.lastreviewed: 01/11/2019
 
 ---
 # Azure Stack servicing policy

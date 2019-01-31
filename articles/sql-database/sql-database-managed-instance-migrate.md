@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 01/25/2019
 ---
 # SQL Server instance migration to Azure SQL Database Managed Instance
 
@@ -28,7 +28,7 @@ At a high level, the database migration process looks like:
 - [Monitor applications](#monitor-applications)
 
 > [!NOTE]
-> To migrate a single database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
+> To migrate an individual database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
 
 ## Assess Managed Instance compatibility
 
