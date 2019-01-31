@@ -4,15 +4,11 @@ description: Use Azure Advisor to optimize your Azure deployments.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: 
-
-
-ms.assetid: 
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 02/01/2019
 ms.author: kasparks
 ---
 
