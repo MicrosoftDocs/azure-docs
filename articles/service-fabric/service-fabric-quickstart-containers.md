@@ -63,7 +63,7 @@ Containers built with a specific version of Windows Server may not run on a host
 
 With version 6.1 of the Service Fabric runtime and newer, you can specify multiple OS images per container and tag each with the build version of the OS that it should be deployed to. This helps to make sure that your application will run across hosts running different versions of Windows OS. To learn more, see [Specify OS build specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
-Microsoft publishes different images for versions of IIS built on different versions of Windows Server. To make sure that Service Fabric deploys a container compatible with the version of Windows Server running on the cluster nodes where it deploys your application, add the following lines to the *ApplicationManifest.xml* file. The build version for Windows Server 2016 is 14393 and the build version for Windows Server version 1709 is 16299. 
+Microsoft publishes different images for versions of IIS built on different versions of Windows Server. To make sure that Service Fabric deploys a container compatible with the version of Windows Server running on the cluster nodes where it deploys your application, add the following lines to the *ApplicationManifest.xml* file. The build version for Windows Server 2016 is 14393 and the build version for Windows Server version 1709 is 16299.
 
 ```xml
     <ContainerHostPolicies CodePackageRef="Code"> 
@@ -77,6 +77,12 @@ Microsoft publishes different images for versions of IIS built on different vers
 ```
 
 The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`.
+
+Change **PasswordEncrypted** to **false**. The account and password are blank for the public container image that is on Docker Hub, so we turn off encryption because encrypting a blank password will generate a build error.
+
+```xml
+<RepositoryCredentials AccountName="" Password="" PasswordEncrypted="false" />
+```
 
 ## Create a cluster
 

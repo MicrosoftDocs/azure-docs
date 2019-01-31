@@ -4,7 +4,7 @@ description: In this quickstart, you will build a Docker image with your applica
 services: service-fabric
 documentationcenter: linux
 author: TylerMSFT
-manager: jeanpaul.connock
+manager: timlt
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/25/2019
+ms.date: 04/11/2018
 ms.author: twhitney,suhuruli
 ms.custom: mvc
 
@@ -46,7 +46,15 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 
 ## Create a Service Fabric cluster
 
-To deploy the application to Azure, you need a Service Fabric cluster to run the application. Follow these steps in [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) to create a cluster in your subscription. The web front end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster.
+To deploy the application to Azure, you need a Service Fabric cluster to run the application. Party clusters offer an easy way to quickly create a Service Fabric cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team. You can use party clusters to deploy applications and learn about the platform. The cluster uses a single, self-signed certificate for node-to-node and client-to-node security.
+
+Sign in and join a [Linux cluster](https://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **ReadMe** link to find the certificate password and instructions about how to configure various environments to use the certificate. Keep both the **Welcome** page and the **ReadMe** page open, you will use some of the instructions in the following steps.
+
+> [!Note]
+> There are a limited number of party clusters available per hour. If you get an error when you try to sign up for a party cluster, you can wait for a period and try again, or you can follow these steps in [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) to create a cluster in your subscription.
+>
+>If you do create your own cluster, note that the web front end service is configured to listen on port 80 for incoming traffic. Make sure that port is open in your cluster. (If you are using a party cluster, this port is open.)
+>
 
 ## Configure your environment
 
@@ -64,19 +72,19 @@ To use the CLI in Cloud Shell, you need to upload the certificate PFX file to Cl
 
 1. To upload the certificate to your current working directory in Cloud Shell, drag the certificate PFX file from the folder where it downloaded on your computer and drop into your Cloud Shell window.
 
-2. To convert the PFX file to a PEM file, use the following command.
+2. To convert the PFX file to a PEM file, use the following command. (For party clusters, you can copy a command specific to your PFX file and password from the instructions on the **ReadMe** page.)
 
     ```bash
-    openssl pkcs12 -in cluster-1486790479-client-cert.pfx -out 1486790479-client-cert.pem -nodes -passin pass:1486790479
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
     ```
 
 ### Configure certificate for Service Fabric Explorer
 
-To use Service Fabric Explorer, you need to import the certificate PFX file you downloaded from the cluster website into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). You will also need the PFX private key password.
+To use Service Fabric Explorer, you need to import the certificate PFX file you downloaded from the Party Cluster website into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). You need the PFX private key password, which you can get from the **ReadMe** page.
 
 Use whatever method you are most comfortable with to import the certificate on your system. For example:
 
-- On Windows: Double-click the PFX file and follow the prompts to install the certificate in your personal store, `Certificates - Current User\Personal\Certificates`.
+- On Windows: Double-click the PFX file and follow the prompts to install the certificate in your personal store, `Certificates - Current User\Personal\Certificates`. Alternatively, you can use the PowerShell command in the **ReadMe** instructions.
 - On Mac: Double-click the PFX file and follow the prompts to install the certificate in your Keychain.
 - On Ubuntu: Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
 
@@ -84,10 +92,10 @@ Use whatever method you are most comfortable with to import the certificate on y
 
 ## Deploy the Service Fabric application
 
-1. In Cloud Shell, connect to the Service Fabric cluster in Azure using the CLI. The endpoint is the management endpoint for your cluster. You created the PEM file in the previous section.
+1. In Cloud Shell, connect to the Service Fabric cluster in Azure using the CLI. The endpoint is the management endpoint for your cluster. You created the PEM file in the previous section. (For party clusters, you can copy a command specific to your PEM file and management endpoint from the instructions on the **ReadMe** page.)
 
     ```bash
-    sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem 1277863181-client-cert.pem --no-verify
+    sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
     ```
 
 2. Use the install script to copy the Voting application definition to the cluster, register the application type, and create an instance of the application.
@@ -96,7 +104,7 @@ Use whatever method you are most comfortable with to import the certificate on y
     ./install.sh
     ```
 
-3. Open a web browser and navigate to the Service Fabric Explorer endpoint for your cluster. The endpoint has the following format:  **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**; for example, `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
+3. Open a web browser and navigate to the Service Fabric Explorer endpoint for your cluster. The endpoint has the following format:  **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**; for example, `https://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. </br>(For party clusters, you can find the Service Fabric Explorer endpoint for your cluster on the **Welcome** page.)
 
 4. Expand the **Applications** node to see that there is now an entry for the Voting application type and the instance you created.
 
