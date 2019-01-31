@@ -30,7 +30,7 @@ We have provided these guidelines specifically for Premium Storage because workl
 > Sometimes, what appears to be a disk performance issue is actually a network bottleneck. In these situations, you should optimize your [network performance](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > If your VM supports accelerated networking, you should make sure it is enabled. If it is not enabled, you can enable it on already deployed VMs on both [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) and [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Before you begin, if you are new to Premium Storage, first read the [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/virtual-machines/windows/premium-storage.md) and [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) articles.
+Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](../articles/virtual-machines/windows/disks-types.md) and [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) articles.
 
 ## Application performance indicators
 
@@ -352,7 +352,7 @@ Azure Premium Storage provisions specified number of IOPS and Throughput dependi
 
 Learn more about the available disk types:
 
-* [Select a disk type](../articles/virtual-machines/windows/premium-storage.md)  
+* [Select a disk type](../articles/virtual-machines/windows/disks-types.md)  
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 
