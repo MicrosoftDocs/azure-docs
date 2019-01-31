@@ -1,6 +1,6 @@
 ---
 title: Query on Azure IoT Hub message routing | Microsoft Docs
-description: Developer guide - Query synxtax for message routing on Azure IoT Hub.
+description: Developer guide - Query syntax for message routing on Azure IoT Hub.
 author: ash2017
 manager: briz
 ms.service: iot-hub
