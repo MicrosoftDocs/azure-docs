@@ -17,7 +17,7 @@ ms.date: 01/30/2019
 ms.author: tomfitz
 ---
 
-# Resource providers and types
+# Azure resource providers and types
 
 When deploying resources, you frequently need to retrieve information about the resource providers and types. In this article, you learn how to:
 
@@ -32,54 +32,52 @@ You can perform these steps through the portal, PowerShell, or Azure CLI.
 
 ## Azure Portal
 
-To see all resource providers in Azure, and the registration status for your subscription, select **Subscriptions**.
+To see all resource providers, and the registration status for your subscription:
 
-![select subscriptions](./media/resource-manager-supported-services/select-subscriptions.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All services**.
 
-Choose the subscription to view.
+    ![select subscriptions](./media/resource-manager-supported-services/select-subscriptions.png)
+3. In the **All services** box, enter **subscription**, and then select **Subscriptions**.
+4. Select the subscription from the subscription list to view.
+5. Select **Resource providers** and view the list of available resource providers.
 
-![specify subscription](./media/resource-manager-supported-services/subscription.png)
+    ![show resource providers](./media/resource-manager-supported-services/show-resource-providers.png)
 
-Select **Resource providers** and view the list of available resource providers.
+6. Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**.
 
-![show resource providers](./media/resource-manager-supported-services/show-resource-providers.png)
+    You cannot unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
-Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles. To register a resource provider, select **Register**.
+To see information for a particular resource provider:
 
-![register resource provider](./media/resource-manager-supported-services/register-provider.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All services**..
 
-You cannot unregister a resource provider when you still have resource types from that resource provider in your subscription.
+    ![select All services](./media/resource-manager-supported-services/more-services.png)
 
-To see information for a particular resource provider, select **All services**.
+3. In the **All services** box, enter **resource explorer**, and then select **Resource Explorer**.
+4. Expand **Providers** by selecting the right arrow.
 
-![select All services](./media/resource-manager-supported-services/more-services.png)
+    ![Select providers](./media/resource-manager-supported-services/select-providers.png)
 
-Search for **Resource Explorer** and select it from the available options.
+5. Expand a resource provider and resource type that you want to view.
 
-![select resource explorer](./media/resource-manager-supported-services/select-resource-explorer.png)
+    ![Select resource type](./media/resource-manager-supported-services/select-resource-type.png)
 
-Select **Providers**.
+6. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource. The resource explorer displays valid locations for the resource type.
 
-![Select providers](./media/resource-manager-supported-services/select-providers.png)
+    ![Show locations](./media/resource-manager-supported-services/show-locations.png)
 
-Select the resource provider and resource type that you want to view.
+7. The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API. The resource explorer displays valid API versions for the resource type.
 
-![Select resource type](./media/resource-manager-supported-services/select-resource-type.png)
-
-Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource. The resource explorer displays valid locations for the resource type.
-
-![Show locations](./media/resource-manager-supported-services/show-locations.png)
-
-The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API. The resource explorer displays valid API versions for the resource type.
-
-![Show API versions](./media/resource-manager-supported-services/show-api-versions.png)
+    ![Show API versions](./media/resource-manager-supported-services/show-api-versions.png)
 
 ## Azure PowerShell
 
 To see all resource providers in Azure, and the registration status for your subscription, use:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 Which returns results similar to:
@@ -97,7 +95,7 @@ Microsoft.CognitiveServices      Registered
 Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Which returns results similar to:
@@ -114,7 +112,7 @@ You cannot unregister a resource provider when you still have resource types fro
 To see information for a particular resource provider, use:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Which returns results similar to:
@@ -131,7 +129,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 To see the resource types for a resource provider, use:
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
+(Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
 Which returns:
@@ -148,7 +146,7 @@ The API version corresponds to a version of REST API operations that are release
 To get the available API versions for a resource type, use:
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
 Which returns:
@@ -166,7 +164,7 @@ Resource Manager is supported in all regions, but the resources you deploy might
 To get the supported locations for a resource type, use.
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
 Which returns:
