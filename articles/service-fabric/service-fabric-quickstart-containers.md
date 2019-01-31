@@ -83,7 +83,6 @@ Change **PasswordEncrypted** to **false**. The account and password are blank fo
 ```xml
 <RepositoryCredentials AccountName="" Password="" PasswordEncrypted="false" />
 ```
-
 ## Create a cluster
 
 This sample script creates a five-node Service Fabric cluster secured with an X.509 certificate.  The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory.  Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes.  Customize the parameters as needed.
@@ -105,7 +104,7 @@ After the script runs and the cluster is created, find the `ClusterEndpoint` in 
 ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
 ```
 
-Learn more about creating a cluster using this script in [Create a Service Fabric cluster](../scripts/service-fabric-powershell-create-secure-cluster-cert).
+Learn more about creating a cluster using this script in [Create a Service Fabric cluster](/scripts/service-fabric-powershell-create-secure-cluster-cert).
 
 ### Install the certificate for the cluster
 
