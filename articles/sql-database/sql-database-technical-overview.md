@@ -4,7 +4,7 @@ description: 'Get an introduction to SQL Database: technical details and capabil
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
