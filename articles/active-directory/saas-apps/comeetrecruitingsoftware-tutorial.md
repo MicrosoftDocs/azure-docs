@@ -124,7 +124,7 @@ To configure Azure AD single sign-on with Comeet Recruiting Software, perform th
 
 	| Name |  Source Attribute|
 	| ---------------| --------------- |
-	| Name identifier value | user.mail |
+	| nameidentifier | user.mail |
 	| comeet_id | user.userprincipalname |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
