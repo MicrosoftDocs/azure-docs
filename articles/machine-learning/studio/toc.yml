@@ -15,8 +15,6 @@
   - name: Frequently asked questions
     displayName: FAQ
     href: faq.md
-  - name: What's new?
-    href: whats-new.md
 - name: Tutorials
   items:
   - name: Create your first experiment
@@ -207,15 +205,17 @@
     href: /rest/api/machinelearning
 - name: Resources
   items:
-  - name: Azure Roadmap
+  - name: Release notes
+    href: whats-new.md
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: R developer's guide 
-    href: ../r-developers-guide.md
-  - name: Custom Neural Networks with Net#
-    href: azure-ml-netsharp-reference-guide.md
   - name: Get support
     href: support-aml-studio.md
   - name: Compare our ML products
     href: ../service/overview-more-machine-learning.md       
+  - name: R developer's guide 
+    href: ../r-developers-guide.md
+  - name: Custom Neural Networks with Net#
+    href: azure-ml-netsharp-reference-guide.md
