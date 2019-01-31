@@ -1,5 +1,5 @@
 ---
-title: Create a synthetic partition key in Azure Cosmos DB to to distribute your data and workload evenly.
+title: Create a synthetic partition key in Azure Cosmos DB to distribute your data and workload evenly.
 description: Learn how to use synthetic partition keys in your Azure Cosmos DB containers
 author: markjbrown
 ms.service: cosmos-db
