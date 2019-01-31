@@ -263,11 +263,12 @@ In the previous section, you created an IoT Edge solution and added code to the 
  
     When you tell Visual Studio Code to build your solution, it runs two commands in the integrated terminal: docker build and docker push. These two commands build your code, containerize the CSharpModule.dll, and then push the code to the container registry that you specified when you initialized the solution.
 
-    You will be prompted to choose the module platform. Select *amd64*.
+    You will be prompted to choose the module platform. Select *amd64* corresponding to Linux.
 
     ![Select platform](./media/data-box-edge-create-iot-edge-module/select-platform.png)
 
-    > [!IMPORTANT] Only the Linux modules are supported.
+    > [!IMPORTANT] 
+    > Only the Linux modules are supported.
 
     You may see the following warning that you can ignore:
 
