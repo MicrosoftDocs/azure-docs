@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 
 # Using Azure PowerShell with Azure Storage

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: Share and discover analytics resources and more in the Azure AI Gallery. Learn from others and make your own contributions to the community.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding
