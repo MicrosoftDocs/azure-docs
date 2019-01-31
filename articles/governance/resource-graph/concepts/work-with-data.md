@@ -95,7 +95,3 @@ in the REST API docs.
 - See the language in use in [Starter queries](../samples/starter.md)
 - See advanced uses in [Advanced queries](../samples/advanced.md)
 - Learn to [explore resources](explore-resources.md)
-0
-Looking
-
-
