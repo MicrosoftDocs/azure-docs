@@ -264,7 +264,7 @@ You can deploy the application the Azure cluster using the Service Fabric CLI. I
 Connect to the Service Fabric cluster in Azure. Replace the sample endpoint with your own. The endpoint must be a full URL similar to the one below.
 
 ```bash
-sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
+sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
 ```
 
 Use the install script provided in the **TestContainer** directory to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
