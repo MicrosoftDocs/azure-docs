@@ -25,7 +25,7 @@
   - name: SQL DB Advisor
     href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
   - name: App Service
-    href: https://docs.microsoft.com/en-us/azure/app-service/app-service-best-practices
+    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
   - name: REST API
     href: https://docs.microsoft.com/rest/api/advisor/
   - name: CLI
