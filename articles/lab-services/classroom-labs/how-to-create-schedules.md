@@ -44,10 +44,10 @@ Schedules allow you to configure a classroom lab such that VMs in the lab automa
     ![Add schedule button on the Schedules page](../media/how-to-create-schedules/add-schedule-button.png)
 2. On the **Add schedule** page, switch to **Weekly** at the top. 
 3. For **Schedule days (required)**, select the days on which you want the schedule to take effect. In the following example, Monday-Friday is selected. 
-4. For the **From** field, enter the **schedule start date**, which is required. Alternatively, you can pick a date by selecting the **calendar** button. 
+4. For the **From** field, enter the **schedule start date** or pick a date by selecting the **calendar** button. This field is required. 
 5. For **Schedule end date**, enter or select an end date on which the VMs are to be shut down. 
-6. For **Start time**, select the time when you want the VMs to be started. The start time is required if the stop time is not set. Select **Remove start event** if you want to specify only the stop time. if the **Start time** is disabled, select **Add start event** next to the drop-down list to enable it. 
-7. For **Stop time**, select the time when you want the VMs to be shut down. The stop time is required if the start time is not set. Select **Remove stop event** if you want to specify only the start time. if the **Stop time** is disabled, select **Add stop event** next to the drop-down list to enable it.
+6. For **Start time**, select the time at which you want the VMs to be started. The start time is required if the stop time is not set. Select **Remove start event** if you want to specify only the stop time. if the **Start time** is disabled, select **Add start event** next to the drop-down list to enable it. 
+7. For **Stop time**, select the time at which you want the VMs to be shut down. The stop time is required if the start time is not set. Select **Remove stop event** if you want to specify only the start time. if the **Stop time** is disabled, select **Add stop event** next to the drop-down list to enable it.
 8. For **Time zone (required)**, select the time zone for the start and stop times you specified.  
 9. For **Notes**, enter any description or notes for the schedule. 
 10. Select **Save**. 
@@ -62,7 +62,7 @@ You can see the scheduled dates and times highlighted in the calendar view as sh
 Select the **Today** button in the top-right corner to switch to current date in the calendar. Select **left arrow** to switch to the previous week and **right arrow** to switch to the next week in the calendar. 
 
 ## Edit a schedule
-When you double-click on a highlighted schedule in the calendar or select the **pencil** button on the toolbar, you see the **Edit schedule** page. Updating settings on this page is same as updating settings in the **Add schedule** page as shown in the previous sections. 
+When you double-click on a highlighted schedule in the calendar or select the **pencil** button on the toolbar, you see the **Edit schedule** page. Updating settings on this page is same as updating settings in the **Add schedule** page as described in the [Add a recurring schedule](#add-a-recurring-schedule-weekly) section. 
 
 ![Edit schedule page](../media/how-to-create-schedules/edit-schedule-page.png)
 
