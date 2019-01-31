@@ -34,7 +34,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | **Change** | Details |
 | --- | --- |
-| **New SQL VM resource provider** |  There is a new resource provider for SQL Server VMs  (Microsoft.SqlVirtualMachine) that allows for better management of your SQL Server VM. For more information on registering your VM, see [Register existing SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#virtual-machines-windows-sql-ahb.md#virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider). |
+| **New SQL VM resource provider** |  There is a new resource provider for SQL Server VMs  (Microsoft.SqlVirtualMachine) that allows for better management of your SQL Server VM. For more information on registering your VM, see [Register existing SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider). |
 |**Switch licensing model** |You can now switch between the pay-per-usage and bring-your-own license model for your SQL VM using Azure CLI or Powershell. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). | 
 | &nbsp; | &nbsp; |
 
