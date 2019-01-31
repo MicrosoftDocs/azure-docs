@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Authorizing access to Azure Storage

@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Manage access rights to Azure Blob and Queue data with RBAC (Preview)

@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 11/16/2018
 ms.author: sethm
 ms.reviewer: unknown
+ms.lastreviewed: 11/16/2018
 
 ---
 # Add Linux images to Azure Stack
