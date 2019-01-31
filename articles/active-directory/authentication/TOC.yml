@@ -114,6 +114,8 @@
       - name: Configure Azure AD password protection
         href: howto-password-ban-bad-on-premises-operations.md
       - name: Monitor Azure AD password protection
+        href: howto-password-ban-bad-on-premises-monitor.md
+      - name: Troubleshoot Azure AD password protection
         href: howto-password-ban-bad-on-premises-troubleshoot.md
       - name: Frequently asked questions
         href: howto-password-ban-bad-on-premises-faq.md
