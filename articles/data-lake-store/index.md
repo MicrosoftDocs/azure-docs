@@ -16,7 +16,7 @@ ms.author: twooley
 
 Learn how to use Azure Data Lake Storage Gen1 (previously known as Azure Data Lake Store) to create a hyper-scale, Hadoop-compatible repository for analytics on data of any size, type, and ingestion speed. Tutorials, API references, and other documentation show you how to set up, manage, and access a data lake repository for operational and exploratory analytics.
 
-If you're interested in learning about the preview of Data Lake Storage Gen2, see the [product page](https://aka.ms/adlsgen2-product).
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../includes/data-lake-storage-gen1-rename-note.md)]
 
 <ul class="panelContent cardsFTitle">
     <li>
