@@ -189,8 +189,6 @@ If you are finished working with your cluster, you can remove the certificate fr
 - On Mac: Use the Keychain app.
 - On Ubuntu: Follow the steps you used to view certificates and remove the certificate.
 
-If you don't want to continue to use Cloud Shell, you can delete the storage account associated with it to avoid charges. Close your Cloud Shell session. In Azure portal, click the storage account associated with Cloud Shell, then click **Delete** at the top of the page and respond to the prompts.
-
 ## Next steps
 
 In this quickstart, you've deployed a Linux container application to a Service Fabric cluster in Azure, performed fail-over on the application, and scaled the application in the cluster. To learn more about working with Linux containers in Service Fabric, continue to the tutorial for Linux container apps.
