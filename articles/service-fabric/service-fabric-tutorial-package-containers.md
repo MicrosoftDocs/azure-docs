@@ -222,7 +222,7 @@ At this point in the tutorial, the template for a Service Package application is
 
 ## Create a Service Fabric cluster
 
-To deploy the application to Azure, you need a Service Fabric cluster to run the application. The following commands create a five-node cluster in Azure.  The commands also create a self-signed certificate, adds it to a key vault and downloads the certificate locally. The new certificate is used to secure the cluster when it deploys and is used to authenticate clients.
+To deploy the application to Azure, you need a Service Fabric cluster to run the application. The following commands create a five-node cluster in Azure.  The commands also create a self-signed certificate, adds it to a key vault, and downloads the certificate locally as a PEM file. The new certificate is used to secure the cluster when it deploys and is used to authenticate clients.
 
 ```azurecli
 #!/bin/bash
@@ -247,8 +247,12 @@ az group create --name $ResourceGroupName --location $Location
 
 # Create secure five node Linux cluster. Creates a key vault in a resource group
 # and creates a certficate in the key vault. The certificate's subject name must match 
-# the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
-az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
+# the domain that you use to access the Service Fabric cluster.  
+# The certificate is downloaded locally as a PEM file.
+az sf cluster create --resource-group $ResourceGroupName --location $Location \ 
+--certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject \ 
+--cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName \ 
+--vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
 
 > [!Note]
@@ -261,7 +265,7 @@ For more information about creating your own cluster, see [Create a Service Fabr
 
 You can deploy the application the Azure cluster using the Service Fabric CLI. If Service Fabric CLI is not installed on your machine, follow instructions [here](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) to install it.
 
-Connect to the Service Fabric cluster in Azure. Replace the sample endpoint with your own. The endpoint must be a full URL similar to the one below.
+Connect to the Service Fabric cluster in Azure. Replace the sample endpoint with your own. The endpoint must be a full URL similar to the one below.  The PEM file is the self-signed certificate that was previously created.
 
 ```bash
 sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
