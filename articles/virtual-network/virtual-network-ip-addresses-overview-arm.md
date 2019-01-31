@@ -72,7 +72,7 @@ Standard SKU public IP addresses are:
 - Zone redundant by default and optionally zonal (can be created zonal and guaranteed in a specific availability zone). To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
-> Communication with a Standard SKU resource fails until you create and associate a [network security group](security-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
+> Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](security-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
 
 ### Allocation method
 
