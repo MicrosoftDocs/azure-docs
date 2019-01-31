@@ -51,7 +51,7 @@
 - name: Reference
   items:
   - name: Bing Search API use and display requirements
-    href: ../Bing-Web-Search/use-and-display-requirements.md
+    href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
   - name: Bing Entity Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference

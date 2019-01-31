@@ -90,7 +90,7 @@
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch
   - name: Use and display requirements
-    href: Use-and-display-requirements.md
+    href: Use-display-requirements.md
 - name: Resources
   items:
   - name: FAQ

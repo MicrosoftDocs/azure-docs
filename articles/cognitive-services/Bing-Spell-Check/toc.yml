@@ -61,7 +61,7 @@
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable  
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-and-display-requirements.md
+    href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
 - name: Resources
   items:

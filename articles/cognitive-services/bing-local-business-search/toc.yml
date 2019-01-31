@@ -34,7 +34,7 @@
 - name: Reference
   items:
   - name: Use and display requirements
-    href: ../Bing-Web-Search/use-and-display-requirements.md
+    href: ../Bing-Web-Search/use-display-requirements.md
     maintainContext: true
   - name: Local Business Search API reference
     href: local-search-reference.md
