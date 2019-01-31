@@ -226,7 +226,7 @@ In this tutorial, add two new intents: `OrgChart-Manager` and `OrgChart-Reports`
 
 Once LUIS returns a prediction to the client app, the intent name can be used as a function name in the client app and that the Employee entity could be used as a parameter to that function.
 
-```nodejs
+```javascript
 OrgChartManager(employee){
     ///
 }
