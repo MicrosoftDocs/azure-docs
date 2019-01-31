@@ -44,9 +44,14 @@ Host pools are a collection of one or more identical virtual machines within Win
     ```powershell
     Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName “Desktop Application Group” -UserPrincipalName <userupn>
     ```
-    
 
 The **Add-RdsAppGroupUser** cmdlet does not support adding security groups and only adds one user at a time to the app group. If you would like to add multiple users to the app group, re-run the cmdlet with the appropriate user principal names.
+
+Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Windows Virtual Desktop host pool](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+
+```powershell
+$token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
+```
 
 ## Create virtual machines for the host pool
 
@@ -58,9 +63,41 @@ You can create a virtual machine in multiple ways:
 - [Create a virtual machine from a managed image](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## Register the session host to the Windows Virtual Desktop host pool
+## Prepare the virtual machines for Windows Virtual Desktop agent installations
 
-(Section still in progress.)
+You need to do the following things to prepare your virtual machines before you can install the Windows Virtual Desktop agents and register the virtual machines to your Windows Virtual Desktop host pool:
+
+- You must domain-join the machine. This allows incoming Windows Virtual Desktop users to be mapped from their Azure Active Directory account to their Active Directory account and be successfully allowed access to the virtual machine.
+- You must install the Remote Desktop Session Host (RDSH) role if the virtual machine is running a Windows Server OS. The RDSH role allows the Windows Virtual Desktop agents to install properly.
+
+To successfully domain-join, do the following things on each virtual machine:
+
+1. [Connect to the virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+2. On the virtual machine, launch **Control Panel** and select **System**.
+3. Select **Computer name**, select **Change settings**, and then select **Change…**
+4. Select **Domain** and then enter the Active Directory domain on the virtual network.
+5. Authenticate with a domain account that has privileges to domain-join machines.
+
+## Register the virtual machines to the Windows Virtual Desktop host pool
+
+Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents.
+
+To download the Windows Virtual Desktop agents, do the following on each virtual machine:
+
+1. [Connect to the virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+2. Launch an internet browser and navigate to the following [link]() to download the Windows Virtual Desktop agents.
+
+To install the Windows Virtual Desktop agents, do the following on each virtual machine:
+
+1. Run the **RDInfraAgentInstall** msi from the downloaded files and progress through the installation. When asked for the registration token, enter the value you obtained from the **Export-RdsRegistrationInfo** command.
+2. Run the **RDAgentBootLoaderInstall** msi from the downloaded files and complete the installation.
+3. Install or activate the Side-by-Side stack. The steps will be different depending on which OS version the virtual machine uses.
+   - If your virtual machine's OS is Windows Server 2016:
+     - From the **Start** menu, search for Windows PowerShell ISE, right-click it, then select **Run as administrator**.
+     - Select **File**, then Open…, find the enablesxsstackrc.ps1 PowerShell script from the downloaded files and open it.
+     - Select the green play button to run the script.
+   - If your virtual machine's OS is Windows 10 1809 or later or Windows Server 2019 or later:
+     - Run the **RDInfraSxSStackInstall** msi from the downloaded files and complete the installation.
 
 ## Next steps
 

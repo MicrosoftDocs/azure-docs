@@ -8,8 +8,8 @@
   items:
   - name: 1. Create a tenant in Windows Virtual Desktop
     href: tenant-setup-azure-active-directory.md
-  - name: 2. Create a host pool in Windows Virtual Desktop
-    href: manage-host-pools.md
+  - name: 2. Create a host pool with Azure Marketplace
+    href: create-host-pools-azure-marketplace.md
   - name: 3. Manage app groups
     href: manage-app-groups.md
   - name: 4. Manage user storage
@@ -22,8 +22,6 @@
   items:
   - name: Connect to a Remote Desktop environment (Preview)
     href: tenant-setup-remote-desktop.md
-  - name: Create a host pool with Azure Marketplace
-    href: create-host-pools-azure-marketplace.md
   - name: Create a host pool with an ARM template
     href: create-host-pools-arm-template.md
   - name: Create a host pool with PowerShell
@@ -40,12 +38,12 @@
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods (Preview)
     href: host-pool-load-balancing.md
-  - name: Configure the Windows Virtual Desktop load-balancing method (Preview)
-    href: configure-host-pool-load-balancing.md
 - name: How-to
   items:
   - name: Connect to a Remote Desktop environment
     href: tenant-setup-remote-desktop.md
+  - name: Configure the Windows Virtual Desktop load-balancing method (Preview)
+    href: configure-host-pool-load-balancing.md
 - name: Reference
   items:
   - name: PowerShell cmdlets (Preview)
