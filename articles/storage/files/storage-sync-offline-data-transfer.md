@@ -59,7 +59,7 @@ Enable “Offline Data Transfer” in the new server endpoint blade and referenc
 Once you have created your server endpoint, sync will commence.
 For each file that exists on the server, sync will determine if this file also exists in the staging share where Data Box deposited the files and if so, sync will copy the file from the staging share rather than uploading it from the server. If the file doesn’t exist in the staging share or a newer version is available on the local server, then sync will upload the file from the local server.
 
-> [!Important]
+> **Important:**
 > You can only enable the bulk migration mode during the creation of a server endpoint. Once a server endpoint is established, there is currently no way to integrate bulk migrated data from an already syncing server into the namespace.
 
 ## File and folder ACLs
@@ -84,8 +84,8 @@ After the server completes its initial sync of the entire namespace, it will hav
 
 You should only disable this mode when the state is “Completed” or you truly want to abort due to misconfiguration. If you are disabling the mode mid-way a legitimate deployment, files will start to upload from the server, even if your staging share is still available.
 
->**Important:**
->After you disable offline data transfer there is no way to enable it again, even if the staging share from the bulk migration is still available.
+> **Important:**
+> After you disable offline data transfer there is no way to enable it again, even if the staging share from the bulk migration is still available.
 
 ## See also
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
