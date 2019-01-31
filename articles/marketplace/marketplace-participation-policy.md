@@ -43,7 +43,7 @@ These Microsoft Azure Marketplace Participation Policies apply to all publishers
 
 1. Publishers must announce the availability of their offering in the Azure Marketplace on their public website, and must include hyperlinks to their offer listing pages on [https://azuremarketplace.microsoft.com/marketplace/](https://azuremarketplace.microsoft.com/marketplace/).
 
-1. Publishers must classify each offering based on one or more classification taxonomies provided by Microsoft, including the categories described in Section 4 of this document. If Microsoft considers a publisher-selected classification to be inaccurate, it reserves the right to reclassify any offering.
+1. Publishers must classify each offering based on one or more classification taxonomies provided by Microsoft, including the categories described in the **Offering Classification Definitions** section of this document. If Microsoft considers a publisher-selected classification to be inaccurate, it reserves the right to reclassify any offering.
 
 1. If a publisher’s offering is Microsoft Azure Certified, and does not run primarily on Microsoft Azure, the publisher must make a paid version of the offering available in the Marketplace, within 90 days of publishing a free or BYOL version of the offering.
 
@@ -118,7 +118,7 @@ After publishing a Services Offering in the Marketplace, Publishers must maintai
     * The offering consistently receives many support tickets; or
     * The publisher has failed to comply with terms and conditions in the Microsoft Marketplace Publisher Agreement, the Marketplace Publication Guidelines, or this document.
 
-1. For various reasons, you may decide to remove your offer from the Marketplace. Offer Removal ensures that new customers may no longer purchase or deploy your offer, but has no impact on existing customers. Offer Termination is the process of terminating the service and/or licensing agreement between you and your existing customers. Guidance and policies related to offer removal and termination are governed by Microsoft Marketplace Publisher Agreement (see Section 7). You may request removal or termination by logging a support ticket.
+1. For various reasons, you may decide to remove your offer from the Marketplace. Offer Removal ensures that new customers may no longer purchase or deploy your offer, but has no impact on existing customers. Offer Termination is the process of terminating the service and/or licensing agreement between you and your existing customers. Guidance and policies related to offer removal and termination are governed by Microsoft Marketplace Publisher Agreement (see **Payment terms" section). You may request removal or termination by logging a support ticket.
 
 ## Payment terms
 
@@ -138,7 +138,7 @@ Microsoft permits publishers to include the following Microsoft Software Product
 
     1. In general, each of Microsoft’s and publisher’s responsibilities for taxes on end customer sales depend on the country and the purchase scenario in which offers are sold.
 
-    1. In certain countries (**Microsoft Managed Countries**) Microsoft assumes responsibility for managing end customer taxation, which may include validating the business status of customers by obtaining tax registration numbers or exemption certificates, deeper managed relationships with customers and calculating, collecting and/or remitting taxes.  In cases where sales are made through partners, Microsoft assumes all partners are businesses and are appropriately discharging their tax obligations.  Additional information can be found in the FAQs.
+    1. In certain countries (**Microsoft Managed Countries**) Microsoft assumes responsibility for managing end customer taxation, which may include validating the business status of customers by obtaining tax registration numbers or exemption certificates, deeper managed relationships with customers and calculating, collecting and/or remitting taxes.  In cases where sales are made through partners, Microsoft assumes all partners are businesses and are appropriately discharging their tax obligations.  Additional information can be found in the [FAQs](https://automaticbillingspec.blob.core.windows.net/spec/FAQ%20for%20ISV%20Azure%20Marketplace%20Updates%20March%202019.pdf).
 
     1. For all countries that are not Microsoft Managed Countries (**ISV Managed Countries**), publishers acknowledge and agree that publishers have sole responsibility to determine and manage end customer taxation, such as registration, tax calculation, collection and remittance, validation of business status of customers and provision of tax invoices to customers, for all offers such publishers choose to make available in ISV Managed Countries.  Publishers acknowledge that, with respect to any sale in an ISV Managed Country, Microsoft currently may not be able to provide.
 
