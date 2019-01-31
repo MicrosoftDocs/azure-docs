@@ -403,7 +403,7 @@ Legacy metrics are available in parallel with Azure Monitor managed metrics. The
 
 **Does new metrics support Classic Storage account?**
 
-No, new metrics in Azure Monitor only support ARM storage accounts. If you want to use metrics on Storage accounts, you need to migrate to ARM Storage account. See [Migrate to ARM](/azure/virtual-machines/windows/migration-classic-resource-manager-overview.md).
+No, new metrics in Azure Monitor only support Azure Resource Manager storage accounts. If you want to use metrics on Storage accounts, you need to migrate to Azure Resource Manager Storage account. See [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 **Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
 
