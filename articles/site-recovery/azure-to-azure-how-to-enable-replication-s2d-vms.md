@@ -21,7 +21,7 @@ This article describes how to enable replication of Azure VMs running storage sp
 >
 
 ##Introduction 
-[Storage spaces direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is a software-defined, shared nothing storage. It provides a way to create guest clusters on Azure.  A guest cluster in Microsoft Azure is a Failover Cluster comprised of IaaS VMs. This allows hosted VM workloads to failover across the guest clusters achieving higher availability SLA for applications than a single Azure VM can provide. It is especially usefully in scenarios where VM hosting a critical application that needs to be patched or requires configuration changes.
+[Storage spaces direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) is a software-defined storage which provides a way to create guest clusters on Azure.  A guest cluster in Microsoft Azure is a Failover Cluster comprised of IaaS VMs. It allows hosted VM workloads to failover across the guest clusters achieving higher availability SLA for applications than a single Azure VM can provide. It is useful in scenarios where VM hosting a critical application that needs to be patched or requires configuration changes.
 
 #Disaster Recovery of Azure Virtual Machines using storage spaces direct
 
@@ -32,14 +32,14 @@ Below diagram shows the pictorial representation of 2 Azure VMs failover cluster
 ![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
  
-- Two Azure virtual machines in a Windows Failover Cluster and each virtual machine has two or more data disks.
+- Two Azure virtual machines in a Windows Failover Cluster and each virtual machine have two or more data disks.
 - S2D synchronizes the data on the data disk and presents the synchronized storage as a storage pool.
 - The storage pool presents as a cluster shared volume (CSV) to the failover cluster.
 - The Failover cluster uses the CSV for the data drives.
 
 Things to keep in mind 
 1. When setting up cloud witness of the virtual machine keep witness in the Disaster Recovery region
-2. Azure site Recovery will not be able to change the ip of the cluster and that has to be done through the script
+2. Azure Site Recovery will not be able to change the ip of the cluster and that has to be done through the script
 
 **Enabling Site Recovery for S2D cluster:**
 
