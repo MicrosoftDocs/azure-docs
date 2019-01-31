@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahi
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 01/04/2019
 ms.author: aahi
@@ -37,7 +37,7 @@ The API response contains a [SearchResponse](https://docs.microsoft.com/rest/api
 > [!NOTE]
 > Entity responses support multiple markets, but the Places response supports only US Business locations. 
 
-The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). The list may contain a single dominant entity, multiple disambiguation entities, or both. 
+The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). The list may contain a single dominant entity, multiple disambiguation entities, or both. 
 
 A dominant entity is returned when Bing believes it to be the only entity that satisfies the request (there is no ambiguity as to which entity satisfies the request). If multiple entities could satisfy the request, the list contains more than one disambiguation entity. For example, if the request uses the generic title of a movie franchise, the list likely contains disambiguation entities. But, if the request specifies a specific title from the franchise, the list likely contains a single dominant entity.
 
@@ -325,3 +325,7 @@ If you are not sure if your experience can be considered a search-like experienc
 ## Throttling requests
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
+
+## Next steps
+
+* Try a [Quickstart](quickstarts/csharp.md) to get started searching for entities with the Bing Entity Search API.

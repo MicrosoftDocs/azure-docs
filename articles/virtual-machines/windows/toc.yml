@@ -166,6 +166,8 @@
       href: windows-desktop-multitenant-hosting-deployment.md
   - name: Secure VMs
     items:
+    - name: Just-in-time access
+      href: ../../security-center/security-center-just-in-time.md
     - name: Encrypt
       href: encrypt-disks.md
       displayName: encryption
@@ -358,8 +360,6 @@
       items:
       - name: Unmanaged VM to Managed Disks
         href: convert-unmanaged-to-managed-disks.md
-      - name: Single Classic VM to Resource Manager
-        href: migrate-single-classic-to-resource-manager.md
   - name: Manage networking
     href: ps-common-network-ref.md
     items:

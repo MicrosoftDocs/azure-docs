@@ -313,7 +313,7 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
         //ADD THIS PART TO YOUR CODE
         await this.CreateContainer();
     }
-
+    ```
 Select **F5** to run your application.
 
 Congratulations! You have successfully created an Azure Cosmos DB container.  
@@ -592,7 +592,7 @@ Now, we will update an item in Azure Cosmos DB.
         //ADD THIS PART TO YOUR CODE
         await this.ReplaceFamilyItem();
     }
-
+    ```
 Select **F5** to run your application.
 
 Congratulations! You have successfully replaced an Azure Cosmos DB item.

@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
-ms.component: files
+ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Windows
 
@@ -55,7 +55,7 @@ System error 53 or system error 67 can occur if port 445 outbound communication 
 
 To check if your firewall or ISP is blocking port 445, use the [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) tool or `Test-NetConnection` cmdlet. 
 
-To use the `Test-NetConnection` cmdlet, the AzureRM PowerShell module must be installed, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resoure-group-name>` with the relevant names for your storage account.
+To use the `Test-NetConnection` cmdlet, the AzureRM PowerShell module must be installed, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -63,12 +63,12 @@ To use the `Test-NetConnection` cmdlet, the AzureRM PowerShell module must be in
 
     # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
     # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
     # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
   
     
 If the connection was successful, you should see the following output:
