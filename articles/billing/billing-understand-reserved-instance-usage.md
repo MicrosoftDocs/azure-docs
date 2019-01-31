@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Understand Azure reservation usage for your Pay-As-You-Go subscription

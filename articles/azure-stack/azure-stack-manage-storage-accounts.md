@@ -15,6 +15,7 @@ ms.topic: get-started-article
 ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
+ms.lastreviewed:  01/18/2019
 
 ---
 # Manage storage accounts in Azure Stack
@@ -160,7 +161,7 @@ You can also use PowerShell to explicitly override the retention period and imme
 ```PowerShell  
     $farm_name = (Get-AzsStorageFarm)[0].name
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
-````
+```
 
 For more information, see [Azure Stack PowerShell documentation](https://docs.microsoft.com/powershell/azure/azure-stack/overview).
  

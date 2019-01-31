@@ -25,9 +25,9 @@ The following steps are supported on a Mac, Windows, or Linux computer.
 
 To build and test locally, you will need to:
 
-+ Install [Python 3.6](https://www.python.org/downloads/)
++ Install [Python 3.6](https://www.python.org/downloads/).
 
-+ Install [Azure Functions Core Tools](functions-run-local.md#v2) version 2.2.70 or later
++ Install [Azure Functions Core Tools](functions-run-local.md#v2) version 2.2.70 or later (requires .NET Core 2.x SDK).
 
 To publish and run in Azure:
 

@@ -1,10 +1,10 @@
 ---
 title: Migrate analytics from Excel to Azure Machine Learning Studio
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: A comparison of linear regression models in Excel and in Azure Machine Learning Studio
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
 ms.topic: article
 
 author: ericlicoding

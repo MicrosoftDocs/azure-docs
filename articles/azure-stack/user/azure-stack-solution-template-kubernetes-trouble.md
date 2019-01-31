@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot your deployment to Kubernetes to Azure Stack | Microsoft Docs
-description: Learn how to troubleshoot your deployment to Kubernetes to Azure Stack.
+title: Troubleshoot your Kubernetes deployment to Azure Stackk | Microsoft Docs
+description: Learn how to troubleshoot your Kubernetes deployment to Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,13 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
+ms.lastreviewed: 01/24/2019
 
 ---
 
-# Troubleshoot your deployment to Kubernetes to Azure Stack
+# Troubleshoot your Kubernetes deployment to Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
