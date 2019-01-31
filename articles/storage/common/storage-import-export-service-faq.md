@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Azure Import/Export service: frequently asked questions 
 The following are questions and answers that you may have when you use your Azure Import/Export service to transfer data into Azure storage. Questions and answers are arranged in the following categories:
