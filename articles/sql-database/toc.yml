@@ -126,6 +126,8 @@
     items:
     - name: Single database overview
       href: sql-database-single-index.yml
+    - name: Single database capabilities
+      href: sql-database-single-database.md  
     - name: Management API reference
       href: sql-database-single-databases-manage.md
     - name: Logical servers
@@ -218,7 +220,7 @@
         href: sql-vulnerability-assessment.md
       - name: Threat detection
         href: sql-database-threat-detection-overview.md
-    - name: Firewall rules
+    - name: Database server IP firewall rules
       items:
       - name: Create and manage
         href: sql-database-firewall-configure.md      
@@ -236,7 +238,7 @@
       href: sql-database-aad-authentication.md
     - name: Auditing
       items:
-      - name: Auditing - Servers, pools, and databases
+      - name: Auditing - Single databases / elastic pools
         href: sql-database-auditing.md
       - name: Auditing - Managed Instance
         href: sql-database-managed-instance-auditing.md
