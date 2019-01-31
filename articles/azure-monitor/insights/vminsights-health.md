@@ -218,7 +218,7 @@ The overall health of a target is determined by the health of each of its health
 
 ![Configuring a health criteria example](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-In the configuration pane for the selected health criteria, using the example **Average Disk Seconds Per Write**, its threshold can be configured with a different numeric value. It is a two-state monitor, meaning it only changes from healthy to warning. Other health criterion may be three state, where you can configure the value for the warning and critical health state threshold.  
+In the configuration pane for the selected health criteria, using the example **Average Disk Seconds Per Write**, its threshold can be configured with a different numeric value. It is a two-state monitor, meaning it only changes from healthy to warning. Other health criterion may be three states, where you can configure the value for the warning and critical health state threshold.  
 
 >[!NOTE]
 >Applying health criteria configuration changes to one instance is applied to all monitored instances.  For example, if you select **Disk -1 D:** and modify the **Average Disk Seconds Per Write** threshold, it doesn't apply to only that instance, but all other disk instances discovered and monitored on the VM.
@@ -242,7 +242,7 @@ The three columns are interlinked with each other. When you select a discovered 
 
 In the above example, when you select **Disk - 1 D:**, the Health Criteria tree is filtered to **Disk - 1D:**. The **State Change** column shows the state change based on the availability of **Disk - 1 D:**. 
 
-To see an updated health state, you can refresh the Health Diagnostics page by clicking the **Refresh** link.  If there is an update to the health criterion's health state based on the pre-defined polling interval, this task allows you to avoid waiting and reflects the latest health state.  The **Health Criteria State** is a filter allowing you to scope the results based on the selected health state - *Healthy*, *Warning*, *Critical*, *Unknown*, and *All*.  The **Last Updated** time in the top right corner represents the last time when the Health Diagnostics page was refreshed.  
+To see an updated health state, you can refresh the Health Diagnostics page by clicking the **Refresh** link.  If there is an update to the health criterion's health state based on the pre-defined polling interval, this task allows you to avoid waiting and reflects the latest health state.  The **Health Criteria State** is a filter allowing you to scope the results based on the selected health state - *Healthy*, *Warning*, *Critical*, *Unknown*, and *All*.  The **Last Updated** time in the top-right corner represents the last time when the Health Diagnostics page was refreshed.  
 
 ## Alerts
 Azure Monitor for VMs Health feature integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state when the condition is detected. Alerts are categorized by severity - Sev 0 through 4, with Sev 0 representing the highest severity level.  
