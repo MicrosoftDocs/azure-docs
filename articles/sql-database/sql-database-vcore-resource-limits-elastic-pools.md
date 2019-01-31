@@ -144,7 +144,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|1|2|3|4|5|6|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (GB)|512|512|512|512|512|512|
+|Max data size (GB)|1024|1024|1024|1024|1024|1024|
 |Max log size (GB)|307|307|307|307|307|307|
 |TempDB size (GB)|32|64|96|128|160|192|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
@@ -170,7 +170,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Columnstore support|N/A|N/A|N/A|N/A|N/A|N/A|
 |In-memory OLTP storage (GB)|7|8|9.5|11|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (GB)|512|512|512|512|1024|1024|
+|Max data size (GB)|1024|1024|1024|1024|1024|1024|
 |Max log size (GB)|307|307|307|307|307|307|
 |TempDB size (GB)|224|256|288|320|384|384|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
@@ -254,5 +254,5 @@ The following table describes the properties for pooled databases.
 ## Next steps
 
 - See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
-- See [Overview of resource limits on a logical server](sql-database-resource-limits-logical-server.md) for information about limits at the server and subscription levels.
+- See [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).

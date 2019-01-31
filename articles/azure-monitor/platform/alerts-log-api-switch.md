@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Switch API preference for Log Alerts
 
