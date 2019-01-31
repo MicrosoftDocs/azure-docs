@@ -21,7 +21,7 @@ This article describes the concepts and process involved with a forced failover 
 
 ## Choose the right redundancy option
 
-All storage accounts are replicated for redundancy. Which redundancy option you choose for your account depends on the level of resiliency you need. For  protection against regional outages, choose geo-redundant storage, with or without the option of read access from the secondary region:  
+All storage accounts are replicated for redundancy. Which redundancy option you choose for your account depends on the degree of resiliency you need. For  protection against regional outages, choose geo-redundant storage, with or without the option of read access from the secondary region:  
 
 **Geo-redundant storage (GRS)** replicates your data asynchronously in two geographic regions that are at least hundreds of miles apart. If the primary region suffers an outage, then the secondary region serves as a redundant source for your data. You can initiate a failover to transform the secondary endpoint into the primary endpoint.
 
@@ -52,11 +52,11 @@ Additionally, keep in mind these best practices for maintaining high availabilit
 
 Customers may subscribe to the [Azure Service Health Dashboard](https://azure.microsoft.com/status/) to track the health and status of Azure Storage and other Azure services.
 
-Microsoft also recommends that you design your application to prepare for the possibility of write failures, and to expose these in a way that alerts you to the possibility of an outage in the primary region.
+Microsoft also recommends that you design your application to prepare for the possibility of write failures. Your application should expose write failures in a way that alerts you to the possibility of an outage in the primary region.
 
 ## Understand the forced failover process
 
-Customer-managed forced failover (preview) enables you to fail your entire storage account over to the secondary region if the primary becomes unavailable for any reason. When you force a failover to the secondary region, clients can immediately begin writing data to the secondary endpoint. Forced failover helps you to maintain high availability for your customers.
+Customer-managed forced failover (preview) enables you to fail your entire storage account over to the secondary region if the primary becomes unavailable for any reason. When you force a failover to the secondary region, clients can begin writing data to the secondary endpoint after the failover is complete. The failover typically takes about an hour.
 
 ### How a forced failover works
 
@@ -90,7 +90,7 @@ When you force a failover, all data in the primary region is lost as the seconda
 
 The **Last Sync Time** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. All data written prior to the last sync time  is available on the secondary, while data written after the last sync time may not have been written to the secondary and may be lost. Use this property in the event of an outage to estimate the amount of data loss you may incur by initiating a forced failover. 
 
-As a best practice, design your application so that you can use the last sync time to evaluate expected data loss. For example, if you are logging all write operations, then you can compare the time of your last write operations to the the last sync time to determine which writes have not been synced to the secondary.
+As a best practice, design your application so that you can use the last sync time to evaluate expected data loss. For example, if you are logging all write operations, then you can compare the time of your last write operations to the last sync time to determine which writes have not been synced to the secondary.
 
 ### Use caution when failing back to the original primary
 
@@ -142,11 +142,12 @@ As a best practice, Microsoft recommends converting unmanaged disks to managed d
 
 Unmanaged disks are stored as page blobs in Azure Storage. When a VM is running in Azure, any unmanaged disks attached to the VM are leased. A forced failover cannot proceed when there is a lease on a blob. To perform the failover, follow these steps:
 
-1. Shut down the VM.
-2. Break the lease on the disk's page blob using the Azure portal, Powershell, Azure CLI, or Azure Storage Explorer. For a sample PowerShell script to break the lease, see [How to break the locked lease of blob storage by ARM in Microsoft Azure (PowerShell)]( https://azure.microsoft.com/resources/samples/storage-blobs-powershell-break-locked-lease/)
-3. Perform the forced failover.
-4. Create a VM in the new primary region and reattach the disk.
-5. Start the VM.
+1. Before you begin, note the names of any unmanaged disks, their logican unit numbers (LUN), and the VM to which they are attached. Doing so will make it easier to reattach the disks after the failover. 
+2. Shut down the VM.
+3. Delete the VM.
+5. Perform the forced failover.
+6. Create a VM in the new primary region and reattach the disk.
+7. Start the new VM.
 
 Keep in mind that any data stored in a temporary disk is lost when the VM is shut down.
 
