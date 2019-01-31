@@ -42,7 +42,7 @@
   - name: Azure CLI
     href: /cli/azure/network
   - name: Azure PowerShell
-    href: /powershell/azure/overview
+    href: /powershell/module/az.network/new-azfirewall
   - name: .NET
     href: /dotnet/api
   - name: Java
