@@ -68,10 +68,10 @@ You can check the OS version by using `lsb_release`. The following code demonstr
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ...
@@ -295,10 +295,10 @@ To check the OS version, use `lsb_release`. For example, the following script de
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ```
