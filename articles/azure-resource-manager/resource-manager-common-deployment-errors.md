@@ -22,6 +22,8 @@ ms.author: tomfitz
 
 This article describes some common Azure deployment errors, and provides information to resolve the errors. If you can't find the error code for your deployment error, see [Find error code](#find-error-code).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Error codes
 
 | Error code | Mitigation | More information |

@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 01/30/2019
 ---
 # Configure active geo-replication for Azure SQL Database in the Azure portal and initiate failover
 
@@ -26,7 +26,7 @@ To configure active geo-replication by using the Azure portal, you need the foll
 * An Azure SQL database: The primary database that you want to replicate to a different geographical region.
 
 > [!Note]
-Active geo-replication must be between databases in the same subscription.
+When using Azure portal, you can only create a secondary database within the same subscription as the primary. If secondary database is required to be in a different subscription, use  [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) or [ALTER DATABASE Transact-SQL API](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql).
 
 ## Add a secondary database
 
