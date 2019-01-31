@@ -43,7 +43,7 @@ The following release notes are for version 5.0.2.0 of the Azure File Sync agent
 - Support for Data Deduplication
     - Data Deduplication is now fully supported with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling deduplication on a volume with cloud tiering enabled lets you increase the size of your cache on-premises without provisioning more storage.
 - Support for offline data transfer (e.g. via Data Box)
-    - Easily migrate large amounts of data into Azure File Sync via Azure Data Box and other migration technologies. No need to use massive amounts of bandwidth to get your data into Azure, mail it there with Data Box. To learn more, see [Offline Data Transfer Docs](https://aka.ms/AFS/OfflineDataTransfer).
+    - Easily migrate large amounts of data into Azure File Sync via any means you choose. You can choose Azure Data Box, AzCopy and even third party migration services. No need to use massive amounts of bandwidth to get your data into Azure, in the case of Data Box – simply mail it there! To learn more, see [Offline Data Transfer Docs](https://aka.ms/AFS/OfflineDataTransfer).
 - Improved sync performance
     - Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. Sync now supports multiple server endpoints syncing on a volume when a VSS sync session is active. No more waiting for a VSS sync session to complete so sync can resume on other server endpoints on the volume.
 - Improved monitoring in the portal
