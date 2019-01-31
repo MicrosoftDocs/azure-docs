@@ -24,7 +24,9 @@ ms.author: wesmc
 > 
 > 
 
-This topic shows you how to perform common tasks such as create, update, and scale your Azure Cache for Redis instances, how to regenerate access keys, and how to view information about your caches. For a complete list of Azure Cache for Redis PowerShell cmdlets, see [Azure Cache for Redis cmdlets](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+This topic shows you how to perform common tasks such as create, update, and scale your Azure Cache for Redis instances, how to regenerate access keys, and how to view information about your caches. For a complete list of Azure Cache for Redis PowerShell cmdlets, see [Azure Cache for Redis cmdlets](https://docs.microsoft.com/powershell/module/az.rediscache).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -33,7 +35,7 @@ For more information about the classic deployment model, see [Azure Resource Man
 ## Prerequisites
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
-    Get-Module azure | format-table version
+    Get-Module Az | format-table version
 
 
 First, you must log in to Azure with this command.

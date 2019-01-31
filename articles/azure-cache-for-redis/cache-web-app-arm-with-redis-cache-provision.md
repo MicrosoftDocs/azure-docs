@@ -18,6 +18,9 @@ ms.author: wesmc
 
 ---
 # Create a Web App plus Azure Cache for Redis using a template
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 In this topic, you will learn how to create an Azure Resource Manager template that deploys an Azure Web App with Azure Cache for Redis. You will learn how to define which resources are deployed and
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 

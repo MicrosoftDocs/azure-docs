@@ -20,6 +20,8 @@ ms.author: wesmc
 # How to administer Azure Cache for Redis
 This topic describes how to perform administration tasks such as [rebooting](#reboot) and [scheduling updates](#schedule-updates) for your Azure Cache for Redis instances.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Reboot
 The **Reboot** blade allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there is a failure of a cache node.
 
