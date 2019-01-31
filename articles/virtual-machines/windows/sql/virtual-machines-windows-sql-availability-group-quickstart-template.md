@@ -32,8 +32,8 @@ Other parts of the availability group configuration must be done manually, such 
 ## Prerequisites 
 To automate the setup of an Always On availability group using quickstart templates, you must already have the following prerequisites: 
 - An [Azure Subscription](https://azure.microsoft.com/free/).
-- A resource group with a [domain controller](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-forest). 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](#register-existing-sql-vm-with-new-resource-provider).  
+- A resource group with a [domain controller](/azure/architecture/reference-architectures/identity/adds-forest). 
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](#register-existing-sql-vm-with-new-resource-provider).  
 
 ## Register existing SQL VM with new resource provider
 Since these availability group Azure Quickstart Templates rely on the SQL VM resource provider (Microsoft.SqlVirtualMachine), existing SQL Server VMs must be registered with the SQL VM resource provider. Skip this step if you created your SQL Server VM after December 2018, as all SQL Server VMs created after this date are automatically registered. This section provides steps to register with the provider using the Azure portal, but you can also use [PowerShell](virtual-machines-windows-sql-ahb.md#powershell). 
@@ -67,7 +67,7 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
    | **Existing Domain Account** | An existing domain user account that has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) in the domain (ex: account@domain.com). | 
    | **Domain Account Password** | The password for the previously mentioned domain user account. | 
-   | **Existing Sql Service Account** | The domain user account that is being used to control the [SQL Server service](sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) (ex: account@domain.com). |
+   | **Existing Sql Service Account** | The domain user account that is being used to control the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) (ex: account@domain.com). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
    | **Cloud Witness Name** | This is a new Azure storage account that will be created and used for the cloud witness. This name could  be modified. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |
@@ -82,7 +82,7 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
 
 
 ## Step 2 - Manually create the availability group 
-Manually create the availability group as you normally would, using either [PowerShell](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017),  [SQL Server Management Studio](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) or [Transact-SQL](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+Manually create the availability group as you normally would, using either [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017),  [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) or [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
 
   >[!IMPORTANT]
   > Do **not** create a listener at this time because this is automated by the **101-sql-vm-aglistener-setup**  quickstart template in Step 4. 
@@ -175,7 +175,7 @@ To resolve this behavior, remove the listener using [PowerShell](#remove-availab
 This error may occur when deploying the **101-sql-vm-aglistener-setup** template if the listener was deleted via SQL Server Management Studio (SSMS), but was not deleted from the SQL VM resource provider. Deleting the listener via SSMS does not remove the metadata of the listener from the SQL VM resource provider; the listener must be deleted from the resource provider using [PowerShell](#remove-availability-group-listener). 
 
 ### Domain account does not exist
-This error can be caused by one of two reasons. Either the domain account specified really does not exist, or it is missing the [User Principal Name (UPN)](windows/desktop/ad/naming-properties#userprincipalname) data. The **101-sql-vm-ag-setup** template expects a domain account in the UPN form (i.e. user@domain.com), but some domain accounts may be missing it. This can typically happen when a local user has been migrated to be the first domain administrator account when the server was promoted to a domain controller, or when a user was created through PowerShell. 
+This error can be caused by one of two reasons. Either the domain account specified really does not exist, or it is missing the [User Principal Name (UPN)](/windows/desktop/ad/naming-properties#userprincipalname) data. The **101-sql-vm-ag-setup** template expects a domain account in the UPN form (i.e. user@domain.com), but some domain accounts may be missing it. This can typically happen when a local user has been migrated to be the first domain administrator account when the server was promoted to a domain controller, or when a user was created through PowerShell. 
 
  Verify that the account does exist. If it does, you may be running into the second situation. To resolve this, do the following:
 
