@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan

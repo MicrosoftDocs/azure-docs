@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 01/25/2019
 
 ---
 # Prepay for SQL Database compute resources with Azure SQL Database reserved capacity
@@ -29,9 +29,9 @@ The details on how enterprise customers and Pay-As-You-Go customers are charged 
 
 ## Determine the right SQL size before purchase
 
-The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed SQL single databases and/or elastic pools within a specific region and using the same performance tier and hardware generation. 
+The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed single databases and/or elastic pools within a specific region and using the same performance tier and hardware generation. 
 
-For example, let's suppose that you are running one general purpose, Gen5 – 16 vCore elastic pool, and two business critical, Gen5 – 4 vCore single databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 16 vCore elastic pool, and one business critical, Gen5 – 32 vCore elastic pool. Also, let's suppose that you know that you will need these resources for at least 1 year. In this case you should purchase a 32 (2x16) vCores, 1 year reservation for SQL Database Single/Elastic Pool General Purpose - Compute Gen5 and a 40 (2x4 + 32) vCore 1 year reservation for SQL Database Single/Elastic Pool Business Critical - Compute Gen5.
+For example, let's suppose that you are running one general purpose, Gen5 – 16 vCore elastic pool, and two business critical, Gen5 – 4 vCore single databases. Further, let's supposed that you plan to deploy within the next month an additional general purpose, Gen5 – 16 vCore elastic pool, and one business critical, Gen5 – 32 vCore elastic pool. Also, let's suppose that you know that you will need these resources for at least 1 year. In this case you should purchase a 32 (2x16) vCores, 1 year reservation for SQL Database standalone/elastic pool General Purpose - Compute Gen5 and a 40 (2x4 + 32) vCore 1 year reservation for SQL Database standalone/elastic pool Business Critical - Compute Gen5.
 
 ## Buy SQL Database reserved capacity
 

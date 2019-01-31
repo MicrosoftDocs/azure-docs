@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
-ms.component: disks
+ms.subservice: disks
 
 ---
 # How to expand the OS drive of a virtual machine
