@@ -74,7 +74,7 @@ When creating a resource group, you need to provide a location for that resource
 
 ## Resource providers
 
-Each resource provider offers a set of resources and operations for working with those resources. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault. It also provides operations, like [List vaults](/rest/api/keyvault/vaults/list), to work with those resources.
+Each resource provider offers a set of resources and operations for working with those resources. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault.
 
 The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
 
