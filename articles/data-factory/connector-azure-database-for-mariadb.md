@@ -1,5 +1,5 @@
 ---
-title: Copy data from Azure Database for MariaDB using Azure Data Factory  | Microsoft Docs
+title: Copy data from Azure Database for MariaDB using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Azure Database for MariaDB to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -49,8 +49,8 @@ The following properties are supported for Azure Database for MariaDB linked ser
         "type": "MariaDB",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
+                "type": "SecureString",
+                "value": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
             }
         },
         "connectVia": {
