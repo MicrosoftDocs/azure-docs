@@ -123,7 +123,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-To logically separate the VHDs you upload, create a container within the storage account with [az storage container create](/cli/azure/storage/container#az_storage_container_create):
+To logically separate the VHDs you upload, create a container within the storage account with [az storage container create](/cli/azure/storage/container):
 
 ```azurecli
 az storage container create \
