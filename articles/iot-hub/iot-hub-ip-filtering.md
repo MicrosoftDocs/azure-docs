@@ -90,7 +90,7 @@ This will return a JSON object where your existing IP filters are listed under t
         {
             "action": "Allow",
             "filterName": "GoodIP",
-            "ipMask": "127.0.0.1"
+            "ipMask": "131.107.160.200"
         },
         ...
         ],
