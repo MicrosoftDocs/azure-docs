@@ -118,6 +118,9 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 
      We recommend that you start with 16 parallel copies and increase the number of threads depending on the resources available.
 
+> [!IMPORTANT]
+> The following Linux file types are not supported: symbolic links, character files, block files, sockets, and pipes. These file types will result in failures during the **Prepare to ship** step.
+
 - To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
     
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
