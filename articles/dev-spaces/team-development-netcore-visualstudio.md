@@ -14,7 +14,7 @@ description: "Rapid Kubernetes development with containers and microservices on 
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 ---
 
-# Team Development with Azure Dev Spaces
+# Team development with Azure Dev Spaces
 
 In this tutorial, you'll learn how a team of developers can simultaneously collaborate in the same Kubernetes cluster using Dev Spaces.
 
@@ -26,12 +26,12 @@ So far you've run your application's code as if you were the only developer work
 * Test code end-to-end, prior to code commit, without having to create mocks or simulate dependencies.
 
 ### Challenges with developing microservices
-Your sample application isn't very complex at the moment. But in real-world development, challenges soon emerge as you add more services and the development team grows.
+Your sample application isn't complex at the moment. But in real-world development, challenges soon emerge as you add more services and the development team grows.
 
 * Your development machine may not have enough resources to run every service you need at once.
 * Some services may need to be publicly reachable. For example, a service may need to have an endpoint that responds to a webhook.
-* If you want to run a subset of services, you have to know the full dependency hierarchy between all your services. Determining this can be difficult, especially as your number of services increase.
-* Some developers resort to simulating, or mocking up, many of their service dependencies. This approach can help, but managing those mocks can soon impact development cost. Plus, this approach leads to your development environment looking very different from production, which allows subtle bugs to creep in.
+* If you want to run a subset of services, you have to know the full dependency hierarchy between all your services. Determining this hierarchy can be difficult, especially as your number of services increase.
+* Some developers resort to simulating, or mocking up, many of their service dependencies. This approach can help, but managing those mocks can soon impact development cost. Plus, this approach leads to your development environment looking different from production, which can lead to subtle bugs occurring.
 * It follows that doing any type of integration testing becomes difficult. Integration testing can only realistically happen post-commit, which means you see problems later in the development cycle.
 
     ![](media/common/microservices-challenges.png)
@@ -42,20 +42,20 @@ With Azure Dev Spaces, you can set up a *shared* dev space in Azure. Each develo
 ### Work in your own space
 As you develop code for your service, and before you're ready to check it in, code often won't be in a good state. You're still iteratively shaping it, testing it, and experimenting with solutions. Azure Dev Spaces provides the concept of a **space**, which allows you to work in isolation, and without the fear of breaking your team members.
 
-## Using Dev Spaces for team development
+## Use Dev Spaces for team development
 Let's demonstrate these ideas with a concrete example using our *webfrontend* -> *mywebapi* sample application. We'll imagine a scenario where a developer, Scott, needs to make a change to the *mywebapi* service, and *only* that service. The *webfrontend* won't need to change as part of Scott's update.
 
 _Without_ using Dev Spaces, Scott would have a few ways to develop and test his update, none of which are ideal:
-* Run ALL components locally. This requires a more powerful development machine with Docker installed, and potentially MiniKube.
-* Run ALL components in an isolated namespace on the Kubernetes cluster. Since *webfrontend* isn't changing, this is a waste of cluster resources.
-* ONLY run *mywebapi*, and make manual REST calls to test. This doesn't test the full end-to-end flow.
-* Add development-focused code to *webfrontend* that allows the developer to send requests to a different instance of *mywebapi*. This complicates the *webfrontend* service.
+* Run ALL components locally, which requires a more powerful development machine with Docker installed, and potentially MiniKube.
+* Run ALL components in an isolated namespace on the Kubernetes cluster. Since *webfrontend* isn't changing, using an isolated namespace is a waste of cluster resources.
+* ONLY run *mywebapi*, and make manual REST calls to test. This type of testing doesn't test the full end-to-end flow.
+* Add development-focused code to *webfrontend* that allows the developer to send requests to a different instance of *mywebapi*. Adding this code complicates the *webfrontend* service.
 
 ### Set up your baseline
 First we'll need to deploy a baseline of our services. This deployment will represent the "last known good" so you can easily compare the behavior of your local code vs. the checked-in version. We'll then create a child space based on this baseline so we can test our changes to *mywebapi* within the context of the larger application.
 
 1. Clone the [Dev Spaces sample application](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. Checkout the remote branch *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
+1. Check out the remote branch *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
 1. Close any F5/debug sessions for both services, but keep the projects open in their Visual Studio windows.
 1. Switch to the Visual Studio window with the _mywebapi_ project.
 1. Right-click on the project in **Solution Explorer** and select **Properties**.
@@ -112,7 +112,7 @@ Do the following to create a new space:
     ```
 
 2. Set a breakpoint in this updated block of code (you may already have one set from before).
-3. Hit F5 to start the _mywebapi_ service. This will start the service in your cluster using the selected space, which in this case is _scott_.
+3. Hit F5 to start the _mywebapi_ service, which will start the service in your cluster using the selected space. The selected space in this case is _scott_.
 
 Here is a diagram that will help you understand how the different spaces work. The purple path shows a request via the _dev_ space, which is the default path used if no space is prepended to the URL. The pink path shows a request via the _dev/scott_ space.
 
@@ -125,7 +125,7 @@ To test your new version of *mywebapi* in conjunction with *webfrontend*, open y
 
 Now, add the "scott.s." part to the URL so it reads something like http://scott.s.dev.webfrontend.123456abcdef.eastus.aksapp.io and refresh the browser. The breakpoint you set in your *mywebapi* project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in *mywebapi* is running in the _dev/scott_ space.
 
-Once you have a _dev_ space which always contains your latest changes, and assuming your application is designed to take advantage of DevSpace's space-based routing as described in this tutorial section, hopefully it becomes easy to see how Dev Spaces can greatly assist in testing new features within the context of the larger application. Rather than having to deploy _all_ services to your private space, you can simply create a private space that derives from _dev_, and only "up" the services you're actually working on. The Dev Spaces routing infrastructure will handle the rest by utilizing as many services out of your private space as it can find, while defaulting back to the latest version running in the _dev_ space. And better still, _multiple_ developers can actively develop different services at the same time in their own space without disrupting each other.
+Once you have a _dev_ space that always contains your latest changes, and assuming your application is designed to take advantage of DevSpace's space-based routing as described in this tutorial section, hopefully it becomes easy to see how Dev Spaces can greatly assist in testing new features within the context of the larger application. Rather than having to deploy _all_ services to your private space, you can create a private space that derives from _dev_, and only "up" the services you're actually working on. The Dev Spaces routing infrastructure will handle the rest by utilizing as many services out of your private space as it can find, while defaulting back to the latest version running in the _dev_ space. And better still, _multiple_ developers can actively develop different services at the same time in their own space without disrupting each other.
 
 ### Well done!
 You've completed the getting started guide! You learned how to:

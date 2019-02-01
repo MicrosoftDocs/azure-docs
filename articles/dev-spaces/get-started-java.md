@@ -12,7 +12,7 @@ description: "Rapid Kubernetes development with containers and microservices on 
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 manager: "mmontwil"
 ---
-# Get Started on Azure Dev Spaces with Java
+# Get started on Azure Dev Spaces with Java
 
 In this guide, you will learn how to:
 
