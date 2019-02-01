@@ -1,6 +1,5 @@
 ---
 author: sptramer
-ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: sttramer
