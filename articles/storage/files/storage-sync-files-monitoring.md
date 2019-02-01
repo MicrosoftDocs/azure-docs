@@ -45,7 +45,7 @@ Metrics
   | Files synced | Count of files transferred (upload and download) | Sync group, Server endpoint |
   | Server heartbeat | Count of heartbeats received from the server | Registered servers |
 
-- To learn more, see [Azure Monitor](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-monitoring#azure-monitor) section. 
+- To learn more, see [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor) section. 
 
   > [!Note]  
   > The charts in the Storage Sync Service portal have a time range of 24 hours. To view different time ranges or dimensions, use Azure Monitor.
