@@ -11,7 +11,7 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: bwren
 ---
 # Configure Service Map in Azure
@@ -66,6 +66,7 @@ The following section list the supported operating systems for the Dependency ag
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 ### Red Hat Linux 6
 
@@ -81,6 +82,7 @@ The following section list the supported operating systems for the Dependency ag
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 ### Ubuntu Server
 

@@ -49,7 +49,7 @@ By default, your HTTP-triggered function is configured to accept any HTTP method
 
 1. Click **Save**.
 
-You can learn more about customizing HTTP functions in [Azure Functions HTTP bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+You can learn more about customizing HTTP functions in [Azure Functions HTTP bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### Test your API
 
