@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.author: wgries
 ms.component: files
 #Customer intent: As a IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
@@ -159,7 +159,7 @@ Just like with on-premises VSS snapshots, you can view the snapshots from your m
 
    ![Previous Versions tab](./media/storage-files-quick-create-use-windows/snapshot-windows-list.png)
 
-  ## Restore from a previous version
+## Restore from a previous version
 
 1. Select **Restore**. This action copies the contents of the entire directory recursively to the original location at the time the share snapshot was created.
 
