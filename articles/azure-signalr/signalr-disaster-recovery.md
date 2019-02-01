@@ -1,5 +1,5 @@
 ---
-title: Resiliency and disaster recovery
+title: Resiliency and disaster recovery in Azure SignalR Service
 description: An overview on how to set up multiple SignalR service instances to achieve resiliency and disaster recovery
 author: chenkennt
 ms.service: signalr
@@ -122,3 +122,7 @@ Please be noted no matter which patterns you choose to use, you'll need to conne
 
 Also due to the nature of SignalR connection (it's a long connection), clients will experience connection drops when there is a disaster and failover take place.
 You'll need to handle such cases at client side to make it transparent to your end customers. For example, do reconnect after a connection is closed.
+
+## Next steps
+
+In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-internals.md) for SignalR service internals.
