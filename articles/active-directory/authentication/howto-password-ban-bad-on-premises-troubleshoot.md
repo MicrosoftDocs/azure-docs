@@ -25,17 +25,33 @@ After the deployment of Azure AD Password Protection, troubleshooting may be req
 
 ## 
 
+## Weak passwords are not getting rejected as expected
+
+This may have several possible causes:
+
+1. Your DC agent(s) have not yet downloaded a policy. The symptom of this is 30001 events in the DC agent Admin event log.
+
+    Possible causes for this issue include:
+    1. Forest is not yet registered
+    2. Proxy is not yet registered
+    3. Network connectivity issues are preventing the Proxy service from communicating with Azure (check HTTP Proxy requires)
+        
+2. The password policy Enforce mode is still set to Audit. If this is the case, simply reconfigure it to Enforce using the Azure AD Password Protection portal.
+3. The password validation algorithm is actually working as expected.  Please see [How are passwords evaluated](concept-password-ban-bad#how-are-passwords-evaluated).
+
+## Directory Services Repair Mode
+
+If the domain controller is booted into Directory Services Repair Mode, the DC agent service detects this and will cause all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration.
+
 ## Emergency remediation
 
 If a situation occurs where the DC agent service is causing problems, the DC agent service may be immediately shut down. The DC agent password filter dll still attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
 
-## Directory Services Repair Mode
-
-If the domain controller is booted into Directory Services Repair Mode, the DC agent service detects this causing all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration.
+Another remediation measure would be to set the Enable mode to No in the Azure AD Password Protection portal. Once the updated policy has been downloaded, each DC agents service will go into a quiescent mode where all passwords are accepted as-is. For more information, see [Enforce mode](howto-password-ban-bad-on-premises-operations#enable-mode)
 
 ## Domain controller demotion
 
-It is supported to demote a domain controller that is still running the DC agent software. Administrators should be aware however that the DC agent software keeps running and continues enforcing the current password policy during the demotion procedure. The new local Administrator account password (specified as part of the demotion operation) is validated like any other password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure; however the validation of the new local Administrator account password by the DC agent software may be disruptive to pre-existing demotion operational procedures.
+It is supported to demote a domain controller that is still running the DC agent software. Administrators should be aware however that the DC agent software continues to enforce the current password policy during the demotion procedure. The new local Administrator account password (specified as part of the demotion operation) is validated like any other password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure; however the validation of the new local Administrator account password by the DC agent software may be disruptive to pre-existing demotion operational procedures.
 
 Once the demotion has succeeded, and the domain controller has been rebooted and is again running as a normal member server, the DC agent software reverts to running in a passive mode. It may then be uninstalled at any time.
 
@@ -75,8 +91,8 @@ If it is decided to uninstall the public preview software and cleanup all relate
 5. Manually remove the forest-level configuration state. The forest configuration state is maintained in a container in the Active Directory configuration naming context. It can be discovered and deleted as follows:
 
    ```Powershell
-   $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
-   Remove-ADObject -Recursive $passwordProtectonConfigContainer
+   $passwordProtectionConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
+   Remove-ADObject -Recursive $passwordProtectionConfigContainer
    ```
 
 6. Manually remove all sysvol related state by manually deleting the following folder and all of its contents:

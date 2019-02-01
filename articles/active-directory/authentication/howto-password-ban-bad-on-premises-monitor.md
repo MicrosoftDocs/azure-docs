@@ -268,7 +268,7 @@ Events are logged by the various Proxy components using the following ranges:
 | --- | --- |
 |Proxy service hosting process| 10000-19999|
 |Proxy service core business logic| 20000-29999|
-|Powershell operations| 30000-39999|
+|PowerShell cmdlets| 30000-39999|
 
 ## Proxy service text logging
 

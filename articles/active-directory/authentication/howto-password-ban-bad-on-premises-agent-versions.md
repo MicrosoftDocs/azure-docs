@@ -46,13 +46,13 @@ Changes:
    (This change was made to avoid false-positive "orphaned GPO" warnings.)
 
    > [!NOTE]
-   > No migration or sharing of data will be done between the old folder and the new folder. Older DC agent versions will continue to use the old location until upgraded to this version or later. Once all DC agents are running version XXX or later, the old sysvol folder may be manually deleted.
+   > No migration or sharing of data will be done between the old folder and the new folder. Older DC agent versions will continue to use the old location until upgraded to this version or later. Once all DC agents are running version 1.2.65.0 or later, the old sysvol folder may be manually deleted.
 
 * The DC agent and proxy service will now detect and delete mangled copies of their respective service connection points.
 * Each DC agent will periodically delete mangled and stale service connection points in its domain, for both DC agent and proxy service connection points. Both DC agent and proxy service connection points are considered stale if its heartbeat timestamp is older than seven days.
 * The DC agent will now renew the forest certificate as needed.
 * The Proxy service will now renew the forest certificate as needed.
-* Updates to password validation algorithm: the global banned password list and customer-specific banned password list (if configured) are combined prior to password validations. A given password may now be rejected (fail or audit-only) if it contains tokens from both the global and customer-specific list. The event log documentation has been updated to reflect this. [Monitor Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md)
+* Updates to password validation algorithm: the global banned password list and customer-specific banned password list (if configured) are combined prior to password validations. A given password may now be rejected (fail or audit-only) if it contains tokens from both the global and customer-specific list. The event log documentation has been updated to reflect this; please see [Monitor Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).
 * Performance and robustness fixes
 * Improved logging
 
