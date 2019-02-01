@@ -149,13 +149,13 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-1. Use the kinit command to change to the context of our desired user
+1. Use the kinit command to change to the context of our desired user.
 
    ```bash
    kinit sales_user1
    ```
 
-2. Open the hbase shell and scan the table `Customers`:
+2. Open the hbase shell and scan the table `Customers`.
 
    ```hbaseshell
    hbase shell
@@ -181,9 +181,7 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
      1002                              column=Name:First, timestamp=1548894897419, value=Robert
      1002                              column=Name:Last, timestamp=1548894897487, value=Stevens
     2 row(s) in 0.1000 seconds
-
     ```
-
 
 ### Access data as marketing_user1
 
@@ -201,13 +199,14 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
 
 2. Open the hbase shell and scan the table `Customers`:
 
-   ```hbaseshell
-   hbase shell
+    ```hbaseshell
+    hbase shell
     scan `Customers`
-   ```
+    ```
+
 3. Notice that the marketing user can only view the five columns of the `Contact` column-family.
 
-    ```hbaseshell output
+    ```hbaseshell
     ROW                                COLUMN+CELL
      1001                              column=Contact:Address, timestamp=1548894873820, value=313 133rd Place
      1001                              column=Contact:City, timestamp=1548895061523, value=Redmond
