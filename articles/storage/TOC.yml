@@ -23,3 +23,5 @@
     href: ../virtual-machines/windows/managed-disks-overview.md
   - name: Linux
     href: ../virtual-machines/linux/managed-disks-overview.md
+- name: Common Security Attributes
+  href: storage-security-attributes.md
