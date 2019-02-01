@@ -49,7 +49,7 @@ The service manifest declaratively defines the service type and version. It spec
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -92,7 +92,7 @@ For more information on how to configure the SetupEntryPoint, see [Configure the
 </Settings>
 ```
 
-**Resources**, such as endpoints, that are used by the service to be declared/changed without changing the compiled code.  Access to the resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest.  When an **Endpoint** resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly.  Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
+A Service Fabric Service **Endpoint** is an example of an Service Fabric Resource; A Service Fabric Resource can be declared/changed without changing the compiled code. Access to the Service Fabric Resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest. When an Endpoint Resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
 
 
 <!--

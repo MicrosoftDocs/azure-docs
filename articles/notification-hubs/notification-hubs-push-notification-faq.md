@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
 ---
 
@@ -76,7 +76,7 @@ Server SDKs are available for .NET, Java, Node.js, PHP, and Python. Notification
 
 ### Which client platforms do you support?
 
-Push notifications are supported for [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) and [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md), and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). For more information, go to the [Notification Hubs Getting Started tutorials] page.
+Push notifications are supported for [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) and Android, [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md), and [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). For more information, go to the [Notification Hubs Getting Started tutorials] page.
 
 ### Do you support text message, email, or web notifications?
 
@@ -140,7 +140,7 @@ Namespaces can be used for deployment grouping. They can also be used to represe
 
 #### Geo-distribution
 
-Geo-distribution is not always critical in push notification scenarios. Various PNSes (for example, APNS or GCM) that deliver push notifications to devices aren't evenly distributed.
+Geo-distribution is not always critical in push notification scenarios. Various PNSes (for example, APNS or FCM) that deliver push notifications to devices aren't evenly distributed.
 
 If you have an application that is used globally, you can create hubs in different namespaces by using the Notification Hubs service in different Azure regions around the world.
 
@@ -190,7 +190,7 @@ There will be a time period when devices with unopened apps won't receive notifi
 
 ### Is there audit log capability?
 
-All Notification Hubs management operations go to operation logs, which are exposed in the [Azure portal].
+Yes. All Notification Hubs management operations update the Azure Activity Log to which is exposed in the [Azure portal]. The Azure Activity Log offers insights into the operations performed on resources in your subscriptions. Using the Activity Log, you can determine the what, who, and when for any write operations (PUT, POST, DELETE) made for the resources in your subscription. You can also understand the status of the operations and other relevant properties. However. the Activity Log does not include read (GET) operation.
 
 ## Monitoring and troubleshooting
 
@@ -203,7 +203,7 @@ Azure Notification Hubs provides several features for troubleshooting, particula
 Azure Notification Hubs enables viewing telemetry data in the [Azure portal]. Details of the metrics are available on the [Notification Hubs Metrics] page.
 
 > [!NOTE]
-> Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNS for Apple or GCM for Google). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
+> Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNS for Apple or FCM for Google). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
 
 We also provide the capability to export the telemetry data programmatically (in the Standard tier). For details, see the [Notification Hubs Metrics sample].
 
