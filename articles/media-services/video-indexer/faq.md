@@ -94,6 +94,10 @@ Yes, only account admins can invite and uninvite people to their accounts, as we
 
 Your video or audio content that have public as its privacy setting can be accessed by anyone who has the link to your video or audio content and its insights. Your video or audio content that have private as its privacy setting can only be accessed by users that were invited to the account of the video or audio content. The privacy setting of your content also applies to the metadata and insights that Video Indexer extracts. You assign the privacy setting when you upload your video or audio file. You can also change the privacy setting after indexing.
 
+### Are the custom models that I build in my Video Indexer account available to other accounts?
+
+No, the custom models that you create in your account are not available to any other account. Video Indexer currently allows you to build custom [brands](https://docs.microsoft.com/en-us/azure/media-services/video-indexer/customize-brands-model-overview), [language](https://docs.microsoft.com/en-us/azure/media-services/video-indexer/customize-language-model-overview), and [person](https://docs.microsoft.com/en-us/azure/media-services/video-indexer/customize-person-model-overview) models in your account. These models will only be available in the account that you make the models in.
+
 ### What access does Microsoft have to my video or audio files that have been indexed and/or stored by Video Indexer and the metadata and insights that were extracted?
 
 Per the [Azure Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), you completely own your content, and Microsoft will only access your content and the metadata and insights that Video Indexer extracts from your content according to the OST and the Microsoft Privacy Statement.
