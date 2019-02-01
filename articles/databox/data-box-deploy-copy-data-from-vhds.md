@@ -48,10 +48,10 @@ The following table shows the UNC paths to the shares on your Data Box.
  
 |        Connection protocol           |             UNC path to the share                                               |
 |-------------------|--------------------------------------------------------------------------------|
-| SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Premium SSD>\file.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard HDD>\file.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard SSD>\file.vhd`<br>`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Ultra SSD>\file.vhd` |  
-| NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<Premium SSD>/file.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard HDD>/file.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard SSD>/file.vhd`<br>`//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Ultra SSD>/file.vhd` |
+| SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Premium SSD>\file1.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard HDD>\file2.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard SSD>\file3.vhd`<br>`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Ultra SSD>\file4.vhd` |  
+| NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<Premium SSD>/file1.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard HDD>/file2.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard SSD>/file3.vhd`<br>`//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Ultra SSD>/file4.vhd` |
 
-Depending on whether you are using SMB or NFS to connect to Data Box shares, the steps to connect are different. 
+Depending on whether you are using SMB or NFS to connect to Data Box shares, the steps to connect are different.
 
 > [!NOTE]
 > Connecting via REST is not supported for this feature.
@@ -62,7 +62,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your resource group.
 
-    > [!NOTE] 
+    > [!NOTE]
     > The credentials for all the shares for managed disks are identical.
 
     ![Get share credentials 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
@@ -133,8 +133,8 @@ Once you're connected to the data server, the next step is to copy data. Dependi
 > [!IMPORTANT]
 > - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs will be uploaded to Azure Storage account as page blobs and not managed disks.
 > - Only the fixed VHDs can be uploaded to create managed disks. VHDX files or dynamic and differencing VHDs are not supported.
-> -  Ensure that you copy data only to those precreated folders that correspond to the managed disk types supported by your subscription. For example, if Ultra SSDs are not supported by your subscription, and if you copy data to the Ultra SSD folder, then the upload to Azure will fail with an error.
-> -  You can only have one managed disk with a given name in a resource group across all the precreated folders. This implies that the VHDs uploaded to the precreated folders should have unique names.
+> -  Ensure that you copy data only to those precreated folders that correspond to the managed disk types supported by your subscription. For example, if Ultra SSDs are not supported by your subscription, and if you copy data to the Ultra SSD folder, the VHDs will be uploaded to Azure Storage account as page blobs and not managed disks.
+> -  You can only have one managed disk with a given name in a resource group across all the precreated folders. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an with already existing managed disk in a resource group.
 
 Wait for the copy jobs to finish. As some errors are only logged in the **Connect and copy** page, make sure that the copy jobs have finished with no errors before you go to the next step.
 
@@ -146,8 +146,6 @@ To ensure data integrity, checksum is computed inline as the data is copied. Onc
 
 Once the copy job is finished, you can go to **Prepare to ship**.
 
->[!NOTE]
-> Prepare to ship can't run while copy jobs are in progress.
 
 ## Next steps
 
