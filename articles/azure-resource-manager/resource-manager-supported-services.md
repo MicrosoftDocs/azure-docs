@@ -28,7 +28,7 @@ When deploying resources, you frequently need to retrieve information about the 
 * View valid locations for a resource type
 * View valid API versions for a resource type
 
-You can perform these steps through the portal, PowerShell, or Azure CLI.
+You can perform these steps through the Azure portal, Azure PowerShell, or Azure CLI.
 
 ## Azure Portal
 
@@ -287,6 +287,7 @@ West US
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md). 
+* To view the resource provider template schemas, see [Template reference](/azure/templates/).
 * To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).
