@@ -247,7 +247,30 @@ The DC agent service software installs a performance counter object named **Azur
 |Peak password filter request processing time |This counter displays the peak password filter request processing time since the last restart.|
 |Passwords accepted due to audit mode |This counter displays the total number of passwords that would normally have been rejected, but were accepted because the password policy was configured to be in audit-mode (since last restart).|
 
-# Proxy agent event logging
+## DC Agent discovery
+
+The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to display basic information about the various DC agents running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running DC agent service(s).
+
+An example output of this cmdlet is as follows:
+
+```PowerShell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+PasswordPolicyDateUTC : 2/16/2018 8:35:01 AM
+HeartbeatUTC          : 2/16/2018 8:35:02 AM
+```
+
+The various properties are updated by each DC agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
+
+The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
+
+If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that domain controller is not running, or has been uninstalled, or the machine was demoted and is no longer a domain controller.
+
+If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine has is not working properly.
+
+## Proxy service event logging
 
 The Proxy service emits a minimal set of events to the following event logs:
 
@@ -315,29 +338,6 @@ The various properties are updated by each Proxy service on an approximate hourl
 The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
 
 If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection Proxy on that machine is not running or has been uninstalled.
-
-## DC Agent discovery
-
-The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to display basic information about the various DC agents running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running DC agent service(s).
-
-An example output of this cmdlet is as follows:
-
-```PowerShell
-Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-PasswordPolicyDateUTC : 2/16/2018 8:35:01 AM
-HeartbeatUTC          : 2/16/2018 8:35:02 AM
-```
-
-The various properties are updated by each DC agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
-
-The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
-
-If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that domain controller is not running, or has been uninstalled, or the machine was demoted and is no longer a domain controller.
-
-If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine has is not working properly.
 
 # Next steps
 
