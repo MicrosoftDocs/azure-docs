@@ -97,6 +97,10 @@
     href: key-vault-group-permissions-for-apps.md
   - name: Configure firewalls and virtual networks
     href: key-vault-network-security.md
+  - name: Java development
+    items:
+    - name: Use the Spring Boot Starter
+      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -151,6 +155,8 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
   - name: Service Level Agreement (SLA)
     href: https://azure.microsoft.com/support/legal/sla/key-vault/
+  - name: Common Security Attributes
+    href: key-vault-security-attributes.md  
   - name: Service limits
     href: key-vault-service-limits.md  
   - name: Service status

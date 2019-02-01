@@ -58,7 +58,7 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 
 ## Create resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command.  
+Create a resource group with the [az group create](/cli/azure/group) command.  
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine. In this example, a resource group named *myResourceGroupVM* is created in the *eastus2* region. East US 2 is one of the Azure regions that supports availability zones.
 
