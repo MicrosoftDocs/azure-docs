@@ -75,7 +75,7 @@ Follow the instructions [here](../../virtual-machines/windows/capture-image-reso
 
 ### Create managed image from VM
 
-After creating an image from an existing managed disk VM using the script [here](../../virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell) , the following example script creates a similar Linux VM from an existing image object:
+After creating an image from an existing managed disk VM using the script [here](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , the following example script creates a similar Linux VM from an existing image object:
 
 ```powershell
 # Variables for common values
