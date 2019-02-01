@@ -13,15 +13,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2016
+ms.date: 01/31/2019
 ms.author: tomfitz
 
 ---
-# Manage Azure resources through portal
+# Manage Azure resources by using the Azure portal
 
-This article shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. To learn about deploying resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
-
+Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
+## Deploy Azure resources
+
+See [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 
 ## Manage resource groups
 
