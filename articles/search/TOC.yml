@@ -107,7 +107,7 @@
       href: search-api-migration.md
   - name: Designing Indexes
     items:
-    - name: Index definition
+    - name: Create a basic index
       href: search-what-is-an-index.md
     - name: Create an index (portal)
       href: search-create-index-portal.md
@@ -211,8 +211,6 @@
       href: search-filters-facets.md
     - name: Filter and OrderBy expression syntax
       href: how-to-odata-expression-syntax-for-azure-search.md
-    - name: OData support
-      href: how-to-support-for-odata.md
   - name: Relevance tuning
     items:
     - name: Add scoring profiles
@@ -251,7 +249,7 @@
     href: search-api-preview.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.search/searchservices
-  - name: Predefined skills (Preview) 
+  - name: Cognitive skills reference
     href: cognitive-search-predefined-skills.md
     items:
     - name: Key Phrase Extraction 
