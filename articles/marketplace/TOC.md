@@ -67,7 +67,7 @@
 
 ### [Manage offers](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Create offer](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [View offer status](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Update offer](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Delete offer](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -140,6 +140,17 @@
 #### [Create IoT Edge module technical assets](./cloud-partner-portal/iot-edge-module/cpp-create-technical-assets.md)
 #### [Publish IoT Edge module offer](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [Update existing offer](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
+
+### [Power BI App offer](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [Prerequisites](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [Create Power BI App offer](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [Offer Settings tab](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [Technical Info tab](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [Storefront Details tab](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [Contacts tab](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [Create Power BI App technical assets](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [Publish Power BI App offer](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [Update existing offer](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
 
 ### [SaaS application offer](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [Prerequisites](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
