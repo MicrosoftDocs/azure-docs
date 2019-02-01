@@ -88,10 +88,11 @@ This will return a JSON object where your existing IP filters are listed under t
             "ipMask": "6.6.6.6/6"
         },
         {
-            "action": "Reject",
+            "action": "Allow",
             "filterName": "GoodIP",
             "ipMask": "127.0.0.1"
-        }
+        },
+        ...
         ],
     },
 ...
