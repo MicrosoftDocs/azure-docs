@@ -202,7 +202,7 @@ Some examples include:
         n_cross_validations=5)
     ```
 
-There are three different `task` parameter values, which determine the list of algorithms to apply.  Use the `whitelist` or `blacklist` parameters to further modify the iterations.
+There are three different `task` parameter values, which determine the list of algorithms to apply.  Use the `whitelist` or `blacklist` parameters to further modify iterations with the available algorithms to include or exclude.
 * Classification
     * LogisticRegression
     * SGD
