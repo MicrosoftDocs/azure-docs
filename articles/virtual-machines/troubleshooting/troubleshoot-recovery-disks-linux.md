@@ -41,7 +41,7 @@ In the following examples, replace parameter names with your own values. Example
 ## Determine boot issues
 Examine the serial output to determine why your VM is not able to boot correctly. A common example is an invalid entry in `/etc/fstab`, or the underlying virtual hard disk being deleted or moved.
 
-Get the boot logs with [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log). The following example gets the serial output from the VM named `myVM` in the resource group named `myResourceGroup`:
+Get the boot logs with [az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics). The following example gets the serial output from the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
