@@ -65,6 +65,28 @@ To delete an IP filter rule, select one or more rules in the grid and click **De
 
 ![Delete an IoT Hub IP filter rule](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
 
+
+## Updating IP filter rules using Azure PowerShell
+
+Your IoT Hub's IP filters can be retreived and set through [Azure  PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.2.0). 
+
+```powershell
+# Get your IoT Hub resource using its name and its resource group name
+$iothubResource = Get-AzureRmResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
+
+# Access existing IP filter rules
+$iothubResource.Properties.ipFilterRules |% { Write-host $_ }
+
+# Construct a new IP filter
+$filter = @{'filterName'='MaliciousIP'; 'action'='Reject'; 'ipMask'='6.6.6.6/6'}
+
+# Add your new IP filter rule
+$iothubResource.Properties.ipFilterRules += $filter
+
+# Update your IoT Hub resource with your updated IP filters
+$iothubResource | Set-AzureRmResource -Force
+```
+
 ## IP filter rule evaluation
 
 IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.
