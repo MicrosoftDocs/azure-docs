@@ -11,20 +11,37 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/03/2019
 ---
 
 # Azure CLI samples for Azure SQL Database
 
+Azure SQL Database can be configured using <a href="/cli/azure">Azure CLI</a>.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
+
+## Single database & Elastic pools
+
 The following table includes links to Azure CLI script examples for Azure SQL Database.
 
-| |  |
-|---|---|
 |**Create a single database and an elastic pool**||
 | [Create a single database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example creates a single Azure SQL database and configures a server-level firewall rule. |
 | [Create elastic pools and move pooled databases](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example creates SQL elastic pools, and moves pooled Azure SQL databases, and changes compute sizes.|
 |**Scale a single database and an elastic pool**||
 | [Scale a single database](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example scales a single Azure SQL database to a different compute size after querying the size information for the database. |
 | [Scale an elastic pool](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example scales a SQL elastic pool to a different compute size.  |
-| [Create and manage a Managed Instance](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) | These CLI scripts show you have to create and manage a Managed Instance using the Azure CLI |
+
+## Managed Instance
+
+The following table includes links to Azure CLI script examples for Azure SQL Database - Managed Instance.
+
+| |  |
+|---|---|
+| [Create a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/) | This CLI script shows you how to create a Managed Instance. |
+| [Update a Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/) | This CLI scripts shows you how to manage a Managed Instance. |
+| [Move a database to another Managed Instance](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | This CLI script shows you how to restore a backup of a database from one instance to another. |
 |||
