@@ -11,7 +11,7 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 manager: craigg
-ms.date: 06/14/2018
+ms.date: 01/03/2019
 ---
 # Create an Elastic Job agent using PowerShell
 
