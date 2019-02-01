@@ -25,6 +25,7 @@ This error can be caused by one of the following reasons:
 1. A schedule isn't configured correctly
 2. The RunAs account may not be configured correctly
 3. A runbook may have run into errors
+4. The VMs may have been excluded
 
 ### Resolution
 
@@ -45,6 +46,12 @@ Review the following list for potential solutions to your problem or places to l
   * SequencedStartStop_Parent
 
 * Verify your [RunAs Account](../manage-runas-account.md) has proper permissions to the VMs you're trying to start or stop. To learn how to check the permissions on a resource, see [Quickstart: View roles assigned to a user using the Azure portal](../../role-based-access-control/check-access.md). You'll need to provide the Application Id for the service principal used by the Run As Account. You can retrieve this value by going to your Automation Account in the Azure portal, selecting **Run as accounts** under **Account Settings** and clicking the appropriate Run As Account.
+
+* VMs may not be started or stopped if they're being explicitly excluded. Excluded VMs at set in the **External_ExcludeVMNames** variable in the Automation Account the solution is deployed to. The following example, shows how you can query that value with PowerShell.
+
+  ```powershell-interactive
+  Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
+  ```
 
 ## <a name="some-vms-fail-to-startstop"></a>Scenario: Some of my VMs fail to start or stop
 
