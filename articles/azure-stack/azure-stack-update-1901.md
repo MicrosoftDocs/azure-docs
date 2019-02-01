@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/07/2019
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -30,7 +30,7 @@ This article describes the contents of the 1901 update package. The update inclu
 
 ## Build reference
 
-The Azure Stack 1901 update build number is **1.1901.x.xx**.
+The Azure Stack 1901 update build number is **1.1901.0.88**.
 
 ## Hotfixes
 
