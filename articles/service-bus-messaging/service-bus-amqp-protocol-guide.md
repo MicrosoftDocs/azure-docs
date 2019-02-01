@@ -3,9 +3,9 @@ title: AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide | Microsoft D
 description: Protocol guide to expressions and description of AMQP 1.0 in Azure Service Bus and Event Hubs
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: clemensv
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # AMQP 1.0 in Azure Service Bus and Event Hubs protocol guide
@@ -130,7 +130,7 @@ A "receive" call at the API level translates into a *flow* performative being se
 
 The lock on a message is released when the transfer is settled into one of the terminal states *accepted*, *rejected*, or *released*. The message is removed from Service Bus when the terminal state is *accepted*. It remains in Service Bus and is delivered to the next receiver when the transfer reaches any of the other states. Service Bus automatically moves the message into the entity's deadletter queue when it reaches the maximum delivery count allowed for the entity due to repeated rejections or releases.
 
-Even though the Service Bus APIs do not directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the "pull-style" interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a large number of link credits and then receive messages as they become available without any further interaction. Push is supported through the [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) or [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) property settings. When they are non-zero, the AMQP client uses it as the link credit.
+Even though the Service Bus APIs do not directly expose such an option today, a lower-level AMQP protocol client can use the link-credit model to turn the "pull-style" interaction of issuing one unit of credit for each receive request into a "push-style" model by issuing a large number of link credits and then receive messages as they become available without any further interaction. Push is supported through the [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) or [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) property settings. When they are non-zero, the AMQP client uses it as the link credit.
 
 In this context, it's important to understand that the clock for the expiration of the lock on the message inside the entity starts when the message is taken from the entity, not when the message is put on the wire. Whenever the client indicates readiness to receive messages by issuing link credit, it is therefore expected to be actively pulling messages across the network and be ready to handle them. Otherwise the message lock may have expired before the message is even delivered. The use of link-credit flow control should directly reflect the immediate readiness to deal with available messages dispatched to the receiver.
 
@@ -210,27 +210,27 @@ Any property that application needs to defines should be mapped to AMQP's `appli
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |Time to live for this message |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive) |
+| ttl |Time to live for this message |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
-| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
+| delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### properties
 
 | Field Name | Usage | API name |
 | --- | --- | --- |
-| message-id |Application-defined, free-form identifier for this message. Used for duplicate detection. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
+| message-id |Application-defined, free-form identifier for this message. Used for duplicate detection. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Application-defined user identifier, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
-| to |Application-defined destination identifier, not interpreted by Service Bus. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| subject |Application-defined message purpose identifier, not interpreted by Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| reply-to |Application-defined reply-path indicator, not interpreted by Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| content-type |Application-defined content-type indicator for the body, not interpreted by Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| to |Application-defined destination identifier, not interpreted by Service Bus. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Application-defined message purpose identifier, not interpreted by Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| reply-to |Application-defined reply-path indicator, not interpreted by Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| correlation-id |Application-defined correlation identifier, not interpreted by Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| content-type |Application-defined content-type indicator for the body, not interpreted by Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-encoding |Application-defined content-encoding indicator for the body, not interpreted by Service Bus. |Not accessible through the Service Bus API. |
-| absolute-expiry-time |Declares at which absolute instant the message expires. Ignored on input (header TTL is observed), authoritative on output. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
+| absolute-expiry-time |Declares at which absolute instant the message expires. Ignored on input (header TTL is observed), authoritative on output. |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | creation-time |Declares at which time the message was created. Not used by Service Bus |Not accessible through the Service Bus API. |
-| group-id |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
+| group-id |Application-defined identifier for a related set of messages. Used for Service Bus sessions. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | group-sequence |Counter identifying the relative sequence number of the message inside a session. Ignored by Service Bus. |Not accessible through the Service Bus API. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### Message annotations
 

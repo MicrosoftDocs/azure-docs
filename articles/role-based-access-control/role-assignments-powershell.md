@@ -25,7 +25,7 @@ ms.reviewer: bagovind
 To manage access, you need one of the following:
 
 * [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## List roles
 

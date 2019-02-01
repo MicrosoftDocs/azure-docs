@@ -11,27 +11,22 @@ ms.topic: article
 ---
 
 # Use InSpec for compliance automation of your Azure infrastructure
-[InSpec](https://www.chef.io/inspec/) is a free and open-source framework for testing and auditing your applications and infrastructure. InSpec works by comparing the actual state of your system with the desired state that you express in easy-to-read and easy-to-write InSpec code. InSpec detects violations and displays findings in the form of a report, but puts you in control of remediation. You can use InSpec to validate the state of your virtual machines running in Azure. You can also use InSpec to scan and validate the state of resources and resource groups inside of a subscription.
+[InSpec](https://www.chef.io/inspec/) is Chef’s open-source language for describing security & compliance rules that can be shared between software engineers, operations, and security engineers. InSpec works by comparing the actual state of your infrastructure with the desired state that you express in easy-to-read and easy-to-write InSpec code. InSpec detects violations and displays findings in the form of a report, but puts you in control of remediation.
+
+You can use InSpec to validate the state of resources and resource groups inside of a subscription, including virtual machines, network configurations, Azure Active Directory settings, and more.
 
 This article describes the benefits of using InSpec to make security and compliance easier on Azure.
 
 ## Make compliance easy to understand and assess
-With InSpec, you transform your requirements into versioned, executable, human-readable code. This allows you to organize your tests into composable profiles where you define and customize exceptions as needed.
+Compliance documentation written in spreadsheets or Word documents leave requirements open to interpretation. With InSpec, you transform your requirements into versioned, executable, human-readable code. Code replaces conversations about what should be assessed in favor of tangible tests with clear intent.
 
 ## Detect fleet-wide issues and prioritize their remediation
-The InSpec agentless detect mode enable you to quickly assess - at scale - your exposure level. Built-in metadata for impact/severity scoring helps determine what areas to focus on for remediation.
-
-## Inspect machines, data, and new SaaS APIs
-The InSpec cloud API compliance capabilities let you make both coarse and fine-grained assertions about your cloud compliance and report on it continuously.
+InSpec's agentless detect mode enable you to quickly assess - at scale - your exposure level. Built-in metadata for impact/severity scoring helps determine what areas to focus on for remediation. You can also write rules quickly in response to new vulnerabilities or regulations and roll them out immediately.
 
 ## Satisfy audits
-With InSpec, you can respond to audit questions at any time - not just at predetermined intervals such as quarterly or yearly. InSpec allows you to enter an audit cycle knowing your exact compliance posture, instead of being surprised by an auditor’s findings.
-
-## Reduce ambiguity and miscommunication regarding rules
-Documents leave configurations and processes open to interpretation. Executable code removes conversations about what should be assessed in favor of tangible tests with clear intent.
-
-## Keep up with rapidly changing threat and compliance landscapes
-InSpec allows you to write and publish detection code the same day and write new rules in quick response to new regulations. This means that changes in threats or regulations no longer equal emergencies.
+With InSpec, you can respond to audit questions at any time - not just at predetermined intervals such as quarterly or yearly. By continuously running InSpec tests, you enter an audit cycle knowing your exact compliance posture and history, rather than being surprised by an auditor’s findings.
 
 ## Next steps
-* [Create a Windows virtual machine on Azure using Chef](/azure/virtual-machines/windows/chef-automation)
+
+* Try InSpec in the Azure Cloud Shell
+[![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)

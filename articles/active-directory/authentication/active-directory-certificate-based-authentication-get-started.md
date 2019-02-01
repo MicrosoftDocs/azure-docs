@@ -4,13 +4,13 @@ description: Learn how to configure certificate-based authentication in your env
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 01/15/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
 
 ---

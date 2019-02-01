@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
 
@@ -183,3 +183,4 @@ You use the dimension filtering and splitting capabilities to view the total mem
 ## Next steps
 
 - Learn more about [custom metrics](metrics-custom-overview.md).
+

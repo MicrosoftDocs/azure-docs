@@ -7,7 +7,7 @@ author: heatherbshapiro
 ms.author: hshapiro
 
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
@@ -125,10 +125,10 @@ The script ends with ```run.complete()```, which marks the run as completed.  Th
 
 This example expands on the basic sklearn Ridge model from above. It does a simple parameter sweep to sweep over alpha values of the model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
 
-1. Create a training script. This code uses ```%%writefile%%``` to write the training code out to the script folder as ```train.py```.
+1. Create a training script `train.py`.
 
   ```python
-  %%writefile $project_folder/train.py
+  # train.py
 
   import os
   from sklearn.datasets import load_diabetes
@@ -179,10 +179,11 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
   
   ```
 
-2. The ```train.py``` script references ```mylib.py```. This file allows you to get the list of alpha values to use in the ridge model.
+2. The `train.py` script references `mylib.py` which allows you to get the list of alpha values to use in the ridge model.
 
   ```python
-  %%writefile $script_folder/mylib.py
+  # mylib.py
+  
   import numpy as np
 
   def get_alphas():
@@ -213,7 +214,31 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
   src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
   run = experiment.submit(src)
   ```
+
+## Cancel a run
+Ater a run is submitted, you can cancel it even if you have lost the object reference, as long as you know the experiment name and run id. 
+
+```python
+from azureml.core import Experiment
+exp = Experiment(ws, "my-experiment-name")
+
+# if you don't know the run id, you can list all runs under an experiment
+for r in exp.get_runs():  
+    print(r.id, r.get_status())
+
+# if you know the run id, you can "rehydrate" the run
+from azureml.core import get_run
+r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
   
+# check the returned run type and status
+print(type(r), r.get_status())
+
+# you can cancel a run if it hasn't completed or failed
+if r.get_status() not in ['Complete', 'Failed']:
+    r.cancel()
+```
+Please note that currently only ScriptRun and PipelineRun types support cancel operation.
+
 ## View run details
 
 ### Monitor run with Jupyter notebook widgets

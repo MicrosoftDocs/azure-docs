@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
 
 ---

@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
-ms.reviewer: thoroet 
+ms.reviewer: thoroet
+ms.lastreviewed: 09/17/2018
 ---
 
 # Add additional scale unit nodes in Azure Stack

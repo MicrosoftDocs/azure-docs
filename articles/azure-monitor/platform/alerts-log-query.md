@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Log alert queries in Azure Monitor
 [Alert rules based on Azure Monitor logs](alerts-unified-log.md) run at regular intervals, so you should ensure that they are written to minimize overhead and latency. This article provides recommendations on writing efficient queries for log alerts and a process for converting existing queries. 
@@ -21,7 +21,7 @@ For example the following query is scoped to the _SecurityEvent_ table and searc
 SecurityEvent | where EventID == 4624 
 ```
 
-Queries that start with `search` or `union` allow you to search across multiple multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
+Queries that start with `search` or `union` allow you to search across multiple columns in a table or even multiple tables. The following examples show multiple methods for searching the term _Memory_:
 
 ```Kusto
 search "Memory"
@@ -216,3 +216,4 @@ on Hour
 ## Next steps
 - Learn about [log alerts](alerts-log.md) in Azure Monitor.
 - Learn about [log queries](../log-query/log-query-overview.md).
+

@@ -229,7 +229,7 @@ To verify that the module is running, do the following:
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-6.png)  
 
-    The data is then pushed from the cloud share to the storage account. To view the data, go to the Storage Explorer to view the data.
+    The data is then pushed from the cloud share to the storage account. To view the data, go to the Storage Explorer.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-7.png) 
  

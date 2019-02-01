@@ -17,7 +17,7 @@ When an operation on an ExpressRoute circuit does not complete successfully, the
 
 ## Reset a circuit
 
-1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+1. Install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 2. Open your PowerShell console with elevated privileges, and connect to your account. Use the following example to help you connect:
 

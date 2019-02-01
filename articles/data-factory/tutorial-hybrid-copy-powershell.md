@@ -116,7 +116,7 @@ Install the latest version of Azure PowerShell if you don't already have it on y
 
 1. To install Azure PowerShell, run the MSI file. 
 
-For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 #### Log in to PowerShell
 

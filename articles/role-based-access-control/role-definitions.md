@@ -160,7 +160,7 @@ To view and work with data operations, you must have the correct versions of the
 
 | Tool  | Version  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 or later |
+| [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) | 5.6.0 or later |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 or later |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
 | [Azure SDK for Go](/go/azure/azure-sdk-go-install) | 15.0.0 or later |

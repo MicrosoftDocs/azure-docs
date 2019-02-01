@@ -175,7 +175,7 @@ You apply [tags](../../azure-resource-manager/resource-group-using-tags.md) to y
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-To apply tags to a virtual machine, use the [az resource tag](/cli/azure/resource#az_resource_tag) command. Any existing tags on the resource aren't retained.
+To apply tags to a virtual machine, use the [az resource tag](/cli/azure/resource) command. Any existing tags on the resource aren't retained.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -186,7 +186,7 @@ az resource tag -n myVM \
 
 ### Find resources by tag
 
-To find resources with a tag name and value, use the [az resource list](/cli/azure/resource#az_resource_list) command:
+To find resources with a tag name and value, use the [az resource list](/cli/azure/resource) command:
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name

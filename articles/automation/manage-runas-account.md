@@ -3,7 +3,7 @@ title: Manage Azure Automation Run As accounts
 description: This article describes how to manage your Run As accounts with PowerShell, or from the portal.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/12/2018
@@ -35,17 +35,16 @@ There are two types of Run As Accounts:
 
 To create or update a Run As account, you must have specific privileges and permissions. A Global Administrator/Co-Administrator can complete all the tasks. In a situation where you have separation of duties, the following table shows a listing of the tasks, the equivalent cmdlet and permissions needed:
 
-|Task|Cmdlet  |Minimum Permissions  |
-|---|---------|---------|
-|Create Azure AD Application|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Application Developer Role        |
-|Add a credential to the application.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Application administrator or GLOBAL ADMIN         |
-|Create and Get an Azure AD service principal|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Application administrator or GLOBAL ADMIN        |
-|Assign or get the RBAC role for the specified principal|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | User Access Administrator or Owner        |
-|Create or remove an Automation certificate|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributor on Resource Group         |
-|Create or remove an Automation connection|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributor on Resource Group |
+|Task|Cmdlet  |Minimum Permissions  |Where you set the permissions|
+|---|---------|---------|---|
+|Create Azure AD Application|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Application Developer Role<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations |
+|Add a credential to the application.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Application administrator or GLOBAL ADMIN<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations|
+|Create and Get an Azure AD service principal|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Application administrator or GLOBAL ADMIN        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home > Azure Active Directory > App Registrations|
+|Assign or get the RBAC role for the specified principal|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | User Access Administrator or Owner        | [Subscription](../role-based-access-control/role-assignments-portal.md)</br>Home > Subscriptions > \<subscription name\> - Access Control (IAM)|
+|Create or remove an Automation certificate|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributor on Resource Group         |Automation Account Resource Group|
+|Create or remove an Automation connection|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributor on Resource Group |Automation Account Resource Group|
 
-* An AD user account with permissions equivalent to the Contributor role for Microsoft.Automation resources as outlined in article [Role-based access control in Azure Automation](automation-role-based-access-control.md#contributor).  
-* Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD.
+<sup>1</sup> Non-admin users in your Azure AD tenant can [register AD applications](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) if the Azure AD tenant's **Users can register applications** option in **User settings** page is set to **Yes**. If the app registrations setting is set to **No**, the user performing this action must be a global administrator in Azure AD.
 
 If you aren't a member of the subscription’s Active Directory instance before you're added to the global administrator/co-administrator role of the subscription, you're added as a guest. In this situation, you receive a `You do not have permissions to create…` warning on the **Add Automation Account** page. Users who were added to the global administrator/co-administrator role first can be removed from the subscription's Active Directory instance and readded to make them a full User in Active Directory. To verify this situation, from the **Azure Active Directory** pane in the Azure portal, select **Users and groups**, select **All users** and, after you select the specific user, select **Profile**. The value of the **User type** attribute under the users profile should not equal **Guest**.
 
@@ -384,3 +383,4 @@ You can quickly resolve these Run As account issues by deleting and re-creating 
 
 * For more information about Service Principals, see [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md).
 * For more information about certificates and Azure services, see [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+

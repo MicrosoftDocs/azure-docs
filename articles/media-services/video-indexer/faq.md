@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/31/2019
 ms.author: juliako
 ---
 
@@ -24,18 +24,17 @@ Video Indexer is an artificial intelligence service that is part of Microsoft 
 
 ### What can I do with Video Indexer?
 
-Video Indexer can perform the following types of operations on media files:
+Some of the operations that Video Indexer can perform on media files include:
 
-* Identify and extract speech and identify speakers.
-* Identify and extract on-screen text in a video.
-* Identify and label objects in a video file.
-* Identify brands like Microsoft from audio tracks and on-screen text in a video.
-* Detect and recognize faces from a database of celebrities and a user-defined database of faces.
-* Extract keywords from video and audio content based on spoken and visual text.
-* Extract topics discussed but not necessarily explicitly mentioned in audio and video content based on spoken and visual text.
-* Create closed captions or subtitles from the audio track.
+* Identifying and extracting speech and identify speakers.
+* Identifying and extracting on-screen text in a video.
+* Detecting objects in a video file.
+* Identify brands (for example: Microsoft) from audio tracks and on-screen text in a video.
+* Detecting and recognizing faces from a database of celebrities and a user-defined database of faces.
+* Extracting topics discussed but not necessarily mentioned in audio and video content.
+* Creating closed captions or subtitles from the audio track.
 
-For more information, see [Overview](video-indexer-overview.md).
+For more information and more Video Indexer features, see [Overview](video-indexer-overview.md).
 
 ### How do I get started with Video Indexer?
 
@@ -99,6 +98,10 @@ Your video or audio content that have public as its privacy setting can be acces
 
 Per the [Azure Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), you completely own your content, and Microsoft will only access your content and the metadata and insights that Video Indexer extracts from your content according to the OST and the Microsoft Privacy Statement.
 
+### Are the custom models that I build in my Video Indexer account available to other accounts?
+
+ No, the custom models that you create in your account are not available to any other account. Video Indexer currently allows you to build custom [brands](customize-brands-model-overview.md), [language](customize-language-model-overview.md), and [person](customize-person-model-overview.md) models in your account. These models are only available in the account in which you created the models.
+  
 ### Is the content indexed by Video Indexer kept within the Azure region where I am using Video Indexer?
 
 Yes, the content and its insights are kept within the Azure region unless you have a manual configuration in your Azure subscription that uses multiple Azure regions. 

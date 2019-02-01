@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 780eec4d-7ee1-48b7-b29f-cd0b8cb41ed3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Get support and training and provide feedback for Azure Machine Learning service
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens

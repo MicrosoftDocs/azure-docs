@@ -54,7 +54,8 @@ Service endpoints provide the following benefits:
 
 - The feature is available only to virtual networks deployed through the Azure Resource Manager deployment model.
 - Endpoints are enabled on subnets configured in Azure virtual networks. Endpoints cannot be used for traffic from your premises to Azure services. For more information, see [Securing Azure service access from on-premises](#securing-azure-services-to-virtual-networks)
-- For Azure SQL, a service endpoint applies only to Azure service traffic within a virtual network's region. For Azure Storage and ADLS Gen 1, to support RA-GRS and GRS traffic, endpoints also extend to include paired regions where the virtual network is deployed. Learn more about [Azure paired regions.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- For Azure SQL, a service endpoint applies only to Azure service traffic within a virtual network's region. For Azure Storage, to support RA-GRS and GRS traffic, endpoints also extend to include paired regions where the virtual network is deployed. Learn more about [Azure paired regions.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- For ADLS Gen 1, the VNet Integration capability is only available for virtual networks within the same region.
 
 ## Securing Azure services to virtual networks
 

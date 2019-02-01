@@ -19,7 +19,6 @@ ms.author: ryanwi
 ---
 # Create your first Java Service Fabric Reliable Actors application on Linux
 > [!div class="op_single_selector"]
-> * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >

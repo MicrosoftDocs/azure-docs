@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 01/28/2019
 ms.author: bwren
 ---
 
@@ -52,7 +52,7 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 | Header | Description |
 |:--- |:--- |
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
-| Log-Type |Specify the record type of the data that is being submitted. Currently, the log type supports only alpha characters. It does not support numerics or special characters. The size limit for this parameter is 100 characters. |
+| Log-Type |Specify the record type of the data that is being submitted. The size limit for this parameter is 100 characters. |
 | x-ms-date |The date that the request was processed, in RFC 1123 format. |
 | time-generated-field |The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
 

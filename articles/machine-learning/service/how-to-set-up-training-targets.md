@@ -7,31 +7,32 @@ author: heatherbshapiro
 ms.author: hshapiro
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
 ---
 # Set up compute targets for model training
 
-With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-target). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  
+With Azure Machine Learning service, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-target). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
 You can create and manage a compute target using the Azure Machine Learning SDK, Azure portal, or Azure CLI. If you have compute targets that were created through another service (for example, an HDInsight cluster), you can use them by attaching them to your Azure Machine Learning service workspace.
  
-In this article, you learn how to use various compute targets.  The steps for all compute targets follow the same workflow:
+In this article, you learn how to use various compute targets for model training.  The steps for all compute targets follow the same workflow:
 1. __Create__ a compute target if you don’t already have one.
 2. __Attach__ the compute target to your workspace.
 3. __Configure__ the compute target so that it contains the Python environment and package dependencies needed by your script.
 
+
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 1.0.6.
 
-## Supported compute targets
+## Compute targets for training
 
 Azure Machine Learning service has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
 
-|Compute target| GPU acceleration | Automated<br/> hyperparameter tuning | Automated</br> machine learning | Pipeline friendly|
+|Compute target for training| GPU acceleration | Automated<br/> hyperparameter tuning | Automated</br> machine learning | Pipeline friendly|
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -152,7 +153,7 @@ You can use a system-built conda environment, an already existing Python environ
 
 Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for this scenario. This VM is a pre-configured data science and AI development environment in Azure. The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Create**: Create a DSVM before using it to train your model. To create this resource, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Create**: Create a DSVM before using it to train your model. To create this resource, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > Azure Machine Learning only supports virtual machines that run Ubuntu. When you create a VM or choose an existing VM, you must select a VM that uses Ubuntu.
@@ -378,5 +379,5 @@ See these notebooks for examples of training with various compute targets:
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
-* View the [RunConfiguration class](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
+* View the [RunConfiguration class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
 * [Use Azure Machine Learning service with Azure Virtual Networks](how-to-enable-virtual-network.md)

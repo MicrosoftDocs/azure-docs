@@ -8,7 +8,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
 
 ---
@@ -411,15 +411,19 @@ If you want to parse the Parquet files or write the data in Parquet format, set 
 }
 ```
 
-> [!IMPORTANT]
-> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the JRE 8 (Java Runtime Environment) on your IR machine. A 64-bit IR requires 64-bit JRE. You can find both versions from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Note the following points:
 
 * Complex data types are not supported (MAP, LIST).
 * White space in column name is not supported.
 * Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from Parquet file in any of these compressed formats except LZO - it uses the compression codec in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior.
+
+> [!IMPORTANT]
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
+
+For copy running on Self-hosted IR with Parquet file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK. 
+
+- **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
 
 ### Data type mapping for Parquet files
 
@@ -457,15 +461,19 @@ If you want to parse the ORC files or write the data in ORC format, set the `for
 }
 ```
 
-> [!IMPORTANT]
-> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the JRE 8 (Java Runtime Environment) on your IR machine. A 64-bit IR requires 64-bit JRE. You can find both versions from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Note the following points:
 
 * Complex data types are not supported (STRUCT, MAP, LIST, UNION).
 * White space in column name is not supported.
 * ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
+
+> [!IMPORTANT]
+> For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying ORC files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** on your IR machine. See the following paragraph with more details.
+
+For copy running on Self-hosted IR with ORC file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK. 
+
+- **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **To use OpenJDK**: it's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
 
 ### Data type mapping for ORC files
 

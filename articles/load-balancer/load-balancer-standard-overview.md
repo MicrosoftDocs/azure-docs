@@ -208,7 +208,7 @@ Standard Load Balancers are available with a 99.99% SLA.  Review the [Standard L
 
 Standard Load Balancer usage is charged.
 
-- Number of configured load-balancing and outbound rules rules (inbound NAT rules do not count against the total number of rules)
+- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules)
 - Amount of data processed inbound and outbound irrespective of rule. 
 
 For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.

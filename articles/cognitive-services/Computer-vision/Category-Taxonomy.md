@@ -7,7 +7,7 @@ author: KellyDF
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: reference
 ms.date: 12/19/2016
 ms.author: kefre

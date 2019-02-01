@@ -23,7 +23,7 @@ This guide explains your options to create Windows SQL Server VMs with Azure Pow
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This article requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+This article requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## Configure your subscription
 
@@ -95,9 +95,10 @@ $OSDiskName = $VMName + "OSDisk"
 ```
 
 ### Choose a SQL Server image
-Define the SQL Server image to use for the virtual machine.
 
-1. First, list all of the SQL Server image offerings with the **Get-AzureRmVMImageOffer** command:
+Use the following variables to define the SQL Server image to use for the virtual machine. 
+
+1. First, list out all of the SQL Server image offerings with the `Get-AzureRmVMImageOffer` command. This command lists current images that are available in the Azure Portal and also older images that can only be installed with PowerShell:
 
    ```PowerShell
    Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'

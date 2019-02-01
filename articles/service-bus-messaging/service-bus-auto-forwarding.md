@@ -3,9 +3,9 @@ title: Auto-forwarding Azure Service Bus messaging entities | Microsoft Docs
 description: How to chain a Service Bus queue or subscription to another queue or topic.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
-ms.author: spelluru
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # Chaining Service Bus entities with autoforwarding

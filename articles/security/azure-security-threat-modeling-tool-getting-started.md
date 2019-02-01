@@ -3,7 +3,7 @@ title: Getting Started - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: This is a deeper overview highlighting the Threat Modeling Tool in action.
 services: security
 documentationcenter: na
-author: rodsan
+author: jegeib
 manager: jegeib
 editor: jegeib
 

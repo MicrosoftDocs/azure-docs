@@ -87,7 +87,7 @@ The **\_IsBillable** property specifies whether ingested data is billable. Data 
 To get a list of computers sending billed data types, use the following query:
 
 > [!NOTE]
-> Use queries with `union withsource = tt *` sparingly as scans across data data types are expensive to execute. 
+> Use queries with `union withsource = tt *` sparingly as scans across data types are expensive to execute. 
 
 ```Kusto
 union withsource = tt * 

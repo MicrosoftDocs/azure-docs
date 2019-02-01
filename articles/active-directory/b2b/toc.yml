@@ -59,6 +59,8 @@
         href: add-users-information-worker.md
       - name: Google federation
         href: google-federation.md
+      - name: One-time passcode authentication
+        href: one-time-passcode.md
       - name: B2B sharing policies
         href: delegate-invitations.md
       - name: Allow or block invitations
