@@ -82,12 +82,7 @@ You can create an Azure Storage linked service by using the account key. It prov
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        },
+            },
             "accountKey": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -96,6 +91,11 @@ You can create an Azure Storage linked service by using the account key. It prov
                 }, 
                 "secretName": "<secretName>" 
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
     }
 }
 ```
