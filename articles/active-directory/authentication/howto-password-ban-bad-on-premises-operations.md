@@ -60,39 +60,6 @@ Affected end users may need to work with their IT staff to understand the new re
 
 This setting should normally be left in its default enabled (Yes) state. Configuring this setting to disabled (No) will cause all deployed Azure AD Password Protection DC agents to go into a quiescent mode where all passwords are accepted as-is, and no validation activities will be executed whatsoever (for example, not even audit events will be emitted).
 
-## Proxy discovery
-
-The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to display basic information about the various proxy services running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running proxy service(s). An example output of this cmdlet is as follows:
-
-```PowerShell
-Get-AzureADPasswordProtectionProxy
-ServerFQDN            : bplProxy.bplchild2.bplRootDomain.com
-Domain                : bplchild2.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 12/25/2018 6:35:02 AM
-```
-
-The various properties are updated by each DC agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
-
-The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
-
-## DC Agent discovery
-
-The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to display basic information about the various DC agents running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running DC agent service(s). An example output of this cmdlet is as follows:
-
-```PowerShell
-Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-PasswordPolicyDateUTC : 2/16/2018 8:35:01 AM
-Heartbeat             : 2/16/2018 8:35:02 AM
-```
-
-The various properties are updated by each DC agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
-
-The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
-
 ## Next steps
 
 [Monitoring for Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md)

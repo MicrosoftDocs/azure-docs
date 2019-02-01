@@ -21,7 +21,7 @@ ms.reviewer: jsimmons
 | Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-After the deployment of Azure AD Password Protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand where each service logs information and how to report on the use of Azure AD Password Protection.
+After the deployment of Azure AD Password Protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand various monitoring techniques, including where each service logs information and how to report on the use of Azure AD Password Protection.
 
 # DC agent event logging
 
@@ -295,6 +295,49 @@ In addtional, most of the Azure AD Password Protection Powershell cmdlets will w
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
 If a cmdlet error occurs and the cause and\or solution is not readily apparent, these text logs may also be consulted.
+
+## Proxy discovery
+
+The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to display basic information about the various Azure AD Password Protection Proxy services running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running Proxy service(s).
+
+An example output of this cmdlet is as follows:
+
+```PowerShell
+Get-AzureADPasswordProtectionProxy
+ServerFQDN            : bplProxy.bplchild2.bplRootDomain.com
+Domain                : bplchild2.bplRootDomain.com
+Forest                : bplRootDomain.com
+HeartbeatUTC          : 12/25/2018 6:35:02 AM
+```
+
+The various properties are updated by each Proxy service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
+
+The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
+
+If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection Proxy on that machine is not running or has been uninstalled.
+
+## DC Agent discovery
+
+The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to display basic information about the various DC agents running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running DC agent service(s).
+
+An example output of this cmdlet is as follows:
+
+```PowerShell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+PasswordPolicyDateUTC : 2/16/2018 8:35:01 AM
+HeartbeatUTC          : 2/16/2018 8:35:02 AM
+```
+
+The various properties are updated by each DC agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
+
+The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
+
+If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that domain controller is not running, or has been uninstalled, or the machine was demoted and is no longer a domain controller.
+
+If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine has is not working properly.
 
 # Next steps
 
