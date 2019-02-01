@@ -12,7 +12,7 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.custom: sql-data-warehouse
-ms.date: 04/01/2018
+ms.date: 09/24/2018
 ---
 # Conditional Access (MFA) with Azure SQL Database and Data Warehouse  
 
