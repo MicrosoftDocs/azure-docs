@@ -4,8 +4,8 @@ titleSuffix: Azure Machine Learning Studio
 description: How to prepare your trained model for deployment as a web service by converting your Machine Learning Studio training experiment to a predictive experiment.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
-ms.topic: article
+ms.subservice: studio
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

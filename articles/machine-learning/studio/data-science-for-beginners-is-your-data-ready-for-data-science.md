@@ -5,7 +5,7 @@ description: Four criteria your data needs to meet to be ready for data science.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: garyericson
 ms.author: garye

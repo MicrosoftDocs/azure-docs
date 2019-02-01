@@ -229,7 +229,7 @@ Yes. Learn more about using:
 VNet peering (or virtual network peering) enables you to connect virtual networks. A VNet peering connection between virtual networks enables you to route traffic between them privately through IPv4 addresses. Virtual machines in the peered VNets can communicate with each other as if they are within the same network. These virtual networks can be in the same region or in different regions (also known as Global VNet Peering). VNet peering connections can also be created across Azure subscriptions.
 
 ### Can I create a peering connection to a VNet in a different region?
-Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions. You cannot globally peer from Azure public regions to National clouds. Global peering is not currently available in national clouds.
+Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions and China cloud regions. You cannot globally peer from Azure public regions to National cloud regions. Global peering is not currently available in Government cloud.
 
 ### Can I enable VNet Peering if my virtual networks belong to subscriptions within different Azure Active Directory tenants?
 Yes. It is possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directory tenants. You can do this via PowerShell or CLI. Portal is not yet supported.
