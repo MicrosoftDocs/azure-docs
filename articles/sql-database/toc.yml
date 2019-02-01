@@ -5,7 +5,7 @@
   - name: What is SQL Database
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
-    href: sql-database-paas-vs-sql-server-iaas.md  
+    href: sql-database-paas-vs-sql-server-iaas.md
 - name: Quickstarts
   expanded: true
   items:
@@ -544,6 +544,12 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
+    - name: Java
+      items:
+      - name: Use Spring Data JDBC
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server 
+      - name: Use Spring Data JPA
+        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
   - name: Design applications
     items:
     - name: Design for disaster recovery

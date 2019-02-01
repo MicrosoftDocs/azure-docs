@@ -103,7 +103,7 @@ The first block of code above constructs a Map object. You can see [create a map
 
 A point is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) of [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) the class. The second block of code initializes the radius value for the HTML slider element and then constructs and wraps a point object in a [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) class object.
 
-The third code block creates a function that takes the value from the HTML range slider element and changes the radius value using the shape class [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#addproperty) method.
+The third code block creates a function that takes the value from the HTML range slider element and changes the radius value using the shape class [addProperty](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) method.
 
 In the fourth block of code, a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. The point is then added to data source.
 

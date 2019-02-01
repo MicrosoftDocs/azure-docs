@@ -192,7 +192,10 @@
         - name: 1 - Get started
           href: ../dev-spaces/get-started-java.md
           maintainContext: true
-        - name: 2 - Team development
+        - name: 2 - Multi-service development
+          href: ../dev-spaces/multi-service-java.md
+          maintainContext: true
+        - name: 3 - Team development
           href: ../dev-spaces/team-development-java.md
           maintainContext: true
       - name: .NET Core (VS Code & CLI)
@@ -200,7 +203,10 @@
         - name: 1 - Get started
           href: ../dev-spaces/get-started-netcore.md
           maintainContext: true
-        - name: 2 - Team development
+        - name: 2 - Multi-service development
+          href: ../dev-spaces/multi-service-netcore.md
+          maintainContext: true
+        - name: 3 - Team development
           href: ../dev-spaces/team-development-netcore.md
           maintainContext: true
       - name: .NET Core (Visual Studio 2017)
@@ -208,7 +214,10 @@
         - name: 1 - Get started
           href: ../dev-spaces/get-started-netcore-visualstudio.md
           maintainContext: true
-        - name: 2 - Team development
+        - name: 2 - Multi-service development
+          href: ../dev-spaces/multi-service-netcore-visualstudio.md
+          maintainContext: true
+        - name: 3 - Team development
           href: ../dev-spaces/team-development-netcore-visualstudio.md
           maintainContext: true
       - name: Node.js (VS Code & CLI)
@@ -216,7 +225,10 @@
         - name: 1 - Get started
           href: ../dev-spaces/get-started-nodejs.md
           maintainContext: true
-        - name: 2 - Team development
+        - name: 2 - Multi-service development
+          href: ../dev-spaces/multi-service-nodejs.md
+          maintainContext: true
+        - name: 3 - Team development
           href: ../dev-spaces/team-development-nodejs.md
           maintainContext: true
     - name: Run applications with Helm
