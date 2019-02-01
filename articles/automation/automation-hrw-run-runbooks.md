@@ -183,12 +183,12 @@ Jobs are handled slightly different on Hybrid Runbook Workers than they're when 
 
 ## Run only signed Runbooks
 
-Hybrid Runbook Workers can be configured to run only signed runbooks with some configuration. The following section describes how to set up your Hybrid Runbook Workers to run signed [PowerShell runbooks](#powershell-runbooks) and [Python runbooks](#python-runbooks)
+Hybrid Runbook Workers can be configured to run only signed runbooks with some configuration. The following section describes how to set up your Hybrid Runbook Workers to run signed [Windows Hybrid Runbook Worker](#windows-hybrid-runbook-worker) and [Linux Hybrid Runbook Worker](#linux-hybrid-runbook-worker)
 
 > [!NOTE]
 > Once you have configured a Hybrid Runbook Worker to run only signed runbooks, runbooks that have **not** been signed will fail to execute on the worker.
 
-### PowerShell runbooks
+### Windows Hybrid Runbook Worker
 
 #### Create Signing Certificate
 
@@ -243,9 +243,9 @@ Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 
 When the runbook has been signed, it must be imported into your Automation Account and published with the signature block. To learn how to import runbooks, see [Importing a runbook from a file into Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
 
-### Python runbooks
+### Linux Hybrid Runbook Worker
 
-To sign Python runbooks, your Hybrid Runbook Worker needs to have the [GPG](https://gnupg.org/index.html) executable present on the machine.
+To sign runbooks on a Linux Hybrid Runbook Worker, your Hybrid Runbook Worker needs to have the [GPG](https://gnupg.org/index.html) executable present on the machine.
 
 #### Create a GPG keyring and keypair
 
