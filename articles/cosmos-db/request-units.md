@@ -53,7 +53,7 @@ While you estimate the number of RUs per second to provision, consider the follo
     - The size of the result set.
     - Projections.
 
-    Azure Cosmos DB guarantees that the same query on the same data always costs the same number of RUs on repeat executions.
+Azure Cosmos DB guarantees that the same query on the same data always costs the same number of RUs on repeat executions.
 
 * **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the request charge header to better understand how much RU capacity each operation consumes.
 
