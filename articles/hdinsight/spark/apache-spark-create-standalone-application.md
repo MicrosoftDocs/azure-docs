@@ -30,8 +30,11 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Use IntelliJ to develop a Scala Maven application
 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
 ## Prerequisites
 
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * [Oracle Java Development kit](https://www.azul.com/downloads/azure-only/zulu/).  This tutorial uses Java version 8.0.202.
 * A Java IDE. This article uses [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 * Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
