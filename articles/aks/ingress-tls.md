@@ -44,7 +44,7 @@ helm install --name aks-ingress \
   stable/nginx-ingress
 ```
 
-During the installation, an Azure public IP address is created for the ingress controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
+During the installation, an Azure public IP address is created for the ingregit ss controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
 
 To get the public IP address, use the `kubectl get service` command. It takes a few minutes for the IP address to be assigned to the service.
 
@@ -98,32 +98,63 @@ The ingress controller is now accessible through the FQDN that is displayed by t
 
 The NGINX ingress controller supports TLS termination. There are several ways to retrieve and configure certificates for HTTPS. This article demonstrates using [cert-manager][cert-manager], which provides automatic [Lets Encrypt][lets-encrypt] certificate generation and management functionality.
 
-> [!NOTE]
-> This article uses the `staging` environment for Let's Encrypt. In production deployments, use `letsencrypt-prod` and `https://acme-v02.api.letsencrypt.org/directory` in the resource definitions and when installing the Helm chart.
+To install cert-manager controller with helm, use the [latest version of helm][helm-lastest]. For RBAC-enabled clusters, make sure that [Tiller is configured to create resources as a cluster administrator][use-helm]. For more detailed installation instructions and other methods of installation, visit the [cert-manager install docs][cert-manager-install].
 
-To install the cert-manager controller in an RBAC-enabled cluster, use the following `helm install` command:
+Create a new namespace called `cert-manager`. Changing the name of this namespace will require modifications when installing the helm chart.
 
-```console
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer
+```bash
+kubectl create namespace cert-manager
 ```
 
-If your cluster is not RBAC enabled, instead use the following command:
+As part of the installation, a [ValidatingWebhookConfiguration][admission-webhook] resource needs to be deployed to validate Issuer, ClusterIssuer and Certificate resources. For more information about this webhoook, visit [cert-manager's Webhook component][cert-manager-webhook]. In order to install this resource, resource validation of the namespace must be disabled.
+
+```bash
+kubectl label namespace cert-manager certmanager.k8s.io/disable-validation=true
+```
+
+Cert-manager uses [CustomResourceDefinitions (CRD)][crd] to configure Certificate Authorities and request certificates. Install these CRDs with the following command:
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
+```
+
+Update Helm's local repository cache:
+
+```bash
+helm repo update
+```
+
+To install the cert-manager controller, use the following `helm install` command (for clusters without RBAC enabled include the flags `--set rbac.create=false` and `--set serviceAccount.create=false`):
+
+```bash
+helm install \
+  --name cert-manager \
+  --namespace cert-manager \
+  --version v0.6.0 \
+  stable/cert-manager
+```
+
+Verify that the both pods `cert-manager` and `webhook` are running, and that the job `webhook-ca-sync` has completed. It might take a couple of minutes to get to that state. In case of errors, please refer to [cert-manager troubleshooting guide][cert-manager-troubleshooting].
+
+```bash
+kubectl get pods --namespace cert-manager
+```
 
 ```console
-helm install stable/cert-manager \
-    --namespace kube-system \
-    --set ingressShim.defaultIssuerName=letsencrypt-staging \
-    --set ingressShim.defaultIssuerKind=ClusterIssuer \
-    --set rbac.create=false \
-    --set serviceAccount.create=false
+NAME                                    READY     STATUS      RESTARTS   AGE
+cert-manager-5bfb76677b-mschb           1/1       Running     0          53s
+cert-manager-webhook-5c745c69f7-ghj82   1/1       Running     0          53s
+cert-manager-webhook-ca-sync-c5tbq      0/1       Completed   1          53s
 ```
+
 
 For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
 
 ## Create a CA cluster issuer
+
+> [!NOTE]
+> This article uses the `staging` environment for Let's Encrypt. In production deployments, use `letsencrypt-prod` and `https://acme-v02.api.letsencrypt.org/directory` in the resource definitions and when installing the Helm chart.
+
 
 Before certificates can be issued, cert-manager requires an [Issuer][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] resource. These Kubernetes resources are identical in functionality, however `Issuer` works in a single namespace, and `ClusterIssuer` works across all namespaces. For more information, see the [cert-manager issuer][cert-manager-issuer] documentation.
 
@@ -350,12 +381,17 @@ You can also:
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
 [helm-latest]: https://github.com/helm/helm/releases/latest
 [cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
+[cert-manager-install]: https://cert-manager.readthedocs.io/en/latest/getting-started/install.html
 [ingress-shim]: http://docs.cert-manager.io/en/latest/reference/ingress-shim.html
 [cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html
 [cert-manager-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/issuers.html
+[cert-manager-webhook]: https://cert-manager.readthedocs.io/en/latest/getting-started/webhook.html
+[cert-manager-troubleshooting]: https://cert-manager.readthedocs.io/en/latest/getting-started/troubleshooting.html
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
+[crd]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/
+[admission-webhook]: https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#admission-webhooks
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
