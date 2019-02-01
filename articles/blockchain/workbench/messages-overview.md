@@ -111,7 +111,7 @@ The request requires the following fields:
 | requestId            | Client supplied GUID |
 | userChainIdentifier  | Address of the user that was created on the blockchain network. In Ethereum, this address is the user’s **on chain** address. |
 | applicationName      | Name of the application |
-| version              | Version of the application. Required if you have multiple versionss of the application enabled. Otherwise, version is optional. For more information on application versioning, see [Azure Blockchain Workbench application versioning](version-app.md). |
+| version              | Version of the application. Required if you have multiple versions of the application enabled. Otherwise, version is optional. For more information on application versioning, see [Azure Blockchain Workbench application versioning](version-app.md). |
 | workflowName         | Name of the workflow |
 | parameters           | Parameters input for contract creation |
 | connectionId         | Unique identifier for the blockchain connection |
