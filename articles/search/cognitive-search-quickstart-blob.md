@@ -144,7 +144,7 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
 
 + Default name is *azureblob-index* based on the data source type. 
 
-Default fields are based on the original source data field (`content`), plus the output fields (`people`, `organizations`, and `locations`) created by the cognitive pipeline. Default data types are inferred from metadata and data sampling.
++ Default fields are based on the original source data field (`content`), plus the output fields (`people`, `organizations`, and `locations`) created by the cognitive pipeline. Default data types are inferred from metadata and data sampling.
 
 + Default key is *metadata_storage_path* (this field contains unique values).
 
