@@ -196,7 +196,7 @@
 - name: Reference
   items:
   - name: Algorithm & module reference
-    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help.md
+    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
   - name: Azure PowerShell modules
     href: powershell-module.md
   - name: Web service error codes
