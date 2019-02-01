@@ -1,14 +1,11 @@
 ---
 title: Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI
 description: This article describes how to create and manage Azure Database for PostgreSQL firewall rules using Azure CLI command line.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 05/4/2018
 ---
 # Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI
@@ -67,7 +64,7 @@ az postgres server firewall-rule show --resource-group myresourcegroup --server-
 Upon success, the command output lists the details of the firewall rule you have specified, by default in JSON format. If there is a failure, the output shows an error message instead.
 
 ## Delete firewall rule
-To revoke access for an IP range to the server, delete an existing firewall rule by executing the [az postgres server firewall-rule delete](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete) command. Provide the name of the existing firewall rule.
+To revoke access for an IP range to the server, delete an existing firewall rule by executing the [az postgres server firewall-rule delete](/cli/azure/postgres/server/firewall-rule) command. Provide the name of the existing firewall rule.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange
 ```

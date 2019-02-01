@@ -7,7 +7,7 @@ documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
@@ -101,7 +101,6 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     JsonObject first_result = (JsonObject)results.get(0);
     String resultURL = first_result.get("thumbnailUrl").getAsString();
     ```
-4. Remember to remove your subscription key from the application code.
 
 ## JSON response
 

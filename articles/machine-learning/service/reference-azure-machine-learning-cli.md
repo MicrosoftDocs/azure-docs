@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about the Azure Machine Learning CLI extension for the Azure CLI. The Azure CLI is a cross-platform command-line utility that enables you to work with resources in the Azure cloud. The Machine Learning extension enables you to work with the Azure Machine Learning Service. 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens
@@ -48,7 +48,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 To install the Machine Learning CLI extension, use the following command:
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.2-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.6-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 When prompted, select `y` to install the extension.
@@ -86,20 +86,8 @@ The following commands demonstrate how to use the CLI to manage resources used b
     ```azurecli-interactive
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
-
-+ Create a managed compute target for distributed training:
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
-    ```
-
-* Update a managed compute target:
-
-    ```azurecli-interactive
-    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
-    ```
-
-* Attach an unmanaged compute target for training or deployment:
+    
+* Attach an AKS cluster
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
@@ -115,11 +103,15 @@ The following commands demonstrate how to use the CLI to work with experiments:
     az ml project attach --experiment-name myhistory
     ```
 
-* Start a run of your experiment. When using this command, specify a compute target. In this example, `local` uses the local computer to train the model using the `train.py` script:
+* Start a run of your experiment. When using this command, specify the name of the `.runconfig` file that contains the run configuration. The compute target uses the run configuration to create the training environment for the model. In this example, the run configuration is loaded from the `./aml_config/myrunconfig.runconfig` file.
 
     ```azurecli-interactive
-    az ml run submit -c local train.py
+    az ml run submit -c myrunconfig train.py
     ```
+
+    Default `.runconfig` files named `docker.runconfig` and `local.runconfig` are created when you attach a project using the `az ml project attach` command. You may need to modify these before using them to train a model. 
+
+    You can also create a run configuration programmatically using the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) class. Once created, you can then use the `save()` method to create the `.runconfig` file.
 
 * View a list of submitted experiments:
 

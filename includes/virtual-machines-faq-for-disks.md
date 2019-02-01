@@ -96,6 +96,10 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
+**Can I co-locate unmanaged and managed disks on the same VM?**
+
+No.
+
 **If I create a 128-GB disk and then increase the size to 130 GiB, will I be charged for the next disk size (256 GiB)?**
 
 Yes.
@@ -119,10 +123,6 @@ No. You can't update the computer name property. The new VM inherits it from the
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
 * [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**Can I co-locate unmanaged and managed disks on the same VM?**
-
-No.
 
 **When creating a disk from a blob, is there any continually existing relationship with that source blob?**
 
@@ -184,7 +184,7 @@ No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for 
 
 ## Migrate to Managed Disks
 
-**Is there any impact of migration on the Managed Disks performance?
+**Is there any impact of migration on the Managed Disks performance?**
 
 Migration involves movement of the Disk from one Storage location to another. This is orchestrated via background copy of data which can take several hours to complete, typically less than 24Hrs depending on the amount of data in the disks. During that time your application can experience higher than usual read latency as some reads can get redirected to the original location, and can take longer to complete. There is no impact on write latency during this period.  
 

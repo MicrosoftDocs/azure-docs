@@ -1,18 +1,15 @@
 ---
-title: Excel add-in for web services - Azure Machine Learning Studio | Microsoft Docs
+title: Excel add-in for web services
+titleSuffix: Azure Machine Learning Studio
 description: How to use Azure Machine Learning Web services directly in Excel without writing any code.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 02/01/2018
 ---
 # Excel Add-in for Azure Machine Learning Studio web services

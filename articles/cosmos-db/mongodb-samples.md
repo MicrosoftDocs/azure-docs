@@ -1,19 +1,16 @@
 ---
-title: Use MongoDB APIs to build an Azure Cosmos DB app
-description: A tutorial that creates an online database using the Azure Cosmos DB APIs for MongoDB.
-keywords: mongodb examples
-services: cosmos-db
-author: SnehaGunda
-
+title: Use Azure Cosmos DB's API for MongoDB to build a Node.js app
+description: A tutorial that creates an online database using the Azure Cosmos DB's API for MongoDB.
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 03/23/2018
-ms.author: sngun
+ms.date: 12/26/2018
+author: sivethe
+ms.author: sivethe
 
 ---
-# Build an Azure Cosmos DB: API for MongoDB app using Node.js
+# Build an app using Node.js and Azure Cosmos DB's API for MongoDB 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -22,18 +19,18 @@ ms.author: sngun
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
-This example shows you how to build an Azure Cosmos DB: API for MongoDB console app using Node.js.
+This example shows you how to build a console app using Node.js and Azure Cosmos DB's API for MongoDB.
 
 To use this example, you must:
 
-* [Create](create-mongodb-dotnet.md#create-account) an Azure Cosmos DB: API for MongoDB account.
-* Retrieve your MongoDB [connection string](connect-mongodb-account.md) information.
+* [Create](create-mongodb-dotnet.md#create-account) a Cosmos account configured to use Azure Cosmos DB's API for MongoDB.
+* Retrieve your [connection string](connect-mongodb-account.md) information.
 
 ## Create the app
 
 1. Create a *app.js* file and copy & paste the code below.
 
-    ```nodejs
+    ```javascript
     var MongoClient = require('mongodb').MongoClient;
     var assert = require('assert');
     var ObjectId = require('mongodb').ObjectID;
@@ -117,7 +114,7 @@ To use this example, you must:
 
     Original:
 
-    ```nodejs
+    ```javascript
     MongoClient.connect(url, function(err, client) {
     assert.equal(null, err);
     var db = client.db('familiesdb');
@@ -135,7 +132,7 @@ To use this example, you must:
     
     Should be replaced with:
 
-    ```nodejs
+    ```javascript
     MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
     insertDocument(db, function() {
@@ -161,11 +158,14 @@ To use this example, you must:
     >
     >
    
-    ```nodejs
+    ```javascript
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
     ```
      
 3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**
 
 ## Next steps
-* Learn how to [use MongoChef](mongodb-mongochef.md) with your Azure Cosmos DB: API for MongoDB account.
+
+- Learn how to [use Studio 3T](mongodb-mongochef.md) with Azure Cosmos DB's API for MongoDB.
+- Learn how to [use Robo 3T](mongodb-robomongo.md) with Azure Cosmos DB's API for MongoDB.
+- Explore MongoDB [samples](mongodb-samples.md) with Azure Cosmos DB's API for MongoDB.

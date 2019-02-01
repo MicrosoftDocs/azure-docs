@@ -2,16 +2,15 @@
 title: Azure Cosmos DB compliance 
 description: This article describes certification coverage for Azure Cosmos DB compliance offerings.
 author: dharmas-cosmos
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: dharmas-cosmos
+ms.author: dharmas
 ms.reviewer: sngun
 
 ---
 
-# Azure Cosmos DB compliance
+# Compliance in Azure Cosmos DB 
 
 Azure Cosmos DB is available in all Azure regions. Microsoft makes five distinct Azure cloud environments available to customers:
 

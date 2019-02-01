@@ -1,5 +1,5 @@
 ---
-title: Azure Batch rendering overview
+title: Rendering overview - Azure Batch
 description: Introduction of using Azure for rendering and an overview of Azure Batch rendering capabilities
 services: batch
 author: mscurrell

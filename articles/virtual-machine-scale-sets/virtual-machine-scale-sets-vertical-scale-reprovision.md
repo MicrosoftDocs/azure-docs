@@ -116,7 +116,7 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 For more information on how to create alerts, see the following articles:
 
-* [Azure Monitor PowerShell quickstart samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
+* [Azure Monitor PowerShell quickstart samples](../azure-monitor/platform/powershell-quickstart-samples.md)
 * [Azure Monitor Cross-platform CLI quickstart samples](../azure-monitor/platform/cli-samples.md)
 
 ## Summary

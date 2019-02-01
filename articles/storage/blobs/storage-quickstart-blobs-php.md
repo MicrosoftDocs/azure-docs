@@ -39,14 +39,14 @@ This command clones the repository to your local git folder. To open the PHP sam
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create the **BlobRestProxy** instance for your application. It is recommended to store these identifiers within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Replace the **youraccountname** and **youraccountkey** values with your account name and key.
 
-# [Linux] (#tab/linux)
+# [Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# [Windows] (#tab/windows)
+# [Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>

@@ -1,19 +1,15 @@
 ---
-title: 'Step 1: Create a workspace - Azure Machine Learning Studio | Microsoft Docs'
+title: 'Step 1: Create a workspace'
+titleSuffix: Azure Machine Learning Studio
 description: 'Step 1 of the Develop a predictive solution walkthrough: Learn how to set up a new Azure Machine Learning Studio workspace.'
 services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
 ms.date: 03/23/2017
 ---
 # Walkthrough Step 1: Create an Azure Machine Learning Studio workspace

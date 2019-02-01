@@ -7,7 +7,7 @@ author: tarcher
 services: devops
 custom: jenkins
 ms.date: 07/31/2018
-ms.component: common
+ms.subservice: common
 ---
 
 # Using Azure Storage with a Jenkins continuous integration solution

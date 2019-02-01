@@ -3,7 +3,7 @@ title: Overview of Azure Digital Twins | Microsoft Docs
 description: Learn more about Azure Digital Twins, an Azure IoT solution for spatial intelligence.
 author: julieseto
 ms.author: jseto
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
@@ -23,12 +23,12 @@ With Azure Digital Twins, you can query data from a physical space rather than f
 - Optimize the use of available space for an office.
 
 Azure Digital Twins applies to all types of environments. Just a few examples are warehouses, offices, schools, hospitals, and banks. It can even be used for stadiums, factories, parking lots, parks, smart grids, and cities. Azure Digital Twins can be used in the following example scenarios to:
- 
-- Track daily temperature across several states. 
+
+- Track daily temperature across several states.
 - Monitor busy drone paths.
-- Identify autonomous vehicles. 
-- Analyze occupancy levels for a building. 
-- Find the busiest cash register in your store. 
+- Identify autonomous vehicles.
+- Analyze occupancy levels for a building.
+- Find the busiest cash register in your store.
 
 Whatever your real-world business scenario is, a corresponding digital instance can be provisioned through Azure Digital Twins.
 
@@ -90,7 +90,7 @@ Azure Digital Twins is useful for representing the physical world and its many r
 
 Azure Digital Twins uses Azure IoT Hub to connect the IoT devices and sensors that keep everything up-to-date with the physical world. The following diagram shows how Azure Digital Twins relates to other Azure IoT services.
 
-![Azure Digital Twins is a service built on top of Azure IoT Hub](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+![Azure Digital Twins is a service built on top of Azure IoT Hub][1]
 
 For more information about IoT, see [Azure IoT technologies and solutions](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
@@ -98,15 +98,18 @@ For more information about IoT, see [Azure IoT technologies and solutions](https
 
 Go to a short demo about Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Find available rooms by using Azure Digital Twins](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[Quickstart: Find available rooms by using Azure Digital Twins](./quickstart-view-occupancy-dotnet.md)
 
 Look closely at a facilities management application by using Azure Digital Twins:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Deploy Azure Digital Twins and configure a spatial graph](./tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[Tutorial: Deploy Azure Digital Twins and configure a spatial graph](./tutorial-facilities-setup.md)
 
 Learn about core Azure Digital Twins concepts:
 
-> [!div class="nextstepaction"]
-> [Understand the Digital Twins object model and spatial intelligence graph](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[Understand the Digital Twins object model and spatial intelligence graph](./concepts-objectmodel-spatialgraph.md)
+
+<!-- Images -->
+[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

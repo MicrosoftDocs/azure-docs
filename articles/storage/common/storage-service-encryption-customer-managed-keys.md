@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
-ms.component: common
+ms.subservice: common
 ---
 
 # Storage Service Encryption using customer-managed keys in Azure Key Vault
@@ -35,7 +35,7 @@ First, create a storage account if you don't have one already. For more informat
 
 ### Step 2: Enable SSE for Blob and File storage
 
-To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled in Azure Key Vault. These settings ensure the keys cannot be accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.
+To enable SSE using customer-managed keys, two key protection features, Soft Delete and Do Not Purge, must also be enabled in Azure Key Vault. These settings ensure the keys cannot be accidentally or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors or ransomware attacks.
 
 If you want to programmatically enable customer-managed keys for SSE, you can use the [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), the [Storage Resource Provider Client Library for .NET](https://docs.microsoft.com/dotnet/api), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or the [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 
@@ -175,7 +175,7 @@ SSE is enabled for all storage accounts and for Azure Blob storage, Azure Files,
 Is it an Azure Resource Manager storage account? Classic storage accounts are not supported with customer-managed keys. SSE with customer-managed keys can only be enabled on Resource Manager storage accounts.
 
 **What is Soft Delete and Do Not Purge? Do I need to enable this setting to use SSE with customer-managed keys?**  
-Soft Delete and Do Not Purge must be enabled to use SSE with customer-managed keys. These settings ensure that your key is not accidently or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors and ransomware attacks. This setting cannot be disabled.
+Soft Delete and Do Not Purge must be enabled to use SSE with customer-managed keys. These settings ensure that your key is not accidentally or intentionally deleted. The maximum retention period of the keys is set to 90 days, protecting users against malicious actors and ransomware attacks. This setting cannot be disabled.
 
 **Is SSE with customer-managed keys only permitted in specific regions?**  
 SSE with customer-managed keys is available in all regions for Azure Blob storage and Azure Files.

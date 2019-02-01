@@ -3,7 +3,7 @@ title: Forward Azure Automation State Configuration reporting data to Log Analyt
 description: This article demonstrates how to send Desired State Configuration (DSC) reporting data from Azure Automation State Configuration to Log Analytics to deliver additional insight and management.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018

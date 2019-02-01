@@ -37,7 +37,7 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-The `{subscriptionGuid}` parameter is required and should contain a subscription ID that can be read using the credentials provieed in the API token. The `{reportName}`
+The `{subscriptionGuid}` parameter is required and should contain a subscription ID that can be read using the credentials provided in the API token. The `{reportName}`
 
 The following headers are required: 
 
@@ -144,7 +144,7 @@ The `Resource` dimension lets you report costs for specific resources.
 
 ### Changing timeframes
 
-Set the `timeframe` definition to `Custom` to set a timeframe outside of the  week to date and month to date bulit in options.
+Set the `timeframe` definition to `Custom` to set a timeframe outside of the  week to date and month to date built-in options.
 
 ```json
 "timeframe": "Custom",

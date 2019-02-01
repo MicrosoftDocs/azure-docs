@@ -3,15 +3,16 @@ title: 'What is federation with Azure AD? | Microsoft Docs'
 description: Describes federation with Azure AD.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 11/28/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.topic: conceptual
 ---
 
 # What is federation with Azure AD?

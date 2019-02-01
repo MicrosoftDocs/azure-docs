@@ -3,14 +3,14 @@ title: Language customization in Azure Active Directory B2C | Microsoft Docs
 description: Learn about customizing the language experience.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Language customization in Azure Active Directory B2C
@@ -171,7 +171,7 @@ Microsoft currently doesn't provide support for right-to-left languages. You can
 ### Social identity provider translations
 Microsoft provides the `ui_locales` OIDC parameter to social logins. But some social identity providers, including Facebook and Google, don't honor them. 
 ### Browser behavior
-Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Edge currently does not request a language and goes straight to the default language.
+Chrome and Firefox both request for their set language. If it's a supported language, it's displayed before the default. Microsoft Edge currently does not request a language and goes straight to the default language.
 
 ### Supported languages
 

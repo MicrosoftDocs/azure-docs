@@ -1,12 +1,13 @@
 ---
-title: Azure security groups overview | Microsoft Docs
+title: Azure security groups overview
+titlesuffix: Azure Virtual Network
 description: Learn about network and application security groups. Security groups help you filter network traffic between Azure resources.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
@@ -41,7 +42,7 @@ There are limits to the number of security rules you can create in a network sec
 
 ## Augmented security rules
 
-Augmented security rules simplify security definition for virtual networks, allowing you to define larger and complex network security policies, with fewer rules. You can combine multiple ports and multiple explicit IP addresses and ranges into a single, easily understood security rule. Use augmented rules in the source, destination, and port fields of a rule. To simplify maintenance of your security rule definition, combine augmented security rules with [service tags](#service-tags) or [application security groups](#application-security-groups). There are limits the number of addresses, ranges, and ports that you can specify in a rule. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Augmented security rules simplify security definition for virtual networks, allowing you to define larger and complex network security policies, with fewer rules. You can combine multiple ports and multiple explicit IP addresses and ranges into a single, easily understood security rule. Use augmented rules in the source, destination, and port fields of a rule. To simplify maintenance of your security rule definition, combine augmented security rules with [service tags](#service-tags) or [application security groups](#application-security-groups). There are limits to the number of addresses, ranges, and ports that you can specify in a rule. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## Service tags
 
@@ -52,7 +53,7 @@ Augmented security rules simplify security definition for virtual networks, allo
  The following service tags are available for use in security rule definition. Their names vary slightly between [Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** for classic): This tag includes the virtual network address space (all CIDR ranges defined for the virtual network), all connected on-premises address spaces, and [peered](virtual-network-peering-overview.md) virtual networks or virtual network connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure's infrastructure load balancer. The tag translates to the [Virtual IP address of the host](security-overview.md##azure-platform-considerations) (168.63.129.16) where Azure's health probes originate. If you are not using the Azure load balancer, you can override this rule.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** for classic): This tag denotes Azure's infrastructure load balancer. The tag translates to the [Virtual IP address of the host](security-overview.md#azure-platform-considerations) (168.63.129.16) where Azure's health probes originate. If you are not using the Azure load balancer, you can override this rule.
 * **Internet** (Resource Manager) (**INTERNET** for classic): This tag denotes the IP address space that is outside the virtual network and reachable by the public Internet. The address range includes the [Azure owned public IP address space](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureCloud** (Resource Manager only): This tag denotes the IP address space for Azure including all [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). If you specify *AzureCloud* for the value, traffic is allowed or denied to Azure public IP addresses. If you only want to allow access to AzureCloud in a specific [region](https://azure.microsoft.com/regions), you can specify the region. For example, if you want to allow access only to Azure AzureCloud in the East US region, you could specify *AzureCloud.EastUS* as a service tag. 
 * **AzureTrafficManager** (Resource Manager only): This tag denotes the IP address space for the Azure Traffic Manager probe IP addresses. More information on Traffic Manager probe IP addresses can be found in the [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
@@ -65,15 +66,18 @@ Augmented security rules simplify security definition for virtual networks, allo
 * **MicrosoftContainerRegistry** (Resource Manager only): This tag denotes the address prefixes of the Microsoft Container Registry service. If you specify *MicrosoftContainerRegistry* for the value, traffic is allowed or denied to MicrosoftContainerRegistry. If you only want to allow access to MicrosoftContainerRegistry in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format MicrosoftContainerRegistry.[region name]. 
 * **AzureContainerRegistry** (Resource Manager only): This tag denotes the address prefixes of the Azure Container Registry service. If you specify *AzureContainerRegistry* for the value, traffic is allowed or denied to AzureContainerRegistry. If you only want to allow access to AzureContainerRegistry in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureContainerRegistry.[region name]. 
 * **AppService** (Resource Manager only): This tag denotes the address prefixes of the Azure AppService service. If you specify *AppService* for the value, traffic is allowed or denied to AppService. If you only want to allow access to AppService in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AppService.[region name]. 
-* **AppServiceManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure AppService Management service. If you specify *AppServiceManagement* for the value, traffic is allowed or denied to AppServiceManagement. If you only want to allow access to AppServiceManagement in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AppServiceManagement.[region name]. 
-* **ApiManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure Api Management service. If you specify *ApiManagement* for the value, traffic is allowed or denied to ApiManagement. If you only want to allow access to ApiManagement in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format ApiManagement.[region name]. 
+* **AppServiceManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure AppService Management service. If you specify *AppServiceManagement* for the value, traffic is allowed or denied to AppServiceManagement. 
+* **ApiManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure Api Management service. If you specify *ApiManagement* for the value, traffic is allowed or denied to ApiManagement.  
 * **AzureConnectors** (Resource Manager only): This tag denotes the address prefixes of the Azure Connectors service. If you specify *AzureConnectors* for the value, traffic is allowed or denied to AzureConnectors. If you only want to allow access to AzureConnectors in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format AzureConnectors.[region name]. 
-* **GatewayManager** (Resource Manager only): This tag denotes the address prefixes of the Azure Gateway Manager service. If you specify *GatewayManager* for the value, traffic is allowed or denied to GatewayManager. If you only want to allow access to GatewayManager in a specific [region](https://azure.microsoft.com/regions), you can specify the region in the following format GatewayManager.[region name]. 
+* **GatewayManager** (Resource Manager only): This tag denotes the address prefixes of the Azure Gateway Manager service. If you specify *GatewayManager* for the value, traffic is allowed or denied to GatewayManager.  
 * **AzureDataLake** (Resource Manager only): This tag denotes the address prefixes of the Azure Data Lake service. If you specify *AzureDataLake* for the value, traffic is allowed or denied to AzureDataLake. 
 * **AzureActiveDirectory** (Resource Manager only): This tag denotes the address prefixes of the AzureActiveDirectory service. If you specify *AzureActiveDirectory* for the value, traffic is allowed or denied to AzureActiveDirectory.  
+* **AzureMonitor** (Resource Manager only): This tag denotes the address prefixes of the AzureMonitor service. If you specify *AzureMonitor* for the value, traffic is allowed or denied to AzureMonitor. 
+* **ServiceFabric** (Resource Manager only): This tag denotes the address prefixes of the ServiceFabric service. If you specify *ServiceFabric* for the value, traffic is allowed or denied to ServiceFabric. 
+* **AzureMachineLearning** (Resource Manager only): This tag denotes the address prefixes of the AzureMachineLearning service. If you specify *AzureMachineLearning* for the value, traffic is allowed or denied to AzureMachineLearning. 
 
 > [!NOTE]
-> Service tags of Azure services denotes the address prefixes from the specific cloud being used. Regional service tags are not supported on national clouds, only in global format. For example, *Storage* and *Sql*.
+> Service tags of Azure services denotes the address prefixes from the specific cloud being used. 
 
 > [!NOTE]
 > If you implement a [virtual network service endpoint](virtual-network-service-endpoints-overview.md) for a service, such as Azure Storage or Azure SQL Database, Azure adds a [route](virtual-networks-udr-overview.md#optional-default-routes) to a virtual network subnet for the service. The address prefixes in the route are the same address prefixes, or CIDR ranges, as the corresponding service tag.

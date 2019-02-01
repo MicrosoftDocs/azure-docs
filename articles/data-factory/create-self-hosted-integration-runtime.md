@@ -10,9 +10,9 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
 
 ---
@@ -84,7 +84,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 ## Install and register self-hosted IR from the Download Center
 
 1. Go to the [Microsoft integration runtime download page](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Select **Download**, select the appropriate version (**32-bit** or **64-bit**), and select **Next**.
+2. Select **Download**, select the 64-bit version (32-bit is not supported), and select **Next**.
 3. Run the MSI file directly, or save it to your hard disk and run it.
 4. On the **Welcome** page, select a language and select **Next**.
 5. Accept the Microsoft Software License Terms and select **Next**.
@@ -139,6 +139,10 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 - We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item will be used and all others will be ignored due to current limitations. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose FQDN is **node2.domain.contoso.com**.
 - The certificate supports any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificates that use CNG keys are not supported.  
+
+> [!NOTE]
+> This certificate is used to encrypt ports on self-hosted IR node, used for **node-to-node communication** (for state synchronization) and while **using PowerShell cmdlet for linked service credential setting** from within local network. We suggest using this certificate if your private network environment is not secure or if you would like to secure the communication between nodes within your private network as well. 
+> Data movement in transit from self-hosted IR to other data stores always happens using encrypted channel, irrespective of this certificate set or not. 
 
 ## Sharing the self-hosted integration runtime with multiple data factories
 

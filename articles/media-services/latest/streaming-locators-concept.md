@@ -11,13 +11,13 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
 ---
 
 # Streaming Locators
 
-To provide your clients with a URL that they can use to play back encoded video or audio files, you need to create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) and build the streaming URLs. For more information, see [Stream a file](stream-files-dotnet-quickstart.md).
+You need to provide your clients with a URL that they can use to play back encoded video or audio files, you need to create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) and build the streaming URLs. For more information, see [Stream a file](stream-files-dotnet-quickstart.md).
 
 ## StreamingLocator definition
 
@@ -26,13 +26,13 @@ The following table shows the StreamingLocator's properties and gives their defi
 |Name|Description|
 |---|---|
 |id	|Fully qualified resource ID for the resource.|
-|name	|The name of the resource.|
+|name|The name of the resource.|
 |properties.alternativeMediaId|Alternative Media ID of this Streaming Locator.|
-|properties.assetName	|Asset name|
-|properties.contentKeys	|The ContentKeys used by this Streaming Locator.|
-|properties.created	|The creation time of the Streaming Locator.|
+|properties.assetName|Asset name|
+|properties.contentKeys|The ContentKeys used by this Streaming Locator.|
+|properties.created|The creation time of the Streaming Locator.|
 |properties.defaultContentKeyPolicyName|Name of the default ContentKeyPolicy used by this Streaming Locator.|
-|properties.endTime	|The end time of the Streaming Locator.|
+|properties.endTime|The end time of the Streaming Locator.|
 |properties.startTime|The start time of the Streaming Locator.|
 |properties.streamingLocatorId|The StreamingLocatorId of the Streaming Locator.|
 |properties.streamingPolicyName	|Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'|

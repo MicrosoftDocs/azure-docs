@@ -66,7 +66,7 @@ There are three areas in the web simulator.
    * **Fold/Expand** - On the right side there is a button for you to fold/expand the console window.
 
 > [!NOTE] 
-The Raspberry Pi web simulator is now available in preview version. We'd like to hear your voice in the [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). The source code is public on [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+The Raspberry Pi web simulator is now available in preview version. We'd like to hear your voice in the [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator). The source code is public on [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Overview of Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 

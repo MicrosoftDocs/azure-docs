@@ -1,21 +1,15 @@
 ---
-title: Import data from file - Azure Machine Learning Studio | Microsoft Docs
+title: Import data from file
+titleSuffix: Azure Machine Learning Studio
 description: Learn how to upload a training data file from your hard drive to Azure Machine Learning Studio. This creates a dataset module in the workspace.
-keywords: import data,data format,data types,data sources,training data
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: c0dd9e90-23c4-4f64-8b8f-489ad79f047b
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 03/20/2017
 ---
 # Import training data from a file on your hard drive into Azure Machine Learning Studio

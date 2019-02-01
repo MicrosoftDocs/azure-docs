@@ -1,21 +1,15 @@
 ---
-title: Import data into Machine Learning Studio from another experiment - Azure | Microsoft Docs
+title: Import data into Machine Learning Studio from another experiment
+titleSuffix: Azure Machine Learning Studio
 description: How to save training data in Azure Machine Learning Studio and use it in another experiment.
-keywords: import data,data,data sources,training data
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=deguhath, previous-author=deguhath
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: 7da9dcec-5693-4bb6-8166-15904e7f75c3
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=deguhath, previous-author=deguhath
 ms.date: 03/20/2017
 ---
 # Import your data into Azure Machine Learning Studio from another experiment

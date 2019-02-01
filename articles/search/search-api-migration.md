@@ -53,7 +53,7 @@ If your code uses these features, you will not be able to upgrade to 2017-11-11 
 ## Conclusion
 If you need more details on using the Azure Search Service REST API, see the recently updated [API Reference](https://docs.microsoft.com/rest/api/searchservice/) on MSDN.
 
-We welcome your feedback on Azure Search. If you encounter problems, feel free to ask us for help on the [Azure Search MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) or [StackOverflow](http://stackoverflow.com/). If you're asking a question about Azure Search on StackOverflow, make sure to tag it with `azure-search`.
+We welcome your feedback on Azure Search. If you encounter problems, feel free to ask us for help on the [Azure Search MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) or [StackOverflow](https://stackoverflow.com/). If you're asking a question about Azure Search on StackOverflow, make sure to tag it with `azure-search`.
 
 Thank you for using Azure Search!
 

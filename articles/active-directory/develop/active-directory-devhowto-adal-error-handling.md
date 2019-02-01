@@ -7,7 +7,7 @@ author: danieldobalian
 manager: mtillman
 ms.author: CelesteDG
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -584,6 +584,7 @@ Use the comments section that follows, to provide feedback and help us refine an
 
 [![Sign in button][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
+
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md

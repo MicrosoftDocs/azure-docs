@@ -14,9 +14,11 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer:
+ms.reviewer: unknown
+ms.lastreviewed: 01/05/2019
+
 
 ---
 # Deploy templates in Azure Stack using Visual Studio

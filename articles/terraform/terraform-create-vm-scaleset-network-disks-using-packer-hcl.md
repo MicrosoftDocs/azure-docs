@@ -4,7 +4,7 @@ description: Use Terraform to configure and version an Azure virtual machine sca
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, scale set, virtual machine, network, storage, modules, custom images, packer
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

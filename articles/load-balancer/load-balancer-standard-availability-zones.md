@@ -71,7 +71,7 @@ Use the following script to create a zone-redundant frontend IP address for your
             "apiVersion": "2017-08-01",
             "type": "Microsoft.Network/loadBalancers",
             "name": "load_balancer_standard",
-            "location": "[resourceGroup().location]",
+            "location": "region",
             "sku":
             {
                 "name": "Standard"
@@ -105,7 +105,7 @@ Use the following script to create a zonal Standard Public IP address in Availab
             "apiVersion": "2017-08-01",
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "public_ip_standard",
-            "location": "[resourceGroup().location]",
+            "location": "region",
             "zones": [ "1" ],
             "sku":
             {

@@ -7,9 +7,9 @@ author: MikeDodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 1/10/2019
 ms.author: v-gedod
 ---
 

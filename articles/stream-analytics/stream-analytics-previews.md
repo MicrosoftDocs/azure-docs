@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/10/2019
 ---
 
 # Azure Stream Analytics preview features
@@ -21,10 +21,6 @@ The following features are in public preview. You can take advantage of these fe
 ### Integration with Azure Machine Learning
 
 You can scale Stream Analytics jobs with Machine Learning (ML) functions. To learn more about how you can use ML functions in your Stream Analytics job, visit [Scale your Stream Analytics job with Azure Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md). Check out a real-world scenario with [Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
-
-### Session windows
-
-Stream Analytics has native support for windowing functions, enabling developers to author complex stream processing jobs with minimal effort. [Session windows](https://msdn.microsoft.com/azure/stream-analytics/reference/session-window-azure-stream-analytics) group events that arrive at similar times, filtering out periods of time where there's no data. To learn more about windowing functions, visit [Introduction to Stream Analytics windowing functions](stream-analytics-window-functions.md).
 
 ### Blob output partitioning by custom time
 
@@ -44,7 +40,7 @@ With .NET standard user-defined functions, you can run .NET Standard code as par
 
 ## Private previews
 
-The following features are in private preview. To access these previews, visit the Azure Stream Analytics private preview [sign up](https://aka.ms/ASApreview1) page.
+The following features are in private preview.
 
 ### Anomaly Detection
 
@@ -58,7 +54,7 @@ Developers can now implement custom deserializers in C# to deserialize events re
 
 It is now possible to partition your Azure Stream Analytics output to Blob storage based on any column in your query.
 
-### Managed identities for Azure resources authentication to Azure Data Lake Storage
+### Managed identities for Azure resource authentication to Azure Data Lake Storage
 
 You can now operationalize your real-time pipelines with managed identities for Azure resources based authentication while writing to Azure Data Lake Storage Gen1, allowing you to create jobs programmatically. For further information, visit [Use Managed identities for Azure resources to Authenticate Azure Stream Analytics Jobs to Azure Data Lake Storage Gen1 Output](stream-analytics-managed-identities-adls.md).
 
@@ -66,4 +62,4 @@ You can now operationalize your real-time pipelines with managed identities for 
 
 * [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)
 
-* [4 new features now available in Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)
+* [Four new features now available in Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

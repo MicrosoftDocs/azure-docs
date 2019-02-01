@@ -264,6 +264,8 @@
     href: /rest/api/automation
   - name: REST (Classic)
     href: https://msdn.microsoft.com/library/azure/mt163781
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.automation/allversions
 - name: Resources
   items:
   - name: Automation introduction video

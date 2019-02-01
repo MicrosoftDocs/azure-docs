@@ -28,7 +28,7 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
 
 2. Enter or select the values as suggested in the following screenshot:
 
-    > [!NOTE]
+    > [!NOTE]  
     > The values you provide must be unique and should follow the naming guidelines. The template does not perform validation checks. If the values you provide are already in use, or do not follow the guidelines, you get an error after you have submitted the template.       
     > 
     >
@@ -60,10 +60,8 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
 5. The tile also lists the default storage associated with the cluster. Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters does not delete the storage account.
     
 
-> [!NOTE]
-> For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).       
-> 
->
+> [!NOTE]  
+> For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## Access the Grafana dashboard
 
@@ -88,10 +86,8 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
 ## Clean up resources
 After you complete the article, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. 
 
-> [!NOTE]
+> [!NOTE]  
 > If you are *immediately* proceeding to the next tutorial to learn how to run ETL operations using Hadoop on HDInsight, you may want to keep the cluster running. This is becuase in the tutorial you have to create a Hadoop cluster again. However, if you are not going through the next tutorial right away, you must delete the cluster now.
-> 
-> 
 
 **To delete the cluster and/or the default storage account**
 
@@ -118,7 +114,7 @@ To learn more about analyzing data with HDInsight, see the following articles:
 
 * To learn more about using Hive with HDInsight, including how to perform Hive queries from Visual Studio, see [Use Apache Hive with HDInsight](../hdinsight-use-hive.md).
 * To learn about Pig, a language used to transform data, see [Use Apache Pig with HDInsight](../hdinsight-use-pig.md).
-* To learn about Apache Hadoop MapReduce, a way to write programs that process data on Hadoop, see [Use Apache Hadoop MapReduce with HDInsight](../hdinsight-use-mapreduce.md).
+* To learn about MapReduce, a way to write programs that process data on Hadoop, see [Use MapReduce with HDInsight](../hdinsight-use-mapreduce.md).
 * To learn about using the HDInsight Tools for Visual Studio to analyze data on HDInsight, see [Get started using Visual Studio Hadoop tools for HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 
