@@ -91,11 +91,13 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
 
 ## Create Ranger policies
 
-Create a Ranger policy for **sales_user** and **marketing_user**.
+Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
 1. Open the **Ranger Admin UI**.
 
 2. Click **\<ClusterName>_hbase** under **HBase**. One pre-configured policy may be listed.
+
+       ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. Click **Add New Policy** and enter the following values:
 
