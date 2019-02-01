@@ -46,7 +46,7 @@ sections:
             src: ./media/policy-illustration.svg
           title: Policy
         - href: ./blueprints/
-          html: <p>Create an Azure native package of <i>artifacts</i> (resource groups, policies, role assignments, Resoure Manager templates and more) that can be dynamically deployed to subscriptions to create consistent, repeatable environments.</p>
+          html: <p>Create an Azure native package of <i>artifacts</i> (resource groups, policies, role assignments, Resource Manager templates and more) that can be dynamically deployed to subscriptions to create consistent, repeatable environments.</p>
           image:
             src: ./media/blueprints-illustration.svg
           title: Blueprints
