@@ -59,7 +59,7 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-Currently, one endpoint is available for Translator Text, and it's set as the `base_url`. `path` sets the `transliterate` route and identifies that we want to hit version 3 of the API.
+The Translator Text global endpoint is set as the `base_url`. `path` sets the `transliterate` route and identifies that we want to hit version 3 of the API.
 
 The `params` are used to set the input language, and the input and output scripts. In this sample, we're transliterating from Japanese to the Latin alphabet.
 
