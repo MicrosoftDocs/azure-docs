@@ -25,7 +25,7 @@ It is also possible to connect the data associated with an HDInsight cluster and
 Before you begin this article, you must have the following items:
 
 * An HDInsight Hadoop cluster. To create one, see [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
-* A workstation with Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
+* A workstation with Office 2010 Professional Plus or later, or Excel 2010 or later.
 
 ## Install Microsoft Hive ODBC driver
 Download and install the [Microsoft Hive ODBC Driver][hive-odbc-driver-download] version that matches the version of the application where you will be using the ODBC driver.  For this tutorial, the driver is used for Office Excel.
@@ -46,7 +46,7 @@ The following steps show you how to create a Hive ODBC Data Source.
    | Property | Description |
    | --- | --- |
    |  Data Source Name |Give a name to your data source |
-   |  Host(s) |Enter &lt;HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net |
+   |  Host(s) |Enter &lt;HDInsightClusterName&gt;.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net |
    |  Port |Use <strong>443</strong>. (This port has been changed from 563 to 443.) |
    |  Database |Use <strong>default</strong>. |
    |  Mechanism |Select <strong>Azure HDInsight Service</strong> |
