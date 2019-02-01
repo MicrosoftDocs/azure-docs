@@ -255,7 +255,7 @@ Setting “external”: ”true” informs the Data Factory service that the dat
         "policy": {
             "retryInterval": "00:01:00",
             "retryTimeout": "00:10:00",
-            "maximumRetry": 3                
+            "maximumRetry": 3
         }
     }
 }
