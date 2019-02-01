@@ -1,6 +1,6 @@
 ---
 title: Run a Cassandra cluster on Linux in Azure from Node.js
-description: How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app
+description: Learn how to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: craigshoemaker
@@ -108,7 +108,7 @@ Cassandra’s datacenter-aware replication and consistency model helps with mult
 
 **Proximity-based deployment:** Multi-tenant applications, with clear mapping of tenant users-to-region, benefit from the multiple-region cluster’s low latencies. For example, a learning management system for educational institutions might deploy a distributed cluster in East US and West US regions to serve respective campuses for transactional and analytics. The data can be locally consistent at the time of reads and writes and can be eventually consistent across both regions. There are other examples like media distribution and e-commerce. Anything that serves a geo-concentrated user base is a good use case for this deployment model.
 
-**High availability:** Redundancy is a key factor in achieving high availability of software and hardware. For more information, see "Build reliable cloud systems on Microsoft Azure." 
+**High availability:** Redundancy is a key factor in achieving high availability of software and hardware. For more information, see [Build reliable cloud systems on Microsoft Azure](https://dzone.com/articles/building-reliable-cloud).
 
 On Microsoft Azure, the only reliable way to achieve true redundancy is to deploy a multiple-region cluster. You can deploy applications in an active-active or active-passive mode. If one region is down, Azure Traffic Manager redirects traffic to the active region. With single-region deployment, if availability is 99.9, a two-region deployment can achieve availability of 99.9999 computed by the formula (1-(1-0.999) * (1-0.999)) * 100). For more information, see the previous paper.
 
@@ -159,10 +159,10 @@ Download the software into a well-known download directory on the local computer
 Create an Ubuntu image with the prerequisite software. You reuse the image to provision several Cassandra nodes.
 
 #### Step 1: Generate an SSH key pair
-Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair by following the instructions in "How to use SSH with Linux on Azure." If you plan to use putty.exe as an SSH client either on Windows or Linux, convert the PEM-encoded RSA private key to public/private key format by using puttygen.exe. For instructions on how to do this conversion, see the previous webpage.
+Azure needs an X509 public key that is either PEM or DER encoded at the provisioning time. Generate a public/private key pair by following the instructions in [Use SSH with Linux on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows). If you plan to use putty.exe as an SSH client either on Windows or Linux, convert the PEM-encoded RSA private key to public/private key format by using puttygen.exe. For instructions on how to do this conversion, see the previous webpage.
 
 #### Step 2: Create an Ubuntu template VM
-To create the template VM, sign in to the Azure portal. Select **New** > **Compute** > **Virtual Machine** >  **From Gallery** > **Ubuntu** > **Ubuntu Server 14.04 LTS**. Then select the right arrow. For a tutorial that describes how to create a Linux VM, see "Create a virtual machine running Linux."
+To create the template VM, sign in to the Azure portal. Select **New** > **Compute** > **Virtual Machine** >  **From Gallery** > **Ubuntu** > **Ubuntu Server 14.04 LTS**. Then select the right arrow. For a tutorial that describes how to create a Linux VM, see [Create a virtual machine running Linux](https://azure.microsoft.com/en-us/resources/videos/building-a-linux-virtual-machine-tutorial/).
 
 Enter the following information on the first **Virtual machine configuration** screen:
 
@@ -318,12 +318,12 @@ Edit cassandra.yaml on each VM to show the configuration needed by all the virtu
 </table>
 
 #### Step 6: Capture the VM image
-Sign in to the virtual machine by using the hostname (hk-cas-template.cloudapp.net) and the SSH private key that was previously created. For information on how to sign in by using SSH or putty.exe, see "How to use SSH with Linux on Azure."
+Sign in to the virtual machine by using the hostname (hk-cas-template.cloudapp.net) and the SSH private key that was previously created. For information on how to sign in by using SSH or putty.exe, see [Use SSH with Linux on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows).
 
 To capture the image, follow these steps.
 
 ##### 1. Deprovision
-Use the command **sudo waagent –deprovision+user** to remove virtual machine instance-specific information. For more information on the image capture process, see [How to capture a Linux virtual machine](capture-image-classic.md).
+Use the command **sudo waagent –deprovision+user** to remove virtual machine instance-specific information. For more information on the image capture process, see [Capture a Linux virtual machine](capture-image-classic.md).
 
 ##### 2. Shut down the VM
 Highlight the virtual machine, and select **SHUTDOWN** on the bottom command bar.
@@ -336,7 +336,7 @@ This process takes a few seconds. The image appears in the **MY IMAGES** section
 ## Single-region deployment process
 **Step 1: Create the virtual network**
 
-Sign in to the Azure portal. Use the classic deployment model to create a virtual network with the attributes shown in this table. For information on the steps, see [Create a virtual network (classic) using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+Sign in to the Azure portal. Use the classic deployment model to create a virtual network with the attributes shown in this table. For information on the steps, see [Create a virtual network (classic) by using the Azure portal](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 <table>
 <tr><th>VM attribute name</th><th>Value</th><th>Remarks</th></tr>
