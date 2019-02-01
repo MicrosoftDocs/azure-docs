@@ -2,10 +2,9 @@
 title: Administrator role permissions in Azure Active Directory | Microsoft Docs
 description: An admin role can add users, assign administrative roles, reset user passwords, manage user licenses, or manage domains.
 services: active-directory
-documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
+search.appverid: MET150
 
 ms.service: active-directory
 ms.workload: identity
