@@ -4,7 +4,7 @@ description: Azure Active Directory B2B collaboration user properties are config
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/5/2018
 

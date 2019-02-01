@@ -4,7 +4,7 @@ description: Use Azure AD and Azure AD Connect to writeback passwords to an on-p
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/11/2019
 

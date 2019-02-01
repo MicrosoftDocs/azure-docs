@@ -18,6 +18,8 @@ ms.author: tomfitz
 
 This article lists whether an Azure resource type supports the move operation. Although a resource type supports the move operation, there may be conditions that prevent the resource from being moved. For details about conditions that affect move operations, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Find resource provider and resource type
 
 To determine if a resource can be moved, you must find its resource provider and resource type.
@@ -25,7 +27,7 @@ To determine if a resource can be moved, you must find its resource provider and
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+Get-AzResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
 ```
 
 For Azure CLI, use:

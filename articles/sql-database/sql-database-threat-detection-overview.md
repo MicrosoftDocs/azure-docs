@@ -11,18 +11,16 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 01/29/2019
 ---
 # Azure SQL Database Threat Detection
 
 Azure SQL Threat Detection for [Azure SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
-Threat Detection is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ATP portal.
+Threat Detection is part of the [SQL Advanced Data Security](sql-advanced-threat-protection.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ADS portal.
 
 > [!NOTE]
 > This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
-
-Threat detection service is charged 15$/month for all databases per Logical Server or Managed Instance, with first 30 days free of charge.
 
 ## What is Threat Detection
 
@@ -63,7 +61,7 @@ You receive an email notification upon detection of anomalous database activitie
 
 ## Explore threat detection alerts for your database in the Azure portal
 
-SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). A live SQL threat detection tiles within the database and SQL ATP blades in the Azure portal track the status of active threats.
+SQL Database Threat Detection integrates its alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/). Live SQL threat detection tiles within the database and SQL ADS blades in the Azure portal track the status of active threats.
 
 Click **Threat detection alert** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database or data warehouse.
 
@@ -73,9 +71,9 @@ Click **Threat detection alert** to launch the Azure Security Center alerts page
 
 ## Next steps
 
-- Learn more about [Threat Detection in Single Database](sql-database-threat-detection.md).
+- Learn more about [Threat Detection in standalone and pooled databases](sql-database-threat-detection.md).
 - Learn more about [Threat Detection in Managed Instance](sql-database-managed-instance-threat-detection.md).
-- Learn more about [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
+- Learn more about [SQL Advanced Data Security](sql-advanced-threat-protection.md).
 - Learn more about [Azure SQL Database Auditing](sql-database-auditing.md)
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - For more information on pricing, see the [SQL Database Pricing page](https://azure.microsoft.com/pricing/details/sql-database/)  

@@ -3,7 +3,7 @@ title: 'Azure SQL Database purchasing models | Microsoft Docs'
 description: Learn about the purchasing models model that are available databases in the Azure SQL Database service.  
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
@@ -11,16 +11,18 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/10/2018
+ms.date: 01/25/2019
 ---
 # Azure SQL Database purchasing models
 
 Azure SQL Database enables you to easily purchase fully managed PaaS database engine that fits your performance and cost needs. Depending on the deployment model of Azure SQL Database, you can select the purchasing model that fits your needs:
+
 - [vCore-based purchasing model](sql-database-service-tiers-vcore.md) (recommended) that enables you to choose the exact amount of storage capacity and compute that you need for your workload.
 - [DTU-based purchasing model](sql-database-service-tiers-dtu.md) where you can choose bundled compute&storage packages balanced for common workloads.
 
 Different purchasing models are available in Azure SQL Database deployment models:
-- [Logical servers](sql-database-logical-servers.md) in [Azure SQL Database](sql-database-technical-overview.md) offer both [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md). Within this purchasing model, you can choose [single databases](sql-database-single-databases-manage.md) or [elastic pools](sql-database-elastic-pool.md).
+
+- [Single databases](sql-database-single-databases-manage.md) and  [elastic pools](sql-database-elastic-pool.md) in [Azure SQL Database](sql-database-technical-overview.md) offer both [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md). 
 - [Managed Instances](sql-database-managed-instance.md) in Azure SQL Database only offer the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -58,7 +60,7 @@ The Database Transaction Unit (DTU) represents a blended measure of CPU, memory,
 
 ### Database Transaction Units (DTUs)
 
-For a single Azure SQL database at a specific compute size within a [service tier](sql-database-single-database-scale.md), Microsoft guarantees a certain level of resources for that database (independent of any other database in the Azure cloud), providing a predictable level of performance. The amount of resources is calculated as a number of Database Transaction Units or DTUs and is a bundled measure of compute, storage, and IO resources. The ratio amongst these resources was originally determined by an [OLTP benchmark workload](sql-database-benchmark-overview.md), designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled - resulting in slower performance and timeouts. The resources used by your workload do not impact the resources available to other SQL databases in the Azure cloud, and the resources used by other workloads do not impact the resources available to your SQL database.
+For a single database at a specific compute size within a [service tier](sql-database-single-database-scale.md), Microsoft guarantees a certain level of resources for that database (independent of any other database in the Azure cloud), providing a predictable level of performance. The amount of resources is calculated as a number of Database Transaction Units or DTUs and is a bundled measure of compute, storage, and IO resources. The ratio amongst these resources was originally determined by an [OLTP benchmark workload](sql-database-benchmark-overview.md), designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled - resulting in slower performance and timeouts. The resources used by your workload do not impact the resources available to other SQL databases in the Azure cloud, and the resources used by other workloads do not impact the resources available to your SQL database.
 
 ![bounding box](./media/sql-database-what-is-a-dtu/bounding-box.png)
 

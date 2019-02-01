@@ -6,13 +6,13 @@ services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
 manager: daveba
-ms.component: hybrid
+ms.subservice: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory    
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: billmath
 author: billmath

@@ -21,9 +21,11 @@ ms.author: tomfitz
 
 [!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Understand scope
 
@@ -34,8 +36,8 @@ In this article, you apply all management settings to a resource group so you ca
 Let's create the resource group.
 
 ```azurepowershell-interactive
-Set-AzureRmContext -Subscription <subscription-name>
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+Set-AzContext -Subscription <subscription-name>
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 Currently, the resource group is empty.
@@ -61,7 +63,7 @@ $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
   -MailEnabled $false `
   -SecurityEnabled $true
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+New-AzRoleAssignment -ObjectId $adgroup.ObjectId `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
@@ -73,7 +75,7 @@ Typically, you repeat the process for **Network Contributor** and **Storage Acco
 [Azure Policy](../azure-policy/azure-policy-introduction.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use:
 
 ```azurepowershell-interactive
-(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
+(Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
 You see the existing policy definitions. The policy type is either **BuiltIn** or **Custom**. Look through the definitions for ones that describe a condition you want assign. In this article, you assign policies that:
@@ -86,21 +88,21 @@ You see the existing policy definitions. The policy type is either **BuiltIn** o
 $locations ="eastus", "eastus2"
 $skus = "Standard_DS1_v2", "Standard_E2s_v2"
 
-$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+$rg = Get-AzResourceGroup -Name myResourceGroup
 
-$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
-$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
-$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+$locationDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
 
-New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+New-AzPolicyAssignment -Name "Set permitted locations" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $locationDefinition `
   -listOfAllowedLocations $locations
-New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+New-AzPolicyAssignment -Name "Set permitted VM SKUs" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $skuDefinition `
   -listOfAllowedSKUs $skus
-New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+New-AzPolicyAssignment -Name "Audit unmanaged disks" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $auditDefinition
 ```
@@ -110,7 +112,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 You have assigned roles and policies, so you're ready to deploy your solution. The default size is Standard_DS1_v2, which is one of your allowed SKUs. When running this step, you are prompted for credentials. The values that you enter are configured as the user name and password for the virtual machine.
 
 ```azurepowershell-interactive
-New-AzureRmVm -ResourceGroupName "myResourceGroup" `
+New-AzVm -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "East US" `
      -VirtualNetworkName "myVnet" `
@@ -131,12 +133,12 @@ After your deployment finishes, you can apply more management settings to the so
 To lock the virtual machine and network security group, use:
 
 ```azurepowershell-interactive
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
@@ -156,10 +158,10 @@ The virtual machine can only be deleted if you specifically remove the lock. Tha
 To apply tags to a virtual machine, use:
 
 ```azurepowershell-interactive
-$r = Get-AzureRmResource -ResourceName myVM `
+$r = Get-AzResource -ResourceName myVM `
   -ResourceGroupName myResourceGroup `
   -ResourceType Microsoft.Compute/virtualMachines
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
+Set-AzResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
 ```
 
 ### Find resources by tag
@@ -167,13 +169,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 To find resources with a tag name and value, use:
 
 ```azurepowershell-interactive
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+(Find-AzResource -TagName Environment -TagValue Test).Name
 ```
 
 You can use the returned values for management tasks like stopping all virtual machines with a tag value.
 
 ```azurepowershell-interactive
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Find-AzResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzVM
 ```
 
 ### View costs by tag values
@@ -195,20 +197,20 @@ You can also use the [Azure Billing APIs](../billing/billing-usage-rate-card-ove
 The locked network security group can't be deleted until the lock is removed. To remove the lock, use:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceLock -LockName LockVM `
+Remove-AzResourceLock -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
-Remove-AzureRmResourceLock -LockName LockNSG `
+Remove-AzResourceLock -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
   -ResourceGroupName myResourceGroup
 ```
 
-When no longer needed, you can use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to remove the resource group, VM, and all related resources.
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, VM, and all related resources.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## Next steps

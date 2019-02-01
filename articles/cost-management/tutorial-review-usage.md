@@ -98,7 +98,7 @@ This example uses the **Actual Cost Over Time** report to send a notification wh
 5. Select the **Threshold** tab and then select  **Actual Cost vs. Threshold**. 
    1. In the **Red alert** threshold box enter 10000. 
    2. In the **Yellow alert** threshold box enter 9000. 
-   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to recieve. When you recieve the total number of alerts that you specified, no additional alerts are sent. 
+   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to receive. When you receive the total number of alerts that you specified, no additional alerts are sent. 
 6. Select **Save**.
 
 ![Example showing red and yellow alerts based on spending thresholds](./media/tutorial-review-usage/schedule-alert01.png)

@@ -15,6 +15,8 @@
     href: billing-understand-your-usage.md
   - name: Invoice terms explained
     href: billing-understand-your-invoice.md
+  - name: Billing accounts for Microsoft Customer Agreement
+    href: billing-mca-overview.md
 - name: Manage costs
   items:
   - name: Prevent unexpected costs
@@ -97,6 +99,8 @@
     href: billing-partner-admin-link-started.md
   - name: View billing accounts
     href: billing-view-all-accounts.md
+  - name: Group charges with invoice sections
+    href: billing-mca-section-invoice.md
   - name: Resolve past due balance
     href: billing-azure-subscription-past-due-balance.md
   - name: Sign up with Office 365 account

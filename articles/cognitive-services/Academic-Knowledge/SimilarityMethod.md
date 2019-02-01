@@ -7,7 +7,7 @@ author: alch-msft
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
@@ -29,7 +29,7 @@ Parameter        |Data Type      |Required | Description
 **s1**        |String   |Yes  |String* to be compared
 **s2**        |String   |Yes  |String* to be compared
 <sub>
-*Strings to compare have a maxium length of 1MB.
+*Strings to compare have a maximum length of 1MB.
 </sub>
 <br>
 ## Response

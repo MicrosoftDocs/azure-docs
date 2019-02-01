@@ -213,7 +213,7 @@ The possible status codes are:
 
 |Status | Description |
 | ----- | ----------- |
-| 200 | Success |
+| 204 | Success (no content is returned) |
 | 429 | Too many requests (throttled), as per [IoT Hub throttling][lnk-quotas] |
 | 5** | Server errors |
 

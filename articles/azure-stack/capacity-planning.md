@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
+ms.lastreviewed: 09/18/2018
 ---
 
 # Azure Stack capacity planning

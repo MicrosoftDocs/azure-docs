@@ -2,11 +2,11 @@
 title: Auditing in Azure SQL Data Warehouse  | Microsoft Docs
 description: Learn about auditing, and how to set up auditing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan

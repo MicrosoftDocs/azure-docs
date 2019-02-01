@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
