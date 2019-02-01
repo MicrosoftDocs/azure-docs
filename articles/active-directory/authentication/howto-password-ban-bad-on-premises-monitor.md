@@ -339,7 +339,7 @@ The scope of the cmdlet’s query may be influenced using either the –Forest o
 
 If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection Proxy on that machine is not running or has been uninstalled.
 
-# Next steps
+## Next steps
 
 [Troubleshooting for Azure AD Password Protection](howto-password-ban-bad-on-premises-troubleshoot.md)
 

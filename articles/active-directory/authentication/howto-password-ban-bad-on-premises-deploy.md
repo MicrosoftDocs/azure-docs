@@ -80,12 +80,12 @@ There are two required installers for Azure AD Password Protection that can be d
 3. Open a PowerShell window as an Administrator.
    * The Azure AD Password Protection Proxy software includes a new PowerShell module named AzureADPasswordProtection. The following steps are based on running various cmdlets from this PowerShell module, and assume that you have opened a new PowerShell window and have imported the new module as follows:
 
-         ```PowerShell
-         Import-Module AzureADPasswordProtection
-         ```
+      ```PowerShell
+      Import-Module AzureADPasswordProtection
+      ```
 
    * Check that the service is running using the following PowerShell command: `Get-Service AzureADPasswordProtectionProxy | fl`.
-      * The result should produce a result with the **Status** returning a "Running" result.
+     The result should produce a result with the **Status** returning a "Running" result.
 
 4. Register the proxy.
    * Once step 3 has been completed the Azure AD Password Protection Proxy service is running on the machine, but does not yet have the necessary credentials to communicate with Azure AD. Registration with Azure AD is required to enable that ability using the `Register-AzureADPasswordProtectionProxy` PowerShell cmdlet. The cmdlet requires global administrator credentials for your Azure tenant as well as on-premises Active Directory domain administrator privileges in the forest root domain. Once it has succeeded for a given proxy service, additional invocations of `Register-AzureADPasswordProtectionProxy` continue to succeed but are unnecessary.
@@ -275,6 +275,7 @@ Password changes\sets are never processed and persisted on read-only domain cont
 ## High availability
 
 The main concern with ensuring high availability of Azure AD Password Protection is the availability of the proxy servers, when domain controllers in a forest are attempting to download new policies or other data from Azure. Each DC agent uses a simple round-robin style algorithm when deciding which proxy server to call, and skips over proxy servers that are not responding. For the majority of fully connected Active Directory deployments with healthy replication (of both directory and sysvol state), two (2) proxy servers should be sufficient to ensure availability and therefore timely downloads of new policies and other data. Additional proxy servers may be deployed as desired.
+
 The usual problems associated with high availability are mitigated by the design of the DC agent software. The DC agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable for any reason, the DC agent(s) continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment is usually on the order of days, not hours or less. Therefore brief outages of the proxy servers do not cause significant impact to the operation of the Azure AD password protection feature or its security benefits.
 
 ## Next steps
