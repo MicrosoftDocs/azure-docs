@@ -35080,6 +35080,11 @@
         "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",
         "redirect_url": "/azure/backup/backup-azure-recovery-services-vault-overview",
         "redirect_document_id": true
-    }	
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-device-registration-on-premises-setup.md",
+      "redirect_url": "/azure/active-directory/devices/overview",
+      "redirect_document_id": false
+    }
   ]
 }
