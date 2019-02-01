@@ -191,15 +191,14 @@ The GET call returns properties similar to the following example output:
 ```
 
 ### Azure PowerShell
-Use the [Get-AzVmss](powershell/module/az.compute/get-azvmss) cmdlet to check OS upgrade history for your scale set. The following example details how you review the OS upgrade status for a scale set named *myVMSS* in the resource group named *myResourceGroup*:
+Use the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet to check OS upgrade history for your scale set. The following example details how you review the OS upgrade status for a scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpgradeHistory
 ```
 
 ### Azure CLI 2.0
-Use [az vmss get-os-upgrade-history
-](cli/azure/vmss#az-vmss-get-os-upgrade-history) to check the OS upgrade history for your scale set. Use Azure CLI 2.0.47 or above. The following example details how you review the OS upgrade status for a scale set named *myVMSS* in the resource group named *myResourceGroup*:
+Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) to check the OS upgrade history for your scale set. Use Azure CLI 2.0.47 or above. The following example details how you review the OS upgrade status for a scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myVMSS
