@@ -49,3 +49,12 @@ However, if you don’t meet the express installation criteria and must do the c
 * [Azure AD Connect: Upgrade from a previous version to the latest](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version)
 * [Azure AD Connect: What is staging server?](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-topologies#staging-server)
 * [What is the ADConnectivityTool PowerShell Module?](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-adconnectivitytools)
+
+## Next steps
+- [Azure AD Connect sync](how-to-connect-sync-whatis.md).
+- [What is hybrid identity?](whatis-hybrid-identity.md).
+
+
+
+
+

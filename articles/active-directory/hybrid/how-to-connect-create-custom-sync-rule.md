@@ -44,3 +44,7 @@ You can use the synchronization rule editor to edit or create a new synchronizat
 * [Azure AD Connect sync: Understanding the default configuration](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
 * [Azure AD Connect sync: Understanding Users, Groups, and Contacts](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
 * [Azure AD Connect sync: Shadow attributes](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+
+## Next Steps
+- [Azure AD Connect sync](how-to-connect-sync-whatis.md).
+- [What is hybrid identity?](whatis-hybrid-identity.md).

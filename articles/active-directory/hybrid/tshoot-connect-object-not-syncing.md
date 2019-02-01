@@ -190,6 +190,5 @@ If you are missing the connector to Azure AD, then read [MV attributes](#mv-attr
 This tab also allows you to navigate to the [connector space object](#connector-space-object-properties). Select a row and click **Properties**.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
-
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+- [Azure AD Connect sync](how-to-connect-sync-whatis.md).
+- [What is hybrid identity?](whatis-hybrid-identity.md).
