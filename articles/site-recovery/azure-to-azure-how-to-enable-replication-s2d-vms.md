@@ -48,12 +48,12 @@ Below diagram shows the pictorial representation of two Azure VMs failover clust
 1. Select replication policy with application consistency off* (only crash consistency support is available)
 1. Enable the replication
 
-![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
+   ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
 2. Go to replicated items and you can see both the virtual machine status. 
 3. Both the virtual machines are getting protected and are also shown as part of multi-VM consistency group.
 
-![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
+   ![storagespacesdirect protection](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## Creating a recovery plan
 A recovery plan supports the sequencing of various tiers in a multi-tier application during a failover. Sequencing helps maintain application consistency. When you create a recovery plan for a multi-tier web application, complete the steps described in [Create a recovery plan by using Site Recovery](site-recovery-create-recovery-plans.md).
