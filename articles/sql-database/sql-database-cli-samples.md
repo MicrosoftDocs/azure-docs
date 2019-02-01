@@ -28,6 +28,8 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 The following table includes links to Azure CLI script examples for Azure SQL Database.
 
+| |  |
+|---|---|
 |**Create a single database and an elastic pool**||
 | [Create a single database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example creates a single Azure SQL database and configures a server-level firewall rule. |
 | [Create elastic pools and move pooled databases](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | This CLI script example creates SQL elastic pools, and moves pooled Azure SQL databases, and changes compute sizes.|
