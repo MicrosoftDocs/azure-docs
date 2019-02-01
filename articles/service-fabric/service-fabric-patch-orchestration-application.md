@@ -3,7 +3,7 @@ title: Azure Service Fabric patch orchestration application | Microsoft Docs
 description: Application to automate operating system patching on a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: novino
+author: khandelwalbrijeshiitr
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2018
-ms.author: nachandr
+ms.date: 2/01/2019
+ms.author: brkhande
 
 ---
 
@@ -413,3 +413,6 @@ An administrator must intervene and determine why the application or cluster bec
 - Fixing regression where POA 1.3.0 won't work on Windows Server 2012 R2 or lower due to failure in disabling automatic updates. 
 - Fixing bug where InstallWindowsOSOnlyUpdates configuration is always picked as True.
 - Changing default value of InstallWindowsOSOnlyUpdates to False.
+
+### Version 1.3.2
+- Fixing an issue which effected the patching lifecyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending. 

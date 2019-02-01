@@ -202,7 +202,7 @@ The query functionality is exposed by the [Azure IoT service SDK for Node.js](io
 
 Here is an example of a simple query:
 
-```nodejs
+```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {

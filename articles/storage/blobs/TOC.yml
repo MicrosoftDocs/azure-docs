@@ -315,6 +315,10 @@
         href: storage-c-plus-plus-how-to-use-blobs.md
       - name: iOS
         href: storage-ios-how-to-use-blob-storage.md
+      - name: Java
+        items:
+        - name: Use the Spring Boot Starter
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
       - name: Xamarin
         href: storage-xamarin-blob-storage.md
       - name: Legacy SDKs
