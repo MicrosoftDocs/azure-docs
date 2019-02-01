@@ -34,7 +34,7 @@ Automatic OS upgrade has the following characteristics:
 
 ## How does automatic OS image upgrade work?
 
-An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensions and custom data scripts are run on the OS disk, while persisted data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time. You also have the option to integrate an Azure Load Balancer application health probe or [Application Health extension](virtual-machine-scale-sets-health-extension.md). It is highly recommended to incorporate an application heartbeat and validate upgrade success for each batch in the upgrade process.
+An upgrade works by replacing the OS disk of a VM with a new disk created using the latest image version. Any configured extensions and custom data scripts are run on the OS disk, while persisted data disks are retained. To minimize the application downtime, upgrades take place in batches, with no more than 20% of the scale set upgrading at any time. You can also integrate an Azure Load Balancer application health probe or [Application Health extension](virtual-machine-scale-sets-health-extension.md). We recommended incorporating an application heartbeat and validate upgrade success for each batch in the upgrade process.
 
 The upgrade process works as follows:
 1. Before beginning the upgrade process, the orchestrator will ensure that no more than 20% of instances in the entire scale set are unhealthy (for any reason).
@@ -42,12 +42,12 @@ The upgrade process works as follows:
 3. The OS disk of the selected batch of VM instances is replaced with a new OS disk created from the latest image, and all specified extensions and configurations in the scale set model are applied to the upgraded instance.
 4. For scale sets with configured application health probes or Application Health extension, the upgrade waits up to 5 minutes for the instance to become healthy, before moving on to upgrade the next batch.
 5. The upgrade orchestrator also tracks the percentage of instances that become unhealthy post an upgrade. The upgrade will stop if more than 20% of upgraded instances become unhealthy during the upgrade process.
-6. The above process continues till all instances in the scale set have been upgraded.
+6. The above process continues until all instances in the scale set have been upgraded.
 
-The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While upgrading a batch, there may be other concurrent Planned or Unplanned maintenance activities that may impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
+The scale set OS upgrade orchestrator checks for the overall scale set health before upgrading every batch. While upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set instances. In such cases if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
 ## Supported OS images
-Only certain OS platform images are currently supported. Custom images are not currently supported.
+Only certain OS platform images are currently supported. Custom images aren't currently supported.
 
 The following SKUs are currently supported (and more are added periodically):
 
@@ -66,8 +66,8 @@ The following SKUs are currently supported (and more are added periodically):
 ## Requirements for configuring automatic OS image upgrade
 
 - The *version* property of the platform image must be set to *latest*.
-- Use application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md) for non Service Fabric scale sets.
-- Ensure that external resources specified set model are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more.
+- Use application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md) for non-Service Fabric scale sets.
+- Ensure that external resources specified in the scale set model are available and updated. Examples include SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model, and more.
 
 ## Configure automatic OS image upgrade
 To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition.
@@ -102,14 +102,14 @@ Support for configuring this property via Azure PowerShell will be rolled out so
 
 ## Using Application Health Probes
 
-During an OS Upgrade, VM instances in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded VM instances. We recommend that the application provides health signals to the scale set OS Upgrade engine. By default, during OS Upgrades the platform considers VM power state and extension provisioning state to determine if a VM instance is healthy after an upgrade. During the OS Upgrade of a VM instance, the OS disk on a VM instance is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these VMs. The application is considered healthy only when all the extensions on the instance are successfully provisioned.
+During an OS Upgrade, VM instances in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded VM instances. We recommend the application provides health signals to the scale set OS Upgrade engine. By default, during OS Upgrades the platform considers VM power state and extension provisioning state to determine if a VM instance is healthy after an upgrade. During the OS Upgrade of a VM instance, the OS disk on a VM instance is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these VMs. The application is considered healthy only when all the extensions on the instance are successfully provisioned.
 
-A scale set can optionally be configured with Application Health Probes to provide the platform with accurate information on the ongoing state of the application. Application Health Probes are Custom Load Balancer Probes that are used as a health signal. The application running on a scale set VM instance can respond to external HTTP or TCP requests indicating whether it is healthy. For more information on how Custom Load Balancer Probes work, see to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md). An Application Health Probe is not required for Service Fabric scale sets, but it is highly recommended. Non Service Fabric scale sets require either Load Balancer application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md).
+A scale set can optionally be configured with Application Health Probes to provide the platform with accurate information on the ongoing state of the application. Application Health Probes are Custom Load Balancer Probes that are used as a health signal. The application running on a scale set VM instance can respond to external HTTP or TCP requests indicating whether it's healthy. For more information on how Custom Load Balancer Probes work, see to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md). An Application Health Probe is not required for Service Fabric scale sets, but it is recommended. Non-Service Fabric scale sets require either Load Balancer application health probes or [Application Health extension](virtual-machine-scale-sets-health-extension.md).
 
 If the scale set is configured to use multiple placement groups, probes using a [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) need to be used.
 
 ### Configuring a Custom Load Balancer Probe as Application Health Probe on a scale set
-As a best practice, create a load balancer probe explicitly for scale set health. The same endpoint for an existing HTTP probe or TCP probe may be used, but a health probe may require different behavior from a traditional load-balancer probe. For example, a traditional load balancer probe may return unhealthy if the load on the instance is too high, whereas that may not be appropriate for determining the instance health during an automatic OS upgrade. Configure the probe to have a high probing rate of less than two minutes.
+As a best practice, create a load balancer probe explicitly for scale set health. The same endpoint for an existing HTTP probe or TCP probe can be used, but a health probe could require different behavior from a traditional load-balancer probe. For example, a traditional load balancer probe could return unhealthy if the load on the instance is too high, but that would not be appropriate for determining the instance health during an automatic OS upgrade. Configure the probe to have a high probing rate of less than two minutes.
 
 The load-balancer probe can be referenced in the *networkProfile* of the scale set and can be associated with either an internal or public facing load-balancer as follows:
 
@@ -127,9 +127,9 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
 > When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. To utilize Automatic OS Upgrades in Service Fabric your cluster must be configured to use the Silver Durability Tier or higher. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### Keep credentials up-to-date
-If your scale set uses any credentials to access external resources, for example if a VM extension is configured which uses a SAS token for storage account, ensure that the credentials are updated. If any credentials, including certificates and tokens have expired, the upgrade will fail, and the first batch of VMs will be left in a failed state.
+If your scale set uses any credentials to access external resources, for example if a VM extension is configured which uses a SAS token for storage account, ensure that the credentials are updated. If any credentials, including certificates and tokens, have expired, the upgrade will fail, and the first batch of VMs will be left in a failed state.
 
-The recommended steps to recover VMs and re-enable automatic OS upgrade if there is a resource authentication failure are:
+The recommended steps to recover VMs and re-enable automatic OS upgrade if there's a resource authentication failure are:
 
 * Regenerate the token (or any other credentials) passed into your extension(s).
 * Ensure that any credential used from inside the VM to talk to external entities is up-to-date.
@@ -199,7 +199,7 @@ Get-AzVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpgradeH
 
 ### Azure CLI 2.0
 Use [az vmss get-os-upgrade-history
-](cli/azure/vmss#az-vmss-get-os-upgrade-history) to acheck OS upgrade history for your scale set. Use Azure CLI 2.0.47 or above. The following example details how you review the OS upgrade status for a scale set named *myVMSS* in the resource group named *myResourceGroup*:
+](cli/azure/vmss#az-vmss-get-os-upgrade-history) to check the OS upgrade history for your scale set. Use Azure CLI 2.0.47 or above. The following example details how you review the OS upgrade status for a scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myVMSS
