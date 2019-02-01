@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Bing Entity Search Documentation 
 metadata:
-  title: Bing Entity Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Entity Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: How to use the Bing Entity Search API to obtain information about people, places, or other defined subjects. Tutorials explain how to build apps that use the service.
   services: cognitive-services
   author: mikedodaro
@@ -74,7 +74,7 @@ sections:
   - type: paragraph
     text: 'Learn how to develop applications by using the Bing Entity Search API:'
   - type: paragraph
-    text: <a href="tutorial-bing-entities-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-entities-search-single-page-app-source">Source code</a>
+    text: <a href="tutorial-bing-entities-search-single-page-app">Single-page web app</a>
 - title: Samples
   items:
   - type: paragraph

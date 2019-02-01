@@ -54,7 +54,7 @@ While this application is written in JavaScript, the API is a RESTful Web servic
 
 ## Handle and parse the response
 
-1. define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. within this function, perform the following steps:
+1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. Within this function, perform the following steps:
 
     1. Define a variable to contain the body of the JSON response.  
         ```javascript

@@ -95,7 +95,7 @@ While this application is written in C#, the API is a RESTful Web service compat
     ```
 
 
-## Example response
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 

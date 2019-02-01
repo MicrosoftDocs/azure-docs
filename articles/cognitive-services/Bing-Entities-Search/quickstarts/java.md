@@ -65,17 +65,17 @@ While this application is written in Java, the API is a RESTful Web service comp
 
 1. Create a function called `search()` that returns a JSON `String`. url-encode your search query, and add it to a parameters string with `&q=`. Add your market to the string with `?mkt=`.
  
-    1. Create a URL object with your host, path, and parameters strings.
-
+2. Create a URL object with your host, path, and parameters strings.
+    
     ```java
     //...
     public static String search () throws Exception {
         String encoded_query = URLEncoder.encode (query, "UTF-8");
         String params = "?mkt=" + mkt + "&q=" + encoded_query;
-    		URL url = new URL (host + path + params);
+        URL url = new URL (host + path + params);
     //...
     ```
-  
+      
 ## Send a search request and receive a response
 
 1. In the `search()` function created above, create a new `HttpsURLConnection` object with `url.openCOnnection()`. Set the request method to `GET`, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
@@ -116,7 +116,7 @@ While this application is written in Java, the API is a RESTful Web service comp
 
 1. Create a new function called `prettify` to format the JSON response. Create a new `JsonParser`, and call `parse()` on the json text, and store it as a JSON object. 
 
-    2. Use the Gson library to create a new `GsonBuilder()`, and use `setPrettyPrinting().create()` to format the json. Then return it.    
+2. Use the Gson library to create a new `GsonBuilder()`, and use `setPrettyPrinting().create()` to format the json. Then return it.    
   
   ```java
   //...
