@@ -16,7 +16,7 @@ The standard Azure HDInsight cluster is a single-user cluster. It's suitable for
 
 Many enterprises have moved toward a model in which clusters are managed by IT teams, and multiple application teams share clusters. These larger enterprises need multiuser access to each cluster in Azure HDInsight.
 
-HDInsight relies on a popular identity provider--Windows Server Active Directory--in a managed way. By integrating HDInsight with [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), you can access the clusters by using your domain credentials.
+HDInsight relies on a popular identity provider--Active Directory--in a managed way. By integrating HDInsight with [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md), you can access the clusters by using your domain credentials.
 
 The virtual machines (VMs) in HDInsight are domain joined to your provided domain. So, all the services running on HDInsight (Apache Ambari, Apache Hive server, Apache Ranger, Apache Spark thrift server, and others) work seamlessly for the authenticated user. Administrators can then create strong authorization policies by using Apache Ranger to provide role-based access control for resources in the cluster.
 
@@ -64,7 +64,7 @@ If federation is being used and password hashes are synced correctly, but you ar
     Install-Module AzureAD
  ```
 
- 2. `Connect-AzureAD` using global administrator (tenant administrator) credentials.
+ 2. Enter `Connect-AzureAD` using global administrator (tenant administrator) credentials.
 
  3. Check if the Microsoft Azure PowerShell service principal has already been created.
 
