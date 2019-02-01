@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: overview
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ms.author: scottwhi
 ---
 

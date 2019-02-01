@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 02/01/2019
 ms.author: v-gedod
 ---
 
@@ -18,7 +18,7 @@ ms.author: v-gedod
 
 The Bing Entity Search API has one endpoint that returns entities from the Web based on a query. These search results are returned in JSON.
 
-## Get entity results from th endpoint
+## Get entity results from the endpoint
 
 To get entity results using the **Bing API**, send a `GET` request to the following endpoint. Use [headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers) and [query parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters) to customize your search request. Search requests can be sent using the `?q=` parameter.
 

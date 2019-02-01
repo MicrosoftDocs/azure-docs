@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 01/18/2019
+ms.date: 02/01/2019
 ms.author: aahi
 ---
 # Quickstart: Send a search request to the Bing Entity Search REST API using Java

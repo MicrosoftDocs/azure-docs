@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 01/19/2019
+ms.date: 02/01/2019
 ms.author: v-gedod
 ---
 # Quickstart: Send a search request with the Bing Entity Search SDK for Java

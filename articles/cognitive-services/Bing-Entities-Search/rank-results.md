@@ -1,7 +1,7 @@
 ---
 title: Using ranking to display answers - Bing Entity Search
 titlesuffix: Azure Cognitive Services
-description: Shows how to use ranking to display the answers that the Bing Entity Search API returns.
+description: Learn how to use ranking to display the answers that the Bing Entity Search API returns.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,11 +9,11 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 02/01/2019
 ms.author: aahi
 ---
 
-# Using ranking to display results  
+# Using ranking to display entity search results  
 
 Each entity search response includes a [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) answer that specifies how you must display search results returned by the Bing Entity Search API. The ranking response groups results into pole, mainline, and sidebar content. The pole result is the most important or prominent result and should be displayed first. If you do not display the remaining results in a traditional mainline and sidebar format, you must provide the mainline content higher visibility than the sidebar content. 
   

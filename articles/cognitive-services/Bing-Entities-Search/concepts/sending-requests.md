@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 01/15/2017
+ms.date: 02/01/2019
 ms.author: aahill
 ---
 
