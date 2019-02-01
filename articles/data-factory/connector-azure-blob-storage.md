@@ -98,12 +98,7 @@ To use storage account key authentication, the following properties are supporte
             "connectionString": {
                 "type": "SecureString",
                 "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        },
+            },
             "accountKey": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -112,6 +107,11 @@ To use storage account key authentication, the following properties are supporte
                 }, 
                 "secretName": "<secretName>" 
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }            
     }
 }
 ```
