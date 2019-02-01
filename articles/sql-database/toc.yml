@@ -547,7 +547,7 @@
     - name: Java
       items:
       - name: Use Spring Data JDBC
-        href: java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server 
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server 
       - name: Use Spring Data JPA
         href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
   - name: Design applications
