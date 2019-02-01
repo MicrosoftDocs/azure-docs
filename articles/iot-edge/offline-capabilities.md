@@ -4,7 +4,7 @@ description: Understand how IoT Edge devices and modules can operate without int
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/20/2018
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -66,7 +66,7 @@ Parent devices can have multiple child devices, but a child device can only have
 
 To improve robustness, it is recommended you specify the DNS server addresses used in your environment. For example, on Linux, update **/etc/docker/daemon.json** (you might need to create the file) to include:
 
-```
+```json
 {
     "dns": [“1.1.1.1”]
 }
@@ -108,7 +108,16 @@ You can configure environment variables and the create options for the Edge hub 
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": {
+            "HostConfig": {
+                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
+                "PortBindings": {
+                    "8883/tcp": [{"HostPort":"8883"}],
+                    "443/tcp": [{"HostPort":"443"}],
+                    "5671/tcp": [{"HostPort":"5671"}]
+                }
+            }
+        }
     },
     "env": {
         "storageFolder": {
@@ -120,7 +129,11 @@ You can configure environment variables and the create options for the Edge hub 
 }
 ```
 
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both host and module storage path must be an absolute path.  For example, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` means host path `/etc/iotedge/storage` is mapped to container path `/iotedge/storage/`.  You can also find more details about createOptions from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both host and module storage path must be an absolute path. In the create options, bind the host and module storage paths together. Then, create an environment variable that points to the module storage path.  
+
+For example, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` means the directory **/etc/iotedge/storage** on your host system is mapped to the directory **/iotedge/storage/** on the container. Or another example for Windows systems, `"Binds":["C:\\temp:C:\\contemp]"` means the directory **C:\\temp** on your host system is mapped to the directory **C:\\contemp** on the container. 
+
+You can also find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## Next steps
 
