@@ -16,7 +16,7 @@ ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from Greenplum using Azure Data Factory 
+# Copy data from Greenplum using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Greenplum. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -51,8 +51,8 @@ The following properties are supported for Greenplum linked service:
         "type": "Greenplum",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;PWD=<password>"
+                "type": "SecureString",
+                "value": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;PWD=<password>"
             }
         },
         "connectVia": {
