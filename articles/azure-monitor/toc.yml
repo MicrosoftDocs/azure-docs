@@ -341,7 +341,9 @@
         - name: Filter telemetry
           href: app/java-filter-telemetry.md
         - name: Micrometer Metrics
-          href: app/micrometer-java.md   
+          href: app/micrometer-java.md
+        - name: Configure a Spring Boot Initializer app
+          href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
       - name: Node.js apps
         items:
         - name: Node.js
