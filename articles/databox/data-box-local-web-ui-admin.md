@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/27/2018
+ms.date: 02/01/2019
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box
@@ -20,6 +20,7 @@ This article includes the following tutorials:
 
 - Generate a Support package
 - Shut down or restart your device
+- Download BOM or manifest files
 - View available capacity of the device
 - Skip checksum validation 
 

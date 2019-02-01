@@ -6,13 +6,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 02/01/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises VM data from my server onto Azure.
 ---
-# Tutorial: Use Data Box to migrate on-premises VM workloads to Azure
+# Tutorial: Use Data Box to migrate on-premises VHDs to Azure
 
-This tutorial describes how to use the Azure Data Box to migrate you on-premises VM workloads to Azure. The VHDs from VM workloads are copied to Data Box as page blobs and are uploaded into Azure as managed disks. These managed disks can then be attached to Azure VMs.
+This tutorial describes how to use the Azure Data Box to migrate you on-premises VHDs to Azure. The VHDs from on-premises VMs are copied to Data Box as page blobs and are uploaded into Azure as managed disks. These managed disks can then be attached to Azure VMs.
 
 In this tutorial, you learn how to:
 
