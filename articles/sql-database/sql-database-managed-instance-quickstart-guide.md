@@ -3,7 +3,7 @@ title: Quickstart - Azure SQL Database Managed Instance | Microsoft Docs
 description: 'Learn how to quickly get started with Azure SQL Database - Managed Instance'
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
