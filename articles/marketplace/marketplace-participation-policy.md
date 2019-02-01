@@ -118,7 +118,7 @@ After publishing a Services Offering in the Marketplace, Publishers must maintai
     * The offering consistently receives many support tickets; or
     * The publisher has failed to comply with terms and conditions in the Microsoft Marketplace Publisher Agreement, the Marketplace Publication Guidelines, or this document.
 
-1. For various reasons, you may decide to remove your offer from the Marketplace. Offer Removal ensures that new customers may no longer purchase or deploy your offer, but has no impact on existing customers. Offer Termination is the process of terminating the service and/or licensing agreement between you and your existing customers. Guidance and policies related to offer removal and termination are governed by Microsoft Marketplace Publisher Agreement (see **Payment terms" section). You may request removal or termination by logging a support ticket.
+1. For various reasons, you may decide to remove your offer from the Marketplace. Offer Removal ensures that new customers may no longer purchase or deploy your offer, but has no impact on existing customers. Offer Termination is the process of terminating the service and/or licensing agreement between you and your existing customers. Guidance and policies related to offer removal and termination are governed by Microsoft Marketplace Publisher Agreement (see "Payment terms" section). You may request removal or termination by logging a support ticket.
 
 ## Payment terms
 
