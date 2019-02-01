@@ -22,7 +22,7 @@ When your application reaches the limit of what a partition can handle for your 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
 ## Premium storage account scale limits
-[!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)
+[!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
 
 ## Storage resource provider scale limits
 
