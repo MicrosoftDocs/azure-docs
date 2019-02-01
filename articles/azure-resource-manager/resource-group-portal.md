@@ -1,6 +1,6 @@
 ---
-title: Use Azure portal to manage Azure resources | Microsoft Docs
-description: Use Azure portal and Azure Resource Manage to manage your resources. Shows how to work with dashboards to monitor resources.
+title: Manage Azure resources by using the Azure portal | Microsoft Docs
+description: Use Azure portal and Azure Resource Manage to manage your resources. 
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: tfitzmac
@@ -32,87 +32,108 @@ A resource group is a container that holds related resources for an Azure soluti
 
 The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you are specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
 
-1. To see all the resource groups in your subscription, select **Resource groups**.
-   
-    ![browse resource groups](./media/resource-group-portal/browse-groups.png)
-2. To create an empty resource group, select **Add**.
-   
+### Add a resource group
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **Resource groups**
+
     ![add resource group](./media/resource-group-portal/add-resource-group.png)
-3. Provide a name and location for the new resource group. Select **Create**.
-   
+3. Select **Add**.
+4. Enter the following values:
+
+    **Subscription**: Select your Azure subscription. 
+    **Resource group**: Enter a new resource group name. 
+    **Region**: Select an Azure location, such as **Central US**.
+
     ![create resource group](./media/resource-group-portal/create-empty-group.png)
-4. You may need to select **Refresh** to see the recently created resource group.
-   
-    ![refresh resource group](./media/resource-group-portal/refresh-resource-groups.png)
-5. To customize the information displayed for your resource groups, select **Columns**.
-   
+5. Select **Review + Create**
+6. Select **Create**. It takes a few seconds to create a resource group.
+7. Select **Refresh** from the top menu to refresh the resource group list, and then select the newly created resource group to open it. Or select **Notification**(the bell icon) from the top, and then select **Go to resource group** to open the newly created resource group
+
+    ![go to resource group](./media/resource-group-portal/resource-group-add-go-to-resource-group.png)
+
+### List resource groups
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. To list the resource groups, select **Resource groups**
+
+    ![browse resource groups](./media/resource-group-portal/browse-groups.png)
+
+3. To customize the information displayed for the resource groups, select **Edit columns**. The following screenshot shows the addition columns you could add to the display:
+
     ![customize columns](./media/resource-group-portal/select-columns.png)
-6. Select the columns to add, and then select **Update**.
-   
-    ![add columns](./media/resource-group-portal/add-columns.png)
-7. To learn about deploying resources to your new resource group, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
-8. For quick access to a resource group, you can pin the resource group to your dashboard.
-   
-    ![pin resource group](./media/resource-group-portal/pin-group.png)
-9. The dashboard displays the resource group and its resources. You can select either the resource groups or any of its resources to navigate to the item.
-   
-    ![pin resource group](./media/resource-group-portal/show-resource-group-dashboard.png)
 
-## Tag resources
-You can apply tags to resource groups and resources to logically organize your assets. For information about working with tags, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
+### Delete resource groups
 
-[!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **Resource groups**
 
-## Monitor resources
-When you select a resource, the portal presents default graphs and tables for monitoring that resource type.
+    ![list azure resource group](./media/resource-group-portal/add-resource-group.png)
+3. Select the resource group you want to delete.
+4. Select **Delete resource group**.
 
-1. Select a resource and notice the **Monitoring** section. It includes graphs that are relevant to the resource type. The following image shows the default monitoring data for a storage account.
-   
-    ![show monitoring](./media/resource-group-portal/show-monitoring.png)
-2. You can pin a section to your dashboard by selecting the ellipsis (...) above the section. You can also customize the size the section or remove it completely. The following image shows how to pin, customize, or remove the CPU and Memory section.
-   
-    ![pin section](./media/resource-group-portal/pin-cpu-section.png)
-3. After pinning the section to the dashboard, you will see the summary on the dashboard. And, selecting it immediately takes you to more details about the data.
-   
-    ![view dashboard](./media/resource-group-portal/view-startboard.png)
-4. To completely customize the data you monitor through the portal, navigate to your default dashboard, and select **New dashboard**.
-   
-    ![dashboard](./media/resource-group-portal/dashboard.png)
-5. Give your new dashboard a name and drag tiles onto the dashboard. The tiles are filtered by different options.
-   
-    ![dashboard](./media/resource-group-portal/create-dashboard.png)
-   
-     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
+    ![delete azure resource group](./media/resource-group-portal/delete-group.png)
 
-## Manage resources
+### Tag resource groups
+
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#portal).
+
+## Manage resources in a resource group
+
+### Deploy resources to a resource group
+
+See [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
+
+### List resources
+
+### Delete resources
+
+### Manage resources
+
 When viewing a resource in the portal, you see the options for managing that particular resource.
 
 ![manage resources](./media/resource-group-portal/manage-resources.png)
 
 From these options, you can perform operations such as starting and stopping a virtual machine, or reconfiguring the properties of the virtual machine.
 
-## Move resources
+### Move resources
+
 If you need to move resources to another resource group or another subscription, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
-## Lock resources
+### Lock resources
+
 You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
-## View your subscription and costs
-You can view information about your subscription and the rolled-up costs for all your resources. Select **Subscriptions** and the subscription you want to see. You might only have one subscription to select.
+### Tag resources
 
-![subscription](./media/resource-group-portal/select-subscription.png)
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#portal).
 
-You see the burn rate.
+## Monitor resources
 
-![burn rate](./media/resource-group-portal/burn-rate.png)
+When you select a resource, the portal presents default graphs and tables for monitoring that resource type.
 
-And, a breakdown of costs by resource type.
+1. Select a resource and notice the **Monitoring** section. It includes graphs that are relevant to the resource type. The following image shows the default monitoring data for a storage account.
 
-![resource cost](./media/resource-group-portal/cost-by-resource.png)
+    ![show monitoring](./media/resource-group-portal/show-monitoring.png)
+2. You can pin a section to your dashboard by selecting the ellipsis (...) above the section. You can also customize the size the section or remove it completely. The following image shows how to pin, customize, or remove the CPU and Memory section.
 
-## Export template
+    ![pin section](./media/resource-group-portal/pin-cpu-section.png)
+3. After pinning the section to the dashboard, you will see the summary on the dashboard. And, selecting it immediately takes you to more details about the data.
+
+    ![view dashboard](./media/resource-group-portal/view-startboard.png)
+4. To completely customize the data you monitor through the portal, navigate to your default dashboard, and select **New dashboard**.
+
+    ![dashboard](./media/resource-group-portal/dashboard.png)
+5. Give your new dashboard a name and drag tiles onto the dashboard. The tiles are filtered by different options.
+
+    ![dashboard](./media/resource-group-portal/create-dashboard.png)
+
+     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
+
+## Export resource groups to templates
+
 After setting up your resource group, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
 
 1. You can easily automate future deployments of the solution because the template contains all the complete infrastructure.
@@ -120,15 +141,10 @@ After setting up your resource group, you may want to view the Resource Manager 
 
 For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
-## Delete resource group or resources
-Deleting a resource group deletes all the resources contained within it. You can also delete individual resources within a resource group. Use caution when deleting a resource group. That resource group might contain resources that resources in other resource groups depend on.
-
-![delete group](./media/resource-group-portal/delete-group.png)
-
 ## Next steps
+
 * To view activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To view details about a deployment, see [View deployment operations](resource-manager-deployment-operations.md).
 * To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 * To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
-
