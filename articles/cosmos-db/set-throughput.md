@@ -20,7 +20,7 @@ With Azure Cosmos DB, you can configure throughput at two granularities:
 
 ## Set throughput on a container  
 
-The throughput provisioned on an Azure Cosmos DB container is exclusively reserved for the container. The container receives the provisioned throughput all the time. The provisioned throughput on a container is financially backed by SLAs. To configure throughput on a container, see [Provision throughput on a Azure Cosmos DB container](how-to-provision-container-throughput.md).
+The throughput provisioned on an Azure Cosmos DB container is exclusively reserved for the container. The container receives the provisioned throughput all the time. The provisioned throughput on a container is financially backed by SLAs. To configure throughput on a container, see [Provision throughput on an Azure Cosmos DB container](how-to-provision-container-throughput.md).
 
 Setting provisioned throughput on a container is the widely used option. You can elastically scale throughput for a container by provisioning any amount of throughput by using Request Units (RUs). But you can't selectively specify the throughput for logical partitions. 
 
@@ -46,7 +46,7 @@ Setting throughput on an Azure Cosmos DB database guarantees that you receive th
 
 We recommend that you configure throughput on a database when you want to share the throughput across multiple containers, but don't want to dedicate the throughput to any particular container. 
 
-Following are some examples where it's preferred to provision throughput at the database level:
+The following examples demonstrate where it's preferred to provision throughput at the database level:
 
 * Sharing a database’s provisioned throughput across a set of containers is useful for a multitenant application. Each user can be represented by a distinct Azure Cosmos DB container.
 
@@ -88,6 +88,6 @@ You can combine the two models. Provisioning throughput on both the database and
 ## Next steps
 
 * Learn more about [logical partitions](partition-data.md).
-* Learn how to [provision throughput on a Azure Cosmos DB container](how-to-provision-container-throughput.md).
-* Learn how to [provision throughput on a Azure Cosmos DB database](how-to-provision-database-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos DB container](how-to-provision-container-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos DB database](how-to-provision-database-throughput.md).
 

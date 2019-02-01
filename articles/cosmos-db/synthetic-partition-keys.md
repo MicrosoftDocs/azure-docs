@@ -55,6 +55,6 @@ With this strategy, the writes are evenly spread across the partition key values
 You can learn more about the partitioning concept in the following articles:
 
 * Learn more about [logical partitions](partition-data.md).
-* Learn more about [provisioning throughput on Azure Cosmos DB containers and databases](set-throughput.md).
+* Learn more about how to [provision throughput on Azure Cosmos DB containers and databases](set-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos DB container](how-to-provision-container-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos DB database](how-to-provision-database-throughput.md).
