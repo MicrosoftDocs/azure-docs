@@ -99,6 +99,12 @@
       href: concepts-connectivity.md
     - name: Develop with Azure Kubernetes Service (AKS)
       href: concepts-aks.md
+    - name: Java
+      items:
+      - name: Configure Spring Data JDBC
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-mysql
+      - name: Configure Spring Data JPA
+        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-mysql
   - name: Replication
     items:
     - name: Data-in replication

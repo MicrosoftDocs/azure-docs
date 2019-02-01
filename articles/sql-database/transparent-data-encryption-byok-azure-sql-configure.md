@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/20/2018
+ms.date: 12/04/2018
 ---
 
 # PowerShell and CLI: Enable Transparent Data Encryption using your own key from Azure Key Vault

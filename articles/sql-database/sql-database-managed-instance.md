@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/01/2019
 ---
 # Use SQL Database Managed Instance with virtual networks and near 100% compatibility
 
@@ -69,7 +69,7 @@ The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) in Manag
 In vCore model, you can choose between generations of hardware.
 
 - **Gen 4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7GB RAM per core, and compute sizes between 8 and 24 vCores.
-- **Gen 5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast eNVM SSD, hyper-threaded logical core, and compute sizes between 8 and 80 cores.
+- **Gen 5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 8 and 80 cores.
 
 Find more information about the difference between hardware generations in [Managed Instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
