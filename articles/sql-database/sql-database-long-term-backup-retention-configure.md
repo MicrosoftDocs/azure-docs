@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/24/2018
+ms.date: 01/07/2019
 ---
 # Manage Azure SQL Database long-term backup retention
 
@@ -21,6 +21,7 @@ In Azure SQL Database, you can configure a single or a pooled database with a [l
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) does not currently support long-term backup retention.
 
 ## Use the Azure portal to configure long-term retention policies and restore backups
+
 The following sections show you how to use the Azure portal to configure the long-term retention, view backups in long-term retention, and restore backup from long-term retention.
 
 ### Configure long-term retention policies
@@ -113,7 +114,7 @@ $server = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resou
 # create LTR policy with WeeklyRetention = 12 weeks. MonthlyRetention and YearlyRetention = 0 by default.
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
 
-# create LTR policy with WeeklyRetention = 12 weeks, YearlyRetetion = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
+# create LTR policy with WeeklyRetention = 12 weeks, YearlyRetention = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
 ```
 

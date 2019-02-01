@@ -204,7 +204,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
       
    1. Create an Azure Automation Runbook Module for StorSimple 8000 Series device management. Use the below commands to create an Automation module zip file.
          
-      ```
+      ```powershell
             # set path variables
             $downloadDir = "C:\scripts\StorSimpleSDKTools"
             $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
@@ -262,7 +262,7 @@ You can create a recovery plan in ASR to automate the failover process of the fi
    > [!NOTE]
    > When running a test failover, you should verify everything at the manual action step because the StorSimple volumes that had been cloned on the target device will be deleted as a part of the cleanup after the manual action is completed.
        
-      ![Recoery plan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
+      ![Recovery plan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image7.png)
 
 ## Perform a test failover
 Refer to the [Active Directory DR Solution](../site-recovery/site-recovery-active-directory.md) companion guide for considerations specific to Active Directory during the test failover. The on-premises setup is not disturbed at all when the test failover occurs. The StorSimple volumes that were attached to the on-premises VM are cloned to the StorSimple Cloud Appliance on Azure. A VM for test purposes is brought up in Azure and the cloned volumes are attached to the VM.

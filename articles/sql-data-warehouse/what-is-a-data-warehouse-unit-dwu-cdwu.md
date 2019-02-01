@@ -6,7 +6,7 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
@@ -57,7 +57,7 @@ WITH
 Each performance tier uses a slightly different unit of measure for their data warehouse units. This difference is reflected on the invoice as the unit of scale directly translates to billing.
 
 - Gen1 data warehouses are measured in Data Warehouse Units (DWUs).
-- Gen2 data warehousesr are measured in compute Data Warehouse Units (cDWUs). 
+- Gen2 data warehouses are measured in compute Data Warehouse Units (cDWUs). 
 
 Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
