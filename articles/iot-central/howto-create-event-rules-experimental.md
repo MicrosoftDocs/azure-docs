@@ -86,7 +86,7 @@ This section shows you how to set up actions to take when the rule is fired. Act
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) in Azure IoT Central.
 
-   ![Configure Action](media/howto-create-event-rules-experimental/C.png)
+   ![Configure Action](media/howto-create-event-rules-experimental/Configure_Action.png
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring the events being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
 
