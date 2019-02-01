@@ -141,7 +141,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 - [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 
 
- If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](../device-management-hybrid-azuread-joined-devices-setup.md). 
+ If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
 ## Alternate login ID support in Hybrid Azure AD join
