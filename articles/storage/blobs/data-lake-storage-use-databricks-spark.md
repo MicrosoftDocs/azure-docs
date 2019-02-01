@@ -26,13 +26,13 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-This tutorial demonstrates how to consume and query airline flight data, which is available from the [United States Department of Transportation](https://transtats.bts.gov/DL_SelectFields.asp). 
+This tutorial demonstrates how to consume and query airline flight data, which is available from the [United States Department of Transportation](https://transtats.bts.gov/DL_SelectFields.asp).
 
 1. Select the **Prezipped file** check box to select all data fields.
 2. Select **Download** and save the results to your machine.
 3. Make a note of the file name and the path of the download; you need this information in a later step.
 
-To complete this tutorial, you need a storage account with analytic capabilities. We recommend completing our [quickstart](data-lake-storage-quickstart-create-account.md) on the subject in order to create one. 
+To complete this tutorial, you need a storage account with analytic capabilities. We recommend completing our [quickstart](data-lake-storage-quickstart-create-account.md) on the subject in order to create one.
 
 ## Set aside storage account configuration
 

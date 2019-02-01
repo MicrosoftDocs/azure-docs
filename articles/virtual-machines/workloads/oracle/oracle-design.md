@@ -17,7 +17,6 @@ ms.date: 08/02/2018
 ms.author: rogirdh
 ---
 
-
 # Design and implement an Oracle database in Azure
 
 ## Assumptions

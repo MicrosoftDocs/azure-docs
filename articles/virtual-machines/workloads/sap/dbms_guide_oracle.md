@@ -246,7 +246,7 @@ ms.custom: H1Hack27Feb2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -344,7 +344,7 @@ In accordance to SAP installation manual, all Oracle-related files should not be
 ### Storage configuration
 Only single instance Oracle using NTFS formatted disks is supported. All database files must be stored on the NTFS file system on Managed Disks (recommended) or VHDs. These disks are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
 
-It is highly recommended to use [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). It also is highly recommended using [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) for your Oracle Database deployments
+It is highly recommended to use [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). It also is highly recommended using [Azure premium SSDs](../../windows/disks-types.md) for your Oracle Database deployments
 
 Any kind of network drives or remote shares like Azure file services:
 
@@ -431,7 +431,7 @@ The filesystems of ext4, or xfs or Oracle ASM are supported for Oracle database 
 
 For Oracle Linux UEK kernels, the minimum of UEK version 4 is required to support [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
-It is highly recommended to use [Azure managed disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). It also is highly recommended using [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) for your Oracle Database deployments.
+It is highly recommended to use [Azure managed disks](../../windows/managed-disks-overview.md). It also is highly recommended using [Azure premium SSDs](../../windows/disks-types.md) for your Oracle Database deployments.
 
 Any kind of network drives or remote shares like Azure file services:
 
