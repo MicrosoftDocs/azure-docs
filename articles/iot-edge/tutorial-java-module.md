@@ -96,7 +96,7 @@ Create a Java solution template that you can customize with your own code.
    | Select module template | Choose **Java Module**. |
    | Provide value for groupId | Enter a group ID value or accept the default **com.edgemodule**. |
    | Provide a module name | Name your module **JavaModule**. |
-   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. The final string looks like \<registry name\>.azurecr.io/javamodule. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the name you provided in the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br>The final image repository looks like \<registry name\>.azurecr.io/javamodule. |
  
    ![Provide Docker image repository](./media/tutorial-java-module/repository.png)
    
@@ -257,6 +257,12 @@ In the previous section, you created an IoT Edge solution and added code to the 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then, it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the Java app, and then push the code to the container registry that you specified when you initialized the solution. 
 
 You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information that's in the module.json file with the format \<repository\>:\<version\>-\<platform\>. For this tutorial, it should look like registryname.azurecr.io/javamodule:0.0.1-amd64.
+
+>[!TIP]
+>If you receive an error trying to build and push your module, make the following checks:
+>* Did you sign in to Docker in Visual Studio Code using the credentials from your container registry? These credentials are different than the ones you use to sign in to the Azure portal.
+>* Is your container repository correct? Open **modules** > **cmodule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/javamodule**. 
+>* Are you building the same type of containers that your development machine is running? Visual Studio Code defaults to Linux amd64 containers. If your development machine is running Windows containers or Linux arm32v7 containers, update the platform on the blue status bar at the bottom of your VS Code window to match your container platform.
 
 ## Deploy and run the solution
 
