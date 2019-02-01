@@ -1,5 +1,5 @@
 ---
-title: Add naming policy for Office 365 groups in Azure Active Directory | Microsoft Docs
+title: Add naming policy quickstart for Office 365 groups - Azure Active Directory | Microsoft Docs
 description: Explains how to add new users or delete existing users in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro

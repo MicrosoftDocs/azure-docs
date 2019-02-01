@@ -161,7 +161,7 @@ These endpoint differences must be taken into account when you connect to storag
 2. The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
     **Paste** your Azure Storage account connection string into the storageConnectionString variable below. 
 
-	```nodejs
+	```javascript
 	var azure = require('azure-storage');
 	var storageConnectionString = //Paste Azure Storage connection string here
 	var blobSvc = azure.createBlobService(storageConnectionString);
