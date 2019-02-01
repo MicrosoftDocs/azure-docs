@@ -37,7 +37,7 @@ To create the ingress controller, use `Helm` to install *nginx-ingress*. For add
 > [!TIP]
 > The following example installs the ingress controller in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. If your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
 
-```console
+```bash
 helm install --name aks-ingress \
   --namespace kube-system \
   --set controller.replicaCount=2 \
@@ -153,12 +153,11 @@ For more information on cert-manager configuration, see the [cert-manager projec
 ## Create a CA cluster issuer
 
 > [!NOTE]
-> This article uses the `staging` environment for Let's Encrypt. In production deployments, use `letsencrypt-prod` and `https://acme-v02.api.letsencrypt.org/directory` in the resource definitions and when installing the Helm chart.
-
+> This article uses the `staging` environment for Let's Encrypt. In production deployments, use `letsencrypt-prod` and `https://acme-v02.api.letsencrypt.org/directory` in the `Issuer` or `ClusterIssuer` yaml file.
 
 Before certificates can be issued, cert-manager requires an [Issuer][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] resource. These Kubernetes resources are identical in functionality, however `Issuer` works in a single namespace, and `ClusterIssuer` works across all namespaces. For more information, see the [cert-manager issuer][cert-manager-issuer] documentation.
 
-Create a cluster issuer, such as `cluster-issuer.yaml`, using the following example manifest. Update the email address with a valid address from your organization:
+Create a cluster issuer using the following example manifest. Update the email address with a valid address from your organization and save the file as `cluster-issuer.yaml`.
 
 ```yaml
 apiVersion: certmanager.k8s.io/v1alpha1
@@ -174,12 +173,31 @@ spec:
     http01: {}
 ```
 
-To create the issuer, use the `kubectl apply -f cluster-issuer.yaml` command.
+From your terminal, go to the same folder where `cluster-issuer.yaml` was saved and run the following command to create the `ClusterIssuer`:
 
+```bash
+kubectl apply -f cluster-issuer.yaml
 ```
-$ kubectl apply -f cluster-issuer.yaml
 
-clusterissuer.certmanager.k8s.io/letsencrypt-staging created
+Describe the `ClusterIssuer` with the following command:
+
+```bash
+kubectl describe clusterissuer letsencrypt-staging
+```
+
+And confirm that the account was registered like in the following example:
+
+```YAML
+...
+Status:
+  Acme:
+    Uri:  https://acme-staging-v02.api.letsencrypt.org/acme/acct/XXXXXX
+  Conditions:
+    Last Transition Time:  2019-02-01T01:11:10Z
+    Message:               The ACME account was registered with the ACME server
+    Reason:                ACMEAccountRegistered
+    Status:                True
+    Type:                  Ready
 ```
 
 ## Run demo applications
@@ -188,19 +206,19 @@ An ingress controller and a certificate management solution have been configured
 
 Before you can install the sample Helm charts, add the Azure samples repository to your Helm environment as follows:
 
-```console
+```bash
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
 Create the first demo application from a Helm chart with the following command:
 
-```console
+```bash
 helm install azure-samples/aks-helloworld
 ```
 
 Now install a second instance of the demo application. For the second instance, you specify a new title so that the two applications are visually distinct. You also specify a unique service name:
 
-```console
+```bash
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
 ```
 
@@ -208,9 +226,35 @@ helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set s
 
 Both applications are now running on your Kubernetes cluster, however they're configured with a service of type `ClusterIP`. As such, the applications aren't accessible from the internet. To make them publicly available, create a Kubernetes ingress resource. The ingress resource configures the rules that route traffic to one of the two applications.
 
-In the following example, traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` is routed to the `ingress-demo` service. Update the *hosts* and *host* to the DNS name you created in a previous step.
+If all the steps of this article have been followed, then the next script will return the FQDN associated with to the Ingress controller's external IP:
 
-Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
+```bash
+#!/bin/bash
+set -e
+# Namespace where the Ingress controller was launched
+NS="kube-system"
+# Ingress controller service name
+SVC="aks-ingress-nginx-ingress-controller"
+# Public IP address of the ingress controller
+IP=$(kubectl get svc $SVC -n $NS --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}")
+
+if [ ! -z $IP ]; then
+  echo "External IP found:"
+  echo $IP
+  # Get the resource-id of the public ip
+  echo "Obtaining resource ID for Public IP..."
+  PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
+  echo "Obtaining DNS record for Public IP \"$IP\":"
+  az network public-ip  show --ids $PUBLICIPID -o tsv --query dnsSettings.fqdn
+else
+  echo "Error: External IP was not found on \"$SVC\" in namespace \"$NS\". Plese confirm that the Ingress controller is running and that it has an External IP assigned by running:"
+  echo "kubectl --namespace $NS get services -o wide $SVC"
+fi
+```
+
+In the following example, traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` is routed to the `ingress-demo` service. Update the *hosts* and *host* to the DNS name you obtained in the script.
+
+Create a file named `hello-world-ingress.yaml` and copy in the following example YAML. Make sure to update the host fields with the FQDN.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -240,12 +284,10 @@ spec:
           servicePort: 80
 ```
 
-Create the ingress resource using the `kubectl apply -f hello-world-ingress.yaml` command.
+Save the file and create the ingress resource:
 
-```
-$ kubectl apply -f hello-world-ingress.yaml
-
-ingress.extensions/hello-world-ingress created
+```bash
+kubectl apply -f hello-world-ingress.yaml
 ```
 
 ## Create a certificate object
@@ -254,10 +296,15 @@ Next, a certificate resource must be created. The certificate resource defines t
 
 Cert-manager has likely automatically created a certificate object for you using ingress-shim, which is automatically deployed with cert-manager since v0.2.2. For more information, see the [ingress-shim documentation][ingress-shim].
 
-To verify that the certificate was created successfully, use the `kubectl describe certificate tls-secret` command.
+Verify that the certificate was created successfully:
+
+```bash
+kubectl describe certificate tls-secret
+```
 
 If the certificate was issued, you will see output similar to the following:
-```
+
+```console
 Type    Reason          Age   From          Message
 ----    ------          ----  ----          -------
   Normal  CreateOrder     11m   cert-manager  Created new ACME order, attempting validation...
@@ -289,12 +336,10 @@ spec:
     kind: ClusterIssuer
 ```
 
-To create the certificate resource, use the `kubectl apply -f certificates.yaml` command.
+To create the certificate resource, save the updated file as `certificates.yaml`and run the following command:
 
-```
-$ kubectl apply -f certificates.yaml
-
-certificate.certmanager.k8s.io/tls-secret created
+```bash
+kubectl apply -f certificates.yaml
 ```
 
 ## Test the ingress configuration
@@ -321,43 +366,57 @@ Now add the */hello-world-two* path to the FQDN, such as *https://demo-aks-ingre
 
 This article used Helm to install the ingress components, certificates, and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up, first remove the certificate resources:
 
-```console
+```bash
 kubectl delete -f certificates.yaml
 kubectl delete -f cluster-issuer.yaml
 ```
+
+Delete the cert-manager's CRDs:
+
+```bash
+kubectl delete -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.6/deploy/manifests/00-crds.yaml
+```
+
 
 Now list the Helm releases with the `helm list` command. Look for charts named *nginx-ingress*, *cert-manager*, and *aks-helloworld*, as shown in the following example output:
 
 ```
 $ helm list
 
-NAME                  	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
-billowing-kitten      	1       	Tue Oct 16 17:24:05 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
-loitering-waterbuffalo	1       	Tue Oct 16 17:26:16 2018	DEPLOYED	cert-manager-v0.3.4 	v0.3.2     	kube-system
-flabby-deer           	1       	Tue Oct 16 17:27:06 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
-linting-echidna       	1       	Tue Oct 16 17:27:02 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
-```
-
-Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
+NAME                    REVISION        UPDATED                         STATUS          CHART                   APP VERSION     NAMESPACE
+aks-ingress             1               Thu Jan 31 12:18:20 2019        DEPLOYED        nginx-ingress-1.2.2     0.22.0          kube-system
+cert-manager            1               Thu Jan 31 16:26:26 2019        DEPLOYED        cert-manager-v0.6.0     v0.6.0          cert-manager
+interesting-turtle      1               Thu Jan 31 17:15:26 2019        DEPLOYED        aks-helloworld-0.1.0                    default
+zinc-hound              1               Thu Jan 31 17:15:45 2019        DEPLOYED        aks-helloworld-0.1.0                    default
 
 ```
-$ helm delete billowing-kitten loitering-waterbuffalo flabby-deer linting-echidna
 
-release "billowing-kitten" deleted
-release "loitering-waterbuffalo" deleted
-release "flabby-deer" deleted
-release "linting-echidna" deleted
+Delete the releases with the `helm delete --purge ` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
+
+```
+$ helm delete --purge aks-ingress cert-manager interesting-turtle zinc-hound  
+
+release "aks-ingress" deleted
+release "cert-manager" deleted
+release "interesting-turtle" deleted
+release "zinc-hound " deleted
 ```
 
 Next, remove the Helm repo for the AKS hello world app:
 
-```console
+```bash
 helm repo remove azure-samples
+```
+
+Then, remove cert-manager namespace:
+
+```bash
+kubectl delete namespace cert-manager
 ```
 
 Finally, remove the ingress route that directed traffic to the sample apps:
 
-```console
+```bash
 kubectl delete -f hello-world-ingress.yaml
 ```
 
