@@ -19,15 +19,15 @@ The functionality of Machine Learning Services (with R) in Azure SQL Database is
 
 ## Language support
 
-SQL Server has support for multiple languages through the [extensibility framework](https://docs.microsoft.com/en-us/sql/advanced-analytics/concepts/extensibility-framework). In SQL Database, there are some key differences:
+SQL Server has support for R and Python through the [extensibility framework](https://docs.microsoft.com/en-us/sql/advanced-analytics/concepts/extensibility-framework). SQL Database does not support both languages. The key differences are:
 
-- R is the only supported language in Azure SQL Database. There is no support for Python at this time. 
+- R is the only supported language in SQL Database. There is no support for Python at this time.
 - The R version is 3.4.4.
 - There is no need to configure `external scripts enabled` via `sp_configure`. Once you are [signed up](sql-database-machine-learning-services-overview.md#signup), machine learning is enabled for your SQL database.
 
 ## Package management
 
-R package management and installation work different between SQL Database and SQL Server. In SQL Database, these are the key differences:
+R package management and installation work different between SQL Database and SQL Server. These differences are:
 
 - R packages are installed via [sqlmlutils](https://github.com/Microsoft/sqlmlutils) or [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
 - Packages cannot perform outbound network calls. This limitation is similar to the [default firewall rules for Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) in SQL Server, but cannot be changed in SQL Database.

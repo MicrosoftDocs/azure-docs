@@ -15,7 +15,7 @@ ms.date: 01/31/2019
 ---
 # Machine Learning Services (with R) in Azure SQL Database (preview)
 
-Machine Learning Services is a feature of Azure SQL Database, used for executing in-database R scripts. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. Code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL.
+Machine Learning Services is a feature of Azure SQL Database, used for executing in-database R scripts. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. The relational data can be used in R scripts through stored procedures, T-SQL script containing R statements, or R code containing T-SQL.
 
 > [!NOTE]
 > Machine Learning Services (with R) in Azure SQL Database is currently in public preview. [Sign up for the preview](#signup) below.
@@ -28,7 +28,7 @@ Machine Learning Services includes a base distribution of R, overlaid with enter
 
 ### R packages
 
-The following R packages from Microsoft are included:
+Most common open source R packages are pre-installed in Machine Learning Services. The following R packages from Microsoft are also included:
 
 | R package | Description|
 |-|-|
@@ -36,7 +36,7 @@ The following R packages from Microsoft are included:
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR is the primary library for scalable R. Functions in this library are among the most widely used. Data transformations and manipulation, statistical summarization, visualization, and many forms of modeling and analyses are found in these libraries. Additionally, functions in these libraries automatically distribute workloads across available cores for parallel processing, with the ability to work on chunks of data that are coordinated and managed by the calculation engine. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML adds machine learning algorithms to create custom models for text analysis, image analysis, and sentiment analysis. |
 
-In addition to the pre-installed packages, you can [install addition packages](#).
+In addition to the pre-installed packages, you can [install addition packages](sql-database-connect-query-r.md#add-package).
 
 <a name="signup"></a>
 
