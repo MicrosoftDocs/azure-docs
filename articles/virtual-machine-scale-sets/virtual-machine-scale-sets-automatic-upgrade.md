@@ -91,14 +91,19 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 }
 ```
 
+### Azure PowerShell
+Use the [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet to check OS upgrade history for your scale set. The following example configures automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
+
+```azurepowershell-interactive
+Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
+```
+
 ### Azure CLI 2.0
-The following example uses Azure CLI (2.0.47 or later) to configure automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
+Use [az vmss update](/cli/azure/vmss#az-vmss-update) to check the OS upgrade history for your scale set. Use Azure CLI 2.0.47 or above. The following example configures automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az vmss update --name myVMSS --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
-
-Support for configuring this property via Azure PowerShell will be rolled out soon.
 
 ## Using Application Health Probes
 
@@ -194,7 +199,7 @@ The GET call returns properties similar to the following example output:
 Use the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet to check OS upgrade history for your scale set. The following example details how you review the OS upgrade status for a scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```azurepowershell-interactive
-Get-AzVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpgradeHistory
+Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -OSUpgradeHistory
 ```
 
 ### Azure CLI 2.0
