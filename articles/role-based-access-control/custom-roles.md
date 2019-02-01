@@ -28,36 +28,36 @@ The following shows what a custom role looks like as displayed in JSON format. T
 
 ```json
 {
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
+  "Name": "Virtual Machine Operator",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can monitor and restart virtual machines.",
+  "Actions": [
+    "Microsoft.Storage/*/read",
+    "Microsoft.Network/*/read",
+    "Microsoft.Compute/*/read",
+    "Microsoft.Compute/virtualMachines/start/action",
+    "Microsoft.Compute/virtualMachines/restart/action",
+    "Microsoft.Authorization/*/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.Insights/alertRules/*",
+    "Microsoft.Insights/diagnosticSettings/*",
+    "Microsoft.Support/*"
   ],
-  "NotActions":  [
+  "NotActions": [
 
-                 ],
-  "DataActions":  [
+  ],
+  "DataActions": [
 
-                  ],
-  "NotDataActions":  [
+  ],
+  "NotDataActions": [
 
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
+  ],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}",
+    "/subscriptions/{subscriptionId2}",
+    "/subscriptions/{subscriptionId3}"
+  ]
 }
 ```
 
