@@ -124,7 +124,7 @@ The size of the groups is configurable via [ListContainersOptions](/javascript/a
 
 ### Create a container
 
-The *createContainer* function calls [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) and sets the appropriate access level for the blob.
+The *createContainer* function calls [createContainerIfNotExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) and sets the appropriate access level for the blob.
 
 ```javascript
 const createContainer = async (containerName) => {
@@ -140,7 +140,7 @@ const createContainer = async (containerName) => {
 };
 ```
 
-The second parameter (*options*) for **createContainerIfNotExists** accepts a value for [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists). The value *blob* for *publicAccessLevel* specifies that specific blob data is exposed to the public. This setting is in contrast to *container* level access, which grants the ability to list the contents of the container.
+The second parameter (*options*) for **createContainerIfNotExists** accepts a value for [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). The value *blob* for *publicAccessLevel* specifies that specific blob data is exposed to the public. This setting is in contrast to *container* level access, which grants the ability to list the contents of the container.
 
 The use of **createContainerIfNotExists** allows the application to run the *createContainer* command multiple times without returning errors when the container already exists. In a production environment, you often only call **createContainerIfNotExists** once as the same container is used throughout the application. In these cases, you can create the container ahead of time through the portal or via the Azure CLI.
 

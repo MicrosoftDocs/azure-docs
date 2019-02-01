@@ -44,4 +44,4 @@ The template is also available outside the course.
 
 * [View the training video](https://aka.ms/3dBlueprintTemplateVideo) first so you know what it can do
 * Download the [Microsoft 3d Blueprint Visio Template](https://aka.ms/3DBlueprintTemplate)
-* Download the [Cloud and Enterprise Symbols](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) to use with the 3D template
+* Download the [Cloud and Enterprise Symbols](https://docs.microsoft.com/azure/architecture/) to use with the 3D template

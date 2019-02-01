@@ -47,7 +47,7 @@ By default, the output of Azure CLI commands is in JSON (JavaScript Object Notat
 ```
 
 ## Create a virtual network and subnet
-Next you create a virtual network in Azure and a subnet in to which you can create your VMs. Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create a virtual network named *myVnet* with the *192.168.0.0/16* address prefix. You also add a subnet named *mySubnet* with the address prefix of *192.168.1.0/24*:
+Next you create a virtual network in Azure and a subnet in to which you can create your VMs. Use [az network vnet create](/cli/azure/network/vnet) to create a virtual network named *myVnet* with the *192.168.0.0/16* address prefix. You also add a subnet named *mySubnet* with the address prefix of *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \

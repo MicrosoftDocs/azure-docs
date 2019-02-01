@@ -11,7 +11,7 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ---
 # Quickstart: Use Golang to query an Azure SQL database
 

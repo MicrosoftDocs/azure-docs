@@ -35,7 +35,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. In the **remote_monitoring.js** file, add the following `require` statements:
 
-    ```nodejs
+    ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
@@ -44,13 +44,13 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the Remote Monitoring solution:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{device connection string}';
     ```
 
 1. To define some base telemetry data, add the following variables:
 
-    ```nodejs
+    ```javascript
     var temperature = 50;
     var temperatureUnit = 'F';
     var humidity = 50;
@@ -61,7 +61,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. To define some property values, add the following variables:
 
-    ```nodejs
+    ```javascript
     var schema = "real-chiller;v1";
     var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
@@ -74,7 +74,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following variable to define the reported properties to send to the solution. These properties include metadata to display in the Web UI:
 
-    ```nodejs
+    ```javascript
     var reportedProperties = {
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
@@ -92,7 +92,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. To print operation results, add the following helper function:
 
-    ```nodejs
+    ```javascript
     function printErrorFor(op) {
         return function printError(err) {
             if (err) console.log(op + ' error: ' + err.toString());
@@ -102,7 +102,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following helper function to use to randomize the telemetry values:
 
-    ```nodejs
+    ```javascript
     function generateRandomIncrement() {
         return ((Math.random() * 2) - 1);
     }
@@ -110,7 +110,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following generic function to handle direct method calls from the solution. The function displays information about the direct method that was invoked, but in this sample does not modify the device in any way. The solution uses direct methods to act on devices:
 
-    ```nodejs
+    ```javascript
     function onDirectMethod(request, response) {
       // Implement logic asynchronously here.
       console.log('Simulated ' + request.methodName);
@@ -125,7 +125,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following function to handle the **FirmwareUpdate** direct method calls from the solution. The function verifies the parameters passed in the direct method payload and then asynchronously runs a firmware update simulation:
 
-    ```nodejs
+    ```javascript
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -154,7 +154,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following function to simulate a long-running firmware update flow that reports progress back to the solution:
 
-    ```nodejs
+    ```javascript
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -232,7 +232,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following code to send telemetry data to the solution. The client app adds properties to the message to identify the message schema:
 
-    ```nodejs
+    ```javascript
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();
@@ -251,7 +251,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following code to create a client instance:
 
-    ```nodejs
+    ```javascript
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
@@ -263,7 +263,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
     * Register handlers for the direct methods. The sample uses a separate handler for the firmware update direct method.
     * Start sending telemetry.
 
-    ```nodejs
+    ```javascript
     client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);
