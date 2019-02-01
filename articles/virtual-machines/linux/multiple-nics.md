@@ -32,7 +32,7 @@ First, create a resource group with [az group create](/cli/azure/group). The fol
 az group create --name myResourceGroup --location eastus
 ```
 
-Create the virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVnet* and subnet named *mySubnetFrontEnd*:
+Create the virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named *myVnet* and subnet named *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -82,7 +82,7 @@ az network nic create \
 ## Create a VM and attach the NICs
 When you create the VM, specify the NICs you created with `--nics`. You also need to take care when you select the VM size. There are limits for the total number of NICs that you can add to a VM. Read more about [Linux VM sizes](sizes.md).
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM*:
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*:
 
 ```azurecli
 az vm create \

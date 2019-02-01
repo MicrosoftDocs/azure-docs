@@ -31,7 +31,7 @@ These Microsoft Azure Marketplace Participation Policies apply to all publishers
 
 1. Publishers must be located in a sell-from country supported by the Azure Marketplace. The Azure Marketplace currently supports the following sell-from countries:  Afghanistan, Albania, Algeria, Angola, Antigua and Barbuda, Argentina, Armenia, Australia, Austria, Azerbaijan, Bahrain, Bangladesh, Belarus, Belgium, Benin, Bolivia, Bosnia and Herzegovina, Botswana, Brazil, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Central African Republic, Chad, Chile, Colombia, Comoros, Congo (DRC), Congo (Republic of), Costa Rica, Cote D'Ivoire, Croatia, Cyprus, Czech Republic, Denmark, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Eritrea, Estonia, Ethiopia, Fiji Islands, Finland, France, Georgia, Germany, Ghana, Greece, Guatemala, Guinea, Haiti, Honduras, Hong Kong SAR, Hungary, Iceland, India, Indonesia, Iraq, Ireland, Israel, Italy, Jamaica, Japan, Jordan, Kazakhstan, Kenya, Korea (South), Kuwait, Laos, Latvia, Lebanon, Liberia, Liechtenstein, Lithuania, Luxembourg, Madagascar, Malawi, Malaysia, Mali, Malta, Mauritius, Mexico, Monaco, Mongolia, Montenegro, Morocco, Mozambique, Nepal, The Netherlands, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Qatar, Romania, Russia, Rwanda, Saudi Arabia, Senegal, Serbia, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, Spain, Sri Lanka, Sweden, Switzerland, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Uganda, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Uzbekistan, Venezuela, Vietnam, Zambia, Zimbabwe.
 
-1. For each offering, publishers must make the offering available in at least one sell-to country supported by the Azure Marketplace. The Azure Marketplace currently supports the following sell-to countries:  Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgium, Brazil, Bulgaria, Canada, Chile, Colombia, Costa Rica, Croatia, Cyprus, Czech Republic, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Finland, France, Germany, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, Macedonia, Malaysia, Malta, Mexico, Montenegro, Morocco, Netherlands, New Zealand, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Saudi Arabia, Serbia, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Thailand, Trinidad and Tobago, Tunisia, Turkey, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Venezuela. 
+1. For each offering, publishers must make the offering available in at least one sell-to country supported by the Azure Marketplace. The Azure Marketplace currently supports the following sell-to countries: Algeria, Argentina, Australia, Austria, Bahrain, Belarus, Belgium, Brazil, Bulgaria, Canada, Chile, Colombia, Costa Rica, Croatia, Cyprus, Czech Republic, Denmark, Dominican Republic, Ecuador, Egypt, El Salvador, Estonia, Finland, France, Germany, Greece, Guatemala, Hong Kong, Hungary, Iceland, India, Indonesia, Ireland, Israel, Italy, Japan, Jordan, Kazakhstan, Kenya, Kuwait, Latvia, Liechtenstein, Lithuania, Luxembourg, Macedonia, Malaysia, Malta, Mexico, Montenegro, Morocco, Netherlands, New Zealand, Nigeria, Norway, Oman, Pakistan, Panama, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Saudi Arabia, Serbia, Singapore, Slovakia, Slovenia, South Africa, South Korea, Spain, Sri Lanka, Sweden, Switzerland, Taiwan, Thailand, Trinidad and Tobago, Tunisia, Turkey, Ukraine, United Arab Emirates, United Kingdom, United States, Uruguay, Venezuela.
 
 1. Publishers must remain in good financial standing.
 
@@ -43,7 +43,7 @@ These Microsoft Azure Marketplace Participation Policies apply to all publishers
 
 1. Publishers must announce the availability of their offering in the Azure Marketplace on their public website, and must include hyperlinks to their offer listing pages on [https://azuremarketplace.microsoft.com/marketplace/](https://azuremarketplace.microsoft.com/marketplace/).
 
-1. Publishers must classify each offering based on one or more classification taxonomies provided by Microsoft, including the categories described in Section 4 of this document. If Microsoft considers a publisher-selected classification to be inaccurate, it reserves the right to reclassify any offering.
+1. Publishers must classify each offering based on one or more classification taxonomies provided by Microsoft, including the categories described in the **Offering Classification Definitions** section of this document. If Microsoft considers a publisher-selected classification to be inaccurate, it reserves the right to reclassify any offering.
 
 1. If a publisher’s offering is Microsoft Azure Certified, and does not run primarily on Microsoft Azure, the publisher must make a paid version of the offering available in the Marketplace, within 90 days of publishing a free or BYOL version of the offering.
 
@@ -118,7 +118,7 @@ After publishing a Services Offering in the Marketplace, Publishers must maintai
     * The offering consistently receives many support tickets; or
     * The publisher has failed to comply with terms and conditions in the Microsoft Marketplace Publisher Agreement, the Marketplace Publication Guidelines, or this document.
 
-1. For various reasons, you may decide to remove your offer from the Marketplace. Offer Removal ensures that new customers may no longer purchase or deploy your offer, but has no impact on existing customers. Offer Termination is the process of terminating the service and/or licensing agreement between you and your existing customers. Guidance and policies related to offer removal and termination are governed by Microsoft Marketplace Publisher Agreement (see Section 7). You may request removal or termination by logging a support ticket.
+1. For various reasons, you may decide to remove your offer from the Marketplace. Offer Removal ensures that new customers may no longer purchase or deploy your offer, but has no impact on existing customers. Offer Termination is the process of terminating the service and/or licensing agreement between you and your existing customers. Guidance and policies related to offer removal and termination are governed by Microsoft Marketplace Publisher Agreement (see "Payment terms" section). You may request removal or termination by logging a support ticket.
 
 ## Payment terms
 
@@ -134,19 +134,35 @@ Microsoft permits publishers to include the following Microsoft Software Product
 
 ## Taxes
 
-1. **Microsoft Remittance Countries.**
+1. **Responsibility for Taxes on End Customer Sales.**
 
-    1. The following countries are Microsoft Remittance Countries, as defined in the Microsoft Marketplace Publisher Agreement: European Union, Canada, India, Ireland, Liechtenstein, Monaco, New Zealand, Norway, Puerto Rico, South Korea, Switzerland, United States. Australia, Saudi Arabia, Taiwan, and United Arab Emirates are Microsoft Remittance countries only for Web Direct sales.
+    1. In general, each of Microsoft’s and publisher’s responsibilities for taxes on end customer sales depend on the country and the purchase scenario in which offers are sold.
 
-    1. Within Ireland, Microsoft charges Irish VAT to all Irish customers (unless Irish customer provides details of a valid VAT 56B certificate). For business customers within the European Union and Norway (located outside of Ireland), Microsoft applies the zero rate of VAT when provided with a valid VAT number. If a valid VAT number is not provided, then customers are charged VAT at the rate applicable in the customer’s country/jurisdiction.
+    1. In certain countries (**Microsoft Managed Countries**) Microsoft assumes responsibility for managing end customer taxation, which may include validating the business status of customers by obtaining tax registration numbers or exemption certificates, deeper managed relationships with customers and calculating, collecting and/or remitting taxes.  In cases where sales are made through partners, Microsoft assumes all partners are businesses and are appropriately discharging their tax obligations.  Additional information can be found in the [FAQs](https://automaticbillingspec.blob.core.windows.net/spec/FAQ%20for%20ISV%20Azure%20Marketplace%20Updates%20March%202019.pdf).
 
-    1. Microsoft charges Swiss VAT to all customers in Switzerland or Liechtenstein.
+    1. For all countries that are not Microsoft Managed Countries (**ISV Managed Countries**), publishers acknowledge and agree that publishers have sole responsibility to determine and manage end customer taxation, such as registration, tax calculation, collection and remittance, validation of business status of customers and provision of tax invoices to customers, for all offers such publishers choose to make available in ISV Managed Countries.  Publishers acknowledge that, with respect to any sale in an ISV Managed Country, Microsoft currently may not be able to provide.
 
-1. **ISV Remittance Countries.**
+    1. End customers may purchase offers directly from Microsoft or from Microsoft partners to whom publisher licenses its product.  In addition, there are several different licensing programs.  In some instances, Microsoft Managed Countries may become ISV Managed Countries and vice versa (see the Section on **Microsoft Managed Countries**, below). Information regarding customer purchase scenarios can be found in [Azure Marketplace FAQ](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide).
 
-    1. ISV Remittance Countries include all sell-to countries as defined in Section 1 (3) of this Policy that is not Microsoft Remittance Countries. In addition, sales for Australia, Saudi Arabia, Taiwan, and United Arab Emirates via the Enterprise channel, are treated as ISV Remittance sales. However, with regards to publishers in Taiwan, Microsoft cannot confirm that any such Taiwanese publishers are collecting and remitting applicable taxes.
+1. **Microsoft Managed Countries.**
 
-    1. If publishers choose to make offerings available in an ISV Remittance Country, such publishers have sole responsibility to determine their tax obligation in such ISV Remittance Country, if any.  They must acknowledge that Microsoft may not currently be able to provide the transaction details required for publishers to provide customers with tax invoices.
+    1. The following countries are Microsoft Managed Countries for sales through all customer purchase scenarios: Armenia, Belarus, European Union, Canada, India, Ireland, Liechtenstein, Monaco, New Zealand, Norway, Puerto Rico, Russia, Saudi Arabia, Serbia, South Korea, Switzerland, Taiwan, Turkey, United Arab Emirates and United States. 
+
+    1. Australia is a Microsoft Managed Country for sales through all customer purchase scenarios except the Enterprise Agreement customer purchase scenario.
+
+    1. Microsoft manages end customer taxation for publisher as a convenience and has assumed the most common scenarios for determining the countries and strategies for managing end customer taxation.
+
+    1. Microsoft makes no warranties that Microsoft’s actions will completely satisfy publishers obligations in Microsoft Managed Countries.  For all Microsoft Managed Countries, Microsoft strongly recommends publishers work with their own tax advisors to ascertain whether Microsoft Managed tax remittance sufficiently addresses the publishers’ compliance requirements.  This is particularly critical for any Microsoft Managed Countries from which publishers sell their products.  For example, a publisher established in and selling offers in Saudi Arabia may determine that relying on Microsoft to manage tax may not be sufficient to satisfy the publisher’s compliance obligations.
+
+1. **ISV Managed Countries.**
+
+    1. ISV Managed Countries include Australia, for all sales through the Enterprise Agreement customer purchase scenario, and all countries not referenced in the Section on **Microsoft Managed Countries**.
+
+1. **Special Cases.**
+
+    1. *Brazil*.  For sales in Brazil through all customer purchase scenarios except CSP, Brazil is a Microsoft Managed Country, and Microsoft acts as a reseller, rather than publishers’ agent.  For sales in Brazil through the CSP customer purchase scenario, Microsoft acts as publishers’ agent and sells from a Brazil entity to Brazilian CSPs that Microsoft assumes are tax compliant. 
+
+    1. *Mexico*.  For sales in Mexico through the Enterprise Agreement customer purchase scenario, Mexico is a Microsoft Managed Country, and Microsoft acts as a reseller, rather than publishers’ agent.  For sales in Mexico through all customer purchase scenarios except Enterprise Agreement, Mexico is an ISV Managed Country and Microsoft acts as publishers’ agent.
 
 ## Security events
 

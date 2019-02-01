@@ -280,4 +280,4 @@ All of these items are pre-installed in Cloud Shell.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Install and use the Azure Terraform Visual Studio Code extenstion.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)
+> [Install and use the Azure Terraform Visual Studio Code extension.](https://docs.microsoft.com/azure/terraform/terraform-vscode-extension)

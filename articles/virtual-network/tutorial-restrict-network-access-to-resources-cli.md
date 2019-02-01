@@ -39,7 +39,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Create a virtual network
 
-Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location.
+Before creating a virtual network, you have to create a resource group for the virtual network, and all other resources created in this article. Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive
 az group create \
@@ -318,7 +318,7 @@ Access is denied, and you receive a `mount error(13): Permission denied` error, 
 
 Exit the SSH session to the *myVmPublic* VM.
 
-From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share?view=azure-cli-latest#az_storage_share_list). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
+From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share?view=azure-cli-latest). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \
