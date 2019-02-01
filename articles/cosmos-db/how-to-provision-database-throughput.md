@@ -32,7 +32,7 @@ This article explains how to provision throughput for a database in Azure Cosmos
 ## Provision throughput by using .NET SDK
 
 > [!Note]
-> Use the SQL API to provision throughput for all APIs. You can optionally use the example below for Cassandra API as well.
+> Use the SQL API to provision throughput for all APIs. You can optionally use the following example for Cassandra API as well.
 
 ### <a id="dotnet-all"></a>All APIs
 
