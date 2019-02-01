@@ -143,14 +143,14 @@ The wizard can usually infer a default index. In this step, you can view the gen
 For this quickstart, the wizard does a good job setting reasonable defaults: 
 
 + Default name is *azureblob-index*.
-+ Default key is *metadata_storage_path* (this field contains unique values).
 + Default fields are based on the original source data field (`content`), plus the output fields (`people`, `organizations`, and `locations`) created by the cognitive pipeline.
++ Default key is *metadata_storage_path* (this field contains unique values).
 + Default data types are inferred from metadata and data sampling.
 + Default attributes are **Retrievable** and **Searchable** for these fields. **Searchable** indicates a field can be searched. **Retrievable** means it can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset.
 
   ![Index fields](media/cognitive-search-quickstart-blob/index-fields.png)
 
-Notice the strikethrough and question mark on the **Retrievable** attribute by the `content` field. For text-heavy blob documents, the `content` field contains the bulk of the file, potentially running into thousands of lines. If you need to pass file contents to client code, make sure that **Retrievable** stays selected. Otherwise, consider clearing this attribute on `content` if the extracted content (`people`, `organizations`, and `locations`) is sufficient for your purposes.
+Notice the strikethrough and question mark on the **Retrievable** attribute by the `content` field. For text-heavy blob documents, the `content` field contains the bulk of the file, potentially running into thousands of lines. If you need to pass file contents to client code, make sure that **Retrievable** stays selected. Otherwise, consider clearing this attribute on `content` if the extracted elements (`people`, `organizations`, and `locations`) are sufficient for your purposes.
 
 Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for providing manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
   
