@@ -41,6 +41,6 @@ The following table describes the name and purpose of these fields.
 |  |  |
 
 
-## Next Steps
+## Next steps
 
 After you have completed the Power BI App offer, you should confirm that you have created all the associated [technical assets](./cpp-create-technical-assets.md) for this offer.

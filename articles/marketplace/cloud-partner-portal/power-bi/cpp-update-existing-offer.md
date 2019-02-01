@@ -29,7 +29,7 @@ then republishing the offer.  There are commonplace reasons for you to update yo
 To assist you in these modifications, the portal offers the **Compare** and **History** features.
 
 
-## Unpermitted changes to Power BI App offer
+## Unpermitted changes to offer
 
 There are some attributes of a Power BI App offer that cannot be modified once the offer is live in the AppSource, mainly  **Offer ID** and **Publisher ID**.
 
@@ -39,7 +39,7 @@ There are some attributes of a Power BI App offer that cannot be modified once t
 Although there are a wide range of characteristics you can change on a Power BI App offer, the following operations are common.
 
 
-### Update the App’s content in Power BI
+### Update app content in Power BI
 
 It is common for the app in Power BI to be periodically updated with new content, security patches, additional features, and so on. Under such scenarios,
 you want to update the URL to the new apps content installation by using the following steps:
@@ -61,7 +61,7 @@ Use the following steps to update the marketplace metadata—company name, logos
 4.  Click on **Publish** to start the workflow to publish your changes.
 
 
-## Compare Feature
+## Compare feature
 
 When you make changes on an already published offer, you can use the **Compare** feature to audit the changes that have been made. To use this
 feature:
@@ -73,7 +73,7 @@ feature:
 2.  View side-by-side versions of marketing assets and metadata.
 
 
-## History of Publishing Actions
+## History of publishing actions
 
 To view any historical publishing activity, click on the **History** tab in the left navigation menubar of Cloud Partner Portal. Here you will be able to view timestamped actions that have been taken during the lifetime of your AppSource offers.
 
