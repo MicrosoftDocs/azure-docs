@@ -38,8 +38,6 @@ In this tutorial, you learn how to:
 
 2. Sign in using your Azure Active Directory (AD) admin credentials. The Azure AD admin credentials aren't the same as HDInsight cluster credentials or Linux HDInsight node SSH credentials.
 
-   ![Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
-
 ## Create domain users
 
 Visit [Create a HDInsight cluster with Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds#create-a-domain-joined-hdinsight-cluster), to learn how to create the **sales_user1** and **marketing_user1** domain users. In a production scenario, domain users come from your Active Directory tenant.
@@ -93,13 +91,15 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
 
 Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
-1. Open the **Ranger Admin UI**.
+1. Open the **Ranger Admin UI**. Click **\<ClusterName>_hbase** under **HBase**.
 
-2. Click **\<ClusterName>_hbase** under **HBase**. One pre-configured policy may be listed.
+   ![Apache Ranger Admin UI](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
-       ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+2. The **List of Policies** screen will display all Ranger policies created for this cluster. One pre-configured policy may be listed. Click **Add New Policy**.
 
-3. Click **Add New Policy** and enter the following values:
+    ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+
+3.  On the **Create Policy** screen, enter the following values:
 
    |**Setting**  |**Suggested value**  |
    |---------|---------|
