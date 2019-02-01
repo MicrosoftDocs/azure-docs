@@ -11,29 +11,32 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.author: tomfitz
 
 ---
 # Azure Resource Manager overview
-Azure Resource Manager is a deployment and management service for Azure. It provides a consistent management layer that enables you to create, update, and delete resources in your Azure subscription. Resource Manager also offers security, auditing, and tagging features to help you manage your resources after deployment.
 
-When you send a request through the portal, PowerShell, Azure CLI, REST APIs, or client SDKs, that request is handled through the Azure Resource Manager API. Because all requests are handled through the same API, you see consistent results and capabilities.
+Azure Resource Manager is the deployment and management service for Azure. It provides a consistent management layer that enables you to create, update, and delete resources in your Azure subscription. You can use its access control, auditing, and tagging features to secure and organize your resources after deployment.
+
+When you take actions through the portal, PowerShell, Azure CLI, REST APIs, or client SDKs, the Azure Resource Manager API handles your request. Because all requests are handled through the same API, you see consistent results and capabilities in all the different tools.
 
 The following image shows how all the tools interact with the Azure Resource Manager API. The API passes requests to the Resource Manager service, which authenticates and authorizes the requests. Resource Manager then routes the requests to the appropriate resource providers.
 
 ![Resource Manager request model](./media/resource-group-overview/consistent-management-layer.png)
 
 ## Terminology
+
 If you're new to Azure Resource Manager, there are some terms you might not be familiar with.
 
-* **resource** - A manageable item that is available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network. Of course, there are many other resources.
+* **resource** - A manageable item that is available through Azure. Virtual machines, storage accounts, web apps, databases, and virtual networks are all resources.
 * **resource group** - A container that holds related resources for an Azure solution. The resource group includes those resources that you want to manage as a group. You decide how to allocate resources to resource groups based on what makes the most sense for your organization. See [Resource groups](#resource-groups).
-* **resource provider** - A service that supplies the resources you can deploy and manage. Each resource provider offers operations for working with the resources that are deployed. For example, a common resource provider is **Microsoft.Compute**, which supplies the virtual machine resource. **Microsoft.Storage** is another common resource provider and it supplies the storage account resource. See [Resource providers](#resource-providers).
-* **Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group. It also defines the dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment](#template-deployment).
+* **resource provider** - A service that supplies Azure resources. For example, a common resource provider is **Microsoft.Compute**, which supplies the virtual machine resource. **Microsoft.Storage** is another common resource provider and it supplies the storage account resource. See [Resource providers](#resource-providers).
+* **Resource Manager template** - A JavaScript Object Notation (JSON) file that defines one or more resources to deploy to a resource group or subscription. The template can be used to deploy the resources consistently and repeatedly. See [Template deployment](#template-deployment).
 * **declarative syntax** - Syntax that lets you state "Here is what I intend to create" without having to write the sequence of programming commands to create it. The Resource Manager template is an example of declarative syntax. In the file, you define the properties for the infrastructure to deploy to Azure. 
 
 ## The benefits of using Resource Manager
+
 Resource Manager provides several benefits:
 
 * You can deploy, manage, and monitor all the resources for your solution as a group, rather than handling these resources individually.
@@ -54,7 +57,7 @@ The following suggestions help you take full advantage of Resource Manager when 
 
 For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
 
-For recommendations on creating Resource Manager templates that you can use across global Azure, Azure Stack, and other cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
+For recommendations on creating Resource Manager templates, see [Azure Resource Manager template best practices](template-best-practices.md).
 
 ## Resource groups
 There are some important factors to consider when defining your resource group:
@@ -70,7 +73,7 @@ There are some important factors to consider when defining your resource group:
 When creating a resource group, you need to provide a location for that resource group. You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?" The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
 
 ## Resource providers
-Each resource provider offers a set of resources and operations for working with an Azure service. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault. 
+Each resource provider offers operations for working with the resources that are deployed. Each resource provider offers a set of resources and operations for working with an Azure service. For example, if you want to store keys and secrets, you work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault. 
 
 The name of a resource type is in the format: **{resource-provider}/{resource-type}**. The resource type for a key vault is **Microsoft.KeyVault/vaults**.
 
