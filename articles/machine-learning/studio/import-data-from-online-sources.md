@@ -1,11 +1,11 @@
 ---
 title: Import data into Machine Learning Studio from online data sources
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: This article describes the support for importing online data from various sources and the information needed to move data from these sources into an Azure Machine Learning Studio experiment.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
-ms.topic: article
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

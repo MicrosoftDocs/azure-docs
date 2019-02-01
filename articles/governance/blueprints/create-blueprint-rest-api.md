@@ -4,7 +4,7 @@ description: Use Azure Blueprints to create, define, and deploy artifacts.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
@@ -369,10 +369,11 @@ as **v20180622-135541**.
 ## Assign a blueprint
 
 Once a blueprint is published using REST API, it's assignable to a subscription. Assign the
-blueprint you created to one of the subscriptions under your management group hierarchy. The
-**Request Body** specifies the blueprint to assign, provides name and location to any resource
-groups in the blueprint definition, and provides all parameters defined on the blueprint and used
-by one or more attached artifacts.
+blueprint you created to one of the subscriptions under your management group hierarchy. If the
+blueprint is saved to a subscription, it can only be assigned to that subscription. The **Request
+Body** specifies the blueprint to assign, provides name and location to any resource groups in the
+blueprint definition, and provides all parameters defined on the blueprint and used by one or more
+attached artifacts.
 
 1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID various by tenant. Details can be requested for your tenant using the following REST API. It uses [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) which has different authorization.
 
