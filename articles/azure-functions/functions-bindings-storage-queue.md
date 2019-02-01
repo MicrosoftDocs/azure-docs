@@ -35,6 +35,9 @@ The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensio
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
+> [!NOTE]
+> Base64 encoding is required when using queue bindings.
+
 ## Trigger
 
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.
@@ -306,9 +309,6 @@ The [host.json](functions-host-json.md#queues) file contains settings that contr
 ## Output
 
 Use the Azure Queue storage output binding to write messages to a queue.
-
-> [!NOTE]
-> Base64 encoding is required when using queue bindings.
 
 ## Output - example
 
