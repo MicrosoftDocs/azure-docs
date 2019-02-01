@@ -4,6 +4,9 @@
   items:
   - name: What is Bing Autosuggest?
     href: get-suggested-search-terms.md
+  - name: Compare the Bing Search APIs
+    href: ../Bing-Web-Search/bing-api-comparison.md
+    maintainContext: true
 - name: REST API Quickstarts
   expanded: true
   items:
@@ -27,8 +30,6 @@
     href: tutorials/autosuggest-source.md
 - name: How-to guides
   items:
-  - name: Use and display requirements
-    href: UseAndDisplayRequirements.md
   - name: Upgrade from v5 to v7
     href: bing-autosuggest-upgrade-guide-v5-to-v7.md
 - name: Reference
@@ -45,6 +46,9 @@
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
+  - name: Use and display requirements
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
 - name: Resources
   items:
   - name: FAQ
