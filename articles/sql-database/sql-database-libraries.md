@@ -11,7 +11,7 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer:
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 01/15/2019
 ---
 # Connectivity libraries and frameworks for SQL Server
 
