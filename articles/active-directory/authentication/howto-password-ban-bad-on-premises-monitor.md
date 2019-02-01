@@ -76,7 +76,7 @@ The cases in the table above that refer to "combined policies" are referring to 
 
 When a pair of events is logged together, both events are explicitly associated by having the same CorrelationId.
 
-### Password validation summary reporting via Powershell
+### Password validation summary reporting via PowerShell
 
 The `Get-AzureADPasswordProtectionSummaryReport` cmdlet may be used to produce a summary view of password validation activity. An example output of this cmdlet is as follows:
 
@@ -286,11 +286,11 @@ Text logging is disabled by default. A restart of the Proxy service is required 
 > [!WARNING]
 > When enabled, this log receives a high volume of events and may impact the machine's performance. Therefore, this enhanced log should only be enabled when a problem requires deeper investigation, and then only for a minimal amount of time.
 
-## Powershell cmdlet logging
+## PowerShell cmdlet logging
 
-Powershell cmdlets that result in a state change (for example, Register-AzureADPasswordProtectionProxy) will normally log an outcome event to the Operational log.
+PowerShell cmdlets that result in a state change (for example, Register-AzureADPasswordProtectionProxy) will normally log an outcome event to the Operational log.
 
-In addtional, most of the Azure AD Password Protection Powershell cmdlets will write to a text log located under:
+In addtional, most of the Azure AD Password Protection PowerShell cmdlets will write to a text log located under:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
