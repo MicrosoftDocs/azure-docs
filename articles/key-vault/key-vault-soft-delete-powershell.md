@@ -198,13 +198,13 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 > [!IMPORTANT]
 > Purging a key vault or one of its contained objects, will permanently delete it, meaning it will not be recoverable!
 
-The purge fuction is used to permanently delete a key vault object or an entire key vault, that was previously soft-deleted. As demonstrated in the previous section, objects stored in a key vault with the soft-delete feature enabled, can go through multiples states:
+The purge fuction is used to permanently delete a key vault object or an entire key vault, that was previously soft-deleted. As demonstrated in the previous section, objects stored in a key vault with the soft-delete feature enabled, can go through multiple states:
 
 - **Active**: before deletion.
 - **Soft-Deleted**: after deletion, able to be listed and recovered back to active state.
 - **Permanently-Deleted**: after purge, not able to be recovered.
 
-The key vault that contained the deleted object will remain intact, as will all other objects in the key vault. If you want to permanently delete the vault and all of its contents, you must purge the key vault itself.
+The same is true for the key vault. In order to permanently delete a soft-deleted key vault and its contents, you must purge the key vault itself.
 
 ### Purging a key vault
 
