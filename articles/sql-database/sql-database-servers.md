@@ -3,7 +3,7 @@ title: Azure SQL Database servers | Microsoft Docs
 description: Learn about Azure SQL Database servers and their management.
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
