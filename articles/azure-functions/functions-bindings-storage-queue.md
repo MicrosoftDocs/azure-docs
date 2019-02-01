@@ -35,8 +35,8 @@ The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensio
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-> [!NOTE]
-> Base64 encoding is required when using queue bindings.
+## Encodings
+Queue bindings must be encoded as *base64* when used in a function.
 
 ## Trigger
 
