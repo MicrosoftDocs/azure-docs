@@ -24,11 +24,11 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
 
 >[!NOTE]
->Copying data to/from Azure Data Explorer from/to on-prem data store using Self-hosted Integration Runtime is not supported yet.
+>Currently, copying data to/from Azure Data Explorer from/to on-prem data store using Self-hosted Integration Runtime is not supported yet.
 
 The Azure Data Explorer connector allows you to do the following:
 
-* Copy data by using Azure Active Directory (Azure AD) application token authentication with a service principal.
+* Copy data by using Azure Active Directory (Azure AD) application token authentication with a **service principal**.
 * As a source, retrieve data by using a KQL (Kusto) query.
 * As a sink, append data to a destination table.
 
