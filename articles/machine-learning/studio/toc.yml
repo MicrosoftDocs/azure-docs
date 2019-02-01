@@ -195,8 +195,8 @@
     href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
-  - name: Algorithm & Module reference
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
+  - name: Algorithm & module reference
+    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help.md
   - name: Azure PowerShell modules
     href: powershell-module.md
   - name: Web service error codes
