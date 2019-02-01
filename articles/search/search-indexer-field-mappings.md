@@ -23,7 +23,7 @@ Some situations where field mappings are useful:
 * You need to Base64 encode or decode your data. Field mappings support several **mapping functions**, including functions for Base64 encoding and decoding.   
 
 ## Setting up field mappings
-You can add field mappings when creating a new indexer using the [Create Indexer](https://msdn.microsoft.com/library/azure/dn946899.aspx) API. You can manage field mappings on an indexing indexer using the [Update Indexer](https://msdn.microsoft.com/library/azure/dn946892.aspx) API.
+You can add field mappings when creating a new indexer using the [Create Indexer](/rest/api/searchservice/Create-Indexer) API. You can manage field mappings on an indexing indexer using the [Update Indexer](/rest/api/searchservice/Update-Indexer) API.
 
 A field mapping consists of three parts:
 
@@ -133,7 +133,7 @@ If you don't specify any `parameters`, then the default value of `useHttpServerU
 ### Details of base64 encoding and decoding
 Azure Search supports two base64 encodings: HttpServerUtility URL token and URL-safe base64 encoding without padding. You need to use the same encoding as the mapping functions if you want to encode a document key for look up, encode a value to be decoded by the indexer, or decode a field encoded by the indexer.
 
-If `useHttpServerUtilityUrlTokenEncode` or `useHttpServerUtilityUrlTokenDecode` parameters for encoding and decoding respectively are set to `true`, then `base64Encode` behaves like [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) and `base64Decode` behaves like [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+If `useHttpServerUtilityUrlTokenEncode` or `useHttpServerUtilityUrlTokenDecode` parameters for encoding and decoding respectively are set to `true`, then `base64Encode` behaves like [HttpServerUtility.UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode.7.2#System_Web_HttpServerUtility_UrlTokenEncode_System_Byte___) and `base64Decode` behaves like [HttpServerUtility.UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode.7.2#System_Web_HttpServerUtility_UrlTokenDecode_System_String_).
 
 If you are not using the full .NET Framework (i.e., you are using .NET Core or other programming environment) to produce the key values to emulate Azure Search behavior, then you should set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `false`. Depending on the library you use, the base64 encode and decode utility functions may be  different from Azure Search.
 

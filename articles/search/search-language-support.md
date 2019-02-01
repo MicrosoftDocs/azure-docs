@@ -15,8 +15,8 @@ ms.custom: seodec2018
 > [!div class="op_single_selector"]
 >
 > * [Portal](search-language-support.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-> * [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
+> * [REST](/azure/search/index-add-language-analyzers)
+> * [.NET](/dotnet/api/microsoft.azure.search.models.analyzername#microsoft_azure_search_models_analyzername)
 >
 >
 
@@ -48,7 +48,7 @@ Below are screenshots of the Azure Portal blades for Azure Search that allow use
 ![][2]
 *Select one of the supported analyzers for each field*
 
-By default, all searchable fields use the [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which is language agnostic. To view the full list of supported analyzers, see [Language Support in Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+By default, all searchable fields use the [Standard Lucene analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which is language agnostic. To view the full list of supported analyzers, see [Language Support in Azure Search](/azure/search/index-add-language-analyzers).
 
 Once the language analyzer is selected for a field, it will be used with each indexing and search request for that field. When a query is issued against multiple fields using different analyzers, the query will be processed independently by the right analyzers for each field.
 
@@ -63,7 +63,7 @@ If the language of the agent issuing a query is known, a search request can be s
 
 You can query your index from the portal, using **Search explorer** to paste in a query similar to the one shown above. Search explorer is available from the command bar in the service blade. See [Query your Azure Search index in the portal](search-explorer.md) for details.
 
-Sometimes the language of the agent issuing a query is not known, in which case the query can be issued against all fields simultaneously. If needed, preference for results in a certain language can be defined using [scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx). In the example below, matches found in the description in English will be scored higher relative to matches in Polish and French:
+Sometimes the language of the agent issuing a query is not known, in which case the query can be issued against all fields simultaneously. If needed, preference for results in a certain language can be defined using [scoring profiles](/azure/search/index-add-scoring-profiles). In the example below, matches found in the description in English will be scored higher relative to matches in Polish and French:
 
     "scoringProfiles": [
       {

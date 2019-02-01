@@ -111,7 +111,7 @@ The above design patterns to model multitenant scenarios in Azure Search assume 
 
 If service-per-tenant and index-per-tenant models are not sufficiently small scopes, it is possible to model an index to achieve an even finer degree of granularity.
 
-To have a single index behave differently for different client endpoints, a field can be added to an index which designates a certain value for each possible client. Each time a client calls Azure Search to query or modify an index, the code from the client application specifies the appropriate value for that field using Azure Search's [filter](https://msdn.microsoft.com/library/azure/dn798921.aspx) capability at query time.
+To have a single index behave differently for different client endpoints, a field can be added to an index which designates a certain value for each possible client. Each time a client calls Azure Search to query or modify an index, the code from the client application specifies the appropriate value for that field using Azure Search's [filter](/azure/search/query-odata-filter-orderby-syntax) capability at query time.
 
 This method can be used to achieve functionality of separate user accounts, separate permission levels, and even completely separate applications.
 

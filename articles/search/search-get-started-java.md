@@ -17,7 +17,7 @@ ms.custom: seodec2018
 > 
 > 
 
-Learn how to build a custom Java search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
+Learn how to build a custom Java search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](/rest/api/searchservice/) to construct the objects and operations used in this exercise.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
@@ -30,7 +30,7 @@ We used the following software to build and test this sample:
 ## About the data
 This sample application uses data from the [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
-In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Predefined credentials and connection  information to the online data source are provided in the program code. In terms of data access, no further configuration is necessary.
+In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](/rest/api/searchservice/Index-operations) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Predefined credentials and connection  information to the online data source are provided in the program code. In terms of data access, no further configuration is necessary.
 
 > [!NOTE]
 > We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply, and you can modify this code to use a bigger dataset. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
