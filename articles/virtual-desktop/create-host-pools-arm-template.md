@@ -47,26 +47,23 @@ For guidance about which parameters you should enter for your scenario, see the 
 
 After the GitHub ARM template completes, assign user access before you start testing the full session desktops on your virtual machines.
 
-To assign users to the desktop application group:
+To assign users to the desktop application group, open a PowerShell window and run this cmdlet to sign in to the Windows Virtual Desktop environment:
 
-1. Open a PowerShell window.
-2. Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
+```powershell
+Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+```
 
-    ```powershell
-    Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-    ```
+Next, set the context to the tenant group specified in the ARM template with this cmdlet:
 
-3. Next, set the context to the tenant group specified in the ARM template with this cmdlet:
+```powershell
+Set-RdsContext -TenantGroupName <Tenant Group name>
+```
 
-    ```powershell
-    Set-RdsContext -TenantGroupName <Tenant Group name>
-    ```
+After that, add users to the desktop application group with this cmdlet:
 
-4. After that, add users to the desktop application group with this cmdlet:
-
-    ```powershell
-    Add-RdsAppGroupUser <tenantname> <hostpoolname> “Desktop Application Group” -UserPrincipalName <userupn>
-    ```
+```powershell
+Add-RdsAppGroupUser <tenantname> <hostpoolname> “Desktop Application Group” -UserPrincipalName <userupn>
+```
 
 The user’s UPN should match the user’s identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
 

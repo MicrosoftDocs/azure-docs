@@ -15,7 +15,9 @@ Host pools are a collection of one or more identical virtual machines within Win
 
 Follow the steps in this article to create a host pool within a Windows Virtual Desktop tenant using a Microsoft Azure Marketplace offering. This includes creating a host pool in Windows Virtual Desktop, creating a resource group with VMs in an Azure subscription, joining those VMs to the Active Directory domain, and registering the VMs with Windows Virtual Desktop.
 
-You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
+You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article.
+
+Run the following cmdlet to install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery if you haven't done so already:
 
 ```powershell
 PS C:\> Install-Module WindowsVirtualDesktop
@@ -52,33 +54,35 @@ Here's what you do for the Basics blade:
 For the Configure virtual machines blade:
 
 1. Either accept the defaults or customize the number and size of the VMs.
-2. Enter a prefix for the names of the virtual machines. For example, the virtual machines will be formatted as **prefix-0***, **prefix-1**, and so on.
+2. Enter a prefix for the names of the virtual machines. For example, if you enter the name "prefix," the virtual machines will be called "prefix-0," "prefix-1," and so on.
 3. Select **OK**.
 
 ### Virtual machine settings
 
 For the Virtual machine setting blade:
 
-1. Select the **Image** and enter the appropriate information for how to find it and how to store it. If you choose not to use managed disks, select the storage account containing the vhd file.
-2. Enter the user principal name and password for a domain account that will join the VMs to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
-3. Select the virtual network that has connectivity to the Active Directory server, then choose the subnet which will host the virtual machines.
+1. Select the **Image** and enter the appropriate information for how to find it and how to store it. If you choose not to use managed disks, select the storage account containing the .vhd file.
+2. Enter the user principal name and password for the domain account that will join the VMs to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
+3. Select the virtual network that has connectivity to the Active Directory server, then choose a subnet to host the virtual machines.
 4. Select **OK**.
 
 ### Windows Virtual Desktop tenant information
 
 For the Windows Virtual Desktop tenant information blade:
 
-1. Enter the name of the Windows Virtual Desktop tenant group that contains your tenant. If you do not have a specific tenant group name, leave it as the default.
+1. Enter the name of the Windows Virtual Desktop tenant group that contains your tenant. If you don't have a specific tenant group name planned, leave it as the default.
 2. Enter the name of the Windows Virtual Desktop tenant under which this host pool will be created.
-3. Specify the type of credentials you will provide to authenticate as a tenant admin. If you select **Service principal**, you must also provide the **Azure AD tenant ID** associated with the service principal.
+3. Specify the type of credentials you want to use to authenticate as a tenant admin. If you select **Service principal**, you must also provide the **Azure AD tenant ID** associated with the service principal.
 4. Enter either the credentials for the tenant admin account. Only service principals with a password credential are supported.
 5. Select **OK**.
 
 ## Complete setup and create the virtual machine
 
-4. In the **Summary** blade, review the setup information. If you need to change something, go back to the appropriate blade and make your change before continuing. If the information looks correct, select **OK**.
-5. In the **Buy** blade, review additional information provided by the Azure Marketplace.
-6. Select **Create** to kick off the deployment of your host pool.
+For the last two blades:
+
+1. In the **Summary** blade, review the setup information. If you need to change something, go back to the appropriate blade and make your change before continuing. If the information looks right, select **OK**.
+2. In the **Buy** blade, review the additional information about your purchase from Azure Marketplace.
+3. Select **Create** to to deploy your host pool.
 
 Depending on how many VMs you’re creating, this process can take an hour or more to complete.
 
@@ -86,26 +90,25 @@ Depending on how many VMs you’re creating, this process can take an hour or mo
 
 After the Azure Marketplace offering completes, assign user access before you start testing the full session desktops on your virtual machines.
 
-To assign users to the desktop application group:
+To assign users to the desktop application group, you must first open a PowerShell window. After that, you'll need to enter the following two cmdlets.
 
-1. Open a PowerShell window.
-2. Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
+Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
 
-    ```powershell
-    Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-    ```
+```powershell
+Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+```
 
-3. Next, set the context to the tenant group specified in the ARM template with this cmdlet:
+Next, set the context to the tenant group specified in the ARM template with this cmdlet:
 
-    ```powershell
-    Set-RdsContext -TenantGroupName <Tenant Group name>
-    ```
+```powershell
+Set-RdsContext -TenantGroupName <Tenant Group name>
+```
 
-4. After that, add users to the desktop application group with this cmdlet:
+Once you've done those two things, you can add users to the desktop application group with this cmdlet:
 
-    ```powershell
-    Add-RdsAppGroupUser <tenantname> <hostpoolname> “Desktop Application Group” -UserPrincipalName <userupn>
-    ```
+```powershell
+Add-RdsAppGroupUser <tenantname> <hostpoolname> “Desktop Application Group” -UserPrincipalName <userupn>
+```
 
 The user’s UPN should match the user’s identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
 

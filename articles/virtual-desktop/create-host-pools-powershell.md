@@ -15,37 +15,37 @@ Host pools are a collection of one or more identical virtual machines within Win
 
 ## Use your PowerShell client to create a host pool
 
-1. Run the following cmdlet to sign in to the Windows Virtual Desktop environment
+Run the following cmdlet to sign in to the Windows Virtual Desktop environment
     
-    ```powershell
-    Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
-    ```
+```powershell
+Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
+```
 
-2. Run the following cmdlet to set the context to your tenant group. If you do not have the name of the tenant group, your tenant is most likely in the “Default Tenant Group,” so you can skip this cmdlet.
-    
-    ```powershell
-    Set-RdsContext -TenantGroupName <tenantgroupname>
-    ```
+After that, run the following cmdlet to set the context to your tenant group. If you don't have the name of the tenant group, your tenant is most likely in the “Default Tenant Group,” so you can skip this cmdlet.
 
-3. Run the following cmdlet to create a new host pool in your Windows Virtual Desktop tenant.
-    
-    ```powershell
-    New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
-    ```
+```powershell
+Set-RdsContext -TenantGroupName <tenantgroupname>
+```
 
-4. Run the following cmdlet to create a registration token to authorize a session host to join the host pool and save it to a new file on your local computer. You can specify how long the registration token is valid by using the -ExpirationHours parameter.
-    
-    ```powershell
-    New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token > <PathToRegFile>
-    ```
+Next, run this cmdlet to create a new host pool in your Windows Virtual Desktop tenant:
 
-5. Run the following cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
-    
-    ```powershell
-    Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName “Desktop Application Group” -UserPrincipalName <userupn>
-    ```
+```powershell
+New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
+```
 
-The **Add-RdsAppGroupUser** cmdlet does not support adding security groups and only adds one user at a time to the app group. If you would like to add multiple users to the app group, re-run the cmdlet with the appropriate user principal names.
+Run the next cmdlet to create a registration token to authorize a session host to join the host pool and save it to a new file on your local computer. You can specify how long the registration token is valid by using the -ExpirationHours parameter.
+
+```powershell
+New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token > <PathToRegFile>
+```
+
+After that, run this cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
+
+```powershell
+Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName “Desktop Application Group” -UserPrincipalName <userupn>
+```
+
+The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the app group. If you want to add multiple users to the app group, rerun the cmdlet with the appropriate user principal names.
 
 Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Windows Virtual Desktop host pool](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
@@ -94,7 +94,7 @@ To install the Windows Virtual Desktop agents, do the following on each virtual 
 3. Install or activate the Side-by-Side stack. The steps will be different depending on which OS version the virtual machine uses.
    - If your virtual machine's OS is Windows Server 2016:
      - From the **Start** menu, search for Windows PowerShell ISE, right-click it, then select **Run as administrator**.
-     - Select **File**, then Open…, find the enablesxsstackrc.ps1 PowerShell script from the downloaded files and open it.
+     - Select **File**, then **Open…**, find the enablesxsstackrc.ps1 PowerShell script from the downloaded files and open it.
      - Select the green play button to run the script.
    - If your virtual machine's OS is Windows 10 1809 or later or Windows Server 2019 or later:
      - Run the **RDInfraSxSStackInstall** msi from the downloaded files and complete the installation.
