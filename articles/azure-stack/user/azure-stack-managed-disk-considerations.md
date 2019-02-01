@@ -67,7 +67,7 @@ Azure Stack Managed Disks supports the following API versions:
 Azure Stack supports *managed images*, which enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward. Managed images enable the following two scenarios:
 
 - You have generalized unmanaged VMs and want to use managed disks going forward.
-- You have an unmanaged VM and would like to reuse the image object to create multiple, similar managed VMs.
+- You have a generalized managed VM and would like to create multiple, similar managed VMs.
 
 ### Migrate unmanaged VMs to managed disks
 
@@ -75,7 +75,7 @@ Follow the instructions [here](../../virtual-machines/windows/capture-image-reso
 
 ### Create managed image from VM
 
-The following example script creates a similar Linux VM from an existing unmanaged VM:
+After creating an image from an existing managed disk VM using the script [here](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , the following example script creates a similar Linux VM from an existing image object:
 
 ```powershell
 # Variables for common values
