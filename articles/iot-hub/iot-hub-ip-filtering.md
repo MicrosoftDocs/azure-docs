@@ -67,7 +67,7 @@ To delete an IP filter rule, select one or more rules in the grid and click **De
 
 ## Retrieving and updating IP filters using Azure CLI
 
-Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI]( ). 
+Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). 
 
 To retrieve current IP filters of your IoT Hub, run:
 
@@ -77,7 +77,7 @@ az resource show -n <iothubName> -g <resourceGroupName> --resource-type Microsof
 
 This will return a JSON object where your existing IP filters are listed under the `properties.ipFilterRules` key:
 
-```
+```json
 {
 ...
     "properties": {
@@ -129,6 +129,9 @@ $filter = @{'filterName'='MaliciousIP'; 'action'='Reject'; 'ipMask'='6.6.6.6/6'}
 
 # Add your new IP filter rule
 $iothubResource.Properties.ipFilterRules += $filter
+
+# Remove an existing IP filter rule using its name, e.g., 'GoodIP'
+$iothubResource.Properties.ipFilterRules = @($iothubResource.Properties.ipFilterRules | Where 'filterName' -ne 'GoodIP')
 
 # Update your IoT Hub resource with your updated IP filters
 $iothubResource | Set-AzureRmResource -Force
