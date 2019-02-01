@@ -230,7 +230,7 @@ az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServ
 
 ## Deploy with a template
 
-You can use templates to deploy a scale set with automatic OS upgrades for supported images such as [Ubuntu 16.04-LTS](https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json').
+You can use templates to deploy a scale set with automatic OS upgrades for supported images such as [Ubuntu 16.04-LTS](https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
