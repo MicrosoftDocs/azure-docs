@@ -99,7 +99,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-storage-redundancy"></a>
 **Is geo-redundant storage supported for Azure File Sync?**  
-    Yes, Azure Files supports both locally redundant storage (LRS) and geo-redundant storage (GRS). If a GRS failover between paired regions occurs, we recommend that you treat the new region as a backup of data only. Azure File Sync does not automatically begin syncing with the new primary region. 
+    Yes, Azure Files supports both locally redundant storage (LRS) and geo-redundant storage (GRS). If you initiate a storage account failover between paired regions from an account configured for GRS, Microsoft recommends that you treat the new region as a backup of data only. Azure File Sync does not automatically begin syncing with the new primary region. 
 
 * <a id="sizeondisk-versus-size"></a>
 **Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync?**  
@@ -111,7 +111,6 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-recall-file"></a>**A file I want to use has been tiered. How can I recall the file to disk to use it locally?**  
  See [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-recall-file).
-
 
 * <a id="afs-force-tiering"></a>
 **How do I force a file or directory to be tiered?**  
@@ -237,7 +236,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="data-compliance-policies"></a>
 **What data compliance policies does Azure Files support?**  
 
-   Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can refer to [Azure Storage compliance offerings](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), and go to the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Azure Files runs on top of the same storage architecture that's used in other storage services in Azure Storage. Azure Files applies the same data compliance policies that are used in other Azure storage services. For more information about Azure Storage data compliance, you can refer to [Azure Storage compliance offerings](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), and go to the [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
 
 ## On-premises access
 * <a id="expressroute-not-required"></a>

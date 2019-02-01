@@ -11,21 +11,25 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 12/03/2018
+ms.date: 01/31/2019
 ---
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
 
-Azure SQL Database Managed Instance provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance. Since there are still some differences in syntax and behavior, this article summarizes and explains these differences.
+Azure SQL Database Managed Instance provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance.
 
-- [T-SQL differences and unsupported features](#Differences)
+![migration](./media/sql-database-managed-instance/migration.png)
+
+Since there are still some differences in syntax and behavior, this article summarizes and explains these differences. <a name="Differences"></a>
+- [Availability](#availability) including the differences in [Always-On](#always-on-availability) and [Backups](#backup),
+- [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credentials), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
+- [Configuration](#configuration) including the differences in [Buffer pool extension](#buffer-pool-extension), [Collation](#collation), [Compatibility levels](#compatibility-levels),[Database mirroring](#database-mirroring), [Database options](#database-options), [SQL Server Agent](#sql-server-agent), [Table options](#tables),
+- [Functionalities](#functionalities) including [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Distributed transactions](#distributed-transactions), [Extended events](#extended-events), [External libraries](#external-libraries), [Filestream and Filetable](#filestream-and-filetable), [Full-text Semantic Search](#full-text-semantic-search), [Linked servers](#linked-servers), [Polybase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Stored procedures, functions, and triggers](#stored-procedures-functions-triggers),
 - [Features that have different behavior in Managed Instance](#Changes)
 - [Temporary limitations and known issues](#Issues)
 
-## <a name="Differences"></a> T-SQL differences from SQL Server
+## Availability
 
-This section summarizes key differences in T-SQL syntax and behavior between Managed Instance and on-premises SQL Server Database Engine, as well as unsupported features.
-
-### Always-On availability
+### <a name="always-on-availability"></a>Always-On
 
 [High availability](sql-database-high-availability.md) is built into Managed Instance and cannot be controlled by users. The following statements are not supported:
 
@@ -34,27 +38,6 @@ This section summarizes key differences in T-SQL syntax and behavior between Man
 - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
 - [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) clause of the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) statement
-
-### Auditing
-
-The key differences between SQL Audit in Managed Instance, Azure SQL Database, and SQL Server on-premises are:
-
-- In Managed Instance, SQL Audit works at the server level and stores `.xel` files on Azure blob storage account.  
-- In Azure SQL Database, SQL Audit works at the database level.
-- In SQL Server on-premises / virtual machine, SQL Audit works at the server level, but stores events on files system/windows event logs.  
-  
-XEvent auditing in Managed Instance supports Azure blob storage targets. File and windows logs are not supported.
-
-The key differences in the `CREATE AUDIT` syntax for Auditing to Azure blob storage are:
-
-- A new syntax `TO URL` is provided and enables you to specify URL of the Azure blob Storage container where `.xel` files will be placed
-- The syntax `TO FILE` is not supported because Managed Instance cannot access Windows file shares.
-
-For more information, see:  
-
-- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
-- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
-- [Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### Backup
 
@@ -79,17 +62,28 @@ Limitations:
 
 For information about backups using T-SQL, see [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
-### Buffer pool extension
+## Security
 
-- [Buffer pool extension](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) is not supported.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` is not supported. See [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+### Auditing
 
-### Bulk insert / openrowset
+The key differences between SQL Audit in Managed Instance, Azure SQL Database, and SQL Server on-premises are:
 
-Managed Instance cannot access file shares and Windows folders, so the files must be imported from Azure blob storage:
+- In Managed Instance, SQL Audit works at the server level and stores `.xel` files on Azure blob storage account.  
+- In Azure SQL Database, SQL Audit works at the database level.
+- In SQL Server on-premises / virtual machine, SQL Audit works at the server level, but stores events on files system/windows event logs.  
+  
+XEvent auditing in Managed Instance supports Azure blob storage targets. File and windows logs are not supported.
 
-- `DATASOURCE` is required in `BULK INSERT` command while importing files from Azure blob storage. See [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` is required in `OPENROWSET` function when you read a content of a file from Azure blob storage. See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+The key differences in the `CREATE AUDIT` syntax for Auditing to Azure blob storage are:
+
+- A new syntax `TO URL` is provided and enables you to specify URL of the Azure blob Storage container where `.xel` files will be placed
+- The syntax `TO FILE` is not supported because Managed Instance cannot access Windows file shares.
+
+For more information, see:  
+
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
+- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
 ### Certificates
 
@@ -108,22 +102,6 @@ CREATE CERTIFICATE
 WITH PRIVATE KEY (<private_key_options>)
 ```
 
-### CLR
-
-Managed Instance cannot access file shares and Windows folders, so the following constraints apply:
-
-- Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
-- `CREATE ASSEMBLY FROM FILE` is not supported. See [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
-- `ALTER ASSEMBLY` cannot reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
-### Compatibility levels
-
-- Supported compatibility levels are: 100, 110, 120, 130, 140  
-- Compatibility levels below 100 are not supported.
-- The default compatibility level for new databases is 140. For restored databases, compatibility level will remain unchanged if it was 100 and above.
-
-See [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
-
 ### Credential
 
 Only Azure Key Vault and `SHARED ACCESS SIGNATURE` identities are supported. Windows users are not supported.
@@ -137,9 +115,48 @@ Managed Instance cannot access files so cryptographic providers cannot be create
 - `CREATE CRYPTOGRAPHIC PROVIDER` is not supported. See [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER` is not supported. See [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
 
+### Logins / users
+
+- SQL logins created `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
+- Azure Active Directory (AAD) logins created with [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported (**public preview**).
+- Windows logins created with `CREATE LOGIN ... FROM WINDOWS` syntax are not supported. Use Azure Active Directory logins and users.
+- Azure Active Directory (Azure AD) user who created the instance has [unrestricted admin privileges](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Non-administrator Azure Active Directory (Azure AD) database-level users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
+
+### Service key and service master key
+
+- [Master key backup](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) is not supported (managed by SQL Database service)
+- [Master key restore](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) is not supported (managed by SQL Database service)
+- [Service master key backup](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) is not supported (managed by SQL Database service)
+- [Service master key restore](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) is not supported (managed by SQL Database service)
+
+## Configuration
+
+### Buffer pool extension
+
+- [Buffer pool extension](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) is not supported.
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` is not supported. See [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+
 ### Collation
 
 The default instance collation is `SQL_Latin1_General_CP1_CI_AS` and can be specified as a creation parameter. See [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations).
+
+### Compatibility levels
+
+- Supported compatibility levels are: 100, 110, 120, 130, 140  
+- Compatibility levels below 100 are not supported.
+- The default compatibility level for new databases is 140. For restored databases, compatibility level will remain unchanged if it was 100 and above.
+
+See [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
+
+### Database mirroring
+
+Database mirroring is not supported.
+
+- `ALTER DATABASE SET PARTNER` and `SET WITNESS` options are not supported.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` is not supported.
+
+For more information, see [ALTER DATABASE SET PARTNER and SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) and [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
 
 ### Database options
 
@@ -203,14 +220,68 @@ Modify name is not supported.
 
 For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### Database mirroring
+### SQL Server Agent
 
-Database mirroring is not supported.
+- SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
+- Jobs
+  - T-SQL job steps are supported.
+  - The following replication jobs are supported:
+    - Transaction-log reader.  
+    - Snapshot.
+    - Distributor
+  - SSIS job steps are supported
+  - Other types of job steps are not currently supported, including:
+    - Merge replication job step is not supported.  
+    - Queue Reader is not supported.  
+    - Command shell is not yet supported
+  - Managed Instance cannot access external resources (for example, network shares via robocopy).  
+  - PowerShell is not yet supported.
+  - Analysis Services are not supported
+- Notifications are partially supported
+- Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
+  - Pager is not supported.  
+  - NetSend is not supported.
+  - Alerts are not yet not supported.
+  - Proxies are not supported.  
+- Eventlog is not supported.
 
-- `ALTER DATABASE SET PARTNER` and `SET WITNESS` options are not supported.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` is not supported.
+The following features are currently not supported but will be enabled in future:
 
-For more information, see [ALTER DATABASE SET PARTNER and SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) and [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
+- Proxies
+- Scheduling jobs on idle CPU
+- Enabling/disabling Agent
+- Alerts
+
+For information about SQL Server Agent, see [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+
+### Tables
+
+The following are not supported:
+
+- `FILESTREAM`
+- `FILETABLE`
+- `EXTERNAL TABLE`
+- `MEMORY_OPTIMIZED`  
+
+For information about creating and altering tables, see [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+
+## Functionalities
+
+### Bulk insert / openrowset
+
+Managed Instance cannot access file shares and Windows folders, so the files must be imported from Azure blob storage:
+
+- `DATASOURCE` is required in `BULK INSERT` command while importing files from Azure blob storage. See [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` is required in `OPENROWSET` function when you read a content of a file from Azure blob storage. See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+
+### CLR
+
+Managed Instance cannot access file shares and Windows folders, so the following constraints apply:
+
+- Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
+- `CREATE ASSEMBLY FROM FILE` is not supported. See [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
+- `ALTER ASSEMBLY` cannot reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
+
 
 ### DBCC
 
@@ -268,14 +339,6 @@ Operations
 - `OPENROWSET` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in Virtual Machines). See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances (either managed, on-premises, or in virtual machines). Only `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as provider. For example: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
 
-### Logins / users
-
-- SQL logins created `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Azure Active Directory (AAD) logins created with [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported (**public preview**).
-- Windows logins created with `CREATE LOGIN ... FROM WINDOWS` syntax are not supported. Use Azure Active Directory logins and users.
-- Azure Active Directory (Azure AD) user who created the instance has [unrestricted admin privileges](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Non-administrator Azure Active Directory (Azure AD) database-level users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)
-
 ### Polybase
 
 External tables referencing the files in HDFS or Azure blob storage are not supported. For information about Polybase, see [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
@@ -331,13 +394,6 @@ Cross-instance service broker is not supported:
 - `CREATE ROUTE` - you cannot use `CREATE ROUTE` with `ADDRESS` other than `LOCAL`. See [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
 - `ALTER ROUTE` cannot `ALTER ROUTE` with `ADDRESS` other than `LOCAL`. See [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).  
 
-### Service key and service master key
-
-- [Master key backup](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) is not supported (managed by SQL Database service)
-- [Master key restore](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) is not supported (managed by SQL Database service)
-- [Service master key backup](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) is not supported (managed by SQL Database service)
-- [Service master key restore](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) is not supported (managed by SQL Database service)
-
 ### Stored procedures, functions, triggers
 
 - `NATIVE_COMPILATION` is currently not supported.
@@ -353,51 +409,6 @@ Cross-instance service broker is not supported:
 - `Extended stored procedures` are not supported, including `sp_addextendedproc` and `sp_dropextendedproc`. See [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` are not supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` is not supported. See [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
-
-### SQL Server Agent
-
-- SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
-- Jobs
-  - T-SQL job steps are supported.
-  - The following replication jobs are supported:
-    - Transaction-log reader.  
-    - Snapshot.
-    - Distributor
-  - SSIS job steps are supported
-  - Other types of job steps are not currently supported, including:
-    - Merge replication job step is not supported.  
-    - Queue Reader is not supported.  
-    - Command shell is not yet supported
-  - Managed Instance cannot access external resources (for example, network shares via robocopy).  
-  - PowerShell is not yet supported.
-  - Analysis Services are not supported
-- Notifications are partially supported
-- Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
-  - Pager is not supported.  
-  - NetSend is not supported.
-  - Alerts are not yet not supported.
-  - Proxies are not supported.  
-- Eventlog is not supported.
-
-The following features are currently not supported but will be enabled in future:
-
-- Proxies
-- Scheduling jobs on idle CPU
-- Enabling/disabling Agent
-- Alerts
-
-For information about SQL Server Agent, see [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
-
-### Tables
-
-The following are not supported:
-
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED`  
-
-For information about creating and altering tables, see [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) and [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
 ## <a name="Changes"></a> Behavior changes
 

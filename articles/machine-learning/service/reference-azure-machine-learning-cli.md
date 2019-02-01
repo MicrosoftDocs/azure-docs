@@ -86,20 +86,8 @@ The following commands demonstrate how to use the CLI to manage resources used b
     ```azurecli-interactive
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
-
-+ Create a managed compute target for distributed training:
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
-    ```
-
-* Update a managed compute target:
-
-    ```azurecli-interactive
-    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
-    ```
-
-* Attach an unmanaged compute target for training or deployment:
+    
+* Attach an AKS cluster
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
