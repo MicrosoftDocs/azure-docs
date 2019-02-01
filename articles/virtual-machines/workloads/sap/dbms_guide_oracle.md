@@ -431,7 +431,7 @@ The filesystems of ext4, or xfs or Oracle ASM are supported for Oracle database 
 
 For Oracle Linux UEK kernels, the minimum of UEK version 4 is required to support [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
-It is highly recommended to use [Azure managed disks](../../windows/managed-disks-overview.md). It also is highly recommended using [Azure premium SSDs](../../windows/disks-types.md) for your Oracle Database deployments.
+It is highly recommended to use [Azure managed disks](../../windows/managed-disks-overview.md). It also is highly recommended using [Azure premium SSDs](../../windows/premium-storage.md) for your Oracle Database deployments.
 
 Any kind of network drives or remote shares like Azure file services:
 
