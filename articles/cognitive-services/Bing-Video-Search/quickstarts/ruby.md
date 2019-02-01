@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Video Search, Ruby"
+title: "Quickstart: Search for videos using the Bing Video Search REST API and Ruby"
 titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Video Search API.
+description: Use this quickstart to send video search requests to the Bing Video Search REST API using Ruby.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,76 +9,71 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 01/31/2019
 ms.author: aahi
 ---
-# Quickstart: Bing Video Search API with Ruby
 
-This article shows you how use the Bing Video Search API, part of Microsoft Cognitive Services on Azure. While this article employs Ruby, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+# Quickstart: Search for videos using the Bing Video Search REST API and Ruby
 
-The example code was written to run under Ruby 2.4.
-
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) for technical details about the APIs.
+Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple Ruby application sends an HTTP video search query to the API, and displays the response. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages. 
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Ruby 2.4 or later
 
-## Bing video search
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) returns video results from the Bing search engine.
+## Create and initialize the application
 
-1. Create a new Ruby project in your favorite IDE or editor.
-2. Add the code provided below.
-3. Replace the `accessKey` value with an access key valid for your subscription.
-4. Run the program.
+1. import the following packages into your code file.
 
-```ruby
-require 'net/https'
-require 'uri'
-require 'json'
+    ```ruby
+    require 'net/https'
+    require 'uri'
+    require 'json'
+    ```
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+2. Create variables for the API endpoint, video API search path, your subscription key, and search term.
 
-# Replace the accessKey string value with your valid access key.
-accessKey = "enter key here"
+    ```ruby
+    uri  = "https://api.cognitive.microsoft.com"
+    path = "/bing/v7.0/videos/search"
+    term = "kittens"
+    accessKey = "your-subscription-key" 
+    ```
 
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Search instance in your Azure dashboard.
+## Create and send an API request
 
-uri  = "https://api.cognitive.microsoft.com"
-path = "/bing/v7.0/videos/search"
+1. Use the variables from the last step to format a search URL for the request. Combine your uri and path, then url-encode your search term before appending it to the `?q=` parameter.
 
-term = "kittens"
+    ```ruby
+    uri = URI(uri + path + "?q=" + URI.escape(term))
+    ```
 
-uri = URI(uri + path + "?q=" + URI.escape(term))
+2. Add the complete search URL to the request, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+    
+    ``` ruby
+    request = Net::HTTP::Get.new(uri)
+    request['Ocp-Apim-Subscription-Key'] = accessKey
+    ```
 
-puts "Searching videos for: " + term
-
-request = Net::HTTP::Get.new(uri)
-request['Ocp-Apim-Subscription-Key'] = accessKey
-
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
-
-puts "\nRelevant Headers:\n\n"
-response.each_header do |key, value|
-    # header names are coerced to lowercase
-    if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
-        puts key + ": " + value
+3. Send the request, and save the response.
+    
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request(request)
     end
-end
+    ```
 
-puts "\nJSON Response:\n\n"
-puts JSON::pretty_generate(JSON(response.body))
-```
+## Process and view the response
 
-**Response**
+1. After the response is received, you can print the JSON response.
+
+    ```ruby
+    puts JSON::pretty_generate(JSON(response.body))
+    ```
+
+## JSON response
 
 A successful response is returned in JSON, as shown in the following example:
 
@@ -192,10 +187,9 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Paging videos](paging-videos.md)
-> [Resizing and cropping thumbnail images](resize-and-crop-thumbnails.md)
+> [Create a single page web app](../tutorial-bing-video-search-single-page-app.md)
 
 ## See also 
 
- [Searching the web for videos](search-the-web.md)
- [Try it](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [What is the Bing Video Search API?](../overview.md)
+

@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Video Search API, Node.js"
+title: "Quickstart: Search for videos using the Bing Video Search REST API and PHP"
 titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Video Search API.
+description: Use this quickstart to send video search requests to the Bing Video Search REST API using PHP
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -9,89 +9,94 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 9/21/2017
+ms.date: 01/31/2019
 ms.author: aahi
 ---
-# Quickstart: Bing Video Search API with Node.js
 
-This article shows you how use the Bing Video Search API, part of Microsoft Cognitive Services on Azure. While this article employs Node.js, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+# Quickstart: Search for videos using the Bing Video Search REST API and PHP
 
-The example is written in JavaScript and runs under Node.js 6.
+Use this quickstart to make your first call to the Bing Video Search API and view a search result from the JSON response. This simple JavaScript application sends an HTTP video search query to the API, and displays the response. While this application is written in JavaScript and uses Node.js, the API is a RESTful Web service compatible with most programming languages.
+The example code was written to work under PHP 5.6.
 
-Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for technical details about the APIs.
+Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) for technical details about the APIs.
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You will need the access key provided when you activate your free trial.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* PHP 5.6 or later
 
-## Bing video search
+[!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
-The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) returns video results from the Bing search engine.
+## Running the application
 
-1. Create a new Node.js project in your favorite IDE or editor.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+The [Bing Video Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns video results from the Bing search engine.
 
-```javascript
-'use strict';
+1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment.
+2. Create a new PHP project in your favorite IDE or editor.
+3. Add the code provided below.
+4. Replace the `accessKey` value with an access key valid for your subscription.
+5. Run the program.
 
-let https = require('https');
+```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
 
 // **********************************************
 // *** Update or verify the following values. ***
 // **********************************************
 
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'enter key here';
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
 
 // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
 // search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
+// encounter unexpected authorization errors, double-check this value against
 // the endpoint for your Bing Search instance in your Azure dashboard.
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/videos/search';
+$endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/videos/search';
 
-let term = 'kittens';
+$term = 'kittens';
 
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // header keys are lower-cased by Node.js
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+function BingVideoSearch ($url, $key, $query) {
+    // Prepare HTTP request
+    // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+    // http://php.net/manual/en/function.stream-context-create.php
+    $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
+    $options = array ('http' => array (
+			'header' => $headers,
+			'method' => 'GET' ));
 
-let bing_video_search = function (search) {
-  console.log('Searching videos for: ' + term);
-  let request_params = {
-		method : 'GET',
-		hostname : host,
-		path : path + '?q=' + encodeURIComponent(search),
-		headers : {
-			'Ocp-Apim-Subscription-Key' : subscriptionKey,
-		}
-	};
+    // Perform the Web request and get the JSON response
+    $context = stream_context_create($options);
+    $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
 
-	let req = https.request(request_params, response_handler);
-	req.end();
+    // Extract Bing HTTP headers
+    $headers = array();
+    foreach ($http_response_header as $k => $v) {
+        $h = explode(":", $v, 2);
+        if (isset($h[1]))
+            if (preg_match("/^BingAPIs-/", $h[0]) || preg_match("/^X-MSEdge-/", $h[0]))
+                $headers[trim($h[0])] = trim($h[1]);
+    }
+
+    return array($headers, $result);
 }
-bing_video_search(term);
+
+print "Searching videos for: " . $term . "\n";
+
+list($headers, $json) = BingVideoSearch($endpoint, $accessKey, $term);
+
+print "\nRelevant Headers:\n\n";
+foreach ($headers as $k => $v) {
+    print $k . ": " . $v . "\n";
+}
+
+print "\nJSON Response:\n\n";
+echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
+?>
 ```
 
-**Response**
+## JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -204,10 +209,8 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Paging videos](paging-videos.md)
-> [Resizing and cropping thumbnail images](resize-and-crop-thumbnails.md)
+> [Build a single-page web app](../tutorial-bing-video-search-single-page-app.md)
 
 ## See also 
 
- [Searching the web for videos](search-the-web.md)
- [Try it](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [What is the Bing Video Search API?](../overview.md)

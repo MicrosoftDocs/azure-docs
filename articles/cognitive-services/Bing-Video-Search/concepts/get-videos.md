@@ -1,28 +1,20 @@
 ---
-title: What is Bing Video Search?
+title: "Sending search requests to the Bing Video Search API"
 titlesuffix: Azure Cognitive Services
-description: Shows how to use the Bing Video Search API to search the web for videos.
+description: Learn about sending search queries to the Bing Video Search API.
 services: cognitive-services
-author: swhite-msft
+author: aahill
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 04/15/2017
-ms.author: scottwhi
+ms.date: 01/31/2019
+ms.author: aahi
 ---
-# What is Bing Video Search?
 
-The Bing Video Search API provides a similar (but not exact) experience to [Bing Videos](https://www.bing.com/videos). The Bing Video Search API lets you send a search query to Bing and get back a list of relevant videos.
+# Search for videos with the Bing Video Search API
 
-If you're building a videos-only search results page to find videos that are relevant to the user's search query, call this API instead of calling the more general [Bing Web Search API](../bing-web-search/search-the-web.md). If you want videos and other types of content such as webpages, news, and images, then call the Bing Web Search API.
-
-## Suggesting & using search terms
-
-If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
-
-After the user enters their search term, URL encode it before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query) query parameter. For example, if the user enters *sailing dinghies*, set `q` to `sailing+dinghies` or `sailing%20dinghies`.
+The Bing Video Search API makes it easy to integrate Bing's cognitive news searching capabilities into your applications. While the API primarily finds and returns relevant videos from the web, it provides several features for intelligent and focused video retrieval on the web.
 
 ## Getting videos
 
@@ -99,7 +91,9 @@ The response contains a [Videos](https://docs.microsoft.com/rest/api/cognitivese
 }
 ```
 
-You could display a collage of all the video thumbnails or you could display a subset of the thumbnails. If you display a subset, provide the user an option to view the remaining videos. You must display the videos in the order provided in the response. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](./resize-and-crop-thumbnails.md). 
+## Video thumbnails
+
+You can display all, or a subset of the video thumbnails returned by the Bing Video Search API. If you display a subset, provide the user an option to view the remaining videos. as part of the Bing API [use and display requirements](../UseAndDisplayRequirements.md), You must display the videos in the order provided in the response. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](../resize-and-crop-thumbnails.md). 
 
 As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-motionthumbnailurl) to play a thumbnail version of the video. Be sure to attribute the motion thumbnail when you display it.
 
@@ -107,7 +101,7 @@ As the user hovers over the thumbnail you can use [motionThumbnailUrl](https://d
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
 -->
 
-If the user clicks the thumbnail, the following are the video viewing options:
+When a thumbnail is clicked, there are three options for viewing the video:
 
 - Use [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-hostpageurl) to view the video on the host website (for example, YouTube)
 - Use [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-websearchurl) to view the video in the Bing video browser
@@ -115,7 +109,7 @@ If the user clicks the thumbnail, the following are the video viewing options:
 
 Be sure to use the publisher and creator to attribute the video when you play it.
 
-For details about using [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) to get insights about the video, see [Video Insights](./video-insights.md).
+For details about using [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) to get insights about the video, see [Video Insights](../video-insights.md).
 
 ## Filtering videos
 
@@ -229,22 +223,4 @@ You can use the `text` and `thumbnail` fields to display the expanded query stri
 
 ## Throttling requests
 
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
-
-## Next steps
-
-To get started quickly with your first request, see [Making Your First Request](./quick-start.md).
-
-To get your subscription key, see [Subscription Keys](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
-
-Familiarize yourself with the [Bing Video Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
-
-To improve your search box user experience, see [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md). As the user enters their query term, you can call this API to get relevant query terms that were used by others.
-
-Be sure to read [Bing Use and Display Requirements](./useanddisplayrequirements.md) so you don't break any of the rules about using the search results.
-
-When you call the Video Search API, Bing returns a list of results. The list is a subset of the total number of results that are relevant to the query. The response's `totalEstimatedMatches` field contains an estimate of the number of videos that are available to view. For details about how you'd page through the remaining videos, see [Paging Videos](./paging-videos.md).
-
-For details about getting insights about a video, see [Video Insights](./video-insights.md).
-
-For details about getting trending videos, see [Trending Videos](./trending-videos.md).
+[!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
