@@ -44,6 +44,8 @@ If you already have the Recovery Services vault open, skip to the second step.
 
 ## Delete the Recovery Services vault by force
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 You can use PowerShell to delete a Recovery Services vault by force. By force means the Recovery Services vault, and all associated backup data, is permanently deleted. 
 
 > [!Warning]
@@ -54,15 +56,15 @@ To delete a Recovery Services vault:
 
 1. Sign in to your Azure account.
 
-   Sign in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
+   Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
    ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
    ```
-   The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider).
+   The first time you use Azure Backup, you must register the Azure Recovery Service provider in your subscription with [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider).
 
    ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
    ```
 
 1. Open a PowerShell window with Administrator privileges.

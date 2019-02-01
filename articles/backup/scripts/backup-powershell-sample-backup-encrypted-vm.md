@@ -22,6 +22,8 @@ This script creates a Recovery Services vault with Geo-redundant storage (GRS) f
 
 ## Sample script
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/backup/backup-encrypted-vm/backup-encrypted-vm.ps1 "Back up encrypted virtual machine")]
 
 ## Clean up deployment 
@@ -29,7 +31,7 @@ This script creates a Recovery Services vault with Geo-redundant storage (GRS) f
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## Script explanation
@@ -39,16 +41,16 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes | 
 |---|---| 
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. | 
-| [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | Creates a recovery services vault to store backups. | 
-| [Set-AzureRmRecoveryServicesBackupProperties](/powershell/module/azurerm.recoveryservices/Set-AzureRmRecoveryServicesBackupProperties) | Sets backup storage properties on Recovery Services vault. | 
-| [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)| Creates protection policy using schedule policy and retention policy in Recovery Services vault. | 
-| [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) | Sets permissions on the Key Vault to grant the service principal access to encryption keys. | 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. | 
+| [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/New-azRecoveryServicesVault) | Creates a recovery services vault to store backups. | 
+| [Set-AzRecoveryServicesBackupProperties](/powershell/module/az.recoveryservices/Set-azRecoveryServicesBackupProperties) | Sets backup storage properties on Recovery Services vault. | 
+| [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-Azrecoveryservicesbackupprotectionpolicy)| Creates protection policy using schedule policy and retention policy in Recovery Services vault. | 
+| [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) | Sets permissions on the Key Vault to grant the service principal access to encryption keys. | 
 | [Enable-AzureRmRecoveryServicesBackupProtection](/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection) | Enables backup for an item with a specified Backup protection policy. | 
-| [Set-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy)| Modifies an existing Backup protection policy. | 
-| [Backup-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem) | Starts a backup for a protected Azure Backup item that is not tied to the backup schedule. |
-| [Wait-AzureRmRecoveryServicesBackupJob](/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob) | Waits for an Azure Backup job to finish. | 
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Removes a resource group and all resources contained within. | 
+| [Set-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/set-Azrecoveryservicesbackupprotectionpolicy)| Modifies an existing Backup protection policy. | 
+| [Backup-AzRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/backup-Azrecoveryservicesbackupitem) | Starts a backup for a protected Azure Backup item that is not tied to the backup schedule. |
+| [Wait-AzRecoveryServicesBackupJob](/powershell/module/azurerm.recoveryservices.backup/wait-Azrecoveryservicesbackupjob) | Waits for an Azure Backup job to finish. | 
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. | 
 
 ## Next steps
 
