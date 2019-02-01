@@ -12,7 +12,7 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/05/2018
+ms.date: 12/19/2018
 ---
 # Quickstart: Use the Azure portal's SQL query editor to connect and query data
 
