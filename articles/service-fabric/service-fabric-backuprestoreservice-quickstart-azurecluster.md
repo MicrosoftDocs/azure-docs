@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/29/2018
+ms.date: 2/01/2019
 ms.author: hrushib
 
 ---
@@ -224,7 +224,6 @@ FailureError            :
 ```
 
 ## Limitation/ caveats
-- No Service Fabric built in PowerShell cmdlets.
 - No support for Service Fabric clusters on Linux.
 
 ## Next steps
