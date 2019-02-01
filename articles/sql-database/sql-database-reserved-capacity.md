@@ -3,7 +3,7 @@ title: Prepay for Azure SQL Database vCores to save money | Microsoft Docs
 description: Learn how to buy Azure SQL Database reserved capacity to save on your compute costs.
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
