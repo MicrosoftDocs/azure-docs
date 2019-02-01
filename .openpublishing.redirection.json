@@ -535,6 +535,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/avere-vfxt/avere-vfxt-pre-role.md",
+      "redirect_url": "/azure/avere-vfxt/avere-vfxt-deploy",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/avere-vfxt/avere-vfxt-required-ports.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
       "redirect_document_id": true
@@ -967,6 +972,11 @@
     {
       "source_path": "articles/cosmos-db/manage-account.md",
       "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/mongodb-migrate.md",
+      "redirect_url": "/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json",
       "redirect_document_id": false
     },
     {
@@ -11668,6 +11678,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/whats-new.md",
+      "redirect_url": "https://azure.microsoft.com/updates/?product=machine-learning-studio",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-algorithm-cheat-sheet.md",
       "redirect_url": "/azure/machine-learning/studio/algorithm-cheat-sheet",
       "redirect_document_id": false
@@ -13364,10 +13379,14 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-servers-databases.md",
-      "redirect_url": "/azure/sql-database/sql-database-logical-servers",
+      "redirect_url": "/azure/sql-database/sql-database-servers",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-logical-servers.md",
+      "redirect_url": "/azure/sql-database/sql-database-servers",
+      "redirect_document_id": false
+    },    {
       "source_path": "articles/sql-database/sql-database-servers-databases-manage.md",
       "redirect_url": "/azure/sql-database/sql-database-single-databases-manage",
       "redirect_document_id": false
@@ -13494,7 +13513,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-server-overview.md",
-      "redirect_url": "/azure/sql-database/sql-database-logical-servers",
+      "redirect_url": "/azure/sql-database/sql-database-servers",
       "redirect_document_id": false
     },
     {
@@ -13543,6 +13562,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-resource-limits-logical-server.md",
+      "redirect_url": "/azure/sql-database/sql-database-resource-limits-database-server",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-upgrade-server-powershell.md",
       "redirect_url": "/azure/sql-database/sql-database-faq",
       "redirect_document_id": false
@@ -13554,7 +13578,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-resource-limits.md",
-      "redirect_url": "/azure/sql-database/sql-database-resource-limits-logical-server",
+      "redirect_url": "/azure/sql-database/sql-database-resource-limits-database-server",
       "redirect_document_id": false
     },
     {
@@ -24219,7 +24243,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
+      "source_path": "azure/security-center/security-center-resolve-endpoint-protection-health-alerts.md",
       "redirect_url": "/azure/security-center/security-center-faq",
       "redirect_document_id": false
     },
@@ -29870,6 +29894,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/bing-web-search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-web-search/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/use-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-Spell-Check/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-custom-search/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/use-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
       "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
       "redirect_document_id": false
@@ -31352,6 +31436,76 @@
     {
       "source_path": "articles/cognitive-services/speech-service/supported-languages.md",
       "redirect_url": "/azure/cognitive-services/speech-service/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/tutorial-bing-video-search-single-page-app-source.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/tutorial-bing-video-search-single-page-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-endpoints.md",
+      "redirect_url": "/rest/api/cognitiveservices/bing-video-api-v7-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/sdk.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/csharp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/csharp.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/java.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/nodejs.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/nodejs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/php.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/php",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/python.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-java-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-python-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-node-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/search-the-web.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/overview",
       "redirect_document_id": true
     },
     {
@@ -34894,6 +35048,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path":  "articles/aks/autoscaler.md",
+      "redirect_url":  "/azure/aks/cluster-autoscaler",
+      "redirect_document_id":  "false"
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-keys.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
       "redirect_document_id": true
@@ -34921,6 +35080,11 @@
         "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",
         "redirect_url": "/azure/backup/backup-azure-recovery-services-vault-overview",
         "redirect_document_id": true
-    }	
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-device-registration-on-premises-setup.md",
+      "redirect_url": "/azure/active-directory/devices/overview",
+      "redirect_document_id": false
+    }
   ]
 }

@@ -239,43 +239,51 @@ We recommend you use our SDKs and use the [SDK API](../../azure-monitor/app/api-
 
 ## Can I monitor an intranet web server?
 
-Here are two methods:
+Yes, but you will need to allow traffic to our services by either firewall exceptions or proxy redirects.
+- QuickPulse `rt.services.visualstudio.com:443` 
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
+- TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
-### Firewall door
 
-Allow your web server to send telemetry to our endpoints https://dc.services.visualstudio.com:443 and https://rt.services.visualstudio.com:443. 
+Review our list of services and IP addresses [here](../../azure-monitor/app/ip-addresses.md).
 
-### Proxy
+### Firewall exception
 
-Route traffic from your server to a gateway on your intranet, by overwriting these settings in the example ApplicationInsights.config.
-If these "Endpoint" properties are not present in your config, these classes will be using the default values shown in the example below.
+Allow your web server to send telemetry to our endpoints. 
 
-#### Example ApplicationInsights.config:
+### Proxy redirect
+
+Route traffic from your server to a gateway on your intranet by overwriting Endpoints in your configuration.
+If these "Endpoint" properties are not present in your config, these classes will use the default values shown below in the example ApplicationInsights.config. 
+
+Your gateway should route traffic to our endpoint's base address. In your configuration, replace the default values with `http://<your.gateway.address>/<relative path>`.
+
+
+#### Example ApplicationInsights.config with default endpoints:
 ```xml
 <ApplicationInsights>
+  ...
+  <TelemetryModules>
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+      <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
+    </Add>
+  </TelemetryModules>
     ...
-    <TelemetryChannel>
-         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
-    </TelemetryChannel>
-    ...
-    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
-        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
-    </ApplicationIdProvider>
-    ...
+  <TelemetryChannel>
+     <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+  </TelemetryChannel>
+  ...
+  <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+    <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+  </ApplicationIdProvider>
+  ...
 </ApplicationInsights>
 ```
 
 _Note ApplicationIdProvider is available starting in v2.6.0_
 
-Your gateway should route the traffic to https://dc.services.visualstudio.com:443
 
-Replace the values above with: `http://<your.gateway.address>/<relative path>`
  
-Example: 
-```
-http://<your.gateway.endpoint>/v2/track 
-http://<your.gateway.endpoint>/api/profiles/{0}/apiId
-```
 
 ## Can I run Availability web tests on an intranet server?
 

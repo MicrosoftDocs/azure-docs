@@ -9,7 +9,7 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
-ms.component: queues
+ms.subservice: queues
 ---
 # How to use Queue Storage from C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -38,7 +38,7 @@ To install the Azure Storage Client Library for C++, you can use the following m
 * **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.
 * **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.
 
-```  
+```powershell
 Install-Package wastorage
 ```
 
@@ -144,7 +144,7 @@ You can change the contents of a message in-place in the queue. If the message r
 
 ```cpp
 // Retrieve storage account from connection-string.
-azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_conection_string);
+azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
 // Create the queue client.
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();

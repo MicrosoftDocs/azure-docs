@@ -58,8 +58,8 @@ A typical connection string is `Server=<server>.mysql.database.azure.com;Port=<p
         "type": "AzureMySql",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+                "type": "SecureString",
+                "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -190,7 +190,6 @@ When copying data from Azure Database for MySQL, the following mappings are used
 | `tinytext` |`String` |
 | `varchar` |`String` |
 | `year` |`Int32` |
-
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

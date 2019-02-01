@@ -16,7 +16,7 @@ ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from MariaDB using Azure Data Factory 
+# Copy data from MariaDB using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -53,8 +53,8 @@ The following properties are supported for MariaDB linked service:
         "type": "MariaDB",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+                "type": "SecureString",
+                "value": "Server=<host>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
             }
         },
         "connectVia": {

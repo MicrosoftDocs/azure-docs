@@ -6,7 +6,7 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
@@ -16,7 +16,7 @@ ms.reviewer: twounder
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in September 2018.
 
 ## New lower entry point for SQL Data Warehouse Gen2
-In April 2018, [Microsoft annouced](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 that offers 5x the performance, 5x the compute scale, 4x the concurrency, and unlimited storage. As noted in the [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) by Gigaom, SQL Data Warehouse Gen2 **outperforms Amazon Redshift by 42%**.
+In April 2018, [Microsoft announced](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 that offers 5x the performance, 5x the compute scale, 4x the concurrency, and unlimited storage. As noted in the [Data Warehouse in the cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) by Gigaom, SQL Data Warehouse Gen2 **outperforms Amazon Redshift by 42%**.
 
 Gen2 is now generally available at a lower entry point of DWU500c allowing you to run a smaller sized data warehouse or dev/test environments with all of the latest service improvements. The new entry point retains all of the Gen2 features including [Adaptive Caching](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [Lighting Fast Data Shuffling](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), and support for [real-time data warehouse](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 
