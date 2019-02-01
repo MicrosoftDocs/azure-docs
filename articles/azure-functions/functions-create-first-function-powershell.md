@@ -25,16 +25,17 @@ To publish and run in Azure:
 * You need an active Azure subscription.
   [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Initializing a Function App
+## Create a local Functions project
 
-The first thing we need to get started is a Function App.
-A Function App is like a folder of all of your functions that will be running in the same instance.
+You can now create a local Functions project.
+This directory is the equivalent of a Function App in Azure.
+It can contain multiple functions that share the same local and hosting configuration.
 
-To create a PowerShell Function App we will create and cd into the directory we want our app to go in and then initialize the Function App:
+In the terminal window or from a command prompt, run the following commands:
 
 ```bash
-mkdir AwesomeFuncApp
-cd AwesomeFuncApp
+mkdir MyFunctionProj
+cd MyFunctionProj
 func init --worker-runtime powershell
 ```
 
@@ -45,45 +46,48 @@ PS > func init --worker-runtime powershell
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
-PS >
 ```
 
-We now have a Function App, but it's empty. There are no actual Functions inside. Let's create one.
+A new folder named _MyFunctionProj_ is created and initialized with some files.
 
-## Creating a Function
+## Creating a function
 
-Now that we have a Function App, we need to create a Function inside of it. A Function will contain the actual script of yours that will get executed.
+Now that we have a Functions project, we need to create a function inside of it.
+A function will contain the actual script of yours that will get executed.
 
-To create a Function in the Function App we created above, simply run:
+To create a function, run the following command:
 
-```
+```bash
 func new -l powershell -t HttpTrigger -n MyHttpTrigger
 ```
 
+> [!NOTE]
+> * The `-l` stands for the _language_ you would like to use
+> * The `-t` stands for the _template_ you would like to generate
+> * The `-n` stands for the _name_ of the function you are creating
+
+
 You should see something like:
-```
+
+```output
 PS > func new -l powershell -t HttpTrigger -n MyHttpTrigger
 Select a template: HttpTrigger
-Function name: [HttpTrigger] Writing /home/tyler/Code/PowerShell/TesingFunctions123/MyHttpTrigger/run.ps1
-Writing /home/tyler/Code/PowerShell/TesingFunctions123/MyHttpTrigger/sample.dat
-Writing /home/tyler/Code/PowerShell/TesingFunctions123/MyHttpTrigger/function.json
+Function name: [HttpTrigger] Writing .../MyFunctionProj/MyHttpTrigger/run.ps1
+Writing .../MyFunctionProj/MyHttpTrigger/sample.dat
+Writing .../MyFunctionProj/MyHttpTrigger/function.json
 The function "MyHttpTrigger" was created successfully from the "HttpTrigger" template.
 PS >
 ```
 
-- The `-l` stands for the _language_ you would like to use
-- The `-t` stands for the _template_ you would like to work off of
-- The `-n` stands for the _name_ of the Function you are creating
-
-Here we are using the "HttpTrigger" template. It's a simple template that allows you to trigger your Function using an HTTP request.
+Here we are using the "HttpTrigger" template.
+It's a simple template that allows you to trigger your function using an HTTP request.
 
 Our directory structure should look like this:
 
-```
+```output
 PS > dir -Recurse
 
-
-    Directory: /home/tyler/Code/PowerShell/TesingFunctions123
+    Directory: /home/foo/MyFunctionsProj
 
 
 Mode                LastWriteTime         Length Name
@@ -92,27 +96,26 @@ d-----           11/1/18  5:41 PM                MyHttpTrigger
 ------           11/1/18  5:41 PM             25 host.json
 ------           11/1/18  5:41 PM            142 local.settings.json
 
-
-    Directory: /home/tyler/Code/PowerShell/TesingFunctions123/MyHttpTrigger
-
+    Directory: /home/foo/MyFunctionsProj/MyHttpTrigger
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
 ------           11/1/18  5:41 PM            300 function.json
 ------           11/1/18  5:41 PM            689 run.ps1
 ------           11/1/18  5:41 PM             27 sample.dat
-
 ```
 
 Let's run through what each of these files do:
 
-- _MyHttpTrigger_ - The folder the contains the Function
-- _host.json_ - Contains global configuration options that affect all functions for a function app
-- _local.settings.json_ - Contains the configuration settings for your Function App that can be published to "Application Settings" in your Azure Function App environment
+[TODO]: Hyperlink these items
 
-- _function.json_ - Contains the configuration metadata for the Function and the definition of input and output bindings
-- _run.ps1_ - This is the script that will be executed when a Function is triggered
-- _sample.dat_ - Contains the sample data that will be displayed in the Azure Portal for testing purposes
+* _MyHttpTrigger_ - The folder that contains the function
+* _host.json_ - Contains global configuration options that affect all functions for a function app
+* _local.settings.json_ - Contains the configuration settings for your function app that can be published to "Application Settings" in your Azure function app environment
+
+* _function.json_ - Contains the configuration metadata for the Function and the definition of input and output bindings
+* _run.ps1_ - This is the script that will be executed when a Function is triggered
+* _sample.dat_ - Contains the sample data that will be displayed in the Azure Portal for testing purposes
 
 > [!NOTE]
 > For more information on input and output bindings, checkout the [Binding usage guide here]().
