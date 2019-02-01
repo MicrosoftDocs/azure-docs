@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/07/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 12/21/2018
+ms.lastreviewed: 01/15/2019
 
 ---
 
@@ -25,7 +25,7 @@ This article provides information about changes, fixes, and known issues in the 
 
 Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
-## Build 1.1901.x.xx
+## Build 1.1901.0.88
 
 ### Changes
 
