@@ -36,7 +36,7 @@ In this tutorial, you'll learn how to:
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Preview feature limitations
-Multi-container is currently in Preview, the following App Service platform features are not supported. We expect to enable those features for Multi-container Web App before GA:
+Multi-container is currently in preview, the following App Service platform features are not supported. We expect to enable these features for Multi-container Web App before General Availability (GA):
 * Authentication / Authorization
 * Managed Identities
 
