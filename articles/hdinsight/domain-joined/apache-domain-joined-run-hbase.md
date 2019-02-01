@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 02/01/2019
 ---
 
 # Tutorial: Configure Apache HBase policies in HDInsight with Enterprise Security Package (Preview)
@@ -44,11 +44,9 @@ Visit [Create a HDInsight cluster with Enterprise Security Package](https://docs
 
 ## Create HBase tables and import sample data
 
-For more information on getting started with HBase in Azure HDInsight, see []().
-
 You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](https://hbase.apache.org/0.94/book/shell.html) to create HBase tables, insert data, and query data. For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-**To use the HBase shell**
+### To use the HBase shell
 
 1. From SSH, run the following HBase command:
    
@@ -113,8 +111,8 @@ Create a Ranger policy for **sales_user1** and **marketing_user1**.
 
    The following wildcards can be included in the topic name:
 
-   * ’*’ indicates zero or more occurrences of characters.
-   * ’?‘ indicates single character.
+   * `*` indicates zero or more occurrences of characters.
+   * `?` indicates single character.
 
    ![Apache Ranger Admin UI Create Policy](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
@@ -187,7 +185,7 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
 
 ### Access data as marketing_user1
 
-1. Open a new SSH connection to the cluster. Use the following command to sign in as **sales_user1**:
+1. Open a new SSH connection to the cluster. Use the following command to sign in as **marketing_user1**:
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -227,7 +225,17 @@ Based on the Ranger policies configured, **sales_user1** can view all of the dat
 
    ![Ranger UI Policy Audit](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
+## Clean up resources
+
+If you're not going to continue to use this application, delete the HBase cluster that you created with the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. In the **Search** box at the top, type **HDInsight**. 
+1. Select **HDInsight clusters** under **Services**.
+1. In the list of HDInsight clusters that appears, click the **...** next to the cluster that you created for this tutorial. 
+1. Click **Delete**. Click **Yes**.
+
 ## Next steps
 
-* [Get started with an Apache HBase example in HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
-* [An introduction to Apache Hadoop security with Enterprise Security Package](../../hdinsight/domain-joined/apache-domain-joined-introduction.md)
+> [!div class="nextstepaction"]
+> [Get started with an Apache HBase](../hbase/apache-hbase-tutorial-get-started-linux.md)
