@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 01/31/2019
 ms.author: jeedes
 
 ---
@@ -170,8 +170,16 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	![SAP NetWeaver Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
-	In the **Sign-on URL** text box, type a URL using the following pattern:
+	a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<your company instance of SAP NetWeaver>`
+
+	> [!NOTE]
+	> In case of any error while configuring **Reply URL**, please use the following Powershell script:
+	```
+	Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+	```
+	> [!NOTE]
+	> ServicePrincipal Object ID is to be set by yourself first or you can pass that also here.
 
 12. SAP NetWeaver application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
