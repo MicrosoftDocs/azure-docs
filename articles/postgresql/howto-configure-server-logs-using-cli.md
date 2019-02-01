@@ -32,7 +32,7 @@ You can list the log files for server **mydemoserver.postgres.database.azure.com
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## Download logs locally from the server
-With the [az postgres server-logs download](/cli/azure/postgres/server-logs#az_postgres_server_logs_download) command, you can download individual log files for your server. 
+With the [az postgres server-logs download](/cli/azure/postgres/server-logs) command, you can download individual log files for your server. 
 
 Use the following example to download the specific log file for the server **mydemoserver.postgres.database.azure.com** under the resource group **myresourcegroup** to your local environment.
 ```azurecli-interactive

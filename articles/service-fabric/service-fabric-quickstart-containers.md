@@ -4,7 +4,7 @@ description: In this quickstart, you create your first Windows container applica
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: jeanpaul.connock
+manager: jpconnock
 editor: 'vturecek'
 ms.assetid: 
 ms.service: service-fabric

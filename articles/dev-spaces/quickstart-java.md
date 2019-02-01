@@ -21,7 +21,7 @@ In this guide, you will learn how to:
 - Debug the code in your dev space from VS Code.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-netcore.md).
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page. You can also try the more detailed [tutorial](get-started-java.md).
 
 ## Prerequisites
 
@@ -131,4 +131,4 @@ Refresh the web app in the browser. You should see your custom message appear in
 Learn how Azure Dev Spaces helps you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](team-development-java.md)
+> [Working with multiple containers and team development](multi-service-java.md)
