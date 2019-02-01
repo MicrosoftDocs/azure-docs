@@ -22,7 +22,7 @@ You can configure an alert to do the following actions when it triggers:
 You can configure and get information about alert rules using:
 * [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts)
+* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MariaDB server you want to monitor.

@@ -696,7 +696,7 @@ GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
 **Explanation**:
-[COUNT(DISTINCT Time)](https://docs.microsoft.com/en-us/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
+[COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) returns the number of distinct values in the Time column within a time window. You can then use the output of this step to compute the average per device by discarding duplicates.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

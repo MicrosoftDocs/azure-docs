@@ -14,7 +14,7 @@ ms.author: zhshang
 Yes.
 For our announcement of general availability, see [Azure SignalR Service now generally available](https://azure.microsoft.com/en-us/blog/azure-signalr-service-now-generally-available/). 
 
-[ASP.NET Core SignalR](https://docs.microsoft.com/en-us/aspnet/core/signalr/introduction) is fully supported.
+[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) is fully supported.
 
 Support for ASP.NET SignalR is still in the *public preview*. Here is a [code example](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
 
@@ -31,7 +31,7 @@ If you have application servers, this error message means that no application se
 The possible causes are:
 - No application server is connected with SignalR Service. Check application server logs for possible connection errors. This case is rare in high availability setting with more than one application servers.
 - There are connectivity issues with SignalR Service instances. This issue is transient and will automatically recover.
-If it persists for more than an hour, [open an issue on GitHub](https://github.com/Azure/azure-signalr/issues/new) or [create a support request in Azure](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request).
+If it persists for more than an hour, [open an issue on GitHub](https://github.com/Azure/azure-signalr/issues/new) or [create a support request in Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 ## When there are multiple application servers, are client messages sent to all servers or just one of them?
 
@@ -61,4 +61,4 @@ No.
 
 Azure SignalR Service provides all three transports that ASP.NET Core SignalR supports by default. It is not configurable. SignalR Service will handle connections and transports for all client connections.
 
-You can configure client-side transports as documented [here](https://docs.microsoft.com/en-us/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).
+You can configure client-side transports as documented [here](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1#configure-allowed-transports).

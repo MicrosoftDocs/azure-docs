@@ -19,7 +19,7 @@ This article pertains to Face API Service version 1.0.
 
 ### Release changes in January 2019
 
-* Added Snapshot feature to support data migration across subscriptions: [Snapshot](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/face/snapshot).
+* Added Snapshot feature to support data migration across subscriptions: [Snapshot](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot).
 
 ### Release changes in October 2018
 
