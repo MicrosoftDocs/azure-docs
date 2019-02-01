@@ -142,10 +142,12 @@ The wizard can usually infer a default index. In this step, you can view the gen
 
 For this quickstart, the wizard does a good job setting reasonable defaults: 
 
-+ Default name is *azureblob-index*.
-+ Default fields are based on the original source data field (`content`), plus the output fields (`people`, `organizations`, and `locations`) created by the cognitive pipeline.
++ Default name is *azureblob-index* based on the data source type. 
+
+Default fields are based on the original source data field (`content`), plus the output fields (`people`, `organizations`, and `locations`) created by the cognitive pipeline. Default data types are inferred from metadata and data sampling.
+
 + Default key is *metadata_storage_path* (this field contains unique values).
-+ Default data types are inferred from metadata and data sampling.
+
 + Default attributes are **Retrievable** and **Searchable** for these fields. **Searchable** indicates a field can be searched. **Retrievable** means it can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset.
 
   ![Index fields](media/cognitive-search-quickstart-blob/index-fields.png)
