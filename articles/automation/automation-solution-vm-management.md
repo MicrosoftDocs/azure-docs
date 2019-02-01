@@ -315,9 +315,11 @@ The solution provides the ability to add VMs to be targeted by the solution or s
 
 ### Add a VM
 
-There are a couple options that you can use to make sure that a VM is included in the Start/Stop solution when it runs. Each of the parent [runbooks](#runbooks) of the solution have a **VMList** parameter. You can pass a comma separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
+There are a couple options that you can use to make sure that a VM is included in the Start/Stop solution when it runs.
 
-To select multiple VMs, set the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** with the resource group names that contain the VMs you want to start or stop. You can also set this value to `*`, to have the solution run against all resource groups in the subscription.
+* Each of the parent [runbooks](#runbooks) of the solution have a **VMList** parameter. You can pass a comma separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
+
+* To select multiple VMs, set the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** with the resource group names that contain the VMs you want to start or stop. You can also set this value to `*`, to have the solution run against all resource groups in the subscription.
 
 ### Exclude a VM
 
@@ -325,11 +327,11 @@ To exclude a VM from the solution, you can add it to the **External_ExcludeVMNam
 
 ## Modify the startup and shutdown schedules
 
-Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md).
+Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md). There needs to be a separate schedule to start and to stop VMs.
 
-Configuring the solution to just stop VMs at a certain time is supported. To do this, you need to:
+Configuring the solution to just stop VMs at a certain time is supported. In this scenario you just create a **Stop** schedule and no corresponding **Start** scheduled. To do this, you need to:
 
-1. Ensure you have added the resource groups for the VMs to shut down in the **External_Start_ResourceGroupNames** variable.
+1. Ensure you have added the resource groups for the VMs to shut down in the **External_Stop_ResourceGroupNames** variable.
 2. Create your own schedule for the time you want to shut down the VMs.
 3. Navigate to the **ScheduledStartStop_Parent** runbook and click **Schedule**. This allows you to select the schedule you created in the preceding step.
 4. Select **Parameters and run settings** and set the ACTION parameter to "Stop".
