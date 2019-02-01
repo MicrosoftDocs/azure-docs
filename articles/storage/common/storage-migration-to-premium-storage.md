@@ -436,7 +436,7 @@ The automation script is provided below. Replace text with your information and 
 >
 >
 
-```
+```powershell
     <#
     .Synopsis
     This script is provided as an EXAMPLE to show how to migrate a VM from a standard storage account to a premium storage account. You can customize it according to your specific requirements.
@@ -500,7 +500,7 @@ The automation script is provided below. Replace text with your information and 
     [Parameter(Mandatory = $false)]
     [Bool] $DataDiskOnly = $true,
 
-    # how frequently to report the copy status in sceconds
+    # how frequently to report the copy status in seconds
     [Parameter(Mandatory = $false)]
     [Int32] $CopyStatusReportInterval = 15,
 
@@ -531,7 +531,7 @@ The automation script is provided below. Replace text with your information and 
 
 
     #Check the Azure PowerShell module version
-    Write-Host "`n[WORKITEM] - Checking Azure PowerShell module verion" -ForegroundColor Yellow
+    Write-Host "`n[WORKITEM] - Checking Azure PowerShell module version" -ForegroundColor Yellow
     If ($azureModule.Version -ge (New-Object System.Version -ArgumentList "0.8.14"))
     {
         Write-Host "`tSuccess" -ForegroundColor Green
@@ -587,7 +587,7 @@ The automation script is provided below. Replace text with your information and 
         }
     }
 
-    # exporting the sourve vm to a configuration file, you can restore the original VM by importing this config file
+    # exporting the source vm to a configuration file, you can restore the original VM by importing this config file
     # see more information for Import-AzureVM
     $workingDir = (Get-Location).Path
     $vmConfigurationPath = $env:HOMEPATH + "\VM-" + $SourceVMName + ".xml"
@@ -635,7 +635,7 @@ The automation script is provided below. Replace text with your information and 
         Write-Host "`n[WORKITEM] - Removing the original VM (the vhd files are NOT deleted)." -ForegroundColor Yellow
         Remove-AzureVM -Name $SourceVMName -ServiceName $SourceServiceName
 
-        Write-Host "`n[WORKITEM] - Waiting utill the OS disk is released by source VM. This may take up to several minutes."
+        Write-Host "`n[WORKITEM] - Waiting until the OS disk is released by source VM. This may take up to several minutes."
         $diskAttachedTo = (Get-AzureDisk -DiskName $sourceOSDisk.DiskName).AttachedTo
         while ($diskAttachedTo -ne $null)
         {
@@ -722,7 +722,7 @@ The automation script is provided below. Replace text with your information and 
         $vm | Add-AzureDataDisk -ImportFrom -DiskLabel $diskLabel -LUN $dataDisk.Lun -MediaLocation $dataDisk.MediaLink
     }
 
-    # Edit this if you want to add more custimization to the new VM
+    # Edit this if you want to add more customization to the new VM
     # $vm | Add-AzureEndpoint -Protocol tcp -LocalPort 443 -PublicPort 443 -Name 'HTTPs'
     # $vm | Set-AzureSubnet "PubSubnet","PrivSubnet"
 

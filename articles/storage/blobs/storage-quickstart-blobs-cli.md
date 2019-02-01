@@ -102,7 +102,7 @@ azcopy \
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created in this Quickstart, delete the resource group with the [az group delete](/cli/azure/group#az_group_delete) command.
+If you no longer need any of the resources in your resource group, including the storage account you created in this Quickstart, delete the resource group with the [az group delete](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

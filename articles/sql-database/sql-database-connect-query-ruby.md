@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/20/2018
+ms.date: 01/02/2019
 ---
 # Quickstart: Use Ruby to query an Azure SQL database
 
