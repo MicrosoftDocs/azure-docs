@@ -118,11 +118,11 @@ Create the policy using the [kubectl apply][kubectl-apply] command and specify t
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-***-- ANYTHING ELSE NEEDED HERE ?? --***
+***-- ANYTHING ELSE NEEDED HERE ? --***
 
 ## Allow user account to use the pod security policy
 
-In the previous step, you created a pod security policy that won't schedule pods that request privileged access. This policy now needs to be associated with user accounts using a *RoleBinding* or *ClusterRoleBinding*. These bindings are typically created at a group level, and give you the ability to target pod security policies at a specific namespace or across the whole cluster.
+In the previous step, you created a pod security policy that won't schedule pods that request privileged access. Associate this policy with a user account using a *RoleBinding* or *ClusterRoleBinding*. These bindings are typically created at a group level, and give you the ability to target pod security policies at a specific namespace or across the whole cluster.
 
 ***-- ADD STEPS ON HOW TO CREATE ROLEBINDING. OR, DO A CLUSTERROLEBINDING? USE A YAML MANIFEST FOR THIS, OR JUST CREATE THE BINDING DIRECTLY? --***
 
