@@ -82,7 +82,7 @@ In this example parameter, only the _eastus2_ or _westus_ locations will be allo
 
 ## Azure PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ### Deploy with Azure PowerShell
 
