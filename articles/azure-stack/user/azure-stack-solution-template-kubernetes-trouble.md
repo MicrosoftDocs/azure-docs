@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
@@ -24,7 +24,7 @@ ms.lastreviewed: 01/24/2019
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack is in preview.
+> Kubernetes on Azure Stack is in preview. Azure Stack disconnected scenario is not currently supported by the preview.
 
 The following article looks at troubleshooting your Kubernetes cluster. You can review the deployment alert and review the status of your deployment by the elements required for the deployment. You might need to collect the deployment logs from Azure Stack or the Linux VMs that host Kubernetes. You might also need to work with your Azure Stack administrator to retrieve logs from an administrative endpoint.
 
