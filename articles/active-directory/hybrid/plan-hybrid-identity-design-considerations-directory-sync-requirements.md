@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017

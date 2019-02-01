@@ -6,7 +6,7 @@ author: diberry
 manager: cgronlun
 displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
@@ -37,7 +37,7 @@ All the suggestions are clustered together by similarity and top suggestions for
 
 ## Upgrade version to use active learning
 
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your service](upgrade-qnamaker-service.md) to use this feature. 
+Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
 
 ## Best practices
 

@@ -6,7 +6,7 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
@@ -120,10 +120,10 @@ Each distribution compresses rowgroups into the columnstore in parallel when the
 
 To reduce memory pressure, you can use the MAXDOP query hint to force the load operation to run in serial mode within each distribution.
 
-```
+```sql
 CREATE TABLE MyFactSalesQuota
 WITH (DISTRIBUTION = ROUND_ROBIN)
-AS SELECT * FROM FactSalesQUota
+AS SELECT * FROM FactSalesQuota
 OPTION (MAXDOP 1);
 ```
 

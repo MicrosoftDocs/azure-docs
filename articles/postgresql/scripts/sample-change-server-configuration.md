@@ -33,7 +33,7 @@ This script uses the commands outlined in the following table:
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) | Creates a PostgreSQL server that hosts the databases. |
 | [az postgres server configuration list](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_list) | List the configurations of an Azure Database for PostgreSQL server. |
-| [az postgres server configuration set](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_set) | Update the configuration of an Azure Database for PostgreSQL server. |
+| [az postgres server configuration set](/cli/azure/postgres/server/configuration) | Update the configuration of an Azure Database for PostgreSQL server. |
 | [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) | Show the configuration of an Azure Database for PostgreSQL server. |
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 

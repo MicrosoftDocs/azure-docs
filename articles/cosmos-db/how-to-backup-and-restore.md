@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# How to restore Azure Cosmos DB data from a backup
+# Restore data from a backup in Azure Cosmos DB 
 
 If you accidentally delete your database or a container, you can [file a support ticket]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support]( https://azure.microsoft.com/support/options/) to restore the data from automatic online backups. Azure support is available for selected plans only such as **Standard**, **Developer, and plans higher than them. Azure support is not available with **Basic** plan. To learn about different support plans, see the [Azure support plans](https://azure.microsoft.com/support/plans/) page. 
 

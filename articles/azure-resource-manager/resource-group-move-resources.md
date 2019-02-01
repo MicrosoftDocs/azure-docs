@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 01/29/2019
 ms.author: tomfitz
 
 ---
@@ -28,6 +28,8 @@ Moving a resource only moves it to a new resource group. The move operation can'
 > * To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](..//billing/billing-upgrade-azure-subscription.md).
 > * To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
 > * If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## When to call Azure support
 
@@ -53,6 +55,7 @@ The following list provides a general summary of Azure services that can be move
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Data Explorer
+* Azure Database for MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - Azure DevOps organizations with non-Microsoft extension purchases must [cancel their purchases](https://go.microsoft.com/fwlink/?linkid=871160) before they can move the account across subscriptions.

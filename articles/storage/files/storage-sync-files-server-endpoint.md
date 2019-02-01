@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 ---
 
 # Add/remove an Azure File Sync server endpoint

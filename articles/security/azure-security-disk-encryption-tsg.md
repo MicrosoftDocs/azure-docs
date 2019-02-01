@@ -83,7 +83,7 @@ When connectivity is restricted by a firewall, proxy requirement, or network sec
 Any network security group settings that are applied must still allow the endpoint to meet the documented network configuration [prerequisites](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) for disk encryption.
 
 ### Azure Key Vault behind a firewall
-The VM must be able to access a key vault. Refer to guidance on access to the key vault from behind a firewall that the [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) team maintains. 
+When encryption is being enabled with [Azure AD credentials](azure-security-disk-encryption-prerequisites-aad.md), the target VM must be granted access to the Azure AD authentication endpoints as well as the Key Vault endpoints.  For more information on this process, please refer to guidance on accessing key vault from behind a firewall that the [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) team maintains. 
 
 ### Azure Instance Metadata Service 
 The VM must be able to access the [Azure Instance Metadata service](../virtual-machines/windows/instance-metadata-service.md) endpoint which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.

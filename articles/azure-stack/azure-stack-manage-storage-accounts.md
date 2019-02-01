@@ -15,6 +15,7 @@ ms.topic: get-started-article
 ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
+ms.lastreviewed:  01/18/2019
 
 ---
 # Manage storage accounts in Azure Stack

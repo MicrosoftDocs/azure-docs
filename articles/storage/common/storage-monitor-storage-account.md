@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Monitor a storage account in the Azure portal
 

@@ -6,7 +6,7 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
