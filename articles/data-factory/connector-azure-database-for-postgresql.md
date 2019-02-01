@@ -16,7 +16,7 @@ ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from Azure Database for PostgreSQL using Azure Data Factory 
+# Copy data from Azure Database for PostgreSQL using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Azure Database for PostgreSQL. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -58,8 +58,8 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
         "type": "AzurePostgreSql",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+                "type": "SecureString",
+                "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
             }
         }
     }
