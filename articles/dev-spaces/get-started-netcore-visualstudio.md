@@ -13,7 +13,7 @@ ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 ---
-# Get Started on Azure Dev Spaces with .NET Core and Visual Studio
+# Get started on Azure Dev Spaces with .NET Core and Visual Studio
 
 In this guide, you will learn how to:
 

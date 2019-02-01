@@ -11,7 +11,7 @@ ms.date: "12/17/2018"
 ms.topic: "include"
 manager: yuvalm
 ---
-# Team Development with Azure Dev Spaces
+# Team development with Azure Dev Spaces
 
 In this tutorial, you'll learn how a team of developers can simultaneously collaborate in the same Kubernetes cluster using Dev Spaces.
 
@@ -38,7 +38,7 @@ With Azure Dev Spaces, you can set up a *shared* dev space in Azure. Each develo
 ### Work in your own space
 As you develop code for your service, and before you're ready to check it in, code often won't be in a good state. You're still iteratively shaping it, testing it, and experimenting with solutions. Azure Dev Spaces provides the concept of a **space**, which allows you to work in isolation, and without the fear of breaking your team members.
 
-## Using Dev Spaces for team development
+## Use Dev Spaces for team development
 Let's demonstrate these ideas with a concrete example using our *webfrontend* -> *mywebapi* sample application. We'll imagine a scenario where a developer, Scott, needs to make a change to the *mywebapi* service, and *only* that service. The *webfrontend* won't need to change as part of Scott's update.
 
 _Without_ using Dev Spaces, Scott would have a few ways to develop and test his update, none of which are ideal:
