@@ -38,7 +38,7 @@ If you're already running an app service in Azure, you already get some monitori
 
     ![Instrument your web app](./media/azure-web-apps/create-resource.png)
 
-2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application.
+2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application.(ASP.NET app monitoring is on-by-default with two different levels of collection.)
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
 
