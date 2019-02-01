@@ -192,7 +192,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
-|Memory (GB)|10.2|220.4|30.6|40.8|51|61.2|71.4|
+|Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |Max data size (GB)|1024|1024|1024|1536|1536|1536|1536|
