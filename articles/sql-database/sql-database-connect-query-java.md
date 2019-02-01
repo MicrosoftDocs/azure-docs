@@ -10,7 +10,7 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/20/2018
+ms.date: 12/01/2018
 ---
 # Quickstart: Use Java to query an Azure SQL database
 
