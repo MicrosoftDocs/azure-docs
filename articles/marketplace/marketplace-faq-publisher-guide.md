@@ -354,7 +354,7 @@ Publishers who are publishing Transact listing types: VM, Azure apps, solution t
 
 **What are leads and why are they important to me as a publisher in Marketplace?**
 
-Leads are customers who are deploying your products from the Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com) or [AppSource](https://appsource.microsoft.com), you are able to receive leads from customers who are interested in your product.  You can set up lead destination on your offer. To learn more, see [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher).
+Leads are customers who are deploying your products from the Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com) or [AppSource](https://appsource.microsoft.com), you are able to receive leads from customers who are interested in your product.  You can set up lead destination on your offer. To learn more, see [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 **Where can I get help in setting up my lead destination?**
 

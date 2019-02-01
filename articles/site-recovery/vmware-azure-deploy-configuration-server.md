@@ -117,7 +117,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## Upgrade the configuration server
 
-To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For detailed instructions on how to upgrade all Site Recovery components, click [here](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For detailed instructions on how to upgrade all Site Recovery components, click [here](https://docs.microsoft.com/azure/site-recovery/service%20updates-how-to).
 
 ## Manage the configuration server
 
