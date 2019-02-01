@@ -87,6 +87,11 @@ $iothubResource.Properties.ipFilterRules += $filter
 $iothubResource | Set-AzureRmResource -Force
 ```
 
+## Updating IP filter rules using REST
+
+You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/createorupdate).
+
+
 ## IP filter rule evaluation
 
 IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.
