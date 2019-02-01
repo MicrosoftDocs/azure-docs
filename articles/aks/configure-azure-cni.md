@@ -1,6 +1,6 @@
 ---
-title: Configured advanced networking in Azure Kubernetes Service (AKS)
-description: Learn how to configure advanced network in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
+title: Configure Azure CNI networking in Azure Kubernetes Service (AKS)
+description: Learn how to configure Azure CNI (advanced) networking in Azure Kubernetes Service (AKS), including deploying an AKS cluster into an existing virtual network and subnet.
 services: container-service
 author: iainfoulds
 
@@ -10,11 +10,13 @@ ms.date: 10/11/2018
 ms.author: iainfou
 ---
 
-# Configure advanced networking in Azure Kubernetes Service (AKS)
+# Configure Azure CNI networking in Azure Kubernetes Service (AKS)
 
-By default, AKS clusters use *basic* networking, which creates and configures a virtual network and subnet for use with the cluster. For additional control of these networking options, such as the IP ranges, you can instead use *advanced* networking. With advanced networking, you can also create an AKS cluster in an existing virtual network and subnet. This existing virtual network often provides connectivity to an on-premises network using Azure ExpressRoute or Site-to-Site VPN.
+By default, AKS clusters use [kubenet][kubenet], and a virtual network and subnet are created for you. With *kubenet*, nodes get an IP address from a virtual network subnet. Network address translation (NAT) is then configured on the nodes, and pods receive an IP address "hidden" behind the node IP. This approach reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
-This article shows you how to use advanced networking to create and use a virtual network with an AKS cluster. For more general information on networking, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
+With [Azure Container Networking Interface (CNI)][cni-networking], every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
+
+This article shows you how to use *Azure CNI* networking to create and use a virtual network subnet for an AKS cluster. For more information on network options and considerations, see [Network concepts for Kubernetes and AKS][aks-network-concepts].
 
 ## Prerequisites
 
@@ -27,7 +29,7 @@ This article shows you how to use advanced networking to create and use a virtua
 
 ## Plan IP addressing for your cluster
 
-Clusters configured with Advanced networking require additional planning. The size of your virtual network and its subnet must accommodate the number of pods you plan to run and the number of nodes for the cluster.
+Clusters configured with Azure CNI networking require additional planning. The size of your virtual network and its subnet must accommodate the number of pods you plan to run and the number of nodes for the cluster.
 
 IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the virtual network. Each node is configured with a primary IP address. By default, 30 additional IP addresses are pre-configured by Azure CNI that are assigned to pods scheduled on the node. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet. You can also view the [maximum pods per node](#maximum-pods-per-node).
 
@@ -52,9 +54,9 @@ The IP address plan for an AKS cluster consists of a virtual network, at least o
 
 ## Maximum pods per node
 
-The maximum number of pods per node in an AKS cluster is 110. The *default* maximum number of pods per node varies between Basic and Advanced networking, and the method of cluster deployment.
+The maximum number of pods per node in an AKS cluster is 110. The *default* maximum number of pods per node varies between *kubenet* and *Azure CNI* networking, and the method of cluster deployment.
 
-| Deployment method | Basic default | Advanced default | Configurable at deployment |
+| Deployment method | Kubenet default | Azure CNI default | Configurable at deployment |
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Yes (up to 110) |
 | Resource Manager template | 110 | 30 | Yes (up to 110) |
@@ -66,7 +68,7 @@ You're able to configure the maximum number of pods per node *only at cluster de
 
 * **Azure CLI**: Specify the `--max-pods` argument when you deploy a cluster with the [az aks create][az-aks-create] command. The maximum value is 110.
 * **Resource Manager template**: Specify the `maxPods` property in the [ManagedClusterAgentPoolProfile] object when you deploy a cluster with a Resource Manager template. The maximum value is 110.
-* **Azure portal**: You can't change the maximum number of pods per node when you deploy a cluster with the Azure portal. Advanced networking clusters are limited to 30 pods per node when you deploy using the Azure portal.
+* **Azure portal**: You can't change the maximum number of pods per node when you deploy a cluster with the Azure portal. Azure CNI networking clusters are limited to 30 pods per node when you deploy using the Azure portal.
 
 ### Configure maximum - existing clusters
 
@@ -74,13 +76,13 @@ You can't change the maximum pods per node on an existing AKS cluster. You can a
 
 ## Deployment parameters
 
-When you create an AKS cluster, the following parameters are configurable for advanced networking:
+When you create an AKS cluster, the following parameters are configurable for Azure CNI networking:
 
 **Virtual network**: The virtual network into which you want to deploy the Kubernetes cluster. If you want to create a new virtual network for your cluster, select *Create new* and follow the steps in the *Create virtual network* section. For information about the limits and quotas for an Azure virtual network, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subnet**: The subnet within the virtual network where you want to deploy the cluster. If you want to create a new subnet in the virtual network for your cluster, select *Create new* and follow the steps in the *Create subnet* section. For hybrid connectivity, the address range shouldn't overlap with any other virtual networks in your environment.
 
-**Kubernetes service address range**: This is the set of virtual IPs that Kubernetes assigns to [services][services] in your cluster. You can use any private address range that satisfies the following requirements:
+**Kubernetes service address range**: This is the set of virtual IPs that Kubernetes assigns to internal [services][services] in your cluster. You can use any private address range that satisfies the following requirements:
 
 * Must not be within the virtual network IP address range of your cluster
 * Must not overlap with any other virtual networks with which the cluster virtual network peers
@@ -91,24 +93,34 @@ Although it's technically possible to specify a service address range within the
 
 **Kubernetes DNS service IP address**:  The IP address for the cluster's DNS service. This address must be within the *Kubernetes service address range*. Don't use the first IP address in your address range, such as .1. The first address in your subnet range is used for the *kubernetes.default.svc.cluster.local* address.
 
-**Docker Bridge address**: The IP address and netmask to assign to the Docker bridge. This IP address must not be within the virtual network IP address range of your cluster.
+**Docker Bridge address**: The IP address and netmask to assign to the Docker bridge. The Docker Bridge lets AKS nodes communicate with the underlying management platform. This IP address must not be within the virtual network IP address range of your cluster, and shouldn't overlap with other address ranges in use on your network.
 
 ## Configure networking - CLI
 
-When you create an AKS cluster with the Azure CLI, you can also configure advanced networking. Use the following commands to create a new AKS cluster with advanced networking features enabled.
+When you create an AKS cluster with the Azure CLI, you can also configure Azure CNI networking. Use the following commands to create a new AKS cluster with Azure CNI networking enabled.
 
 First, get the subnet resource ID for the existing subnet into which the AKS cluster will be joined:
 
 ```console
-$ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query [].id --output tsv
+$ az network vnet subnet list \
+    --resource-group myVnet \
+    --vnet-name myVnet \
+    --query [].id --output tsv
 
-/subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
+/subscriptions/<guid>/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
 ```
 
 Use the [az aks create][az-aks-create] command with the `--network-plugin azure` argument to create a cluster with advanced networking. Update the `--vnet-subnet-id` value with the subnet ID collected in the previous step:
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin azure --vnet-subnet-id <subnet-id> --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --network-plugin azure \
+    --vnet-subnet-id <subnet-id> \
+    --docker-bridge-address 172.17.0.1/16 \
+    --dns-service-ip 10.2.0.10 \
+    --service-cidr 10.2.0.0/24
 ```
 
 ## Configure networking - portal
@@ -119,7 +131,7 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 ## Frequently asked questions
 
-The following questions and answers apply to the **Advanced** networking configuration.
+The following questions and answers apply to the **Azure CNI** networking configuration.
 
 * *Can I deploy VMs in my cluster subnet?*
 
@@ -141,7 +153,7 @@ The following questions and answers apply to the **Advanced** networking configu
 
 * *Can I use a different subnet within my cluster virtual network for the* **Kubernetes service address range**?
 
-  It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to the services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. Because of the lack of visibility into the cluster's service address range, it's possible to later create a new subnet in the cluster virtual network that overlaps with the service address range. If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's virtual network, you can avoid this overlap risk.
+  It's not recommended, but this configuration is possible. The service address range is a set of virtual IPs (VIPs) that Kubernetes assigns to internal services in your cluster. Azure Networking has no visibility into the service IP range of the Kubernetes cluster. Because of the lack of visibility into the cluster's service address range, it's possible to later create a new subnet in the cluster virtual network that overlaps with the service address range. If such an overlap occurs, Kubernetes could assign a service an IP that's already in use by another resource in the subnet, causing unpredictable behavior or failures. By ensuring you use an address range outside the cluster's virtual network, you can avoid this overlap risk.
 
 ## Next steps
 
@@ -162,7 +174,7 @@ Learn more about networking in AKS in the following articles:
 
 [Azure Kubernetes Service Engine (AKS Engine)][aks-engine] is an open-source project that generates Azure Resource Manager templates you can use for deploying Kubernetes clusters on Azure.
 
-Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] and [Azure CNI][cni-networking] plugins. As such, both basic and advanced networking scenarios are supported by AKS Engine.
+Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] and [Azure CNI][cni-networking] plugins. As such, both networking scenarios are supported by AKS Engine.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
