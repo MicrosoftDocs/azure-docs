@@ -173,6 +173,14 @@ Now when you run the application, you should see your secret value retrieved. In
 ## Clean up resources
 Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.
 
+Delete the key vault by using this command:
+
+```azurecli
+az keyvault delete --name
+                   [--resource-group]
+                   [--subscription]
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]
