@@ -22,7 +22,8 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Ga
 
 ## Data Box Gateway service limits
 
-[!INCLUDE [Data Box Edge/Data Box Gateway limits](../../includes/data-box-edge-gateway-service-limits.md)]
+[!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
+
 
 ## Data Box Gateway device limits
 
@@ -36,20 +37,20 @@ The following table describes the limits for the Data Box Gateway device.
 
 ## Azure storage limits
 
-[!INCLUDE [Azure storage limits](../../includes/data-box-edge-gateway-storage-limits.md)]
+[!INCLUDE [data-box-edge-gateway-storage-limits](../../includes/data-box-edge-gateway-storage-limits.md)]
 
 ## Data upload caveats
 
-[!INCLUDE [Data upload caveats](../../includes/data-box-edge-gateway-data-upload-caveats.md)]
+[!INCLUDE [data-box-edge-gateway-data-upload-caveats](../../includes/data-box-edge-gateway-data-upload-caveats.md)]
 
 ## Azure storage account size and object size limits
 
-[!INCLUDE [Azure storage account size and object size limits](../../includes/data-box-edge-gateway-storage-acct-limits.md)]
+[!INCLUDE [data-box-edge-gateway-storage-acct-limits](../../includes/data-box-edge-gateway-storage-acct-limits.md)]
 
 
 ## Azure object size limits
 
-[!INCLUDE [Azure object size limits](../../includes/data-box-edge-gateway-object-size-limits.md)]
+[!INCLUDE [data-box-edge-gateway-object-size-limits](../../includes/data-box-edge-gateway-object-size-limits.md)]
 
 
 ## Next steps
