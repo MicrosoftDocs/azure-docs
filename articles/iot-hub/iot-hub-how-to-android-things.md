@@ -16,10 +16,12 @@ ms.author: yizhon
 This tutorial outlines the steps to build a device side application on Android Things using the Azure IoT Java SDK.
 
 ## Prerequisites
-* An Android Things supported hardware with Android Things OS running.  You can follow [Android Things documentation](https://developer.android.com/things/get-started/kits#flash-at) on how to flash Android Things.  This tutorial uses Raspberry Pi 3.
+* An Android Things supported hardware with Android Things OS running.  You can follow [Android Things documentation](https://developer.android.com/things/get-started/kits#flash-at) on how to flash Android Things.  Make sure your Android Things device is connected to the internet with essential peripherals such as keyboard, display and mouse attached.  This tutorial uses Raspberry Pi 3.
 * Latest version of [Android Studio](https://developer.android.com/studio/)
+* An active IoT Hub.  Learn about how to create an IoT Hub in this [documentation](iot-hub-create-through-portal.md).
 
 ## Building an Android Things application
+1.  The first step to building an Android Things application is connecting to your Android Things devices.  
 
 
 ## Next steps
