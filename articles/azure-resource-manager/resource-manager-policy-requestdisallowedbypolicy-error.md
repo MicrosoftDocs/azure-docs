@@ -20,6 +20,8 @@ ms.author: genli
 
 This article describes the cause of the RequestDisallowedByPolicy error, it also provides solution for this error.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Symptom
 
 During deployment, you might receive a **RequestDisallowedByPolicy** error that prevents you from creating the resources. The following example shows the error:
@@ -42,7 +44,7 @@ To retrieve details about the policy that blocked your deployment, use the follo
 In PowerShell, provide that policy identifier as the `Id` parameter to retrieve details about the policy that blocked your deployment.
 
 ```PowerShell
-(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+(Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
 ### Azure CLI
