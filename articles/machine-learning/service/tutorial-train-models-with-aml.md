@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Train models"
 titleSuffix: Azure Machine Learning service
-description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series.
+description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,20 +17,20 @@ ms.custom: seodec18
 
 # Tutorial: Train an image classification model with Azure Machine Learning service
 
-In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.
+In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning service (preview) in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
-This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning service. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multiclass classifier to identify the digit a given image represents.
+This tutorial trains a simple logistic regression by using the [MNIST](http://yann.lecun.com/exdb/mnist/) dataset and [scikit-learn](https://scikit-learn.org) with Azure Machine Learning service. MNIST is a popular dataset consisting of 70,000 grayscale images. Each image is a handwritten digit of 28 x 28 pixels, representing a number from zero to nine. The goal is to create a multiclass classifier to identify the digit a given image represents. 
 
 Learn how to take the following actions:
 
 > [!div class="checklist"]
 > * Set up your development environment.
 > * Access and examine the data.
-> * Train a simple logistic regression locally by using the popular scikit-learn machine learning library.
+> * Train a simple logistic regression locally by using the popular scikit-learn machine learning library. 
 > * Train multiple models on a remote cluster.
 > * Review training results and register the best model.
 
-You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md).
+You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md). 
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
 
@@ -39,18 +39,18 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server. To run the notebook you will need:
+Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server.  To run the notebook you will need:
 
 * A Python 3.6 notebook server with the following installed:
     * The Azure Machine Learning SDK for Python
     * `matplotlib` and `scikit-learn`
 * The tutorial notebook and the file utils.py
-* A machine learning workspace
-* The configuration file for the workspace in the same directory as the notebook
+* A machine learning workspace 
+* The configuration file for the workspace in the same directory as the notebook 
 
 Get all these prerequisites from either of the sections below.
-
-* Use [Azure Notebooks](#azure)
+ 
+* Use [Azure Notebooks](#azure) 
 * Use [your own notebook server](#server)
 
 ### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
@@ -105,7 +105,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### Create an experiment
 
-Create an experiment to track the runs in your workspace. A workspace can have multiple experiments:
+Create an experiment to track the runs in your workspace. A workspace can have multiple experiments: 
 
 ```python
 experiment_name = 'sklearn-mnist'
@@ -142,21 +142,21 @@ if compute_name in ws.compute_targets:
 else:
     print('creating a new compute target...')
     provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size,
-                                                                min_nodes = compute_min_nodes,
+                                                                min_nodes = compute_min_nodes, 
                                                                 max_nodes = compute_max_nodes)
 
     # create the cluster
     compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
-
-    # can poll for a minimum number of nodes and for a specific timeout.
+    
+    # can poll for a minimum number of nodes and for a specific timeout. 
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-
+    
      # For a more detailed view of current AmlCompute status, use get_status()
     print(compute_target.get_status().serialize())
 ```
 
-You now have the necessary packages and compute resources to train a model in the cloud.
+You now have the necessary packages and compute resources to train a model in the cloud. 
 
 ## Explore data
 
@@ -172,16 +172,16 @@ Download the MNIST dataset and save the files into a `data` directory locally. I
 
 
 ```python
-import os
 import urllib.request
+import os
 
-data_path = os.path.join(os.getcwd(), 'data')
-os.makedirs(data_path, exist_ok = True)
+data_folder = os.path.join(os.getcwd(), 'data')
+os.makedirs(data_folder, exist_ok = True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename='./data/train-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename='./data/train-labels.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename='./data/test-images.gz')
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename='./data/test-labels.gz')
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'train-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'train-labels.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz', filename=os.path.join(data_folder, 'test-images.gz'))
+urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename=os.path.join(data_folder, 'test-labels.gz'))
 ```
 You will see output similar to this:
 ```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)```
@@ -197,13 +197,12 @@ Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data('./data/train-images.gz', False) / 255.0
-y_train = load_data('./data/train-labels.gz', True).reshape(-1)
+X_train = load_data(os.path.join(data_folder, 'train-images.gz'), False) / 255.0
+X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
+y_train = load_data(os.path.join(data_folder, 'train-labels.gz'), True).reshape(-1)
+y_test = load_data(os.path.join(data_folder, 'test-labels.gz'), True).reshape(-1)
 
-X_test = load_data('./data/test-images.gz', False) / 255.0
-y_test = load_data('./data/test-labels.gz', True).reshape(-1)
-
-# now let's show some randomly chosen images from the training set.
+# now let's show some randomly chosen images from the traininng set.
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
@@ -233,9 +232,9 @@ The MNIST files are uploaded into a directory named `mnist` at the root of the d
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 
-ds.upload(src_dir=data_path, target_path='mnist', overwrite=True, show_progress=True)
+ds.upload(src_dir=data_folder, target_path='mnist', overwrite=True, show_progress=True)
 ```
-You now have everything you need to start training a model.
+You now have everything you need to start training a model. 
 
 
 ## Train on a remote cluster
@@ -244,7 +243,7 @@ For this task, submit the job to the remote training cluster you set up earlier.
 * Create a directory
 * Create a training script
 * Create an estimator object
-* Submit the job
+* Submit the job 
 
 ### Create a directory
 
@@ -334,10 +333,10 @@ shutil.copy('utils.py', script_folder)
 An estimator object is used to submit the run. Create your estimator by running the following code to define these items:
 
 * The name of the estimator object, `est`.
-* The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution.
+* The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution. 
 * The compute target. In this case, you use the Azure Machine Learning compute cluster you created.
 * The training script name, **train.py**.
-* Parameters required from the training script.
+* Parameters required from the training script. 
 * Python packages needed for training.
 
 In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **data_folder** is set to use the datastore, `ds.as_mount()`:
@@ -375,7 +374,7 @@ In total, the first run takes **about 10 minutes**. But for subsequent runs, as 
 
 What happens while you wait:
 
-- **Image creation**: A Docker image is created that matches the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading takes **about five minutes**.
+- **Image creation**: A Docker image is created that matches the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading takes **about five minutes**. 
 
   This stage happens once for each Python environment because the container is cached for subsequent runs. During image creation, logs are streamed to the run history. You can monitor the image creation progress by using these logs.
 
@@ -386,7 +385,7 @@ What happens while you wait:
 - **Post-processing**: The **./outputs** directory of the run is copied over to the run history in your workspace, so you can access these results.
 
 
-You can check the progress of a running job in several ways. This tutorial uses a Jupyter widget and a `wait_for_completion` method.
+You can check the progress of a running job in several ways. This tutorial uses a Jupyter widget and a `wait_for_completion` method. 
 
 ### Jupyter widget
 
@@ -406,7 +405,7 @@ If you need to cancel a run, you can follow [these instructions](https://aka.ms/
 
 ### Get log results upon completion
 
-Model training and monitoring happen in the background. Wait until the model has finished training before you run more code. Use `wait_for_completion` to show when the model training is finished:
+Model training and monitoring happen in the background. Wait until the model has finished training before you run more code. Use `wait_for_completion` to show when the model training is finished: 
 
 
 ```python
@@ -439,7 +438,7 @@ print(run.get_file_names())
 Register the model in the workspace, so that you or other collaborators can later query, examine, and deploy this model:
 
 ```python
-# register model
+# register model 
 model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
 print(model.name, model.id, model.version, sep = '\t')
 ```
