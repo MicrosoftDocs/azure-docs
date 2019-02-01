@@ -73,7 +73,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s. However, it may cause [Face List management calls](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) or the [Person Group - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) REST call to fail.
+> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s (or **FaceList**s). However, if you are simultaneously making calls that change the source object ([Face List management calls](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) or the [Person Group - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) call, for example), the snapshot operation may execute before or after those operations. Execution order is not guaranteed.
 
 ## Retrieve the Snapshot ID
 
@@ -216,7 +216,9 @@ private static async Task IdentifyInPersonGroup(IFaceClient client, string perso
 }
 ```
 
-Now you can begin using the new **PersonGroup** in the target subscription.
+Now you can begin using the new **PersonGroup** in the target subscription. 
+
+If you wish to update the target **PersonGroup** again in the future, you will need to create a new **PersonGroup** (following the steps of this guide) to receive the snapshot. A single **PersonGroup** object can only have a snapshot applied to it one time.
 
 ## Clean up resources
 
