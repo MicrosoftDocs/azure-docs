@@ -18,7 +18,7 @@ This article lists the new features and improvements in the SQL Database service
 
 | Change | Details |
 | --- | --- |
-| Additional granularity options for compute resources | The general purpose and business critical service tiers for [single databases](sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) now have mmore fine-grained compute options.|
+| Additional granularity options for compute resources | The general purpose and business critical service tiers for [single databases](sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) now have more fine-grained compute options.|
 | Viewing audit records for managed instance in the Azure portal | Viewing [audit records for managed instances](sql-database-managed-instance-auditing.md) in the Azure portal is now supported.|
 | Advance threat detection feature renamed to Advanced Data Security | Advance threat detection feature renamed to [Advanced Data Security](sql-advanced-threat-protection.md) for single databases, elastic pools, and managed instances |
 | Managed instances and transactional replication | Added article about using [transactional replication with managed instances](replication-with-sql-database-managed-instance.md) |
