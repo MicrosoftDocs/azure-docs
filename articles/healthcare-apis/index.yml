@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 02/07/2019
 abstract:
-  description: The Azure API for FHIR&reg; is a globally scalable implementation of a Fast Healthcare Interoperable Resources (FHIR) server as an Azure Platform as a Service (PaaS) offering. The API for FHIR enables organizations to take advantage of a fully managed implementation of the FHIR specification and data management to support secure handling of Protected Health Information (PHI). 
+  description: Azure API for FHIR® is a fully-managed, standards-based, compliant API for clinical health data that enables you to create new systems of engagement for analytics, machine learning, and actionable intelligence with your health data. 
 sections:
 - title: 5-Minute Quickstarts
   items:
