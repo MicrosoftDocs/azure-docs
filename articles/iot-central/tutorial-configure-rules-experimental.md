@@ -99,7 +99,7 @@ In this tutorial, you learned how to:
 Now that you've defined a threshold-based rule the suggested next step is to [Customize the operator's views](tutorial-customize-operator-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 To learn more about different types of rules in Azure IoT Central and how to parameterize the rule definition, see:
-* [Create a telemetry rule and set up notifications](howto-create-telemetry-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
-* [Create an event rule and set up notifications](howto-create-event-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+* [Create a telemetry rule and set up notifications](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+* [Create an event rule and set up notifications](howto-create-event-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 <!-- Next tutorials in the sequence -->
