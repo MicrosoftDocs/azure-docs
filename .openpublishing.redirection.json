@@ -29894,6 +29894,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/bing-web-search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-web-search/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Autosuggest/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/UseAndDisplayRequirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-visual-search/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-local-business-search/use-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-Spell-Check/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-custom-search/use-and-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/use-display-requirements.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/bing-visual-search/upload-images.md",
       "redirect_url": "/azure/cognitive-services/bing-visual-search/quickstarts/csharp",
       "redirect_document_id": false
@@ -31376,6 +31436,76 @@
     {
       "source_path": "articles/cognitive-services/speech-service/supported-languages.md",
       "redirect_url": "/azure/cognitive-services/speech-service/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/tutorial-bing-video-search-single-page-app-source.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/tutorial-bing-video-search-single-page-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-endpoints.md",
+      "redirect_url": "/rest/api/cognitiveservices/bing-video-api-v7-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/sdk.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/csharp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/csharp.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/java.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/java",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/nodejs.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/nodejs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/php.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/php",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/python.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-java-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-python-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-node-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/video-search-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/quickstarts/sdk-csharp-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/search-the-web.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Video-Search/overview",
       "redirect_document_id": true
     },
     {
