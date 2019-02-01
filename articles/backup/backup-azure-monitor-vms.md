@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ---
 # Monitor alerts for Azure virtual machine backups

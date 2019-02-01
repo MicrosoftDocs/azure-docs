@@ -54,7 +54,7 @@ The list of supported regions for ExpressRoute Monitor is available in the [docu
 
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](../../azure-monitor/platform/om-agents.md) and [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) and [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ### Where to install the agents 
 
