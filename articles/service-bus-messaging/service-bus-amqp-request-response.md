@@ -502,7 +502,7 @@ The **correlation-filter** map must include at least one of the following entrie
 |session-id|string|No||  
 |reply-to-session-id|string|No||  
 |content-type|string|No||  
-|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
+|properties|map|No|Maps to Service Bus [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).|  
   
 The **sql-rule-action** map must include the following entries:  
   

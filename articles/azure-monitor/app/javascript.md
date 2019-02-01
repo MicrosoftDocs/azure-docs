@@ -200,7 +200,7 @@ Select any event to see more detail. In the details page, click "..." to see eve
 > 
 > 
 
-You can also use the powerful [Log Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
+You can also use the powerful [Log Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour) to search page views.
 
 ### Page view properties
 * **Page view duration** 

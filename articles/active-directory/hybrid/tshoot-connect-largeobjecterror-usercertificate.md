@@ -29,7 +29,7 @@ The LargeObject error may be caused by other AD attributes. To confirm it is ind
 
 To obtain the list of objects in your tenant with LargeObject errors, use one of the following methods:
 
- * If your tenant is enabled for Azure AD Connect Health for sync, you can refer to the [Synchronization Error Report](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync#object-level-synchronization-error-report-preview) provided.
+ * If your tenant is enabled for Azure AD Connect Health for sync, you can refer to the [Synchronization Error Report](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync) provided.
  
  * The notification email for directory synchronization errors that is sent at the end of each sync cycle has the list of objects with LargeObject errors. 
  * The [Synchronization Service Manager Operations tab](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations) displays the list of objects with LargeObject errors if you click the latest Export to Azure AD operation.

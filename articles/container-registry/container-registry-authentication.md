@@ -63,7 +63,7 @@ docker login myregistry.azurecr.io
 Once logged in, Docker caches the credentials, so you don't need to remember the app ID.
 
 > [!TIP]
-> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) command.
+> You can regenerate the password of a service principal by running the [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest) command.
 >
 
 ## Admin account
