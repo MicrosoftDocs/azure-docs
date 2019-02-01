@@ -97,6 +97,10 @@
     href: key-vault-group-permissions-for-apps.md
   - name: Configure firewalls and virtual networks
     href: key-vault-network-security.md
+  - name: Java development
+    items:
+    - name: Use the Spring Boot Starter
+      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Reference
   items:
   - name: Azure PowerShell
