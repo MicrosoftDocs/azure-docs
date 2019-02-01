@@ -328,4 +328,4 @@ If you are not sure if your experience can be considered a search-like experienc
 
 ## Next steps
 
-* Try a [Quickstart](quickstarts/csharp.md) to get started searching for entities with the Bing Entity Search API.
+* Try a [Quickstart](../quickstarts/csharp.md) to get started searching for entities with the Bing Entity Search API.
