@@ -16,7 +16,7 @@ ms.date: 12/07/2018
 ms.author: jingwang
 
 ---
-# Copy data from Netezza by using Azure Data Factory 
+# Copy data from Netezza by using Azure Data Factory
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Netezza. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
@@ -58,8 +58,8 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
         "type": "Netezza",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -74,7 +74,7 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 
 This section provides a list of properties that the Netezza dataset supports.
 
-For a full list of sections and properties that are available for defining datasets, see [Datasets](concepts-datasets-linked-services.md). 
+For a full list of sections and properties that are available for defining datasets, see [Datasets](concepts-datasets-linked-services.md).
 
 To copy data from Netezza, set the **type** property of the dataset to **NetezzaTable**. The following properties are supported:
 
@@ -103,7 +103,7 @@ To copy data from Netezza, set the **type** property of the dataset to **Netezza
 
 This section provides a list of properties that the Netezza source supports.
 
-For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
+For a full list of sections and properties that are available for defining activities, see [Pipelines](concepts-pipelines-activities.md).
 
 ### Netezza as source
 
