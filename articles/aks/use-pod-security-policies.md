@@ -10,9 +10,9 @@ ms.date: 02/01/2019
 ms.author: iainfou
 ---
 
-# Limit   using pod security policies in Azure Kubernetes Service (AKS)
+# Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
-This article shows you how to use pod security policies to limit the deployment of pods in AKS.
+To improve the security of your AKS cluster, you can limit what pods can scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -176,12 +176,15 @@ kubectl delete -f psp-deny-privileged.yaml
 
 ## Next steps
 
+This article showed you how to create a pod security policy that prevented the use of privileged access. There are lots of features that a policy can enforce, such as type of volume or the RunAs user. For more information on the available options, see the [policy reference][kubernetes-policy-reference].
+
 For more information about network resources, see [Network concepts for applications in Azure Kubernetes Service (AKS)][concepts-network].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[kubernetes-policy-reference]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#policy-reference
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
