@@ -57,6 +57,7 @@ Azure Stack releases hotfixes on a regular basis. Be sure to install the [latest
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
 ## New features
 
 This update includes the following new features and improvements for Azure Stack:
