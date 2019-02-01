@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 02/01/2019
 ---
 
 # Replicate data into Azure Database for MySQL
@@ -36,3 +36,4 @@ The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-dat
 
 ## Next steps
 - Learn how to [set up data-in replication](howto-data-in-replication.md)
+- Learn about [replicating in Azure with read replicas](concepts-read-replicas.md)
