@@ -216,7 +216,7 @@ private static async Task IdentifyInPersonGroup(IFaceClient client, string perso
 }
 ```
 
-Then replace ??? the PersonGroup in the target subscription with this new one.
+Now you can begin using the new **PersonGroup** in the target subscription.
 
 ## Clean up resources
 
