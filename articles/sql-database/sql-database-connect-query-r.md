@@ -20,7 +20,10 @@ This article explains how you can use the public preview of [Machine Learning Se
 
 Machine learning in SQL Database is used to execute R code and functions and the code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL. Use the power of enterprise R packages to deliver advanced analytics at scale, and the ability to bring calculations and processing to where the data resides, eliminating the need to pull data across the network.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.
+
+> [!NOTE]
+> Machine Learning Services (with R) in Azure SQL Database is currently in public preview. [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
 ## Prerequisites
 
