@@ -1,5 +1,5 @@
 ---
-title: 'Build your own disaster recovery for Custom Topics in Event Grid | Microsoft Docs'
+title: 'Build your own disaster recovery for Custom Topics in Azure Event Grid | Microsoft Docs'
 description: Survive regional outages to keep Azure Event Grid connected.
 services: event-grid
 author: banisadr
@@ -46,24 +46,24 @@ First, create two Event Grid topics. These topics will act as your primary and s
 1. From the upper left corner of the main Azure menu, 
 choose **All services** > search for **Event Grid** > select **Event Grid Topics**.
 
-   ![Event Grid Topics menu](./media/custom-disaster-recovery-in-event-grid/select-topics-menu.png)
+   ![Event Grid Topics menu](./media/custom-disaster-recovery/select-topics-menu.png)
 
-Select the star next to Event Grid Topics to add it to resource menu for easier access in the future.
+    Select the star next to Event Grid Topics to add it to resource menu for easier access in the future.
 
 1. In the Event Grid Topics Menu, select **+ADD** to create your primary topic.
 
     * Give the topic a logical name and add "-primary" as a suffix to make it easy to track.
     * This topic's region will be your primary region.
 
-    ![Event Grid Topic primary create dialogue](./media/custom-disaster-recovery-in-event-grid/create-primary-topic.png)
+    ![Event Grid Topic primary create dialogue](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Once the Topic has been created, navigate to it and copy the **Topic Endpoint**. you'll need the URI later.
 
-    ![Event Grid Primary Topic](./media/custom-disaster-recovery-in-event-grid/get-primary-topic-endpoint.png)
+    ![Event Grid Primary Topic](./media/custom-disaster-recovery/get-primary-topic-endpoint.png)
 
 1. Get the access key for the topic, which you'll also need later. Click on **Access keys** in the resource menu and copy Key 1.
 
-    ![Get Primary Topic Key](./media/custom-disaster-recovery-in-event-grid/get-primary-access-key.png)
+    ![Get Primary Topic Key](./media/custom-disaster-recovery/get-primary-access-key.png)
 
 1. In the Topic blade, click **+Event Subscription** to create a subscription connecting your subscribing the event receiver website you made in the pre-requisites to the tutorial.
 
@@ -71,7 +71,7 @@ Select the star next to Event Grid Topics to add it to resource menu for easier 
     * Select Endpoint Type Web Hook.
     * Set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Event Grid Primary Event Subscription](./media/custom-disaster-recovery-in-event-grid/create-primary-es.png)
+    ![Event Grid Primary Event Subscription](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repeat the same flow to create your secondary topic and subscription. This time, replace the "-primary" suffix with "-secondary" for easier tracking. Finally, make sure you put it in a different Azure Region. While you can put it anywhere you want, it's recommended that you use the [Azure Paired Regions](../best-practices-availability-paired-regions.md). Putting the secondary topic and subscription in a different region ensures that your new events will flow even if the primary region goes down.
 
@@ -89,7 +89,7 @@ Now that you have a regionally redundant pair of topics and subscriptions setup,
 
 ### Basic client-side implementation
 
-The following sample code is a simple .Net publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `"https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
+The following sample code is a simple .Net publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
 
 ```csharp
 using System;
@@ -193,7 +193,7 @@ Now that you have all of your components in place, you can test out your failove
 
 Try running the event publisher. You should see your test events land in your Event Grid viewer like below.
 
-![Event Grid Primary Event Subscription](./media/custom-disaster-recovery-in-event-grid/event-grid-viewer.png)
+![Event Grid Primary Event Subscription](./media/custom-disaster-recovery/event-grid-viewer.png)
 
 To make sure your failover is working, you can change a few characters in your primary topic key to make it no longer valid. Try running the publisher again. You should still see new events appear in your Event Grid viewer, however when you look at your console, you'll see that they are now being published via the secondary topic.
 
@@ -207,4 +207,4 @@ Similarly, you may want to implement failback logic based on your specific needs
 
 - Learn how to [receive events at an http endpoint](./receive-events.md)
 - Discover how to [route events to Hybrid Connections](./custom-event-to-hybrid-connection.md)
-- Learn about [disaster recovery using Azure DNS and Traffic Manager](https://docs.microsoft.com/en-us/azure/networking/disaster-recovery-dns-traffic-manager)
+- Learn about [disaster recovery using Azure DNS and Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)
