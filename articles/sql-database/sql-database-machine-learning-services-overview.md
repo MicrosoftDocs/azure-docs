@@ -52,20 +52,7 @@ Once you are enrolled in the program, Microsoft will onboard you to the public p
 
 Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for standalone and elastic pool deployment choices. In this initial public preview, the **Hyperscale** service tier and **Managed Instance** deployment choice are not supported.
 
-Currently, R is the only supported language. There is no support for Python at this time. The preview is initially available in the following regions:
-
-+ West Europe
-+ North Europe
-+ West US2
-+ East US
-+ SouthCentralUS
-+ North Central US
-+ Canada Central
-+ Southeast Asia
-+ India South
-+ Australia Southeast
-
-Additional regions will be added later.
+Currently, R is the only supported language. There is no support for Python at this time. The preview is initially available in the following regions:West Europe, North Europe, West US 2, East US, South Central US, North Central US, Canada Central, Southeast Asia, India South, and Australia Southeast. Additional regions will be added later.
 
 Do not use Machine Learning Services with R for production workloads during the public preview.
 
