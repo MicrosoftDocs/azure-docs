@@ -33,7 +33,7 @@ You can have General Purpose v1 or General Purpose v2 as your primary storage ac
 
 The Media Services account and all associated storage accounts must be in the same Azure subscription. It is recommended to use storage accounts in the same location as the Media Services account.
 
-This article explains some common concepts and shows how to create a Media Services account with the Azure portal.
+This article shows how to create a Media Services account using the Azure portal.
 
 > [!NOTE]
 > For information about availability of Azure Media Services features in different regions, see [availability of AMS features across datacenters](scenarios-and-availability.md#availability).
