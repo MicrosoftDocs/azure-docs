@@ -98,7 +98,7 @@ This will return a JSON object where your existing IP filters are listed under t
 }
 ```
 
-To add a new IP filter for you IoT Hub, run:
+To add a new IP filter for your IoT Hub, run:
 
 ```azurecli-interactive
 az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules "{\"action\":\"Reject\",\"filterName\":\"MaliciousIP\",\"ipMask\":\"6.6.6.6/6\"}"
