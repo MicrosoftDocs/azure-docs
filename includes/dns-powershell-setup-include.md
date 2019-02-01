@@ -33,7 +33,7 @@ Find-Module -Name AzureRM.Dns
 Find-Module -Name AzureRM.Network 
 ``` 
  
-The output of the above commands need to show that the version of AzureRM.Dns is 4.1.0 or higher version, and for AzureRM.Network is 5.4.0 or higher version.  
+The output of the above commands needs to show that the version of AzureRM.Dns is 4.1.0 or higher version, and for AzureRM.Network is 5.4.0 or higher version.  
 
 In case your system has earlier versions, you can either install the latest version of Azure PowerShell, or download and install the above modules from the PowerShell Gallery, using the links above next to the Module versions. You can then install them using the below commands. Both the modules are required and are fully backwards compatible. 
 
