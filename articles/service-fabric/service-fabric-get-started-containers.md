@@ -4,7 +4,7 @@ description: Create your first Windows container application on Azure Service Fa
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: jeanpaul.connock
+manager: jpconnock
 editor: 'vturecek'
 
 ms.assetid:
