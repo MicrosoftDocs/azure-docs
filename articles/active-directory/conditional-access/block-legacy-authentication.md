@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -115,8 +115,7 @@ It can take up to 24 hours for the policy to go into effect.
 
 You can select all available grant controls for the other clients condition; however, the end-user experience is always the same - blocked access.
 
-You can configure all other conditions next to the other clients condition.
-For example, if you only want to block legacy authentication for mobile devices, set the **device platforms** condition by selecting:
+If you block legacy authentication using the other clients condition, you can also set the device platform and location condition. For example, if you only want to block legacy authentication for mobile devices, set the **device platforms** condition by selecting:
 
 - Android
 
