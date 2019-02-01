@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage metrics in Azure Monitor
@@ -400,6 +400,10 @@ For the metrics supporting dimensions, you need to specify the dimension value t
 Legacy metrics are available in parallel with Azure Monitor managed metrics. The support keeps the same until Azure Storage ends the service on legacy metrics.
 
 ## FAQ
+
+**Does new metrics support Classic Storage account?**
+
+No, new metrics in Azure Monitor only support Azure Resource Manager storage accounts. If you want to use metrics on Storage accounts, you need to migrate to Azure Resource Manager Storage account. See [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 **Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
 

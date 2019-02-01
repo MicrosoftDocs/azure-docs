@@ -4,7 +4,7 @@ description: Learn how to connect to SQL Database on Azure by using SQL Server M
 keywords: connect to sql database,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 01/25/2019
 ---
 # Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
 
@@ -26,7 +26,7 @@ To complete this tutorial, you need:
 
 * A configured server-level firewall rule. For more information, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
-#### Install the latest SSMS
+## Install the latest SSMS
 
 Before you start, make sure you've installed the latest [SSMS][ssms-install-latest-84g]. 
 
@@ -39,7 +39,7 @@ Before you start, make sure you've installed the latest [SSMS][ssms-install-late
 In SMSS, connect to your Azure SQL Database server. 
 
 > [!IMPORTANT]
-> An Azure SQL Database logical server listens on port 1433. To connect to a logical server from behind a corporate firewall, the firewall must have this port open.
+> An Azure SQL Database server listens on port 1433. To connect to a SQL Database server from behind a corporate firewall, the firewall must have this port open.
 >
 
 1. Open SSMS. The **Connect to Server** dialog box appears.

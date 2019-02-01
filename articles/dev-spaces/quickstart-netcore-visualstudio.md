@@ -4,7 +4,9 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: "07/09/2018"
 ms.topic: "quickstart"
@@ -110,4 +112,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](team-development-netcore-visualstudio.md)
+> [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)

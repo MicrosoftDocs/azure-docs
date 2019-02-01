@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 02/01/2019
 ms.author: jingwang
 
 ---
@@ -34,6 +34,8 @@ Specifically, this SQL Server connector supports:
 - As source, retrieving data using SQL query or stored procedure.
 - As sink, appending data to destination table or invoking a stored procedure with custom logic during copy.
 
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) is not supported now.
+
 ## Prerequisites
 
 To use copy data from a SQL Server database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details. The Integration Runtime provides a built-in SQL Server database driver, therefore you don't need to manually install any driver when copying data from/to SQL Server database.
@@ -51,7 +53,7 @@ The following properties are supported for SQL Server linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SqlServer** | Yes |
-| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. Refer to the following sample. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. Refer to the following samples.<br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
 | userName |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
@@ -80,7 +82,36 @@ The following properties are supported for SQL Server linked service:
 }
 ```
 
-**Example 2: using Windows authentication**
+**Example 2: using SQL authentication with password in Azure Key Vault**
+
+```json
+{
+    "name": "SqlServerLinkedService",
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example 3: using Windows authentication**
 
 ```json
 {
@@ -503,7 +534,7 @@ When copying data from/to SQL Server, the following mappings are used from SQL S
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object * |
+| sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
@@ -512,6 +543,9 @@ When copying data from/to SQL Server, the following mappings are used from SQL S
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
+
+>[!NOTE]
+> For data types maps to Decimal interim type, currently ADF support precision up to 28. If you have data with precision larger than 28, consider to convert to string in SQL query.
 
 ## Troubleshooting connection issues
 

@@ -135,4 +135,4 @@ http://<app name>.azurewebsites.net
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails with MySQL](tutorial-ruby-postgres-app.md)
+> [Ruby on Rails with Postgres](tutorial-ruby-postgres-app.md)

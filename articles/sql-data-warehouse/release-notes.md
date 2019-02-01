@@ -6,7 +6,7 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about the latest updates to Azure Machine Learning service and the machine learning and data prep Python SDKs.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: reference
 author: hning86
 ms.author: haining
@@ -15,19 +15,47 @@ ms.custom: seodec18
 
 # Azure Machine Learning service release notes
 
-In this article, learn about the Azure Machine Learning service releases. 
+In this article, learn about the Azure Machine Learning service releases.  For a full description of each SDK, visit the reference docs for:
++ The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
++ The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## 2019-01-28
+
+### Azure Machine Learning SDK for Python v1.0.10
+
++ **Changes**: 
+  + Azure ML SDK no longer has azure-cli packages as dependency. Specifically, azure-cli-core and azure-cli-profile dependencies have been removed from azureml-core. These are the  user impacting changes:
+  	+ If you are performing "az login" and then using azureml-sdk, the SDK will do the browser or device code login one more time. It won't use any credentials state created by "az login".
+	+ For Azure CLI authentication, such as using "az login", use _azureml.core.authentication.AzureCliAuthentication_ class. For Azure CLI authentication, do  _pip install azure-cli_ in the Python environment where you have installed azureml-sdk.
+	+ If you are doing "az login" using a service principal for automation, we recommend using _azureml.core.authentication.ServicePrincipalAuthentication_ class, as azureml-sdk won't use credentials state created by azure CLI. 
+
++ **Bug fixes**: This release mostly contains minor bug fixes
+
+### Azure Machine Learning Data Prep SDK v1.0.8
+
++ **Bug fixes**
+  + Significantly improved the performance of getting data profiles.
+  + Fixed minor bugs related to error reporting.
+  
+### Azure portal: new features
++ New drag and drop charting experience for reports. Users can drag a column or attribute from the well to the chart area where the system will automatically select an appropriate chart type for the user based on the type of data. Users can change the chart type to other applicable types or add additional attributes.
+
+	Supported Chart Types:
+	- Line Chart
+	- Histogram
+	- Stacked Bar Chart
+	- Box Plot
+	- Scatter Plot
+	- Bubble Plot
++ The portal now dynamically generates reports for experiments. When a user submits a run to an experiment, a report will automatically be generated with logged metrics and graphs to allow comparison across different runs. 
 
 ## 2019-01-14
 
 ### Azure Machine Learning SDK for Python v1.0.8
 
-+ **SDK reference docs**: https://aka.ms/aml-sdk
-
 + **Bug fixes**: This release mostly contains minor bug fixes
 
 ### Azure Machine Learning Data Prep SDK v1.0.7
-
-+ **SDK reference docs**: https://aka.ms/data-prep-sdk
 
 + **New features**
   + Datastore improvements (documented in [Datastore how-to-guide](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
@@ -39,22 +67,15 @@ In this article, learn about the Azure Machine Learning service releases.
 
 ### Azure Machine Learning Data Prep SDK v1.0.6
 
-+ **SDK reference docs**: https://aka.ms/data-prep-sdk
-
 + **Bug fixes**
   + Fixed bug with reading from public readable Azure Blob containers on Spark
 
 ## 2018-12-20 
 
 ### Azure Machine Learning SDK for Python v1.0.6
-
-+ **SDK reference docs**: https://aka.ms/aml-sdk
-
 + **Bug fixes**: This release mostly contains minor bug fixes
 
 ### Azure Machine Learning Data Prep SDK v1.0.4
-
-+ **SDK reference docs**: https://aka.ms/data-prep-sdk
 
 + **New features**
   + `to_bool` function now allows mismatched values to be converted to Error values. This is the new default mismatch behavior for `to_bool` and `set_column_types`, whereas the previous default behavior was to convert mismatched values to False.

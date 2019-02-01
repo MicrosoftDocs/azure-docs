@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Evernote | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Evernote.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

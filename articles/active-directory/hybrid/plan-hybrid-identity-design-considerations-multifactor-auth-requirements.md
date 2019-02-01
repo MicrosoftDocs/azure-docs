@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: 9c59fda9-47d0-4c7e-b3e7-3575c29beabe
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ---

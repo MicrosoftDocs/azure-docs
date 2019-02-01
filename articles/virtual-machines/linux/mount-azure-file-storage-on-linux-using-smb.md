@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.component: files
+ms.subservice: files
 ---
 
 # Mount Azure File storage on Linux VMs using SMB
@@ -54,7 +54,7 @@ STORAGEACCT=$(az storage account create \
 
 When you create a storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New storage account keys are always created in pairs, so you always have at least one unused storage account key ready to switch to.
 
-View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys#list). This example stores the value of key 1 in the **STORAGEKEY** variable.
+View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys). This example stores the value of key 1 in the **STORAGEKEY** variable.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \

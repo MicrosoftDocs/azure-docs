@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# High Availability with Azure Cosmos DB
+# High availability with Azure Cosmos DB
 
 Azure Cosmos DB transparently replicates your data across all the Azure regions associated with your Cosmos account. Cosmos DB employs multiple layers of redundancy for your data as shown in the following image:
 

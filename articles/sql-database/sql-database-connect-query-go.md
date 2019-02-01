@@ -11,7 +11,7 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ---
 # Quickstart: Use Golang to query an Azure SQL database
 
@@ -22,8 +22,6 @@ In this quickstart, you'll use the [Golang](https://godoc.org/github.com/denisen
 To complete this tutorial, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) configured for your computer's public IP address.
 
 - Golang and related software for your operating system installed:
 

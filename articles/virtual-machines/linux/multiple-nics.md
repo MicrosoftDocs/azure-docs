@@ -3,7 +3,7 @@ title: Create a Linux VM in Azure with multiple NICs | Microsoft Docs
 description: Learn how to create a Linux VM with multiple NICs attached to it using the Azure CLI or Resource Manager templates.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
-ms.author: zarhoads
+ms.author: cynthn
 ---
 # How to create a Linux virtual machine in Azure with multiple network interface cards
 
@@ -26,13 +26,13 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
 
 In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *mystorageaccount*, and *myVM*.
 
-First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+First, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Create the virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVnet* and subnet named *mySubnetFrontEnd*:
+Create the virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named *myVnet* and subnet named *mySubnetFrontEnd*:
 
 ```azurecli
 az network vnet create \
@@ -53,7 +53,7 @@ az network vnet subnet create \
     --address-prefix 10.0.2.0/24
 ```
 
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup*:
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -82,7 +82,7 @@ az network nic create \
 ## Create a VM and attach the NICs
 When you create the VM, specify the NICs you created with `--nics`. You also need to take care when you select the VM size. There are limits for the total number of NICs that you can add to a VM. Read more about [Linux VM sizes](sizes.md).
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM*:
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM*:
 
 ```azurecli
 az vm create \
@@ -127,7 +127,7 @@ az vm nic add \
     --nics myNic3
 ```
 
-Start the VM with [az vm start](/cli/azure/vm#az_vm_start):
+Start the VM with [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -151,7 +151,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Start the VM with [az vm start](/cli/azure/vm#az_vm_start):
+Start the VM with [az vm start](/cli/azure/vm):
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM

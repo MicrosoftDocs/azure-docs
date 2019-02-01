@@ -26,13 +26,13 @@ Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-c
 In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
 ## Create resource group
-An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine and supporting virtual network resources. Create the resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created before a virtual machine and supporting virtual network resources. Create the resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](/cli/azure/reference-index#az_configure). You can also add `--output` to any command for a one time change in output format. The following example shows the JSON output from the `az group create` command:
+By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](/cli/azure/reference-index). You can also add `--output` to any command for a one time change in output format. The following example shows the JSON output from the `az group create` command:
 
 ```json                       
 {
@@ -47,7 +47,7 @@ By default, the output of Azure CLI commands is in JSON (JavaScript Object Notat
 ```
 
 ## Create a virtual network and subnet
-Next you create a virtual network in Azure and a subnet in to which you can create your VMs. Use [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) to create a virtual network named *myVnet* with the *192.168.0.0/16* address prefix. You also add a subnet named *mySubnet* with the address prefix of *192.168.1.0/24*:
+Next you create a virtual network in Azure and a subnet in to which you can create your VMs. Use [az network vnet create](/cli/azure/network/vnet) to create a virtual network named *myVnet* with the *192.168.0.0/16* address prefix. You also add a subnet named *mySubnet* with the address prefix of *192.168.1.0/24*:
 
 ```azurecli
 az network vnet create \
@@ -555,7 +555,7 @@ To see the default NGINX site in action, open your web browser and enter your FQ
 ![Default NGINX site on your VM](media/create-cli-complete/nginx.png)
 
 ## Export as a template
-What if you now want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or export an existing environment to create the JSON template for you. Use [az group export](/cli/azure/group#az_group_export) to export your resource group as follows:
+What if you now want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or export an existing environment to create the JSON template for you. Use [az group export](/cli/azure/group) to export your resource group as follows:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json

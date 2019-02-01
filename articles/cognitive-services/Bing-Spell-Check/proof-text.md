@@ -7,7 +7,7 @@ author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: aahi
