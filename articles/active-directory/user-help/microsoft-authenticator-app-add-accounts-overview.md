@@ -7,7 +7,7 @@ manager: daveba
 ms.reviewer: olhaun
 
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
 ms.date: 01/24/2019

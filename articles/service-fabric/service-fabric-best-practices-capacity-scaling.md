@@ -20,6 +20,19 @@ ms.author: pepogors
 
 Before creating any Azure Service Fabric cluster or scaling compute resources hosting your cluster, it is important to plan for capacity. For more information about planning for capacity, see [Planning the Service Fabric cluster capacity](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). In addition to considering Nodetype and Cluster characteristics, plan for scaling operations to take longer than an hour to complete for a production environment regardless of the number of VMs you are adding.
 
+## Auto Scaling
+Scaling operations should be performed via Azure Resource template deployment, because it’s a best practice to treat [resource configurations as code]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code), and using Virtual Machine Scale Set automatic scaling will result in your versioned Resource Manager template inaccurately defining your virtual machine scale set instance counts; increasing the risk of future deployments causing unintended scaling operations, and in general you should use auto scaling if:
+
+* Deploying your Resource Manager templates with appropriate capacity declared doesn’t support your use case.
+  * In addition to manual scaling, you can configure a [Continuous Integration and Delivery Pipeline in Azure DevOps Services using Azure Resource Group deployment projects]( https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts), which is commonly triggered by a Logic App that leverages virtual machine performance metrics queried from [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough); effectively autoscaling based on whatever metrics you want, while optimizing for Azure Resource Manager value add.
+* You only need to horizontally scale 1 virtual machine scale set node at a time.
+  * To scaling out by 3 or more nodes at a time, you should [scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), and it is safest to scale in and out Virtual Machine Scale Sets horizontally 1 node at a time.
+* You have at Silver Reliability or higher for your Service Fabric Cluster, and Silver Durability or higher on any scale Set you configure Autoscaling rules.
+  * Autoscaling rules capacity[minimum] must be equal to or greater than 5 virtual machine instances, and must be equal to or greater than your Reliability Tier minimum for your Primary Node type.
+
+> [!NOTE]
+> Azure Service Fabric stateful service fabric:/System/InfastructureService/<NODE_TYPE_NAME>, runs on every Node Type that has Silver or Higher Durability, which is the only System Service that is supported to run in Azure on any of your clusters Node Types. 
+
 ## Vertical scaling considerations
 
 [Vertical scaling](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) a Node Type in Azure Service Fabric requires a number of steps and considerations. For example:
@@ -145,10 +158,10 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ## Reliability levels
 
 The [reliability level](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) is a property of your Service Fabric Cluster resource, and can't be configured differently for individual nodeTypes. It controls the replication factor of the system services for the cluster, and is a setting at the cluster resource level. The reliability level will determine the minimum number of nodes that your primary node type must have. The reliability tier can take the following values:
-* Platinum - runs the System services with a target replica set count of seven
-* Gold - runs the System services with a target replica set count of seven
-* Silver - runs the System services with a target replica set count of five
-* Bronze - runs the System services with a target replica set count of three
+* Platinum - runs the System services with a target replica set count of seven and nine seed nodes.
+* Gold - runs the System services with a target replica set count of seven and seven seed nodes.
+* Silver - runs the System services with a target replica set count of five and five seed nodes.
+* Bronze - runs the System services with a target replica set count of three and three seed nodes.
 
 The minimum recommended reliability level is Silver.
 

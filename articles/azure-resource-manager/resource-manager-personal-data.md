@@ -22,6 +22,8 @@ To avoid exposing sensitive information, delete any personal information you may
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Delete personal data in deployment history
 
 For deployments, Resource Manager retains parameter values and status messages in the deployment history. These values persist until you delete the deployment from the history. To see if you have provided personal data in these values, list the deployments. If you find personal data, delete the deployments from the history.
@@ -61,13 +63,13 @@ Tags names and values persist until you delete or modify the tag. To see if you 
 To list **tags**, use:
 
 * [List](/rest/api/resources/tags/list)
-* [Get-AzTag](/powershell/module/az.tags/get-aztag)
+* [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
 * [az tag list](/cli/azure/tag#az-tag-list)
 
 To delete **tags**, use:
 
 * [Delete](/rest/api/resources/tags/delete)
-* [Remove-AzTag](/powershell/module/az.tags/remove-aztag)
+* [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
 * [az tag delete](/cli/azure/tag#az-tag-delete)
 
 ## Next steps

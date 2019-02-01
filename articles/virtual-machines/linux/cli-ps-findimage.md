@@ -282,7 +282,7 @@ If you deploy a VM with a Resource Manager template, you set the image parameter
 
 ### View plan properties
 
-To view an image's purchase plan information, run the [az vm image show](/cli/azure/image#az_image_show) command. If the `plan` property in the output is not `null`, the image has terms you need to accept before programmatic deployment.
+To view an image's purchase plan information, run the [az vm image show](/cli/azure/image) command. If the `plan` property in the output is not `null`, the image has terms you need to accept before programmatic deployment.
 
 For example, the Canonical Ubuntu Server 18.04 LTS image doesn't have additional terms, because the `plan` information is `null`:
 

@@ -113,7 +113,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 #### Currently not supported
 
-* Views and stored procedures 
+* Views 
 * Any table with composite keys
 * Nested object types in tables
  

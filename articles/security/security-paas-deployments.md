@@ -105,7 +105,7 @@ The Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/s
 
 The following table lists the STRIDE threats and gives some example mitigations that use Azure features. These mitigations won’t work in every situation.
 
-| Threat | Security property | Potential Azure platform migration |
+| Threat | Security property | Potential Azure platform mitigations |
 | --- | --- | --- |
 | Spoofing | Authentication | Require HTTPS connections. |
 | Tampering | Integrity | Validate SSL certificates. |

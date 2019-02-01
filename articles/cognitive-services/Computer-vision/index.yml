@@ -9,7 +9,7 @@ metadata:
   manager: cgronlun
 
   ms.service: cognitive-services
-  ms.component: computer-vision
+  ms.subservice: computer-vision
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 12/11/2018
 
 ---
 # Azure disconnected deployment planning decisions for Azure Stack integrated systems
