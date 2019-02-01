@@ -120,7 +120,6 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 **Example:**
 
 ```json
-{
 "activities":[
     {
         "name": "CopyFromAzureDataExplorer",
@@ -163,7 +162,6 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 **Example:**
 
 ```json
-{
 "activities":[
     {
         "name": "CopyToAzureDataExplorer",
