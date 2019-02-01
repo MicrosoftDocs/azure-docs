@@ -91,7 +91,7 @@ Now that you have a regionally redundant pair of topics and subscriptions setup,
 
 The following sample code is a simple .Net publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `"https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
 
-```dotnet
+```csharp
 using System;
 using System.Net.Http;
 using System.Collections.Generic;
@@ -206,5 +206,5 @@ Similarly, you may want to implement failback logic based on your specific needs
 ## Next steps
 
 - Learn how to [receive events at an http endpoint](./receive-events.md)
-- Discover how to [route events to Hybrid Connections](./custom-event-to-hybrid-connection)
+- Discover how to [route events to Hybrid Connections](./custom-event-to-hybrid-connection.md)
 - Learn about [disaster recovery using Azure DNS and Traffic Manager](https://docs.microsoft.com/en-us/azure/networking/disaster-recovery-dns-traffic-manager)
