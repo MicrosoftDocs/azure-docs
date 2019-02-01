@@ -235,4 +235,4 @@ You can use templates to deploy a scale set with automatic OS upgrades for suppo
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 ## Next steps
-For more examples on how to use automatic OS upgrades with scale sets, see the [GitHub repo for preview features](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).
+For more examples on how to use automatic OS upgrades with scale sets, review the [GitHub repo](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).
