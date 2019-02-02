@@ -211,7 +211,7 @@ Therefore, Azure Storage runs on separate hardware with no network connectivity 
 
 ![Isolation Using Storage Access control](./media/azure-isolation/azure-isolation-fig9.png)
 
-**Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](https://msdn.microsoft.com/library/azure/ee460785.aspx). That [signed URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) can be given to another process (that is, delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
+**Access to Azure Storage data (including Tables)** can be controlled through a [SAS (Shared Access Signature)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) token, which grants scoped access. The SAS is created through a query template (URL), signed with the [SAK (Storage Account Key)](/previous-versions/azure/reference/ee460785(v=azure.100)). That [signed URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) can be given to another process (that is, delegated), which can then fill in the details of the query and make the request of the storage service. A SAS enables you to grant time-based access to clients without revealing the storage account’s secret key.
 
 The SAS means that we can grant a client limited permissions, to objects in our storage account for a specified period of time and with a specified set of permissions. We can grant these limited permissions without having to share your account access keys.
 
@@ -266,7 +266,7 @@ The solution supports the following scenarios for IaaS VMs when they are enabled
 
 -	Enabling encryption on Linux VMs that are configured with disk striping (RAID) by using [mdadm](https://en.wikipedia.org/wiki/Mdadm)
 
--	Enabling encryption on Linux VMs by using [LVM(Logical Volume Manager)](https://msdn.microsoft.com/library/windows/desktop/bb540532) for data disks
+-	Enabling encryption on Linux VMs by using [LVM(Logical Volume Manager)](/windows/desktop/FileIO/about-volume-management) for data disks
 
 -	Enabling encryption on Windows VMs that are configured by using storage spaces
 

@@ -43,11 +43,11 @@ SQL Database helps secure your data by providing encryption:
 
 - For data in motion through [Transport Layer Security (TLS)](https://support.microsoft.com/kb/3135244).
 - For data at rest through [transparent data encryption](https://go.microsoft.com/fwlink/?LinkId=526242).
-- For data in use through [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
+- For data in use through [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 For other ways to encrypt your data, consider:
 
--	[Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
+-	[Cell-level encryption](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) to encrypt specific columns or even cells of data with different encryption keys.
 -	[Azure Key Vault with SQL Server in an Azure VM](https://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx), if you need a hardware security module or central management of your encryption key hierarchy.
 
 ### Encryption in motion
@@ -84,7 +84,7 @@ Most data breaches involve the theft of critical data such as credit card number
 
 ![The Always Encrypted feature illustrated as a lock and key](./media/azure-databse-security-overview/azure-database-fig1.png)
 
-[Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) is a feature designed to protect sensitive data stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database engine (SQL Database or SQL Server).
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) is a feature designed to protect sensitive data stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database engine (SQL Database or SQL Server).
 
 Always Encrypted provides a separation between people who own the data (and can view it) and people who manage the data (but should have no access). It helps ensure that on-premises database administrators, cloud database operators, or other high-privileged but unauthorized users cannot access the encrypted data.
 
@@ -125,7 +125,7 @@ Authentication refers to how you prove your identity when connecting to the data
 
 #### Authorization
 
-[Authorization](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) refers to what a user can do within an Azure SQL database. It's controlled by your user account's database [role memberships](https://msdn.microsoft.com/library/ms189121) and [object-level permissions](https://msdn.microsoft.com/library/ms191291.aspx). Authorization is the process of determining which securable resources a principal can access, and which operations are allowed for those resources.
+[Authorization](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) refers to what a user can do within an Azure SQL database. It's controlled by your user account's database [role memberships](/sql/relational-databases/security/authentication-access/database-level-roles) and [object-level permissions](/sql/relational-databases/security/permissions-database-engine). Authorization is the process of determining which securable resources a principal can access, and which operations are allowed for those resources.
 
 ### Application access
 
@@ -148,7 +148,7 @@ As another example, an appropriate data mask can be defined to protect personall
 
 #### Row-Level Security
 
-Another common security requirement for multitenant databases is [Row-Level Security](https://msdn.microsoft.com/library/dn765131.aspx). You can use this feature to control access to rows in a database table based on the characteristics of the user who's executing a query. (Example characteristics are group membership and execution context.)
+Another common security requirement for multitenant databases is [Row-Level Security](/sql/relational-databases/security/row-level-security). You can use this feature to control access to rows in a database table based on the characteristics of the user who's executing a query. (Example characteristics are group membership and execution context.)
 
 ![Row-Level Security allowing a user to access rows in a table through a client app](./media/azure-databse-security-overview/azure-database-fig4.png)
 

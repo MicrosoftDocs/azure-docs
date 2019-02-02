@@ -126,7 +126,7 @@ For other ways to secure your data, consider:
 
 Organizations that are not using database-level encryption might be more susceptible to attacks that compromise data located in SQL databases.
 
-You can learn more about SQL Database transparent data encryption by reading the article [Transparent Data Encryption with Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
+You can learn more about SQL Database transparent data encryption by reading the article [Transparent Data Encryption with Azure SQL Database](/azure/sql-database/transparent-data-encryption-azure-sql).
 
 ## Enable database auditing
 Auditing an instance of the SQL Server Database Engine or an individual database involves tracking and logging events. For SQL Server, you can create audits that contain specifications for server-level events and specifications for database-level events. Audited events can be written to the event logs or to audit files.
