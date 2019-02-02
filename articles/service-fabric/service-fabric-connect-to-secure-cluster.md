@@ -177,7 +177,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### Connect to a secure cluster using a client certificate
 
-The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) set on [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
+The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) set on [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
 
 ```csharp
 using System.Fabric;
