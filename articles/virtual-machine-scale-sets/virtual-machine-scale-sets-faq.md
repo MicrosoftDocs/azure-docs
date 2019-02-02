@@ -173,7 +173,7 @@ az sf cluster create -h
 
 Please review keyvaults documentation for the latest API supported certificate operations in Azure.
 
-Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) and [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) and [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### Can I specify an SSH key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?
 
