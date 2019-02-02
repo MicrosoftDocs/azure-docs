@@ -95,16 +95,21 @@ Then click **+ New function** at the top of the page. This function receives eve
 
 [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
 
+---
+
 ## Configure the Facebook page and App
 1. Create a Facebook App.
+
+    ![facebook developer page](images/facebook-developer-app.png)
 
     1. Navigate to the [Facebook developer site](https://developers.facebook.com/)
     2. Click on **My Apps**.
     3. Add a New App.
-    4. Select **Webhooks -> Get Started**
-    5. Select **Page -> Subscribe to this topic**
-    6. Provide the **FBListener Url** as the Callback URL and the **Verify Token** you configured under the **Function App Settings**
-    7. Once subscribed, scroll down to feed and select **subscribe**.
+    1. name it something
+    1. Select **Webhooks -> Set Up**
+    1. Select **Page** in the dropdown menu and select **Subscribe to this object**
+    1. Provide the **FBListener Url** as the Callback URL and the **Verify Token** you configured under the **Function App Settings**
+    1. Once subscribed, scroll down to feed and select **subscribe**.
 
 2. Create a Facebook Page.
 
