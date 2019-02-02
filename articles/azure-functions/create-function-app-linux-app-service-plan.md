@@ -79,7 +79,7 @@ Because `myAppServicePlan` is a Linux plan, the built-in docker image is used to
 
 ## Next Steps
 
-This article shows you how to create a Linux hosted function app in Azure. You can now [deploy a function project](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) to this function app. You can use the Azure Functions Core Tools to [create a Functions project](functions-run-local.md#create-a-local-functions-project) on your local computer and deploy it to your new Linux function app.  
+This article shows you how to create a Linux hosted function app in Azure. You can now [deploy a function project](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) to this function app. You can use the Azure Functions Core Tools to [create a Functions project](functions-run-local.md) on your local computer and deploy it to your new Linux function app.  
 
 > [!div class="nextstepaction"] 
 > [Code and test Azure Functions locally](functions-run-local.md)
