@@ -2920,7 +2920,7 @@ object in your trigger or action definition.
 For more information about securing parameters, 
 see [Secure sensitive information](#secure-info). 
 
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
@@ -2955,7 +2955,7 @@ object in your trigger or action definition.
 For more information about securing parameters, 
 see [Secure sensitive information](#secure-info). 
 
-```javascript
+```json
 "authentication": {
    "password": "@parameters('passwordParam')",
    "pfx": "aGVsbG8g...d29ybGQ=",
@@ -2988,7 +2988,7 @@ your trigger or action definition uses the "Secret" credential type:
 For more information about securing parameters, 
 see [Secure sensitive information](#secure-info). 
 
-```javascript
+```json
 "authentication": {
    "audience": "https://management.core.windows.net/",
    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
@@ -3011,7 +3011,7 @@ For example, suppose you're using "Basic" authentication
 in your trigger or action definition. Here is an example 
 `authentication` object that specifies a username and password:
 
-```javascript
+```json
 "HTTP": {
    "type": "Http",
    "inputs": {
@@ -3030,7 +3030,7 @@ in your trigger or action definition. Here is an example
 In the `parameters` section for your logic app definition, 
 define the parameters you used in your trigger or action definition:
 
-```javascript
+```json
 "definition": {
    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
    "actions": {
