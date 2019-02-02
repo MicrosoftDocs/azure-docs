@@ -270,7 +270,7 @@ The chat application's UI is a simple single page application (SPA) created with
 
 1. In the **content** folder, create a new file named **index.html**.
 
-1. Copy and paste the content of **[index.html](https://raw.githubusercontent.com/Azure-Samples/signalr-service-quickstart-serverless-chat/master/docs/demo/chat-with-auth/index.html)**.
+1. Copy and paste the content of **[index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/2720a9a565e925db09ef972505e1c5a7a3765be4/docs/demo/chat-with-auth/index.html)**.
 
 1. Save the file.
 
