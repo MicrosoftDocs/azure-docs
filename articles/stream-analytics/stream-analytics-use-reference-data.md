@@ -68,9 +68,6 @@ Azure Stream Analytics automatically scans for refreshed reference data blobs at
 
 ## Azure SQL Database (Preview)
 
-> [!NOTE]
-> This preview feature is available only in West Central US. Please make sure your Stream Analytics jobs are deployed to this region.
-
 Azure SQL Database reference data is retrieved by your Stream Analytics job and is stored as a snapshot in memory for processing. The snapshot of your reference data is also stored in a container in a storage account that you specify in the configuration settings. The container is auto-created when the job starts and automatically gets deleted when the job stops.
 
 If your reference data is a slowly changing data set, you need to periodically refresh the snapshot that is used in your job. Stream Analytics allows you to set a refresh rate when you configure your Azure SQL Database input connection. The Stream Analytics runtime will query your Azure SQL Database at the interval specified by the refresh rate. The fastest refresh rate supported is once per minute. For each refresh, Stream Analytics stores a new snapshot in the storage account provided.
@@ -91,6 +88,7 @@ To configure your SQL Database reference data, you first need to create **Refere
 |Username|The username associated with your Azure SQL Database.|
 |Password|The password associated with your Azure SQL Database.|
 |Refresh periodically|This option allows you to choose a refresh rate. Choosing "On" will allow you to specify the refresh rate in DD:HH:MM.|
+|Snapshot query|This is the default query option that retrieves the reference data from your SQL Database.|
 |Delta query|For advanced scenarios with large data sets and a short refresh rate, choose to add a delta query.|
 
 ## Size limitation

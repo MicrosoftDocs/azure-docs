@@ -13,16 +13,13 @@ ms.date: 01/29/2019
 
 Azure Stream Analytics supports Azure SQL Database as a source of input for reference data. You can use SQL Database as reference data for your Stream Analytics job in the Azure portal and in Visual Studio with Stream Analytics tools. This article demonstrates how to do both methods.
 
-> [!NOTE]
-> This preview feature is available only in West Central US. Please make sure your Stream Analytics jobs are deployed to this region.
-
 ## Azure portal
 
 Use the following steps to add Azure SQL Database as a reference input source using the Azure portal:
 
 ### Portal prerequisites
 
-1. Create a Stream Analytics job located in **West Central US**.
+1. Create a Stream Analytics job.
 
 2. Create a storage account to be used by the Stream Analytics job.
 
@@ -30,13 +27,15 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 ### Define SQL Database reference data input
 
-1. In your Stream Analytics job, select **Inputs** under **Job topology**. Click **Add reference input** and choose **SQL Database**. You *MUST* access the portal using [this link](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_sqlreference=true) to see the SQL reference data preview option in the portal.
+1. In your Stream Analytics job, select **Inputs** under **Job topology**. Click **Add reference input** and choose **SQL Database**.
 
    ![Stream Analytics job input](./media/sql-reference-data/stream-analytics-inputs.png)
 
-2. Fill out the Stream Analytics Input Configurations. Choose the database name, server name, username and password. If you want your reference data input to refresh periodically, choose “On” to specify the refresh rate in DD:HH:MM. If you have large data sets with a short refresh rate, you can use a delta query.
+2. Fill out the Stream Analytics Input Configurations. Choose the database name, server name, username and password. If you want your reference data input to refresh periodically, choose “On” to specify the refresh rate in DD:HH:MM. If you have large data sets with a short refresh rate, you can use a [delta query](sql-reference-data.md#delta-query).
 
    ![SQL Database reference configuration](./media/sql-reference-data/sql-input-config.png)
+
+3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../sql-database/sql-database-connect-query-portal.md)
 
 ### Specify storage account in Job config
 
@@ -56,12 +55,12 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 1. If you are using Visual Studio 2017, update to 15.8.2 or above. Note that 16.0 and above are not supported at this point.
 
-2. Install the Stream Analytics tools for Visual Studio which have support for this feature (in preview) using the following links:
+2. [Install the Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md). The following versions of Visual Studio are supported:
 
-   * [VS 2015](https://1drv.ms/u/s!Anul7jITCHl0i_1WCyB0xa7zMgIxZw)
-   * [VS 2017](https://1drv.ms/u/s!Anul7jITCHl0i_1VF7nlx6w7ipKiKA)
+   * Visual Studio 2015
+   * Visual Studio 2017
 
-3. Familiarize yourself with the [Stream Analytics tools for Visual Studio Quickstart](stream-analytics-quick-create-vs.md).
+3. Become familiar with the [Stream Analytics tools for Visual Studio](stream-analytics-quick-create-vs.md) quickstart.
 
 4. Create a storage account.
 
@@ -145,11 +144,11 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
  
   Note that Stream Analytics runtime may periodically run the snapshot query in addition to the delta query to store checkpoints.
 
-FAQs
+## FAQs
 
 **Will I incur additional cost by using SQL reference data input in Azure Stream Analytics?**
 
-There are no additional [cost per streaming unit](https://azure.microsoft.com/pricing/details/stream-analytics/) in the Stream Analytics job. However, the Stream Analytics job must have an associated Azure storage account. The Stream Analytics job queries the SQL DB (during job start and refresh interval) to retrieve the reference data set and stores that snapshot in the storage account. Storing these snapshots will incur additional charges detailed in the pricing page for Azure storage account.
+There are no additional [cost per streaming unit](https://azure.microsoft.com/pricing/details/stream-analytics/) in the Stream Analytics job. However, the Stream Analytics job must have an associated Azure storage account. The Stream Analytics job queries the SQL DB (during job start and refresh interval) to retrieve the reference data set and stores that snapshot in the storage account. Storing these snapshots will incur additional charges detailed in the [pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/) for Azure storage account.
 
 **How do I know reference data snapshot is being queried from SQL DB and used in the Azure Stream Analytics job?**
 
@@ -165,7 +164,12 @@ The combination of both of these metrics can be used to infer if the job is quer
 Azure Stream Analytics will work with any type of Azure SQL Database. However, it is important to understand that the refresh rate set for your reference data input could impact your query load. To use the delta query option, it is recommended to use temporal tables in Azure SQL Database.
 
 **Can I sample input from SQL Database reference data input?**
+
 This feature is not available.
+
+**Why does Azure Stream Analytics store snapshots in Azure Storage account?**
+
+Stream Analytics guarantees exactly once event processing and at least once delivery of events. In cases where transient issues impact your job, a small amount of replay is necessary to restore state. To enable replay, it is required to have these snapshots stored in an Azure Storage account. For more information on checkpoint replay, see [Checkpoint and replay concepts in Azure Stream Analytics jobs](stream-analytics-concepts-checkpoint-replay.md).
 
 ## Next steps
 
