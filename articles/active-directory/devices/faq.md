@@ -224,6 +224,12 @@ Hybrid Azure AD join takes precedence over the Azure AD registered state. So you
 
 ---
 
+**Q: Do Windows 10 hybrid Azure AD joined devices require line of sight to the domain controller to get access to cloud resources?**
+
+**A:** No, once Windows 10 hybrid Azure AD join is complete and user has logged in at least once, the device does not require line of sight to the domain controller to get access to cloud resources. Windows 10 can get single sign on to Azure AD applications from anywhere with an internet connection, except when a password has been changed. If a password is changed outside the corporate network (for example, using Azure AD SSPR), then user needs to have line of sight to the domain controller before being able to login to the device with their new password. Otherwise, they can only login with their old password which is invalidated by Azure AD and prevents single sign on. However, this issue does not occur when using Windows Hello for Business. Users who sign in with Windows Hello for Business continue to get single sign on to Azure AD applications after a password change even if they do not have line of sight to their domain controller. 
+
+---
+
 
 ## Azure AD register FAQ
 
