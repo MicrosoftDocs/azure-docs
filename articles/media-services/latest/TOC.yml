@@ -30,7 +30,7 @@
   items:
   - name: Compare Media Services v2 and v3
     href: migrate-from-v2-to-v3.md  
-  - name: Encoding content
+  - name: Encode content
     href: encoding-concept.md
     items:
     - name: Transforms and Jobs
@@ -39,12 +39,12 @@
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
-  - name: Analyzing content
+  - name: Analyze content
     href: analyzing-video-audio-files-concept.md
     items:
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md   
-  - name: Streaming
+  - name: Stream
     items:
     - name: Streaming Endpoints
       href: streaming-endpoint-concept.md
@@ -69,18 +69,18 @@
         href: live-event-latency.md
   - name: Filters and dynamic manifest
     href: filters-dynamic-manifest-overview.md     
-  - name: Monitoring
+  - name: Monitor
     items:
     - name: Event Grid
       href: reacting-to-media-services-events.md      
-  - name: Protecting content
+  - name: Protect content
     href: content-protection-overview.md  
     items:
     - name: Content Key Policies
       href: content-key-policy-concept.md 
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
-  - name: Playing back
+  - name: Playback
     href: use-azure-media-player.md
   - name: Accounts
     items:
@@ -90,6 +90,8 @@
       href: storage-account-concept.md       
     - name: Assets
       href: assets-concept.md    
+  - name: Filter, order, page entities
+    href: entities-overview.md
 - name: How-to guides
   items:
   - name: Get started
