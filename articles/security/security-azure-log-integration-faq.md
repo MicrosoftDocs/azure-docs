@@ -29,6 +29,8 @@ Azure Log Integration is a Windows operating system service that you can use to 
 
 The preferred method for integrating Azure logs is by using your SIEM vendor's Azure Monitor connector and following these [instructions](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn't provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Is the Azure Log Integration software free?
 
 Yes. There is no charge for the Azure Log Integration software.

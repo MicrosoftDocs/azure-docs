@@ -45,6 +45,8 @@ For more information about the services that this tutorial mentions, see:
 
 ## Initial setup
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Before you can complete the steps in this article, you need the following:
 
 1. An Azure subscription and account on that subscription with administrator rights. If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/).
@@ -65,12 +67,7 @@ Before you can complete the steps in this article, you need the following:
 
    If you have Windows Server 2016 installed, then you have at least PowerShell 5.0. If you're using any other version of Windows Server, you might have an earlier version of PowerShell installed. You can check the version by entering ```get-host``` in a PowerShell window. If you don't have PowerShell 5.0 installed, you can [download it](https://www.microsoft.com/download/details.aspx?id=50395).
 
-   After you have at least PowerShell 5.0, you can proceed to install the latest version:
-
-   a. In a PowerShell window, enter the ```Install-Module Azure``` command. Complete the installation steps.    
-   b. Enter the ```Install-Module AzureRM``` command. Complete the installation steps.
-
-   For more information, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-4.0.0).
+   After you have at least PowerShell 5.0, you can proceed to install the latest version by following the instructions in [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 ## Create supporting infrastructure elements
@@ -158,8 +155,8 @@ Requests need to be sent to Key Vault to generate log activity. Actions like key
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Set and read a secret to generate additional log entries:
     
-   a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
-   b. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
+   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Returned secret](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 

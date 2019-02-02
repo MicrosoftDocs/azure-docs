@@ -21,6 +21,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 > - If you have previously used [Azure Disk Encryption with Azure AD app](azure-security-disk-encryption-prerequisites-aad.md) to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="bkmk_OSs"></a> Supported operating systems
 Azure Disk Encryption is supported on the following operating systems:
@@ -63,15 +64,14 @@ An example of commands that can be used to mount the data disks and create the n
 
 ### Install Azure PowerShell for use on your local machine (optional): 
 1. Follow the instructions in the links for your operating system, then continue though the rest of the steps below.      
-    - [Install and configure Azure PowerShell for Windows](/powershell/azure/azurerm/install-Az-ps?view=azurermps-6.13.0). 
-        - Install PowerShellGet, Azure PowerShell, and load the AzureRM module. 
+    - [Install and configure Azure PowerShell](/powershell/azure/install-az-ps). 
+        - Install PowerShellGet, Azure PowerShell, and load the Az module. 
 
-2. Verify the installed versions of the AzureRM module. If needed, [update the Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps?view=azurermps-6.13.0#update-the-azure-powershell-module).
-    -  The AzureRM module version needs to be 6.0.0 or higher.
-    - Using the latest AzureRM module version is recommended.
+2. Verify the installed versions of the Az module. If needed, [update the Azure PowerShell module](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
+    Using the latest Az module version is recommended.
 
      ```powershell
-     Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
+     Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
 3. Sign in to Azure using the [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet.
@@ -138,7 +138,7 @@ Azure Disk Encryption is integrated with [Azure Key Vault](https://azure.microso
 
 ### <a name="bkmk_KVPSH"></a> Create a key vault with PowerShell
 
-You can create a key vault with Azure PowerShell using the [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet. For additional cmdlets for Key Vault, see [AzureRM.KeyVault](/powershell/module/azurerm.keyvault/). 
+You can create a key vault with Azure PowerShell using the [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet. For additional cmdlets for Key Vault, see [Az.KeyVault](/powershell/module/az.keyvault/). 
 
 1. If needed, [connect to your Azure subscription](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
 2. Create a new resource group, if needed, with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  To list data center locations, use [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 

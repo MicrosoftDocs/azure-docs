@@ -26,6 +26,8 @@ Just-in-time  (JIT) virtual machine (VM) access can be used to lock down inbound
 >
 >
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Attack scenario
 
 Brute force attacks commonly target management ports as a means to gain access to a VM. If successful, an attacker can take control over the VM and establish a foothold into your environment.

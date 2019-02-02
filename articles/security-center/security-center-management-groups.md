@@ -105,15 +105,15 @@ To gain visibility to all subscriptions, tenant administrators need to assign th
 
 
 #### Assign RBAC roles to users with PowerShell: 
-1. Install [Azure PowerShell](/powershell/azure/azurerm/install-Az-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Install [Azure PowerShell](/powershell/azure/install-az-ps).
 2. Run the following commands: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzAccount
+    Connect-AzAccount
     ```
 
 3. When prompted, sign in with global admin credentials. 

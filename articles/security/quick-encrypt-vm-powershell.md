@@ -23,9 +23,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - Windows PowerShell ISE
-- Install or update to the [latest version of the AzureRM PowerShell module](/powershell/azure/azurerm/install-Az-ps?view=azurermps-6.13.0)
-    - The AzureRM module version needs to be 6.0.0 or higher. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
+- Install or update to the [latest version of the Azure PowerShell module](/powershell/azure/install-az-ps)
+    - The Az module version needs to be 1.0.0 or higher. Use `Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path` to check the version.
 - A copy of the [Azure Disk Encryption prerequisites script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
     - If you have this script already, download a new copy as it has recently changed. 
     - Use **CTRL-A** to select all the text then use **CTRL-C** to copy all the text into Notepad.

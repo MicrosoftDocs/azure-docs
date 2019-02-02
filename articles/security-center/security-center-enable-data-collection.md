@@ -265,7 +265,9 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
   > The section **Collect event and performance data** is optional.
   >
 6. To use PowerShell to deploy the extension, use the following PowerShell example:
-	1.  Go to **Log Analytics** and click on **Advanced settings**.
+    [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+   
+    1.  Go to **Log Analytics** and click on **Advanced settings**.
     
         ![Set log analytics][11]
 

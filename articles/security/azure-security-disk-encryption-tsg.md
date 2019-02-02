@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 This guide is for IT professionals, information security analysts, and cloud administrators whose organizations use Azure Disk Encryption. This article is to help with troubleshooting disk-encryption-related problems.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Troubleshooting Linux OS disk encryption
 
 Linux operating system (OS) disk encryption must unmount the OS drive before running it through the full disk encryption process. If it can't unmount the drive, an error message of "failed to unmount after …" is likely to occur.
