@@ -35,8 +35,6 @@ Currently, you can view the following metrics:
 |Egress|Total number of egress bytes. For example, bytes streamed by streaming endpoint.|
 |Success end to end Latency| Gives information about end to end latency of successful requests.|
 
-You can [view metrics using the Azure portal](#view-metrics-using-portal) or [query metrics using the Azure CLI](#query-metrics-using-cli). 
-
 ### View metrics using portal 
 
 You can view metrics using the Azure portal either from Azure Monitor or from your Media Services account.
