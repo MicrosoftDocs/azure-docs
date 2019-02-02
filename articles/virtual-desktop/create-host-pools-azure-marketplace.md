@@ -98,7 +98,7 @@ Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
 ```
 
-Next, set the context to the tenant group specified in the ARM template with this cmdlet:
+Next, set the context to the tenant group specified in the Azure Resource Manager template with this cmdlet:
 
 ```powershell
 Set-RdsContext -TenantGroupName <Tenant Group name>

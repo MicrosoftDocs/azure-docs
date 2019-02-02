@@ -59,8 +59,8 @@ Now you can create an Azure virtual machine that can be joined to your Windows V
 
 You can create a virtual machine in multiple ways:
 
-- [Create a virtual machine from an Azure Gallery image](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
-- [Create a virtual machine from a managed image](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-generalized-managed)
+- [Create a virtual machine from an Azure Gallery image](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
+- [Create a virtual machine from a managed image](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
 ## Prepare the virtual machines for Windows Virtual Desktop agent installations
@@ -72,7 +72,7 @@ You need to do the following things to prepare your virtual machines before you 
 
 To successfully domain-join, do the following things on each virtual machine:
 
-1. [Connect to the virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. On the virtual machine, launch **Control Panel** and select **System**.
 3. Select **Computer name**, select **Change settings**, and then select **Change…**
 4. Select **Domain** and then enter the Active Directory domain on the virtual network.
@@ -84,7 +84,7 @@ Registering the virtual machines to a Windows Virtual Desktop host pool is as si
 
 To download the Windows Virtual Desktop agents, do the following on each virtual machine:
 
-1. [Connect to the virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Launch an internet browser and navigate to the following [link]() to download the Windows Virtual Desktop agents.
 
 To install the Windows Virtual Desktop agents, do the following on each virtual machine:

@@ -1,6 +1,6 @@
 ---
-title: Create a Windows Virtual Desktop host pool with an ARM template (test) - Azure
-description: How to create a host pool in Windows Virtual Desktop with an ARM template.
+title: Create a Windows Virtual Desktop host pool with an Azure Resource Manager template (test) - Azure
+description: How to create a host pool in Windows Virtual Desktop with an Azure Resource Manager template.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,23 +9,23 @@ ms.topic: how-to
 ms.date: 11/21/2018
 ms.author: helohr
 ---
-# Create a host pool with an ARM template (Preview)
+# Create a host pool with an Azure Resource Manager template (Preview)
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
-Follow this section's instructions to create a host pool for a Windows Virtual Desktop tenant with an Azure Resource Manager (ARM) template provided by Microsoft. This article will tell you how to create a host pool in Windows Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Windows Virtual Desktop.
+Follow this section's instructions to create a host pool for a Windows Virtual Desktop tenant with an Azure Resource Manager template provided by Microsoft. This article will tell you how to create a host pool in Windows Virtual Desktop, create a resource group with VMs in an Azure subscription, join those VMs to the AD domain, and register the VMs with Windows Virtual Desktop.
 
-## What you need to run the ARM template
+## What you need to run the Azure Resource Manager template
 
-Make sure you know the following things before running the ARM template:
+Make sure you know the following things before running the Azure Resource Manager template:
 
 - Where the source of the image you want to use is. Is it from Azure Gallery or is it custom?
 - Your domain join credentials.
 - Your Windows Virtual Desktop credentials.
 
-When you create a Windows Virtual Desktop host pool with the ARM template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image) and [Create a managed image of a generalized VM in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource).
+When you create a Windows Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) and [Create a managed image of a generalized VM in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 
-## Run the ARM template for provisioning a new host pool
+## Run the Azure Resource Manager template for provisioning a new host pool
 
 To start, go to [this GitHub URL](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool).
 
@@ -45,7 +45,7 @@ For guidance about which parameters you should enter for your scenario, see the 
 
 ## Assign users to the desktop application group
 
-After the GitHub ARM template completes, assign user access before you start testing the full session desktops on your virtual machines.
+After the GitHub Azure Resource Manager template completes, assign user access before you start testing the full session desktops on your virtual machines.
 
 To assign users to the desktop application group, open a PowerShell window and run this cmdlet to sign in to the Windows Virtual Desktop environment:
 
@@ -53,7 +53,7 @@ To assign users to the desktop application group, open a PowerShell window and r
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
 ```
 
-Next, set the context to the tenant group specified in the ARM template with this cmdlet:
+Next, set the context to the tenant group specified in the Azure Resource Manager template with this cmdlet:
 
 ```powershell
 Set-RdsContext -TenantGroupName <Tenant Group name>
