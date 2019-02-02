@@ -24,9 +24,9 @@ ms.service: media-services
 
 # Recommended live streaming encoders
 
-In Media Services, a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (channel) represents a pipeline for processing live-streaming content. The Live Event receives live input streams in one of two ways:
+In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (channel) represents a pipeline for processing live-streaming content. The Live Event receives live input streams in one of two ways:
 
-* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the Live Event that is not enabled to perform live encoding with Media Services. The ingested streams pass through Live Events without any further processing. This method is called **pass-through**. A live encoder can send a single-bitrate stream to a pass through channel, but this configuration is not recommended because it does not allow for adaptive bitrate streaming to the client.
+* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the Live Event that is not enabled to perform live encoding with Media Services. The ingested streams pass through Live Events without any further processing. This method is called **pass-through**. A live encoder can send a single-bitrate stream to a pass-through channel, but this configuration is not recommended because it does not allow for adaptive bitrate streaming to the client.
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
@@ -56,9 +56,9 @@ Media Services recommends using one of following live encoders that have RTMP as
 - VMIX
 - xStream
 
-## Live encoders that output fragmented-MP4
+## Live encoders that output fragmented MP4
 
-Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming (fragmented-MP4) as output. The supported URL schemes are `http://` or `https://`.
+Media Services recommends using one of the following live encoders that have multi-bitrate Smooth Streaming (fragmented MP4) as output. The supported URL schemes are `http://` or `https://`.
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
@@ -79,11 +79,11 @@ Both an audio and video stream must be present in order to playback content. Pla
 
 - Whenever possible, use a hardwired internet connection.
 - A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
-- When using software based encoders, close out any unnecessary programs.
+- When using software-based encoders, close out any unnecessary programs.
 - Do not change your encoder configuration once it has started pushing. It has negative effects on the event and can cause the event to be unstable. 
-- Ensure to give yourself ample time to setup your event. For high scale events, its recommended to start the setup an hour before your event.
+- Ensure that you give yourself ample time to set up your event. For high-scale events, its recommended to start the setup an hour before your event.
 
-## How to become an on-premises encoder partner
+## Becoming an on-premises encoder partner
 
 As an Azure Media Services on-premises encoder partner, Media Services promotes your product by recommending your encoder to enterprise customers. To become an on-premises encoder partner, you must verify compatibility of your on-premises encoder with Media Services. To do so, complete the following verifications:
 
@@ -91,7 +91,7 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 
 1. Navigate to your Media Services account and make sure the **Streaming Endpoint** is running. 
 2. Create and start the **pass-through** Live Event. <br/> For more information, see [Live Event states and billing](live-event-states-billing.md).
-3. Get the ingest URL(s) and configure your on-premise encoder to use the URL to send the a multi-bitrate live stream to Media Services.
+3. Get the ingest URL(s) and configure your on-premises encoder to use the URL to send a multi-bitrate live stream to Media Services.
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
 5. Create a new **Asset** object.
 6. Create a **Live Output** and use the asset name that you created.
@@ -127,11 +127,11 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 
 ### Longevity verification
 
-Same steps as in [Pass-through Live Event verification](#pass-through-live-event-verification) except for the step 11. <br/>Instead of 10 minutes, run your live encoder for one week or longer. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the live streaming from time to time (or archived asset) to ensure that playback has no visible glitches.
+Same steps as in [Pass-through Live Event verification](#pass-through-live-event-verification) except for step 11. <br/>Instead of 10 minutes, run your live encoder for one week or longer. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the live streaming from time to time (or archived asset) to ensure that playback has no visible glitches.
 
 ### Email your recorded settings
 
-Lastly, email your recorded settings and live archive parameters to Azure Media Services at amsstreaming@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow ups. You can contact the Azure Media Services team with any questions regarding this process.
+Lastly, email your recorded settings and live archive parameters to Azure Media Services at amsstreaming@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions regarding this process.
 
 ## Next steps
 
