@@ -46,30 +46,40 @@ From the Azure portal, search for “Azure IoT Edge” and select “Ubuntu Serv
     1. Select "GET IT NOW" and "Continue" on the subsequent dialog
     1. Select "Want to deploy programmatically? Get started" at the bottom of the dialog within the portal
     1. Click on the "Enable" button in the "Configure Programmatic Deployment" page then click "Save"
-1.	If you’re using Azure CLI on your desktop, start by logging in: 
+1.	If you’re using Azure CLI on your desktop, start by logging in:
+
     ```azurecli-interactive
     az login
     ```
-1.	If you have multiple subscriptions, select the subscription you’d like to use: 
+    
+1.	If you have multiple subscriptions, select the subscription you’d like to use:
     1.	List your subscriptions:
-        ```azurecli-interactive 
-        azure account list --output table
-        ```
+    
+    ```azurecli-interactive
+    azure account list --output table
+    ```
+    
     1.	Copy and paste the SubscriptionID field for the subscription you’d like to use
-    1.	Run this command with the ID you just copied: 
-        ```azurecli-interactive 
-        az account set -s {SubscriptionId}
-        ```
-1.	Create a new resource group (or specify an existing one in the next steps): 
+    1.	Run this command with the ID you just copied:
+    
+    ```azurecli-interactive 
+    az account set -s {SubscriptionId}
+    ```
+    
+1.	Create a new resource group (or specify an existing one in the next steps):
+
     ```azurecli-interactive
     az group create --name IoTEdgeResources --location westus2
     ```
+    
 1.	Create a new virtual machine:
+
     ```azurecli-interactive
     az vm create --resource-group IoTEdgeResources --name EdgeVM –image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
     ```
 
-1.	Set the device connection string (You can follow the “Register a new Azure IoT Edge device with Azure CLI” how-to guide if you’re not familiar with this process): 
+1.	Set the device connection string (You can follow the “Register a new Azure IoT Edge device with Azure CLI” how-to guide if you’re not familiar with this process):
+
     ```azurecli-interactive
     az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
     ```
