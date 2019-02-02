@@ -229,7 +229,7 @@ for example, the `searchQuery` property here:
   "inputs": {
     "host": {
       "connection": {
-       "name": "@parameters('$connections')['twitter']['connectionId']"
+        "name": "@parameters('$connections')['twitter']['connectionId']"
       }
     }
   },
