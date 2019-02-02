@@ -107,4 +107,4 @@ Properties of the key delivery requests schema.
 
 ## Next steps
 
-[Monitor Media Services metrics and diagnostic logs](media-services-azure-monitor-overview.md)
+[Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
