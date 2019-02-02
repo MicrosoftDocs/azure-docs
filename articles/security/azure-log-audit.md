@@ -193,7 +193,7 @@ Network logging and monitoring in Azure is comprehensive and covers two broad ca
 
 * [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Scenario-based network monitoring is provided with the features in Network Watcher. This service includes packet capture, next hop, IP flow verify, security group view, NSG flow logs. Scenario level monitoring provides an end to end view of network resources in contrast to individual network resource monitoring.
 
-* [Resource monitoring](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-resource-level-monitoring): Resource level monitoring comprises four features, diagnostics logs, metrics, troubleshooting, and resource health. All these features are built at the network resource level.
+* [Resource monitoring](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Resource level monitoring comprises four features, diagnostics logs, metrics, troubleshooting, and resource health. All these features are built at the network resource level.
 
 ![Azure networking logs](./media/azure-log-audit/azure-log-audit-fig4.png)
 
@@ -235,7 +235,7 @@ In addition to the previously mentioned logging capabilities, Network Watcher cu
 
 * [Virtual network gateway and connection troubleshooting](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Helps you troubleshoot virtual network gateways and connections.
 
-* [Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-subscription-limits): Enables you to view network resource usage against limits.
+* [Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Enables you to view network resource usage against limits.
 
 ### Application Insights
 
