@@ -18,6 +18,8 @@ ms.date: 01/07/2019
 ms.author: jeffgilb
 ms.custom: mvc
 ms.reviewer: 
+ms.lastreviewed:  01/07/2019
+
 ---
 # Quickstart: use the Azure Stack administration portal
 

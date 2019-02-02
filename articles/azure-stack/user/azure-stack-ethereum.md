@@ -11,6 +11,8 @@ ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
+ms.lastreviewed: 11/02/2018
+
 ---
 # Deploy an Ethereum blockchain network on Azure Stack
 

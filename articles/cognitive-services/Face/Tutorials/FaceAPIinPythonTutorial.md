@@ -7,7 +7,7 @@ author: SteveMSFT
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles

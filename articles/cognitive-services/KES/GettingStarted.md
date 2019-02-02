@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Example: Getting started - Knowledge Exploration Service API"
 titlesuffix: Azure Cognitive Services
 description: Use Knowledge Exploration Service (KES) API to create an engine for an interactive search experience across academic publications.
@@ -7,7 +7,7 @@ author: bojunehsu
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu

@@ -2,7 +2,7 @@
 title: Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
 description: Learn how to query data from Azure Data Lake Storage Gen2 Preview and store results of your analysis.
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
@@ -104,12 +104,11 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
 ```azurepowershell
 $SubscriptionID = "<Your Azure Subscription ID>"
 $ResourceGroupName = "<New Azure Resource Group Name>"
-$Location = "WEST US 2"
+$Location = "westus2"
 
 $StorageAccountName = "<New Azure Storage Account Name>"
 $containerName = "<New Azure Blob Container Name>"
 
-Connect-AzAccount
 Select-AzSubscription -SubscriptionId $SubscriptionID
 
 # Create resource group
@@ -117,11 +116,11 @@ New-AzResourceGroup -name $ResourceGroupName -Location $Location
 
 # Create default storage account
 New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
-  -Name StorageAccountName `
+  -Name $StorageAccountName `
   -Location $Location `
   -SkuName Standard_LRS `
-  -Kind StorageV2 
-  -HierarchialNamespace $True
+  -Kind StorageV2 `
+  -EnableHierarchicalNamespace $True
 
 # Create default blob containers
 $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value

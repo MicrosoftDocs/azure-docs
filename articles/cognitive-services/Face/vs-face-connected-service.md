@@ -7,7 +7,7 @@ author: ghogen
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen

@@ -36,7 +36,7 @@ The Marketplace image that you use to create the VMs is Oracle:Oracle-Database-E
 
 ### Sign in to Azure 
 
-Sign in to your Azure subscription by using the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions.
+Sign in to your Azure subscription by using the [az login](/cli/azure/reference-index) command and follow the on-screen directions.
 
 ```azurecli
 az login
@@ -44,7 +44,7 @@ az login
 
 ### Create a resource group
 
-Create a resource group by using the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. 
+Create a resource group by using the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. 
 
 The following example creates a resource group named `myResourceGroup` in the `westus` location:
 

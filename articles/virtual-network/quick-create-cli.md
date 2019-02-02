@@ -33,7 +33,7 @@ Before you can create a virtual network, you have to create a resource group to 
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). This example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -112,7 +112,7 @@ Exit the SSH session with the *myVm2* VM.
 
 ## Clean up resources
 
-When no longer needed, you can use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all the resources it has:
+When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group and all the resources it has:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes

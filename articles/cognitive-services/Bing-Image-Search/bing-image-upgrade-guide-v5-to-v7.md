@@ -7,7 +7,7 @@ author: swhite-msft
 manager: cgronlun
 ms.assetid: 7F78B91F-F13B-40A4-B8A7-770FDB793F0F
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
@@ -69,9 +69,9 @@ Blocked|InvalidRequest.Blocked
 
 ### Query parameters
 
-- Renamed the `modulesRequested` query parameter to [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules).  
+- Renamed the `modulesRequested` query parameter to [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).  
 
-- Renamed the Annotations to Tags. See [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules) query parameter to Tags.  
+- Renamed the Annotations to Tags. See [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) query parameter to Tags.  
 
 - Changed the list of supported markets of the ShoppingSources filter value to en-US only. See [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype).  
 
@@ -93,7 +93,7 @@ Blocked|InvalidRequest.Blocked
 - The following query parameters are now valid only with the `/images/details` endpoint.  
 
     -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken)  
-    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules)  
+    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)  
     -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl)  
     -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
     -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  

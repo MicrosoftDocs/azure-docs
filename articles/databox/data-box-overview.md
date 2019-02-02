@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 01/18/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -59,6 +59,7 @@ The Data Box device has the following features in this release.
 | Rack space                                              | 7 U when placed in the rack on its side (cannot be rack-mounted)|
 | Cables required                                         | 1 X power cable (included) <br> 2 RJ45 cables <br> 2 X SFP+ Twinax copper cables|
 | Storage capacity                                        | 100 TB device has 80 TB usable capacity after RAID 5 protection|
+| Power rating                                            | The power supply unit is rated for 700 W. <br> Typically, the unit draws 375 W.|
 | Network interfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10 GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
 | Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
 | Security                                                | Rugged device casing with tamper-proof custom screws <br> Tamper-evident stickers placed at the bottom of the device|

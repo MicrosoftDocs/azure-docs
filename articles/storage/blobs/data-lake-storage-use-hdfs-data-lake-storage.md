@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ---
 
 # Using the HDFS CLI with Data Lake Storage Gen2

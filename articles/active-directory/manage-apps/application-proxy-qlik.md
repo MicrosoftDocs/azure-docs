@@ -4,9 +4,9 @@ description:  Turn on Application Proxy in the Azure  portal, and install the Co
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018

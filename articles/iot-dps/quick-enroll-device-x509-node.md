@@ -102,7 +102,7 @@ To use this test tooling to generate certificates, perform the following steps:
         });
       }
     });
-    ````
+    ```
 
 ## Run the enrollment group sample
  

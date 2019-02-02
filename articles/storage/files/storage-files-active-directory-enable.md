@@ -131,7 +131,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --f
 To access Azure Files resources using Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
 
 > [!IMPORTANT]
-> Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Adminstrative control is not supported with Azure AD credentials. 
+> Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials. 
 
 ### Define a custom role
 

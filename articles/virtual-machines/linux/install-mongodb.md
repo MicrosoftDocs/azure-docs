@@ -3,7 +3,7 @@ title: Install MongoDB on a Linux VM with the Azure CLI | Microsoft Docs
 description: Learn how to install and configure MongoDB on a Linux virtual machine iusing the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 
 ---
 # How to install and configure MongoDB on a Linux VM
@@ -27,9 +27,9 @@ ms.author: zarhoads
 
 
 ## Manually install and configure MongoDB on a VM
-MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including Red Hat / CentOS, SUSE, Ubuntu, and Debian. The following example creates a *CentOS* VM. To create this environment, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login).
+MongoDB [provide installation instructions](https://docs.mongodb.com/manual/administration/install-on-linux/) for Linux distros including Red Hat / CentOS, SUSE, Ubuntu, and Debian. The following example creates a *CentOS* VM. To create this environment, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index).
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -117,7 +117,7 @@ You can create a basic MongoDB instance on a single CentOS VM using the followin
 
 * [Basic MongoDB instance on CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-To create this environment, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login). First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+To create this environment, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index). First, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -130,7 +130,7 @@ az group deployment create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
-Log on to the VM using the public DNS address of your VM. You can view the public DNS address with [az vm show](/cli/azure/vm#az_vm_show):
+Log on to the VM using the public DNS address of your VM. You can view the public DNS address with [az vm show](/cli/azure/vm):
 
 ```azurecli
 az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
@@ -168,7 +168,7 @@ You can create a complex MongoDB sharded cluster using the following Azure quick
 > [!WARNING]
 > Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count.
 
-To create this environment, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az_login). First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+To create this environment, you need the latest [Azure CLI](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/reference-index). First, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

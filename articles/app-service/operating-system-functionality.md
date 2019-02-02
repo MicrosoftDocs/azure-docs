@@ -125,6 +125,10 @@ Apps have read-only access to much (though not all) of the registry of the virtu
 
 Write-access to the registry is blocked, including access to any per-user registry keys. From the app's perspective, write access to the registry should never be relied upon in the Azure environment since apps can (and do) get migrated across different virtual machines. The only persistent writeable storage that can be depended on by an app is the per-app content directory structure stored on the App Service UNC shares. 
 
+## Remote desktop access
+
+App Service doesn't provide remote desktop access to the VM instances.
+
 ## More information
 
 [Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - The most up-to-date information about the execution environment of App Service. This page is 

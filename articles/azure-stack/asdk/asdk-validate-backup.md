@@ -12,6 +12,9 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 09/05/2018
+
+
 ---
 # Use the ASDK to validate an Azure Stack backup
 After deploying Azure Stack and provisioning user resources such as offers, plans, quotas, and subscriptions, you should [enable Azure Stack infrastructure backup](../azure-stack-backup-enable-backup-console.md). Scheduling and running regular infrastructure backups will ensure that infrastructure management data is not lost if there is a catastrophic hardware or service failure.

@@ -55,7 +55,7 @@ az login
 
 ### Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and from which they can be managed. 
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and from which they can be managed. 
 
 The following example creates a resource group named `myResourceGroup` in the `westus` location.
 

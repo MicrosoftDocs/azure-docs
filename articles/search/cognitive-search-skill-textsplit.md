@@ -18,7 +18,7 @@ ms.custom: seodec2018
 The **Text Split** skill breaks text into chunks of text. You can specify whether you want to break the text into sentences or into pages of a particular length. This skill is especially useful if there are maximum text length requirements in other skills downstream. 
 
 > [!NOTE]
-> This skill is not bound to a Cognitive Services API and there are no fees associated with this skill. However, you must [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) anyway to override the Free resource option that limits you to a small number of daily enrichments.
+> This skill is not bound to a Cognitive Services API and you are not charged for using it. You should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md), however, to override the **Free** resource option that limits you to a small number of daily enrichments per day.
 
 ## @odata.type  
 Microsoft.Skills.Text.SplitSkill 

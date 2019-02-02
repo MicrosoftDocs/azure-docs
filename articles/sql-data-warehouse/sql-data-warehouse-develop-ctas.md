@@ -6,7 +6,7 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
@@ -271,7 +271,7 @@ WHERE NOT EXISTS
 ;
 
 RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
+RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 
 ```
 

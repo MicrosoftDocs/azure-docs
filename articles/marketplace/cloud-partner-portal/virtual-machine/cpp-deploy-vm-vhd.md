@@ -33,7 +33,7 @@ To learn more about VM images, see the following blog posts:
 
 If you have not already done so, install Azure PowerShell and the Azure CLI, using the following instructions:
 
-- [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+- [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)
 - [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 

@@ -4,13 +4,13 @@ description: Azure Active Directory feature deployment checklist
 
 services: active-directory
 ms.service: active-directory
-ms.component: 
+ms.subservice: 
 ms.topic: conceptual
 ms.date: 01/08/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer:
 
 ---

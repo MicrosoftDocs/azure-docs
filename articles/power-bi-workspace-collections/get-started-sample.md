@@ -222,7 +222,7 @@ Once you have a **Report**, you use an **IFrame** to embed the Power BI **Report
 ```
 init: function() {
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<igrame style="width:100%;height:100%;" src="' + embedUrl + 
+    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 
         '" scrolling="no" allowfullscreen="true"></iframe>';
     this.element.innerHTML = iframeHtml;
     this.iframe = this.element.childNodes[0];
