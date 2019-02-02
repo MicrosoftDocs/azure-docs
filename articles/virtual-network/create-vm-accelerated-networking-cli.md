@@ -72,9 +72,9 @@ Though this article provides steps to create a virtual machine with accelerated 
 
 ### Create a virtual network
 
-Install the latest [Azure CLI](/cli/azure/install-azure-cli) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
+Install the latest [Azure CLI](/cli/azure/install-azure-cli) and log in to an Azure account using [az login](/cli/azure/reference-index). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
+Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *centralus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -82,7 +82,7 @@ az group create --name myResourceGroup --location centralus
 
 Select a supported Linux region listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVnet* with one subnet:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named *myVnet* with one subnet:
 
 ```azurecli
 az network vnet create \
@@ -94,7 +94,7 @@ az network vnet create \
 ```
 
 ### Create a network security group
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup*:
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -102,7 +102,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-The network security group contains several default rules, one of which disables all inbound access from the Internet. Open a port to allow SSH access to the virtual machine with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create):
+The network security group contains several default rules, one of which disables all inbound access from the Internet. Open a port to allow SSH access to the virtual machine with [az network nsg rule create](/cli/azure/network/nsg/rule):
 
 ```azurecli
 az network nsg rule create \
@@ -121,7 +121,7 @@ az network nsg rule create \
 
 ### Create a network interface with accelerated networking
 
-Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). A public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
+Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip). A public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
 
 ```azurecli
 az network public-ip create \
@@ -129,7 +129,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-Create a network interface with [az network nic create](/cli/azure/network/nic#az_network_nic_create) with accelerated networking enabled. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and associates the *myNetworkSecurityGroup* network security group to the network interface:
+Create a network interface with [az network nic create](/cli/azure/network/nic) with accelerated networking enabled. The following example creates a network interface named *myNic* in the *mySubnet* subnet of the *myVnet* virtual network and associates the *myNetworkSecurityGroup* network security group to the network interface:
 
 ```azurecli
 az network nic create \
@@ -145,7 +145,7 @@ az network nic create \
 ### Create a VM and attach the NIC
 When you create the VM, specify the NIC you created with `--nics`. Select a size and distribution listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
 
 ```azurecli
 az vm create \

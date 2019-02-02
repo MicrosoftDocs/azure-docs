@@ -51,7 +51,7 @@ The following sample shows how to enable TLS 1.2 in your PowerShell client.
 # Enable TLS 1.2 before connecting to Azure Storage
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 
-$resourceGroup = "{YourResourceGropuName}"
+$resourceGroup = "{YourResourceGroupName}"
 $storageAccountName = "{YourStorageAccountNme}"
 $prefix = "foo"
 

@@ -5,7 +5,7 @@ description: Steps to deploy (Copy) a New Web Service to other regions. Easily d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
