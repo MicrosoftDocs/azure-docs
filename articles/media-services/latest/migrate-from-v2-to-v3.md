@@ -1,6 +1,6 @@
 ---
 title: Compare Azure Media Services v2 and v3 | Microsoft Docs
-description: This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions.
+description: This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions. The article also provides migration guidance for moving from Media Services v2 to v3.
 services: media-services
 documentationcenter: na
 author: Juliako
