@@ -80,7 +80,7 @@ There are two installation scenarios that can produce different results when ins
 ## Troubleshooting monitoring agent network requirements <a name="mon-network-req"></a>
 For agents to connect to and register with Security Center, they must have access to network resources, including the port numbers and domain URLs.
 
-- For proxy servers, you need to ensure that the appropriate proxy server resources are configured in agent settings. Read this article for more information on [how to change the proxy settings](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
+- For proxy servers, you need to ensure that the appropriate proxy server resources are configured in agent settings. Read this article for more information on [how to change the proxy settings](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents).
 - For firewalls that restrict access to the Internet, you need to configure your firewall to permit access to Log Analytics. No action is needed in agent settings.
 
 The following table shows resources needed for communication.
