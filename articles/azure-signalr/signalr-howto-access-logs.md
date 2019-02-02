@@ -27,7 +27,7 @@ For security reasons and compliance requirements, routinely rotate your access k
 
    A new key and corresponding connection string are created and displayed.
 
-   ![Regenerate Keys](media/signalr-key-rotation/regenerate-keys.png)
+   ![Regenerate Keys](media/signalr-howto-key-rotation/regenerate-keys.png)
 
 You also can regenerate keys by using the [Azure CLI](/cli/azure/ext/signalr/signalr/key?view=azure-cli-latest#ext-signalr-az-signalr-key-renew).
 

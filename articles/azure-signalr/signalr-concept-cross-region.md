@@ -19,7 +19,7 @@ The diagram below describes the typical architecture when you use the SignalR Se
 
 The differences from self-hosted ASP.NET Core SignalR application are discussed as well.
 
-![Architecture](./media/signalr-internals/arch.png)
+![Architecture](./media/signalr-concept-internals/arch.png)
 
 ## Server connections
 

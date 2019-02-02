@@ -41,7 +41,7 @@ The SignalR Service bindings for Azure Functions allow an Azure Function app to 
 
 An example of how to use the SignalR Service bindings is using Azure Functions to integrate with Azure Cosmos DB and SignalR Service to send real-time messages when new events appear on a Cosmos DB change feed.
 
-![Cosmos DB, Azure Functions, SignalR Service](media/signalr-overview-azure-functions/signalr-cosmosdb-functions.png)
+![Cosmos DB, Azure Functions, SignalR Service](media/signalr-concept-azure-functions/signalr-cosmosdb-functions.png)
 
 1. A change is made in a Cosmos DB collection
 2. The change event is propagated to the Cosmos DB change feed
