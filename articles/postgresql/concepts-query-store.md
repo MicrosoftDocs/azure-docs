@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/01/2019
 ---
 # Monitor performance with the Query Store
 
@@ -77,7 +77,7 @@ When Query Store is enabled it saves data in 15-minute aggregation windows, up t
 The following options are available for configuring Query Store parameters.
 | **Parameter** | **Description** | **Default** | **Range**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Sets which statements are tracked. | top | none, top, all |
+| pg_qs.query_capture_mode | Sets which statements are tracked. | none | none, top, all |
 | pg_qs.max_query_text_length | Sets the maximum query length that can be saved. Longer queries will be truncated. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Sets the retention period. | 7 | 1 - 30 |
 | pg_qs.track_utility | Sets whether utility commands are tracked | on | on, off |

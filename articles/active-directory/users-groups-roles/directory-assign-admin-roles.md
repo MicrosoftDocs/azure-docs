@@ -4,6 +4,7 @@ description: An admin role can add users, assign administrative roles, reset use
 services: active-directory
 author: curtand
 manager: mtillman
+search.appverid: MET150
 
 ms.service: active-directory
 ms.workload: identity
