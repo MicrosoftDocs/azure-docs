@@ -21,7 +21,7 @@ The main scenarios to consider using Data-in Replication are:
 ## Limitations and considerations
 
 ### Data not replicated
-The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) on the master server is not replicated. Changes to accounts and permissions on the master server are not replicated. If you create an account on the master server and this account needs to access the replica server, then manually create the same account on the replica server side. To understand what tables are contained in the system database, see the [MySQL manual](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) on the master server isn't replicated. Changes to accounts and permissions on the master server are not replicated. If you create an account on the master server and this account needs to access the replica server, then manually create the same account on the replica server side. To understand what tables are contained in the system database, see the [MySQL manual](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
 
 ### Requirements
 - The master server version must be at least MySQL version 5.6. 
