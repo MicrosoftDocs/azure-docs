@@ -23,7 +23,7 @@ Monitoring your application health is an important signal for managing and upgra
 
 This article describes how you can use the Application Health extension to monitor the health of your applications deployed on virtual machine scale sets.
 
-## Pre-requisites
+## Prerequisites
 This article assumes that you are familiar with:
 -	Azure virtual machine [extensions](../virtual-machines/extensions/overview.md)
 -	[Modifying](virtual-machine-scale-sets-upgrade-scale-set.md) virtual machine scale sets
