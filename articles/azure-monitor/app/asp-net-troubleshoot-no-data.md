@@ -212,7 +212,7 @@ Follow these instructions to capture troubleshooting logs for your framework.
 
 1. Install the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsighs`
 
-2. Modify your applicationinsights.config file to include the following:
+2. Modify `ConfigureServices` method in your `Startup.cs` class.:
 
     ```csharp
     services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
