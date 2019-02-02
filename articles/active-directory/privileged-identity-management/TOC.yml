@@ -12,6 +12,8 @@
     href: pim-roles.md
   - name: Secure privileged access
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: PIM deployment plan
+    href: pim-deployment-plan.md
   - name: MFA and PIM
     href: pim-how-to-require-mfa.md
   - name: Overview dashboards
