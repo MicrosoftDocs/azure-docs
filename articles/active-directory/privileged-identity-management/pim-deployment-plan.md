@@ -214,16 +214,18 @@ Before you implement your PIM solution, it is good practice to draft up your PIM
 
 PIM configuration table for Azure AD roles
 
+:x:
+
 | Roles | Require MFA | Notification | Incident Ticket | Require Approval | Approver | Activation Duration | Permanent Admin |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Global Administrator |  |  |  |  | Other global administrators | 1 Hour | Emergency access accounts |
-| Exchange administrator |  |  |  |  | None | 2 Hour | None |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Global Administrator | ✔ |  |  |  | Other global administrators | 1 Hour | Emergency access accounts |
+| Exchange administrator | :heavy_check_mark: |  | :x: |  | None | 2 Hour | None |
 | Help desk administrator |  |  |  |  | None | 8 Hour | None |
 
 PIM configuration table for Azure Resource roles
 
 | Roles | Require MFA | Notification | Require Approval | Approver | Activation Duration | Active Admin | Active Expiration | Eligible Expiration |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Owner of critical subscriptions |  |  |  | Other owners of the subscription | 1 Hour | None | n/a | 3 month |
 | User access administrator of less critical subscriptions |  |  |  | None | 1 Hour | None | n/a | 3 month |
 | Virtual Machine Contributer |  |  |  | None | 3 Hour | None | n/a | 6 month |
