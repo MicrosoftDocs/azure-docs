@@ -8,7 +8,7 @@ manager: daveba
 
 ms.assetid: 58ee5481-ae40-4e4a-a3c9-86343851fc9a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

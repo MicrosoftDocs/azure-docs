@@ -17,22 +17,22 @@ Azure HDInsight’s cluster Autoscale feature automatically scales the number of
 
 ## Getting Started
 
-### Create cluster with Azure portal
+### Create a cluster with the Azure portal
 
 > [!Note]
 > Autoscale is currently only supported for Azure HDInsight Hive, MapReduce and Spark clusters version 3.6.
 
-Complete HDInsight cluster creation steps using the Azure Portal can be found at [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).  Enabling Autoscale during the creation process requires a few deviations from the usual installation steps.  
+To enable the Autoscale feature, please do the following as part of the normal cluster creation process:
 
 1. Select **Custom (size, settings, apps)** rather than **Quick create**.
-2. On Custom step 5 **Cluster size**, check the **Worker node autoscale** checkbox.
+2. On **Custom** step 5 (**Cluster size**) check the **Worker node autoscale** checkbox.
 3. Enter the desired values for:  
-  &#8226; Initial **Number of Worker nodes**.  
-  &#8226; **Minimum** number of worker nodes.  
-  &#8226; **Maximum** number of worker nodes.  
+
+    * Initial **Number of Worker nodes**.  
+    * **Minimum** number of worker nodes.  
+    * **Maximum** number of worker nodes.  
 
 ![Enable worker node autoscale option](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
-
 
 The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it is created. The minimum number of worker nodes must be greater than zero.
 
@@ -43,9 +43,11 @@ Your subscription has a capacity quota for each region. The total number of core
 > [!Note]  
 > If you exceed the total core quota limit, You will receive an error message saying ‘the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota.’
 
-### Create cluster with an Resource Manager template
+For more information on HDInsight cluster creation using the Azure portal, see [Create Linux-based clusters in HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).  
 
-Complete HDInsight cluster creation steps using Resource Manager templates can be found at [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  When you create an HDInsight cluster with an Azure Resource Manager template, you need to add the following settings in the “computeProfile” “workernode” section and edit it accordingly:
+### Create a cluster with a Resource Manager template
+
+To create an HDInsight cluster with an Azure Resource Manager template, add an `autoscale` node to the `computeProfile` > `workernode` section with the properties `minInstanceCount` and `maxInstanceCount` as shown in the json snippet below.
 
 ```json
 {                            
@@ -69,7 +71,9 @@ Complete HDInsight cluster creation steps using Resource Manager templates can b
 }
 ```
 
-### Enable and Disabling Autoscale for a running cluster
+For more information on creating clusters with Resource Manager templates, see [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
+
+### Enable and disable Autoscale for a running cluster
 
 Enabling Autoscale for a running cluster is not supported during private preview. It must be enabled during cluster creation.
 
@@ -77,7 +81,7 @@ Disabling Autoscale or modifying Autoscale settings for a running cluster is not
 
 ## Monitoring
 
-You can view the cluster scale up and down history as part of the cluster metrics. You can list all scale actions over the past day, week, or longer period of time.
+You can view the cluster scale up and scale down history as part of the cluster metrics. You can also list all scaling actions over the past day, week, or longer period of time.
 
 ## How it works
 
@@ -101,7 +105,7 @@ When the following conditions are detected, Autoscale will issue a scale up requ
 * Total pending CPU is greater than total free CPU for more than 1 minute.
 * Total pending memory is greater than total free memory for more than 1 minute.
 
-We will calculate that N new worker nodes are needed to meet the current CPU and memory requirements and then issue a scale up request by requesting N new worker nodes.
+We will calculate that a certain number of new worker nodes are needed to meet the current CPU and memory requirements and then issue a scale up request that adds that number of new worker nodes.
 
 ### Cluster scale down
 
@@ -110,7 +114,7 @@ When the following conditions are detected, Autoscale will issue a scale down re
 * Total pending CPU is less than total free CPU for more than 10 minutes.
 * Total pending memory is less than total free memory for more than 10 minutes.
 
-Based on the number of AM containers per node as well as the current CPU and memory requirements, Autoscale will issue a request to remove N nodes, specifying which nodes are potential candidates for removal. By default, two nodes will be removed in one cycle.
+Based on the number of AM containers per node as well as the current CPU and memory requirements, Autoscale will issue a request to remove a certain number of nodes, specifying which nodes are potential candidates for removal. By default, two nodes will be removed in one cycle.
 
 ## Next steps
 

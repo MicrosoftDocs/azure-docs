@@ -5,7 +5,7 @@ services: active-directory
 author: eross-msft
 manager: daveba
 
-ms.component: user-help
+ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual

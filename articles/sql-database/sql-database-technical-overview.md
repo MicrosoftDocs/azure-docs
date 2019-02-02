@@ -4,7 +4,7 @@ description: 'Get an introduction to SQL Database: technical details and capabil
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 01/25/2019
 ---
 
 # The Azure SQL Database service
@@ -21,8 +21,8 @@ SQL Database is a general-purpose relational database managed service in Microso
 
 Azure SQL Database provides the following deployment options for an Azure SQL database:
 
-- As a single database with its own set of resources managed via a logical server
-- As a pooled database in an [elastic pool](sql-database-elastic-pool.md) with a shared set of resources managed via a logical server
+- As a single database with its own set of resources managed via a SQL Database server
+- As a pooled database in an [elastic pool](sql-database-elastic-pool.md) with a shared set of resources managed via a SQL Database server
 - As a part of a collection of databases known as a [managed instance](sql-database-managed-instance.md) that contains system and user databases and sharing a set of resources
 
 The following illustration shows these deployment options:
@@ -63,7 +63,7 @@ You can build your first app on a small, single database at a low cost per month
 > [!IMPORTANT]
 > The [Hyperscale service tier](sql-database-service-tier-hyperscale.md) is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database and update the copy to Hyperscale service tier.
 
-Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. Single Azure SQL Database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. However, there are scripts that can help automate scalability for a single Azure SQL Database. For an example, see [Use PowerShell to monitor and scale a single SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md).
+Dynamic scalability is different from autoscale. Autoscale is when a service scales automatically based on criteria, whereas dynamic scalability allows for manual scaling without downtime. A Single database supports manual dynamic scalability, but not autoscale. For a more *automatic* experience, consider using elastic pools, which allow databases to share resources in a pool based on individual database needs. However, there are scripts that can help automate scalability for a single database. For an example, see [Use PowerShell to monitor and scale a single database](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 ### Elastic pools to maximize resource utilization
 
@@ -143,7 +143,7 @@ SQL Database provides a range of [built-in security and compliance features](sql
 
 ### Advance Threat Protection
 
-SQL Advanced Threat Protection is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
+SQL Advanced Data Security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
 
 - [Data Discovery & Classification](sql-database-data-discovery-and-classification.md):
 

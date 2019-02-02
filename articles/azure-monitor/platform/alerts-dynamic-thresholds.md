@@ -16,7 +16,7 @@ Metric Alert with Dynamic Thresholds detection leverages advanced machine learni
 
 Once an alert rule is created, it will fire only when the monitored metric doesn’t behave as expected, based on its tailored thresholds.
 
-We would love to hear your feedback, keep it coming at azurealertsfeedback@microsoft.com.
+We would love to hear your feedback, keep it coming at <azurealertsfeedback@microsoft.com>.
 
 ## Why and when is using dynamic condition type recommended?
 
@@ -32,7 +32,7 @@ Alerts with Dynamic Thresholds can be configured through Metric Alerts in Azure 
 
 ## How are the thresholds calculated?
 
-Dynamic Threshold continuously learns the data of the metric series and tries to model it using a set of algorithms and methods., and tries to model it using a set of algorithms and methods. It detects patterns in the data such as seasonality (Hourly / Daily / Weekly), and is able to handle noisy metrics (such as machine CPU or memory) as well as metrics with low dispersion (such as availability and error rate).
+Dynamic Thresholds continuously learns the data of the metric series and tries to model it using a set of algorithms and methods. It detects patterns in the data such as seasonality (Hourly / Daily / Weekly), and is able to handle noisy metrics (such as machine CPU or memory) as well as metrics with low dispersion (such as availability and error rate).
 
 The thresholds are selected in such a way that a deviation from these thresholds indicates an anomaly in the metric behavior.
 
@@ -75,3 +75,80 @@ Probably not. Dynamic Thresholds are good for detecting significant deviations r
 ## How much data is used to preview and then calculate thresholds?
 
 The thresholds appearing in the chart, before an alert rule is created on the metric, are calculated based on the last 10 days of historical data, once an alert rule is created, the Dynamic Thresholds will acquire additional historical data that is available and will continuously learn based on new data to make the thresholds more accurate.
+
+## Dynamic Thresholds best practices
+
+Dynamic Thresholds can be applied to any platform or custom metric in Azure Monitor and it was also tuned for the common application and infrastructure metrics.
+The following items are best practices on how to configure alerts on some of these metrics using Dynamic Thresholds.
+
+### Dynamic Thresholds on virtual machine CPU percentage metrics
+
+1. In [Azure portal](https://portal.azure.com), click on **Monitor**. The Monitor view consolidates all your monitoring settings and data in one view.
+
+2. Click **Alerts** then click **+ New alert rule**.
+
+    > [!TIP]
+    > Most resource blades also have **Alerts** in their resource menu under **Monitoring**, you could create alerts from there as well.
+
+3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **'Virtual Machines' Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
+
+4. Once you have selected a target resource, click on **Add condition**.
+
+5. Select the **'CPU Percentage'**.
+
+6. Optionally, refine the metric by adjusting **Period** and **Aggregation**. It is discouraged to use 'Maximum' aggregation type for this metric type as it is less representative of behavior. For 'Maximum' aggregation type static threshold maybe more appropriate.
+
+7. You will see a chart for the metric for the last 6 hours. Define the alert parameters:
+    1. **Condition Type** - Choose 'Dynamic' option.
+    1. **Sensitivity** - Choose Medium/Low sensitivity to reduce alert noise.
+    1. **Operator** - Choose 'Greater Than' unless behavior represents the application usage.
+    1. **Frequency** - Consider lowering based on business impact of the alert.
+    1. **Failing Periods** (Advanced Option) - The look back window should be at least 15 minutes. For example, if the period is set to five minutes, then failing periods should be at least three or more.
+
+8. The metric chart will display the calculated thresholds based on recent data.
+
+9. Click **Done**.
+
+10. Fill in **Alert details** like **Alert Rule Name**, **Description**, and **Severity**.
+
+11. Add an action group to the alert either by selecting an existing action group or creating a new action group.
+
+12. Click **Done** to save the metric alert rule.
+
+> [!NOTE]
+> Metric alert rules created through portal are created in the same resource group as the target resource.
+
+### Dynamic Thresholds on Application Insights HTTP request execution time
+
+1. In [Azure portal](https://portal.azure.com), click on **Monitor**. The Monitor view consolidates all your monitoring settings and data in one view.
+
+2. Click **Alerts** then click **+ New alert rule**.
+
+    > [!TIP]
+    > Most resource blades also have **Alerts** in their resource menu under **Monitoring**, you could create alerts from there as well.
+
+3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **'Application Insights' Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
+
+4. Once you have selected a target resource, click on **Add condition**.
+
+5. Select the **'HTTP request execution time'**.
+
+6. Optionally, refine the metric by adjusting **Period** and **Aggregation**. It is discouraged to use 'Maximum' aggregation type for this metric type as it is less representative of behavior. For 'Maximum' aggregation type static threshold maybe more appropriate.
+
+7. You will see a chart for the metric for the last 6 hours. Define the alert parameters:
+    1. **Condition Type** - Choose 'Dynamic' option.
+    1. **Operator** - Choose 'Greater Than' to reduce alerts fired on improvement in duration.
+    1. **Frequency** - Consider lowering based on business impact of the alert.
+
+8. The metric chart will display the calculated thresholds based on recent data.
+
+9. Click **Done**.
+
+10. Fill in **Alert details** like **Alert Rule Name**, **Description**, and **Severity**.
+
+11. Add an action group to the alert either by selecting an existing action group or creating a new action group.
+
+12. Click **Done** to save the metric alert rule.
+
+> [!NOTE]
+> Metric alert rules created through portal are created in the same resource group as the target resource.

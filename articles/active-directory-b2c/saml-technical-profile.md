@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Define a SAML technical profile in an Azure Active Directory B2C custom policy

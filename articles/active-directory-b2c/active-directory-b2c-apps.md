@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 
 ---
 # Applications types that can be used in Active Directory B2C

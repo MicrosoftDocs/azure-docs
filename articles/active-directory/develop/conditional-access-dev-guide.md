@@ -10,7 +10,7 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.date: 09/24/2018
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 12/04/2018
 ---
 # Moving data between scaled-out cloud databases
 

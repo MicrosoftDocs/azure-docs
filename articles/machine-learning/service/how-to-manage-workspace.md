@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to create, view and delete Azure Machine Learning service workspaces in the Azure portal.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens

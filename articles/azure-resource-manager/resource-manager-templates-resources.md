@@ -19,6 +19,8 @@ ms.author: tomfitz
 
 In the resources section, you define the resources that are deployed or updated. This section can get complicated because you must understand the types you're deploying to provide the right values.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Available properties
 
 You define resources with the following structure:
@@ -185,7 +187,7 @@ When deploying a template, you must provide a location for each resource. Differ
 The following example uses PowerShell to get the locations for the `Microsoft.Web\sites` resource type:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 The following example uses Azure CLI to get the locations for the `Microsoft.Web\sites` resource type:

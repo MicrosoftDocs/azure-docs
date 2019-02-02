@@ -5,7 +5,7 @@ description: B2B collaboration allows information workers and app owners to add 
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 12/19/2018
 

@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Define a technical profile for a JWT token issuer in an Azure Active Directory B2C custom policy

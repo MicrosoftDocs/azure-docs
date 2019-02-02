@@ -7,7 +7,7 @@ ms.service: storage
 ms.author: jamesbak
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 #Customer intent: As an analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
 ---
 
