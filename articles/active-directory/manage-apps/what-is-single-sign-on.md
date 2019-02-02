@@ -45,9 +45,7 @@ The following table summarizes the single sign-on methods, and links to more det
 | [Header-based](#header-based-sso) | on-premises only | Use header-based single sign-on when the application uses headers for authentication. Header-based single sign-on requires PingAccess for Azure AD. Application Proxy uses Azure AD to authenticate the user and then passes traffic through the connector service.  | 
 
 ## OpenID Connect and OAuth
-With OpenID Connect and OAuth, you enable a single sign-on experience that simplifies the process of adding an enterprise application to Azure AD. The application administrator doesn't need to configure single sign-on. Instead, Azure AD adds the application when the administrator [grants user consent](configure-user-consent.md). 
-
-The [SDKs](../develop/reference-v2-libraries.md) for OpenID Connect and OAuth are easy to adopt, and your application will be ready to use MS Graph. 
+When developing new applications, use modern protocols like OpenID Connect and OAuth to achieve the best single sign-on experience for your app across multiple device platforms. OAuth enables users or admins to [grant consent](configure-user-consent.md) for protected resources like [MS Graph](/graph/overview). We provide easy to adopt [SDKs](../develop/reference-v2-libraries.md) for your app, and additionally, your app will be ready to use [MS Graph](/graph/overview).
 
 For more information, see:
 
