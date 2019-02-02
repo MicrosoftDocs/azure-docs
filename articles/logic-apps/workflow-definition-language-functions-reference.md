@@ -2431,7 +2431,7 @@ And returns this result:
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-       } ]
+      } ]
    }
 }
 ```
