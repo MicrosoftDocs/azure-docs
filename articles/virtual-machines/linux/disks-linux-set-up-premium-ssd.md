@@ -1,5 +1,5 @@
 ---
-title: Set up Linux VM using premium SSDs
+title: Set up your Azure Linux VM to use premium SSDs
 description: Learn about high-performance Premium Storage and managed disks for Azure VMs. Azure DS-series, DSv2-series, GS-series, and Fs-series VMs support Premium Storage.
 services: "virtual-machines-linux,storage"
 author: ramankumarlive
@@ -10,8 +10,9 @@ ms.author: ramankum
 ms.subservice: disks
 ---
 
-## Premium Storage for Linux VMs
-You can use the following information to help you set up your Linux VMs in Premium Storage:
+# Premium Storage for Linux VMs
+
+This article describes how to setup a Linux virtual machine with premium storage, so that you'll have the best performance and stability possible.
 
 To achieve scalability targets in Premium Storage, for all premium storage disks with cache set to **ReadOnly** or **None**, you must disable "barriers" when you mount the file system. You don't need barriers in this scenario because the writes to premium storage disks are durable for these cache settings. When the write request successfully finishes, data has been written to the persistent store. To disable "barriers," use one of the following methods. Choose the one for your file system:
   
