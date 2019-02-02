@@ -372,7 +372,7 @@ You can create a certificate issued with a CA of your choice through a manual cr
   "policy": {
     "x509_props": {
       "subject": "CN=MyCertSubject1"
-    }
+    },
     "issuer": {
       "name": "Unknown"
     }
