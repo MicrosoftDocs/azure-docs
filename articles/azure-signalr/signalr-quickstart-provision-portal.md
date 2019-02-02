@@ -1,5 +1,5 @@
 ---
-title: Quickstart to learn how to use Azure SignalR Service
+title: Quickstart to learn how to provision Azure SignalR Service in Azure Portal
 description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core MVC apps.
 author: sffamily
 ms.service: signalr
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang
 ---
-# Quickstart: Create a chat room with SignalR Service
+# Quickstart: Create SignalR Service Instance from Azure Portal
 
 
 Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
@@ -261,6 +261,6 @@ After a few moments, the resource group and all of its contained resources are d
 In this quickstart, you've created a new Azure SignalR Service resource and used it with an ASP.NET Core Web app to push content updates in real time to multiple connected clients. To learn more about using Azure SignalR Service, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR Service authentication](./signalr-authenticate-oauth.md)
+> [Azure SignalR Service authentication](./signalr-concept-authenticate-oauth.md)
 
 

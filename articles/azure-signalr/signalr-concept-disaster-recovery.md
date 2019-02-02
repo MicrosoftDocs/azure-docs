@@ -125,4 +125,4 @@ You'll need to handle such cases at client side to make it transparent to your e
 
 ## Next steps
 
-In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-internals.md) for SignalR service internals.
+In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-concept-internals.md) for SignalR service internals.

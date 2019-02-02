@@ -50,7 +50,7 @@ Rotate your access keys regularly as a good security practice.
 In this guide, you learned how to regenerate access keys. Continue to the next tutorials about authentication with OAuth or with Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Integrate with ASP.NET core identity](./signalr-authenticate-oauth.md)
+> [Integrate with ASP.NET core identity](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Build a serverless real-time app with authentication](./signalr-authenticate-azure-functions.md)
+> [Build a serverless real-time app with authentication](./signalr-tutorial-authenticate-azure-functions.md)

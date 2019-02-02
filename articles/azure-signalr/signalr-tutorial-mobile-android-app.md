@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Azure SignalR Service authentication with Azure Functions"
+title: "Tutorial: Develop Real Time Android Native App with Azure SignalR Service"
 description: In this tutorial, you learn how to authenticate Azure SignalR Service clients
 author: sffamily
 ms.service: signalr
@@ -8,7 +8,7 @@ ms.custom: mvc
 ms.date: 01/31/2018
 ms.author: zhshang
 ---
-# Tutorial: Azure SignalR Service authentication with Azure Functions
+# Tutorial: Develop Real Time Android Native App with Azure SignalR Service
 
 A step by step tutorial to build a chat room with authentication and private messaging using Azure Functions, App Service Authentication, and SignalR Service.
 

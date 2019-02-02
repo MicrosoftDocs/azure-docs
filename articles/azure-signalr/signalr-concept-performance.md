@@ -1,5 +1,5 @@
 ---
-title: Azure SignalR Service internals
+title: Azure SignalR Service Performance Overview
 description: An overview of Azure SignalR Service internals.
 author: sffamily
 ms.service: signalr
@@ -7,7 +7,7 @@ ms.topic: overview
 ms.date: 12/23/2018
 ms.author: zhshang
 ---
-# Azure SignalR Service internals
+# Azure SignalR Service Performance
 
 Azure SignalR Service is built on top of ASP.NET Core SignalR framework. It also supports ASP.NET SignalR as a preview feature.
 
