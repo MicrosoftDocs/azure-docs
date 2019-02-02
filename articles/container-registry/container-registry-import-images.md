@@ -14,41 +14,103 @@ ms.author: danlep
 
 [Intro here]
 
-Users typically want to be able to push a base image to an Azure container registry without using Docker on the client. ACR enables users to use the import container image API which handles a number of common scenarios, including importing images from public registries, non-Azure private registries, and Azure container registries in other Azure subscriptions.
+Users typically want to be able to push a base image to an Azure container registry without using Docker on the client. ACR enables users to use the import container image API which handles a number of common scenarios to copy images from an existing registry:
 
-ACR Import has the following benefits. 
-1. Because the client doesn’t need a local Docker installation, you can import images irrespective of the platform. 
+* Import from a public registry
 
-2. Multiarchitecture images will have all underlying images copied over. When using Docker CLI, you can pull only the image of the matching platform. But when importing an image, ACR imports images for all architectures and platforms specified in the manifest list.  
+* Import from another Azure container registry, either in the same or different Azure subscription
+
+* Import from a non-Azure private container registry
+
+Image import into an Azure Azure container registry has the following benefits:
+ 
+1. Because the client doesn’t need a local Docker installation, you can import an image irrespective of the platform. 
+
+2. When you import multi-architecture images, images for all architectures and platforms specified in the manifest list are copied to the registry. This feature is more convenient than when using the Docker CLI, which only allows you to pull the image of the matching platform. 
 
 To import container images, this article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
-## Create a container registry
+## Container registry permissions
 
-If you don't already have an Azure container registry, create a registry and push a sample container image to it. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
+To import an image to an Azure container registry, your identity must have Contributor permissions to the registry. See [Azure Container Registry roles and permissions](container-registry-roles.md). 
 
+If you don't already have an Azure container registry, create a registry. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
 
-## Scenarios
+## Import from another Azure container registry
 
-1.	Importing images from another ACR using integrated AAD permissions
-a.	This case the user has permission to read from the source registry and write permissions to the target registry.
+If you have , you can import an image from another Azure container registry using integrated Azure Active Directory permissions.
+
+* Your identity must have permission to read from the source registry as well as Contributor permissions to the target registry.
+
+* The registry can be in the same or a different Azure subscription in the same Active Directory tenant.
+
+### Import from a registry in the same subscription
+
+For example, import the `aci-helloworld:latest` image from a source registry *mysourceregistry* to a registry called *myregistry* in the same Azure subscription.
+
+```azurecli
+az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-helloworld:latest --image hello-world:latest
+```
+
+### Import from a registry in a different subscroption
+
+In the following example, *mysourceregistry* is in a different subscription from *myregistry*.
  
-2.	Import images from public registries. 
-a.	You can import from DockerHub – 
-i.	az acr import  --source docker.io/library/hello-world:latest   -t  hello-world:latest
-NOTE: To pull an official image like ‘hello-world:latest’ , it should be qualified with ‘docker.io/library’
+```azurecli
+az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-helloworld:latest --image hello-world:latest --registry /subscriptions/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
+```
+
+## Import from a public registry
+
+### Import from Docker Hub
+
+For example, import the multi-architecture `hello-world` image from Docker Hub to a registry named *myregistry*. Because it is an official image from Docker Hub, the name is qualified with `docker.io/library`.
  
-b.	You can import an image from the Microsoft container registry  - 
-i.	az acr import  --source mcr.microsoft.com/windows/servercore:latest  -t servercore:latest
- 
-3.	Importing images from a private repository
-a.	You can import an image from a private registry by specifying credentials that have pull access to the registry. 
-i.	az acr import  --source docker.io/myrepo/image:tag    -t  image:tag -u {username} –p {password}
-NOTE: This can be used to import images from an Another ACR user a service principal that has ACRPull access to the registry where the image is being imported from.  @Nathan – needs to validate the last one and if it doesn’t work we will roll out a fix on this once he is back from vacation.
+```azurecli
+az acr import --name myregistry --source docker.io/library/hello-world:latest --image hello-world:latest
+```
+
+You can verify that multiple manifests are associated with this image by running the `az acr repository show-manifests` command:
+
+```azurecli
+az acr repository show-manifests --name myregistry --repository hello-world
+```
+
+The following example imports a public image from Docker Hub that's in the separate *tensorflow* repository:
+
+```azurecli
+az acr import --name myregistry --source docker.io/tensorflow/tensorflow:latest-gpu --image tensorflow:latest-gpu
+```
+
+### Import from Microsoft Container Registry
+
+For example, import the latest Windows Server Core image from Microsoft Container Registry.
+
+```azurecli
+az acr import --name myregistry --source mcr.microsoft.com/windows/servercore:latest --image servercore:latest
+```
+
+
+## Import from a private repository
+
+### Import from a repo in a private Docker registry
+
+You can import an image from a private registry by specifying credentials that have pull access to the registry. For example, pull an image from a private Docker registry: 
+
+
+```azurecli
+az acr import --name myregistry --source docker.io/myrepo/image:tag --image privateimage:tag --username {username} --password {password}
+```
+
+Similarly, import images from an another Azure container registry using the appID and password an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry.
+
+```azurecli
+az acr import --name myregistry --source sourceregistry.azurecr.io/sourcerepo/image:tag --image image:tag --username <SP_App_ID> –-password <SP_Passwd>
+```
 
 ## Next steps
 
-In this article, you learned about,,,
+In this article, you learned about ...
 
 * Learn more about ....
 
