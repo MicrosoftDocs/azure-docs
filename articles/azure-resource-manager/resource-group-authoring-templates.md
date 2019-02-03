@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/03/2019
 ms.author: tomfitz
 ---
 
@@ -331,7 +331,20 @@ For **resources**, add a `comments` element.
     },
 ```
 
-For general comments, you can add a `metadata` object in your template. Resource Manager ignores the object. The metadata object isn't valid in the outputs section because it gets interpreted as an output value.
+For **outputs**, add a metadata object to the output value.
+
+```json
+"outputs": {
+    "hostname": {
+      "type": "string",
+      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
+      "metadata": {
+        "comments": "Return the fully qualified domain name"
+      }
+    },
+```
+
+For general comments, you can add a `metadata` object in your template. Resource Manager ignores the object, but your JSON editor may warn you that the property isn't valid.
 
 ```json
 {
@@ -342,15 +355,15 @@ For general comments, you can add a `metadata` object in your template. Resource
     },
 ```
 
+ You can't add the metadata object to the first level of the outputs section because it gets interpreted as an output value.
+
 For general comments, you can use `//` but then you can't deploy the template with Azure CLI.
 
 ```json
-"outputs": {
-    // return the fully qualified domain name
-    "hostname": {
-      "type": "string",
-      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]"
-    },
+"variables": {
+    // Create unique name for the storage account
+    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+},
 ```
 
 ## Template limits
