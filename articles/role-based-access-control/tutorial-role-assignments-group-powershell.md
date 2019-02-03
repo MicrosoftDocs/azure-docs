@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for groups to resources so that they can perform their job.

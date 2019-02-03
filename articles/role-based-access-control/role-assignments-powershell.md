@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -71,6 +71,8 @@ Description      : Lets you manage everything except access to resources.
 Actions          : {*}
 NotActions       : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
                    Microsoft.Authorization/elevateAccess/Action}
+DataActions      : {}
+NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
@@ -96,8 +98,12 @@ PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
   "NotActions": [
     "Microsoft.Authorization/*/Delete",
     "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+    "Microsoft.Authorization/elevateAccess/Action",
+    "Microsoft.Blueprint/blueprintAssignments/write",
+    "Microsoft.Blueprint/blueprintAssignments/delete"
   ],
+  "DataActions": [],
+  "NotDataActions": [],
   "AssignableScopes": [
     "/"
   ]
@@ -117,7 +123,8 @@ PS C:\> Get-AzRoleDefinition "Contributor" | FL Actions, NotActions
 
 Actions    : {*}
 NotActions : {Microsoft.Authorization/*/Delete, Microsoft.Authorization/*/Write,
-             Microsoft.Authorization/elevateAccess/Action}
+             Microsoft.Authorization/elevateAccess/Action,
+             Microsoft.Blueprint/blueprintAssignments/write...}
 ```
 
 ```azurepowershell
