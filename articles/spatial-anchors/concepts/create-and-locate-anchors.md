@@ -20,19 +20,27 @@ Azure Spatial Anchors allow you share anchors in the world between different dev
 
 It has been tuned to work well with your choice of development environment.
 
-- C# on Unity for HoloLens.
-- C# on Unity for iOS.
-- C# on Unity for Android.
-- Java on Android.
-- Native C SDK on Android.
-- Objective-C on iOS.
-- Swift on iOS.
+- C# on Unity
+    - For HoloLens
+    - For iOS
+    - For Android
+- Objective-C on iOS
+- Swift on iOS
+- Java on Android
+- Native C SDK on Android
 
 ## Using the Azure Spatial Anchors
 
 ### Setting up the library
 
-The main entry point for the library is the class representing the session. Typically you will declare a field in the class that manages your view and native AR session.
+The main entry point for the library is the class representing your session. Typically you'll declare a field in the class that manages your view and native AR session.
+
+Invoke Start() to enable your session to process environment data.
+
+To handle events raised by your session:
+
+- In C#, Java and C++, attach an event handler.
+- In Objective-C and Swift, set the `delegate` property of your session to an object, like your view. This object must implement the SSCCloudSpatialAnchorSessionDelegate protocol.
 
 # [C#](#tab/csharp)
 
@@ -100,13 +108,7 @@ The main entry point for the library is the class representing the session. Typi
 
 ***
 
-You should invoke Start() to enable the session to process environment data.
-
-In C#, you can handle events raised by the session by directly attaching an event handler.
-
-In Objective-C, you can handle events raised by the session by implementing the SSCCloudSpatialAnchorSessionDelegate protocol on an object, for example your view, and then assigning the delegate property of the session to this object.
-
-The cloud spatial anchor session works by mapping the space around the user to determine where anchors are located. To do this, on non-HoloLens platforms, you should provide frames from your platform's AR library.
+The spatial anchor session works by mapping the space around the user. Doing so helps to determine where anchors are located. On non-HoloLens platforms, you should provide frames from your platform's AR library.
 
 On iOS, you can have the delegate to your view provide frames from the callback for - `(void)session:(ARSession *)session didUpdateFrame:(ARFrame *)frame;`.
 
@@ -269,7 +271,7 @@ To set an AAD auth token
 
 If tokens aren't set, you must handle the TokenRequired event, or implement the tokenRequired method on the delegate protocol.
 
-You can handle the event synchronously by simply setting the property on the event arguments.
+You can handle the event synchronously by setting the property on the event arguments.
 
 There are two properties you can set, AccessToken or AuthenticationToken, you only need to set one of them.
 
@@ -316,7 +318,7 @@ There are two properties you can set, AccessToken or AuthenticationToken, you on
 
 ***
 
-If you need to perform asynchronous work in your handler, you can defer setting the token by requesting a deferral object and then completing it, as in the following example.
+If you need to execute asynchronous work in your handler, you can defer setting the token by requesting a deferral object and then completing it, as in the following example.
 
 # [C#](#tab/csharp)
 
@@ -385,9 +387,11 @@ If you need to perform asynchronous work in your handler, you can defer setting 
 
 ### Providing feedback to the user
 
-To provide feedback to the user as the device moves and the session updates its environment understanding, you can write code to handle the session updated event.
+You can write code to handle the session updated event. Doing so, allows you to:
 
-You can also use this event to determine at what point there is enough tracked data to perform creation or location operations.
+- Provide feedback to the user as the device moves and the session updates its environment understanding.
+- Use this event to determine at what point there's enough tracked data to execute creation or location operations.
+- Request information to check if enough spatial data has been collected to create or locate spatial anchors - we'll learn more at a later step.
 
 # [C#](#tab/csharp)
 
@@ -465,11 +469,9 @@ You can also use this event to determine at what point there is enough tracked d
 
 ***
 
-You can also request information as to whether enough spatial data has been collected to visually locate saved spatial anchors, or to create a new spatial anchor - we'll see these at a later step.
-
 ### Creating a cloud spatial anchor
 
-To create a cloud anchor, you first create an anchor in your platform's AR system, and then request that a cloud counterpart be created. You use the CreateAnchorAsync method for this.
+To create a cloud anchor, you first create an anchor in your platform's AR system, and then create a cloud counterpart. You use the CreateAnchorAsync method.
 
 # [C#](#tab/csharp)
 
@@ -670,7 +672,7 @@ To create a cloud anchor, you first create an anchor in your platform's AR syste
 
 ***
 
-It's a good idea to make sure that there's sufficient data before attempting to create a new cloud anchor.
+It's a good idea to make sure that there's sufficient data before trying to create a new cloud anchor.
 
 # [C#](#tab/csharp)
 
@@ -755,7 +757,7 @@ It's a good idea to make sure that there's sufficient data before attempting to 
 
 ***
 
-You may choose to add some properties when saving your cloud anchors, for example the type of object that is being saved and basic properties like whether it should be enabled for interaction. This can be useful upon discovery, if you can immediately render the object for the user, for example a picture frame with blank content, while a different download can be made in the background to get additional state details (for example, the picture to display in the frame).
+You may choose to add some properties when saving your cloud anchors. Like the type of object being saved, or basic properties like whether it should be enabled for interaction. Doing so can be useful upon discovery: you can immediately render the object for the user, for example a picture frame with blank content. Then, a different download in the background gets additional state details, for example, the picture to display in the frame.
 
 # [C#](#tab/csharp)
 
@@ -818,9 +820,9 @@ You may choose to add some properties when saving your cloud anchors, for exampl
 
 ### Locating a cloud spatial anchor
 
-To locate cloud spatial anchors, you will need to know their identity values. Typically these are stored in a service that's accessible to all devices.
+To locate cloud spatial anchors, you'll need to know their identity values. Typically, anchor IDs can be stored in a service that's accessible to all devices.
 
-Instantiate an AnchorLocateCriteria object, set the identity values you are looking for, and invoke the CreateWatcher method on the session by providing your AnchorLocateCriteria.
+Instantiate an AnchorLocateCriteria object, set the identity values you're looking for, and invoke the CreateWatcher method on the session by providing your AnchorLocateCriteria.
 
 # [C#](#tab/csharp)
 
@@ -864,7 +866,7 @@ Instantiate an AnchorLocateCriteria object, set the identity values you are look
 
 ***
 
-After your watcher is created, the AnchorLocated event will fire for every anchor requested, and then the LocateAnchorsCompleted event will fire. Note that AnchorLocated will also fire when the anchor cannot be successfully located, in which case the reason will be stated in the status.
+After your watcher is created, the AnchorLocated event will fire for every anchor requested. Then the LocateAnchorsCompleted event will fire. The AnchorLocated event will also fire when the anchor can't be successfully located. If this situation happens, the reason will be stated in the status.
 
 # [C#](#tab/csharp)
 
@@ -1107,9 +1109,9 @@ To update the properties on an anchor, you use the UpdateAnchorPropertiesAsync m
 
 ***
 
-You cannot change the location of an anchor - you must create a new anchor and delete the old one to track a new position.
+You can't change the location of an anchor - you must create a new anchor and delete the old one to track a new position.
 
-The library cannot update or delete an anchor just based on its identifier, as conflict detection is built-into the service, to avoid accidentally overwriting data from a different device.
+The library can't update or delete an anchor based on its identifier. Conflict detection is built-into the service, to avoid accidentally overwriting data from a different device.
 
 If you don't care to locate an anchor to update it, you can use the GetAnchorPropertiesAsync method, which returns a CloudSpatialAnchor object with properties and version information.
 
@@ -1212,7 +1214,7 @@ If you don't care to locate an anchor to update it, you can use the GetAnchorPro
 
 ### Pausing or stopping the session
 
-To stop the session temporarily, you can invoke the Stop method. This will stop any watchers and environment processing, even if you invoke ProcessFrame(). You can then invoke Start() to resume processing.
+To stop the session temporarily, you can invoke the Stop method. Doing so will stop any watchers and environment processing, even if you invoke ProcessFrame(). You can then invoke Start() to resume processing.
 
 # [C#](#tab/csharp)
 
@@ -1235,7 +1237,7 @@ To stop the session temporarily, you can invoke the Stop method. This will stop 
 # [Java](#tab/java)
 
 ```java
-mCloudSession.stop();
+    mCloudSession.stop();
 ```
 
 # [C++](#tab/cpp)
@@ -1246,7 +1248,7 @@ mCloudSession.stop();
 
 ***
 
-To clean up properly after a session, invoke the Dispose() method in C#, or simply release all references in other languages.
+To clean up properly after a session, invoke the Dispose() method in C#, or release all references in other languages.
 
 # [C#](#tab/csharp)
 
