@@ -1,6 +1,6 @@
 ---
 title: Install Istio in Azure Kubernetes Service (AKS)
-description: Learn how to install and ise Istio to create a service mesh in an Azure Kubernetes Service (AKS) cluster
+description: Learn how to install and use Istio to create a service mesh in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 author: paulbouwer
 
