@@ -44,15 +44,9 @@ The following shows what a custom role looks like as displayed in JSON format. T
     "Microsoft.Insights/diagnosticSettings/*",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-
-  ],
-  "DataActions": [
-
-  ],
-  "NotDataActions": [
-
-  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
   "AssignableScopes": [
     "/subscriptions/{subscriptionId1}",
     "/subscriptions/{subscriptionId2}",

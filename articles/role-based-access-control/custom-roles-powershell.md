@@ -148,8 +148,7 @@ A JSON template can be used as the source definition for the custom role. The fo
     "Microsoft.Storage/*/read",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-  ],
+  "NotActions": [],
   "AssignableScopes": [
     "/subscriptions/00000000-0000-0000-0000-000000000000",
     "/subscriptions/11111111-1111-1111-1111-111111111111"
@@ -245,8 +244,7 @@ Using the previous JSON template, you can easily modify an existing custom role 
     "Microsoft.Network/*/read",
     "Microsoft.Support/*"
   ],
-  "NotActions": [
-  ],
+  "NotActions": [],
   "AssignableScopes": [
     "/subscriptions/00000000-0000-0000-0000-000000000000",
     "/subscriptions/11111111-1111-1111-1111-111111111111"
