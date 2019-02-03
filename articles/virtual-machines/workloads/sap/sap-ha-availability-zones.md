@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/09/2019
+ms.date: 02/03/2019
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
 
@@ -85,9 +85,9 @@ Making these decisions, also keep SAP's network latency recommendations as docum
 
 > [!IMPORTANT]
 > The measurements and decisions you make, are valid for the Azure subscription you used for making these measurements. Using another Azure subscription you need to repeat the measurements since the mapping of your subscription dependent enumeration of zones can change with a different subscription
->
 
-> [!NOTE]
+
+> [!IMPORTANT]
 > It is expected that the measurements as performed above are showing different results in every Azure region that supports [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview). Even with your requirements on network latency not changing, you might need to adapt different deployment strategies in different Azure regions since the network latency between zones can be different. It is expected that in some Azure regions, network latency between the three different zones can be vastly different. whereas in other regions, the network latency between the three different zones are more uniform. The claim that there **always** is a network latency across zones for 1ms to 2ms is **wrong**. The network latency across availability zones in Azure regions can't be generalized.
 
 
@@ -125,7 +125,7 @@ the basic layout of such an architecture looks like:
 
 The following considerations apply for this configuration:
 
-- You treat the Azure availability zones as fault and update domains for all the VMs since Availability Sets can't be deployed in Azure availability zones. Whereas in this case, you are ending up with one update and fault domain for you application layer. Reason is that it is only deployed in one zone. This is a disadvantage compared to the reference architecture that foresees that you deploy the application layer in an Azure availability set.
+- Availability Sets can't be deployed in Azure availability zones. Hence, in this case, you are ending up with one update and fault domain for your application layer. Reason is that it is only deployed in one zone. This is a disadvantage compared to the reference architecture that foresees that you deploy the application layer in an Azure availability set.
 - Operating such an architecture, you need to monitor closely and try to keep the active DBMS and SAP Central services instances in the same zone as your deployed application layer. In case of a failover of SAP Central Service or the DBMS instance, you want to make sure that you can manually fail back into the zone with the SAP application layer deployed as early as possible
 - The Azure load balancers you use for the failover clusters of the SAP Central Services as well as DBMS layer, need to be the [Standard SKU load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). the basci load blancer will not work across zones
 - The Azure virtual network and its subnets you deployed to host the SAP system are stretched across zones. You **don't need** separate virtual networks for each zone
@@ -139,6 +139,35 @@ The following considerations apply for this configuration:
 - You need to deploy dormant VMs in the passive zone (from a DBMS point of view) to be able to start the application resources in case of a zone failure
 	- In order to do so, you can't use [Azure Site Recovery](https://azure.microsoft.com/en-us/services/site-recovery/) to replicate active VMs to dormant VMs between zones. At this point in time, Azure Site Recovery is not able to fulfill such a function
 - You should invest into automation that allows you, in case of a zone failure, to automatically start the SAP application layer in the second zone
+
+## Combined high availability and disaster recovery configuration
+Despite the fact that Microsoft is not giving any information on geographical distance between the facilities that host different Azure availability zones in a certain Azure region, some customers are leveraging zones for a combined HA and DR configuration that promises a Recovery Point objective (RPO) of zero. Which means, you should not lose any committed database transactions even in the disaster recovey. 
+
+> [!NOTE]
+> A configuration like this is recommended for specific circumstances only. For example, cases where data can't leave the Azure region due to security and compliance reasons. 
+
+An example how such a configuration could look like is demonstrated in this graphics:
+
+![combined_ha_dr_in_zones](./media/sap-ha-availability-zones/combined_ha_dr_in_zones.png)
+
+The following considerations apply for this configuration:
+
+- You are either assuming that there is a significant distances between the facilities hosting an availability zone. Or you are forced to stay with a certain Azure region. Availability Sets can't be deployed in Azure availability zones. Hence, in this case, you are ending up with one update and fault domain for you application layer. Reason is that it is only deployed in one zone. This is a disadvantage compared to the reference architecture that foresees that you deploy the application layer in an Azure availability set.
+- Operating such an architecture, you need to monitor closely and try to keep the active DBMS and SAP Central services instances in the same zone as your deployed application layer. In case of a failover of SAP Central Service or the DBMS instance, you want to make sure that you can manually fail back into the zone with the SAP application layer deployed as early as possible
+- You have production application instances pre-installed in the VMs that run the QA application instances.
+- In case of a zonal failure, you shutdown the QA application instances and start the production instances instread. keep in mind that you need to work with virtual names for the application instances to make this work
+- The Azure load balancers you use for the failover clusters of the SAP Central Services as well as DBMS layer, need to be the [Standard SKU load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). the basci load blancer will not work across zones
+- The Azure virtual network and its subnets you deployed to host the SAP system are stretched across zones. You **don't need** separate virtual networks for each zone
+- For all virtual machines you deploy, you need to use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks are not supported for zonal deployments
+- Azure Premium storage or [Ultra SSD storage](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-ultra-ssd) are not supporting any type of storage replication. As a result it is responsibility of the application (DBMS or SAP Central Services) to replicate important data
+- Same is true for the shared sapmnt directory which either is a shared disk (Windows) or a CIFS share (Windows) or NFS share (Linux). You need to use a technology which replicates such a shared disk or share between the zones. At the moment the following technologies are supported:
+	- For Windows a cluster solution that uses SIOS Datakeeper as documented in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk) is supported to be used across zones
+	- For SUSE Linux a NFS share built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) is supported
+	- At this point in time the solution using Windows scale out file services (SOFS) as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share) **is not supported to be deployed across zones**
+- The third zone is used to host the SBD device in case you build a [SUSE Linux pacemaker cluster](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) or additional application instances
+
+
+
 
 
 ## Next Steps
