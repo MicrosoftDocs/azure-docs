@@ -97,9 +97,8 @@ Example function.json:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, connectionInfo) {
-    context.res = { body: connectionInfo };
-    context.done();
+module.exports = async function (context, req, connectionInfo) {
+    context.res.body = connectionInfo;
 };
 ```
 
@@ -126,11 +125,10 @@ Example function.json:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, connectionInfo) {
-    // connectionInfo contains an access key token with a name identifier 
+module.exports = async function (context, req, connectionInfo) {
+    // connectionInfo contains an access key token with a name identifier
     // claim set to the authenticated user
-    context.res = { body: connectionInfo };
-    context.done();
+    context.res.body = connectionInfo;
 };
 ```
 
@@ -143,7 +141,7 @@ See the language-specific example:
 * [2.x C#](#2x-c-output-example)
 * [2.x JavaScript](#2x-javascript-output-example)
 
-### 2.x C# output example
+### 2.x C# send message output examples
 
 #### Broadcast to all clients
 
@@ -177,7 +175,7 @@ public static Task SendMessage(
     return signalRMessages.AddAsync(
         new SignalRMessage 
         {
-            // the message will only be sent to these user IDs
+            // the message will only be sent to this user ID
             UserId = "userId1",
             Target = "newMessage", 
             Arguments = new [] { message } 
@@ -185,7 +183,76 @@ public static Task SendMessage(
 }
 ```
 
-### 2.x JavaScript output example
+#### Send to a group
+
+You can send a message only to connections that have been added to a group by setting the `GroupName` property of the SignalR message.
+
+```cs
+[FunctionName("SendMessage")]
+public static Task SendMessage(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message,
+    [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
+{
+    return signalRMessages.AddAsync(
+        new SignalRMessage
+        {
+            // the message will only be sent to this user ID
+            GroupName = "myGroup",
+            Target = "newMessage",
+            Arguments = new [] { message }
+        });
+}
+```
+
+### 2.x C# group management output examples
+
+SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalRGroupAction` class with the `SignalR` output binding to manage a user's group membership.
+
+#### Add user to a group
+
+The following example adds a user to a group.
+
+```csharp
+[FunctionName("addToGroup")]
+public static Task AddToGroup(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
+    string userId,
+    [SignalR(HubName = "chat")]
+        IAsyncCollector<SignalRGroupAction> signalRGroupActions)
+{
+    return signalRGroupActions.AddAsync(
+        new SignalRGroupAction
+        {
+            UserId = userId,
+            GroupName = "myGroup",
+            Action = GroupAction.Add
+        });
+}
+```
+
+#### Remove user from a group
+
+The following example removes a user from a group.
+
+```csharp
+[FunctionName("removeFromGroup")]
+public static Task RemoveFromGroup(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
+    string userId,
+    [SignalR(HubName = "chat")]
+        IAsyncCollector<SignalRGroupAction> signalRGroupActions)
+{
+    return signalRGroupActions.AddAsync(
+        new SignalRGroupAction
+        {
+            UserId = userId,
+            GroupName = "myGroup",
+            Action = GroupAction.Remove
+        });
+}
+```
+
+### 2.x JavaScript send message output examples
 
 #### Broadcast to all clients
 
@@ -208,12 +275,11 @@ Example function.json:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req) {
+module.exports = async function (context, req) {
     context.bindings.signalRMessages = [{
         "target": "newMessage",
         "arguments": [ req.body ]
     }];
-    context.done();
 };
 ```
 
@@ -224,16 +290,131 @@ You can send a message only to connections that have been authenticated to a use
 *function.json* stays the same. Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req) {
+module.exports = async function (context, req) {
     context.bindings.signalRMessages = [{
-        // message will only be sent to these user IDs
+        // message will only be sent to this user ID
         "userId": "userId1",
         "target": "newMessage",
         "arguments": [ req.body ]
     }];
-    context.done();
 };
 ```
+
+#### Send to a group
+
+You can send a message only to connections that have been added to a group by setting the `groupName` property of the SignalR message.
+
+*function.json* stays the same. Here's the JavaScript code:
+
+```javascript
+module.exports = async function (context, req) {
+    context.bindings.signalRMessages = [{
+        // message will only be sent to this group
+        "groupName": "myGroup",
+        "target": "newMessage",
+        "arguments": [ req.body ]
+    }];
+};
+```
+
+### 2.x JavaScript group management output examples
+
+SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership.
+
+#### Add user to a group
+
+The following example adds a user to a group.
+
+*function.json*
+
+```json
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRGroupActions",
+      "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+      "hubName": "chat",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+*index.js*
+
+```javascript
+module.exports = async function (context, req) {
+  context.bindings.signalRGroupActions = [{
+    "userId": req.query.userId,
+    "groupName": "myGroup",
+    "action": "add"
+  }];
+};
+```
+
+#### Remove user from a group
+
+The following example removes a user from a group.
+
+*function.json*
+
+```json
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRGroupActions",
+      "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+      "hubName": "chat",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+*index.js*
+
+```javascript
+module.exports = async function (context, req) {
+  context.bindings.signalRGroupActions = [{
+    "userId": req.query.userId,
+    "groupName": "myGroup",
+    "action": "remove"
+  }];
+};
+```
+
 
 ## Configuration
 
