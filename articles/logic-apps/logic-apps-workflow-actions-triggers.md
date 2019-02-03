@@ -2992,7 +2992,7 @@ see [Secure sensitive information](#secure-info).
 "authentication": {
    "audience": "https://management.core.windows.net/",
    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo=",
    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
    "type": "ActiveDirectoryOAuth"
 }
