@@ -190,10 +190,10 @@ inside the inbox for an Office 365 Outlook account:
       "method": "get",
       "path": "/Mail/OnNewEmail",
       "queries": {
-          "fetchOnlyWithAttachment": false,
-          "folderPath": "Inbox",
-          "importance": "Any",
-          "includeAttachments": false
+         "fetchOnlyWithAttachment": false,
+         "folderPath": "Inbox",
+         "importance": "Any",
+         "includeAttachments": false
       }
    },
    "recurrence": {
@@ -218,7 +218,7 @@ and waits for the endpoint to respond. For more information, see
    "type": "ApiConnectionWebhook",
    "inputs": {
       "body": {
-          "NotificationUrl": "@{listCallbackUrl()}"
+         "NotificationUrl": "@{listCallbackUrl()}"
       },
       "host": {
          "connection": {
@@ -279,9 +279,9 @@ endpoint to respond when a new email arrives.
       },
       "path": "/MailSubscription/$subscriptions",
       "queries": {
-          "folderPath": "Inbox",
-          "hasAttachment": "Any",
-          "importance": "Any"
+         "folderPath": "Inbox",
+         "hasAttachment": "Any",
+         "importance": "Any"
       }
    },
    "splitOn": "@triggerBody()?['value']"
@@ -783,15 +783,15 @@ so you can create a trigger like this example:
 ``` json
 "HTTP_Debatch": {
    "type": "Http",
-    "inputs": {
-        "uri": "https://mydomain.com/myAPI",
-        "method": "GET"
-    },
+   "inputs": {
+      "uri": "https://mydomain.com/myAPI",
+      "method": "GET"
+   },
    "recurrence": {
       "frequency": "Second",
       "interval": 1
-    },
-    "splitOn": "@triggerBody()?.Rows"
+   },
+   "splitOn": "@triggerBody()?.Rows"
 }
 ```
 
@@ -972,8 +972,8 @@ plus a reference to a valid connection.
       "retryPolicy": "<retry-behavior>",
       "queries": { "<query-parameters>" },
       "<other-action-specific-properties>"
-    },
-    "runAfter": {}
+   },
+   "runAfter": {}
 }
 ```
 
@@ -1018,8 +1018,8 @@ Office 365 Outlook connector, which is a Microsoft-managed API:
       },
       "method": "POST",
       "path": "/Mail"
-    },
-    "runAfter": {}
+   },
+   "runAfter": {}
 }
 ```
 
@@ -1159,8 +1159,8 @@ This action calls a previously created
 "<Azure-function-name>": {
    "type": "Function",
    "inputs": {
-     "function": {
-        "id": "<Azure-function-ID>"
+      "function": {
+         "id": "<Azure-function-ID>"
       },
       "method": "<method-type>",
       "headers": { "<header-content>" },
@@ -1216,15 +1216,15 @@ created "GetProductID" function:
 "GetProductID": {
    "type": "Function",
    "inputs": {
-     "function": {
-        "id": "/subscriptions/<XXXXXXXXXXXXXXXXXXXX>/resourceGroups/myLogicAppResourceGroup/providers/Microsoft.Web/sites/InventoryChecker/functions/GetProductID"
+      "function": {
+         "id": "/subscriptions/<XXXXXXXXXXXXXXXXXXXX>/resourceGroups/myLogicAppResourceGroup/providers/Microsoft.Web/sites/InventoryChecker/functions/GetProductID"
       },
       "method": "POST",
       "headers": {
-          "x-ms-date": "@utcnow()"
-       },
+         "x-ms-date": "@utcnow()"
+      },
       "body": {
-          "Product_ID": "@variables('ProductID')"
+         "Product_ID": "@variables('ProductID')"
       }
    },
    "runAfter": {}
@@ -1347,9 +1347,9 @@ easily reference the data in that output.
    "type": "ParseJson",
    "inputs": {
       "content": "<JSON-source>",
-         "schema": { "<JSON-schema>" }
-      },
-      "runAfter": {}
+      "schema": { "<JSON-schema>" }
+   },
+   "runAfter": {}
 },
 ```
 
@@ -1591,8 +1591,8 @@ all the objects in the output array.
    "inputs": {
       "from": <array>,
       "select": {
-          "<key-name>": "<expression>",
-          "<key-name>": "<expression>"
+         "<key-name>": "<expression>",
+         "<key-name>": "<expression>"
       }
    },
    "runAfter": {}
@@ -1809,7 +1809,7 @@ and "Description", and adds the word "Organic" to the values in the "Description
             "value": "@concat('Organic ', item().Product_Name)"
          }
       ]
-    },
+   },
    "runAfter": {}
 },
 ```
@@ -1834,11 +1834,11 @@ including sequential loops.
 "Terminate": {
    "type": "Terminate",
    "inputs": {
-       "runStatus": "<status>",
-       "runError": {
-            "code": "<error-code-or-name>",
-            "message": "<error-message>"
-       }
+      "runStatus": "<status>",
+      "runError": {
+         "code": "<error-code-or-name>",
+         "message": "<error-message>"
+      }
    },
    "runAfter": {}
 }
@@ -1876,8 +1876,8 @@ and returns the status, an error code, and an error message:
             "code": "Unexpected response",
             "message": "The service received an unexpected response. Please try again."
         }
-   },
-   "runAfter": {}
+    },
+    "runAfter": {}
 }
 ```
 
@@ -2080,8 +2080,8 @@ Learn [how to create "for each" loops](../logic-apps/logic-apps-control-flow-loo
       "concurrency": {
          "repetitions": <count>
       }
-    },
-    "operationOptions": "<operation-option>"
+   },
+   "operationOptions": "<operation-option>"
 }
 ```
 
@@ -2120,7 +2120,7 @@ to a person who reviews the attachment.
                "Body": "@base64ToString(items('For_each')?['Content'])",
                "Subject": "Review attachment",
                "To": "Sophie.Owen@contoso.com"
-                },
+            },
             "host": {
                "connection": {
                   "id": "@parameters('$connections')['office365']['connectionId']"
@@ -2293,13 +2293,13 @@ runs the default actions. Learn
    "cases": {
       "Case": {
          "actions": {
-           "<action-name>": { "<action-definition>" }
+            "<action-name>": { "<action-definition>" }
          },
          "case": "<matching-value>"
       },
       "Case_2": {
          "actions": {
-           "<action-name>": { "<action-definition>" }
+            "<action-name>": { "<action-definition>" }
          },
          "case": "<matching-value>"
       }
@@ -2470,7 +2470,7 @@ the specified URL until one of these conditions is met:
 * The loop has run for one hour.
 
 ```json
- "Run_until_loop_succeeds_or_expires": {
+"Run_until_loop_succeeds_or_expires": {
     "type": "Until",
     "actions": {
         "Http": {
@@ -2931,8 +2931,8 @@ see [Secure sensitive information](#secure-info).
          "username": "@parameters('userNameParam')",
          "password": "@parameters('passwordParam')"
       }
-  },
-  "runAfter": {}
+   },
+   "runAfter": {}
 }
 ```
 
@@ -3022,8 +3022,8 @@ in your trigger or action definition. Here is an example
          "username": "@parameters('userNameParam')",
          "password": "@parameters('passwordParam')"
       }
-  },
-  "runAfter": {}
+   },
+   "runAfter": {}
 }
 ```
 
