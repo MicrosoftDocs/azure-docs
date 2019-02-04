@@ -83,9 +83,8 @@ You should see something like this:</br>
    >[!NOTE]
    >If this is the first time that you're logging in to Azure from this machine, you will see a message about allowing Microsoft to collect PowerShell usage data. We recommend that you enable this data collection because it will be used to improve Azure PowerShell.
 
-1. After successful authentication, you're logged in and you see the information in the following screenshot. Take note of the subscription ID and subscription name, because you'll need them to complete later steps.
+1. After successful authentication, you're logged in. Take note of the subscription ID and subscription name, because you'll need them to complete later steps.
 
-   ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/login-Azaccount.png)
 1. Create variables to store values that will be used later. Enter each of the following PowerShell lines. You might need to adjust the values to match your environment.
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
     - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any location of your choosing.)
