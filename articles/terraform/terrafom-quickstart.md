@@ -23,7 +23,7 @@ Select **try it now** to open up Azure cloud shell. Once open, enter in `code .`
 code .
 ```
 
-Copy and paste in the following Terraform configuration. This configuration models an Azure resource group named **vote-resource-group**, a random integer, and an Azure Cosmos DB instances. The random integer is used in the Cosmos DB name. Several Cosmos DB settings are also configured. For a complete list of Cosmos DB Terraform configurations, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
+Copy and paste in the following Terraform configuration. This configuration models an Azure resource group, a random integer, and an Azure Cosmos DB instances. Several Cosmos DB settings are also configured. For a complete list of Cosmos DB Terraform configurations, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
 
 Save the file as `main.tf` when done. This operation can be done using the ellipses in the upper right-hand portion of the code editor.
 
@@ -58,19 +58,19 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
 }
 ```
 
-The `terraform init` command initializes the working directory. Run `terraform init` in the cloud shell terminal to prepare for the deployment of the new configuration. For more information on `terraform init`, see the [command reference](https://www.terraform.io/docs/commands/init.html).
+The [terraform init](https://www.terraform.io/docs/commands/init.html) command initializes the working directory. Run `terraform init` in the cloud shell terminal to prepare for the deployment of the new configuration.
 
 ```azurecli-interactive
-teraform init
+terraform init
 ```
 
-The `terraform plan` command can be used to validate that the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. Run `terraform plan` to test the new Terraform configuration. Adding `--out plan.out` saves the plan to file. This file is used when applying the plan. For more information on `terraform plan`, see the [command reference](https://www.terraform.io/docs/commands/plan.html).
+The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command can be used to validate that the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. Run `terraform plan` to test the new Terraform configuration.
 
 ```azurecli-interactive
 terraform plan --out plan.out
 ```
 
-Now, apply the configuration using `terraform apply` and specifying the name of the plan file. This command deploys the resources in your Azure subscription. For more information on `terraform apply`, see the [command reference](https://www.terraform.io/docs/commands/apply.html).
+Now, apply the configuration using [terraform apply](https://www.terraform.io/docs/commands/apply.html) and specifying the name of the plan file. This command deploys the resources in your Azure subscription.
 
 ```azurecli-interactive
 terraform apply plan.out
@@ -80,7 +80,7 @@ Once done, you can see that the resource group has been created and an Azure Cos
 
 ## Update Configuration
 
-Now, update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB.
+Update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB.
 
 Take note that two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
 
