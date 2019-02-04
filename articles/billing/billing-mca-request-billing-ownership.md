@@ -19,11 +19,11 @@ ms.author: banders
 ---
 # Get billing ownership of Azure subscriptions from other users
 
-You may want the ownership of Azure subscriptions as the existing billing owner is leaving your organization or you want to pay for the subscriptions through your billing account.
+You might want to take ownership of Azure subscriptions if the existing billing owner is leaving your organization, or you want to pay for the subscriptions through your billing account.
 
-In the billing account for a Microsoft Customer Agreement, you request users from other billing accounts to transfer billing ownership of their subscriptions to your invoice section. After the ownership is transferred, your invoice section is responsible for all charges for the subscriptions.
+You can send a request to take ownership of Azure subscriptions from existing owners in other billing accounts. Taking ownership transfers billing ownership of their subscriptions to your invoice section. After ownership is transferred, your invoice section is responsible for all charges for the subscriptions.
 
-To request billing ownership, you must be an Owner, Contributor, Purchaser, or Azure subscription creator on the invoice section. To lean more, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-tasks)
+To request the billing ownership, you must be an Owner, Contributor, or Azure subscription creator on the invoice section. To lean more, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-tasks)
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
 
@@ -105,6 +105,8 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ## Helpful information
 
+The following section provides helpful information about transferring subscriptions.
+
 ### Service downtime
 
 There is no impact to the services running in the transferred subscriptions.
@@ -136,6 +138,10 @@ Azure support doesn't transfer with the subscriptions. If the user selects all s
 ### Charges for transferred subscription
 
 The original billing owner of the subscriptions is responsible for any charges that were reported up to the point that the transfer is completed. Your invoice section is responsible for charges reported from the time of transfer onwards. There may be some charges that took place before transfer but was reported afterwards. These charges show up on your invoice section.
+
+### Supported offers
+
+Subscription of any types or offers, except CSP offers can be transferred.
 
 ### Cancel a transfer request
 
