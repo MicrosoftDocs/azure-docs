@@ -16,9 +16,9 @@ ms.date: 02/01/2019
 
 To use your own data in Machine Learning Studio to develop and train a predictive analytics solution, you can use data from: 
 
-* A [**local file**](#import-data-from-a-local-file) - Load local data ahead of time from your hard drive to create a dataset module in your workspace
-* [**Online data sources**](#import-data-from-online-data-sources) - Use the [Import Data][import-data] module to access data from one of several online sources while your experiment is running
-* [**Machine Learning Studio experiment**](#import-data-from-another-experiment) - Use data that was saved as a dataset in Machine Learning Studio
+* **Local file** - Load local data ahead of time from your hard drive to create a dataset module in your workspace
+* **Online data sources** - Use the [Import Data][import-data] module to access data from one of several online sources while your experiment is running
+* **Machine Learning Studio experiment** - Use data that was saved as a dataset in Machine Learning Studio
 * [**On-premises SQL Server database**](use-data-from-an-on-premises-sql-server.md) - Use data from an on-premises SQL Server database without having to copy data manually
 
 > [!NOTE]
@@ -73,7 +73,7 @@ Any module that accepts formats other than data table will convert the data to d
 If necessary, you can convert data table format back into CSV, TSV, ARFF, or SVMLight format using other conversion modules.
 Look in the **Data Format Conversions** section of the module palette for modules that perform these functions.
 
-## Import data from a local file
+## Import from a local file
 
 You can upload a data file from your hard drive to use as training data in Studio. When you import a data file, you create a dataset module ready for use in experiments in your workspace.
 
@@ -93,7 +93,7 @@ Once your data is uploaded, it's stored in a dataset module and is available to 
 
 When you're editing an experiment, you can find the datasets you've uploaded in the **My Datasets** list under the **Saved Datasets** list in the module palette. You can drag and drop the dataset onto the experiment canvas when you want to use the dataset for further analytics and machine learning.
 
-## Import data from online data sources
+## Import from online data sources
 
 Using the [Import Data][import-data] module, your experiment can import data from various online data sources while the experiment running.
 
@@ -138,7 +138,7 @@ Azure Machine Learning **Import Data** module supports the following data source
 | Azure Blob Storage |Reads data stored in the Blob service in Azure Storage, including images, unstructured text, or binary data.<br/><br/>You can use the Blob service to publicly expose data, or to privately store application data. You can access your data from anywhere by using HTTP or HTTPS connections. |The options in the **Import Data** module change depending on whether you are accessing public information or a private storage account that requires login credentials. This is determined by the <b>Authentication Type</b> which can have a value either of "PublicOrSAS" or of "Account".<br/><br/><b>Public or Shared Access Signature (SAS) URI</b>: The parameters are:<br/><br/><ul><b>URI</b>: Specifies the Public or SAS URL for the storage blob.<br/><br/><b>File Format</b>: Specifies the format of the data in the Blob service. The supported formats are CSV, TSV, and ARFF.<br/><br/></ul><b>Private Storage Account</b>: The parameters are: <br/><br/><ul><b>Account name</b>: Specifies the name of the account that contains the blob you want to read.<br/><br/><b>Account key</b>: Specifies the storage key associated with the account.<br/><br/><b>Path to container, directory, or blob </b> : Specifies the name of the blob that contains the data to read.<br/><br/><b>Blob file format</b>: Specifies the format of the data in the blob service. The supported data formats are CSV, TSV, ARFF, CSV with a specified encoding, and Excel. <br/><br/><ul>If the format is CSV or TSV, be sure to indicate whether the file contains a header row.<br/><br/>You can use the Excel option to read data from Excel workbooks. In the <i>Excel data format</i> option, indicate whether the data is in an Excel worksheet range, or in an Excel table. In the <i>Excel sheet or embedded table </i>option, specify the name of the sheet or table that you want to read from.</ul><br/> |
 | Data Feed Provider |Reads data from a supported feed provider. Currently only the Open Data Protocol (OData) format is supported. |<b>Data content type</b>: Specifies the OData format.<br/><br/><b>Source URL</b>: Specifies the full URL for the data feed. <br/>For example, the following URL reads from the Northwind sample database: http://services.odata.org/northwind/northwind.svc/ |
 
-## Import data from another experiment
+## Import from another experiment
 
 There will be times when you'll want to take an intermediate result from one experiment and use it as part of another experiment. To do this, you save the module as a dataset:
 
