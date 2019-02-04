@@ -239,13 +239,7 @@ Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/
     > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Get encryption status for a virtual machine 
-
-
-
-
-
-set:** Use the [Get-Azure​RmVmss​VMDisk​Encryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
+- **Get encryption status for a virtual machine set**: Use the [Get-Azure​RmVmss​VMDisk​Encryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
     
     ```powershell
     get-AzureRmVmssVMDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
