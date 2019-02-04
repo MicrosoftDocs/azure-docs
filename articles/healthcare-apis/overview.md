@@ -1,6 +1,6 @@
 ---
-title: What is Azure API for FHIR - Azure API for FHIR
-description: This article describes Azure API for FHIR.
+title: What is Azure API for FHIR Preview - Azure API for FHIR Preview
+description: This article describes Azure API for FHIR Preview.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -9,7 +9,7 @@ ms.date: 02/07/2019
 ms.author: mihansen
 ---
 
-# What is Azure API for FHIR?
+# What is Azure API for FHIR&reg; Preview?
 
 ## Open protocol for healthcare management and sharing
 
