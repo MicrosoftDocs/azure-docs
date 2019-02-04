@@ -18,10 +18,10 @@ Azure SQL Data Warehouse receives improvements continually. This article describ
 ## User Defined Restore Points
 SQL Data Warehouse automatically takes snapshots of your data warehouse every 8 hours guaranteeing an eight-hour recovery point objective (RPO). While this automated snapshots ease the management burden of running your data warehouse, there is a need to take snapshots at critical times based on your business need. For example, taking a snapshot right before a significant data load or the deployment of new scripts into the data warehouse to enable a restore point right before the operation. 
 
-SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet.
+SQL Data Warehouse now supports [user-defined restore points](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) through the [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
 
 ```PowerShell
-New-AzureRmSqlDatabaseRestorePoint
+New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName
     -DatabaseName $DatabaseName
