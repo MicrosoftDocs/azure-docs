@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ms.author: jeedes
 
 ---
@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with Convene, perform the following steps:
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
-	| Name identifier value | user.mail |
+	| nameidentifier | user.mail |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
