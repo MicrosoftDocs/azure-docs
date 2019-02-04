@@ -13523,7 +13523,12 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-solution-quick-starts.md",
-      "redirect_url": "/azure/sql-database/sql-database-explore-tutorials",
+      "redirect_url": "/azure/sql-database/sql-database-explore-tutorials", 
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-threat-protection.md",
+      "redirect_url": "/azure/sql-database/sql-database-advanced-data-security",
       "redirect_document_id": false
     },
     {
