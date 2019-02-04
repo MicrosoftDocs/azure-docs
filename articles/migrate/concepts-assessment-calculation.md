@@ -17,6 +17,7 @@ ms.author: raynew
 
 An Azure Migrate assessment has three stages. Assessment starts with a suitability analysis, followed by sizing, and lastly, a monthly cost estimation. A machine only moves along to a later stage if it passes the previous one. For example, if a machine fails the Azure suitability check, it’s marked as unsuitable for Azure, and sizing and costing won't be done.
 
+
 ## What's in an assessment?
 
 Assessment settings can be customized based on your needs. Assessment properties are summarized in the following table.
@@ -36,6 +37,10 @@ Assessment settings can be customized based on your needs. Assessment properties
 **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. The default comfort setting is 1.3x.
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> 990adb5544ce324c880cf63a51d2ac0878c64cda
+>>>>>>> f9b38a58f2a1326d6726e5e4ea80a9564e993b32
 ## Azure suitability analysis
 
 Not all machines are suitable for running on cloud as cloud has its own limitations and requirements. Azure Migrate assesses each on-premises machine for migration suitability to Azure and categorizes the machines into one of the following categories:
