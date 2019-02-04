@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2019
+ms.date: 02/04/2019
 ms.author: tomfitz
 
 ---
@@ -77,6 +77,8 @@ The following example shows the structure of an output definition:
 | outputName |Yes |Name of the output value. Must be a valid JavaScript identifier. |
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. |
 | value |Yes |Template language expression that is evaluated and returned as output value. |
+
+For information about adding comments, see [Comments in templates](resource-group-authoring-templates.md#comments).
 
 ## Example templates
 

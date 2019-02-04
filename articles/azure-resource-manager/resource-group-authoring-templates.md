@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/03/2019
+ms.date: 02/04/2019
 ms.author: tomfitz
 ---
 
@@ -36,7 +36,7 @@ In its simplest structure, a template has the following elements:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| $schema |Yes |Location of the JSON schema file that describes the version of the template language.<br><br> For resource group deployments, use `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`.<br><br>For subscription deployments, use `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |Yes |Location of the JSON schema file that describes the version of the template language.<br><br> For resource group deployments, use: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
 | parameters |No |Values that are provided when deployment is executed to customize resource deployment. |
 | variables |No |Values that are used as JSON fragments in the template to simplify template language expressions. |
@@ -331,6 +331,18 @@ For **resources**, add a `comments` element.
     },
 ```
 
+You can add a `metadata` object almost anywhere in your template. Resource Manager ignores the object, but your JSON editor may warn you that the property isn't valid. In the object, define the properties you need.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
+
 For **outputs**, add a metadata object to the output value.
 
 ```json
@@ -344,20 +356,9 @@ For **outputs**, add a metadata object to the output value.
     },
 ```
 
-For general comments, you can add a `metadata` object in your template. Resource Manager ignores the object, but your JSON editor may warn you that the property isn't valid.
+You can't add a metadata object to user-defined functions.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes."
-    },
-```
-
- You can't add the metadata object to the first level of the outputs section because it gets interpreted as an output value.
-
-For general comments, you can use `//` but then you can't deploy the template with Azure CLI.
+For general comments, you can use `//` but this syntax causes an error when deploying the template with Azure CLI.
 
 ```json
 "variables": {
