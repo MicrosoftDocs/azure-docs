@@ -33,11 +33,15 @@ This build includes the following improvements for Azure Stack:
 
 - BGP and NAT components are now deployed on the physical host. This eliminates the need to have two public or corporate IP addresses for deploying the ASDK, and also simplifies deployment.
 - Azure Stack integrated systems backups can now [be validated](asdk-validate-backup.md) using the **asdk-installer.ps1** PowerShell script.
-- Managed images on Azure Stack enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward.
+
+### New features
+
+- For a list of new features in this release, please see [this section](../azure-stack-update-1901.md#new-features) of the Azure Stack release notes.
 
 ### Fixed and known issues
 
-For a list of issues fixed in this release, please see [this section](../azure-stack-update-1901.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1901.md#known-issues-post-installation).
+- For a list of issues fixed in this release, please see [this section](../azure-stack-update-1901.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1901.md#known-issues-post-installation).
+- Please note that [available Azure Stack hotfixes](../azure-stack-update-1901.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK.
 
 ## Build 1.1811.0.101
 
@@ -47,6 +51,10 @@ This build includes the following improvements for Azure Stack:
 
 - There is a set of new minimum and recommended hardware and software requirements for the ASDK. These new recommended specs are documented in [Azure Stack deployment planning considerations](asdk-deploy-considerations.md). As the Azure Stack platform has evolved, more services are now available and more resources may be required. The increased specs reflect these revised recommendations.
 
+### New features
+
+For a list of new features in this release, please see [this section](../azure-stack-update-1811.md#new-features) of the Azure Stack release notes.
+
 ### Fixed and known issues
 
 For a list of issues fixed in this release, please see [this section](../azure-stack-update-1811.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1811.md#known-issues-post-installation).
@@ -55,14 +63,7 @@ For a list of issues fixed in this release, please see [this section](../azure-s
 
 ### New features
 
-This build includes the following improvements and fixes for Azure Stack.  
-
-<!--  2712869   | IS  ASDK -->  
-- **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
-
-With this release, the syslog client is generally available, and it can be used in production environments.
-
-For more information, see [Azure Stack syslog forwarding](../azure-stack-integrate-security.md).
+For a list of new features in this release, please see [this section](../azure-stack-update-1809.md#new-features) of the Azure Stack release notes.
 
 ### Fixed issues
 
