@@ -4,7 +4,7 @@ description: Information about the Multi-factor Authentication client and the di
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/11/2019
 

@@ -79,7 +79,7 @@
   - name: RBAC limits
     href: ../azure-subscription-service-limits.md#role-based-access-control-limits
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.resources
+    href: /powershell/module/az.resources
   - name: Azure CLI
     href: /cli/azure/role?view=azure-cli-latest
   - name: REST API

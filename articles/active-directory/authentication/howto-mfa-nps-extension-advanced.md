@@ -4,7 +4,7 @@ description: After you install the NPS extension, use these steps for advanced c
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 

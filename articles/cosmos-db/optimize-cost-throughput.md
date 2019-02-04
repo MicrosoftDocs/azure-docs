@@ -8,7 +8,7 @@ ms.date: 12/07/2018
 ms.author: rimman
 ---
 
-# Optimizing throughput cost in Azure Cosmos DB
+# Optimize provisioned throughput cost in Azure Cosmos DB
 
 By offering provisioned throughput model, Azure Cosmos DB offers predictable performance at any scale. Reserving or provisioning throughput ahead of time eliminates the “noisy neighbor effect” on your performance. You specify the exact amount of throughput you need and Azure Cosmos DB guarantees the configured throughput, backed by SLA.
 

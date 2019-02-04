@@ -208,7 +208,7 @@ This error message contains metrics that can help point you to the cause and pos
 	        return lazyConnection.Value;
 	    }
 	}
-    ````
+    ```
 
     For more information, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 

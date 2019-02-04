@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ---

@@ -43,7 +43,7 @@ Here is a list of the supported operating systems for the data copy operation vi
 
 ### Supported storage accounts
 
-Here is a list of the supported storage accounts and the storage types for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
+Here is a list of the supported storage accounts and the storage types for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
 | **Storage account / Supported storage types** | **Block blob** |**Page blob*** |**Azure Files** |**Notes**|
 | --- | --- | -- | -- | -- |

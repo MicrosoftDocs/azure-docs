@@ -7,7 +7,7 @@ author: heatherbshapiro
 ms.author: hshapiro
 
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018

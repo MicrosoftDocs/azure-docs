@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage your security info - Azure Active Directory | Microsoft Docs
 description: Learn how to manage your security info, including how to work with your two-step verification settings.
 services: active-directory
@@ -7,7 +7,7 @@ manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018

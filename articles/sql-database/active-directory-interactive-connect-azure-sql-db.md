@@ -19,6 +19,7 @@ This article provides a C# program that connects to your Microsoft Azure SQL Dat
 
 For more information about MFA support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
+
 ## Multi-factor authentication for Azure SQL Database
 
 Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value - `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure AD interactive mode supporting MFA to connect to an Azure SQL Database. The user who runs the program sees the following dialog boxes:
@@ -52,9 +53,11 @@ Before you begin, you should have an [Azure SQL Database server](sql-database-ge
 
 ### Register your app and set permissions
 
+
 To use Azure AD authentication, your C# program has to register as an AD application. To register an app, you need to be either an AD admin or a user assigned the AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
  Completing an app registration generates and displays an **Application ID**. Your program has to include this ID to connect.
+
 
 To register and set necessary permissions for your application:
 
@@ -79,6 +82,7 @@ To register and set necessary permissions for your application:
     ![Delegate permissions to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 ### Set an Azure AD admin for your SQL Database server
+
 
 For your C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your Azure SQL server. 
 

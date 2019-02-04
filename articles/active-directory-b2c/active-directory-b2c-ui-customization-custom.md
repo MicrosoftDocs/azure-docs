@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 # Customize the user interface of your application using a custom policy in Azure Active Directory B2C
 
