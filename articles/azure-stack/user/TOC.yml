@@ -147,6 +147,8 @@
           href: azure-stack-solution-template-kubernetes-azuread.md
         - name: Deploy Kubernetes using AD FS
           href: azure-stack-solution-template-kubernetes-adfs.md
+        - name: Enable the Kubernetes dashboard
+          href: azure-stack-solution-template-kubernetes-dashboard.md
         - name: Troubleshoot Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-trouble.md
       - name: Deploy Cognitive Services
