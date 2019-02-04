@@ -166,20 +166,20 @@ The central concept when using `EventProcessorHost` is to create an implementati
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 {
 
-   foreach (EventData eventData in messages)
-   {
-       _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
+    foreach (EventData eventData in messages)
+    {
+        _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
 
-       try
-       {
-           var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
-           await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
-       }
-       catch (Exception ex)
-       {
-           _Logger.LogError(ex.Message);
-       }
-   }
+        try
+        {
+            var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
+            await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
+        }
+        catch (Exception ex)
+        {
+            _Logger.LogError(ex.Message);
+        }
+    }
     ... checkpointing code snipped ...
 }
 ```
@@ -192,10 +192,10 @@ The `HttpMessage` instance contains three pieces of data:
 ```csharp
 public class HttpMessage
 {
-   public Guid MessageId { get; set; }
-   public bool IsRequest { get; set; }
-   public HttpRequestMessage HttpRequestMessage { get; set; }
-   public HttpResponseMessage HttpResponseMessage { get; set; }
+    public Guid MessageId { get; set; }
+    public bool IsRequest { get; set; }
+    public HttpRequestMessage HttpRequestMessage { get; set; }
+    public HttpResponseMessage HttpResponseMessage { get; set; }
 
 ... parsing code snipped ...
 
@@ -215,43 +215,43 @@ The `IHttpMessageProcessor` implementation looks like this,
 ```csharp
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 {
-   private HttpClient _HttpClient;
-   private ILogger _Logger;
-   private string _BucketKey;
-   public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
-   {
-       _HttpClient = httpClient;
-       var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
-       _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
-       _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
-       _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
-       _Logger = logger;
-   }
+    private HttpClient _HttpClient;
+    private ILogger _Logger;
+    private string _BucketKey;
+    public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
+    {
+        _HttpClient = httpClient;
+        var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
+        _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
+        _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
+        _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
+        _Logger = logger;
+    }
 
-   public async Task ProcessHttpMessage(HttpMessage message)
-   {
-       var runscopeMessage = new RunscopeMessage()
-       {
-           UniqueIdentifier = message.MessageId
-       };
+    public async Task ProcessHttpMessage(HttpMessage message)
+    {
+        var runscopeMessage = new RunscopeMessage()
+        {
+            UniqueIdentifier = message.MessageId
+        };
 
-       if (message.IsRequest)
-       {
-           _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
-           runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
-       }
-       else
-       {
-           _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
-           runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
-       }
+        if (message.IsRequest)
+        {
+            _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
+            runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
+        }
+        else
+        {
+            _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
+            runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
+        }
 
-       var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
-       messagesLink.BucketKey = _BucketKey;
-       messagesLink.RunscopeMessage = runscopeMessage;
-       var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-       _Logger.LogDebug("Request sent to Runscope");
-   }
+        var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
+        messagesLink.BucketKey = _BucketKey;
+        messagesLink.RunscopeMessage = runscopeMessage;
+        var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
+        _Logger.LogDebug("Request sent to Runscope");
+    }
 }
 ```
 
