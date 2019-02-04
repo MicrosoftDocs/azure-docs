@@ -10,7 +10,7 @@ ms.date: 02/04/2019
 ms.author: danlep
 ---
 
-# Import container images to a container registry 
+# Import container images to a container registry
 
 You can easily import (copy) container images to an Azure container registry, without having to use Docker commands. For example, import images from a development registry to a production registry, or copy base images from a public registry.
 
@@ -34,7 +34,7 @@ To import container images, this article requires that you run the Azure CLI in 
 
 If you don't already have an Azure container registry, create a registry. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
 
-To import an image to an Azure container registry, your identity must have at least the  Contributor role in the registry. See [Azure Container Registry roles and permissions](container-registry-roles.md). 
+To import an image to an Azure container registry, your identity must have write permissions to the registry (at least Contributor role). See [Azure Container Registry roles and permissions](container-registry-roles.md). 
 
 ## Import from a public registry
 
