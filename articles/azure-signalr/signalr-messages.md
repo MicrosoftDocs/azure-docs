@@ -11,7 +11,7 @@ ms.author: zhshang
 
 The billing model for Azure SignalR Service is based on the number of connections and the number of messages. This article explains how messages and connections are defined and counted for billing.
 
-## Message formats supported
+## Message formats 
 
 Azure SignalR Service supports the same formats as ASP.NET Core SignalR: [JSON](https://www.json.org/) and [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
 
@@ -27,7 +27,7 @@ Large messages do negatively affect messaging performance. Use smaller messages 
 
 For billing, only outbound messages from Azure SignalR Service are counted. Ping messages between clients and servers are ignored.
 
-Messages larger than 2 KB are counted as multiple messages of 2 KB each. The message count chart in the Azure portal is updated with every 100 messages per hub.
+Messages larger than 2 KB are counted as multiple messages of 2 KB each. The message count chart in the Azure portal is updated every 100 messages per hub.
 
 For example, imagine that you have three clients and one application server. One client sends a 4-KB message to let the server broadcast to all clients. The message count is eight: one message from the service to the application server and three messages from the service to the clients. Each message is counted as two 2-KB messages.
 
@@ -39,7 +39,7 @@ There are server connections and client connections. By default, each applicatio
 
 The connection count shown in the Azure portal includes both server connections and client connections.
 
-For example, assume that you have two application servers and that you define five hubs in code. The server connection count will be 50: 2 app servers x 5 hubs x 5 connections per hub.
+For example, assume that you have two application servers and that you define five hubs in code. The server connection count will be 50: 2 app servers * 5 hubs * 5 connections per hub.
 
 ASP.NET SignalR calculates server connections in a different way. It includes one default hub in addition to hubs that you define. By default, each application server needs five more server connections. The connection count for the default hub stays consistent with that of the other hubs.
 
