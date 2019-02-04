@@ -99,10 +99,10 @@ sections:
           - href: /azure/sql-database/sql-database-get-started-portal
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-          - href:
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
       - title: Create an elastic pool
         values:
-          - href: 
+          - href: /azure/sql-database/sql-database-elastic-pool-manage
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
