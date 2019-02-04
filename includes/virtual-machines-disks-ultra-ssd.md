@@ -59,7 +59,7 @@ When using Ultra SSDs, the following billing considerations will be applied:
 
 ### Managed Disk Size
 
-Managed Disks are billed on the VM sizes that you choosed while provisionning a new Azure VM. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and will billed accordingly on an hourly basis. For example, if you provisioned a 200 GiB Ultra SSD Disk and deleted it after 20 hours, it will map to the disk size offer of 256 GiB and you'll be billed for the 256 GiB for 20 hours. This billing was based on compute-hour consumption regardless of the volume of data actually written to the disk.
+Managed Disks are billed on the VM sizes that you choose while provisioning a new Azure VM. Azure maps the provisioned size (rounded up) to the nearest disk size offer. For details of the disk sizes offered, see the table in Scalability and Performance Targets section above. Each disk maps to a supported provisioned disk size and will billed accordingly on an hourly basis. For example, if you provisioned a 200 GiB Ultra SSD Disk and deleted it after 20 hours, it will map to the disk size offer of 256 GiB and you'll be billed for the 256 GiB for 20 hours. This billing was based on compute-hour consumption regardless of the volume of data actually written to the disk.
 
 ### Managed Disk Provisioned IOPS
 

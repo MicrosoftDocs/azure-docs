@@ -208,13 +208,13 @@ POST action on resolve endpoint allows users to resolve a token to a persistent 
 
 *Response Body*
 
- ``` json       
-    { 
-        “id”: “”, 
-        “subscriptionName”: “”,
-        “offerId”:””, 
-         “planId”:””
-    }     
+``` json
+{
+    "id": "",
+    "subscriptionName": "",
+    "offerId": "",
+    "planId": "",
+}
 ```
 
 | **Parameter name** | **Data type** | **Description**                       |
@@ -279,9 +279,9 @@ service for a given plan and enable billing in the commerce system.
 *Body*
 
 ``` json
-  { 
-      “planId”:””
-   }      
+{
+    "lanId": "",
+}
 ```
 
 | **Element name** | **Data type** | **Description**                      |
@@ -340,15 +340,13 @@ The change endpoint allows the user to convert their currently subscribed plan t
 | authorization           | Yes          | The JSON web token (JWT) bearer token.                    |
 |  |  |  |
 
-
 *Body*
 
-``` json
-                { 
-                    “planId”:””
-                } 
+```json
+{
+    "planId": ""
+}
 ```
-
 
 |  **Element name** |  **Data type**  | **Description**                              |
 |  ---------------- | -------------   | --------------------------------------       |
@@ -403,7 +401,6 @@ The Delete action on the subscribe endpoint allows a user to delete a subscripti
 | x-ms-correlationid | No           | A unique string value for operation on the client. This value is for correlating all events from client operation with events on the server side. If this is not provided, one will be generated and provided in the response headers. |
 | authorization      | Yes          | The JSON web token (JWT) bearer token.                    |
 |  |  |  |
- 
 
 *Response Codes*
 
@@ -446,7 +443,6 @@ This endpoint allows user to track the status of a triggered async operation (Su
 | api-version         | The version of the operation to use for this request. |
 |  |  |
 
-
 *Headers*
 
 | **Header key**     | **Required** | **Description**                                                                                                                                                                                                                  |
@@ -455,18 +451,17 @@ This endpoint allows user to track the status of a triggered async operation (Su
 | x-ms-correlationid | No           | A unique string value for operation on the client. This value is for correlating all events from client operation with events on the server side. If this value is not provided, one will be generated and provided in the response headers.  |
 | authorization      | Yes          | The JSON web token (JWT) bearer token.                    |
 |  |  |  | 
-  
 
 *Response Body*
 
-``` json
-  { 
-      “id”: “”, 
-      “status”:””, 
-       “resourceLocation”:””, 
-      “created”:””, 
-      “lastModified”:”” 
-  } 
+```json
+{
+    "id": "",
+    "status": "",
+    "resourceLocation": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Parameter name** | **Data type** | **Description**                                                                                                                                               |
@@ -527,16 +522,16 @@ The Get action on subscribe endpoint allows a user to retrieve a subscription wi
 
 *Response Body*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “” 
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 | **Parameter name**     | **Data type** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
@@ -572,7 +567,6 @@ The Get action on subscribe endpoint allows a user to retrieve a subscription wi
 | eTag               | Yes          | Link to a resource to get the operation status.                                                        |
 |  |  |  |
 
-
 ### Get Subscriptions
 
 The Get action on subscriptions endpoint allows a user to retrieve all subscriptions for all the offers from the ISV.
@@ -597,19 +591,18 @@ The Get action on subscriptions endpoint allows a user to retrieve all subscript
 | authorization      | Yes          | The JSON web token (JWT) bearer token.                    |
 |  |  |  |
 
-
 *Response Body*
 
-``` json
-  { 
-      “id”: “”, 
-      “saasSubscriptionName”:””, 
-      “offerId”:””, 
-       “planId”:””, 
-      “saasSubscriptionStatus”:””, 
-      “created”:””, 
-      “lastModified”: “”
-  }
+```json
+{
+    "id": "",
+    "saasSubscriptionName": "",
+    "offerId": "",
+    "planId": "",
+    "saasSubscriptionStatus": "",
+    "created": "",
+    "lastModified": ""
+}
 ```
 
 | **Parameter name**     | **Data type** | **Description**                               |
@@ -648,7 +641,6 @@ The Get action on subscriptions endpoint allows a user to retrieve all subscript
 ### SaaS Webhook
 
 A SaaS webhook is used for notifying changes proactively to the SaaS service. This POST API is expected to be unauthenticated and will be called by the Microsoft  service. The SaaS service is expected to call the operations API to validate and authorize before taking action on the webhook notification. 
-
 
 *Body*
 
