@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Create multi-service application
+    - name: Create a multi-service application
       href: terrafom-quickstart.md
     - name: Install and configure Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
