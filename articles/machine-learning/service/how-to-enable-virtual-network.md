@@ -1,7 +1,7 @@
 ---
 title: Run experiments and inference in a virtual network
 titleSuffix: Azure Machine Learning service
-description: Run machine learning experiments and inference securing inside an Azure Virtual Network. Learn how to create compute targets for model training and how to inference within an Azure Virtual Network. Learn about requirements for secured virtual networks, such as require inbound and outbound ports.
+description: Run machine learning experiments and inference securing inside Azure Virtual Network. Learn how to create compute targets for model training and how to inference within Azure Virtual Network. Learn about requirements for secured virtual networks, such as require inbound and outbound ports.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,9 +13,9 @@ author: aashishb
 ms.date: 01/08/2019
 ---
 
-# Securely run experiments and inferencing inside an Azure Virtual Network
+# Securely run experiments and inferencing inside Azure Virtual Network
 
-This article describes how to run your experiments and inference inside a Virtual Network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure Virtual Network to your on-premises network so you can securely train your models and access your deployed models for inferencing.
+This article describes how to run your experiments and inferencing inside a virtual network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join Azure Virtual Network to your on-premises network so you can securely train your models and access your deployed models for inferencing.
 
 The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. These compute targets can be created inside a virtual network. For example, you can use the Microsoft Data Science Virtual Machine (DVSM) to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see the [Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
@@ -37,11 +37,11 @@ If you aren't sure if you've modified these settings or not, see the __Change th
 
 - Check whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network.
 
-- If you are going to place multiple Machine Learning Compute clusters in one virtual network, you may need to request a quota increase for one or more of resources.
+- If you are going to put multiple Machine Learning Compute clusters in one virtual network, you may need to request a quota increase for one or more of your resources.
 
-    Machine Learning Compute automatically allocates additional networking resources in the resource group containing the virtual network. For each Machine Learning Compute cluster, the Azure Machine Learning service allocates the following resources:
+    Machine Learning Compute automatically allocates additional networking resources in the resource group that contains the virtual network. For each Machine Learning Compute cluster, the Azure Machine Learning service allocates the following resources:
 
-    - One network security group
+    - One network security group (NSG)
 
     - One public IP address
 
@@ -51,7 +51,7 @@ If you aren't sure if you've modified these settings or not, see the __Change th
 
 ### <a id="mlcports"></a> Required ports
 
-Machine Learning Compute currently uses the Azure Batch service to provision VMs in the specified virtual network. The subnet must allow inbound communication from the Batch service. This communication is used to schedule runs on the Machine Learning Compute nodes and to communicate with Azure Storage and other resources. Batch adds network security groups at the level of network interfaces (NICs) attached to VMs. These network security groups automatically configure inbound and outbound rules to allow the following traffic:
+Machine Learning Compute currently uses the Azure Batch service to provision VMs in the specified virtual network. The subnet must allow inbound communication from the Batch service. This communication is used to schedule runs on the Machine Learning Compute nodes and to communicate with Azure Storage and other resources. Batch adds NSGs at the level of network interfaces (NICs) that are attached to VMs. These NSGs automatically configure inbound and outbound rules to allow the following traffic:
 
 - Inbound TCP traffic on ports 29876 and 29877 from Batch service role IP addresses.
  
@@ -61,9 +61,9 @@ Machine Learning Compute currently uses the Azure Batch service to provision VMs
 
 - Outbound traffic on any port to the internet.
 
-Exercise caution if you modify or add inbound/outbound rules in Batch-configured network security groups. If a network security group blocks communication to the compute nodes, then the Machine Learning Compute services sets the state of the compute nodes to unusable.
+Exercise caution if you modify or add inbound/outbound rules in Batch-configured NSGs. If an NSG blocks communication to the compute nodes, then the Machine Learning Compute services sets the state of the compute nodes to unusable.
 
-You don't need to specify network security groups at the subnet level because Batch configures its own network security groups. However, if the specified subnet has associated network security groups and/or a firewall, configure the inbound and outbound security rules as mentioned earlier. The following screenshots show how the rule configuration looks in the Azure portal:
+You don't need to specify NSGs at the subnet level because Batch configures its own NSGs. However, if the specified subnet has associated NSGs and/or a firewall, configure the inbound and outbound security rules as mentioned earlier. The following screenshots show how the rule configuration looks in the Azure portal:
 
 ![Screenshot of inbound NSG rules for Machine Learning Compute](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
 
@@ -136,7 +136,7 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 > [!IMPORTANT]
 > The Azure Machine Learning service only supports virtual machines that are running Ubuntu.
 
-1. Create a VM or HDInsight cluster using Azure portal, Azure CLI, etc., and put it in an Azure Virtual Network. For more information, see the following documents:
+1. Create a VM or HDInsight cluster using Azure portal, Azure CLI, etc., and put it in Azure Virtual Network. For more information, see the following documents:
     * [Create and manage Azure Virtual Networks for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
     * [Extend HDInsight using Azure Virtual Networks](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) 
@@ -166,13 +166,13 @@ To use a virtual machine or HDInsight cluster in a Virtual Network with your wor
 ## Use Azure Kubernetes Service (AKS)
 
 > [!IMPORTANT]
-> Check the prerequisites and plan IP addressing for your cluster before proceeding with the steps mentioned below. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
+> Check the prerequisites and plan IP addressing for your cluster before proceeding with the steps below. For more information, see [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
 > 
 > Keep the default outbound rules for the NSG. For more information, see the default security rules section of [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 >
 > Azure Kubernetes Service and the Azure Virtual Network should be in the same region.
 
-To add Azure Kubernetes Service in a Virtual Network to your workspace, follow these steps from the Azure portal:
+To add Azure Kubernetes Service in a virtual network to your workspace, follow these steps in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), select your Azure Machine Learning service workspace.
 
@@ -199,9 +199,9 @@ To add Azure Kubernetes Service in a Virtual Network to your workspace, follow t
    ![Azure Machine Learning service: Machine Learning Compute Virtual Network Settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
     > [!TIP]
-    > If you already have an AKS cluster in a Virtual Network, you can attach it to the workspace. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
+    > If you already have an AKS cluster in a virtual network, you can attach it to the workspace. For more information, see [how to deploy to AKS](how-to-deploy-to-aks.md).
 
-You can also use the **Azure Machine Learning SDK** to add Azure Kubernetes service in a Virtual Network. The following code creates a new Azure Kubernetes Service in the `default` subnet of a virtual network named `mynetwork`:
+You can also use the **Azure Machine Learning SDK** to add Azure Kubernetes service in a virtual network. The following code creates a new Azure Kubernetes Service in the `default` subnet of a virtual network named `mynetwork`:
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
