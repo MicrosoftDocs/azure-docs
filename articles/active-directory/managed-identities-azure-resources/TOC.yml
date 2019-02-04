@@ -48,6 +48,8 @@
       href: tutorial-linux-vm-access-nonaad.md
     - name: Access Azure Cosmos DB
       href: tutorial-linux-vm-access-cosmos-db.md
+    - name: Access Azure Container Registry
+      href: /azure/container-registry/container-registry-authentication-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
     - name: Access Azure AD Graph API
       href: tutorial-linux-vm-access-azure-ad-graph.md
     - name: Access Azure Resource Manager with a user-assigned managed identity
@@ -129,7 +131,7 @@
   - name: CLI
     href: /cli/azure/identity
   - name: PowerShell
-    href: /powershell/module/azurerm.managedserviceidentity#managed_service_identity 
+    href: /powershell/module/az.managedserviceidentity#managed_service_identity 
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet
   - name: Java

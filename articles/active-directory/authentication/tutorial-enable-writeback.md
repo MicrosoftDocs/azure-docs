@@ -4,7 +4,7 @@ description: In this tutorial, you will enable password writeback to get cloud i
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 

@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/25/2019
 ms.author: pbutlerm
 ---
 
@@ -24,6 +24,7 @@ After you create an offer by providing the information on the **New Offer** page
 The following diagram shows the main steps in the publishing process for an offer to "go live".
 
 ![Offer publishing steps](./media/offer-publishing-steps.png)
+
 
 ## Detailed description of publishing steps
 
@@ -40,12 +41,14 @@ The following table lists and describes each publishing step, and provides a tim
 | Microsoft review                | 7 - 14 days | Microsoft holistically reviews your Azure application and emails you if issues are discovered.  The length of this step depends upon the complexity of the application, the issues uncovered, and how promptly you respond to them.  |
 | Live                           | < 1 day | Offer is released, replicated to the specified regions, and made available to the public. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
+
  
 You can monitor the publishing process in the **Status** tab for your offer in the Cloud Partner Portal.
 
 ![Status tab for an Azure app offer](./media/offer-status-tab.png)
 
 After you finish the publishing process, your offer will be listed in the [Microsoft Azure Marketplace application category](https://azuremarketplace.microsoft.com/marketplace/apps/).
+
 
 
 ## Errors and Review feedback

@@ -3,14 +3,14 @@ title: Applications types that can be used in Azure Active Directory B2C | Micro
 description: Learn about the types of applications you can use in the Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 
 ---
 # Applications types that can be used in Active Directory B2C

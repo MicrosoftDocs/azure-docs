@@ -1,5 +1,5 @@
 ---
-title: Delegate least privileged roles by task in Azure Active Directory | Microsoft Docs
+title: Delegate least privileged roles by administrator task - Azure Active Directory | Microsoft Docs
 description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,9 +9,9 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -19,7 +19,7 @@ ms.custom: it-pro
 
 ---
 
-# Administrator roles by identity task in Azure Active Directory
+# Administrator roles by admin task in Azure Active Directory
 
 In this article, you can find the information needed to restrict a user's administrator permissions by assigning least privileged roles in Azure Active Directory (Azure AD). You will find administrator tasks organized by feature area and the least privileged role required to perform each task, along with additional non-Global Administrator roles that can perform the task.
 
@@ -115,7 +115,7 @@ Task | Least privileged role | Additional roles
 Disable device | Cloud device administrator | 
 Enable device | Cloud device administrator | 
 Read basic configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Read Bitlocker keys | Security Reader | Password administrator, Security administrator
+Read BitLocker keys | Security Reader | Password administrator, Security administrator
 
 ## Enterprise applications
 

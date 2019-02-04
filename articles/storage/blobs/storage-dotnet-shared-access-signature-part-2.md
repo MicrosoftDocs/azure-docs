@@ -9,7 +9,7 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Shared Access Signatures, Part 2: Create and use a SAS with Blob storage

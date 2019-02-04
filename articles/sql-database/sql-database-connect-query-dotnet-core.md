@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/10/2018
+ms.date: 12/21/2018
 ---
 # Quickstart: Use .NET Core (C#) to query an Azure SQL database
 
@@ -22,8 +22,6 @@ In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C
 For this tutorial, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for your computer's public IP address.
 
 - [.NET Core for your operating system](https://www.microsoft.com/net/core) installed. 
 

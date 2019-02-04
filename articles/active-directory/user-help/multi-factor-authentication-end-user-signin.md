@@ -4,12 +4,12 @@ description: This page will provide you guidance on where to go to see the vario
 keywords: user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross

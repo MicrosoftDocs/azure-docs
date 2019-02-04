@@ -7,7 +7,7 @@ author: aahill
 manager: cgronlun
 ms.assetid:
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi

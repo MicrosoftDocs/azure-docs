@@ -3,7 +3,7 @@ title: Manage Virtual Machine Scale Sets with the Azure CLI | Microsoft Docs
 description: Common Azure CLI commands to manage Virtual Machine Scale Sets, such as how to start and stop an instance, or change the scale set capacity.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: zarhoads
+ms.author: cynthn
 
 ---
 # Manage a virtual machine scale set with the Azure CLI
@@ -75,7 +75,7 @@ az vmss show \
     --output table
 ```
 
-You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss#az_vmss_scale). The following example sets the number of VMs in your scale set to *5*:
+You can then manually increase or decrease the number of virtual machines in the scale set with [az vmss scale](/cli/azure/vmss). The following example sets the number of VMs in your scale set to *5*:
 
 ```azurecli
 az vmss scale \

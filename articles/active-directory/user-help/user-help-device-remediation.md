@@ -3,11 +3,11 @@ title: Potential reasons for the "You can't get there from here" error message i
 description: Troubleshoot the potential reasons you're getting the "You can't get there from here" error message.
 services: active-directory
 author: eross-msft 
-manager: mtillman
+manager: daveba
 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018

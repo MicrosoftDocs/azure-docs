@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -40,6 +40,9 @@ Currently, Azure Active Directory detects six types of risk events:
 - [Sign-ins from unfamiliar locations](#sign-in-from-unfamiliar-locations) 
 
 ![Risk event](./media/concept-risk-events/91.png)
+
+> [!IMPORTANT]
+> Sometimes, you may find a risk event without a corresponding sign-in entry in the [sign-ins report](concept-sign-ins.md). This is because Identity Protection evaluates risk for both **interactive** and **non-interactive** sign-ins, whereas the sign-ins report shows only the interactive sign-ins.
 
 The insight you get for a detected risk event is tied to your Azure AD subscription. 
 

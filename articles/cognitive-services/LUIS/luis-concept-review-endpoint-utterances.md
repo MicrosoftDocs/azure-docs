@@ -7,9 +7,9 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/07/2018
+ms.date: 01/24/2019
 ms.author: diberry
 ---
 # Concepts for enabling active learning by reviewing endpoint utterances

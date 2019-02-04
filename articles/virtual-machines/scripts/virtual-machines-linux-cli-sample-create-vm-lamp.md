@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Deploy the LAMP Stack in a Load-Balanced Virutal Machin Scale Set | Microsoft Docs
+title: Azure CLI Script Sample - Deploy the LAMP Stack in a Load-Balanced Virtual Machine Scale Set | Microsoft Docs
 description: Use a custom script extension to deploy the LAMP Stack in a load=balanced virtual machine scale set on Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -51,7 +51,7 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
 | [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Creates a virtual machine scale set |
 | [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Add a load-balanced endpoint |
 | [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Create the extension that runs the custom script on deployment of a VM |

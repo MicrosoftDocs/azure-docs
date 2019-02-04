@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
@@ -240,7 +240,7 @@ To deploy to Azure Container Instances, use the following steps:
     **Time estimate**: Approximately 3 minutes.
 
     > [!TIP]
-    > If there are errors during deployment, use `service.get_logs()` to view the AKS service logs. The logged information may indicate the cause of the error.
+    > If there are errors during deployment, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
 
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
@@ -330,7 +330,7 @@ print(service.state)
 **Time estimate**: Approximately 3 minutes.
 
 > [!TIP]
-> If there are errors during deployment, use `service.get_logs()` to view the AKS service logs. The logged information may indicate the cause of the error.
+> If there are errors during deployment, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
 
 For more information, see the reference documentation for the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) classes.
 
@@ -375,7 +375,7 @@ sudo chmod +x installIoTEdge
 sudo ./installIoTEdge
 ```
 
-The IoT Edge node is ready to recieve the connection string for your IoT Hub. Look for the line ```device_connection_string:``` and paste the connection string from above in between the quotes.
+The IoT Edge node is ready to receive the connection string for your IoT Hub. Look for the line ```device_connection_string:``` and paste the connection string from above in between the quotes.
 
 You can also learn how to register your device and install the IoT runtime step by step by following the [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md) document.
 

@@ -323,7 +323,7 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-task]: /cli/azure/acr#az-acr-task
-[az-acr-task-create]: /cli/azure/acr#az-acr-task-create
+[az-acr-task-create]: /cli/azure/acr
 [az-acr-task-run]: /cli/azure/acr#az-acr-task-run
 [az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
 [az-login]: /cli/azure/reference-index#az-login

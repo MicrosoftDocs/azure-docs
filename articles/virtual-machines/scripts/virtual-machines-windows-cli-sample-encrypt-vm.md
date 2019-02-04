@@ -52,7 +52,7 @@ This script uses the following commands to create a resource group, Azure Key Va
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and NSG. This command also specifies the virtual machine image to be used, and administrative credentials.  |
 | [az vm encryption enable](https://docs.microsoft.com/cli/azure/vm/encryption) | Enables encryption on a VM using the service principal credentials and encryption key. |
 | [az vm encryption show](https://docs.microsoft.com/cli/azure/vm/encryption#az_vm_encryption_show) | Shows the status of the VM encryption process. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
