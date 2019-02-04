@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ---
 
 # The Azure SQL Database service
@@ -48,7 +48,7 @@ SQL Database delivers predictable performance with multiple resource types, serv
 
 With SQL Database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size. SQL Database provides different compute sizes for different needs, and enables databases to be pooled to maximize the use of resources and save money.
 
-- With [SQL Database Managed Instance](sql-database-managed-instance.md), each instance is isolated from other instances with guaranteed resources. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
+- With [managed instances](sql-database-managed-instance.md), each instance is isolated from other instances with guaranteed resources. For more information, see [SQL Database managed instance](sql-database-managed-instance.md).
 - With the [Hyperscale service tier](sql-database-service-tier-hyperscale.md) (preview) in the vCore purchasing model, you can scale to 100 TB with fast backup and restore capabilities.
 
 ### Adjust performance and scale without downtime
@@ -76,7 +76,7 @@ With elastic pools, you don’t need to focus on dialing database performance up
 Scripts can help with monitoring and scaling elastic pools. For an example, see [Use PowerShell to monitor and scale a SQL elastic pool in Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 
 > [!IMPORTANT]
-> SQL Database Managed Instance does not support elastic pools.
+> A managed instance does not support elastic pools. Rather, a managed instance is a collection of instance databases that share managed instance resources.
 
 ### Blend single databases with pooled databases
 
@@ -143,25 +143,25 @@ SQL Database provides a range of [built-in security and compliance features](sql
 
 ### Advance Threat Protection
 
-SQL Advanced Data Security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
+Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
 
-- [Data Discovery & Classification](sql-database-data-discovery-and-classification.md):
+- [Data discovery & classification](sql-database-data-discovery-and-classification.md):
 
   This feature (currently in preview) provides capabilities built into Azure SQL Database for discovering, classifying, labeling & protecting the sensitive data in your databases. It can be used to provide visibility into your database classification state, and to track the access to sensitive data within the database and beyond its borders.
-- [Vulnerability Assessment](sql-vulnerability-assessment.md):
+- [Vulnerability assessment](sql-vulnerability-assessment.md):
 
   This service can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
-- [Threat Detection](sql-database-threat-detection.md):
+- [Threat detection](sql-database-threat-detection.md):
 
-  This feature detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your database. It continuously monitors your database for suspicious activities, and provides immediate security alerts on potential vulnerabilities, SQL injection attacks, and anomalous database access patterns. Threat Detection alerts provide details of the suspicious activity and recommend action on how to investigate and mitigate the threat.
+  This feature detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit your database. It continuously monitors your database for suspicious activities, and provides immediate security alerts on potential vulnerabilities, SQL injection attacks, and anomalous database access patterns. Threat detection alerts provide details of the suspicious activity and recommend action on how to investigate and mitigate the threat.
 
 ### Auditing for compliance and security
 
-[SQL Database Auditing](sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
+[Auditing](sql-database-auditing.md) tracks database events and writes them to an audit log in your Azure storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
 ### Data encryption
 
-SQL Database secures your data by providing encryption for data in motion with [Transport Layer Security](https://support.microsoft.com/kb/3135244), for data at rest with [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), and for data in use with [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+SQL Database secures your data by providing encryption for data in motion with [transport layer security](https://support.microsoft.com/kb/3135244), for data at rest with [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), and for data in use with [always encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### Azure Active Directory integration and multi-factor authentication
 

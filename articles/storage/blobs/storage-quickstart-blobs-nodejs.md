@@ -104,7 +104,7 @@ In the following implementation, each of the *blobService* functions is wrapped 
 
 ### List containers
 
-The *listContainers* function calls [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listcontainerssegmented) which returns collections of containers in groups.
+The *listContainers* function calls [listContainersSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) which returns collections of containers in groups.
 
 ```javascript
 const listContainers = async () => {
@@ -146,7 +146,7 @@ The use of **createContainerIfNotExists** allows the application to run the *cre
 
 ### Upload text
 
-The *uploadString* function calls [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) to write (or overwrite) an arbitrary string to the blob container.
+The *uploadString* function calls [createBlockBlobFromText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) to write (or overwrite) an arbitrary string to the blob container.
 
 ```javascript
 const uploadString = async (containerName, blobName, text) => {
@@ -180,7 +180,7 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-Other approaches available to upload content into blobs include working with [text](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) and [streams](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). To verify the file is uploaded to your blob storage, you can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to view the data in your account.
+Other approaches available to upload content into blobs include working with [text](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest-string--string--string---buffer--errororresult-blobresult--) and [streams](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). To verify the file is uploaded to your blob storage, you can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to view the data in your account.
 
 ### List the blobs
 
@@ -204,7 +204,7 @@ Calling *listBlobsSegmented* returns blob metadata as an array of [BlobResult](h
 
 ### Download a blob
 
-The *downloadBlob* function uses [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtotext) to download the contents of the blob to the given absolute file path.
+The *downloadBlob* function uses [getBlobToText](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) to download the contents of the blob to the given absolute file path.
 
 ```javascript
 const downloadBlob = async (containerName, blobName) => {
@@ -220,7 +220,7 @@ const downloadBlob = async (containerName, blobName) => {
     });
 };
 ```
-The implementation shown here changes the source returns the contents of the blob as a string. You can also download the blob as a [stream](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream) as well as directly to a [local file](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
+The implementation shown here changes the source returns the contents of the blob as a string. You can also download the blob as a [stream](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest) as well as directly to a [local file](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
 
 ### Delete a blob
 
