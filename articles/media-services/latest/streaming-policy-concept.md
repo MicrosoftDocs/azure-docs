@@ -21,7 +21,7 @@ In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest
 
 > [!IMPORTANT]
 > * Properties of **Streaming Policies** that are of the Datetime type are always in UTC format.
-> * You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options and are needed. 
+> * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. 
 
 ## Examples
 
