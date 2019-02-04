@@ -153,4 +153,4 @@ terraform destroy -auto-approve
 In this example, you created, deployed, and destroyed a Terraform configuration. For more information on using Terraform in Azure, see the Azure Terraform provider documentation.
 
 > [!div class="nextstepaction"]
-> [Terraform on Azure][https://www.terraform.io/docs/providers/azurerm/]
+> [Azure Terraform provider](https://www.terraform.io/docs/providers/azurerm/)
