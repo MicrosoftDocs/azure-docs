@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: asganesh
+ms.lastreviewed: 12/10/2018
 ---
  
 # Azure Stack datacenter integration

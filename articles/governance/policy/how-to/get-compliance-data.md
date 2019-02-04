@@ -4,7 +4,7 @@ description: Azure Policy evaluations and effects determine compliance. Learn ho
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -63,6 +63,9 @@ minutes later. This event doesn't cause an evaluation of other resources.
 reevaluated. A large policy or initiative of many resources can take time, so there's no
 pre-defined expectation of when the evaluation cycle will complete. Once it completes, updated
 compliance results are available in the portal and SDKs.
+
+- The [Guest Configuration](../concepts/guest-configuration.md) resource provider is updated with
+compliance details by a managed resource.
 
 - On-demand scan
 

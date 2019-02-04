@@ -32,8 +32,7 @@ IP address 168.63.129.16 is a virtual public IP address that is used to facilita
 
 Virtual public IP address 168.63.129.16 is used in all regions and all national clouds. This special public IP address will not change. It is allowed by the default network security group rule. We recommend that you allow this IP address in any local firewall policies. The communication between this special IP address and the resources is safe because only the internal Azure platform can source a message from this IP address. If this address is blocked, unexpected behavior can occur in a variety of scenarios.
 
-Additionally, traffics from virtual public IP address 168.63.129.16 to the endpoint that configured for a [Load Balancer health probe](../load-balancer/load-balancer-custom-probe-overview.md) should not be considered as attack traffic. In a non-virtual network scenario, the health probe is sourced from a private IP.
-
+Additionally, you can expect that traffic to flow from virtual public IP address 168.63.129.16 to the endpoint that is configured for a [Load Balancer health probe](../load-balancer/load-balancer-custom-probe-overview.md). In a non-virtual network scenario, the health probe is sourced from a private IP. 
 
 ## Next steps
 

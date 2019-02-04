@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Data Lake Storage Gen2 security guide

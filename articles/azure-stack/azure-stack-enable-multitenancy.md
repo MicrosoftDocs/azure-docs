@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
+ms.lastreviewed: 11/6/2018
 ---
 
 # Multi-tenancy in Azure Stack

@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Create a storage account

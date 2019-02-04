@@ -15,6 +15,7 @@ ms.date: 01/11/2019
 ms.lastreviewed: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
+ms.lastreviewed: 01/11/2019
 ---
 
 # Deploy the MySQL resource provider on Azure Stack

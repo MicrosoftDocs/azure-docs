@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
+ms.lastreviewed: 10/15/2018
 
 ---
 # Capacity planning for Azure App Service server roles in Azure Stack

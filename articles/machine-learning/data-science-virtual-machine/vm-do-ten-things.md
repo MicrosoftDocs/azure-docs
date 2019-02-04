@@ -1,4 +1,4 @@
-﻿---
+---
 title: Data exploration and modeling with Data Science Virtual Machine
 titleSuffix: Azure
 description: Perform various data exploration and modeling task on the Data science Virtual Machine.
@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

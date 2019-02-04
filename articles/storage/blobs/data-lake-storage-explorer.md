@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Azure Storage Explorer to 
 services: storage
 author: tamram
 
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart

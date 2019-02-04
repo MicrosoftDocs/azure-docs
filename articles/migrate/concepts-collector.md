@@ -4,7 +4,7 @@ description: Provides information about the Collector appliance in Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/31/2019
 ms.author: snehaa
 services: azure-migrate
 ---
@@ -27,7 +27,7 @@ The collector appliance is continuously connected to the Azure Migrate project a
 - This model doesn't depend on the vCenter Server statistics settings to collect performance data.
 - You can stop continuous profiling at anytime from the Collector.
 
-**Instant gratification:** With the continuous discovery appliance, once the discovery is complete (it takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for instant gratification, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
+**Quick assessments:** With the continuous discovery appliance, once the discovery is complete (it takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for quick assessments, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
 
 The appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
 

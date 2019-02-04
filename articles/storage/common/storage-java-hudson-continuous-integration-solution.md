@@ -8,7 +8,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.component: common
+ms.subservice: common
 ---
 # Using Azure Storage with a Hudson Continuous Integration solution
 ## Overview

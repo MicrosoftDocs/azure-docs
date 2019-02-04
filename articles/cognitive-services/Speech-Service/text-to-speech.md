@@ -33,6 +33,9 @@ Scenarios in which speech synthesis is being adopted include:
 
 The Microsoft **Text-to-Speech** service offers more than 75 voices in more than 45 languages and locales. To use these standard "voice fonts", you only need to specify the voice name with a few other parameters when you call the service's REST API. For more information about supported languages, locales, and voices, see [supported languages](language-support.md#text-to-speech).
 
+> [!IMPORTANT]
+> Costs vary for standard, custom, and neural voices. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
 ### Neural voices
 
 Neural text-to-speech can be used to make interactions with chatbots and virtual assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, Neural TTS has significantly reduced listening fatigue when you interact with AI systems. For more information about neural voices, see [supported languages](language-support.md#text-to-speech).
