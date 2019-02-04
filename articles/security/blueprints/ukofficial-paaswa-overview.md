@@ -68,7 +68,7 @@ The following section details the deployment and implementation elements.
 
 #### Identity and authentication
 
-This blueprint ensures that access to resources is protected through directory and identity management services. This architecture makes full use of [identity as the security perimeter](https://docs.microsoft.com/azure/security/security-paas-deployments#identity-as-the-primary-security-perimeter). 
+This blueprint ensures that access to resources is protected through directory and identity management services. This architecture makes full use of [identity as the security perimeter](https://docs.microsoft.com/azure/security/security-paas-deployments). 
 
 The following technologies provide identity management capabilities in the Azure environment:
 

@@ -11,12 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/12/2018
 ---
 # Connect to SQL Database using C and C++
+
 This post is aimed at C and C++ developers trying to connect to Azure SQL DB. It is broken down into sections so you can jump to the section that best captures your interest.
 
 ## Prerequisites for the C/C++ tutorial
+
 Make sure you have the following items:
 
 * An active Azure account. If you don't have one, you can sign up for a [Free Azure Trial](https://azure.microsoft.com/pricing/free-trial/).
