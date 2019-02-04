@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Spell Check API, Ruby"
+title: "Quickstart: Check spelling with the Bing Spell Check REST API and Ruby"
 titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Spell Check API.
+description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -12,15 +12,13 @@ ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
 ---
-# Quickstart for Bing Spell Check API with Ruby 
+# Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) with Ruby. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!" The suggested replacements are "Hello" and "world."
+Use this quickstart to make your first call to the Bing Spell Check REST API using Ruby. This simple application sends a request to the API and returns a list of words it didn't recognize, followed by suggested corrections. While this application is written in Ruby, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later to run this code.
-
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Spell Check API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#lang) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard. See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later.
 
 ## Get Spell Check results
 
@@ -69,7 +67,7 @@ result = JSON.pretty_generate(JSON.parse(response.body))
 puts result
 ```
 
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -118,5 +116,5 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## See also
 
-- [Bing Spell Check overview](../proof-text.md)
+- [What is the Bing Spell Check API](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

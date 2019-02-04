@@ -31514,6 +31514,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/tutorials/spellcheck-source.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/tutorials/spellcheck",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/aks/aks-ssh.md",
       "redirect_url": "/azure/aks/ssh",
       "redirect_document_id": true

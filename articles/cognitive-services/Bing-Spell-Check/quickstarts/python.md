@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Spell Check API, Python"
+title: "Quickstart: Check spelling with the Bing Spell Check REST API and Python"
 titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Spell Check API.
+description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -12,56 +12,71 @@ ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
 ---
-# Quickstart for Bing Spell Check API with Python 
+# Quickstart: Check spelling with the Bing Spell Check REST API and Python
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) with Python. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!" The suggested replacements are "Hello" and "world."
+Use this quickstart to make your first call to the Bing Spell Check REST API. This simple Python application sends a request to the API and returns a list of suggested corrections. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
-You will need [Python 3.x](https://www.python.org/downloads/) to run this code.
+* Python [3.x](https://www.python.org)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Spell Check API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#lang) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard. See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+## Initialize the application
 
-## Get Spell Check results
+1. Create a new Python file in your favorite IDE or editor, and add the following import statement.
 
-1. Create a new Python project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+   ```python
+   import http.client, urllib.parse, json
+   ```
 
-```python
-import http.client, urllib.parse, json
+2. Create a variable for the text you want to spell check, and it to a dictionary with `text` as a key. Then add variables for your subscription key, host, and path. 
 
-text = 'Hollo, wrld!'
+    ```python
+    text = 'Hollo, wrld!'
+    data = {'text': text}
+    host = 'api.cognitive.microsoft.com'
+    path = '/bing/v7.0/spellcheck?'
+    params = 'mkt=en-us&mode=proof'
+    ```
 
-data = {'text': text}
+3. Create a variable for your search parameters. append your market code to `mkt=` and your spell-check mode to `&mode`.
 
-# NOTE: Replace this example key with a valid subscription key.
-key = 'ENTER KEY HERE'
+    ```python
+    params = 'mkt=en-us&mode=proof'
+    ```
 
-host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/spellcheck?'
-params = 'mkt=en-us&mode=proof'
+4. Add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-headers = {'Ocp-Apim-Subscription-Key': key,
-'Content-Type': 'application/x-www-form-urlencoded'}
+    ```python
+    headers = {
+    'Ocp-Apim-Subscription-Key': key,
+    'Content-Type': 'application/x-www-form-urlencoded'
+    }
+    ```
 
-# The headers in the following example 
-# are optional but should be considered as required:
-#
-# X-MSEdge-ClientIP: 999.999.999.999  
-# X-Search-Location: lat: +90.0000000000000;long: 00.0000000000000;re:100.000000000000
-# X-MSEdge-ClientID: <Client ID from Previous Response Goes Here>
+## send a spell check request and receive the response
 
-conn = http.client.HTTPSConnection(host)
-body = urllib.parse.urlencode (data)
-conn.request ("POST", path + params, body, headers)
-response = conn.getresponse ()
-output = json.dumps(json.loads(response.read()), indent=4)
-print (output)
-```
+1. Create an HTTP client to connect to your host path, and use `urllib.parse.urlencode()` to create the body of the request.
 
-**Response**
+    ```python
+        conn = http.client.HTTPSConnection(host)
+        body = urllib.parse.urlencode (data)
+    ```
+
+2. Send the request with a `POST` command.
+    
+    ```python
+    conn.request ("POST", path + params, body, headers)
+    ```
+
+3. Get the API response, and print the JSON.
+
+    ```python
+    response = conn.getresponse ()
+    output = json.dumps(json.loads(response.read()), indent=4)
+    print (output)
+    ```
+
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -110,5 +125,5 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## See also
 
-- [Bing Spell Check overview](../proof-text.md)
+- [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
