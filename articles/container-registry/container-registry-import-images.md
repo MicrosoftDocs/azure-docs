@@ -34,7 +34,7 @@ To import container images, this article requires that you run the Azure CLI in 
 
 If you don't already have an Azure container registry, create a registry. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
 
-To import an image to an Azure container registry, your identity must have Contributor permissions to the registry. See [Azure Container Registry roles and permissions](container-registry-roles.md). 
+To import an image to an Azure container registry, your identity must have at least the  Contributor role in the registry. See [Azure Container Registry roles and permissions](container-registry-roles.md). 
 
 ## Import from a public registry
 
@@ -70,7 +70,7 @@ az acr import --name myregistry --source mcr.microsoft.com/windows/servercore:la
 
 You can import an image from another Azure container registry using integrated Azure Active Directory permissions.
 
-* Your identity must have Azure Active Directory permissions to read from the source registry as well as Contributor permissions to the target registry.
+* Your identity must have Azure Active Directory permissions to read from the source registry (Reader role) and to write to the target registry (Contributor role).
 
 * The registry can be in the same or a different Azure subscription in the same Active Directory tenant.
 
