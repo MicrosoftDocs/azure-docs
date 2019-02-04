@@ -4,8 +4,8 @@ description: Get started with Terraform on Azure by deploying an Azure Cosmos DB
 services: terraform
 author: neilpeterson
 ms.service: terraform
-ms.topic: article
-ms.date: 01/28/2019
+ms.topic: quickstart
+ms.date: 02/04/2019
 ms.author: nepeters
 ---
 
