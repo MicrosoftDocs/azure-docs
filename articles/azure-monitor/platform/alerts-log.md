@@ -126,9 +126,95 @@ Log alerts in Azure Monitor are associated with resource type `Microsoft.Insight
 > [!NOTE]
 > Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
 
-The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
+
+### Sample Log alert creation using Azure Resource Template
+
+The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template using standard log search query of [number of results type log alert](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules), with sample data set as variables.
 
 ```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0", 
+    "parameters": {      
+    },   
+    "variables": {
+    "alertLocation": "southcentralus",
+    "alertName": "samplelogalert",
+    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+    "alertDescription": "Sample log search alert",
+    "alertStatus": "true",
+    "alertSource":{
+        "Query":"requests",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Type":"ResultCount"
+         },
+     "alertSchedule":{
+         "Frequency": 15,
+         "Time": 60
+         },
+     "alertActions":{
+         "SeverityLevel": "4"
+         },
+      "alertTrigger":{
+        "Operator":"GreaterThan",
+        "Threshold":"1"
+         },
+       "actionGrp":{
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "Subject": "Customized Email Header",
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
+         }
+  },
+  "resources":[ {
+    "name":"[variables('alertName')]",
+    "type":"Microsoft.Insights/scheduledQueryRules",
+    "apiVersion": "2018-04-16",
+    "location": "[variables('alertLocation')]",
+    "tags":{"[variables('alertTag')]": "Resource"},
+    "properties":{
+       "description": "[variables('alertDescription')]",
+       "enabled": "[variables('alertStatus')]",
+       "source": {
+           "query": "[variables('alertSource').Query]",
+           "dataSourceId": "[variables('alertSource').SourceId]",
+           "queryType":"[variables('alertSource').Type]"
+       },
+      "schedule":{
+           "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+       },
+      "action":{
+           "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+           "severity":"[variables('alertActions').SeverityLevel]",
+           "aznsAction":{
+               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "emailSubject":"[variables('actionGrp').Subject]",
+               "customWebhookPayload":"[variables('actionGrp').Webhook]"
+           },
+       "trigger":{
+               "thresholdOperator":"[variables('alertTrigger').Operator]",
+               "threshold":"[variables('alertTrigger').Threshold]"
+           }
+       }
+     }
+   }
+ ]
+}
+
+```
+
+> [!IMPORTANT]
+> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
+
+The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+```
+
+### Log alert with cross-resource query using Azure Resource Template
+
+The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template using [cross-resource log search query](../../azure-monitor/log-query/cross-workspace-query.md) of [metric measurement type log alert](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules), with sample data set as variables.
+
+```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
@@ -214,9 +300,11 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
    }
  ]
 }
+
 ```
+
 > [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
+> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. When using cross-resource query in log alert, the usage of [authorizedResources](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate#source) is mandatory and user must have access to the list of resources stated
 
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
