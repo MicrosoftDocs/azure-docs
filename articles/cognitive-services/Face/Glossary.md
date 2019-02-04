@@ -368,6 +368,10 @@ Please see [face rectangle](#Face-Rectangle).
 
 ## S
 
+#### Similar Face Searching
+
+Please see [Find Similar](#Find-Similar).
+
 #### Smile (Attribute)
 
 Smile is one of the [attributes](#Attributes) used to describe the smile expression of the available faces. The smile attribute is optional in the [detection](#Detection-Face-Detection) results, and can be controlled with a [detection](#Detection-Face-Detection) request by returnFaceAttributes. If returnFaceAttributes contains 'smile', the returned faces will have smile attributes.
@@ -375,9 +379,11 @@ Smile is one of the [attributes](#Attributes) used to describe the smile express
 For more details, please refer to the guide
 [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### Similar Face Searching
+#### Snapshot
 
-Please see [Find Similar](#Find-Similar).
+A snapshot is a temporary remote storage for certain Face data types. It functions as a kind of clipboard to copy data from one subscription to another. First the user "takes" a snapshot of the data in the source subscription, and then they "apply" it to a new data object in the target subscription. 
+
+For more details, see [Face migration guide](./face-api-how-to-topics/how-to-migrate-face-data.md) as well as the [Snapshot - Take](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/take) and [Snapshot - Apply](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot/apply) reference documentation (REST).
 
 #### Status (Train)
 

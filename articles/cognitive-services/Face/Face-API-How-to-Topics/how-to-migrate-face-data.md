@@ -22,7 +22,7 @@ This same migration strategy also applies to **LargePersonGroup** and **LargeFac
 ## Prerequisites
 
 - Two Face API subscription keys (one with the existing data, and one to migrate to). Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
-- Two corresponding Face API subscription ID strings (found in the **Overview** blade on the Azure portal). 
+- The Face API subscription ID string corresponding to the target subscription (found in the **Overview** blade on the Azure portal). 
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 
 
@@ -30,24 +30,24 @@ This same migration strategy also applies to **LargePersonGroup** and **LargeFac
 
 This guide will use a simple console app to execute the face data migration. For a full implementation, see the [Face API Snapshot Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) on GitHub.
 
-1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **FaceMigration**. 
+1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **FaceApiSnapshotSample**. 
 1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**. Click the **Browse** tab and select **Include prerelease**; then find and install the following package:
-    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 
 ## Create face clients
 
-In the **Main** method in *Program.cs*, create two **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** instances for your source and target subscriptions. In this example, we will use a Face subscription in the East Asia region as the source, and a West US subscription as the target. This will demonstrate how to migrate data from one Azure region to another.
+In the **Main** method in *Program.cs*, create two **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** instances for your source and target subscriptions. In this example, we will use a Face subscription in the East Asia region as the source, and a West US subscription as the target. This will demonstrate how to migrate data from one Azure region to another. If your subscriptions are in different regions, you will need to change the `Endpoint` strings.
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))
     {
-        Endpoint = "<East Asia Endpoint Url>"
+        Endpoint = "https://southeastasia.api.cognitive.microsoft.com/>"
     };
 
 var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West US Subscription Key>"))
     {
-        Endpoint = "<West US Endpoint Url>"
+        Endpoint = "https://westus.api.cognitive.microsoft.com/"
     };
 ```
 
@@ -56,14 +56,16 @@ You will need to fill in the subscription key values and endpoint URLs for your 
 
 ## Prepare a PersonGroup for migration
 
-You need the ID of the **PersonGroup** in your source subscription to migrate it to the target subscription. Use the **[PersonGroupOperation.ListWithHttpMessages](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations.listwithhttpmessagesasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_PersonGroupOperations_ListWithHttpMessagesAsync_System_String_System_Nullable_System_Int32__System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_)** method to retrieve a list of your **PersonGroup** objects; then get the **[PersonGroup.PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId)** property. This process will look different depending on what **PersonGroup** objects you have. In the this guide, the source **PersonGroup** ID is stored in `personGroupId`.
+You need the ID of the **PersonGroup** in your source subscription to migrate it to the target subscription. Use the **[PersonGroupOperationsExtensions.ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet)** method to retrieve a list of your **PersonGroup** objects; then get the **[PersonGroup.PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId)** property. This process will look different depending on what **PersonGroup** objects you have. In the this guide, the source **PersonGroup** ID is stored in `personGroupId`.
 
 > [!NOTE]
 > The [sample code](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) creates and trains a new **PersonGroup** to migrate, but in most cases you should already have a **PersonGroup** to use.
 
 ## Take Snapshot of PersonGroup
 
-Use the source subscription's **FaceClient** instance to take a snapshot of the **PersonGroup**, using **TakeAsync** with the **PersonGroup** ID and the target subscription's ID. If you have multiple target subscriptions, you can add them as array entries in the third parameter.
+A snapshot is a temporary remote storage for certain Face data types. It functions as a kind of clipboard to copy data from one subscription to another. First the user "takes" a snapshot of the data in the source subscription, and then they "apply" it to a new data object in the target subscription.
+
+Use the source subscription's **FaceClient** instance to take a snapshot of the **PersonGroup**, using **[TakeAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperationsextensions.takeasync?view=azure-dotnet)** with the **PersonGroup** ID and the target subscription's ID. If you have multiple target subscriptions, you can add them as array entries in the third parameter.
 
 ```csharp
 var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
@@ -73,11 +75,11 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s (or **FaceList**s). However, if you are simultaneously making calls that change the source object ([Face List management calls](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) or the [Person Group - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) call, for example), the snapshot operation may execute before or after those operations. Execution order is not guaranteed.
+> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s (or **FaceList**s). However, we do not recommend making simultaneous calls that change the source object ([Face List management calls](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) or the [Person Group - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) call, for example), because the snapshot operation may execute before or after those operations or may encounter errors. 
 
 ## Retrieve the Snapshot ID
 
-The snapshot retrieving method is asynchronous, so you'll need to wait for its completion (snapshot operations cannot be cancelled). In this code, the `WaitForOperation` method monitors the asynchronous call, checking the status every 100ms. When the operation completes, you will be able to retrieve a snapshot ID. You can obtain it by parsing the `OperationLocation` field. 
+The snapshot taking method is asynchronous, so you'll need to wait for its completion (snapshot operations cannot be cancelled). In this code, the `WaitForOperation` method monitors the asynchronous call, checking the status every 100ms. When the operation completes, you will be able to retrieve a snapshot ID. You can obtain it by parsing the `OperationLocation` field. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
@@ -222,7 +224,8 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 
 ## Related Topics
 
-- [Face reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face)
+- [Snapshot reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
+- [Face API Snapshot Sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [How to add faces](how-to-add-faces.md)
 - [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
 - [How to Identify Faces in image](HowtoIdentifyFacesinImage.md)
