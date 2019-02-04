@@ -34,6 +34,9 @@ When a Microsoft or OEM update package for Azure Stack is available, download th
 
 - A `Metadata.xml` file. This file contains essential information about the update, for example the publisher, name, prerequisite, size, and support path URL.
 
+> [!IMPORTANT]  
+> After the Azure Stack 1901 update package is applied, the packaging format for Azure Stack update pacakges will move from .exe, .bin(s), and .xml format to a .zip(s) and .xml format. Azure Stack operators that have connected stamps won't be impacted. Azure Stack operators that are disconnected will simply import the .xml and .zip file(s) by using the same process described below.
+
 ## Import and install updates
 
 The following procedure shows how to import and install update packages in the administrator portal.
