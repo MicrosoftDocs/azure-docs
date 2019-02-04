@@ -120,9 +120,9 @@ The feed's URL is hardcoded, so this example shows how to replace the query valu
 and add a `currentFeedUrl` object:
 
    ``` json
-	 "currentFeedUrl" : {
+   "currentFeedUrl" : {
       "type" : "string",
-			"defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
+      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
    }
    ```
 
@@ -292,7 +292,7 @@ all the `/` characters with `_` characters.
 
 To get different results based a property's value, 
 you can create a map that matches each property value to a result, 
-then use that map as a parameter. 
+then use that map as a parameter.
 
 For example, this workflow defines some categories as parameters 
 and a map that matches those categories with a specific URL. 
