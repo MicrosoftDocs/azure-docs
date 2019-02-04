@@ -55,7 +55,7 @@ Event
 | computer2 | [326,105,302,301,300,102] |
 | ... | ... |
 
-Like `makelist`, `makeset` also works with ordered data and will generate the arrays based on the order of the rows that are passed into it.
+Like `makelist`, `makeset` also works with ordered data and will generate the array of the set of distinct values that Expr takes in the group. The array's sort order is undefined.
 
 ## Expanding lists
 The inverse operation of `makelist` or `makeset` is `mvexpand`, which expands a list of values to separate rows. It can expand across any number of dynamic columns, both JSON and array. For example, you could check  the *Heartbeat* table for solutions sending data from computers that sent a heartbeat in the last hour:
