@@ -30,7 +30,7 @@ Resource Manager provides several functions for making comparisons in your templ
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## and
-`and(arg1, arg2)`
+`and(arg1, arg2, ...)`
 
 Checks whether both parameter values are true.
 
@@ -40,10 +40,11 @@ Checks whether both parameter values are true.
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |The first value to check whether is true. |
 | arg2 |Yes |boolean |The second value to check whether is true. |
+| additional arguments |No |boolean |Addtional arguments to check whether are true. |
 
 ### Return value
 
-Returns **True** if both values are true; otherwise, **False**.
+Returns **True** if all values are true; otherwise, **False**.
 
 ### Examples
 
@@ -362,7 +363,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## or
-`or(arg1, arg2)`
+`or(arg1, arg2, ...)`
 
 Checks whether either parameter value is true.
 
@@ -372,10 +373,11 @@ Checks whether either parameter value is true.
 |:--- |:--- |:--- |:--- |
 | arg1 |Yes |boolean |The first value to check whether is true. |
 | arg2 |Yes |boolean |The second value to check whether is true. |
+| additional arguments |No |boolean |Addtional arguments to check whether are true. |
 
 ### Return value
 
-Returns **True** if either value is true; otherwise, **False**.
+Returns **True** if any value is true; otherwise, **False**.
 
 ### Examples
 
