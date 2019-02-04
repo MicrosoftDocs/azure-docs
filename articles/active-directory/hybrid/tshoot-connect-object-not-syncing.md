@@ -47,7 +47,7 @@ The syncing process involves following steps:
 
 4. **Export to AD:** After syncing, objects are exported from AD CS to Active Directory.
 
-5. **Export to Azure AD:** After syncing, objects are exported from AD CS to Azure AD.
+5. **Export to Azure AD:** After syncing, objects are exported from Azure AD CS to Azure AD.
 
 ## Troubleshooting
 
@@ -60,11 +60,11 @@ To find the errors, look at a few different places, in the following order:
 Start [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) before you begin these steps.
 
 ## Operations
-The **Operations** tab in the Synchronization Service Manager is where you should start your troubleshooting. This tab shows the results from the most recent operations. 
+The **Operations** tab in the **Synchronization Service Manager** is where you should start your troubleshooting. This tab shows the results from the most recent operations. 
 
 ![Screenshot of Synchronization Service Manager, showing Operations tab selected](./media/tshoot-connect-object-not-syncing/operations.png)  
 
-The top half of the **Operations** tab shows all runs in chronological order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](how-to-connect-sync-feature-scheduler.md). You want to look for any run that does not show a success status. You can change the sorting by clicking the headers.
+The top half of the **Operations** tab shows all runs in chronological order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](how-to-connect-sync-feature-scheduler.md). Look for any run that does not show a **success** status. You can change the sorting by clicking the headers.
 
 The **Status** column contains the most important information and shows the most severe problem for a run. Here is a quick summary of the most common statuses in order of investigation priority (where * indicates several possible error strings).
 
@@ -82,7 +82,7 @@ When you select a row, the bottom of the **Operations** tab updates to show the 
 When you have errors, the **Synchronization Service Manager** shows both the object in error and the error itself as links that provide more information.
 
 ![Screenshot of errors in the Synchronization Service Manager](./media/tshoot-connect-object-not-syncing/errorsync.png)  
-Start by selecting the error string. (In the preceding figure, the error string is **sync-rule-error-function-triggered**). You are first presented with an overview of the object. To see the actual error, choose **Stack Trace**. This trace provides debug-level information for the error.
+Start by selecting the error string. (In the preceding figure, the error string is **sync-rule-error-function-triggered**.) You are first presented with an overview of the object. To see the actual error, choose **Stack Trace**. This trace provides debug-level information for the error.
 
 Right-click the **Call Stack Information** box, choose **Select All**, and then choose **Copy**. Then copy the stack and look at the error in your favorite editor, such as Notepad.
 
@@ -92,10 +92,10 @@ If the error is from **SyncRulesEngine**, the call stack information first lists
   
 The line after the heading shows the error. In the preceding figure, the error is from a custom sync rule that Fabrikam created.
 
-If the error itself does not give enough information, it's time to look at the data itself. Select the link with the object identifier and continue troubleshooting the [connector space imported object](#cs-import).
+If the error does not give enough information, it's time to look at the data itself. Select the link with the object identifier and continue troubleshooting the [connector space imported object](#cs-import).
 
 ## Connector space object properties
-If the [**Operations**](#operations) tab shows no errors, the next step is to follow the connector space object from Active Directory to the metaverse to Azure AD. In this path, you should find where the problem is.
+If the [**Operations**](#operations) tab shows no errors, follow the connector space object from Active Directory to the metaverse to Azure AD. In this path, you should find where the problem is.
 
 ### Searching for an object in the CS
 
@@ -107,7 +107,7 @@ In the **Scope** box, select **RDN** when you want to search on the CN attribute
 
 If you don't find the object you're looking for, it might have been filtered with [domain-based filtering](how-to-connect-sync-configure-filtering.md#domain-based-filtering) or [OU-based filtering](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering). To verify that the filtering is configured as expected, read [Azure AD Connect sync: Configure filtering](how-to-connect-sync-configure-filtering.md).
 
-Another useful search is to select the Azure AD Connector. In the **Scope** box, select **Pending Import**, and then select the **Add** check box. This search gives you all synced objects in Azure AD that cannot be associated with an on-premises object.  
+You can perform another useful search by selecting the Azure AD Connector. In the **Scope** box, select **Pending Import**, and then select the **Add** check box. This search gives you all synced objects in Azure AD that cannot be associated with an on-premises object.  
 
 ![Screenshot of orphans in a connector space search](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
  
@@ -138,7 +138,7 @@ In the preceding figure, you can also see in the **PasswordSync** column that th
 From the **Lineage** tab, you can get to the metaverse by selecting [**Metaverse Object Properties**](#mv-attributes).
 
 ### Preview
-In the lower-left corner of the **Connector Space Object Properties** window is the **Preview** button. Select this button to open the **Preview** page, where you can sync a single object. This page is useful if you are troubleshooting some custom sync rules and want to see the effect of a change on a single object. You can choose a full sync or a delta sync. You can also choose **Generate Preview**, which only keeps the change in memory, or choose **Commit Preview**, which updates the metaverse and stages all changes to target connector spaces.  
+In the lower-left corner of the **Connector Space Object Properties** window is the **Preview** button. Select this button to open the **Preview** page, where you can sync a single object. This page is useful if you are troubleshooting some custom sync rules and want to see the effect of a change on a single object. You can choose a **Full sync** or a **Delta sync**. You can also choose **Generate Preview**, which only keeps the change in memory. Or choose **Commit Preview**, which updates the metaverse and stages all changes to target connector spaces.  
 
 ![Screenshot of the Preview page, with Start Preview selected](./media/tshoot-connect-object-not-syncing/preview.png)  
 
@@ -150,7 +150,7 @@ In the preview you can inspect the object and see which rule applied for a parti
 Next to the **Preview** button, select the **Log** button to open the **Log** page. Here you can see the password sync status and history. For more information, see [Troubleshoot password hash synchronization with Azure AD Connect sync](tshoot-connect-password-hash-synchronization.md).
 
 ## Metaverse object properties
-It is usually better to start a search from the source Azure AD [connector space](#connector-space-object-properties). But you can also start searching from the metaverse.
+It is usually better to start a search from the source Active Directory [connector space](#connector-space-object-properties). But you can also start searching from the metaverse.
 
 ### Searching for an object in the MV
 In **Synchronization Service Manager**, select **Metaverse Search**, as in the following figure. Create a query that you know finds the user. Search for common attributes, such as **accountName** (**sAMAccountName**) and **userPrincipalName**. For more information, see [Sync Service Manager Metaverse search](how-to-connect-sync-service-manager-ui-mvsearch.md).
@@ -186,7 +186,7 @@ On the **Attributes** tab, you can see the values and which connectors contribut
 ![Screenshot of the Metaverse Object Properties window, with the Attributes tab selected](./media/tshoot-connect-object-not-syncing/mvobject.png)  
 
 If an object is not syncing, ask the following questions about attribute states in the metaverse:
-- Is the attribute **cloudFiltered** present and set to **true**? If it is, it has been filtered according to the steps in [attribute-based filtering](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
+- Is the attribute **cloudFiltered** present and set to **True**? If it is, it has been filtered according to the steps in [attribute-based filtering](how-to-connect-sync-configure-filtering.md#attribute-based-filtering).
 - Is the attribute **sourceAnchor** present? If not, do you have an account-resource forest topology? If an object is identified as a linked mailbox (the attribute **msExchRecipientTypeDetails** has the value **2**), the **sourceAnchor** is contributed by the forest with an enabled Active Directory account. Make sure the master account has been imported and synced correctly. The master account must be listed among the [connectors](#mv-connectors) for the object.
 
 ### MV connectors
