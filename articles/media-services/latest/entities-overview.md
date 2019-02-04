@@ -41,7 +41,9 @@ Properties of entities that are of the Datetime type are always in UTC format.
 
 ## Page results
 
-If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. If entities are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded). 
+If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. The page size varies by the type of entity, please read the individual sections that follow for details.
+
+If entities are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded). 
 
 > [!TIP]
 > You should always use the next link to enumerate the collection and not depend on a particular page size.
