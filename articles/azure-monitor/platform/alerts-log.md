@@ -207,7 +207,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 > Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
 
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walk through and can be deployed using [Azure Resource Manager in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
-```
+
 
 ### Log alert with cross-resource query using Azure Resource Template
 
