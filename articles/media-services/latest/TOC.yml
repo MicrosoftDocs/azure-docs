@@ -30,7 +30,7 @@
   items:
   - name: Compare Media Services v2 and v3
     href: migrate-from-v2-to-v3.md  
-  - name: Encode content
+  - name: Encode 
     href: encoding-concept.md
     items:
     - name: Transforms and Jobs
@@ -39,7 +39,7 @@
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
-  - name: Analyze content
+  - name: Analyze 
     href: analyzing-video-audio-files-concept.md
     items:
     - name: Transforms and Jobs
@@ -67,13 +67,15 @@
         href: live-event-states-billing.md
       - name: Latency
         href: live-event-latency.md
-  - name: Filters and dynamic manifest
-    href: filters-dynamic-manifest-overview.md     
+  - name: Filter
+    items:
+    - name: Filters and dynamic manifest
+      href: filters-dynamic-manifest-overview.md     
   - name: Monitor
     items:
     - name: Event Grid
       href: reacting-to-media-services-events.md      
-  - name: Protect content
+  - name: Protect
     href: content-protection-overview.md  
     items:
     - name: Content Key Policies
