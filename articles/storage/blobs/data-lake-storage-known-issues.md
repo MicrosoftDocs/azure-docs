@@ -74,13 +74,13 @@ All versioning features including [snapshots](https://docs.microsoft.com/rest/ap
 
 ## Object level storage tiers
 
-Object level storage tiers (Hot, Cold, and Archive) aren't yet available for Azure Data Lake Storage Gen 2 accounts, but they are available to Storage accounts that don't have hierarchical spaces enabled.
+Object level storage tiers (Hot, Cold, and Archive) aren't yet available for Azure Data Lake Storage Gen 2 accounts, but they are available to Storage accounts that don't have hierarchical namespaces enabled.
 
 ## Azure Blob Storage lifecycle management (Preview) policies
 
 Azure Blob Storage lifecycle management (Preview) policies aren't yet available for Azure Data Lake Storage Gen2 accounts.
 
-These policies are available to Storage accounts that don't have hierarchical spaces enabled.
+These policies are available to Storage accounts that don't have hierarchical namespaces enabled.
 
 ## Diagnostic logs
 
