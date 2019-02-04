@@ -38,7 +38,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|HubName|DurableFunctionsHub|Alternate [task hub](../articles/azure-functions/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if theyre using the same storage backend.|
+|HubName|DurableFunctionsHub|Alternate [task hub](../articles/azure-functions/durable-functions-task-hubs.md) names can be used to isolate multiple Durable Functions applications from each other, even if they're using the same storage backend.|
 |ControlQueueBatchSize|32|The number of messages to pull from the control queue at a time.|
 |PartitionCount |4|The partition count for the control queue. May be a positive integer between 1 and 16.|
 |ControlQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued control queue messages.|

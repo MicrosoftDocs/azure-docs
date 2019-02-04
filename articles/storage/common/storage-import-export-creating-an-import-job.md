@@ -62,7 +62,7 @@ Before creating an import job, you need to obtain a shipping location name and a
 -   If the `AlternateLocations` property of the location contains the location itself, then it is okay to use this location. Otherwise, call the `Get Location` operation again with one of the alternate locations. The original location might be temporarily closed for maintenance.
 
 ## Creating the import job
-To create the import job, call the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation. You will need to provide the following information:
+To create the import job, call the [Put Job](/rest/api/storageimportexport/jobs) operation. You will need to provide the following information:
 
 -   A name for the job.
 

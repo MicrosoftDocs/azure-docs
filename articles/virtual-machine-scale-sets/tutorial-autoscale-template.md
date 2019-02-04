@@ -194,7 +194,7 @@ When **stress** shows output similar to *stress: info: [2688] dispatching hogs: 
 
 To confirm that **stress** generates CPU load, examine the active system load with the **top** utility:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
