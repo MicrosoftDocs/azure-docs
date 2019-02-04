@@ -46,7 +46,7 @@ The following JSON shows the schema for the VM snapshot extension. The extension
       "vmType": "microsoft.compute/virtualmachines"
     },
     "protectedSettings": {
-      "objectStr": "<blob SAS uri represenattion of VM sent by Azure Backup service to extension>",
+      "objectStr": "<blob SAS uri representation of VM sent by Azure Backup service to extension>",
       "logsBlobUri": "<blob uri where logs of command execution by extension are written to>",
       "statusBlobUri": "<blob uri where status of the command executed by extension is written>"
     }
