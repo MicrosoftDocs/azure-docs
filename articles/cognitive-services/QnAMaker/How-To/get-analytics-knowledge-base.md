@@ -9,7 +9,7 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: tulasim88
 ---
 
