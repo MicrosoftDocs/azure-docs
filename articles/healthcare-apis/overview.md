@@ -34,7 +34,7 @@ FHIR is an evolving standard and users would want to explore the source code and
 * The Open Source Microsoft FHIR Server for Azure. The source code can be found at [https://github.com/Microsoft/fhir-server](https://github.com/Microsoft/fhir-server).
 * The fully managed Platform as a Service (PaaS) Azure API for FHIR.
 
-Use the OSS FHIR Server if you want to make changes to the code. The PaaS FHIR service is recommended for production use cases (using PHI).
+Use the Open Source FHIR Server if you want to make changes to the code. The PaaS FHIR service is recommended for production use cases (using PHI).
 
 ## Get started
 
