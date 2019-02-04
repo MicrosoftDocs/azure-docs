@@ -1,6 +1,6 @@
 ---
-title: Standard properties in Azure Monitor Log Analytics records | Microsoft Docs
-description: Describes properties that are common to multiple data types in Azure Monitor Log Analytics.
+title: Standard properties in Azure Monitor log records | Microsoft Docs
+description: Describes properties that are common to multiple data types in Azure Monitor logs.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,7 +15,7 @@ ms.author: bwren
 ---
 
 # Standard properties in Azure Monitor log records
-Data in [Log Analytics](../log-query/log-query-overview.md) is stored as a set of records, each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
+Log data in Azure Monitor is [stored as a set of records](../log-query/log-query-overview.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
 
 Some of these properties are still in the process of being implemented, so you may see them in some data types but not yet in others.
 
@@ -146,6 +146,6 @@ union withsource = tt *
 
 ## Next steps
 
-- Read more about how [Log Analytics data is stored](../log-query/log-query-overview.md).
-- Get a lesson on [writing queries in Log Analytics](../../azure-monitor/log-query/get-started-queries.md).
-- Get a lesson on [joining tables in Log Analytics queries](../../azure-monitor/log-query/joins.md).
+- Read more about how [Azure Monitor log data is stored](../log-query/log-query-overview.md).
+- Get a lesson on [writing log queries](../../azure-monitor/log-query/get-started-queries.md).
+- Get a lesson on [joining tables in log queries](../../azure-monitor/log-query/joins.md).

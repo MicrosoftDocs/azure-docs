@@ -16,7 +16,7 @@ ms.author: bwren
 ---
 
 # Azure Monitor log queries
-Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queries uses a version of the same query language. The [Azure Data Explorer query language documentation](/azure/kusto/query) has all of the details for the language and should be your primary resource for writing Azure Monitor log queries. This page provides links to other resources for learning how to write queries and on differences with the Log Analytics implementation of the language.
+Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queries uses a version of the same query language. The [Azure Data Explorer query language documentation](/azure/kusto/query) has all of the details for the language and should be your primary resource for writing Azure Monitor log queries. This page provides links to other resources for learning how to write queries and on differences with the Azure Monitor implementation of the language.
 
 ## Getting started
 
@@ -45,7 +45,7 @@ Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queri
 
 - [Working with strings in Azure Monitor log queries](string-operations.md) describes how to work with string data.
 - [Working with date time values in Azure Monitor log queries](datetime-operations.md) describes how to work with date and time data. 
-- [Aggregations in Azure Monitor log queries](aggregations.md) and [Advanced aggregations in Log Analytics queries](advanced-aggregations.md) describe how to aggregate and summarize data.
+- [Aggregations in Azure Monitor log queries](aggregations.md) and [Advanced aggregations in Azure Monitor log queries](advanced-aggregations.md) describe how to aggregate and summarize data.
 - [Joins in Azure Monitor log queries](joins.md) describes how to join data from multiple tables.
 - [Working with JSON and data Structures in Azure Monitor log queries](json-data-structures.md) describes how to parse json data.
 - [Writing advanced log queries in Azure Monitor](advanced-query-writing.md) describes strategies for creating complex queries and reusing code.
