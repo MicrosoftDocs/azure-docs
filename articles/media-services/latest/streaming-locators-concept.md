@@ -27,7 +27,7 @@ If you want to specify encryption options on your stream, create the [Content Ke
 
 > [!IMPORTANT]
 > * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
-> * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options and are needed. 
+> * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. 
 
 ## Filtering, ordering, paging
 
