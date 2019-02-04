@@ -55,7 +55,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
 1.  *Log Alerts*: Once selected, query for alerting can be stated in **Search Query** field; if the query syntax is incorrect the field displays error in RED. If the query syntax is correct - For reference historic data of the stated query is shown as a graph with option to tweak the time window from last six hours to last week.
 
- ![Configure alert rule](media/alerts-log/AlertsPreviewAlertLog.png)
+    ![Configure alert rule](media/alerts-log/AlertsPreviewAlertLog.png)
 
     > [!NOTE]
     > Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
