@@ -5,7 +5,7 @@
  author: vhorne
  ms.service: 
  ms.topic: include
- ms.date: 12/14/2018
+ ms.date: 2/4/2019
  ms.author: victorh
  ms.custom: include file
 ---
@@ -29,6 +29,8 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 ### What is the typical deployment model for Azure Firewall?
 
 You can deploy Azure Firewall on any virtual network, but customers typically deploy it on a central virtual network and peer other virtual networks to it in a hub-and-spoke model. You can then set the default route from the peered virtual networks to point to this central firewall virtual network.
+
+The advantage of this model is the ability to centrally exert control on multiple spoke VNETs across different subscriptions. There are also cost savings as you don't need to deploy a firewall in each VNet separately. The cost savings should be measured versus the associate peering cost based on the customer traffic patterns.
 
 ### How can I install the Azure Firewall?
 
