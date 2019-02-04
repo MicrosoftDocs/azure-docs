@@ -31,8 +31,6 @@ The Azure Cloud Shell is a free interactive shell that you can use to run the st
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
-If you want to install and use the PowerShell locally, this quickstart requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
 ## Create SSH key pair
 
 You need an SSH key pair to complete this quickstart. If you already have an SSH key pair, you can skip this step.
