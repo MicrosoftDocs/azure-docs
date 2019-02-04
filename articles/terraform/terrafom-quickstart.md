@@ -11,7 +11,7 @@ ms.author: nepeters
 
 # Create a Terraform configuration for Azure
 
-In this example, you gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you have deployed an Azure Cosmos DB, and Azure Container Instances, and an application that works across these two resources. This document assumes that all work is completed in Azure Cloud Shell which has all Terraform tooling pre-installed. If you would like to work through the example on your own system, Terraform can be installed using the instructions found [here](../virtual-machines/linux/terraform-install-configure.md).
+In this example, you gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you have deployed an Azure Cosmos DB, and Azure Container Instances, and an application that works across these two resources. This document assumes that all work is completed in Azure Cloud Shell, which has all Terraform tooling pre-installed. If you would like to work through the example on your own system, Terraform can be installed using the instructions found [here](../virtual-machines/linux/terraform-install-configure.md).
 
 ## Create first configuration
 
@@ -84,7 +84,7 @@ Now, update the configuration to include an Azure Container Instance. The contai
 
 Take note that two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
 
-Open the code editor and copy in the following configuration to the bottom of the `main.tf` file. Take note that these updates include an output block which returns the fully qualified domain name (FQDN) of the container instance. Save the file when done.
+Open the code editor and copy in the following configuration to the bottom of the `main.tf` file. Take note that these updates include an output block, which returns the fully qualified domain name (FQDN) of the container instance. Save the file when done.
 
 ```azurecli-interactive
 resource "azurerm_container_group" "vote-aci" {
