@@ -78,6 +78,8 @@
     items:
     - name: Content Key Policies
       href: content-key-policy-concept.md 
+    - name: Streaming Policies
+      href: streaming-policy-concept.md
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
   - name: Playback
