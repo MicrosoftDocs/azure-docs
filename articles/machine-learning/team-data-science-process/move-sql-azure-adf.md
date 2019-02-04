@@ -62,8 +62,8 @@ You can either adapt the procedure provided here to a set of your own data or fo
 ## <a name="create-adf"></a> Create an Azure Data Factory
 The instructions for creating a new Azure Data Factory and a resource group in the [Azure portal](https://portal.azure.com/) are provided [Create an Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
 
-## Install and configure Azure Data Factory Integration Runtime 
-The Integration Runtime is a customer managed data integration infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. This runtime was formerly called "Data Management Gateway". 
+## Install and configure Azure Data Factory Integration Runtime
+The Integration Runtime is a customer managed data integration infrastructure used by Azure Data Factory to provide data integration capabilities across different network environments. This runtime was formerly called "Data Management Gateway".
 
 To set up, [follow the instrutions for creating a pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
@@ -88,7 +88,7 @@ Create tables that specify the structure, location, and availability of the data
 The JSON-based definitions in the tables use the following names:
 
 * the **table name** in the on-premises SQL server is *nyctaxi_data*
-* the **container name** in the Azure Blob Storage account is *containername*  
+* the **container name** in the Azure Blob Storage account is *containername*
 
 Three table definitions are needed for this ADF pipeline:
 
@@ -117,7 +117,7 @@ The table definition for the on-premises SQL Server is specified in the followin
                 "availability":
                 {
                 "frequency": "Day",
-                "interval": 1,   
+                "interval": 1,
                 "waitOnExternal":
                 {
                 "retryInterval": "00:01:00",
@@ -176,7 +176,7 @@ Definition for the table for the SQL Azure output is in the following (this sche
             "structure":
             [
                 { "name": "column1", type": "String"},
-                { "name": "column2", type": "String"}                
+                { "name": "column2", type": "String"}
             ],
             "location":
             {
@@ -187,7 +187,7 @@ Definition for the table for the SQL Azure output is in the following (this sche
             "availability":
             {
                 "frequency": "Day",
-                "interval": 1            
+                "interval": 1
             }
         }
     }
@@ -220,21 +220,21 @@ Using the table definitions provided previously, the pipeline definition for the
                 [
                     {
                         "name": "CopyFromSQLtoBlob",
-                        "description": "Copy data from on-premises SQL server to blob",     
+                        "description": "Copy data from on-premises SQL server to blob",
                         "type": "CopyActivity",
                         "inputs": [ {"name": "OnPremSQLTable"} ],
                         "outputs": [ {"name": "OutputBlobTable"} ],
                         "transformation":
                         {
                             "source":
-                            {                               
+                            {
                                 "type": "SqlSource",
                                 "sqlReaderQuery": "select * from nyctaxi_data"
                             },
                             "sink":
                             {
                                 "type": "BlobSink"
-                            }   
+                            }
                         },
                         "Policy":
                         {
@@ -243,27 +243,27 @@ Using the table definitions provided previously, the pipeline definition for the
                             "style": "StartOfInterval",
                             "retry": 0,
                             "timeout": "01:00:00"
-                        }       
+                        }
 
                      },
 
                     {
                         "name": "CopyFromBlobtoSQLAzure",
-                        "description": "Push data to Sql Azure",        
+                        "description": "Push data to Sql Azure",
                         "type": "CopyActivity",
                         "inputs": [ {"name": "OutputBlobTable"} ],
                         "outputs": [ {"name": "OutputSQLAzureTable"} ],
                         "transformation":
                         {
                             "source":
-                            {                               
+                            {
                                 "type": "BlobSource"
                             },
                             "sink":
                             {
                                 "type": "SqlSink",
-                                "WriteBatchTimeout": "00:5:00",                
-                            }            
+                                "WriteBatchTimeout": "00:5:00",
+                            }
                         },
                         "Policy":
                         {
