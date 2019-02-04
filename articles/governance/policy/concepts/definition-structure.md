@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -44,7 +44,8 @@ For example, the following JSON shows a policy that limits where resources are d
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -98,9 +99,9 @@ Parameters work the same way when building policies. By including parameters in 
 definition, you can reuse that policy for different scenarios by using different values.
 
 > [!NOTE]
-> The parameters definition for a policy or initiative definition can only be configured during the
-> initial creation of the policy or initiative. The parameters definition can't be changed later.
-> This prevents existing assignments of the policy or initiative from indirectly being made invalid.
+> Parameters may be added to an existing and assigned definition. The new parameter must include the
+> **defaultValue** property. This prevents existing assignments of the policy or initiative from
+> indirectly being made invalid.
 
 As an example, you could define a policy to limit the locations where resources can be deployed.
 You'd declare the following parameters when you create your policy:
@@ -113,7 +114,8 @@ You'd declare the following parameters when you create your policy:
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2"
     }
 }
 ```
@@ -249,7 +251,7 @@ The following fields are supported:
 - `location`
   - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
 - `identity.type`
-  - Returns the type of [Managed Identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
+  - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
 - `tags`
 - `tags.<tagName>`
   - Where **\<tagName\>** is the name of the tag to validate the condition for.

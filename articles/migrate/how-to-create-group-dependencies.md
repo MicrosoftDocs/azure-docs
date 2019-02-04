@@ -69,6 +69,10 @@ To install the agent on a Linux machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+#### Install the agent on a machine monitored by System Center Operations Manager
+
+For machines monitored by Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map has an integration with Operations Manager that leverages the Operations Manager MMA to gather the necessary dependency data. You can enable the integration using the guidance [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Note, however, that the dependency agent needs to installed on these machines.
+
 ### Install the Dependency agent
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
 2. To install the Dependency agent on a Linux machine, install as root using the following command:
@@ -111,7 +115,7 @@ If you want to check the dependencies of a specific machine that appears in the 
 
 ## Query dependency data from Log Analytics
 
-Dependency data captured by Service Map is available for querying in Log Analytics. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Log Analytics. 
+Dependency data captured by Service Map is available for querying in the Log Analytics workspare associated with your Azure Migrate project. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Log Analytics. 
 
 To run the Log Analytics queries:
 

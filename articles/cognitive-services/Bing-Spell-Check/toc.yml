@@ -4,6 +4,9 @@
   items:
   - name: What is the Bing Spell Check API?
     href: proof-text.md
+  - name: Compare the Bing Search APIs
+    href: ../Bing-Web-Search/bing-api-comparison.md
+    maintainContext: true
 - name: REST API Quickstarts
   expanded: true
   items:
@@ -33,8 +36,6 @@
     href: tutorials/spellcheck-source.md
 - name: How-to guides
   items:
-  - name: Use and display requirements
-    href: UseAndDisplayRequirements.md
   - name: Upgrade from v5 to v7
     href: bing-spell-check-upgrade-guide-v5-to-v7.md
 - name: Samples
@@ -59,6 +60,9 @@
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable  
+  - name: Use and display requirements
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
 - name: Resources
   items:
   - name: Analytics for Bing Spell Check API

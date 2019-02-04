@@ -169,7 +169,7 @@ The Alert detail page includes the following sections.
 
 The Azure Monitor metrics and activity log alerting capability before June 2018 is called "Alerts (classic)". 
 
-For more information, see [Alerts classic](./../../azure-monitor/platform/alerts-classic.overview.md)
+For more information, see [Classic alerts](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## Next steps

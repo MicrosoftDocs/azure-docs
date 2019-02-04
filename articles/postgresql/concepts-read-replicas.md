@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ---
 
 # Read Replicas in Azure Database for PostgreSQL
@@ -16,6 +16,8 @@ ms.date: 01/23/2019
 The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server (master) to up to five read-only servers (read replicas) within the same Azure region. Read replicas are asynchronously updated using the PostgreSQL engine's native replication technology.
 
 Replicas are new servers that can be managed in similar ways as normal standalone Azure Database for PostgreSQL servers. For each read replica, you are billed for the provisioned compute in vCores and provisioned storage in GB/month.
+
+Visit the [how-to page to learn how to create and manage replicas](howto-read-replicas-portal.md).
 
 ## When to use read replicas
 The read replica feature is targeted at helping improve the performance and scale of read-intensive workloads. For instance, the read workloads could be isolated to the replicas, while write workloads can be directed to the master.
@@ -51,7 +53,7 @@ psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 and at the prompt enter the password for the user account.
 
 ## Monitoring replication
-There is a **Max Lag across Replicas** metric available in Azure Monitor. This metric is available on the master server only. The metric shows the lag time between the master and the most lagging replica. 
+There is a **Max Lag across Replicas** metric available in Azure Monitor. This metric is available on the master server only. The metric shows the lag in bytes between the master and the most lagging replica. 
 
 We also provide a **Replica Lag** metric in Azure Monitor. This metric is available for replicas only. 
 
@@ -96,7 +98,7 @@ You can [learn how to stop a replica in the how-to documentation](howto-read-rep
 **azure.replication_support** must be set to REPLICA on the master server before you can create a replica. Changing this parameter requires a server restart to take effect. This parameter applies to General Purpose and Memory Optimized tiers only.
 
 ### Stopped replicas
-When you choose to stop replication between a master and replica, the replica will restart to apply these changes. Afterwards, it cannot be made into a replica again.
+If you choose to stop replication between a master and replica, the replica will restart to apply this change. The replica will then become a read-write server. Afterwards, it cannot be made into a replica again.
 
 ### Replicas are new servers
 Replicas are created as new Azure Database for PostgreSQL servers. Existing servers cannot be made into replicas.

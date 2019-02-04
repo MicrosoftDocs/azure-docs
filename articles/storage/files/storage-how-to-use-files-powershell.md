@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
@@ -116,8 +116,8 @@ You can use the [Get-AzStorageFileContent](/powershell/module/az.storage/Get-AzS
 
 ```azurepowershell-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists because you've run this example before.
-Remove-Item 
-    `-Path "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt" `
+Remove-Item `
+     -Path "C:\Users\ContainerAdministrator\CloudDrive\SampleDownload.txt" `
      -Force `
      -ErrorAction SilentlyContinue
 

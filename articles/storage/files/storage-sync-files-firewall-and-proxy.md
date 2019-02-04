@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
-ms.component: files
+ms.subservice: files
 ---
 
 # Azure File Sync proxy and firewall settings
@@ -106,7 +106,7 @@ For business continuity and disaster recovery (BCDR) reasons you may have specif
 
 | Region | Primary endpoint URL | Paired region | Discovery URL |
 |--------|---------------------------------------|--------|---------------------------------------|
-| Australia East | https://kailani-aue.one.microsoft.com | Australia Souteast | https://kailani-aue.one.microsoft.com |
+| Australia East | https://kailani-aue.one.microsoft.com | Australia Southeast | https://kailani-aue.one.microsoft.com |
 | Australia Southeast | https://kailani-aus.one.microsoft.com | Australia East | https://tm-kailani-aus.one.microsoft.com |
 | Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
 | Canada East | https://kailani-cae.one.microsoft.com | Canada Central | https://tm-kailani.cae.one.microsoft.com |

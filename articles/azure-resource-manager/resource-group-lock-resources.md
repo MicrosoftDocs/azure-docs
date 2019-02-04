@@ -24,6 +24,8 @@ As an administrator, you may need to lock a subscription, resource group, or res
 * **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete the resource. 
 * **ReadOnly** means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the **Reader** role. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## How locks are applied
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.

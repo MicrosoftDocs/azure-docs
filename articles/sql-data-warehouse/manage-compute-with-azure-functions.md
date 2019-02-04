@@ -6,7 +6,7 @@ author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
