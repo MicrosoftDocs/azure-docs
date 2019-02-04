@@ -117,7 +117,7 @@ Yes, you can use Azure Firewall in a hub virtual network to route and filter tra
 
 ### Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?
 
-Traffic between subnets in the same virtual network or in a directly peered virtual network is routed directly even if UDR points to the Azure Firewall as the default gateway. The recommended method for internal network segmentation is to use Network Security Groups. To send subnet to subnet traffic to the firewall in this scenario, UDR must contain the target subnet network prefix explicitly on both subnets.
+Yes. However, configuring the UDR’s to redirect traffic between subnets in the same VNET requires additional attention. While using the VNET address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of **VNET**. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don’t require UDRs.
 
 ### Are there any firewall resource group restrictions?
 
