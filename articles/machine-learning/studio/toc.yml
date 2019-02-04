@@ -75,7 +75,7 @@
       href: deploy-with-resource-manager-template.md
   - name: Import training data
     items:
-    - name: Import data from various sources
+    - name: Import data
       href: import-data.md
     - name: Use data from on-premises SQL
       displayName: on-premises
