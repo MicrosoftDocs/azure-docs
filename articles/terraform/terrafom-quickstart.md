@@ -84,7 +84,9 @@ Update the configuration to include an Azure Container Instance. The container r
 
 Take note that two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
 
-Open the code editor and copy in the following configuration to the bottom of the `main.tf` file. Take note that these updates include an output block, which returns the fully qualified domain name (FQDN) of the container instance. Save the file when done.
+Copy the following configuration to the bottom of the `main.tf` file. Save the file when done.
+
+Take note that these updates include an output block, which returns the fully qualified domain name (FQDN) of the container instance.
 
 ```azurecli-interactive
 resource "azurerm_container_group" "vote-aci" {
@@ -138,11 +140,11 @@ Once completed, take note of the container instance FQDN.
 
 Navigate to the FQDN of the container instance. If everything was correctly configured, you should see the following application.
 
-![Azure vote application](media/terraform-quickstart/azure-vote.png)
+![Azure vote application](media/terraform-quickstart/azure-vote.jpg)
 
 ## Clean up resources
 
-When done, the Azure resources and resource group can be removed using the `terraform destroy` command. For more information on `terraform destroy`, see the [command reference](https://www.terraform.io/docs/commands/destroy.html).
+When done, the Azure resources and resource group can be removed using the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) command.
 
 ```azurecli-interactive
 terraform destroy -auto-approve
