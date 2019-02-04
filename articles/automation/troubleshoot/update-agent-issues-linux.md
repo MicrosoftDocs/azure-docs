@@ -7,7 +7,7 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
 ---
 
@@ -172,3 +172,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 ## Next steps
 
 To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md)
+

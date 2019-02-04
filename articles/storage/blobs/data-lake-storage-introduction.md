@@ -8,13 +8,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ---
 
 # Introduction to Azure Data Lake Storage Gen2 Preview
 
 ‎Azure Data Lake Storage Gen2 Preview is a set of capabilities dedicated to big data analytics, built on [Azure Blob
-storage](storage-blobs-introduction.md). Data Lake Storage Gen2 is the result of converging the capabilities of our two existing storage services, Azure Blob storage and Azure Data Lake Storage Gen1. Features from [Azure Data Lake Storage Gen1](https://docs.microsoft.com/en-us/azure/data-lake-store/index), such as file system semantics, directory, and file level security and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
+storage](storage-blobs-introduction.md). Data Lake Storage Gen2 is the result of converging the capabilities of our two existing storage services, Azure Blob storage and Azure Data Lake Storage Gen1. Features from [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), such as file system semantics, directory, and file level security and scale are combined with low-cost, tiered storage, high availability/disaster recovery capabilities from [Azure Blob storage](storage-blobs-introduction.md).
 
 ## Designed for enterprise big data analytics
 
@@ -48,7 +48,7 @@ Azure Storage is scalable by design whether you access via Data Lake Storage Gen
 
 ### Cost effectiveness
 
-One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob storage is the low cost of storage capacity and transactions. Unlike other cloud storage services, data stored in Data Lake Storage Gen2 is not required to be moved or transformed prior to performing analysis. For more information about pricing, see [Azure Storage pricing]((https://azure.microsoft.com/pricing/details/storage)).
+One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob storage is the low cost of storage capacity and transactions. Unlike other cloud storage services, data stored in Data Lake Storage Gen2 is not required to be moved or transformed prior to performing analysis. For more information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage).
 
 Additionally, features such as the [hierarchical namespace](data-lake-storage-namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end-to-end analytics job.
 

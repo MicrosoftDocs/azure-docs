@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ""
+ms.subservice: ""
 ---
 # Stream Azure monitoring data to an event hub for consumption by an external tool
 
@@ -20,7 +20,7 @@ Azure Monitor provides a single pipeline for getting access to all of the monito
 Within your Azure environment, there are several 'tiers' of monitoring data, and the method of accessing data from each tier varies slightly. Typically, these tiers can be described as:
 
 - **Application monitoring data:** Data about the performance and functionality of the code you have written and are running on Azure. Examples of application monitoring data include performance traces, application logs, and user telemetry. Application monitoring data is usually collected in one of the following ways:
-  - By instrumenting your code with an SDK such as the [Application Insights SDK](../../application-insights/app-insights-overview.md).
+  - By instrumenting your code with an SDK such as the [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md).
   - By running a monitoring agent that listens for new application logs on the machine running your application, such as the [Windows Azure Diagnostic Agent](./../../azure-monitor/platform/diagnostics-extension-overview.md) or [Linux Azure Diagnostic Agent](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Guest OS monitoring data:** Data about the operating system on which your application is running. Examples of guest OS monitoring data would be Linux syslog or Windows system events. To collect this type of data, you need to install an agent such as the [Windows Azure Diagnostic Agent](./../../azure-monitor/platform/diagnostics-extension-overview.md) or [Linux Azure Diagnostic Agent](../../virtual-machines/extensions/diagnostics-linux.md).
 - **Azure resource monitoring data:** Data about the operation of an Azure resource. For some Azure resource types, such as virtual machines, there is a guest OS and application(s) to monitor inside of that Azure service. For other Azure resources, such as Network Security Groups, the resource monitoring data is the highest tier of data available (since there is no guest OS or application running in those resources). This data can be collected using [resource diagnostic settings](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
@@ -92,9 +92,9 @@ The [Windows Azure Diagnostic agent](./../../azure-monitor/platform/diagnostics-
 
 ## Application monitoring data
 
-Application monitoring data requires that your code is instrumented with an SDK, so there isn't a general-purpose solution to routing application monitoring data to an event hub in Azure. However, [Azure Application Insights](../../application-insights/app-insights-overview.md) is one service that can be used to collect Azure application-level data. If you are using Application Insights, you can stream monitoring data to an event hub by doing the following:
+Application monitoring data requires that your code is instrumented with an SDK, so there isn't a general-purpose solution to routing application monitoring data to an event hub in Azure. However, [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) is one service that can be used to collect Azure application-level data. If you are using Application Insights, you can stream monitoring data to an event hub by doing the following:
 
-1. [Set up continuous export](../../application-insights/app-insights-export-telemetry.md) of the Application Insights data to a storage account.
+1. [Set up continuous export](../../azure-monitor/app/export-telemetry.md) of the Application Insights data to a storage account.
 
 2. Set up a timer-triggered Logic App that [pulls data from blob storage](../../connectors/connectors-create-api-azureblobstorage.md#add-action) and [pushes it as a message to the event hub](../../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
@@ -102,7 +102,7 @@ Application monitoring data requires that your code is instrumented with an SDK,
 
 Routing your monitoring data to an event hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools. Most tools require the event hub connection string and certain permissions to your Azure subscription to read data from the event hub. Here is a non-exhaustive list of tools with Azure Monitor integration:
 
-* **IBM QRadar** - The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](http://www.ibm.com/support). You can [learn more about the integration with Azure here](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **IBM QRadar** - The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can [learn more about the integration with Azure here](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** - Depending on your Splunk setup, there are two approaches:
     1. [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. If you cannot install an add-on in your Splunk instance (eg. if using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector using [this Function which is triggered by new messages in the event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).
@@ -114,4 +114,5 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
 * [Archive the Activity Log to a storage account](../../azure-monitor/platform/archive-activity-log.md)
 * [Read the overview of the Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md)
 * [Set up an alert based on an Activity Log event](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

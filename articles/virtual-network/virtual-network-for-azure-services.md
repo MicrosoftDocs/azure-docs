@@ -1,14 +1,10 @@
 ---
-title: Virtual network for Azure services | Microsoft Docs
+title: Virtual network for Azure services
+titlesuffix: Azure Virtual Network
 description: Learn about the benefits of deploying resources into a virtual network. Resources in virtual networks can communicate with each other, and on-premises resources, without traffic traversing the Internet.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -23,8 +19,8 @@ ms.author: jdial
 
 Integrating Azure services to an Azure virtual network enables private access to the service from virtual machines or compute resources in the virtual network.
 You can integrate Azure services in your virtual network with the following options:
-	Directly deploying dedicated instances of the service into a virtual network. The services can then be privately accessed within the virtual network and from on-premises networks.
-	By extending a virtual network to the service, through service endpoints. Service endpoints allow individual service resources to be secured to the virtual network.
+- Deploying dedicated instances of the service into a virtual network. The services can then be privately accessed within the virtual network and from on-premises networks.
+- Extending a virtual network to the service, through service endpoints. Service endpoints allow individual service resources to be secured to the virtual network.
 
 To integrate multiple Azure services to your virtual network, you can combine one or more of the above patterns. For example, you can deploy HDInsight into your virtual network and secure a storage account to the HDInsight subnet through Service endpoints.
  

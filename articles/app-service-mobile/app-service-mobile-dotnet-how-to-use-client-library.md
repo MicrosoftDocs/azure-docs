@@ -753,7 +753,7 @@ using Azure Active Directory authentication.
 1. Configure your mobile app backend for AAD sign-on by following the [How to configure App Service for Active
    Directory login] tutorial. Make sure to complete the optional step of registering a native client application.
 2. In Visual Studio or Xamarin Studio, open your project and add a reference to the
-   `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet package. When searching, include pre-release versions.
+   `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet package. When searching, include pre-release versions.
 3. Add the following code to your application, according to the platform you are using. In each, make the following
    replacements:
 

@@ -343,7 +343,7 @@ This command returns a JSON document containing information about the deployment
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 

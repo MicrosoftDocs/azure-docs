@@ -4,7 +4,7 @@ description: This topic describes how to use an existing ADSync database.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid:
@@ -12,9 +12,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ---
 

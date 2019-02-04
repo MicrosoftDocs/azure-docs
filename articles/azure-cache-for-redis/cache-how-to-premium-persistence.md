@@ -126,7 +126,7 @@ For both RDB and AOF persistence:
 
 * If you have scaled to a larger size, there is no impact.
 * If you have scaled to a smaller size, and you have a custom [databases](cache-configure.md#databases) setting that is greater than the [databases limit](cache-configure.md#databases) for your new size, data in those databases isn't restored. For more information, see [Is my custom databases setting affected during scaling?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
-* If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy.
+* If you have scaled to a smaller size, and there isn't enough room in the smaller size to hold all of the data from the last backup, keys will be evicted during the restore process, typically using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
 
 ### Can I change the RDB backup frequency after I create the cache?
 Yes, you can change the backup frequency for RDB persistence on the **Redis data persistence** blade. For instructions, see [Configure Redis persistence](#configure-redis-persistence).

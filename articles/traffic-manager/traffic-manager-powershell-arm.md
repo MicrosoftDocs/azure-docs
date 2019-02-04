@@ -1,5 +1,5 @@
 ﻿---
-title: Using PowerShell to manage Traffic Manager in Azure | Microsoft Docs
+title: Using PowerShell to manage Traffic Manager in Azure
 description: Using PowerShell for Traffic Manager with Azure Resource Manager
 services: traffic-manager
 documentationcenter: na

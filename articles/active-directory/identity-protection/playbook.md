@@ -5,11 +5,11 @@ services: active-directory
 keywords: azure active directory identity protection, cloud discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

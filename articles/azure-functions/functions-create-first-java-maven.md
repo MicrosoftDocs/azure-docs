@@ -50,7 +50,7 @@ You can also install it manually with [npm](https://www.npmjs.com/), included wi
 To proceed with an npm-based installation, run:
 
 ```
-npm install -g azure-functions-core-tools@core
+npm install -g azure-functions-core-tools
 ```
 
 > [!NOTE]

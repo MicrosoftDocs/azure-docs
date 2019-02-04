@@ -10,7 +10,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 
@@ -134,3 +134,4 @@ For an example template, see [Deploy a Web App certificate from Key Vault secret
 ## Next steps
 
 * For a tutorial on deploying web apps with a template, see [Provision and deploy microservices predictably in Azure](deploy-complex-application-predictably.md).
+* To learn about JSON syntax and properties for resource types in templates, see [Azure Resource Manager template reference](/azure/templates/).

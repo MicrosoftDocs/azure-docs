@@ -85,7 +85,7 @@ For RTMP simple mode, Media Services supports a single AMF cue message called "o
 
 ---------------------------
 
-#### 2.1.1 Cancelation and Updates
+#### 2.1.1 Cancellation and Updates
 
 Messages can be canceled or updated by sending multiple messages with the same
 presentation time and ID. The presentation time and ID uniquely identify the
@@ -165,7 +165,7 @@ The MediaDataBox (‘mdat’) box MUST have the following format:
 ------------------------------
 
 
-### 2.2.4 Cancelation and Updates
+### 2.2.4 Cancellation and Updates
 Messages can be canceled or updated by sending multiple messages with the same presentation time and ID.  The presentation time and ID uniquely identify the event. The last message received for a specific presentation time, that meets pre-roll constraints, is the message that is acted upon. The updated message replaces any previously received messages.  The pre-roll constraint is four seconds. Messages received at least four seconds prior to the presentation time will be acted upon. 
 
 

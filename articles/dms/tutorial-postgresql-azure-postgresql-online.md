@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 To complete this tutorial, you need to:
 
-- Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6, or 10. The source PostgreSQL Server version must be 9.5.11, 9.6.7, 10, or later. For more information, see the article [Supported PostgreSQL Databse Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+- Download and install [PostgreSQL community edition](https://www.postgresql.org/download/) 9.5, 9.6, or 10. The source PostgreSQL Server version must be 9.5.11, 9.6.7, 10, or later. For more information, see the article [Supported PostgreSQL Database Versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
     In addition, the on-premises PostgreSQL version must match the Azure Database for PostgreSQL version. For example, PostgreSQL 9.5.11.5 can only migrate to Azure Database for PostgreSQL 9.5.11 and not to version 9.6.7.
 

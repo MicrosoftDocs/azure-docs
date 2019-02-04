@@ -15,7 +15,7 @@ ms.author: mbullwin
 
 ---
 # Analytics in Application Insights
-Analytics is the powerful search and query tool of [Application Insights](../../application-insights/app-insights-overview.md). Analytics is a web tool so no setup is required. 
+Analytics is the powerful search and query tool of [Application Insights](../../azure-monitor/app/app-insights-overview.md). Analytics is a web tool so no setup is required. 
 If you've already configured Application Insights for one of your apps then you can  analyze your app's data by opening Analytics from your 
 app's [overview blade](../../azure-monitor/app/app-insights-dashboards.md).
 
@@ -45,7 +45,7 @@ We then count the number of records per country (that data is found in the colum
 The language has many attractive features:
 
 * [Filter](/azure/kusto/query/whereoperator) your raw app telemetry by any fields, including your custom properties and metrics.
-* [Join](/azure/kusto/query/joinoperator) multiple tables – correlate requests with page views, dependency calls, exceptions and log traces.
+* [Join](/azure/kusto/query/joinoperator) multiple tables - correlate requests with page views, dependency calls, exceptions and log traces.
 * Powerful statistical [aggregations](/azure/kusto/query/summarizeoperator).
 * Immediate and powerful visualizations.
 * [REST API](https://dev.applicationinsights.io/) that you can use to run queries programmatically, for example from PowerShell.

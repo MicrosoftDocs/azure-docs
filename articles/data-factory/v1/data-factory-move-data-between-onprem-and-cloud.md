@@ -11,7 +11,7 @@ ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain

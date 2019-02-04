@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-This tutorial requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This tutorial requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
 
 ## Sign in to Azure
 
@@ -87,7 +87,7 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 
 ## Configure the infrastructure
 
-Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port and listener in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
+Configure the IP config, front-end IP config, back-end pool, HTTP settings, certificate, port, and listener in an identical format to the existing Standard application gateway. The new SKU follows the same object model as the Standard SKU.
 
 ```azurepowershell
 $ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
@@ -107,7 +107,7 @@ $setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting
 
 Configure the new objects required to rewrite the http headers:
 
-- RequestHeaderConfiguration**: this object is used to specify the request header fields that you intend to rewrite and the new value that the original headers need to be rewritten to.
+- **RequestHeaderConfiguration**: this object is used to specify the request header fields that you intend to rewrite and the new value that the original headers need to be rewritten to.
 - **ResponseHeaderConfiguration**: this object is used to specify the response header fields that you intend to rewrite and the new value that the original headers need to be rewritten to.
 - **ActionSet**: this object contains the configurations of the request and response headers specified above. 
 - **RewriteRule**: this object contains all the *actionSets* specified above. 

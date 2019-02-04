@@ -31,7 +31,7 @@ Managed Disks provides better reliability for Availability Sets by ensuring that
 
 ### Highly durable and available
 
-Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate. 
+Azure Disks are designed for 99.999% availability. Rest easier knowing that you have three replicas of your data that enables high durability. If one or even two replicas experience issues, the remaining replicas help ensure persistence of your data and high tolerance against failures. This architecture has helped Azure consistently deliver enterprise-grade durability for IaaS disks, with an industry-leading ZERO% Annualized Failure Rate.
 
 ### Granular access control
 
@@ -39,7 +39,7 @@ You can use [Azure Role-Based Access Control (RBAC)](../articles/role-based-acce
 
 ### Azure Backup service support
 
-Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration, and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option. Three copies of the data are kept within a single region. For regional disaster recovery, you must back up your VM disks in a different region using [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Currently Azure Backup supports the disk sizes up to 4TB disks. You need to [upgrade VM backup stack to V2](../articles/backup/backup-upgrade-to-vm-backup-stack-v2.md) for support of 4TB disks. For more information, see [Using Azure Backup service for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Use Azure Backup service with Managed Disks to create a backup job with time-based backups, easy VM restoration, and backup retention policies. Managed Disks only support Locally Redundant Storage (LRS) as the replication option. Three copies of the data are kept within a single region. For regional disaster recovery, you must back up your VM disks in a different region using [Azure Backup service](../articles/backup/backup-introduction-to-azure-backup.md) and a GRS storage account as backup vault. Currently Azure Backup supports the disk sizes up to 4TB disks, see [Instant Restore](../articles/backup/backup-instant-restore-capability.md) for support of 4TB disks. For more information, see [Using Azure Backup service for VMs with Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## Pricing and Billing
 

@@ -58,7 +58,7 @@ The Search service also provides advanced features such as search along a route,
 
 ### Time Zone service
 
-The Time Zone service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](http://www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. A typical JSON response for a query to the Time Zone Service looks like the following sample:
+The Time Zone service allows you to query current, historical, and future time zone information using either latitude-longitude pairs or an [IANA ID](https://www.iana.org/). The Time Zone service also allows for converting Microsoft Windows time zone IDs to IANA time zones, fetching a time zone offset to UTC and getting the current time in a respective time zone. A typical JSON response for a query to the Time Zone Service looks like the following sample:
 
 ```JSON
 {
@@ -105,7 +105,7 @@ Additionally, Azure Maps offers a convenient [JavaScript map control](https://do
 
 ## Usage
 
-Accessing the Maps services is a matter of navigating to the [Azure portal](http://portal.azure.com) and creating an Azure Maps account.
+Accessing the Maps services is a matter of navigating to the [Azure portal](https://portal.azure.com) and creating an Azure Maps account.
 
 Azure Maps uses a key-based authentication scheme. Your account comes with two keys pre-generated for you. Start integrating these location capabilities into your application by using either key and making a request to the Azure Maps service.
 

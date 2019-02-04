@@ -66,7 +66,7 @@ Here is an example:
 
 1.	It's not possible to generate a sprite image with a single row of images (SpriteColumn = 1 results in an image with a single column).
 2.	Chunking of the sprite images into moderately sized JPEG images is not supported yet. Hence, care must be taken to limit the number of thumbnails and their size, so that the resultant stitched Thumbnail Sprite is around 8M pixels or less.
-3.	Azure Media Player supports sprites on Edge, Chrome, and Firefox browsers. VTT parsing is not supported in IE11.
+3.	Azure Media Player supports sprites on Microsoft Edge, Chrome, and Firefox browsers. VTT parsing is not supported in IE11.
 
 ## Next steps
 

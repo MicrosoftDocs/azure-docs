@@ -3,9 +3,9 @@ title: Create a Service Bus authorization rule using Azure Resource Manager temp
 description: Create a Service Bus authorization rule for namespace and queue using Azure Resource Manager template
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/11/2018
-ms.author: spelluru
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template
@@ -144,6 +144,8 @@ Creates a standard Service Bus namespace of type **Messaging**, and a Service Bu
         }
     ]
 ```
+
+For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces), [queues](/azure/templates/microsoft.servicebus/namespaces/queues), and [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
 
 ## Commands to run deployment
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

@@ -111,6 +111,7 @@ For more information, see the following articles:
 
 - [Introduction to Azure Data Lake Storage Gen2 Preview](../../storage/data-lake-storage/introduction.md)
 - [The Azure Blob Filesystem driver (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## Secure Azure Storage keys within on-premises Hadoop cluster configuration
 

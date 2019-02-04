@@ -216,7 +216,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
     $sqlDatabaseMaxSizeGB = 10
 
     # Used for retrieving external IP address and creating firewall rules
-    $ipAddressRestService = "http://bot.whatismyipaddress.com"
+    $ipAddressRestService = "https://bot.whatismyipaddress.com"
     $fireWallRuleName = "UseSqoop"
 
     # HDInsight variables
@@ -619,7 +619,7 @@ In this tutorial, you learned how to define an Apache Oozie workflow and how to 
 * [Use Apache Pig with Apache Hadoop on HDInsight][hdinsight-use-pig]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 
 
 
@@ -647,12 +647,12 @@ In this tutorial, you learned how to define an Apache Oozie workflow and how to 
 [azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
-[apache-hadoop]: http://hadoop.apache.org/
-[apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
+[apache-hadoop]: https://hadoop.apache.org/
+[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
+[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: https://azure.microsoft.com/downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
@@ -663,4 +663,4 @@ In this tutorial, you learned how to define an Apache Oozie workflow and how to 
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png  
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

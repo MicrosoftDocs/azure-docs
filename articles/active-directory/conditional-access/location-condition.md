@@ -5,17 +5,17 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -56,7 +56,7 @@ A named location has the following components:
 
 - **Name** - The display name of a named location.
 
-- **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an Ipv6 address rage is not supported.
+- **IP ranges** - One or more IPv4 address ranges in CIDR format. Specifying an Ipv6 address range is not supported.
 
 - **Mark as trusted location** - A flag you can set for a named location to indicate a trusted location. Typically, trusted locations are network areas that are controlled by your IT department. In addition to conditional access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 

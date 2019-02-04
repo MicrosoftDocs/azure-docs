@@ -3,9 +3,9 @@ title: Azure Service Bus messages, payloads, and serialization | Microsoft Docs
 description: Overview of Service Bus message payloads
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 

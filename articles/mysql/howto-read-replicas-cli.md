@@ -5,10 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 01/23/2019
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI
+
+> [!IMPORTANT]
+> The read replica feature is in Public Preview.
 
 In this article, you will learn how to create and manage read replicas within the same Azure region as the master in the Azure Database for MySQL service using the Azure CLI.
 

@@ -1,19 +1,15 @@
 ---
-title: 'Step 4: Train predictive analytic models - Azure Machine Learning Studio | Microsoft Docs'
+title: 'Step 4: Train predictive analytic models'
+titleSuffix: Azure Machine Learning Studio
 description: 'Step 4 of the Develop a predictive solution walkthrough: Train, score, and evaluate multiple models in Azure Machine Learning Studio.'
 services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: garye
-editor: cgronlun
-ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/23/2017
 ---
 # Walkthrough Step 4: Train and evaluate the predictive analytic models in Machine Learning Studio

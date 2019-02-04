@@ -7,7 +7,7 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 01/17/2019
 ---
 
 # Manage topics and publish events using event domains

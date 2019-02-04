@@ -1,16 +1,15 @@
 ---
 title: Learn how to secure access to data in Azure Cosmos DB
 description: Learn about access control concepts in Azure Cosmos DB, including master keys, read-only keys, users, and permissions.
-services: cosmos-db
 author: rafats
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
 
 ---
-# Securing access to Azure Cosmos DB data
+# Secure access to data in Azure Cosmos DB
+
 This article provides an overview of securing access to data stored in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources. 

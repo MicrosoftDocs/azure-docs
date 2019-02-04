@@ -1,30 +1,24 @@
 ---
-title: Import data into Machine Learning Studio from online data sources - Azure | Microsoft Docs
+title: Import data into Machine Learning Studio from online data sources
+titleSuffix: Azure Machine Learning Studio
 description: This article describes the support for importing online data from various sources and the information needed to move data from these sources into an Azure Machine Learning Studio experiment.
-keywords: import data,data format,data types,data sources,training data
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 11/29/2017
 ---
-# Import data into Azure Machine Learning Studio from online data sources 
+# Import data into Azure Machine Learning Studio from online data sources
 This article describes the support for importing online data from various sources and the information needed to move data from these sources into an Azure Machine Learning Studio experiment.
 
 > [!NOTE]
 > This article provides general information about the [Import Data][import-data] module. For more detailed information about the types of data you can access, formats, parameters, and answers to common questions, see the module reference topic for the [Import Data][import-data] module.
-> 
-> 
+>
+>
 
 ## Introduction
 By using the [Import Data][import-data] module, you can access data from one of several online data sources while your experiment is running in [Azure Machine Learning Studio](https://studio.azureml.net/Home):
@@ -43,14 +37,14 @@ To access online data sources in your Studio experiment, add the [Import Data][i
 Note that because this training data is accessed while your experiment is running, it's only available in that experiment. By comparison, data that has been stored in a dataset module are available to any experiment in your workspace.
 
 > [!IMPORTANT]
-> Currently, the [Import Data][import-data] and [Export Data][export-data] modules can read and write data only from Azure storage created using the Classic deployment model. In other words, the new Azure Blob Storage account type that offers a hot storage access tier or cool storage access tier is not yet supported. 
-> 
-> Generally, any Azure storage accounts that you might have created before this service option became available should not be affected. 
-> If you need to create a new account, select **Classic** for the Deployment model, or use Resource manager and select **General purpose** rather than **Blob storage** for **Account kind**. 
-> 
+> Currently, the [Import Data][import-data] and [Export Data][export-data] modules can read and write data only from Azure storage created using the Classic deployment model. In other words, the new Azure Blob Storage account type that offers a hot storage access tier or cool storage access tier is not yet supported.
+>
+> Generally, any Azure storage accounts that you might have created before this service option became available should not be affected.
+> If you need to create a new account, select **Classic** for the Deployment model, or use Resource manager and select **General purpose** rather than **Blob storage** for **Account kind**.
+>
 > For more information, see [Azure Blob Storage: Hot and Cool Storage Tiers](../../storage/blobs/storage-blob-storage-tiers.md).
-> 
-> 
+>
+>
 
 ## Supported online data sources
 Azure Machine Learning **Import Data** module supports the following data sources:
@@ -67,7 +61,7 @@ Azure Machine Learning **Import Data** module supports the following data source
 
 ## Next steps
 
-[Deploying Azure ML web services that use Data Import and Data Export modules](web-services-that-use-import-export-modules.md)
+[Deploying Azure Machine Learning studio web services that use Data Import and Data Export modules](web-services-that-use-import-export-modules.md)
 
 
 <!-- Module References -->

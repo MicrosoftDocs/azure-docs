@@ -1,5 +1,5 @@
 ---
-title: Securely saving secret application settings for a web application | Microsoft Docs
+title: Securely saving secret application settings for a web application - Azure Key Vault | Microsoft Docs
 description: How to securely save secret application settings such as Azure credentials or third party API keys using ASP.NET core Key Vault Provider, User Secret, or .NET 4.7.1 configuration builders
 services: visualstudio
 documentationcenter: ''
@@ -11,9 +11,8 @@ ms.assetid:
 ms.service:
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 01/07/2019
 ms.author: cawa
 
 ---
@@ -30,7 +29,7 @@ To make sure development process is secure, tooling and framework libraries are 
 ## ASP.NET and .NET core applications
 
 ### Save secret settings in User Secret store that is outside of source control folder
-If you are doing a quick prototype or you don't have internet access, start with moving your secret settings outside of source control folder to User Secret store. User Secret store is a file saved under user profiler folder, so secrets are not checked in to source control. The following diagram demonstrates how [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio#SecretManager) works.
+If you are doing a quick prototype or you don't have internet access, start with moving your secret settings outside of source control folder to User Secret store. User Secret store is a file saved under user profiler folder, so secrets are not checked in to source control. The following diagram demonstrates how [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) works.
 
 ![User Secret keeps secret settings outside of source control](./media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 

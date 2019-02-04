@@ -31,7 +31,7 @@ In this tutorial, you use a client application that connects to Twitter and look
 * An Azure subscription
 * A Twitter account 
 * A Twitter application, and the [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) for that application. We provide high-level instructions for how to create a Twitter application later.
-* The TwitterWPFClient application, which reads the Twitter feed. To get this application, download the [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub and then unzip the package into a folder on your computer. If you want to see the source code and run the application in a debugger, you can get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* The TwitterWPFClient application, which reads the Twitter feed. To get this application, download the [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub and then unzip the package into a folder on your computer. If you want to see the source code and run the application in a debugger, you can get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## Create an event hub for Streaming Analytics input
 

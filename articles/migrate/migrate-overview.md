@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/20/2018
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -169,6 +169,9 @@ The GA version of Azure Migrate provides the following:
     --- | ---
     United States | West Central US or East US
     Azure Government | US Gov Virginia
+    Asia | Southeast Asia
+    Europe | North Europe or West Europe
+    Unites States | East US or West Central US
 
 - If you use dependency visualization during migration assessment, the Log Analytics workspace is created in the same region as the project. Dependency visualization isn't available in Azure Government. 
   

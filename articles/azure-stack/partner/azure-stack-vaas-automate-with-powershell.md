@@ -14,6 +14,9 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
+
+ROBOTS: NOINDEX
 
 ---
 
@@ -68,7 +71,7 @@ In this tutorial, you learn how to create a script that:
 
     | Parameter | Description |
     | --- | --- |
-    | VaaSUserld | Your VaaS user ID. |
+    | VaaSUserId | Your VaaS user ID. |
     | VaaSUserPassword | Your VaaS password. |
     | VaaSAccountTenantId | Your VaaS tenant GUID. |
     | VaaSSolutionName | The name of the VaaS solution under which the test pass will run. |
@@ -88,4 +91,4 @@ In this tutorial, you learn how to create a script that:
 To learn more about PowerShell on Azure Stack, review the lastest modules.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)
+> [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

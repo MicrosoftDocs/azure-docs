@@ -76,7 +76,7 @@ If you prefer log4net or NLog:
     logger.Warn("Slow response - database01");
 
 ## Using EventSource events
-You can configure [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EventSourceListener` NuGet package. Then edit `TelemetryModules` section of the [ApplicationInsights.config](../../application-insights/app-insights-configuration-with-applicationinsights-config.md) file.
+You can configure [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EventSourceListener` NuGet package. Then edit `TelemetryModules` section of the [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) file.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -92,7 +92,7 @@ For each source, you can set the following parameters:
  * `Keywords` (Optional) specifies the integer value of keywords combinations to use.
 
 ## Using DiagnosticSource events
-You can configure [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) events to be sent to Application Insights as traces. First, install the [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet package. Then edit the `TelemetryModules` section of the [ApplicationInsights.config](../../application-insights/app-insights-configuration-with-applicationinsights-config.md) file.
+You can configure [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) events to be sent to Application Insights as traces. First, install the [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet package. Then edit the `TelemetryModules` section of the [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) file.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -105,7 +105,7 @@ You can configure [System.Diagnostics.DiagnosticSource](https://github.com/dotne
 For each DiagnosticSource you want to trace, add an entry with the `Name` attribute  set to the name of your DiagnosticSource.
 
 ## Using ETW events
-You can configure ETW events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EtwCollector` NuGet package. Then edit `TelemetryModules` section of the [ApplicationInsights.config](../../application-insights/app-insights-configuration-with-applicationinsights-config.md) file.
+You can configure ETW events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EtwCollector` NuGet package. Then edit `TelemetryModules` section of the [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) file.
 
 > [!NOTE] 
 > ETW events can only be collected if the process hosting the SDK is running under an identity that is a member of "Performance Log Users" or Administrators.
@@ -156,7 +156,7 @@ You can, for example:
 * Save the configuration of this page as a Favorite
 
 > [!NOTE]
-> **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](../../application-insights/app-insights-sampling.md)
+> **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -167,7 +167,7 @@ You can, for example:
 
 ## Troubleshooting
 ### How do I do this for Java?
-Use the [Java log adapters](../../application-insights/app-insights-java-trace-logs.md).
+Use the [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 
 ### There's no Application Insights option on the project context menu
 * Check that Application Insights tools are installed on this development machine. In Visual Studio menu Tools, Extensions and Updates, look for Application Insights Tools. If it isn't in the Installed tab, open the Online tab and install it.
@@ -190,7 +190,7 @@ It can sometimes take a while for all the events and requests to get through the
 Several factors impact the amount of data retained. See the [limits](../../azure-monitor/app/api-custom-events-metrics.md#limits) section of the customer event metrics page for more information. 
 
 ### I'm not seeing some of the log entries that I expect
-If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](../../application-insights/app-insights-sampling.md)
+If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](../../azure-monitor/app/sampling.md)
 
 ## <a name="add"></a>Next steps
 * [Set up availability and responsiveness tests][availability]
@@ -198,9 +198,9 @@ If your application sends a lot of data and you are using the Application Insigh
 
 <!--Link references-->
 
-[availability]: ../../application-insights/app-insights-monitor-web-app-availability.md
-[diagnostic]: ../../application-insights/app-insights-diagnostic-search.md
+[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
+[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[start]: ../../application-insights/app-insights-overview.md
+[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

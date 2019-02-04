@@ -37,7 +37,7 @@ Your Azure sign-in account also needs to be a member of the subscription's Owner
 
 ## Overview
 
-The TSI environment is where device data is collected and stored. Once stored in the TSI environment, you can use the [TSI Explorer](time-series-quickstart.md) and [TSI Query API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) to query and analyze the data.
+The TSI environment is where device data is collected and stored. Once stored in the TSI environment, you can use the [TSI Explorer](time-series-quickstart.md) and [TSI Query API](/rest/api/time-series-insights/ga-query-api) to query and analyze the data.
 
 Like all devices, simulated or physical, IoT Hub is the connection point used by devices to securely connect and transmit data to the Azure cloud. As discussed in the [TSI Overview](time-series-insights-overview.md), IoT Hub also serves as an event source, for streaming data into the TSI environment. 
 

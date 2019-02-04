@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 # Repairing an export job
 After an export job has completed, you can run the Microsoft Azure Import/Export Tool on-premises to:  

@@ -1,5 +1,6 @@
 ---
-title: Manage Azure DDoS Protection Standard using the Azure portal | Microsoft Docs
+title: Manage Azure DDoS Protection Standard using the Azure portal
+titlesuffix: Azure Virtual Network
 description: Learn how to use Azure DDoS Protection Standard telemetry in Azure Monitor to mitigate an attack.
 services: virtual-network
 documentationcenter: na

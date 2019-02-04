@@ -3,7 +3,7 @@ title: Security Considerations for SQL Server in Azure | Microsoft Docs
 description: This topic provides general guidance for securing SQL Server running in an Azure Virtual Machine.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
-ms.author: jroth
-
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Security Considerations for SQL Server in Azure Virtual Machines
 

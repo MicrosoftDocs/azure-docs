@@ -4,13 +4,13 @@ description: This is the Azure Multi-Factor authentication page that describes h
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
 ---

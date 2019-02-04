@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/28/2019
 ms.author: juliako
 
 ---
-# LiveEvent types comparison
+# Live Event types comparison
 
-In Azure Media Services, a  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: live encoding and pass-through. 
+In Azure Media Services, a  [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: live encoding and pass-through. 
 
 ## Types comparison 
 
-The following table compares features of the two LiveEvent types.
+The following table compares features of the two Live Event types.
 
-| Feature | Pass-through LiveEvent | Standard LiveEvent |
+| Feature | Pass-through Live Event | Standard Live Event |
 | --- | --- | --- |
 | Single bitrate input is encoded into multiple bitrates in the cloud |No |Yes |
 | Maximum video resolution for contribution feed |4K (4096x2160 at 60 frames/sec) |1080p (1920x1088 at 30 frames/sec)|
@@ -46,10 +46,10 @@ The following table compares features of the two LiveEvent types.
 | Support for inserting slates|No|No|
 | Support for ad signaling via API| No|No|
 | Support for ad signaling via SCTE-35 in-band messages|Yes|Yes|
-| Ability to recover from brief stalls in contribution feed|Yes|No (LiveEvent will begin slating after 6+ seconds w/o input data)|
+| Ability to recover from brief stalls in contribution feed|Yes|No (Live Event will begin slating after 6+ seconds w/o input data)|
 | Support for non-uniform input GOPs|Yes|No – input must have fixed GOP duration|
 | Support for variable frame rate input|Yes|No – input must be fixed frame rate. Minor variations are tolerated, for example, during high motion scenes. But the contribution feed cannot drop the frame rate (for example, to 15 frames/sec).|
-| Auto-shutoff of LiveEvent when input feed is lost|No|After 12 hours, if there is no LiveOutput running|
+| Auto-shutoff of Live Event when input feed is lost|No|After 12 hours, if there is no LiveOutput running|
 
 ## Next steps
 

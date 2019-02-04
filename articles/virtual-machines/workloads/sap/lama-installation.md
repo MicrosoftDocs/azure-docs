@@ -112,7 +112,7 @@ at the bottom of the website.
 
 ## Provision a new adaptive SAP system
 
-You can manually deploy a new virtual machine or use one of the Azure templates in the [quickstart repository](https://github.com/Azure/azure-quickstart-templates). It contains templates for [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver application servers](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps), and the [database](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-db). You can also use these templates to provision new hosts as part of a system copy/clone etc.
+You can manually deploy a new virtual machine or use one of the Azure templates in the [quickstart repository](https://github.com/Azure/azure-quickstart-templates). It contains templates for [SAP NetWeaver ASCS](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-ascs), [SAP NetWeaver application servers](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-apps), and the [database](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-lama-database). You can also use these templates to provision new hosts as part of a system copy/clone etc.
 
 We recommend using a separate subnet for all virtual machines that you want to manage with SAP LaMa and don’t use dynamic IP addresses to prevent IP address "stealing" when deploying new virtual machines and SAP instances are unprepared.
 

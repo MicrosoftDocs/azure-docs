@@ -5,7 +5,7 @@ manager: kfile
 description: Learn how to connect to Azure Analysis Services with Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to a sample tabular model on a server and create a basic report by using the Power BI Desktop client application.
