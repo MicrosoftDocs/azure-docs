@@ -21,8 +21,6 @@ ms.author: dekapur
 # Overview of Service Fabric clusters on Azure
 A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that is part of a cluster is called a cluster node. Clusters can scale to thousands of nodes. If you add new nodes to the cluster, Service Fabric rebalances the service partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node.
 
-
-
 A cluster allows hetrogeneous node types with different capacities and configurations. 
 
 ## Cluster components and resources
@@ -59,15 +57,26 @@ VMs in a cluster have only private IP addresses.  Management traffic and service
 Each cluster node type is supported by a Azure storage account and managed disks.
 
 ## Cluster security
-Certificates, RBAC, NSGs
-Certificates...
+### Node-to-node security
+Node-to-node security secures communication between the VMs or computers in a cluster. This security scenario ensures that only computers that are authorized to join the cluster can participate in hosting applications and services in the cluster. Service Fabric uses X.509 certificates to secure a cluster and provide application security features.  A cluster certificate is required to secure cluster traffic and provide cluster and server authentication.  Self signed-certificates can be used for test clusters, but a certificate from a trusted certificate authority should be used to secure production clusters.
 
-X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features.  A cluster certificate is required to secure cluster traffic and provide cluster and server authentication.  Any number of optional client certificates can be used to authenticate admin or user clients with the cluster.  When creating a cluster, a cluster certificate must be used.  Self signed-certificates can be used for test clusters, but a certificate from a trusted certificate authority should be used to secure production clusters.
+For more information, read [Node-to-node security](service-fabric-cluster-security.md#node-to-node-security)
+
+### Client-to-node security
+Client-to-node security authenticates clients and helps secure communication between a client and individual nodes in the cluster. This type of security helps ensure that only authorized users can access the cluster and the applications that are deployed on the cluster. Clients are uniquely identified through either their X.509 certificate security credentials. Any number of optional client certificates can be used to authenticate admin or user clients with the cluster.
 
 In addition to client certificates, Azure Active Directory can also configured to authenticate clients with the cluster.
 
+For more information, read [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security)
+
+### Role-Based Access Control (RBAC)
 RBAC allows you to assign fine-grained access controls on Azure resources.  You can assign different access rules to subscriptions, resource groups, and resources.  RBAC rules are inherited along the resource hierarchy unless overridden at a lower level.  You can assign any user or user groups on your AAD with RBAC rules so that designated users and groups can modify your cluster.
 
+Service Fabric also supports access control to limit access to certain cluster operations for different groups of users. This helps make the cluster more secure. Two access control types are supported for clients that connect to a cluster: Administrator role and User role.  
+
+For more information, read [Service Fabric Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+
+### Network security groups 
 Network security groups (NSGs) control inbound and outbound traffic of a subnet, VM, or specific NIC.  By default, when multiple VMs are put on the same virtual network they can communicate with each other through any port.  If you want to constrain communications among the machines you can define NSGs to segment the network or isolate VMs from each other.  If you have multiple node types in a cluster, you can apply NSGs to subnets to prevent machines belonging to different nodetypes from communicating with each other.  
 
 For more information, read [Service Fabric cluster security](service-fabric-cluster-security.md)
