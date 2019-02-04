@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to install Azure Machine Learning for Visual Studio Code and create a simple experiment in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: shwinne
 author: swinner95

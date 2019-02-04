@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 11/6/2018
+ms.date: 1/29/2019
 ms.author: victorh
 
 ---
@@ -41,7 +41,7 @@ The following attributes can be added to exclusion lists:
    * XML
    * JSON
 
-You can specify an exact request header, body, cookie, or query string attribute match, or, can optionally specify partial matches.
+You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The exclusion is always on a header field, never on its value. Exclusion rules are global in scope, and apply to all pages and all rules.
 
 The following are the supported match criteria operators:
 

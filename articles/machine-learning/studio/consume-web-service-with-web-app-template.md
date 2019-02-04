@@ -1,10 +1,10 @@
 ---
 title: Consume Studio web service with web app template
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Use a web app template in Azure Marketplace to consume a predictive web service in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding

@@ -54,7 +54,7 @@ Azure introduced [Standard Solid State Drives (SSD)](https://docs.microsoft.com/
 
 ### Support for Azure storage firewall
 
-You can secure Azure storage accounts to a specific set of networks by turning on firewall rules for the account. You configure storage accounts to deny traffic from internal networks and the internet by default, then grant acess to traffic from specific VNets. Site Recovery supports replication for VMs with unmanaged disks on firewa-enabled storage accounts to a secondary region. In the target region, for unmanaged disks, you can select storage accounts with firewalls enabled. You can also restrict access to the cache storage account by restricting network access to only network in which the source VMs are located. Note that you must [allow access](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for trusted Microsoft services.
+You can secure Azure storage accounts to a specific set of networks by turning on firewall rules for the account. You configure storage accounts to deny traffic from internal networks and the internet by default, then grant access to traffic from specific VNets. Site Recovery supports replication for VMs with unmanaged disks on firewall-enabled storage accounts to a secondary region. In the target region, for unmanaged disks, you can select storage accounts with firewalls enabled. You can also restrict access to the cache storage account by restricting network access to only network in which the source VMs are located. Note that you must [allow access](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) for trusted Microsoft services.
 
 ## Q3 2018 
 

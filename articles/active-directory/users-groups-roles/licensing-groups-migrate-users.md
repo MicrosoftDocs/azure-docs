@@ -1,6 +1,6 @@
 ---
 
-  title: Migrate user licenses users to group-based licensing in Azure Active Directory | Microsoft Docs
+  title: Migrate users to group-based licensing - Azure Active Directory | Microsoft Docs
   description: How to switch from individual user licenses to group-based licensing using Azure Active Directory
   services: active-directory
   keywords: Azure AD licensing
@@ -13,10 +13,11 @@
   ms.topic: article
   ms.workload: identity
   ms.subservice: users-groups-roles
-  ms.date: 10/29/2018
+  ms.date: 01/31/2019
   ms.author: curtand
+  ms.reviewer: sumitp
 
-  ms.custom: seohack1
+  ms.custom: "seohack1;it-pro"
 
 ---
 

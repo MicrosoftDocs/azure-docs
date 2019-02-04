@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
-ms.component: common
+ms.subservice: common
 ---
 
 # Managing the Azure Blob storage Lifecycle (Preview)

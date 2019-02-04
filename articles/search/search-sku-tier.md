@@ -103,7 +103,7 @@ Shifting focus to the more commonly used standard tiers, **S1-S3** are a progres
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| partition size|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| partition size|  25 GB | 100 GB | 200 GB |  |  |  |  |
 | index and indexer limits| 50 | 200 | 200 |  |  |  |  |
 
 **S1** is a common choice when dedicated resources and multiple partitions become a necessity. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced compositions.)

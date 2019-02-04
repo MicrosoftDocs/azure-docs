@@ -5,9 +5,9 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 12/31/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: raynew
+ms.author: mayg
 ---
 # Common questions - VMware to Azure replication
 
@@ -36,6 +36,9 @@ You need an LRS or GRS storage account. We recommend GRS so that data is resilie
 
 ### Does my Azure account need permissions to create VMs?
 If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+
+### Can I use Guest OS server license on Azure?
+Yes, Microsoft Software Assurance customers can use Azure Hybrid Benefit to save on licensing costs for **Windows Server machines** that are migrated to Azure, or to use Azure for disaster recovery.
 
 ## Azure Site Recovery components upgrade
 
@@ -244,7 +247,7 @@ Yes, if you failed over to Azure, you can fail back to a different location if t
 When you fail back from Azure, data from Azure is copied back to your on-premises VM and private access is required.
 
 ### Can I resize the Azure VM after failover?
-No, you cannot change the size of the target VM after the failover.
+No, you cannot change the size or type of the target VM after the failover.
 
 
 ## Automation and scripting

@@ -6,7 +6,7 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual

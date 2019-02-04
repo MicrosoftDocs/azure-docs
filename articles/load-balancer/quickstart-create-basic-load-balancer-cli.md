@@ -11,10 +11,10 @@ Customer intent: I want to create a Basic Load balancer so that I can load balan
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
 ---

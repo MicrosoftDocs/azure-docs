@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 04/06/2018
+ms.date: 01/25/2019
 manager: craigg
 ---
 # Use ActiveDirectoryInteractive mode to connect to Azure SQL Database
@@ -18,9 +18,6 @@ manager: craigg
 This article provides a runnable C# code example that connects to your Microsoft Azure SQL Database. The C# program uses the interactive mode of authentication, which supports Azure AD multi-factor authentication (MFA). For instance, a connection attempt can include a verification code being sent to your mobile phone.
 
 For more information about MFA support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
-
-
-
 
 ## SqlAuthenticationMethod .ActiveDirectoryInteractive enum value
 
@@ -48,11 +45,9 @@ For screenshots of these dialogs, see [Configure multi-factor authentication for
 >
 > [https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)
 
-
 ## Preparations for C#, by using the Azure portal
 
 We assume that you already have an [Azure SQL Database server created](sql-database-get-started-portal.md) and available.
-
 
 ### A. Create an app registration
 
@@ -81,7 +76,7 @@ To use Azure AD authentication, your C# client program must supply a GUID as a *
 
 ### B. Set Azure AD admin on your SQL Database server
 
-Each Azure SQL Database server has its own SQL logical server of Azure AD. For our C# scenario, you must set an Azure AD administrator for your Azure SQL server.
+Each Azure SQL single database and elastic pool has its own SQL Database server of Azure AD. For our C# scenario, you must set an Azure AD administrator for your Azure SQL server.
 
 1. **SQL Server** &gt; **Active Directory admin** &gt; **Set admin**
 

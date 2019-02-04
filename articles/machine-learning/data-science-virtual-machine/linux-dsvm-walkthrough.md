@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

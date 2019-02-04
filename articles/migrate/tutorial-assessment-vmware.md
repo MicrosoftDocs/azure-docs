@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 01/11/2019
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- **VMware**: The VMs that you plan to migrate must be managed by vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.0 or higher to deploy the collector VM.
+- **VMware**: The VMs that you plan to migrate must be managed by vCenter Server running version 5.5, 6.0, or 6.5. Additionally, you need one ESXi host running version 5.5 or higher to deploy the collector VM.
 - **vCenter Server account**: You need a read-only account to access the vCenter Server. Azure Migrate uses this account to discover the on-premises VMs.
 - **Permissions**: On the vCenter Server, you need permissions to create a VM by importing a file in .OVA format.
 
@@ -73,7 +73,7 @@ Azure Migrate creates an on-premises VM known as the collector appliance. This V
     > [!NOTE]
     > The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
 
-    **Instant gratification:** With the continuous discovery appliance, once the discovery is complete (takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for instant gratification, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
+    **Quick assessments:** With the continuous discovery appliance, once the discovery is complete (takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for quick assessments, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
 
     The appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (that is, VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
 
@@ -97,6 +97,14 @@ Check that the .OVA file is secure, before you deploy it.
 3. The generated hash should match these settings.
 
 #### Continuous discovery
+
+  For OVA version 1.0.10.11
+
+  **Algorithm** | **Hash value**
+    --- | ---
+    MD5 | 5f6b199d8272428ccfa23543b0b5f600
+    SHA1 | daa530de6e8674a66a728885a7feb3b0a2e8ccb0
+    SHA256 | 85da50a21a7a6ca684418a87ccc1dd4f8aab30152c438a17b216ec401ebb3a21
 
   For OVA version 1.0.10.9
 

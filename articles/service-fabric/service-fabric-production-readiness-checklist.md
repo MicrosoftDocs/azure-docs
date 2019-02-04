@@ -58,7 +58,7 @@ If you're using the Service Fabric Reliable Services or Reliable Actors programm
 23. Avoid [common pitfalls](service-fabric-work-with-reliable-collections.md) when using Reliable Collections.
 24. Monitor the .NET CLR memory performance counters when running load tests and check for high rates of Garbage Collection or runaway heap growth.
 25. Maintain offline backup of [Reliable Services and Reliable Actors](service-fabric-reliable-services-backup-restore.md) and test the restoration process.
-26. Your Primary NodeType Virtual Machine instance count should ideally be equal to the minimum for your Clusters Reliability tier; conditions when appropriate to exceed the Tier minimum includes: temporarily when vertically scaling your your Primary NodeTypes Virtual Machine Scale Set SKU.
+26. Your Primary NodeType Virtual Machine instance count should ideally be equal to the minimum for your Clusters Reliability tier; conditions when appropriate to exceed the Tier minimum includes: temporarily when vertically scaling your Primary NodeTypes Virtual Machine Scale Set SKU.
 
 ## Optional best practices
 

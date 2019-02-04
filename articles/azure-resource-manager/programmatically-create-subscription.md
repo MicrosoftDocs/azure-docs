@@ -22,6 +22,8 @@ As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/
 
 When you create an Azure subscription from this API, that subscription is governed by the agreement under which you obtained Microsoft Azure services from Microsoft or an authorized reseller. To learn more, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 You must have an Owner or Contributor role on the Enrollment Account you wish to create subscriptions under. There are two ways to get these roles:
