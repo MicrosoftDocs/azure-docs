@@ -3,7 +3,7 @@ title: Azure SQL Database FAQ | Microsoft Docs
 description: Answers to common questions customers ask about cloud databases and Azure SQL Database, Microsoft's relational database management system (RDBMS) and database as a service in the cloud.
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/10/2018
+ms.date: 01/25/2019
 ---
 # SQL Database frequently asked questions (FAQ)
 
@@ -37,7 +37,7 @@ A virtual core represents the logical CPU offered with an option to choose betwe
 
 ## Is moving to the vCore-based model required
 
-No, the introduction of the vCore-based model to the Elastic Pool and Single Database deployment options reflects our commitment to customer choice and flexibility. If customers want to continue using the DTU-based model, they don’t need to take any action with this announcement and their experience and billing will remain unchanged.
+No, the introduction of the vCore-based model to the elastic pool and single database deployment options reflects our commitment to customer choice and flexibility. If customers want to continue using the DTU-based model, they don’t need to take any action with this announcement and their experience and billing will remain unchanged.
 
 In many cases, applications can benefit from the simplicity of a pre-configured bundle of resources. Therefore, we continue to offer and support these DTU-based choices to our customers. If you are using them and it meets your business requirements, you should continue to do so.
 
@@ -135,9 +135,9 @@ As often as you want. See [Manage elastic pools](sql-database-elastic-pool.md).
 
 ## How long does it take to change the service tier or compute size of a single database or move a database in and out of an elastic pool
 
-Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](sql-database-service-tiers-dtu.md).
+Changing the service tier of a database and moving in and out of a pool requires the database to be copied on the platform as a background operation. Changing the service tier can take from a few minutes to several hours depending on the size of the databases. In both cases, the databases remain online and available during the move. For details on changing single databases, see [Change the service tier of a database](sql-database-single-database-scale.md).
 
-## When should I use a single database vs. elastic databases
+## When should I use a single database vs. elastic pools
 
 In general, elastic pools are designed for a typical [software-as-a-service (SaaS) application pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), where there is one database per customer or tenant. Purchasing individual databases and over-provisioning to meet the variable and peak demand for each database is often not cost efficient. With pools, you manage the collective performance of the pool, and the databases scale up and down automatically. Azure's intelligent engine recommends a pool for databases when a usage pattern warrants it. For details, see [Elastic pool guidance](sql-database-elastic-pool.md).
 

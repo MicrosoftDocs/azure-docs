@@ -39,7 +39,7 @@ IP firewall rules grant access to databases based on the originating IP address 
 ## Access management
 
 > [!IMPORTANT]
-> Managing databases and logical servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md).
+> Managing databases and database servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md).
 
 ### Authentication
 
@@ -47,7 +47,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 - **SQL Authentication**:
 
-    SQL database authentication refers to the authentication of a user when connecting to [Azure SQL Database](sql-database-technical-overview.md) using username and password. During the logical server creation for the database, a "Server admin" login with a username and password must be specified. Using these credentials, a “server admin” can authenticate to any database on that logical server as the database owner. After that, additional SQL logins and users can be created by the server admin, which enable users to connect using username and password.
+    SQL database authentication refers to the authentication of a user when connecting to [Azure SQL Database](sql-database-technical-overview.md) using username and password. During the database server creation for the database, a "Server admin" login with a username and password must be specified. Using these credentials, a “server admin” can authenticate to any database on that database server as the database owner. After that, additional SQL logins and users can be created by the server admin, which enable users to connect using username and password.
 
 - **Azure Active Directory Authentication**:
 
@@ -57,7 +57,8 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
     Additional Azure AD authentication options available are [Active Directory Universal Authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) connections including [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) and [Conditional Access](sql-database-conditional-access.md).
 
-### Authorization
+> [!IMPORTANT]
+> Managing databases and servers within Azure is controlled by your portal user account's role assignments. For more information on this article, see [Role-based access control in Azure portal](../role-based-access-control/overview.md). Controlling access with firewall rules does *not* apply to **Azure SQL Database Managed Instance**. Please see the following article on [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
 
 Authorization refers to the permissions assigned to a user within an Azure SQL Database, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) that define database-level permissions or granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](sql-database-manage-logins.md)
 
@@ -69,7 +70,7 @@ Row-Level Security enables customers to control access to rows in a database tab
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
-### Permissions
+  This authentication method uses a username and password. 
 
 For an overview of permissions in Azure SQL Database, see [Logins and users](sql-database-manage-logins.md#permissions)
 

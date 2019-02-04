@@ -11,9 +11,10 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 11/07/2018
 ---
 # Ports beyond 1433 for ADO.NET 4.5
+
 This topic describes the Azure SQL Database connection behavior for clients that use ADO.NET 4.5 or a later version. 
 
 > [!IMPORTANT]
@@ -21,12 +22,15 @@ This topic describes the Azure SQL Database connection behavior for clients that
 >
 
 ## Outside vs inside
+
 For connections to Azure SQL Database, we must first ask whether your client program runs *outside* or *inside* the Azure cloud boundary. The subsections discuss two common scenarios.
 
 #### *Outside:* Client runs on your desktop computer
+
 Port 1433 is the only port that must be open on your desktop computer that hosts your SQL Database client application.
 
 #### *Inside:* Client runs on Azure
+
 When your client runs inside the Azure cloud boundary, it uses what we can call a *direct route* to interact with the SQL Database server. After a connection is established, further interactions between the client and database involve no Azure SQL Database Gateway.
 
 The sequence is as follows:

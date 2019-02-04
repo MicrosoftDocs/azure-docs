@@ -4,7 +4,7 @@ description: This article provides details about how to protect your Azure file 
 services: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 2/21/2018
+ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm

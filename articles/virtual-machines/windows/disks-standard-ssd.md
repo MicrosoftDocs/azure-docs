@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: rogarana
-ms.component: disks
+ms.subservice: disks
 
 ---
 [!INCLUDE [virtual-machines-disks-standard-ssd](../../../includes/virtual-machines-disks-standard-ssd.md)]

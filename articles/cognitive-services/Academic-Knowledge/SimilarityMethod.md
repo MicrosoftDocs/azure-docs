@@ -29,7 +29,7 @@ Parameter        |Data Type      |Required | Description
 **s1**        |String   |Yes  |String* to be compared
 **s2**        |String   |Yes  |String* to be compared
 <sub>
-*Strings to compare have a maxium length of 1MB.
+*Strings to compare have a maximum length of 1MB.
 </sub>
 <br>
 ## Response

@@ -48,7 +48,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 To install the Machine Learning CLI extension, use the following command:
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.6-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.10-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 When prompted, select `y` to install the extension.
@@ -86,20 +86,8 @@ The following commands demonstrate how to use the CLI to manage resources used b
     ```azurecli-interactive
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
-
-+ Create a managed compute target for distributed training:
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
-    ```
-
-* Update a managed compute target:
-
-    ```azurecli-interactive
-    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
-    ```
-
-* Attach an unmanaged compute target for training or deployment:
+    
+* Attach an AKS cluster
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace

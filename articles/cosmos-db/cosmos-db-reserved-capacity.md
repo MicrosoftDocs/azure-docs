@@ -9,7 +9,7 @@ ms.author: rimman
 ms.reviewer: sngun
 ---
 
-# Optimize cost of Azure Cosmos DB resources with reserved capacity
+# Optimize cost with reserved capacity in Azure Cosmos DB
 
 Azure Cosmos DB reserved capacity helps you save money by pre-paying for Azure Cosmos DB resources for either one year or three years. With Azure Cosmos DB reserved capacity, you can get a discount on the throughput provisioned for Cosmos DB resources. Examples of resources are databases and containers (tables, collections, and graphs).
 

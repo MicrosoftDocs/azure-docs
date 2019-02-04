@@ -3,7 +3,7 @@ title: Get started with Azure CLI for Batch | Microsoft Docs
 description: Get a quick introduction to the Batch commands in Azure CLI for managing Azure Batch service resources
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
 ---
