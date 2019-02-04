@@ -81,8 +81,17 @@ The Linux Hybrid Runbook Worker depends on the OMS Agent for Linux to communicat
 
 ### <a name="oms-agent-not-running"></a>Scenario: The OMS Agent for Linux isn't running
 
+#### Issue
 
-If the OMS Agent for Linux isn't running, it prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions aren't enabled, none of the following processes are running.
+The OMS Agent for Linux is not running
+
+#### Cause
+
+If the OMS Agent for Linux isn't running, it prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. The agent may not be running for various reasons.
+
+#### Resolution
+
+ Verify the agent is running by entering the following command: `ps -ef | grep python`. You should see output similar to the following, the python processes with **nxautomation** user account. If the Update Management or Azure Automation solutions aren't enabled, none of the following processes are running.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

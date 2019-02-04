@@ -19,9 +19,9 @@ ms.author: tomfitz
 
 Instead of putting a secure value (like a password) directly in your parameter file, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you are deploying to.
 
-To go through a tutorial, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md#prepare-a-key-vault).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Deploy Key Vaults and secrets
+## Deploy key vaults and secrets
 
 To create Key Vaults and add secrets, see:
 

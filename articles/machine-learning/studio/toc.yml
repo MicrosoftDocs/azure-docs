@@ -15,8 +15,6 @@
   - name: Frequently asked questions
     displayName: FAQ
     href: faq.md
-  - name: What's new?
-    href: whats-new.md
 - name: Tutorials
   items:
   - name: Create your first experiment
@@ -40,8 +38,6 @@
     - name: 6 - Access web service
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: Get started in R
-    href: r-quickstart.md
 - name: Samples
   items:
   - name: Available datasets
@@ -119,6 +115,8 @@
         href: debug-models.md
     - name: Use R and Python
       items:
+      - name: Get started in R
+        href: r-quickstart.md
       - name: Execute R scripts
         href: extend-your-experiment-with-r.md
       - name: Author custom R modules
@@ -197,8 +195,8 @@
     href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
-  - name: Algorithm & Module reference
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
+  - name: Algorithm & module reference
+    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
   - name: Azure PowerShell modules
     href: powershell-module.md
   - name: Web service error codes
@@ -207,15 +205,19 @@
     href: /rest/api/machinelearning
 - name: Resources
   items:
-  - name: Azure Roadmap
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
+  - name: Get support
+    href: support-aml-studio.md
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/    
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: R developer's guide 
     href: ../r-developers-guide.md
-  - name: Custom Neural Networks with Net#
+  - name: Custom neural networks (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Get support
-    href: support-aml-studio.md
   - name: Compare our ML products
     href: ../service/overview-more-machine-learning.md       

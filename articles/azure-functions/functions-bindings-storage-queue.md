@@ -35,6 +35,9 @@ The Queue storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensio
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
+## Encoding
+Functions expect a *base64* encoded string. Any adjustments to the encoding type (in order to prepare data as a *base64* encoded string) need to be implemented in the calling service.
+
 ## Trigger
 
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.

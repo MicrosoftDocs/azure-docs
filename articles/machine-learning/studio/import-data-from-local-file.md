@@ -5,7 +5,7 @@ description: Learn how to upload a training data file from your hard drive to Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

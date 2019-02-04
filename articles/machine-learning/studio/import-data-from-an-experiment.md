@@ -5,7 +5,7 @@ description: How to save training data in Azure Machine Learning Studio and use 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
