@@ -133,8 +133,8 @@ The following tables show what role you need to complete tasks in the context of
 
 ### Manage invoice section permissions and properties
 
-|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Purchaser|Azure subscription creator|
-|---|---|---|---|---|---|
+|Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|
+|---|---|---|---|---|
 |View all permissions on invoice section|✔|✔|✔|✔|✘|
 |View invoice section properties|✔|✔|✔|✔|✔|
 |Give others permissions to view and manage the invoice section|✔|✘|✘|✘|✘|✘|
@@ -143,7 +143,7 @@ The following tables show what role you need to complete tasks in the context of
 ### Manage products for invoice section
 
 |Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|
-|---|---|---|---|---|---|
+|---|---|---|---|---|
 |View all products bought in the invoice section|✔|✔|✔|✘|
 |Manage billing for products for invoice section like cancel, turn off auto renewal, and more|✔|✔|✘|✘|
 |Change invoice section for the products|✔|✔|✘|✘|
@@ -152,7 +152,7 @@ The following tables show what role you need to complete tasks in the context of
 ### Manage subscriptions for invoice section
 
 |Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|
-|---|---|---|---|---|---|
+|---|---|---|---|---|
 |View all Azure subscriptions for invoice section|✔|✔|✔|✘|
 |Change invoice section for the subscriptions|✔|✔|✘|✘|
 
@@ -161,7 +161,7 @@ The following tables show what role you need to complete tasks in the context of
 The following table shows what role you need to complete tasks in the context of a subscription.
 
 |Tasks|Invoice section owner|Invoice section contributor|Invoice section reader|Azure subscription creator|
-|---|---|---|---|---|---|
+|---|---|---|---|---|
 |Create Azure subscriptions|✔|✔|✘|✔|
 
 ## Check your access to a billing account for Microsoft Customer Agreement
