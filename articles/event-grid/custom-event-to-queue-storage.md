@@ -20,7 +20,7 @@ Azure Event Grid is an eventing service for the cloud. Azure Queue storage is on
 
 If you are using Azure CLI or Azure PowerShell on your local machine instead of using Cloud Shell in the Azure portal, ensure that you have the following versions of Azure CLI and Azure PowerShell. 
 
-- Azure CLI version 2.0.56 or greater. For instructions on installing the latest version of Azure CLI, see [Install the Azure CLI](../cli/azure/install-azure-cli?view=azure-cli-latest). 
+- Azure CLI version 2.0.56 or greater. For instructions on installing the latest version of Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 - Azure PowerShell version 1.1.0 or greater. Download the latest version of Azure PowerShell on your Windows machine from [Azure downloads - Command-line tools](https://azure.microsoft.com/downloads/). 
 
 This article gives you commands for using Azure CLI. 

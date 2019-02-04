@@ -36,7 +36,7 @@ az eventgrid event-subscription create \
 To turn off dead-lettering, rerun the command to create the event subscription but don't provide a value for `deadletter-endpoint`. You don't need to delete the event subscription.
 
 > [!NOTE]
-> If you are using Azure CLI on your local machine, use Azure CLI version 2.0.56 or greater. For instructions on installing the latest version of Azure CLI, see [Install the Azure CLI](../cli/azure/install-azure-cli?view=azure-cli-latest).
+> If you are using Azure CLI on your local machine, use Azure CLI version 2.0.56 or greater. For instructions on installing the latest version of Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### PowerShell
 
@@ -56,7 +56,7 @@ New-AzureRmEventGridSubscription `
 To turn off dead-lettering, rerun the command to create the event subscription but don't provide a value for `DeadLetterEndpoint`. You don't need to delete the event subscription.
 
 > [!NOTE]
-> If you are using Azure Poweshell on your local machine, use Azure CLI version 2.0.56 or greater. For instructions on installing the latest version of Azure CLI, see [Install the Azure CLI](../cli/azure/install-azure-cli?view=azure-cli-latest).
+> If you are using Azure Poweshell on your local machine, use Azure PowerShell version 1.1.0 or greater. Download and install the latest Azure PowerShell from [Azure downloads](https://azure.microsoft.com/downloads/).
 
 ## Set retry policy
 
