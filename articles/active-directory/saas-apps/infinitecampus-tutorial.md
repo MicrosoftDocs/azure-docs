@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](common/editconfigure.png)
 
-4. On the **Basic SAML Configuration** section, if you have a **Service Provider metadata file**, complete step 4.a-d and then skip to step 11.c. If you do not have a Service Provider Metadata file, skip to step 5.
+4. On the **Basic SAML Configuration** section, if you have a **Service Provider metadata file**, complete steps 4.a through 4.d, and then skip to step 11.c. If you don't have a Service Provider Metadata file, skip to step 5.
 
 	a. Click **Upload metadata file**.
 
