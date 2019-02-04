@@ -56,8 +56,8 @@ As of Azure feature usage, there are some restrictions of functionality that can
 
 - Using [Azure managed disks](https://azure.microsoft.com/services/managed-disks/) is mandatory for deploying into Azure availability zones 
 - The mapping of zone enumerations to the physical zones is fixed on an Azure subscription basis. If you are using different subscriptions to deploy your SAP systems, you need to define the ideal zones for each subscription separately
-- You can't deploy Azure availability sets within an availability zone. Choose either an availability zone or an availability set as deployment framework for virtual machines.
-- You can't use the [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- You can't deploy Azure availability sets within an Azure availability zone. Choose either an Azure availability zone or an Azure availability set as deployment framework for virtual machines.
+- You can't use an [Azure Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) to create failover cluster solutions based on Windows Failover Cluster Services or Linux Pacemaker. Instead you need to use the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 
 
 
@@ -73,15 +73,15 @@ To find out what the latency between the different zones is, you need to:
 
 - Deploy the VM SKU you want to use for your DBMS instance in all three zones. Make sure that that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled when performing this measurement
 - As you find the two zones with the least network latency, deploy another three VMs of the VM SKU you want to use as application layer VM across the three availability zones. Measure the network latency against the two 'DBMS VMs' in the two different 'DBMS' zones of your choice. 
-- As a tool to measure, use niping. A tool from SAP, which works as described in the SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Focus on the commands SAP documented for latency measurements. Using 'ping' is not a recommended tool since 'ping' does not work through the Azure accelerated network code paths.
+- As a tool to measure, use **niping**. A tool from SAP, which works as described in the SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Focus on the commands SAP documented for latency measurements. Using **ping** is not a recommended tool since **ping** does not work through the Azure accelerated network code paths.
 
 Based on the measurements and the availability of your VM SKUs in the different zones, you need to make the decisions:
 
-- Define ideal zone for the DBMS layer
-- Answer the question whether, based on differences of network latency within a zone or across zone, you could distribute your active SAP application layer across one, two or all three different zones
+- Define the ideal zones for the DBMS layer
+- Answer the question whether, based on differences of network latency within a zone or across zones, you could distribute your active SAP application layer across one, two or all three different zones
 - Answer the question whether you want to deploy an active/passive or an active/active configuration from an application point of view (see later)
 
-Making these decisions, also keep SAP's network latency recommendations as documented in SAP note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E) in mind.
+Making these decisions, also recall SAP's network latency recommendations as documented in SAP note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E).
 
 ### Be aware of
 
