@@ -125,9 +125,9 @@ Elastic database transactions are supported across different SQL Database server
 
 Use the following PowerShell cmdlets to manage cross-server communication relationships for elastic database transactions:
 
-* **New-AzureRmSqlServerCommunicationLink**: Use this cmdlet to create a new communication relationship between two SQL Database servers in Azure SQL Database. The relationship is symmetric which means both servers can initiate transactions with the other server.
-* **Get-AzureRmSqlServerCommunicationLink**: Use this cmdlet to retrieve existing communication relationships and their properties.
-* **Remove-AzureRmSqlServerCommunicationLink**: Use this cmdlet to remove an existing communication relationship. 
+* **New-AzSqlServerCommunicationLink**: Use this cmdlet to create a new communication relationship between two SQL Database servers in Azure SQL Database. The relationship is symmetric which means both servers can initiate transactions with the other server.
+* **Get-AzSqlServerCommunicationLink**: Use this cmdlet to retrieve existing communication relationships and their properties.
+* **Remove-AzSqlServerCommunicationLink**: Use this cmdlet to remove an existing communication relationship. 
 
 ## Monitoring transaction status
 
