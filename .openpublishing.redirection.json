@@ -11943,13 +11943,28 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/import-data-from-an-experiment.md",
+      "redirect_url": "/azure/machine-learning/studio/import-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-import-data-from-local-file.md",
       "redirect_url": "/azure/machine-learning/studio/import-data-from-local-file",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/import-data-from-local-file.md",
+      "redirect_url": "/azure/machine-learning/studio/import-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-import-data-from-online-sources.md",
       "redirect_url": "/azure/machine-learning/studio/import-data-from-online-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/import-data-from-online-sources.md",
+      "redirect_url": "/azure/machine-learning/studio/import-data",
       "redirect_document_id": false
     },
     {
