@@ -10,9 +10,9 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Manage cluster scaling to accommodate changing demand
+# Manage cluster scale out to accommodate changing demand
 
-Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. But demand on a cluster can’t be predicted with 100% accuracy. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal. A better approach is to *scale* a cluster, adding and removing capacity with changing demand. This article shows you how to manage cluster scaling.
+Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. But demand on a cluster can’t be predicted with 100% accuracy. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal. A better approach is to *scale* a cluster, adding and removing capacity with changing demand. This article shows you how to manage cluster scale out.
 
 Navigate to your cluster, and under **Settings** select **Scale out**. Under **Configure**, select **Enable autoscale**.
 
@@ -56,6 +56,6 @@ The following graphic shows the flow of the next several steps. We provide more 
 
 1. Select **Save**.
 
-You've now configured a scale-out operation for your Azure Data Explorer cluster. Add another rule for a scale-in operation. This enables your cluster to scale dynamically based on utilization metrics that you specify.
+You've now configured a scale-out operation for your Azure Data Explorer cluster. Add another rule for a scale-in operation. This enables your cluster to scale dynamically based on metrics that you specify.
 
-If you need assistance with cluster scaling issues, please open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+If you need assistance with cluster scaling issues, open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

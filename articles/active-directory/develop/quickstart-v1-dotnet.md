@@ -13,7 +13,7 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur

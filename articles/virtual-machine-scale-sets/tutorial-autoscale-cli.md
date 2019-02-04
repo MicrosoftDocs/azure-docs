@@ -58,7 +58,7 @@ az vmss create \
 
 ## Define an autoscale profile
 
-To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continuedly creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. Create an autoscale profile with [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). The following example sets the default, and minimum, capacity of *2* VM instances, and a maximum of *10*:
+To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. Create an autoscale profile with [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). The following example sets the default, and minimum, capacity of *2* VM instances, and a maximum of *10*:
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -137,7 +137,7 @@ When **stress** shows output similar to *stress: info: [2688] dispatching hogs: 
 
 To confirm that **stress** generates CPU load, examine the active system load with the **top** utility:
 
-```azuecli-interactive
+```azurecli-interactive
 top
 ```
 
