@@ -27,7 +27,7 @@ To specify encryption options on your stream, you need to create the [Content Ke
 
 > [!IMPORTANT]
 > * Properties of **Content Key Policies** that are of the Datetime type are always in UTC format.
-> * You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options and are needed. 
+> * You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options are needed. 
 
 ## Example
 
