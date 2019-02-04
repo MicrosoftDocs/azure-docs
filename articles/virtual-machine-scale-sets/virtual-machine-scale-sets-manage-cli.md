@@ -25,7 +25,7 @@ To complete these management tasks, you need the latest Azure CLI. For informati
 
 
 ## View information about a scale set
-To view the overall information about a scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show). The following example gets information about the scale set named *myScaleSet* in the *myResourceGroup* resource group. Enter your own names as follows:
+To view the overall information about a scale set, use [az vmss show](/cli/azure/vmss). The following example gets information about the scale set named *myScaleSet* in the *myResourceGroup* resource group. Enter your own names as follows:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -65,7 +65,7 @@ az vmss list-instance-connection-info \
 ## Change the capacity of a scale set
 The preceding commands showed information about your scale set and the VM instances. To increase or decrease the number of instances in the scale set, you can change the capacity. The scale set creates or removes the required number of VMs, then configures the VMs to receive application traffic.
 
-To see the number of instances you currently have in a scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show) and query on *sku.capacity*:
+To see the number of instances you currently have in a scale set, use [az vmss show](/cli/azure/vmss) and query on *sku.capacity*:
 
 ```azurecli
 az vmss show \
