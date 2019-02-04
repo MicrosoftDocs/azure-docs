@@ -26,7 +26,7 @@ We welcome your suggestions! Join the conversation in the [Microsoft Partner Com
 
 ![](./media/marketplace-publishers-guide/roadmap.png)
 
-## Next step
+**Next steps**
 
 Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) page.
 
