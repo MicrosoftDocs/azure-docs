@@ -75,7 +75,7 @@ To help verify that you are not logged into a personal browser account, open a n
     | Billing model | Next steps |  
     |:--- |:--- |  
     | Free | Go to Cloud Partner Portal.<ul> <li>To publish on the Azure Marketplace, visit the Cloud Partner Portal page located at [cloudpartner.azure.com](https://cloudpartner.azure.com).</li> </ul> |  
-    | Commercial (transact) | Update your account information.<ul> <li>For more information about adding account information, visit the [How to Add bank and tax information]() section.</li> </ul> |  
+    | Commercial (transact) | Update your account information.<ul> <li>For more information about adding account information, visit the [How to Add bank and tax information](#add-bank-information) section.</li> </ul> |  
 
     *   An example of a commercial offer is a VM offer with an hourly billing model.  
 
