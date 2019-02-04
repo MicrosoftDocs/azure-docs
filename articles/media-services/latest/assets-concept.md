@@ -104,4 +104,5 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 ## Next steps
 
 * [Stream a file](stream-files-dotnet-quickstart.md)
+* [Using a cloud DVR](live-event-cloud-dvr.md)
 * [Differences between Media Services v2 and v3](migrate-from-v2-to-v3.md)
