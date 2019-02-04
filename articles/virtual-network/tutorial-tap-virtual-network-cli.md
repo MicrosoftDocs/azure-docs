@@ -75,7 +75,7 @@ Read [prerequisites](virtual-network-tap-overview.md#prerequisites) before you c
    - Retrieve the front end IP configuration of the Azure internal load balancer into a variable that is used in a later step. The ID is the end point that will aggregate the TAP traffic. The following example retrieves the ID of the *frontendipconfig1* front end IP configuration for a load balancer named *myInternalLoadBalancer*, in a resource group named *myResourceGroup*:
 
       ```azurecli-interactive
-      FrondendIpConfigId=$(az network lb fronend-ip show \
+      FrontendIpConfigId=$(az network lb frontend-ip show \
       --name frontendipconfig1 \
       --lb-name myInternalLoadBalancer \
       --resource-group myResourceGroup \
