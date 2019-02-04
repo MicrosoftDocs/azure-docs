@@ -57,11 +57,11 @@ The following table shows how the filtering and ordering options may be applied 
 |Name|Filter|Order|
 |---|---|---|
 |id|||
-|name|Supports: Eq, Gt, Lt|Supports: Ascending and Descending|
-|properties.alternateId |Supports: Eq||
-|properties.assetId |Supports: Eq||
+|name|eq, gt, lt| ascending and descending|
+|properties.alternateId |eq||
+|properties.assetId |eq||
 |properties.container |||
-|properties.created|Supports: Eq, Gt, Lt| Supports: Ascending and Descending|
+|properties.created| eq, gt, lt| ascending and descending|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
@@ -144,12 +144,12 @@ The following table shows how these options may be applied to the [Content Key P
 |Name|Filter|Order|
 |---|---|---|
 |id|||
-|name|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.created	|Eq, ne, ge, le,  gt, lt|Ascending and descending|
-|properties.description	|Eq, ne, ge, le, gt, lt||
-|properties.lastModified|Eq, ne, ge, le, gt, lt|Ascending and descending|
+|name|eq, ne, ge, le, gt, lt|ascending and descending|
+|properties.created	|eq, ne, ge, le,  gt, lt|ascending and descending|
+|properties.description	|eq, ne, ge, le, gt, lt||
+|properties.lastModified|eq, ne, ge, le, gt, lt|ascending and descending|
 |properties.options	|||
-|properties.policyId|Eq, ne||
+|properties.policyId|eq, ne||
 |type|||
 
 ### Pagination
@@ -170,82 +170,19 @@ while (currentPage.NextPageLink != null)
 
 For REST examples, see [Content Key Policies - List](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
 
-## Streaming Locators
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the StreamingLocator properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id	|||
-|name|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.alternativeMediaId	|||
-|properties.assetName	|||
-|properties.contentKeys	|||
-|properties.created	|Eq, ne, ge, le,  gt, lt|Ascending and descending|
-|properties.defaultContentKeyPolicyName	|||
-|properties.endTime	|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.startTime	|||
-|properties.streamingLocatorId	|||
-|properties.streamingPolicyName	|||
-|type	|||
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
-
-The following C# example shows how to enumerate through all StreamingLocators in the account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
-
-## Streaming Policies
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the StreamingPolicy properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id|||
-|name|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.commonEncryptionCbcs|||
-|properties.commonEncryptionCenc|||
-|properties.created	|Eq, ne, ge, le,  gt, lt|Ascending and descending|
-|properties.defaultContentKeyPolicyName	|||
-|properties.envelopeEncryption|||
-|properties.noEncryption|||
-|type|||
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
-
-The following C# example shows how to enumerate through all StreamingPolicies in the account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-For REST examples, see [Streaming Policies - List](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-
 ## Jobs
+
+### Filtering/ordering
+
+The following table shows how these options may be applied to the [Jobs](https://docs.microsoft.com/rest/api/media/jobs) properties: 
+
+| Name    | Filter                        | Order |
+|---------|-------------------------------|-------|
+| name                    | eq            | ascending and descending|
+| properties.state        | eq, ne        |                         |
+| properties.created      | gt, ge, lt, le| ascending and descending|
+| properties.lastModified | gt, ge, lt, le | ascending and descending| 
+
 
 ### Pagination
 
@@ -281,6 +218,93 @@ while (!exit);
 
 For REST examples, see [Jobs - List](https://docs.microsoft.com/rest/api/media/jobs/list)
 
+## Streaming Locators
+
+### Filtering/ordering
+
+The following table shows how these options may be applied to the StreamingLocator properties: 
+
+|Name|Filter|Order|
+|---|---|---|
+|id	|||
+|name|eq, ne, ge, le, gt, lt|ascending and descending|
+|properties.alternativeMediaId	|||
+|properties.assetName	|||
+|properties.contentKeys	|||
+|properties.created	|eq, ne, ge, le,  gt, lt|ascending and descending|
+|properties.defaultContentKeyPolicyName	|||
+|properties.endTime	|eq, ne, ge, le, gt, lt|ascending and descending|
+|properties.startTime	|||
+|properties.streamingLocatorId	|||
+|properties.streamingPolicyName	|||
+|type	|||
+
+### Pagination
+
+Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
+
+The following C# example shows how to enumerate through all StreamingLocators in the account.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+
+## Streaming Policies
+
+### Filtering/ordering
+
+The following table shows how these options may be applied to the StreamingPolicy properties: 
+
+|Name|Filter|Order|
+|---|---|---|
+|id|||
+|name|eq, ne, ge, le, gt, lt|ascending and descending|
+|properties.commonEncryptionCbcs|||
+|properties.commonEncryptionCenc|||
+|properties.created	|eq, ne, ge, le,  gt, lt|ascending and descending|
+|properties.defaultContentKeyPolicyName	|||
+|properties.envelopeEncryption|||
+|properties.noEncryption|||
+|type|||
+
+### Pagination
+
+Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
+
+The following C# example shows how to enumerate through all StreamingPolicies in the account.
+
+```csharp
+var firstPage = await MediaServicesArmClient.StreamingPolicies.ListAsync(CustomerResourceGroup, CustomerAccountName);
+
+var currentPage = firstPage;
+while (currentPage.NextPageLink != null)
+{
+    currentPage = await MediaServicesArmClient.StreamingPolicies.ListNextAsync(currentPage.NextPageLink);
+}
+```
+
+For REST examples, see [Streaming Policies - List](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
+
+
+## Transform
+
+### Filtering/ordering
+
+The following table shows how these options may be applied to the [Transforms](https://docs.microsoft.com/rest/api/media/transforms) properties: 
+
+| Name    | Filter                        | Order |
+|---------|-------------------------------|-------|
+| name                    | eq            | ascending and descending|
+| properties.created      | gt, ge, lt, le| ascending and descending|
+| properties.lastModified | gt, ge, lt, le | ascending and descending|
 
 ## Next steps
 
