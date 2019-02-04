@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/04/2018
 ms.author: raynew
 ---
 
@@ -36,11 +36,6 @@ Assessment settings can be customized based on your needs. Assessment properties
 **VM series** | The VM series used for size estimations. For example, if you have a production environment that you do not plan to migrate to A-series VMs in Azure, you can exclude A-series from the list or series. Sizing is based on the selected series only.   
 **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. The default comfort setting is 1.3x.
 
-
-<<<<<<< HEAD
-=======
->>>>>>> 990adb5544ce324c880cf63a51d2ac0878c64cda
->>>>>>> f9b38a58f2a1326d6726e5e4ea80a9564e993b32
 ## Azure suitability analysis
 
 Not all machines are suitable for running on cloud as cloud has its own limitations and requirements. Azure Migrate assesses each on-premises machine for migration suitability to Azure and categorizes the machines into one of the following categories:
