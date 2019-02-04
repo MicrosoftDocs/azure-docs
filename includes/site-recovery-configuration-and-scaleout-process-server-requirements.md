@@ -44,7 +44,7 @@ https:\//management.azure.com | Used for replication management operations and c
 *.services.visualstudio.com | Used for telemetry purposes (It is optional)
 time.nist.gov | Used to check time synchronization between system and global time.
 time.windows.com | Used to check time synchronization between system and global time.
-<br> - https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com | OVF set up needs access to these URLs. They are used for access control and identity management by Azure Active Directory
+- https:\//login.microsoftonline.com <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//graph.windows.net <br> - https:\//login.windows.net <br> - https:\//www.live.com <br> - https:\//www.microsoft.com | OVF set up needs access to these URLs. They are used for access control and identity management by Azure Active Directory
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download
 |
 **SOFTWARE TO INSTALL** | 
