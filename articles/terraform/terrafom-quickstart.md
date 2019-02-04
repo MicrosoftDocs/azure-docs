@@ -11,11 +11,11 @@ ms.author: nepeters
 
 # Create a Terraform configuration for Azure
 
-In this example, you gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you have deployed an Azure Cosmos DB, and Azure Container Instances, and an application that works across these two resources. This document assumes that all work is completed in Azure Cloud Shell, which has all Terraform tooling pre-installed. If you would like to work through the example on your own system, Terraform can be installed using the instructions found [here](../virtual-machines/linux/terraform-install-configure.md).
+In this example, you gain experience in creating a Terraform configuration and deploying this configuration to Azure. When completed, you will have deployed an Azure Cosmos DB instance, an Azure Container Instances, and an application that works across these two resources. This document assumes that all work is completed in Azure Cloud Shell, which has Terraform tooling pre-installed. If you would like to work through the example on your own system, Terraform can be installed using the instructions found [here](../virtual-machines/linux/terraform-install-configure.md).
 
 ## Create first configuration
 
-In this section, you create the configuration for an Azure Cosmos DB instance.
+In this section, you will create the configuration for an Azure Cosmos DB instance.
 
 Select **try it now** to open up Azure cloud shell. Once open, enter in `code .` to open the cloud shell code editor.
 
@@ -23,7 +23,9 @@ Select **try it now** to open up Azure cloud shell. Once open, enter in `code .`
 code .
 ```
 
-Copy and paste in the following Terraform configuration. This configuration models an Azure resource group, a random integer, and an Azure Cosmos DB instances. Several Cosmos DB settings are also configured. For a complete list of Cosmos DB Terraform configurations, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
+Copy and paste in the following Terraform configuration.
+
+This configuration models an Azure resource group, a random integer, and an Azure Cosmos DB instances. The random integer is used in Cosmos DB instances name. Several Cosmos DB settings are also configured. For a complete list of Cosmos DB Terraform configurations, see the [Cosmos DB Terraform reference](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
 
 Save the file as `main.tf` when done. This operation can be done using the ellipses in the upper right-hand portion of the code editor.
 
@@ -64,13 +66,13 @@ The [terraform init](https://www.terraform.io/docs/commands/init.html) command i
 terraform init
 ```
 
-The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command can be used to validate that the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. Run `terraform plan` to test the new Terraform configuration.
+The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command can be used to validate that the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. Run `terraform plan` to test the new Terraform configuration. The plan is stored in a file name `plan.out`, which is used when applying the configuration.
 
 ```azurecli-interactive
 terraform plan --out plan.out
 ```
 
-Now, apply the configuration using [terraform apply](https://www.terraform.io/docs/commands/apply.html) and specifying the name of the plan file. This command deploys the resources in your Azure subscription.
+Apply the configuration using [terraform apply](https://www.terraform.io/docs/commands/apply.html) and specifying the name of the plan file. This command deploys the resources in your Azure subscription.
 
 ```azurecli-interactive
 terraform apply plan.out
@@ -82,11 +84,12 @@ Once done, you can see that the resource group has been created and an Azure Cos
 
 Update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB.
 
-Take note that two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
-
 Copy the following configuration to the bottom of the `main.tf` file. Save the file when done.
 
-Take note that these updates include an output block, which returns the fully qualified domain name (FQDN) of the container instance.
+Two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY`. These variables hold the location and key for accessing the database. The values for these variables are obtained from the database instance created in the last step. This process is known to as interpolation. To learn more about Terraform interpolation, see [Interpolation Syntax](https://www.terraform.io/docs/configuration/interpolation.html).
+
+
+The configuration also includes an output block, which returns the fully qualified domain name (FQDN) of the container instance.
 
 ```azurecli-interactive
 resource "azurerm_container_group" "vote-aci" {
