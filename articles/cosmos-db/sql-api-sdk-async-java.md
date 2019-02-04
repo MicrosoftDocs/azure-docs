@@ -46,7 +46,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 ## Release notes
 
-### <a name=">"2.4.0-beta-1"/>2.4.0-beta-1
+### <a name="2.4.0-beta-1"/>2.4.0-beta-1
 * Added support for Direct Https.
 * Changed the APIs accepting java.util.Collection for which order is important to accept java.util.List instead.
   Now ConnectionPolicy#getPreferredLocations(), JsonSerialization, and PartitionKey(.) accept List.
