@@ -75,15 +75,9 @@
       href: deploy-with-resource-manager-template.md
   - name: Import training data
     items:
-    - name: Overview
+    - name: Import data
       href: import-data.md
-    - name: From a local file
-      href: import-data-from-local-file.md
-    - name: From online sources
-      href: import-data-from-online-sources.md
-    - name: From an experiment
-      href: import-data-from-an-experiment.md
-    - name: Use on-prem SQL
+    - name: Use data from on-premises SQL
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Create and train models

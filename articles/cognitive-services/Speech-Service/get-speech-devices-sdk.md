@@ -41,7 +41,7 @@ Subject: You're invited to the Microsoft organization
 
 Complete the following steps to join Azure AD with the email address you provided during registration. This process grants you access to the Speech Devices SDK [download site](https://shares.datatransfer.microsoft.com/).
 
-1. In the email message you received, select **Get Started**. If your organization is already an Office 365 customer, you are prompted to sign in and you can skip ahead to step 8.
+1. In the email message you received, select **Get Started**. If your organization is already an Office 365 customer, you are prompted to sign in and you can skip ahead to step 7.
 
 2. In the browser window that opens, select **Next**.
 
