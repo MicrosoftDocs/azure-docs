@@ -8,7 +8,7 @@
   expanded: true
   items:
     - name: Create an application with Terraform
-      href: ../terrafom-quickstart.md
+      href: ./terraform-quickstart.md
     - name: Install and configure Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
