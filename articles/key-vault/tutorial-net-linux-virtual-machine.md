@@ -1,6 +1,6 @@
 ---
 title: Tutorial - How to use a Linux virtual machine and an ASP.NET console application to store secrets in Azure Key Vault | Microsoft Docs
-description: Tutorial - Learn how to configure an ASP.NET core application to read a secret from Azure Key vault
+description: In this tutorial, you learn how to configure an ASP.NET Core application to read a secret from Azure Key vault.
 services: key-vault
 documentationcenter: 
 author: prashanthyv
@@ -14,7 +14,7 @@ ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
 
-#Customer intent: As a developer, I want to use Azure Key vault to store secrets for my app so that they are kept secure.
+#Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app so that they are kept secure.
 ---
 
 # Tutorial: Use a Linux VM and a .NET app to store secrets in Azure Key Vault
@@ -37,15 +37,11 @@ Before we go any further, read about [key vault basic concepts](key-vault-whatis
 
 * Git. [Download git](https://git-scm.com/downloads).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. This tutorial requires that you run the Azure CLI locally. It's available for Windows, Mac, and Linux.
+* Azure CLI. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-### Understand Managed Service Identity (MSI)
+## Understand Managed Service Identity (MSI)
 
-Azure Key Vault can store credentials securely so they aren’t in your code, but to retrieve them you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential! It's a classic bootstrap problem.
-
-With Azure and Azure AD, MSI can provide a bootstrap identity that makes it much simpler to get things started.
-
-#### Learn how MSI works
+Azure Key Vault can store credentials securely so they aren’t in your code, but to retrieve them you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential! It's a classic bootstrap problem. With Azure and Azure Active Directory (Azure AD), MSI can provide a bootstrap identity that makes it much simpler to get things started.
 
 When you enable MSI for an Azure service like Virtual Machines, App Service, or Functions, Azure creates a Service Principal for the instance of the service in Azure Active Directory. It injects the credentials for the Service Principal into the instance of the service.
 
@@ -116,7 +112,7 @@ az vm create \
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows that the VM create operation was successful.
 
-```
+```azurecli
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -135,13 +131,13 @@ Make a note of your `publicIpAddress` in the output from your VM. You'll use thi
 
 Create a system-assigned identity to the virtual machine by running the following command:
 
-```
+```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
 The output of the command should be:
 
-```
+```azurecli
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
@@ -154,7 +150,7 @@ Make a note of the `systemAssignedIdentity`. You use it in the next step.
 
 Now you can give the above created identity permission to Key Vault by running the following command:
 
-```
+```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
@@ -162,24 +158,24 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 Now sign in to the virtual machine by using a terminal.
 
-```
+```terminal
 ssh azureuser@<PublicIpAddress>
 ```
 
-## Install .NET core on Linux
+## Install .NET Core on Linux
 
 On your Linux VM:
 
-1. Register the Microsoft Product key as trusted by running the following commands:
+Register the Microsoft Product key as trusted by running the following commands:
 
-   ```
+   ```bash
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
    ```
 
-1. Set up desired version host package feed based on Operating System:
+Set up desired version host package feed based on operating system:
 
-   ```
+   ```bash
    # Ubuntu 17.10
    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
    sudo apt-get update
@@ -197,9 +193,9 @@ On your Linux VM:
    sudo apt-get update
    ```
 
-1. Install .NET and check the version:
+Install .NET and check the version:
 
-   ```
+   ```bash
    sudo apt-get install dotnet-sdk-2.1.4
    dotnet --version
    ```
@@ -208,7 +204,7 @@ On your Linux VM:
 
 Run the following commands. You should see "Hello World" printed to the console.
 
-```
+```bash
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -216,9 +212,9 @@ dotnet run
 
 ## Edit the console app to fetch your secret
 
-1. Open Program.cs file and add these packages:
+Open Program.cs file and add these packages:
 
-   ```
+   ```csharp
    using System;
    using System.IO;
    using System.Net;
@@ -227,14 +223,14 @@ dotnet run
    using Newtonsoft.Json.Linq;
    ```
 
-2. It's a two-step process to change the class file to enable the app to access the secret in the key vault.
+It's a two-step process to change the class file to enable the app to access the secret in the key vault.
 
-   1. Fetch a token from the local MSI endpoint on the VM that in-turn fetches a token from Azure Active Directory.
-   2. Pass the token to Key Vault and fetch your secret.
+1. Fetch a token from the local MSI endpoint on the VM that in turn fetches a token from Azure Active Directory.
+1. Pass the token to Key Vault and fetch your secret.
 
    Edit the class file to contain the following code:
 
-   ```
+   ```csharp
     class Program
        {
            static void Main(string[] args)
@@ -283,7 +279,7 @@ Now you've learned how to perform operations with Azure Key Vault in a .NET appl
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the VM and select **Delete**.
+Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.
 
 ## Next steps
 
