@@ -164,7 +164,7 @@ Definition for the table for the output blob location is in the following (this 
 
 Copy the JSON definition of the table into a file called *bloboutputtabledef.json* file and save it to a known location (here assumed to be *C:\temp\bloboutputtabledef.json*). Create the table in ADF with the following Azure PowerShell cmdlet:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
+    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
 
 ### <a name="adf-table-azure-sql"></a>SQL Azure Table
 Definition for the table for the SQL Azure output is in the following (this schema maps the data coming from the blob):
@@ -175,8 +175,8 @@ Definition for the table for the SQL Azure output is in the following (this sche
         {
             "structure":
             [
-                { "name": "column1", type": "String"},
-                { "name": "column2", type": "String"}
+                { "name": "column1", "type": "String"},
+                { "name": "column2", "type": "String"}
             ],
             "location":
             {
@@ -194,7 +194,7 @@ Definition for the table for the SQL Azure output is in the following (this sche
 
 Copy the JSON definition of the table into a file called *AzureSqlTable.json* file and save it to a known location (here assumed to be *C:\temp\AzureSqlTable.json*). Create the table in ADF with the following Azure PowerShell cmdlet:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
+    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
 
 
 ## <a name="adf-pipeline"></a>Define and create the pipeline
