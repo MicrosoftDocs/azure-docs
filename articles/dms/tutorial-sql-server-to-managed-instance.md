@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 02/04/2019
 ---
 
 # Tutorial: Migrate SQL Server to Azure SQL Database Managed Instance offline using DMS
@@ -126,6 +126,9 @@ After an instance of the service is created, locate it within the Azure portal, 
 4. On the **Select source databases** screen, select the **Adventureworks2012** database for migration.
 
    ![Select Source Databases](media/tutorial-sql-server-to-managed-instance/dms-source-database1.png)
+
+    > [!IMPORTANT]
+    > If you use SQL Server Integration Services (SSIS), DMS does not currently support migrating the catalog database for your SSIS projects/packages (SSISDB) from SQL Server to Azure SQL Database Managed Instance. However, you can provision SSIS in Azure Data Factory (ADF) and redeploy your SSIS projects/packages to the destination SSISDB hosted by Azure SQL Database Managed Instance. For more information about migrating SSIS packages, see the article [Migrate SQL Server Integration Services packages to Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 5. Select **Save**.
 

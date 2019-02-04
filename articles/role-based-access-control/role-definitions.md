@@ -54,27 +54,23 @@ Here's the [Contributor](built-in-roles.md#contributor) role definition in JSON 
 
 ```json
 {
-    "Name":  "Contributor",
-    "Id":  "b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "IsCustom":  false,
-    "Description":  "Lets you manage everything except access to resources.",
-    "Actions":  [
-                    "*"
-                ],
-    "NotActions":  [
-                       "Microsoft.Authorization/*/Delete",
-                       "Microsoft.Authorization/*/Write",
-                       "Microsoft.Authorization/elevateAccess/Action"
-                   ],
-    "DataActions":  [
-
-                    ],
-    "NotDataActions":  [
-
-                       ],
-    "AssignableScopes":  [
-                             "/"
-                         ]
+  "Name": "Contributor",
+  "Id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "IsCustom": false,
+  "Description": "Lets you manage everything except access to resources.",
+  "Actions": [
+    "*"
+  ],
+  "NotActions": [
+    "Microsoft.Authorization/*/Delete",
+    "Microsoft.Authorization/*/Write",
+    "Microsoft.Authorization/elevateAccess/Action"
+  ],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ]
 }
 ```
 
@@ -100,25 +96,21 @@ Here's the [Storage Blob Data Reader (Preview)](built-in-roles.md#storage-blob-d
 
 ```json
 {
-    "Name":  "Storage Blob Data Reader (Preview)",
-    "Id":  "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
-    "IsCustom":  false,
-    "Description":  "Allows for read access to Azure Storage blob containers and data",
-    "Actions":  [
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
-                ],
-    "NotActions":  [
-
-                   ],
-    "DataActions":  [
-                        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
-                    ],
-    "NotDataActions":  [
-
-                       ],
-    "AssignableScopes":  [
-                             "/"
-                         ]
+  "Name": "Storage Blob Data Reader (Preview)",
+  "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "IsCustom": false,
+  "Description": "Allows for read access to Azure Storage blob containers and data",
+  "Actions": [
+    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+  ],
+  "NotActions": [],
+  "DataActions": [
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+  ],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ]
 }
 ```
 
@@ -160,7 +152,7 @@ To view and work with data operations, you must have the correct versions of the
 
 | Tool  | Version  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) | 5.6.0 or later |
+| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 or later |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 or later |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
 | [Azure SDK for Go](/go/azure/azure-sdk-go-install) | 15.0.0 or later |
