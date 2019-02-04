@@ -384,5 +384,7 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 
 ## Next steps
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)
 

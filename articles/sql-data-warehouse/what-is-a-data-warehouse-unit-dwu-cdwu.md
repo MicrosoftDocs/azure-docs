@@ -117,6 +117,9 @@ To change DWUs or cDWUs:
 3. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
 ### PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To change the DWUs or cDWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
 
 ```Powershell

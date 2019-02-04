@@ -134,6 +134,8 @@ As discussed previously, active geo-replication can also be managed programmatic
 
 ### PowerShell: Manage failover of standalone and pooled databases
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 | Cmdlet | Description |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Gets one or more databases. |

@@ -18,6 +18,8 @@ This article describes different types of storage space in Azure SQL Database, a
 
 ## Overview
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 In Azure SQL Database, there are workload patterns where the allocation of underlying data files for databases can become larger than the amount of used data pages. This condition can occur when space used increases and data is subsequently deleted. The reason is because file space allocated is not automatically reclaimed when data is deleted.
 
 Monitoring file space usage and shrinking data files may be necessary in the following scenarios:

@@ -15,6 +15,8 @@ ms.date: 01/25/2019
 ---
 # Use read-only replicas to load balance read-only query workloads (preview)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 **Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of one read-only replica.
 
 Each database in the Premium tier ([DTU-based purchasing model](sql-database-service-tiers-dtu.md)) or in the Business Critical tier ([vCore-based purchasing model](sql-database-service-tiers-vcore.md)) is automatically provisioned with several AlwaysON replicas to support the availability SLA.

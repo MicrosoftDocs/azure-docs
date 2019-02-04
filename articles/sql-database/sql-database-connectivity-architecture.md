@@ -122,6 +122,8 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 
 ## Script to change connection settings via PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > This script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 

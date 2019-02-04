@@ -17,8 +17,10 @@ ms.date: 10/12/2018
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - You must have an Azure subscription and be an administrator on that subscription
-- You must have Azure PowerShell version 4.2.0 or newer installed and running. 
+- You must have Azure PowerShell installed and running. 
 - This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Data Warehouse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md) to learn more.
 
 ## Overview

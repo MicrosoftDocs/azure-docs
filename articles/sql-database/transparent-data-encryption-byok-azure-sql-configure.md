@@ -20,9 +20,11 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 
 ## Prerequisites for PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - You must have an Azure subscription and be an administrator on that subscription.
 - [Recommended but Optional] Have a hardware security module (HSM) or local key store for creating a local copy of the TDE Protector key material.
-- You must have Azure PowerShell version 4.2.0 or newer installed and running. 
+- You must have Azure PowerShell installed and running. 
 - Create an Azure Key Vault and Key to use for TDE.
    - [PowerShell instructions from Key Vault](../key-vault/key-vault-get-started.md)
    - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/key-vault-get-started.md#HSM)

@@ -78,6 +78,8 @@ You set the transparent data encryption master key, also known as the transparen
 
 ## Manage transparent data encryption by using PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To configure transparent data encryption through PowerShell, you must be connected as the Azure Owner, Contributor, or SQL Security Manager.
 
 ### Cmdlets for Azure SQL Database and Data Warehouse

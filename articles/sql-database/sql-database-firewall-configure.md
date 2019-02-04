@@ -143,6 +143,8 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## Manage firewall rules using Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 | Cmdlet | Level | Description |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Returns the current server-level firewall rules |

@@ -22,6 +22,8 @@ If you have an existing customer hosted version of [Elastic Database Jobs](sql-d
 
 ## Prerequisites
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 The upgraded version of Elastic Database jobs has a new set of PowerShell cmdlets for use during migration. These new cmdlets transfer all of your existing job credentials, targets (including databases, servers, custom collections), job triggers, job schedules, job contents, and jobs over to a new Elastic Job agent.
 
 ### Install the latest Elastic Jobs cmdlets

@@ -470,7 +470,7 @@ Error logs that are available in managed instance are not persisted and their si
 
 Managed Instance places verbose information in error logs and many of them are not relevant. The amount of information in error logs will be decreased in the future.
 
-**Workaround**: Use a custom procedure for reading error logs that filter-out some non-relevant entries. For details, see [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Workaround**: Use a custom procedure for reading error logs that filter-out some non-relevant entries. For details, see [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### Transaction Scope on two databases within the same instance is not supported
 

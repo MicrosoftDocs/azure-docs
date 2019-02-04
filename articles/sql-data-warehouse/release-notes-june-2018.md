@@ -15,6 +15,8 @@ ms.reviewer: twounder
 # What's new in Azure SQL Data Warehouse? June 2018
 Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced in June 2018. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## User Defined Restore Points
 SQL Data Warehouse automatically takes snapshots of your data warehouse every 8 hours guaranteeing an eight-hour recovery point objective (RPO). While this automated snapshots ease the management burden of running your data warehouse, there is a need to take snapshots at critical times based on your business need. For example, taking a snapshot right before a significant data load or the deployment of new scripts into the data warehouse to enable a restore point right before the operation. 
 

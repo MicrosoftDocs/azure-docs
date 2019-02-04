@@ -210,6 +210,8 @@ The split-merge service uses Azure Diagnostics based on Azure SDK 2.5 for monito
 
 ## Deploy Diagnostics
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To enable monitoring and diagnostics using the diagnostic configuration for the web and worker roles provided by the NuGet package, run the following commands using Azure PowerShell:
 
 ```powershell

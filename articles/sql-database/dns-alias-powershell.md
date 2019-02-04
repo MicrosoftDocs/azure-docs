@@ -17,14 +17,14 @@ ms.date: 01/17/2019
 
 This article provides a PowerShell script that demonstrates how you can manage a DNS alias for Azure SQL Database. The script runs the following cmdlets which takes the following actions:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The cmdlets used in the code example are the following:
 
 - [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias?view=azurermps-5.1.1): Creates a new DNS alias in the Azure SQL Database service system. The alias refers to Azure SQL Database server 1.
 - [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias?view=azurermps-5.1.1): Get and list all the DNS aliases that are assigned to SQL DB server 1.
 - [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias?view=azurermps-5.1.1): Modifies the server name that the alias is configured to refer to, from server 1 to SQL DB server 2.
 - [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias?view=azurermps-5.1.1): Remove the DNS alias from SQL DB server 2, by using the name of the alias.
-
-The preceding PowerShell cmdlets were added to the **AzureRm.Sql** module starting with version 5.1.1.
 
 ## DNS alias in connection string
 
@@ -39,7 +39,7 @@ If you want to run the demo PowerShell script given in this article, the followi
 - An Azure subscription and account. For a free trial, click [https://azure.microsoft.com/free/][https://azure.microsoft.com/free/].
 - Azure PowerShell module, with cmdlet **New-AzSqlServerDNSAlias**.
   - To install or upgrade, see [Install Azure PowerShell module][install-Az-ps-84p].
-  - Run `Get-Module -ListAvailable AzureRM;` in powershell\_ise.exe, to find the version.
+  - Run `Get-Module -ListAvailable Az;` in powershell\_ise.exe, to find the version.
 - Two Azure SQL Database servers.
 
 ## Code example

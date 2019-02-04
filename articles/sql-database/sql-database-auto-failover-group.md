@@ -282,6 +282,8 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 ### PowerShell: Manage SQL database failover with single databases and elastic pools
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 | Cmdlet | Description |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |This command creates a failover group and registers it on both primary and secondary servers|

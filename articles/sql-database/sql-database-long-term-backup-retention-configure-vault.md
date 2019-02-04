@@ -141,6 +141,8 @@ You restore the database to a new database from a backup in the Azure Recovery S
 
 ## PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following sections show you how to use PowerShell to configure the Azure Recovery Services vault, view backups in the vault, and restore from the vault.
 
 ### Create a recovery services vault

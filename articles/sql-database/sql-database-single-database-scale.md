@@ -17,6 +17,8 @@ ms.date: 01/25/2019
 
 This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## vCore-based purchasing model: Change storage size
 
 - Storage can be provisioned up to the max size limit using 1GB increments. The minimum configurable data storage is 5 GB

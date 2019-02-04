@@ -25,10 +25,13 @@ ms.reviewer: igorstan
 In this article you will learn how to restore an Azure SQL Data Warehouse using PowerShell.
 
 ## Before you begin
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 **Verify your DTU capacity.** Each SQL Data Warehouse is hosted by a SQL server (e.g. myserver.database.windows.net) which has a default DTU quota.  Before you can restore a SQL Data Warehouse, verify that the your SQL server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change][Request a DTU quota change].
 
 ### Install PowerShell
-In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell version 1.0 or greater.  You can check your version by running **Get-Module -ListAvailable -Name AzureRM**.  The latest version can be installed from  [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
+In order to use Azure PowerShell with SQL Data Warehouse, you will need to install Azure PowerShell.  You can check your version by running **Get-Module -ListAvailable -Name Az**.  For more information on installing the latest version, see [How to install and configure Azure PowerShell][How to install and configure Azure PowerShell].
 
 ## Restore an active or paused database
 To restore a database from a snapshot use the [Restore-AzSqlDatabase][Restore-AzSqlDatabase] PowerShell cmdlet.
@@ -172,4 +175,3 @@ To learn about the business continuity features of Azure SQL Database editions, 
 
 <!--Other Web references-->
 [Azure Portal]: https://portal.azure.com/
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

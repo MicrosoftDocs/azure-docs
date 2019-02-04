@@ -63,15 +63,15 @@ This section clarifies the monikers that refer to product versions. It also list
 
 
 ## Related links
-* ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](https://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](https://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
-  * A blog post about ADO.NET 4.5.1 is available [here](https://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4.6 was released on July 20, 2015. A blog announcement from the .NET team is available [here](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
+* ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
+  * A blog post about ADO.NET 4.5.1 is available [here](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
 
 * Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux, & macOS
 https://www.microsoft.com/download/details.aspx?id=56567
 
 * Connect to Azure SQL Database V12 via Redirection
-https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/
+https://blogs.msdn.microsoft.com/sqlcat/20../../connect-to-azure-sql-database-v12-via-redirection/
 
 * [TDS protocol version list](http://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database Development Overview](sql-database-develop-overview.md)
