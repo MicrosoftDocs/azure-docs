@@ -11,19 +11,22 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ---
 
 # Transforms and Jobs
  
-Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files.  A single Transform can apply more than one rule. For example, a Transform could specify that each video be encoded into an MP4 file at a given bitrate, and that a thumbnail image be generated from the first frame of the video. You would add one TransformOutput entry for each rule that you want to include in your Transform.
+Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A single Transform can apply more than one rule. For example, a Transform could specify that each video be encoded into an MP4 file at a given bitrate, and that a thumbnail image be generated from the first frame of the video. You would add one TransformOutput entry for each rule that you want to include in your Transform. You can create Transforms in your Media Services account using the Media Services v3 API, or using any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
 
+While the [Transform](https://docs.microsoft.com/rest/api/media/transforms) entity supports an Update operation, you should take care to make sure all in-progress Jobs complete before you make a modification. Typically, you would update an existing Transform to change the description, or modify the priorities of the underlying TransformOutputs. If you wanted to rewrite the recipe, then you would create a new Transform.
 
-A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPS URLs, SAS URLs, or [Media Services Assets](https://docs.microsoft.com/rest/api/media/assets).  
+A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. Once a Transform has been created, you can submit jobs using Media Services APIs, or any of the published SDKs. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPS URLs, SAS URLs, or [Assets](https://docs.microsoft.com/rest/api/media/assets). The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md).
+
+While the [Job](https://docs.microsoft.com/rest/api/media/jobs) entity supports an Update operation, the only properties that can be modified after the Job is submitted are the description, and the priority. Further, a change to the priority is effective only if the Job is still in a queued state. If the job has begun processing, or has finished, changing the priority has no effect.
 
 > [!NOTE]
-> Transform and Job properties of the Datetime type are always in UTC format.
+> Properties of **Transform** and **Job** that are of the Datetime type are always in UTC format.
 
 ## Typical workflow
 
@@ -31,6 +34,8 @@ A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to
 2. Submit Jobs under that Transform 
 3. List Transforms 
 4. Delete a Transform, if you are not planning to use it in the future. 
+
+### Example
 
 Suppose you wanted to extract the first frame of all your videos as a thumbnail image – the steps you would take are: 
 
@@ -41,22 +46,10 @@ Suppose you wanted to extract the first frame of all your videos as a thumbnail 
 
 A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
-## Transforms
-
-You can create Transforms in your Media Services account using the v3 API directly, or using any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
-
-While the Transforms definition supports an Update operation, you should take care to make sure all in-progress Jobs complete before you make a modification. Typically, you would update an existing Transform to change the description, or modify the priorities of the underlying TransformOutputs. If you wanted to rewrite the recipe, then you would create a new Transform.
-
-## Jobs
-
-Once a Transform has been created, you can submit Jobs using Media Services APIs, or any of the published SDKs. The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md).
-
-While the Jobs definition supports an Update operation, the only properties that can be modified after the Job is submitted are the description, and the priority. Further, a change to the priority is effective only if the Job is still in a queued state. If the job has begun processing, or has finished, changing the priority has no effect.
-
 ## Paging
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 
 ## Next steps
 
-[Stream video files](stream-files-dotnet-quickstart.md)
+[Upload, encode, and stream video files](stream-files-tutorial-with-api.md)

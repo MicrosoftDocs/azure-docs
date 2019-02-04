@@ -26,7 +26,7 @@ To specify encryption options on your stream, you need to create the [Content Ke
 **Content Key Policies** are updatable. For example, you might want to update the policy if you need to do a key rotation. You can update the primary verification key and the list of alternate verification keys in the existing policy. It can take up to 15 minutes for the Key Delivery caches to update and pick up the updated policy. 
 
 > [!IMPORTANT]
-> * Streaming Locator properties of the Datetime type are always in UTC format.
+> * Properties of **Content Key Policies** that are of the Datetime type are always in UTC format.
 > * You should design a limited set of policies for your Media Service account and re-use them for your Streaming Locators whenever the same options and are needed. 
 
 ## Filtering, ordering, paging
