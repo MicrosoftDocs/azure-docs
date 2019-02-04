@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/01/2019
+ms.date: 02/04/2019
 ms.author: rolyon
 ms.custom: 
 ---
@@ -22,7 +22,7 @@ This step-by-step guide walks through the implementation of Privileged Identity 
 
 > [!NOTE]
 > Throughout this document, you will see items marked as
-> - **Microsoft Recommends**
+> - :heavy_check_mark: **Microsoft recommends**
 >
 > These are general recommendations, and you should only implement if they apply to your specific enterprise needs.
 
@@ -167,13 +167,13 @@ It is important to prioritize protecting Azure AD roles that have the most numbe
 1. Billing administrator
 1. Skype for Business administrator
 
-✓ Microsoft recommends you manage all your global administrators and security administrators through PIM as a first step as they are the ones that can do the most harm when compromised.
+:heavy_check_mark: **Microsoft recommends** you manage all your global administrators and security administrators through PIM as a first step as they are the ones that can do the most harm when compromised.
 
 It is also important to consider what data and permission are most sensitive for your organization. As an example, some organizations may want to protect their PowerBI Administrator role or their Teams administrator role through PIM as they have the ability to access data and/or change core workflows.
 
 If there are any roles with guest users assigned, they are particularly vulnerable to attack
 
-✓ Microsoft recommends you manage all roles with guest users through PIM to reduce risk associated with compromised guest user accounts.
+:heavy_check_mark: **Microsoft recommends** you manage all roles with guest users through PIM to reduce risk associated with compromised guest user accounts.
 
 Reader roles like the directory reader, message center reader and security reader are sometimes believed to be less important compared to other roles as they don’t have write permission. However, we have seen some of customers also protect these roles as attackers who have gained access to these accounts may be able to read sensitive data, such as Personal Identifiable Information (PII). You should take this into consideration when deciding whether reader roles in your organization need to be managed through PIM.
 
@@ -186,19 +186,19 @@ When deciding which role assignments should be managed through PIM for Azure res
 
 If you are a global administrator having trouble deciding which resource/subscription are most important, you should reach out to subscription owners in your organization to gather a list of resources managed by each subscription. You should then work with the subscription owners to group the resources based on severity level in the case they are compromised (e.g. low, medium, high). You should prioritize managing resources with PIM based on this severity level.
 
-✓ Microsoft recommends you to work with subscription/resource owner of critical services to set up PIM workflow for all roles inside sensitive subscription/resource.
+:heavy_check_mark: **Microsoft recommends** you to work with subscription/resource owner of critical services to set up PIM workflow for all roles inside sensitive subscription/resource.
 
 Note: PIM for Azure resource supports timebound service accounts. You should treat service accounts exactly the same as how you would treat a regular user account.
 
 For resources/subscriptions that are not as critical, you won’t need to set up PIM for all roles. However, you should still protect the owner and user access administrator roles with PIM
 
-✓ Microsoft recommends you manage owner roles and user access administrator roles of all resources/subscriptions through PIM.
+:heavy_check_mark: **Microsoft recommends** you manage owner roles and user access administrator roles of all resources/subscriptions through PIM.
 
 ### Decide which role assignments should be permanent or eligible
 
 Once you have decided the list of roles to be managed by PIM, you will need to decide which users should get the eligible role versus the permanently active role. Permanently active roles are the normal roles assigned through Azure Active Directory and Azure Resource while eligible roles can only be assigned in PIM.
 
-✓ Microsoft recommends you have 0 permanently active assignments for both Azure AD roles and Azure Resource roles other than the recommended 2 break-glass emergency access accounts which should have the permanent global administrator role.
+:heavy_check_mark: **Microsoft recommends** you have 0 permanently active assignments for both Azure AD roles and Azure Resource roles other than the recommended 2 break-glass emergency access accounts which should have the permanent global administrator role.
 
 Even though we recommend 0 standing administrator, it is sometimes difficult for organizations to achieve this right away. Here are things to consider when making this decision:
 
@@ -206,7 +206,7 @@ Frequency of elevation – If the user only needs the privileged assignment once
 
 Cases specific to your organization – If the person being given the eligible role is from a very distant team or a high-ranking executive to the point that communicating and enforcing the elevation process is difficult, they can be considered for the permanent role
 
-✓ Microsoft recommends you to set up recurring access reviews for users with permanent role assignments (should you have any). Learn more about recurring access review in the final section of this deployment plan
+:heavy_check_mark: **Microsoft recommends** you to set up recurring access reviews for users with permanent role assignments (should you have any). Learn more about recurring access review in the final section of this deployment plan
 
 ### Draft your PIM configurations
 
@@ -214,27 +214,25 @@ Before you implement your PIM solution, it is good practice to draft up your PIM
 
 PIM configuration table for Azure AD roles
 
-:x:
-
 | Roles | Require MFA | Notification | Incident Ticket | Require Approval | Approver | Activation Duration | Permanent Admin |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Global Administrator | ✔ |  |  |  | Other global administrators | 1 Hour | Emergency access accounts |
-| Exchange administrator | :heavy_check_mark: |  | :x: |  | None | 2 Hour | None |
-| Help desk administrator |  |  |  |  | None | 8 Hour | None |
+| Global Administrator | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other global administrators | 1 Hour | Emergency access accounts |
+| Exchange administrator | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2 Hour | None |
+| Help desk administrator | :x: | :x: | :heavy_check_mark: | :x: | None | 8 Hour | None |
 
 PIM configuration table for Azure Resource roles
 
 | Roles | Require MFA | Notification | Require Approval | Approver | Activation Duration | Active Admin | Active Expiration | Eligible Expiration |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Owner of critical subscriptions |  |  |  | Other owners of the subscription | 1 Hour | None | n/a | 3 month |
-| User access administrator of less critical subscriptions |  |  |  | None | 1 Hour | None | n/a | 3 month |
-| Virtual Machine Contributer |  |  |  | None | 3 Hour | None | n/a | 6 month |
+| Owner of critical subscriptions | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Other owners of the subscription | 1 Hour | None | n/a | 3 month |
+| User access administrator of less critical subscriptions | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1 Hour | None | n/a | 3 month |
+| Virtual Machine Contributer | :x: | :heavy_check_mark: | :x: | None | 3 Hour | None | n/a | 6 month |
 
 Role: Name of the role you are defining the policy for
 
 Require MFA: Whether the eligible user needs to perform MFA before activating the role
 
-✓ Microsoft recommends you enforce MFA for all admin roles, especially if the roles have guest users.
+:heavy_check_mark: **Microsoft recommends** you enforce MFA for all admin roles, especially if the roles have guest users.
 
 Notification: If set to true, global admin, privileged role admin and security admin in the organization will receive an email notification when an eligible user activates the role
 
@@ -242,23 +240,23 @@ Note: Some organizations don’t have an email address tied to their admin accou
 
 Incident Ticket: Whether the eligible user needs to record an incident ticket number when activating their role. This is to help an organization identify each activation with an internal incident number in order to mitigate unwanted activations
 
-✓ Microsoft recommends take advantage of incident ticket numbers to tie PIM with your internal system. This is particularly useful for approvers who need context for the activation.
+:heavy_check_mark: **Microsoft recommends** take advantage of incident ticket numbers to tie PIM with your internal system. This is particularly useful for approvers who need context for the activation.
 
 Require Approval: Whether the eligible user needs to get approval in order to activate the role
 
-✓ Microsoft recommends you to set up approval for roles with the most permission. Based on usage patterns of all PIM customers, global administrator, user administrator, exchange administrator, security administrator and password administrator are the most common roles with approval setup.
+:heavy_check_mark: **Microsoft recommends** you to set up approval for roles with the most permission. Based on usage patterns of all PIM customers, global administrator, user administrator, exchange administrator, security administrator and password administrator are the most common roles with approval setup.
 
 Approver: If approval is required to activate the eligible role, list out the people who should approve the request. By default, PIM sets the approver to be all users who are a privileged role admin whether they are permanent or eligible.
 
 Note: If a user is both eligible for an Azure AD role and an approver of the role, they will not be able to approve themselves
 
-✓ Microsoft recommends that you choose approvers to be those who are most knowledgeable about the specific role and its frequent users rather than a global administrator
+:heavy_check_mark: **Microsoft recommends** that you choose approvers to be those who are most knowledgeable about the specific role and its frequent users rather than a global administrator
 
 Activation duration: The length of time a user will be activated in the role before it will expire
 
 Permanent admin: List of users who will be a permanent admin for the role (never have to activate).
 
-✓ Microsoft recommends you have 0 standing admin for all roles except for global admins. Read more about it in the who should be made eligible and who should be permanently active section of this plan
+:heavy_check_mark: **Microsoft recommends** you have 0 standing admin for all roles except for global admins. Read more about it in the who should be made eligible and who should be permanently active section of this plan
 
 Active admin: In Azure Resource, active admin is the list of users who will never have to activate in order to use the role. This is not referred to as permanent admin like in Azure AD roles because you can set an expiration time for when the user will lose this role
 
@@ -276,7 +274,7 @@ Use this section to help with your implementation. Based on the policies that yo
 
 Identify a set of users and or groups of users to validate the implementation
 
-✓ Microsoft recommends you make service owners of each Azure AD role to be the test users so they can become familiar with the process and become an internal advocator for the roll out
+:heavy_check_mark: **Microsoft recommends** you make service owners of each Azure AD role to be the test users so they can become familiar with the process and become an internal advocator for the roll out
 
 In this table, identify the test users that will verify that the policies for each role is working.
 
@@ -332,7 +330,7 @@ Deploying PIM will introduce additional steps for users of privileged roles. Alt
 
 If your organization has an internal IT support team
 
-✓ Microsoft recommends you to set up time with your helpdesk/support team to walk them through the PIM workflow. Provide them with the appropriate documentations as well as your contact information
+:heavy_check_mark: **Microsoft recommends** you to set up time with your helpdesk/support team to walk them through the PIM workflow. Provide them with the appropriate documentations as well as your contact information
 
 ### Moving to production
 
@@ -368,7 +366,7 @@ You should utilize PIM’s built in alerting functionality to better safeguard y
 2) Navigate to Azure AD Privileged Identity Management
 3) Click on Azure AD Roles on the left bar and choose Alerts
 
-✓ Microsoft recommends you deal with all alerts marked with high severity immediately. For medium and low severity alerts, you should stay informed and make changes if you believe there is a security threat
+:heavy_check_mark: **Microsoft recommends** you deal with all alerts marked with high severity immediately. For medium and low severity alerts, you should stay informed and make changes if you believe there is a security threat
 
 If any of the specific alerts aren’t useful or does not apply to your organization, you can always dismiss the alert on the alerts page. You can always revert this dismissal later in the Azure AD settings page.
 
@@ -376,11 +374,11 @@ If any of the specific alerts aren’t useful or does not apply to your organiza
 
 Access review is the best way for you to ask users assigned with privileged roles or specific reviewers whether each user need the privileged identity or not. This is great if you want to reduce attack surface and stay compliant. You can learn more about starting an access review in our access review documentation for Azure AD roles and Azure Resource roles. For some organizations, performing periodic access review is required to stay compliant with laws and regulations while for others, access review is the best way to enforce the principal of least privilege throughout your organization.
 
-✓ Microsoft recommends you set up quarterly access reviews for all your Azure AD and Azure Resource roles.
+:heavy_check_mark: **Microsoft recommends** you set up quarterly access reviews for all your Azure AD and Azure Resource roles.
 
 In most cases, the reviewer for Azure AD roles is the users themselves while the reviewer for Azure Resource would be the owner of the subscription which the role is in. However, it is often the case where companies would have privileged accounts that are not linked with any particular person’s email address. In those cases, no one would end up reading and reviewing the access.
 
-✓ Microsoft recommends you add a secondary email address for all accounts with privileged role assignments that are not linked to a regularly checked email address
+:heavy_check_mark: **Microsoft recommends** you add a secondary email address for all accounts with privileged role assignments that are not linked to a regularly checked email address
 
 ### Get the most out of your audit log to improve security and compliance
 
@@ -394,8 +392,8 @@ The Audit log is the place where you can stay up to date and be compliant with r
 
 You can access these audit logs if you are a global administrator or a privileged role administrator. Learn more about audit history for Azure AD roles and audit history for Azure Resource roles.
 
-✓ Microsoft recommends you to have at least one admin read through all audit events on a weekly basis and export your audit events on a monthly basis.
+:heavy_check_mark: **Microsoft recommends** you to have at least one admin read through all audit events on a weekly basis and export your audit events on a monthly basis.
 
 If you want to automatically store your audit events for a longer period of time, PIM’s audit log is automatically synced into the Azure AD audit logs.
 
-✓ Microsoft recommends you to setup Azure log monitoring to archive audit events in an Azure storage account for the need of security and compliance.
+:heavy_check_mark: **Microsoft recommends** you to setup Azure log monitoring to archive audit events in an Azure storage account for the need of security and compliance.
