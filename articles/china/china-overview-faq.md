@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 02/03/2019
 ms.author: v-wimarc
 
 ---
@@ -25,10 +25,6 @@ Get answers to frequently asked questions about Microsoft Azure operated by 21Vi
 A [subscription](https://www.azure.cn/support/faq/#What-is-the-relationship-between-accounts-and-subscriptions) to Azure China 21Vianet works like a subscription to global Azure. For example, you can have more than one subscription, each with more than one user account, and you can create and use Azure services from any of your subscriptions. The same user is allowed in multiple subscriptions. Your bill details the cost for each subscription and the overall cost for all subscriptions.
 
 ## Portals
-### What is the Azure portal?
-In June 2017, the [Azure portal](https://portal.azure.cn), based on Azure Resource Manager, became generally available in China. The Azure portal combines the functions of the classic Azure Management portal and Account portal. The classic Azure Management portal is being retired gradually. All new services will launch in the Azure portal, but may not launch in the Management portal.
-
-We highly encourage you to start using the new Azure portal to deploy services. The Azure Resource Manager platform brings more flexibility to resource management.
 
 ### What can I do in the EA portal?
 The [Azure Enterprise Agreement (EA) portal](https://ea.azure.cn/), is an exclusive benefit of an enterprise online service premium agreement (OSPA). Here you can:
@@ -44,13 +40,6 @@ For help using the EA portal, visit the [Video Center](https://www.azure.cn/vide
 - Add more subscriptions.
 - Edit your contact information.
 - See preview features, which are added by subscription.
-
-### What can I do in the Management portal?
-The classic [Azure Management portal](https://manage.windowsazure.cn/) is being retired gradually. We encourage you to use the [Azure portal](https://portal.azure.cn/), which combines management and account functions while giving you greater flexibility to manage your Azure resources.
-
-You can continue to use the Management portal to:
-- Add Azure services to subscriptions.
-- Add and manage co-admins.
 
 ### Why is my new enrollment status pending in the EA portal?
 When a new enrollment is provisioned, the status is shown as pending. When you log on to the EA portal with the account, the status changes to active.
