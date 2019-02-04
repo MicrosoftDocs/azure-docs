@@ -98,6 +98,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 #### Red Hat Linux 6
 
@@ -113,6 +114,7 @@ The following table lists the Windows and Linux operating systems that are suppo
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 #### Ubuntu Server
 
