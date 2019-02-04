@@ -32,7 +32,7 @@ It's best if your data is relatively clean before you import it into Studio. For
 
 However, there are modules available in Studio that enable some manipulation of data within your experiment after you import your data. Depending on the machine learning algorithms you'll be using, you may need to decide how you'll handle data structural issues such as missing values and sparse data, and there are modules that can help with that. Look in the **Data Transformation** section of the module palette for modules that perform these functions.
 
-At any point in your experiment you can view or download the data that's produced by a module by clicking the output port. Depending on the module, there may be different download options available, or you may be able to visualize the data within your web browser in Studio.
+At any point in your experiment, you can view or download the data that's produced by a module by clicking the output port. Depending on the module, there may be different download options available, or you may be able to visualize the data within your web browser in Studio.
 
 ## Supported data formats and data types
 
@@ -75,7 +75,7 @@ Look in the **Data Format Conversions** section of the module palette for module
 
 ## Import data from a local file
 
-You can upload a data file from your hard drive to use as training data in Studio. When you import a data file you create a dataset module ready for use in experiments in your workspace.
+You can upload a data file from your hard drive to use as training data in Studio. When you import a data file, you create a dataset module ready for use in experiments in your workspace.
 
 To import data from a local hard drive, do the following:
 
@@ -113,7 +113,7 @@ By using the [Import Data][import-data] module, you can access data from one of 
 
 Because this training data is accessed while your experiment is running, it's only available in that experiment. By comparison, data that has been stored in a dataset module is available to any experiment in your workspace.
 
-To access online data sources in your Studio experiment add the [Import Data][import-data] module to your experiment. Then select **Launch Import Data Wizard** under **Properties** for step-by-step guided instructions to select and configure the data source. Alternatively, you can manually select **Data source** under **Properties** and supply the parameters needed to access the data.
+To access online data sources in your Studio experiment, add the [Import Data][import-data] module to your experiment. Then select **Launch Import Data Wizard** under **Properties** for step-by-step guided instructions to select and configure the data source. Alternatively, you can manually select **Data source** under **Properties** and supply the parameters needed to access the data.
 
 The online data sources that are supported are itemized in the table below. This table also summarizes the file formats that are supported and parameters that are used to access the data.
 
