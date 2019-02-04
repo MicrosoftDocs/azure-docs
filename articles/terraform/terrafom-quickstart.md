@@ -66,7 +66,9 @@ The [terraform init](https://www.terraform.io/docs/commands/init.html) command i
 terraform init
 ```
 
-The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command can be used to validate that the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. Run `terraform plan` to test the new Terraform configuration. The plan is stored in a file name `plan.out`, which is used when applying the configuration.
+The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command can be used to validate that the configuration is properly formatted and to visualize what resources will be created, updated, or destroyed. The results can be stored in a file and used at a later time to apply the configuration.
+
+Run `terraform plan` to test the new Terraform configuration.
 
 ```azurecli-interactive
 terraform plan --out plan.out
