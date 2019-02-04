@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Creating an export job for the Azure Import/Export service

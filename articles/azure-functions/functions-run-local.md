@@ -367,7 +367,7 @@ To pass test data to the administrator endpoint of a function, you must supply t
 {
     "input": "<trigger_input>"
 }
-````
+```
 
 The `<trigger_input>` value contains data in a format expected by the function. The following cURL example is a POST to a `QueueTriggerJS` function. In this case, the input is a string that is equivalent to the message expected to be found in the queue.
 

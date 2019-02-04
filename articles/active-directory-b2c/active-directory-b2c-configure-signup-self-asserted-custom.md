@@ -1,4 +1,4 @@
-﻿---
+---
 title: Modify sign up in custom policies and configure self asserted provider | Microsoft Docs
 description: A walkthrough on adding claims to sign up and configure the user input
 services: active-directory-b2c
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 # Azure Active Directory B2C: Modify sign up to add new claims and configure user input.
 

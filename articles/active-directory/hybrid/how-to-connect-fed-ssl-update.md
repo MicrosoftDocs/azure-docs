@@ -9,9 +9,9 @@ ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.component: hybrid
+ms.subservice: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath

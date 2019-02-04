@@ -32,15 +32,15 @@ LEFT JOIN
 
   ![Query results](./media/search-example-adventureworks/prod-query-results.png "Query results")
 
-## Add a Collection field to an index
+## Indexing to a Collection field
 
-In the index containing this this, create a **Collection(Edm.String)** field in the Azure Search schema to store this data, and make sure that field attributes include searchable, filterable, facetable, and retrievable.
+In the index containing this structure, create a **Collection(Edm.String)** field in the Azure Search schema to store this data, making sure that field attributes include searchable, filterable, facetable, and retrievable.
 
 Now, when indexing content that refers to a specific taxonomy category, submit the taxonomy as an array containing text from each level of the taxonomy. For example, for an entity with `ProductCategoryId = 5 (Mountain Bikes)`, submit the field as `[ "Bikes", "Bikes|Mountain Bikes"]`
 
 Notice the inclusion of the parent category "Bikes" in the child category value "Mountain Bikes". Each subcategory should embed its entire path relative to the root element. The pipe character separator is arbitrary, but it must be consistent and should not appear in the source text. The separator character will be used in application code to reconstruct the taxonomy tree from facet results.
 
-## Construct queries
+## Construct the query
 
 When issuing queries, include the following facet specification (where taxonomy is your facetable taxonomy field):
 `facet = taxonomy,count:50,sort:value`
@@ -49,7 +49,7 @@ The count value must be high enough to return all possible taxonomy values. The 
 
   ![Faceted filter](./media/search-example-adventureworks/facet-filter.png "Faceted filter")
 
-## Handle the structure in client code
+## Build the structure in client code
 
 In your client application code, reconstruct the taxonomy tree by splitting each facet value on the pipe character.
 

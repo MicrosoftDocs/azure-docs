@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Run machine learning experiments and inferencing securing inside an Azure Virtual Network. Learn how to create compute targets for model training and how to inference within an Azure Virtual Network. It also covers requirements for secured virtual networks, such as require inbound and outbound ports.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens

@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.component: files
+ms.subservice: files
 ---
 
 # Develop for Azure Files with .NET

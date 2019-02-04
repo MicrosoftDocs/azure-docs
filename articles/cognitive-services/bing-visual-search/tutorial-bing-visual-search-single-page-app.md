@@ -7,7 +7,7 @@ author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: aahi

@@ -8,7 +8,7 @@ manager: daveba
 layout: LandingPage
 
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross

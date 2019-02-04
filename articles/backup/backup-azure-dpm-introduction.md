@@ -2,13 +2,12 @@
 title: Prepare the DPM server to back up workloads to Azure
 description: An introduction to backing up DPM data to an Azure Recovery Services vault.
 services: backup
-author: adigan
-manager: nkolli
-keywords: System Center Data Protection Manager, data protection manager, dpm backup
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
+ms.date: 01/30/2019
+ms.author: kasinh
 ---
 # Prepare to back up workloads to Azure with System Center DPM
 

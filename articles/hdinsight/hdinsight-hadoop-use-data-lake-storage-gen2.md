@@ -23,6 +23,8 @@ Azure Data Lake Storage Gen2 is available as a storage option for almost all Azu
 
 ## Creating an HDInsight cluster with Data Lake Storage Gen2
 
+## Using the Azure portal
+
 To create a HDInsight cluster, which uses Data Lake Storage Gen2 for storage, use the following steps to create a Data Lake Storage Gen2 account that is configured correctly.
 
 1. Create a user-assigned managed identity, if you don’t already have one. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
@@ -57,6 +59,48 @@ To create a HDInsight cluster, which uses Data Lake Storage Gen2 for storage, us
         * Under **Identity** select the correct subscription and the newly created user-assigned managed Identity.
         
             ![Identity settings for using Data Lake Storage Gen2 with Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+
+### Using a Resource Manager template deployed with Azure CLI
+
+You can download a sample [template file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and a [sample parameters file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, substitute your actual Azure subscription ID for the string `<SUBSCRIPTION_ID>`. Also, substitute your chosen password for the string `<PASSWORD>` to set both the login password that you will use to login to your cluster as well as the SSH password.
+
+The code snippet below performs the following initial steps:
+
+1. Login to your Azure account.
+1. Set the active subscription where the create operations will be performed.
+1. Create a new resource group for the new deployment activities `hdinsight-deployment-rg`.
+1. Create a User Managed Service Identity (MSI) `test-hdinsight-msi`.
+1. Add an extension to Azure CLI to use features for Data Lake Storage Gen2.
+1. Create a new Data Lake Storage Gen2 account `hdinsightadlsgen2`, by using the `--hierarchical-namespace true` flag.
+
+```azurecli
+az login
+az account set --subscription <subscription_id>
+
+#create resource group
+az group create --name hdinsight-deployment-rg --location eastus
+
+# Create managed identity
+az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+
+az extension add --name storage-preview
+
+az storage account create --name hdinsightadlsgen2 \
+    --resource-group hdinsight-deployment-rg \
+    --location eastus --sku Standard_LRS \
+    --kind StorageV2 --hierarchical-namespace true
+```
+
+Next, login to the portal and add the new MSI to the **Storage Blob Data Contributor (Preview)** role on the storage account, as described in step 3 above under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+
+After completing the MSI role assignment in the portal, proceed to deploy the template using the code snippet below.
+
+```azurecli
+az group deployment create --name HDInsightADLSGen2Deployment \
+    --resource-group hdinsight-deployment-rg \
+    --template-file hdinsight-adls-gen2-template.json \
+    --parameters parameters.json
+```
 
 ## Access Control for Data Lake Storage Gen2 in HDInsight
 

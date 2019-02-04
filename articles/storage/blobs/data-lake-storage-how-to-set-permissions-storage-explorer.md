@@ -5,7 +5,7 @@ services: storage
 author: roygara
 
 ms.custom: mvc
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018

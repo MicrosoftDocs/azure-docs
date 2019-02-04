@@ -15,6 +15,7 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
+ms.lastreviewed: 01/25/2019
 ---
 
 # Deploy a Service Fabric cluster in Azure Stack
@@ -208,7 +209,7 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
 
 1. After changing the order of the environment variables, restart PowerShell and then run the following PowerShell script to gain access to the Service Fabric cluster:
 
-   ````PowerShell  
+   ```PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
@@ -219,7 +220,7 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
     0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
     -StoreLocation CurrentUser -StoreName My -Verbose
-   ````
+   ```
    
    > [!NOTE]  
    > There is no *https://* before the name of the cluster in the script. Port 19000 is required.

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: This how-to guide explains the various quotas on resources for Azure Machine Learning and how to view and request more quota.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens

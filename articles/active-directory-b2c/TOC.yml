@@ -152,8 +152,6 @@
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Track user behavior
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: Secure a Java web app
-      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
     - name: Reference
       items:
       - name: Claim resolvers

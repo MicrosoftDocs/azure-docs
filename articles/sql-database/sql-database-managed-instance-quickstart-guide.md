@@ -3,7 +3,7 @@ title: Quickstart - Azure SQL Database Managed Instance | Microsoft Docs
 description: 'Learn how to quickly get started with Azure SQL Database - Managed Instance'
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
@@ -15,7 +15,7 @@ ms.date: 01/25/2019
 ---
 # Getting started with Azure SQL Database Managed Instance
 
-[Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) is fully managed PaaS version of SQL Server hosted in Azure cloud and placed in your own VNet with the private IP address. In this section, you will learn how to quickly configure and create Managed Instance and migrate your databases.
+[Azure SQL Database Managed Instance](sql-database-managed-instance-index.yml) is fully managed PaaS version of SQL Server hosted in Azure cloud and placed in your own VNet with the private IP address. In this section, you will learn how to quickly configure and create Managed Instance and migrate your databases.
 
 ## Quickstart overview
 
@@ -24,6 +24,7 @@ In this section, you will see an overview of the available articles that can hel
 If you have your own network that you want to use or you want to customize the network, see how to [configure network environment](#configure-network-environment) for Managed Instance.
 
 When you create your Managed Instance, you would need to connect to the instance using one of the following approaches:
+
 * Create [Azure Virtual Machine](sql-database-managed-instance-configure-vm.md) with installed SQL Server Management Studio and other apps that can be used to access your Managed Instance in a subnet within the same VNet where your Managed Instance is placed. VM cannot be in the same subnet with your Managed Instances.
 * Set up [Point-to-site connection](sql-database-managed-instance-configure-p2s.md) on your computer that will enable you to join your computer to the VNet where Managed Instance is placed and use Managed Instance as any other SQL Server in your network.
 

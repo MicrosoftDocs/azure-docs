@@ -39,7 +39,7 @@ az group create --name myresourcegroup --location westus
 ```
 
 ## Create an Azure Database for PostgreSQL server
-Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command. A server contains a group of databases managed as a group. 
+Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server) command. A server contains a group of databases managed as a group. 
 
 The following example creates a server called `mydemoserver` in your resource group `myresourcegroup` with server admin login `myadmin`. The name of a server maps to DNS name and is thus required to be globally unique in Azure. Substitute the `<server_admin_password>` with your own value. It is a General Purpose, Gen 4 server with 2 vCores.
 ```azurecli-interactive
