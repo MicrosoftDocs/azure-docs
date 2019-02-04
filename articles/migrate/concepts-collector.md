@@ -175,6 +175,7 @@ net.transmitted.average | Calculates VM size
 The complete list of VMware counters collected by Azure Migrate is available below:
 
 **Category** |  **Metadata** | **vCenter datapoint**
+--- | --- | ---
 Machine Details | VM ID | vm.Config.InstanceUuid
 Machine Details | VM name | vm.Config.Name
 Machine Details | vCenter Server ID | VMwareClient.InstanceUuid
