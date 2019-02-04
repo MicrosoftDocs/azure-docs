@@ -7,7 +7,7 @@ ms.author: alkohli
 ---
 <!--author=SharS last changed: 9/17/15-->
 
-### Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSomple Adapter for SharePoint
+### Upgrade SharePoint 2010 to SharePoint 2013 and then install the StorSimple Adapter for SharePoint
 > [!IMPORTANT]
 > Any files that were previously moved to external storage via RBS will not be available until the upgrade is finished and the RBS feature is enabled again. To limit user impact, perform any upgrade or reinstallation during a planned maintenance window.
 > 
