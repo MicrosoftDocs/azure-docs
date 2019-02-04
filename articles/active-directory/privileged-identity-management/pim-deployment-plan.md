@@ -126,11 +126,15 @@ Step 1 - Understand the granularity of the roles offered by reading and understa
 
 Step 2 - You will want to see who has which roles in your organization. You can use PIM’s wizard by following the first five steps of the documentation. You should get to a page like the one below.
 
+![Discover privileged roles](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+
 Step 3 - For all global administrators in your organization, you will need to find out why they need the role. Based on reading the documentation above, if the person’s job can be performed by one or more granular admin roles, you should remove them from the global administrator role and make assignments accordingly inside Azure Active Directory (As a reference: Microsoft currently only have about 10 admins with the global administrator role. Learn more at how Microsoft uses PIM).
 
 Step 4 - For all other Azure AD roles, you should go through the list of assignments, identify admins who no longer need the role and remove them from their assignments.
 
 To automate steps 3 and 4, you can utilize the access review function inside PIM. Following the steps in start an access review for Azure AD roles in PIM, you can set up an access review for every Azure AD role that has one or more members.
+
+![Create an access review](./media/pim-deployment-plan/create-access-review.png)
 
 You should set the reviewer to “Members (self)”. This will send out an email to all members in the role getting them to confirm whether they need the access or not. You will also need to turn on “Require reason on approval” in the advanced settings so that users can state why they need the role. Based on this information, you will be able to remove users from unnecessary roles and delegate more granular admin roles in the case of global administrators.
 
