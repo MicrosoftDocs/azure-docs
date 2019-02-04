@@ -15,17 +15,19 @@ ms.date: 02/04/2019
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning service by using templates.
 ---
 
-In this article, you learn several ways to create an Azure Machine Learning service workspace using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md).
+In this article, you learn several ways to create an Azure Machine Learning service workspace using Azure Resource Manager templates. 
+
+For more information, see [Deploy an application with Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree).
 
 * To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Resource Manager template
 
-A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters, which you can use to provide input values when using the template.
+A Resource Manager template makes it easy to create resources as a single, coordinated operation. A template is a JSON document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
 
 An example template to create an Azure Machine Learning service workspace and associated Azure resources is available in the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/101-azure-machine-learning-service-workspace). It contains definitions for the following Azure services:
 
@@ -53,9 +55,9 @@ For more information on templates, see the following articles:
 
 ## Use the Azure portal
 
-From the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/101-azure-machine-learning-service-workspace), select the __Deploy to Azure__ button. This button opens the template in the Azure portal. You may be prompted to login to the portal.
+From the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/101-azure-machine-learning-service-workspace), select the __Deploy to Azure__ button. This button opens the template in the Azure portal. You may be prompted to sign in to your subscription.
 
-You must provide the following information and agree to the listed terms and conditions:
+Provide the following information and agree to the listed terms and conditions:
 
 * Subscription: Select the Azure subscription to use for these resources.
 * Resource group: Select or create a resource group to contain the services.
@@ -66,7 +68,7 @@ For more information, see [Deploy resources from custom template](../../azure-re
 
 ## Use Azure PowerShell
 
-The following example assumes that you are using the command from a local directory that contains the template from [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/101-azure-machine-learning-service-workspace). It also assumes that you have authenticated to your Azure subscription from Azure PowerShell:
+This example assumes that you have copied the template from [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/101-azure-machine-learning-service-workspace) to a local directory:
 
 ```powershell
 New-AzResourceGroup -Name examplegroup -Location "East US"
@@ -79,7 +81,7 @@ For more information, see [Deploy resources with Resource Manager templates and 
 
 ## Use Azure CLI
 
-The following example assumes that you are using the command from a local directory that contains the template from [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/101-azure-machine-learning-service-workspace). It also assumes that you have authenticated to your Azure subscription from the Azure CLI:
+This example assumes that you have copied the template from [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/101-azure-machine-learning-service-workspace) to a local directory:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "East US"
