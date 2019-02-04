@@ -20,10 +20,10 @@ You would then be given the list of SKUs that are available.You can choose from 
 
 ![Scale up](media/manage-cluster-scale-up/scale-up.png)
 
-D13_v2 is disabled because this is the current SKU of the cluster and L8 and L16 are not availalbe on the region where the cluster is.
+D13_v2 is disabled because this is the current SKU of the cluster and L8 and L16 are not available on the region where the cluster is.
 
 To change a SKU just click the SKU you would like to use and click the **Select** button.
 
-Note: The scale up process can take a few minutes, and during that time your cluster will be suspended. Note that scaling down can harm your cluster performance.
+[!NOTE] The scale up process can take a few minutes, and during that time your cluster will be suspended. Note that scaling down can harm your cluster performance.
 
 If you need assistance with cluster scaling issues, please open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
