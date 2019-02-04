@@ -49,7 +49,7 @@ In a Kubernetes cluster, an admission controller is used to intercept requests t
 
 ## Test the creation of a privileged pod
 
-Before you enable PodSecurityPolicy, let's first test what happens when a pod with the security context of `privileged: true` is scheduled. In the next step, a policy is created to block this type of request in a pod specification. Create a file named `nginx-privileged.yaml` and paste the following YAML manifest.
+Before you enable PodSecurityPolicy, let's first test what happens when you schedile a pod with the security context of `privileged: true`. In the next step, a policy is created to block this type of request in a pod specification. Create a file named `nginx-privileged.yaml` and paste the following YAML manifest.
 
 ```yaml
 apiVersion: v1
@@ -91,7 +91,7 @@ kubectl delete -f nginx-privileged.yaml
 
 ## Create a pod security policy
 
-Before you can enable pod security policy in an AKS cluster, you first define what these policies are. Without policies in place, no pods can be created in your cluster. Let's create a policy that prevents a pod that requests privileged access that was scheduled in the previous step. Create a file named `psp-deny-privileged.yaml` and paste the following YAML manifest:
+Before you can enable pod security policy in an AKS cluster, you first define what these policies are. Without policies in place, no pods can be created in your cluster. Let's create a policy to reject pods that request privileged access like the one scheduled in the previous step. Create a file named `psp-deny-privileged.yaml` and paste the following YAML manifest:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -122,13 +122,13 @@ kubectl apply -f psp-deny-privileged.yaml
 
 ## Allow user account to use the pod security policy
 
-In the previous step, you created a pod security policy that won't schedule pods that request privileged access. Associate this policy with a user account using a *RoleBinding* or *ClusterRoleBinding*. These bindings are typically created at a group level, and give you the ability to target pod security policies at a specific namespace or across the whole cluster.
+In the previous step, you created a pod security policy to reject pods that request privileged access. Associate this policy with a user account using a *RoleBinding* or *ClusterRoleBinding*. These bindings are typically created at a group level, and give you the ability to target pod security policies at a specific namespace or across the whole cluster.
 
 ***-- ADD STEPS ON HOW TO CREATE ROLEBINDING. OR, DO A CLUSTERROLEBINDING? USE A YAML MANIFEST FOR THIS, OR JUST CREATE THE BINDING DIRECTLY? --***
 
 ## Enable pod security policy on the AKS cluster
 
-With policies created in your AKS cluster, you can enable pod security policy using the [az aks update-cluster][az-aks-update-cluster] command. The following example enables pod security policy on the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
+With a pod security policy applied to your AKS cluster, now enable pod security policy using the [az aks update-cluster][az-aks-update-cluster] command. The following example enables pod security policy on the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az aks update-cluster \
@@ -139,7 +139,7 @@ az aks update-cluster \
 
 ## Test the creation of privileged pod again
 
-With a pod security policy in place, and a binding for the service account to use the policy, let's try to create a privileged pod again. Use the same *nginx-privileged.yaml* manifest to create the pod using the [kubectl apply][kubectl-apply] command:
+With a pod security policy applied and a binding for the service account to use the policy, let's try to create a privileged pod again. Use the same *nginx-privileged.yaml* manifest to create the pod using the [kubectl apply][kubectl-apply] command:
 
 ```console
 kubectl apply -f nginx-privileged.yaml
@@ -157,7 +157,7 @@ Delete the failed NGINX privileged pod created in the previous step using [kubec
 kubectl delete -f nginx-privileged.yaml
 ```
 
-To disable pod security policy, use the [az aks update-cluster][az-aks-update-cluster] command. The following example enables pod security policy on the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
+To disable pod security policy, use the [az aks update-cluster][az-aks-update-cluster] command again. The following example disables pod security policy on the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
 
 ```azurecli-interactive
 az aks update-cluster \
@@ -176,7 +176,7 @@ kubectl delete -f psp-deny-privileged.yaml
 
 ## Next steps
 
-This article showed you how to create a pod security policy that prevented the use of privileged access. There are lots of features that a policy can enforce, such as type of volume or the RunAs user. For more information on the available options, see the [policy reference][kubernetes-policy-reference].
+This article showed you how to create a pod security policy to prevent the use of privileged access. There are lots of features that a policy can enforce, such as type of volume or the RunAs user. For more information on the available options, see the [policy reference][kubernetes-policy-reference].
 
 For more information about network resources, see [Network concepts for applications in Azure Kubernetes Service (AKS)][concepts-network].
 
