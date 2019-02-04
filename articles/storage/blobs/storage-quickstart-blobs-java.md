@@ -1,5 +1,5 @@
 ---
-title: How to create a blob in Azure Storage using the Java Storage SDK v7 | Microsoft Docs
+title: How to create a blob in Azure Storage using the client library for Java v7 | Microsoft Docs
 description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library for Java v7 to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: roygara
@@ -7,13 +7,16 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/04/2019
 ms.author: rogarana
 ---
 
-# How to upload, download, and list blobs using Java SDK v7
+# How to upload, download, and list blobs using the client library for Java v7
 
-In this how-to guide, you learn how to use Java to upload, download, and list block blobs in a container in Azure Blob storage.
+In this how-to guide, you learn how to use the client library for Java v7 to upload, download, and list block blobs in a container in Azure Blob storage.
+
+> [!TIP]
+> The latest version of the Azure Storage client library for Java is v10. Microsoft recommends that you use the latest version of the client library when possible. To get started using v10, see [Quickstart: Upload, download, and list blobs by using the Java Storage SDK V10](storage-quickstart-blobs-java-v10.md).
 
 ## Prerequisites
 
@@ -202,8 +205,6 @@ sourceFile.deleteOnExit();
 In this article, you learned how to transfer files between a local disk and Azure Blob storage using Java. To learn more about working with Java, continue to our GitHub source code repository.
 
 > [!div class="nextstepaction"]
-> [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java) 
-> [API Reference](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
+> [Microsoft Azure Storage SDK v10 for Java](https://github.com/azure/azure-storage-java) 
+> [Java API Reference](https://docs.microsoft.com/java/azure/)
 > [Code Samples for Java](../common/storage-samples-java.md)
-
-* For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
