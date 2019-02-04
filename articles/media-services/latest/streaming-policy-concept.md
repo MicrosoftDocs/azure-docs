@@ -25,7 +25,7 @@ In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest
 
 ## Examples
 
-### Non encrypted
+### Not encrypted
 
 If you want to stream your file in-the-clear (non-encrypted), set the predefined clear streaming policy: to 'Predefined_ClearStreamingOnly' (in .NET, you can use PredefinedStreamingPolicy.ClearStreamingOnly).
 
