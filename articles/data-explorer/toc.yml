@@ -65,8 +65,10 @@
       href: manage-database-permissions.md
     - name: Check cluster health
       href: check-cluster-health.md
-    - name: Manage cluster scaling
-      href: manage-cluster-scaling.md
+    - name: Manage cluster scale out
+      href: manage-cluster-scale-out.md
+    - name: Manage cluster scale up
+      href: manage-cluster-scale-up.md
     - name: Delete data
       href: delete-data.md
     - name: Deal with duplicate data

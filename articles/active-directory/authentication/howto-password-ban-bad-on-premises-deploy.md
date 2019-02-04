@@ -37,7 +37,7 @@ Once the feature has been running in audit mode for a reasonable time, the enfor
 
 ## Deployment requirements
 
-* All domain controllers where the Azure AD Password Protection DC agent service will be installed must be running Windows Server 2012 or later.
+* All domain controllers where the Azure AD Password Protection DC Agent service will be installed must be running Windows Server 2012 or later.
 * All machines where the Azure AD Password Protection Proxy service will be installed must be running Windows Server 2012 R2 or later.
 * All machines where Azure AD Password Protection components are installed including domain controllers must have the Universal C runtime installed.
 This is preferably accomplished by fully patching the machine via Windows Update. Otherwise an appropriate OS-specific update package may be installed - see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
@@ -166,17 +166,17 @@ There are two required installers for Azure AD Password Protection that can be d
 
       The examples above will only succeed if the currently logged in user is also an Active Directory domain administrator for the root domain. If this is not the case, you may supply alternative domain credentials via the -ForestCredential parameter.
 
-      > [!NOTE]
-      > If multiple proxy servers are installed in your environment, it does not matter which proxy server is uses to register the forest.
+   > [!NOTE]
+   > If multiple proxy servers are installed in your environment, it does not matter which proxy server is uses to register the forest.
 
-      > [!TIP]
-      > There may be a considerable delay (many seconds) the first time this cmdlet is run for a given Azure tenant before the cmdlet completes execution. Unless a failure is reported this delay should not be considered alarming.
+   > [!TIP]
+   > There may be a considerable delay (many seconds) the first time this cmdlet is run for a given Azure tenant before the cmdlet completes execution. Unless a failure is reported this delay should not be considered alarming.
 
-      > [!NOTE]
-      > Registration of the Active Directory forest is expected to be a one-time step in the lifetime of the forest. The domain controller agents running in the forest will automatically perform any other necessary maintainenance from this point onwards. Once it has succeeded for a given forest, additional invocations of `Register-AzureADPasswordProtectionForest` continue to succeed but are unnecessary.
+   > [!NOTE]
+   > Registration of the Active Directory forest is expected to be a one-time step in the lifetime of the forest. The domain controller agents running in the forest will automatically perform any other necessary maintainenance from this point onwards. Once it has succeeded for a given forest, additional invocations of `Register-AzureADPasswordProtectionForest` continue to succeed but are unnecessary.
 
-      > [!NOTE]
-      > In order for `Register-AzureADPasswordProtectionForest` to succeed at least one Windows Server 2012 or later domain controller must be available in the proxy server's domain. However there is no requirement that the DC agent software be installed on any domain controllers prior to this step.
+   > [!NOTE]
+   > In order for `Register-AzureADPasswordProtectionForest` to succeed at least one Windows Server 2012 or later domain controller must be available in the proxy server's domain. However there is no requirement that the DC agent software be installed on any domain controllers prior to this step.
 
 6. Configure the Azure AD Password Protection Proxy service to communicate through an HTTP proxy
 
