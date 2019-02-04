@@ -23,8 +23,6 @@ ms.reviewer: jsimmons
 
 After the deployment of Azure AD Password Protection, troubleshooting may be required. This article goes into detail to help you understand some common troubleshooting steps.
 
-## 
-
 ## Weak passwords are not getting rejected as expected
 
 This may have several possible causes:
@@ -32,12 +30,16 @@ This may have several possible causes:
 1. Your DC agent(s) have not yet downloaded a policy. The symptom of this is 30001 events in the DC agent Admin event log.
 
     Possible causes for this issue include:
+
     1. Forest is not yet registered
     2. Proxy is not yet registered
     3. Network connectivity issues are preventing the Proxy service from communicating with Azure (check HTTP Proxy requirements)
 
-2. The password policy Enforce mode is still set to Audit. If this is the case, simply reconfigure it to Enforce using the Azure AD Password Protection portal.
-3. The password validation algorithm may be working as expected.  Please see [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated).
+2. The password policy Enforce mode is still set to Audit. If this is the case, reconfigure it to Enforce using the Azure AD Password Protection portal. Please see [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+3. The password policy has been disabled. If this is the case, reconfigure it to enabled using the Azure AD Password Protection portal. Please see [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+4. The password validation algorithm may be working as expected. Please see [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## Directory Services Repair Mode
 
@@ -47,7 +49,7 @@ If the domain controller is booted into Directory Services Repair Mode, the DC a
 
 If a situation occurs where the DC agent service is causing problems, the DC agent service may be immediately shut down. The DC agent password filter dll still attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
 
-Another remediation measure would be to set the Enable mode to No in the Azure AD Password Protection portal. Once the updated policy has been downloaded, each DC agents service will go into a quiescent mode where all passwords are accepted as-is. For more information, see [Enforce mode](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+Another remediation measure would be to set the Enable mode to No in the Azure AD Password Protection portal. Once the updated policy has been downloaded, each DC agent service will go into a quiescent mode where all passwords are accepted as-is. For more information, see [Enforce mode](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
 
 ## Domain controller demotion
 
