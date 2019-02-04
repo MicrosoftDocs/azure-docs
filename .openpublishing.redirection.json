@@ -1761,7 +1761,7 @@
     },
     {
       "source_path": "articles/storage/storage-security-attributes.md",
-      "redirect_url": "articles/storage/",
+      "redirect_url": "/azure/storage",
       "redirect_document_id": false
     },
     {
