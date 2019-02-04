@@ -44,7 +44,7 @@ To handle events raised by your session:
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     CloudSpatialAnchorSession cloudSession;
     // In your view handler
     this.cloudSession = new CloudSpatialAnchorSession();
@@ -114,7 +114,7 @@ On iOS, you can have the delegate to your view provide frames from the callback 
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
 #if UNITY_ANDROID
     long latestFrameTimeStamp = this.nativeSession.FrameApi.GetTimestamp();
     bool newFrameToProcess = latestFrameTimeStamp > this.lastFrameProcessedTimeStamp;
@@ -162,13 +162,13 @@ On iOS, you can have the delegate to your view provide frames from the callback 
 
 ### Authentication
 
-To provide a token to access the service, you need to provide an account key, access token, or AAD auth token.
+To access the service, you need to provide an account key, access token, or AAD auth token. To learn more, visit our [authentication overview](../authentication-overview.md).
 
-To set an account key
+To set an account key:
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
 
@@ -199,11 +199,11 @@ To set an account key
 
 ***
 
-To set an access token
+To set an access token:
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
 ```
 
@@ -234,11 +234,11 @@ To set an access token
 
 ***
 
-To set an AAD auth token
+To set an AAD auth token:
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     this.cloudSesssion.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
 
@@ -277,7 +277,7 @@ There are two properties you can set, AccessToken or AuthenticationToken, you on
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
     {
         args.AccessToken = @"MyAccessToken"; // Or args.AuthenticationToken = @"MyAuthenticationToken";
@@ -322,7 +322,7 @@ If you need to execute asynchronous work in your handler, you can defer setting 
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     this.cloudSession.TokenRequired += async (object sender, TokenRequiredEventArgs args) =>
     {
         var deferral = args.GetDeferral();
@@ -390,12 +390,11 @@ If you need to execute asynchronous work in your handler, you can defer setting 
 You can write code to handle the session updated event. Doing so, allows you to:
 
 - Provide feedback to the user as the device moves and the session updates its environment understanding.
-- Use this event to determine at what point there's enough tracked data to execute creation or location operations.
-- Request information to check if enough spatial data has been collected to create or locate spatial anchors - we'll learn more at a later step.
+- Determine at what point there's enough tracked spatial data to create or locate spatial anchors - we'll learn more at a later step.
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
     {
         var status = args.Status;
@@ -475,7 +474,7 @@ To create a cloud anchor, you first create an anchor in your platform's AR syste
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     // Create a local anchor, perhaps by hit-testing and spawning an object within the scene
     Vector3 hitPosition = new Vector3();
 #if UNITY_IOS
@@ -676,7 +675,7 @@ It's a good idea to make sure that there's sufficient data before trying to crea
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     SessionStatus value = await this.cloudSession.GetSessionStatusAsync();
     if (value.RecommendedForCreateProgress < 1.0f) return;
     // Issue the creation request ...
@@ -761,7 +760,7 @@ You may choose to add some properties when saving your cloud anchors. Like the t
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     CloudSpatialAnchor cloudAnchor = new CloudSpatialAnchor() { LocalAnchor = localAnchor };
     cloudAnchor.AppProperties[@"model-type"] = @"frame";
     cloudAnchor.AppProperties[@"label"] = @"my latest picture";
@@ -818,6 +817,52 @@ You may choose to add some properties when saving your cloud anchors. Like the t
 
 ***
 
+You can also set your anchor to expire automatically at a given date in the future. Just set its expiration before saving it to the cloud.
+
+# [C#](#tab/csharp)
+
+```csharp
+    cloudAnchor.Expiration = DateTimeOffset.Now.AddDays(7);
+```
+
+# [ObjC](#tab/objc)
+
+```objc
+    int secondsInAWeek = 60 * 60 * 24 * 7;
+    NSDate *oneWeekFromNow = [[NSDate alloc] initWithTimeIntervalSinceNow: (NSTimeInterval) secondsInAWeek];
+    cloudAnchor.expiration = oneWeekFromNow;
+```
+
+# [Swift](#tab/swift)
+
+```swift
+    let secondsInAWeek = 60.0 * 60.0 * 24.0 * 7.0
+    let oneWeekFromNow = Date(timeIntervalSinceNow: secondsInAWeek)
+    cloudAnchor!.expiration = oneWeekFromNow
+```
+
+# [Java](#tab/java)
+
+```java
+    Date now = new Date();
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(now);
+    cal.add(Calendar.DATE, 7);
+    Date oneWeekFromNow = cal.getTime();
+    cloudAnchor.setExpiration(oneWeekFromNow);
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+    std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+    std::chrono::system_clock::time_point oneWeekFromNow = now + std::chrono::hours(7 * 24);
+    const int64_t oneWeekFromNowUnixEpochTimeMs = std::chrono::duration_cast<std::chrono::milliseconds>(oneWeekFromNow.time_since_epoch()).count();
+    cloudAnchor->Expiration(oneWeekFromNowUnixEpochTimeMs);
+```
+
+***
+
 ### Locating a cloud spatial anchor
 
 To locate cloud spatial anchors, you'll need to know their identity values. Typically, anchor IDs can be stored in a service that's accessible to all devices.
@@ -826,9 +871,9 @@ Instantiate an AnchorLocateCriteria object, set the identity values you're looki
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
-    criteria.Identifiers = new string[] { id1, id2, id3 };
+    criteria.Identifiers = new string[] { @"id1", @"id2", @"id3" };
     this.cloudSession.CreateWatcher(criteria);
 ```
 
@@ -836,7 +881,7 @@ Instantiate an AnchorLocateCriteria object, set the identity values you're looki
 
 ```objc
     SSCAnchorLocateCriteria *criteria = [SSCAnchorLocateCriteria new];
-    criteria.identifiers = @[ id1, id2, id3 ];
+    criteria.identifiers = @[ @"id1", @"id2", @"id3" ];
     [_cloudSession createWatcher:criteria];
 ```
 
@@ -844,7 +889,7 @@ Instantiate an AnchorLocateCriteria object, set the identity values you're looki
 
 ```swift
     let criteria = SSCAnchorLocateCriteria()!
-    criteria.identifiers = [ id1, id2, id3 ]
+    criteria.identifiers = [ "id1", "id2", "id3" ]
     _cloudSession!.createWatcher(criteria)
 ```
 
@@ -852,7 +897,7 @@ Instantiate an AnchorLocateCriteria object, set the identity values you're looki
 
 ```java
     AnchorLocateCriteria criteria = new AnchorLocateCriteria();
-    criteria.setIdentifiers(new String[] { id1, id2, id3 });
+    criteria.setIdentifiers(new String[] { "id1", "id2", "id3" });
     mCloudSession.createWatcher(criteria);
 ```
 
@@ -860,17 +905,17 @@ Instantiate an AnchorLocateCriteria object, set the identity values you're looki
 
 ```cpp
     auto criteria = std::make_shared<AnchorLocateCriteria>();
-    criteria->Identifiers({ id1, id2, id3 });
+    criteria->Identifiers({ R"(id1)", R"(id2)", R"(id3)" });
     auto cloudSpatialAnchorWatcher = cloudSession_->CreateWatcher(criteria);
 ```
 
 ***
 
-After your watcher is created, the AnchorLocated event will fire for every anchor requested. Then the LocateAnchorsCompleted event will fire. The AnchorLocated event will also fire when the anchor can't be successfully located. If this situation happens, the reason will be stated in the status.
+After your watcher is created, the AnchorLocated event will fire for every anchor requested. This event fires when an anchor is found, or if the anchor can't be located. If this situation happens, the reason will be stated in the status. After all anchors for a watcher are processed, found or not found, then the LocateAnchorsCompleted event will fire.
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     this.cloudSession.AnchorLocated += (object sender, AnchorLocatedEventArgs args) =>
     {
         switch (args.Status)
@@ -1034,7 +1079,7 @@ To update the properties on an anchor, you use the UpdateAnchorPropertiesAsync m
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     CloudSpatialAnchor anchor = /* locate your anchor */;
     anchor.AppProperties[@"last-user-access"] = @"just now";
     await this.cloudSession.UpdateAnchorPropertiesAsync(anchor);
@@ -1111,14 +1156,12 @@ To update the properties on an anchor, you use the UpdateAnchorPropertiesAsync m
 
 You can't change the location of an anchor - you must create a new anchor and delete the old one to track a new position.
 
-The library can't update or delete an anchor based on its identifier. Conflict detection is built-into the service, to avoid accidentally overwriting data from a different device.
-
-If you don't care to locate an anchor to update it, you can use the GetAnchorPropertiesAsync method, which returns a CloudSpatialAnchor object with properties and version information.
+If you don't care to locate an anchor to update its properties, you can use the GetAnchorPropertiesAsync method, which returns a CloudSpatialAnchor object with properties.
 
 # [C#](#tab/csharp)
 
-```c#
-    var anchor = await cloudSession.GetAnchorPropertiesAsync(anchorId);
+```csharp
+    var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
     if (anchor != nullptr)
     {
         anchor.AppProperties[@"last-user-access"] = @"just now";
@@ -1129,7 +1172,7 @@ If you don't care to locate an anchor to update it, you can use the GetAnchorPro
 # [ObjC](#tab/objc)
 
 ```objc
-    [_cloudSession getAnchorProperties:anchorId withCompletionHandler:^(SCCCloudSpatialAnchor *anchor, NSError *error) {
+    [_cloudSession getAnchorProperties:@"anchorId" withCompletionHandler:^(SCCCloudSpatialAnchor *anchor, NSError *error) {
         if (error) {
             _feedback = [NSString stringWithFormat:@"Getting Properties Failed:%@", error.localizedDescription];
             return;
@@ -1146,7 +1189,7 @@ If you don't care to locate an anchor to update it, you can use the GetAnchorPro
 # [Swift](#tab/swift)
 
 ```swift
-    _cloudSession?.getAnchorProperties(anchorId, withCompletionHandler: { (anchor:SCCCloudSpatialAnchor?, error:Error?) in
+    _cloudSession?.getAnchorProperties("anchorId", withCompletionHandler: { (anchor:SCCCloudSpatialAnchor?, error:Error?) in
         if (error != nil) {
             _feedback = "Getting Properties Failed:\(error!.localizedDescription)"
         }
@@ -1163,7 +1206,7 @@ If you don't care to locate an anchor to update it, you can use the GetAnchorPro
 # [Java](#tab/java)
 
 ```java
-    Future<CloudSpatialAnchor> getAnchorPropertiesFuture = mCloudSession.getAnchorPropertiesAsync(anchorId);
+    Future<CloudSpatialAnchor> getAnchorPropertiesFuture = mCloudSession.getAnchorPropertiesAsync("anchorId");
     CheckForCompletion(getAnchorPropertiesFuture);
 
     // ...
@@ -1193,7 +1236,7 @@ If you don't care to locate an anchor to update it, you can use the GetAnchorPro
 # [C++](#tab/cpp)
 
 ```cpp
-    cloudSession_->GetAnchorPropertiesAsync(anchorId, [this](Status status, const std::shared_ptr<SpatialServices::CloudSpatialAnchor>& anchor){
+    cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<SpatialServices::CloudSpatialAnchor>& anchor){
         if (status != Status::OK) {
             std::ostringstream str;
             str << "Getting Properties Failed: " << std::to_string(static_cast<uint32_t>(status));
@@ -1218,7 +1261,7 @@ To stop the session temporarily, you can invoke the Stop method. Doing so will s
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     this.cloudSession.Stop();
 ```
 
@@ -1252,7 +1295,7 @@ To clean up properly after a session, invoke the Dispose() method in C#, or rele
 
 # [C#](#tab/csharp)
 
-```c#
+```csharp
     this.cloudSession.Dispose();
 ```
 
