@@ -11,17 +11,17 @@ ms.service: application-insights
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 01/29/2019
 ms.author: mbullwin
 
 ---
 # Monitor Azure App Service performance
-In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring for your web apps, mobile back ends, and API apps in [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
+In the [Azure portal](https://portal.azure.com) you can set up application performance monitoring for your web apps, mobile back ends, and API apps in [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) instruments your app to send telemetry about its activities to the Application Insights service, where it is stored and analyzed. There, metric charts and search tools can be used to help diagnose issues, improve performance, and assess usage.
 
 ## Run time or build time
 You can configure monitoring by instrumenting the app in either of two ways:
 
-* **Run-time** - You can select a performance monitoring extension when your app service is already live. It isn't necessary to rebuild or re-install your app. You get a standard set of packages that monitor response times, success rates, exceptions, dependencies, and so on. 
+* **Run-time** - You can select a performance monitoring extension when your app service is already live. It isn't necessary to rebuild or reinstall your app. You get a standard set of packages that monitor response times, success rates, exceptions, dependencies, and so on. 
 * **Build time** - You can install a package in your app in development. This option is more versatile. In addition to the same standard packages, you can write code to customize the telemetry or to send your own telemetry. You can log specific activities or record events according to the semantics of your app domain. 
 
 ## Run time instrumentation with Application Insights
@@ -38,14 +38,27 @@ If you're already running an app service in Azure, you already get some monitori
 
     ![Instrument your web app](./media/azure-web-apps/create-resource.png)
 
-2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application.
+2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application.(ASP.NET app monitoring is on-by-default with two different levels of collection.)
 
-    ![Choose options per platform](./media/azure-web-apps/choose-options.png)
+    ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
+
+    * .NET **Basic collection** level offers essential single-instance APM capabilities.
+    
+    * .NET **Recommended collection** level:
+        * Adds CPU, memory, and I/O usage trends.
+        * Correlates micro-services across request/dependency boundaries.
+        * Collects usage trends, and enables correlation from availability results to transactions.
+        * Collects exceptions unhandled by the host process.
+        * Improves APM metrics accuracy under load, when sampling is used.
+    
+    .NET Core offers **Recommended collection** or Disabled for .NET Core 2.0 and 2.1.
 
 3. **Instrument your app service** after Application Insights has been installed.
 
-   **Enable client side monitoring** for page view and user telemetry.
+   **Enable client-side monitoring** for page view and user telemetry.
 
+    (This is enabled by default for .NET Core apps with **Recommended collection**, regardless of whether the app setting 'APPINSIGHTS_JAVASCRIPT_ENABLED' is present. Granular UI-based support for disabling client-side monitoring is not currently available for .NET Core.)
+    
    * Select Settings > Application Settings
    * Under App Settings, add a new key value pair:
 
@@ -53,6 +66,7 @@ If you're already running an app service in Azure, you already get some monitori
 
     Value: `true`
    * **Save** the settings and **Restart** your app.
+
 4. Explore your app's monitoring data by selecting **Settings** > **Application Insights** > **View more in Application Insights**.
 
 Later, you can build the app with Application Insights if you want.
@@ -74,23 +88,19 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 
     The operation has two effects:
 
-   1. Creates an Application Insights resource in Azure, where telemetry is stored, analyzed and displayed.
+   1. Creates an Application Insights resource in Azure, where telemetry is stored, analyzed, and displayed.
    2. Adds the Application Insights NuGet package to your code (if it isn't there already), and configures it to send telemetry to the Azure resource.
 2. **Test the telemetry** by running the app in your development machine (F5).
 3. **Publish the app** to Azure in the usual way. 
 
 *How do I switch to sending to a different Application Insights resource?*
 
-* In Visual Studio, right-click the project, choose **Configure Application Insights** and choose the resource you want. You get the option to create a new resource. Rebuild and redeploy.
+* In Visual Studio, right-click the project, choose **Configure Application Insights**, and choose the resource you want. You get the option to create a new resource. Rebuild and redeploy.
 
 ## More telemetry
 
 * [Web page load data](../../azure-monitor/app/javascript.md)
 * [Custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md)
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Troubleshooting
 
@@ -98,10 +108,19 @@ Application Insights can provide more detailed telemetry by installing an SDK in
 
 Enabling Javascript via App Services can cause html responses to be cut off.
 
-- Workaround 1: set APPINSIGHTS_JAVASCRIPT_ENABLED Application Setting to false or remove it completely and restart
-- Workaround 2: add sdk via code and remove extension (Profiler and Snapshot debugger won't with this configuration)
+* Workaround 1: set APPINSIGHTS_JAVASCRIPT_ENABLED Application Setting to false or remove it completely and restart
+* Workaround 2: add sdk via code and remove extension (Profiler and Snapshot debugger won't with this configuration)
 
 We are tracking this issue [here](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
+
+For .NET Core the following are currently **not supported**:
+
+* Self-contained deployment.
+* Apps targeting the .NET Framework.
+* .NET Core 2.2 applications.
+
+> [!NOTE]
+> .NET Core 2.0 and .NET Core 2.1 are supported. When .NET Core 2.2 support is added this article will be updated.
 
 ## Next steps
 * [Run the profiler on your live app](../../azure-monitor/app/profiler.md).

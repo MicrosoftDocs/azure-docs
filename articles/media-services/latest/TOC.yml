@@ -87,8 +87,7 @@
     - name: Quotas and limitations
       href: limits-quotas-constraints.md   
     - name: Storage accounts
-      href: storage-account-concept.md       
-    
+      href: storage-account-concept.md    
 - name: How-to guides
   items:
   - name: Get started

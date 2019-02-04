@@ -94,7 +94,8 @@ Site Recovery IP address ranges are as follows:
    Korea South | 52.231.298.185 | 52.231.200.144
    France Central | 52.143.138.106 | 52.143.136.55
    France South | 52.136.139.227 |52.136.136.62
-
+   Australia central| 20.36.34.70 | 20.36.46.142
+   Australia Central 2| 20.36.69.62 | 20.36.74.130
 
 ## Example NSG configuration
 
